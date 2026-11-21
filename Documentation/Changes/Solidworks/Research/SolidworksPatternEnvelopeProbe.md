@@ -1,0 +1,5 @@
+# SOLIDWORKS oblique pattern point probe
+
+The disclosed research packet stages one native oblique linear pattern, its spacing-only edit and fresh reopen of both saves. A joined overhang changes the final envelope differently from the prior stock envelope. The tools retain exact build identity, two independent controls, separate native receipts and a hash-bound host comparison of the stored direction-line point.
+
+The first native attempt reached the plane orientation guard with two healthy controls and zero saves. The replacement passed six fresh native phases and refuted both solid-envelope hypotheses. The stored point matches the selected datum display rectangle centre exactly on both oblique saves and within one component ULP on six principal saves. The next height contrast has prospective predictions. [Staging and observation method](../../../../re/solidworks/records/LocalLinearPatternEnvelopeContrast2026.md) · [Exact linked replay and datum comparison](../../../../re/solidworks/records/LocalLinearPatternDatumPlacement2026.md)

@@ -1,0 +1,435 @@
+{
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "drawing_comparisons": {
+    "Generated/FreshReopen/initial": {
+      "child_area_m2": 0.0023803,
+      "child_center_m": [
+        0.0,
+        -3.8539877153732956e-19,
+        0.004900000000000001
+      ],
+      "child_parent_links": {
+        "Boss-Extrude1": [
+          "Sketch1",
+          "Front Plane"
+        ],
+        "Sketch1": [
+          "Front Plane"
+        ]
+      },
+      "child_update_stamp": 108,
+      "child_volume_m3": 6.438894000000002e-06,
+      "configuration": "modeled default",
+      "editable_depths": [
+        "D1@Boss-Extrude1"
+      ],
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.124431,
+        0.085561,
+        -0.004900000000000001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "CachedChildDrawing model view",
+      "ordered_child_top_rows": 19,
+      "ordered_drawing_rows": 16,
+      "orientation": "*Front",
+      "outline_m": [
+        0.101963,
+        0.072193,
+        0.146899,
+        0.098929
+      ],
+      "position_m": [
+        0.124431,
+        0.085561
+      ],
+      "problems": 0,
+      "scale": 1.0,
+      "sheet": "CachedChildDrawing paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ]
+    },
+    "Generated/FreshReopen/rebuilt": {
+      "child_area_m2": 0.0023803,
+      "child_center_m": [
+        0.0,
+        -3.8539877153732956e-19,
+        0.004900000000000001
+      ],
+      "child_parent_links": {
+        "Boss-Extrude1": [
+          "Sketch1",
+          "Front Plane"
+        ],
+        "Sketch1": [
+          "Front Plane"
+        ]
+      },
+      "child_update_stamp": 108,
+      "child_volume_m3": 6.438894000000002e-06,
+      "configuration": "modeled default",
+      "editable_depths": [
+        "D1@Boss-Extrude1"
+      ],
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.124431,
+        0.085561,
+        -0.004900000000000001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "CachedChildDrawing model view",
+      "ordered_child_top_rows": 19,
+      "ordered_drawing_rows": 16,
+      "orientation": "*Front",
+      "outline_m": [
+        0.101963,
+        0.072193,
+        0.146899,
+        0.098929
+      ],
+      "position_m": [
+        0.124431,
+        0.085561
+      ],
+      "problems": 0,
+      "scale": 1.0,
+      "sheet": "CachedChildDrawing paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ]
+    },
+    "Generated/OpenEditSave/edited": {
+      "child_area_m2": 0.0023803,
+      "child_center_m": [
+        0.0,
+        -2.569325143582197e-19,
+        0.004900000000000001
+      ],
+      "child_parent_links": {
+        "Boss-Extrude1": [
+          "Sketch1",
+          "Front Plane"
+        ],
+        "Sketch1": [
+          "Front Plane"
+        ]
+      },
+      "child_update_stamp": 108,
+      "child_volume_m3": 6.438894000000002e-06,
+      "configuration": "modeled default",
+      "editable_depths": [
+        "D1@Boss-Extrude1"
+      ],
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.124431,
+        0.085561,
+        -0.004900000000000001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "CachedChildDrawing model view",
+      "ordered_child_top_rows": 19,
+      "ordered_drawing_rows": 16,
+      "orientation": "*Front",
+      "outline_m": [
+        0.101963,
+        0.072193,
+        0.146899,
+        0.098929
+      ],
+      "position_m": [
+        0.124431,
+        0.085561
+      ],
+      "problems": 0,
+      "scale": 1.0,
+      "sheet": "CachedChildDrawing paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ]
+    },
+    "Generated/OpenEditSave/initial": {
+      "child_area_m2": 0.0023803,
+      "child_center_m": [
+        0.0,
+        -2.569325143582197e-19,
+        0.004900000000000001
+      ],
+      "child_parent_links": {
+        "Boss-Extrude1": [
+          "Sketch1",
+          "Front Plane"
+        ],
+        "Sketch1": [
+          "Front Plane"
+        ]
+      },
+      "child_update_stamp": 108,
+      "child_volume_m3": 6.438894000000002e-06,
+      "configuration": "modeled default",
+      "editable_depths": [
+        "D1@Boss-Extrude1"
+      ],
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.1217,
+        0.0873,
+        -0.004900000000000001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "CachedChildDrawing model view",
+      "ordered_child_top_rows": 19,
+      "ordered_drawing_rows": 16,
+      "orientation": "*Front",
+      "outline_m": [
+        0.099232,
+        0.073932,
+        0.144168,
+        0.10066800000000001
+      ],
+      "position_m": [
+        0.1217,
+        0.0873
+      ],
+      "problems": 0,
+      "scale": 1.0,
+      "sheet": "CachedChildDrawing paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ]
+    },
+    "Generated/OpenEditSave/rebuilt": {
+      "child_area_m2": 0.0023803,
+      "child_center_m": [
+        0.0,
+        -2.569325143582197e-19,
+        0.004900000000000001
+      ],
+      "child_parent_links": {
+        "Boss-Extrude1": [
+          "Sketch1",
+          "Front Plane"
+        ],
+        "Sketch1": [
+          "Front Plane"
+        ]
+      },
+      "child_update_stamp": 108,
+      "child_volume_m3": 6.438894000000002e-06,
+      "configuration": "modeled default",
+      "editable_depths": [
+        "D1@Boss-Extrude1"
+      ],
+      "model_to_view": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.1217,
+        0.0873,
+        -0.004900000000000001,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "CachedChildDrawing model view",
+      "ordered_child_top_rows": 19,
+      "ordered_drawing_rows": 16,
+      "orientation": "*Front",
+      "outline_m": [
+        0.099232,
+        0.073932,
+        0.144168,
+        0.10066800000000001
+      ],
+      "position_m": [
+        0.1217,
+        0.0873
+      ],
+      "problems": 0,
+      "scale": 1.0,
+      "sheet": "CachedChildDrawing paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ]
+    }
+  },
+  "drawing_sha256": "2366a9c9810ec67dfd990ccc5b40239a21fa32dc8bc5f78d3f7fa3fe2051a8db",
+  "exposed_generated_child_before_rebuild": true,
+  "generated_passed": true,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "observed_cache_consumer": false,
+  "packet_sha256": "b0cbc2dbaa65d6c20a2b2015ffe6ec03ed593e699b4e9c88f8a88a14e1fc4bdc",
+  "part_cache_sha256": "20f21b60340f1b083d0c39e582186d5e52897088fcfda53fa0bc86be4bf75086",
+  "part_sha256": "176045d06b8277b4785534b17eaf463697bab94df2eb56e3e030781b5ba50828",
+  "passed": true,
+  "phases": {
+    "ControlAfter/FreshReopen": {
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395727716583014",
+      "record_sha256": "144c92e22a8218ab17d152a303f8990b5640cab755f08e31dc6151aab2817691"
+    },
+    "ControlAfter/OpenEditSave": {
+      "derivative_bytes": 22722,
+      "derivative_sha256": "98b2342d195b7491fbe5b2457fa3fff82e49819c2d984600081b685a7d10ead9",
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395727434212255",
+      "record_sha256": "63c0c221e7004b6a52df95ffcac353e38ed42accc2a0275225670d5f525a3a96",
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "ControlBefore/FreshReopen": {
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395726540819733",
+      "record_sha256": "06413f2d8bcd8f90bf30522b70ec75c1dd98ef5473530c325b28e2121b702ad3"
+    },
+    "ControlBefore/OpenEditSave": {
+      "derivative_bytes": 22017,
+      "derivative_sha256": "5bb3e02a84f87a5d767145b854ccc9afc39c5c4f4cbc3c1a3898a2a10a0db990",
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395726271071836",
+      "record_sha256": "5c8c651a5f6ce92444619cd521f493e6126b6f88bd1ef651b6117f78a1558b7f",
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "Generated/FreshReopen": {
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395727103393691",
+      "record_sha256": "552403c701941bf2b95f7c6c0f25517bd3fdb470581676766e93878e731eb202"
+    },
+    "Generated/OpenEditSave": {
+      "derivative_bytes": 19725,
+      "derivative_sha256": "6a1854b5b606aa9315c91e13245e14f992c7a292ee921272ceebf54f104981f3",
+      "input_immutable": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "process_creation_filetime": "134395726792333466",
+      "record_sha256": "f9e404d252e6ab6049790b6a246c953f41d6cf6c241d15267a72b27583fa181c",
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "raw_result_sha256": "e4c8c6a8cfc413d0ba5af6fd41379d6a5b3df305f82c768b773f7f8e190ca939",
+  "schema": "kit.sw2026.sdk-cached-child-drawing-native.v1"
+}

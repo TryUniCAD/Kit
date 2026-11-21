@@ -1,0 +1,45 @@
+{
+  "cases": {
+    "KitScopeRightReverse": {
+      "all_logical_lengths_equal": true,
+      "both_runtime_reads": 0,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "changed_typed_fields": [
+        [
+          "fields/f824",
+          0,
+          1
+        ]
+      ],
+      "file_hashes": [
+        "35ce05b0bf23320d3883f78006652fe5ea2923c5401c319f224a2c437de50cb3",
+        "4d23fcf26a33b846fc98c25e1156969a6f453f8935252b1a18f780d553188a7a"
+      ],
+      "valid_streams": 10
+    },
+    "KitScopeTopReverse": {
+      "all_logical_lengths_equal": true,
+      "both_runtime_reads": 0,
+      "changed_streams": [
+        "Contents/Config-0-ResolvedFeatures"
+      ],
+      "changed_typed_fields": [
+        [
+          "fields/f824",
+          0,
+          1
+        ]
+      ],
+      "file_hashes": [
+        "20935478af2e2439f9a409d01ee671ab9a15acd4c0455d765ba6837785ca8ff3",
+        "d6faebf0c1b7bce699cf2793e52ea63c513702ee55ae21674e604adffea87448"
+      ],
+      "valid_streams": 10
+    }
+  },
+  "heldout_credits": 0,
+  "native_launches": 0,
+  "schema": "kit.sw2026.selected-revolve-direction-contrast.v1"
+}

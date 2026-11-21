@@ -1,0 +1,379 @@
+{
+  "schema": "kit.sw2026.sdk-shared-header-graph.v1",
+  "passed": true,
+  "header_archive_version": 19000,
+  "document_count": 17,
+  "stream_comparisons": 31,
+  "writer_output_count": 0,
+  "native_application_runs": 0,
+  "cases": [
+    {
+      "file": "AlignedPlatePair.SLDASM",
+      "sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "streams": {
+        "Header2": {
+          "sha256": "b6d4aa92dbf7b6d0403f5cd0fea03292c2c62726a7a381fba5952b82a252836b",
+          "bytes": 1267,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "42163cc445df8d86e5e4f84c932578425da7fd17650ac121a31528359480bb70",
+          "bytes": 1267,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "DatumPlate.SLDPRT",
+      "sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+      "streams": {
+        "Header2": {
+          "sha256": "4959da4c310491949460a14636da5dedd86384e5c51e8b1ecec75c692d1d50c3",
+          "bytes": 797,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "ce1f00de20fd2defcf0bf379b18f4a617e5aed433daa0643b2c7656c4b3870a4",
+          "bytes": 797,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "AlignedPlatePair.SLDASM",
+      "sha256": "29700e9ae8d944314669094c490ffa31039c1df30ac670f1225a14c9cc37db06",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "c08e7ba150646a99ff5790a49072bc8c1d6467f5bdc04be97acd775a73246796",
+          "bytes": 1733,
+          "file_entries": 1,
+          "revision_logs": 8,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "d4e8f55bfbc1bc11d18b8e9c4d5823b50bc867cdb4449ca5261b3ce11eba439b",
+          "bytes": 1733,
+          "file_entries": 1,
+          "revision_logs": 8,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "DatumPlate.SLDPRT",
+      "sha256": "16726198f42f80a3a442ae85c3e21e875bc7420d497458be1396016405fd7c28",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "b83e158b01d3aedf966da36b71fd1492392a5411205dbaeba61349aab37c8859",
+          "bytes": 1317,
+          "file_entries": 0,
+          "revision_logs": 8,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "b83e158b01d3aedf966da36b71fd1492392a5411205dbaeba61349aab37c8859",
+          "bytes": 1317,
+          "file_entries": 0,
+          "revision_logs": 8,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "ParallelPlatePair.SLDASM",
+      "sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+      "streams": {
+        "Header2": {
+          "sha256": "b4fac0bee92ca47680ec1c0dd7b28b379b9f8924b5994453422c277e21ecca11",
+          "bytes": 1261,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "75959faff39dc0bef15752b61f823cd1df1baee595957d5780509854db8d81ec",
+          "bytes": 1261,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "DatumPlate.SLDPRT",
+      "sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4",
+      "streams": {
+        "Header2": {
+          "sha256": "1c2c89cbb16735c957dda7b5eabe473f9ade999f145761124bd7eba4a5af2581",
+          "bytes": 793,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "3f989f3d5f3d2a35fbd9ab0dee1f04b7f46ce03cde4315e5c4cad6f217bf668a",
+          "bytes": 793,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "DistanceMateDiscovery.SLDASM",
+      "sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+      "streams": {
+        "Header2": {
+          "sha256": "9f66b1d9617f813ae71cfde09702fb762a05ed409149523d514245e9ba13eb4a",
+          "bytes": 1121,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "958aeaee89bb535d9d5edcd49ffdec194945bd3b9d1687d491d09f778e39e2ae",
+          "bytes": 1121,
+          "file_entries": 1,
+          "revision_logs": 2,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "DistanceDatumPlate.SLDPRT",
+      "sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+      "streams": {
+        "Header2": {
+          "sha256": "9686ce0f5823b5f10f615699a3e4393d74f63ac024bbcac23606e3dac27046ec",
+          "bytes": 743,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "9936e600ad5712d068194f04c8a8facb22babadca3ac93dd6a53c8abe9ff1a78",
+          "bytes": 743,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "A17PlaneCoincident.SLDASM",
+      "sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+          "bytes": 2575,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+          "bytes": 2575,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "CohortChild.SLDPRT",
+      "sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+          "bytes": 2549,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+          "bytes": 2549,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "A18PlaneDistance.SLDASM",
+      "sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+          "bytes": 2567,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+          "bytes": 2567,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "CohortChild.SLDPRT",
+      "sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+          "bytes": 2545,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+          "bytes": 2545,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "A19PlaneParallel.SLDASM",
+      "sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+          "bytes": 2567,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+          "bytes": 2567,
+          "file_entries": 1,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "CohortChild.SLDPRT",
+      "sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+      "streams": {
+        "Contents/Config-0-ModelHeader": {
+          "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+          "bytes": 2545,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        },
+        "Header2": {
+          "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+          "bytes": 2545,
+          "file_entries": 0,
+          "revision_logs": 26,
+          "self_file": true,
+          "bounds": true
+        }
+      }
+    },
+    {
+      "file": "KitBlankSheetProbe.SLDDRW",
+      "sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "streams": {
+        "Header2": {
+          "sha256": "9c3726df25b7253a1738a001bb9615c13a4f94842c20fd82bff5ac960ec221c2",
+          "bytes": 907,
+          "file_entries": 0,
+          "revision_logs": 9,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "KitBlankSheetProbe.SLDDRW",
+      "sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "streams": {
+        "Header2": {
+          "sha256": "9c3726df25b7253a1738a001bb9615c13a4f94842c20fd82bff5ac960ec221c2",
+          "bytes": 907,
+          "file_entries": 0,
+          "revision_logs": 9,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    },
+    {
+      "file": "KitBlankSheetProbe.SLDDRW",
+      "sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "streams": {
+        "Header2": {
+          "sha256": "407177b74bcd6b1839b6cbee77072a2698e9ee8e6b7ce5c39f7750e1c4885e7b",
+          "bytes": 849,
+          "file_entries": 0,
+          "revision_logs": 1,
+          "self_file": true,
+          "bounds": false
+        }
+      }
+    }
+  ],
+  "heldout_inputs_tested": 0,
+  "codec_sources": {
+    "src/convert/adapters/solidworks/Archive/Header/HeaderClasses.py": "e852abd916b7dd3500f65e4194cd1addff4d42fdd96c58d322aabca55b1572b2",
+    "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py": "40e405d8ac6763c0cc227154bd0a2dff827c8a7fbb4ad7578092cda1efb3fd32",
+    "src/convert/adapters/solidworks/Archive/Header/NativeFileRef.py": "69d5bfc387c7337899a3a100f8f6cacd06c2fa37f10d7d864945012356ae5cbb",
+    "src/convert/adapters/solidworks/Archive/Header/NativeHeader.py": "f352d3118b2c79113b7c2978c5f8425c7c36f4659adc8c11b4b94bf8c8bff62f",
+    "src/convert/adapters/solidworks/Archive/Header/ReadFileTable.py": "7d31ac0dc068c2866f96f12f02d3574431c5d9382e0e6a5863490a2091d7764e",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderBody.py": "a50588d8d4a0dd883283c9cacd86fb507836bd04763e740383b5ecdf3dd2db76",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderBounds.py": "fcb90cd84220fef233a2b2c9c3e010330cd549736f5cbedeb611198437604d46",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderList.py": "bd3a36a3ca479c008c8c0f190b21706dcba7f877fb2013e0c3e1a4d8e6e5b0e2",
+    "src/convert/adapters/solidworks/Archive/Header/ReadHeaderWire.py": "b37eb93e70df221f051e20b4df085c3eaf12805af111fb65d0922504e7da609d",
+    "src/convert/adapters/solidworks/Archive/Header/ReadNativeHeader.py": "58ce33b0c360f522d80c7cff7a9f6933bf44be266085f00c0710beb912d63ec1",
+    "src/convert/adapters/solidworks/Archive/Header/ReadSharedFile.py": "c18772ca4a8a06b580a618c9d69049a28a5b4fb78ac79a7e6af918ce041587a3",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderBody.py": "3b1473e2091033367c5ffe22f24ff1a3f127933043d621d731190264fdf5b395",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderGraph.py": "bbc209f0b3c8c6e62593efac16e2e31548f52a275d3fcb024f635b691a2c7a9e",
+    "src/convert/adapters/solidworks/Archive/Header/WriteHeaderWire.py": "525c21ade0c3caa0a2ba20c8648418427d54341e5c4f327b33fcbc607f6515af",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadNativeText.py": "caa9cb053902c136609307ebbba8716ab2e4e873480c6a311474ff37509fc33a"
+  }
+}

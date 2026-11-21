@@ -1,0 +1,38 @@
+from __future__ import annotations
+
+from hashlib import sha256 as HashBytes
+from io import BytesIO as ByteStream
+from re import fullmatch as FullMatch
+from subprocess import run as RunProcess
+from typing import cast as CastValue
+
+from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+
+
+# source restoration must reject missing objects or changed bytes before executing historical code
+def ReadGitSource(Entries: list[dict[str, object]]) -> dict[str, bytes]:
+    Objects = [CastValue(str, Entry["git_blob"]) for Entry in Entries]
+    assert all(FullMatch(r"[0-9a-f]{40}", Value) for Value in Objects)
+    Outcome = RunProcess(
+        ["git", "cat-file", "--batch"],
+        cwd=KRepoRoot,
+        input=("\n".join(Objects) + "\n").encode("ascii"),
+        capture_output=True,
+        check=True,
+        timeout=60,
+    )
+    StreamValue = ByteStream(Outcome.stdout)
+    Results: dict[str, bytes] = {}
+    for Entry in Entries:
+        ObjectName, ObjectKind, ObjectBytes = StreamValue.readline().decode().split()
+        assert ObjectName == Entry["git_blob"] and ObjectKind == "blob"
+        assert int(ObjectBytes) == Entry["bytes"]
+        RawValue = StreamValue.read(int(ObjectBytes))
+        assert len(RawValue) == Entry["bytes"]
+        assert HashBytes(RawValue).hexdigest() == Entry["sha256"]
+        assert StreamValue.read(1) == b"\n"
+        PathName = CastValue(str, Entry["path"])
+        assert PathName not in Results
+        Results[PathName] = RawValue
+    assert StreamValue.read() == b""
+    return Results

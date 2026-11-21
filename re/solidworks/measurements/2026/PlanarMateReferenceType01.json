@@ -1,0 +1,73 @@
+{
+  "schema": "kit.sw2026.planar-mate-reference-observation.v1",
+  "source_revision": "d4270be5a47743c59e7babe7ee79b23a85d5e2e8",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "job_sha256": "558d9fc21034ce9da1e122e74df6f70589ae0049288f6e52d04bd4075762e818",
+  "transport_sha256": "1bb0d2ddc5811bf4b3ee8d321757661c37971b00cf3c5434b0eb5ccb0de05ec7",
+  "private_source_attempt_sha256": "e21e862530265b7323d59b392ede43d8b9b7be283232f95658e7ccfc6a65470f",
+  "controls_healthy": true,
+  "distinct_processes": 7,
+  "observed_reference_enum": "swSelectType_e",
+  "expected_selection_type": "swSelDATUMPLANES",
+  "former_observer_plane_geometry_type": 3,
+  "source_cohort_qualified": false,
+  "heldout_results_sealed": true,
+  "writer_output_count": 0,
+  "cases": [
+    {
+      "design": "A17PlaneCoincident",
+      "authored_mate": "coincident",
+      "mate_created": true,
+      "mate_entity_count": 2,
+      "reference_selection_type": 4,
+      "entity_parameters_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "record_sha256": "7c4a6ebc509a84977c868283cb6f1245d44ef0801d73476d47ad6b08eef1dbdd"
+    },
+    {
+      "design": "A18PlaneDistance",
+      "authored_mate": "distance",
+      "mate_created": true,
+      "mate_entity_count": 2,
+      "reference_selection_type": 4,
+      "entity_parameters_m": [
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "record_sha256": "bc894d455a1e942acc0af06a248032f24d5555ba9a8f2e975c837190aa366961"
+    },
+    {
+      "design": "A19PlaneParallel",
+      "authored_mate": "parallel",
+      "mate_created": true,
+      "mate_entity_count": 2,
+      "reference_selection_type": 4,
+      "entity_parameters_m": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      "record_sha256": "4a9363fcda5ee2a14b3b62355852c86a7d5a26bd7c58448c0db99e0daa451a59"
+    }
+  ]
+}

@@ -1,0 +1,257 @@
+{
+  "cases": [
+    {
+      "case": "H01SheetA",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "inputs_unchanged": true,
+      "phase": "initial",
+      "profile_display_count": 1,
+      "profile_links": [
+        {
+          "chain_class": "moChainComponent_c",
+          "child_configuration": {
+            "f08": "authored configuration",
+            "f10": 0
+          },
+          "concrete_target_class": "moOriginProfileFeature_c",
+          "display_flag_bit_zero": true,
+          "display_object_id": 10,
+          "native_profile_base_match": true,
+          "reference_chain_acquisition_count": 49,
+          "reference_chain_entries": 1,
+          "reference_chain_mode": 0,
+          "reference_creation_epoch": 2592000,
+          "reference_native_id": 17,
+          "same_actual_view_reference": true,
+          "target_creation_epoch": 2592000,
+          "target_native_id": 17,
+          "underlying_sketch_object_index": 134
+        }
+      ],
+      "role": "original"
+    },
+    {
+      "case": "H01SheetA",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "749c354e7f96b001f5965cc3fce10aa1042ee215e44b57cc89279e4f719e48ab",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "dc45e3d9b9b3096a1bf84a6ee7f6b65ec73067d9a6aee517da946f3f12459f3b",
+      "inputs_unchanged": true,
+      "phase": "initial",
+      "profile_display_count": 0,
+      "profile_links": [],
+      "role": "generated"
+    },
+    {
+      "case": "H02SheetB",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "inputs_unchanged": true,
+      "phase": "initial",
+      "profile_display_count": 1,
+      "profile_links": [
+        {
+          "chain_class": "moChainComponent_c",
+          "child_configuration": {
+            "f08": "authored configuration",
+            "f10": 0
+          },
+          "concrete_target_class": "moOriginProfileFeature_c",
+          "display_flag_bit_zero": true,
+          "display_object_id": 10,
+          "native_profile_base_match": true,
+          "reference_chain_acquisition_count": 49,
+          "reference_chain_entries": 1,
+          "reference_chain_mode": 0,
+          "reference_creation_epoch": 2592000,
+          "reference_native_id": 17,
+          "same_actual_view_reference": true,
+          "target_creation_epoch": 2592000,
+          "target_native_id": 17,
+          "underlying_sketch_object_index": 134
+        }
+      ],
+      "role": "original"
+    },
+    {
+      "case": "H02SheetB",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "a787d62ea03b856851483357d14975d0ca741c884ac9556a1b4bac25f046172d",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "d88b4e0df2fb252ce736ad6d59a47399148b83f9aa4e8e350f490f9a4a6bb129",
+      "inputs_unchanged": true,
+      "phase": "initial",
+      "profile_display_count": 0,
+      "profile_links": [],
+      "role": "generated"
+    },
+    {
+      "case": "H01SheetA",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "c449409c42e650eff0fb62c804d5fedec4feffbcb8860ab05705e9ac6a3b7055",
+      "inputs_unchanged": true,
+      "phase": "native saved derivative",
+      "profile_display_count": 1,
+      "profile_links": [
+        {
+          "chain_class": "moChainComponent_c",
+          "child_configuration": {
+            "f08": "authored configuration",
+            "f10": 0
+          },
+          "concrete_target_class": "moOriginProfileFeature_c",
+          "display_flag_bit_zero": true,
+          "display_object_id": 10,
+          "native_profile_base_match": true,
+          "reference_chain_acquisition_count": 66,
+          "reference_chain_entries": 1,
+          "reference_chain_mode": 0,
+          "reference_creation_epoch": 2592000,
+          "reference_native_id": 17,
+          "same_actual_view_reference": true,
+          "target_creation_epoch": 2592000,
+          "target_native_id": 17,
+          "underlying_sketch_object_index": 134
+        }
+      ],
+      "role": "original"
+    },
+    {
+      "case": "H01SheetA",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "749c354e7f96b001f5965cc3fce10aa1042ee215e44b57cc89279e4f719e48ab",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "7f4ce1d8b04b0cc3aa2a419e2ea7d9934dbbc55edcd0708b574d9855a01f3207",
+      "inputs_unchanged": true,
+      "phase": "native saved derivative",
+      "profile_display_count": 0,
+      "profile_links": [],
+      "role": "generated"
+    },
+    {
+      "case": "H02SheetB",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "d2b66e564646656a7cb0cd776a3b50bb18645034e092747ec6ed8872bc93e9d5",
+      "inputs_unchanged": true,
+      "phase": "native saved derivative",
+      "profile_display_count": 1,
+      "profile_links": [
+        {
+          "chain_class": "moChainComponent_c",
+          "child_configuration": {
+            "f08": "authored configuration",
+            "f10": 0
+          },
+          "concrete_target_class": "moOriginProfileFeature_c",
+          "display_flag_bit_zero": true,
+          "display_object_id": 10,
+          "native_profile_base_match": true,
+          "reference_chain_acquisition_count": 66,
+          "reference_chain_entries": 1,
+          "reference_chain_mode": 0,
+          "reference_creation_epoch": 2592000,
+          "reference_native_id": 17,
+          "same_actual_view_reference": true,
+          "target_creation_epoch": 2592000,
+          "target_native_id": 17,
+          "underlying_sketch_object_index": 134
+        }
+      ],
+      "role": "original"
+    },
+    {
+      "case": "H02SheetB",
+      "child_config_complete": true,
+      "child_resolved_complete": true,
+      "child_sha256": "a787d62ea03b856851483357d14975d0ca741c884ac9556a1b4bac25f046172d",
+      "configuration_count": 1,
+      "definition_byte_identical": true,
+      "drawing_sha256": "7937c6be6f07ef6171c51681db0176c4c8343d3ac522ffdee5384521c92e989a",
+      "inputs_unchanged": true,
+      "phase": "native saved derivative",
+      "profile_display_count": 0,
+      "profile_links": [],
+      "role": "generated"
+    }
+  ],
+  "colour_regeneration_receipt_sha256": "d41f2deff25743772203a7e98e6bc7c7e9029adebb594ddb640d1ef6803fa1ed",
+  "delivery_pr": 121,
+  "discovery_scope": "H01 and H02 are exposed discovery inputs for this newly studied display feature; they cannot qualify its future construction rule",
+  "earlier_metadata_reports": [
+    {
+      "artifact": "ProfileChildOriginalGenerated04.json",
+      "sha256": "8befd42a9521947ccf2e84dd509378c880a0ae196a9ff0e1d8819492df7bc096"
+    },
+    {
+      "artifact": "ProfileChildOriginalGenerated05.json",
+      "sha256": "3ec94ce6935f0882c87c3b4f466c3fa223bd293c52271c098d1dcd1e27c9a506"
+    },
+    {
+      "artifact": "ProfileChildNativeSaved01.json",
+      "sha256": "a0425f8c1dedb84e04e67b0f996d484ea001dbc04210407bc6a43f624b17b6ae"
+    }
+  ],
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "native_lifecycle_receipt_sha256": "7013cb2b91f08649e93a3f87465977cbc3c4193be3ff6f4a4bd83b43e152b175",
+  "native_lookup_proof_sha256": "dfceb60ee5d70e902c150ce5dec0f6496b37a0341dcb71edb478a50713e2f5a8",
+  "new_native_execution": false,
+  "new_semantic_projection_admitted": false,
+  "original_heldout_verdict_changed": false,
+  "owner": "drawing format research lane",
+  "profile_regeneration_demonstrated": false,
+  "public_adapter_changed": false,
+  "raw_receipts": [
+    {
+      "artifact": "ProfileChildOriginalGenerated06.json",
+      "bytes": 297064,
+      "data_collected": true,
+      "phase": "initial",
+      "sha256": "9b8967c7ae19080b8acd90688290beb5462f2f0369a4248e2c75bdfaf5ad1c3a"
+    },
+    {
+      "artifact": "ProfileChildNativeSaved02.json",
+      "bytes": 298108,
+      "data_collected": true,
+      "phase": "native saved derivative",
+      "sha256": "c5238366c7d9f170b5bd298731347ef765907e79094b96605980c69b51f250e6"
+    }
+  ],
+  "reporter_failure": {
+    "fixed_in_observer_only": true,
+    "report_sha256": "7ce16ba91221a47859d21306f2bcb11ce3fffeab83058aff7f9ab8e877f7c7f1",
+    "scope": "metadata reporting rejected SDK NativeFileRef after both actual child graphs had loaded; no SDK/product conclusion"
+  },
+  "schema": "kit.sw2026.drawing-origin-profile-link-receipt.v1",
+  "scope": "typed external origin-profile identity and observed saved lifecycle; no new SDK projection or writer",
+  "sdk_changed": false,
+  "sdk_manifest_sha256": "66b81576ae9424372bb89f70369b90f28727e3cd6fa39e8070f5270bb5ff4a33",
+  "sdk_source_files": 4389,
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "tool_sha256": "bf6a9a76acc9040bee8bfdb5ea150d3a9d1ad7adfd1214d0af842cf4d1e91167",
+  "worker_product_execution": false,
+  "writer_changed": false
+}

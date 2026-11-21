@@ -1,11 +1,5 @@
 # Direct aliases also belong to assembly roots
 
-An assembly configuration allocates header aliases in its lightweight
-section. The current reader supports both model roots. A part-only
-writer guard refused these assembly roots before a linked mate archive
-could reuse the configuration map.
+Both ordinary parts and assembly configurations allocate direct aliases in their lightweight section. A part-only writer guard prevents the linked configuration and MatesList replay on all eight pinned assemblies. Use the shared catalog's two concrete version-19000 root classes. Check the top-level writer depth, primary map identity and distinct external header objects before allocating aliases in self and directory order. [Measured direct action](../../../../../../re/solidworks/records/AssemblyDirectAction2026.md) · [Integrated replay](../../../../../../re/solidworks/measurements/2026/ArchiveAfterSectionMerge01.json)
 
-Use the shared catalog's two concrete root classes. Check the writer depth,
-the mapped owner and distinct external header objects before allocating
-slots. The aliases appear in self and directory order.
-[Measured direct action](../../../../../../re/solidworks/records/AssemblyDirectAction2026.md)
+The shared ghost count action keeps its independently verified populated-row profile and validates its 28-bit count and signed four-bit flags. [Populated ghost evidence](../../../../../../re/solidworks/records/SdkGhostBodyConfig2026.md) · [Scoped section evidence](../../../../../../re/solidworks/records/ConfigSectionSlice2026.md)

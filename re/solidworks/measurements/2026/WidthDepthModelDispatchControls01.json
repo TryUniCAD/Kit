@@ -1,0 +1,332 @@
+{
+  "attempts": [
+    {
+      "alpha_record_sha256": "aedd23c13481aae16ff401e0c37c4ec76298e5f3dcec8196b9f5288e1a3f7ff8",
+      "candidate_unchanged": true,
+      "checks": [
+        {
+          "actual": 0.039125,
+          "expected": 0.039125,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "D1@Boss-Extrude1",
+          "passed": true
+        },
+        {
+          "actual": 3.0,
+          "expected": 3.0,
+          "name": "fully constrained equation sketch",
+          "passed": true
+        },
+        {
+          "actual": 1.3298526367187503e-05,
+          "expected": 1.3298526367187501e-05,
+          "name": "equation solid volume",
+          "passed": true
+        },
+        {
+          "actual": 0.0035701562500000004,
+          "expected": 0.0035701562500000004,
+          "name": "equation solid area",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "equation solid centroid 0",
+          "passed": true
+        },
+        {
+          "actual": 0.0086875,
+          "expected": 0.0086875,
+          "name": "equation solid centroid 1",
+          "passed": true
+        },
+        {
+          "actual": 0.00978125,
+          "expected": 0.00978125,
+          "name": "equation solid centroid 2",
+          "passed": true
+        },
+        {
+          "actual": 0.047875,
+          "expected": 0.047875,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0239375,
+          "name": "D1@Boss-Extrude1",
+          "passed": false
+        }
+      ],
+      "controls_healthy_in_batch": true,
+      "first_failure": {
+        "error": "EvidenceFailure('D1@Boss-Extrude1: 0.0195625 differs from 0.0239375')",
+        "pending_capability": false,
+        "stage": "SystemValue",
+        "type": "EvidenceFailure"
+      },
+      "initial_body_count": 1,
+      "job_sha256": "ac29277e1fc521174942a850df28d1a6b9c7a44541a7a2504c22c2de92a4dbf5",
+      "native_processes": 3,
+      "observer": "model feature lookup with erroneous ideal equation depth in the plain oracle",
+      "observer_revision": "f222ee669",
+      "open_status": [
+        0,
+        0
+      ],
+      "save_attempted": false,
+      "summary_sha256": "8649631066029f4240b2638de0e7f3201f6b571511a4c52c4848aab0febdd369"
+    },
+    {
+      "alpha_record_sha256": "c4973489766a8326bf5f7e5ac67fb7a232ee5ee3867890e21f98bc354266ff31",
+      "candidate_unchanged": true,
+      "checks": [
+        {
+          "actual": 0.039125,
+          "expected": 0.039125,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "D1@Boss-Extrude1",
+          "passed": true
+        },
+        {
+          "actual": 3.0,
+          "expected": 3.0,
+          "name": "fully constrained equation sketch",
+          "passed": true
+        },
+        {
+          "actual": 1.3298526367187503e-05,
+          "expected": 1.3298526367187501e-05,
+          "name": "equation solid volume",
+          "passed": true
+        },
+        {
+          "actual": 0.0035701562500000004,
+          "expected": 0.0035701562500000004,
+          "name": "equation solid area",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "equation solid centroid 0",
+          "passed": true
+        },
+        {
+          "actual": 0.0086875,
+          "expected": 0.0086875,
+          "name": "equation solid centroid 1",
+          "passed": true
+        },
+        {
+          "actual": 0.00978125,
+          "expected": 0.00978125,
+          "name": "equation solid centroid 2",
+          "passed": true
+        },
+        {
+          "actual": 0.047875,
+          "expected": 0.047875,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "D1@Boss-Extrude1",
+          "passed": true
+        },
+        {
+          "actual": 3.0,
+          "expected": 3.0,
+          "name": "fully constrained equation sketch",
+          "passed": true
+        }
+      ],
+      "controls_healthy_in_batch": false,
+      "first_failure": {
+        "error": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+        "pending_capability": false,
+        "stage": "GetBodies2",
+        "type": "com_error"
+      },
+      "initial_body_count": 1,
+      "job_sha256": "fa7a2bf9c10d8e18dc0efa0560c13306b589e79bd59e32c1e813a509c407aa40",
+      "native_processes": 2,
+      "observer": "model feature lookup and fixed plain depth, typed body lookup",
+      "observer_revision": "e7bedf0df",
+      "open_status": [
+        0,
+        0
+      ],
+      "recovery_control": {
+        "input_sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58",
+        "numeric_checks": 9,
+        "open_status": [
+          0,
+          0
+        ],
+        "passed": true,
+        "result_sha256": "ab13fd22749b9226393a5ca5ccab89fe3fe0d91714e02dff72d379da514a59c4",
+        "was_a_separate_process": true
+      },
+      "save_attempted": false,
+      "summary_sha256": "b704a69ce6e466655ff1ddde922bcf1eb962a584bc112677e9e3140649053577"
+    },
+    {
+      "alpha_record_sha256": "6d6dabd76690abf332ab13d0efa3493adee8cf4b20cd680a3976c83b9f7d3296",
+      "candidate_unchanged": true,
+      "checks": [
+        {
+          "actual": 0.039125,
+          "expected": 0.039125,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "D1@Boss-Extrude1",
+          "passed": true
+        },
+        {
+          "actual": 3.0,
+          "expected": 3.0,
+          "name": "fully constrained equation sketch",
+          "passed": true
+        },
+        {
+          "actual": 1.3298526367187503e-05,
+          "expected": 1.3298526367187501e-05,
+          "name": "equation solid volume",
+          "passed": true
+        },
+        {
+          "actual": 0.0035701562500000004,
+          "expected": 0.0035701562500000004,
+          "name": "equation solid area",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "equation solid centroid 0",
+          "passed": true
+        },
+        {
+          "actual": 0.0086875,
+          "expected": 0.0086875,
+          "name": "equation solid centroid 1",
+          "passed": true
+        },
+        {
+          "actual": 0.00978125,
+          "expected": 0.00978125,
+          "name": "equation solid centroid 2",
+          "passed": true
+        },
+        {
+          "actual": 0.047875,
+          "expected": 0.047875,
+          "name": "D1@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.017375,
+          "expected": 0.017375,
+          "name": "D2@Sketch1",
+          "passed": true
+        },
+        {
+          "actual": 0.0195625,
+          "expected": 0.0195625,
+          "name": "D1@Boss-Extrude1",
+          "passed": true
+        },
+        {
+          "actual": 3.0,
+          "expected": 3.0,
+          "name": "fully constrained equation sketch",
+          "passed": true
+        }
+      ],
+      "controls_healthy_in_batch": false,
+      "first_failure": {
+        "error": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+        "pending_capability": false,
+        "stage": "GetBodies2",
+        "type": "com_error"
+      },
+      "initial_body_count": 1,
+      "job_sha256": "cc103a9c7f01921a0545db76c48e94bbe7f69a60cad727c5b4eeabb0a5728ff0",
+      "native_processes": 2,
+      "observer": "model feature and body lookups with fixed plain depth",
+      "observer_revision": "c1410f82b",
+      "open_status": [
+        0,
+        0
+      ],
+      "recovery_control": {
+        "input_sha256": "8d79922604aba1816348ae2b62d3601c44a088dccf4b1373dd17ca0e39b02e58",
+        "numeric_checks": 9,
+        "open_status": [
+          0,
+          0
+        ],
+        "passed": true,
+        "result_sha256": "eb3aec2699046c70494f97bfb42d52842dc8d026aa4dc64a523deea904451187",
+        "was_a_separate_process": true
+      },
+      "save_attempted": false,
+      "summary_sha256": "42001a0b39eff27d5d62f40901461123eb3f83b1b0ce5b9efcbd5d5409fb9ca9"
+    }
+  ],
+  "heldout_payloads_read": 0,
+  "native_edit_acceptance": false,
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_file_version": "34.5.2.0604",
+  "same_model_plain_sha256": "f4ed24c02d51db070cfa1ee87c05944ecbf7adb8cda95fbc11198bab77042c83",
+  "schema": "kit.sw2026.width-depth-dispatch-observation.v1"
+}

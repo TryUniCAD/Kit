@@ -1,0 +1,393 @@
+{
+  "disclosed_cases": 3,
+  "exact_stream_comparisons": 36,
+  "heldout_payloads_read": 0,
+  "helper_sha256": "3efab18180d8c849fc8eb8a809bfb2f9bff2726ca01b0faec5d8fbdf7ee9b9bb",
+  "inputs": [
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 68269,
+      "case": "D01",
+      "end_tuple": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "public_lock_record_sha256": "9a542b0c62e94d9f3273582d57468923f61ca1fb1932bfeac395bd3dcea7c634",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 1119080160
+      },
+      "source_manifest_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5",
+      "state": "source",
+      "stock_depth_m": 0.02791,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "d8502b08c01f9af2e97c94dfd3ad47e92ce0765e662a906f648497ad1bdea50c"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "921134f972c2ed21d5b3c5159d79b104f7559b85c7ee6f755811ccb49f9c746b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25564,
+          "sha256": "eeca56a65740b63b28809b9fb370ec19d25dc953cbc479c8c6722aaacab3dda9"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14628,
+          "sha256": "30090a1d9f8664d3336f89cc95e0a65f331d5f38d6f889c2eac75216a5c7ea0b"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "58065c9daeb53e0e7903e01c623258aec9f50b30c244d3be42353eeba179aa32"
+        }
+      }
+    },
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 68438,
+      "case": "D01",
+      "end_tuple": [
+        1,
+        1,
+        0,
+        0,
+        1
+      ],
+      "input_sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144",
+      "public_lock_record_sha256": "9a542b0c62e94d9f3273582d57468923f61ca1fb1932bfeac395bd3dcea7c634",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 1119080160
+      },
+      "source_manifest_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5",
+      "state": "edited",
+      "stock_depth_m": 0.04153,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2555,
+          "sha256": "782ae80a0b6b86dfc2d9e6ef4bb84df2c18f02f2619db66ecd01b05c49354a8d"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "61dedf611921b13a81742b6a70c1864d5727fdff49777efdbf495983dd5cc5d9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25608,
+          "sha256": "f37d25ef0c7635b79253f02f8dd002fb5d5f79a55efd7ccc36bc0e707622770d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14922,
+          "sha256": "4010dcb01ceb3027e47c6908301ea36c8c95d48fdaa3996cb549916292872535"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "1c7068ea79009fdb799c6b6585ab27ba969c83cf4ce45014cf10e18c1551b48f"
+        }
+      }
+    },
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 67227,
+      "case": "D02",
+      "end_tuple": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "input_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "public_lock_record_sha256": "0b4b7fb59bcc35c59f325d430897416b8615e226bf0449d695c3f0e5883a9715",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 1717906144
+      },
+      "source_manifest_sha256": "5df107f3993808088bd99aabf5bd28ce8e029dd278a46dc2145bc4cad9d74b15",
+      "state": "source",
+      "stock_depth_m": 0.03247,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "c46cc3d573de16d4509b9f67a7fca0bc195ed6818a53055024fe1f1653bbc56e"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "3bba5c21bb25294d35533ea9a93db5f7ff2a78582f9916dabc90c5259ad3001d"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25496,
+          "sha256": "13a71727d2117ac416b7e9e8cb40517a990a26250e0c9f4ddccabc84f64d7a9d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "2c20af87346227c2170cdd2361e19f7100588babaeb2a4b69536354b50037316"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14700,
+          "sha256": "1c180bd74459b581f043189b416dd0969aaeb8464f4b908e9ec21952fe67c7bc"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "2c20af87346227c2170cdd2361e19f7100588babaeb2a4b69536354b50037316"
+        }
+      }
+    },
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 65103,
+      "case": "D02",
+      "end_tuple": [
+        1,
+        1,
+        0,
+        0,
+        0
+      ],
+      "input_sha256": "b7be92611a06555870b2779e31df2f8e3c9d8967450a9a9326faba4295f6feda",
+      "public_lock_record_sha256": "0b4b7fb59bcc35c59f325d430897416b8615e226bf0449d695c3f0e5883a9715",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 1717906144
+      },
+      "source_manifest_sha256": "5df107f3993808088bd99aabf5bd28ce8e029dd278a46dc2145bc4cad9d74b15",
+      "state": "edited",
+      "stock_depth_m": 0.04637,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2555,
+          "sha256": "8a2c87fac8893bfc13b3133304839f02eca2b67a2dcff1a62d3fd29dddc06452"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "7b1e101de41469cae70bfdd7641982a15849f59278384c8e18e20fffc3bddb9b"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25540,
+          "sha256": "0387be03d0ca6b3f746c0a8843351faf9267447b06009d13397baa518cc4a234"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "adc768b1be0e67a571d9f66944f9073ab0dd4bcc83c45d6885d196e14c82015a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14994,
+          "sha256": "f4d684ec0916a9b521275e3ba36264145a9ce40d221dada1f82b8aecaee30dcd"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2879,
+          "sha256": "adc768b1be0e67a571d9f66944f9073ab0dd4bcc83c45d6885d196e14c82015a"
+        }
+      }
+    },
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 64368,
+      "case": "D03",
+      "end_tuple": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "input_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "public_lock_record_sha256": "7fcdc2a61261dde2cfbf9f2de0fb91132c98c042cf58bd079d420c8548262acf",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 812717568
+      },
+      "source_manifest_sha256": "60c71697e31d036b217f5350891d3b337a9eb35e9b5c16eeae5835b73f10a4e0",
+      "state": "source",
+      "stock_depth_m": 0.02483,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2261,
+          "sha256": "77d1433bb22cb78c7c3281bc98b77bcc15014d59258ab35ceed2b57737cf7496"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "9a51d4f4c102254b9fb84a5eb30234897c5ebfea5d702ab29cf4f962e8d2a11c"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25564,
+          "sha256": "807d5330734b05a9555d6d30fe5a5d27b6c1b99c12128256de2cbf294ff76fe8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "a3d82dbb5e6d40be47b4292c2bdc40c516464684293787383bcdf41782b52f29"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 14798,
+          "sha256": "f2cfabe1806a2edd1c84d3647428933586b0a2a77ad75a943007ee3bacff2aea"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2553,
+          "sha256": "a3d82dbb5e6d40be47b4292c2bdc40c516464684293787383bcdf41782b52f29"
+        }
+      }
+    },
+    {
+      "absent_cut_distance_and_draft_owners": true,
+      "archive_retention_only": true,
+      "body_ownership": {
+        "chooser_owns_actual_cut": true,
+        "consumed_atom_id": 101,
+        "produced_atom_id": 102,
+        "scope": 1
+      },
+      "bytes": 65753,
+      "case": "D03",
+      "end_tuple": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "input_sha256": "074bf01c6b349eb0f48162c51409ab2e1a688ca6240d0b626cf96ba96fea8f82",
+      "public_lock_record_sha256": "7fcdc2a61261dde2cfbf9f2de0fb91132c98c042cf58bd079d420c8548262acf",
+      "saved_end_tail_words": {
+        "f148": 0,
+        "f14c": 0,
+        "f150": 0,
+        "f154": 0,
+        "f158": 812717568
+      },
+      "source_manifest_sha256": "60c71697e31d036b217f5350891d3b337a9eb35e9b5c16eeae5835b73f10a4e0",
+      "state": "edited",
+      "stock_depth_m": 0.03871,
+      "typed_stream_roundtrips": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2543,
+          "sha256": "912da668cc80ebb918a4a9cc4ea5e2fe4f71587c7dee3518fd3ccf07fab278ab"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "4eafad408fabd3052551ae3402afab047977b85aefd14b79a89d402ae25fcdf5"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25602,
+          "sha256": "f4ddfc8f794d14eef58fdc7bbec81771cbc1db4441fd266006629ce7f3a92158"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2867,
+          "sha256": "12df68c8c258ab5f8e05e4689729416b90a619ff9754b81955c583925a28eb15"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 15080,
+          "sha256": "ff4db98a82486196642968a08e752c2f84160885c23ed439be27e6d927515537"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2867,
+          "sha256": "12df68c8c258ab5f8e05e4689729416b90a619ff9754b81955c583925a28eb15"
+        }
+      }
+    }
+  ],
+  "native_saves": 6,
+  "native_writer_acceptance": false,
+  "passed": true,
+  "schema": "kit.sw2026.through-all-disclosed-directions.v1",
+  "source_lock_sha256": "3efe141cd31cc06e8b7545db590548dd1ba511960261e8b78cf72523d5d5ba79",
+  "tool_sha256": "53eac86860908e980a31f936b5cdb826f99f6ea591eb1f4b8dcdfdc5b2be6a52",
+  "writer_output_count": 0
+}

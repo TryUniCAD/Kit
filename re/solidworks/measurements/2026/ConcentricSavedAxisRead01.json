@@ -1,0 +1,332 @@
+{
+  "after_changes": {
+    "convert/adapters/solidworks/Core/TypedMates/Cylinders/CheckCylFrame.py": "b16f62214a4ce4b56daef0fee0d61f9ac9c937ac108998f62aee0d59c8fa336c",
+    "convert/adapters/solidworks/Core/TypedMates/Cylinders/CheckCylPair.py": "077fa8591d24c0d77036a9ed84f23f9c07dbf9cdd2cf903b82442685cc06dd1d",
+    "convert/adapters/solidworks/Core/TypedMates/Cylinders/CylEndpoint.py": "2b5fb3bfa31cc56cef5cdde39586cebb1c8c909561672e84a95bb744441f4584",
+    "convert/adapters/solidworks/Core/TypedMates/Cylinders/ReadCylEnd.py": "3ab8f6eb416d8bf536459d6d62505721bca2839ab51324b582ea651a9246cbc1"
+  },
+  "before_after_sdk_processes": 74,
+  "before_revision": "22cbb0ccc4bb6cd959bf1306bf4ddeb61712944a",
+  "diagnostic_outputs_generated": 0,
+  "disclosed_kernel_receipt_sha256": "2bd548351cdcb9ac1a3a4fe533a7184d63862a7f2b5954e82a2d1e2195cce80a",
+  "disclosed_native_inputs_unchanged": true,
+  "existing_diagnostic_manifest_sha256": "1cf2e7daae75e30833e39cfcdfe2c9c7941ad2e7098d2a865c7bec65423234ce",
+  "heldout_files_read": 0,
+  "native_saved_radial_public_reads": {
+    "default": {
+      "after": "admitted",
+      "alignment": "aligned",
+      "before": "unsupported",
+      "document_sha256": "33f972b557121955e59e2a383c7362202d21f87ac9a4ef1ec0269d29abdca533",
+      "full_selected_mate_graph": true,
+      "numeric_checks": 18,
+      "public_checks": 61,
+      "rotation_locked": false
+    },
+    "metadata": {
+      "after": "admitted",
+      "alignment": "aligned",
+      "before": "unsupported",
+      "document_sha256": "12a09eda8aeebbd24ec038523e6c4591d22e37cd7ad76a3f44eeb8f98a5bbc44",
+      "full_selected_mate_graph": true,
+      "numeric_checks": 16,
+      "public_checks": 59,
+      "rotation_locked": false
+    }
+  },
+  "new_native_processes": 0,
+  "numeric_comparisons": 238,
+  "oracle_build": "34.5.2.0604",
+  "orientation_witnesses": {
+    "D01Source": {
+      "child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "kernel_local_axis": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "kernel_local_point_m": [
+        0.00263,
+        -0.00417,
+        0.03137
+      ],
+      "native_alignment": 0,
+      "ordered_endpoints": [
+        {
+          "local_sign_relative_to_kernel": 1,
+          "max_carrier_component_delta": 0.0,
+          "max_world_direction_component_delta": 0.0,
+          "max_world_point_component_delta_m": 0.0,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 24,
+          "world_kernel_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "wrapper_local_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_point_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05007
+          ]
+        },
+        {
+          "local_sign_relative_to_kernel": 1,
+          "max_carrier_component_delta": 0.0,
+          "max_world_direction_component_delta": 0.0,
+          "max_world_point_component_delta_m": 6.938893903907228e-18,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 25,
+          "world_kernel_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "wrapper_local_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_point_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.28717000000000004
+          ]
+        }
+      ],
+      "parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "radius_m": 0.00719,
+      "rotation_locked": false,
+      "saved_body_atom_id": 101,
+      "saved_face_node_id": 27,
+      "saved_normalized_face_index": 41,
+      "signed_world_axis_dot": 1.0,
+      "wire_alignment": 1,
+      "world_axis_separation_m": 0.0
+    },
+    "D03Source": {
+      "child_sha256": "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4",
+      "kernel_local_axis": [
+        -0.0,
+        -0.0,
+        -1.0
+      ],
+      "kernel_local_point_m": [
+        0.00439,
+        0.00197,
+        0.02473
+      ],
+      "native_alignment": 1,
+      "ordered_endpoints": [
+        {
+          "local_sign_relative_to_kernel": 1,
+          "max_carrier_component_delta": 0.0,
+          "max_world_direction_component_delta": 0.0,
+          "max_world_point_component_delta_m": 0.0,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 24,
+          "world_kernel_axis": [
+            -0.4500787564269749,
+            -0.06916599152316763,
+            -0.8903062274463573
+          ],
+          "wrapper_local_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_axis": [
+            -0.4500787564269749,
+            -0.06916599152316763,
+            -0.8903062274463573
+          ],
+          "wrapper_world_point_m": [
+            0.08252672742383986,
+            -0.03327943987678796,
+            0.041552349127435835
+          ]
+        },
+        {
+          "local_sign_relative_to_kernel": 1,
+          "max_carrier_component_delta": 0.0,
+          "max_world_direction_component_delta": 5.551115123125783e-17,
+          "max_world_point_component_delta_m": 5.551115123125783e-17,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 25,
+          "world_kernel_axis": [
+            0.4500787564269749,
+            0.06916599152316776,
+            0.8903062274463573
+          ],
+          "wrapper_local_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ],
+          "wrapper_world_axis": [
+            0.45007875642697487,
+            0.06916599152316776,
+            0.8903062274463573
+          ],
+          "wrapper_world_point_m": [
+            0.14717603999701054,
+            -0.02334443685440017,
+            0.1694359356378306
+          ]
+        }
+      ],
+      "parent_sha256": "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+      "radius_m": 0.00583,
+      "rotation_locked": false,
+      "saved_body_atom_id": 101,
+      "saved_face_node_id": 27,
+      "saved_normalized_face_index": 41,
+      "signed_world_axis_dot": -1.0,
+      "wire_alignment": 2,
+      "world_axis_separation_m": 1.4821483875836085e-17
+    },
+    "RadialSaved": {
+      "child_sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416",
+      "kernel_local_axis": [
+        -0.0,
+        -0.0,
+        -0.9999999999999999
+      ],
+      "kernel_local_point_m": [
+        0.00263,
+        -0.00417,
+        0.036797010000000005
+      ],
+      "native_alignment": 0,
+      "ordered_endpoints": [
+        {
+          "local_sign_relative_to_kernel": -1,
+          "max_carrier_component_delta": 1.1102230246251565e-16,
+          "max_world_direction_component_delta": 0.0,
+          "max_world_point_component_delta_m": 6.938893903907228e-18,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 17,
+          "world_kernel_axis": [
+            0.0,
+            0.0,
+            -0.9999999999999999
+          ],
+          "wrapper_local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "wrapper_world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "wrapper_world_point_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05549701000000001
+          ]
+        },
+        {
+          "local_sign_relative_to_kernel": -1,
+          "max_carrier_component_delta": 1.1102230246251565e-16,
+          "max_world_direction_component_delta": 0.0,
+          "max_world_point_component_delta_m": 6.938893903907228e-18,
+          "native_corresponding_face_equal": true,
+          "native_occurrence_id": 18,
+          "world_kernel_axis": [
+            0.0,
+            0.0,
+            -0.9999999999999999
+          ],
+          "wrapper_local_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "wrapper_world_axis": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "wrapper_world_point_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.29259701000000005
+          ]
+        }
+      ],
+      "parent_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "radius_m": 0.00719,
+      "rotation_locked": false,
+      "saved_body_atom_id": 101,
+      "saved_face_node_id": 27,
+      "saved_normalized_face_index": 39,
+      "signed_world_axis_dot": 1.0,
+      "wire_alignment": 1,
+      "world_axis_separation_m": 0.0
+    }
+  },
+  "process_tools_sha256": {
+    "CompareConcentricRead.py": "3f314927583f121dc11d1b6f43565751ad6b109d322b58a3745f50b4c4a940ef",
+    "ReadConcentricPublic.py": "6b00cf9a5fb143b03ed836e75bdb4e85699e10c4ebe992b8174076cf52d43bcc"
+  },
+  "public_comparisons": 840,
+  "saved_native_receipt_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "schema": "kit.sw2026.concentric-saved-axis-readback.v1",
+  "unchanged_disclosed_public_documents": {
+    "D01EditedDefault": "e8cc41ba1a8e08c68b87351ff08c0da2831287ad933d259599d3630668dab082",
+    "D01EditedMetadata": "eb7c7f66d282003827b74727438b668acb38a7aa772ddf4555d7f27c2277bdaf",
+    "D01SourceDefault": "64d1029d0f6f34dded9e209fbd57b8c9e6f5b6cb6579426e2704fd8705a2a9dc",
+    "D01SourceMetadata": "317f32b6fc553ff97fc0b257d78fb95765306d8ec8085336a619ba7a758e10e5",
+    "D02EditedDefault": "6d9e806b6f8184267ba1f24aad00cb1ffe11b02dff5f4b65df18176a721d75d2",
+    "D02EditedMetadata": "11858ebdf62e0f37238610882ce48fececa2210dc70f0ca743d903b826a78ca9",
+    "D02SourceDefault": "4ba710ebb37191d36c56456829de171c39c48b90525555a360118ab546bc8f81",
+    "D02SourceMetadata": "c691acd86757252fd6a15e70949fcdd37d327f74d1cdd0b742c63e69d0e7353a",
+    "D03EditedDefault": "c8f784e207c5a5a69b296f87915bc2b2636f218ed6212866d174fb1e34614d2f",
+    "D03EditedMetadata": "d7c4928ab563dd6ab2c1fd385bd9a3b08f9482986db3e9d16de25559268d0a08",
+    "D03SourceDefault": "51f8235a706e0f390251c618da2cbe62f7cc519c14f2e2293e78cf5853e50888",
+    "D03SourceMetadata": "60e87bfc7145c817b1068ef3aaf1014ad7952e62e81853c336c69ce04efc95e0"
+  },
+  "unchanged_refusals": {
+    "ForeignChainOwner": "planar mate reference chain belongs to a different assembly",
+    "InvalidAlignment": "concentric alignment or position is unqualified",
+    "InvalidLock": "concentric alignment or position is unqualified",
+    "RadialPreSolve": "concentric mate is outside the ordinary solved position profile",
+    "StaleChildStamp": "mate wrapper child update is stale",
+    "UnsolvedMate": "concentric mate is outside the ordinary solved position profile",
+    "WrapperCollision": "concentric registered wrapper identities collide",
+    "WrongAlignment": "concentric cylinders disagree with the solved coaxial alignment",
+    "WrongAxis": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+    "WrongBodyAtom": "concentric faceted snapshot differs from actual face and body identities",
+    "WrongCap": "concentric adjacent cap identities differ from the actual child",
+    "WrongConfiguration": "mate wrapper child configuration differs",
+    "WrongCreation": "concentric selected surface has a stale or foreign feature owner",
+    "WrongFaceDomain": "concentric faceted snapshot differs from actual face and body identities",
+    "WrongFacetText": "concentric faceted snapshot differs from actual face and body identities",
+    "WrongFeature": "concentric selected surface has a stale or foreign feature owner",
+    "WrongLocalAxis": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+    "WrongMarker": "concentric selected arc permanent marker differs",
+    "WrongNullSlot": "concentric face support requires its two null entries",
+    "WrongOrdinal": "concentric resolved wrapper ownership or order differs",
+    "WrongParentStamp": "concentric detached support owner or parent epoch differs",
+    "WrongPoint": "concentric cylinder geometry or local axis differs from its actual child and occurrence",
+    "WrongRadius": "concentric cylinder geometry or local axis differs from its actual child and occurrence"
+  },
+  "writer_outputs": 0
+}

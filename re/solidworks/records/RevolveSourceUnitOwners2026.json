@@ -1,0 +1,126 @@
+{
+  "schema": "kit.sw2026.source-unit-owner-facts.v1",
+  "module_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+  "image_base": "0x3c720000",
+  "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+  "evidence_type": "static original installed-image instructions and mapped data; not observed runtime",
+  "ranges": [
+    {
+      "name": "IsMetric",
+      "start_va": "0x3c753ef0",
+      "end_va_exclusive": "0x3c753f24",
+      "file_offset": "0x334f0",
+      "bytes": 52,
+      "sha256": "e7a7fbe42c0c7008af12fd8ef85f1c8b4d69d636a4fc3f0d84e100f7228309a8"
+    },
+    {
+      "name": "IsMetric jump table",
+      "start_va": "0x3c753f24",
+      "end_va_exclusive": "0x3c753f50",
+      "file_offset": "0x33524",
+      "bytes": 44,
+      "sha256": "6981a7afcab7be5b94154d127cc2a6b5f02216df11627c1405119eb81425cdbf"
+    },
+    {
+      "name": "getDualUnit",
+      "start_va": "0x3c915f50",
+      "end_va_exclusive": "0x3c916065",
+      "file_offset": "0x1f5550",
+      "bytes": 277,
+      "sha256": "4734ce857762c5247b318ba4251a2b1d813e8a34c4ab668181a811c72d4f67ca"
+    },
+    {
+      "name": "full length constructor",
+      "start_va": "0x3c9067a0",
+      "end_va_exclusive": "0x3c90685e",
+      "file_offset": "0x1e5da0",
+      "bytes": 190,
+      "sha256": "8417c5f76f3eff6d425200aec287645bf7f5b3bcb4077ec93de5191930f45ae9"
+    },
+    {
+      "name": "base unit constructor",
+      "start_va": "0x3c9081d0",
+      "end_va_exclusive": "0x3c9082ec",
+      "file_offset": "0x1e77d0",
+      "bytes": 284,
+      "sha256": "89808634e43729b9ce7aaf71adfb4ee12f0901a5987774b51195ad4c941fab37"
+    },
+    {
+      "name": "base validation tolerance getter",
+      "start_va": "0x3c918050",
+      "end_va_exclusive": "0x3c918059",
+      "file_offset": "0x1f7650",
+      "bytes": 9,
+      "sha256": "6243f0ebc741a45499ca391f7fa609f10a111665cca066703b491a960803c082"
+    },
+    {
+      "name": "dual real literal",
+      "start_va": "0x3cb24a60",
+      "end_va_exclusive": "0x3cb24a68",
+      "file_offset": "0x401060",
+      "bytes": 8,
+      "sha256": "6c3c396ed6b5c36dcae172271f462051b1266b851e92df3deea8ac65478fd712"
+    },
+    {
+      "name": "length primary metric slot",
+      "start_va": "0x3cc8ba80",
+      "end_va_exclusive": "0x3cc8ba88",
+      "file_offset": "0x568080",
+      "bytes": 8,
+      "sha256": "259ac92d24b2de0b40906218a5d36c94e2c6d710a3fb2487a989e466beb158e8"
+    }
+  ],
+  "rules": {
+    "metric_length_codes": [
+      0,
+      1,
+      2,
+      6,
+      7,
+      8
+    ],
+    "getDualUnit_owner": "moLengthUserUnits_c.fb8",
+    "existing_pointer": "returned unchanged",
+    "absent_pointer": "construct opposite metric/inch length unit and store actual returned owner",
+    "metric_parent": {
+      "secondary_unit_code": 3,
+      "fraction_display": 1
+    },
+    "nonmetric_parent": {
+      "secondary_unit_code": 0,
+      "fraction_display": 0
+    },
+    "child_constructor": {
+      "f0c": 2,
+      "f10": "fraction display from opposite unit branch",
+      "f18": 1.0,
+      "f20": 1,
+      "f24": 1,
+      "f28": 2,
+      "f6c": 0,
+      "f30": "shared native pi over four literal through existing unit initializer",
+      "f70": 1,
+      "f74": 1,
+      "f7c": 0,
+      "f88": 0,
+      "f08": 0,
+      "fb0": "opposite semantic length code",
+      "fb8": null
+    }
+  },
+  "refuted": [
+    {
+      "hypothesis": "source primary f88 is the validation-tolerance getter value",
+      "evidence": "base getValidationTolerance reads a literal and does not read owner f88",
+      "status": "refuted"
+    }
+  ],
+  "remaining": [
+    "primary unit-format f18/f20/f28 source preference or derived ownership",
+    "primary f88 negative value semantics",
+    "density unit source fcc selection and optional length alias are separate from this dual-length factory",
+    "complete source style/state and native generated qualification outside the exact source-child comparisons"
+  ],
+  "new_native_processes": 0,
+  "heldout_inputs_read": 0
+}

@@ -1,0 +1,224 @@
+{
+  "archive_version": 19000,
+  "authored_typed_edits": 2,
+  "available_layouts": 31,
+  "cases": {
+    "add-name": {
+      "edited": {
+        "alternate_name": "ALT-FRONT",
+        "bytes": 2275,
+        "comment": "measured \u0394 face",
+        "config_slot": 6,
+        "configuration": "Inspection \u03b1",
+        "description": "fixture note",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 20,
+        "map_span_sha256": "0912b407de1494e1b7c1deb9f672dd67b7d99fb7339063785a808fb405337bfa",
+        "name": "Panel manager \u03a9",
+        "reached_layouts": 31,
+        "sha256": "42cbd0dc0f44cb2470461da11142191735d2b412d32f5083a0874fdcc833f361",
+        "updated_at": 631180800
+      },
+      "source": {
+        "alternate_name": "",
+        "bytes": 2159,
+        "comment": "",
+        "config_slot": 4,
+        "configuration": "Default",
+        "description": "",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 19,
+        "map_span_sha256": "1a7091414cb73d255829cbed6fdc142d74bdb1b87570fc2c19415304699284c6",
+        "name": null,
+        "reached_layouts": 31,
+        "sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541",
+        "updated_at": 631180800
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "stdout_sha256": "b85584bf964207911b9c44908033c7363c7d2ca84dc128a3b5e8b17291cb21c1"
+    },
+    "concave": {
+      "source": {
+        "alternate_name": "",
+        "bytes": 1129,
+        "comment": "",
+        "config_slot": 6,
+        "configuration": "Default",
+        "description": "",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 10,
+        "map_span_sha256": "a947d55b93f6455a1dc666917e5e2199692861776d51f4b913947cac74f7461f",
+        "name": "Configurations",
+        "reached_layouts": 19,
+        "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd",
+        "updated_at": 1790000000
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "stdout_sha256": "bea08960787115393b98344c27786ba4a560ac3928b3bbe811690ebb5e33a889"
+    },
+    "l1": {
+      "source": {
+        "alternate_name": "",
+        "bytes": 2159,
+        "comment": "",
+        "config_slot": 4,
+        "configuration": "Default",
+        "description": "",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 19,
+        "map_span_sha256": "1a7091414cb73d255829cbed6fdc142d74bdb1b87570fc2c19415304699284c6",
+        "name": null,
+        "reached_layouts": 31,
+        "sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541",
+        "updated_at": 631180800
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "stdout_sha256": "cf5f35d42b41294e336cfd719a5ce2a7ba314aa308b67dc7f10c00ed2934ed14"
+    },
+    "rectangular": {
+      "source": {
+        "alternate_name": "",
+        "bytes": 1129,
+        "comment": "",
+        "config_slot": 6,
+        "configuration": "Default",
+        "description": "",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 10,
+        "map_span_sha256": "a947d55b93f6455a1dc666917e5e2199692861776d51f4b913947cac74f7461f",
+        "name": "Configurations",
+        "reached_layouts": 19,
+        "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd",
+        "updated_at": 1790000000
+      },
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "stdout_sha256": "d07957b87acf7a6933c68ec471e254c7d3ae181e59ac25b81d1ada3a025e1415"
+    },
+    "refuse": {
+      "refusals": [
+        {
+          "case": "version",
+          "diagnostic": "part manager requires archive version 19000"
+        },
+        {
+          "case": "wrong_root",
+          "diagnostic": "part manager has an unsupported root or nested manager"
+        },
+        {
+          "case": "wrong_schema",
+          "diagnostic": "part manager has an unsupported root or nested manager"
+        },
+        {
+          "case": "truncated",
+          "diagnostic": "SOLIDWORKS body moConfigurationMgr_c field has8a0 at 2155: truncated SOLIDWORKS archive field at 2155"
+        },
+        {
+          "case": "trailing",
+          "diagnostic": "part manager has trailing bytes"
+        },
+        {
+          "case": "missing_name",
+          "diagnostic": "part manager name field is missing"
+        },
+        {
+          "case": "empty_name",
+          "diagnostic": "part manager name object cannot be empty"
+        },
+        {
+          "case": "foreign_selector_write",
+          "diagnostic": "part manager selectors must alias its actual configuration"
+        },
+        {
+          "case": "foreign_selector_read",
+          "diagnostic": "part manager selectors must alias its actual configuration"
+        },
+        {
+          "case": "multiple_rows_write",
+          "diagnostic": "part manager requires exactly one counted configuration"
+        },
+        {
+          "case": "multiple_rows_read",
+          "diagnostic": "part manager requires exactly one counted configuration"
+        }
+      ],
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "stdout_sha256": "2a00992240e1cd477a43b9697c08e897eda0b6c75791c7046c2949289710a25e"
+    },
+    "remove-name": {
+      "edited": {
+        "alternate_name": "B",
+        "bytes": 1169,
+        "comment": "trace comment \ud83e\udded",
+        "config_slot": 4,
+        "configuration": "Oblique setup",
+        "description": "material free",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 9,
+        "map_span_sha256": "9e40e870347902576f2ddfbadd601393a0e74386845da79899411b3535e9caff",
+        "name": null,
+        "reached_layouts": 19,
+        "sha256": "24ce381a1a25e16903c0d7c4c14109a9563ada7ec60c7a752aacec6f428fd3d5",
+        "updated_at": 1790000000
+      },
+      "source": {
+        "alternate_name": "",
+        "bytes": 1129,
+        "comment": "",
+        "config_slot": 6,
+        "configuration": "Default",
+        "description": "",
+        "f658": 1,
+        "local_id": 0,
+        "map_counter": 10,
+        "map_span_sha256": "a947d55b93f6455a1dc666917e5e2199692861776d51f4b913947cac74f7461f",
+        "name": "Configurations",
+        "reached_layouts": 19,
+        "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd",
+        "updated_at": 1790000000
+      },
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "stdout_sha256": "bface656ee4a3418319c92991a1dd595237304b5080885048e8719de4819833b"
+    }
+  },
+  "concrete_descriptors": 8,
+  "construction_qualified": false,
+  "distinct_disclosed_streams": 2,
+  "exact_disclosed_streams": 3,
+  "first_unadapted_virtual_write_diagnostic": "unsupported native body virtual dispatch mode",
+  "fresh_guarded_processes": 12,
+  "heldout_credit": 0,
+  "identical_repetitions": 2,
+  "layout_blobs_sha256": {
+    "BodySchemas": "ce531b2725faf12bdad8eaea5d3b2a6b32eaa17c78803c3f96d0e371a7f9b118",
+    "BodyVirtuals": "c4391fe9a98e3c216b6106ca0dc45269603b5d0bf2189f660adff34b2e4e17b8",
+    "ConfigurationFields": "5066c1ef798738bc70492deb29a1aeab181755ddd21eba63874379edadcb6ce9",
+    "ContainerFields": "f9c9230c4247b400d3e458940fc419f263cd870f420fb5760c6b76fa388b2521",
+    "ExternalFields": "292738d8a389ecfcf5b73648841ad52b34746c04252ec046318683c02c293ddb",
+    "HeaderBodyFields": "070a2df308656adc58311227485d2b98f8ed898b2fbc8f5fcc52b074b8877caf",
+    "MaterialFields": "82283bd6a47ea47829858b732db8751cfff312752fe210859bdde88b19bf0d99",
+    "UserPropFields": "820dabbf56e60f74d509851c07d70f7dc0874864c1bc6bbcc70f980cac2e4102"
+  },
+  "layout_revision": "2393c3a8106e83ee90e977fb167d27900e5f4f2a",
+  "local_write_actions": [
+    "Context",
+    "Virtual:Flag"
+  ],
+  "native_runs": 0,
+  "physical_format": 4,
+  "public_registration": false,
+  "refusals": 11,
+  "runtime_external_attempts": 0,
+  "schema": "kit.sw2026.research-single-configuration-cmgr.v1",
+  "sdk_base": "dbfbb09cbe8576b275b01487b8e195d6b00e08be",
+  "source_sha256": {
+    "re/tooling/sw2026/cmgr_slice/CheckPartCmgr.py": "74894d46080ccde16f924963f4e67d9feb40165f421b9ba1878be0634780890d",
+    "re/tooling/sw2026/cmgr_slice/PartCmgr.py": "8ae9a56f583a2ea18f34a4e171dad7c76e7aec46e55396fb18c4a9d3fd625170"
+  },
+  "task": "B04-SW2026-CMGR"
+}

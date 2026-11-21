@@ -1,0 +1,515 @@
+{
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "native": {
+    "child_driving_depth_m": {
+      "D1@Boss-Extrude1": 0.0143
+    },
+    "child_parents": {
+      "Boss-Extrude1": [
+        "Sketch1",
+        "Front Plane"
+      ],
+      "Sketch1": [
+        "Front Plane"
+      ]
+    },
+    "child_top_level_tree": [
+      [
+        "Comments",
+        "CommentsFolder"
+      ],
+      [
+        "Favorites",
+        "FavoriteFolder"
+      ],
+      [
+        "History",
+        "HistoryFolder"
+      ],
+      [
+        "Selection Sets",
+        "SelectionSetFolder"
+      ],
+      [
+        "Sensors",
+        "SensorFolder"
+      ],
+      [
+        "Design Binder",
+        "DocsFolder"
+      ],
+      [
+        "Annotations",
+        "DetailCabinet"
+      ],
+      [
+        "Surface Bodies",
+        "SurfaceBodyFolder"
+      ],
+      [
+        "Solid Bodies",
+        "SolidBodyFolder"
+      ],
+      [
+        "Environment",
+        "EnvFolder"
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder"
+      ],
+      [
+        "Equations",
+        "EqnFolder"
+      ],
+      [
+        "Material <not specified>",
+        "MaterialFolder"
+      ],
+      [
+        "Front Plane",
+        "RefPlane"
+      ],
+      [
+        "Top Plane",
+        "RefPlane"
+      ],
+      [
+        "Right Plane",
+        "RefPlane"
+      ],
+      [
+        "Origin",
+        "OriginProfileFeature"
+      ],
+      [
+        "Sketch1",
+        "ProfileFeature"
+      ],
+      [
+        "Boss-Extrude1",
+        "Extrusion"
+      ]
+    ],
+    "controls_healthy": true,
+    "distinct_processes": 6,
+    "drawing_feature_tree": [
+      [
+        "LinkedFrontAlpha comments",
+        "CommentsFolder",
+        null
+      ],
+      [
+        "LinkedFrontAlpha blocks",
+        "BlockFolder",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        null
+      ],
+      [
+        "LinkedFrontAlpha annotations",
+        "DetailCabinet",
+        null
+      ],
+      [
+        "LinkedFrontAlpha ink",
+        "InkMarkupFolder",
+        null
+      ],
+      [
+        "LinkedFrontAlpha review",
+        "MarkupCommentFolder",
+        null
+      ],
+      [
+        "LinkedFrontAlpha paper",
+        "DrSheet",
+        null
+      ],
+      [
+        "LinkedFrontAlpha datum",
+        "RefPlane",
+        "LinkedFrontAlpha paper"
+      ],
+      [
+        "LinkedFrontAlpha profile",
+        "ProfileFeature",
+        "LinkedFrontAlpha paper"
+      ],
+      [
+        "LinkedFrontAlpha details",
+        "DetailFolder",
+        "LinkedFrontAlpha paper"
+      ],
+      [
+        "LinkedFrontAlpha model view",
+        "AbsoluteView",
+        "LinkedFrontAlpha paper"
+      ],
+      [
+        "LinkedFrontAlpha view detail",
+        "DetailFolder",
+        "LinkedFrontAlpha model view"
+      ],
+      [
+        "LinkedFrontAlpha paper plane",
+        "RefPlane",
+        "LinkedFrontAlpha model view"
+      ],
+      [
+        "LinkedFrontAlpha paper sketch",
+        "ProfileFeature",
+        "LinkedFrontAlpha model view"
+      ],
+      [
+        "LinkedFrontAlpha model plane",
+        "RefPlane",
+        "LinkedFrontAlpha model view"
+      ],
+      [
+        "LinkedFrontAlpha model sketch",
+        "ProfileFeature",
+        "LinkedFrontAlpha model view"
+      ]
+    ],
+    "edited": {
+      "sheet": "LinkedFrontAlpha paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "view": {
+        "child_area_m2": 0.00345382,
+        "child_center_m": [
+          0.0,
+          0.0,
+          0.007149999999999999
+        ],
+        "child_update_stamp": 116,
+        "child_volume_m3": 1.2302718999999999e-05,
+        "configuration": "modeled default",
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.124431,
+          0.085561,
+          -0.00715,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "LinkedFrontAlpha model view",
+        "orientation": "*Front",
+        "outline_m": [
+          0.101163,
+          0.069893,
+          0.147699,
+          0.101229
+        ],
+        "position_m": [
+          0.124431,
+          0.085561
+        ],
+        "reference_name": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "resolved_reference_path": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "scale": 1.0
+      },
+      "whats_wrong": 0
+    },
+    "edited_drawing_bytes": 20162,
+    "edited_drawing_sha256": "1c6953d1e4c8f321012689ff1700978c6b8d69417bede3ed1bdd9ca47459a767",
+    "fresh_reopen": {
+      "sheet": "LinkedFrontAlpha paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "view": {
+        "child_area_m2": 0.00345382,
+        "child_center_m": [
+          0.0,
+          0.0,
+          0.007149999999999999
+        ],
+        "child_update_stamp": 116,
+        "child_volume_m3": 1.2302718999999999e-05,
+        "configuration": "modeled default",
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.124431,
+          0.085561,
+          -0.00715,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "LinkedFrontAlpha model view",
+        "orientation": "*Front",
+        "outline_m": [
+          0.101163,
+          0.069893,
+          0.147699,
+          0.101229
+        ],
+        "position_m": [
+          0.124431,
+          0.085561
+        ],
+        "reference_name": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "resolved_reference_path": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "scale": 1.0
+      },
+      "whats_wrong": 0
+    },
+    "host_report_sha256": "8923f526a7c2ce43cc6ae7f363ead5f64fcfa55ecaaef41af88673c7334d7401",
+    "immutable_inputs": true,
+    "license_inventory_preserved": true,
+    "numeric_comparisons": 602,
+    "original": {
+      "sheet": "LinkedFrontAlpha paper",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        7.0,
+        5.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "view": {
+        "child_area_m2": 0.00345382,
+        "child_center_m": [
+          0.0,
+          0.0,
+          0.007149999999999999
+        ],
+        "child_update_stamp": 116,
+        "child_volume_m3": 1.2302718999999999e-05,
+        "configuration": "modeled default",
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.1217,
+          0.0873,
+          -0.00715,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "name": "LinkedFrontAlpha model view",
+        "orientation": "*Front",
+        "outline_m": [
+          0.098432,
+          0.071632,
+          0.14496799999999999,
+          0.102968
+        ],
+        "position_m": [
+          0.1217,
+          0.0873
+        ],
+        "reference_name": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "resolved_reference_path": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "scale": 1.0
+      },
+      "whats_wrong": 0
+    },
+    "phases": [
+      {
+        "numeric_comparisons": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394410334158796,
+        "record_sha256": "97da8a4f916b607128e2d1cee96054f42f93a55602d911f0d916fb22b044ebc8",
+        "role": "ControlBefore/OpenEditSave",
+        "tree_rows": 16
+      },
+      {
+        "numeric_comparisons": 78,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394410617992766,
+        "record_sha256": "d8e297118756df65e987ba370e0f8d8bc9a5949650cc63fc9d852c3fb17c2a8b",
+        "role": "ControlBefore/FreshReopen",
+        "tree_rows": 16
+      },
+      {
+        "numeric_comparisons": 124,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394410890263689,
+        "record_sha256": "58fb1fc4bbe807f36b9f85fc4d6b5e185f17d4af31da5bf7f6d6a655fe6a2061",
+        "role": "Generated/OpenEditSave",
+        "tree_rows": 16
+      },
+      {
+        "numeric_comparisons": 80,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394411215490021,
+        "record_sha256": "7292c73d1a16707b985e310b473e4135ff3108d79ab377a10e72115953813909",
+        "role": "Generated/FreshReopen",
+        "tree_rows": 16
+      },
+      {
+        "numeric_comparisons": 121,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394411491499016,
+        "record_sha256": "b9254dafbba9bedbe2ea399540d894eb2710e9d8f4d746144ae839cf4c1b36ff",
+        "role": "ControlAfter/OpenEditSave",
+        "tree_rows": 16
+      },
+      {
+        "numeric_comparisons": 78,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394411779898280,
+        "record_sha256": "2ee28ea1a4dd01e749a7fcd5684920008d94534d027247ed162341c99030968c",
+        "role": "ControlAfter/FreshReopen",
+        "tree_rows": 16
+      }
+    ],
+    "postflight_sha256": "d5a7910dec1165a28a2dd2e51959dd9a9ccc1254c654155f7a330fa4529d479f",
+    "preflight_sha256": "5df6db3d16499dce4562047bfb7839a892f10145810b40d0290f30e7f62b96dd",
+    "result_sha256": "6dfa5478e6e062f17224109208013f655b66a616f927fea956d4464d547d0771",
+    "save_status": [
+      true,
+      0,
+      0
+    ],
+    "tools_sha256": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+      "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+      "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+      "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "InspectFrontDrawingMap.py": "0e2790397f1d8c9d33386cf3e4da655d36184fa30d37a9e3671716c0fa7948d3",
+      "InspectSdkBlindPart.py": "d76ecc7e985141be3b5c333ff5fa27cfdd734d62329a764ebbf2c7a742defffa",
+      "InspectSdkLinkedDrawing.py": "133ffbce39bdb272c1910c04e065356487a2b4e948b9410fda2eaa634a191050",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    },
+    "trial_sha256": "1a735625c53c140236ae29dc8b302eace48a1ee30980496b646eb1678e2ba9c6"
+  },
+  "normal_sdk_layout": {
+    "raw_readback_sha256": "7c99460a2b532f9c8231342fa4f282a3fae68312e3f3123322841546af3fbc4f",
+    "results": [
+      {
+        "configuration": "modeled default",
+        "has_transform": true,
+        "input_basename": "LinkedFrontAlpha.SLDDRW",
+        "model_reference": "DrawingModelRef(id='slddrw:model:1', source_path='C:\\\\Users\\\\Public\\\\Documents\\\\KitOracle\\\\SdkLinkedDrawing01\\\\Inputs\\\\LinkedFrontAlpha\\\\LinkedFrontAlphaChild.SLDPRT', source_format_id='solidworks.sldprt')",
+        "orientation": "*Front",
+        "position": [
+          0.1217,
+          0.0873
+        ],
+        "public_read_strict": false,
+        "ratio": [
+          1.0,
+          1.0
+        ],
+        "sheet_name": "LinkedFrontAlpha paper",
+        "source_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+        "view_name": "LinkedFrontAlpha model view"
+      },
+      {
+        "configuration": "modeled default",
+        "has_transform": true,
+        "input_basename": "EditedDrawing.SLDDRW",
+        "model_reference": "DrawingModelRef(id='slddrw:model:1', source_path='C:\\\\Users\\\\Public\\\\Documents\\\\KitOracle\\\\SdkLinkedDrawing01\\\\Inputs\\\\LinkedFrontAlpha\\\\LinkedFrontAlphaChild.SLDPRT', source_format_id='solidworks.sldprt')",
+        "orientation": "*Front",
+        "position": [
+          0.124431,
+          0.085561
+        ],
+        "public_read_strict": false,
+        "ratio": [
+          1.0,
+          1.0
+        ],
+        "sheet_name": "LinkedFrontAlpha paper",
+        "source_sha256": "1c6953d1e4c8f321012689ff1700978c6b8d69417bede3ed1bdd9ca47459a767",
+        "view_name": "LinkedFrontAlpha model view"
+      }
+    ],
+    "scope": "normal layout reader with strict mode disabled"
+  },
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "paired_construction": {
+    "artifact_files": {
+      "LinkedFrontAlpha.SLDDRW": {
+        "bytes": 7143,
+        "encoded_windows_path": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlpha.SLDDRW",
+        "sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee"
+      },
+      "LinkedFrontAlphaChild.SLDPRT": {
+        "bytes": 8309,
+        "encoded_windows_path": "C:\\Users\\Public\\Documents\\KitOracle\\SdkLinkedDrawing01\\Inputs\\LinkedFrontAlpha\\LinkedFrontAlphaChild.SLDPRT",
+        "sha256": "251e91656acb06a2ed17f50b9e45676b455bcf8da214fa3e205f19e95f86a03c"
+      }
+    },
+    "complete_sdk_generated_part_reference": true,
+    "construction_process_proof_sha256": "475e2ff249676a96200a768462885cb833beea7af40c19e3324106f0cf893f76",
+    "dependency_manifest_sha256": "59c31b587acbefacb0b400efe4d368e58416f535bf3a44ed613d23d8cb4ef4db",
+    "fixture_sha256": "39670020e79d93747b8018dd5e7ac4becf60bd91a6331016834cd1d22fa314b3",
+    "guarded_builds": 2,
+    "independent_replay_sha256": "edabf3a0f9dd6776f1ff506cf03164f279e0bc59df7d38543e39033db73a2133",
+    "independent_source_closure_sha256": "2d4e1223b30b803162cea35d1417b1019dae22b55e45f2f4732e265415c342d6",
+    "runtime_input_reads": 0,
+    "source_manifest_sha256": "36fb3183c61246c3af50f5db8761d183811f301f527af2cd4ba88631241e6eb9"
+  },
+  "passed": true,
+  "production_corpus_count": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sdk-linked-drawing-native-receipt.v1"
+}

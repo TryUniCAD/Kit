@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyFaces import (
     ReadBodyFaces,
 )
+
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.CheckLocalFins import (
     CheckLocalFins,
 )
@@ -18,8 +19,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 
 
 # all transmitted nodes must belong to the single typed local solid
-def CheckLocalGraph(NodesValue: Mapping[int, XmtNode]) -> None:
-    BodyValue, KindsValue = ReadLocalRoot(NodesValue)
+def CheckLocalGraph(
+    NodesValue: Mapping[int, XmtNode], *, AllowStoredAttrs: bool = False
+) -> None:
+    BodyValue, KindsValue = ReadLocalRoot(NodesValue, AllowStoredAttrs)
     FaceIds = KindsValue.get(14, set())
     if (
         not FaceIds
@@ -38,7 +41,11 @@ def CheckLocalGraph(NodesValue: Mapping[int, XmtNode]) -> None:
             raise ValueError("local body boundary inventory differs")
     for NodeValue in NodesValue.values():
         KindValue = NodeValue.KindValue
-        if 13 <= KindValue <= 50 and NodeValue.Integer("attributes_features"):
+        if (
+            not AllowStoredAttrs
+            and 13 <= KindValue <= 50
+            and NodeValue.Integer("attributes_features")
+        ):
             raise ValueError("local boundary has unprojected attributes")
         if KindValue == 14:
             LoopValue = RequireXmt(NodesValue, NodeValue.Integer("loop"), 15)

@@ -1,0 +1,217 @@
+{
+  "controls_healthy": true,
+  "distinct_exact_processes": 7,
+  "generated_disclosed_bodies_accepted": 2,
+  "generated_disclosed_numeric_checks": 140,
+  "generator_receipt_sha256": "48cb6a475739d315d4a71695b4cf807c69e94cd9d602e45fea7a4cc38dcb4de1",
+  "generator_revision": "4f37e98f823e1548852ab8c84d62458c48670de9",
+  "heldout_case_credit": 0,
+  "job_sha256": "39007d5576c02673586d1451b30908be3367b3611f5202f324b5ed37b2ce3a20",
+  "native_archive_control_accepted": true,
+  "native_part_writer_qualified": false,
+  "native_receipt_sha256": "89ab2f3bed45b246ba8b3af689e7dada094125f23daa17ae84a667da49960f21",
+  "native_writer_outputs": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "passed": true,
+      "record_sha256": "908a841ac596746a17ef660f8f13d5920b02b6106a1374631c5da59245ec1c54",
+      "role": "native_application_control"
+    },
+    {
+      "cold": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "load_error": 0,
+      "name": "Before",
+      "numeric_checks": 58,
+      "passed": true,
+      "payload": {
+        "bytes": 6448,
+        "sha256": "2c0d6f0999776fac5ca1688a4cecc1b6228aa8a302fd690fddcbf213107b5881"
+      },
+      "preference_restored": true,
+      "rebuilt": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "record_sha256": "a134f4ee79d7cbac774d1ae2908992f11903f742577ca2581d8010cb0b7473c7",
+      "role": "native_stream_control"
+    },
+    {
+      "cold": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "load_error": 0,
+      "name": "NativeArchive",
+      "numeric_checks": 58,
+      "passed": true,
+      "payload": {
+        "bytes": 6298,
+        "sha256": "ffc52d3cd19c4cba65fa798df5ffa0e45b3c85120fbd139e96092da292e836b0"
+      },
+      "preference_restored": true,
+      "rebuilt": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "record_sha256": "f075fdff6b47f73a05c1bc6042291662296192edfa001b9354580d04c0064f9e",
+      "role": "native_archive_control"
+    },
+    {
+      "cold": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.574e-06
+      },
+      "load_error": 0,
+      "name": "Rectangular",
+      "numeric_checks": 58,
+      "passed": true,
+      "payload": {
+        "bytes": 3759,
+        "sha256": "a7c77e2d2f1e4768e52b286df77d979098a4f4bef51000d593c30c27506b56ab"
+      },
+      "preference_restored": true,
+      "rebuilt": {
+        "area_m2": 0.0011499999999999998,
+        "com_m": [
+          -0.0024999999999999996,
+          0.014,
+          0.008499999999999999
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 2.5739999999999994e-06
+      },
+      "record_sha256": "e363437690a6ea9f162544fb8865cd38dc2014e536c12a67244a2d8c4b4e5d84",
+      "role": "generated_disclosed"
+    },
+    {
+      "cold": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.0043023255813953495,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "load_error": 0,
+      "name": "Concave",
+      "numeric_checks": 82,
+      "passed": true,
+      "payload": {
+        "bytes": 5193,
+        "sha256": "2b362a362328962192cffbfa0b420c897d9f50dc4c018d37f42a595b944102ef"
+      },
+      "preference_restored": true,
+      "rebuilt": {
+        "area_m2": 0.002068,
+        "com_m": [
+          0.01744186046511628,
+          -0.004302325581395349,
+          0.0034999999999999996
+        ],
+        "edges": 18,
+        "faces": 8,
+        "vertices": 12,
+        "volume_m3": 5.1600000000000006e-06
+      },
+      "record_sha256": "628110d0818c80398087a18e56f5a5ad97c6a1157a02cd4d46dbe40839b49452",
+      "role": "generated_disclosed"
+    },
+    {
+      "cold": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "load_error": 0,
+      "name": "After",
+      "numeric_checks": 58,
+      "passed": true,
+      "payload": {
+        "bytes": 6446,
+        "sha256": "49d52bad392d6373e40d5447220efedb17d038ee6aa9f3207f79a9416482f639"
+      },
+      "preference_restored": true,
+      "rebuilt": {
+        "area_m2": 0.0022220000000000005,
+        "com_m": [
+          0.007,
+          -0.011,
+          0.0105
+        ],
+        "edges": 12,
+        "faces": 6,
+        "vertices": 8,
+        "volume_m3": 6.669000000000002e-06
+      },
+      "record_sha256": "7425eacd72ffd2ec58124f2f2593854c958f64bd68d752525a127831b0b94ae6",
+      "role": "native_stream_control"
+    },
+    {
+      "name": "ApplicationAfter",
+      "passed": true,
+      "record_sha256": "6145e5c71c008bc6bc5ec207719c9c3a03929335eb6f0b6dd8e37a9a174c690f",
+      "role": "native_application_control"
+    }
+  ],
+  "schema": "kit.sw2026.generated-local-kernel-exchange-native.v1",
+  "tool_revision": "f9008df5ed3317980718b3478044b62c01f7e991"
+}

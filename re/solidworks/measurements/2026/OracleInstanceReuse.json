@@ -1,0 +1,104 @@
+{
+  "authority": "native COM process-separation and read-only session metadata",
+  "probe": {
+    "source_manifest": {
+      "revision": "361b4af0e8824df4c4dba0d153299ef02bd2b5cd",
+      "files": {
+        "ProbeInstance.py": {
+          "source": "re/tooling/sw2026/ProbeInstance.py",
+          "sha256": "7c4b5f88eb3c240d72e964cd45de4d125d3ceea173d48d2a8cdc321f03ec2795"
+        },
+        "Swapp.py": {
+          "source": "re/tooling/sw2026/Swapp.py",
+          "sha256": "5dc35af928b79ad0995500c2b6d23e56ebc7e8c30701553acc86d0816e1d6810"
+        },
+        "AuthorCurves.py": {
+          "source": "re/tooling/sw2026/AuthorCurves.py",
+          "sha256": "92e44129f53a6a7a76fec6ec62b64685bd1ea5906d69af0fc6b8dba770ca2aad"
+        },
+        "OracleIdentity.py": {
+          "source": "re/tooling/sw2026/OracleIdentity.py",
+          "sha256": "705d1912d24a034b17560ae6fe613164ec40bf66cf81d3a4c19a0290c862bc8b"
+        }
+      }
+    },
+    "raw_report_sha256": "8abd2ba4197920caf34affc681810488949124e9417aa0ffdc273c2efa2c8210",
+    "result": {
+      "authority": "versioned COM activation and process identity only",
+      "started_at": 1794754111.9042845,
+      "progid": "SldWorks.Application.34",
+      "before_pids": [4640],
+      "stage": "finished",
+      "fresh_process": false,
+      "existing_application_modified": false,
+      "documents_created_or_opened": false,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 4640,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [34, 5, 2, 604],
+        "expected_version": [34, 5, 2, 604],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "limitation": "activation returned a preexisting process; no application properties, document calls or exit command were applied",
+      "after_pids": [4640],
+      "preexisting_pids_missing_after": [],
+      "finished_at": 1794754112.0773041
+    }
+  },
+  "metadata_inspection": {
+    "source_manifest": {
+      "revision": "890dfd10cd8cd72bf7c40b47d5c0d11dc65e86d2",
+      "files": {
+        "OracleIdentity.py": {
+          "source": "re/tooling/sw2026/OracleIdentity.py",
+          "sha256": "5f73977967454b17a0c661a624964307617fb8361547d7a6f2998b54a2db34ff"
+        },
+        "Swapp.py": {
+          "source": "re/tooling/sw2026/Swapp.py",
+          "sha256": "5dc35af928b79ad0995500c2b6d23e56ebc7e8c30701553acc86d0816e1d6810"
+        },
+        "AuthorCurves.py": {
+          "source": "re/tooling/sw2026/AuthorCurves.py",
+          "sha256": "92e44129f53a6a7a76fec6ec62b64685bd1ea5906d69af0fc6b8dba770ca2aad"
+        }
+      }
+    },
+    "raw_report_sha256": "29468bdb73507061371f9306b134a89eeef3ac498206d38426f857b3ec61c23c",
+    "process_id": 4640,
+    "oracle_identity": {
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "pe_machine": "0x8664",
+      "revision": "34.5.2"
+    },
+    "document_count": 2,
+    "visible": false,
+    "user_control": true,
+    "documents": [
+      {
+        "dirty": false,
+        "has_saved_path": true
+      },
+      {
+        "dirty": true,
+        "has_saved_path": false
+      }
+    ],
+    "redaction": "titles and paths of user-owned documents are omitted; original metadata stays in owner-controlled staging",
+    "inspection_scope": "application identity and document metadata only; no properties written or documents opened, created, saved or closed"
+  },
+  "disposition": {
+    "preexisting_session_closed": false,
+    "user_owned_documents_changed": false,
+    "native_generation_or_acceptance_attempted": false,
+    "waiting_for_session_handoff": true
+  },
+  "limitation": "COM activation itself is not claimed to leave every internal application variable unchanged; neither script writes an application property or changes a document"
+}

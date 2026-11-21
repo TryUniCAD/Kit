@@ -1,0 +1,256 @@
+{
+  "binary_or_listing_in_delivery": false,
+  "direction_assignment": {
+    "code_sha256": "f3aab015c92dcf275cf413d767a6a7df07fd780044f321ade386e4c789d908fc",
+    "confidence": "confirmed stateless original PE",
+    "end_exclusive": "0x31dd39fa",
+    "import": {
+      "module": "sldmgu.dll",
+      "symbol": "??4mgVector_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    "import_cell": "0x4cd3a5d8",
+    "rule": "three explicit 64-bit component copies and return; no normalization",
+    "target": "0x31dd39e0"
+  },
+  "heldout_inputs_read": 0,
+  "member_rules": {
+    "chronology": "each node creation uses explicit FeatureInstant; revision IDs derive from actual new target nodes; default folder initialization and light constructor status are separate from native onCreate/rebuild scheduling",
+    "light_identity": "persistent node IDs and actual parent pointers distinguish members; external identifier may repeat",
+    "lighting_order": "actual serialized environment member list order is input; default creator iterates a session Environment Default vector rather than a fixed universal four rows",
+    "notes": "head and end are distinct NotesArea nodes; reciprocal f388; head f37c1 from AddFolder at4bebfe11; end f37c0 from makePartner; specialized defaults f3781 f3940 f39c1 from constructors",
+    "notes_names": "explicit two captions, restricted to known regular end tag form; no session uniqueness or collision-name algorithm simulated"
+  },
+  "model_ranges": [
+    {
+      "code_sha256": "d48bb753c0f0b984d45ea86419c3cfcf5f27a36e439bd5d654da3ae4d49671d6",
+      "end_exclusive": "0x4bebd675",
+      "name": "FtrFolderCtor",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bebd600"
+    },
+    {
+      "code_sha256": "e66bc9d10f92bf2cc58735e0fc15821fa8b91fef81020bc153f1eb3208f42a8e",
+      "end_exclusive": "0x4bebdaf1",
+      "name": "NotesFolderCtor",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bebdab0"
+    },
+    {
+      "code_sha256": "6dc03a8c0e7e0a97f2655c95c8377f54579d3be396d180bb8212b88f66eb5aff",
+      "end_exclusive": "0x4bec9eeb",
+      "name": "NotesMakePartner",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bec9e10"
+    },
+    {
+      "code_sha256": "f8a53f9a0620ad9fb99697099d489785ef88e69b86d02bbbf84f68c75f0ecdf9",
+      "end_exclusive": "0x4bebfea6",
+      "name": "AddFolderPair",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bebfc20"
+    },
+    {
+      "code_sha256": "c4cad5b1b2cc475fb4fc335ba2174e1fcc1e16ec19f086de9cc639fab91e1563",
+      "end_exclusive": "0x4becc52c",
+      "name": "FolderRegistration",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4becc360"
+    },
+    {
+      "code_sha256": "0563a5be500f1e5108881400fc9f5d080fa63af297c09eec61af5a657a0e29b3",
+      "end_exclusive": "0x4bc08e2a",
+      "name": "DirectionCtor",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bc08df0"
+    },
+    {
+      "code_sha256": "6a4b9d8d77266261af820d0103edbb516d4e5f94020229d8c87145b4a11d0705",
+      "end_exclusive": "0x4bc091b3",
+      "name": "LightCommonCtor",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bc090e0"
+    },
+    {
+      "code_sha256": "39750bcfb352e92b5084cbff14e524ce27bd15a16b139944a7398687afe1b4a5",
+      "end_exclusive": "0x4bc098d3",
+      "name": "LightAttributesBodyCtor",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4bc09510"
+    },
+    {
+      "code_sha256": "725ed962e750ca38877e96d9fe8868c9933e1d44e12d5656e381da6f870f3bf6",
+      "end_exclusive": "0x4b2abd38",
+      "name": "DirectionGetter",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4b2abd30"
+    },
+    {
+      "code_sha256": "0a546ab815a7c7267f65535c739809916ed5fe75a42be44b7f1871556fc28670",
+      "end_exclusive": "0x4b2ad5fe",
+      "name": "DirectionSetter",
+      "scope": "exact pinned instruction interval; caller and constructor observations remain static",
+      "start": "0x4b2ad5f0"
+    }
+  ],
+  "modules": [
+    {
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "image_base": "0x31dd0000",
+      "machine": "0x8664",
+      "name": "sldmgu.dll",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    }
+  ],
+  "native_execution": false,
+  "ordinary_full_source_qualification": false,
+  "schema": "kit.sw2026.system-member-native-rules.v1",
+  "semantic_light_fields": [
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "e81949aba65cb5b0313dcba3b786c74e08d06ae1e79be4e59fea2dfeda3e7108",
+        "end_exclusive": "0x4b2abfd7",
+        "semantic_export": "?getKeepLightInScene@moLightFeature_c@@",
+        "start": "0x4b2abfd0"
+      },
+      "owner_field": "0x388",
+      "property": "KeepLightInScene",
+      "setter": {
+        "code_sha256": "d2bc6958dc11ebdb3df6a47a413f640e143f7ff46dcb6db702211b8f3709a53f",
+        "end_exclusive": "0x4b2922f7",
+        "semantic_export": "?setKeepLightInScene@moLightFeature_c@@",
+        "start": "0x4b2922f0"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "5733b2bc6e1e4436d3c9b08d4c75d445a1dff14b1cc006c77a0a5269f11f8c94",
+        "end_exclusive": "0x4b28d2d7",
+        "semantic_export": "?getInModelSpace@moLightFeature_c@@",
+        "start": "0x4b28d2d0"
+      },
+      "owner_field": "0x428",
+      "property": "InModelSpace",
+      "setter": {
+        "code_sha256": "c865e7223e15b1cc18980d608792dec2779b6c8cb8dc7746a3a2579a9d83f7c9",
+        "end_exclusive": "0x4b2914e7",
+        "semantic_export": "?setInModelSpace@moLightFeature_c@@",
+        "start": "0x4b2914e0"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "2169a21f87568447451f84c89478fbc79f558d39eaa1b12ea88f9db347fdd1fe",
+        "end_exclusive": "0x4b2abde7",
+        "semantic_export": "?getEnabledInPV@moLightFeature_c@@",
+        "start": "0x4b2abde0"
+      },
+      "owner_field": "0x384",
+      "property": "EnabledInPv",
+      "setter": {
+        "code_sha256": "75c211e613536af894a7f394f75fa766aab70a733f6b92bd8b3ab0b2a972c8bb",
+        "end_exclusive": "0x4b2ad677",
+        "semantic_export": "?setEnabledInPV@moLightFeature_c@@",
+        "start": "0x4b2ad670"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "5ad071a52fd99f77fc99cb7997733a8c393cbbb71cd44d73571ef29c68e6d157",
+        "end_exclusive": "0x4b2aca97",
+        "semantic_export": "?getUseCartDisplay@moLightFeature_c@@",
+        "start": "0x4b2aca90"
+      },
+      "owner_field": "0x4f0",
+      "property": "UseCartesian",
+      "setter": {
+        "code_sha256": "c691722a4f1dcec6816156455d0f3946b6e6a207fb4acfd75d373581155f943a",
+        "end_exclusive": "0x4b2ad787",
+        "semantic_export": "?setUseCartDisplay@moLightFeature_c@@",
+        "start": "0x4b2ad780"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "8e54be9f6904c6965961aee99790dcc0f199a8d7c3a3c43b371dc17832d8868e",
+        "end_exclusive": "0x4b2ac499",
+        "semantic_export": "?getPVBrightness@moLightFeature_c@@",
+        "start": "0x4b2ac490"
+      },
+      "owner_field": "0x478",
+      "property": "PvBrightness",
+      "setter": {
+        "code_sha256": "7ee0ed0b26cfb14e3f7a8c9042e0cae620184225d34f77c4f43d49ba975fbfb6",
+        "end_exclusive": "0x4b2adad9",
+        "semantic_export": "?setPVBrightness@moLightFeature_c@@",
+        "start": "0x4b2adad0"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "89356c94adfd48dda679c3004ed2f6de5eb1e4d6e30a915034415301d8963ede",
+        "end_exclusive": "0x4b2ac4f7",
+        "semantic_export": "?getPVShadowEnabled@moLightFeature_c@@",
+        "start": "0x4b2ac4f0"
+      },
+      "owner_field": "0x488",
+      "property": "PvShadows",
+      "setter": {
+        "code_sha256": "4edd2d937b139ef6f5650eff8a3296bb69f590934eb8e94188d51b28c41d2e28",
+        "end_exclusive": "0x4b2adb37",
+        "semantic_export": "?setPVShadowEnabled@moLightFeature_c@@",
+        "start": "0x4b2adb30"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "4c6feb4919b850f09b0f4a8c3a1cb4042ece390aa4fa3427c58a6df7e1e601c2",
+        "end_exclusive": "0x4b283a39",
+        "semantic_export": "?getPVShadowQuality@moLightFeature_c@@",
+        "start": "0x4b283a30"
+      },
+      "owner_field": "0x490",
+      "property": "PvQuality",
+      "setter": {
+        "code_sha256": "0b399f62f386eff440404b78c615997d4b6e98b4df343b614e23611a9ece3613",
+        "end_exclusive": "0x4b2911e9",
+        "semantic_export": "?setPVShadowQuality@moLightFeature_c@@",
+        "start": "0x4b2911e0"
+      }
+    },
+    {
+      "confidence": "confirmed exact export plus instruction access; no runtime invocation",
+      "getter": {
+        "code_sha256": "6dae344263cf5ff60fedc777325dfeb5f38f2e99a6c7b3c8ab2af5db01964b9e",
+        "end_exclusive": "0x4b2ac409",
+        "semantic_export": "?getPVShadowSoftness@moDirectionLight_c@@",
+        "start": "0x4b2ac400"
+      },
+      "owner_field": "0x498",
+      "property": "DirectionalShadowSoftness",
+      "setter": {
+        "code_sha256": "a8676984aaf8db367f884392767d4574194b5f7eadde889d939d0ccd0e3207d6",
+        "end_exclusive": "0x4b2ada39",
+        "semantic_export": "?setPVShadowSoftness@moDirectionLight_c@@",
+        "start": "0x4b2ada30"
+      }
+    }
+  ],
+  "tools": {
+    "collector_sha256": "66f24cb62bb0b9746d4332f69498ae353301bc6fa4ee211f2bb16d6085109394",
+    "image_reader_sha256": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c",
+    "llvm_version": "Apple LLVM version 21.0.0"
+  }
+}

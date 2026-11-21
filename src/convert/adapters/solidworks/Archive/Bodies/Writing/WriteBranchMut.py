@@ -6,7 +6,10 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 # the writer must select the same conditional fields as the native reader
 def WriteBranchMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Selected = IsBranchTaken(
-        FrameValue.WriterValue.ContextValue, FrameValue.ScopeValue, RuleValue
+        FrameValue.WriterValue.ContextValue,
+        FrameValue.ScopeValue,
+        FrameValue.NodeValue,
+        RuleValue,
     )
     FrameValue.FieldsWriter(
         FrameValue, RuleValue.BodyValue if Selected else RuleValue.OtherValue

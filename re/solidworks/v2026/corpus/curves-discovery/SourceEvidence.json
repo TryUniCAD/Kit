@@ -1,0 +1,138 @@
+{
+  "schema": "kit.sw2026.curve-discovery-source-evidence.v1",
+  "manifest_sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e",
+  "privacy_ledger_sha256": "386ccad9eedb0b747f264490c9ef10f4e42debec006a14efeecaf096d8141e7c",
+  "source_lock": {
+    "sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+    "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+    "owner_verification_sha256": "0b9e314b871ec27ef1e0e21a60504d5cc107de632127f33267ce53c68d301403",
+    "heldout_native_payloads_included": 0
+  },
+  "owner_verification": {
+    "verified_utc": "2026-11-16T00:17:43.220529+00:00",
+    "native_source_files_hash_verified": 32,
+    "source_cases": 30,
+    "fresh_phases": 66,
+    "numeric_checks": 797,
+    "all_checks_passed": true,
+    "controls_before": [
+      "ControlRectangle",
+      "ControlCircle"
+    ],
+    "controls_after": [
+      "ControlRectangle",
+      "ControlCircle"
+    ],
+    "lock_sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+    "batch_sha256": "08be3c5557771b61de5999c26e471a3d97ed842dfefeb8295387706bcfef6681",
+    "source_tools": {
+      "AuthorCurves.py": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+    "writer_implementation_started": false,
+    "native_payload_interpreted": false,
+    "scope": "source-family lock only; no Kit-written curve acceptance",
+    "host_seconds": 2507.983747417
+  },
+  "owner_verification_privacy_operations": [],
+  "selected_discovery": 24,
+  "selected_controls": 2,
+  "heldout_payloads_read": 0,
+  "source_hashes_recomputed": 26,
+  "archive_model_verification_executed": false,
+  "fixture_native_acceptance": "unmeasured",
+  "provenance": "SOLIDWORKS-authored discovery/control source fixtures prepared only for research parsing; not Kit-generated writer output, held-out validation or inherited native acceptance",
+  "preparer_sha256": "b9a0b9362690df027a20f716c4b075d71f1306816aa834e7f8cf9c51a98486e8",
+  "dependencies": {
+    "strategy": "explicit real-module dependency order with namespace packages",
+    "package_initializers_executed": false,
+    "mocked_behavior": false,
+    "archive_schemas_loaded": false,
+    "modules": [
+      {
+        "module": "interchange.enums.EnumBase",
+        "file": "src/interchange/enums/EnumBase.py",
+        "sha256": "7a61a58b37bd722470c9a90b3927b4ffb4ab05058de835080d9cedb93ae94d60"
+      },
+      {
+        "module": "interchange.enums.EnumDocument",
+        "file": "src/interchange/enums/EnumDocument.py",
+        "sha256": "9a9c1e7816015fade1c7e37db64a777980f0da92ecf0befb758de943996fd1f2"
+      },
+      {
+        "module": "convert.adapters.base.FieldAliases",
+        "file": "src/convert/adapters/base/FieldAliases.py",
+        "sha256": "fd661caa831de5cd81dd586507d17adab57a83f932f8911f9078ce1333ad5f74"
+      },
+      {
+        "module": "convert.adapters.base.ContractCompat",
+        "file": "src/convert/adapters/base/ContractCompat.py",
+        "sha256": "e5a1d064b5c1f0236d5bfbe5f4c57206d7467575650893614e757621d3fcb70f"
+      },
+      {
+        "module": "convert.adapters.base.AdapterInfoView",
+        "file": "src/convert/adapters/base/AdapterInfoView.py",
+        "sha256": "5c286161c68a2faa62034c73714b4eba99e908bccf9d5e2f13bc7decd966dc61"
+      },
+      {
+        "module": "convert.adapters.base.AdapterInfo",
+        "file": "src/convert/adapters/base/AdapterInfo.py",
+        "sha256": "e7339d05978a53daf6cf406e715585caea878ae8c385f4fa8be55e0f07055063"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.RotateBytes",
+        "file": "src/convert/adapters/solidworks/container/RotateBytes.py",
+        "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.DecodeName",
+        "file": "src/convert/adapters/solidworks/container/DecodeName.py",
+        "sha256": "546b8eba44ea811d2a722a84af915ee6e10469abd81b98adfeb95edd2b11a2a2"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.SldprtFormat",
+        "file": "src/convert/adapters/solidworks/container/SldprtFormat.py",
+        "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.StreamLimits",
+        "file": "src/convert/adapters/solidworks/container/StreamLimits.py",
+        "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.InflateStream",
+        "file": "src/convert/adapters/solidworks/container/InflateStream.py",
+        "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.DecodePayload",
+        "file": "src/convert/adapters/solidworks/container/DecodePayload.py",
+        "sha256": "ce42e5b95f66cc86c9258c1faf2a6f5be73191828b95942e96447c086b42a619"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.StreamRecord",
+        "file": "src/convert/adapters/solidworks/container/StreamRecord.py",
+        "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.DecodeScanned",
+        "file": "src/convert/adapters/solidworks/container/DecodeScanned.py",
+        "sha256": "359de6dbcf18a1c07ffa623c5a5e357dc44933fc67daa1b1093f7675f45a824c"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.Format",
+        "file": "src/convert/adapters/solidworks/container/Format.py",
+        "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+      },
+      {
+        "module": "convert.adapters.solidworks.container.Container",
+        "file": "src/convert/adapters/solidworks/container/Container.py",
+        "sha256": "17262235924c76def3895e2dbdc3aee400e255e34bf917393b89b62eebef3184"
+      }
+    ],
+    "python": "3.14.7 (main, Aug  5 2026, 10:29:49) [Clang 21.0.0 (clang-2100.1.1.101)]"
+  },
+  "privacy_scan": "known operator account names, home paths and email patterns across UTF-8, Latin-1 and both UTF-16 alignments; no exhaustive privacy attestation"
+}

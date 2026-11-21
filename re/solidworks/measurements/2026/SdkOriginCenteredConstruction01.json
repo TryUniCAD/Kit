@@ -1,0 +1,963 @@
+{
+  "cases": [
+    {
+      "builds": [
+        {
+          "request_sha256": "a86799ada7cf3aa211ad9ec449cec1844a6557838f07a852133b99a2852f959e",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ff105e77530b8adb96c207d682a9ceda5bd151a8dc85c287c9a1a4c42e251707",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        },
+        {
+          "request_sha256": "a86799ada7cf3aa211ad9ec449cec1844a6557838f07a852133b99a2852f959e",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "ff105e77530b8adb96c207d682a9ceda5bd151a8dc85c287c9a1a4c42e251707",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.006983,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginConstructorAlphaChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.035731000000000006,
+            0.0
+          ],
+          [
+            0.035731000000000006,
+            0.021419
+          ],
+          [
+            0.0,
+            0.021419
+          ]
+        ]
+      },
+      "child_sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "corner-anchored",
+        "construction_diagonals": 0,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 5,
+        "origin_coincidences": 1,
+        "visible_lines": 4,
+        "wire_points": 5
+      },
+      "counterpart": {
+        "request_sha256": "05e7eb8a3b544a94952f5c147b611d05489b7b66e4f4c30344299a16cb18ebfa",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "70667991c1dea3b8dcc5d8f388170ceb30912f82965746511eac6fcda4df2230",
+        "worker_sha256": "5d09b53edc6f215b6dfbde3daafa4e94203e1a8a2bc2a94012dd8a427c43e1b5"
+      },
+      "drawing_sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b",
+      "independent_child": {
+        "anchor_kind": "corner-anchored",
+        "config_map_counter": 87,
+        "explicit_active_list_initialization": [
+          "f9d8",
+          "fa48",
+          "fa50"
+        ],
+        "feature_count": 19,
+        "native_acceptance": false,
+        "next_id": 27,
+        "passed": true,
+        "public_writer_qualified": false,
+        "resolved_map_counter": 236,
+        "runtime_input_file_reads": 0,
+        "scope": "independent neutral corner or centered anchored rectangle counterpart without saved CAD input",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "same_as_independent_research": true,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "bytes": 22700,
+            "same_as_independent_research": true,
+            "sha256": "6bdca95b0a4e02f3e9a958b62f5cc002dd7a9a9f8956f438da8325c79e8ab010"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "same_as_independent_research": true,
+            "sha256": "933cf05e6adcfcf23c4966b6d0784729414e3237336d2880d1f82eab6878ad6d"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17865,
+            "same_as_independent_research": true,
+            "sha256": "6ebad31f204d011854caef16aab803402de95b619342bd9f2c6e399047dd56bb"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "same_as_independent_research": true,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 807,
+            "same_as_independent_research": true,
+            "sha256": "b417b3ae7e718f5df79a606e730fe72ee83faceb29a6da2f6518c2943b34133c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "same_as_independent_research": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1542,
+            "same_as_independent_research": true,
+            "sha256": "bcebaf8d35f47c2e53a8965ec40ffb9c703d55bb42e39f3c38b0aeb4e8b9018f"
+          }
+        }
+      },
+      "name": "OriginConstructorAlpha",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "31c75489dffd2eb2f360d949a3ddd6e9dfd8f1cdf76b12ef976c5282d3c872a3",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b2b67d416aaeabef4187873bb560935b0ddd3b286fdecebb682251d9fdbee270",
+        "worker_sha256": "645eda021d244498d967600976f4d88c0396613fcbd15e155aa5873435958d2c"
+      },
+      "prepared": {
+        "child_sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3",
+        "child_shape": {
+          "actual_origin_id": 17,
+          "anchor_kind": "corner-anchored",
+          "construction_diagonals": 0,
+          "contour_frontier": 5,
+          "native_acceptance": false,
+          "next_line_id": 5,
+          "origin_coincidences": 1,
+          "visible_lines": 4,
+          "wire_points": 5
+        },
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 236,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "prior_corner_pair_bytes_unchanged": true,
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "f3c0b1242e787571a6dd36a72e15f71d6d20dc37fc97728b429347e377d44de7",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7598dd4363d54a47aabe1b71c1e111037794ce9d17fdd348cf592ab0dcb261b3",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        },
+        {
+          "request_sha256": "f3c0b1242e787571a6dd36a72e15f71d6d20dc37fc97728b429347e377d44de7",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7598dd4363d54a47aabe1b71c1e111037794ce9d17fdd348cf592ab0dcb261b3",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.009527,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginConstructorBetaΩChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.029173,
+            0.0
+          ],
+          [
+            0.029173,
+            0.042683
+          ],
+          [
+            0.0,
+            0.042683
+          ]
+        ]
+      },
+      "child_sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "corner-anchored",
+        "construction_diagonals": 0,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 5,
+        "origin_coincidences": 1,
+        "visible_lines": 4,
+        "wire_points": 5
+      },
+      "counterpart": {
+        "request_sha256": "5ab888e263600b1fd9f6d8d48a596f51b999622e898a567c7f4fdc6608a79de4",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e19389f6cbd255935cba166e9a990cf53451bde6e0863b493dcf9e484c0b467e",
+        "worker_sha256": "5d09b53edc6f215b6dfbde3daafa4e94203e1a8a2bc2a94012dd8a427c43e1b5"
+      },
+      "drawing_sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99",
+      "independent_child": {
+        "anchor_kind": "corner-anchored",
+        "config_map_counter": 87,
+        "explicit_active_list_initialization": [
+          "f9d8",
+          "fa48",
+          "fa50"
+        ],
+        "feature_count": 19,
+        "native_acceptance": false,
+        "next_id": 27,
+        "passed": true,
+        "public_writer_qualified": false,
+        "resolved_map_counter": 236,
+        "runtime_input_file_reads": 0,
+        "scope": "independent neutral corner or centered anchored rectangle counterpart without saved CAD input",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "same_as_independent_research": true,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "bytes": 22700,
+            "same_as_independent_research": true,
+            "sha256": "a88c657e2bcc2c462b7caa270fc631f5199fb161bb5e34a573b06ae9ec95f3a5"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 807,
+            "same_as_independent_research": true,
+            "sha256": "1dfba17ae6a26919a363dbfdef4894fcbe74112c6200d23343a1310bd16edfd8"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17865,
+            "same_as_independent_research": true,
+            "sha256": "36081cc398615e15d64f55d8e6a0f1f8a30ccd26dc3d27fc172e2e679333c928"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "same_as_independent_research": true,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 807,
+            "same_as_independent_research": true,
+            "sha256": "72d10235c2399db203d1397ed2eccf9bda37500f11eb85ede4ccfe7b654e631b"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "same_as_independent_research": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1542,
+            "same_as_independent_research": true,
+            "sha256": "fb08010da389c36a6f5c79df096bd683f7743df9fef79cae81e9c02d893b3ac9"
+          }
+        }
+      },
+      "name": "OriginConstructorBetaΩ",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "deb5442fee4a25d8b1e11cbceb33e1dc7b800433a6ba551131ec80e43d8435bd",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0bb94b98835d044281b16d0f0afc3a75ca720ca2aec8c7f1517ff737ef277704",
+        "worker_sha256": "645eda021d244498d967600976f4d88c0396613fcbd15e155aa5873435958d2c"
+      },
+      "prepared": {
+        "child_sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304",
+        "child_shape": {
+          "actual_origin_id": 17,
+          "anchor_kind": "corner-anchored",
+          "construction_diagonals": 0,
+          "contour_frontier": 5,
+          "native_acceptance": false,
+          "next_line_id": 5,
+          "origin_coincidences": 1,
+          "visible_lines": 4,
+          "wire_points": 5
+        },
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 236,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "prior_corner_pair_bytes_unchanged": true,
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "05f1907318832440693eaa4c475967614558beeffa8ae07b66efda3d569cbcda",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "dd67327b35f423d47c2df3a36a084d5ad0abf4c99fbf306969123575ceee72c9",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        },
+        {
+          "request_sha256": "05f1907318832440693eaa4c475967614558beeffa8ae07b66efda3d569cbcda",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "dd67327b35f423d47c2df3a36a084d5ad0abf4c99fbf306969123575ceee72c9",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.008173,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginCenterGammaChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            -0.0208655,
+            -0.0136945
+          ],
+          [
+            0.0208655,
+            -0.0136945
+          ],
+          [
+            0.0208655,
+            0.0136945
+          ],
+          [
+            -0.0208655,
+            0.0136945
+          ]
+        ]
+      },
+      "child_sha256": "030447a1501cefd2f7b28c0dc324c0869872f22c2cd17f0085ada2b56315e882",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "center-anchored",
+        "construction_diagonals": 2,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 7,
+        "origin_coincidences": 3,
+        "visible_lines": 6,
+        "wire_points": 6
+      },
+      "counterpart": {
+        "request_sha256": "8e29c1dde28cce8682913b1b14597f3fa6be6d0f575445cff9f9ff00c996aba8",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a26552efb02db0178aefb251c5b7b76e4bcbf4cda0abc9c391b0667f67dae484",
+        "worker_sha256": "5d09b53edc6f215b6dfbde3daafa4e94203e1a8a2bc2a94012dd8a427c43e1b5"
+      },
+      "drawing_sha256": "8593da8c3b87f537ab7d7463a00f382addb8e964c6447b445b8a7cd1a068caad",
+      "independent_child": {
+        "anchor_kind": "center-anchored",
+        "config_map_counter": 87,
+        "explicit_active_list_initialization": [
+          "f9d8",
+          "fa48",
+          "fa50"
+        ],
+        "feature_count": 19,
+        "native_acceptance": false,
+        "next_id": 27,
+        "passed": true,
+        "public_writer_qualified": false,
+        "resolved_map_counter": 240,
+        "runtime_input_file_reads": 0,
+        "scope": "independent neutral corner or centered anchored rectangle counterpart without saved CAD input",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "same_as_independent_research": true,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "bytes": 22440,
+            "same_as_independent_research": true,
+            "sha256": "389db5c09c8b739190fdb1bd0d25a8f94524642b73d229cf97835386698d6770"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 777,
+            "same_as_independent_research": true,
+            "sha256": "d8bb0c2402543a2dcd5a8d4a1cb0e2de05a7c5a43e372f2ffe82d131266f3210"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 18413,
+            "same_as_independent_research": true,
+            "sha256": "07a04bd9bc0ca507608c88fc108f64bd11733d8d1a93e8ada8f9d34096d2ec93"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "same_as_independent_research": true,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 777,
+            "same_as_independent_research": true,
+            "sha256": "bda4677fdb27dd8018d91e7ce7d3e503ba3dec2e778b5f0e2924cb48d13fdf08"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "same_as_independent_research": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1536,
+            "same_as_independent_research": true,
+            "sha256": "79c3b9699deb8e67f775cf36e52074d0a1c3d78158206ee7a817b33fc6b29364"
+          }
+        }
+      },
+      "name": "OriginCenterGamma",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "a315f74453436c9690f057dfb2c9eb817bed6d04a2ff10a676caeb30ecd8fe87",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3e33d3c1133aeff93ded2389e3ba39ffe0e41d79370b98b03ef7563547f8ee98",
+        "worker_sha256": "645eda021d244498d967600976f4d88c0396613fcbd15e155aa5873435958d2c"
+      },
+      "prepared": {
+        "child_sha256": "030447a1501cefd2f7b28c0dc324c0869872f22c2cd17f0085ada2b56315e882",
+        "child_shape": {
+          "actual_origin_id": 17,
+          "anchor_kind": "center-anchored",
+          "construction_diagonals": 2,
+          "contour_frontier": 5,
+          "native_acceptance": false,
+          "next_line_id": 7,
+          "origin_coincidences": 3,
+          "visible_lines": 6,
+          "wire_points": 6
+        },
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "8593da8c3b87f537ab7d7463a00f382addb8e964c6447b445b8a7cd1a068caad",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 240,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "5c638933661c26eddb0c2653015f83a70e1e3ad0d92999d9501de46c29936bba",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "935fcc4fada3d8a52e55365de7ebf902450c83b1aca2f67f5a9255017d62b5cb",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        },
+        {
+          "request_sha256": "5c638933661c26eddb0c2653015f83a70e1e3ad0d92999d9501de46c29936bba",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "935fcc4fada3d8a52e55365de7ebf902450c83b1aca2f67f5a9255017d62b5cb",
+          "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+        }
+      ],
+      "changed_default_streams": [
+        "Contents/Definition"
+      ],
+      "child_neutral": {
+        "configuration_name": "modeled default",
+        "depth_m": 0.005987,
+        "depth_name": "D1",
+        "driver_names": [
+          "D1",
+          "D2"
+        ],
+        "feature_name": "Boss-Extrude1",
+        "name": "OriginCenterDeltaΩChild",
+        "sketch_name": "Sketch1",
+        "vertices_m": [
+          [
+            -0.0260965,
+            -0.0098655
+          ],
+          [
+            0.0260965,
+            -0.0098655
+          ],
+          [
+            0.0260965,
+            0.0098655
+          ],
+          [
+            -0.0260965,
+            0.0098655
+          ]
+        ]
+      },
+      "child_sha256": "f3d81cd6955a6e4f83f64bb0b533627c6593f9120c58aa3c6d3fd51d48c12075",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "center-anchored",
+        "construction_diagonals": 2,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 7,
+        "origin_coincidences": 3,
+        "visible_lines": 6,
+        "wire_points": 6
+      },
+      "counterpart": {
+        "request_sha256": "7f9db17b299a5670c6f1c67c2e0ad28bdb967d348c5e1f819f4e6206091c76d6",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5f9851cad1bb47f0d8986d6135bc5f9636cd02ed22f94e55efa1164adc992dbe",
+        "worker_sha256": "5d09b53edc6f215b6dfbde3daafa4e94203e1a8a2bc2a94012dd8a427c43e1b5"
+      },
+      "drawing_sha256": "b52f33629e0e0879d26f36f105f8c27cd6043694c104736b30434d06da73375a",
+      "independent_child": {
+        "anchor_kind": "center-anchored",
+        "config_map_counter": 87,
+        "explicit_active_list_initialization": [
+          "f9d8",
+          "fa48",
+          "fa50"
+        ],
+        "feature_count": 19,
+        "native_acceptance": false,
+        "next_id": 27,
+        "passed": true,
+        "public_writer_qualified": false,
+        "resolved_map_counter": 240,
+        "runtime_input_file_reads": 0,
+        "scope": "independent neutral corner or centered anchored rectangle counterpart without saved CAD input",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "same_as_independent_research": true,
+            "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+          },
+          "Contents/Config-0": {
+            "bytes": 22492,
+            "same_as_independent_research": true,
+            "sha256": "6ecec627638e18205c18e07eeca04ce29636bf64dd9da0242975029be761c6d2"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 783,
+            "same_as_independent_research": true,
+            "sha256": "6b2eb4b246b5f9cc13415507ee76f8238aaefc2e8db3bf35b5c5e79adad6678f"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 18413,
+            "same_as_independent_research": true,
+            "sha256": "c2784483b73210930df0dd90fa8f4c221df8249fb73561ab2b626f69914fd716"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "same_as_independent_research": true,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 783,
+            "same_as_independent_research": true,
+            "sha256": "911a14c0d2493cbb5d7cc514c0c34a9f33ad5bf3a0e969b1ed2fee30d2c4d749"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "same_as_independent_research": true,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 169,
+            "same_as_independent_research": true,
+            "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1551,
+            "same_as_independent_research": true,
+            "sha256": "aa6827ed6563b043a6e2b74108ff0e8da9d177090fb974be331f54f1801fd2ef"
+          }
+        }
+      },
+      "name": "OriginCenterDeltaΩ",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "7424b42221e8c4f7540664385cc4935fdaca91b3e13549d0bff4d42ee95b701b",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8c40513684f2ae0b4ad4d44c4361887a96a22f2119432405ae36199552b8b3f1",
+        "worker_sha256": "645eda021d244498d967600976f4d88c0396613fcbd15e155aa5873435958d2c"
+      },
+      "prepared": {
+        "child_sha256": "f3d81cd6955a6e4f83f64bb0b533627c6593f9120c58aa3c6d3fd51d48c12075",
+        "child_shape": {
+          "actual_origin_id": 17,
+          "anchor_kind": "center-anchored",
+          "construction_diagonals": 2,
+          "contour_frontier": 5,
+          "native_acceptance": false,
+          "next_line_id": 7,
+          "origin_coincidences": 3,
+          "visible_lines": 6,
+          "wire_points": 6
+        },
+        "complete_definition_byte_identity": true,
+        "config_map_next": 87,
+        "datum_time_is_native_unset_when_no_creation_event": true,
+        "drawing_sha256": "b52f33629e0e0879d26f36f105f8c27cd6043694c104736b30434d06da73375a",
+        "heldout_acceptance": false,
+        "native_acceptance": false,
+        "origin_creation_log_count": 0,
+        "passed": true,
+        "profile": {
+          "actual_folder_and_view_aliases": true,
+          "actual_origin_and_component_aliases": true,
+          "bitmaps_empty": true,
+          "child_origin_id": 17,
+          "component_acquisition_count": 0,
+          "component_stamp": 203,
+          "creation_epoch": 2592000,
+          "display_id": 10,
+          "model_next_display_id": 11,
+          "native_lifecycle_acceptance": false,
+          "ordinary_profile_id": 18
+        },
+        "public_drawing_writer_enabled": false,
+        "resolved_map_next": 240,
+        "schema": "kit.sw2026.sdk-origin-drawing-preparation.v1",
+        "typed_linked_child_complete": true,
+        "unprojected": [
+          "drawing.profile_displays"
+        ]
+      },
+      "profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "runtime_input_file_access_attempts": 0,
+      "sdk_research_imports": []
+    }
+  ],
+  "earlier_false_reason": "the process reporter omitted its new assertion helper from the expected helper inventory; SDK constructors and read guard were unchanged",
+  "earlier_false_result_sha256": "7e6cd2ada7f0cd5e2b3c4d0b07d477f53dd66dc2af662e2fd6e381a8053ecac5",
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "native_acceptance": false,
+  "passed": true,
+  "process_count": 28,
+  "public_drawing_writer_enabled": false,
+  "rejections": [
+    {
+      "case": "origin_selection_ordinary-child-sketch",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "3838631412dbd3ac4624fe576b35194e6bac4895156f2f5bb5635feb2371e83c",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "origin_population_argument_1",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "4cac58d97ffb7eaa12acace9876903b4f280f078626e5beb57350ce25cb15c22",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "origin_population_argument_False",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "4f1f8f82111d5fbc2d14b5e777238d34c97d4d4aa27e8f750be37225710d56da",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "origin_feature_id_17",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "a4a96cf9701f088c4564b7fc711779e6feb904ec2d6dc688453b022cb73ccd91",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "origin_creation_time_2592000",
+      "diagnostic": "origin pair requires explicit ordinary population of the actual child origin",
+      "rejected": true,
+      "request_sha256": "f6daf309b2c3000521663612bfa5685157aa3ffc1bb1d2bb02e507b245a28719",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "cb9d5add261b23ae58eb4e2ca33153cfc6c291028113ffa0a4ec47141ed65804",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "unknown_child_anchor",
+      "diagnostic": "origin pair child construction requires a complete corner or centered anchor family",
+      "rejected": true,
+      "request_sha256": "2e4da226c48e034c1cced902b3550346aabde755c1b959691a724e609d4bcaf5",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "60dee073f73a7fc91bf715176a285f7bdd3eb884892a5a7e80a28658b8df0d1a",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "wrong_child_path",
+      "diagnostic": "linked drawing path model or configuration differs from its actual generated child",
+      "rejected": true,
+      "request_sha256": "732ea6010fd698f054e84888d1867b39b17e918c677d79fff764d33aa49cbefb",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "97e6e989e5a4c23b4b4973d87235c4bf595ed1fa3a266c76af2d411ee4af4ab7",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "wrong_child_configuration",
+      "diagnostic": "linked drawing path model or configuration differs from its actual generated child",
+      "rejected": true,
+      "request_sha256": "232d9d117b62f70aacea9f3c0029e38e59ac7be05873c995e52bd4ff9e5161d4",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "97e6e989e5a4c23b4b4973d87235c4bf595ed1fa3a266c76af2d411ee4af4ab7",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "center_as_corner",
+      "diagnostic": "corner anchor requires four rectangle vertices with the first at origin",
+      "rejected": true,
+      "request_sha256": "c9cb8dc6b109577f03042cc2fb3ec8311d9dcfb21a54bb4c9c59f82369760b08",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "888b5c93108115131471c5bf91694e09e22e76f46915254cbeb94b93041b1e82",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "center_shifted_from_origin",
+      "diagnostic": "center anchor requires an ordered rectangle symmetric about the actual origin",
+      "rejected": true,
+      "request_sha256": "3840ced0e603e1947f02535be1c072a0452a01570ef3ceddb2da5d43696144f3",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "fcedadfd81a04b1d15976766740b791745c3552a807503d3a5268ae430404eb7",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "center_text_inside_rectangle",
+      "diagnostic": "rectangle dimension text must lie outside beside its dimensioned edge",
+      "rejected": true,
+      "request_sha256": "92a1dca7a606996536ae99b68dd5156bfc65ad71b558b4b76fa332f897d31466",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "65b20b36bd8598fdbc879cd326e07ae650623bf457fdabfbde2e381dfc68f2b0",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    },
+    {
+      "case": "center_missing_driver",
+      "diagnostic": "dimensioned rectangle requires four axis relations and two point distance drivers",
+      "rejected": true,
+      "request_sha256": "0f88e724cecc2c497c2ba611b7218aa52c9f6074236ccd4056d6abd3541458c4",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "2f726c78d079b6a7aa608dce5f1852ac88e27489a65f67e4cc9b1a9ffd716d95",
+      "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+    }
+  ],
+  "root_result_sha256": "23314e11d78d40d95477828d95855b74d923ce679201ddefec0b0d279bed93c5",
+  "schema": "kit.sw2026.sdk-origin-centered-process-receipt.v1",
+  "source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc"
+}

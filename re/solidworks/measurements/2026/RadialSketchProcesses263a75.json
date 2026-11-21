@@ -1,0 +1,534 @@
+{
+  "schema": "kit.sw2026.radial-sketch-processes.v1",
+  "scope": "remote generation and archive/process checks only; centers remain free",
+  "source_revision": "263a75d4133482d4789626b7ccee15d8f7eb49d7",
+  "tested_revision": "a30b510786d3f6a57011434018d244d24cde74e7",
+  "tested_tree": "9eb98d2e41656014791a4b92fd298de3399f6222",
+  "verified_tested_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "263a75d4133482d4789626b7ccee15d8f7eb49d7"
+  ],
+  "run": 43853201424,
+  "job": 133250770396,
+  "artifact": {
+    "id": 14221075235,
+    "name": "solidworks-construction-a30b510786d3f6a57011434018d244d24cde74e7",
+    "bytes": 20503527,
+    "reported_digest": "sha256:1665a6cf5927b89ff3e4f1db44317fe680baba75fefbef89591dbbf5ca2fc2f7",
+    "zip_digest_independently_verified": false
+  },
+  "native_format_process_checks": {
+    "passed": 184,
+    "skipped": 158
+  },
+  "policy_process_checks": {
+    "passed": 171
+  },
+  "cases": [
+    {
+      "sizes": {
+        "Header2": 454,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 454,
+        "swXmlContents/KeyWords": 1460,
+        "Contents/Config-0": 21132,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 477,
+        "Contents/Config-0-ResolvedFeatures": 8172
+      },
+      "next_id": 20,
+      "map_count": 82,
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moNotesAreaFtrFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c"
+      ],
+      "points": 2,
+      "lines": 0,
+      "arcs": 1,
+      "radial": {
+        "type": 3,
+        "name": "D1",
+        "value": 0.005347,
+        "parameter_id": -1,
+        "dimension_id": 19,
+        "reference_count": 0,
+        "handle_class": "moSkDimHandleRadial_c",
+        "display_class": "moDisplayRadialDim_c"
+      },
+      "depth": null,
+      "has_extrusion": false,
+      "plane_ownership": {
+        "model_visual_properties": true,
+        "separate_visual_owners": true,
+        "distinct_wrappers": true,
+        "distinct_components": true,
+        "copied_components": true,
+        "shared_model_owner": true,
+        "same_plane": true
+      },
+      "configuration_progress": true,
+      "standard_views": true,
+      "denied_reads": [],
+      "vendor_acceptance": "unverified",
+      "sha256": "4e879f3867f4420f6bb8aa2726c57bc0af1e77ec9925e6cbf1dff7bcf020654e",
+      "bytes": 7260,
+      "request": {
+        "document": {
+          "name": "DrivingRadius",
+          "configuration_name": "authored configuration",
+          "sketch_name": "Sketch1",
+          "extrusion_name": "Boss-Extrude1",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "sketch",
+          "center_m": [
+            -0.002983,
+            0.004129
+          ],
+          "radius_m": 0.005347,
+          "circle_dimension": {
+            "mode": "radius",
+            "text_point_m": [
+              0.013729,
+              0.016811,
+              0.0
+            ]
+          }
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false
+        }
+      },
+      "source_policy": "neutral authored geometry only; no native source streams",
+      "report": {
+        "file": "DrivingRadius.json",
+        "bytes": 909184,
+        "sha256": "d3e7abb66910a093d176afb0fc0d9508f3639dfbd2faef6719a2161400ad7004"
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 454,
+          "sha256": "822d776fc2082de9775d3b46eb62f97bd4625ab42ae6ead290e931d6e2ed55f9",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 454,
+          "sha256": "82d8012955e08500bf1f5c3304b213c3ee753a21983008de32216210a9f2b17b",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21132,
+          "sha256": "12216362b76da2b3467bffcdab4df95214aabbd33233ae2abd7c4991d21f1601",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "0d426db8f65366eacc50905b73bacffa7b06150363441a02aa4a6dbd4b992867",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 8172,
+          "sha256": "6660f292d809aa117c552f5bcade9e100b8f4e084f7c5a7c807bb6678f1e0f1d",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        }
+      },
+      "module_reads_observed": true,
+      "name": "DrivingRadius"
+    },
+    {
+      "sizes": {
+        "Header2": 458,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 163,
+        "Contents/Config-0-ModelHeader": 458,
+        "swXmlContents/KeyWords": 1462,
+        "Contents/Config-0": 21136,
+        "Contents/CMgr": 1159,
+        "Contents/Definition": 477,
+        "Contents/Config-0-ResolvedFeatures": 8190
+      },
+      "next_id": 20,
+      "map_count": 82,
+      "features": [
+        "moCommentsFolder_c",
+        "moFavoriteFolder_c",
+        "moHistoryFolder_c",
+        "moSelectionSetFolder_c",
+        "moSensorFolder_c",
+        "moDocsFolder_c",
+        "moSurfaceBodyFolder_c",
+        "moSolidBodyFolder_c",
+        "moEnvFolder_c",
+        "moNotesAreaFtrFolder_c",
+        "moEqnFolder_c",
+        "moMaterialFolder_c",
+        "moDetailCabinet_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moRefPlane_c",
+        "moOriginProfileFeature_c",
+        "moProfileFeature_c"
+      ],
+      "points": 2,
+      "lines": 0,
+      "arcs": 1,
+      "radial": {
+        "type": 15,
+        "name": "D1",
+        "value": 0.017558000000000004,
+        "parameter_id": -1,
+        "dimension_id": 19,
+        "reference_count": 0,
+        "handle_class": "moSkDimHandleRadial_c",
+        "display_class": "moDisplayRadialDim_c"
+      },
+      "depth": null,
+      "has_extrusion": false,
+      "plane_ownership": {
+        "model_visual_properties": true,
+        "separate_visual_owners": true,
+        "distinct_wrappers": true,
+        "distinct_components": true,
+        "copied_components": true,
+        "shared_model_owner": true,
+        "same_plane": true
+      },
+      "configuration_progress": true,
+      "standard_views": true,
+      "denied_reads": [],
+      "vendor_acceptance": "unverified",
+      "sha256": "c01dd094a943cdd23d698368849565a0c9b03c7c0eb7780e43e813d6ecf742cf",
+      "bytes": 7290,
+      "request": {
+        "document": {
+          "name": "DrivingDiameter",
+          "configuration_name": "authored configuration",
+          "sketch_name": "Sketch1",
+          "extrusion_name": "Boss-Extrude1",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "sketch",
+          "center_m": [
+            0.007541,
+            -0.006389
+          ],
+          "radius_m": 0.008779,
+          "circle_dimension": {
+            "mode": "diameter",
+            "text_point_m": [
+              0.025923,
+              0.014357,
+              0.0
+            ]
+          }
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false
+        }
+      },
+      "source_policy": "neutral authored geometry only; no native source streams",
+      "report": {
+        "file": "DrivingDiameter.json",
+        "bytes": 909201,
+        "sha256": "d21bdb40d60626488b9b3551513f11acb0279a85cc099072a9c0b5b517e3cbe9"
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 458,
+          "sha256": "c19f4e0f19740bd111eb8914a9a62ee210a86d426229155ceb8c3bf873667c37",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 458,
+          "sha256": "c7cb7594a80511b7eef76b87071f4f9764eeba3f44ca534ac099ec510cfe9f48",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21136,
+          "sha256": "31483eef7374cf5518da15daccbb8074147dd61b0427f28a29226a1e5c129c0d",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "0d426db8f65366eacc50905b73bacffa7b06150363441a02aa4a6dbd4b992867",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 8190,
+          "sha256": "3c09705dc2778cce4af939e0b5d046b3d142a2a87de1a660b179256e98c21db9",
+          "passed": true,
+          "tail": 0,
+          "byte_identity_passed": true,
+          "proven_schemas": true
+        }
+      },
+      "module_reads_observed": true,
+      "name": "DrivingDiameter"
+    }
+  ],
+  "strict_archive_comparisons": 16,
+  "native_acceptance": false,
+  "radial_dimension_acceptance": false,
+  "circle_extrusion_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "production_adapter": "read-only",
+  "local_test_execution": false
+}

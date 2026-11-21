@@ -1,0 +1,387 @@
+{
+  "case_count": 3,
+  "cases": {
+    "Baked01.FCStd": {
+      "physical_owners": {
+        "class": "Part::Feature",
+        "document_label": "Baked01",
+        "document_uid": "7490b28c-63bc-4aee-8a15-b20536063fab",
+        "driver_lengths_mm": {},
+        "label": "Disclosed Baked A",
+        "name": "Specimen",
+        "object_id": "4041",
+        "placement_origin_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "properties": [
+          "ExpressionEngine",
+          "Label",
+          "Label2",
+          "Placement",
+          "Shape",
+          "ShapeMaterial",
+          "Visibility"
+        ],
+        "shape_material_uuid": "7f9fd73b-50c9-41d8-b7b2-575a030c1eeb",
+        "shape_member": "Specimen.Shape.brp",
+        "shape_part_attributes": {
+          "ElementMap": "15.70200.5",
+          "file": "Specimen.Shape.brp"
+        }
+      },
+      "source_lock": {
+        "document_xml_sha256": "01e9852f636515dffb51e5606c9e5168d9ac9321de4cb1e23ec1369c543e38b4",
+        "file_sha256": "34f028eec62cac170d87962b8397447f1bbd663aae6bbe06551af3ce58401288",
+        "object_count": 1,
+        "shape_sha256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+        "solid_count": 1,
+        "standalone_baked": true
+      },
+      "strict": {
+        "admission": "unrepresented_source_owners",
+        "capabilities_missing_from_bare_recipe": [
+          "body_structure",
+          "native_payloads",
+          "parameters",
+          "provenance",
+          "roundtrip_metadata"
+        ],
+        "configuration": "Default",
+        "design_body_generated": true,
+        "design_body_id": "freecad:body:default",
+        "document_refusal": "bare local import requires a neutral millimetre B-rep",
+        "feature_id": "freecad:feature:Specimen",
+        "feature_kind": "imported",
+        "geometry": {
+          "area_mm2": 1445.28125,
+          "attribute_entity_counts": {
+            "bodies": 1,
+            "curves": 12,
+            "faces": 6,
+            "surfaces": 6
+          },
+          "body_id": "freecad:occ:3e14aa80053cb2f51725:body:1",
+          "bounds_mm": [
+            [
+              -10.5,
+              18.125
+            ],
+            [
+              12.25,
+              28.0
+            ],
+            [
+              4.75,
+              10.875
+            ]
+          ],
+          "center_mm": [
+            3.8125,
+            20.125,
+            7.8125
+          ],
+          "linked_line_carriers": 12,
+          "oriented_trim_uses": 24,
+          "outward_planar_faces": 6,
+          "reversed_face_uses": 1,
+          "shell_use_reversed": true,
+          "tolerances_mm": {
+            "edges": [
+              1e-07
+            ],
+            "faces": [
+              1e-07
+            ],
+            "vertices": [
+              1e-07
+            ]
+          },
+          "volume_mm3": 2761.41796875
+        },
+        "geometry_refusal": "invalid local prism B-rep: B-rep body freecad:occ:3e14aa80053cb2f51725:body:1 references a missing design body",
+        "library_default_material": true,
+        "native_refusal": "native-only feature definitions cannot be exported: Baked01.FCStd: freecad:feature:Specimen (freecad.fcstd:Part::Feature)",
+        "neutral_sha256": "5a9e202dd521b82019a1624908568c2c2bc11611e7c0e73b5a8333315dddf55d",
+        "parameters": [
+          "Label",
+          "Label2",
+          "Visibility"
+        ],
+        "payload_owners": {
+          "brep": "freecad:brep:Specimen:Shape",
+          "document": "freecad:native-document",
+          "verification": "freecad:native-document-binding"
+        },
+        "source_reads": 6,
+        "strict_read": true
+      }
+    },
+    "Baked02.FCStd": {
+      "physical_owners": {
+        "class": "Part::Feature",
+        "document_label": "Baked02",
+        "document_uid": "cb9d052c-bb17-4ea6-bf02-d145958f4d21",
+        "driver_lengths_mm": {},
+        "label": "Disclosed Baked B",
+        "name": "Specimen",
+        "object_id": "871",
+        "placement_origin_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "properties": [
+          "ExpressionEngine",
+          "Label",
+          "Label2",
+          "Placement",
+          "Shape",
+          "ShapeMaterial",
+          "Visibility"
+        ],
+        "shape_material_uuid": "7f9fd73b-50c9-41d8-b7b2-575a030c1eeb",
+        "shape_member": "Specimen.Shape.brp",
+        "shape_part_attributes": {
+          "ElementMap": "15.70200.5",
+          "file": "Specimen.Shape.brp"
+        }
+      },
+      "source_lock": {
+        "document_xml_sha256": "85d82d44e0eb4ba5c9401db3e9695ab094e9970e63d870b001c9997447acc18d",
+        "file_sha256": "58f57798a445c521ba90e712c3493583cfafeb239098a9881c63036c743e4ce5",
+        "object_count": 1,
+        "shape_sha256": "ac7510fbaf6ab6d75792a163ed280a1775cf17679e849c929144ebb8e20e8398",
+        "solid_count": 1,
+        "standalone_baked": true
+      },
+      "strict": {
+        "admission": "unrepresented_source_owners",
+        "capabilities_missing_from_bare_recipe": [
+          "body_structure",
+          "native_payloads",
+          "parameters",
+          "provenance",
+          "roundtrip_metadata"
+        ],
+        "configuration": "Default",
+        "design_body_generated": true,
+        "design_body_id": "freecad:body:default",
+        "document_refusal": "bare local import requires a neutral millimetre B-rep",
+        "feature_id": "freecad:feature:Specimen",
+        "feature_kind": "imported",
+        "geometry": {
+          "area_mm2": 1979.65625,
+          "attribute_entity_counts": {
+            "bodies": 1,
+            "curves": 12,
+            "faces": 6,
+            "surfaces": 6
+          },
+          "body_id": "freecad:occ:3e14aa80053cb2f51725:body:1",
+          "bounds_mm": [
+            [
+              14.375,
+              33.875
+            ],
+            [
+              -25.625,
+              -0.75
+            ],
+            [
+              -3.5,
+              7.875
+            ]
+          ],
+          "center_mm": [
+            24.125,
+            -13.1875,
+            2.1875
+          ],
+          "linked_line_carriers": 12,
+          "oriented_trim_uses": 24,
+          "outward_planar_faces": 6,
+          "reversed_face_uses": 1,
+          "shell_use_reversed": true,
+          "tolerances_mm": {
+            "edges": [
+              1e-07
+            ],
+            "faces": [
+              1e-07
+            ],
+            "vertices": [
+              1e-07
+            ]
+          },
+          "volume_mm3": 5517.5859375
+        },
+        "geometry_refusal": "invalid local prism B-rep: B-rep body freecad:occ:3e14aa80053cb2f51725:body:1 references a missing design body",
+        "library_default_material": true,
+        "native_refusal": "native-only feature definitions cannot be exported: Baked02.FCStd: freecad:feature:Specimen (freecad.fcstd:Part::Feature)",
+        "neutral_sha256": "ce971284a4923142ca9b88674480289a8e2cc738f271eb35a063d775f75da90f",
+        "parameters": [
+          "Label",
+          "Label2",
+          "Visibility"
+        ],
+        "payload_owners": {
+          "brep": "freecad:brep:Specimen:Shape",
+          "document": "freecad:native-document",
+          "verification": "freecad:native-document-binding"
+        },
+        "source_reads": 6,
+        "strict_read": true
+      }
+    },
+    "ParametricControl.FCStd": {
+      "physical_owners": {
+        "class": "Part::Box",
+        "document_label": "ParametricControl",
+        "document_uid": "dc8d903f-d044-40bd-8553-fca376bffc8c",
+        "driver_lengths_mm": {
+          "Height": 9.75,
+          "Length": 17.375,
+          "Width": 13.625
+        },
+        "label": "Disclosed Live Box",
+        "name": "Specimen",
+        "object_id": "92",
+        "placement_origin_mm": [
+          4.25,
+          6.125,
+          -2.25
+        ],
+        "properties": [
+          "AttacherEngine",
+          "AttacherType",
+          "AttachmentOffset",
+          "AttachmentSupport",
+          "ExpressionEngine",
+          "Height",
+          "Label",
+          "Label2",
+          "Length",
+          "MapMode",
+          "MapPathParameter",
+          "MapReversed",
+          "Placement",
+          "Shape",
+          "ShapeMaterial",
+          "Visibility",
+          "Width"
+        ],
+        "shape_material_uuid": "7f9fd73b-50c9-41d8-b7b2-575a030c1eeb",
+        "shape_member": "Specimen.Shape.brp",
+        "shape_part_attributes": {
+          "ElementMap": "15.70200.5",
+          "file": "Specimen.Shape.brp"
+        }
+      },
+      "source_lock": {
+        "document_xml_sha256": "2147b8d290480d7b49a57220be2de36f68ca879380700a20a0de67ab073a514a",
+        "file_sha256": "0de6a5bdd0e3c092a8ce12e932a6dd3937a8eaac8b5e7eb1fac37a73151c9c51",
+        "object_count": 1,
+        "shape_sha256": "12f1b215655f2f55eab0d4eacf6a1cf60f7b576d887b2fce310daba91a0b9708",
+        "solid_count": 1,
+        "standalone_baked": false
+      },
+      "strict": {
+        "admission": "live_parametric_primitive",
+        "capabilities_missing_from_bare_recipe": [
+          "body_structure",
+          "native_payloads",
+          "parameters",
+          "parametric_history",
+          "provenance",
+          "roundtrip_metadata"
+        ],
+        "configuration": "Default",
+        "design_body_generated": true,
+        "design_body_id": "freecad:body:default",
+        "document_refusal": "bare local import requires a neutral millimetre B-rep",
+        "feature_id": "freecad:feature:Specimen",
+        "feature_kind": "primitive",
+        "geometry": {
+          "area_mm2": 1077.96875,
+          "attribute_entity_counts": {
+            "bodies": 1,
+            "curves": 12,
+            "faces": 6,
+            "surfaces": 6
+          },
+          "body_id": "freecad:occ:3e14aa80053cb2f51725:body:1",
+          "bounds_mm": [
+            [
+              4.25,
+              21.625
+            ],
+            [
+              6.125,
+              19.75
+            ],
+            [
+              -2.25,
+              7.5
+            ]
+          ],
+          "center_mm": [
+            12.9375,
+            12.9375,
+            2.625
+          ],
+          "linked_line_carriers": 12,
+          "oriented_trim_uses": 24,
+          "outward_planar_faces": 6,
+          "reversed_face_uses": 3,
+          "shell_use_reversed": false,
+          "tolerances_mm": {
+            "edges": [
+              1e-07
+            ],
+            "faces": [
+              1e-07
+            ],
+            "vertices": [
+              1e-07
+            ]
+          },
+          "volume_mm3": 2308.16015625
+        },
+        "geometry_refusal": "invalid local prism B-rep: B-rep body freecad:occ:3e14aa80053cb2f51725:body:1 references a missing design body",
+        "library_default_material": true,
+        "native_refusal": "native-only feature definitions cannot be exported: ParametricControl.FCStd: freecad:feature:Specimen (freecad.fcstd:Part::Box)",
+        "neutral_sha256": "2570aae09e87c18dd327a4bdacd15afe1ed50614abb05996120e853aa268e87e",
+        "parameters": [
+          "AttacherEngine",
+          "AttacherType",
+          "Height",
+          "Label",
+          "Label2",
+          "Length",
+          "MapMode",
+          "MapPathParameter",
+          "MapReversed",
+          "Visibility",
+          "Width"
+        ],
+        "payload_owners": {
+          "brep": "freecad:brep:Specimen:Shape",
+          "document": "freecad:native-document",
+          "verification": "freecad:native-document-binding"
+        },
+        "source_reads": 6,
+        "strict_read": true
+      }
+    }
+  },
+  "heldout_sources_read": 0,
+  "native_processes_started": 0,
+  "original_fcstd_conversion_credit": 0,
+  "schema": "kit.freecad.disclosed-baked-owner-audit.v1",
+  "sdk_revision": "06bea18f6f9f139be396e391aba2f2e27c4a8382",
+  "source_lock_sha256": "4166c533b004dabae3f6e459bb5b66a3f9986eccef36f5fa6033b966e7abd837",
+  "whole_source_conversions": 0,
+  "writer_outputs": 0
+}

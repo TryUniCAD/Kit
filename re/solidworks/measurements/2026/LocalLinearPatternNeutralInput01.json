@@ -1,0 +1,1572 @@
+{
+  "cases": {
+    "ColdRaisedPatternA": {
+      "count_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036957,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07353666700339966,
+            0.05430437644490481,
+            0.0034703343003177236
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.09228821066905289,
+                0.012589492109188544,
+                0.0
+              ],
+              [
+                0.10228821066905289,
+                0.02458949210918854,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.000108585
+        },
+        "application_modules_loaded": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10471,
+          "sha256": "8f3910ab68135056024b306ab797f3feec998fe2ced3180d459e7e4d22ac64e0",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "b96856af2bf03267a29987e4ae99cbba1aae6ebc6269fb2c4b8ef949e81b2109",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.018,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.018,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.062096070223017635,
+              0.032196497369729515,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "218aaa6bdf0d04ae33e14654a1bf2961681987081d82a978fa8379a2061fb741"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "e6fe566ee2503d04e9f010f14d9f53422322a0ea895c2575251d394d1e002d5d"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "original": {
+        "analytic_geometry": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07334482888439006,
+            0.05459284090549129,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.00010771500000000001
+        },
+        "application_modules_loaded": 0,
+        "byte_equal_to_disclosed": true,
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10474,
+          "sha256": "f7e5290dfda2cd2aedfc281ea8ee6275fd1214fc011bcda51f88d43d8cc4356f",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "5136b42c5513418c186cd1007c88df072030d97b69a4dcd310d3ee50cc74e7db",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            3.0,
+            0.018,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            3,
+            0.018,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.062096070223017635,
+              0.032196497369729515,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "51611d4dcf499beda2ec08b9498ecf14a876366b031f131a24d29a76ac2361fa"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "pitch_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07346675787379751,
+            0.05451365929393918,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.06712809363069018,
+                0.02892866315963935,
+                0.0
+              ],
+              [
+                0.07712809363069018,
+                0.04092866315963935,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.08725618726138035,
+                0.015857326319278702,
+                0.0
+              ],
+              [
+                0.09725618726138036,
+                0.0278573263192787,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.00010771500000000001
+        },
+        "application_modules_loaded": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10464,
+          "sha256": "51f37725e0f58184bc34f16480f58d06a5cf265cef5027219174f00586ecb1f7",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "cbcf516efc7caed4a8f02ad6c32c317b7976d9e7469aa22b5934a2649858c175",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            3.0,
+            0.024,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            3,
+            0.024,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.06712809363069018,
+              0.02892866315963935,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "4303f106f21a0761e384831bd1901c05b1341c5d05adbf1d7c76fd81e859e7b1"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "a51a3f7b305c42d4779877b255a90155ffe1ef150a94deaa48469467424c6f9b"
+          }
+        },
+        "typed_replay_count": 9
+      }
+    },
+    "ColdRaisedPatternB": {
+      "count_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036941999999999996,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.061312551492543325,
+            0.062241713024796905,
+            0.0035124868117471096
+          ],
+          "face_count": 31,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.026955575004143462,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414346,
+                0.09280422237288916,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.016607433338857946,
+                0.09473896316385223,
+                0.0
+              ],
+              [
+                0.03160743333885794,
+                0.10873896316385223,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.6251e-05
+        },
+        "application_modules_loaded": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10459,
+          "sha256": "0e125b9bb41ffa8ab117e588f1e85e1493c79559a01c828b1b2a0ac1cb278522",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "8ade5c6ed6063791deed87de32e025eccd5f568c6753c97700277d8c40265df9",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            5.0,
+            0.019,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            5,
+            0.019,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04765185833471449,
+              0.04693474079096306,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "d2e25edc65195f6f36bbf97f5b3e860e00d0689b79a1b3c88a0993f166df5b1d"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "a151dd1fae2b3ea7039d439fd120030f687716dd815c8326873cae1d33852f32"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "original": {
+        "analytic_geometry": {
+          "area_m2": 0.036274999999999995,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.06238429108342493,
+            0.061103945728100746,
+            0.0033112028245622397
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.026955575004143462,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414346,
+                0.09280422237288916,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.3836e-05
+        },
+        "application_modules_loaded": 0,
+        "byte_equal_to_disclosed": true,
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10461,
+          "sha256": "032c9c5696a4b97a9a5c5178147cb8443b90a6350588154dec693ff56d372754",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "1014a0b40e31c041a4fbfbc987f7984c741e1032eda4faa427f5665ca90f1a72",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.019,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.019,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04765185833471449,
+              0.04693474079096306,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "11c32670d8fc089a24e7ca652d11b1946d67e6dafd528c2e23f31eaa94460f57"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "pitch_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036274999999999995,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.06210188902640762,
+            0.06153880676141087,
+            0.0033112028245622397
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04601794122966941,
+                0.04945075249479933,
+                0.0
+              ],
+              [
+                0.0610179412296694,
+                0.06345075249479933,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03403588245933881,
+                0.06790150498959865,
+                0.0
+              ],
+              [
+                0.049035882459338806,
+                0.08190150498959865,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.022053823689008212,
+                0.08635225748439798,
+                0.0
+              ],
+              [
+                0.037053823689008204,
+                0.100352257484398,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.3836e-05
+        },
+        "application_modules_loaded": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_runtime_reads": 0,
+        "map_counters": [
+          94,
+          316
+        ],
+        "native_container": {
+          "bytes": 10459,
+          "sha256": "0b0827b042644568419ce6aea6454c9a21a02b00947c4dc2896d883a24e0c460",
+          "version": 4
+        },
+        "neutral_owner_counts": {
+          "bodies": 1,
+          "feature_timeline": 5,
+          "parameters": 6,
+          "selections": 7,
+          "sketches": 2,
+          "support_planes": 4
+        },
+        "neutral_wire_roundtrip": true,
+        "neutral_wire_sha256": "66f584ae587255f94aed32f7a3c66d32ea3e0127d70b7a995c628f38f9288cb2",
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.022,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.022,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04601794122966941,
+              0.04945075249479933,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "refused_typed_archive_contrasts": [
+          "active_dormant_driver_alias",
+          "alternate_owner_geometry",
+          "borrowed_warm_appearance_state",
+          "cleared_single_stock_dependency_bit",
+          "crossed_line_plane",
+          "dropped_count_annotation",
+          "flipped_stored_direction",
+          "wrong_previous_result",
+          "wrong_retired_result"
+        ],
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "4fb26a56a256848aa0694f72cb0cab06be82db7c21544cfb8733e0b2addb2e0b"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "5b45f7ec10f08c439977cc6c66ccdeb672eca8a2d491e7230589a600a585cb18"
+          }
+        },
+        "typed_replay_count": 9
+      }
+    }
+  },
+  "guarded_processes": 20,
+  "native_build": "34.5.2.0604",
+  "native_holdout_credit": 0,
+  "no_new_oracle_execution": true,
+  "refused_neutral_contrasts": {
+    "angle_frame_conflicts": "controls disagree with its support frame",
+    "contradicted_trim": "directed first-plane trim",
+    "count_driver_conflicts": "D1/D3 drivers disagree",
+    "crossed_angle_pitch_view": "presentation is not bound",
+    "crossed_hinge_slots": "two ordered support selections",
+    "false_body_result": "final neutral body contradicts",
+    "metadata_cannot_supply_hinge": "ordinary neutral part name",
+    "missing_closed_loop": "closed line loop",
+    "missing_typed_hinge": "typed finite plane-intersection axis is required",
+    "nonlocal_seed_scope": "exact local body owner",
+    "unowned_native_depth": "actual unexpressed driving parameters",
+    "unregistered_finite_axis": "unknown data type 'PlaneIntersectionAxis'"
+  },
+  "registered_public_writer": false,
+  "schema": "kit.sw2026.oblique-linear-pattern-neutral-input.v1",
+  "source_evidence": {
+    "NativeResult/Result.json": "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b",
+    "Packet/Build.json": "b04e279af46524b69a3198c50e2ba06a89702327be1885eb5e2283d82f2d84a3",
+    "Packet/Packet.json": "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1"
+  },
+  "tools": {
+    "re/tooling/sw2026/linear_pattern/LocalPatternContainerProcess.py": "c151767dc952859bd87b5ca9b429aa1e2d81da2613e4f3bcc3fadfe41f4b8728",
+    "re/tooling/sw2026/linear_pattern/neutral/NeutralPatternInput.py": "54d5a55d8d76db86288d2a7231e36e33344586d3c46bc7b0f9a489e9ccdec171",
+    "re/tooling/sw2026/linear_pattern/neutral/NeutralPatternProcess.py": "6191e11f3260bfca38c5d9ac601244789d99b968a83f1d5d567975f500b0d272",
+    "re/tooling/sw2026/linear_pattern/neutral/ProjectNeutralPattern.py": "2733ff9c1fd6bca048e1392086bb43c56f6a97b3bd8639770f332d18728c4447",
+    "re/tooling/sw2026/linear_pattern/neutral/ProveNeutralPattern.py": "39a2474ed2fe6d3088c5690f78641e44f617537293ff1a2beab1d704fd41ae6f"
+  },
+  "writer_revision": "d644ff7beb6b61a147a3b5de82ba5614efb155c8",
+  "writer_source_tree": "a673f3586242dbd5cf5520578790316ed353b087"
+}

@@ -161,13 +161,14 @@ before writer work.
 A typed field program is donor data when its values or offsets come from a vendor
 save. Zero opaque bytes proves that each byte has a typed owner. It does not prove
 that Kit generated the value. Kit's SOLIDWORKS writer was built from recorded
-programs of this kind, so it was removed and SOLIDWORKS is a read-only format. CI runs
-`tools/Donors/CheckReplays.py` on `src` and fails on any recorded field operation or
-recorded payload re-emission call. Do not restore the removed programs or add a
-SOLIDWORKS writer family as a recorded program. Build the generative serializer
-instead. The no donor blocks standard states the current SOLIDWORKS state and the
-required direction, and this paragraph takes precedence over its preserved state
-section.
+programs of this kind, so it was removed. Only the independently qualified
+generative profiles in the [SOLIDWORKS adapter guide](Documentation/Reference/Adapters/Solidworks.md)
+are available for writing.
+CI runs `tools/Donors/CheckReplays.py` on `src` and fails on any recorded field
+operation or recorded payload re-emission call. Do not restore the removed programs.
+Extend the shared generative serializer with independently verified rules for
+each new family. Follow the current state and required direction in the no
+donor blocks standard. This paragraph takes precedence over the preserved text.
 
 An administrator's explicit merge request remains valid through repairs and
 authorizes a supported admin override when independently enforced protections

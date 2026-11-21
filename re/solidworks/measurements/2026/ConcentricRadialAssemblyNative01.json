@@ -1,0 +1,245 @@
+{
+  "archive_round_trip": {
+    "generated": {
+      "child": {
+        "exact_stream_bytes": {
+          "Contents/CMgr": 1129,
+          "Contents/Config-0": 23689,
+          "Contents/Config-0-ModelHeader": 799,
+          "Contents/Config-0-ResolvedFeatures": 15075,
+          "Header2": 799
+        },
+        "sha256": "699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd"
+      },
+      "parent": {
+        "exact_stream_bytes": {
+          "Contents/Config-0": 22721,
+          "Contents/Config-0-MatesList": 3750,
+          "Contents/Config-0-ResolvedFeatures": 4839
+        },
+        "sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74"
+      }
+    },
+    "native_save": {
+      "child": {
+        "exact_stream_bytes": {
+          "Contents/CMgr": 2521,
+          "Contents/Config-0": 26023,
+          "Contents/Config-0-ModelHeader": 1005,
+          "Contents/Config-0-ResolvedFeatures": 16761,
+          "Header2": 1005
+        },
+        "sha256": "d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416"
+      },
+      "parent": {
+        "exact_stream_bytes": {
+          "Contents/Config-0": 25488,
+          "Contents/Config-0-MatesList": 3762,
+          "Contents/Config-0-ResolvedFeatures": 5295
+        },
+        "sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3"
+      }
+    }
+  },
+  "builder_commit": "787a836b6",
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "edited": {
+    "body_count": 2,
+    "diagnostic_counts": {
+      "assembly": 0,
+      "child": 0
+    },
+    "dimensions_m": {
+      "D1@CurveBoss": 0.036797010000000005,
+      "D1@CurveSketch": 0.00719
+    },
+    "mass": {
+      "assembly": {
+        "area": 0.003974323332419391,
+        "com": [
+          0.043930000000000004,
+          -0.03127,
+          0.15564850500000002
+        ],
+        "mass": 0.011952264074906191,
+        "volume": 1.1952264074906192e-05
+      },
+      "child": {
+        "area": 0.0019871616662096954,
+        "com": [
+          0.00263,
+          -0.00417,
+          0.018398505000000006
+        ],
+        "mass": 5.976132037453096e-06,
+        "volume": 5.976132037453096e-06
+      }
+    },
+    "mate": {
+      "alignment": 0,
+      "axis_distance_m": 0.0,
+      "axis_parallel_residual": 0.0,
+      "rotation_locked": false,
+      "type": 1
+    },
+    "name_rows": [
+      "DisclosedRadialSceneProbe-1",
+      "DisclosedRadialSceneProbe-2"
+    ],
+    "native_child_tree_rows": 25,
+    "native_parent_tree_rows": 25
+  },
+  "fcstd_corpus_credit": 0,
+  "fresh_reopen": {
+    "body_count": 2,
+    "diagnostic_counts": {
+      "assembly": 0,
+      "child": 0
+    },
+    "dimensions_m": {
+      "D1@CurveBoss": 0.036797010000000005,
+      "D1@CurveSketch": 0.00719
+    },
+    "mass": {
+      "assembly": {
+        "area": 0.003974323332419391,
+        "com": [
+          0.043930000000000004,
+          -0.03127,
+          0.15564850500000002
+        ],
+        "mass": 0.011952264074906191,
+        "volume": 1.1952264074906192e-05
+      },
+      "child": {
+        "area": 0.0019871616662096954,
+        "com": [
+          0.00263,
+          -0.00417,
+          0.018398505000000006
+        ],
+        "mass": 5.976132037453096e-06,
+        "volume": 5.976132037453096e-06
+      }
+    },
+    "mate": {
+      "alignment": 0,
+      "axis_distance_m": 0.0,
+      "axis_parallel_residual": 0.0,
+      "rotation_locked": false,
+      "type": 1
+    },
+    "name_rows": [
+      "DisclosedRadialSceneProbe-1",
+      "DisclosedRadialSceneProbe-2"
+    ],
+    "native_child_tree_rows": 25,
+    "native_parent_tree_rows": 25
+  },
+  "heldout_acceptance": false,
+  "initial": {
+    "body_count": 2,
+    "diagnostic_counts": {
+      "assembly": 0,
+      "child": 0
+    },
+    "dimensions_m": {
+      "D1@CurveBoss": 0.03137,
+      "D1@CurveSketch": 0.00719
+    },
+    "mass": {
+      "assembly": {
+        "area": 0.0034839810138968686,
+        "com": [
+          0.043930000000000004,
+          -0.03127,
+          0.15293500000000002
+        ],
+        "mass": 0.010189483439817727,
+        "volume": 1.0189483439817726e-05
+      },
+      "child": {
+        "area": 0.0017419905069484343,
+        "com": [
+          0.00263,
+          -0.00417,
+          0.015685
+        ],
+        "mass": 5.094741719908863e-06,
+        "volume": 5.094741719908863e-06
+      }
+    },
+    "mate": {
+      "alignment": 0,
+      "axis_distance_m": 0.0,
+      "axis_parallel_residual": 0.0,
+      "rotation_locked": false,
+      "type": 1
+    },
+    "name_rows": [
+      "DisclosedRadialSceneProbe-1",
+      "DisclosedRadialSceneProbe-2"
+    ],
+    "native_child_tree_rows": 25,
+    "native_parent_tree_rows": 25
+  },
+  "numeric_checks": 140,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "5d7680db342c5c7e037313d0a2bc3e02820b1d21dfcbdad5cd77293430d32d01",
+  "paired_save": {
+    "child_status": [
+      true,
+      0,
+      0
+    ],
+    "child_update_stamp": 146,
+    "parent_status": [
+      true,
+      0,
+      0
+    ]
+  },
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "child_stamp_on_open": 134,
+      "immutable_inputs_unchanged": true,
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "11d217e616729d3da312a3a2268a17f3dcf77cf4e2be20689fc8d08a837ec236"
+    },
+    "ControlBefore": {
+      "child_stamp_on_open": 134,
+      "immutable_inputs_unchanged": true,
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "f1ab321089459ff3c8032fbfec4d3932ae5411ecb0a1998e1ed2d00d09e475d0"
+    },
+    "Generated": {
+      "child_stamp_on_open": 104,
+      "immutable_inputs_unchanged": true,
+      "numeric_checks": 56,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "9a96d2080d4f83faab618806609dfc53fe87e0761feea747c234e6e6121330b1"
+    },
+    "Reopen": {
+      "child_stamp_on_open": 146,
+      "immutable_inputs_unchanged": true,
+      "numeric_checks": 28,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "09d486ec4f4e84ddae6455dd76cac67d5c63bb1afc4eaaf6ab119121e0e52b97"
+    }
+  },
+  "raw_summary_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "schema": "kit.sw2026.disclosed-radial-concentric-persistence.v1"
+}

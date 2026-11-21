@@ -1,0 +1,204 @@
+{
+  "disclosed_checks": {
+    "A13SyncedSingleChild": {
+      "geometry_mark_new_nodes": 167,
+      "geometry_rollback_deletions": 150,
+      "matched_definitions": 13,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d"
+    },
+    "A14SyncedRepeatChild": {
+      "geometry_mark_new_nodes": 167,
+      "geometry_rollback_deletions": 150,
+      "matched_definitions": 13,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c"
+    },
+    "C1a_control": {
+      "geometry_mark_new_nodes": 165,
+      "geometry_rollback_deletions": 148,
+      "matched_definitions": 12,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21"
+    },
+    "C1b_control": {
+      "geometry_mark_new_nodes": 165,
+      "geometry_rollback_deletions": 148,
+      "matched_definitions": 12,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb"
+    },
+    "L1_boss": {
+      "geometry_mark_new_nodes": 165,
+      "geometry_rollback_deletions": 148,
+      "matched_definitions": 12,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "P0_plain": {
+      "geometry_mark_new_nodes": 165,
+      "geometry_rollback_deletions": 148,
+      "matched_definitions": 12,
+      "nontransmitted_pointer_arrays": 17,
+      "reverse_definition_list_equal": true,
+      "source_sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8"
+    }
+  },
+  "fresh": {
+    "Offset": {
+      "analytic_geometry": {
+        "area_mm2": 2471.375,
+        "bounds_mm": [
+          [
+            3.125,
+            -11.5,
+            0
+          ],
+          [
+            34.875,
+            6.75,
+            13.125
+          ]
+        ],
+        "center_mm": [
+          19.0,
+          -2.375,
+          6.5625
+        ],
+        "loop_direction": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "signed_volume_mm3": 7605.1171875
+      },
+      "archive_attachment_pending": "populated archive attachment needs verified f1010, live-body map mode and boss f540",
+      "construction_and_codec_file_opens": 0,
+      "exact_wire_readback": true,
+      "face_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "frame_bytes": 3615,
+      "framed_sha256": "b18715e8c1f767b8f8c4d171d65ca5d46c16c7bd166418960a53cd6f2e448762",
+      "geometry_rollback": {
+        "deletions": 148,
+        "new_node_count": 165,
+        "untransmitted_pointer_arrays": 17
+      },
+      "payload_sha256": [
+        "e39d8f6bdae9f7e68ed08050f2757ef252ace71fc98afa9a93282a90b4f56d0d",
+        "5aa203532850e3f8d5c73c61c2813326ed562e4cc811ecf836af970664d18989"
+      ],
+      "record_counts": {
+        "ATTRIBUTE": 27,
+        "ATTRIB_DEF": 12,
+        "ATT_DEF_ID": 12,
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "INT_VALUES": 29,
+        "LINE": 12,
+        "LIST": 1,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "POINTER_LIS_BLOCK": 1,
+        "REAL_VALUES": 2,
+        "REGION": 2,
+        "SHELL": 2,
+        "UNICODE_VALUES": 1,
+        "VERTEX": 8,
+        "WORLD": 1
+      }
+    },
+    "RotatedStart": {
+      "analytic_geometry": {
+        "area_mm2": 4166.375,
+        "bounds_mm": [
+          [
+            -82.75,
+            17.875,
+            0
+          ],
+          [
+            -61.0,
+            47.25,
+            28.25
+          ]
+        ],
+        "center_mm": [
+          -71.875,
+          32.5625,
+          14.125
+        ],
+        "loop_direction": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "signed_volume_mm3": 18049.1015625
+      },
+      "archive_attachment_pending": "populated archive attachment needs verified f1010, live-body map mode and boss f540",
+      "construction_and_codec_file_opens": 0,
+      "exact_wire_readback": true,
+      "face_ids": [
+        13,
+        14,
+        15,
+        16,
+        17,
+        18
+      ],
+      "frame_bytes": 3698,
+      "framed_sha256": "18653b34e29f5ce9a55e12201db02815bfce6883ed817376d01dff19cbc4eb03",
+      "geometry_rollback": {
+        "deletions": 150,
+        "new_node_count": 167,
+        "untransmitted_pointer_arrays": 17
+      },
+      "payload_sha256": [
+        "a52d3780a94d255493f00a870e191f085c1ec94c21786e4f4aab1644ac388824",
+        "391a9380a500810b8241577fba771df6e48c6855cdebd8ac734b4c81d069e63d"
+      ],
+      "record_counts": {
+        "ATTRIBUTE": 28,
+        "ATTRIB_DEF": 13,
+        "ATT_DEF_ID": 13,
+        "BODY": 1,
+        "EDGE": 12,
+        "FACE": 6,
+        "HALFEDGE": 24,
+        "INT_VALUES": 29,
+        "LINE": 12,
+        "LIST": 1,
+        "LOOP": 6,
+        "PLANE": 6,
+        "POINT": 8,
+        "POINTER_LIS_BLOCK": 1,
+        "REAL_VALUES": 3,
+        "REGION": 2,
+        "SHELL": 2,
+        "UNICODE_VALUES": 1,
+        "VERTEX": 8,
+        "WORLD": 1
+      }
+    }
+  }
+}

@@ -1,0 +1,149 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-comparison.v1",
+  "split": "discovery",
+  "predictions_sha256": "5c0a36c525259c7d9af904fdf4e70675a94a58db34189f945339b4f2c917bdae",
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "inspection_sha256": "9b7ebd9f0f1bd0279b589ec2d1ae3e2ad9731f2c0fa9e115935a45f8c1b86a07",
+  "distinct_processes": 8,
+  "controls_healthy": true,
+  "cases": [
+    {
+      "name": "RevolveFull",
+      "candidate_sha256": "36b74ae112c510916729e3e857ea7c23c71bf5479187b8f6f92fb130ced62859",
+      "checks": {
+        "initial": {
+          "native_open_clean": true,
+          "one_body_available_on_open": true,
+          "native_tree_available_on_open": true,
+          "no_initial_rebuild_diagnostics": true
+        },
+        "rebuilt": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited_reopen": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edit_and_save": {
+          "edit_passed": true,
+          "native_save_clean": true,
+          "native_saved_reopen_clean": true,
+          "display_preference_restored": true
+        }
+      },
+      "passed": true,
+      "reference_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "reference_phase_sha256": "35795ccd5a42ad297a187d516e6a36c9d4e089a6eabce1558b6c669c505908bc"
+    },
+    {
+      "name": "RevolvePartialForward",
+      "candidate_sha256": "08bf26b5bf79b512ba8d40b4dbd19193e030d4c4ef5ff93fe3304a54f3f322c0",
+      "checks": {
+        "initial": {
+          "native_open_clean": true,
+          "one_body_available_on_open": true,
+          "native_tree_available_on_open": true,
+          "no_initial_rebuild_diagnostics": true
+        },
+        "rebuilt": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited_reopen": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edit_and_save": {
+          "edit_passed": true,
+          "native_save_clean": true,
+          "native_saved_reopen_clean": true,
+          "display_preference_restored": true
+        }
+      },
+      "passed": true,
+      "reference_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "reference_phase_sha256": "3178d37339a68d7b5257c3996739d17e066208f0f3bd1d9390b23206bb576c85"
+    },
+    {
+      "name": "RevolvePartialReverse",
+      "candidate_sha256": "9abe1b4db9daf24e6ff55c300e857a18a58465e5f1a935022f93e337b796cc84",
+      "checks": {
+        "initial": {
+          "native_open_clean": true,
+          "one_body_available_on_open": true,
+          "native_tree_available_on_open": true,
+          "no_initial_rebuild_diagnostics": true
+        },
+        "rebuilt": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edited_reopen": {
+          "geometry_matches_prediction": true,
+          "geometry_matches_locked_source": true,
+          "same_ordered_tree": true,
+          "same_driving_dimension": true,
+          "same_profile_and_frame": true,
+          "same_axis_direction_and_angle": true
+        },
+        "edit_and_save": {
+          "edit_passed": true,
+          "native_save_clean": true,
+          "native_saved_reopen_clean": true,
+          "display_preference_restored": true
+        }
+      },
+      "passed": true,
+      "reference_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "reference_phase_sha256": "27c5496ffd5f0ed868fe1d043a2e3e7a63bfe82652f64490ad08122dc8da591c"
+    }
+  ],
+  "passed": true,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

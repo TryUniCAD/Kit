@@ -1,0 +1,44 @@
+{
+  "activity": {
+    "cad_files_opened": 0,
+    "git_mutations": 0,
+    "held_out_inputs_read": 0,
+    "proprietary_code_published": false,
+    "provider_or_hopper_targets_opened": 0,
+    "runtime_or_writer_implementation_changed": false,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "all_observed_repository_inputs_match": true,
+  "counts": {
+    "complete_functions_or_leaves": 27,
+    "concrete_virtual_cells": 5,
+    "direct_calls": 15,
+    "function_fragments": 30,
+    "import_identities": 19,
+    "instruction_windows": 15,
+    "original_modules": 5
+  },
+  "evidence_limit": "source identity and conditional native rules only; new COM metadata, actual owner binding, clean annotation edit/save/fresh reopen and runtime selected-path controls remain required",
+  "existing_source_verifier_path": "re/tooling/sw2026/downstream/VerifyLinkedEdgeSources.py",
+  "existing_source_verifier_sha256": "8ac15af6346a09c7f8304c01f97395eaa3695157f3dde4718fe5f3dcf12a85ab",
+  "generated_drawing_cache_pair_acceptance": false,
+  "heldout_acceptance": false,
+  "metadata_helper_sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+  "new_native_measurements": 0,
+  "numeric_record_sha256": "64bc0b0cf692cfcfb7a275fa90c4b1ed408e45ff6f49af432106feea42ac3d20",
+  "proven_source_boundaries": [
+    "actual drawing pre-save route can reach child f380/f60 before event7",
+    "exact detail-definition f220 name is SaveModelData; native false stores zero detailing-map count",
+    "copy1 allocates a fresh EdgeRef/entity array and forces representation externalization with NULL model and mode1",
+    "actual FR/file context has feature-present and absent-feature/global-context branches; no universal detached-owner constructor",
+    "bounded message-pumping wait prevents a universal unchanged-save-frame assumption"
+  ],
+  "raw_metadata_verification_sha256": "22e7ddc4147c9687d49d7f42c20b7ca8153d839ed136d74d6fb42579739410ae",
+  "result": "original-image source identities verified; native edge-annotation/cache route remains unexecuted",
+  "runtime_observer_implemented": false,
+  "schema": 1,
+  "source_identity_passed": true,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-SAVE"
+}

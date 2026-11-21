@@ -1,0 +1,1330 @@
+{
+  "schema": "kit.sw2026.sdk-typed-rectangle-dimensions.v1",
+  "task_id": "B04-SW2026-RESOLVED",
+  "owner": "/root/flag_ownership",
+  "delivery_pr": 121,
+  "scope": "ordinary version19000 concrete four-line local rectangle, two owned point-distance drivers and four unary axis records",
+  "source_manifest_sha256": "e53b63ba9c835391518cb42ca79274df7ae06cf1ea40e662b49dcbb29264bd5b",
+  "source_files": 41,
+  "sdk_source_parent_sha256": "284a3f15cdadc42a7e04c93c05e59ec81b3dc29b032f67924024650243c46b33",
+  "sdk_source_files": 30,
+  "reader_source_closure_sha256": "c44fc9b278f9631629f07375a465178ec412b3998a9cfae56a6d068a4a5e0ca2",
+  "reader_result_sha256": "18d4b40b147be28cc98485d6e1860205b7e527f9b973a71978ec1117fb65efb9",
+  "exact_parent_census_sha256": "0a66dee85a1e46eaecf589600f97250bc5bf6588f4df12e2114aa7a829b04e09",
+  "previous_native_result_sha256": "a3878c111494168b8bb727430ed629d09a895d61775ccc99b9e8b82da73ca3a8",
+  "native_metadata_comparison_sha256": "a554bb985205fa469427f7718d7104b6575f9ea013c0733e30c610d1097a780b",
+  "native_metadata_numeric_checks": 252,
+  "native_metadata_relation_bindings": 36,
+  "cases": [
+    {
+      "label": "alpha-original",
+      "sha256": "cc397bb629edc2fa41b656b5ce1395e344663ef43bcbd54ea5c706174ee24124",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 54.0,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 160,
+            "display_index": 177,
+            "end": 6465,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 179,
+            "object_index": 162,
+            "offset": 6399,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 18.000000000000004,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 166,
+            "display_index": 182,
+            "end": 6607,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 183,
+            "object_index": 167,
+            "offset": 6564,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 6558,
+            "field_span": false,
+            "object_index": 160,
+            "offset": 6377,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 6700,
+            "field_span": false,
+            "object_index": 166,
+            "offset": 6558,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    },
+    {
+      "label": "beta-original",
+      "sha256": "3a7ee12bd0f046dcd7a4f973f8190ee77106e743ff147b7257b8baf6191ced57",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 37.0,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 160,
+            "display_index": 177,
+            "end": 6465,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 179,
+            "object_index": 162,
+            "offset": 6399,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 28.999999999999996,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 166,
+            "display_index": 182,
+            "end": 6607,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 183,
+            "object_index": 167,
+            "offset": 6564,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10100,
+            "field_span": false,
+            "object_index": 149,
+            "offset": 5287,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 6558,
+            "field_span": false,
+            "object_index": 160,
+            "offset": 6377,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 6700,
+            "field_span": false,
+            "object_index": 166,
+            "offset": 6558,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    },
+    {
+      "label": "case0-edit0",
+      "sha256": "49c647d0aa16c7f96bb3927e298890095c6cc6fdaf34b905d7fa7ca875ae17ee",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 63.25,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 200,
+            "display_index": 217,
+            "end": 6933,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 219,
+            "object_index": 202,
+            "offset": 6867,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 18.000000000000004,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 206,
+            "display_index": 222,
+            "end": 7075,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 223,
+            "object_index": 207,
+            "offset": 7032,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7026,
+            "field_span": false,
+            "object_index": 200,
+            "offset": 6845,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7168,
+            "field_span": false,
+            "object_index": 206,
+            "offset": 7026,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    },
+    {
+      "label": "case0-edit1",
+      "sha256": "96d81aa80b4075f799f4e440e5636eb7081b025c61ac335bf3072628599e6b86",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 54.0,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 200,
+            "display_index": 217,
+            "end": 6933,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 219,
+            "object_index": 202,
+            "offset": 6867,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 24.375,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 206,
+            "display_index": 222,
+            "end": 7075,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 223,
+            "object_index": 207,
+            "offset": 7032,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7026,
+            "field_span": false,
+            "object_index": 200,
+            "offset": 6845,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7168,
+            "field_span": false,
+            "object_index": 206,
+            "offset": 7026,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    },
+    {
+      "label": "case1-edit0",
+      "sha256": "8bb0b23f123d540a9066f3794b19d92730c56a794c9f983bc9aef222dcda3d81",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 46.25,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 200,
+            "display_index": 217,
+            "end": 6933,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 219,
+            "object_index": 202,
+            "offset": 6867,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 28.999999999999996,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 206,
+            "display_index": 222,
+            "end": 7075,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 223,
+            "object_index": 207,
+            "offset": 7032,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7026,
+            "field_span": false,
+            "object_index": 200,
+            "offset": 6845,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7168,
+            "field_span": false,
+            "object_index": 206,
+            "offset": 7026,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    },
+    {
+      "label": "case1-edit1",
+      "sha256": "73a5202b7ad7b664539edfcc96850954871ac614617dd8aea7f0950bfd7275a9",
+      "typed_line_loop": true,
+      "typed_line_dimensions": true,
+      "line_count": 4,
+      "relation_count": 6,
+      "driving_parameters": [
+        {
+          "id": "sldprt:parameter:18:D1",
+          "name": "D1",
+          "value_mm": 37.0,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 19,
+            "dimension_index": 200,
+            "display_index": 217,
+            "end": 6933,
+            "field_span": false,
+            "group_index": 0,
+            "handle_index": 219,
+            "object_index": 202,
+            "offset": 6867,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        },
+        {
+          "id": "sldprt:parameter:18:D2",
+          "name": "D2",
+          "value_mm": 35.375,
+          "owner": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 20,
+            "dimension_index": 206,
+            "display_index": 222,
+            "end": 7075,
+            "field_span": false,
+            "group_index": 1,
+            "handle_index": 223,
+            "object_index": 207,
+            "offset": 7032,
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          }
+        }
+      ],
+      "relations": [
+        {
+          "id": "sldprt:constraint:18:log_g1:0",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 0,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:1",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:2",
+          "kind": "horizontal",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:3",
+              "point": ""
+            }
+          ],
+          "native_code": 4,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 2,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:log_g1:3",
+          "kind": "vertical",
+          "parameter_id": null,
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:4",
+              "point": ""
+            }
+          ],
+          "native_code": 5,
+          "owner": {
+            "class": "sgSketch",
+            "embedded_array": "dims.log_g1",
+            "embedded_class": "sgLogG1Dim",
+            "end": 10568,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 5755,
+            "row_index": 3,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:19",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D1",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:1",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7026,
+            "field_span": false,
+            "object_index": 200,
+            "offset": 6845,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        {
+          "id": "sldprt:constraint:18:dimension:20",
+          "kind": "distance",
+          "parameter_id": "sldprt:parameter:18:D2",
+          "references": [
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "start"
+            },
+            {
+              "$type": "ConstraintReference",
+              "entity_id": "sldprt:sketch:18:line:2",
+              "point": "end"
+            }
+          ],
+          "native_code": 1,
+          "owner": {
+            "class": "sgPntPntDist",
+            "end": 7168,
+            "field_span": false,
+            "object_index": 206,
+            "offset": 7026,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      ],
+      "native_numeric_checks": 42,
+      "inputs_unchanged": true,
+      "passed": true
+    }
+  ],
+  "new_native_execution": false,
+  "heldout_inputs_read": 0,
+  "heldout_qualification": false,
+  "public_writer_qualification_changed": false,
+  "public_full_linked_graph_admitted": false,
+  "generated_and_legacy_process_regression": {
+    "passed": true,
+    "source_closure_sha256": "c790b7dff0b94bb382e2f8cd4b4cc7e765c1b05b24be15650335374c6791699f",
+    "result_sha256": "54ddaf7ab8a695f8b84fb3bb5e3e7ac067be01dec213e479a6eabd04a6fab336",
+    "runner_sha256": "6d529e4109a92d3171fffebd0c0b5b7543d68e280ad62027540967b04ab934bf",
+    "real_workers": 60,
+    "phases": [
+      {
+        "name": "fresh-rectangle-drivers",
+        "passed": true,
+        "real_workers": 15
+      },
+      {
+        "name": "malformed-driver-owners",
+        "passed": true,
+        "real_workers": 9
+      },
+      {
+        "name": "plain-line-loops",
+        "passed": true,
+        "real_workers": 9
+      },
+      {
+        "name": "plain-line-scope",
+        "passed": true,
+        "real_workers": 8
+      },
+      {
+        "name": "line-id-namespaces",
+        "passed": true,
+        "real_workers": 4
+      },
+      {
+        "name": "typed-blind-graph",
+        "passed": true,
+        "real_workers": 4
+      },
+      {
+        "name": "default-system-tree",
+        "passed": true,
+        "real_workers": 4
+      },
+      {
+        "name": "authored-system-tree",
+        "passed": true,
+        "real_workers": 4
+      },
+      {
+        "name": "authored-folder-order",
+        "passed": true,
+        "real_workers": 2
+      },
+      {
+        "name": "older-18000-tree",
+        "passed": true,
+        "real_workers": 1
+      },
+      {
+        "name": "disclosed-native-rectangle",
+        "passed": true,
+        "real_workers": 0
+      },
+      {
+        "name": "disclosed-annulus",
+        "passed": true,
+        "real_workers": 0
+      },
+      {
+        "name": "older-mixed-sketch",
+        "passed": true,
+        "real_workers": 0
+      },
+      {
+        "name": "saved-radial-drivers",
+        "passed": true,
+        "real_workers": 0
+      }
+    ],
+    "sdk_sources_unchanged_from_six_file_read": true
+  },
+  "worker_execution": {
+    "sdk_or_test_execution": false,
+    "metadata_comparison_only": true,
+    "static_checks": true
+  },
+  "limits": [
+    "read interpretation only, no archive grammar or stream-byte changes",
+    "empty dimension managers preserve existing unconstrained line-loop behavior",
+    "unqualified modes retain their existing legacy representation without typed rectangle classification",
+    "no acceptance transfer to other dimension families, additional frame coverage, anchoring or public writer admission"
+  ],
+  "passed": true,
+  "first_broad_replay": {
+    "status": "source custody failure before test execution",
+    "missing_dependency": "tests.Convert.Solidworks.Core",
+    "product_tests_began": false,
+    "acceptance_credited": false,
+    "source": "root reported retained import failure, not attributed to sdk or format"
+  }
+}

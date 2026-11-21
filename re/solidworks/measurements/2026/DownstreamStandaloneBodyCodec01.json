@@ -1,0 +1,100 @@
+{
+  "archive_version": 19000,
+  "check_command": "PYTHONPATH=src:.:re/tooling/sw2026 python -B -m downstream.CheckBody",
+  "complete_component_closure_qualified": false,
+  "component_body_source": {
+    "module": "sldmodu.dll",
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "primary_serialize_slot": "0x28",
+    "scope": "ordinary non-DB atom suffix and solid/surface entry points",
+    "serializers": {
+      "moCompAtomBody_c": {
+        "bytes": 807,
+        "end_exclusive": "0x4bba46b7",
+        "file_offset": 10893200,
+        "name": "moCompAtomBody_c",
+        "sha256": "ecfa22d8123b4b926cc1834d3e59919db33f14e6e979b2c88de0be3f7c1f1cac",
+        "start": "0x4bba4390",
+        "table": "0x4cd91fe0"
+      },
+      "moCompSolidBody_c": {
+        "bytes": 5,
+        "end_exclusive": "0x4bba6b15",
+        "file_offset": 10903312,
+        "name": "moCompSolidBody_c",
+        "serialize": "0x4bba6b10",
+        "sha256": "7a440cf0b4cf2e64596bedaed06ed267e2fbabf07ddf1ac28b78ee57292b6231",
+        "start": "0x4bba6b10",
+        "table": "0x4ce93810",
+        "unwound_entry": false
+      },
+      "moCompSurfaceBody_c": {
+        "bytes": 49,
+        "end_exclusive": "0x4bba8341",
+        "file_offset": 10909456,
+        "name": "moCompSurfaceBody_c",
+        "sha256": "439ea9648ba907b4d8aa591e8fc16b29222ca383864a57a805665e50e62760e4",
+        "start": "0x4bba8310",
+        "table": "0x4ce93338"
+      }
+    },
+    "surface_delegation_call": "0x4bba8320",
+    "surface_load_test": {
+      "at": "0x4bba8328",
+      "import": "?IsLoading@su_CArchive@@QEBAHXZ",
+      "module": "swccu.dll"
+    },
+    "surface_post_load_flag": {
+      "instruction": "0x4bba8332",
+      "mask": 4,
+      "member": "0x68",
+      "wire_bytes": 0
+    },
+    "tail_jump_target": "0x4bba4390"
+  },
+  "component_suffix_installed_in_codec": false,
+  "fresh_processes": 2,
+  "heldout_inputs_read": 0,
+  "identical_stdout_sha256": "c047dbae12d2bf80b80dc95082691e68ebe54bf3414f161c40cba816965a1e37",
+  "native_saved_caches_replayed": 0,
+  "oracle_build": "34.5.2.0604",
+  "result": {
+    "class_slot": 1,
+    "counted_sections": 18,
+    "empty_bytes": 113,
+    "guarded_payloads": 3,
+    "independent_primitive_framing_checks": 3,
+    "malformed_refusals": {
+      "embedded_context": "ValueError",
+      "foreign_pointer_type": "ValueError",
+      "negative_count": "ValueError",
+      "nonzero_without_pointer": "ValueError",
+      "trailing_byte": "ValueError",
+      "truncated_point": "ValueError",
+      "unknown_body_field": "ValueError",
+      "zero_with_pointer": "ValueError"
+    },
+    "map_after": 3,
+    "map_before": 1,
+    "native_runs": 0,
+    "object_slot": 2,
+    "passed": true,
+    "populated_bytes": 355,
+    "populated_sha256": "4b2432720b893da4a206e9dc8c586aeadfeeb388f2d7fac0bae43b721faab0a9",
+    "repeated_real_schema_pointers": 5,
+    "runtime_io_attempts": 0,
+    "scope": "standalone direct-body grammar with modeled values and fresh logical map",
+    "wide_cstring_bytes": 394,
+    "wide_cstring_sha256": "c6c72885ea4ff70a5715b257abdaee2efa8eb6d51ac5a208b0adb091b5b6383c"
+  },
+  "schema": "kit.sw2026.downstream-standalone-body-codec.v1",
+  "source_sha256": {
+    "re/data/Serialization/SerializeMap2026.json": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "re/solidworks/records/DownstreamIdArchiveGrammar2026.json": "7da6480954c35ab09367583239663d9e6815d18746a1326947e5e82920bbeeae",
+    "re/solidworks/records/DownstreamStandaloneMaps2026.json": "18445f12ef5fa490bc3bd1f72cd6bbea880ab7a7ed1ceacbcf560dc6fdec4212",
+    "re/tooling/sw2026/downstream/Body.py": "7d0774e30eea9508f90f53845166597301b8690c8d004954b43268970c9570f7",
+    "re/tooling/sw2026/downstream/CheckBody.py": "fd0e9e6953b35d3959321e4bac27a2c2a101d631403881184065d2511b2bcd23",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ComponentFields.py": "d6745d70a0e47a3d14b5b67780a13d9035df5cedaaeb7864ef7a74ded16e4d85"
+  },
+  "standalone_native_save_qualified": false
+}

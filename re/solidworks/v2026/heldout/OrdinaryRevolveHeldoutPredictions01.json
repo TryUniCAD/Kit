@@ -1,0 +1,43 @@
+{
+  "schema": "kit.sw2026.ordinary-revolve-heldout-predictions.v1",
+  "recorded_utc": "2026-11-17T07:44:47.573325+00:00",
+  "preserved_pre_disclosure_freeze_sha256": "c0668280e7c5fa00c18bcb9c8492462f384d3f085d44e7fc947544e597673a3c",
+  "generator_revision": "cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6",
+  "generator_tree": "efc6a8f176e7859e5d79069a707a462c259eb4b7",
+  "before_verifier_sha256": "21c4bd66b4c8c42c6ed7a428731f632762405bc1d350509d916bd6a672c54269",
+  "after_verifier_sha256": "7aceb09d83e65d5eb307ca665b4d33894cd2f851539ae31875ad6488d147f497",
+  "verification_correction": "Compare the cached selected revolve axis in model coordinates using the preregistered principal frame.",
+  "initial_failure_preserved": true,
+  "constructed_bytes_changed": false,
+  "three_disclosed_reproductions_byte_identical": true,
+  "first_heldout_reproduction_byte_identical": true,
+  "both_heldout_requests_byte_identical": true,
+  "predictions_sha256": "6af346f6f26f822ccafc9d959b86b437879534fbcb95c43377f9d377580cd3dd",
+  "oracle_job_sha256": "7a16c8573ff4597237691e4d7f4ba9b688bd8b36a1cf51a29cb028e5cc368268",
+  "oracle_tools": {
+    "AuthorRevolveSources.py": "1190f61d1158a7643d4c2d53a5707659edf04e0c0c1b9412db9606e9400f6369",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectGeneratedRevolves.py": "4bc2cf3195bd566c91b1a5e94c444c546f1b8b29ab07866f6ff92ab3a1eb2e6e",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "predictions": [
+    {
+      "source_case": "RevolveHeldoutFirst",
+      "sha256": "c89fbc3d053848351f4ed57113ddad04ef7bd12aef748ef186c86d44d57e6676",
+      "request_sha256": "2ee0c5e773430b38de4a730f8d6fed6f7eeff3cec93195c77cbd3b9bf3e0131b",
+      "targets_sha256": "32e3f30d06498ffb54c5ef7f2cb7ad1f79b16504a069df76977b07cdb199830a",
+      "generator_receipt_sha256": "ecf42cb48c0c2ec319f9bc1440a5dea8136dd2b154084cd4ddc879fa451f370b"
+    },
+    {
+      "source_case": "RevolveHeldoutSecond",
+      "sha256": "8bef34313ddf037eb08fb9962e7a0cd92fbcf8bdc202e3151594886998c1157f",
+      "request_sha256": "51bcba34b7245415e4dead621b4020720b34be6b221c95ff16e0c11803aceeb1",
+      "targets_sha256": "b8263c86625460701971072f9800cecaa29a65488836ecef23659ff4b34ff5d3",
+      "generator_receipt_sha256": "8f1774d6d8d380df1aae1b42f76cd23362821ca2ef09030ae9a9e35ee62294e6"
+    }
+  ],
+  "native_source_bytes_disclosed": false,
+  "native_reference_observations_disclosed": false
+}

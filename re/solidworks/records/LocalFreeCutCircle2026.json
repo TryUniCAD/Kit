@@ -1,0 +1,78 @@
+{
+  "corpora": {
+    "ordinary_blind": {
+      "current_public_circle_passes": 3,
+      "designs": 3,
+      "local_circle_passes": 3,
+      "saves": 3
+    },
+    "through_all_disclosed": {
+      "designs": 3,
+      "local_circle_passes": 6,
+      "saves": 6,
+      "whole_operation_audited_here": false
+    }
+  },
+  "current_typed_projection": "ReadLocalCirc_AllowFree_true_then_CircleSketch_emits_actual_circle_center_and_no_solver_relations_or_parameter_ids",
+  "delivery_pr": 121,
+  "exact_common_grammar": {
+    "all_dimension_and_solver_arrays_empty": true,
+    "arc_class": "sgArc",
+    "arc_creation_mark": 1,
+    "arc_row_flags": 0,
+    "arc_rows": 1,
+    "center_and_arc_reference_counts": 0,
+    "center_creation_mark": 2,
+    "center_index": 0,
+    "fixed_center_relation": null,
+    "local_point_kinds": [
+      0,
+      0
+    ],
+    "point_rows": 2,
+    "profile_class": "moProfileFeature_c",
+    "radial_driver": null,
+    "region_class": "suObList",
+    "region_fields": {
+      "items": [],
+      "n": 0
+    },
+    "seam_end_index": 1,
+    "seam_start_index": 1,
+    "sketch_class": "sgSketch",
+    "version": 19000
+  },
+  "generated_writer_acceptance": false,
+  "geometry_rule": "radius_mm_1000_hypot_seam_x_minus_center_x_seam_y_minus_center_y",
+  "heldout_inputs_read": 0,
+  "legacy_inference_owner": "Core.Native.Constraints_circle_branch_defaults_missing_dimension_kind_to_radius_even_when_parameter_name_is_none",
+  "native_observation_manifest_sha256": "575b282de78bd3304076daefb1071d83df45ee20060c58f89b3252991b036676",
+  "native_processes_started": 0,
+  "old_public_baseline_is_not_current_reader_evidence": true,
+  "original_heldout_acceptance": false,
+  "owner": "configuration_header",
+  "prior_probe_sha256": "efc6daa46903b21b1c7b01e3231162f802a1e0af939f3ff72412bb6a6c0c473c",
+  "process_proof_sha256": "d72cb7cfa28c4f101d9b1e4173f094483d1b2c2d83c86bf7f28d713535933377",
+  "reader_patch_required": false,
+  "refuted_hypothesis": "prior_probe_regions_true_means_populated_region_cache_it_actually_means_IsLineState_true_empty_state",
+  "schema": "kit.sw2026.disclosed-local-free-circle-evidence.v1",
+  "sdk_changes": 0,
+  "source_files": 4453,
+  "source_lock_sha256": "8b8e38e664914f36fa43ce2a50976a38aee93b22747bb0ce3d5a0377af822106",
+  "source_manifest_sha256": "fa0f42e8716f825f9024cb087328bb10e102d1b146dfc07edc12a5972a351b0d",
+  "source_modules_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "90cbec8492fde619e5a9fd087fe0efd16fab72191721da850d0e07e9548c8e1a",
+    "src/convert/adapters/solidworks/Core/Native.py": "653391854ebd1b59c17792a5f0b81c5a9fee0bde89dbc28d731dcfa586606f98",
+    "src/convert/adapters/solidworks/Core/TypedResolved/CirclePointIndex.py": "59b148293e5a462c3a44155eb8077f7c634b22d43f604402561aa1b1e3d95f87",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/BindLocalCirc.py": "953f24b28a06fd89bb6dce270ac7dd1440cef5acb61de59a205402918f5ecb8e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/CircleSketch.py": "8736583a0bcf660e8c5b860fa6afd81c436e71e554228374f9d89ae7e4063cb5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Circles/ReadLocalCirc.py": "26a27570c2103fcd1c38654f09422ebf7f0d1759350120e411c2e391049a1494",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Lines/CheckLineScope.py": "5fdd486a9c1997b894b6da3542c04b42e5a8a33013d681ec4014cc08a793ff1e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Lines/IsLineState.py": "b59bb132e2eba93819d2757c82793936bba9cbea9c844ba4299e763f882fa0bc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ProjectTyped.py": "d45fa7419689fabf257670fe9b13f53edb5de471c0b1b2c6c62a6ed34159c6e0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadCircleShape.py": "3e68da71a3f425e1b5089815d69d32800922e5f81268e2f5b1d256ff4a0e5844",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7"
+  },
+  "task_id": "B04-SW2026-LOCAL-FREE-CUT-CIRCLE",
+  "whole_through_all_operation_admission_changed": false
+}

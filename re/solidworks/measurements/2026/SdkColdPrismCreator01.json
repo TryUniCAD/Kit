@@ -1,0 +1,680 @@
+{
+  "audit_denials": 0,
+  "baseline": "d1087a98f09e63b227ab0084013f83ddc8c17ae8",
+  "baseline_source_tree": "f8e0c222f45a5529f1f4d90b18c525b8ab1f8bf4",
+  "bundles": {
+    "SdkNestedNeutralNative03": {
+      "SdkFrame.SLDASM": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          }
+        },
+        "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+      },
+      "SdkModule.SLDASM": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          }
+        },
+        "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+      },
+      "SdkNestedPlate.SLDPRT": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "create"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+      }
+    },
+    "SdkRepeatedNeutralNative03": {
+      "SdkFrame.SLDASM": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkGaugePlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              },
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkGaugePlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              },
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 2,
+            "top_level_operations": []
+          }
+        },
+        "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+      },
+      "SdkGaugePlate.SLDPRT": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkGaugePlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "create"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkGaugePlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+      },
+      "SdkModule.SLDASM": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 1,
+            "top_level_operations": []
+          }
+        },
+        "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+      },
+      "SdkNestedPlate.SLDPRT": {
+        "after": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Boss-Extrude1",
+                "body_name_provenance_matches_feature": true,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "create"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "create"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "before": {
+          "default": {
+            "creators": {
+              "SdkNestedPlate.SLDPRT": {
+                "body_caption": "Solid Bodies",
+                "body_name_provenance_matches_feature": false,
+                "feature": "Boss-Extrude1",
+                "named_owner": false,
+                "operation": "join"
+              }
+            },
+            "explicit_same_format_refusal_no_output": true,
+            "has_brep": true,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          },
+          "history": {
+            "creators": {},
+            "has_brep": false,
+            "native_payloads": 0,
+            "top_level_operations": [
+              [
+                "Boss-Extrude1",
+                "join"
+              ]
+            ]
+          }
+        },
+        "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+      }
+    }
+  },
+  "changed_creator_observations": 9,
+  "compared_documents": 20,
+  "controls": {
+    "CreatorNamed.SLDPRT": {
+      "after": {
+        "default": {
+          "creators": {
+            "CreatorNamed.SLDPRT": {
+              "body_caption": "Authored stock label",
+              "body_name_provenance_matches_feature": false,
+              "feature": "ColdBoss",
+              "named_owner": true,
+              "operation": "create"
+            }
+          },
+          "has_brep": true,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "ColdBoss",
+              "create"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "ColdBoss",
+              "join"
+            ]
+          ]
+        }
+      },
+      "before": {
+        "default": {
+          "creators": {
+            "CreatorNamed.SLDPRT": {
+              "body_caption": "Authored stock label",
+              "body_name_provenance_matches_feature": false,
+              "feature": "ColdBoss",
+              "named_owner": true,
+              "operation": "join"
+            }
+          },
+          "has_brep": true,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "ColdBoss",
+              "join"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "ColdBoss",
+              "join"
+            ]
+          ]
+        }
+      },
+      "sha256": "f887236b308e4272f90574dff88642d675096b17407ea064b05ddb27f3121656"
+    },
+    "L1_boss.SLDPRT": {
+      "after": {
+        "default": {
+          "creators": {},
+          "has_brep": true,
+          "native_payloads": 2,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ]
+          ]
+        }
+      },
+      "before": {
+        "default": {
+          "creators": {},
+          "has_brep": true,
+          "native_payloads": 2,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ]
+          ]
+        }
+      },
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "example.SLDPRT": {
+      "after": {
+        "default": {
+          "creators": {},
+          "has_brep": true,
+          "native_payloads": 3,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ],
+            [
+              "Cut-Extrude1",
+              "cut"
+            ],
+            [
+              "Boss-Extrude2",
+              "join"
+            ],
+            [
+              "Cut-Extrude2",
+              "cut"
+            ],
+            [
+              "Boss-Extrude3",
+              "join"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ],
+            [
+              "Cut-Extrude1",
+              "cut"
+            ],
+            [
+              "Boss-Extrude2",
+              "join"
+            ],
+            [
+              "Cut-Extrude2",
+              "cut"
+            ],
+            [
+              "Boss-Extrude3",
+              "join"
+            ]
+          ]
+        }
+      },
+      "before": {
+        "default": {
+          "creators": {},
+          "has_brep": true,
+          "native_payloads": 3,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ],
+            [
+              "Cut-Extrude1",
+              "cut"
+            ],
+            [
+              "Boss-Extrude2",
+              "join"
+            ],
+            [
+              "Cut-Extrude2",
+              "cut"
+            ],
+            [
+              "Boss-Extrude3",
+              "join"
+            ]
+          ]
+        },
+        "history": {
+          "creators": {},
+          "has_brep": false,
+          "native_payloads": 0,
+          "top_level_operations": [
+            [
+              "Boss-Extrude1",
+              "join"
+            ],
+            [
+              "Cut-Extrude1",
+              "cut"
+            ],
+            [
+              "Boss-Extrude2",
+              "join"
+            ],
+            [
+              "Cut-Extrude2",
+              "cut"
+            ],
+            [
+              "Boss-Extrude3",
+              "join"
+            ]
+          ]
+        }
+      },
+      "sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
+    }
+  },
+  "fresh_sdk_processes": 22,
+  "named_writer_byte_equal": true,
+  "native_prior_receipt_sha256": "aa786c6aa4bc7bdae15662c4b4908205b7a0fda7fdb5bb1bb503594a6b0fb967",
+  "native_processes_started": 0,
+  "private_inputs_opened": 0,
+  "public_admission_changed": false,
+  "revised_sources_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/BuildPrismGeom.py": "880054f9812d6028d0736aec3ac4f04859791748f02453249446896dbf48a42b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/BindPrismCreate.py": "ab8fea4c6cba5ae099560348305069dcf59035b000f05ac52edbbe5c1c04344d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/WithColdName.py": "a68d23857788e1861b0d5fd08f8c646a0d203f40b0e7aaad8b5241d905d9337b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/PartGeometry.py": "ea5d9495c4d8640339ed2b741a6aeb67b8a247873833d54b08b09eac0ddd6235",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "582e484399e557a5eb7ea1a32bc341bde87364c2e29086b7c5d9ef77d1d5536a"
+  },
+  "schema": "kit.sw2026.cold-prism-creator.v1",
+  "tool_sha256": "fb41d11df869089aa3a1b86d9f6cf79093b30ecdac9bcdaf42ced6c1cd86c089"
+}

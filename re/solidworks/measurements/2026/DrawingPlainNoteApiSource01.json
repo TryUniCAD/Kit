@@ -1,0 +1,62 @@
+{
+  "custody": {
+    "foreign_cleanup_changed": false,
+    "git_mutations": false,
+    "hopper_open_or_close": false,
+    "saved_CAD_inputs_read": false,
+    "sealed_inputs_read": false,
+    "shared_source_changed": false,
+    "vendor_binary_or_listing_in_delivery": false,
+    "vm_calls": false
+  },
+  "delivery_pr": 121,
+  "instruction_boundaries": {
+    "passed": true,
+    "private_report_sha256": "d12c3834daa7546ca55e8c988756bb5042e4a1d78f1fa94fc2ec947179e225d0",
+    "windows": 26
+  },
+  "open": [
+    "configured environment note-kind overrides",
+    "ordinary sheet GenericText f170 producer",
+    "full cabinet frame choice/new-folder policy",
+    "complete viewport initial-placement policy",
+    "native text metric and API route measurement"
+  ],
+  "private_checks": {
+    "boundary_checker_sha256": "ea6321b09debaf0c89f6a8c339cc75fb3e1dbb8092a21f43fec74df3795b2697",
+    "checkpoint01_sha256": "1dc706b65ab28999d6268007a3cf87474b06e3c6a8c2b3418abe2d61cca80ba6",
+    "metadata_replay_sha256": "e6c4e677c5269ec20205ceeed095ab63529d9373912cd40214512fff12e21266",
+    "prior_window_correction_retained": true
+  },
+  "qualification": {
+    "application_usable": false,
+    "archive_round_trip": false,
+    "generated_note": false,
+    "held_out": false,
+    "native_lifecycle": false,
+    "public_admission": false,
+    "vendor_loadable": false
+  },
+  "schema": "drawing-plain-note-api-static-source-v1",
+  "source_record": {
+    "path": "re/solidworks/records/DrawingPlainNoteApiOwnership2026.json",
+    "sha256": "629504b7fb7cede78cc3d708a0728f4b7e40e5e8e5e397aa5cce3c41b8c9accc"
+  },
+  "source_verification": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 46,
+    "data_windows": 3,
+    "imports": 17,
+    "instruction_windows": 26,
+    "modules": 5,
+    "native_execution": false,
+    "record_sha256": "629504b7fb7cede78cc3d708a0728f4b7e40e5e8e5e397aa5cce3c41b8c9accc",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 20
+  },
+  "task": "B04-SW2026-DRAWING-PLAIN-NOTE-CONSTRUCTION"
+}

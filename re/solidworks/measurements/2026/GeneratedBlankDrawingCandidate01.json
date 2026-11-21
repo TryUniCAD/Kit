@@ -1,0 +1,266 @@
+{
+  "authored_spec_sha256": "a127d66ab5938b090fb94f33c87d507f7fa2ed796e591c001633f1c0ae3ee459",
+  "generated": [
+    {
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "definition_next_map_index": 131,
+        "layout_height_m": 0.2159,
+        "layout_scale_ratio": [
+          2.0,
+          3.0
+        ],
+        "layout_width_m": 0.2794,
+        "next_persistent_id": 9,
+        "root_child_classes": [
+          "moCommentsFolder_c",
+          "moBlockFolder_c",
+          "moDocsFolder_c",
+          "moDetailCabinet_c",
+          "moInkMarkupFolder_c",
+          "moMarkupCommentFolder_c",
+          "moDrSheet"
+        ],
+        "sheet_child_classes": [
+          "moRefPlane_c",
+          "moProfileFeature_c",
+          "moDetailFolder_c"
+        ]
+      },
+      "native_acceptance": false,
+      "native_bytes": 5940,
+      "native_sha256": "5d188f8d270ca7de00e54589bcee8083f9a4f46165badb2fb1ef111aa33cdcba",
+      "schema": "kit.sw2026.blank-drawing-construction.v1",
+      "streams": {
+        "Contents/Definition": {
+          "bytes": 23933,
+          "sha256": "29b0c20c9bc274f4aecee1169e7f3bda5a1f433d9e2aff5faecb2271c44c2f13"
+        },
+        "Header2": {
+          "bytes": 849,
+          "sha256": "407177b74bcd6b1839b6cbee77072a2698e9ee8e6b7ce5c39f7750e1c4885e7b"
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 167,
+          "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+        },
+        "docProps/ISolidWorksInformation.xml": {
+          "bytes": 872,
+          "sha256": "79fc792e845abf09a62fac61401b5c5cdfd8fc25c6b945701cc74b76e8827bd0"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 431,
+          "sha256": "7e8db5e8bb1fd81a0aeedae479303ad804056e1285d04606bc53f1e77bbab029"
+        }
+      }
+    },
+    {
+      "input_runtime_file_access_attempts": 0,
+      "inspection": {
+        "definition_next_map_index": 131,
+        "layout_height_m": 0.2159,
+        "layout_scale_ratio": [
+          7.0,
+          5.0
+        ],
+        "layout_width_m": 0.2794,
+        "next_persistent_id": 9,
+        "root_child_classes": [
+          "moCommentsFolder_c",
+          "moBlockFolder_c",
+          "moDocsFolder_c",
+          "moDetailCabinet_c",
+          "moInkMarkupFolder_c",
+          "moMarkupCommentFolder_c",
+          "moDrSheet"
+        ],
+        "sheet_child_classes": [
+          "moRefPlane_c",
+          "moProfileFeature_c",
+          "moDetailFolder_c"
+        ]
+      },
+      "native_acceptance": false,
+      "native_bytes": 5907,
+      "native_sha256": "cd15932c04e54214a690a3f07a2e731a307c1fa157249e527d8d47400a9c7490",
+      "schema": "kit.sw2026.blank-drawing-construction.v1",
+      "streams": {
+        "Contents/Definition": {
+          "bytes": 24045,
+          "sha256": "ab27452736286808019c32534b1d78f8c506a592eefe9899033223dce9a8f48c"
+        },
+        "Header2": {
+          "bytes": 837,
+          "sha256": "0ace1ab28a960950dcce18f796921c25984ba8517cfe999a974f78cfec4c5e20"
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "sha256": "964797a2fc409971994118a60e86606a1a450d875447728031583938b8749563"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 167,
+          "sha256": "4b4583b0566518158e01ed1e72ea7eaa003da6152b4a92281ec7733206b8e7be"
+        },
+        "docProps/ISolidWorksInformation.xml": {
+          "bytes": 911,
+          "sha256": "eeb0b30e3f4849116e162cc86cbfb895cf5054db2838039e83b0a84664847cca"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 464,
+          "sha256": "293efea81737d4b758450c87ed7290315881803b129e149f616681126d5b6419"
+        }
+      }
+    }
+  ],
+  "generator_input_sha256": "fb9e098382aa68bc8232bc7adebb3a02183fd9244de082086d1b5dd143e94362",
+  "generator_process_receipt_sha256": "97f925dd66ac698de82a391561bff90b04e7f798aa80a4bc4da7c36a9b5a6f75",
+  "heldout_inputs_tested": 0,
+  "matched_reduction_roles": 7,
+  "native_acceptance": false,
+  "native_streams_omitted": 22,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_cases": [
+    {
+      "bytes": 17674,
+      "kind": "locked-control",
+      "name": "Pristine",
+      "sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/CusProps",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/VBLists",
+        "Contents/eModelLic",
+        "DWG/DWG_HEADER",
+        "Header2",
+        "Images/Sheet_0",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SheetPreviews/SheetNames",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPtyStore/VisualStates_DisplayPane",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/CustomProperties",
+        "swXmlContents/KeyWords"
+      ]
+    },
+    {
+      "bytes": 15557,
+      "kind": "repacked-control",
+      "name": "Repacked",
+      "sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "streams": [
+        "Contents/3DExperienceExchange2",
+        "Contents/CusProps",
+        "Contents/Definition",
+        "Contents/DisplayLists",
+        "Contents/OleItems",
+        "Contents/VBLists",
+        "Contents/eModelLic",
+        "DWG/DWG_HEADER",
+        "Header2",
+        "Images/Sheet_0",
+        "ModelStamps",
+        "OleItemInformation/OLE_Item_Data",
+        "Preview",
+        "PreviewPNG",
+        "SheetPreviews/SheetNames",
+        "SwDocContentMgr/SwDocContentMgrInfo",
+        "ThirdPtyStore/VisualStates_DisplayPane",
+        "[Content_Types].xml",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "_rels/.rels",
+        "docProps/ISolidWorksInformation.xml",
+        "docProps/OpenTime.xml",
+        "docProps/app.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml",
+        "swXmlContents/CustomProperties",
+        "swXmlContents/KeyWords"
+      ]
+    },
+    {
+      "bytes": 8734,
+      "kind": "native-stream-reduction",
+      "name": "ReducedNative",
+      "sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "streams": [
+        "Contents/Definition",
+        "Header2",
+        "ModelStamps",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "docProps/ISolidWorksInformation.xml",
+        "swXmlContents/KeyWords"
+      ]
+    },
+    {
+      "bytes": 5940,
+      "kind": "generated",
+      "name": "GeneratedBlank",
+      "sha256": "5d188f8d270ca7de00e54589bcee8083f9a4f46165badb2fb1ef111aa33cdcba",
+      "streams": [
+        "Contents/Definition",
+        "Header2",
+        "ModelStamps",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "docProps/ISolidWorksInformation.xml",
+        "swXmlContents/KeyWords"
+      ]
+    }
+  ],
+  "packet_sha256": "d6bd3554200c8c7b4f45e2fa13dd86b51721daab5d7b15ec4a8036d8756f60ba",
+  "production_sdk_inspections": 2,
+  "schema": "kit.sw2026.blank-drawing-candidate.v1",
+  "second_author_input_sha256": "0585334bf2305aa082b3c5643568ac408c534f2635f91bdd803adb0cb6a182c2",
+  "source_hashes": {
+    "re/tooling/sw2026/DrawingBlankSpec01.json": "a127d66ab5938b090fb94f33c87d507f7fa2ed796e591c001633f1c0ae3ee459",
+    "re/tooling/sw2026/DrawingRootProcess.py": "4845043eb63d691caf86f66848521948a01d90b243d62b3c43dabfd69e14e4b7",
+    "re/tooling/sw2026/InspectBlankDrawing.py": "6843ec1c5c36d1ab23d9791143952f809a4f9bda8ae8f1b77526900040038930",
+    "re/tooling/sw2026/PrepareBlankDrawing.py": "a41a525db9a999ec2d3dc574a2d8056c96c06642ceb8dcdcdc7a9bda9a7d3720",
+    "re/tooling/sw2026/builders/DrawingDocument.py": "743ef15f9f04fba95a4ceda748a24b13177d6c483f6b17902142c8672f308669",
+    "re/tooling/sw2026/builders/DrawingRoot.py": "522623b0a01fb44e473dd8a378164ae16a0ff52283420c12f2a7c9fd1c570227",
+    "re/tooling/sw2026/builders/ExternalFiles.py": "7308eb99692a17f5c354eacbf4b663a252baf056402381a4b0bae424fbcb6562",
+    "re/tooling/sw2026/builders/Metadata.py": "c1fbfeb5530472543246e092af0e45cfe5f7a6eb0ed52fa613b95f85553a4162",
+    "re/tooling/sw2026/builders/Model.py": "319d5b731cf29b5254ce8b0211c31a017b099304d5d8782787a2ee2487f6db0a"
+  },
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "target_version": 19000,
+  "tool_hashes": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawing.py": "6843ec1c5c36d1ab23d9791143952f809a4f9bda8ae8f1b77526900040038930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  }
+}

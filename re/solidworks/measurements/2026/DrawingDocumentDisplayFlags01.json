@@ -1,0 +1,222 @@
+{
+  "grid_packet_predecessor_sha256": "92f134181ce4f573268113b65b48cce0ceb2945c2ab930fe2b4a511f3338ae68",
+  "host_disclosed_graph_cohort": [
+    {
+      "case": "Disclosed01",
+      "display_all_annotations": true,
+      "display_annotations": true,
+      "fad4": 2,
+      "fad8_0_bits": "0xaf803cff",
+      "fad8_0_signed": -1350550273,
+      "fad8_1_signed": 1619006468,
+      "graph_sha256": "da0725fa2640d9f2f6ea332752f8365b5c298b87b4056f558c1e5fbfe369391c",
+      "grid": false,
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad"
+    },
+    {
+      "case": "Disclosed01Edit",
+      "display_all_annotations": true,
+      "display_annotations": true,
+      "fad4": 2,
+      "fad8_0_bits": "0xaf803cff",
+      "fad8_0_signed": -1350550273,
+      "fad8_1_signed": 1619006468,
+      "graph_sha256": "a110c6979a9499c42e986195bc522e3b96053ea091f16fc93292c0696ff9b058",
+      "grid": false,
+      "input_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d"
+    },
+    {
+      "case": "Disclosed02",
+      "display_all_annotations": true,
+      "display_annotations": true,
+      "fad4": 2,
+      "fad8_0_bits": "0xaf803cff",
+      "fad8_0_signed": -1350550273,
+      "fad8_1_signed": 1619006468,
+      "graph_sha256": "596b8819baded43dce9b2672b9704259633f3a89a2d3e2149a0a1ed7b7db23c7",
+      "grid": false,
+      "input_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575"
+    },
+    {
+      "case": "Disclosed02Edit",
+      "display_all_annotations": true,
+      "display_annotations": true,
+      "fad4": 2,
+      "fad8_0_bits": "0xaf803cff",
+      "fad8_0_signed": -1350550273,
+      "fad8_1_signed": 1619006468,
+      "graph_sha256": "9d83b4ba227e58157ecb4d4a8be17abfa57ec9c45bfa8261821992504f6403ee",
+      "grid": false,
+      "input_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6"
+    },
+    {
+      "case": "GeneratedInitial",
+      "display_all_annotations": false,
+      "display_annotations": false,
+      "fad4": 3,
+      "fad8_0_bits": "0x0",
+      "fad8_0_signed": 0,
+      "fad8_1_signed": 0,
+      "graph_sha256": "0418fe7663fb6fcc83f0127719c58d5729a1a6d1824bf9e32fe7a4202cbcb62c",
+      "grid": true,
+      "input_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff"
+    },
+    {
+      "case": "GeneratedEditedSaved",
+      "display_all_annotations": false,
+      "display_annotations": false,
+      "fad4": 3,
+      "fad8_0_bits": "0x82803004",
+      "fad8_0_signed": -2105528316,
+      "fad8_1_signed": 4,
+      "graph_sha256": "4488a7bb572482a62ca5607dbca2e76f9071beaf396bcf056f41c665d99d0431",
+      "grid": true,
+      "input_sha256": "ebad7af6a83b6ff671ea6038032984ef821059ee6788cbf6c82dfc9fbac5d443"
+    }
+  ],
+  "native_source_record_sha256": "c5eac482295019fcc599931ffe01371e2aec7ebba41eff4e95f956d14d103c55",
+  "owner": "flag_ownership",
+  "schema": "drawing-document-display-flags-observation-v1",
+  "separate_native_api_diagnostic": {
+    "api_sha256": "cd722497b42b3def5cc057b264220bca207e4de28972e12b6d77a3453aa9341f",
+    "different_cohort_notice": "the diagnostic ANSI candidate is not silently identified with the earlier ISO generated graph; raw job identity is retained separately",
+    "distinct_processes": 4,
+    "heldout_source_reads": 0,
+    "job_sha256": "7905776ea0b0c86dec167d2f35042136ed0eec6093170c249b747ae39f9f9e35",
+    "passed_as_data_collection": true,
+    "phases": [
+      {
+        "controller_diagnostics": [],
+        "immutable_input": true,
+        "open": [
+          0,
+          0
+        ],
+        "passed": true,
+        "post_rebuild_preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "role": "ControlAfter"
+      },
+      {
+        "controller_diagnostics": [],
+        "immutable_input": true,
+        "open": [
+          0,
+          0
+        ],
+        "passed": true,
+        "post_rebuild_preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "role": "ControlBefore"
+      },
+      {
+        "controller_diagnostics": [],
+        "immutable_input": true,
+        "open": [
+          0,
+          0
+        ],
+        "passed": true,
+        "post_rebuild_preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "preference_state": {
+          "swDisplayAllAnnotations": true,
+          "swDisplayAnnotations": true,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": false,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "role": "NativeSource"
+      },
+      {
+        "controller_diagnostics": [],
+        "immutable_input": true,
+        "open": [
+          0,
+          0
+        ],
+        "passed": true,
+        "post_rebuild_preference_state": {
+          "swDisplayAllAnnotations": false,
+          "swDisplayAnnotations": false,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": true,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "preference_state": {
+          "swDisplayAllAnnotations": false,
+          "swDisplayAnnotations": false,
+          "swGridAutomaticScaling": true,
+          "swGridDisplay": true,
+          "swGridDisplayDashed": true,
+          "swShowAnnotationInAnnotationViews": false
+        },
+        "role": "SdkCandidate"
+      }
+    ],
+    "result_sha256": "5b69c1d0363161cb0ec7798ba265e1379ff82db9eb0a6a60e7080c180018309a"
+  },
+  "static_metadata_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 25,
+    "data_windows": 13,
+    "imports": 18,
+    "instruction_windows": 15,
+    "modules": 5,
+    "native_execution": false,
+    "record_sha256": "c5eac482295019fcc599931ffe01371e2aec7ebba41eff4e95f956d14d103c55",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 5
+  },
+  "status": {
+    "full_source_admission": false,
+    "heldout_acceptance": false,
+    "local_tests": false,
+    "matched_display_state_native_matrix_pending": true,
+    "new_native_execution_by_this_agent": false,
+    "rendered_source_parity": false,
+    "shared_source_changes": false,
+    "source_rule_closed_for_ordinary_compiled_route": true
+  },
+  "task": "DRAWING-NOTES-C10"
+}

@@ -1,0 +1,27 @@
+{
+  "cad_inputs_read": 0,
+  "complete_function_entries": 14,
+  "derived_loader_initial_u32": 0,
+  "full_native_admission_qualified": false,
+  "heldout_inputs_read": 0,
+  "imports_verified": 2,
+  "initializer_slots_verified": 4,
+  "native_runs": 0,
+  "option_word_wholly_in_zero_fill": true,
+  "ordinary_post_startup_policy_qualified": false,
+  "original_modules": 31,
+  "passed": true,
+  "record_sha256": "e211b34e475a029f922319f8854d2de14cc06e1007c7b980e2911dbe6d810161",
+  "schema": "kit.sw2026.downstream-body-options-source-verification.v1",
+  "sdk_product_runs": 0,
+  "setter_import_matches": 0,
+  "setter_literal_modules": [
+    "sldmodu.dll"
+  ],
+  "source_intervals": 29,
+  "source_verification_only": true,
+  "tool_sha256": "bd0837a6911f502c7d1c61cfd2995e785eb39d78aa2ffa425e6df6afc7c93220",
+  "vendor_bytes_or_listings_published": false,
+  "vm_calls": 0,
+  "vocabulary_items_verified": 3
+}

@@ -1,0 +1,135 @@
+{
+  "schema": "kit.sw2026.assembly-wire-stamps.v1",
+  "evaluation_revision": "34a28c080a859dce2e1035b9022f7c291fef0838",
+  "tested_merge": "b1efd1135a8eeecacfbc8adfc09fba650a41a6be",
+  "tested_tree": "326b8288e8a1d31158ccfc231a09d8cb0781330d",
+  "run_id": 43997594150,
+  "job_id": 133753366411,
+  "artifact": {
+    "id": 14290418452,
+    "bytes": 24615635,
+    "sha256": "48c79b5b6c6e1acf55177e31df16566546a365b25ac497510ed3169f3e3e6467"
+  },
+  "report": {
+    "name": "SourceParser/Assembly/Discovery.json",
+    "bytes": 2368894,
+    "sha256": "69cdf49c2e8c02c33d769917c4fe598a2aa94dac7d64f6521ddf386d51912bdb"
+  },
+  "discovery_stream_comparisons": 21,
+  "rows": [
+    {
+      "file": "A07EmptyAssembly.SLDASM",
+      "sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "original_sha256": "e6962a1922821a825d5c592bddf5f4ff50cc2bab01da888fc36b22c624541b47",
+      "warning": 0,
+      "parent_header": {
+        "f40": 103,
+        "f48": 1794876406,
+        "fc4": 0
+      },
+      "linked_graph": {
+        "sha256": "b385891322a8216643180b309bcb3aa8710c9877d3101fbc15e39c0c53d54d11",
+        "node_count": 907,
+        "reference_count": 1104,
+        "map_base": 91,
+        "map_count": 152,
+        "unresolved_references": 0
+      },
+      "reference_stamps": []
+    },
+    {
+      "file": "A08SingleAssembly.SLDASM",
+      "sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "original_sha256": "e5c4502ef3b6da5d106c7bb362e9e1ac0bd3c324e011b49320466eb8ec8eb87d",
+      "warning": 32,
+      "parent_header": {
+        "f40": 104,
+        "f48": 1794876459,
+        "fc4": 1
+      },
+      "linked_graph": {
+        "sha256": "c20c19c507942b83eac45e3c5d5fc1099646bac96b359f5f8d4bf2bc87277100",
+        "node_count": 936,
+        "reference_count": 1153,
+        "map_base": 103,
+        "map_count": 164,
+        "unresolved_references": 1
+      },
+      "reference_stamps": [
+        {
+          "class": "moReference_c",
+          "stream": "Contents/Config-0",
+          "archive_index": 8,
+          "fields": {
+            "f3e0": 134,
+            "f3e8": 1794876459,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f4d8": 0
+          }
+        }
+      ]
+    },
+    {
+      "file": "A09RepeatedAssembly.SLDASM",
+      "sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "original_sha256": "56bd5e7864cb7d4c0b9272a49a02ba07efff907e285e9aaf75eb394d0d901f90",
+      "warning": 32,
+      "parent_header": {
+        "f40": 104,
+        "f48": 1794876511,
+        "fc4": 2
+      },
+      "linked_graph": {
+        "sha256": "b59f5a3304597afd4df2262fbb5ee6782f3e45bbeeef57a026e72627b193d07d",
+        "node_count": 953,
+        "reference_count": 1182,
+        "map_base": 107,
+        "map_count": 168,
+        "unresolved_references": 2
+      },
+      "reference_stamps": [
+        {
+          "class": "moReference_c",
+          "stream": "Contents/Config-0",
+          "archive_index": 8,
+          "fields": {
+            "f3e0": 134,
+            "f3e8": 1794876511,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f4d8": 0
+          }
+        },
+        {
+          "class": "moReference_c",
+          "stream": "Contents/Config-0",
+          "archive_index": 16,
+          "fields": {
+            "f3e0": 134,
+            "f3e8": 1794876511,
+            "f3f0": 102,
+            "f3f4": 104,
+            "f3f8": 101,
+            "f400": 3,
+            "f408": 0,
+            "f4d8": 0
+          }
+        }
+      ]
+    }
+  ],
+  "source_part_file_unchanged": true,
+  "reference_time_matches_parent_header_in_populated_cases": true,
+  "standalone_child_serialized_time_observed": false,
+  "warning_cause_established": false,
+  "heldout_payloads_read": false,
+  "writer_output_count": 0,
+  "native_acceptance": false
+}

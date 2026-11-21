@@ -1,0 +1,424 @@
+{
+  "schema": "kit.sw2026.thin-revolve-generated-discovery.v1",
+  "model_spec_sha256": "dc2fe59f7401905e84f325468384d2f60b78b9f8408204c5b0995c6d8590154d",
+  "prewriter_lock_sha256": "e81db7caf2db600543f6f85b61b3a47a27cfd4b670f8e6a55f45dc79e6637653",
+  "prewriter_lock_revision": "35c607164409bff6fe2222358ac1e8b6da981782",
+  "writer_revision": "c34a607e40519fe78eea5b3c86288c545c77c886",
+  "writer_sdk_tree": "9703887934a847918d0d3ebda4183bcd09b692d6",
+  "logical_candidate_directory": "C:\\KitThinGenerated01\\Candidates",
+  "epoch": 1760000000,
+  "tools": {
+    "BuildThinControls.py": "a2b3a13f2d76c3a5ea137e7be2a5aa1812f51c9eff8a9ca441bedb25cca846c8",
+    "ThinConstruct.py": "cd5c30aa44036ecfd88162a1e8a3cc07aeebfa1e42c7f336cecbbba2c060a901",
+    "ThinNeutral.py": "d5cddaafd83558e04d36ea6f2cdde071022fcb1c9239883bb115ebdbccfc0643"
+  },
+  "rows": {
+    "ThinOne": {
+      "sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+      "bytes": 8146,
+      "mode": 0,
+      "wall_metres": {
+        "f08": 0.00173,
+        "f10": 0.0
+      },
+      "keyword_order": [
+        "D3",
+        "D1"
+      ],
+      "points_mm": {
+        "body": [
+          [
+            36.879999999999995,
+            -14.11
+          ],
+          [
+            36.879999999999995,
+            19.970000000000002
+          ]
+        ],
+        "axis": [
+          [
+            4.71,
+            -68.93
+          ],
+          [
+            4.71,
+            73.19000000000001
+          ]
+        ]
+      },
+      "initializer_end_thickness_m": -2.0,
+      "typed_streams": {
+        "Contents/Config-0": {
+          "bytes": 22248,
+          "sha256": "ccabd0acf75804e3f6939ad8eecc3ee776b38eeddb2b697aa7e5d482aca6fc1e",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12470,
+          "sha256": "897a5a61dc339952485a454ff66fd79fe105b68483c35cf8046923616b11a91b",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 611,
+          "sha256": "99f4037108f71981f9450ebd73ed8ea1a66efa126c451a404ef6778af5c08cc9",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 611,
+          "sha256": "361746899d6b689096073b188471d2d2ac16b0fa48d2ac44bd259a069f1b1137",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1426,
+          "sha256": "916dd527bc092ad0bb4952167f4c38da71bf43c0c5a84ac99820c7d59ddf48d0",
+          "byte_identity": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        }
+      },
+      "ordinary_projection_refusal": "ordinary revolve history contains another unqualified feature class",
+      "independent_neutral_wall_contrast": {
+        "edited_driver": "D3",
+        "sha256": "8f8f4e4a4fa1619bbde9d3d4ffe3cdcd8b9a4b8033de19a408594e816f49a095",
+        "different_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "suppressed_profile_refusal": "thin profile must contain two actual independent open lines",
+      "runtime_external_access_attempts": 0
+    },
+    "ThinOpposite": {
+      "sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+      "bytes": 8166,
+      "mode": 1,
+      "wall_metres": {
+        "f08": 0.00173,
+        "f10": 0.0
+      },
+      "keyword_order": [
+        "D3",
+        "D1"
+      ],
+      "points_mm": {
+        "body": [
+          [
+            36.879999999999995,
+            -14.11
+          ],
+          [
+            36.879999999999995,
+            19.970000000000002
+          ]
+        ],
+        "axis": [
+          [
+            4.71,
+            -68.93
+          ],
+          [
+            4.71,
+            73.19000000000001
+          ]
+        ]
+      },
+      "initializer_end_thickness_m": -2.0,
+      "typed_streams": {
+        "Contents/Config-0": {
+          "bytes": 22258,
+          "sha256": "a46091e33bbddc94302aaf47a798b4746f1084f9c6f8bd2f23b8fd3fe26cd1ff",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12470,
+          "sha256": "f3fe7889e5c91124e682183414e632e16c683e011fda742028cdac8da8d6d0b0",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 641,
+          "sha256": "874a78daba6bb0114151dff5654ae7665582e16e1572aae9ec0c64e6565d3a3e",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 641,
+          "sha256": "dc311e860a68f86ca34350b219e5a06c023705b0c9a762131574669be30c34e8",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1431,
+          "sha256": "ff790e39cad38ba1e77f3066f2070385e31baee0dedce8f6e7a4d941e6172eee",
+          "byte_identity": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        }
+      },
+      "ordinary_projection_refusal": "ordinary revolve history contains another unqualified feature class",
+      "independent_neutral_wall_contrast": {
+        "edited_driver": "D3",
+        "sha256": "8d47a2d27949a0c733ec0e04a1fb56be41b1b4011e254513e3c0a4ace51e0db1",
+        "different_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "suppressed_profile_refusal": "thin profile must contain two actual independent open lines",
+      "runtime_external_access_attempts": 0
+    },
+    "ThinMidplane": {
+      "sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+      "bytes": 8175,
+      "mode": 2,
+      "wall_metres": {
+        "f08": 0.00173,
+        "f10": 0.0
+      },
+      "keyword_order": [
+        "D3",
+        "D1"
+      ],
+      "points_mm": {
+        "body": [
+          [
+            36.879999999999995,
+            -14.11
+          ],
+          [
+            36.879999999999995,
+            19.970000000000002
+          ]
+        ],
+        "axis": [
+          [
+            4.71,
+            -68.93
+          ],
+          [
+            4.71,
+            73.19000000000001
+          ]
+        ]
+      },
+      "initializer_end_thickness_m": -2.0,
+      "typed_streams": {
+        "Contents/Config-0": {
+          "bytes": 22258,
+          "sha256": "b9b05d5abab62ffd4470eeeca14984da0174a712c4528a9d3cd21249ae4e02b0",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12470,
+          "sha256": "21c9b2e55ff1da5c2b0340cad781f0663079ea097737d9e71b4fe18ce8d1b6ab",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 641,
+          "sha256": "daee9eb93c8dc5ca75a34d194ea9bfb5ca6fae75c582e35a75a90287eea89e2c",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 641,
+          "sha256": "4112b84c79a747eb785575f840d887f51156ef2b2f9c562bd34c3b8727b3d80c",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1431,
+          "sha256": "8294375b8b4964cf8c24df7ff0e6c2039669125ff3f2072f496247fa5cced170",
+          "byte_identity": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        }
+      },
+      "ordinary_projection_refusal": "ordinary revolve history contains another unqualified feature class",
+      "independent_neutral_wall_contrast": {
+        "edited_driver": "D3",
+        "sha256": "86e4eb12c5f08523b7f736406f8ea015195144de5a1d0a2588b6ad5ae10fc8c1",
+        "different_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "suppressed_profile_refusal": "thin profile must contain two actual independent open lines",
+      "runtime_external_access_attempts": 0
+    },
+    "ThinUnequal": {
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "bytes": 8227,
+      "mode": 3,
+      "wall_metres": {
+        "f08": 0.00173,
+        "f10": 0.00343
+      },
+      "keyword_order": [
+        "D1",
+        "D4",
+        "D3"
+      ],
+      "points_mm": {
+        "body": [
+          [
+            36.879999999999995,
+            -14.11
+          ],
+          [
+            36.879999999999995,
+            19.970000000000002
+          ]
+        ],
+        "axis": [
+          [
+            4.71,
+            -68.93
+          ],
+          [
+            4.71,
+            73.19000000000001
+          ]
+        ]
+      },
+      "initializer_end_thickness_m": -2.0,
+      "typed_streams": {
+        "Contents/Config-0": {
+          "bytes": 22256,
+          "sha256": "dddfef792e91a38d9293b4386b60ab94863d44301e1f8dfcb9c114c43d8290d9",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12624,
+          "sha256": "3f472588d409ad3f41650edcdc41e5be5cef87a7f7da466883a146afb8bac744",
+          "byte_identity": true
+        },
+        "Header2": {
+          "bytes": 635,
+          "sha256": "21fd7322fdb1271b068b62ec64dc382e895f04871ccb09247e5dc470e4230fc9",
+          "byte_identity": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 635,
+          "sha256": "f3678aa6eb0361b8909b6962f66e883daa868f4a4b1089cc3266c67ce870724c",
+          "byte_identity": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+          "byte_identity": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+          "byte_identity": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "byte_identity": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1481,
+          "sha256": "2846025f01c26f7cef6805cd379d0eee50acfa0020b991b1927daa85c1c26a38",
+          "byte_identity": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "qualified": true,
+          "byte_identity": true,
+          "bytes": 187,
+          "sha256": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc"
+        }
+      },
+      "ordinary_projection_refusal": "ordinary revolve history contains another unqualified feature class",
+      "independent_neutral_wall_contrast": {
+        "edited_driver": "D4",
+        "sha256": "535d52ae6a017142f330ea8e884ffff4212660f86058312737c5c6feae43a21f",
+        "different_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "suppressed_profile_refusal": "thin profile must contain two actual independent open lines",
+      "runtime_external_access_attempts": 0
+    }
+  },
+  "public_writer": false,
+  "native_acceptance": false
+}

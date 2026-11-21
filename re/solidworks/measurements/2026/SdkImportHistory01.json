@@ -1,0 +1,174 @@
+{
+  "complete_stream": {
+    "bytes": 606,
+    "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+  },
+  "decoded_fields": {
+    "active_world": {
+      "alive": 1,
+      "assembly": 0,
+      "attdef_list": 0,
+      "attrib_def": 0,
+      "attribute": 0,
+      "body": 0,
+      "current_id": 3,
+      "curve": 0,
+      "highest_id": 3,
+      "index": 1,
+      "index_map": 0,
+      "index_map_offset": 0,
+      "lattice": 0,
+      "mesh": 0,
+      "mesh_offset_data": 0,
+      "point": 0,
+      "polyline": 0,
+      "schema_embedding_map": 0,
+      "surface": 0,
+      "transform": 0
+    },
+    "frames": [
+      {
+        "role": ": TRANSMIT FILE (partition) created by modeller version 3701250",
+        "stored_size": 273,
+        "uncompressed": {
+          "bytes": 307,
+          "sha256": "47e7343bcb7cce96604318603a1230aec3849d466b615dd01380d77516d1dfd2"
+        }
+      },
+      {
+        "role": ": TRANSMIT FILE (deltas) created by modeller version 3701250",
+        "stored_size": 333,
+        "uncompressed": {
+          "bytes": 520,
+          "sha256": "7ace723819c14c47b46dfc4fa9d73eb62b03541f29ca3b014d108c2d753a0fe5"
+        }
+      }
+    ],
+    "history_transmit_order": [
+      {
+        "delta_key": 2,
+        "following_index": 0,
+        "index": 3,
+        "mark_id": 3,
+        "preceding_index": 4,
+        "previous_world_alive": 1
+      },
+      {
+        "delta_key": 0,
+        "following_index": 4,
+        "index": 5,
+        "mark_id": 1,
+        "preceding_index": 0,
+        "previous_world_alive": null
+      },
+      {
+        "delta_key": 1,
+        "following_index": 3,
+        "index": 4,
+        "mark_id": 2,
+        "preceding_index": 5,
+        "previous_world_alive": 0
+      }
+    ],
+    "partition_root": {
+      "current_pmark": 3,
+      "highest_id": 3,
+      "index": 2
+    }
+  },
+  "fresh_parts": {
+    "ConcaveBare": {
+      "complete_partition_matches": true,
+      "import_selected_mark": 3,
+      "model_activation_mark": 2,
+      "part": {
+        "bytes": 10347,
+        "sha256": "dc81a0e0cfe3b41922f8a596bbd0d6dcd0cf1164c50d18fa407de54e8d190623"
+      }
+    },
+    "ConcaveOwned": {
+      "complete_partition_matches": true,
+      "import_selected_mark": 3,
+      "model_activation_mark": 2,
+      "part": {
+        "bytes": 10781,
+        "sha256": "ab0e04cd513a12be9df40e9f39576bb30ec20dec6bc626df849d69019e2ae867"
+      }
+    },
+    "RectangularBare": {
+      "complete_partition_matches": true,
+      "import_selected_mark": 3,
+      "model_activation_mark": 2,
+      "part": {
+        "bytes": 9803,
+        "sha256": "a13016df9d62c12646344d60f3eedf803885f2853ae2e3396e54ea17f595c56d"
+      }
+    },
+    "RectangularOwned": {
+      "complete_partition_matches": true,
+      "import_selected_mark": 3,
+      "model_activation_mark": 2,
+      "part": {
+        "bytes": 10228,
+        "sha256": "611fa35f43b0f0bf7c5d0b082b0e393ccf75e8df00ab87d276f1edf36118adf4"
+      }
+    }
+  },
+  "fresh_reference_exact": true,
+  "guarded_file_reads": 0,
+  "input_events": [
+    "activation",
+    "local attachment"
+  ],
+  "input_saved_part_count": 0,
+  "mark_ids_in_archive_binding_order": [
+    2,
+    3
+  ],
+  "native_acceptance": false,
+  "native_application_launches": 0,
+  "refusals": {
+    "active_mark_in_preceding_world": "local kernel rollback requires a body free preceding world",
+    "approximate_archive_version": "import history needs fresh 2026 activation and local body attachment",
+    "attachment_before_activation": "import history needs fresh 2026 activation and local body attachment",
+    "blank_event_plan": "import history needs fresh 2026 activation and local body attachment",
+    "body_in_preceding_world": "local kernel rollback requires a body free preceding world",
+    "duplicated_activation": "import history needs fresh 2026 activation and local body attachment",
+    "earlier_archive": "import history needs fresh 2026 activation and local body attachment",
+    "foreign_preceding_world_index": "local kernel rollback requires a body free preceding world",
+    "invalid_preceding_alive": "local kernel rollback requires a body free preceding world",
+    "mutable_events": "import history needs fresh 2026 activation and local body attachment",
+    "no_activation": "import history needs fresh 2026 activation and local body attachment",
+    "no_local_attachment": "import history needs fresh 2026 activation and local body attachment",
+    "second_local_attachment": "import history needs fresh 2026 activation and local body attachment",
+    "untyped_events": "import history needs fresh 2026 activation and local body attachment"
+  },
+  "runtime": {
+    "python": "3.13.15",
+    "zlib": "1.2.12"
+  },
+  "saved_native_output_files": 0,
+  "schema": "kit.sw2026.package-import-history.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "3032c0f6ecbc490c74016225932cccf4b55731d80a8ecdbd87f2bfd0b7394568",
+    "re/tooling/sw2026/imported_body_source/VerifyImportHistory.py": "163d46b41d4370ddee76a5d268cabe76798321296f93fc4633164f2e0b6bcf93",
+    "re/tooling/sw2026/para/Partition.py": "26117abf2342c0b5b720d7acb3d450c24d3d40d9c73514e35c1b0f2ceefed89d",
+    "re/tooling/sw2026/para/rectangle/Allocate.py": "9129349e35481bae9373677a49e9d2fac5a55ff71d90b9f11f7e6e579f723140",
+    "src/convert/Geometry/Parasolid.py": "0dbe22a69f954fabc945f46931757e99179d1f562487f7b534da3cc6e796e2d9",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindImportMut.py": "b2c537585b8e3b79a6c658b71f8c9adf0910efbbfa880fcc3c2d2f0e146f4b8e",
+    "src/convert/adapters/solidworks/Archive/Partition/CheckXmtMarks.py": "03c80d760cb3fec4ff5281d5bbb84b44ff1ca88d7c39ea7f4047f3bb05861987",
+    "src/convert/adapters/solidworks/Archive/Partition/Fields/WorldShapes.py": "36298bef0b7cb5315e31955e0e5f50fba6434fb72255595ebc67f3c77e239a11",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/ImportEvent.py": "cf83bd9310de91e8bb0a29dfeba356043df6f74fca97c33b327d05eee6b5545d",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/ImportHistory.py": "6ea9908421e3d5422325580a3a65e0848b9c3967f00d50ccdcfcf5a76bd012fd",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/MakeEmptyWorld.py": "2681e216641fe8d557b39f89f03b31f7ee42ef07343bb3120a2fb81dcd2c4d2f",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/MakeImportHist.py": "ef61eddadef3d9086f234f55ae3b43532649b8408d758c3bf598b28e5fecab6f",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/MakeImportMarks.py": "468465b9fc9e16b3362e385e3563abe9fe56295598f9a578fac9238e0cb850dc",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/WriteImportHist.py": "936dc9c5b32cad95ecb80d06687df049f97beae0634b7523aecb926029ae8bcc",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/WriteRollMut.py": "4c2ffe6db57d0fde8c1998df8b4e9e3c2d84ff39e4fc7d9946ee32c0ecf38e56",
+    "src/convert/adapters/solidworks/Archive/Partition/ImportHistory/WriteXmtEndMut.py": "75e8ec086638e72ae41b226d082e5b2738158cf2f3095edd39404b64d96874b0",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/WriteXmtNodeMut.py": "2c05a0a3c60d2484e5a87767a095a25542bf82eb9fb36f65d17ad6073ad928fb",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadRollbackMut.py": "18e67a4a27a35144515c68769d3d9d920e09da5318db885aa3a58b6214c3c855",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadXmtHistory.py": "2e452422f2da9f508c1eddec9ece0384d69d5a54c1c715c958c82da02246d87c"
+  },
+  "version": 19000
+}

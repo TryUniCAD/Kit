@@ -1,0 +1,62 @@
+{
+  "actual_baseline_receipt_required_before_trace_packet_freeze": true,
+  "actual_trace_packet_frozen": false,
+  "all_sources_compile_without_execution": true,
+  "amd64_cached_engine_files_verified": {
+    "dbgcore.dll": "de03ffb6b1181434c3db61e7ac63e3383b5732ac8a7d28579a30ff306ef8b8c4",
+    "dbgeng.dll": "5a2a515f6263c66b0323d8707abf4b64511a9a34f1f1d3fb1f3c4c17f0bf9cad",
+    "dbghelp.dll": "ed7323e007e863dd71e7b405e587969f37e5a146bb0fbcbf885031176bce401d",
+    "dbgmodel.dll": "313c4d4b0f0fe4a23f0a8979c83ff40e095828adb4908e1c8869991aefbe6ac9",
+    "msdia140.dll": "3499cf0bf1ee71ee04c197c9376fa8438964b557fc172a861572cae21abacd36"
+  },
+  "amd64_cached_package_verified_sha256": "875678516f9ceed4a1c8b9b106d165106fcaa38723ad7c584c47b95b231600de",
+  "baseline_files_sha256": "c7b49f275a7cf4b843ef1522b4b759fa4fbd5342acc3055fd47b543f28da5cf2",
+  "baseline_packet_sha256": "36143744fc79f19fb60434d24884288f72733e764ed9fd8a8138aff4233d0872",
+  "files": [
+    {
+      "bytes": 14565,
+      "name": "DrawingEdgeCacheTrace01.py",
+      "sha256": "bc41c15f5de299732c271facc40aa7d18ae0111cc8054a16df84fa74987260c7"
+    },
+    {
+      "bytes": 24460,
+      "name": "DrawingSaveAggregateDbgEng.py",
+      "sha256": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f"
+    },
+    {
+      "bytes": 4400,
+      "name": "DrawingSavePreviewGateDbgEng.py",
+      "sha256": "53dc45e2ec6628b9518d3a31aa9ea50ed1c6add2156a68fb61f92aedd798906c"
+    },
+    {
+      "bytes": 10473,
+      "name": "DrawingSavePropertiesGateDbgEng.py",
+      "sha256": "9a42ce005817effb3aa28c1d3f1fad98d7a18aa0ebaf783bfca560586863cf04"
+    },
+    {
+      "bytes": 4483,
+      "name": "ObserveDrawingEdgeCache01.py",
+      "sha256": "920e889e557e32071726842725a00d45dee896abe0deed6bc329e6320e62ab2e"
+    },
+    {
+      "bytes": 7884,
+      "name": "RunDrawingEdgeCacheTrace01.py",
+      "sha256": "b5ee3f713ddab5f0e9899c6e1b8ac719dc176ec53d8f7489cd0a09b4a9616011"
+    },
+    {
+      "bytes": 5101,
+      "name": "FreezeDrawingEdgeTrace01.py",
+      "sha256": "dfc7389f1e89ceea6945a36fbc60684df7d5157324ade73431207e5942d1713b"
+    }
+  ],
+  "held_out_inputs_read": 0,
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "schema": 1,
+  "scope": "source-only optional pre-event7 fixed two-stop method; not a native observation",
+  "shared_checkout_writes": 0,
+  "task_id": "B04-SW2026-DRAWING-EDGE-COM",
+  "undefined_name_static_check": "All checks passed!",
+  "vendor_code_executed": false,
+  "vm_calls": 0
+}

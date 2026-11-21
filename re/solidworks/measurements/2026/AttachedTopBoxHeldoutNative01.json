@@ -1,0 +1,227 @@
+{
+  "benchmark_conversion_credits": 0,
+  "cases": {
+    "Slot01": {
+      "build": {
+        "bytes": 8750,
+        "guarded_builds": 2,
+        "native_acceptance": false,
+        "neutral_sha256": "3227f7f47c65fd1357e6ea044579e5a97e67e8a7a811ea8ea2d1f2b20499f647",
+        "passed": true,
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sha256": "2a4a1e9a45197b2b93b4d63f8d054be460b4bd83be51ba18257e2c78d4c90b28",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "a723cb2fd55b1ee46e756bf19e2de4e0f1447407c3d5f5752e0f255654cb9738"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e309c73e247aa28d2a6fa67c1d7a5430cbaeaba1b09132218520897bfe7d3e06"
+          },
+          "Contents/Config-0": {
+            "bytes": 22364,
+            "sha256": "0cc3f69af697efc5ec1cd7d377d9875cc303123b6f43bd3a2e1a638e4ed7be8c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 633,
+            "sha256": "e826b953bbe99c62df74b08211d58e8d82910e9fb9568f63f9b0180f4db5664c"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17987,
+            "sha256": "1b913583ed55cd56c404a55795c3e9fa03dff8501c71e134689b92821e42250e"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 633,
+            "sha256": "a414cc3b399026de79418c990a14aa125937f87c1cc18155ed1ca982b72f2171"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "28620038cc286811f52aca36964455a5f1e1806d7c3132a1a8dbbef7b3de002d"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1544,
+            "sha256": "229421c193be3f7e4e74806085746f5405934f199c28bc87fe6d0bec6d5b7ffe"
+          }
+        }
+      },
+      "native_saves": {
+        "Height": {
+          "bytes": 64478,
+          "sha256": "e11a6b69ed5199509aaa28d675c0c2b14072abca79ba883e731a3193d67b325b"
+        },
+        "Length": {
+          "bytes": 63867,
+          "sha256": "039fc1c25bb301d4bfaf137c730cce8ba66888171e3688dca0ae5c81ca93f092"
+        },
+        "Original": {
+          "bytes": 64742,
+          "sha256": "e29338b14f364edabc4eb124bfeeaa933b9fdc1a7c7abbb7cf5e1d5e28ea2cb5"
+        },
+        "Width": {
+          "bytes": 63563,
+          "sha256": "9583891c235fbfbde91d8844ccbc5e1ee702f75261cae9ab68d1673eca5fc5b6"
+        }
+      },
+      "original_source_sha256": "a2acbfa7176827d8af13ebcaf8978184ebc81ef8ad8f20f38d217fbfec2acc6b"
+    },
+    "Slot02": {
+      "build": {
+        "bytes": 8757,
+        "guarded_builds": 2,
+        "native_acceptance": false,
+        "neutral_sha256": "77a7b0004fc60f616c461e9b1c432beeed6caa0398427e23798f19a2ddc0ed68",
+        "passed": true,
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sha256": "a9069ba24a39ea8f52380e7f63e287b8dfb4dd5d58829c7cf24f5fe79270d680",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "a723cb2fd55b1ee46e756bf19e2de4e0f1447407c3d5f5752e0f255654cb9738"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e309c73e247aa28d2a6fa67c1d7a5430cbaeaba1b09132218520897bfe7d3e06"
+          },
+          "Contents/Config-0": {
+            "bytes": 22364,
+            "sha256": "0cc3f69af697efc5ec1cd7d377d9875cc303123b6f43bd3a2e1a638e4ed7be8c"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 633,
+            "sha256": "84425c4f8fd5e6865493228ebf690093549009e0d3d611b41db9c15416f71346"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17987,
+            "sha256": "586f1fbd1652b32521baa675eed9b755cc92327cd1b835f31e78abbbe6dad377"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 633,
+            "sha256": "e71537d7268c54842161e028a886051d07e8e33f50e946840c0d0c92917fe53c"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "28620038cc286811f52aca36964455a5f1e1806d7c3132a1a8dbbef7b3de002d"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1544,
+            "sha256": "f6bf8096cc45c2106f1c662c610f49c6fc87651f0f750526962f60a703eead22"
+          }
+        }
+      },
+      "native_saves": {
+        "Height": {
+          "bytes": 58298,
+          "sha256": "1a12a84e0737065ff96b45cdab10460535046cceb78d1c45ddd058475253539b"
+        },
+        "Length": {
+          "bytes": 62261,
+          "sha256": "4c2f01c416fbd308b52bcaaf5caab435c0ee3931d5a888935c0f06c3a5b97436"
+        },
+        "Original": {
+          "bytes": 62046,
+          "sha256": "fd5381a9e730e49386c456e1c8c774fa54060104ab6e91e03d120c249245723d"
+        },
+        "Width": {
+          "bytes": 62312,
+          "sha256": "228d7f5aa181d56b629c8452969054fe31f022d63b4aefa6ca02b5ff81bca63a"
+        }
+      },
+      "original_source_sha256": "92de20d8ef956bad35c72a25fec034548282982aa8efc73ee42f29413a08ccac"
+    }
+  },
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "guarded_builds": 4,
+  "heldout_candidates_passed": 2,
+  "heldout_payloads_shared": 0,
+  "job_result_sha256": "21e671183cc6caf6b5c801e7de38f847d58f3bf2a299385e9abf4fe35a953189",
+  "job_sha256": "cb10b3182e31b8480a393bb9f0fca7a08ec8be5a49a942779440df76f4de9f83",
+  "native_saved_variants_reopened": 8,
+  "numeric_checks": 726,
+  "oracle": {
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "progid": "SldWorks.Application.34",
+    "release": "SOLIDWORKS 2026 SP05.2",
+    "transport": "Parallels current-user exec",
+    "vm": "Windows 11"
+  },
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "phases": [
+    {
+      "name": "ControlBefore",
+      "numeric_checks": null,
+      "passed": true,
+      "record_sha256": "cc37447e5a2a13b55528f88f599e4bdc5a7662a08d70a1301cc218db9f9cc588"
+    },
+    {
+      "name": "Slot01Edit",
+      "numeric_checks": 231,
+      "passed": true,
+      "record_sha256": "8e8349a1025c311cb48c884e8740ed652bf533c760938c2bd0f9fa80e1736ea8"
+    },
+    {
+      "name": "Slot01Reopen",
+      "numeric_checks": 132,
+      "passed": true,
+      "record_sha256": "41d645dc14060b547708e0ffd56f149a9fd651cf10ff805bcdf78a61ef601f42"
+    },
+    {
+      "name": "Slot02Edit",
+      "numeric_checks": 231,
+      "passed": true,
+      "record_sha256": "ea3dafc86f93aaaf6ca6bd49461bb0df69051c653215f4e996430aca951f4660"
+    },
+    {
+      "name": "Slot02Reopen",
+      "numeric_checks": 132,
+      "passed": true,
+      "record_sha256": "fd175c0525166e32010f2c798f6a6f25e6e135996cfb6ca1ff75afaee03134ee"
+    },
+    {
+      "name": "ControlAfter",
+      "numeric_checks": null,
+      "passed": true,
+      "record_sha256": "57bf2e39b7774c85bf0ab3dd47236af7e82212db0ef53c5e3f42d1132a0766dc"
+    }
+  ],
+  "projector_revision": "5879f1749e7cfec1b8dde2fac619cec36b9d84d5",
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.attached-top-box-heldout-evaluation.v1",
+  "source_author_revision": "6aaa7af77c7fa3573c2884c80da32dc4aa072be8",
+  "source_lock_revision": "e7bedf0df32d2e0b6defae065766b37f90a60e0f",
+  "source_lock_sha256": "b4d2993c3616f4e8f4b2182e10f3fe75dc99be23f0a80b821e3acdb9bd57f66b",
+  "stage": "heldout_batch_passed",
+  "verified_scope": [
+    "actual Top-plane parent and model-origin coincidence",
+    "fully constrained signed rectangle",
+    "reversed blind boss",
+    "three independent driving dimension edits",
+    "one solid with eight vertices, twelve edges and six faces",
+    "volume, area and centre of mass",
+    "zero rebuild diagnostics",
+    "fresh native save/reopen"
+  ],
+  "writer_revision": "46f2463dfae91263143b24fb98531e610d929f63"
+}

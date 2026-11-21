@@ -12,8 +12,8 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBranchMut import (
     ReadBranchMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadBytesMut import ReadBytesMut
-from convert.adapters.solidworks.Archive.Bodies.Reading.ReadContextMut import (
-    ReadContextMut,
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadControlMut import (
+    ReadControlMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadDirectMut import (
     ReadDirectMut,
@@ -29,6 +29,10 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNestedMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadNormalMut import (
     ReadNormalMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import ReadOwnedMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPackedMut import (
+    ReadPackedMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import (
     ReadPresentMut,
 )
@@ -38,35 +42,42 @@ from convert.adapters.solidworks.Archive.Bodies.Reading.ReadRepeatMut import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadSectionMut import (
     ReadSectionMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValidateMut import (
+    ReadValidMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValueMut import ReadValueMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadVirtualMut import (
     ReadVirtualMut,
 )
 
-# field dispatch admits only the operations with shared body implementations
+# shared field handlers keep native owner registries declarative as the graph grammar grows
 KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = (
     MappingProxyType(
         {
             "Scalar": ReadValueMut,
             "Text": ReadValueMut,
             "Node": ReadValueMut,
-            "Section": ReadSectionMut,
-            "Direct": ReadDirectMut,
-            "GhostCount": ReadGhostMut,
             "Base": ReadNestedMut,
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
-            "Context": ReadContextMut,
+            "Boolean": ReadBooleanMut,
             "Present": ReadPresentMut,
+            "Branch": ReadBranchMut,
+            "Context": ReadControlMut,
+            "Mask": ReadControlMut,
+            "Virtual": ReadVirtualMut,
+            "Validate": ReadValidMut,
+            "Section": ReadSectionMut,
+            "Direct": ReadDirectMut,
+            "Bytes": ReadBytesMut,
             "Length": ReadLengthMut,
             "Repeat": ReadRepeatMut,
-            "Branch": ReadBranchMut,
-            "Virtual": ReadVirtualMut,
-            "Bytes": ReadBytesMut,
-            "Boolean": ReadBooleanMut,
+            "Normalize": ReadNormalMut,
+            "GhostCount": ReadGhostMut,
             "MassCaches": ReadMassMut,
             "BBoxCache": ReadBBoxMut,
-            "Normalize": ReadNormalMut,
+            "DirectNode": ReadOwnedMut,
+            "Packed": ReadPackedMut,
         }
     )
 )

@@ -18,3 +18,8 @@ volume and area match the native SOLIDWORKS 2026 SP05.2 measurements. The
 previous interpretation fails the exterior semicircle check on the same
 partition. Both fresh native controls passed.
 [Held-out curved evidence](../../../../../re/solidworks/measurements/2026/SolidworksCurvedFinHeldout01.json)
+
+Six disclosed native rectangles and one generated attached rectangle also
+preserve outward winding. Sampled legacy native and Parasolid 12 inputs retain
+their previous projection fingerprints.
+[Signed volume and projection fingerprints](../../../../../re/solidworks/measurements/2026/SolidworksCurrentFinOrientation01.json)

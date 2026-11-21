@@ -1,0 +1,291 @@
+{
+  "benchmark_conversion_credits": 0,
+  "controls_passed": 4,
+  "distinct_processes": 10,
+  "heldout_payloads_shared": 0,
+  "heldout_sources_locked_before_writer": 2,
+  "native_writer_acceptance": false,
+  "oracle": {
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "progid": "SldWorks.Application.34",
+    "release": "SOLIDWORKS 2026 SP05.2",
+    "transport": "Parallels current-user exec",
+    "vm": "Windows 11"
+  },
+  "packets": {
+    "disclosed": {
+      "cohort": "disclosed",
+      "controls_healthy": true,
+      "disclosed_source_spec": {
+        "Disclosed": {
+          "edit_m": [
+            0.027,
+            0.037,
+            0.015
+          ],
+          "original_m": [
+            0.02,
+            0.03,
+            0.01
+          ]
+        }
+      },
+      "distinct_processes": 4,
+      "heldout_payloads_shared": 0,
+      "heldout_sources_locked": 0,
+      "job_sha256": "cd4ff2ec7a9833e0ba5f0664db5d0e755b47f7a3a0b31a34daf453403793a132",
+      "native_writer_acceptance": false,
+      "oracle_file_version": "34.5.2.0604",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "phases": [
+        {
+          "name": "ControlBefore",
+          "passed": true,
+          "process_creation_filetime": 134395970499022151,
+          "record_sha256": "4ab293dc2d74db21e0a0a222de7f298cea2fda054dd6f707ffc8c6a8bda4aab5"
+        },
+        {
+          "name": "DisclosedAuthor",
+          "passed": true,
+          "process_creation_filetime": 134395970755668860,
+          "record_sha256": "04e1128e67d9fca489ba6ff5d0a78263c8b23ac371b01347d4deb94c7171b492"
+        },
+        {
+          "name": "DisclosedReopen",
+          "passed": true,
+          "process_creation_filetime": 134395972969558242,
+          "record_sha256": "915f5be52b0238528416b49f4e2524f02480720e20a578a2350a85c9997bcf20"
+        },
+        {
+          "name": "ControlAfter",
+          "passed": true,
+          "process_creation_filetime": 134395973851661594,
+          "record_sha256": "89d63bde1ad101347483c2e53736dfdf194de524d92e7aa793f944ba7b8e4b2d"
+        }
+      ],
+      "raw_receipt_sha256": "260337c9d1d6abdd96eb6209609f2a5c57af07334e5ae57a8cd06987f34572d2",
+      "schema": "kit.sw2026.attached-top-box-source.v1",
+      "source_revision": "6aaa7af77c7fa3573c2884c80da32dc4aa072be8",
+      "sources": {
+        "Disclosed": {
+          "author_record_sha256": "04e1128e67d9fca489ba6ff5d0a78263c8b23ac371b01347d4deb94c7171b492",
+          "files": {
+            "Height": {
+              "bytes": 64581,
+              "sha256": "b4989ac4ed9b96adc7c1291a0db77f685d0cde5e66eb16af58f5df88ad5d37d8"
+            },
+            "Length": {
+              "bytes": 67353,
+              "sha256": "afbdc4eb4a0d828d297f329d2e6b151d94b8f22a104d6d2e1a6ca933258c6d76"
+            },
+            "Original": {
+              "bytes": 66368,
+              "sha256": "7b7ebe18d6a7ac16db9b186fb71fb35388903a1a13ef66e5071eac1b7764b75f"
+            },
+            "Width": {
+              "bytes": 66873,
+              "sha256": "8f4f015e4ca794b6a4db4457cc9de6fdb22ef287aa1dddf61b983d09f4097a4b"
+            }
+          },
+          "reopen_record_sha256": "915f5be52b0238528416b49f4e2524f02480720e20a578a2350a85c9997bcf20"
+        }
+      },
+      "spec_sha256": "4af7748fd4769400b2b39ef003226ce94b81d733779f858912e94a8cda563b45",
+      "stage": "source_batch_passed",
+      "tools_sha256": {
+        "AttachedTopBoxAuthor.py": "aa22f2ea5499c410cad67b2161cefd339c3ea4938f55fe51f6843a8d2a10d894",
+        "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+        "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+        "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+        "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "RunAttachedTopBoxSources.py": "ea85278a0b868fe981f950a7fafff446c67cb1c6b828bd8cf56cec61a1615b20",
+        "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+      },
+      "writer_outputs": 0
+    },
+    "sealed": {
+      "cohort": "sealed",
+      "controls_healthy": true,
+      "distinct_processes": 6,
+      "heldout_payloads_shared": 0,
+      "heldout_sources_locked": 2,
+      "job_sha256": "7a1afe3a64b8f83314dea01fe9da1a217a4ea5f3d2dfea40b0f07c27917e94ca",
+      "native_writer_acceptance": false,
+      "oracle_file_version": "34.5.2.0604",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "passed": true,
+      "phases": [
+        {
+          "name": "ControlBefore",
+          "passed": true,
+          "process_creation_filetime": 134395974105317706,
+          "record_sha256": "6335651b73d1134bb9e7558a60452f4b9aebfff158f1f5c7fc6a957306556e4a"
+        },
+        {
+          "name": "Slot01Author",
+          "passed": true,
+          "process_creation_filetime": 134395974356727837,
+          "record_sha256": "3dfa82ef99cc1fda1f5660e9946fdeb1fe1f55044593bf889be6924f2e804ae2"
+        },
+        {
+          "name": "Slot01Reopen",
+          "passed": true,
+          "process_creation_filetime": 134395976686794629,
+          "record_sha256": "5e31cad075cb5574b386ed95530dddb9a2a68413e3da7c2ff705a0a6ab0e964a"
+        },
+        {
+          "name": "Slot02Author",
+          "passed": true,
+          "process_creation_filetime": 134395977671508457,
+          "record_sha256": "a96cba2ecb3bb17945e2edc2ff1b913eb9a6c6aea5a05dea7b461e37e22b7820"
+        },
+        {
+          "name": "Slot02Reopen",
+          "passed": true,
+          "process_creation_filetime": 134395979946423765,
+          "record_sha256": "49f5d964a7e16fb5678b23569eb7846416b25619c0876d83c1c5e931e294f657"
+        },
+        {
+          "name": "ControlAfter",
+          "passed": true,
+          "process_creation_filetime": 134395980856716123,
+          "record_sha256": "0d1702aceb502478bcc3390ff9d7b559eb0019bea4aed7c9b7c2c50958d349a9"
+        }
+      ],
+      "raw_receipt_sha256": "29f0b034b19b7acd1beda89674b8189ff276f125ee38441d8869bf9bc16a6a54",
+      "schema": "kit.sw2026.attached-top-box-source.v1",
+      "source_revision": "6aaa7af77c7fa3573c2884c80da32dc4aa072be8",
+      "sources": {
+        "Slot01": {
+          "author_record_sha256": "3dfa82ef99cc1fda1f5660e9946fdeb1fe1f55044593bf889be6924f2e804ae2",
+          "files": {
+            "Height": {
+              "bytes": 66676,
+              "sha256": "2ebe3aafc1d3946c411af7b47fb67d268c1d0cff483d01ce69fdfb61f542f97e"
+            },
+            "Length": {
+              "bytes": 66274,
+              "sha256": "d3caa2d105c9d1424ec6343acf1c44e1a4a128b17495d8d52c4e22357a78821c"
+            },
+            "Original": {
+              "bytes": 65836,
+              "sha256": "a2acbfa7176827d8af13ebcaf8978184ebc81ef8ad8f20f38d217fbfec2acc6b"
+            },
+            "Width": {
+              "bytes": 67095,
+              "sha256": "d87560c387dd01393cf393283a67e63e2d293d1320dc69571a924a38d2810cb9"
+            }
+          },
+          "reopen_record_sha256": "5e31cad075cb5574b386ed95530dddb9a2a68413e3da7c2ff705a0a6ab0e964a"
+        },
+        "Slot02": {
+          "author_record_sha256": "a96cba2ecb3bb17945e2edc2ff1b913eb9a6c6aea5a05dea7b461e37e22b7820",
+          "files": {
+            "Height": {
+              "bytes": 60840,
+              "sha256": "a18207bbfc71fa352945c14212a930a7982a82a33f61b1986c4f09acd79a2678"
+            },
+            "Length": {
+              "bytes": 65112,
+              "sha256": "d1f678a7d3da3814f851f1f0ed1dbba3037202a9ae33be095b1b44b37c39f26d"
+            },
+            "Original": {
+              "bytes": 63663,
+              "sha256": "92de20d8ef956bad35c72a25fec034548282982aa8efc73ee42f29413a08ccac"
+            },
+            "Width": {
+              "bytes": 63937,
+              "sha256": "9d9191981d47d963a21e15f91ff1b23a1e759f4cebdb9c40283c3ae497098231"
+            }
+          },
+          "reopen_record_sha256": "49f5d964a7e16fb5678b23569eb7846416b25619c0876d83c1c5e931e294f657"
+        }
+      },
+      "spec_sha256": "eab082c934ea973b0be2ed3c7564c885d71a34b0dec137c2116e5f9e92729d1e",
+      "stage": "source_batch_passed",
+      "tools_sha256": {
+        "AttachedTopBoxAuthor.py": "aa22f2ea5499c410cad67b2161cefd339c3ea4938f55fe51f6843a8d2a10d894",
+        "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+        "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+        "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+        "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+        "RunAttachedTopBoxSources.py": "ea85278a0b868fe981f950a7fafff446c67cb1c6b828bd8cf56cec61a1615b20",
+        "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+      },
+      "writer_outputs": 0
+    }
+  },
+  "schema": "kit.sw2026.attached-top-box-source-lock.v1",
+  "typed_disclosed": {
+    "archives": {
+      "Contents/CMgr": {
+        "bytes": 2159,
+        "exact": true
+      },
+      "Contents/Config-0": {
+        "bytes": 25778,
+        "exact": true
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 2367,
+        "exact": true
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 15189,
+        "exact": true
+      },
+      "Header2": {
+        "bytes": 2367,
+        "exact": true
+      }
+    },
+    "config_map_final": 111,
+    "external_origin_point_count": 1,
+    "local_profile_points_m": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.02,
+        -0.03
+      ],
+      [
+        0.0,
+        -0.03
+      ],
+      [
+        0.02,
+        0.0
+      ]
+    ],
+    "part": {
+      "feature_rows": 19,
+      "name": "AdditiveBox Profile",
+      "parameters": [
+        {
+          "name": "Length",
+          "unit": "mm",
+          "value": 20.0
+        },
+        {
+          "name": "Width",
+          "unit": "mm",
+          "value": 30.0
+        },
+        {
+          "name": "Height",
+          "unit": "mm",
+          "value": 10.0
+        }
+      ],
+      "reverse_blind_boss": true
+    },
+    "raw_receipt_sha256": "5a93ceb0bf325d54bb6ac2c2ac9cab5b3af0c5bfab27059adb2155889d721120",
+    "resolved_map_final": 301,
+    "source_sha256": "7b7ebe18d6a7ac16db9b186fb71fb35388903a1a13ef66e5071eac1b7764b75f"
+  },
+  "writer_outputs": 0
+}

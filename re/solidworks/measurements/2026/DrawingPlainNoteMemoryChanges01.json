@@ -1,0 +1,228 @@
+{
+  "basis_job_sha256": "70570ac768359726b03febb6b34d1738472e6368d29800039090dc62494e4c18",
+  "distinct_processes": 4,
+  "generated_initial_vs_pristine": {
+    "bounds_xyxy": null,
+    "changed_pixels": 0
+  },
+  "healthy_controls": true,
+  "heldout_source_reads": 0,
+  "native_initial_vs_pristine": {
+    "bounds_xyxy": [
+      308,
+      409,
+      423,
+      421
+    ],
+    "changed_pixels": 603
+  },
+  "native_result_sha256": "9857530b8c2eccb14f567a107381edd6556736bef7812b11be22f3f69922d5f1",
+  "native_saves": 0,
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "ControlAfter": {
+      "bitmap_hashes": {
+        "Initial": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Inserted": "ee4ab38d0ed8fdfd759e2367e9f83f35fcc3a000caf8424c78c216aa5ea1afe9",
+        "InsertedRebuilt": "ee4ab38d0ed8fdfd759e2367e9f83f35fcc3a000caf8424c78c216aa5ea1afe9"
+      },
+      "display_toggles": {
+        "swDisplayAllAnnotations": true,
+        "swDisplayAnnotations": true,
+        "swGridAutomaticScaling": true,
+        "swGridDisplay": false,
+        "swGridDisplayDashed": true,
+        "swShowAnnotationInAnnotationViews": false
+      },
+      "final_note_count": 1,
+      "initial_note_count": 0,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "kind": "pristine",
+      "native_open": [
+        0,
+        0
+      ],
+      "pixel_changes": {
+        "insert_after_rebuild": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        },
+        "insert_on_redraw": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        }
+      }
+    },
+    "ControlBefore": {
+      "bitmap_hashes": {
+        "Initial": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Inserted": "ee4ab38d0ed8fdfd759e2367e9f83f35fcc3a000caf8424c78c216aa5ea1afe9",
+        "InsertedRebuilt": "ee4ab38d0ed8fdfd759e2367e9f83f35fcc3a000caf8424c78c216aa5ea1afe9"
+      },
+      "display_toggles": {
+        "swDisplayAllAnnotations": true,
+        "swDisplayAnnotations": true,
+        "swGridAutomaticScaling": true,
+        "swGridDisplay": false,
+        "swGridDisplayDashed": true,
+        "swShowAnnotationInAnnotationViews": false
+      },
+      "final_note_count": 1,
+      "initial_note_count": 0,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "kind": "pristine",
+      "native_open": [
+        0,
+        0
+      ],
+      "pixel_changes": {
+        "insert_after_rebuild": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        },
+        "insert_on_redraw": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        }
+      }
+    },
+    "Generated": {
+      "bitmap_hashes": {
+        "Edited": "096bac80efcf62ea998eb684e64d476d06b446c53a27b8ccdec90154713c6beb",
+        "EditedRebuilt": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Initial": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20",
+        "Inserted": "fbd6ac622085cfa71564aab243c0227a8353cd4dbf9fe23a0eedb87ca89546d7",
+        "InsertedRebuilt": "51541a482d4b8746f462e7f7d5d1378638538bd727b305f824fda40f3b929c20"
+      },
+      "display_toggles": {
+        "swDisplayAllAnnotations": true,
+        "swDisplayAnnotations": true,
+        "swGridAutomaticScaling": true,
+        "swGridDisplay": false,
+        "swGridDisplayDashed": true,
+        "swShowAnnotationInAnnotationViews": false
+      },
+      "final_note_count": 2,
+      "initial_note_count": 1,
+      "input_sha256": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+      "kind": "candidate",
+      "native_open": [
+        0,
+        0
+      ],
+      "pixel_changes": {
+        "edit_after_rebuild": {
+          "bounds_xyxy": null,
+          "changed_pixels": 0
+        },
+        "edit_on_redraw": {
+          "bounds_xyxy": [
+            237,
+            410,
+            409,
+            422
+          ],
+          "changed_pixels": 842
+        },
+        "insert_after_rebuild": {
+          "bounds_xyxy": null,
+          "changed_pixels": 0
+        },
+        "insert_on_redraw": {
+          "bounds_xyxy": [
+            364,
+            269,
+            545,
+            281
+          ],
+          "changed_pixels": 847
+        }
+      }
+    },
+    "NativeSource": {
+      "bitmap_hashes": {
+        "Edited": "466c3adfdd7a7fa51e5d57234bac20b96e19316641854e39e479abd077f1f45a",
+        "EditedRebuilt": "466c3adfdd7a7fa51e5d57234bac20b96e19316641854e39e479abd077f1f45a",
+        "Initial": "dae0821495931b857b4eb19d36364db18d9188de28ca1ebd9dde42d8198b2164",
+        "Inserted": "33efe42d175009bd51d3969c567bba1aa0b9860fec9a92193627197f34fe63bf",
+        "InsertedRebuilt": "33efe42d175009bd51d3969c567bba1aa0b9860fec9a92193627197f34fe63bf"
+      },
+      "display_toggles": {
+        "swDisplayAllAnnotations": true,
+        "swDisplayAnnotations": true,
+        "swGridAutomaticScaling": true,
+        "swGridDisplay": false,
+        "swGridDisplayDashed": true,
+        "swShowAnnotationInAnnotationViews": false
+      },
+      "final_note_count": 2,
+      "initial_note_count": 1,
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "kind": "reference",
+      "native_open": [
+        0,
+        0
+      ],
+      "pixel_changes": {
+        "edit_after_rebuild": {
+          "bounds_xyxy": [
+            428,
+            409,
+            474,
+            418
+          ],
+          "changed_pixels": 239
+        },
+        "edit_on_redraw": {
+          "bounds_xyxy": [
+            428,
+            409,
+            474,
+            418
+          ],
+          "changed_pixels": 239
+        },
+        "insert_after_rebuild": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        },
+        "insert_on_redraw": {
+          "bounds_xyxy": [
+            431,
+            271,
+            606,
+            283
+          ],
+          "changed_pixels": 847
+        }
+      }
+    }
+  },
+  "schema": "kit.sw2026.disclosed-drawing-memory-bitmap-deltas.v1",
+  "settings_writes": 0
+}

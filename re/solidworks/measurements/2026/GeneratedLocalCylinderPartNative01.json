@@ -1,0 +1,276 @@
+{
+  "schema": "kit.sw2026.local-cylinder-part-native-compact.v1",
+  "job_sha256": "08c1b10f1f346744b4e13258c647b2dc48c1ff851ddf73359c7e0cfe978454b6",
+  "full_native_result_sha256": "4464d8cf76c12a228e95cf0ba47697f3e9b8a2eb218dc13118e64ed9ea09cfd0",
+  "host_build_sha256": "0eadab712f6e01deedb106716b27b675ca83788aecaec1fd39fbc998132218fc",
+  "harness_revision": "090620126fcc73d064b83aff722574f2ce29491d",
+  "oracle_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "distinct_native_processes": 10,
+  "independent_control_count": 6,
+  "controls_healthy": true,
+  "generated_input_and_saved_copy_unchanged": true,
+  "candidate_numeric_checks": 304,
+  "disclosed_native_part_lifecycles": 2,
+  "heldout_cases": 0,
+  "public_writer_qualified": false,
+  "installed_sdk_periodic_brep_qualified": false,
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "role": "application_control",
+      "passed": true,
+      "record_sha256": "bd9139c3461b178e471f4e2e5dca23f250fbc1ac725f0b168cc7117fb73c51b8"
+    },
+    {
+      "name": "PlanarBefore",
+      "role": "previously_accepted_planar_control",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "numeric_checks": 58,
+      "record_sha256": "7cf723c15350163e59060302646c6d5db10d3eef6cf13e25f42da7721c28b245"
+    },
+    {
+      "name": "StockZBefore",
+      "role": "native_stock_cylinder_control",
+      "passed": true,
+      "numeric_checks": 96,
+      "record_sha256": "93a5d813f4d31e3722d332293e1fb76453b23a48f223848e1f632b3e1119f83e"
+    },
+    {
+      "name": "TranslatedZ",
+      "role": "candidate_cold_rebuild_save",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "read_only": false,
+      "numeric_checks": 76,
+      "record_sha256": "3b17f40143f8695fba5cf6079313afe5f5aab8744c32619bc222d8b69e6388f0"
+    },
+    {
+      "name": "TranslatedZReopen",
+      "role": "candidate_fresh_read_only_reopen",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "read_only": true,
+      "numeric_checks": 76,
+      "record_sha256": "924c214fdb0e200ace73365cadeebb20fa218faef946d3c723da27545deae7d9"
+    },
+    {
+      "name": "ReverseY",
+      "role": "candidate_cold_rebuild_save",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "read_only": false,
+      "numeric_checks": 76,
+      "record_sha256": "0c25ca541712cb192228d0c986f4a15294a14898942fba4197d94210656f2922"
+    },
+    {
+      "name": "ReverseYReopen",
+      "role": "candidate_fresh_read_only_reopen",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "read_only": true,
+      "numeric_checks": 76,
+      "record_sha256": "27ac6073a6c5dec7a05d7f5ee5f2e6c8e78653c712b20f62736522aca1a0cde9"
+    },
+    {
+      "name": "StockReverseYAfter",
+      "role": "native_stock_cylinder_control",
+      "passed": true,
+      "numeric_checks": 96,
+      "record_sha256": "0403ea17efe658385641fdca5685f0183ac0451a5f321cca5ad2d6f0d04cef5b"
+    },
+    {
+      "name": "PlanarAfter",
+      "role": "previously_accepted_planar_control",
+      "passed": true,
+      "open": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "numeric_checks": 58,
+      "record_sha256": "7d8f8e04753a478d7205d157b74e4d14291c17a2f2b81b4e3a3cab194951a1a3"
+    },
+    {
+      "name": "ApplicationAfter",
+      "role": "application_control",
+      "passed": true,
+      "record_sha256": "9bc66dcf0c02e7dc330cc6165bb68ddcdf7c8c77c0f6a05292fdad20b6388098"
+    }
+  ],
+  "cases": {
+    "TranslatedZ": {
+      "generated_sha256": "ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1",
+      "generated_bytes": 8995,
+      "saved_sha256": "97f5b52ae475c588a23b79eaa686d9313e74ff48a612ecd9403f934f8f692223",
+      "saved_bytes": 53148,
+      "feature_id": 18,
+      "active_configuration": "Default",
+      "native_open_status": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_reopen_read_only": true,
+      "persistent_feature_and_tree_preserved": true,
+      "persistent_reference_sha256": "1edd274f608e02e82b5138ff2f9b135a563069edcdf07ddeba11ecfa79ff8669",
+      "native_initial_geometry": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "extreme_bounds_m": [
+          [
+            0.009500000000000001,
+            -0.01525,
+            0.003375
+          ],
+          [
+            0.023,
+            -0.0017500000000000007,
+            0.0205
+          ]
+        ],
+        "volume_m3": 2.4512522116560424e-06,
+        "area_m2": 0.0010125745821601602,
+        "com_m": [
+          0.01625,
+          -0.0085,
+          0.0119375
+        ]
+      },
+      "native_reopened_geometry": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "extreme_bounds_m": [
+          [
+            0.009500000000000001,
+            -0.01525,
+            0.003375
+          ],
+          [
+            0.023,
+            -0.0017500000000000007,
+            0.0205
+          ]
+        ],
+        "volume_m3": 2.4512522116560424e-06,
+        "area_m2": 0.0010125745821601602,
+        "com_m": [
+          0.01625,
+          -0.0085,
+          0.0119375
+        ]
+      }
+    },
+    "ReverseY": {
+      "generated_sha256": "ff0054be16d0b08d888ea6299f209f59cdc286b894cdb48c0a83203b38b6272d",
+      "generated_bytes": 8992,
+      "saved_sha256": "fb01c160201734d2075ceae5eeca1e6ffe3573d8fef876dba5c13bcaef963518",
+      "saved_bytes": 38493,
+      "feature_id": 18,
+      "active_configuration": "Default",
+      "native_open_status": {
+        "returned_document": true,
+        "error": 0,
+        "warning": 0
+      },
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_reopen_read_only": true,
+      "persistent_feature_and_tree_preserved": true,
+      "persistent_reference_sha256": "1edd274f608e02e82b5138ff2f9b135a563069edcdf07ddeba11ecfa79ff8669",
+      "native_initial_geometry": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "extreme_bounds_m": [
+          [
+            -0.01575,
+            0.00425,
+            -0.0095
+          ],
+          [
+            -0.0065,
+            0.0285,
+            -0.0002500000000000002
+          ]
+        ],
+        "volume_m3": 1.6296152861255836e-06,
+        "area_m2": 0.0008390997628197488,
+        "com_m": [
+          -0.011125,
+          0.016375,
+          -0.004875
+        ]
+      },
+      "native_reopened_geometry": {
+        "solids": 1,
+        "vertices": 0,
+        "edges": 2,
+        "faces": 3,
+        "extreme_bounds_m": [
+          [
+            -0.01575,
+            0.00425,
+            -0.0095
+          ],
+          [
+            -0.0065,
+            0.0285,
+            -0.0002500000000000002
+          ]
+        ],
+        "volume_m3": 1.6296152861255836e-06,
+        "area_m2": 0.0008390997628197488,
+        "com_m": [
+          -0.011125,
+          0.016375,
+          -0.004875
+        ]
+      }
+    }
+  }
+}

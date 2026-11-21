@@ -1,0 +1,94 @@
+{
+  "allocated_light_id": 26,
+  "ambient_fields_are_authored_not_session_defaults": true,
+  "ambient_intent_sha256": "c178599a0990a89a9ef1e17017150dc5bc1cbd3fdbbf301542e30cbc3c8c7c99",
+  "ambient_source": "re/solidworks/inputs/PrismAuthoredAmbient01.json",
+  "baseline_reproduction": {
+    "child_sha256": "64e1568c00763e734a00bf1f1778357b1864ca79abc30ec2b7f996bc3e20d845",
+    "exact": true,
+    "neutral_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+    "parent_sha256": "e07d04635daf7a8b9ee5790dc34e7876c555b12690d36b9ff0cc6138a7222a59"
+  },
+  "changed_streams": [
+    "Contents/CMgr",
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2"
+  ],
+  "constructor_runtime_io_attempts": 0,
+  "delivery_pr": 121,
+  "execution": {
+    "cad_calls": 0,
+    "com_calls": 0,
+    "heldout_inputs_read": 0,
+    "native_acceptance": false,
+    "public_writer_qualified": false,
+    "python": "3.9.6",
+    "tests": false,
+    "vm_calls": 0
+  },
+  "guarded_same_locator_build_processes": 2,
+  "new_configuration_progress": 26,
+  "new_next_id": 27,
+  "packet01_host_preflight": {
+    "cause": "metrics dictionary lacks separate bodies key; all three metric values were exactly equal",
+    "native_processes_started": 0,
+    "preserved": true,
+    "trial_sha256": "cf459327ecedbb6b79bcabb93abd6905012129a371331e0e8d7efa16958a1769",
+    "verified": false
+  },
+  "packet02": {
+    "frozen_files": 43,
+    "host_verify": true,
+    "native_processes_started": 0,
+    "recipe_sha256": "16ea3f553f0e13234c54f6fd4b4f1fa641e9bc05f2456105f2f6340726247b61",
+    "trial_sha256": "a62380477a13f4bb16402634307b75a14b687262c4e190bfd77dc9c8b6f89d69",
+    "working_locator_preserved_from_packet01": true
+  },
+  "same_owners": {
+    "activation_mark": 2,
+    "body_atom_id": 101,
+    "body_tag": 2285,
+    "boss_flags": 0,
+    "boss_id": 20,
+    "configuration_update": 104,
+    "folder_flags": 0,
+    "folder_id": 9,
+    "header_geometry_fields": {
+      "f40": 104,
+      "f44": 102,
+      "f48": 1815300301
+    },
+    "root_flags": 0,
+    "root_id": 0,
+    "selected_mark": 4
+  },
+  "same_process_default_repeat_exact": true,
+  "schema": "kit.sw2026.concentric-ambient-host-generation.v1",
+  "scope": "disclosed generated single-cylinder same-locator authored ambient intervention; native diagnostic queued only",
+  "separate_process_same_locator_repeat_exact": true,
+  "source_closure": {
+    "files": 5707,
+    "sha256": "9c8dc7b73d835ed23f06f95d03365ea90dc026ff620756384d75ac93c946304f",
+    "shared_source_edits": false
+  },
+  "stream_difference_sha256": "4559b91738e1695631cd876cdb8c55f79c57a2345d965680dc1c727b09845995",
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "unmeasured": [
+    "native warning effect on the cylinder",
+    "parent occurrence name preservation",
+    "concentric mate resolution and native edit/save/reopen",
+    "held-out generalization and public writer acceptance"
+  ],
+  "variants": {
+    "Off": {
+      "bytes": 10801,
+      "sha256": "6fa75f03fc6e201e29dfc65e90b20a773ca8212568b8a9dae0fb9601116ef785"
+    },
+    "On": {
+      "bytes": 10915,
+      "sha256": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129"
+    }
+  }
+}

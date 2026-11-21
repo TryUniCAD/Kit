@@ -1,0 +1,63 @@
+{
+  "folder_names": {
+    "annotations": "Annotations",
+    "binder": "Design Binder",
+    "blocks": "Blocks",
+    "comments": "Comments",
+    "ink_markups": "Markups",
+    "review_markups": "eDrawings Markups"
+  },
+  "name": "KitBlankSheetProbe",
+  "presentation": {
+    "auto_dim_text_link": true,
+    "cjk_saved": false,
+    "definition": {
+      "detail_flags": [],
+      "drafting_standard": "moANSI_c",
+      "journal_name": "Drawing Layout Journal",
+      "system_preference_7a": false,
+      "tessellation": [20, 15, 3, false]
+    },
+    "language_id": 1033,
+    "styles": {
+      "cutlist_expressions": ["item", "description", "stock"],
+      "exclusion_names": [],
+      "font_name": "Arial",
+      "language_id": 1033,
+      "line_style_name": "Continuous",
+      "print_widths_m": [0.0001, 0.0002, 0.0003, 0.0004, 0.0005, 0.0006, 0.0007, 0.0008],
+      "standard": 1,
+      "task_labels": ["description", "high", "low", "complete", "reminder"]
+    },
+    "units": {
+      "angle_unit": "degree",
+      "decimal_places": 4,
+      "length_unit": "mm",
+      "unit_system": "mmgs"
+    }
+  },
+  "provenance": {
+    "author": "Kit research",
+    "block_identity": "acdb7f04-7c87-417e-bbd8-9f679f097ba7",
+    "comment": "Authored blank sheet construction",
+    "company": "Drawing interoperability experiment",
+    "created_at": 1794700000,
+    "license_origin": 0,
+    "modified_at": 1794700020,
+    "originating_build_code": 2026001
+  },
+  "sheet": {
+    "custom_property_view": "Default",
+    "length_unit": "mm",
+    "name": "Development Layout",
+    "paper_size": "ansi-a-landscape",
+    "scale_denominator": 3,
+    "scale_numerator": 2
+  },
+  "sheet_names": {
+    "detail_name": "Detail Folder1",
+    "plane_name": "Plane1",
+    "profile_name": "Sketch1"
+  },
+  "target": {"date_code": 2026306, "parasolid_version": 370108}
+}

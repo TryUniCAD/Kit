@@ -1,0 +1,128 @@
+{
+  "schema": "kit.sw2026.blank-drawing-document-return-native.v1",
+  "comparison_passed": true,
+  "scope": "matched disclosed generated and reduced-native blank drawing",
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "script_revision": "21e0140b067c93c1bd14331fa0b03d18c31d66bb",
+  "packet_sha256": "b51a5bf1f07da16b5e8607499662b13f7fbaa237dd7fc5519af9a7d1a7f93500",
+  "raw_native_result_sha256": "b8194deeddc4ce24ebdc376fd1040c6d175f79eed23949fd4937ad7e3001df81",
+  "host_transport_result_sha256": "d8a5e84088d83cd6a3f261e62e06af2719343922c3ee34ede7bac3df3571ff1d",
+  "observer_tool_sha256": {
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py": "0a7dd67e7982fe3af94730201b8d7d7b518c2ed4ca7066b6d7aa9ebe0b95acc7"
+  },
+  "native_processes": 7,
+  "transport_exit_code": 0,
+  "inputs_immutable": true,
+  "same_physical_paths": true,
+  "controls_healthy": true,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 18940
+      },
+      "fresh_reopen_passed": true,
+      "samples": null
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 17968
+      },
+      "fresh_reopen_passed": true,
+      "samples": {
+        "event_aggregate": 0,
+        "event_aggregate_rva": "0x15966",
+        "document_return_eax": 1,
+        "document_return_rva": "0x16421",
+        "same_save_thread_and_frame": true,
+        "both_stops_observed": true,
+        "detach_verified": true
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "events": [
+        7
+      ],
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 0
+      },
+      "fresh_reopen_passed": false,
+      "samples": {
+        "event_aggregate": 0,
+        "event_aggregate_rva": "0x15966",
+        "document_return_eax": 0,
+        "document_return_rva": "0x16421",
+        "same_save_thread_and_frame": true,
+        "both_stops_observed": true,
+        "detach_verified": true
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19598
+      },
+      "fresh_reopen_passed": true,
+      "samples": null
+    }
+  ]
+}

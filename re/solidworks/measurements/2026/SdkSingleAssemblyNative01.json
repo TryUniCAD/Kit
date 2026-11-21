@@ -1,0 +1,566 @@
+{
+  "heldout_inputs_read": 0,
+  "heldout_qualification": false,
+  "native": {
+    "archived_candidates_unchanged": true,
+    "child_depth_m": 0.012750000000000001,
+    "child_tree": [
+      [
+        "Comments",
+        "CommentsFolder",
+        null
+      ],
+      [
+        "Favorites",
+        "FavoriteFolder",
+        null
+      ],
+      [
+        "History",
+        "HistoryFolder",
+        null
+      ],
+      [
+        "Selection Sets",
+        "SelectionSetFolder",
+        null
+      ],
+      [
+        "Sensors",
+        "SensorFolder",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        null
+      ],
+      [
+        "Annotations",
+        "DetailCabinet",
+        null
+      ],
+      [
+        "Notes",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Notes1___EndTag___",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Surface Bodies",
+        "SurfaceBodyFolder",
+        null
+      ],
+      [
+        "Solid Bodies",
+        "SolidBodyFolder",
+        null
+      ],
+      [
+        "Environment",
+        "EnvFolder",
+        null
+      ],
+      [
+        "Ambient",
+        "AmbientLight",
+        "Environment"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Environment"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Environment"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Environment"
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder",
+        null
+      ],
+      [
+        "Equations",
+        "EqnFolder",
+        null
+      ],
+      [
+        "Material <not specified>",
+        "MaterialFolder",
+        null
+      ],
+      [
+        "Front Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Top Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Right Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Origin",
+        "OriginProfileFeature",
+        null
+      ],
+      [
+        "Sketch1",
+        "ProfileFeature",
+        null
+      ],
+      [
+        "Boss-Extrude1",
+        "Extrusion",
+        null
+      ]
+    ],
+    "configuration_names": [
+      "Default",
+      "modeled default"
+    ],
+    "controls_healthy": true,
+    "depth_and_pose": {
+      "after": {
+        "assembly": {
+          "area": 0.003576,
+          "com": [
+            0.03014,
+            0.0537,
+            0.012525000000000001
+          ],
+          "volume": 9.792e-06
+        },
+        "body_count": 2,
+        "child": {
+          "area": 0.001788,
+          "body_count": 1,
+          "com": [
+            0,
+            0,
+            0.0063750000000000005
+          ],
+          "volume": 4.896e-06
+        },
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mate_distance_m": 0.06028,
+        "occurrence_transforms": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.06028,
+            0.1074,
+            0.0123,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      },
+      "before": {
+        "assembly": {
+          "area": 0.003576,
+          "com": [
+            0.021765,
+            0.0537,
+            0.012525000000000001
+          ],
+          "volume": 9.792e-06
+        },
+        "body_count": 2,
+        "child": {
+          "area": 0.001788,
+          "body_count": 1,
+          "com": [
+            0,
+            0,
+            0.0063750000000000005
+          ],
+          "volume": 4.896e-06
+        },
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "mate_distance_m": 0.04353,
+        "occurrence_transforms": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.04353,
+            0.1074,
+            0.0123,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        ]
+      }
+    },
+    "distinct_processes": 4,
+    "exact_prediction": true,
+    "host_report_sha256": "994aaa1449b7714cdcba1c2ab2c121a8ffbd470750e70223377d173c103e3cb9",
+    "license_inventory_preserved": true,
+    "numeric_comparisons": 338,
+    "packet_sha256": "cea8b158a859ac57eaa557a109b2386c96ebc6ce38f78fa75253154ec0e49531",
+    "parent_tree": [
+      [
+        "Comments",
+        "CommentsFolder",
+        null
+      ],
+      [
+        "Favorites",
+        "FavoriteFolder",
+        null
+      ],
+      [
+        "History",
+        "HistoryFolder",
+        null
+      ],
+      [
+        "Selection Sets",
+        "SelectionSetFolder",
+        null
+      ],
+      [
+        "Sensors",
+        "SensorFolder",
+        null
+      ],
+      [
+        "Live Section Planes",
+        "LiveSectionFolder",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        null
+      ],
+      [
+        "Annotations",
+        "DetailCabinet",
+        null
+      ],
+      [
+        "Notes",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Notes1___EndTag___",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Lights and Cameras",
+        "EnvFolder",
+        null
+      ],
+      [
+        "Ambient",
+        "AmbientLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder",
+        null
+      ],
+      [
+        "Equations",
+        "EqnFolder",
+        null
+      ],
+      [
+        "Front Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Top Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Right Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Origin",
+        "OriginProfileFeature",
+        null
+      ],
+      [
+        "SdkDatumPlateAlpha-1",
+        "Reference",
+        null
+      ],
+      [
+        "SdkDatumPlateAlpha-2",
+        "Reference",
+        null
+      ],
+      [
+        "Mates",
+        "MateGroup",
+        null
+      ],
+      [
+        "Distance1",
+        "MateDistanceDim",
+        "Mates"
+      ]
+    ],
+    "phases": [
+      {
+        "native_process": 134394428523660106,
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "raw_record_sha256": "178cb91fc5b80d52362c01f15a7bdf51b08411d57f92a21ab2ae3d8481598219",
+        "role": "ControlBefore"
+      },
+      {
+        "native_process": 134394428934935800,
+        "numeric_checks": 114,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "raw_record_sha256": "28c85e3de64a3573b092d05a9bff65ec2a4921842e555bf87a27b8362574ef6e",
+        "role": "Generated"
+      },
+      {
+        "native_process": 134394429530998474,
+        "numeric_checks": 76,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "raw_record_sha256": "1a0448496760fa20d704967ed504c25dfc9463e38f187e0d25bbeca45104fc7c",
+        "role": "FreshReopen"
+      },
+      {
+        "native_process": 134394429944371049,
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "raw_record_sha256": "ee321a3859882403fed0ab1ae8687df10603da65afca158bf48a77ccc5e1ca03",
+        "role": "ControlAfter"
+      }
+    ],
+    "postflight_sha256": "76271804a09fdb6e11045e6b185861a6fc35f85131437bc984ed7ecbc2af29d6",
+    "preflight_sha256": "2dad832594cfc890be9170c783531bf64358b6d001b27eab043e9f372047b7f1",
+    "raw_result_sha256": "ed621974bed1acc4976318e3615fd7410e1d8e4d3e410c482ffdc372261c6301",
+    "save": {
+      "child": {
+        "native_bytes": 26808,
+        "native_sha256": "5b9dc1a44ca82b978c656a9b39277dc71f995efb6cd16f3dc3758fc38569dd09",
+        "original_sha256": "fbed1189206ef7b4c542e347117eaaacdedc4c9c89e5e89a0392658a79b9decb",
+        "path_basename": "SdkDatumPlateAlpha.SLDPRT",
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "update_stamp": 144
+      },
+      "parent": "a3b3f5169990556b84778265a69f4debf76faf1409a43686bbf1a3901bf43bd8",
+      "parent_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    "saved_child_sha256": "5b9dc1a44ca82b978c656a9b39277dc71f995efb6cd16f3dc3758fc38569dd09",
+    "saved_parent_sha256": "a3b3f5169990556b84778265a69f4debf76faf1409a43686bbf1a3901bf43bd8",
+    "tools_sha256": {
+      "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+      "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+      "InspectCombinedPlanarMates.py": "496d598d645e9faeee80bd71bd6717f4c260fd1e72370fe7b44bd8d3ce00956b",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "InspectSdkSingleMate.py": "e00760bd5666e1f90dc4be978b78d25b035b766a1fd97636d37036ddd339a492",
+      "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "PlanarMateEdit.py": "61f99e2e8ecd075b4c7d3c5732db35bc18563b3999ad1b06fcf01e9ee4198466",
+      "PrepareDimensionedAssemblyPredictions.py": "639dbf7f80f594d4e7da459638bfe3037f8ad9116e36755d02a38bebc2dc48a7",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    }
+  },
+  "normal_sdk_read": {
+    "raw_readback_sha256": "f6fb3fd4a52d6fd2c625bcdf76e0d12b5d490b16dc2698cf6aea66d5d3ba34d0",
+    "records": [
+      {
+        "distance_mm": 43.53,
+        "input_sha256": "c44875ff17d7cdad58e27afaf7e1f45e3711966e1e1f0c621e547c2eeef960df",
+        "native_class": "moMateDistanceDim_c",
+        "occurrence_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "source_datum": "sldprt:plane:16",
+        "status": "admitted",
+        "strict": true,
+        "typed_map_base": 133,
+        "typed_map_terminal": 172
+      },
+      {
+        "distance_mm": 60.28,
+        "input_sha256": "a3b3f5169990556b84778265a69f4debf76faf1409a43686bbf1a3901bf43bd8",
+        "native_class": "moMateDistanceDim_c",
+        "occurrence_paths": [
+          [
+            "sldasm:instance:4"
+          ],
+          [
+            "sldasm:instance:7"
+          ]
+        ],
+        "source_datum": "sldprt:plane:16",
+        "status": "admitted",
+        "strict": true,
+        "typed_map_base": 167,
+        "typed_map_terminal": 206
+      }
+    ],
+    "source_manifest_sha256": "4c516990a5987ea87801b6e8a4e231cbb7ae005f67d6d6a6bc3e885733adb8fd"
+  },
+  "observer_preflights": {
+    "cad_processes_started": 0,
+    "failures": [
+      "Host verification imported a Windows-only COM module.",
+      "The guest observer needed to project the explicit datum records into the ordered solver pairs."
+    ],
+    "previous_host_report_sha256": "422ded11452f562f58685ce0c0a757e94eb26c25d88417c64b49c2264b7a7559",
+    "previous_packet_sha256": "c00a2c47dd41761e4093cf44cc8471c9e0ffc2671c70892991b05fcfd9f94ea9"
+  },
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "passed": true,
+  "production_corpus_count": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sdk-single-distance-native-receipt.v1",
+  "sdk_paired_construction": {
+    "candidate_files": {
+      "SdkDatumPlateAlpha.SLDPRT": {
+        "bytes": 8339,
+        "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkAssemblyNative01\\GeneratedInput\\SdkDatumPlateAlpha.SLDPRT",
+        "sha256": "fbed1189206ef7b4c542e347117eaaacdedc4c9c89e5e89a0392658a79b9decb"
+      },
+      "SdkDistanceXAlpha.SLDASM": {
+        "bytes": 9903,
+        "encoded_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkAssemblyNative01\\GeneratedInput\\SdkDistanceXAlpha.SLDASM",
+        "sha256": "c44875ff17d7cdad58e27afaf7e1f45e3711966e1e1f0c621e547c2eeef960df"
+      }
+    },
+    "complete_logical_streams": 22,
+    "fixture_sha256": "2040c0fbb1106a45bd98ffc94756ccb26fadf44f51b018a22e5f7f3bb7450658",
+    "guarded_phase_reports": {
+      "BuildA": "4dfbcd392c1833030b71b74d2a8c79d018b7530ae2c33c1f29d08dd7e2598ffb",
+      "BuildB": "6adb35eb70102b5887af7e70b8da18dd177ed9886801c42959a1d9676454ad7c",
+      "Counterpart": "3af19e6a492684da68f4bc3675e5a74060703df53771d17113448c20e632ac8e",
+      "Prepare": "af53bbeed937b59d3799898adcc8359c88f51c2e46384cf3bf90e1d19b038ec3"
+    },
+    "guarded_runtime_file_reads": 0,
+    "independent_root_replay_sha256": "ab9342c375c592b6606dc7b85b91f1c9dea96db3f38b785031a30e839d3616f2",
+    "neutral_request_sha256": "0037bb76a3475f0913f70c6bb7139833b0727537b0888a5067e8a8da1dda153e",
+    "prediction_sha256": "09da68de7b13022db6e9d860e249b541104b9ea83fa70087871ec4db282c5802",
+    "source_manifest_sha256": "4c516990a5987ea87801b6e8a4e231cbb7ae005f67d6d6a6bc3e885733adb8fd"
+  }
+}

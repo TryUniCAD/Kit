@@ -1,0 +1,1793 @@
+{
+  "assemblies": 8,
+  "child_arities": {
+    "1": 6
+  },
+  "compact_exact": 88,
+  "documents": {
+    "re/solidworks/v2026/corpus/assemblies/A0_one.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "66965b66e14bacb506b147fa354e6708aa207c7589efbf8e5f3d3fbe7cf453f8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1104590945,
+      "keyword_bytes": 1427,
+      "keyword_sha256": "2e2add02aeb349e4943cab6cf416dbf76c89555b2a809c7784030c3143301a1a",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assemblies/A1_two.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "594559a38ea2a077850a823e808ed7f79c559bfac743eab7c9ab4aa75cf252e4",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1873612991,
+      "keyword_bytes": 1482,
+      "keyword_sha256": "1a315dc6738133c653375d6f8f3f753b9d2d35faf3a1f624fc3e0a027bd3069e",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 2,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A07EmptyAssembly.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 410030810,
+      "keyword_bytes": 1374,
+      "keyword_sha256": "860fcbed0ee7c1439c782b2a1ad53c2e87929870dee4531a04e2013a21167b59",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A08SingleAssembly.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2580402957,
+      "keyword_bytes": 1427,
+      "keyword_sha256": "8a69c4a226ed352c9b3355227e361b84da27db11fa3de54d4b00289a928e4b2f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/A09RepeatedAssembly.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3660148030,
+      "keyword_bytes": 1480,
+      "keyword_sha256": "c63b70353edba04a50a4afab8e9a445e157e61e51cdf746c262615eaf649d742",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 2,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A12SyncedEmpty.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2015494904,
+      "keyword_bytes": 1374,
+      "keyword_sha256": "5d916e926debd60bed32113214e18ea915c6aa0dd14d62ad01898200ec348433",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingle.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 860712687,
+      "keyword_bytes": 1435,
+      "keyword_sha256": "297d5058a21b4c0fe3fbdbbfef311e32fd18c79f24433b81712ea7b2d141fa11",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A13SyncedSingleChild.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 919745694,
+      "keyword_bytes": 1745,
+      "keyword_sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeat.SLDASM": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1548679839,
+      "keyword_bytes": 1496,
+      "keyword_sha256": "58ebb4eb288eac7480fdc5c5b79017b44a7e8c7061b5a4fb1bafff5d4eff3854",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 22,
+        "Keywords": 1,
+        "Reference": 2,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/assembly-synchronized/A14SyncedRepeatChild.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3008931387,
+      "keyword_bytes": 1745,
+      "keyword_sha256": "07fe42c5d59bb1d887ef7922f3638878688bb4f19099e0aaf49c65b27bb43cdb",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-edited-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2568683585,
+      "keyword_bytes": 1899,
+      "keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 4038543881,
+      "keyword_bytes": 1899,
+      "keyword_sha256": "7b53da7b53c7dca3cbb53a6f99957d9300d524a0d6144ef2f70b334e1825e9f1",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleDiameterBoss-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1217852970,
+      "keyword_bytes": 1879,
+      "keyword_sha256": "00d966538e1e396bffbb4fc5f2df63c2c60ebdf328620d29032367e95bddcbb6",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-edited-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 351319182,
+      "keyword_bytes": 1881,
+      "keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1845823951,
+      "keyword_bytes": 1881,
+      "keyword_sha256": "8fea48fa91dddeffeb142aa2e9913d05986f94645a2d70c44d9709d2845d79a5",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/circle-saves/CircleRadiusBoss-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2784393661,
+      "keyword_bytes": 1861,
+      "keyword_sha256": "6d62bb640d6bb33bbec988633e21fdcaad3732d88ee4476f57623b3a5d84453a",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/ControlCircle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1113682464,
+      "keyword_bytes": 1725,
+      "keyword_sha256": "ef568256a839f906e700b69fcc19eec8f91521c901eadfa75edb17d3b57ea965",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/ControlRectangle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3342255786,
+      "keyword_bytes": 1663,
+      "keyword_sha256": "989cec35e0b497e4be2aaab701a71ffe75e1ccd199da797ba393b4bc1be70fb3",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D01CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ee8ef8654e1673ee6ee0d0ee2167e6a4e4db9e832f99cbca2cae6feb298f970b",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3838396778,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "12f69f0f36226232e088e04d77db463d9a15b6e1ca8c4650cf4bbe4a9a07ce3e",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D02CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "406908b2aa5030a94e7cc83b80ff31c94dd65c516f2715e22a0a00d9a32b286d",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1524222182,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "14fd3a92ace5f6a5f1bc5b6c7a6dc472c661501b7bddabb90cd36f34ef82f1d7",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D03CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "7efdcf4d75985ad6f9781b53f2af2c59abef60c5b7bc79135d04116414c9ec3d",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 4030667861,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "2563db3ffe6e43f8d52054093d209eb90a6d60f1f4e8840d20d7dc3b6374751c",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D04CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "90482aaf96483e8610666d1f30598de194268f8bf2dd0322e6d6eb13fc3b387a",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1094472487,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "24e78972d8dbdffce35ca138e1987f11b15c34bedfa7554401daa8da4754ba7c",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D05CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "533eac286d319026fed4d406bfe45927d97e6d88cd8bc824633cc2bceb161cd8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1681150586,
+      "keyword_bytes": 1711,
+      "keyword_sha256": "9905c228312258c5b2ee99b16acb8a29f7ff15c1e189863f1016f1915c5f52e0",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D06CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "12534b9c377619b1fa6c444fb1d1d22acfac6859a61df97f69b51b005db75091",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 706730256,
+      "keyword_bytes": 1711,
+      "keyword_sha256": "d69ec11704752044acd74d38d4f897a2ffd28fec66c2d5997e897c17da2ce1db",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D07CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "214503789d42ba542361a1887ff43b5ccfb2957f50538ec7e551377b837f3ffa",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 273718216,
+      "keyword_bytes": 1712,
+      "keyword_sha256": "495a0e511c57e24d509d4da25c6471234191671dcf5799a7db2e7f57a2df04bc",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D08CircleRadius.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c574140db365d91a9fc8f59182c3683df08a1f65fef06b888056a8d37ca4b0a7",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2185552022,
+      "keyword_bytes": 1713,
+      "keyword_sha256": "617d5c381954850a85f0ae4f09924374f532a1019a786ea1ea5169a2b57d9c19",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D09Arc17Ccw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "3fa1c49bfe77f2603433aff58e8ff7734e69c4676ca0a118f08515a13d7f7c15",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2364058633,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "edc7aecd76e729d2411619cd360ac33a9772d01b5adac5196d2869b6a9afaa6f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D10Arc17Cw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "1c101c03d4d3a71085cb35bf04bfb7208aaad5303f27008b1a114c43652ef68e",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 643982693,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "f2811d798e500a34776a1b9ff50fc411325d2c749285cda1223dd6d479f11bc8",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D11Arc90Ccw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "32e015006a03485fec11d47450808fcd558b96a8cade0ac95431147e1c645439",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1925027596,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "5d7279c79839a992b777c11be71c57da4ce9d2d28a2bf34bd5e06fa151cc11dc",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D12Arc90Cw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "3181d46b90cce119049994017d4aaba009facf97a5bea2b3f61909e7d96f5262",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1316965370,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "247cc12f814492dce76652ee5c29b56ef7c02862ec553da1e6d3b47b02449216",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D13Arc180Ccw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ac48bb9834e1a14750f8d6b69e2ab5fcb5d7029d203f0f09aeb55e2a497362c4",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2983962771,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "c7fc6d33a1fdf3094e8a4f890b7985e81e037d73e8ca8d0d1570249ff57f840d",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D14Arc180Cw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "31e049bd6864e3fbc3da4e54281530820d9ce726ad2ec0723d5a78ce55742acc",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1414351309,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "8382f0391314cf6fb8fb84256bbe1a41028110b221287d6369474f92273bb5b9",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D15Arc270Ccw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "1af41f0cf863f902bcb8482fa7eed5a2c28da0f232692d9c2a0e3286bab594bc",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 259504810,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "188bf0c14a84c22b78658e029b49e75132496f41797c7ef43262cc6783e6f432",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D16Arc270Cw.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "68e91546c1d6fb84f2730dd9f77d67cde6e01905a938502f4d1bb1ff9206ef9c",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3359286103,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "33dbd046e6cf4fa97a8f3018f48298d37a6826ee83adfb1bdb10312a0441b6c9",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D17TopCircle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "cdf237d6d0ae21c0e81de168d2d0d6153a1b6dc20cd2d53beca88bf60e4b7aa5",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1377022058,
+      "keyword_bytes": 1726,
+      "keyword_sha256": "a07f8afa46b92f557c2768719eb9b6751b43883573b10f2762917e0ffec49d7b",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D18RightCircle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "3bf38305bea09980a8a44da09a8721ae00294a9683c1a1fc157335f17fda61a9",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 741941868,
+      "keyword_bytes": 1726,
+      "keyword_sha256": "06693ad5488261aa579584da4307f8fe0525df9b7068768547ca2fefe38f6d85",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 144128156,
+      "keyword_bytes": 1750,
+      "keyword_sha256": "41c84015963d06067d5a4f841c4cac6a3e803252a350d4b4970aa4cb45a2cf77",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D20TwoCircles.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ad42689b2b3e6e586b7acaff4c7f1c83e1839864c0877295fdd80a424aa92144",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 259504810,
+      "keyword_bytes": 1749,
+      "keyword_sha256": "fc8aa595112e4e3c5756ba93142564e9a23d93df4efcfcac7d6429b784af55ec",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D21EightCircles.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "d51971d09bd449932b3bb5b18784dee3a29b7b41dec49b8a98729464f52bd5bf",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2962256756,
+      "keyword_bytes": 1975,
+      "keyword_sha256": "07aaf93071282c4686d1a90f5a22eac2d9eed3b59dac2fabcc53d984947794e5",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 9,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D22ConstructionArc.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b3f88291bc43d9930436079eae4a553dd4e73598c009dabff63c5d2ecae1f328",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 929926668,
+      "keyword_bytes": 1711,
+      "keyword_sha256": "7ef1d97da2ccd926b916921581530bd21005c5a3d8c3732b05931928a4639603",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D23TangentCapsule.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "f0f2f52523015ff8b7a68584cec2f1ae79e82bf0ed0a8cb7f6da982d82451bb1",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2301374853,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "108b4efe8937930b53497d2e2ca80cf29dfd88cb92527fe55bcdc7aac76b789f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/curves-discovery/D24NearFullArc.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "e804f6507f3ee3a57a11be1494b0a040b7c3d0a8b3d90e1dab1dd61a2e109084",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2563950383,
+      "keyword_bytes": 1710,
+      "keyword_sha256": "f1a43171ed70d9506eac347386c4ebf1faf05bcf48302431def97bb9eeeb9ea8",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/ControlCircle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "ea66af3dbcb0d567ac333ea67c9752e4ae0dec2beb90d89ad634c7e899f72cd8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3805359316,
+      "keyword_bytes": 1725,
+      "keyword_sha256": "a69bfe712453505b2119f847471ab3f75f4a4b0be17f901ae4e0c23df6523910",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/ControlRectangle.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "010352800d3a485438e0b6530137cde56317f9f9e1c0e8c17bd914863a46bf37",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2217693367,
+      "keyword_bytes": 1663,
+      "keyword_sha256": "a20aff64697da36fad3d01e9e50ade4bc4b6014c380f32b57ee1e000b85b5a03",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D01Forward.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "6b95aeecb7057f247aa868d3ddf8b77a10fad309af7a7378da56321bd33dd191",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1329709423,
+      "keyword_bytes": 1663,
+      "keyword_sha256": "c7e28b9edaded5d728cb84c0ea46c9a5a41760ed1069e7fdad90c7001e6eb041",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D02Forward.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "0d951e8984997e45eefb435aa6f9ee9920ba3e4a0d28782b325136b3153d0d59",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3237381996,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "c277455421123bcbe7de6428e51eb710fbadd4e05abdcc7fe81df2a50cfcd976",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D03Forward.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "2044e27958b9725c79f356a7ab3653ab9e5db2c381dd6457fb737f0d25348b1a",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 579828311,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "e2bf7298a9402f074419918c5d24f197dac7f4c547e2e35fc83bec4f71d85a76",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D04Reverse.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "4f7ba1547e577010bb87f59c4eebe20a3dbb61a59c372bc34a8178082a674d42",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2682525855,
+      "keyword_bytes": 1663,
+      "keyword_sha256": "addc9fc3a5cf49b2e791762aecc2a25efadb32bd8cb31b2410761266c9b6e61f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D05Reverse.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "bbd32aaa07d731f248564f5305f66c9b516e91a4932fb8334af476e9fd6fea19",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 794955875,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "30037292f8ebf85b3053d403ae73eae73dc2ce49b29d936c6135d0c2536787c5",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D06Reverse.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "7b39cb9c9b7026a1814c136613698de1e7ae25eb21a07b4c4d1c89f89fec500b",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3679931493,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "50199c2205eb2b4e9ed3aab2aa8b2b296c0e62d3bdbf1cdece1ac7ca7881d80f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D07MidPlane.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "5d4d295282dc2ae43db28f7c7b3b9fb2dcf9a719c15d2b602b780459281176ee",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 113906854,
+      "keyword_bytes": 1663,
+      "keyword_sha256": "1cdd4411f2a5d434f0061104a7840534dd6b9758b587b24f178cfbdb2480292a",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D08MidPlane.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "565dceab2b91bc25e84d15f13ffd2acd781312e4d812aeb102af30cd7a6e6dc2",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2503953463,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "9e87b53b958dcc299712f7678594def5664edfd703967ae27e910f1bea149f6e",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D09MidPlane.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "900d81f7daa9a42cebc6f34f6b18a10257ddcd7ca07a483562a64b4608d0a1e0",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 761407699,
+      "keyword_bytes": 1664,
+      "keyword_sha256": "a3e6ff0582a94751f057f9204cd497185000e1e33963ea75a5d51adb33ca343b",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D10TwoDirections.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c2ab625827632e606efaad0e8ec2e3c75ef10355152a7df012f2cd92ec669083",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 375198347,
+      "keyword_bytes": 1700,
+      "keyword_sha256": "a3efb9f520dc3d44a2488b20642796e7742b9dfd28eb587ae39d3efdb0ecc9d2",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D11TwoDirections.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "68191a8949937c54151b2c6f0c16f72dda86273590557aba4c4ae3c52fb6fdc0",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1018601735,
+      "keyword_bytes": 1701,
+      "keyword_sha256": "2b2315dd83fddaf2b52c64d89304f2536cf0c28e53c5ae33ab4cce1861a176b0",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/end-conditions/D12TwoDirections.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "8fa04cc83bc3607c63214f8ed044174aaa1cdff42e0be093fe4a9da03edf7d0a",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 4230303506,
+      "keyword_bytes": 1702,
+      "keyword_sha256": "14e1b414d1d0f46d1455a8424f12ad369e030328db218a7b9461e06370171b42",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/C1a_control.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2171722277,
+      "keyword_bytes": 1739,
+      "keyword_sha256": "a967132b49f5f3cd402215dc2a0bf5826568ffec5261ccbdb5e0b8e557e03c7e",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/C1b_control.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1519035525,
+      "keyword_bytes": 1739,
+      "keyword_sha256": "a6fee392ac9c80cfec0035ef3e17b0eaf0ee7579143fa427e0b5fefdcd41b2a0",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/E0_empty.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "eaf294476c1e998edcbf6183d77f50768f74fd509f030300c9ce7375dd7c1afb",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2889588086,
+      "keyword_bytes": 1503,
+      "keyword_sha256": "6957d8fd01e49609164b632580afa8c00e5543d452124cb032f23a785e0d6784",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 1
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 918658497,
+      "keyword_bytes": 1739,
+      "keyword_sha256": "507f9c7c1b6c4a70ea1ab7fe4c3e66b4cbab6f46168dc5e1338c5710499a69ef",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L2_boss.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "eaa3292009a2faf4fe2e9b07997ba3cf207bc06fcc89867310a9ee0377f1e533",
+      "container_version": 4,
+      "dissectable_child_arities": [
+        1
+      ],
+      "file_id": 4256813023,
+      "keyword_bytes": 2019,
+      "keyword_sha256": "244874deb852dad33c782aaf8ca7d75ddea7d04663ef90abdc46784f061ecdcb",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 6,
+        "Extrusion": 2,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 3
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L3_boss.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b35942e076fc0d29433ab4e695462b7570d2588b321abb650734a79b65cd04ce",
+      "container_version": 4,
+      "dissectable_child_arities": [
+        1,
+        1
+      ],
+      "file_id": 3619813038,
+      "keyword_bytes": 2299,
+      "keyword_sha256": "b240e4ec7c7ac41d77266c3570021c9a39679a3aa1cdbfe5079ff62fc895125a",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 9,
+        "Extrusion": 3,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 4
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/L4_boss.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "906f3d92df24ef8c04dc1ca36859d4d4c575fdf25115a75945218dcb3f8dc9a0",
+      "container_version": 4,
+      "dissectable_child_arities": [
+        1,
+        1,
+        1
+      ],
+      "file_id": 641037476,
+      "keyword_bytes": 2579,
+      "keyword_sha256": "f99a7be0dd6e08dc1a4f5d52ee7ecd3b7ff4164e2ec9bb05b1794e7d41ab50bc",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 12,
+        "Extrusion": 4,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 5
+      }
+    },
+    "re/solidworks/v2026/corpus/ladder/P0_plain.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3838396778,
+      "keyword_bytes": 1661,
+      "keyword_sha256": "0b3a14ae6782791a0aaf3e9ef973c474411a8861c00ee0b95a8caa8be6107e09",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 1,
+        "Extrusion": 1,
+        "Feature": 23,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edit-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1205049660,
+      "keyword_bytes": 1775,
+      "keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-edited-fresh.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2942539073,
+      "keyword_bytes": 1775,
+      "keyword_sha256": "bbfe91ef982b5728867c90803fd055be5fa56a13dfa0ece26bf52d21087a4e27",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P03FrontFolders-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 92713806,
+      "keyword_bytes": 1763,
+      "keyword_sha256": "fb9edabb8592fc5984519055f77a3d9e66fccd5b877e5df5f7cc41b450e7a4e0",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edit-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2707110565,
+      "keyword_bytes": 1760,
+      "keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-edited-fresh.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 454015571,
+      "keyword_bytes": 1760,
+      "keyword_sha256": "8f70008c4da9376060ab92bf39986940e034b2bf7273b5df2cad10a0b9c29382",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-parity-saves/P04RightFolders-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2912699423,
+      "keyword_bytes": 1747,
+      "keyword_sha256": "d75c6fc28c38c4cd531863e76a2b2a0eca0bac76457c028ff88b2cdb1b98390d",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 24,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H01Forward-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "745e7186baa20cea2dd6091ab30ffb0e6508988556ced6045f6d09f572e9c771",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 97709129,
+      "keyword_bytes": 1893,
+      "keyword_sha256": "e80fcd497df4855abfcdd39409c10c8192bb4d7756eeb4a42cb1923e761db7f0",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H01Forward-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "dd16987f0aa1bbe9b7bd8ce353fb856976376a6ec6bb2f7873cdb81da2a98349",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3448538912,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H02Reverse-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "7897a5517f2974d0ca6c4e6d39bb2f6bef72c26ba6dad36e47671f140a22afa0",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 737593326,
+      "keyword_bytes": 1893,
+      "keyword_sha256": "cd9755389633e23a72b56cdc85e0695aafb0bd0375db86219bd963d1aaf7a501",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H02Reverse-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "4cf34106ec9456d6179dc9f29c48480e971d1b0e6c620aee846d0bd90d1015b9",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3677433950,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "3c8e078093dd422743ba13a535954a27a5f02bf9e83206033e96cf18d9ee4030",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "c1b2e39d5e3514b1c43cd36488c989a18e4beb6d01c17bce7b4765d480c674ce",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1584021756,
+      "keyword_bytes": 1894,
+      "keyword_sha256": "3002e9dc33de22a530288e2d9e7a252930bc0a9511e0c727b85339664cdff7bd",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H03MidPlane-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "06fc822986e1c2e92b69d59dcd21450ab1abaa90a001f35d8f1b06ccf26fa10f",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3216443047,
+      "keyword_bytes": 1872,
+      "keyword_sha256": "4c4cb4d812f768e33b4be49d5f02ad516b10721401e7a56986c12095b1ffc2ca",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b5f7ea5bf4b81ea06ae53c9200643c8a7b3c1636c7245e6901080978453c1b55",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2962256756,
+      "keyword_bytes": 1937,
+      "keyword_sha256": "2e6b96fc571b0ba318f2d2f6d0a1c9c46a4b6d99a9e4099c9c3b321665b90df1",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/tree-saves/H04TwoDirections-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "6235f0a45c41bea9ac6b7878adf4bb4e8f43383e145a0b46f6c47c19b22f0085",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 61469085,
+      "keyword_bytes": 1915,
+      "keyword_sha256": "d766ade1dbc2e4f17192e71a0a9baf1fa2aea0dd4ad9b496546c498d0039f99f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 3,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewBaseline-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "45be009a20cc3914dcee9e661bba80c0aac6dd3073f8e5d56cbefdc2404383a5",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 496400412,
+      "keyword_bytes": 1895,
+      "keyword_sha256": "055f92824d2ff514538aad79218e8083894d6803816cac6ca612bf259ef5da7f",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewBaseline-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "a68a68f6845423ed375303b75fd44011a6cc1fcb85826be07a61529e48c55a0a",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1205049660,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewCombined-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "0a02385f3da8512d459db58c5bb902050b32368c16347b37dc7a672418b42fb0",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3408458276,
+      "keyword_bytes": 1895,
+      "keyword_sha256": "84db8f41ce1be6b2c15d2800efb769c432c17f717a25b338f5c960d90bfeca40",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewCombined-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "5eef0d7e46cbbe42cfe6aab18c767e3d04325aab7684522f7da902a541f713c8",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2556393492,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewOrientation-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "a5d0b1d0b445fcf6dd8855c55d73e672145cf15987bc158e173ef67006cebe74",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 1603550115,
+      "keyword_bytes": 1898,
+      "keyword_sha256": "cc41713a1121feb375a0f2fdac756534b1381d1d6d6218184d433fab413b81bc",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewOrientation-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "1a3a022a6b5765c8db6693b7f6330bc8097f73806df098d1447de38082fe16a2",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3332778597,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewScale-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "6371c3889fb7bbe5b01367ae47849781698a1fb3e2a2781b873a6df1b7d0929f",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 19529915,
+      "keyword_bytes": 1892,
+      "keyword_sha256": "6ad2f9d29267ccfd98da46c276250d4ccc8b505ad5aa848c07488023cc07bd46",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewScale-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "9dd99a1df44592fd7ba890a7b51f4a88815ff9de314060df8f9ee8ea06022da7",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3654066004,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewTranslate-fresh-reopen.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "142eccd93fc80a61b8faaf4a8feb0921eb59e73f3ff12e996ee94b406cc64430",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 3472872020,
+      "keyword_bytes": 1896,
+      "keyword_sha256": "f50b26b75b08dcc4fd2163919ec9c1829c91ad9e3ff08b701901713b59aa7d5d",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    },
+    "re/solidworks/v2026/corpus/view-probes/ViewTranslate-open-save.SLDPRT": {
+      "compact_typed_reassembly": true,
+      "container_sha256": "b63c98527d539ed944813e9836747c273eef785159bbac084af439b0dc9b1568",
+      "container_version": 4,
+      "dissectable_child_arities": [],
+      "file_id": 2369179005,
+      "keyword_bytes": 1871,
+      "keyword_sha256": "067387279a937f042cdbe01321db539b92181f5d813db8300df9ac20f343b971",
+      "model_version": 19000,
+      "ordinary_framing": true,
+      "spaced_typed_reassembly": false,
+      "tags": {
+        "Configuration": 1,
+        "Dimension": 2,
+        "Extrusion": 1,
+        "Feature": 25,
+        "Keywords": 1,
+        "Sketch": 2
+      }
+    }
+  },
+  "element_counts": {
+    "Configuration": 88,
+    "Dimension": 183,
+    "Extrusion": 85,
+    "Feature": 2070,
+    "Keywords": 88,
+    "Reference": 9,
+    "Sketch": 173
+  },
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "native_writer_outputs": 0,
+  "operators": {
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py": "8a487d9c9f5a18eb09438ebc26c9bd31ef40a12e95e44e642032b94a878634f0",
+    "src/convert/adapters/solidworks/Container/Archive.py": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0",
+    "src/convert/adapters/solidworks/Container/Container.py": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81",
+    "src/convert/adapters/solidworks/Core/Native.py": "a78aa6f270c6b315f945388e3dd0422ae9d66817eeaa17f8321e332ad4688627"
+  },
+  "ordinary_framing": 88,
+  "parts": 80,
+  "python": "3.14.7",
+  "revision": "5554733fde548afabdc6db221f387163d15e9497",
+  "schema": "kit.sw2026.keyword-corpus-audit.v1",
+  "script_sha256": "1b28a4ad382e442ce861f3ab816a762cc369d475f164c035b28f7f9cff5783fe",
+  "source_files": 88,
+  "source_scope": "re/solidworks/v2026/",
+  "spaced_exact": 0
+}

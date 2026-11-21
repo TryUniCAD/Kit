@@ -1,0 +1,164 @@
+{
+  "annotation_created": false,
+  "cache_consumer_measured": false,
+  "controls_healthy": false,
+  "distinct_processes": 2,
+  "encoded_slots_unchanged": true,
+  "generated_phases_started": 0,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "native_acceptance": false,
+  "outcome": "exact z=0 target was occluded; all four visible native control edges were on the positive-depth cap",
+  "passed": false,
+  "phases": {
+    "ControlAfterOpenEditSave": {
+      "actual_component_model_matches_view_child": true,
+      "actual_model_types": [
+        1,
+        1
+      ],
+      "all_visible_edges_match_independent_cap_prediction": true,
+      "cleanup_errors": [],
+      "component_is_root": false,
+      "component_parent_null": true,
+      "first_failure": {
+        "error": "RuntimeError('analytic endpoint rule must select exactly one real visible edge')",
+        "pending_capability": false,
+        "stage": "GetPoint",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "physical_child_hash_and_configuration_checks_passed": true,
+      "source_record_sha256": "84253ab4c4a715fc3a51c02b994a45282d361d0a3bef8a68ec1de85bb1279ee8",
+      "visible_edge_count": 4,
+      "visible_edges_m": [
+        [
+          [
+            0.0,
+            0.01,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.02,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.0,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.0,
+            0.01,
+            0.007
+          ]
+        ]
+      ]
+    },
+    "ControlBeforeOpenEditSave": {
+      "actual_component_model_matches_view_child": true,
+      "actual_model_types": [
+        1,
+        1
+      ],
+      "all_visible_edges_match_independent_cap_prediction": true,
+      "cleanup_errors": [],
+      "component_is_root": false,
+      "component_parent_null": true,
+      "first_failure": {
+        "error": "RuntimeError('analytic endpoint rule must select exactly one real visible edge')",
+        "pending_capability": false,
+        "stage": "GetPoint",
+        "type": "RuntimeError"
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": false,
+      "physical_child_hash_and_configuration_checks_passed": true,
+      "source_record_sha256": "8b74998621621ccfb8d4cf0d2eb5ae8618fb97485371c92ac8b15e93ffdbfb13",
+      "visible_edge_count": 4,
+      "visible_edges_m": [
+        [
+          [
+            0.0,
+            0.01,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.02,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.01,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.02,
+            0.0,
+            0.007
+          ]
+        ],
+        [
+          [
+            0.0,
+            0.0,
+            0.007
+          ],
+          [
+            0.0,
+            0.01,
+            0.007
+          ]
+        ]
+      ]
+    }
+  },
+  "schema": "kit.sw2026.drawing-visible-cap-observer-negative.v1",
+  "source_sha256": "839bcbd4a5dfd89cfae2879ba9e2932d3b7dc71b2a02e7f2d8303bf46905a9fb",
+  "trial_sha256": "3224ebc2de12538b843206675b3dbad38791300b02dc2e995bc155c0c79d737c"
+}

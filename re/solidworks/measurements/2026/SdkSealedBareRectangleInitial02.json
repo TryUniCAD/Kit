@@ -1,0 +1,82 @@
+{
+  "build_sha256": "15c4fb2c99a8cfd00eb9beac4c94ce2e167df3bb9492b496b20cf5780bc00773",
+  "cases": {
+    "Slot01": {
+      "actual_staged_write": true,
+      "candidate": {
+        "bytes": 9867,
+        "sha256": "2ebc5dd0ea7c9397525a58b6d1545981f43b9a3a634f607df4857d5b4afdcd04"
+      },
+      "error_type": "ValueError",
+      "native_transfers": [
+        "brep",
+        "configurations"
+      ],
+      "neutral_sha256": "a6cfd8052f092bedf4e2d276d991dad155eef9e1c8a673739cbcdd641596df47",
+      "passed": false,
+      "phases": {},
+      "runtime_input_reads": 0,
+      "source_sha256": "27de26139590fe292ae420212af7515660fdb48d8f4f1830fae739cb3799b93a",
+      "writer_epoch": 1795178268
+    },
+    "Slot02": {
+      "actual_staged_write": true,
+      "candidate": {
+        "bytes": 9880,
+        "sha256": "8ea97537ee7135ccdd9be464d52a0fe9c2526000cd8207237b77ed88557c0a15"
+      },
+      "error_type": "ValueError",
+      "native_transfers": [
+        "brep",
+        "configurations"
+      ],
+      "neutral_sha256": "e886671cd28f1e942424326db08e6a19fd6be7fe5340e269cbfc72148c13ed13",
+      "passed": false,
+      "phases": {},
+      "runtime_input_reads": 0,
+      "source_sha256": "db9a9dc8cdaec057421ad7934ab8a55680d6e50b1e966e61887c56a43bbe755d",
+      "writer_epoch": 1795178268
+    }
+  },
+  "complete_paired_regressions": 0,
+  "controls": {
+    "ControlAfter": {
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "a7cf4e914fc4ea91dacee1b2fd0281ae9393bfe5dab486907c482b0bfd59567f"
+    },
+    "ControlBefore": {
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "d726dee7a2d96456463d84ab1bca03c0262b8bf82b3eea95770365e1609f0b27"
+    }
+  },
+  "controls_healthy": true,
+  "job_sha256": "3c826eb8b07f6ffab27d59ed84bdc31742f74512e874606e1f8e7643e2d957be",
+  "method_revision": "6803987defeb0e69e39542b05eaa3618aefb46ff",
+  "native_processes": 2,
+  "new_independent_cases": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "original_fcstd_conversions": 0,
+  "original_specs_and_payloads_shared": 0,
+  "originals_and_specifications_unchanged": true,
+  "passed": false,
+  "prior_locked_cases": 2,
+  "schema": "kit.sw2026.rectangular-bare-paired-native.v1",
+  "sdk_revision": "05e3fceb6ad43593435d39cffe309b1cb044fc57",
+  "source_lock_sha256": "1a5a4993881c967682496c90924c262c7954fddd67dd9d1ee3e105186deed281",
+  "source_omissions": [
+    "source part and body labels",
+    "datum and system tree entries",
+    "configuration identifiers, states and properties beyond the active configuration name",
+    "material, appearance, document properties and application settings",
+    "source entity identifiers, attributes and provenance",
+    "source analytic carrier parameterization",
+    "source archive structures, native payloads and tessellation",
+    "source import feature name and persistent identity"
+  ],
+  "source_receipt_sha256": "d2568776891dec3f5671dc89d9696ae3d4d4005fb22f4dedf500347939f6de2a",
+  "specifications_sha256": "1f145836a8db6fe13893546c83957b8e82b5b80771546f3ae39724a9a716d2bf",
+  "whole_source_conversions": 0
+}

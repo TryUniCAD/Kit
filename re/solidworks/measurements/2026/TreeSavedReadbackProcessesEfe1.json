@@ -1,0 +1,1843 @@
+{
+  "schema": "kit.sw2026.tree-saved-readback-processes.v1",
+  "source_revision": "efe1ab4f88e10db0953593a1574b66463def042e",
+  "tested_merge": "93e9260157766b93ca982ca92b83882ec826137d",
+  "tested_tree": "5fe09c6628cbfb79273d458cc1f5f395a80ee0e8",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "efe1ab4f88e10db0953593a1574b66463def042e"
+  ],
+  "run_id": 43989581783,
+  "job_id": 133726554321,
+  "native_format_passed": 205,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14288030895,
+    "bytes": 24371034,
+    "sha256": "bc042ee8caadc33d838fdb1653b2b477a57e6b0c63a3bbf6891f09f3621f3912"
+  },
+  "raw_readback_report": {
+    "bytes": 9157183,
+    "sha256": "8d96a101bd006ce227b884f7fd96941d0d717677a161614096c7867e24f415c3"
+  },
+  "fixture_manifest_sha256": "daa760007e98281c0384d4dc15f8abb7a8c9474ce5e79c56e27c61fd1e13dc5c",
+  "native_source_receipt_sha256": "a78652939aee0a38fb6f2a20f1cae4bbeb9b11f7fe8b4412e3aa899049edee56",
+  "prediction_receipt_sha256": "e42b686c83b56bf50db2cdf111de168a8587e78366cbd437b340e231c0a650b5",
+  "complete_archive_comparisons": 54,
+  "semantic_checks": 108,
+  "exact_semantic_checks": 102,
+  "pose_checks": 102,
+  "exact_pose_checks": 102,
+  "all_graphs_closed": true,
+  "source_proof": [
+    {
+      "file": "re/tooling/sw2026/serial/TreeSaves.py",
+      "sha256": "8a8400373d066095648a13052369a469c834f69beb4b3ae00d3eff5cd2678acc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/SavedCircles.py",
+      "sha256": "8b450da5ff2f6bc00d81b881956ae6aa795a30e05720cd80f175daef143946d9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/TreeNames.py",
+      "sha256": "02ecffe53cdaa744a729bd85fec5724022a8196c93c22ec5ac657e1f4947faab"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Classes.py",
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Core.py",
+      "sha256": "a57ee11c90fb018739e99f10a47a2e501d0dc06296c34362074def4bb0a5dd66"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Dsl.py",
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/FieldScan.py",
+      "sha256": "b4663fffc67df7a65e998ab259dac5094d029fb74fe481e3a0ae52a8431822a0"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/MapBridge.py",
+      "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/RoundTrip.py",
+      "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Schema.py",
+      "sha256": "fafa579ea5bc961792fdaa697f1c8cf20856a9d4bedd1b14c288be938046b2bf"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/Streams.py",
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/StringCorpus.py",
+      "sha256": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "sha256": "5a94e9ad6554ec6e54f40c311ae3a3b2328b90dd3e4318b5cc649f7aff4208eb"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Definition.py",
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "e8205429dce688a2d41ccb2f8ef781b428f9099c5b695adc182a6557c6095413"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+      "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/Visual.py",
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "file": "re/tooling/sw2026/serial/defs/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Counts/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+      "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+      "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+      "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+      "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+      "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+      "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+      "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+      "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+      "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+      "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+      "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+      "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+      "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+      "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+      "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+      "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+      "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+      "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+      "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+      "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+      "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+      "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+      "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+      "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+      "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Strings/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+      "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+      "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+      "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Archive/Tags/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Archive.py",
+      "sha256": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Cmgr.py",
+      "sha256": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Container.py",
+      "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeName.py",
+      "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+      "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+      "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Definition.py",
+      "sha256": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Format.py",
+      "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/InflateStream.py",
+      "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/LayoutQueries.py",
+      "sha256": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/Parasolid.py",
+      "sha256": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+      "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/RunGroups.py",
+      "sha256": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+      "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+      "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+      "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+    },
+    {
+      "file": "src/convert/adapters/solidworks/Container/__init__.py",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "files": [
+    {
+      "file": "P03FrontFolders-open-save.SLDPRT",
+      "prepared_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "original_save_sha256": "fe4f9e952e48c8b77d3c24f5d07e5dab73cb03908df9aa43712f7c5bd98473da",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": -0.0037189999999999996,
+          "expected": -0.0037189999999999996,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": 0.006136999999999999,
+          "expected": 0.006136999999999999,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.005193,
+          "expected": 0.005193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.010386,
+          "expected": 0.010386,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.011917,
+          "expected": 0.011917,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.8844181216774213,
+          "expected": 0.8844181216774213,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.24036589468392133,
+          "expected": -0.24036589468392133,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.400036026779314,
+          "expected": 0.400036026779314,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 1.3877787807814457e-17,
+          "expected": 1.3877787807814457e-17,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.8571673007021341,
+          "expected": 0.8571673007021341,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.5150380749100181,
+          "expected": 0.5150380749100181,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.4666953889300622,
+          "expected": -0.4666953889300622,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.4555090068042732,
+          "expected": -0.4555090068042732,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.7580942940502868,
+          "expected": 0.7580942940502868,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": 0.003193,
+          "expected": 0.003193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.001737,
+          "expected": 0.001737,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": -0.004219,
+          "expected": -0.004219,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 7.319,
+          "expected": 7.319,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    },
+    {
+      "file": "P03FrontFolders-edit-save.SLDPRT",
+      "prepared_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "original_save_sha256": "a6cf229482d5338cc1b4a3f6180d9139da96fb8b45f25e3a61cc7d907f28e818",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": -0.0037189999999999996,
+          "expected": -0.0037189999999999996,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": 0.006136999999999999,
+          "expected": 0.006136999999999999,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.00555651,
+          "expected": 0.00555651,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.01111302,
+          "expected": 0.01111302,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.01060613,
+          "expected": 0.01060613,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.8844181216774213,
+          "expected": 0.8844181216774213,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.24036589468392133,
+          "expected": -0.24036589468392133,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.400036026779314,
+          "expected": 0.400036026779314,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 1.3877787807814457e-17,
+          "expected": 1.3877787807814457e-17,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.8571673007021341,
+          "expected": 0.8571673007021341,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.5150380749100181,
+          "expected": 0.5150380749100181,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.4666953889300622,
+          "expected": -0.4666953889300622,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.4555090068042732,
+          "expected": -0.4555090068042732,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.7580942940502868,
+          "expected": 0.7580942940502868,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": 0.003193,
+          "expected": 0.003193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.001737,
+          "expected": 0.001737,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": -0.004219,
+          "expected": -0.004219,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 7.319,
+          "expected": 7.319,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    },
+    {
+      "file": "P03FrontFolders-edited-fresh.SLDPRT",
+      "prepared_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "original_save_sha256": "d724a37f4ec8b635c40939f68561455dcab5661f581f56f66616ec934c7f9255",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": -0.0037189999999999996,
+          "expected": -0.0037189999999999996,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": 0.006136999999999999,
+          "expected": 0.006136999999999999,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.00555651,
+          "expected": 0.00555651,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.01111302,
+          "expected": 0.01111302,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.01060613,
+          "expected": 0.01060613,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.8844181216774213,
+          "expected": 0.8844181216774213,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.24036589468392133,
+          "expected": -0.24036589468392133,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.400036026779314,
+          "expected": 0.400036026779314,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 1.3877787807814457e-17,
+          "expected": 1.3877787807814457e-17,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.8571673007021341,
+          "expected": 0.8571673007021341,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.5150380749100181,
+          "expected": 0.5150380749100181,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.4666953889300622,
+          "expected": -0.4666953889300622,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.4555090068042732,
+          "expected": -0.4555090068042732,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.7580942940502868,
+          "expected": 0.7580942940502868,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": 0.003193,
+          "expected": 0.003193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.001737,
+          "expected": 0.001737,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": -0.004219,
+          "expected": -0.004219,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 7.319,
+          "expected": 7.319,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    },
+    {
+      "file": "P04RightFolders-open-save.SLDPRT",
+      "prepared_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "original_save_sha256": "5a792ad5ecf6f0cf600c8f55056327b0dbd07acf485d27b80e7810adb976290d",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": 0.009173,
+          "expected": 0.009173,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": -0.002419,
+          "expected": -0.002419,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.008718999999999998,
+          "expected": 0.008719,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.008718999999999998,
+          "expected": 0.008719,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.023137,
+          "expected": 0.023137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.9354143467241411,
+          "expected": 0.9354143467241411,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.11785113014268137,
+          "expected": -0.11785113014268137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.33333333326677816,
+          "expected": 0.33333333326677816,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 6.938893903907228e-18,
+          "expected": 6.938893903907228e-18,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.942809041610104,
+          "expected": 0.942809041610104,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.33333333325402237,
+          "expected": 0.33333333325402237,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.35355339051216605,
+          "expected": -0.35355339051216605,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.31180478216719176,
+          "expected": -0.31180478216719176,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.8819171037433291,
+          "expected": 0.8819171037433291,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": -0.004193,
+          "expected": -0.004193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.006719,
+          "expected": 0.006719,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": 0.002137,
+          "expected": 0.002137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 0.8173,
+          "expected": 0.8173,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    },
+    {
+      "file": "P04RightFolders-edit-save.SLDPRT",
+      "prepared_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "original_save_sha256": "d69c04ac9ba504e2d5f20231e59d6c37416b8832df53eeb3507c6675a38a944a",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": 0.009173,
+          "expected": 0.009173,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": -0.002419,
+          "expected": -0.002419,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.009329329999999997,
+          "expected": 0.00932933,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.009329329999999999,
+          "expected": 0.00932933,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.02059193,
+          "expected": 0.02059193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.9354143467241411,
+          "expected": 0.9354143467241411,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.11785113014268137,
+          "expected": -0.11785113014268137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.33333333326677816,
+          "expected": 0.33333333326677816,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 6.938893903907228e-18,
+          "expected": 6.938893903907228e-18,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.942809041610104,
+          "expected": 0.942809041610104,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.33333333325402237,
+          "expected": 0.33333333325402237,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.35355339051216605,
+          "expected": -0.35355339051216605,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.31180478216719176,
+          "expected": -0.31180478216719176,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.8819171037433291,
+          "expected": 0.8819171037433291,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": -0.004193,
+          "expected": -0.004193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.006719,
+          "expected": 0.006719,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": 0.002137,
+          "expected": 0.002137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 0.8173,
+          "expected": 0.8173,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    },
+    {
+      "file": "P04RightFolders-edited-fresh.SLDPRT",
+      "prepared_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "original_save_sha256": "69da36ae6f06039e06b092d2fc57ae60327393a48aad5b8deea6e076a80d8fbd",
+      "complete_archive_comparisons": 9,
+      "semantic_checks": [
+        {
+          "label": "center_x",
+          "actual": 0.009173,
+          "expected": 0.009173,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "center_y",
+          "actual": -0.002419,
+          "expected": -0.002419,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "geometry_radius",
+          "actual": 0.009329329999999997,
+          "expected": 0.00932933,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "radial_parameter",
+          "actual": 0.009329329999999999,
+          "expected": 0.00932933,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "depth_parameter",
+          "actual": 0.02059193,
+          "expected": 0.02059193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m0",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m1",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m2",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m3",
+          "actual": -0.0,
+          "expected": -0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m4",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m5",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m6",
+          "actual": -1.0,
+          "expected": -1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m7",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "frame_m8",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "pose_checks": [
+        {
+          "label": "orientation_0",
+          "actual": 0.9354143467241411,
+          "expected": 0.9354143467241411,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_1",
+          "actual": -0.11785113014268137,
+          "expected": -0.11785113014268137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_2",
+          "actual": 0.33333333326677816,
+          "expected": 0.33333333326677816,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_3",
+          "actual": 6.938893903907228e-18,
+          "expected": 6.938893903907228e-18,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_4",
+          "actual": 0.942809041610104,
+          "expected": 0.942809041610104,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_5",
+          "actual": 0.33333333325402237,
+          "expected": 0.33333333325402237,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_6",
+          "actual": -0.35355339051216605,
+          "expected": -0.35355339051216605,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_7",
+          "actual": -0.31180478216719176,
+          "expected": -0.31180478216719176,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_8",
+          "actual": 0.8819171037433291,
+          "expected": 0.8819171037433291,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f58",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f60",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_f68",
+          "actual": 0.0,
+          "expected": 0.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "orientation_neutral_scale",
+          "actual": 1.0,
+          "expected": 1.0,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f58",
+          "actual": -0.004193,
+          "expected": -0.004193,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f60",
+          "actual": 0.006719,
+          "expected": 0.006719,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_f68",
+          "actual": 0.002137,
+          "expected": 0.002137,
+          "matches_6_significant_figures": true
+        },
+        {
+          "label": "pan_scale",
+          "actual": 0.8173,
+          "expected": 0.8173,
+          "matches_6_significant_figures": true
+        }
+      ],
+      "markup_folder": {
+        "class": "moInkMarkupFolder_c",
+        "node_name": "Markups",
+        "f360": 1,
+        "f370": 0
+      },
+      "zero_unresolved_references": true,
+      "source_immutable": true
+    }
+  ],
+  "prior_failed_attempt": "re/solidworks/measurements/2026/TreeSavedReadbackAttempt856a.json",
+  "fixture_bytes_unchanged_from_failed_attempt": true,
+  "writer_output_count": 0,
+  "native_acceptance_inherited": false,
+  "heldout_native_payloads_read": false,
+  "passed": true
+}

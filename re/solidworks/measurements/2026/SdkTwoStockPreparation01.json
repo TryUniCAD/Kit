@@ -1,0 +1,422 @@
+{
+  "schema": "kit.sw2026.sdk-neutral-two-stock-writer.v1",
+  "base_revision": "fed748c330f5259f9673f28aa096f5b32c0e7362",
+  "source_sha256": {
+    "re/tooling/sw2026/throughsource/twostockgraph/ProveSdkStockWriter.py": "f8a0c309ac41c4337aea97adae2d4e19b05830b93371c0cea7ce1ddc7f750800",
+    "src/convert/adapters/solidworks/Archive/Construction/BodyScope/BindStockMut.py": "9921c5c076d03aa713db183f35143367847848f6db50fd46f219e8641aa8f35b",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/BindExtrusionMut.py": "68c39a02501ab8a2d662de68ce2330153c8062ace385b6f12571290f4add9082",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/BuildCircularCut.py": "a8f5f33c283a48f8cc3eb4f3a198d184ece7de1ab6edd836f87592d7926b4e05",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildColdCut.py": "9471910921e2d065f7b068574e1f431ecda1e2943da531d27b872fb126458943",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildColdGeom.py": "f706a92d68fb4ad0ef5b7a5724fe5a97bf36a4bb6b7df85765c49cad77bf727e",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/CheckStockPick.py": "c352c0b56d9ba7847620dc5c9918a5a5314d5c8dd03a4c7680d4b79ab967b4fc",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/CheckStockScope.py": "ed42958b659e0264b87ce02556761b08efd48ce208350fcf1f79f4dc23bf6df0",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/CheckStockShape.py": "ffc5d45307d27d251f32734e7b4949e3fcfbc2cc25799918c84dcd2950e6f67d",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/EmitStockPart.py": "c92b04c89ffe251b5eb3f2a2a9877de94eb6765d31beb1b9d9940ce4f40abe55",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/MakeStockBoss.py": "8d06cad057dc5eef4f450ad8a0144eabd4b43a648b230361ae4bbcac585b30db",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/MakeStockCut.py": "2d8d1726dfcf3a3854f5d741588ab5ab3d876e171314508f2acb6c8a33beec30",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/MakeStockGraph.py": "63ac893d74d2201cde059b4f43c5996796fdf645fd39c89cb229309612885327",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/MakeStockPrism.py": "4c51e0f222cb63a0502df2c83c7032195a7d05a1a62ef7aeafcd020f45c83f7a",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/PlanTwoStocks.py": "85724f05db5a01778e98838aea20d7e2ec1225422fb7900e62bc0608458ca198",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/PrepareStockPart.py": "13d5bf2622a4112927de57e688b921da3f3a9d5cc6414eec329641c2eda6a2f9",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/ReadStockCircle.py": "597130c823f6321b025975e570297942588d78d094f930a0f4b3887a5b453be0",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/ReadStockInput.py": "73063e4dbf1248354ed1e8565fe6f0cba9be873826b5a674b0b04a486147a74a",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/ReadStockName.py": "d3df87a7387d60306057da407542b9231664ee615fd752d4507d6aa9dbd077aa",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/ReadStockRows.py": "1a0efb792ffc36b0ca6e237e66d7a4feb134e98274feb392f6dab99a18673c95",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/StockBossGraph.py": "9a4be642c09172321b4dc7a26502321fcee27ed1620118ec9f966ed1ae33448a",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/StockCandidate.py": "c9cc8ba2fb2338b2b010960e842183b45b479d244a0b68a41846e440710f0320",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/StockKeywords.py": "e82091d5cd15ea80e3d67acd07d54733aef36de5d5b9ae387067be93a9bba091",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/TwoStockGraph.py": "a816edb457ceca739d99c94e37940df1ba0a6bc54a472851ed82feb4215a3138",
+    "src/convert/adapters/solidworks/Core/Preparation/TwoStock/TwoStockPlan.py": "6a4166a7cf036378dc11ec9359ee70963bf23aa530622434a72b8cccb5de4de7"
+  },
+  "fresh_processes": 14,
+  "results": {
+    "historical": {
+      "bytes": 8574,
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22470,
+          "sha256": "1d0ea07a53f13a307c8dc4e00047d3c00b126813357f6793b330159e5b95b065"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 687,
+          "sha256": "79142a4e66ecdced4823929f3a93127073b79b214943413bb63512ccecb524bb"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14902,
+          "sha256": "2f006e47e9d1ff6fb5654c73910a62d55b584bb501d74e38dafb1a07af68c4c7"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 687,
+          "sha256": "c26a9aa1190a7c2cbd9e57ebf9e7ad92a02cb2629aae7ec00a788d14a6a1d6c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1782,
+          "sha256": "c7eb93ddf9683ca4028bb4e928ce4f4181c66628af1275fd065c55139e6eab2a"
+        }
+      },
+      "runtime_access_attempts": 0
+    },
+    "disclosed": {
+      "bytes": 8574,
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22470,
+          "sha256": "1d0ea07a53f13a307c8dc4e00047d3c00b126813357f6793b330159e5b95b065"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 687,
+          "sha256": "79142a4e66ecdced4823929f3a93127073b79b214943413bb63512ccecb524bb"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14902,
+          "sha256": "2f006e47e9d1ff6fb5654c73910a62d55b584bb501d74e38dafb1a07af68c4c7"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 687,
+          "sha256": "c26a9aa1190a7c2cbd9e57ebf9e7ad92a02cb2629aae7ec00a788d14a6a1d6c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1782,
+          "sha256": "c7eb93ddf9683ca4028bb4e928ce4f4181c66628af1275fd065c55139e6eab2a"
+        }
+      },
+      "strict_readback": {
+        "semantic_sha256": "c88e952b7efddb78a9a03265db6e05cad48d61a3ca84b62d0c9928965c594397",
+        "feature_ids": [
+          "sldprt:feature:1",
+          "sldprt:feature:2",
+          "sldprt:feature:3",
+          "sldprt:feature:4",
+          "sldprt:feature:5",
+          "sldprt:feature:6",
+          "sldprt:feature:7",
+          "sldprt:feature:8",
+          "sldprt:feature:10",
+          "sldprt:feature:11",
+          "sldprt:feature:12",
+          "sldprt:feature:13",
+          "sldprt:feature:14",
+          "sldprt:feature:15",
+          "sldprt:feature:16",
+          "sldprt:feature:17",
+          "sldprt:feature:18",
+          "sldprt:feature:19",
+          "sldprt:feature:21",
+          "sldprt:feature:22",
+          "sldprt:feature:24",
+          "sldprt:feature:25",
+          "sldprt:feature:9"
+        ],
+        "typed_status": "supplemented",
+        "body_binding": {
+          "binding": "cold_two_stock_explicit_wrapper",
+          "feature_scope_code": 1,
+          "producer_feature_id": 19,
+          "untouched_producer_feature_id": 22,
+          "consumer_feature_id": 25,
+          "selected_stock_atom_id": 101,
+          "untouched_stock_atom_id": 102
+        },
+        "tree_status": "ordinary_cold_selected_two_stock_profile",
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ],
+          [
+            "sldprt.brep_reconstructed",
+            "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+          ]
+        ],
+        "payload_count": 0,
+        "brep_ids": [
+          "sldprt:body:22",
+          "sldprt:body:25"
+        ],
+        "bodies": {
+          "MovingStock": {
+            "id": "sldprt:body:22",
+            "final_feature_id": "sldprt:feature:22",
+            "solid_count": 1,
+            "faces": 6,
+            "volume_mm3": 1120.0,
+            "area_mm2": 664.0,
+            "centre_mm": [
+              5.0,
+              8.0,
+              9.0
+            ]
+          },
+          "ThroughFeature": {
+            "id": "sldprt:body:25",
+            "final_feature_id": "sldprt:feature:25",
+            "solid_count": 1,
+            "faces": 8,
+            "volume_mm3": 1256.3060357342374,
+            "area_mm2": 868.1693915921742,
+            "centre_mm": [
+              21.0,
+              -8.886027482188885,
+              6.0
+            ]
+          }
+        },
+        "selected_id": "sldprt:feature:19",
+        "cut_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "picked": [
+          [
+            "feature",
+            "sldprt:feature:19",
+            "body"
+          ]
+        ],
+        "depths": {
+          "sldprt:feature:19": 12.0,
+          "sldprt:feature:22": 10.0
+        }
+      },
+      "public_writer_eligible": false,
+      "runtime_access_attempts": 0
+    },
+    "independent": {
+      "bytes": 8845,
+      "sha256": "1e4c1b102b65e907435fbd3b38a8addcc67d3e3680275a9031f39e6bb2312c77",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22476,
+          "sha256": "a79d765b8a049d41d4d71c6e96a4192b458b51f76690eb8e6c11fdc779b5a45b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 705,
+          "sha256": "18bf9da9fbcf7f0b34f78ecade92f666dc1d4f5e2701b0c9869ce1a437997e65"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15126,
+          "sha256": "7992103cb8bffdc965c4a516eef14517cb54270692378356a1502a0490fd58fa"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 705,
+          "sha256": "f3406375eda1fc2e3370a07bbd6b23e10d83acbe11bf146fdcc9f6dbd52d0b9e"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1905,
+          "sha256": "cf81990c11d4d1f8462438f922941171f2fe432c2ab85758df06f3a3d94029ea"
+        }
+      },
+      "strict_readback": {
+        "semantic_sha256": "4d2c58b3935a4a67fe41d69c9dd106f9b59153270d37218f438a10fe6eb39d16",
+        "feature_ids": [
+          "sldprt:feature:1",
+          "sldprt:feature:2",
+          "sldprt:feature:3",
+          "sldprt:feature:4",
+          "sldprt:feature:5",
+          "sldprt:feature:6",
+          "sldprt:feature:7",
+          "sldprt:feature:8",
+          "sldprt:feature:10",
+          "sldprt:feature:11",
+          "sldprt:feature:12",
+          "sldprt:feature:13",
+          "sldprt:feature:14",
+          "sldprt:feature:15",
+          "sldprt:feature:16",
+          "sldprt:feature:17",
+          "sldprt:feature:18",
+          "sldprt:feature:19",
+          "sldprt:feature:21",
+          "sldprt:feature:22",
+          "sldprt:feature:24",
+          "sldprt:feature:25",
+          "sldprt:feature:9"
+        ],
+        "typed_status": "supplemented",
+        "body_binding": {
+          "binding": "cold_two_stock_explicit_wrapper",
+          "feature_scope_code": 1,
+          "producer_feature_id": 19,
+          "untouched_producer_feature_id": 22,
+          "consumer_feature_id": 25,
+          "selected_stock_atom_id": 101,
+          "untouched_stock_atom_id": 102
+        },
+        "tree_status": "ordinary_cold_selected_two_stock_profile",
+        "diagnostics": [
+          [
+            "sldprt.native_record_unresolved",
+            "native name records unavailable for 9:Lights and Cameras"
+          ],
+          [
+            "sldprt.brep_reconstructed",
+            "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+          ]
+        ],
+        "payload_count": 0,
+        "brep_ids": [
+          "sldprt:body:22",
+          "sldprt:body:25"
+        ],
+        "bodies": {
+          "Separate right-side stock with a different height": {
+            "id": "sldprt:body:22",
+            "final_feature_id": "sldprt:feature:22",
+            "solid_count": 1,
+            "faces": 6,
+            "volume_mm3": 4908.75,
+            "area_mm2": 1901.75,
+            "centre_mm": [
+              15.9375,
+              13.5,
+              13.0
+            ]
+          },
+          "Interior through cut chosen by feature": {
+            "id": "sldprt:body:25",
+            "final_feature_id": "sldprt:feature:25",
+            "solid_count": 1,
+            "faces": 7,
+            "volume_mm3": 5099.557559909952,
+            "area_mm2": 2096.378857426205,
+            "centre_mm": [
+              4.999999999999999,
+              -8.047345762304586,
+              6.8125
+            ]
+          }
+        },
+        "selected_id": "sldprt:feature:19",
+        "cut_direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "picked": [
+          [
+            "feature",
+            "sldprt:feature:19",
+            "body"
+          ]
+        ],
+        "depths": {
+          "sldprt:feature:19": 13.625,
+          "sldprt:feature:22": 31.875
+        }
+      },
+      "public_writer_eligible": false,
+      "runtime_access_attempts": 0
+    },
+    "source-metadata": {
+      "refusal": "two-stock preparation requires only the authored part name",
+      "runtime_access_attempts": 0
+    },
+    "feature-extension": {
+      "refusal": "ordinary extrusion requires active unextended features with the admitted dependency order",
+      "runtime_access_attempts": 0
+    },
+    "foreign-body-pick": {
+      "refusal": "the cut requires one implicit label and the actual historical Front stock",
+      "runtime_access_attempts": 0
+    },
+    "authored-body-label": {
+      "refusal": "two-stock bodies require their ordered producers and implicit labels",
+      "runtime_access_attempts": 0
+    },
+    "driver-conflict": {
+      "refusal": "two-stock boss requires its actual forward blind millimetre D1",
+      "runtime_access_attempts": 0
+    },
+    "attached-support": {
+      "refusal": "independent stocks require their fixed canonical Front and Right supports",
+      "runtime_access_attempts": 0
+    },
+    "invalid-configuration": {
+      "refusal": "two-stock preparation needs one ordinary active Default configuration",
+      "runtime_access_attempts": 0
+    },
+    "reserved-name": {
+      "refusal": "two-stock preparation requires distinct authored owner names",
+      "runtime_access_attempts": 0
+    },
+    "touching-circle": {
+      "refusal": "circular through cut requires one enclosed hole or one proper exterior side notch",
+      "runtime_access_attempts": 0
+    },
+    "wrong-destination": {
+      "refusal": "two-stock destination requires the exact authored basename",
+      "runtime_access_attempts": 0
+    },
+    "missing-destination": {
+      "refusal": "unnamed native streams require an explicit final destination",
+      "runtime_access_attempts": 0
+    }
+  },
+  "earlier_disclosed_native_packet": "TwoStockColdNative01",
+  "new_native_runs": 0,
+  "held_out_sources_read": 0
+}

@@ -1,0 +1,151 @@
+{
+  "schema": "kit.sw2026.view-probe-preparation-observation.v1",
+  "observed_at_utc": "2026-11-16T19:47:53.487107+00:00",
+  "source_native_receipt": "re/solidworks/measurements/2026/VisibleViewProbe02.json",
+  "source_native_receipt_sha256": "d89099b69818b90be9340e5e219c9859e97fcda0dce3c2a39ad0a53994f71917",
+  "prepared_corpus": "re/solidworks/v2026/corpus/view-probes",
+  "manifest_sha256": "1bd075254728c990763342e450a6f6b0809e2a45b8277c5f023612b87f93fc45",
+  "privacy_ledger_sha256": "a092d27c7d04621aeea7969a48e3bdaf6536ac300c239df4488c95e6bffee6f6",
+  "source_evidence_sha256": "7c53a41630971377168597c10181c098962ee777f339c3f7b85c78da3494d99e",
+  "preparer_sha256": "e0f800cb2b4039a820683a9bc59065cd88b4f0633e84eb892a6b8f83d2a3eef7",
+  "file_count": 10,
+  "stream_count": 400,
+  "framed_metadata_replacements": 190,
+  "all_encoded_stream_lengths_preserved": true,
+  "archive_schemas_executed": false,
+  "container_outputs_reparsed": false,
+  "previews": [
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewBaseline-fresh-reopen.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewBaseline-open-save.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewCombined-fresh-reopen.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewCombined-open-save.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewOrientation-fresh-reopen.SLDPRT.png",
+      "sha256": "ff4cc97807903d109777389af74d0899b0572251c3f29901534ea82d97fff77f",
+      "bytes": 4384,
+      "individually_viewed": true,
+      "observation": "Small shaded cylinder near the image center, with clean white background",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewOrientation-open-save.SLDPRT.png",
+      "sha256": "ff4cc97807903d109777389af74d0899b0572251c3f29901534ea82d97fff77f",
+      "bytes": 4384,
+      "individually_viewed": true,
+      "observation": "Small shaded cylinder near the image center, with clean white background",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewScale-fresh-reopen.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewScale-open-save.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewTranslate-fresh-reopen.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    },
+    {
+      "file": "re/solidworks/v2026/corpus/view-probes/Previews/ViewTranslate-open-save.SLDPRT.png",
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be",
+      "bytes": 26445,
+      "individually_viewed": true,
+      "observation": "Large shaded cylinder on a clean white background; same PNG bytes across baseline, scale, translation and combined requests",
+      "acceptance_scope": "Original saved derivative preview only; no active camera, appearance or production acceptance"
+    }
+  ],
+  "paired_preview_observations": [
+    {
+      "name": "ViewBaseline",
+      "preview_bytes_equal": true,
+      "native_active_poses_equal": true
+    },
+    {
+      "name": "ViewOrientation",
+      "preview_bytes_equal": true,
+      "native_active_poses_equal": true
+    },
+    {
+      "name": "ViewScale",
+      "preview_bytes_equal": true,
+      "native_active_poses_equal": true
+    },
+    {
+      "name": "ViewTranslate",
+      "preview_bytes_equal": true,
+      "native_active_poses_equal": true
+    },
+    {
+      "name": "ViewCombined",
+      "preview_bytes_equal": true,
+      "native_active_poses_equal": true
+    }
+  ],
+  "writer_output_count": 0,
+  "native_acceptance_inherited": false,
+  "heldout_native_payloads_read": false,
+  "remote_archive_decoding": "pending",
+  "preview_variants": 2,
+  "preview_identity_groups": [
+    {
+      "cases": [
+        "ViewBaseline",
+        "ViewScale",
+        "ViewTranslate",
+        "ViewCombined"
+      ],
+      "files": 8,
+      "sha256": "2917d8c3a9f0ad2feea5dc0bd93a98923c2e748a4e6521c78fdec4f7cc25e0be"
+    },
+    {
+      "cases": [
+        "ViewOrientation"
+      ],
+      "files": 2,
+      "sha256": "ff4cc97807903d109777389af74d0899b0572251c3f29901534ea82d97fff77f"
+    }
+  ],
+  "preview_review_note": "Every original file was opened for review; visual classification is bound to exact PNG SHA256 identity groups because duplicate image display was inconsistent; no image bytes were edited"
+}

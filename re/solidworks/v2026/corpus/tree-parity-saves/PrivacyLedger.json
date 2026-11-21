@@ -1,0 +1,1156 @@
+{
+  "schema": "kit.sw2026.tree-parity-privacy.v1",
+  "notice": "Native-saved derivatives of two existing generated tree predictions; reader fixtures only, not new writer outputs or additional held-out family acceptance",
+  "dimension_names": [
+    "D1@CurveBoss@P03FrontFolders.Part",
+    "D1@CurveBoss@P03FrontFoldersPairedSaved.Part",
+    "D1@CurveBoss@P04RightFolders.Part",
+    "D1@CurveBoss@P04RightFoldersPairedSaved.Part",
+    "D1@CurveSketch@P03FrontFolders.Part",
+    "D1@CurveSketch@P03FrontFoldersPairedSaved.Part",
+    "D1@CurveSketch@P04RightFolders.Part",
+    "D1@CurveSketch@P04RightFoldersPairedSaved.Part"
+  ],
+  "redacted_account_fingerprints": [
+    {
+      "sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+      "utf8_bytes": 4
+    }
+  ],
+  "records": [
+    {
+      "file": "P03FrontFolders-open-save.SLDPRT",
+      "source_sha256": "fe4f9e952e48c8b77d3c24f5d07e5dab73cb03908df9aa43712f7c5bd98473da",
+      "sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 174,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 174,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9018,
+          "bytes": 174,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 174,
+          "context": "Header2",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 640,
+          "bytes": 65,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "1fcb2fe0a1c9503ff2dd78282d6269d6f0ce94882227265d8d7e457a083a6bd2",
+          "replacement_sha256": "ecc6b7a12c620f889029b128186ab926ec83da69e0d70b641aa1b64202d6f112"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1587,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 128,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "1c6e0c9ff4595a49855b2d4bb81e7af1416dc8611c42f8ae040868edfdcaa25f",
+          "replacement_sha256": "b1b2773445d3293043f7d4fdac4f6169f527799dc31a19eca295fe6f9d49562f"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    },
+    {
+      "file": "P03FrontFolders-edit-save.SLDPRT",
+      "source_sha256": "a6cf229482d5338cc1b4a3f6180d9139da96fb8b45f25e3a61cc7d907f28e818",
+      "sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 256,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9018,
+          "bytes": 256,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Header2",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1327,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1701,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 651,
+          "bytes": 95,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "081225fc775dff959275079ad0bfca929ea9c826190324b4f683dffe9b4a901e",
+          "replacement_sha256": "b0f7a98ee0ca19ae125ab53bf1511a0d9d9825d41778f0669b5677e285cfe78f"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1628,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 128,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "2464c2889f3461d25d937e907106fd0024657e86c39a1063301c03ae1afc1e2f",
+          "replacement_sha256": "b1b2773445d3293043f7d4fdac4f6169f527799dc31a19eca295fe6f9d49562f"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    },
+    {
+      "file": "P03FrontFolders-edited-fresh.SLDPRT",
+      "source_sha256": "d724a37f4ec8b635c40939f68561455dcab5661f581f56f66616ec934c7f9255",
+      "sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 256,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9018,
+          "bytes": 256,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Header2",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "edbd5a8f83d758bc072bf0cafe73cfb32efc18cbe91a78168fd4fae6a4b3ffc9",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1327,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "d3b7316a81957928fd1e8903db766e1b662bf9199460f04752f0fc5324ceb0cc",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1701,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 2117,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "7b81a9e86edd553789c3e86690d4e6d7f685c3bc373ed97c79a32d39483bfb66",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 2491,
+          "bytes": 262,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "6608e78cea6f37009657079c887d8e36aa5c8018c6f21937cb55b7fed21582e6",
+          "replacement_sha256": "d1dcc485263aca73cf6e594ff25ddc16d463000d0201c2a447eb243d8c1ba09d"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 651,
+          "bytes": 95,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "ee4bfacad8c78c84c94cedf9134a04ed96d3130219d951c6bdd5d631921668cc",
+          "replacement_sha256": "b0f7a98ee0ca19ae125ab53bf1511a0d9d9825d41778f0669b5677e285cfe78f"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1628,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 131,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "72684769f19f3348f19db2486dbc214cd030bdef596d27b3d5708092d9306e4c",
+          "replacement_sha256": "10fc90efb731e97bbb2197b0a040e9e3647cae0584575e7683c76dc1e5cb6838"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    },
+    {
+      "file": "P04RightFolders-open-save.SLDPRT",
+      "source_sha256": "5a792ad5ecf6f0cf600c8f55056327b0dbd07acf485d27b80e7810adb976290d",
+      "sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 174,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 174,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9144,
+          "bytes": 174,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 174,
+          "context": "Header2",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 640,
+          "bytes": 65,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "1fcb2fe0a1c9503ff2dd78282d6269d6f0ce94882227265d8d7e457a083a6bd2",
+          "replacement_sha256": "ecc6b7a12c620f889029b128186ab926ec83da69e0d70b641aa1b64202d6f112"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1587,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 128,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "f16cb8f89f8298bba0a38f89eb66ddecda204b5db8bd55377333b39bdd697698",
+          "replacement_sha256": "b1b2773445d3293043f7d4fdac4f6169f527799dc31a19eca295fe6f9d49562f"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    },
+    {
+      "file": "P04RightFolders-edit-save.SLDPRT",
+      "source_sha256": "d69c04ac9ba504e2d5f20231e59d6c37416b8832df53eeb3507c6675a38a944a",
+      "sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 256,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9144,
+          "bytes": 256,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Header2",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1327,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1701,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 651,
+          "bytes": 95,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "69ff8288af1075a10f2778b831682b511e4a3e728c6f3c176f94414402d9964c",
+          "replacement_sha256": "b0f7a98ee0ca19ae125ab53bf1511a0d9d9825d41778f0669b5677e285cfe78f"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1628,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 128,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "53cc3211e84e439729bd6da42302478bcaa024a4b407dae9711e7ff0128f7724",
+          "replacement_sha256": "b1b2773445d3293043f7d4fdac4f6169f527799dc31a19eca295fe6f9d49562f"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    },
+    {
+      "file": "P04RightFolders-edited-fresh.SLDPRT",
+      "source_sha256": "69da36ae6f06039e06b092d2fc57ae60327393a48aad5b8deea6e076a80d8fbd",
+      "sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "stream_operations": [
+        {
+          "stream": "Contents/CMgr",
+          "kind": "short-unicode-cstring",
+          "offset": 1982,
+          "bytes": 256,
+          "context": "Contents/CMgr",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/Config-0-ModelHeader",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Contents/Config-0-ModelHeader",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Config-0-ResolvedFeatures",
+          "kind": "short-unicode-cstring",
+          "offset": 9144,
+          "bytes": 256,
+          "context": "Contents/Config-0-ResolvedFeatures",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "Contents/Definition",
+          "kind": "short-unicode-cstring",
+          "offset": 260,
+          "bytes": 8,
+          "context": "Contents/Definition",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Contents/DisplayLists",
+          "kind": "short-unicode-cstring",
+          "offset": 122,
+          "bytes": 8,
+          "context": "Contents/DisplayLists",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 75,
+          "bytes": 8,
+          "context": "Header2",
+          "source_value_sha256": "d71a1947ae31f939836c5053edf7ea5f7244f2278b4d1b33a297539bc3d710bf",
+          "replacement_sha256": "c42e3ab64f79894df8351e2634cf93b649fb808bcca73fa045bc61a22658023a"
+        },
+        {
+          "stream": "Header2",
+          "kind": "short-unicode-cstring",
+          "offset": 766,
+          "bytes": 256,
+          "context": "Header2",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 231,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 313,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 395,
+          "bytes": 174,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "0d82fd7ec9846cb0d16a3ae38e5800c11a867528a23dd306b737550e097188a5",
+          "replacement_sha256": "0f359c8c823df6a84178c151a40bb1bd9d32fe5ee74ddf9d45c91a8264e01746"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 747,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 829,
+          "bytes": 66,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "2dbc7f0ca33b0e7a5e1ebb41bcd5f400a8d406a6b6346597702a0187f596c40a",
+          "replacement_sha256": "1c5449b9cbeb02d57c5b1c7adf3706dc9029e9dbee43cc97f9cc0e41d377f94a"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 911,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1327,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "a7165c30e5fbf2511cb0b9ea41cb9b833a2fd5c64e990445cf305d2a0fcf1a80",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 1701,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 2117,
+          "bytes": 256,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "676100ee6deaac02a3d2f79a61999fe9487a654ec5ca68e4264bb20b0bba738c",
+          "replacement_sha256": "ecec9889cb41089c32471a0d147295c26c04c9b364ea16bac647df362ad0db7b"
+        },
+        {
+          "stream": "_MO_VERSION_19000/Biography",
+          "kind": "short-unicode-cstring",
+          "offset": 2491,
+          "bytes": 262,
+          "context": "_MO_VERSION_19000/Biography",
+          "source_value_sha256": "ae88c82336b413a788462354b0d2b9b7501ba30afd06c47c90656031f39cbae9",
+          "replacement_sha256": "d1dcc485263aca73cf6e594ff25ddc16d463000d0201c2a447eb243d8c1ba09d"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 651,
+          "bytes": 95,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Folder Name",
+          "source_value_sha256": "3ee6d65c64212156c008df3f52591e1b2774e0deb4c70e35f17bb45293bd77e4",
+          "replacement_sha256": "b0f7a98ee0ca19ae125ab53bf1511a0d9d9825d41778f0669b5677e285cfe78f"
+        },
+        {
+          "stream": "docProps/ISolidWorksInformation.xml",
+          "kind": "xml-text",
+          "offset": 1628,
+          "bytes": 4,
+          "context": "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes}lpstr:SW-Last Saved By",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "docProps/core.xml",
+          "kind": "xml-text",
+          "offset": 364,
+          "bytes": 4,
+          "context": "http://purl.org/dc/elements/1.1/}lastModifiedBy",
+          "source_value_sha256": "52f3141f5cb06025c96c6794e35f5611a578919d0deb4d934136acaba06d4b82",
+          "replacement_sha256": "c0a694d0d434fedd659912c1858f11a03a90dc3711fdcc2c843478946dabe5d0"
+        },
+        {
+          "stream": "swXmlContents/Features",
+          "kind": "xml-attribute",
+          "offset": 228,
+          "bytes": 131,
+          "context": "http://www.solidworks.com/sw2003/schema}swFile:swPath",
+          "source_value_sha256": "a84d6978f9dd3729a816c058b382a81d8bce094b5512c7804e50b5d32f28be6f",
+          "replacement_sha256": "10fc90efb731e97bbb2197b0a040e9e3647cae0584575e7683c76dc1e5cb6838"
+        }
+      ],
+      "unchanged_encoded_stream_lengths": true,
+      "container_output_reparsed": false
+    }
+  ]
+}

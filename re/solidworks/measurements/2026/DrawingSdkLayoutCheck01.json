@@ -1,0 +1,26 @@
+{
+  "cases": [
+    {
+      "name": "D00EmptySheet",
+      "neutral_json_sha256": "7ecaac3e977fcfebc68d5c571d058e28ed2d5d1cdbb7f15456eb64991765b928",
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "views": 0
+    },
+    {
+      "name": "D01FrontView",
+      "neutral_json_sha256": "dee4a8a861526ad27952aa331e54717c7fd20158d69c66052821018c2c231506",
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "views": 1
+    },
+    {
+      "name": "D02MovedFrontView",
+      "neutral_json_sha256": "153e4061fc5389bb65a389a2ed26050b799aad5b8a93a971f25e9997bb52ba71",
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+      "views": 1
+    }
+  ],
+  "native_writer_qualified": false,
+  "schema": "kit.sw2026.drawing-sdk-layout.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "strict_reader_qualified": false
+}

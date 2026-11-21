@@ -1,0 +1,664 @@
+{
+  "all_guarded_runtime_input_reads": 0,
+  "all_sdk_research_imports": [],
+  "all_sdk_sources_unchanged": true,
+  "cases": [
+    {
+      "builds": [
+        {
+          "request_sha256": "47043a1c266dc298ec8ff0a70383df3a304d4c9b5e8db29cf2f3924d5f0b9d28",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7547f111adf95f29c357d90cdf0ea81f764f5110a40fe7298ee0c8d8745f514a",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "47043a1c266dc298ec8ff0a70383df3a304d4c9b5e8db29cf2f3924d5f0b9d28",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7547f111adf95f29c357d90cdf0ea81f764f5110a40fe7298ee0c8d8745f514a",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "d8791517a434af100049090013b4f3004a9c97e474931fc70b8dcbf77b7b0c02",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "corner-anchored",
+        "construction_diagonals": 0,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 5,
+        "origin_coincidences": 1,
+        "visible_lines": 4,
+        "wire_points": 5
+      },
+      "drawing_sha256": "9bc852072f36b6598f1430a8f042711c4d52108edcd492bed9ce6bf8929e1c0a",
+      "name": "TextDepthCornerPlanar",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "c5815f70e12b1a9faa93e04f51d0e4e02f60641ca7320610ce422b5fbad4911f",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3073a38d6f1485fb714a6c4816a5a299c1e02ceb6ee5e000c83c61eb9fdaa302",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.037483,
+          "value_id": 19,
+          "xyz_m": [
+            0.0187415,
+            -0.0074157,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.024719,
+          "value_id": 20,
+          "xyz_m": [
+            0.048727900000000005,
+            0.0123595,
+            0.0
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.0
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "unchanged_origin": {
+        "request_sha256": "f8e447534833757e100bae11334bd0e120e4294d31df9f763b5641ca41efd09d",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "42410d484ba420b96d078949fde36c3c7197323b26998e37f177e0cd74fd03bf",
+        "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+      }
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "98d08ee20b6e7fad7f3aaa402e3cab1ed92f8e27a3d96516ec0a627f5397a741",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "eaf2bb15c2a641d4dc7401782d51b1b9368ed2acba0cfd013fc4a47c4a78a277",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "98d08ee20b6e7fad7f3aaa402e3cab1ed92f8e27a3d96516ec0a627f5397a741",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "eaf2bb15c2a641d4dc7401782d51b1b9368ed2acba0cfd013fc4a47c4a78a277",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "6d77e80914a7493daeb69fb0733a929d18cc531e4c63585c7ad5530366b43178",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "corner-anchored",
+        "construction_diagonals": 0,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 5,
+        "origin_coincidences": 1,
+        "visible_lines": 4,
+        "wire_points": 5
+      },
+      "drawing_sha256": "9bc852072f36b6598f1430a8f042711c4d52108edcd492bed9ce6bf8929e1c0a",
+      "name": "TextDepthCornerHeightPositive",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "d0f10b198253651987892c08040c9e61734c2bc2703636d3c25198e5aeb41397",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "abe3a46489d63cbde7aee802dcb913aa5fea640d31da2bd19a31a35d9a3e6fdd",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.037483,
+          "value_id": 19,
+          "xyz_m": [
+            0.0187415,
+            -0.0074157,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.024719,
+          "value_id": 20,
+          "xyz_m": [
+            0.048727900000000005,
+            0.0123595,
+            0.000237
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      }
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "487002a38c7d162554455b3c5eba816cd4dc49412fd182343401c94eb2cc6ed6",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "d1d1bfb3355bd28688a4ce5b96aadddefb5857306f8b60ac3226e3cc44956012",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "487002a38c7d162554455b3c5eba816cd4dc49412fd182343401c94eb2cc6ed6",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "d1d1bfb3355bd28688a4ce5b96aadddefb5857306f8b60ac3226e3cc44956012",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "518a24bc18bb60c4e8f966ea0282c825b239f8386b83f391efe330c9a0b3ab80",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "corner-anchored",
+        "construction_diagonals": 0,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 5,
+        "origin_coincidences": 1,
+        "visible_lines": 4,
+        "wire_points": 5
+      },
+      "drawing_sha256": "9bc852072f36b6598f1430a8f042711c4d52108edcd492bed9ce6bf8929e1c0a",
+      "name": "TextDepthCornerHeightNegative",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "d5ee95eeed98c78e5bf190c8d2e40a8335cf06c106ef6849fb03b93bdc97d65b",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "852f0b5641a457a18e5e95776afde53b806e1e6004834c7c8a498fbdd31d130a",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.037483,
+          "value_id": 19,
+          "xyz_m": [
+            0.0187415,
+            -0.0074157,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.024719,
+          "value_id": 20,
+          "xyz_m": [
+            0.048727900000000005,
+            0.0123595,
+            -0.000419
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          -0.000419
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      }
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "8997117ebbc21b2c12818faa153895c091a60e3b0cd972c216ef31857fc4c875",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b6fbdf5eb6035b0592f0a1876f2a1efbfe53d5dd947cee75776d551790078e60",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "8997117ebbc21b2c12818faa153895c091a60e3b0cd972c216ef31857fc4c875",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "b6fbdf5eb6035b0592f0a1876f2a1efbfe53d5dd947cee75776d551790078e60",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "226cb1acbd8b471601486e2b44c79c823886de6bfc4f57448958f142f934edc6",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "center-anchored",
+        "construction_diagonals": 2,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 7,
+        "origin_coincidences": 3,
+        "visible_lines": 6,
+        "wire_points": 6
+      },
+      "drawing_sha256": "b4fee8b3571502c1f2bc15c5001c8cba9af28159ec820ebbeceaa9019e3ab5c7",
+      "name": "TextDepthCenteredPlanar",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "b5b75acf06ffc2eacad56d5a14c70f846ce031b14da4f601f45e94bcf6f6efd1",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "bb9bcb3fc24608a7af8648ccca56dc8bee035c2e9aa44f3c41e3bb9ecf6ada46",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.045127,
+          "value_id": 19,
+          "xyz_m": [
+            0.0,
+            -0.023130400000000002,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.028913,
+          "value_id": 20,
+          "xyz_m": [
+            0.036101600000000005,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          0.0
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      },
+      "unchanged_origin": {
+        "request_sha256": "661ff4e34fed1d3eb59e63c4b560eb2abbd409b4e7054ccb6aec7759818d6e43",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "629e318998db0dbccb34c0834dd0ddf14e4a059dd8be44a005dff493d42f55df",
+        "worker_sha256": "47c2e404fbe228845d6e3d92cccb728cbb2fee53e52e5f67fd31db5af1f20b83"
+      }
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "6a1e0f3276e482b4374ec1f0c9d407a7d9171ef7e4a1e7a5057cfe9ee2f94587",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7cdd8b00be376c2bc30ef7acbb2bddb6aa6ae0e11f2164c4413903450f13ab67",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "6a1e0f3276e482b4374ec1f0c9d407a7d9171ef7e4a1e7a5057cfe9ee2f94587",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "7cdd8b00be376c2bc30ef7acbb2bddb6aa6ae0e11f2164c4413903450f13ab67",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "9c94d75000fb80903c7163eafc1dbf639280fc4f20190df258f7a26a459c0dd0",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "center-anchored",
+        "construction_diagonals": 2,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 7,
+        "origin_coincidences": 3,
+        "visible_lines": 6,
+        "wire_points": 6
+      },
+      "drawing_sha256": "b4fee8b3571502c1f2bc15c5001c8cba9af28159ec820ebbeceaa9019e3ab5c7",
+      "name": "TextDepthCenteredHeightPositive",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "f7e85ec2ab1fba94970b53e06ccaef5ef029e8c843253cc79fcb15db47c479af",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5ea62ef752e6298b000b95a19e673a907f119ce3264c9d062b3c69e390881317",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.045127,
+          "value_id": 19,
+          "xyz_m": [
+            0.0,
+            -0.023130400000000002,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.028913,
+          "value_id": 20,
+          "xyz_m": [
+            0.036101600000000005,
+            0.0,
+            0.000237
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          0.000237
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      }
+    },
+    {
+      "builds": [
+        {
+          "request_sha256": "d8201daacf3911ce2ec93b847c74b02fa94ac0a1ef2dbc129e37af60fb099010",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "bd1444df51f7afac76e561f02c3edad7dc5c5c6f77a1b8257a00d3ccdb8f8feb",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        },
+        {
+          "request_sha256": "d8201daacf3911ce2ec93b847c74b02fa94ac0a1ef2dbc129e37af60fb099010",
+          "return_code": 0,
+          "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stdout_sha256": "bd1444df51f7afac76e561f02c3edad7dc5c5c6f77a1b8257a00d3ccdb8f8feb",
+          "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+        }
+      ],
+      "child_sha256": "6de7454c1a845894eee48630c1f86f0803473f4d2a2c1ec6d363e830a0449043",
+      "child_shape": {
+        "actual_origin_id": 17,
+        "anchor_kind": "center-anchored",
+        "construction_diagonals": 2,
+        "contour_frontier": 5,
+        "native_acceptance": false,
+        "next_line_id": 7,
+        "origin_coincidences": 3,
+        "visible_lines": 6,
+        "wire_points": 6
+      },
+      "drawing_sha256": "b4fee8b3571502c1f2bc15c5001c8cba9af28159ec820ebbeceaa9019e3ab5c7",
+      "name": "TextDepthCenteredHeightNegative",
+      "passed": true,
+      "preparation": {
+        "request_sha256": "d0279b101eba48113320d8c7fcc592985d18bed53eca1314ca98b3bbfe0d4eb2",
+        "return_code": 0,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0f019401ae2c09f3390be211ef9e95942300f1d84ca9adce3676b7c54e714a6f",
+        "worker_sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+      },
+      "text_after": [
+        {
+          "annotation_id": 10,
+          "length_m": 0.045127,
+          "value_id": 19,
+          "xyz_m": [
+            0.0,
+            -0.023130400000000002,
+            0.0
+          ]
+        },
+        {
+          "annotation_id": 11,
+          "length_m": 0.028913,
+          "value_id": 20,
+          "xyz_m": [
+            0.036101600000000005,
+            0.0,
+            -0.000419
+          ]
+        }
+      ],
+      "text_points_xyz_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ],
+      "typed_profile": {
+        "actual_folder_and_view_aliases": true,
+        "actual_origin_and_component_aliases": true,
+        "bitmaps_empty": true,
+        "child_origin_id": 17,
+        "component_acquisition_count": 0,
+        "component_stamp": 203,
+        "creation_epoch": 2592000,
+        "display_id": 10,
+        "model_next_display_id": 11,
+        "native_lifecycle_acceptance": false,
+        "ordinary_profile_id": 18
+      }
+    }
+  ],
+  "complete_child_config_and_resolved_replays": 6,
+  "complete_drawing_definition_replays": 6,
+  "delivery_pr": 121,
+  "guarded_builds": 12,
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "independent_data_audit_sha256": "866a8f95e91fd7f8a574be4e5e06d1a30170d1dd2b1fd244083f5e0e397a51f9",
+  "independent_preparations": 6,
+  "limitations": [
+    "the native load/rebuild/save/fresh-reopen text-coordinate hypothesis still requires its own controlled batch",
+    "source standard-0 detail style and other original constructor refusals remain intact",
+    "COM annotation origin and embedded stored text point must be measured and reported separately",
+    "the native mutation responsible for source height text z=0.0001 is not identified"
+  ],
+  "malformed_rejections": [
+    {
+      "diagnostic": "spatial text requires three explicit world coordinates",
+      "name": "short_point",
+      "rejected": true,
+      "request_sha256": "11cd572ffa262b3a218396cac44a61eac678522f5dedd9a0c2d13994d767f42a",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e4b8a01b2135b1772c28c0b76e14ee27cf49c74620cff1f8318dbcba4227351d",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    },
+    {
+      "diagnostic": "spatial text requires three explicit world coordinates",
+      "name": "long_point",
+      "rejected": true,
+      "request_sha256": "a853f1532b6731501e4cc63a4ecde60c8ceea50890e49462ad64e2c5b96c1f4c",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e4b8a01b2135b1772c28c0b76e14ee27cf49c74620cff1f8318dbcba4227351d",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    },
+    {
+      "diagnostic": "spatial text coordinates must be finite numbers without booleans",
+      "name": "boolean_depth",
+      "rejected": true,
+      "request_sha256": "08811e282842016edcba5d13b3a93f6eaf86e420f716e0f957ad97a1bc87ae17",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6cff0c5ef673f4735a38bcdce5726c31e6a08619c752446cad360987fec33ba7",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    },
+    {
+      "diagnostic": "spatial text coordinates must be finite numbers without booleans",
+      "name": "text_depth",
+      "rejected": true,
+      "request_sha256": "0f74c073d0f84f3d74138cea0a6902e757271e026e585399b0dce56475a25cb7",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6cff0c5ef673f4735a38bcdce5726c31e6a08619c752446cad360987fec33ba7",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    },
+    {
+      "diagnostic": "spatial text operation preserves the qualified planar placement",
+      "name": "moved_planar_placement",
+      "rejected": true,
+      "request_sha256": "8b9a79e6208aa2d32fe005910874f1c31663d49cab72693adf77ea5e9ba54490",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c2de209ead599b15c83cec4b5ca0d85e0b9ea1959edf46711e8d3bc37362f3b4",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    },
+    {
+      "diagnostic": "spatial text needs exactly two explicit rectangle text points",
+      "name": "extra_display_point",
+      "rejected": true,
+      "request_sha256": "38a039f7fde1fd541ee54810cc362c8c6278dcf864974c7a9096629ab4a4653a",
+      "return_code": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6b029e2127e49e6f22c777f11828879fc4b178a56498e74d6473b582b77f5831",
+      "worker_sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    }
+  ],
+  "native_acceptance": false,
+  "native_evidence_sha256": "57d6d87680b2334b3c907f746d04c0480461b9206c3e986b66775520a91f36a4",
+  "native_execution": false,
+  "new_authored_tools": [
+    {
+      "bytes": 9421,
+      "path": "re/tooling/sw2026/SpatialTextFlow.py",
+      "sha256": "22d22f64607a69e3f7910cf7845ee59d125b8663ca6f098fc77d6fc558e57690"
+    },
+    {
+      "bytes": 5346,
+      "path": "re/tooling/sw2026/SpatialTextMut.py",
+      "sha256": "c7c1c9536827416b3a5aa5dd2e39c9e1c4b5dcfd735ab340ca5a7253d350f02a"
+    },
+    {
+      "bytes": 4241,
+      "path": "re/tooling/sw2026/SpatialTextPrepare.py",
+      "sha256": "d3711cb72230b2a0f3176de409360eb22f935ac8d5e1eb15bceee470113a39a3"
+    },
+    {
+      "bytes": 5267,
+      "path": "re/tooling/sw2026/SpatialTextProcess.py",
+      "sha256": "9e82cca8e5c56a51b3cecfa88cf1fa0d4e401d7f53e9b7e30696f46ade7ad6bb"
+    }
+  ],
+  "observed_source_intake_sha256": "a25475ec393ded731ec197a03db54863973841230be0c870b862753d5fa807df",
+  "predecessor_source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+  "public_drawing_writer_changed": false,
+  "root_execution": true,
+  "root_process_count": 26,
+  "root_result_sha256": "04c94d1124e2cc121c680b1e127eb762caf52f071f42874af5226128f456e067",
+  "schema": "kit.sw2026.drawing-spatial-text-construction.v1",
+  "source_file_count": 5041,
+  "source_manifest_sha256": "69b7098e0e64d320364d218bf7cc1a8ba21eab7d2b16ca10878f04bce68ce182",
+  "source_original_admission": false,
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "unchanged_origin_reference_processes": 2,
+  "unchanged_predecessor_sources": 5037,
+  "worker_product_execution": false,
+  "worker_test_execution": false,
+  "worker_verification": [
+    "AST parsing",
+    "exact source and data-only JSON/capture hashing",
+    "unchanged original PE static inspection"
+  ]
+}

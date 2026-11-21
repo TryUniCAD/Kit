@@ -1,0 +1,195 @@
+{
+  "binary_image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "binary_layout_observation_sha256": "56962ebab70dc88cb1a18c02329fcf76704db09562a06350aedd64baf62e28ab",
+  "case_count": 7,
+  "cases": [
+    {
+      "case": "saved-full",
+      "format": "part",
+      "source_sha256": "963dce1db82760fc1941d9ce6b41410ee5b1b4b3c563594900cb30b12a635e6e",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1219,
+          "map_entries": 2,
+          "rows": 1,
+          "sha256": "af308e0d306e6f1b3a03f05a89983c41df874967e9fd838c3107de4d561b867e"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        }
+      }
+    },
+    {
+      "case": "saved-forward",
+      "format": "part",
+      "source_sha256": "36667ae4b8ad9d0853af4b43a5d7386dd146b00e424bfe3760b9a7aab1c4a62b",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1227,
+          "map_entries": 2,
+          "rows": 1,
+          "sha256": "431c3ac212e1084ca70d8e9c5895f3b3a52a579e677fd7d2cb3e81edbec05819"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "12f118f456beaeef37b7b84514198ecd331ca18582970b1962bfbb12cd0c6781"
+        }
+      }
+    },
+    {
+      "case": "saved-reverse",
+      "format": "part",
+      "source_sha256": "451a54e66ed9f97cbf5bfc752cb59306f4fb7eb3f2be5fcbec70d3a33b3d699d",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1227,
+          "map_entries": 2,
+          "rows": 1,
+          "sha256": "8f7bce5709ccc40c0518396e849e5e45ca0a1ff3a90f4e538875a7679c12c35a"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "b471c334f2dfcbef2cba9574eebced928461660e9a6ade352c945f30c900ac58"
+        }
+      }
+    },
+    {
+      "case": "saved-other",
+      "format": "part",
+      "source_sha256": "50cebaee7eb8dfd8c3f903af7db0e7bd78098935561fddcbc0ccaaaf370dbe57",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1231,
+          "map_entries": 2,
+          "rows": 1,
+          "sha256": "1cbd7af79e8c3cb3f25dce8e3a1443dac86bfaec20b9e0d2a059bd13f086b363"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "3b21fe243b74d8a54475c8746f323abf94a65d8dc045c29263e08065f2da296a"
+        }
+      }
+    },
+    {
+      "case": "saved-assembly",
+      "format": "assembly",
+      "source_sha256": "264eee216856aa72d355bad3bb2598adf6023755c6cadded275472016b88c45a",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1179,
+          "map_entries": 2,
+          "rows": 1,
+          "sha256": "1f42fa7057f97733e0c0aa75ec2361f9813919d5d90c52e9f159d8a03e16ad9a"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 167,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "eb2d423e8b28d82b3bf051410b7b9abf3b7483b10ae2776075d7b29a5e677def"
+        }
+      }
+    },
+    {
+      "case": "saved-drawing",
+      "format": "drawing",
+      "source_sha256": "2ab239c54092ef05dac2d0b0da4ad9b77dbecb7136d39f710ee85aae9c51fafb",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 2137,
+          "map_entries": 2,
+          "rows": 2,
+          "sha256": "c4d14db8818f05ff084c7a5d2e511e0c9a0326c3eca2b0350a5898c2dd069b57"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 191,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "2bce68974e1ba10fed71565b61521618804b49e3f06a2762092517edeec5ddd5"
+        }
+      }
+    },
+    {
+      "case": "fresh-part",
+      "format": "part",
+      "source_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "streams": {
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "map_entries": 2,
+          "rows": 0,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 187,
+          "map_entries": 4,
+          "rows": 1,
+          "sha256": "efdb19413b108b8a1983638e69e66fcb767265e5688a465f3f5f542f4b920f73"
+        }
+      }
+    }
+  ],
+  "cohort_sha256": "5b490f035ff90e05e3772572754350c0b2b5d836961d64467915a0286038e811",
+  "exact_metadata_streams": 14,
+  "existing_generator_replay_sha256": "5f8bd673c37893079e24e649199db63f48a71dbbc17a4c7cebe0a104df172a6b",
+  "expected_rejections": [
+    {
+      "error": "ValueError",
+      "fault": "negative-biography-count"
+    },
+    {
+      "error": "ValueError",
+      "fault": "truncated-embedded-record"
+    },
+    {
+      "error": "BodyUnsupported",
+      "fault": "undeclared-archive-version"
+    }
+  ],
+  "hidden_inputs_read": 0,
+  "native_serializer_ranges": {
+    "BiographyRecord": {
+      "byte_sha256": "8e7ea68ff8a0ab2f3fa61a532981414182b5496d5e5410d58c51b46daa6ca7f2",
+      "end_exclusive": "0x4c71ec3e",
+      "instruction_lines": 122,
+      "virtual_start": "0x4c71ea50"
+    },
+    "Root": {
+      "byte_sha256": "debed842eaeee4cf3fb1117a276c9050d75eb81e0d3a0b5f128592d2acb2ff77",
+      "end_exclusive": "0x4c71f5a6",
+      "instruction_lines": 556,
+      "virtual_start": "0x4c71ec40"
+    },
+    "StartEndRecord": {
+      "byte_sha256": "efe701311044db874de610b29a8b7daf7071b6548292fa60750daa836479aa83",
+      "end_exclusive": "0x4c71fb6b",
+      "instruction_lines": 249,
+      "virtual_start": "0x4c71f700"
+    }
+  },
+  "passed": true,
+  "populated_biography_cases": 6,
+  "schema": "kit.sw2026.saved-biography-sdk-roundtrip.v1"
+}

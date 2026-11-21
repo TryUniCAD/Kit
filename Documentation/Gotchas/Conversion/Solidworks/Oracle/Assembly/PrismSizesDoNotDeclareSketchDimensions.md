@@ -1,0 +1,5 @@
+# Prism sizes do not declare sketch dimensions
+
+The first generated distance mate observer treated a prism's width and height as the native sketch parameters `D1@Sketch1` and `D2@Sketch1`. The authored polygon supplies those sizes through its vertex coordinates. Its optional `rectangle_dimensions` request is absent, so the typed sketch has zero dimension and display records. SOLIDWORKS reported both sketch parameters absent and measured the authored boss depth and geometry. The unscoped assertion made the exact-path replay exit `1`. [Native replay and typed readback](../../../../../../re/solidworks/records/GeneratedDistanceMateNativeOpen2026.md)
+
+Derive expected parameter presence from the neutral feature request and confirm the typed owners before freezing a trial. For a vertex-authored child, confirm absence of the two sketch parameters, preserve the boss parameter check and measure the expected prism dimensions through its analytic geometry. For a dimensioned child, explicitly request `rectangle_dimensions` and check both native parameter values. [Part builder](../../../../../../re/tooling/sw2026/builders/Part.py)

@@ -1,0 +1,550 @@
+{
+  "schema": "kit.sw2026.planar-mate-archive-readback.v1",
+  "passed": true,
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "probe_sha256": "160d5864ceda5000dc0fab22e5e8dd5e079e23527c16b8e97f5537012ff8eb66",
+  "mate_codec_sha256": "3b461a967190267bb40d9c853cac9e9db54f4b79ae5f0bbd276e364f0bf333bf",
+  "core_schema_manifest_sha256": "f07ffe84e73f3c4af909516a06926a9c722dc766cfec317d7fe502271334ffc5",
+  "stream_comparisons": 51,
+  "native_acceptance": false,
+  "heldout_payloads_read": false,
+  "writer_output_count": 0,
+  "cases": [
+    {
+      "name": "A17PlaneCoincident",
+      "parent_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "child_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "parent_streams": {
+        "Contents/CMgr": {
+          "bytes": 2617,
+          "sha256": "b887cb546cabb14c209007030b4203e169ae44baa732de4669d5c921059b62d7",
+          "map_base": 1,
+          "map_count": 42,
+          "proven_schemas": false
+        },
+        "Contents/Config-0": {
+          "bytes": 25438,
+          "sha256": "bdca86fea8eff997064bd8888a46c3ee16c583bb56f66543ab7c751a10a49916",
+          "map_base": 5,
+          "map_count": 107,
+          "proven_schemas": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2575,
+          "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5295,
+          "sha256": "83ab1385e7d9bce693e6d3451b5d770aa855321acaafb025227a2dfd1a989667",
+          "map_base": 107,
+          "map_count": 168,
+          "proven_schemas": false
+        },
+        "Contents/Definition": {
+          "bytes": 3900,
+          "sha256": "ea44d0d1abac67c19653c557492b3a1d88c3414cd51d87c1ab971c4a9a8444d4",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": false
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1607,
+          "sha256": "ed1e0fc657395504b5188d11bf721999390714737816ceff34dece88e305c554",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2575,
+          "sha256": "49c20605a6ddea262df9ab4336e5186bc5c4aeae32b1aed19d689487ecc8d9f3",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 3304,
+          "sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694",
+          "map_base": 168,
+          "map_count": 196,
+          "proven_schemas": false,
+          "provisional_schemas": [
+            "moChainComponent_c",
+            "moExtFeatureList_c",
+            "moReferenceChain_c"
+          ]
+        }
+      },
+      "child_streams": {
+        "Contents/CMgr": {
+          "bytes": 2393,
+          "sha256": "5341e34076c67e4611329c921903d5ce49c021d9d020f990598d80bebab318bb",
+          "map_base": 1,
+          "map_count": 19,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 25408,
+          "sha256": "6ca8edb6e52ac0b315ed1e0b131b4800edc23d13ef420d88fb3248838c18ea60",
+          "map_base": 4,
+          "map_count": 110,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2549,
+          "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14641,
+          "sha256": "53eb9735add929e913b2b8f91799b725ef2cf9b69dcba98b567a17c2edf4e220",
+          "map_base": 110,
+          "map_count": 288,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "sha256": "5a4a61864b8d3159eed46d34c434603dc0643a15d4074fb4246fbd58899f0c06",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2263,
+          "sha256": "658cb313296efc0742e7ae56a5a83388a22a73124f4ba6f08da405a1a5b51289",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2549,
+          "sha256": "f889c4bfbc00a16af42715fd1d95c2531a390d818680bc4593f3af7b76b4b5aa",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        }
+      },
+      "mate_class": "moMateCoincident",
+      "mate_id": 26,
+      "mate_slot": 169,
+      "resolved_group_children": 0,
+      "fixed_occurrences": [
+        0
+      ],
+      "endpoints": [
+        {
+          "position": 0,
+          "occurrence_id": 24,
+          "occurrence_slot": 8,
+          "child_plane": "Top Plane",
+          "child_plane_id": 3,
+          "child_update": 134,
+          "detached_wrapper_slot": 172,
+          "resolved_wrapper_slot": 183,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.022,
+            -0.022,
+            0.0055,
+            -0.0055
+          ]
+        },
+        {
+          "position": 1,
+          "occurrence_id": 25,
+          "occurrence_slot": 16,
+          "child_plane": "Top Plane",
+          "child_plane_id": 3,
+          "child_update": 134,
+          "detached_wrapper_slot": 178,
+          "resolved_wrapper_slot": 191,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.022,
+            -0.022,
+            0.0055,
+            -0.0055
+          ]
+        }
+      ]
+    },
+    {
+      "name": "A18PlaneDistance",
+      "parent_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "child_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "parent_streams": {
+        "Contents/CMgr": {
+          "bytes": 2617,
+          "sha256": "3146b916283b173a9e64202f308f166ea23bc44457f0e58506c388de211b32c4",
+          "map_base": 1,
+          "map_count": 42,
+          "proven_schemas": false
+        },
+        "Contents/Config-0": {
+          "bytes": 25438,
+          "sha256": "4ad369e7e97f850fa69901a15c7b97fbc63378b6b6a95ed43ba5a70faffe2b51",
+          "map_base": 5,
+          "map_count": 107,
+          "proven_schemas": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2567,
+          "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5295,
+          "sha256": "1dee93444dc92f54745a72ca3b1cb66fab84fc554229642261a603629121459c",
+          "map_base": 107,
+          "map_count": 168,
+          "proven_schemas": false
+        },
+        "Contents/Definition": {
+          "bytes": 3900,
+          "sha256": "ea44d0d1abac67c19653c557492b3a1d88c3414cd51d87c1ab971c4a9a8444d4",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": false
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1599,
+          "sha256": "7e7416ab39527dd7ded2745bcc3f298ebd9014382a5dab77261d6eb00346f587",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2567,
+          "sha256": "3de9542563b43fa6068b91607ab3083a3292a0db7587e9b554be94fc587e51b3",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 5117,
+          "sha256": "69918e4021805c0f8dadb0c5a0a75efd5887420591d459799474cdd7306c7963",
+          "map_base": 168,
+          "map_count": 207,
+          "proven_schemas": false,
+          "provisional_schemas": [
+            "moChainComponent_c",
+            "moExtFeatureList_c",
+            "moReferenceChain_c"
+          ]
+        }
+      },
+      "child_streams": {
+        "Contents/CMgr": {
+          "bytes": 2389,
+          "sha256": "f19d100e4e2f4471c2ea8348212fc665db881b07fac497155c2460119e87c3c1",
+          "map_base": 1,
+          "map_count": 19,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 25408,
+          "sha256": "65331bc137b1efbba9c0f687da441766f35d469217cebcd5aa6be0fb9b0a6f0b",
+          "map_base": 4,
+          "map_count": 110,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2545,
+          "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14637,
+          "sha256": "3fd1f7500a8f658adadd0c2f79a1c89cc31c0db26774ca8b54689d75902ad6f3",
+          "map_base": 110,
+          "map_count": 288,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "sha256": "5a4a61864b8d3159eed46d34c434603dc0643a15d4074fb4246fbd58899f0c06",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2255,
+          "sha256": "db13091478f62f1434bb8963df5f2277e32b8e241639268fb0be15ea8b3de360",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2545,
+          "sha256": "6327370680fb1653ae7aa33aa132493930dc1e3655c8357c67b8cbaa59773d8c",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        }
+      },
+      "mate_class": "moMateDistanceDim_c",
+      "mate_id": 27,
+      "mate_slot": 169,
+      "resolved_group_children": 0,
+      "fixed_occurrences": [
+        0
+      ],
+      "endpoints": [
+        {
+          "position": 0,
+          "occurrence_id": 24,
+          "occurrence_slot": 8,
+          "child_plane": "Right Plane",
+          "child_plane_id": 4,
+          "child_update": 134,
+          "detached_wrapper_slot": 172,
+          "resolved_wrapper_slot": 183,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.0055,
+            -0.0055,
+            0.011,
+            -0.011
+          ]
+        },
+        {
+          "position": 1,
+          "occurrence_id": 25,
+          "occurrence_slot": 16,
+          "child_plane": "Right Plane",
+          "child_plane_id": 4,
+          "child_update": 134,
+          "detached_wrapper_slot": 178,
+          "resolved_wrapper_slot": 191,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.0055,
+            -0.0055,
+            0.011,
+            -0.011
+          ]
+        }
+      ],
+      "driving_dimension": {
+        "display_slot": 197,
+        "handle_slot": 199,
+        "dimension_slot": 201,
+        "parameter_slot": 203,
+        "distance_m": 0.06323
+      }
+    },
+    {
+      "name": "A19PlaneParallel",
+      "parent_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "child_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+      "parent_streams": {
+        "Contents/CMgr": {
+          "bytes": 2617,
+          "sha256": "400e1a86a4008cd36363917fc17217b93f2ce577897ca1f8b3849560da0837a3",
+          "map_base": 1,
+          "map_count": 42,
+          "proven_schemas": false
+        },
+        "Contents/Config-0": {
+          "bytes": 25438,
+          "sha256": "d42e6fa68733532766ccd92d41c255b159867d0652e269af45ee964f627602ca",
+          "map_base": 5,
+          "map_count": 107,
+          "proven_schemas": false
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2567,
+          "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5295,
+          "sha256": "07ac4ecc0e13ce832770a22b47ac4c562560e64579739f323cdfd28cc64584ba",
+          "map_base": 107,
+          "map_count": 168,
+          "proven_schemas": false
+        },
+        "Contents/Definition": {
+          "bytes": 3900,
+          "sha256": "ea44d0d1abac67c19653c557492b3a1d88c3414cd51d87c1ab971c4a9a8444d4",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": false
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1599,
+          "sha256": "50416d31db9e3aac24546331da4e1fbb5ca545335d2c63f9b4763f6a03906a05",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2567,
+          "sha256": "5ad59c82322fc0f3351568dbfe4353b83ba12ae1754be931dc497681fabfff19",
+          "map_base": 1,
+          "map_count": 77,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 3234,
+          "sha256": "5ee10ddcd3e5e31e6599cd4f3888f69f8b7f70868d31cfa707d02d1928a8e32e",
+          "map_base": 168,
+          "map_count": 196,
+          "proven_schemas": false,
+          "provisional_schemas": [
+            "moChainComponent_c",
+            "moExtFeatureList_c",
+            "moReferenceChain_c"
+          ]
+        }
+      },
+      "child_streams": {
+        "Contents/CMgr": {
+          "bytes": 2389,
+          "sha256": "1add273c529e590d03086f69de0ecb0db8087317c917cd62e88e799e23575ba8",
+          "map_base": 1,
+          "map_count": 19,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 25408,
+          "sha256": "285add5498ca303096cb863fe7b82be669b0bb2706d5bbe3e039dd88d296eb48",
+          "map_base": 4,
+          "map_count": 110,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2545,
+          "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14637,
+          "sha256": "2186cb74a97629d22e2b08002092f45a827ae8cedcf7dd8c47c1b079e91fd805",
+          "map_base": 110,
+          "map_count": 288,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 3816,
+          "sha256": "5a4a61864b8d3159eed46d34c434603dc0643a15d4074fb4246fbd58899f0c06",
+          "map_base": 1,
+          "map_count": 60,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2255,
+          "sha256": "f548e07c4f8b0843a6df82518e6b417611e012b23b69b074185db1ced754e590",
+          "map_base": 1,
+          "map_count": 3,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "map_base": 1,
+          "map_count": 5,
+          "proven_schemas": true
+        },
+        "Header2": {
+          "bytes": 2545,
+          "sha256": "541f5e56e02f70b70dccd11eaa2e2f78eb196fdaa867cea9994f06bbdf25448c",
+          "map_base": 1,
+          "map_count": 74,
+          "proven_schemas": true
+        }
+      },
+      "mate_class": "moMateParallel",
+      "mate_id": 26,
+      "mate_slot": 169,
+      "resolved_group_children": 0,
+      "fixed_occurrences": [
+        0
+      ],
+      "endpoints": [
+        {
+          "position": 0,
+          "occurrence_id": 24,
+          "occurrence_slot": 8,
+          "child_plane": "Front Plane",
+          "child_plane_id": 2,
+          "child_update": 134,
+          "detached_wrapper_slot": 172,
+          "resolved_wrapper_slot": 183,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.022,
+            -0.022,
+            0.011,
+            -0.011
+          ]
+        },
+        {
+          "position": 1,
+          "occurrence_id": 25,
+          "occurrence_slot": 16,
+          "child_plane": "Front Plane",
+          "child_plane_id": 2,
+          "child_update": 134,
+          "detached_wrapper_slot": 178,
+          "resolved_wrapper_slot": 191,
+          "resolved_inverse_matches": true,
+          "resolved_surface_bounds": [
+            0.022,
+            -0.022,
+            0.011,
+            -0.011
+          ]
+        }
+      ]
+    }
+  ]
+}

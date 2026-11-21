@@ -1,0 +1,185 @@
+{
+  "schema": "kit.sw2026.drawing-splitter-body-static-proof.v1",
+  "scope": "explicit existing embedded method linkage after fail closed environment entry",
+  "parent_native_proof_sha256": "ebf5e5a241ecdfe9d2850797ce27df9bfa48f21c0056a18a0b333d46997754f6",
+  "parent_native_record": "DrawingUserEnvironmentArchive2026.json",
+  "module": {
+    "name": "slduiu.dll",
+    "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+    "bytes": 36036696,
+    "base": "0x48ea0000",
+    "file_version": [
+      34,
+      5,
+      2,
+      604
+    ]
+  },
+  "actual_concrete_splitter": {
+    "name": "uiSplitterInfo_c",
+    "vtable": "0x4a65e720",
+    "vtable_span": {
+      "start": "0x4a65e720",
+      "end": "0x4a65e750",
+      "bytes": 48,
+      "sha256": "802e7f2806e2f891e1deadc56f32d89509742a56a9744190d8f45aabce51f323"
+    },
+    "locator_span": {
+      "start": "0x4a9102f8",
+      "end": "0x4a910310",
+      "bytes": 24,
+      "sha256": "759b5906f198ea3ecf16a4a4e075f0ab7f868ae2900547347b06ec29dc2cbb93"
+    },
+    "rtti": [
+      ".?AVuiSplitterInfo_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@"
+    ],
+    "runtime_getter": {
+      "start": "0x497d5a70",
+      "end": "0x497d5a78",
+      "bytes": 8,
+      "sha256": "a0a70e8283be0f77780be943d07dab0786f56a56780591f7aff1938ca69e2ada"
+    },
+    "runtime_descriptor": {
+      "start": "0x4aef2360",
+      "end": "0x4aef2390",
+      "bytes": 48,
+      "sha256": "67d88ac42df1421b5fae40835f2ee68bd565dcee82d1cf27dc540bf3a9354b1e"
+    },
+    "schema_word": "0x80000001",
+    "object_size": 208,
+    "serializer_slot": "0x28",
+    "serializer_target": "0x497d5b00"
+  },
+  "complete_serializer": {
+    "ranges": [
+      {
+        "start": "0x497d5b00",
+        "end": "0x497d5ed7",
+        "bytes": 983,
+        "sha256": "dee8484e884bbb8fd19a4dc22095ec5c9df7e35835c0d0b7cfd92057261eebd9"
+      }
+    ],
+    "unwind_rows": [
+      {
+        "begin": "0x497d5b00",
+        "end": "0x497d5ed7",
+        "unwind": "0x4aa7428c"
+      }
+    ],
+    "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+  },
+  "concrete_constructor": {
+    "ranges": [
+      {
+        "start": "0x497d5600",
+        "end": "0x497d5731",
+        "bytes": 305,
+        "sha256": "283f93ac5bdf4367ed13ce996872fd8e1444772a5d1cbad678671c95959ecabf"
+      }
+    ],
+    "unwind_rows": [
+      {
+        "begin": "0x497d5600",
+        "end": "0x497d5731",
+        "unwind": "0x4aa74170"
+      }
+    ],
+    "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+  },
+  "environment_constructor": {
+    "ranges": [
+      {
+        "start": "0x497d5740",
+        "end": "0x497d57aa",
+        "bytes": 106,
+        "sha256": "1aee5988e77104391ddc1946296d95b647a1688e2769780247e4e18b2b132e34"
+      }
+    ],
+    "unwind_rows": [
+      {
+        "begin": "0x497d5740",
+        "end": "0x497d57aa",
+        "unwind": "0x4aa742a4"
+      }
+    ],
+    "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+  },
+  "environment_serializer": {
+    "ranges": [
+      {
+        "start": "0x497d5ee0",
+        "end": "0x497d6229",
+        "bytes": 841,
+        "sha256": "617b627aa472a12ed2a23455804c84da65420b8f6e7bf87efc805eae03e7611d"
+      }
+    ],
+    "unwind_rows": [
+      {
+        "begin": "0x497d5ee0",
+        "end": "0x497d6229",
+        "unwind": "0x4aa743e8"
+      }
+    ],
+    "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+  },
+  "embedded_call_context": {
+    "receiver": "actual uiSplitterInfo_c embedded at uiUserModelEnv_c+0xe0",
+    "store_call": "0x497d5ffa",
+    "read_call": "0x497d6118",
+    "dispatch": "actual embedded receiver virtual+0x28 ->0x497d5b00",
+    "same_incoming_archive": true,
+    "object_or_class_tag_added": false,
+    "new_runtime_schema_admission": false,
+    "parent_ordinary_drawing_gate_retained": true
+  },
+  "wire_order": [
+    "f08 f0c f10 f14 f18 f1c f20 f24:u16",
+    "f08 rows each with f0c columns",
+    "per cell xa:embedded mgXform_c.restore",
+    "per cell xb:embedded mgXform_c.restore",
+    "per cell a:u16",
+    "per cell b:u16",
+    "per cell c:f64",
+    "per cell d:CString"
+  ],
+  "read_gates": {
+    "b": "version>=0x45d",
+    "c": "version>=0x1b6",
+    "d": "version>=0xbdb"
+  },
+  "raw_vs_runtime": {
+    "header_words": "native zero extends each u16 to its runtime i32 field; codec retains raw u16",
+    "cell_b_fixup": "0x497d5dff through0x497d5e12 changes read0xffff to runtime zero; raw codec retains source word",
+    "legacy_cache": "setting lookup can set runtime splitter+c8 only for version<=0xd48; excluded at19000",
+    "new_defaults_or_cache_policy": false
+  },
+  "sdk_linkage": {
+    "source_path": "src/convert/adapters/solidworks/Archive/Definition/Fields/DocEnvironmentFields.py",
+    "source_sha256": "1d828245a3886aca55ff568ff546f71a27089a4c71aa96f07619b0034d5cd430",
+    "existing_key": "uiSplitterInfo_c.Serialize",
+    "new_profile_key_only": true,
+    "shared_field_rules_changed": false,
+    "transform_dependency": "mgXform_c.restore already enters drawing KBlankLayouts through KResolvedLayouts and KConfigLayouts geometry fields",
+    "runtime_schema_and_embedded_method_layout_are_distinct": true
+  },
+  "preceding_failure": {
+    "raw_report_sha256": "5fc09d7ea35e2b58b9df2555bbc641a4d6719170bde6c77be4aa6bf039338c86",
+    "message": "unsupported SOLIDWORKS body schema uiSplitterInfo_c.Serialize",
+    "both_original_bodies_incomplete": true
+  },
+  "source_values": "only source grid headers counts transforms scalars and labels; no saved rows or viewport defaults",
+  "admitted_version": 19000,
+  "database_supported": false,
+  "native_execution": false,
+  "vm_access": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

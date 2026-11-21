@@ -1,0 +1,126 @@
+{
+  "cad_runtime_or_donor_bytes_used": false,
+  "distinct_generated_cases": 2,
+  "fresh_processes": 4,
+  "held_out_files_opened": 0,
+  "identity_cases": [
+    {
+      "archive_bytes": 10436,
+      "archive_sha256": "a71e7bbb89ecad4d5d3120e3f95a2648b8ec3672c00755273a159aad7a6ebfc9",
+      "atom_id": 101,
+      "body_tag": 2285,
+      "case_id": 1,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-Partition",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "face_node_id": 5,
+      "marks": [
+        2,
+        4
+      ],
+      "repeat_receipt_sha256": "8212bd3ebc9e2fe5b6b215b74b7dca18bd82bdc67d7a7b5d5f05dfa803b84afb",
+      "role_index": 7,
+      "runtime_io_attempts": 0,
+      "same_process_repeat_exact": true,
+      "second_attachment_refused": true,
+      "source": {
+        "axis": "z",
+        "center_mm": [
+          3.25,
+          -8.25
+        ],
+        "depth_mm": 21.875,
+        "driver": "diameter",
+        "name": "BoundCylinder1",
+        "plane": "Front Plane",
+        "radius_mm": 4.25,
+        "reversed": false
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "0d3a3d8a2ac30a998db0efc0728518bbc6e83821c09be1e1ea76467ea27e47c0",
+        "Contents/CMgrHdr2": "08dbfa779d23c58543cfd322f51de85b491b10f34c175110b92ca13457561dce",
+        "Contents/Config-0": "697506a400f74033b749a5573ad4a02c346ee1338f3572081d272b271e22fe6e",
+        "Contents/Config-0-ModelHeader": "79d67c285f1c1c260a1c82e46358c947d787f70ddf9b85232dd8d072c259568f",
+        "Contents/Config-0-Partition": "b50183adb97a2cf31eeed2de6d7c1927cdc178f1343a99fc174d93310ea7f702",
+        "Contents/Config-0-ResolvedFeatures": "3777c3cff6f8a5a7e2e24659151481c2226ccb7b2ec21b6e86470105898d4dd8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "447506a686be7326001cf23fb0c9338357449539836ec837408f35ae05b553f0",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "c086051abee4c91de82bd4655da9164630c203bcf8178604f30dcd93c588638e",
+        "swXmlContents/KeyWords": "a5ecf2d234d5a3414e637e24a42f6065593f0917c6d805eefee0165e8851b296"
+      }
+    },
+    {
+      "archive_bytes": 10450,
+      "archive_sha256": "1121493756bae8642394a1149d4d2e06a658ac3ec23abb87da934344747900d7",
+      "atom_id": 101,
+      "body_tag": 3433,
+      "case_id": 2,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-Partition",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "face_node_id": 5,
+      "marks": [
+        2,
+        4
+      ],
+      "repeat_receipt_sha256": "dd1c650b2fdbcb9bec152cfd8b0ecfa3669f881c34fda1b2c1e53316df02a0ad",
+      "role_index": 7,
+      "runtime_io_attempts": 0,
+      "same_process_repeat_exact": true,
+      "second_attachment_refused": true,
+      "source": {
+        "axis": "z",
+        "center_mm": [
+          -8.75,
+          2.375
+        ],
+        "depth_mm": 16.125,
+        "driver": "diameter",
+        "name": "BoundCylinder2",
+        "plane": "Front Plane",
+        "radius_mm": 8.625,
+        "reversed": false
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "f5c630a3fbd417f2fe1189ab74ad4d1371c0b612ab28ca3cd7325121bed8f97a",
+        "Contents/CMgrHdr2": "932cf5e50ba2af6d4a5e27f3662749e27f70334a3a8159b410026279ee946a1e",
+        "Contents/Config-0": "c6492bf7d2808ed1da0ff37331a81ef7a88c7bdc0d3cba444463a875f0f2170c",
+        "Contents/Config-0-ModelHeader": "528ed1b1c8e0402d14a88b9d50592641e5b2c6ccfdc3da4550e76396d9b711fd",
+        "Contents/Config-0-Partition": "1bda8b5abd906dfe62c68a8495edaca19c94fd217f722753e1af65907a8c14b4",
+        "Contents/Config-0-ResolvedFeatures": "93c19fc893c7a1217d9f7576bdf34e45e0c6d9d9aa84f651b9ad062728861c7c",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "c7ee7e44c15d73d84ff4acf59f027d54dcd3610cebba510d2ea6727a3ab39267",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bc705d524d0e74bd7459d6e19a7bf36f687668666bfb42b44cbae8f1e47491c6",
+        "swXmlContents/KeyWords": "8c67b6eac8d49f78c1e3bd9cedd42952c7167fe9e01f16682f36d606d6d0d81f"
+      }
+    }
+  ],
+  "native_qualification_credits": 0,
+  "native_runs": 0,
+  "native_source_build": "34.5.2.0604",
+  "new_public_writer_enabled": false,
+  "relative_face_allocation_order_disclosed_states": 6,
+  "schema": "kit.sw2026.cylinder-archive-attachment.v1",
+  "source_projection_receipt_sha256": "ce7b58209fe58ff013980277236a0c792a857774ac86214095c3c8f5109be208",
+  "source_revision": "ca75eee6ccc17ff2a4288481973ba7544a851699",
+  "task": "B04-SW2026-MATES-CONCENTRIC/cylinder-attachment",
+  "tool_sha256": {
+    "para/cylinder/CheckAttachment.py": "409184f0ada4687a98efe8801662f331b6411543a468d9b62ea5e0e7ba12624d",
+    "para/cylinder/CylinderAttachment.py": "52b6882d58bf1199b86a01ca31ae544338df07d014b0f2aa2c29366ba5a2f35e",
+    "para/cylinder/ProjectCylinder.py": "1657d6594a3c77b4b74c2b6ab6daf1ebf7087f86a3ab80139b38367b52d6739f"
+  }
+}

@@ -1,0 +1,177 @@
+{
+  "cache_controls_healthy": false,
+  "delivery_pr": 121,
+  "disclosed_source_view_observations": {
+    "cases": [
+      {
+        "definition_sha256": "c36e8b4eb1f3b54d6dae2d38d0d4b6d7e9fe1e58613a328a411146a9a2d75fbc",
+        "detailing_map_groups": [
+          {
+            "model_key": "GeneratedChildFile$$0",
+            "rows": [
+              {
+                "component_key": "generatedchildfile",
+                "downstream_id": 11
+              },
+              {
+                "component_key": "generatedchildfile",
+                "downstream_id": 12
+              },
+              {
+                "component_key": "generatedchildfile",
+                "downstream_id": 13
+              },
+              {
+                "component_key": "generatedchildfile",
+                "downstream_id": 14
+              }
+            ]
+          }
+        ],
+        "drawing_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+        "model_view_class": "moAbsoluteView",
+        "native_view_id": 11,
+        "role": "Control",
+        "stored_f614": 7406852,
+        "stored_f614_mask40": 0
+      },
+      {
+        "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+        "detailing_map_groups": [],
+        "drawing_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+        "model_view_class": "moAbsoluteView",
+        "native_view_id": 11,
+        "role": "Generated",
+        "stored_f614": 7406852,
+        "stored_f614_mask40": 0
+      }
+    ],
+    "heldout_inputs_read": 0,
+    "scope": "disclosed read-only observations, no values used in writer generation"
+  },
+  "distinct_processes": 2,
+  "encoded_slots_unchanged": true,
+  "fallback_asserted": false,
+  "generated_downstream_writer_qualified": false,
+  "generated_native_phases_run": 0,
+  "heldout_inputs_read": 0,
+  "inputs_unchanged": true,
+  "native_acceptance": false,
+  "ordinary_save_steps_passed": true,
+  "passed": false,
+  "phases": [
+    {
+      "call_armed_before_save": true,
+      "call_sample": null,
+      "call_state": "unobserved_after_completed_save",
+      "cleanup": {
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "before_detach_read_complete": true,
+        "detached_and_restored": true,
+        "explicit_removal_complete": true,
+        "mode": "explicit_removed",
+        "qualified": true
+      },
+      "debugger_present_after_cleanup": false,
+      "derivative_sha256": "b94242567abd2632a410379986e7f30860c147e4f9aa9cfa825879abfd7a34de",
+      "event7_offset_ns": 1437000000,
+      "observer_completed_cleanly": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395673725344401,
+      "oracle_process_id": 3012,
+      "ordinary_annotation_save_passed": true,
+      "persistent_actual_edge_resolved": true,
+      "record_sha256": "f1a0348dd419279d64972d42cb48e034c12125871f44307116bad3a4553702d8",
+      "result_sha256": "3f6293bc10c90adc0c417c49eb61ea5193659c1102a65d692c75fc1af3309d78",
+      "role": "ControlAfterOpenEditSave",
+      "save_entered_offset_ns": 1312000000,
+      "save_events": [
+        [
+          7,
+          1437000000
+        ],
+        [
+          9,
+          1594000000
+        ],
+        [
+          28,
+          1672000000
+        ]
+      ],
+      "save_returned_offset_ns": 1922000000,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "source_gate_passed": false,
+      "source_route": "call_unobserved",
+      "source_wait_exit_reason": "save_returned"
+    },
+    {
+      "call_armed_before_save": true,
+      "call_sample": null,
+      "call_state": "unobserved_after_completed_save",
+      "cleanup": {
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "before_detach_read_complete": true,
+        "detached_and_restored": true,
+        "explicit_removal_complete": true,
+        "mode": "explicit_removed",
+        "qualified": true
+      },
+      "debugger_present_after_cleanup": false,
+      "derivative_sha256": "cccc53446b5552d79d268cd1e3b6a0a681753aca1ce2ac44213d42700ff55c5c",
+      "event7_offset_ns": 1485000000,
+      "observer_completed_cleanly": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_creation_filetime": 134395673217395193,
+      "oracle_process_id": 5432,
+      "ordinary_annotation_save_passed": true,
+      "persistent_actual_edge_resolved": true,
+      "record_sha256": "af9a6d32930b3fc786c6947063c661048d16459411f192ca6490a4e11e7b5474",
+      "result_sha256": "6c0efc6e654de294aa967d9b1f7dc7f48423b464042eca1bf34dd85e5038e414",
+      "role": "ControlBeforeOpenEditSave",
+      "save_entered_offset_ns": 1344000000,
+      "save_events": [
+        [
+          7,
+          1485000000
+        ],
+        [
+          9,
+          1672000000
+        ],
+        [
+          28,
+          1750000000
+        ]
+      ],
+      "save_returned_offset_ns": 1969000000,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "source_gate_passed": false,
+      "source_route": "call_unobserved",
+      "source_wait_exit_reason": "save_returned"
+    }
+  ],
+  "precise_generated_skip_reason": "ordinary annotation save passed; required pre-event7 cache-source call was unobserved",
+  "raw_generated_skip_text": "the exact native control did not prove the edge annotation lifecycle",
+  "raw_result_sha256": "040e859f432f6b0b3999a0e65b74706a4f7d5d9d385fe43a0f17e4196289c468",
+  "result": "source gate failed, ordinary note saves passed, no generated phase",
+  "schema": "kit.sw2026.drawing-edge-cache-unobserved.v1",
+  "selected_annotation_edge_joined_to_sampled_id": false,
+  "separate_passed_baseline_sha256": "92f51a9a5c5e7c7136b01d7a56d73c840e1a5e81df8f7af4a612ca36aa644401",
+  "source_revision": "c967014f6",
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "trace_fresh_reopen_phases_run": 0,
+  "trace_trial_sha256": "60e40b3ba1a084959b04ca1a91317915f86074a8455e6d17b63701a73041723d"
+}

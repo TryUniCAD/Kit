@@ -13,4 +13,7 @@ def GetVirtualRule(
         raise BodyUnsupported(
             f"unsupported SOLIDWORKS body virtual slot {RuleValue.MaskValue:#x} for {Lookup[0]}"
         )
-    return ContextValue.VirtualValue[Lookup]
+    TargetValue = ContextValue.VirtualValue[Lookup]
+    if RuleValue.ModeValue == "Flag" and type(TargetValue) is not bool:
+        raise BodyUnsupported("native body virtual flag requires a boolean target")
+    return TargetValue

@@ -1,0 +1,146 @@
+{
+  "baseline_failure": "unsupported SOLIDWORKS body class moICE_c schema 1",
+  "baseline_failure_receipt_sha256": "4f74a0d638ac8da4b2e4d1b4abfaed909943a3a0ccbe687b642624981f335683",
+  "changed_source_sha256": {
+    "re/tooling/sw2026/InspectSdkBlindCutArchive.py": "12bd2308bea7229bc34e7afc0318a6ac2a5a66864f875cdeac4d59b197fa671e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ComponentFields.py": "d6745d70a0e47a3d14b5b67780a13d9035df5cedaaeb7864ef7a74ded16e4d85",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FeatureFields.py": "5f82dbd0de535014d4f3aa939d71cd1689442020c98a175710018e3987b37b57",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ReferenceFields.py": "47970d7431a3ba87be3d0c95ab77c428c7acd1fc287cceb1c9e132711daafa48",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "39a42df08551da8e522281ea87e72dffe741d6fd1a0b7a394d88f19fbb7e16ab",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "047f71d9756606992040462f515c1b63f2e90e2e6a26f0df3d0d3035ba88d14c"
+  },
+  "complete_exact_stream_comparisons": 8,
+  "disclosed_cases": [
+    {
+      "case": "BlindCutShallow",
+      "history": [
+        "moProfileFeature_c",
+        "moExtrusion_c",
+        "moProfileFeature_c",
+        "moICE_c"
+      ],
+      "resolved_cut_calls": {
+        "moCompSolidBody_c": 1,
+        "moEndFace3IntSurfIdRep_c": 2,
+        "moFromSktEnt3IntSurfIdRep_c": 2,
+        "moICE_c": 1
+      },
+      "role": "vendor_disclosed",
+      "source_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25572,
+          "exact_round_trip": true,
+          "map_counter": 110,
+          "sha256": "f468771a10b799b8f8ca20d98d5ea6c1944da12fd930512ea66ec0a5dc6835ba"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16359,
+          "exact_round_trip": true,
+          "map_counter": 332,
+          "sha256": "33fc8b2e72e1726215d6b6940f16067ba2a8cf1a055e00ea0c3db5aedc503d8a"
+        }
+      }
+    },
+    {
+      "case": "BlindCutMiddle",
+      "history": [
+        "moProfileFeature_c",
+        "moExtrusion_c",
+        "moProfileFeature_c",
+        "moICE_c"
+      ],
+      "resolved_cut_calls": {
+        "moCompSolidBody_c": 1,
+        "moEndFace3IntSurfIdRep_c": 2,
+        "moFromSktEnt3IntSurfIdRep_c": 2,
+        "moICE_c": 1
+      },
+      "role": "vendor_disclosed",
+      "source_sha256": "04b911f1dc34fdb2b77b68881aaa439d5b2cced41321115ea662d3a0de1fd01b",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25572,
+          "exact_round_trip": true,
+          "map_counter": 110,
+          "sha256": "8d1b2a8c817129bee8975b8a29a4a09c06cb72a0c776a2e668737db8ec1f1150"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16359,
+          "exact_round_trip": true,
+          "map_counter": 332,
+          "sha256": "922d345fe065b42aefafcbb6ceaf404c3cc9783d0fd579681ab94766bdbafba9"
+        }
+      }
+    },
+    {
+      "case": "BlindCutDeep",
+      "history": [
+        "moProfileFeature_c",
+        "moExtrusion_c",
+        "moProfileFeature_c",
+        "moICE_c"
+      ],
+      "resolved_cut_calls": {
+        "moCompSolidBody_c": 1,
+        "moEndFace3IntSurfIdRep_c": 2,
+        "moFromSktEnt3IntSurfIdRep_c": 2,
+        "moICE_c": 1
+      },
+      "role": "vendor_disclosed",
+      "source_sha256": "d5a8b5c1667c1012157a214657993e659d34f2074914bc864397ac229b9e5909",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25572,
+          "exact_round_trip": true,
+          "map_counter": 110,
+          "sha256": "d99e01f57f4c365c7e37060c18b08bfbf1dede0065b04b9f656e075bb875df48"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16359,
+          "exact_round_trip": true,
+          "map_counter": 332,
+          "sha256": "1d9bd05f0e8de389dae03fea60009ad6ec8d6993c9a135ca5d266d26aa876d58"
+        }
+      }
+    },
+    {
+      "case": "GeneratedDisclosed",
+      "history": [
+        "moProfileFeature_c",
+        "moExtrusion_c",
+        "moProfileFeature_c",
+        "moICE_c"
+      ],
+      "resolved_cut_calls": {
+        "moCompSolidBody_c": 0,
+        "moEndFace3IntSurfIdRep_c": 0,
+        "moFromSktEnt3IntSurfIdRep_c": 0,
+        "moICE_c": 1
+      },
+      "role": "generated_disclosed",
+      "source_sha256": "9a051cd535ba71f7804c7822fdfb53a9b9dd2682b1d4d3242cc3a5351278e04f",
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 21158,
+          "exact_round_trip": true,
+          "map_counter": 82,
+          "sha256": "acb84b08999250cc0b6b245097e19a42a5c34c08adfae1e01931e0cea32e9f55"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 18982,
+          "exact_round_trip": true,
+          "map_counter": 231,
+          "sha256": "bc58dad7fab16cf31b9ab0f1817ceaec27654f48c92c93ff6da54da42a879380"
+        }
+      }
+    }
+  ],
+  "fresh_processes": 4,
+  "heldout_sources_read": 0,
+  "native_archive_version": 19000,
+  "oracle_build": "34.5.2.0604",
+  "recovery_or_template_used": false,
+  "schema": "kit.sw2026.sdk-ordinary-blind-cut-archive.v1",
+  "vendor_serializer_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+}

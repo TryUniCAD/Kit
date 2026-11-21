@@ -1,0 +1,3628 @@
+{
+  "all_default_bundles_unchanged": true,
+  "base_revision": "210cf5c0ed230f1e728a58cbf91e4cb2ed50e40a",
+  "distinct_worker_processes": 122,
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "historical_bundle_regressions": {
+    "distance": 6,
+    "planar": 6
+  },
+  "limitations": [
+    "ordered native lifecycle is not measured by this source-process proof",
+    "no held-out native design or observation was opened",
+    "the admitted child remains a generated plain Front-supported rectangle with a forward blind boss and no authored sketch dimensions",
+    "continuation accepts actual fresh allocated SDK mate graphs and the same fixed anchor",
+    "decoded or native-saved solved mate graphs are not continuation inputs",
+    "public adapter writing remains disabled"
+  ],
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "missing_prior",
+      "diagnostic": "mate construction requires the qualified fresh solve state and actual fixed anchor",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "1612a2d621bf86fa521a8b33e9f15d7aa61f4ea2370fd764c70898f29b8cb799",
+        "exit_code": 0,
+        "request_bytes": 8818,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "485f57d9c93e23547b68c96740a8e6c2a92f70a525a74e4d905d51dd8b021f19",
+        "worker_pid": 40464
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "duplicate_prior",
+      "diagnostic": "ordered prior mate wrapper allocation differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "afb5b42b93ec582ac7af473d6beccc8c3580716b1b8beffbe1a5bcf6fc0ef02c",
+        "exit_code": 0,
+        "request_bytes": 8820,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8ec18e3120762cd88d40764b6359655fd3a5e15e270730a3e8e7cf80ff48a8ca",
+        "worker_pid": 40467
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          20,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          20,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "stale_header",
+      "diagnostic": "mate allocator and parent occurrence publication differ",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "e9ca59c435c6015b95b0a6e19b406013f07bc7f81238482d12dfb4a8fdf5006f",
+        "exit_code": 0,
+        "request_bytes": 8817,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c98fe53612375f322b84ebdb5051174059a6ef823fdefd54598593b22addca69",
+        "worker_pid": 40470
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 19,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 19,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "stale_config",
+      "diagnostic": "ordered prior wrapper allocation or configuration publication differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "864702201768a86122a2966e3689bc4a01aada69d6d6cb69d032a8145390b906",
+        "exit_code": 0,
+        "request_bytes": 8817,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4d71defb9f39161f6c127fff4e4f3842e103909c7302bebff6ca1292c7bfbcc6",
+        "worker_pid": 40494
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 0
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 0
+      },
+      "case": "counter_reuse",
+      "diagnostic": "ordered prior wrapper allocation or configuration publication differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "2ebb62bb6d08efd88ddcfc50497572b733230257a7d7ca31405e614b4d181972",
+        "exit_code": 0,
+        "request_bytes": 8818,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "24b6762892401f7ca79083d59c37a257b7e730e40fc1780dbb31f65781b38900",
+        "worker_pid": 40498
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "missing_log",
+      "diagnostic": "ordered prior mate creation logs are missing or misordered",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "b40fed0a3974f6f16d3ab48b61fd5dd4da05e660fe7edb5144b0208f6c192814",
+        "exit_code": 0,
+        "request_bytes": 8816,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1a4c25ae45053718224adf5fac83487664e2b9bf6765cd7a145aa86d7d992806",
+        "worker_pid": 40502
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "prior_owner",
+      "diagnostic": "ordered continuation contains an unsupported or differently owned prior mate",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "46b315d67597640b109a5f25dc4a2f45f2c684ab20d6f5f988c6572d970912ee",
+        "exit_code": 0,
+        "request_bytes": 8816,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c93842feea0c947e56557741bcd80693b8c7f84dac11bd6708b66826b148090a",
+        "worker_pid": 40504
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "wrapper_mate_id",
+      "diagnostic": "ordered prior mate wrapper allocation differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "37e5a069be8cf5fdb99eb641f49fc74ca39fd03fbebaac832b98d7e690cee699",
+        "exit_code": 0,
+        "request_bytes": 8820,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4df551419b3d7b134cfe7693b6da551f81faaffec9e0de529e6c747b0d7e5302",
+        "worker_pid": 40506
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "wrapper_absolute_id",
+      "diagnostic": "ordered prior mate wrapper allocation differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "ce4eafaf34bd29170ebc6fc818afe06f204c4b28d6815e805d32adcaa7a87d89",
+        "exit_code": 0,
+        "request_bytes": 8824,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "2d0936bff9abb8841cca8be94d3b91a0306a105e5f9b7ac4975f03424f59f19c",
+        "worker_pid": 40508
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "wrapper_endpoint_id",
+      "diagnostic": "ordered prior mate wrapper allocation differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "5f7f7b1659493a0c7602a88aa9030eff5213d31c4acc966e13f80a42932e6321",
+        "exit_code": 0,
+        "request_bytes": 8824,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "08b988ee8b6ea66b2e303507414a96caae5748726a3754ab97e130490bce2090",
+        "worker_pid": 40510
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "prior_solved",
+      "diagnostic": "ordered continuation requires fresh generated aligned unsolved prior mate state",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "99606255583b96f0c29f7ff9f9e0b3631a92aea770a7562d11ac3e18579d89e3",
+        "exit_code": 0,
+        "request_bytes": 8817,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4b5d5fe005048c688e71cfabbabbc144b41966197257b57029f8fba53b78a7e4",
+        "worker_pid": 40512
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "prior_alignment",
+      "diagnostic": "ordered continuation requires fresh generated aligned unsolved prior mate state",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "980bd13a12d986537cd0295cd820f20e2fc91af8e39894e55f6dc92a1353b9c9",
+        "exit_code": 0,
+        "request_bytes": 8820,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "fc76fccd7a50ae7b42dd241a7b776b561a53faf94d5c0aed3655cc71678eb0a8",
+        "worker_pid": 40514
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "wrong_anchor",
+      "diagnostic": "mate construction requires the qualified fresh solve state and actual fixed anchor",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "804740a37158bc0ef582eed713de95eeb4b35642f2f4776a142516e87778bc7e",
+        "exit_code": 0,
+        "request_bytes": 8817,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "231677261e409eae2583ba393bc8083d23d90755ef232829d977ad32e9e296ed",
+        "worker_pid": 40905
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "prior_name",
+      "diagnostic": "ordered mate names must be distinct",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "b4b03c7c5f0984837a039f39bcfc9bf406c3bc9e4d957cca118c594291d1f601",
+        "exit_code": 0,
+        "request_bytes": 8815,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ae5d3dae6f7727c2a11c4bd629bf635d3636aeb763886fbfad4934b0bb1a845c",
+        "worker_pid": 40940
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "foreign_component",
+      "diagnostic": "ordered prior mate lost its actual containing model path",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "a6d2b042be6fb28a24d7d646bb7e1e2c61f04292d714cc50e54a1655f58d10ee",
+        "exit_code": 0,
+        "request_bytes": 8822,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8de4a1b0a6838263379f23f90e2cec685874674c8e53c4f8f429966399949cfd",
+        "worker_pid": 40967
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "missing_dimension",
+      "diagnostic": "planar mate graph expected concrete moDisplayDistanceDim_c",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "e5fbe30eadb5528b46514bfc9892007934353c86bf6288ec701172b24bae39ad",
+        "exit_code": 0,
+        "request_bytes": 8822,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "76eae3e6d5f1383ff643229e7b8a09fd24db54674c95e0ddebbd29aeee5d73f4",
+        "worker_pid": 40969
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "late_dimension",
+      "diagnostic": "ordered distance dimension allocation or parameter identity differs",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "8b8cb2d74c9b34cfde811bd19fac8817603bf373032fe99cd8261bcdb6316ef1",
+        "exit_code": 0,
+        "request_bytes": 8819,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "218587e0018b386bb4bae0c1974a626ae32b8fb1052025d6c1526c13bdde45c7",
+        "worker_pid": 40972
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "dimension_collision",
+      "diagnostic": "ordered prior dimension was not allocated by the actual parent allocator",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "b306668c9147d03834fdc043a210e6414dd83debcc448dcb0d11fae3a6600540",
+        "exit_code": 0,
+        "request_bytes": 8824,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ab29d8dec6733aacc150c5439cafb8ae8448097089b3ad67b606896dbdd149bb",
+        "worker_pid": 40976
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "replaced_prior_node",
+      "diagnostic": "ordered prior mate was not allocated by the actual parent allocator",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "be4c9820375db0b8f6b7ca3020e112839f9731be2a2f457548c090e0b6ecb790",
+        "exit_code": 0,
+        "request_bytes": 8824,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "164aba022a84af9924655d954223e0ab6300bc9e1c4065653f60c8ee086a2f95",
+        "worker_pid": 40978
+      },
+      "passed": true
+    },
+    {
+      "actual_parent_state_unchanged": true,
+      "after": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "before": {
+        "allocations": 21,
+        "allocator_next": 21,
+        "configuration_progress": 20,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "header_counters": [
+          21,
+          21
+        ],
+        "log_ids": [
+          [
+            0,
+            20
+          ],
+          [
+            0,
+            20
+          ]
+        ],
+        "wrapper_counter": 2
+      },
+      "case": "replaced_dimension_node",
+      "diagnostic": "ordered prior dimension was not allocated by the actual parent allocator",
+      "exception": "ValueError",
+      "identity": {
+        "entrypoint": "SdkOrderedFaultProcess.py",
+        "exact_stdin_sha256": "33f3d264a6ef77a82bc2a8ca27e717c3ce69ab5e9d5e18fb5e5678a128f9bd15",
+        "exit_code": 0,
+        "request_bytes": 8828,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "31293c2873dbceea2581b96eb7745be93f1dc3c8338b2583f3a7e2f48fae217c",
+        "worker_pid": 40979
+      },
+      "passed": true
+    }
+  ],
+  "ordered_cases": [
+    {
+      "assembly": {
+        "bytes": 10144,
+        "sha256": "bb6f3062820e1cd80ce6a4ebe41e937795f768a159d357570d0d51b710eab9a3",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "76b8a96b338a871f383f11610d61737d946724233c579adc209351f45f204adb",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "6dbf4171266c6a2cd07fc4212f4ab3cb621160aadbaaf35a1d78e821919f3ec4",
+        "worker_pid": 38764
+      },
+      "case": "CPDAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateCoincident",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 20,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 21,
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "79cc6d0c13e1e6a59468fe38d9ea998680a77cae5b1e650ac7bb2d405ffb9564",
+        "exit_code": 0,
+        "request_bytes": 152194,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "070038936fd675b78aab136d9738aedfb982e42b874da15e280250116e9ebf20",
+        "worker_pid": 38769
+      },
+      "dimension_ids": [
+        21
+      ],
+      "kind_order": [
+        "coincident",
+        "parallel",
+        "distance"
+      ],
+      "mate_classes": [
+        "moMateCoincident",
+        "moMateParallel",
+        "moMateDistanceDim_c"
+      ],
+      "mate_ids": [
+        19,
+        20,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "79cc6d0c13e1e6a59468fe38d9ea998680a77cae5b1e650ac7bb2d405ffb9564",
+        "exit_code": 0,
+        "request_bytes": 152194,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8c6c03dccc87e9685b07ec2434f9ea0a3bf97e1bc0e503cd660e55b8d1ea0dd5",
+        "worker_pid": 38767
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "4f513d3f9070e56c3f5ca47c26d36c74435aca9f8ccb03ef33f89af01ee46ef7"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "94c89851585b1f93f80e42dcb3f925f232533b71a004c26ee0a9b8b9cbf3aa00"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "2f362b095b7db235956b2fe1825f4d1d03cb1832244e357754f7d2c2af1e2b01"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "a7d4a6a954d66fd2fbcd12c2ed04630a783e554a8f07dd484263bb68ea596377"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "d4e503271debdca9abe82e3c2ee7cb5830869fdb58e40922ae140b4bcc03ae51"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "ed9f922bf234abcbc339435061f1afbb150ac28dd5ef8384c350fff46784985e"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "a3fed68fecf22f05de473cfe1d892b848d8f8b7a7eae35f9f0f9b47918e2f830"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10238,
+        "sha256": "b355769a747e41b1dbeed2595e92f50fc74f6ea0181e041eb6ed20b3de98bd69",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "abba1c872840403b1055e07dcf512891f2951aebb88b8c34897bbe24ed3dcf25",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c0b9c83435d1c0d7c59a3da31519cff02853fd9e6573bc129a172bc06802cbea",
+        "worker_pid": 38771
+      },
+      "case": "CPDBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateCoincident",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 20,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 21,
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "c524e5d02719148d5e178b1f31c90fd10e69bf0ae631a940cbfbaf6b63a37850",
+        "exit_code": 0,
+        "request_bytes": 153758,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a58694dd8418fc08c6d81150e903d2dcd5c4dc4eee3417696d867b72b75a2d11",
+        "worker_pid": 38775
+      },
+      "dimension_ids": [
+        21
+      ],
+      "kind_order": [
+        "coincident",
+        "parallel",
+        "distance"
+      ],
+      "mate_classes": [
+        "moMateCoincident",
+        "moMateParallel",
+        "moMateDistanceDim_c"
+      ],
+      "mate_ids": [
+        19,
+        20,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "c524e5d02719148d5e178b1f31c90fd10e69bf0ae631a940cbfbaf6b63a37850",
+        "exit_code": 0,
+        "request_bytes": 153758,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "51316ab1d4f6c3bd5d3bf8a9246e0c11bb2953d2f4ffccbe02479194bc42e6b5",
+        "worker_pid": 38773
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "64454221c68107f7e3995c81f128bfb8cf1b9e5abba5d36d5a7d7d095c5cc4d0"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "bc9e63c75c2f273fc89d081a7e2babf8bfa897949bdba0b35160ed6a127c8b22"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "36fcaf897d4948114ae7c2889682180a5dae0f875a5cf61f57ef43e79fe347f1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "c2f8836cb01596590402e9af5849c4aa01b70b2f18df21fb7d309524bf81ec69"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "39bf043d1d85757d02b38e7feb2269a4ce27e25411eb2fb3dcc975ac440caba4"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "9a610230756f0272dbca3becd15eabfa6c6fcd90526f7a62b8266cf4068c51cd"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "bc25a1caa68786cc84842b0ce12a90cc60fc3b5a9cfaef3e926dbfad2c947f9c"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10180,
+        "sha256": "1ca5360c4064d16e303cde653ef7cbbe734915fe5128128c7a7c8549115e7b70",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "f5f524bd9bac7c79a079326d6e5f43a6a4498026f226a0fff2dbd86564f63b16",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a13ea6375d9266b3f26e324fe75fedced9a1e7731d37befe0e268668fb03661d",
+        "worker_pid": 38777
+      },
+      "case": "CDPAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateCoincident",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 20,
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "5503398388f8a5ba63d7b7fe288128c675dfa59a19cdb80e1ed9f1bb8e02b90a",
+        "exit_code": 0,
+        "request_bytes": 152242,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c1f1ff6681ea21591c33e1ae6a4b136721143c2d004d8f0ad2f4fe460996138b",
+        "worker_pid": 38791
+      },
+      "dimension_ids": [
+        20
+      ],
+      "kind_order": [
+        "coincident",
+        "distance",
+        "parallel"
+      ],
+      "mate_classes": [
+        "moMateCoincident",
+        "moMateDistanceDim_c",
+        "moMateParallel"
+      ],
+      "mate_ids": [
+        19,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "5503398388f8a5ba63d7b7fe288128c675dfa59a19cdb80e1ed9f1bb8e02b90a",
+        "exit_code": 0,
+        "request_bytes": 152242,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e1c9e9fd79422c9a14c0c5cddc5a95845d682a0f10ab5b8cfe3c6a2a39e4c377",
+        "worker_pid": 38789
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "534ad91d92e8d4a28ef102d43697b0d8cf29316ae8160c0abdd0a482d0134aae"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "1d9333da6bb5d101f4d60f39c6e739142ad4a96544274c28b2d5d70fe00a79c0"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "9ffd93d673651c7f3350e778371bea16e916d2cd49a385128ab755971c8c42fb"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "a91eab83cb26c6ddd22eeea01a02f341bc779bbc28bd2f84f6a77b0458171c26"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "45b581000d4ff795368fc92231bef87883820617843996d02d3f8b8f730c26af"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "b4d5d00e7ec902b4e8210fa25f9ca40a6accca319409571b562bdd4c9a58a14e"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "c1f029f6ea941a9b42fb4627fb5c8a2946d71731997fe2c30c887ac4e7b52e20"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10257,
+        "sha256": "7c3f7674b418d5c67abad553d84f345b3846523a16b54e19a0c6226b161471a9",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "aab5673ee6483e606002081ef1936a017113a4bb15f4b3008072123bb925ada9",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "973e8f3d9c9e89b575127e475f349e61e4b2ecd7c0da2f7f3cfbf1db1f694b5b",
+        "worker_pid": 38795
+      },
+      "case": "CDPBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateCoincident",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 20,
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "b9b5204308c7aadce3caabe84c6139700abf2bfa9f8a9550ebbc98c81c50175f",
+        "exit_code": 0,
+        "request_bytes": 153782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c188ee6de6c89177d9a70b16d309c92873c634db37e13f1792a2d793bb86f070",
+        "worker_pid": 39192
+      },
+      "dimension_ids": [
+        20
+      ],
+      "kind_order": [
+        "coincident",
+        "distance",
+        "parallel"
+      ],
+      "mate_classes": [
+        "moMateCoincident",
+        "moMateDistanceDim_c",
+        "moMateParallel"
+      ],
+      "mate_ids": [
+        19,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "b9b5204308c7aadce3caabe84c6139700abf2bfa9f8a9550ebbc98c81c50175f",
+        "exit_code": 0,
+        "request_bytes": 153782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7b4f0d491302e9a6c0b77eb4b5190a5e2ea6851915df7e39e91ed753bfa6c901",
+        "worker_pid": 38798
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "e4ea380a16927372a3aaf68d6f47beb2d7ae35c038c2fd9863e9df112a0a452f"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "67e41122a9d3e6a0c95937f9e9a35e23b77ebfb0a0176264cd3cbecdadc6bd64"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "b59fa1aedbb292e868b90a6cde2b44ea4a8c22150ef9920970e4dfa7bc7e3533"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "15495aa0e0069ee738236e4094acdb7aaa8bffe85914153162e04dc0bfc257de"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "cccd72934cee962538df97d2be77c91348eb69d5c3b940fb3ac057d4d1d3d30d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "dd64cf965c1bf7c08ccb40cbe70053af90cdc44df51bbfcac45b7bd1e62a472c"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "d03bdd5b36a5e9004fec71516b8f5254cdae50f5ca97e4e4ef827239af0d2b80"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10141,
+        "sha256": "1369be263fb2bf19cd79547b047328b7496f1ccc2b05e504d9e47b5caefe6353",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "a23cf4fa0f9d8035f2f75779eb1a1dcd7aba4e817e25013a7c759c9edd1c16a7",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b146d9b6d994009ae46f839cb9fb862868dc19409156382341f7c973fe1c90f2",
+        "worker_pid": 39196
+      },
+      "case": "PCDAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateParallel",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 20,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 21,
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "a53accdc7751e5ef31b7038848bfb9f2073a932cc558cee804841a28e7b8d183",
+        "exit_code": 0,
+        "request_bytes": 152190,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0b178f3fa1f3ef36a87bf8ffb4844ac2af064a94ff7304e195bf1308e40d2fe0",
+        "worker_pid": 39204
+      },
+      "dimension_ids": [
+        21
+      ],
+      "kind_order": [
+        "parallel",
+        "coincident",
+        "distance"
+      ],
+      "mate_classes": [
+        "moMateParallel",
+        "moMateCoincident",
+        "moMateDistanceDim_c"
+      ],
+      "mate_ids": [
+        19,
+        20,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "a53accdc7751e5ef31b7038848bfb9f2073a932cc558cee804841a28e7b8d183",
+        "exit_code": 0,
+        "request_bytes": 152190,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "38c0a3c9d6485822142979fc8f702f22e70cde0700b30922c26ec78205b7c4e6",
+        "worker_pid": 39200
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "5850fe91e2fb020862e2470edeb439812a53443c4405a94fafbd057528025216"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "064fef00306939efc084e58ea43e2bd0ecfdc8dc6b2d4b2fe79c469992db3c2b"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "7ad1e2365b8894a19d19d62ab9b22dd0a680a8ddb693f8d85b62d73f7a8e5a2e"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "905da427fe7a1c3c4d3b23ab1fb02b8a51c70d06202430e257f0f7a472452ef8"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "5da69fcb48b371061a322af11300a1380f2fec44a73a130adf3a2e987627165b"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "82d18f8d6939ea790641b8b4d7a8e7299da7393458bc5ccd07ca438c375e5fe8"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "2cd11eb549c52992a894a0f4d1f3e06c5bd76cb640d12e3afa8c9a79d00a17f3"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10236,
+        "sha256": "a42c2313d034295001191c7074d4762344862718f5711945923552b331cce99e",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "07eb7ad72b834a2469857f5ffa75d035aea896405f4bc962ab7392e6abcadcff",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "fd789e3c3bf079f1e2e299aca4c5f0cbc8d72c00f573c2e2814f238ffea204b1",
+        "worker_pid": 39206
+      },
+      "case": "PCDBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateParallel",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 20,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 21,
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "49a2dbcca68b3fbd0175c7af9ac662350b02ef339bd22eb674e219bcbe831718",
+        "exit_code": 0,
+        "request_bytes": 153754,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e5e8fea5bfac9f5221649fc33856e17e79ec0b46dd8db4727e8615c3e832cd27",
+        "worker_pid": 39216
+      },
+      "dimension_ids": [
+        21
+      ],
+      "kind_order": [
+        "parallel",
+        "coincident",
+        "distance"
+      ],
+      "mate_classes": [
+        "moMateParallel",
+        "moMateCoincident",
+        "moMateDistanceDim_c"
+      ],
+      "mate_ids": [
+        19,
+        20,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "49a2dbcca68b3fbd0175c7af9ac662350b02ef339bd22eb674e219bcbe831718",
+        "exit_code": 0,
+        "request_bytes": 153754,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1b865bb48a150776dba90841badab4fc8c15081ab1bd28856597c508dd26028b",
+        "worker_pid": 39213
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "6a4bc5e54aa729e8a7a5014ccbf919da0dda51baef0ffc0af8adcc34453b231b"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "699e0c068790899b8ad3c89bd87cb4438432ce7f15897eb7c51d8bc098717f56"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "46488287217489b6427ae86b282b0d47111cbf10c2828cf7061f3b5de3a44aa4"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "f036c2973d5a8e835aed74b13b56bdc5bd7356af2ec32c28f6f92b1ac1d6f109"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "06c5bd4aa1663ce0cdf32c660e441c53308e82ceef484f04421ebb484828380d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "735f135a7fee85e51ef31f7188ed1612dfa847a8403550405d1c0ae4626cffc6"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "1173ba45c5186b6e545d5d2b42e4374ee4fe85db5c871d6c4c9d5a9bce7398f1"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10162,
+        "sha256": "942fb22032fbdc1f0361891a6cef697e76156eaf48aa8faef932a4e69ec9cc6b",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "e6e245b41f4937ca44246b328c77758ed64c5009ee7b9a9ca4efb7e73c04d033",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "eb29b5026e726c4cbb4d8b437f37a9c2b8b9083d36174799145006e4a9a39669",
+        "worker_pid": 39218
+      },
+      "case": "PDCAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateParallel",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 20,
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "5a96160b1ca51c9e93ff29b55985c4ff446daee3fade3bd7b473df23e0938e74",
+        "exit_code": 0,
+        "request_bytes": 152218,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "1990542d27c60a5922143586ce2503be88d683275f7de3e51bd304f5181bc1a9",
+        "worker_pid": 39223
+      },
+      "dimension_ids": [
+        20
+      ],
+      "kind_order": [
+        "parallel",
+        "distance",
+        "coincident"
+      ],
+      "mate_classes": [
+        "moMateParallel",
+        "moMateDistanceDim_c",
+        "moMateCoincident"
+      ],
+      "mate_ids": [
+        19,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "5a96160b1ca51c9e93ff29b55985c4ff446daee3fade3bd7b473df23e0938e74",
+        "exit_code": 0,
+        "request_bytes": 152218,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "07f45930f6a1ad39a5aa3ac83b061ee5c4fa1758de51d71349f61db8a739a35a",
+        "worker_pid": 39221
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "353a75833ba6df1cdd85c04d504362ced66d1721373da3258ef4752a018bfc12"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "f6323c84b16bd46e8752ca02cc3fde839e33c5fe9ea47fb6813236cde48b0ba9"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "a82618bd3cca1b908e66321550a7dac7d2e63302e82748dd553e49f57cee33a4"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "544b93aa3f1864f2ce0c5436335df42dc158f936363881b9c9d192aec44d52c7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "b6bdb53123e9e16b9c3c599559d232864bb4034cdcc8dc0780de6af6e4948c50"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "d262703aef2ae08560322d00e5f510f9de896619d2f65dd9ba06849299499871"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "3e4a2e8a4ba9b3ae471f2ea2dd886fa41d6b3bb85fcaca50ea2b843147deaba6"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10253,
+        "sha256": "96c98105f3a87a0fe0a90047d7cf984b9f60d398b0ceb8fa205aeca511dc0528",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "610c77b84694fb8547ea95aa78e1686a7488373a9cfa5a2aeb99760139ce1cc1",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a21fca349dded2f6b3f3ef74863c8b7b8d160a3e7c8e9ec935339a9fac5afdc7",
+        "worker_pid": 39227
+      },
+      "case": "PDCBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateParallel",
+            "mate_id": 19,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 20,
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "6d9bee56b643e96786287466f27630cda7a6b6d02edbc28176234a1d77c589eb",
+        "exit_code": 0,
+        "request_bytes": 153778,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "5ca1d39354c2414c8eeed31b8d13ab1e46e24d9260474cbecf28308969d72e7c",
+        "worker_pid": 39231
+      },
+      "dimension_ids": [
+        20
+      ],
+      "kind_order": [
+        "parallel",
+        "distance",
+        "coincident"
+      ],
+      "mate_classes": [
+        "moMateParallel",
+        "moMateDistanceDim_c",
+        "moMateCoincident"
+      ],
+      "mate_ids": [
+        19,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "6d9bee56b643e96786287466f27630cda7a6b6d02edbc28176234a1d77c589eb",
+        "exit_code": 0,
+        "request_bytes": 153778,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3c9376f141a6225413650dab03d906a3662d9e8e6cd2743273dabc636225f359",
+        "worker_pid": 39229
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "79cfdcdfdd926d0b60af8aca82267e18d2a4dce343dbc5c666f5ed59e8e262be"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "ac2965f555c514260eee819c94ab4f897061f012949ac13e81586187ccecd198"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "a297826b46ea8223cb1790a1793f37cfa844364e32274b2cfc8024e84e944ce3"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "c4f653b1bf3ad664c80d22fe788680d2a16042204464790886bcc76d927ece97"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "943abdbd6f42d9b101aaf817759f074c7d23b97305d5c7578c6caf851cf8a8a4"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "c83cae4f4f1112007984a3984bff816edd375468b9806054f392deb34b18698d"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "987f261fdc40753e3acfae3765d77384b78d39ab8985d2fa61ae50183b55f986"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10154,
+        "sha256": "87db184dd09e464245dcab816414da8666b775118e81d220f6490aff599c9704",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "bd9a510d4cf3eb1dbed93111d2f55a067cb73c7f91b59f3916ef11dccb55cd72",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8e0686fa285a22f6844464d8a5833486f478260752316fb7cfe1b9edc7042f4a",
+        "worker_pid": 39233
+      },
+      "case": "DCPAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 19,
+            "mate_id": 20,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "a18027b297057592a6964edff4fe8c63e9daa4171e9e357b5fdad864b43cc9df",
+        "exit_code": 0,
+        "request_bytes": 152206,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "54b789a251e20cccbbd536b9d637d56ef8c493905862c4cf72e29305f23d498c",
+        "worker_pid": 39237
+      },
+      "dimension_ids": [
+        19
+      ],
+      "kind_order": [
+        "distance",
+        "coincident",
+        "parallel"
+      ],
+      "mate_classes": [
+        "moMateDistanceDim_c",
+        "moMateCoincident",
+        "moMateParallel"
+      ],
+      "mate_ids": [
+        20,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "a18027b297057592a6964edff4fe8c63e9daa4171e9e357b5fdad864b43cc9df",
+        "exit_code": 0,
+        "request_bytes": 152206,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b04f23bc03106fdd612df7ebfe17a08b0e6d907e92f2a7b180b1ca44d9c5c2bc",
+        "worker_pid": 39235
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "197fa8062368e61d5bb4036728301522855276331b14e48ab9e61fd40a92f4ad"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "640741e36bb1d4907f38ade0ac10d3fe59ad21c0a2f3d28cb904fc1d09e6783a"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "1591a052b0642de5b9e141d3b20a2cae1534ed219410dcc1093178a7702009f0"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "e50536dceb8d887a110856e957b807697e22d04c5e5a4bcf5b6f54d6194134e2"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "819256018ee1c8ee9a00196b02d20372117f91baf4314085a90e2e52eac9b142"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "72f00cd3db34aae91d1b1c0e6a1ed3b7681ba9e86442bac0100c76b6d100edc6"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "6246e3c7fa99605a7692b3d1d43288b42b3d808dc77cd8c69dc67bd864d38577"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10245,
+        "sha256": "d36927dd3a25856347699fe73d640f573de97145f66cbc3e4fa7ebe86c49bca9",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "db44d21d621be1f82b224946bd2f6903993923e9b9b3759847fe3f247e979608",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "568a635cecd62fb1f294f014a254c3782a3760d4405e4bb14f761515beea149f",
+        "worker_pid": 39239
+      },
+      "case": "DCPBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 19,
+            "mate_id": 20,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "4e180a152c17092e26710090e87a5406a6b2ac08eb5faa25a8f4191063443613",
+        "exit_code": 0,
+        "request_bytes": 153766,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "570b3655e1a914c90a59ffee50d94c34c589edd1d634d5f3ebe9566090bea713",
+        "worker_pid": 39245
+      },
+      "dimension_ids": [
+        19
+      ],
+      "kind_order": [
+        "distance",
+        "coincident",
+        "parallel"
+      ],
+      "mate_classes": [
+        "moMateDistanceDim_c",
+        "moMateCoincident",
+        "moMateParallel"
+      ],
+      "mate_ids": [
+        20,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "4e180a152c17092e26710090e87a5406a6b2ac08eb5faa25a8f4191063443613",
+        "exit_code": 0,
+        "request_bytes": 153766,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8522cda356cdaedbfdff107b92317d16306548e6bac0e335eb4b5acc7dde302e",
+        "worker_pid": 39243
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "0205de9e48d2a74a905003ffd1ea165ed6069096739c4360d089d166419d8e87"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "8041a3ab0b1507590badec8e386fb894780a39ab245b8854240707dfcc9b0126"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "96d44f2a73390433441bbf7f5d226fb899552ef10ed6c1c2ef5bbdee2ed67767"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "62cc18e12ed8da00a551642d1cd2801c358e49de137414f960c14b8d163576b9"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "f3250cf55c7d724dc981bd061575d97344de88fd68e2d978fe461ec42899f540"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "7c53570f508042011f59551f48e0c05d5a522ab44d3fcc0a901f2138d9950b2d"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "d827b60adb876104b13a65fc3c1f1679b3353fef55b5c59118a7b123e762889e"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10170,
+        "sha256": "2534f391035eca3362fe5bb091f387cd23f7b5194483224f711d76ae6125bdea",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "45e541fdc2e90fa99b7acbad6ceb86f923d111fa78e2ec4baa9cdb11573d0059",
+        "exit_code": 0,
+        "request_bytes": 8782,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "f49cb30dd4b1452ce2fa73951dd8c87c4ddf12e515053630bb170318fbb8d08a",
+        "worker_pid": 39247
+      },
+      "case": "DPCAlpha",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 0,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 19,
+            "mate_id": 20,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8197,
+        "sha256": "d490b03af8b8983f5eafbde92154f4a23ac8928348b0484e8e0b2fad317901a7",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "bba63806670d2df968ce769040d1ed34be826a6a64fe1af6b240c2536082ecd3",
+        "exit_code": 0,
+        "request_bytes": 152226,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4313801804f15de1d316d0e144815250484efb7b2dfd486788d9abe58880a706",
+        "worker_pid": 40453
+      },
+      "dimension_ids": [
+        19
+      ],
+      "kind_order": [
+        "distance",
+        "parallel",
+        "coincident"
+      ],
+      "mate_classes": [
+        "moMateDistanceDim_c",
+        "moMateParallel",
+        "moMateCoincident"
+      ],
+      "mate_ids": [
+        20,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "bba63806670d2df968ce769040d1ed34be826a6a64fe1af6b240c2536082ecd3",
+        "exit_code": 0,
+        "request_bytes": 152226,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8ed2e622ccee0e8ecb493b96359d7a630e3242742833b8933fd99bc8593cd15a",
+        "worker_pid": 40416
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2374,
+          "sha256": "ea89d0d476bcbe2a7889073cb55ed34b3643e73772dc23b21f52855d1c099e32"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21407,
+          "sha256": "acbc4daf4e72029dbd2e564dd80efdda6e94dff6243e016f2b052890332b630b"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 9715,
+          "sha256": "427281989a675caff5e2b9b5bd3e3c165160452b76cfbabe115e5c6c522b6192"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "acf1bbed891e2a514e20cb38e16e480152a426320b22c5524b91f6a4bf33a2a7"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 563,
+          "sha256": "c0ff0919faf2f534c3f0cf12b0992841f48a43b712337e448b8a40e9b45397f7"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1301,
+          "sha256": "ed9ee7a91dacf197614857fe40d13d0b9a3f56f62577832b539a437ae900d439"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2044,
+          "sha256": "e649ec4111ac61126bb5707c92fb0f4cf779397a66307f3aa0c551eea747132a"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1168,
+          "sha256": "c2771f3ece711d415e929e2e33cb23b365edb9f51835affa5080a72430472aec"
+        }
+      },
+      "wrapper_next_id": 6
+    },
+    {
+      "assembly": {
+        "bytes": 10230,
+        "sha256": "5145830ca71f46c249350382ed1b7d7ba475ee00b842995f64ef3983750c19d6",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "build": {
+        "entrypoint": "SdkOrderedAssemblyProcess.py",
+        "exact_stdin_sha256": "70d01181401e327f40da7b3ed06201ed278247e2e523c55583571959825b3bd0",
+        "exit_code": 0,
+        "request_bytes": 8813,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "417671a7fbf06ed60ef01bf39646375ef0c20b29dce57995dba5aab005c8e5ec",
+        "worker_pid": 40456
+      },
+      "case": "DPCBeta",
+      "checks": {
+        "actual_occurrence_and_directory_aliases": true,
+        "config_map_counter": 76,
+        "config_states": 3,
+        "direct_directory_slot": 4,
+        "fixed_anchor": 1,
+        "manager_geometry_stamp": 303,
+        "manager_transform_stamp": 204,
+        "mates_map_base": 133,
+        "mates_map_terminal": 218,
+        "ordered_mate_occurrence_backlinks": true,
+        "ordered_mates": [
+          {
+            "class": "moMateDistanceDim_c",
+            "dimension_id": 19,
+            "mate_id": 20,
+            "wrapper_ids": [
+              0,
+              1
+            ]
+          },
+          {
+            "class": "moMateParallel",
+            "mate_id": 21,
+            "wrapper_ids": [
+              2,
+              3
+            ]
+          },
+          {
+            "class": "moMateCoincident",
+            "mate_id": 22,
+            "wrapper_ids": [
+              4,
+              5
+            ]
+          }
+        ],
+        "resolved_map_counter": 133,
+        "reverse_configuration_insertion": true,
+        "separate_componentless_state": true
+      },
+      "child": {
+        "bytes": 8192,
+        "sha256": "405976f2e20306a13f2ee4d8a44a96bd27becd776d7f3904847572ce61ddcf1c",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "counterpart": {
+        "entrypoint": "SdkAssemblyCounterpart.py",
+        "exact_stdin_sha256": "585208d1988cbebd7f688a8ad1123c756cafb81bb5d91654bfcf5d2e25a34653",
+        "exit_code": 0,
+        "request_bytes": 153746,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "ce1c0bb5de4827986a9dd9ef2c6887b32a540b12bbd584dd41563f1866d66ced",
+        "worker_pid": 40462
+      },
+      "dimension_ids": [
+        19
+      ],
+      "kind_order": [
+        "distance",
+        "parallel",
+        "coincident"
+      ],
+      "mate_classes": [
+        "moMateDistanceDim_c",
+        "moMateParallel",
+        "moMateCoincident"
+      ],
+      "mate_ids": [
+        20,
+        21,
+        22
+      ],
+      "next_id": 23,
+      "passed": true,
+      "prepare": {
+        "entrypoint": "SdkAssemblyVerify.py",
+        "exact_stdin_sha256": "585208d1988cbebd7f688a8ad1123c756cafb81bb5d91654bfcf5d2e25a34653",
+        "exit_code": 0,
+        "request_bytes": 153746,
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "9fc7a565df22e65b730f266f5e8bae0d298cf8923b2e71f93be37f0c2316c828",
+        "worker_pid": 40458
+      },
+      "round_trips": 22,
+      "same_as_independent_research": true,
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2366,
+          "sha256": "af0889ab288b63351f538e85b854ce68377d9bdf760b20414c805d07a9ad73a4"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "305b0647920c7b67c9a3d187ad67fe150d037ad0abeed013d86746abdccd4546"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 21537,
+          "sha256": "9f86cde488de5200b6e444945ddcbb0e180b7f79daeac31758526ebb35bb6df8"
+        },
+        "Contents/Config-0-MatesList": {
+          "byte_identity": true,
+          "bytes": 10723,
+          "sha256": "2add759dc6ac4b87df665514b8e8278252569ba6e4d718bad3d73c80f312c3c2"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "e02142e1fcc305b1eaa6fb0a004cc4657199efad6b50682f239b233df2d0cdda"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 561,
+          "sha256": "56ba41ad71323db569dedda90b1178d31843aedb0074e7bc2a92c7a104e0d01c"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 1291,
+          "sha256": "b423d3b0ffcb314b846492cad2c7bd17590565b39725b08bb72b31bd2311c709"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "byte_identity": true,
+          "bytes": 2069,
+          "sha256": "6a1b2c64a2bda01fd04044337cb43aabc5792e668e8fdb16c14a18b1c2950494"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1163,
+          "sha256": "58a087eb6f59fba425027acad7c80dec464d5de0c2c1b9a45234f644c02f3c06"
+        }
+      },
+      "wrapper_next_id": 6
+    }
+  ],
+  "passed": true,
+  "public_writer_enabled": false,
+  "raw_process_result_sha256": "5493223761bfe60d898a63710a9a08c03760ba432bd0b3d902741e4b74e02857",
+  "retained_prior_proofs": [
+    {
+      "raw_result_sha256": "027a16fe8ba2ee631dc92b3d256466cbf224922bd8c58ddaf5e017a9640504fa",
+      "source_manifest_sha256": "0e6e66bd063962acbda506c64e6f6abc5b2d8f2a6a7f31287d2eef814fbb40f1"
+    },
+    {
+      "raw_result_sha256": "0444d85baa6473a80a48ccbb80135e519fd6d9a01aac852cfbe22c3dfc9fcae0",
+      "source_manifest_sha256": "cff2845ac229b730c8387e2c13e29d44fed4b3860e8d2a7362eec67faf827e04"
+    }
+  ],
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-ordered-assembly-construction.v1",
+  "scope": "complete SDK-only ordered ordinary planar mates on two direct rigid occurrences of one generated plain blind-boss child",
+  "single_bundle_regressions": 18,
+  "single_raw_result_sha256": "a69db2088711b7062d739b6d7f53de31af1122b460d21ca91c1802616e1656e1",
+  "source_files": 4720,
+  "source_locked_before_generation": true,
+  "source_manifest_sha256": "2c540bca6cf921ed507c4ef0b7bcc9d1e34a299cd89cbc593d10c8001a2918e4",
+  "source_unchanged": true,
+  "typed_stream_round_trips": 660,
+  "verification": {
+    "black": true,
+    "integration_test_seconds": 53.53,
+    "integration_tests_passed": 2,
+    "pyright_existing_unknown_configuration_keys": 3,
+    "pyright_source_errors": 0,
+    "ruff": true,
+    "steering": true,
+    "strict_mypy": true
+  }
+}

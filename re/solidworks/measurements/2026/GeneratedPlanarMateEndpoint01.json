@@ -1,0 +1,480 @@
+{
+  "schema": "kit.sw2026.planar-mate-endpoint-generation-proof.v1",
+  "passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "missing_datum_rejected": true,
+  "independent_geometry_checks_passed": true,
+  "source_sha256": {
+    "re/tooling/sw2026/PlanarMateEndpointProcess.py": "0d95188b6c648f452808f2ef94d04bc9d23a6002d670cfb7cd515de461a76f05",
+    "re/tooling/sw2026/builders/AssemblyMateEndpoint.py": "b83521e692bd76eec9417762ba8cf38e378959ddd20745203f09dfbfd1756a2e",
+    "re/tooling/sw2026/builders/AssemblyOccurrences.py": "aeffc073f2a767e28bd8a218d1fe6008731729e25f34c24a57ed5d18a03b4e48",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "7990a26fbf4f01a385abe1e480183d6b6405dbc2b6021545724efd8dbb52ff2e"
+  },
+  "cases": [
+    {
+      "name": "ParallelFrontDatums",
+      "occurrences": [
+        {
+          "name": "GeneratedChildModel-1",
+          "placement": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "GeneratedChildModel-2",
+          "placement": {
+            "origin": [
+              0.13,
+              0.02,
+              0.0
+            ],
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        }
+      ],
+      "endpoints": [
+        {
+          "occurrence": 0,
+          "datum": "Front Plane",
+          "created_at": 1794858030
+        },
+        {
+          "occurrence": 1,
+          "datum": "Front Plane",
+          "created_at": 1794858031
+        }
+      ],
+      "request_sha256": "8f4ddf841d775580178abc2fc4c4cbb041763a89941bd2adc9ed8bd0656eab73",
+      "archive_proof": {
+        "endpoint_archive_bytes": 922,
+        "endpoint_archive_sha256": "8d6613f1678914615f56d7af8b4a35bbccb0933929ecb23e68ab02b2ea451ea0",
+        "endpoint_map_next_index": 144,
+        "endpoints": [
+          {
+            "datum_created_at": 1794858030,
+            "datum_id": 14,
+            "detached_geometry": {
+              "f100": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+              }
+            },
+            "occurrence_id": 17,
+            "resolved_geometry": {
+              "f08": 101,
+              "f10": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "f100": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "f18": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+              }
+            }
+          },
+          {
+            "datum_created_at": 1794858031,
+            "datum_id": 14,
+            "detached_geometry": {
+              "f100": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.13,
+                "y": 0.02,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+              }
+            },
+            "occurrence_id": 18,
+            "resolved_geometry": {
+              "f08": 101,
+              "f10": {
+                "f58": 0.13,
+                "f60": 0.02,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "f100": {
+                "f58": -0.13,
+                "f60": -0.02,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "f18": {
+                "f58": 0.13,
+                "f60": 0.02,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.13,
+                "y": 0.02,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 1.0
+              }
+            }
+          }
+        ],
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-planar-mate-endpoint-graph.v1"
+      }
+    },
+    {
+      "name": "RotatedSelectedDatum",
+      "occurrences": [
+        {
+          "name": "GeneratedChildModel-1",
+          "placement": {
+            "origin": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "u": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "v": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          }
+        },
+        {
+          "name": "GeneratedChildModel-2",
+          "placement": {
+            "origin": [
+              0.013,
+              0.042,
+              -0.006
+            ],
+            "u": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "v": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        }
+      ],
+      "endpoints": [
+        {
+          "occurrence": 0,
+          "datum": "Top Plane",
+          "created_at": 1794858060
+        },
+        {
+          "occurrence": 1,
+          "datum": "Right Plane",
+          "created_at": 1794858062
+        }
+      ],
+      "request_sha256": "397066ee5a0b826d2106aa1561a7676ae54a2ff86b3226c8c18cf7554ba2d2df",
+      "archive_proof": {
+        "endpoint_archive_bytes": 1210,
+        "endpoint_archive_sha256": "c0e2a947522af091207da22068c2178a62c93dfb1c8268d8253ff98fe8e24a7a",
+        "endpoint_map_next_index": 144,
+        "endpoints": [
+          {
+            "datum_created_at": 1794858060,
+            "datum_id": 15,
+            "detached_geometry": {
+              "f100": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": -0.0,
+                "y": 1.0,
+                "z": 0.0
+              }
+            },
+            "occurrence_id": 17,
+            "resolved_geometry": {
+              "f08": 101,
+              "f10": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "f100": {
+                "f08": {
+                  "m0": 1.0,
+                  "m1": 0.0,
+                  "m2": -0.0,
+                  "m3": 0.0,
+                  "m4": 0.0,
+                  "m5": 1.0,
+                  "m6": 0.0,
+                  "m7": -1.0,
+                  "m8": 0.0
+                },
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 1
+              },
+              "f18": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+              },
+              "fe8": {
+                "x": -0.0,
+                "y": 1.0,
+                "z": 0.0
+              }
+            }
+          },
+          {
+            "datum_created_at": 1794858062,
+            "datum_id": 16,
+            "detached_geometry": {
+              "f100": {
+                "f58": 0.0,
+                "f60": 0.0,
+                "f68": 0.0,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 0
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.013,
+                "y": 0.042,
+                "z": -0.006
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0
+              }
+            },
+            "occurrence_id": 18,
+            "resolved_geometry": {
+              "f08": 101,
+              "f10": {
+                "f08": {
+                  "m0": 0.0,
+                  "m1": 1.0,
+                  "m2": 0.0,
+                  "m3": -1.0,
+                  "m4": 0.0,
+                  "m5": 0.0,
+                  "m6": 0.0,
+                  "m7": -0.0,
+                  "m8": 1.0
+                },
+                "f58": 0.013,
+                "f60": 0.042,
+                "f68": -0.006,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 1
+              },
+              "f100": {
+                "f08": {
+                  "m0": 0.0,
+                  "m1": -1.0,
+                  "m2": 0.0,
+                  "m3": 0.0,
+                  "m4": 0.0,
+                  "m5": 1.0,
+                  "m6": -1.0,
+                  "m7": 0.0,
+                  "m8": 0.0
+                },
+                "f58": -0.006,
+                "f60": 0.013,
+                "f68": -0.042,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 1
+              },
+              "f18": {
+                "f08": {
+                  "m0": 0.0,
+                  "m1": 1.0,
+                  "m2": 0.0,
+                  "m3": -1.0,
+                  "m4": 0.0,
+                  "m5": 0.0,
+                  "m6": 0.0,
+                  "m7": -0.0,
+                  "m8": 1.0
+                },
+                "f58": 0.013,
+                "f60": 0.042,
+                "f68": -0.006,
+                "f70": 1.0,
+                "f78": 0,
+                "has_matrix": 1
+              },
+              "fb0": 0.0,
+              "fb8": 0.0,
+              "fc0": 0.0,
+              "fc8": 0.0,
+              "fd0": {
+                "x": 0.013,
+                "y": 0.042,
+                "z": -0.006
+              },
+              "fe8": {
+                "x": 0.0,
+                "y": 1.0,
+                "z": 0.0
+              }
+            }
+          }
+        ],
+        "heldout_inputs_tested": 0,
+        "inherited_map_next_index": 133,
+        "input_runtime_file_access_attempts": 0,
+        "native_acceptance": false,
+        "schema": "kit.sw2026.generated-planar-mate-endpoint-graph.v1"
+      }
+    }
+  ]
+}

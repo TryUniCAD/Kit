@@ -1,0 +1,126 @@
+{
+  "actual_preference_changes": 0,
+  "document_setter_calls": 0,
+  "expected_authored_names": ["Cylinder-1", "Cylinder-2"],
+  "expected_normalized_names": [
+    "NeutralCylinderAlphaDerived-1",
+    "NeutralCylinderAlphaDerived-2"
+  ],
+  "false_generated_native_observation_pending": true,
+  "file_saves": 0,
+  "frozen_files_verified": 123,
+  "generated_expected_body_count": 2,
+  "generated_expected_child_tree_rows": 22,
+  "generated_expected_occurrence_ids": [17, 18],
+  "generated_expected_parent_tree_rows": 25,
+  "generated_input_identities": {
+    "child": {
+      "bytes": 10915,
+      "sha256": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129"
+    },
+    "parent": {
+      "bytes": 10895,
+      "sha256": "f857cf633fb9aedcd6baa369725d71d7d8738ad687ccadf912bedf3542a5afb9"
+    }
+  },
+  "heldout_inputs_read": 0,
+  "host_processes": 7,
+  "host_proof_sha256": "731dbe989e482196d8ff63bf3b9e3fc3ab42ea4e3142fc7c68e6e24049f87414",
+  "host_vm_calls": 0,
+  "independent_prediction_inputs": {
+    "ambient_intent_sha256": "c178599a0990a89a9ef1e17017150dc5bc1cbd3fdbbf301542e30cbc3c8c7c99",
+    "authored_policy_prediction_sha256": "cce0aa2b0724fb672ea17819aabbe389834c57fc14a64ff3365d9cfc70362f57",
+    "neutral_sha256": "e5e005dc738ad379f0485accc78d7f72002cccdc1b14186ea43ed82e4f444fe3",
+    "normalization_policy_prediction_sha256": "53e78832074e36893c58e20e9ee30b2af39835ebcc15a39976bbd3257bba9072",
+    "original_feature_prediction_sha256": "e3526797ad49d04073a46e9a93a178377195f776697abe141d7d6ed54d112ca5"
+  },
+  "native_acceptance": false,
+  "native_phases_planned": [
+    "TrueControlBefore",
+    "TrueGenerated",
+    "TrueControlAfter",
+    "FalseControlBefore",
+    "FalseGenerated",
+    "FalseControlAfter"
+  ],
+  "native_processes_started": 0,
+  "original_generated_locators_unchanged": true,
+  "packet01_retained": "Host-only preliminary freeze, superseded by packet02 explicit native-control declaration guard; no native run",
+  "prior_native_evidence": {
+    "generated_parent_ambient_name_intent_passed": false,
+    "generated_parent_ambient_on_errors": 0,
+    "generated_parent_ambient_on_warnings": 0,
+    "generated_parent_ambient_result_sha256": "e565f5e940076262507fff43296ee1205ccd7fbcfb8eee6ad2ca92d36b6998fa",
+    "same_file_distinct_native_processes": 3,
+    "same_file_numeric_checks": 84,
+    "same_file_preference_restored": true,
+    "same_file_preference_setter_calls": 2,
+    "same_file_readonly_false_passed": true,
+    "same_file_readonly_false_result_sha256": "43e841e9f1d627e3ad077629ec8ffbd931ada6acb3b442e229f6a371303a5780"
+  },
+  "process_outcomes": [
+    {
+      "exit_code": 0,
+      "label": "Verify",
+      "last_error": null,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "e2b0b510d337e9113b9b1f59489174f9c6b96effa35e2741b8a352da3ff859f3"
+    },
+    {
+      "exit_code": 0,
+      "label": "Contract",
+      "last_error": null,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9fd39117c77aa73db85ccc280cf14de763be94a2068e92a5611078888ee8329e"
+    },
+    {
+      "exit_code": 0,
+      "label": "RecoveryBoundary",
+      "last_error": null,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "73da1c38411777f952f86bde059df25abc88a15d70829608cfdfac1b1624ff05"
+    },
+    {
+      "exit_code": 1,
+      "label": "WrongHash",
+      "last_error": "ValueError: run this exact frozen name-policy observer",
+      "stderr_sha256": "7d9098d9f598d3c9442aaf64a83aa299f0a9b276b4d206845760ecb2eff5e770",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "label": "FalseControlSubstitution",
+      "last_error": "ValueError: the separately declared native false-setting controls changed",
+      "stderr_sha256": "7f1d7afe9538be9e41851b548e3a1dd3e2a7122d4607dd7538d6523d1530b22b",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "label": "NormalizedPredictionSubstitution",
+      "last_error": "ValueError: the predeclared independent name/tree/geometry expectation changed",
+      "stderr_sha256": "9fb2da9b4a26ef7b22f12626174c2c4a73b6cb2eb40d05ad841fde173e8fc23d",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "exit_code": 1,
+      "label": "DocumentSaveScope",
+      "last_error": "ValueError: the read-only policy boundary changed",
+      "stderr_sha256": "5705e8d5770a2a65f0d42e9bd065620cad0b85581d4f2138405f49b7a9e38996",
+      "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ],
+  "recipe_sha256": "97cdcec0ad35f06134cefeb29b5a4aeac2d21769c474cf3252cb595448ecb41b",
+  "recovery_verifier_com_modules_loaded": [],
+  "recovery_verifier_native_document_reads": 0,
+  "schema": "kit.sw2026.generated-concentric-name-policy-host.v1",
+  "scope": "Exact existing generated ambient-on pair, original locators, distinct ordinary-true normalization and readonly-false authored-name predicates",
+  "status": "HOST_FROZEN_NATIVE_COMPARISON_PENDING",
+  "task_id": "B04-SW2026-MATES-CONCENTRIC",
+  "tool_sha256": {
+    "re/tooling/sw2026/FreezeGeneratedNamePolicy01.py": "65a4395006611c099ce32ffdb7cf5874435b9cafd7d0227b2643d654c4de8a85",
+    "re/tooling/sw2026/InspectGeneratedNamePolicy01.py": "2a2b84dc8ce6190342185631b05286ce91013403b9d82425f4085e24b7d75354"
+  },
+  "trial_sha256": "99d3eb6fb24c54acb2a979a24b3021a1aa7eafc9ac385a9ac57bcf2ff7524783",
+  "true_branch_preserves_original_authored_name_failure": true,
+  "writer_outputs": 0
+}

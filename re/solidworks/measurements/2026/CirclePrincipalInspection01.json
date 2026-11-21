@@ -1,0 +1,5328 @@
+{
+  "schema": "kit.sw2026.circle-principal-boss-edit-rung.v1",
+  "scope": "two generated forward blind circle bosses on Right/Top principal frames; body and radial/depth edit rung only",
+  "inspection_source_revision": "097ab4b0fd0821bda8a5d40cfdb57a296213c155",
+  "generator": {
+    "source_revision": "097ab4b0fd0821bda8a5d40cfdb57a296213c155",
+    "tested_revision": "245d630a012dd7636c0e48720a7fb1940067f271",
+    "tested_tree": "83a1c9f5feb4feecff5752c1a2596b744dae7457",
+    "verified_tested_parents": [
+      "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+      "097ab4b0fd0821bda8a5d40cfdb57a296213c155"
+    ],
+    "run": 43869300178,
+    "job": 133305919571,
+    "artifact": {
+      "id": 14228265059,
+      "name": "solidworks-construction-245d630a012dd7636c0e48720a7fb1940067f271",
+      "bytes": 21028949,
+      "reported_digest": "sha256:e2668a2884c8c1f6b0d467c51688a0f45b6b2c1978efbcb3f54e51b8de02b0b4",
+      "zip_digest_independently_verified": false
+    },
+    "overall_ci_job_conclusion": "failure",
+    "separate_failure_scope": "saved-circle Config-0 reader; selected principal-frame generation records passed"
+  },
+  "frozen_sources": {
+    "schema": "kit-sw2026-frozen-oracle-source/1",
+    "source_revision": "097ab4b0fd0821bda8a5d40cfdb57a296213c155",
+    "source_tree": "83a1c9f5feb4feecff5752c1a2596b744dae7457",
+    "frozen_at_utc": "2026-11-16T12:53:19.002210+00:00",
+    "vendor_software_copied": false,
+    "heldout_native_payloads_read": false,
+    "acceptance": false,
+    "files": [
+      {
+        "path": "re/tooling/sw2026/InspectCircleSketch.py",
+        "bytes": 19067,
+        "sha256": "15aee0bf34af816c086a3ceb47c41125604e6be71d234f50bcdb6646414b949d"
+      },
+      {
+        "path": "re/tooling/sw2026/AuthorCurves.py",
+        "bytes": 65987,
+        "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+      },
+      {
+        "path": "re/tooling/sw2026/Swapp.py",
+        "bytes": 15278,
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+      },
+      {
+        "path": "re/tooling/sw2026/InspectFresh.py",
+        "bytes": 4187,
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+      },
+      {
+        "path": "re/tooling/sw2026/OracleIdentity.py",
+        "bytes": 4284,
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+      }
+    ]
+  },
+  "frozen_manifest": {
+    "file": "SourceManifest.json",
+    "bytes": 1194,
+    "sha256": "77c559759c61cc5c3848ec9561e4c17a349c60efd2efcdbfa0d4b9eb7123c2fa"
+  },
+  "job": {
+    "file": "InspectionJob.json",
+    "bytes": 8901,
+    "sha256": "11ef933f80f5630ddc0588ede0679649924067a845b74d853738db3938354b18"
+  },
+  "raw_inspection": {
+    "file": "Inspection.json",
+    "bytes": 111268,
+    "sha256": "ef3f1eb3aed1079e7eff5d94e00a76a7470caa462b9bb08ef948eb030e803aee"
+  },
+  "host_transport": {
+    "source": {
+      "file": "CirclePrincipalInspection01.Host.json",
+      "bytes": 71120,
+      "sha256": "2edeefe6d9f7959b14846d5a0befc601e38bb95d6f70ea1f8009ad438412c435"
+    },
+    "transport_returncode": 0,
+    "supervisor_exit_code": 0,
+    "guest_state_unknown": true,
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false
+  },
+  "started_at": 1794833641.1399472,
+  "finished_at": 1794833851.4667585,
+  "cases": [
+    {
+      "name": "RadiusRightBoss",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalTools01\\Inputs\\RadiusRightBoss.SLDPRT",
+          "source_sha256": "01e0db31c130c9da2e57cf57feb70de97ba0be6f413fc1e4c47a74fa8d71e3c1",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4832,
+            "process_creation_filetime": 134393072703378183,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.003271,
+                  -0.005819
+                ],
+                "radius": 0.008123
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@RadiusRightBoss.Part",
+                    "value": 0.008123
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@RadiusRightBoss.Part",
+                    "value": 0.014287
+                  },
+                  {
+                    "name": "D1@Sketch1@RadiusRightBoss.Part",
+                    "value": 0.008123
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "radius",
+              "value": 0.008123,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@RadiusRightBoss.Part",
+                  "value": 0.008123
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.014287,
+              "radius": 0.008123,
+              "mass": {
+                "volume": 2.9615824231066715e-06,
+                "area": 0.0011437686223474252,
+                "com": [
+                  0.007143500000000001,
+                  -0.005819,
+                  -0.003271
+                ]
+              },
+              "expected_mass": {
+                "volume": 2.9615824231066724e-06,
+                "area": 0.0011437686223474252,
+                "com": [
+                  0.0071435,
+                  -0.005819,
+                  -0.003271
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\RadiusRightBoss\\open-save\\RadiusRightBossSaved.SLDPRT",
+          "saved_sha256": "71e7ea5421ac7e9e16eb918da7da789a151e726d99a04807df8e7e2187fd2ee5",
+          "saved_bytes": 63562,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 45650,
+            "sha256": "59911b5c2f3467432ac4ff872b4acccde7953e28595e84c8656d77476bcdf083"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": 0.003271,
+              "expected": 0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.008123,
+              "expected": 0.008123,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.008123,
+              "expected": 0.008123,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 2.9615824231066715e-06,
+              "expected": 2.9615824231066724e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0011437686223474252,
+              "expected": 0.0011437686223474252,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": 0.007143500000000001,
+              "expected": 0.0071435,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.003271,
+              "expected": -0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\RadiusRightBoss\\open-save\\RadiusRightBossSaved.SLDPRT",
+          "source_sha256": "71e7ea5421ac7e9e16eb918da7da789a151e726d99a04807df8e7e2187fd2ee5",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 2636,
+            "process_creation_filetime": 134393072961587622,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.003271,
+                  -0.005819
+                ],
+                "radius": 0.008123
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.008123
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@RadiusRightBossSaved.Part",
+                    "value": 0.014287
+                  },
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.008123
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "radius",
+              "value": 0.008123,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                  "value": 0.008123
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.014287,
+              "radius": 0.008123,
+              "mass": {
+                "volume": 2.9615824231066715e-06,
+                "area": 0.0011437686223474252,
+                "com": [
+                  0.007143500000000001,
+                  -0.005819,
+                  -0.003271
+                ]
+              },
+              "expected_mass": {
+                "volume": 2.9615824231066724e-06,
+                "area": 0.0011437686223474252,
+                "com": [
+                  0.0071435,
+                  -0.005819,
+                  -0.003271
+                ]
+              }
+            }
+          },
+          "edit": {
+            "name": "D1@Sketch1",
+            "before": 0.008123,
+            "after": 0.009666369999999999,
+            "factor": 1.19,
+            "setter_status": 0
+          },
+          "edited_snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.003271,
+                  -0.005819
+                ],
+                "radius": 0.00966637
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@RadiusRightBossSaved.Part",
+                    "value": 0.014287
+                  },
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "radius",
+              "value": 0.009666369999999999,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                  "value": 0.009666369999999999
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.014287,
+              "radius": 0.009666369999999999,
+              "mass": {
+                "volume": 4.193896869361359e-06,
+                "area": 0.0014548221542400263,
+                "com": [
+                  0.007143500000000001,
+                  -0.005819,
+                  -0.003271
+                ]
+              },
+              "expected_mass": {
+                "volume": 4.193896869361357e-06,
+                "area": 0.001454822154240026,
+                "com": [
+                  0.0071435,
+                  -0.005819,
+                  -0.003271
+                ]
+              }
+            }
+          },
+          "depth_edit": {
+            "name": "D1@Boss-Extrude1",
+            "before": 0.014287,
+            "after": 0.012286819999999999,
+            "factor": 0.86,
+            "setter_status": 0
+          },
+          "edited_body_snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.003271,
+                  -0.005819
+                ],
+                "radius": 0.00966637
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@RadiusRightBossSaved.Part",
+                    "value": 0.012286819999999999
+                  },
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "radius",
+              "value": 0.009666369999999999,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                  "value": 0.009666369999999999
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.012286819999999999,
+              "radius": 0.009666369999999999,
+              "mass": {
+                "volume": 3.606751307650769e-06,
+                "area": 0.0013333400339175909,
+                "com": [
+                  0.006143409999999999,
+                  -0.005819,
+                  -0.003271
+                ]
+              },
+              "expected_mass": {
+                "volume": 3.6067513076507674e-06,
+                "area": 0.0013333400339175907,
+                "com": [
+                  0.006143409999999999,
+                  -0.005819,
+                  -0.003271
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\RadiusRightBoss\\fresh-reopen\\RadiusRightBossSaved.SLDPRT",
+          "saved_sha256": "658fa1139a9d99983083ffee04809520c505ba4f69b044c003ef1ce396145b1b",
+          "saved_bytes": 61561,
+          "saved_factor": 1.19,
+          "saved_depth_factor": 0.86,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 122873,
+            "sha256": "b0a6f22778c68458954b1d61b1303c1c5deb485a651ab9369ac3cbc469c9a924"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": 0.003271,
+              "expected": 0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.008123,
+              "expected": 0.008123,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.008123,
+              "expected": 0.008123,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 2.9615824231066715e-06,
+              "expected": 2.9615824231066724e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0011437686223474252,
+              "expected": 0.0011437686223474252,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": 0.007143500000000001,
+              "expected": 0.0071435,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.003271,
+              "expected": -0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 0",
+              "actual": 0.003271,
+              "expected": 0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00966637,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.009666369999999999,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.014287,
+              "expected": 0.014287,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 4.193896869361359e-06,
+              "expected": 4.193896869361357e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0014548221542400263,
+              "expected": 0.001454822154240026,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": 0.007143500000000001,
+              "expected": 0.0071435,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.003271,
+              "expected": -0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 0",
+              "actual": 0.003271,
+              "expected": 0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00966637,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.009666369999999999,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.012286819999999999,
+              "expected": 0.012286819999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.012286819999999999,
+              "expected": 0.012286819999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 3.606751307650769e-06,
+              "expected": 3.6067513076507674e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0013333400339175909,
+              "expected": 0.0013333400339175907,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": 0.006143409999999999,
+              "expected": 0.006143409999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.003271,
+              "expected": -0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        },
+        {
+          "phase": "edited-fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\RadiusRightBoss\\fresh-reopen\\RadiusRightBossSaved.SLDPRT",
+          "source_sha256": "658fa1139a9d99983083ffee04809520c505ba4f69b044c003ef1ce396145b1b",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 3480,
+            "process_creation_filetime": 134393073264700986,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  0.003271,
+                  -0.005819
+                ],
+                "radius": 0.00966637
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@RadiusRightBossSaved.Part",
+                    "value": 0.012286819999999999
+                  },
+                  {
+                    "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                    "value": 0.009666369999999999
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                0.0,
+                0.0,
+                -1.0
+              ],
+              "v": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "radius",
+              "value": 0.009666369999999999,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@RadiusRightBossSaved.Part",
+                  "value": 0.009666369999999999
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.012286819999999999,
+              "radius": 0.009666369999999999,
+              "mass": {
+                "volume": 3.6067513076507686e-06,
+                "area": 0.0013333400339175909,
+                "com": [
+                  0.006143409999999999,
+                  -0.005819,
+                  -0.003271
+                ]
+              },
+              "expected_mass": {
+                "volume": 3.6067513076507674e-06,
+                "area": 0.0013333400339175907,
+                "com": [
+                  0.006143409999999999,
+                  -0.005819,
+                  -0.003271
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\RadiusRightBoss\\edited-fresh-reopen\\RadiusRightBossSaved.SLDPRT",
+          "saved_sha256": "b1e090b846c5937464098469370c05505ca49da7bb48600f578df1404fd9b0d0",
+          "saved_bytes": 62376,
+          "saved_factor": 1.19,
+          "saved_depth_factor": 0.86,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 46042,
+            "sha256": "9e93a21796bd66782a263ba9b3c7d605838591560c3468962b3d9f6af62b09fc"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": 0.003271,
+              "expected": 0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00966637,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.009666369999999999,
+              "expected": 0.009666369999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.012286819999999999,
+              "expected": 0.012286819999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.012286819999999999,
+              "expected": 0.012286819999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 3.6067513076507686e-06,
+              "expected": 3.6067513076507674e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0013333400339175909,
+              "expected": 0.0013333400339175907,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": 0.006143409999999999,
+              "expected": 0.006143409999999999,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": -0.005819,
+              "expected": -0.005819,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.003271,
+              "expected": -0.003271,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    },
+    {
+      "name": "DiameterTopBoss",
+      "phases": [
+        {
+          "phase": "open-save",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalTools01\\Inputs\\DiameterTopBoss.SLDPRT",
+          "source_sha256": "c0e65c2da6425b24f5ac2600b419477b479ece24cae3450d1a0b881436a0a80f",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 6956,
+            "process_creation_filetime": 134393073509488978,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.006139,
+                  0.004723
+                ],
+                "radius": 0.010091
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored material",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@DiameterTopBoss.Part",
+                    "value": 0.020182
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@DiameterTopBoss.Part",
+                    "value": 0.009827
+                  },
+                  {
+                    "name": "D1@Sketch1@DiameterTopBoss.Part",
+                    "value": 0.020182
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "diameter",
+              "value": 0.020182,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@DiameterTopBoss.Part",
+                  "value": 0.020182
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.009827,
+              "radius": 0.010091,
+              "mass": {
+                "volume": 3.1436865797162826e-06,
+                "area": 0.0012628733616143347,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              },
+              "expected_mass": {
+                "volume": 3.143686579716282e-06,
+                "area": 0.0012628733616143347,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\DiameterTopBoss\\open-save\\DiameterTopBossSaved.SLDPRT",
+          "saved_sha256": "131645c66f0bc22642c3654f5bce13d27d92e1d2d6dbedc5448a707aac1de7bb",
+          "saved_bytes": 55690,
+          "saved_factor": 1.0,
+          "saved_depth_factor": 1.0,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 45601,
+            "sha256": "ecde68f9bb27ace63dd2defc1c58b4d6633c6ca47e94a143f690a379129a05e7"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.004723,
+              "expected": 0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.010091,
+              "expected": 0.010091,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.020182,
+              "expected": 0.020182,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 3.1436865797162826e-06,
+              "expected": 3.143686579716282e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0012628733616143347,
+              "expected": 0.0012628733616143347,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": 0.0049135,
+              "expected": 0.0049135,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.004723,
+              "expected": -0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\DiameterTopBoss\\open-save\\DiameterTopBossSaved.SLDPRT",
+          "source_sha256": "131645c66f0bc22642c3654f5bce13d27d92e1d2d6dbedc5448a707aac1de7bb",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 3964,
+            "process_creation_filetime": 134393073756463585,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.006139,
+                  0.004723
+                ],
+                "radius": 0.010091
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.020182
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@DiameterTopBossSaved.Part",
+                    "value": 0.009827
+                  },
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.020182
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "diameter",
+              "value": 0.020182,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                  "value": 0.020182
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.009827,
+              "radius": 0.010091,
+              "mass": {
+                "volume": 3.1436865797162826e-06,
+                "area": 0.0012628733616143347,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              },
+              "expected_mass": {
+                "volume": 3.143686579716282e-06,
+                "area": 0.0012628733616143347,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              }
+            }
+          },
+          "edit": {
+            "name": "D1@Sketch1",
+            "before": 0.020182,
+            "after": 0.01634742,
+            "factor": 0.81,
+            "setter_status": 0
+          },
+          "edited_snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.006139,
+                  0.004723
+                ],
+                "radius": 0.00817371
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@DiameterTopBossSaved.Part",
+                    "value": 0.009827
+                  },
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "diameter",
+              "value": 0.01634742,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                  "value": 0.01634742
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.009827,
+              "radius": 0.00817371,
+              "mass": {
+                "volume": 2.062572764951853e-06,
+                "area": 0.0009244612858121933,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              },
+              "expected_mass": {
+                "volume": 2.062572764951853e-06,
+                "area": 0.0009244612858121933,
+                "com": [
+                  -0.006139,
+                  0.0049135,
+                  -0.004723
+                ]
+              }
+            }
+          },
+          "depth_edit": {
+            "name": "D1@Boss-Extrude1",
+            "before": 0.009827,
+            "after": 0.012087210000000001,
+            "factor": 1.23,
+            "setter_status": 0
+          },
+          "edited_body_snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.006139,
+                  0.004723
+                ],
+                "radius": 0.00817371
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@DiameterTopBossSaved.Part",
+                    "value": 0.012087210000000001
+                  },
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "diameter",
+              "value": 0.01634742,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                  "value": 0.01634742
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.012087210000000001,
+              "radius": 0.00817371,
+              "mass": {
+                "volume": 2.536964500890779e-06,
+                "area": 0.0010405387429128063,
+                "com": [
+                  -0.006139,
+                  0.006043605000000001,
+                  -0.004723
+                ]
+              },
+              "expected_mass": {
+                "volume": 2.5369645008907792e-06,
+                "area": 0.0010405387429128063,
+                "com": [
+                  -0.006139,
+                  0.0060436050000000005,
+                  -0.004723
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\DiameterTopBoss\\fresh-reopen\\DiameterTopBossSaved.SLDPRT",
+          "saved_sha256": "a76f1848a418fb4bfda0cbe5f951e879c805ff8a58531a3231fc8ef938a090da",
+          "saved_bytes": 53498,
+          "saved_factor": 0.81,
+          "saved_depth_factor": 1.23,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 122436,
+            "sha256": "f42c55b626664680c7ad864b2dbe6299ced23f8c1960232b37ba270b70b31950"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.004723,
+              "expected": 0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.010091,
+              "expected": 0.010091,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.020182,
+              "expected": 0.020182,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 3.1436865797162826e-06,
+              "expected": 3.143686579716282e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0012628733616143347,
+              "expected": 0.0012628733616143347,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": 0.0049135,
+              "expected": 0.0049135,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.004723,
+              "expected": -0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.004723,
+              "expected": 0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00817371,
+              "expected": 0.00817371,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.01634742,
+              "expected": 0.01634742,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.009827,
+              "expected": 0.009827,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 2.062572764951853e-06,
+              "expected": 2.062572764951853e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0009244612858121933,
+              "expected": 0.0009244612858121933,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": 0.0049135,
+              "expected": 0.0049135,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.004723,
+              "expected": -0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.004723,
+              "expected": 0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00817371,
+              "expected": 0.00817371,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.01634742,
+              "expected": 0.01634742,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.012087210000000001,
+              "expected": 0.012087210000000001,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.012087210000000001,
+              "expected": 0.012087210000000001,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 2.536964500890779e-06,
+              "expected": 2.5369645008907792e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0010405387429128063,
+              "expected": 0.0010405387429128063,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": 0.006043605000000001,
+              "expected": 0.0060436050000000005,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.004723,
+              "expected": -0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        },
+        {
+          "phase": "edited-fresh-reopen",
+          "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\DiameterTopBoss\\fresh-reopen\\DiameterTopBossSaved.SLDPRT",
+          "source_sha256": "a76f1848a418fb4bfda0cbe5f951e879c805ff8a58531a3231fc8ef938a090da",
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 968,
+            "process_creation_filetime": 134393074065165498,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "file_version_words": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "expected_version": [
+              34,
+              5,
+              2,
+              604
+            ],
+            "version_matches": true,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "bytes": 718936,
+            "pe_machine": "0x8664"
+          },
+          "open_errors": 0,
+          "open_warnings": 0,
+          "snapshot": {
+            "geometry": [
+              {
+                "construction": false,
+                "id": [
+                  0,
+                  1
+                ],
+                "binding": {
+                  "kind": "arc",
+                  "segment_type": 1,
+                  "id": [
+                    0,
+                    1
+                  ]
+                },
+                "point_bindings": {
+                  "center": {
+                    "kind": "point",
+                    "id": [
+                      0,
+                      2
+                    ]
+                  }
+                },
+                "kind": "circle",
+                "center": [
+                  -0.006139,
+                  0.004723
+                ],
+                "radius": 0.00817371
+              }
+            ],
+            "bodies": 1,
+            "whats_wrong": 0,
+            "features": [
+              {
+                "name": "authored comments",
+                "type": "CommentsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored favorites",
+                "type": "FavoriteFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored history",
+                "type": "HistoryFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored selection sets",
+                "type": "SelectionSetFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored sensors",
+                "type": "SensorFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Design Binder",
+                "type": "DocsFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored annotations",
+                "type": "DetailCabinet",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored surfaces",
+                "type": "SurfaceBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored solids",
+                "type": "SolidBodyFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored environment",
+                "type": "EnvFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored markups",
+                "type": "NotesAreaFtrFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "authored equations",
+                "type": "EqnFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Material <not specified>",
+                "type": "MaterialFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Markups",
+                "type": "InkMarkupFolder",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Front Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Top Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Right Plane",
+                "type": "RefPlane",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Origin",
+                "type": "OriginProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false
+              },
+              {
+                "name": "Sketch1",
+                "type": "ProfileFeature",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              },
+              {
+                "name": "Boss-Extrude1",
+                "type": "Extrusion",
+                "error": 0,
+                "warning": false,
+                "suppressed": false,
+                "dims": [
+                  {
+                    "name": "D1@Boss-Extrude1@DiameterTopBossSaved.Part",
+                    "value": 0.012087210000000001
+                  },
+                  {
+                    "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                    "value": 0.01634742
+                  }
+                ]
+              }
+            ],
+            "constraint_status": 3,
+            "model_to_sketch_transform": [
+              1.0,
+              -0.0,
+              0.0,
+              0.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "frame": {
+              "origin": [
+                0.0,
+                0.0,
+                0.0
+              ],
+              "u": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "v": [
+                0.0,
+                0.0,
+                -1.0
+              ]
+            },
+            "radial": {
+              "name": "D1@Sketch1",
+              "mode": "diameter",
+              "value": 0.01634742,
+              "driving": true,
+              "editable": true,
+              "displays": [
+                {
+                  "name": "D1@Sketch1@DiameterTopBossSaved.Part",
+                  "value": 0.01634742
+                }
+              ]
+            },
+            "center_fixation": {
+              "type": 17,
+              "entities": 1,
+              "entity_ids": [
+                [
+                  0,
+                  2
+                ]
+              ],
+              "bindings": [
+                {
+                  "kind": "point",
+                  "id": [
+                    0,
+                    2
+                  ]
+                }
+              ],
+              "returned_entities": 1,
+              "suppressed": false
+            },
+            "extrusion": {
+              "feature_type": "Extrusion",
+              "end_condition": 0,
+              "depth_parameter": "D1@Boss-Extrude1",
+              "depth": 0.012087210000000001,
+              "radius": 0.00817371,
+              "mass": {
+                "volume": 2.536964500890779e-06,
+                "area": 0.0010405387429128063,
+                "com": [
+                  -0.006139,
+                  0.006043605000000001,
+                  -0.004723
+                ]
+              },
+              "expected_mass": {
+                "volume": 2.5369645008907792e-06,
+                "area": 0.0010405387429128063,
+                "com": [
+                  -0.006139,
+                  0.0060436050000000005,
+                  -0.004723
+                ]
+              }
+            }
+          },
+          "saved_path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\CirclePrincipalInspection01\\DiameterTopBoss\\edited-fresh-reopen\\DiameterTopBossSaved.SLDPRT",
+          "saved_sha256": "49f2c4bfb5889e4485cec4587533958af8b32a3c31561deccddb4168c829629e",
+          "saved_bytes": 53006,
+          "saved_factor": 0.81,
+          "saved_depth_factor": 1.23,
+          "controller_diagnostics": [],
+          "dialogs": [],
+          "progress_windows": [],
+          "source_immutable": true,
+          "recorder": {
+            "file": "Record.json",
+            "bytes": 45945,
+            "sha256": "f1ae085cd49fffafe6a2641281f36a7475f147e70fdfe8a8d153bc9a6584fab2"
+          },
+          "numeric_checks": [
+            {
+              "name": "center 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "center 1",
+              "actual": 0.004723,
+              "expected": 0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "radius",
+              "actual": 0.00817371,
+              "expected": 0.00817371,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame origin 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 0",
+              "actual": 1.0,
+              "expected": 1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame u 2",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 0",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 1",
+              "actual": 0.0,
+              "expected": 0.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "frame v 2",
+              "actual": -1.0,
+              "expected": -1.0,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving radial value",
+              "actual": 0.01634742,
+              "expected": 0.01634742,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "blind definition depth",
+              "actual": 0.012087210000000001,
+              "expected": 0.012087210000000001,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "driving blind depth",
+              "actual": 0.012087210000000001,
+              "expected": 0.012087210000000001,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid volume",
+              "actual": 2.536964500890779e-06,
+              "expected": 2.5369645008907792e-06,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid area",
+              "actual": 0.0010405387429128063,
+              "expected": 0.0010405387429128063,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 0",
+              "actual": -0.006139,
+              "expected": -0.006139,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 1",
+              "actual": 0.006043605000000001,
+              "expected": 0.0060436050000000005,
+              "passed": true,
+              "matches_6_significant_figures": true
+            },
+            {
+              "name": "solid center of mass 2",
+              "actual": -0.004723,
+              "expected": -0.004723,
+              "passed": true,
+              "matches_6_significant_figures": true
+            }
+          ]
+        }
+      ],
+      "fresh_process": true,
+      "passed": true
+    }
+  ],
+  "controls": [
+    {
+      "kind": "control_before",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794833641.1571698
+        },
+        {
+          "stage": "open_start",
+          "time": 1794833653.6555932
+        },
+        {
+          "stage": "open_return",
+          "time": 1794833661.3901331
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794833661.3941822
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794833661.795338
+        },
+        {
+          "stage": "status_start",
+          "time": 1794833661.795338
+        },
+        {
+          "stage": "status_return",
+          "time": 1794833661.8373504
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794833661.8373504
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794833662.0121655
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794833662.0121655
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794833662.0776331
+        },
+        {
+          "stage": "features_start",
+          "time": 1794833662.0776331
+        },
+        {
+          "stage": "features_return",
+          "time": 1794833663.1521595
+        },
+        {
+          "stage": "close_start",
+          "time": 1794833663.1521595
+        },
+        {
+          "stage": "close_return",
+          "time": 1794833663.2577226
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        4124,
+        6588
+      ],
+      "oracle_identity": {
+        "process_id": 4124,
+        "process_creation_filetime": 134393072455868655,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.6,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    },
+    {
+      "kind": "control_after",
+      "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\Stages\\inputs\\L1_boss.SLDPRT",
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "stages": [
+        {
+          "stage": "oracle_idle_guard",
+          "time": 1794833827.9549072
+        },
+        {
+          "stage": "open_start",
+          "time": 1794833839.8737864
+        },
+        {
+          "stage": "open_return",
+          "time": 1794833847.1759882
+        },
+        {
+          "stage": "rebuild_start",
+          "time": 1794833847.1911836
+        },
+        {
+          "stage": "rebuild_return",
+          "time": 1794833847.6162102
+        },
+        {
+          "stage": "status_start",
+          "time": 1794833847.6226394
+        },
+        {
+          "stage": "status_return",
+          "time": 1794833847.7569351
+        },
+        {
+          "stage": "bodies_start",
+          "time": 1794833847.7736013
+        },
+        {
+          "stage": "bodies_return",
+          "time": 1794833847.806933
+        },
+        {
+          "stage": "mass_start",
+          "time": 1794833847.806933
+        },
+        {
+          "stage": "mass_return",
+          "time": 1794833847.8942254
+        },
+        {
+          "stage": "features_start",
+          "time": 1794833847.899844
+        },
+        {
+          "stage": "features_return",
+          "time": 1794833848.9637525
+        },
+        {
+          "stage": "close_start",
+          "time": 1794833848.9672396
+        },
+        {
+          "stage": "close_return",
+          "time": 1794833849.0875204
+        }
+      ],
+      "stage": "close_return",
+      "revision": "34.5.2",
+      "process_ids": [
+        1436,
+        2124
+      ],
+      "oracle_identity": {
+        "process_id": 2124,
+        "process_creation_filetime": 134393074323662709,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "session_diagnostics": [],
+      "seconds": 9.22,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "rebuilt": true,
+      "whats_wrong": 0,
+      "bodies": 1,
+      "mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "features": [
+        {
+          "name": "Comments",
+          "type": "CommentsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Favorites",
+          "type": "FavoriteFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "History",
+          "type": "HistoryFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Selection Sets",
+          "type": "SelectionSetFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sensors",
+          "type": "SensorFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Design Binder",
+          "type": "DocsFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Annotations",
+          "type": "DetailCabinet",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Surface Bodies",
+          "type": "SurfaceBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Solid Bodies",
+          "type": "SolidBodyFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Lights and Cameras",
+          "type": "EnvFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Markups",
+          "type": "InkMarkupFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Equations",
+          "type": "EqnFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Material <not specified>",
+          "type": "MaterialFolder",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Front Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Top Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Right Plane",
+          "type": "RefPlane",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Origin",
+          "type": "OriginProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Sketch1",
+          "type": "ProfileFeature",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        },
+        {
+          "name": "Boss-Extrude1",
+          "type": "Extrusion",
+          "error": 0,
+          "warning": false,
+          "suppressed": false,
+          "dims": [
+            {
+              "name": "D1@Boss-Extrude1@L1_boss.Part",
+              "value": 0.01
+            },
+            {
+              "name": "D1@Sketch1@L1_boss.Part",
+              "value": 0.04
+            },
+            {
+              "name": "D2@Sketch1@L1_boss.Part",
+              "value": 0.02
+            }
+          ]
+        }
+      ],
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "progress_windows": [],
+      "healthy": true
+    }
+  ],
+  "inventories": [
+    {
+      "source": {
+        "file": "CirclePrincipalPreInventory01.json",
+        "bytes": 520,
+        "sha256": "e3b89f82bb2007e6adc4ec1f01ffbb4bd0317719563d05c667ee4c1e1dbd8269"
+      },
+      "record": {
+        "scope": "read-only inventory before generated principal-plane circle body inspection",
+        "at_utc": "2026-11-16T12:53:35.640462+00:00",
+        "returncode": 0,
+        "stderr": "",
+        "raw_stdout_sha256": "42794704e8bf0c5d1c7d97d4e5edcbaf4716eff168670ee30ccb35363251f019",
+        "row_count": 140,
+        "selected_processes": [
+          {
+            "name": "lmgrd.exe",
+            "pid": 1604
+          },
+          {
+            "name": "lmgrd.exe",
+            "pid": 7936
+          },
+          {
+            "name": "sw_d.exe",
+            "pid": 4276
+          }
+        ],
+        "process_mutations": false
+      }
+    },
+    {
+      "source": {
+        "file": "CirclePrincipalPostInventory01.json",
+        "bytes": 526,
+        "sha256": "9f276f37762f20ddb333ff8e10ae9e11467e941bb58f2379a4d17a013b7db1b3"
+      },
+      "record": {
+        "scope": "read-only inventory after generated principal-plane circle boss native inspection",
+        "at_utc": "2026-11-16T12:59:18.595935+00:00",
+        "returncode": 0,
+        "stderr": "",
+        "raw_stdout_sha256": "efef7709246f39ccf943b5fb0f776d8a0e1c3af7d6203d82fe6595f5ccd56e02",
+        "row_count": 145,
+        "selected_processes": [
+          {
+            "name": "lmgrd.exe",
+            "pid": 1604
+          },
+          {
+            "name": "lmgrd.exe",
+            "pid": 7936
+          },
+          {
+            "name": "sw_d.exe",
+            "pid": 4276
+          }
+        ],
+        "process_mutations": false
+      }
+    }
+  ],
+  "numeric_count": 200,
+  "all_numeric_match_6_significant_figures": true,
+  "body_and_edit_rung_passed": true,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "production_adapter": "read-only",
+  "limits": [
+    "Two principal-frame circle boss inputs only; no held-out family acceptance",
+    "Mass properties follow explicit rebuild; initial body presence, camera and appearance parity are unestablished",
+    "Separate saved-reader process gate failed on its missing conditional master payload; these are measured positive generation records only",
+    "No additional FCStd or assembly conversion is counted"
+  ]
+}

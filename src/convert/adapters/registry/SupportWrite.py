@@ -1,4 +1,4 @@
-from convert.adapters.solidworks.Core.Native import KRefSupportSource
+from convert.adapters.base.NativeEvidence import KRefSupportSource
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 

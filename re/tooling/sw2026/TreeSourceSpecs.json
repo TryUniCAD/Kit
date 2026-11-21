@@ -1,0 +1,67 @@
+{
+  "schema": "kit.sw2026.unseen-view-specs.v1",
+  "scope": "Fresh independent native sources for system-folder class recursive tree order names and parents on ordinary blind bosses; the earlier mixed-end source attempt remains failed and ineligible",
+  "writer_change_not_started": true,
+  "private_observations_sealed_until_presentation_writer_freeze": true,
+  "units": {
+    "profile_and_depth": "mm",
+    "translation": "native IModelView.Translation3 coordinates",
+    "scale2": "native IModelView.Scale2"
+  },
+  "cases": [
+    {
+      "name": "P03FrontFolders",
+      "split": "heldout",
+      "plane": "front",
+      "reverse": false,
+      "end_condition": "blind",
+      "depth_mm": 11.917,
+      "expected_bodies": 1,
+      "dimension_kind": "diameter",
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          -3.719,
+          6.137
+        ],
+        "radius_mm": 5.193
+      },
+      "view_request": {
+        "named_view": 8,
+        "scale2": 7.319,
+        "translation": [
+          0.003193,
+          0.001737,
+          -0.004219
+        ]
+      }
+    },
+    {
+      "name": "P04RightFolders",
+      "split": "heldout",
+      "plane": "right",
+      "reverse": true,
+      "end_condition": "blind",
+      "depth_mm": 23.137,
+      "expected_bodies": 1,
+      "dimension_kind": "radial",
+      "profile": {
+        "kind": "circle",
+        "center_mm": [
+          9.173,
+          -2.419
+        ],
+        "radius_mm": 8.719
+      },
+      "view_request": {
+        "named_view": 9,
+        "scale2": 0.8173,
+        "translation": [
+          -0.004193,
+          0.006719,
+          0.002137
+        ]
+      }
+    }
+  ]
+}

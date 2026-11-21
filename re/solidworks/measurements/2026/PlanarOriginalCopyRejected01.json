@@ -1,0 +1,36 @@
+{
+  "schema": "kit.sw2026.original-planar-renderer-resave.v1",
+  "previous_packet_sha256": "a8776d5de20ee7c691cb088a5bb589944ef0c24bf7e57b908b7d088177be989c",
+  "previous_result_sha256": "215f24271caf6c3289cc56ae12f4f8e02b45d98b01329ec61b309a16b7b184e1",
+  "method_sha256": "1dac3d9f6fa45d12db005e6b1d93187110ccf369bd8d8225a7ad27c123e520f3",
+  "cases": {
+    "A20": {
+      "passed": false,
+      "edited_phase_sha256": "c54dcbbc4af3fe94f9396a9e862fc5fb74c480778916a5bae9039296d4be38c8",
+      "first_failure": "native original edit did not complete on the owned copies"
+    },
+    "A21": {
+      "passed": false,
+      "edited_phase_sha256": "c7b13aefb8d7b0931092325030313982cb7438425c0f6e766f8053fa0a695fa2",
+      "first_failure": "native original edit did not complete on the owned copies"
+    }
+  },
+  "controls": {
+    "ControlBefore": {
+      "passed": true,
+      "phase_sha256": "017871d52892894e0c76350682a74b18096e9164ce0de813bf54df3fd7edf6e4"
+    },
+    "ControlAfter": {
+      "passed": true,
+      "phase_sha256": "1925e5f81c25cacb8117c7cca5e8f8fc6651b5d2d57864bd63be17037cfacc25"
+    }
+  },
+  "writer_output_count": 0,
+  "heldout_credit": 0,
+  "full_assembly_qualified": false,
+  "passed": false,
+  "originals_unchanged": true,
+  "native_processes": 4,
+  "numeric_checks": 160,
+  "controls_match": true
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "kit.sw2026.blind-pocket-fixed-centre-readback.v1",
+  "passed": true,
+  "generated_input_sha256": "340e52b7ca4acca96b977bb5f514eb361323a560a69e44c067801c91b4253b12",
+  "include_brep": false,
+  "include_tessellation": false,
+  "heldout_inputs_tested": 0,
+  "sketch_id": "sldprt:sketch:25",
+  "circle_entity_id": "sldprt:sketch:25:profile:0",
+  "circle_entity_fixed": false,
+  "relations": [
+    {
+      "id": "sldprt:constraint:25:profile:0:radius",
+      "kind": "radius",
+      "driving": true,
+      "parameter_id": "sldprt:parameter:25:D1",
+      "operands": [
+        {
+          "entity_id": "sldprt:sketch:25:profile:0",
+          "point": ""
+        }
+      ],
+      "native_spans": [
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "offset": 14269,
+          "length": 8
+        }
+      ]
+    },
+    {
+      "id": "sldprt:constraint:25:profile:0:fixed-center",
+      "kind": "fixed",
+      "driving": true,
+      "parameter_id": null,
+      "operands": [
+        {
+          "entity_id": "sldprt:sketch:25:profile:0",
+          "point": "center"
+        }
+      ],
+      "native_spans": [
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "offset": 14912,
+          "length": 55
+        }
+      ]
+    }
+  ],
+  "readback_source_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "754a8c9b4c635d0edc0e5746152cf391bc8cc473f8d821a8e2c4bc6bca70745b",
+    "src/convert/adapters/solidworks/Core/Native.py": "9400fd7ee13712e202c4fde3a8deee4573309c048e2abcb2af83cefc87e49095",
+    "src/convert/adapters/solidworks/Core/SketchRelations/CircleCenterRule.py": "2ab66069807a3f9ed994edd22d5e910fb9ce8384359e93fecd4ab7d662da0950",
+    "src/convert/adapters/solidworks/Core/SketchRelations/DimensionFields.py": "6d2f00caa5400db4d58cb7d868b2078fdf187a8c688625f0b2751154938c866b",
+    "src/convert/adapters/solidworks/Core/SketchRelations/SketchFields.py": "6ce1e5c0c44cffbda309b7c2313a48d56f4be07aec89cf7108706874ce376fb5"
+  }
+}

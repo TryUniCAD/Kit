@@ -1,0 +1,236 @@
+{
+  "freeze_sha256": "d03830271a9febb101c9dce6357e999e7afde978f29254154f020990403ef22a",
+  "guarded_workers": 20,
+  "native_source_files_read": 0,
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "pairs": [
+    {
+      "generation": {
+        "exact_streams": 10,
+        "fresh_locator_sha256": "f1699e3e89e067f099b5461733f2b6bebc780c4b154f34ed3a537a73a2e6e92f",
+        "guarded_output_events": {
+          "open": 2,
+          "os.listdir": 1,
+          "os.mkdir": 2,
+          "os.rename": 1,
+          "os.rmdir": 1,
+          "os.scandir": 1,
+          "tempfile.mkdtemp": 1
+        },
+        "native_capabilities": [
+          "body_structure",
+          "configurations",
+          "editable_sketches",
+          "parameters",
+          "parametric_history",
+          "selections",
+          "support_planes"
+        ],
+        "original_locator_sha256": "847fdfb4739d1e8f157b32f4ba63dfb671dbbeba9de56b6d7ad19202bb6031b8",
+        "public_fresh_locator_routes": 4,
+        "runtime_input_file_reads": 0
+      },
+      "mode": "midplane",
+      "strict_reads": {
+        "measured_generated": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": false,
+          "driver_count": 1,
+          "linked_streams": 2,
+          "package_grammar_reads": 1,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        },
+        "native_saved_edit": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": true,
+          "driver_count": 1,
+          "linked_streams": 2,
+          "package_grammar_reads": 3,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        },
+        "registry_generated": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": false,
+          "driver_count": 1,
+          "linked_streams": 2,
+          "package_grammar_reads": 1,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        }
+      },
+      "verified_native_states": 3
+    },
+    {
+      "generation": {
+        "exact_streams": 10,
+        "fresh_locator_sha256": "168942b94b3e31ec6cc8123e57ab8353340c5092cf2a64a8fadab33713ab95be",
+        "guarded_output_events": {
+          "open": 2,
+          "os.listdir": 1,
+          "os.mkdir": 2,
+          "os.rename": 1,
+          "os.rmdir": 1,
+          "os.scandir": 1,
+          "tempfile.mkdtemp": 1
+        },
+        "native_capabilities": [
+          "body_structure",
+          "configurations",
+          "editable_sketches",
+          "parameters",
+          "parametric_history",
+          "selections",
+          "support_planes"
+        ],
+        "original_locator_sha256": "9d7980fedadecd14036235b78d0251782826b49835786cffbbfbbf6b606a87d8",
+        "public_fresh_locator_routes": 4,
+        "runtime_input_file_reads": 0
+      },
+      "mode": "two",
+      "strict_reads": {
+        "measured_generated": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": false,
+          "driver_count": 2,
+          "linked_streams": 2,
+          "package_grammar_reads": 1,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        },
+        "native_saved_edit": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": true,
+          "driver_count": 2,
+          "linked_streams": 2,
+          "package_grammar_reads": 3,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        },
+        "registry_generated": {
+          "body_topology": [
+            6,
+            12,
+            8
+          ],
+          "cached": false,
+          "driver_count": 2,
+          "linked_streams": 2,
+          "package_grammar_reads": 1,
+          "relation_count": 5,
+          "runtime_external_reads": 0,
+          "strict_reads": 2
+        }
+      },
+      "verified_native_states": 4
+    }
+  ],
+  "passed": true,
+  "previous_heldout_cases_matched": 2,
+  "previous_native_processes_verified": 10,
+  "prior_native_receipt_sha256": "ef201f8e33168e74ae776e7e6b7efa52c9b5acb80f0d4910e565ea6ead1905be",
+  "schema": "kit.sw2026.square-revolve-public-parity.v1",
+  "source_commit": "82ce682b5ee8e2e47681bcb2b7d5344ce9a4840e",
+  "source_tree": "10c8aeec67758c4fa2e20f554f45ae554eb60fd8",
+  "writer_refusals": [
+    {
+      "case": "missing-equal",
+      "planner_refusal": "public native revolve end mode requires native acceptance",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "plain-two",
+      "planner_refusal": "public native revolve end mode requires native acceptance",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "one-sided-equal",
+      "planner_refusal": "public native revolve equal length requires native acceptance",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "opposite",
+      "planner_refusal": "revolve equal length requires an adjacent square pair",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "axis-operand",
+      "planner_refusal": "revolve relation must bind actual local contour lines",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "non-square",
+      "planner_refusal": "revolve equal length requires an adjacent square pair",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "duplicated",
+      "planner_refusal": "revolve requires five lines and supported actual contour relations",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "front",
+      "planner_refusal": "public native revolve requires a partial boss on canonical Top or Right",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "translated-support",
+      "planner_refusal": "boss support must be a canonical principal frame at origin",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "whole-turn",
+      "planner_refusal": "multiple revolve ends require a partial angular sweep",
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "foreign-suffix",
+      "planner_refusal": null,
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "case": "without-final",
+      "planner_refusal": null,
+      "publication_refused": true,
+      "runtime_input_file_reads": 0
+    }
+  ]
+}

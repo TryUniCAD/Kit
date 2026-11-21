@@ -1,0 +1,58 @@
+{
+  "base_revision": "dd3d8321124c558b569d1386d5326d03808ae05a",
+  "complete_source_preparation_admitted": false,
+  "heldout_inputs_read": 0,
+  "native_rules": [
+    {
+      "constructor": "0x4b8802f0",
+      "node_name_store": "0x4c17af1a",
+      "owner": "moConfigurationMgr_c.f18",
+      "rule": "nullable actual moNodeName_c pointer; null and empty name are distinct",
+      "serializer": "0x4c21ef40",
+      "status": "confirmed in prior pinned source ledger"
+    },
+    {
+      "constructor": "0x4b8802f0",
+      "owner": "moConfigurationMgr_c.f370/f360/f368",
+      "rule": "ordered actual configuration objects; both ordinary selectors alias the same directory member",
+      "status": "existing typed manager rule, three additional disclosed source checks"
+    },
+    {
+      "constructor_factory": "Archive/Construction/Configuration/MakePartConfig.py",
+      "owner": "moPartConfiguration_c.f08/f18/f4a8/f678",
+      "rule": "local ordinal, authored name/description and independent configuration update epoch",
+      "status": "existing shared factory; values projected from the same source document"
+    },
+    {
+      "constructor_factory": "Archive/Definition/Construction/MakePartDef.py",
+      "owner": "uiPartDoc_c.fba8/fad8/fa58/fa5c/fa60/fa64/fa90/ffd8/f1688",
+      "reader": "Core/Preparation/Revolve/Source/ReadRevUi.py",
+      "rule": "separate standard class, signed display words, tessellation scalars, booleans, journal text and document density",
+      "status": "existing source-qualified scalar owner model reused, not complete Definition preservation"
+    },
+    {
+      "owner": "moLogs_c.f48",
+      "rule": "actual model/feature identity; six note/light children need actual target owners before source revisions can bind",
+      "source_ledger": "PartChronologyNative2026.json",
+      "status": "confirmed codec ownership and disclosed source dependency; generation still refused"
+    }
+  ],
+  "new_binary_or_hopper_session": false,
+  "new_native_execution": false,
+  "original_module": {
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "reused_source_records_sha256": {
+    "re/solidworks/records/ConfigurationManagerOptionalName2026.json": "2e93529c261ab4dea00d1ee0c3916aa96134c4dae539cb7c467ca33155f3f6d7",
+    "re/solidworks/records/PartChronologyNative2026.json": "19752d058b4a4a95defde8887e3ff1a1ec3ae718193ab3cca2777b3f5e7ed509",
+    "re/solidworks/records/RevolveSourceUnitOwners2026.json": "7fce6aaa09be074035ad9d8ec86ee698504d4d8fdc4319175da76c067ab81356",
+    "re/solidworks/records/SdkRevolveSourcePreparation2026.json": "3599a43de559eacf545a00de5d935967e37fcba5702fa5baac39b9366935f2ca",
+    "re/solidworks/records/ThroughAllPresentationOwners2026.md": "f374c054e95a0eedf054dde097ac6ce18d464acb63645d9c6a88799a74f439a6",
+    "re/solidworks/records/ThroughAllSourceOwners2026.md": "7ad34f03a271baa41054e19f39e4380accf18dee756c858376294fc96941a358"
+  },
+  "saved_rows_used_for_generation": false,
+  "schema": "kit.sw2026.throughall-source-config-knowledge.v1",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL/source-config-intent"
+}

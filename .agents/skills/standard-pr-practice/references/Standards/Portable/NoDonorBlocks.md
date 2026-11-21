@@ -5,8 +5,12 @@ original source: `.agents/skills/no-donor-blocks/SKILL.md`
 This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
-Kit does not write SOLIDWORKS files.
-The SOLIDWORKS adapter is registered as a reader only.
+Kit registers generative SOLIDWORKS 2026 writers for the qualified ordinary
+line-loop and fixed-centre circle blind bosses, bounded principal-plane mate
+assemblies, and one unlinked ANSI A landscape drawing. The drawing writer also
+regenerates the unchanged canonical generated blank subtype from its typed
+strict-read document. Every additional profile requires its own held-out
+oracle qualification. [Current adapter scope](../../../../../../Documentation/Reference/Adapters/Solidworks.md)
 
 The removed writer did not generate its streams from format rules.
 Each supported family was one vendor-saved stream, re-encoded as typed field operations.

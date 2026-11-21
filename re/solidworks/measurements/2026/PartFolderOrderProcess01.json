@@ -1,0 +1,93 @@
+{
+  "all_default_artifacts_identical": true,
+  "default_cases": [
+    {
+      "complete_report_identical": true,
+      "drawing_sha256": "72a5a319a39bf8e836332544a15fc273d0a8e24fb2e966b20bc9812050b22250",
+      "name": "GeneratedFront",
+      "part_sha256": "2c537294e39f6c59595ab3137681ffb40fffca9693c056fa55394cb1b2ada48f"
+    },
+    {
+      "complete_report_identical": true,
+      "drawing_sha256": "367e174a63297d64ed0cd014457ddea0bb4495afcd687657b1b9cb490b60282d",
+      "name": "GeneratedIsometric",
+      "part_sha256": "9ae406526c12985d08a3213b3d619353a67845af8f2ea521ac2e114aa5438bf8"
+    },
+    {
+      "complete_report_identical": true,
+      "drawing_sha256": "f862de2d2fd5b6150bd2db5798401b11ab2976f25303b73adc58212561f861d8",
+      "name": "GeneratedRight",
+      "part_sha256": "22b31078d04452e45493c78214016826c39839fa2829048b44a74387a62c984a"
+    },
+    {
+      "complete_report_identical": true,
+      "drawing_sha256": "194dd96dceed6da611a41c91d7ba955cecc8017538801114d3e3f7e8d10c3810",
+      "name": "GeneratedTop",
+      "part_sha256": "f2b95e3fab4df680c66fd5b63b2af56091bd3a5deb8bef158b1e878e6e03aa21"
+    },
+    {
+      "complete_report_identical": true,
+      "drawing_sha256": "7b4351e3df855c20dcdd5aeeca5ab2226006c50c3df161ca7ac8f591da75351a",
+      "name": "D01FrontView",
+      "part_sha256": "aed47795ae43c640e04bec7f7727a8de37e6cc6772ab0a4dabfefecdfb456c65"
+    }
+  ],
+  "fresh_processes": 19,
+  "guarded_successful_builds": 12,
+  "heldout_inputs_read": 0,
+  "independent_recipe_sha256": "d9bb6741549a14043f05676c76a4fc1945434d768626a443bb6dbefc75476404",
+  "invalid_requests": [
+    {
+      "input_kind": "list",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "list",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "list",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "list",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "list",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "str",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "input_kind": "dict",
+      "output_bytes": 0,
+      "rejected": true
+    }
+  ],
+  "job_sha256": "65c9f60d3598e8ff8462a9c08b3c42fdaa52d97e245a0cc804b7dd6afbf93c4e",
+  "native_acceptance": false,
+  "ordered_artifacts": {
+    "drawing": "de708c560562a022831b0abd01e308da30e9afcff5fd63e8ec0a2c9ee5dda8d0",
+    "part": "b75cb20722435a700fb28e74ae84c90b6bde60188fcbc0cf4c605a30c1ad4627"
+  },
+  "ordered_source": "original MakePartInput AST key sequence",
+  "passed": true,
+  "prior_source_manifest_sha256": "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4",
+  "private_job_sha256": "65c9f60d3598e8ff8462a9c08b3c42fdaa52d97e245a0cc804b7dd6afbf93c4e",
+  "private_result_sha256": "09778603bc78e6e6e7e6658b11541a224a80609094eebd8b0496fbb34a5b79e6",
+  "process_tool_sha256": "100cc12044bb9ca3f57c9f2be494376404a336791de97af507109a85e0af2b2d",
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.authored-folder-order-process-result.v1",
+  "source_closure_immutable": true,
+  "vendor_runtime_executed": false,
+  "writer_source_manifest_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
+}

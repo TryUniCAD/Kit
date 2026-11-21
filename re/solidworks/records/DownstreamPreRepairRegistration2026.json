@@ -1,0 +1,1567 @@
+{
+  "authored_source_inputs": [
+    {
+      "bytes": 8182,
+      "declarations": [
+        {
+          "end_line": 54,
+          "line": 31,
+          "name": "authored_prism",
+          "source_sha256": "6db68705c942e2790e81acf44f08d5d0576cbe09b2959ad65ca9886b6e8a3c9c"
+        }
+      ],
+      "git_blob_sha1": "385c91aae8939972192baa8d21fb00b2d87dfc68",
+      "path": "re/tooling/sw2026/downstream/CheckPrismFaceConstructors.py",
+      "prior_packet_sha256": "921f52a0ae7e93ccc351ff52346a3b9b896b13c604cc2566346451bcf9e843d4",
+      "scope_note": "Concurrent root-owned check_graph alias verification changed; authored_prism was independently reread and root confirms that declaration unchanged",
+      "sha256": "6a2b0ed338a5ac05c47fcb05b1bdafacb0e17f6ad1696114d924d4fec5f05433"
+    },
+    {
+      "bytes": 22632,
+      "declarations": [
+        {
+          "end_line": 129,
+          "line": 66,
+          "name": "_metadata",
+          "source_sha256": "ff6a1e41d34e89e77c0a99ef46437ff986ccdc627224f01aa1c62ae94f93e219"
+        },
+        {
+          "end_line": 354,
+          "line": 168,
+          "name": "construct_part",
+          "source_sha256": "ee36af6c2faaac0ede3d4abd1bc24cae7b4d57a16fa3eaa78e4c9ff7481de582"
+        }
+      ],
+      "git_blob_sha1": "ea7ffcdd4501284a9ed351d7ac70522c26d107c4",
+      "path": "re/tooling/sw2026/builders/Part.py",
+      "sha256": "f349ee8aac7a8ca452ae60193f61d7128b75cfce3e3c964270ab53faf6872580"
+    },
+    {
+      "bytes": 38822,
+      "declarations": [
+        {
+          "end_line": 766,
+          "line": 701,
+          "name": "configuration_manager",
+          "source_sha256": "dd3e63edcbb2bb773600cf507a8f47b4b3be3bfa84e5e9684ddc548f1833aa83"
+        },
+        {
+          "end_line": 1036,
+          "line": 959,
+          "name": "part_graph",
+          "source_sha256": "d336f10d8955fce497d73198e0a177a167636da594fdd8c0c73d02f7c9ba188b"
+        }
+      ],
+      "git_blob_sha1": "97d6a31401d01ff593af944d8eae083213f0e7cf",
+      "path": "re/tooling/sw2026/builders/Model.py",
+      "sha256": "4bdd7397c1e7ba639fdb322a4b997c66ec0fc434341e830ac5adc274b0d4220e"
+    },
+    {
+      "bytes": 17055,
+      "declarations": [
+        {
+          "end_line": 148,
+          "line": 98,
+          "name": "header",
+          "source_sha256": "89225da670a7dd3e9cd3094a4bde26a8558b1fd927a3320ad8c11e3e86dca635"
+        }
+      ],
+      "git_blob_sha1": "f6f12516480f96c2b925d115eda6b3bf26ca5369",
+      "path": "re/tooling/sw2026/builders/Metadata.py",
+      "sha256": "93b719a1802ef05826ceb24f88b1cd92b60e6ce551b358c07fbf3395bc620260"
+    },
+    {
+      "bytes": 3604,
+      "declarations": [
+        {
+          "end_line": 74,
+          "line": 44,
+          "name": "ordinary_self_reference",
+          "source_sha256": "a969d37f6d8486175e49bcdfe6aaba39214ed2d4a9d4c4c308af3ee3d231a8db"
+        }
+      ],
+      "git_blob_sha1": "454927cab2c3b714e215df3ff737065ff580898a",
+      "path": "re/tooling/sw2026/builders/ExternalFiles.py",
+      "sha256": "7308eb99692a17f5c354eacbf4b663a252baf056402381a4b0bae424fbcb6562"
+    },
+    {
+      "bytes": 6177,
+      "declarations": [
+        {
+          "end_line": 102,
+          "line": 56,
+          "name": "archive_for_oracle",
+          "source_sha256": "2529c3447986f92c1c89cf861b0da7a1e7192f7f423d50a7f5a202f703304b50"
+        }
+      ],
+      "git_blob_sha1": "b079ecc56c2d3591a84669345e442b1db923e0fd",
+      "path": "re/tooling/sw2026/para/rectangle/ArchiveAttachment.py",
+      "sha256": "207fa77b40973a6def0139bc6a259e03b397884582c8f63594e8eeb5a1608da4"
+    },
+    {
+      "bytes": 6252,
+      "declarations": [
+        {
+          "end_line": 106,
+          "line": 100,
+          "name": "make_feature_file",
+          "source_sha256": "ccf43e4e0c6ae3e7b15622f9b17ee6614bc55466ccc6c9153aa81bb0ab0fc252"
+        }
+      ],
+      "git_blob_sha1": "c279b37a90d5b05780a3afa0f51ab5d5b255f68f",
+      "path": "re/tooling/sw2026/para/concentric/CylinderFace.py",
+      "sha256": "7dd7bdf7c5287eda305606e2f5052127a623d1c37046e268f6d6dc6faed01092"
+    },
+    {
+      "bytes": 7765,
+      "declarations": [
+        {
+          "end_line": 71,
+          "line": 36,
+          "name": "read_prism_face_owners",
+          "source_sha256": "9edc00cd833885c17de5a2a0bc69f87b871638bdd1bb8bd48670358550b6a5e7"
+        },
+        {
+          "end_line": 147,
+          "line": 134,
+          "name": "prism_face_constructor_fields",
+          "source_sha256": "26cda80b15bceca82f47ceeea58d24cbd819b5339dfb60576824aad5131ed1d5"
+        }
+      ],
+      "git_blob_sha1": "43cd3dc52d31f2cbc15546077c7010169f6318e2",
+      "path": "re/tooling/sw2026/downstream/PrismFaceConstructors.py",
+      "sha256": "72448280c4f7a5ab292730d509aa74c645e407d1093e9bd0744573bfe1a7bac1"
+    },
+    {
+      "bytes": 2199,
+      "declarations": [
+        {
+          "end_line": 43,
+          "line": 15,
+          "name": "CheckPrismMgr",
+          "source_sha256": "3f504b2a59665b3ab9868b3deb8c2f1ca19e511723c972c94ed738da14af27ea"
+        }
+      ],
+      "git_blob_sha1": "bceac41c3cf79016df0cd3072505f119b3b1447e",
+      "path": "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismMgr.py",
+      "sha256": "c9b76f9c3aebd51c142b52b8fdbeaa131f0df719bdcb4e62857f823e34d14281"
+    },
+    {
+      "bytes": 21627,
+      "declarations": [
+        {
+          "end_line": 509,
+          "line": 91,
+          "name": "define",
+          "source_sha256": "4c0be0b2b11ac9d321f345d9b36116e06589e05db5799ce0b923c437e375f707"
+        }
+      ],
+      "git_blob_sha1": "88b667d4ef2ce6fd5051c93e7968be961633123f",
+      "path": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "sha256": "76c46ab9d70235fa5346e449a34df0850484cfeb9ad10553bd5f54ff811db11d"
+    }
+  ],
+  "confirmed": {
+    "connect_manager_processing": "loadResolvedFeatures calls processConnectRefMgr, which scans actual model feature list and only processes a feature after its actual virtual5f0 predicate returns nonzero",
+    "current_part_read": "For actual moPart, effective context version >=0xc7d selects virtual4b8 then virtual4c0 in that order; virtual4b8 load branch calls makeSelfReference",
+    "embedded_self_reference": "makeSelfReference constructs moReferenceEmbedded with the same actual part as model and owner; its constructor delegates to moReference base with target=NULL and final switch1",
+    "foreign_connect_exclusion": "The final switch1 branches from 0x4bbb7fcf directly to0x4bbb803a, excluding the explicit addOrConnectGraphicsExtObjectRef/addOrConnectExtObjectRef calls in this base helper",
+    "known_prism_predicates": "Every generated folder, cabinet, plane, origin, sketch and boss class listed here has actual5f0 target returning0; moConnectRefMgr has target returning1",
+    "optional_model_bridge": "Resolved load optional SMM6a0 call requires part predicate true, bridge nonnull, CMgr nonnull and actual CMgr+658 nonzero; unchanged generated source initializes f658=0, but this packet does not audit every later field mutation",
+    "partition_caller": "loadFutureModelBodies invokes actual model1a58 at0x4b586a65 or0x4b586c21, requiring nonnull modelContext(false) and true context+a20; the concrete mode predicate remains unbound",
+    "repair_order": "The preserved named-partition path attaches BODY_RECIPE model before explicit getAllFromBody repair1/refresh0",
+    "target_requirement_of_skipped_branch": "If that switch were zero, the branch additionally requires a nonnull target model handle and a resolved target distinct from the actual owner model; neither branch is evidence that this self-reference registers a foreign owner"
+  },
+  "data_windows": [
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d1252d8",
+      "module": "sldmodu.dll",
+      "name": "moPart_c table identity",
+      "sha256": "2fd22229b708cac4c388fc6afb87a4e68a763f7ca069556a2eaa6f778156232a",
+      "start": "0x4d1252d0"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d352fd8",
+      "module": "sldmodu.dll",
+      "name": "moPart_c locator",
+      "sha256": "c55ca4e4a0c0af7c95dec1401abe98d4376a9c538461632b833b5d1ed4592567",
+      "start": "0x4d352fc0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 31,
+      "end_exclusive": "0x4db11d0f",
+      "module": "sldmodu.dll",
+      "name": "moPart_c descriptor",
+      "sha256": "c06f5e1be3e52b8875b02bf7b3a1f7b74ebf8fbbc514b6c0a748b3dc60ec6936",
+      "start": "0x4db11cf0"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4cf7a8b0",
+      "module": "sldmodu.dll",
+      "name": "moReference_c table identity",
+      "sha256": "bb1b6989721614c29e835d05671b75126bd76b3610429a6719ba25a757d6c297",
+      "start": "0x4cf7a8a8"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d335bd8",
+      "module": "sldmodu.dll",
+      "name": "moReference_c locator",
+      "sha256": "41514fdecd675f48ed27dc239694d02b2fb79e0dea290940e6613c84ea72807d",
+      "start": "0x4d335bc0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 36,
+      "end_exclusive": "0x4db0ea2c",
+      "module": "sldmodu.dll",
+      "name": "moReference_c descriptor",
+      "sha256": "2d065b19696c977316b4ee8323bfc425cbe8c8be51f1baaf76de93e72459ac77",
+      "start": "0x4db0ea08"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4cf801f0",
+      "module": "sldmodu.dll",
+      "name": "moReferenceEmbedded_c table identity",
+      "sha256": "a27e3be0b2b864f436699f28f8b2be5b6d9b3e8f14b149cbdfd53905fb6051f9",
+      "start": "0x4cf801e8"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d335d08",
+      "module": "sldmodu.dll",
+      "name": "moReferenceEmbedded_c locator",
+      "sha256": "266d34834bc562169f652c1908e2089242a09809823adebeb64aef1153cd2812",
+      "start": "0x4d335cf0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 44,
+      "end_exclusive": "0x4db36cb4",
+      "module": "sldmodu.dll",
+      "name": "moReferenceEmbedded_c descriptor",
+      "sha256": "18cd868f1e76ef55b885e62bdfa6bfbb47292cead1aa809643e6e0954e3a4f92",
+      "start": "0x4db36c88"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d05e710",
+      "module": "sldmodu.dll",
+      "name": "moCommentsFolder_c table identity",
+      "sha256": "1e02acb910cec7071582ff90fee0dcbac183226b49781b4efc3e9c2cd77b0b25",
+      "start": "0x4d05e708"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d3459d8",
+      "module": "sldmodu.dll",
+      "name": "moCommentsFolder_c locator",
+      "sha256": "06e11696b73633bf1a4062846580ee83dc548a6001db2900827e283b5d6e49e0",
+      "start": "0x4d3459c0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 41,
+      "end_exclusive": "0x4db3b141",
+      "module": "sldmodu.dll",
+      "name": "moCommentsFolder_c descriptor",
+      "sha256": "377da828e526dd847014eeaf0e96799244323da9169205b9881b025cbcea042f",
+      "start": "0x4db3b118"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d05c9e8",
+      "module": "sldmodu.dll",
+      "name": "moDocsFolder_c table identity",
+      "sha256": "8d115c26e91642a1642fcf78f47b143c6aaae73a6eec2ba9b58ddbc4635aedf0",
+      "start": "0x4d05c9e0"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d3458f8",
+      "module": "sldmodu.dll",
+      "name": "moDocsFolder_c locator",
+      "sha256": "9d24903a64571ceab59ce0ec8681903ae3d21e85b7591de87c07baf1e0bba124",
+      "start": "0x4d3458e0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 37,
+      "end_exclusive": "0x4db3b115",
+      "module": "sldmodu.dll",
+      "name": "moDocsFolder_c descriptor",
+      "sha256": "8675d160caa3d87749e3e480d35d1f47ab6439974da1d00a0b6bfa84ac719d02",
+      "start": "0x4db3b0f0"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d04a4d0",
+      "module": "sldmodu.dll",
+      "name": "moEnvFolder_c table identity",
+      "sha256": "8605e11cf92751044477a9a4b07139e9be60053720716a8d97977a2f57d39ed1",
+      "start": "0x4d04a4c8"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d345048",
+      "module": "sldmodu.dll",
+      "name": "moEnvFolder_c locator",
+      "sha256": "5a231fccc52a9c1d1585c4fe7b9df7716426c7b23d334309b13f8d852fc671cc",
+      "start": "0x4d345030"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 36,
+      "end_exclusive": "0x4db3af44",
+      "module": "sldmodu.dll",
+      "name": "moEnvFolder_c descriptor",
+      "sha256": "5edbf19d43ed7917541b6dee028c191e4aef2f106eff95a281a228d951949ab0",
+      "start": "0x4db3af20"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d03ed10",
+      "module": "sldmodu.dll",
+      "name": "moEqnFolder_c table identity",
+      "sha256": "6d8d9190451e2dfceb50355b09c0ea290277cddbbf4cf4640ef200a4614e9862",
+      "start": "0x4d03ed08"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d344080",
+      "module": "sldmodu.dll",
+      "name": "moEqnFolder_c locator",
+      "sha256": "3ec01d24b8b705834ae5fefd8c08b44d1bc9e2f8d48ffe7f1c356c04d1dfdc48",
+      "start": "0x4d344068"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 36,
+      "end_exclusive": "0x4db10744",
+      "module": "sldmodu.dll",
+      "name": "moEqnFolder_c descriptor",
+      "sha256": "bf9856f20b031d38cab1f8831210dd0dc19dd60abb02abdf68f883e1c8e0e218",
+      "start": "0x4db10720"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4ce35250",
+      "module": "sldmodu.dll",
+      "name": "moFavoriteFolder_c table identity",
+      "sha256": "2ef0bbbea714e5b07474bb699afec54f97cc1f8d37eebeb08a5fb84e197ebb82",
+      "start": "0x4ce35248"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d30a240",
+      "module": "sldmodu.dll",
+      "name": "moFavoriteFolder_c locator",
+      "sha256": "002532914d7d981405db14b56a3635e22b2f9e867ea84a24b64973f068edf163",
+      "start": "0x4d30a228"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 41,
+      "end_exclusive": "0x4db29791",
+      "module": "sldmodu.dll",
+      "name": "moFavoriteFolder_c descriptor",
+      "sha256": "5055c8337cc9b815517d715383616d3c085c7313c153b7deb283a9644e31e90a",
+      "start": "0x4db29768"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4ce42870",
+      "module": "sldmodu.dll",
+      "name": "moHistoryFolder_c table identity",
+      "sha256": "39254e70e3367577d9095c668c02df27d9f5cf7d4597db0e309c0b76bf267c3f",
+      "start": "0x4ce42868"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d30ac18",
+      "module": "sldmodu.dll",
+      "name": "moHistoryFolder_c locator",
+      "sha256": "70f9f985735593052045c91b144a69cc60957b1f4a67bd7f62103396566c29dc",
+      "start": "0x4d30ac00"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 40,
+      "end_exclusive": "0x4db299c8",
+      "module": "sldmodu.dll",
+      "name": "moHistoryFolder_c descriptor",
+      "sha256": "b3f4686f035b3996cc2d46aea9c14c662867fcab4ef5312ee7866d1d9f317c76",
+      "start": "0x4db299a0"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d04c1f8",
+      "module": "sldmodu.dll",
+      "name": "moMaterialFolder_c table identity",
+      "sha256": "53840faf22fbd7793cee564d9359774e6eafb9f053f8bd0ce0a55738b7d51226",
+      "start": "0x4d04c1f0"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d344f68",
+      "module": "sldmodu.dll",
+      "name": "moMaterialFolder_c locator",
+      "sha256": "9518124a1c758db3648b556ce29d93784c78c094474e786896cf14caf77289c2",
+      "start": "0x4d344f50"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 41,
+      "end_exclusive": "0x4db3af19",
+      "module": "sldmodu.dll",
+      "name": "moMaterialFolder_c descriptor",
+      "sha256": "2935d4ba2f2c3bab977e454763724aeea8ef7aa629c0daa975999c899d6c52bd",
+      "start": "0x4db3aef0"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d072820",
+      "module": "sldmodu.dll",
+      "name": "moInkMarkupFolder_c table identity",
+      "sha256": "e1e07441dd5850fb15afa1007a9bd3a89bb05b849fc4c5350eaf8f59cda206b8",
+      "start": "0x4d072818"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d346390",
+      "module": "sldmodu.dll",
+      "name": "moInkMarkupFolder_c locator",
+      "sha256": "30e58be3d874b2bb574ebceb8b944cda448f0d453d2df6798f87ee085db634d8",
+      "start": "0x4d346378"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 42,
+      "end_exclusive": "0x4db3b33a",
+      "module": "sldmodu.dll",
+      "name": "moInkMarkupFolder_c descriptor",
+      "sha256": "c17cd9044387d61caab0be612f52484f2652a99dddfdbda9a784b120ad8b94da",
+      "start": "0x4db3b310"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d08e930",
+      "module": "sldmodu.dll",
+      "name": "moNotesAreaFtrFolder_c table identity",
+      "sha256": "e95ee921c13fdb92a76bc0dd67edc76acc9e5482dc5a61ee6e20999a5070471d",
+      "start": "0x4d08e928"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d347570",
+      "module": "sldmodu.dll",
+      "name": "moNotesAreaFtrFolder_c locator",
+      "sha256": "9cb8ce03f8e900585623378366da036b67e96923e6bcdf6675cfe1547ff271c4",
+      "start": "0x4d347558"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 45,
+      "end_exclusive": "0x4db3b7a5",
+      "module": "sldmodu.dll",
+      "name": "moNotesAreaFtrFolder_c descriptor",
+      "sha256": "69766ca19ed970099490b0d2f8f2ed8702f1e6a71156bda5784564ab1720ce0c",
+      "start": "0x4db3b778"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4ce3c0d8",
+      "module": "sldmodu.dll",
+      "name": "moSelectionSetFolder_c table identity",
+      "sha256": "d061397dbbf316daf4105d588ca29287e630b40b3f0336961cf6fc0a5ae4a73e",
+      "start": "0x4ce3c0d0"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d30a7b0",
+      "module": "sldmodu.dll",
+      "name": "moSelectionSetFolder_c locator",
+      "sha256": "2479dacd9e40192c5026576d6468ef99adfedb86f76f92420bec25470b41e0ca",
+      "start": "0x4d30a798"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 45,
+      "end_exclusive": "0x4db2990d",
+      "module": "sldmodu.dll",
+      "name": "moSelectionSetFolder_c descriptor",
+      "sha256": "1234031004c3dadaab0e81261362d898ffbc8416799c9c2e58cb3d3145a95ed7",
+      "start": "0x4db298e0"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d069608",
+      "module": "sldmodu.dll",
+      "name": "moSensorFolder_c table identity",
+      "sha256": "2de74819fb9b443e70189e10d6b8e9be051b0f9b046c23609d85fc6025570b64",
+      "start": "0x4d069600"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d345f18",
+      "module": "sldmodu.dll",
+      "name": "moSensorFolder_c locator",
+      "sha256": "3976398e86b6359f89c64b7486f7de771f3f772b2ba35e97eeb12bf4baef9885",
+      "start": "0x4d345f00"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 39,
+      "end_exclusive": "0x4db3b24f",
+      "module": "sldmodu.dll",
+      "name": "moSensorFolder_c descriptor",
+      "sha256": "47cdf2f078aa1ba390445dd2859569df7e9558898ad0372d64016ec14d6fd636",
+      "start": "0x4db3b228"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d051a68",
+      "module": "sldmodu.dll",
+      "name": "moSolidBodyFolder_c table identity",
+      "sha256": "2be22f233c09276f007eb6fba6a1ab8541229eaadf74909985359fd430939a24",
+      "start": "0x4d051a60"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d345380",
+      "module": "sldmodu.dll",
+      "name": "moSolidBodyFolder_c locator",
+      "sha256": "c72dc425fe7912ff7c27edfd780996907996f2d926bed5c1a2ee9e73dbff26d7",
+      "start": "0x4d345368"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 42,
+      "end_exclusive": "0x4db3b002",
+      "module": "sldmodu.dll",
+      "name": "moSolidBodyFolder_c descriptor",
+      "sha256": "5acae4d95ba71285cd9f24cd9f065efff2334a76665e475b587863e406e74004",
+      "start": "0x4db3afd8"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d04fd10",
+      "module": "sldmodu.dll",
+      "name": "moSurfaceBodyFolder_c table identity",
+      "sha256": "541a4f8e3afe24e48ee05cfab52b6cd270b82327364f3f857a7ab59085e43d50",
+      "start": "0x4d04fd08"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d345298",
+      "module": "sldmodu.dll",
+      "name": "moSurfaceBodyFolder_c locator",
+      "sha256": "6b451118e4f3fba34080deac0e7933ca0d8f782a158d68f6f27f6b4149a5729e",
+      "start": "0x4d345280"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 44,
+      "end_exclusive": "0x4db3afd4",
+      "module": "sldmodu.dll",
+      "name": "moSurfaceBodyFolder_c descriptor",
+      "sha256": "43257b01ca8a0a1046e91f67570022e18a9dd5e69b906ecc8968438a6e17cca6",
+      "start": "0x4db3afa8"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4cef66f0",
+      "module": "sldmodu.dll",
+      "name": "moDetailCabinet_c table identity",
+      "sha256": "eeda73fcb2be1d4262122a85bb701f29eb716dec35d0f876ff53d3266c5fea08",
+      "start": "0x4cef66e8"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d3260d8",
+      "module": "sldmodu.dll",
+      "name": "moDetailCabinet_c locator",
+      "sha256": "880afaf1e995fde95a5bbff419c55bff971568c338d9a6db4325680406fb124b",
+      "start": "0x4d3260c0"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 40,
+      "end_exclusive": "0x4db32400",
+      "module": "sldmodu.dll",
+      "name": "moDetailCabinet_c descriptor",
+      "sha256": "e279b78ec694f634590987c37d47870d2a1802a788c85eaa870aaf9d3be1efa0",
+      "start": "0x4db323d8"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d16f278",
+      "module": "sldmodu.dll",
+      "name": "moRefPlane_c table identity",
+      "sha256": "0f628dd11d66a1abd35b59a0fed2e47e5427e0b7e9b8b87af7c8b0251c037472",
+      "start": "0x4d16f270"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d35a4e0",
+      "module": "sldmodu.dll",
+      "name": "moRefPlane_c locator",
+      "sha256": "2651ca577612402216a516240440e1e091d3e39061e2dc21845168c7910e6f07",
+      "start": "0x4d35a4c8"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 35,
+      "end_exclusive": "0x4db0eaab",
+      "module": "sldmodu.dll",
+      "name": "moRefPlane_c descriptor",
+      "sha256": "845b55e79d5cd102491ab0cec83764f2bac9a861f4d77cd9407e6fb099d77b15",
+      "start": "0x4db0ea88"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d0ef510",
+      "module": "sldmodu.dll",
+      "name": "moOriginProfileFeature_c table identity",
+      "sha256": "96f82d0e4af3064d4384eb039615c7b472362ec5f9ef7e5dec299c75b0c1cf37",
+      "start": "0x4d0ef508"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d34ed48",
+      "module": "sldmodu.dll",
+      "name": "moOriginProfileFeature_c locator",
+      "sha256": "ba65f46930432aed8a7e104ad525453fadd70994813d5d21f4ec69ce0ea9cbbf",
+      "start": "0x4d34ed30"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 47,
+      "end_exclusive": "0x4db3d897",
+      "module": "sldmodu.dll",
+      "name": "moOriginProfileFeature_c descriptor",
+      "sha256": "2edbbc37eb5761f1f69f4bfec0d1394e6034b59deda727f1d548be49209da9f0",
+      "start": "0x4db3d868"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4d0e8e80",
+      "module": "sldmodu.dll",
+      "name": "moProfileFeature_c table identity",
+      "sha256": "5a71f0a640c86b754fce704eb4dbf21300baa7393d190729770d5c5bd8ab15cf",
+      "start": "0x4d0e8e78"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d34eb40",
+      "module": "sldmodu.dll",
+      "name": "moProfileFeature_c locator",
+      "sha256": "7f295e63026d5305fe8fb7dac179562882848b68cc9b9feb851415f37ec3d8ed",
+      "start": "0x4d34eb28"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 41,
+      "end_exclusive": "0x4db15681",
+      "module": "sldmodu.dll",
+      "name": "moProfileFeature_c descriptor",
+      "sha256": "07345a9532523b738370eabfcf7733cc385057960459e1e45c2ecb4da1e0dca8",
+      "start": "0x4db15658"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4cf3d488",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c table identity",
+      "sha256": "ed69e4eed145ba152a87617f64029ab85861b9f0e8bce81560c23bebe557e5c3",
+      "start": "0x4cf3d480"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d32da40",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c locator",
+      "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+      "start": "0x4d32da28"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 36,
+      "end_exclusive": "0x4db0eb4c",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c descriptor",
+      "sha256": "8f5601aac596a052b27d737839e1c19ebb0fc8f874c280116b888385709165d5",
+      "start": "0x4db0eb28"
+    },
+    {
+      "bound": "actual vtable complete-object-locator pointer",
+      "bytes": 8,
+      "end_exclusive": "0x4cdc2468",
+      "module": "sldmodu.dll",
+      "name": "moConnectRefMgr_c table identity",
+      "sha256": "1f719c7f78681984cf69a9b7570294ed0fcf9c5bcce4bacfde1759ec47ad8744",
+      "start": "0x4cdc2460"
+    },
+    {
+      "bound": "actual complete-object-locator",
+      "bytes": 24,
+      "end_exclusive": "0x4d2f0cd0",
+      "module": "sldmodu.dll",
+      "name": "moConnectRefMgr_c locator",
+      "sha256": "0366a590e14d15ff75a1250af35f1829a6beabb14a9dc9c8d311e1d1698e621f",
+      "start": "0x4d2f0cb8"
+    },
+    {
+      "bound": "actual type descriptor through terminator",
+      "bytes": 40,
+      "end_exclusive": "0x4db13058",
+      "module": "sldmodu.dll",
+      "name": "moConnectRefMgr_c descriptor",
+      "sha256": "d6add1fd3b1b221d3c61240de73a1ed3f3d9e2c840662ec1629fd75ef7993a57",
+      "start": "0x4db13030"
+    }
+  ],
+  "delivery_pr": 121,
+  "execution": {
+    "cad": false,
+    "heldout_reads": false,
+    "native": false,
+    "rea_or_hopper_session_opened": false,
+    "schema_or_codec": false,
+    "shared_mutations": false,
+    "tests": false,
+    "vendor_listings_distributed": false,
+    "vm": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 5934,
+      "end_exclusive": "0x4c22b18e",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalPartSerialize01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "df40575c740e816705f1255e4526ae39159c64579a565a380d5ce32c33dacebb",
+      "start": "0x4c229a60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 5934,
+          "end_exclusive": "0x4c22b18e",
+          "sha256": "df40575c740e816705f1255e4526ae39159c64579a565a380d5ce32c33dacebb",
+          "start": "0x4c229a60",
+          "unwind_rva": "0x24837c4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2718,
+      "end_exclusive": "0x4c23146e",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalModelLayoutLoad01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "7dc4c09ed5898cb8c1f2a761c5f9ba48cd7cb7b68a141818ba2bc4613f17b6cd",
+      "start": "0x4c2309d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2718,
+          "end_exclusive": "0x4c23146e",
+          "sha256": "7dc4c09ed5898cb8c1f2a761c5f9ba48cd7cb7b68a141818ba2bc4613f17b6cd",
+          "start": "0x4c2309d0",
+          "unwind_rva": "0x2483504"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 126,
+      "end_exclusive": "0x4c1b85ae",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalMakeSelf01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "df001d598be5ead68c7c04f9907dd6944020ec3c25e72a5b8f308b9bea34f98b",
+      "start": "0x4c1b8530",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 126,
+          "end_exclusive": "0x4c1b85ae",
+          "sha256": "df001d598be5ead68c7c04f9907dd6944020ec3c25e72a5b8f308b9bea34f98b",
+          "start": "0x4c1b8530",
+          "unwind_rva": "0x22da9a0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 124,
+      "end_exclusive": "0x4bbb745c",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalSelfEmbeddedCtor01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "5e4c0a39df52cc492b849100032d7ec9ca09ef03e0fb315b24c9a7798a91e324",
+      "start": "0x4bbb73e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 124,
+          "end_exclusive": "0x4bbb745c",
+          "sha256": "5e4c0a39df52cc492b849100032d7ec9ca09ef03e0fb315b24c9a7798a91e324",
+          "start": "0x4bbb73e0",
+          "unwind_rva": "0x239aa48"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1228,
+      "end_exclusive": "0x4bbb806c",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalEmbeddedBaseCtor01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "788cb52936f453d8f664309b4f22df70960b1e8ecefb2c2f8698f12f54514cff",
+      "start": "0x4bbb7ba0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1228,
+          "end_exclusive": "0x4bbb806c",
+          "sha256": "788cb52936f453d8f664309b4f22df70960b1e8ecefb2c2f8698f12f54514cff",
+          "start": "0x4bbb7ba0",
+          "unwind_rva": "0x2397cb0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1304,
+      "end_exclusive": "0x4b5891a8",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalLoadResolved01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "cf2fc2faf07eef16531f6190271d77064666b4b4207f2ff73b664b2a4c63dc34",
+      "start": "0x4b588c90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1304,
+          "end_exclusive": "0x4b5891a8",
+          "sha256": "cf2fc2faf07eef16531f6190271d77064666b4b4207f2ff73b664b2a4c63dc34",
+          "start": "0x4b588c90",
+          "unwind_rva": "0x22b7fd0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 460,
+      "end_exclusive": "0x4c02f45c",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalConnectRefs01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "9f53cee983ccecde9119c447ef852a394628d195612d61672dabbe4965dcb477",
+      "start": "0x4c02f290",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 460,
+          "end_exclusive": "0x4c02f45c",
+          "sha256": "9f53cee983ccecde9119c447ef852a394628d195612d61672dabbe4965dcb477",
+          "start": "0x4c02f290",
+          "unwind_rva": "0x243bd1c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1882,
+      "end_exclusive": "0x4b586d2a",
+      "module": "sldmodu.dll",
+      "name": "ForeignIntervalFutureBodies01",
+      "review_scope": "Only the named guarded call sites and constructor arguments below; a complete function hash is not a complete transitive side-effect audit",
+      "sha256": "5bded576335609222e8858d3487f079c2d5f477d2768cded9627ee0258888cb9",
+      "start": "0x4b5865d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1882,
+          "end_exclusive": "0x4b586d2a",
+          "sha256": "5bded576335609222e8858d3487f079c2d5f477d2768cded9627ee0258888cb9",
+          "start": "0x4b5865d0",
+          "unwind_rva": "0x22b8284"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1397,
+      "end_exclusive": "0x4c1b7b75",
+      "module": "sldmodu.dll",
+      "name": "PartPartitionLoad",
+      "review_scope": "Reused immediate partition repair ordering; actual ordinary file-open invocation is not established here",
+      "sha256": "8b1f0fb8530dc217fd14fdc65cd7a1e62db8b4083fddc3e9b7478891fd212d3e",
+      "start": "0x4c1b7600",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1397,
+          "end_exclusive": "0x4c1b7b75",
+          "sha256": "8b1f0fb8530dc217fd14fdc65cd7a1e62db8b4083fddc3e9b7478891fd212d3e",
+          "start": "0x4c1b7600",
+          "unwind_rva": "0x2474fc8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "shared false predicate",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x4b27e156",
+      "module": "sldmodu.dll",
+      "name": "shared true predicate",
+      "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "start": "0x4b27e150",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd33450",
+      "module": "SLDMFCU.dll",
+      "name": "?loadVersion@suFileStorage@@QEBAKXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33cf0",
+      "module": "SLDMFCU.dll",
+      "name": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a658",
+      "module": "sldmgu.dll",
+      "name": "??0mgXform_c@@QEAA@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a660",
+      "module": "sldmgu.dll",
+      "name": "??0mgXform_c@@QEAA@AEBV0@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3a678",
+      "module": "sldmgu.dll",
+      "name": "??1mgXform_c@@UEAA@XZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d870",
+      "module": "swccu.dll",
+      "name": "?IsStoring@su_CArchive@@QEBAHXZ",
+      "source_module": "sldmodu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 41,
+      "end_exclusive": "0x4c229aee",
+      "module": "sldmodu.dll",
+      "name": "current part Serialize version branch and two ordered slots",
+      "sha256": "a8fe48d44cad6778e185feb0a5ebe703f8a33aade244ede3f15b46d2c2b2fffd",
+      "start": "0x4c229ac5"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 17,
+      "end_exclusive": "0x4c230aa9",
+      "module": "sldmodu.dll",
+      "name": "part first stage storing predicate and load jump",
+      "sha256": "7b270969bfd32a9225bcde8f2758d5675d41595f121aa8816533d0c847f6e221",
+      "start": "0x4c230a98"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 8,
+      "end_exclusive": "0x4c230e76",
+      "module": "sldmodu.dll",
+      "name": "part first stage load makes self reference",
+      "sha256": "cde006c7997af7d38d2fe9143415a0f21684c3008ea3ea2d80134f6cd7fe0f75",
+      "start": "0x4c230e6e"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 20,
+      "end_exclusive": "0x4c1b8583",
+      "module": "sldmodu.dll",
+      "name": "actual same part owner and target passed to embedded constructor",
+      "sha256": "9b33cd2b49cdc090a2ae88030c59430693f90eb1bfbc33f297421907d6ebf238",
+      "start": "0x4c1b856f"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 21,
+      "end_exclusive": "0x4bbb7404",
+      "module": "sldmodu.dll",
+      "name": "embedded constructor nulls base target and supplies switch one",
+      "sha256": "c1e282889eedf9966247c024820429f88a1d39ea42cbeac39fdad7cfcefe6c37",
+      "start": "0x4bbb73ef"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 26,
+      "end_exclusive": "0x4bbb7bd7",
+      "module": "sldmodu.dll",
+      "name": "base helper retains actual arguments",
+      "sha256": "184df31d5c221a801ac5b9da44ae3ab504bf841db4e61e941b1f60984772753a",
+      "start": "0x4bbb7bbd"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 20,
+      "end_exclusive": "0x4bbb7eb9",
+      "module": "sldmodu.dll",
+      "name": "null base target skips target initialization",
+      "sha256": "299ceaa99b44bf923389206e5ac74a2c2c6cb5fcd4714480f161bae7b4fda898",
+      "start": "0x4bbb7ea5"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 10,
+      "end_exclusive": "0x4bbb7fd9",
+      "module": "sldmodu.dll",
+      "name": "base switch skips actual foreign connection branch",
+      "sha256": "92b638197fbda9eb0c87372ae8b7bb918143240a836db3dd4ec0e34dd2488fae",
+      "start": "0x4bbb7fcf"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 97,
+      "end_exclusive": "0x4bbb803a",
+      "module": "sldmodu.dll",
+      "name": "actual distinct target graphics or ordinary foreign connection",
+      "sha256": "30dc2fff0a1101f1e8c2096cb618be7c97d6f250c973b5279f58e2b8d1bf06c5",
+      "start": "0x4bbb7fd9"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 79,
+      "end_exclusive": "0x4b588f79",
+      "module": "sldmodu.dll",
+      "name": "resolved feature native optional SMM context gate",
+      "sha256": "24e7ab182ac3266596809e17ac91612e4b4138b4d9951cd5fa2f829d4542a7d9",
+      "start": "0x4b588f2a"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 8,
+      "end_exclusive": "0x4b5890e2",
+      "module": "sldmodu.dll",
+      "name": "resolved feature post load connect-manager processing",
+      "sha256": "6ee3b10c2b96b50203465450db5be32b1113ab5154a79ff253b7972786c2b3c1",
+      "start": "0x4b5890da"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 36,
+      "end_exclusive": "0x4c02f2f4",
+      "module": "sldmodu.dll",
+      "name": "connect manager per-feature predicate",
+      "sha256": "7330fefcf97b9769a20ec3dc76d8de29b29aa2d4645853f16dde607dac563d40",
+      "start": "0x4c02f2d0"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 58,
+      "end_exclusive": "0x4b586635",
+      "module": "sldmodu.dll",
+      "name": "future body actual context and mode prerequisite",
+      "sha256": "8b029c4af2c688afa34e8e47313864c1441c5b16aa8ed0b98615fa7fa1d3f37a",
+      "start": "0x4b5865fb"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 71,
+      "end_exclusive": "0x4b586a67",
+      "module": "sldmodu.dll",
+      "name": "future body first selected actual model partition call",
+      "sha256": "8d438c72c2d2a50639a1aada3d77b021aa2520fd55d4a24f745a2d71e8a1d13b",
+      "start": "0x4b586a20"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 58,
+      "end_exclusive": "0x4b586c23",
+      "module": "sldmodu.dll",
+      "name": "future body alternate selected actual model partition call",
+      "sha256": "f38aeab160ab422177991975a2ff298f517772b31a0d39a2757443be143813b6",
+      "start": "0x4b586be9"
+    },
+    {
+      "bound": "reviewed original instruction boundaries",
+      "bytes": 77,
+      "end_exclusive": "0x4c1b7980",
+      "module": "sldmodu.dll",
+      "name": "body owner installation and explicit repair arguments",
+      "sha256": "5cf5918062f7e2bbe13ef06997d1c942c81fdc8cf8ebcd4728282235a9f4c8c5",
+      "start": "0x4c1b7933"
+    }
+  ],
+  "modules": [
+    {
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    }
+  ],
+  "not_proved": [
+    "No complete ordinary current-version file-open dispatch and all transitive pre-repair callbacks have been bound",
+    "No unconditional absence of runtime foreign registration before the first actual local owner repair is established",
+    "No arbitrary process/add-in or module configuration is proved unable to add a different feature or owner before the inspected interval",
+    "The embedded base feature constructor and unrelated helper calls are not a complete transitive side-effect audit",
+    "The context+a20/+a30 concrete implementation and whether the named partition load is the selected ordinary open path remain explicit gaps",
+    "The matching1a58 immediate in other feature interfaces and raw code bytes is not proof of an actual moPart call"
+  ],
+  "outcome": {
+    "native_acceptance": false,
+    "ordinary_open_reachability_proved": false,
+    "runtime_foreign_insertion_excluded": false,
+    "source_only": true,
+    "unconditional_mirror_zero_locality": false
+  },
+  "owner": "flag_ownership",
+  "prior_packets_unchanged": {
+    "local_owner_index": "6cd8c3911e4e0b79027d63c27eaa3dc8a663e49335c2fbcb03ff18f557e56492",
+    "part_reload": "a2c7e6cf72b64cab7399b968a0b3e82a441ba4ce09ee1915a2b0a01d75d67c70",
+    "runtime_owner": "14da4045018de9fa59a39a84c91710841dfbcd24f5a30b7edcb1d90214d16d80"
+  },
+  "runtime_classes": [
+    {
+      "class": "moPart_c",
+      "complete_object_locator": "0x4d352fc0",
+      "native_type": ".?AVmoPart_c@@",
+      "type_descriptor": "0x4db11cf0",
+      "vtable": "0x4d1252d8"
+    },
+    {
+      "class": "moReference_c",
+      "complete_object_locator": "0x4d335bc0",
+      "native_type": ".?AVmoReference_c@@",
+      "type_descriptor": "0x4db0ea08",
+      "vtable": "0x4cf7a8b0"
+    },
+    {
+      "class": "moReferenceEmbedded_c",
+      "complete_object_locator": "0x4d335cf0",
+      "native_type": ".?AVmoReferenceEmbedded_c@@",
+      "type_descriptor": "0x4db36c88",
+      "vtable": "0x4cf801f0"
+    },
+    {
+      "class": "moCommentsFolder_c",
+      "complete_object_locator": "0x4d3459c0",
+      "native_type": ".?AVmoCommentsFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3b118",
+      "vtable": "0x4d05e710"
+    },
+    {
+      "class": "moDocsFolder_c",
+      "complete_object_locator": "0x4d3458e0",
+      "native_type": ".?AVmoDocsFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3b0f0",
+      "vtable": "0x4d05c9e8"
+    },
+    {
+      "class": "moEnvFolder_c",
+      "complete_object_locator": "0x4d345030",
+      "native_type": ".?AVmoEnvFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3af20",
+      "vtable": "0x4d04a4d0"
+    },
+    {
+      "class": "moEqnFolder_c",
+      "complete_object_locator": "0x4d344068",
+      "native_type": ".?AVmoEqnFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db10720",
+      "vtable": "0x4d03ed10"
+    },
+    {
+      "class": "moFavoriteFolder_c",
+      "complete_object_locator": "0x4d30a228",
+      "native_type": ".?AVmoFavoriteFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db29768",
+      "vtable": "0x4ce35250"
+    },
+    {
+      "class": "moHistoryFolder_c",
+      "complete_object_locator": "0x4d30ac00",
+      "native_type": ".?AVmoHistoryFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db299a0",
+      "vtable": "0x4ce42870"
+    },
+    {
+      "class": "moMaterialFolder_c",
+      "complete_object_locator": "0x4d344f50",
+      "native_type": ".?AVmoMaterialFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3aef0",
+      "vtable": "0x4d04c1f8"
+    },
+    {
+      "class": "moInkMarkupFolder_c",
+      "complete_object_locator": "0x4d346378",
+      "native_type": ".?AVmoInkMarkupFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3b310",
+      "vtable": "0x4d072820"
+    },
+    {
+      "class": "moNotesAreaFtrFolder_c",
+      "complete_object_locator": "0x4d347558",
+      "native_type": ".?AVmoNotesAreaFtrFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3b778",
+      "vtable": "0x4d08e930"
+    },
+    {
+      "class": "moSelectionSetFolder_c",
+      "complete_object_locator": "0x4d30a798",
+      "native_type": ".?AVmoSelectionSetFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db298e0",
+      "vtable": "0x4ce3c0d8"
+    },
+    {
+      "class": "moSensorFolder_c",
+      "complete_object_locator": "0x4d345f00",
+      "native_type": ".?AVmoSensorFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3b228",
+      "vtable": "0x4d069608"
+    },
+    {
+      "class": "moSolidBodyFolder_c",
+      "complete_object_locator": "0x4d345368",
+      "native_type": ".?AVmoSolidBodyFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3afd8",
+      "vtable": "0x4d051a68"
+    },
+    {
+      "class": "moSurfaceBodyFolder_c",
+      "complete_object_locator": "0x4d345280",
+      "native_type": ".?AVmoSurfaceBodyFolder_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3afa8",
+      "vtable": "0x4d04fd10"
+    },
+    {
+      "class": "moDetailCabinet_c",
+      "complete_object_locator": "0x4d3260c0",
+      "native_type": ".?AVmoDetailCabinet_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db323d8",
+      "vtable": "0x4cef66f0"
+    },
+    {
+      "class": "moRefPlane_c",
+      "complete_object_locator": "0x4d35a4c8",
+      "native_type": ".?AVmoRefPlane_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db0ea88",
+      "vtable": "0x4d16f278"
+    },
+    {
+      "class": "moOriginProfileFeature_c",
+      "complete_object_locator": "0x4d34ed30",
+      "native_type": ".?AVmoOriginProfileFeature_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db3d868",
+      "vtable": "0x4d0ef510"
+    },
+    {
+      "class": "moProfileFeature_c",
+      "complete_object_locator": "0x4d34eb28",
+      "native_type": ".?AVmoProfileFeature_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db15658",
+      "vtable": "0x4d0e8e80"
+    },
+    {
+      "class": "moExtrusion_c",
+      "complete_object_locator": "0x4d32da28",
+      "native_type": ".?AVmoExtrusion_c@@",
+      "slot_5f0_result": 0,
+      "type_descriptor": "0x4db0eb28",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "class": "moConnectRefMgr_c",
+      "complete_object_locator": "0x4d2f0cb8",
+      "native_type": ".?AVmoConnectRefMgr_c@@",
+      "slot_5f0_result": 1,
+      "type_descriptor": "0x4db13030",
+      "vtable": "0x4cdc2468"
+    }
+  ],
+  "schema": "solidworks-downstream-pre-repair-registration-v1",
+  "source_search": {
+    "direct_e8_target_4c1b7600": {
+      "doccplu.dll": 0,
+      "sldappu.dll": 0,
+      "sldmodu.dll": 0,
+      "sldprtu.dll": 0
+    },
+    "excluded_candidates": [
+      {
+        "instruction": "0x4549e6e3",
+        "meaning": "stack address displacement0x1a58 in startup block-state construction, not a virtual call",
+        "module": "sldappu.dll"
+      },
+      {
+        "function": "0x3338c870",
+        "meaning": "feature receiver/profile lookup, not the moPart partition loader",
+        "module": "sldprtu.dll"
+      }
+    ],
+    "managed_metadata_boundary": "Stateless REA metadata member query hit a resource limit; the seven scoped raw1a58 candidates were bound with independent ECMA335 MethodDef metadata to unrelated drawing/revolve methods, not ordinary part load",
+    "managed_module_pin": {
+      "method_query": "resource-limit failure, not a complete native call search",
+      "mvid": "3f9c2ded-9024-4b12-ac82-deb36cae1451",
+      "name": "sldcoreu.dll",
+      "sha256": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3"
+    },
+    "module_pins": [
+      {
+        "name": "sldmodu.dll",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "name": "sldappu.dll",
+        "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+      },
+      {
+        "name": "sldprtu.dll",
+        "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"
+      },
+      {
+        "name": "doccplu.dll",
+        "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8"
+      }
+    ],
+    "scope": "Raw original.text candidate scans only, not whole-program absence proof or decoded call graph coverage"
+  },
+  "task": "B04-SW2026-DOWNSTREAM-RUNTIME-OWNER",
+  "vtable_cells": [
+    {
+      "cell": "0x4d125300",
+      "module": "sldmodu.dll",
+      "name": "actual moPart slot 0x28",
+      "target": "0x4c229a60"
+    },
+    {
+      "cell": "0x4d125790",
+      "module": "sldmodu.dll",
+      "name": "actual moPart slot 0x4b8",
+      "target": "0x4c2309d0"
+    },
+    {
+      "cell": "0x4d125798",
+      "module": "sldmodu.dll",
+      "name": "actual moPart slot 0x4c0",
+      "target": "0x4c2378b0"
+    },
+    {
+      "cell": "0x4d126d30",
+      "module": "sldmodu.dll",
+      "name": "actual moPart slot 0x1a58",
+      "target": "0x4c1b7600"
+    },
+    {
+      "cell": "0x4d05ed00",
+      "module": "sldmodu.dll",
+      "name": "moCommentsFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d05cfd8",
+      "module": "sldmodu.dll",
+      "name": "moDocsFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d04aac0",
+      "module": "sldmodu.dll",
+      "name": "moEnvFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d03f300",
+      "module": "sldmodu.dll",
+      "name": "moEqnFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4ce35840",
+      "module": "sldmodu.dll",
+      "name": "moFavoriteFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4ce42e60",
+      "module": "sldmodu.dll",
+      "name": "moHistoryFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d04c7e8",
+      "module": "sldmodu.dll",
+      "name": "moMaterialFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d072e10",
+      "module": "sldmodu.dll",
+      "name": "moInkMarkupFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d08ef20",
+      "module": "sldmodu.dll",
+      "name": "moNotesAreaFtrFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4ce3c6c8",
+      "module": "sldmodu.dll",
+      "name": "moSelectionSetFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d069bf8",
+      "module": "sldmodu.dll",
+      "name": "moSensorFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d052058",
+      "module": "sldmodu.dll",
+      "name": "moSolidBodyFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d050300",
+      "module": "sldmodu.dll",
+      "name": "moSurfaceBodyFolder_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4cef6ce0",
+      "module": "sldmodu.dll",
+      "name": "moDetailCabinet_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d16f868",
+      "module": "sldmodu.dll",
+      "name": "moRefPlane_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d0efb00",
+      "module": "sldmodu.dll",
+      "name": "moOriginProfileFeature_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4d0e9470",
+      "module": "sldmodu.dll",
+      "name": "moProfileFeature_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4cf3da78",
+      "module": "sldmodu.dll",
+      "name": "moExtrusion_c connect manager predicate",
+      "target": "0x4b27cbe0"
+    },
+    {
+      "cell": "0x4cdc2a58",
+      "module": "sldmodu.dll",
+      "name": "moConnectRefMgr_c connect manager predicate",
+      "target": "0x4b27e150"
+    }
+  ]
+}

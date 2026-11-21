@@ -1,0 +1,3965 @@
+{
+  "all_source_records_rehashed": true,
+  "application_usable": true,
+  "candidate_sha256": "4a11a1d135dace17b34d854f2f57b501f74e3ba8ba778f4de6a318891de4428e",
+  "candidate_states": 15,
+  "completed_owner_probe_sha256": "6e822733fe51dfb0aca6dfb91b5ec70500dff7c06a808fe2fc4d93c2c7411995",
+  "control_measurements_match": true,
+  "controls_healthy": true,
+  "density_kg_m3": 1.0,
+  "distinct_native_processes": 8,
+  "fcstd_conversion_accepted": false,
+  "frozen_inputs_unchanged": true,
+  "fully_constrained_all_states": true,
+  "generated_unchanged": true,
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "host_transport_digest_source": "root verified terminal transport",
+  "host_transport_sha256": "60122c2b7e91e480eb0a3a837f6e598ed53b4e0b5d1cdeeea0229a9b9d0af2fe",
+  "initial_dimensions_mm": [
+    20.0,
+    30.0,
+    10.0
+  ],
+  "native_acceptance": true,
+  "numeric_comparisons": 255,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "ordered_tree": [
+    {
+      "name": "Comments",
+      "parent": null,
+      "type": "CommentsFolder"
+    },
+    {
+      "name": "Favorites",
+      "parent": null,
+      "type": "FavoriteFolder"
+    },
+    {
+      "name": "History",
+      "parent": null,
+      "type": "HistoryFolder"
+    },
+    {
+      "name": "Selection Sets",
+      "parent": null,
+      "type": "SelectionSetFolder"
+    },
+    {
+      "name": "Sensors",
+      "parent": null,
+      "type": "SensorFolder"
+    },
+    {
+      "name": "Design Binder",
+      "parent": null,
+      "type": "DocsFolder"
+    },
+    {
+      "name": "Annotations",
+      "parent": null,
+      "type": "DetailCabinet"
+    },
+    {
+      "name": "Notes",
+      "parent": "Annotations",
+      "type": "NotesAreaFtrFolder"
+    },
+    {
+      "name": "Notes1___EndTag___",
+      "parent": "Annotations",
+      "type": "NotesAreaFtrFolder"
+    },
+    {
+      "name": "Surface Bodies",
+      "parent": null,
+      "type": "SurfaceBodyFolder"
+    },
+    {
+      "name": "Solid Bodies",
+      "parent": null,
+      "type": "SolidBodyFolder"
+    },
+    {
+      "name": "Environment",
+      "parent": null,
+      "type": "EnvFolder"
+    },
+    {
+      "name": "Ambient",
+      "parent": "Environment",
+      "type": "AmbientLight"
+    },
+    {
+      "name": "Directional1",
+      "parent": "Environment",
+      "type": "DirectionLight"
+    },
+    {
+      "name": "Directional2",
+      "parent": "Environment",
+      "type": "DirectionLight"
+    },
+    {
+      "name": "Directional3",
+      "parent": "Environment",
+      "type": "DirectionLight"
+    },
+    {
+      "name": "Markups",
+      "parent": null,
+      "type": "InkMarkupFolder"
+    },
+    {
+      "name": "Equations",
+      "parent": null,
+      "type": "EqnFolder"
+    },
+    {
+      "name": "Material <not specified>",
+      "parent": null,
+      "type": "MaterialFolder"
+    },
+    {
+      "name": "Front Plane",
+      "parent": null,
+      "type": "RefPlane"
+    },
+    {
+      "name": "Top Plane",
+      "parent": null,
+      "type": "RefPlane"
+    },
+    {
+      "name": "Right Plane",
+      "parent": null,
+      "type": "RefPlane"
+    },
+    {
+      "name": "Origin",
+      "parent": null,
+      "type": "OriginProfileFeature"
+    },
+    {
+      "name": "Sketch1",
+      "parent": null,
+      "type": "ProfileFeature"
+    },
+    {
+      "name": "Boss-Extrude1",
+      "parent": null,
+      "type": "Extrusion"
+    }
+  ],
+  "origin_corner_preserved_all_edits": true,
+  "original_packet_sha256": "5ce406c9957056cdfa1cd97f8ed0f36cf27ed38e86ce71facf063eed82202086",
+  "packet_sha256": "a5b23217b361094600874f6b62d8b5f89879828d00098f567677f02583ebe374",
+  "passed": true,
+  "phases": [
+    {
+      "measurement": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "open_errors": 0,
+        "open_warnings": 0,
+        "whats_wrong": 0
+      },
+      "passed": true,
+      "phase": "ControlBefore",
+      "process_creation_filetime": 134394558239009552,
+      "record_sha256": "dce43cca2f95691a5cc8d7f8541b8598eaa8ee5fa316b349d299e76b7049e0ec"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "edit_parameter": "D1@Sketch1",
+      "edit_status": 0,
+      "edit_value_m": 0.026125,
+      "immutable_input": true,
+      "numeric_checks": 51,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "WidthEdit",
+      "process_creation_filetime": 134394558571600123,
+      "record_sha256": "184e8490f11330f215cbc2896407b9fccac354ce41e1b6fb14edb3c75199acb7",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "saved_bytes": 51797,
+      "saved_sha256": "5704179dfc6058eec3d439bedaf1958f7e7d3e2651bed0d5ec90ded0f0bac5dd"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "immutable_input": true,
+      "numeric_checks": 34,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "WidthReopen",
+      "process_creation_filetime": 134394559221105200,
+      "record_sha256": "de5fb62bcb650d46cacd1e3ae1be78cb4e167d236dbf5bb690f58720587b0ffb"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "edit_parameter": "D2@Sketch1",
+      "edit_status": 0,
+      "edit_value_m": 0.018875,
+      "immutable_input": true,
+      "numeric_checks": 51,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "HeightEdit",
+      "process_creation_filetime": 134394559680872188,
+      "record_sha256": "fd44d649d595eb0205e9d82f4fab99cbb0f1045b81bfdecfe4cecc0b7f1c2864",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "saved_bytes": 54484,
+      "saved_sha256": "21e04b00abeab8128d1f00222a6e8275a3c6e70a19c3054e6f65acfff7fa7e91"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "immutable_input": true,
+      "numeric_checks": 34,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "HeightReopen",
+      "process_creation_filetime": 134394560195990319,
+      "record_sha256": "978755a754f7d0ca8e194333b387718b0beceb3cf7a827cf91ca641f83deae2e"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "edit_parameter": "D1@Boss-Extrude1",
+      "edit_status": 0,
+      "edit_value_m": 0.015625,
+      "immutable_input": true,
+      "numeric_checks": 51,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "DepthEdit",
+      "process_creation_filetime": 134394560554983028,
+      "record_sha256": "63b8320efa373ac526aa2256f0c55bf50f79e5a149c9ca88cfc2368c008a08a2",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "saved_bytes": 51630,
+      "saved_sha256": "06a481245002d4bbb17c10431de865a4787447003bf62e52d0e2ec72c780d4c1"
+    },
+    {
+      "cleanup_diagnostics": 0,
+      "dialogs": 0,
+      "immutable_input": true,
+      "numeric_checks": 34,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "phase": "DepthReopen",
+      "process_creation_filetime": 134394561081520602,
+      "record_sha256": "cf1b96104cab1ac557e6122e831ccb1ba89e34a669eb158ddb0b3d3535e3e1f5"
+    },
+    {
+      "measurement": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06,
+          "volume": 8.000000000000001e-06
+        },
+        "open_errors": 0,
+        "open_warnings": 0,
+        "whats_wrong": 0
+      },
+      "passed": true,
+      "phase": "ControlAfter",
+      "process_creation_filetime": 134394561456158995,
+      "record_sha256": "70add43427f92f2f6a17be3060e64fae364870821af5ad8c1c3d25d782e6c9be"
+    }
+  ],
+  "public_writer_qualified": false,
+  "raw_result_sha256": "a230f247f6d5db4c423303ef52d4cbe1ee0450cbd40eb92ebcfb9770ce3919c6",
+  "retained_failed_result_sha256": "4fa47be9efb275bf5e8be234ca0213f20458a1ce2fdb7b3fc5627a774dc33547",
+  "schema": "kit.sw2026.sdk-origin-corner-native-acceptance.v1",
+  "scope": "one synthetic SDK generated origin rectangle and its three independent dimension derivatives only",
+  "source_closure_sha256": "38e4193c5bc0fd4c6ef4c2d2a20e2251e6d883f82c0abdb93c70e3b9afd3fa18",
+  "states": [
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "WidthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "WidthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.026125,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0026899999999999997,
+        "com": [
+          0.0130625,
+          0.015,
+          0.005
+        ],
+        "mass": 7.837499999999999e-06,
+        "volume": 7.837499999999999e-06
+      },
+      "phase": "WidthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Edited",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.026125,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0026899999999999997,
+        "com": [
+          0.0130625,
+          0.015,
+          0.005
+        ],
+        "mass": 7.837499999999999e-06,
+        "volume": 7.837499999999999e-06
+      },
+      "phase": "WidthReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.026125,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.026125,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.026125,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0026899999999999997,
+        "com": [
+          0.0130625,
+          0.015,
+          0.005
+        ],
+        "mass": 7.837499999999999e-06,
+        "volume": 7.837499999999999e-06
+      },
+      "phase": "WidthReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "HeightEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "HeightEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.018875
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.018875000000000003
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.018875
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.018875000000000003
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.018875
+      },
+      "mass_properties": {
+        "area": 0.0015325000000000002,
+        "com": [
+          0.01,
+          0.0094375,
+          0.005
+        ],
+        "mass": 3.7750000000000007e-06,
+        "volume": 3.7750000000000007e-06
+      },
+      "phase": "HeightEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Edited",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.018875
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.018875000000000003
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.018875
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.018875000000000003
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.018875
+      },
+      "mass_properties": {
+        "area": 0.0015325000000000002,
+        "com": [
+          0.01,
+          0.0094375,
+          0.005
+        ],
+        "mass": 3.7750000000000007e-06,
+        "volume": 3.7750000000000007e-06
+      },
+      "phase": "HeightReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.018875
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.018875000000000003
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.018875
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.018875000000000003
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.018875
+      },
+      "mass_properties": {
+        "area": 0.0015325000000000002,
+        "com": [
+          0.01,
+          0.0094375,
+          0.005
+        ],
+        "mass": 3.7750000000000003e-06,
+        "volume": 3.7750000000000003e-06
+      },
+      "phase": "HeightReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "DepthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0021999999999999997,
+        "com": [
+          0.01,
+          0.015,
+          0.005
+        ],
+        "mass": 5.999999999999999e-06,
+        "volume": 5.999999999999999e-06
+      },
+      "phase": "DepthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.015625,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0027624999999999998,
+        "com": [
+          0.01,
+          0.015,
+          0.0078125
+        ],
+        "mass": 9.375000000000001e-06,
+        "volume": 9.375000000000001e-06
+      },
+      "phase": "DepthEdit",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Edited",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.015625,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0027624999999999998,
+        "com": [
+          0.01,
+          0.015,
+          0.0078125
+        ],
+        "mass": 9.375000000000001e-06,
+        "volume": 9.375000000000001e-06
+      },
+      "phase": "DepthReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Initial",
+      "tree_rows": 25
+    },
+    {
+      "actual_contour": [
+        {
+          "binding": {
+            "id": [
+              0,
+              1
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.0
+          ],
+          "id": [
+            0,
+            1
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              1,
+              2
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.02,
+            0.03
+          ],
+          "id": [
+            1,
+            2
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                1,
+                2
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.0
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              2,
+              3
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.03
+          ],
+          "id": [
+            2,
+            3
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                2,
+                3
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.02,
+            0.03
+          ]
+        },
+        {
+          "binding": {
+            "id": [
+              3,
+              4
+            ],
+            "kind": "line",
+            "segment_type": 0
+          },
+          "construction": false,
+          "end": [
+            0.0,
+            0.0
+          ],
+          "id": [
+            3,
+            4
+          ],
+          "kind": "line",
+          "point_bindings": {
+            "end": {
+              "id": [
+                0,
+                1
+              ],
+              "kind": "point"
+            },
+            "start": {
+              "id": [
+                3,
+                4
+              ],
+              "kind": "point"
+            }
+          },
+          "start": [
+            0.0,
+            0.03
+          ]
+        }
+      ],
+      "body_count": 1,
+      "coincidence_point_owners": [
+        [
+          {
+            "id": [
+              4,
+              5
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 10
+          },
+          {
+            "id": [
+              0,
+              1
+            ],
+            "owner_null": false,
+            "owner_same_origin_raw": 0,
+            "owner_same_profile_raw": 1,
+            "owner_same_self_raw": 1,
+            "position_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "same_origin_raw": 0,
+            "same_self_raw": 1,
+            "type": 0
+          }
+        ]
+      ],
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.015625,
+        "D1@Sketch1": 0.02,
+        "D2@Sketch1": 0.03
+      },
+      "mass_properties": {
+        "area": 0.0027624999999999998,
+        "com": [
+          0.01,
+          0.015,
+          0.0078125
+        ],
+        "mass": 9.375000000000001e-06,
+        "volume": 9.375000000000001e-06
+      },
+      "phase": "DepthReopen",
+      "relations": 7,
+      "selected_origin": {
+        "id": [
+          0,
+          1
+        ],
+        "owner_null": false,
+        "owner_same_origin_raw": 1,
+        "owner_same_profile_raw": 0,
+        "owner_same_self_raw": 1,
+        "position_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "same_origin_raw": 1,
+        "same_self_raw": 1,
+        "type": 1
+      },
+      "state": "Rebuilt",
+      "tree_rows": 25
+    }
+  ],
+  "three_clean_saves_and_fresh_reopens": true,
+  "three_independent_driving_edits": true,
+  "vendor_loadable": true,
+  "writer_changed": false,
+  "writer_manifest_sha256": "d409ab9da52c95177b8834d04eb39a4bc6b65e45aa8775c986912dc8fba8980a"
+}

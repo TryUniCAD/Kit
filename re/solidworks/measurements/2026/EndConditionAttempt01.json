@@ -1,0 +1,2577 @@
+{
+  "schema": "kit.sw2026.end-condition-source-attempt.v1",
+  "source_revision": "12d35f580088b1b2e4b5c1afcb61b5a2b73c7fe6",
+  "source_tree": "acb7c18a089db4dc5e3e67e449af1cf2e63d5ad5",
+  "source_tools": [
+    {
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "bytes": 70113,
+      "sha256": "fb3df523a2b9879092ea99fc847dc170457826a74f72d77ff84bf1569524984f"
+    },
+    {
+      "path": "re/tooling/sw2026/Swapp.py",
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    {
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    {
+      "path": "re/tooling/sw2026/EndConditionSpecs.json",
+      "bytes": 10913,
+      "sha256": "aaa4236ab265bef3ca5211b1cae9b558ad74bf2b4069e2568f51331bf74920a0"
+    }
+  ],
+  "batch_sha256": "882c13e68f5db447df27a2dcb7d5da818076b0c2d570b27ff11bd74444517bf9",
+  "host_receipt_sha256": "98095548b865b18438995483310ded63928c9ab74ee235d5ec92cac2fc5f00fb",
+  "locked": false,
+  "first_failure": {
+    "case": "D10TwoDirections",
+    "phase": "author",
+    "failure": {
+      "stage": "FullName",
+      "type": "EvidenceFailure",
+      "error": "EvidenceFailure('dimension does not belong to its renamed feature: D2@CurveBoss@Part1.Part')",
+      "pending_capability": false
+    }
+  },
+  "passing_source_cases": [
+    "D01Forward",
+    "D02Forward",
+    "D03Forward",
+    "D04Reverse",
+    "D05Reverse",
+    "D06Reverse",
+    "D07MidPlane",
+    "D08MidPlane",
+    "D09MidPlane"
+  ],
+  "failed_source_cases": [
+    "D10TwoDirections"
+  ],
+  "pending_cases": [
+    "D11TwoDirections",
+    "D12TwoDirections",
+    "H01Forward",
+    "H02Reverse",
+    "H03MidPlane",
+    "H04TwoDirections"
+  ],
+  "controls_before": [
+    {
+      "case": "ControlRectangle",
+      "passed": true
+    },
+    {
+      "case": "ControlCircle",
+      "passed": true
+    }
+  ],
+  "controls_after": [
+    {
+      "case": "ControlRectangle",
+      "passed": true
+    },
+    {
+      "case": "ControlCircle",
+      "passed": true
+    }
+  ],
+  "phases": [
+    {
+      "case": "ControlRectangle",
+      "split": "control",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 7768,
+        "process_creation_filetime": 134393178227926659,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "ControlRectangle",
+      "split": "control",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 5256,
+        "process_creation_filetime": 134393178525661171,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.26080002019373e-06,
+          "expected": 4.26080002019373e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0018059537079199999,
+          "expected": 0.0018059537079200003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011173,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.004126455,
+          "expected": 0.004126455,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "ControlCircle",
+      "split": "control",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 7952,
+        "process_creation_filetime": 134393178847110262,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "curve-0",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "depth dimension",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "ControlCircle",
+      "split": "control",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 2480,
+        "process_creation_filetime": 134393179119913616,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.024804060000000003,
+          "expected": 0.024804060000000003,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.7269945626869865e-06,
+          "expected": 3.7269945626869886e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.001567448680289237,
+          "expected": 0.0015674486802892376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.005139,
+          "expected": -0.005139,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565000000000006,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D01Forward",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 9136,
+        "process_creation_filetime": 134393179403744131,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0011585,
+          "expected": 0.0011585,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D01Forward",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 6084,
+        "process_creation_filetime": 134393179696129511,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0011585,
+          "expected": 0.0011585,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.4434399589691898e-06,
+          "expected": 1.44343995896919e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013597241000000001,
+          "expected": 0.0013597241000000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0013091049999999999,
+          "expected": 0.0013091049999999999,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D02Forward",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 5936,
+        "process_creation_filetime": 134393179989230219,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0098645,
+          "expected": 0.0098645,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D02Forward",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 1996,
+        "process_creation_filetime": 134393180258648063,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0098645,
+          "expected": 0.0098645,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 9.027706092680732e-06,
+          "expected": 9.02770609268073e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0027106477520000005,
+          "expected": 0.002710647752,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.008187535,
+          "expected": 0.008187535,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D03Forward",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 6980,
+        "process_creation_filetime": 134393180546627532,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0285565,
+          "expected": 0.0285565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D03Forward",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 8480,
+        "process_creation_filetime": 134393180824509053,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0285565,
+          "expected": 0.0285565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.06796447,
+          "expected": 0.06796447,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.06796447,
+          "expected": 0.06796446999999999,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.746935188092734e-05,
+          "expected": 3.7469351880927326e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.007776726832000001,
+          "expected": 0.007776726832,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827000000000001,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.033982235,
+          "expected": 0.03398223499999999,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D04Reverse",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 2552,
+        "process_creation_filetime": 134393181119338555,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0011585,
+          "expected": -0.0011585,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D04Reverse",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 5024,
+        "process_creation_filetime": 134393181397774128,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0011585,
+          "expected": -0.0011585,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.4434399589691898e-06,
+          "expected": 1.44343995896919e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013597241000000001,
+          "expected": 0.0013597241000000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0013091049999999999,
+          "expected": -0.0013091049999999999,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D05Reverse",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 8420,
+        "process_creation_filetime": 134393181688691438,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0098645,
+          "expected": -0.0098645,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D05Reverse",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 5920,
+        "process_creation_filetime": 134393181960495974,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0098645,
+          "expected": -0.0098645,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 9.027706092680732e-06,
+          "expected": 9.02770609268073e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0027106477520000005,
+          "expected": 0.002710647752,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.008187535,
+          "expected": -0.008187535,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D06Reverse",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 1312,
+        "process_creation_filetime": 134393182258050403,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0285565,
+          "expected": -0.0285565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D06Reverse",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 1020,
+        "process_creation_filetime": 134393182529770174,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.0285565,
+          "expected": -0.0285565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.06796447,
+          "expected": 0.06796447,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.06796447,
+          "expected": 0.06796446999999999,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.746935188092734e-05,
+          "expected": 3.7469351880927326e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.007776726832000001,
+          "expected": 0.007776726832,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827000000000001,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -0.033982235,
+          "expected": -0.03398223499999999,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D07MidPlane",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 3276,
+        "process_creation_filetime": 134393182820987860,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D07MidPlane",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 8332,
+        "process_creation_filetime": 134393183101890821,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.2773804946630002e-06,
+          "expected": 1.2773804946630002e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013301452780000002,
+          "expected": 0.0013301452780000002,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.0026182099999999997,
+          "expected": 0.0026182099999999997,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.4434399589691898e-06,
+          "expected": 1.44343995896919e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013597241000000001,
+          "expected": 0.0013597241000000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D08MidPlane",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 1084,
+        "process_creation_filetime": 134393183450343541,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D08MidPlane",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 1632,
+        "process_creation_filetime": 134393183719585981,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 1.0876754328531e-05,
+          "expected": 1.0876754328531002e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0030400036780000006,
+          "expected": 0.003040003678,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999999,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.019729,
+          "expected": 0.019729,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.01637507,
+          "expected": 0.01637507,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 9.027706092680732e-06,
+          "expected": 9.02770609268073e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0027106477520000005,
+          "expected": 0.002710647752,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D09MidPlane",
+      "split": "discovery",
+      "role": "author",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 2648,
+        "process_creation_filetime": 134393184008163863,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D09MidPlane",
+      "split": "discovery",
+      "role": "verify",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 4208,
+        "process_creation_filetime": 134393184282390793,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.148685032010699e-05,
+          "expected": 3.1486850320107e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.006711112477999999,
+          "expected": 0.006711112478000001,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0,
+          "expected": 0.0,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.057113,
+          "expected": 0.057113,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.06796447,
+          "expected": 0.06796447,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.06796447,
+          "expected": 0.06796446999999999,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.746935188092734e-05,
+          "expected": 3.7469351880927326e-05,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.007776726832000001,
+          "expected": 0.007776726832,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.004192999999999998,
+          "expected": -0.004193,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.006827000000000001,
+          "expected": 0.006827,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": -7.939234498132131e-20,
+          "expected": 0.0,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "D10TwoDirections",
+      "split": "discovery",
+      "role": "author",
+      "passed": false,
+      "first_failure": {
+        "stage": "FullName",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('dimension does not belong to its renamed feature: D2@CurveBoss@Part1.Part')",
+        "pending_capability": false
+      },
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 3964,
+        "process_creation_filetime": 134393184579028373,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "depth dimension",
+          "actual": 0.002317,
+          "expected": 0.002317,
+          "passed": true
+        },
+        {
+          "name": "second depth dimension",
+          "actual": 0.0036190000000000003,
+          "expected": 0.0036190000000000003,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 2,
+      "worker_timed_out": false
+    },
+    {
+      "case": "ControlRectangle",
+      "split": "control",
+      "role": "control-after",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 8480,
+        "process_creation_filetime": 134393184811108608,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.982056093639e-06,
+          "expected": 3.982056093639e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0017553576619999999,
+          "expected": 0.0017553576620000003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011172999999999999,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.00825291,
+          "expected": 0.00825291,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 4.26080002019373e-06,
+          "expected": 4.26080002019373e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0018059537079199999,
+          "expected": 0.0018059537079200003,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": -0.007391,
+          "expected": -0.007391,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": 0.011173,
+          "expected": 0.011173,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.004126455,
+          "expected": 0.004126455,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    {
+      "case": "ControlCircle",
+      "split": "control",
+      "role": "control-after",
+      "passed": true,
+      "first_failure": null,
+      "cleanup_errors": [],
+      "identity": {
+        "process_id": 7816,
+        "process_creation_filetime": 134393185117127938,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "version_matches": true,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "bytes": 718936,
+        "pe_machine": "0x8664"
+      },
+      "checks": [
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.024912395655374e-06,
+          "expected": 3.0249123956553754e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.0013258355279494012,
+          "expected": 0.0013258355279494017,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.0051389999999999995,
+          "expected": -0.0051389999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.003856500000000001,
+          "expected": 0.0038565,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveSketch",
+          "actual": 0.022345999999999998,
+          "expected": 0.022346,
+          "passed": true
+        },
+        {
+          "name": "D1@CurveBoss",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "edited driving dimension",
+          "actual": 0.024804060000000003,
+          "expected": 0.024804060000000003,
+          "passed": true
+        },
+        {
+          "name": "extrusion depth",
+          "actual": 0.007713,
+          "expected": 0.007713,
+          "passed": true
+        },
+        {
+          "name": "volume",
+          "actual": 3.726994562686987e-06,
+          "expected": 3.7269945626869886e-06,
+          "passed": true
+        },
+        {
+          "name": "surface area",
+          "actual": 0.001567448680289237,
+          "expected": 0.0015674486802892376,
+          "passed": true
+        },
+        {
+          "name": "center of mass 0",
+          "actual": 0.0039169999999999995,
+          "expected": 0.0039169999999999995,
+          "passed": true
+        },
+        {
+          "name": "center of mass 1",
+          "actual": -0.005139,
+          "expected": -0.005139,
+          "passed": true
+        },
+        {
+          "name": "center of mass 2",
+          "actual": 0.0038565000000000006,
+          "expected": 0.0038565,
+          "passed": true
+        }
+      ],
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    }
+  ],
+  "numeric_checks_passed": 264,
+  "native_processes": 25,
+  "process_inventory": {
+    "before": {
+      "observed_at_utc": "2026-11-16T15:50:05.110125+00:00",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_sha256": "cc723052267f2de44b8083db7cb18121a150e123079c30dd8dd972903348e0f3",
+      "tasklist_rows": 141,
+      "selected": [
+        {
+          "image": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "image": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "image": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    },
+    "after": {
+      "observed_at_utc": "2026-11-16T16:04:01.685664+00:00",
+      "exit_code": 0,
+      "stderr": "",
+      "stdout_sha256": "993082c23a746002bcbdbbfa39944ff916a9e70c1ea46f353b5a49fc79be2655",
+      "tasklist_rows": 144,
+      "selected": [
+        {
+          "image": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "image": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "image": "sw_d.exe",
+          "pid": 4276
+        }
+      ]
+    },
+    "licensing_identities_unchanged": true,
+    "final_cad_process_count": 0
+  },
+  "scope": "Incomplete vendor-authored source attempt only; second-depth name-owner guard failed before geometry checks; no native file or geometry failure is inferred",
+  "is_writer_output": false,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "writer_implementation_started": false,
+  "lock_file_exists": false
+}

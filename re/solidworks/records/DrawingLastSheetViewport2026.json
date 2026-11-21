@@ -1,0 +1,301 @@
+{
+  "border_profile_runtime_offset": "0x418",
+  "disclosed_graphs": {
+    "Disclosed01": {
+      "file_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "graph_sha256": "da0725fa2640d9f2f6ea332752f8365b5c298b87b4056f558c1e5fbfe369391c",
+      "present_sheet_value_matches_ui": true,
+      "sheet_border_present": false,
+      "sheet_viewport_present": true,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.022356412811531168,
+          "hex": "0x1.6e49977868e30p-6"
+        },
+        "f60": {
+          "float": 0.0021166666666666695,
+          "hex": "0x1.156f8c3840720p-9"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 0.9803921568627451,
+          "hex": "0x1.f5f5f5f5f5f5fp-1"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    },
+    "Disclosed01Edit": {
+      "file_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "graph_sha256": "a110c6979a9499c42e986195bc522e3b96053ea091f16fc93292c0696ff9b058",
+      "present_sheet_value_matches_ui": true,
+      "sheet_border_present": false,
+      "sheet_viewport_present": true,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.022356412811531168,
+          "hex": "0x1.6e49977868e30p-6"
+        },
+        "f60": {
+          "float": 0.0021166666666666695,
+          "hex": "0x1.156f8c3840720p-9"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 0.9803921568627451,
+          "hex": "0x1.f5f5f5f5f5f5fp-1"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    },
+    "Disclosed02": {
+      "file_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "graph_sha256": "596b8819baded43dce9b2672b9704259633f3a89a2d3e2149a0a1ed7b7db23c7",
+      "present_sheet_value_matches_ui": true,
+      "sheet_border_present": false,
+      "sheet_viewport_present": true,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.022356412811531168,
+          "hex": "0x1.6e49977868e30p-6"
+        },
+        "f60": {
+          "float": 0.0021166666666666695,
+          "hex": "0x1.156f8c3840720p-9"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 0.9803921568627451,
+          "hex": "0x1.f5f5f5f5f5f5fp-1"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    },
+    "Disclosed02Edit": {
+      "file_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "graph_sha256": "9d83b4ba227e58157ecb4d4a8be17abfa57ec9c45bfa8261821992504f6403ee",
+      "present_sheet_value_matches_ui": true,
+      "sheet_border_present": false,
+      "sheet_viewport_present": true,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.022356412811531168,
+          "hex": "0x1.6e49977868e30p-6"
+        },
+        "f60": {
+          "float": 0.0021166666666666695,
+          "hex": "0x1.156f8c3840720p-9"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 0.9803921568627451,
+          "hex": "0x1.f5f5f5f5f5f5fp-1"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    },
+    "GeneratedEditedSaved": {
+      "file_sha256": "ebad7af6a83b6ff671ea6038032984ef821059ee6788cbf6c82dfc9fbac5d443",
+      "graph_sha256": "4488a7bb572482a62ca5607dbca2e76f9071beaf396bcf056f41c665d99d0431",
+      "present_sheet_value_matches_ui": true,
+      "sheet_border_present": false,
+      "sheet_viewport_present": true,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f60": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 1.0,
+          "hex": "0x1.0000000000000p+0"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    },
+    "GeneratedInitial": {
+      "file_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff",
+      "graph_sha256": "0418fe7663fb6fcc83f0127719c58d5729a1a6d1824bf9e32fe7a4202cbcb62c",
+      "present_sheet_value_matches_ui": null,
+      "sheet_border_present": false,
+      "sheet_viewport_present": false,
+      "ui_pan_zoom": {
+        "f58": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f60": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f68": {
+          "float": 0.0,
+          "hex": "0x0.0p+0"
+        },
+        "f70": {
+          "float": 1.0,
+          "hex": "0x1.0000000000000p+0"
+        },
+        "f78": 0,
+        "has_matrix": 0
+      }
+    }
+  },
+  "heldout_inputs_read": 0,
+  "image_spans": [
+    {
+      "bytes": 8,
+      "end_exclusive": "0x4b288898",
+      "file_offset": 1342608,
+      "module": "sldmodu.dll",
+      "name": "moDrSheet.getBorderProfile",
+      "sha256": "ae4c23fb37ce181f11ef2e3eaf4bac498572cd06fa1783bb0bbcfe0fe93a1407",
+      "start": "0x4b288890"
+    },
+    {
+      "bytes": 45,
+      "end_exclusive": "0x4c9cdfcd",
+      "file_offset": 25744288,
+      "module": "sldmodu.dll",
+      "name": "moDrSheet.getLastOrientation",
+      "sha256": "a62e7b2df5c850a600f7cd24471c5512c9f7b717a8795fa438787627e6cd798e",
+      "start": "0x4c9cdfa0"
+    },
+    {
+      "bytes": 114,
+      "end_exclusive": "0x4c9d3612",
+      "file_offset": 25766304,
+      "module": "sldmodu.dll",
+      "name": "moDrSheet.setLastOrientation",
+      "sha256": "9c139a4531a0f887abae26a287a86207403558bba0101448e224d36dde07b9c2",
+      "start": "0x4c9d35a0"
+    },
+    {
+      "bytes": 6992,
+      "end_exclusive": "0x4c958c70",
+      "file_offset": 25257248,
+      "module": "sldmodu.dll",
+      "name": "moDrSheet.Serialize",
+      "sha256": "e7721710576d43653b4839815644edef489fc33f974b6571ec1170af7bde0b60",
+      "start": "0x4c957120"
+    },
+    {
+      "bytes": 273,
+      "end_exclusive": "0x3df62d11",
+      "file_offset": 3809280,
+      "module": "slddrwu.dll",
+      "name": "uiDrawingView.updateToNewSheet",
+      "sha256": "6464bdf21409974362069f57832a3f91a79381b49887c431d2cc8b2d2efd0e8b",
+      "start": "0x3df62c00"
+    },
+    {
+      "bytes": 207,
+      "end_exclusive": "0x3df575df",
+      "file_offset": 3762448,
+      "module": "slddrwu.dll",
+      "name": "drawing view restore and publication",
+      "sha256": "74aba8c9664390f35493229b8b81fef90c6c50cd59c1ded9d273745081ed2ba8",
+      "start": "0x3df57510"
+    }
+  ],
+  "imports": [
+    {
+      "cell": "0x4cd3a668",
+      "image": "sldmodu.dll",
+      "module": "sldmgu.dll",
+      "name": "??4mgXform_c@@QEAAAEBV0@AEBV0@@Z"
+    },
+    {
+      "cell": "0x4cd3a658",
+      "image": "sldmodu.dll",
+      "module": "sldmgu.dll",
+      "name": "??0mgXform_c@@QEAA@XZ"
+    },
+    {
+      "cell": "0x4cd3b540",
+      "image": "sldmodu.dll",
+      "module": "sldmgu.dll",
+      "name": "?save@mgXform_c@@QEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "cell": "0x4cd3b548",
+      "image": "sldmodu.dll",
+      "module": "sldmgu.dll",
+      "name": "?restore@mgXform_c@@QEAAXAEAVsu_CArchive@@@Z"
+    },
+    {
+      "cell": "0x4cd3da40",
+      "image": "sldmodu.dll",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@E@Z"
+    },
+    {
+      "cell": "0x4cd3da48",
+      "image": "sldmodu.dll",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAE@Z"
+    },
+    {
+      "cell": "0x3e12e5e0",
+      "image": "slddrwu.dll",
+      "module": "SLDMODU.dll",
+      "name": "?getLastOrientation@moDrSheet@@QEAAHAEAVmgXform_c@@@Z"
+    },
+    {
+      "cell": "0x3e12fdf8",
+      "image": "slddrwu.dll",
+      "module": "SLDMODU.dll",
+      "name": "?setLastOrientation@moDrSheet@@QEAAXAEBVmgXform_c@@@Z"
+    },
+    {
+      "cell": "0x3e13f4f8",
+      "image": "slddrwu.dll",
+      "module": "slduiu.dll",
+      "name": "?setPanZoomXform@uiModelView_c@@QEAAXAEBVmgXform_c@@@Z"
+    },
+    {
+      "cell": "0x3e139f90",
+      "image": "slddrwu.dll",
+      "module": "slduiu.dll",
+      "name": "?setTemplateXform@uiModelView_c@@QEAAXH@Z"
+    }
+  ],
+  "last_orientation_runtime_offset": "0x430",
+  "load_pointer_store": "0x4c957cd2",
+  "load_transform_call": "0x4c957cdf",
+  "modules": {
+    "slddrwu.dll": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_processes": 0,
+  "oracle_build": "34.5.2.0604",
+  "rea_pe_layout_evidence_id": "ev_039080813e4811f6d7a52ae823dbdf1176dd0afe9d09200735f51c1fda4481ea",
+  "restore_sheet_getter_call": "0x3df62c5d",
+  "restore_ui_pan_zoom_call": "0x3df62c6f",
+  "schema": "kit.sw2026.drawing-sheet-viewport-source.v1",
+  "store_presence_write": "0x4c95744d",
+  "store_transform_call": "0x4c957462"
+}

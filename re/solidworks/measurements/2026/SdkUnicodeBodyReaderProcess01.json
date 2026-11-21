@@ -1,0 +1,211 @@
+{
+  "additional_runtime_file_access_attempts": 0,
+  "baseline_source_closure": {
+    "files": 4329,
+    "manifest_sha256": "cc8c4550aa01afebd5bca64de7b6f94ff429e92e97fa51aa1cc91abc240fe1a7"
+  },
+  "cacheless_named_body_qualification": false,
+  "candidate_source_closure": {
+    "files": 4331,
+    "manifest_sha256": "c589bf20ed89c6aca3d77564d392bbc1a9ebbc8be52f9427d0ce180411b22637"
+  },
+  "fixture_producer_processes": 10,
+  "groups": [
+    {
+      "all_modes_passed": true,
+      "case": "AsciiCornerBase",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AsciiCornerNamed",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AsciiCenterBase",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AsciiCenterNamed",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AccentBaseline",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AccentRenamed",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AccentReopened",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "BmpBaseline",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "BmpRenamed",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "BmpReopened",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "SupplementaryBaseline",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "SupplementaryRenamed",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "SupplementaryReopened",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "ArchiveNameMismatch",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "AtomIdMismatch",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "MissingOutput",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "ImplicitNameMismatch",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "UnpairedWideSurrogate",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "EmbeddedWideNull",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "OtherSelectedCache",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "TruncatedCache",
+      "named_projection_expected": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "BenignCompatibility",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_modes_passed": true,
+      "case": "ShortCompatibility",
+      "named_projection_expected": true,
+      "paired_modes": 5,
+      "passed": true
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "limits": [
+    "disclosed controls only",
+    "no original named H access",
+    "history-only labels unchanged",
+    "TYSA_UNAME alternative unsupported",
+    "cacheless output rule independent"
+  ],
+  "mechanical_04_public_reports_identical_to_03": 46,
+  "native_source_controls_healthy": true,
+  "native_source_processes": 8,
+  "native_source_result_sha256": "0575f02dcf7c68cf88211710ac3aab3f380164f37282542ea8b4b882e450b2d0",
+  "observer_tools_sha256": "dfd12460e45213d1931087152a60dcd681079c58efd5780c2bb3894d0889b565",
+  "outcome": "passed_disclosed_unicode_cached_body_name_read_profile",
+  "paired_mode_comparisons": 115,
+  "passed": true,
+  "prior_03_result_sha256": "c8847717fa91095ed3dec9facf6226501c285e4748a0031e1665597429e34e52",
+  "public_modes": [
+    "default",
+    "repeat",
+    "no_tessellation",
+    "history_only",
+    "lenient"
+  ],
+  "public_reader_processes": 46,
+  "public_writer_qualification": false,
+  "python_processes": 56,
+  "root_process_result_sha256": "fbc67e97a4d904a2dcc006b942a6e4183ad12f564b52b0c1b6ba3e3f4d790a83",
+  "runtime_research_imports": 0,
+  "schema": "kit.sw2026.unicode-body-reader-process.v1",
+  "source_closures_unchanged": true,
+  "source_observation_sha256": "194d1616504b78fd63638bb275751a57927fd0526f1ab8f0b1f608faef5d6b4d",
+  "source_states": 13,
+  "sources_immutable": true,
+  "unit_tests_run": 0
+}

@@ -1,0 +1,142 @@
+{
+  "cases": {
+    "RevolveFull": {
+      "angle_dimension_id": 27,
+      "angle_rad": 6.283185307179586,
+      "axis_line_slot": 5,
+      "axis_permanent_id": 1,
+      "resolved_map_base": 109,
+      "resolved_map_counter": 268,
+      "reversed": false,
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "7554382552fe45055073aff95e499abb74a9db17fedde925efb366de64825342"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "8fc8a5d15c0b405bde0ec62dee31eae9ec8050eeee872c0477dcaa875ad57f7e"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25476,
+          "sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12345,
+          "sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72b8894ac20f17fca966b1a4b6106027ee1a28a7b8bfeaa4be80809aa710bae6"
+        }
+      }
+    },
+    "RevolvePartialForward": {
+      "angle_dimension_id": 27,
+      "angle_rad": 1.9722220547535925,
+      "axis_line_slot": 5,
+      "axis_permanent_id": 1,
+      "resolved_map_base": 109,
+      "resolved_map_counter": 277,
+      "reversed": false,
+      "source_sha256": "0ea9ae68f7da6bd1d5542ce5b6689fd8f793dfcf2b5fefea44373043da17804d",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d6c3371c33b4be612eb29e5190658e2ab843b9fcd3750d29eb6e7a24ae4f10b6"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "cc92bb29a5abf78b274ea7aaedc83d3d5635f0eefe74aeda3b9d4d960d04fde5"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25476,
+          "sha256": "b853b0865bf6b92587969c9cdcb80068a3f4c5e8e9c2c1eb8fb0db0596e2f8c3"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12465,
+          "sha256": "9eb4b47c1f8906c1eae5e2b218152fac2b18310957a2edc6f4b7dff6847142be"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "72c48ef1db988a75351bb2513a1d00ec6d8a12d56d9fc3ef1a01e5d17f4c6918"
+        }
+      }
+    },
+    "RevolvePartialReverse": {
+      "angle_dimension_id": 27,
+      "angle_rad": 1.9722220547535925,
+      "axis_line_slot": 5,
+      "axis_permanent_id": 1,
+      "resolved_map_base": 109,
+      "resolved_map_counter": 277,
+      "reversed": true,
+      "source_sha256": "b3b345451717fef654043008f95f477a04cd369a1b838c86e7f7ef975080533b",
+      "streams": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d988c5b59ac3d4add7b07588bdebe89569d8b6d46918f2580faa3f230bfec3c5"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "e09afcbbdbed823b416c7afe48a53ac9ed0e0216e770f9f5d89fb7023b20cd11"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25482,
+          "sha256": "e1fbcfe71b5972443928e33e3595b1ee04db30c047fc4ade52d2fbaa7a47e1a8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12465,
+          "sha256": "de224a0d463df78e174e9da1493251862a2ab686e80f48c0f0812be3266968ef"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "96f6edd990df11b54d3c49ac28da8cf76a55e1baad21b02bb935c9050867dd29"
+        }
+      }
+    }
+  },
+  "heldout_inputs_read": 0,
+  "linked_stream_comparisons": 36,
+  "native_launches": 0,
+  "passed": true,
+  "schema": "kit.sw2026.sdk-ordinary-revolve-linked.v1",
+  "sdk_processes": 6,
+  "source_fingerprint": {
+    "manifest_sha256": "d076c594afd9a4be5b841066863c21e32f67dff08aeaf9c3efb4d5e13ba8aa24",
+    "python_source_files": 4437
+  },
+  "source_lock_sha256": "bf4a857b222a9ea61d5d74007fbde4090d95d1563aa8025de3b01454e1839b2f",
+  "tool_sha256": "af7c94b5dc81c5d2a7ea172f71445d28da810d403d0f871c79cd682d605a4c06"
+}

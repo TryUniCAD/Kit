@@ -1,0 +1,7 @@
+# Typed ordinary revolve reading
+
+The normal SOLIDWORKS part reader can expose the measured modern one-direction rectangular Front-plane boss as a linked `AngularRevolve`, with its actual positive radian parameter and selected construction-axis entity. It preserves the four true contour relations and leaves the axis unanchored. Other profiles/modes keep the existing representation; no writer registration, geometry-cache generation or target-application execution is added.
+
+The private exact overlay passes 56 fresh baseline/candidate process workers, 140 paired read-mode comparisons and 250 analytic comparison visits. All disclosed revolves pass five strict read modes and neutral JSON round trips. Six non-revolve controls and seventeen unsupported variants preserve exact outcomes, including twelve unchanged cache-missing error reads. Native B-rep, meshes and body hashes remain identical. An independent replay against the integrated reader reproduces all 140 candidate read-mode results. Original held-out qualification remains open.
+
+[Reading guide](../../../../Reference/Research/Solidworks/OrdinaryRevolveReading.md), [source and ownership record](../../../../../re/solidworks/records/SdkOrdinaryRevolveRead2026.md), [process receipt](../../../../../re/solidworks/measurements/2026/SdkOrdinaryRevolveRead01.json), and [axis selection gotcha](../../../../Gotchas/Conversion/Solidworks/Model/Revolve/AngularParameterNeedsOwnedAxisSelection.md).

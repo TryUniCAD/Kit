@@ -1,0 +1,306 @@
+{
+  "schema": "kit.sw2026.generated-revolve-sketch-log.v1",
+  "scope": "Three independently generated full, forward partial, and reverse partial revolves.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "source_revision": "cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6",
+  "tool_sha256": {
+    "InspectGeneratedRevolves.py": "402d5923d935be184d57d658d773ccfadc5284b297974b7082f67acb3ce4f9de",
+    "AuthorRevolveSources.py": "7590cede55f81dc62969a98e6281fce2e6f2e708d84413a9dbdf02d0e4d871fe",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+  },
+  "baseline_diagnostic_sha256": "b97818a4f78c2d8795634c54fcf02c492437610804152e278a9d329b59545e12",
+  "job_sha256": "46ffbd21c50397f4070e8d18faf44f07b5f13177a3892a4f6f1eaa96c311334c",
+  "private_report_sha256": "8a598365ad60f7e3df2f0df49e28139ebefad3a4398e9be1136cecd21195476e",
+  "private_transport_sha256": "8165fced3efb90b18c86efb3072e222bbad02bda8348603263d64208df9d99ca",
+  "controls": [
+    {
+      "phase": "control_before",
+      "healthy": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "process_creation_filetime": 134393721030014699
+    },
+    {
+      "phase": "control_after",
+      "healthy": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "process_creation_filetime": 134393722096772431
+    }
+  ],
+  "distinct_processes": 5,
+  "controls_healthy": true,
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "solidworks_processes_after": [],
+  "cases": [
+    {
+      "name": "KitRevolveFull",
+      "archive_delta": {
+        "name": "KitRevolveFull",
+        "old_sha256": "e834c6e4c564711dafb8da8eef08aaa084d5bb5c98f7cd254c380d21c0866cef",
+        "new_sha256": "7a9d859b21d02544bc4427d9c9001a172b79c013d0ec7e36abadce87d0f68480",
+        "bytes": 8005,
+        "decoded_stream": "Contents/Config-0-ResolvedFeatures",
+        "differing_offsets": [
+          7885,
+          7886,
+          7887,
+          7888
+        ]
+      },
+      "open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "edit": {
+        "passed": true,
+        "name": "D1@OrdinaryBossRevolve@KitRevolveFull.Part",
+        "before_radians": 6.283185307179586,
+        "after_radians": 3.612831551628262,
+        "setter_status": 0
+      },
+      "states": {
+        "reopened": {
+          "angle_radians": 6.283185307179586,
+          "reverse": false,
+          "bodies": 1,
+          "mass": {
+            "volume": 0.0001080959200247176,
+            "area": 0.016185485351294614,
+            "com": [
+              0.0029999999999999996,
+              0.008000000000000007,
+              -1.5408820601768534e-18
+            ],
+            "mass": 0.0001080959200247176
+          },
+          "expected": {
+            "volume": 0.00010809592002471761,
+            "area": 0.016185485351294614,
+            "com": [
+              0.003,
+              0.008,
+              0.0
+            ]
+          },
+          "forward_handedness": null
+        },
+        "edited": {
+          "angle_radians": 3.612831551628262,
+          "reverse": false,
+          "bodies": 1,
+          "mass": {
+            "volume": 6.215515401421259e-05,
+            "area": 0.010802654076994402,
+            "com": [
+              -0.00011055458885260677,
+              0.008000000000000002,
+              -0.012956392313801463
+            ],
+            "mass": 6.215515401421259e-05
+          },
+          "expected": {
+            "volume": 6.215515401421263e-05,
+            "area": 0.010802654076994406,
+            "com": [
+              -0.00011055458885260742,
+              0.008,
+              -0.012956392313801461
+            ]
+          },
+          "forward_handedness": -1
+        }
+      },
+      "numeric_checks": 25,
+      "phase_sha256": "05ad76e59e37f2afb40bc3c114edded9b0754c1ec10a43fa79932f6199a74418",
+      "generator_receipt_sha256": "b2d88f225982aefb5b73275ebd557467d59dcebc6337b90d85af2703bcf6ae67"
+    },
+    {
+      "name": "KitRevolveForward",
+      "archive_delta": {
+        "name": "KitRevolveForward",
+        "old_sha256": "bc67724748b21faf07df507e0a82d0c719b15506ae892aba237928384e804b25",
+        "new_sha256": "2a058a4b28e9908d17d94c17c1aa7f210c1cbca8b5c69197e574193030b5d309",
+        "bytes": 8023,
+        "decoded_stream": "Contents/Config-0-ResolvedFeatures",
+        "differing_offsets": [
+          7885,
+          7886,
+          7887,
+          7888
+        ]
+      },
+      "open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "edit": {
+        "passed": true,
+        "name": "D1@OrdinaryBossRevolve@KitRevolveForward.Part",
+        "before_radians": 2.2165681500327987,
+        "after_radians": 1.3089969389957472,
+        "setter_status": 0
+      },
+      "states": {
+        "reopened": {
+          "angle_radians": 2.2165681500327987,
+          "reverse": false,
+          "bodies": 1,
+          "mass": {
+            "volume": 1.635383981094198e-05,
+            "area": 0.004044112569295754,
+            "com": [
+              0.0011445171733680932,
+              -0.0009999999999999983,
+              -0.012323994856845185
+            ],
+            "mass": 1.635383981094198e-05
+          },
+          "expected": {
+            "volume": 1.6353839810941987e-05,
+            "area": 0.004044112569295754,
+            "com": [
+              0.0011445171733680919,
+              -0.001,
+              -0.01232399485684519
+            ]
+          },
+          "forward_handedness": -1
+        },
+        "edited": {
+          "angle_radians": 1.3089969389957472,
+          "reverse": false,
+          "bodies": 1,
+          "mass": {
+            "volume": 9.657779415910621e-06,
+            "area": 0.0027780507298990668,
+            "com": [
+              0.007584193325607712,
+              -0.0009999999999999996,
+              -0.009656191160683503
+            ],
+            "mass": 9.657779415910621e-06
+          },
+          "expected": {
+            "volume": 9.657779415910621e-06,
+            "area": 0.002778050729899067,
+            "com": [
+              0.007584193325607711,
+              -0.001,
+              -0.009656191160683501
+            ]
+          },
+          "forward_handedness": -1
+        }
+      },
+      "numeric_checks": 25,
+      "phase_sha256": "9822598dece732ae6bb71cda940dbd02871fc5bcc5fd965f1a471892cb05c348",
+      "generator_receipt_sha256": "1fc9e306206ca474b52f431de51528dd43f3c95871636dce86f0be1dbe312a61"
+    },
+    {
+      "name": "KitRevolveReverse",
+      "archive_delta": {
+        "name": "KitRevolveReverse",
+        "old_sha256": "01733f71b47f42670f0cb652a4b41ffd0925cbd42c9234ead46e18869b0d1632",
+        "new_sha256": "01287ff5392439b017a46dce4b543ce7204558523981063af5a9bd9b16db62b9",
+        "bytes": 8030,
+        "decoded_stream": "Contents/Config-0-ResolvedFeatures",
+        "differing_offsets": [
+          8029,
+          8030,
+          8031,
+          8032
+        ]
+      },
+      "open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "edit": {
+        "passed": true,
+        "name": "D1@OrdinaryBossRevolve@KitRevolveReverse.Part",
+        "before_radians": 2.5743606466916362,
+        "after_radians": 1.858775653373961,
+        "setter_status": 0
+      },
+      "states": {
+        "reopened": {
+          "angle_radians": 2.5743606466916362,
+          "reverse": true,
+          "bodies": 1,
+          "mass": {
+            "volume": 2.8337274818458175e-05,
+            "area": 0.006143069884234706,
+            "com": [
+              0.023132870958209595,
+              0.014179237901276074,
+              -0.013500000000000002
+            ],
+            "mass": 2.8337274818458175e-05
+          },
+          "expected": {
+            "volume": 2.8337274818458185e-05,
+            "area": 0.006143069884234708,
+            "com": [
+              0.023132870958209595,
+              0.014179237901276074,
+              -0.0135
+            ]
+          },
+          "forward_handedness": -1
+        },
+        "edited": {
+          "angle_radians": 1.858775653373961,
+          "reverse": true,
+          "bodies": 1,
+          "mass": {
+            "volume": 2.0460473004513867e-05,
+            "area": 0.0047662843570915004,
+            "com": [
+              0.02921444321107444,
+              0.013678798363937882,
+              -0.013500000000000002
+            ],
+            "mass": 2.0460473004513867e-05
+          },
+          "expected": {
+            "volume": 2.0460473004513874e-05,
+            "area": 0.004766284357091501,
+            "com": [
+              0.02921444321107444,
+              0.013678798363937877,
+              -0.0135
+            ]
+          },
+          "forward_handedness": -1
+        }
+      },
+      "numeric_checks": 25,
+      "phase_sha256": "ee17e8ad869c16ed0cedf6acb037795a1873141839ba0bc518c033afea028e1a",
+      "generator_receipt_sha256": "06828c59354a107534305a1bf0f0c0426641f794ffc28f28a0e4db7b20e0838e"
+    }
+  ],
+  "numeric_checks": 75,
+  "open_rebuild_edits_passed": true,
+  "saved_edit_reopened": false,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

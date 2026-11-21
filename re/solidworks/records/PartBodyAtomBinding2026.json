@@ -1,0 +1,682 @@
+{
+  "actual_getter": {
+    "absent_or_sentinel": "missing attribute or first integer -1 returns0; empty lists normally yield the pointer getter initialized NULL",
+    "attribute": "actual gciPointerAttrib_w::atomId_ad global3312cec8; existing GeneratedRectanglePartition2026 independently binds its ATOM_ID_2001 registration",
+    "backend": "32f80d60..32f80ee6",
+    "body_pointer_guard": "do not dereference an opaque body value merely because a register is called a pointer",
+    "bridge": "43e81540..43e8155f imports gciBody_w::getAtomId at IAT43f5a080",
+    "first_path": "attribute found and getPointers(field0,NULL)>0: use getPointer(field0,index0)",
+    "frontend": "gcBody_w::getAtomId0x4388ec40..0x4388ecc3",
+    "generated_shape": "Allocate emits body ATOM_ID_2001 field0=None and field1=independently allocated atom_id; AttributeChains represents None by a zero field reference, not a populated one-null-element pointer array; runtime receive behavior remains separately measured",
+    "purity": "the actual getter can mutate runtime attribute pointer state and must not be invoked as an additional observer measurement",
+    "repair_path": "otherwise getInts(field1,&array); a positive count whose first integer is not -1 is sign-extended into pointer values and installed through setPointers(field0,count,values), then the pointer is read",
+    "representation": "null returns0; validated small kernel identities reach bridge43e81540, while separately validated frontend heap bodies read their own+28 atom ID; invalid identities return0",
+    "returned_domain": "export is int; downstream EAX is the low32 result of the runtime pointer value, interpreted signed by the callers"
+  },
+  "caller": {
+    "admission": "signed ID>0 OR actual body count==1; a negative nonzero ID in a single-body case also reaches the call but does not satisfy later positive-ID gates",
+    "arguments": {
+      "R8D": 0,
+      "R9D": "1 if earlier ID !=0, otherwise0",
+      "RCX": "actual part",
+      "RDX": "selected actual body value loaded from array",
+      "qword[RSP+0x20]": "actual local ID-to-feature map if ID !=0, otherwise NULL"
+    },
+    "body_selection": "ID !=0 selects the indexed body; zero selects first body of the exactly-one-body case",
+    "complete_parent": "0x4c23e4f0..0x4c23f778",
+    "earlier_ID_return": "0x4c23f133",
+    "preferred_rva": "0x10ff17d",
+    "site": "0x4c23f17d"
+  },
+  "claims": {
+    "cold_model_acceptance": false,
+    "heldout_qualification": false,
+    "hidden_inputs_read": 0,
+    "shared_edits": false,
+    "static_rules_confirmed": true,
+    "worker_cad_calls": false,
+    "worker_native_calls": false,
+    "worker_sdk_or_codec_runs": false,
+    "worker_tests": false,
+    "worker_vm_calls": false
+  },
+  "data_windows": [
+    {
+      "bound": "bounded original moExtrusion RTTI metadata",
+      "bytes": 8,
+      "end_exclusive": "0x4cf3d488",
+      "module": "sldmodu.dll",
+      "name": "vtable locator pointer",
+      "sha256": "ed69e4eed145ba152a87617f64029ab85861b9f0e8bce81560c23bebe557e5c3",
+      "start": "0x4cf3d480"
+    },
+    {
+      "bound": "bounded original moExtrusion RTTI metadata",
+      "bytes": 24,
+      "end_exclusive": "0x4d32da40",
+      "module": "sldmodu.dll",
+      "name": "complete object locator",
+      "sha256": "a2e123def2cc9c0bc0e0d174f4920a57e4159247e752c45881fd1aece1083a17",
+      "start": "0x4d32da28"
+    },
+    {
+      "bound": "bounded original moExtrusion RTTI metadata",
+      "bytes": 36,
+      "end_exclusive": "0x4db0eb4c",
+      "module": "sldmodu.dll",
+      "name": "type descriptor",
+      "sha256": "8f5601aac596a052b27d737839e1c19ebb0fc8f874c280116b888385709165d5",
+      "start": "0x4db0eb28"
+    }
+  ],
+  "delivery_pr": 121,
+  "extrusion_rtti": {
+    "complete_object_locator": "0x4d32da28",
+    "type_descriptor_rva": "0x29ceb28",
+    "type_name": ".?AVmoExtrusion_c@@",
+    "vtable": "0x4cf3d488"
+  },
+  "first_ID_return": {
+    "call": "0x4c1cf4d4",
+    "not_yet_committed": "R14D and dword[RSP+0x40] get the ID in the next two instructions, not before the return-site instruction executes",
+    "parent": "0x4c1cf430..0x4c1cfbb5",
+    "preferred_rva": "0x108f4da",
+    "reach": "after optional partition change and actual feature-range selection, before selected-list-empty and all per-feature tests",
+    "registers": {
+      "EAX": "raw signed int atom ID just returned",
+      "EBP": "entry r9d mode value; RBP is not a frame base here",
+      "R13": "selected feature-list link",
+      "RDI": "actual moPart",
+      "RSI": "actual opaque gcBody_w identity, not unconditionally a dereferenceable heap address",
+      "qword[RSP+0xf0]": "entry fifth argument, optional actual ID-to-feature map"
+    },
+    "return": "0x4c1cf4da",
+    "void_parent_return": "replaceBody has no body-publication Boolean return"
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 131,
+      "end_exclusive": "0x4388ecc3",
+      "module": "sldgcu.dll",
+      "name": "GetBodyAtomId01",
+      "sha256": "1342b3d2dda800fca8e7b968a77845a5b13f8ee86bc28350dd0d66febec71c5f",
+      "start": "0x4388ec40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 131,
+          "end_exclusive": "0x4388ecc3",
+          "sha256": "1342b3d2dda800fca8e7b968a77845a5b13f8ee86bc28350dd0d66febec71c5f",
+          "start": "0x4388ec40",
+          "unwind_rva": "0x846580"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 31,
+      "end_exclusive": "0x43e8155f",
+      "module": "sldgcu.dll",
+      "name": "GetBodyAtomIdBridge01",
+      "sha256": "c1a7254c92ad4a4adf486f6ba1ca344374fdff30fb506136aa416f5b07493fee",
+      "start": "0x43e81540",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 31,
+          "end_exclusive": "0x43e8155f",
+          "sha256": "c1a7254c92ad4a4adf486f6ba1ca344374fdff30fb506136aa416f5b07493fee",
+          "start": "0x43e81540",
+          "unwind_rva": "0x846a1c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 390,
+      "end_exclusive": "0x32f80ee6",
+      "module": "sldgciParau.dll",
+      "name": "GetBodyAtomIdBackend01",
+      "sha256": "d95a0548a4bdfaf1ca6637ae67034342500557f56f84a0745aff544e2f9d1eec",
+      "start": "0x32f80d60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 390,
+          "end_exclusive": "0x32f80ee6",
+          "sha256": "d95a0548a4bdfaf1ca6637ae67034342500557f56f84a0745aff544e2f9d1eec",
+          "start": "0x32f80d60",
+          "unwind_rva": "0x150934"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 10,
+      "end_exclusive": "0x32fa0e6a",
+      "module": "sldgciParau.dll",
+      "name": "GetAtomPointer02",
+      "sha256": "84ec3d093b15d34ce2ffd91b8eca6fb6d629ab133574e3e17aa842efb247fc2c",
+      "start": "0x32fa0e60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 173,
+      "end_exclusive": "0x33038ebd",
+      "module": "sldgciParau.dll",
+      "name": "GetPointerFieldSlot01",
+      "sha256": "25aac8980f04a0bf46b319a8e0d6004981aa997ae29a8024ea680d193bdcb744",
+      "start": "0x33038e10",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 173,
+          "end_exclusive": "0x33038ebd",
+          "sha256": "25aac8980f04a0bf46b319a8e0d6004981aa997ae29a8024ea680d193bdcb744",
+          "start": "0x33038e10",
+          "unwind_rva": "0x165588"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x4b28d05c",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionRestoreStateGate01",
+      "sha256": "f15809ed5e7edf3e5515d2d9ebbac77aeed04a9c997492a69284ef0f6a87f85e",
+      "start": "0x4b28d050",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 48,
+      "end_exclusive": "0x4bad6d30",
+      "module": "sldmodu.dll",
+      "name": "ExtrusionEmptyOutputGate01",
+      "sha256": "e2af2a917672e1b3dc3e5a0fe1527e87ee03bb975ed49a53182dd0ded768e070",
+      "start": "0x4bad6d00",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 48,
+          "end_exclusive": "0x4bad6d30",
+          "sha256": "e2af2a917672e1b3dc3e5a0fe1527e87ee03bb975ed49a53182dd0ded768e070",
+          "start": "0x4bad6d00",
+          "unwind_rva": "0x2245bc8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4744,
+      "end_exclusive": "0x4c23f778",
+      "module": "sldmodu.dll",
+      "name": "PartExternalBodies01",
+      "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+      "start": "0x4c23e4f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4744,
+          "end_exclusive": "0x4c23f778",
+          "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+          "start": "0x4c23e4f0",
+          "unwind_rva": "0x248319c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1925,
+      "end_exclusive": "0x4c1cfbb5",
+      "module": "sldmodu.dll",
+      "name": "PartReplaceBody01",
+      "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+      "start": "0x4c1cf430",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1925,
+          "end_exclusive": "0x4c1cfbb5",
+          "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+          "start": "0x4c1cf430",
+          "unwind_rva": "0x2478720"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 731,
+      "end_exclusive": "0x4bcfb63b",
+      "module": "sldmodu.dll",
+      "name": "AtomSetBody01",
+      "sha256": "aced2594e89a888f36911f9ed3518603d7d6d3d498c83256505715bbb4f43c18",
+      "start": "0x4bcfb360",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 731,
+          "end_exclusive": "0x4bcfb63b",
+          "sha256": "aced2594e89a888f36911f9ed3518603d7d6d3d498c83256505715bbb4f43c18",
+          "start": "0x4bcfb360",
+          "unwind_rva": "0x23c765c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x4b27e156",
+      "module": "sldmodu.dll",
+      "name": "CacheStatusTrueLeaf01",
+      "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+      "start": "0x4b27e150",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 3,
+      "end_exclusive": "0x4b27cbe3",
+      "module": "sldmodu.dll",
+      "name": "ConstantFalseLeaf",
+      "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+      "start": "0x4b27cbe0",
+      "unwind_fragments": []
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd375c8",
+      "module": "sldgcu.dll",
+      "name": "?getEnablePartitionRollback@gcEnvironment_c@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37f18",
+      "module": "sldgcu.dll",
+      "name": "?changePartition@gcBody_w@@QEBAHPEAVgcPartition_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd384e0",
+      "module": "sldgcu.dll",
+      "name": "?isSolid@gcBody_w@@QEBAHHW4gcPointerKnow_e@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38780",
+      "module": "sldgcu.dll",
+      "name": "?isSheet@gcBody_w@@QEBAHW4gcPointerKnow_e@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38788",
+      "module": "sldgcu.dll",
+      "name": "?getAtomId@gcBody_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd33d48",
+      "module": "SLDMFCU.dll",
+      "name": "?find@suObArray@@QEBAHPEBVCObject@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x43f5a080",
+      "module": "sldgciParau.dll",
+      "name": "?getAtomId@gciBody_w@GCP@@QEAAHXZ",
+      "source_module": "sldgcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 98,
+      "end_exclusive": "0x4c23f182",
+      "module": "sldmodu.dll",
+      "name": "Caller signed ID or exactly one body admission",
+      "sha256": "038378c76df675871c47c7f0e9752e937abb32884ff44efa93d13bf524d3fde1",
+      "start": "0x4c23f120"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 40,
+      "end_exclusive": "0x4c1cf4eb",
+      "module": "sldmodu.dll",
+      "name": "Callee body ID read before any list-empty/per-feature gate",
+      "sha256": "f892e314aaf19d7641e8ac8e2ebad82c355dd445cfcd06a7ba07312719bfe9f1",
+      "start": "0x4c1cf4c3"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 36,
+      "end_exclusive": "0x4c1cf78e",
+      "module": "sldmodu.dll",
+      "name": "Restorable feature and update-error predicates",
+      "sha256": "13ec7f7587730dc530369f563c09bc06206986d4fb3213e55cded8941b3842e2",
+      "start": "0x4c1cf76a"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 58,
+      "end_exclusive": "0x4c1cf85f",
+      "module": "sldmodu.dll",
+      "name": "Output atom count and missing-output branch",
+      "sha256": "1b63cf254f751d67be1809bdac18aa382a245862a4259ad431e2af502702c99a",
+      "start": "0x4c1cf825"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 169,
+      "end_exclusive": "0x4c1cf92e",
+      "module": "sldmodu.dll",
+      "name": "Positive ID lookup and output membership",
+      "sha256": "b4097bc90b2c1458fd5d7972a1ebd67da14c07e8dc00225857039ee6411ae844",
+      "start": "0x4c1cf885"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 100,
+      "end_exclusive": "0x32f80ddd",
+      "module": "sldgciParau.dll",
+      "name": "Pointer presence and field-one integer fallback",
+      "sha256": "427b0117d02fb3c06ae6bdec82d22df4638553727c415b31b279f64bcf1f77c1",
+      "start": "0x32f80d79"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 57,
+      "end_exclusive": "0x32f80ec2",
+      "module": "sldgciParau.dll",
+      "name": "Integer sign-extension and pointer-list installation",
+      "sha256": "f263236416ac967c363c03e6b5fcb9582880889258bde3a3f5f98bf7166e9ac6",
+      "start": "0x32f80e89"
+    },
+    {
+      "bound": "instruction-boundary window within full parent above",
+      "bytes": 25,
+      "end_exclusive": "0x32f80edb",
+      "module": "sldgciParau.dll",
+      "name": "Actual pointer return or absent/sentinel zero",
+      "sha256": "693a41538cd8c9249f795818649775d253ea55552c66390ebb3deaad23382259",
+      "start": "0x32f80ec2"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 10893912,
+      "machine": "0x8664",
+      "name": "sldgcu.dll",
+      "preferred_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    {
+      "bytes": 1875032,
+      "machine": "0x8664",
+      "name": "sldgciParau.dll",
+      "preferred_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    }
+  ],
+  "ordinary_extrusion_gates": {
+    "class": "actual moExtrusion_c at primary vtable4cf3d488",
+    "eligibility": "actual moAtomFeature/moBodyFeature RTTI with +1ef8 true then actual isSolid(body,1,0); other native surface/section branches are not generalized",
+    "matched_index": "f8da EAXsigned index must be >=0 and <dword[RSP+58]; otherwise skip feature; successful member selects actual atom from the output array",
+    "output_count_return": "4c1cf82d: EAXcount with RBXactual feature identity; zero count on slot1cf8 createVersion>=0xd7a skips; earlier plane/folder rows do not diagnose the actual boss",
+    "positive_match": "slotaf0 true, then entry mode or multiple outputs triggers another getAtomId atf888; positive result resolves actual manager getAtomFromId atf89f, and that exact atom must be a member of this actual feature output list atf8d4",
+    "remaining": "actual caller class/flags and runtime output aliases in the failing fresh run remain unmeasured; no gate is changed",
+    "restorable": "slot1970\u21924b28d050 is feature+298==0; nonzero skips at4c1cf778",
+    "result_cleanup": "slot1958 isSuppressed and slots1f20/1f30 getResultBody/destroyResultBody participate; retained preview/body cleanup must not be equated with atom publication",
+    "update_error": "feature f0c mask2 skips at4c1cf788"
+  },
+  "owner": "flag_ownership",
+  "release": "2026 SP05.2 / 34.5.2.0604",
+  "root_native_context": {
+    "cases": [
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Base",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "0eb2ba3de868ec8e63a899cac8212842519a6c33716d4d84a0df6911efff1757",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Size",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "9accb3e49b60bcbe124f6c2dc5a4c5ba3597a08952cdae436ccb35580ce21cd6",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Bits",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "1ec49d27076988e83f9c29f9db3e71c291bf1e11aae7fec748ddb28c20b22c07",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism1Both",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "e2cd31c4999f02601d9ffa7ea37b050612befc399a32279f5882a55348e32909",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Base",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "c38fe5a2cf2cc2967ce30175072c36841bf61a88e86fe926aa398ad13b07b271",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Size",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "15a70c91590221cbe58dda439bcfa22530fcfce491b0763e260a1def697e0d72",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Bits",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "375c9704e25933cb5a5a8ebc6c00e68c9925a6273bcec47991860099d970611c",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      },
+      {
+        "candidate_cold_acceptance": false,
+        "case": "Prism2Both",
+        "initial_bodies": 0,
+        "initial_open": {
+          "errors": 0,
+          "opened": true,
+          "warnings": 32
+        },
+        "input_sha256": "f02bb1880bd96baff4d92eb11425266122bb25b9ca064e9be7e469416f7c4170",
+        "raw_case_passed": true,
+        "rebuilt_bodies": 1
+      }
+    ],
+    "clean_initial_opens": false,
+    "controls": [
+      {
+        "bodies": 1,
+        "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true
+      },
+      {
+        "bodies": 1,
+        "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true
+      }
+    ],
+    "file": "PrismSavedState02/Result01.json",
+    "heldout_inputs_read": 0,
+    "lifecycle_passed": true,
+    "sha256": "127ca6622e9f58e5b8be91a01ba597b25cb1f7d4716b4541fdaff988818b9642"
+  },
+  "schema": "kit.sw2026.part-atom-binding-source.v1",
+  "scope_limit": "This source packet does not establish which gate rejected the failed cold open, a general debugger cause, or a writer correction; all original inputs/failures remain immutable",
+  "source_files": [
+    {
+      "bytes": 554068,
+      "path": "re/data/Serialization/SerializeMap2026.json",
+      "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+    },
+    {
+      "bytes": 10192,
+      "path": "re/tooling/sw2026/para/rectangle/Allocate.py",
+      "sha256": "03264e0f230225544ba0dface553dbd986e603d82fe497ec1dfdfb87a361719a"
+    },
+    {
+      "bytes": 5833,
+      "path": "re/tooling/sw2026/para/rectangle/AttributeChains.py",
+      "sha256": "f3f324fddb491f1cd4ef8b53499a0bfd77a49d107674e7dccbaf528dc254971e"
+    },
+    {
+      "bytes": 3313,
+      "path": "re/tooling/sw2026/para/rectangle/Attributes.py",
+      "sha256": "e6542d06b0498eb1263da2cae4a937effcd69fe6ef53588cec58fd816c5ef3ba"
+    },
+    {
+      "bytes": 4663,
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/FeatureFields.py",
+      "sha256": "ce84e3fc7a9ee82f9b55be4a92953986632a1185202c6802e26ef9012f547a98"
+    },
+    {
+      "bytes": 12211,
+      "path": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "sha256": "dbd41924f02e18da88765be32aaee9449ae145635397159c52903b30fc85761c"
+    }
+  ],
+  "task": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD / ID and feature-output selection",
+  "vtable_cells": [
+    {
+      "cell": "0x4cf3df78",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0xaf0",
+      "slot": "0xaf0",
+      "target": "0x4b27e150",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3f380",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1ef8",
+      "slot": "0x1ef8",
+      "target": "0x4b27e150",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3ede0",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1958",
+      "slot": "0x1958",
+      "target": "0x4bb4bf50",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3f3a8",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1f20",
+      "slot": "0x1f20",
+      "target": "0x4b2895c0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3f3b8",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1f30",
+      "slot": "0x1f30",
+      "target": "0x4b703a80",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3edf8",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1970",
+      "slot": "0x1970",
+      "target": "0x4b28d050",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3db20",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x698",
+      "slot": "0x698",
+      "target": "0x4b27cbe0",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3f180",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x1cf8",
+      "slot": "0x1cf8",
+      "target": "0x4bad6d00",
+      "vtable": "0x4cf3d488"
+    },
+    {
+      "cell": "0x4cf3db50",
+      "module": "sldmodu.dll",
+      "name": "actual moExtrusion slot0x6c8",
+      "slot": "0x6c8",
+      "target": "0x4b27cbe0",
+      "vtable": "0x4cf3d488"
+    }
+  ]
+}

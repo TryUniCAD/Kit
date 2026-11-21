@@ -1,8 +1,11 @@
 from __future__ import annotations as Annotations
-from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
-from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
-from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
-from convert.adapters.solidworks.Core.Records.NativeName import NativeName
+from convert.adapters.base.NativeEvidence import KRefSupportSource as KRefSupportSource
+from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature as XmlFeature
+from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule as NativeRule
+from convert.adapters.solidworks.Core.Records.NativeClass import (
+    NativeClass as NativeClass,
+)
+from convert.adapters.solidworks.Core.Records.NativeName import NativeName as NativeName
 from convert.adapters.solidworks.Core.NativeOperand import (
     NativeOperand as NativeOperand,
 )
@@ -15,7 +18,7 @@ from convert.adapters.solidworks.Core.NativeDimension import (
 )
 from convert.adapters.solidworks.Core.NativeMarker import NativeMarker as NativeMarker
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
-from convert.adapters.solidworks.Core.BindMirrorField import (
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import (
     BindMirrorField,
     KMirroredFields,
 )
@@ -42,6 +45,7 @@ from interchange import (
     CircleGeometry as CircleGeom,
     ParameterRole as ParamRole,
 )
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.base.SafeParsing import CheckXmlDoctype
@@ -58,6 +62,32 @@ from convert.adapters.solidworks.Container.Format import (
     RESOLVED_FEATURES_STREAM as ResolvedFeaturesStream,
     SERIALIZED_STRING_MARKER as SerializedStringMarker,
     dimension_scalar_value_offset as DimensionScalarValue,
+)
+from convert.adapters.solidworks.Core.NativeRecords.LinearSketchOwner import (
+    HasLineOnlyRect,
+    KLineTail,
+    KOrdinaryEntity,
+    KPointPosition,
+    KVertexCount,
+)
+from convert.adapters.solidworks.Core.NativeRecords.PlaneRefRecord import (
+    FindPlaneRef,
+    KHandleVersion,
+)
+from convert.adapters.solidworks.Core.NativeRecords.HeaderActions import ReadHdrAction
+from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
+from convert.adapters.solidworks.Core.TypedResolved.Equations.WidthDepthLink import (
+    WidthDepthLink,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
+from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
+    LocalCircle,
+)
+from convert.adapters.solidworks.Core.SketchRelations.CircleCenterRule import (
+    ReadCenterFix,
+)
+from convert.adapters.solidworks.Core.SketchRelations.DimensionFields import (
+    RadialAnchor,
 )
 from convert.adapters.solidworks.Core.ProfileHeader import ProfileHeader
 from convert.adapters.solidworks.Resolved.Core import (
@@ -214,8 +244,6 @@ KFaceSupportKind = "face"
 # this binding exists because shared behavior needs one stable value
 KDerivedSupportKind = "derived"
 
-# this binding exists because shared behavior needs one stable value
-KRefSupportSource = "plane-reference"
 
 # this binding exists because shared behavior needs one stable value
 KStreamOrderSupportSource = "stream-order"
@@ -276,7 +304,11 @@ def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
     RefValue = SketchPlaneRef(
-        StateData.Resolved, StateData.Classes, SketchStart, SketchEnd
+        StateData.Resolved,
+        StateData.Classes,
+        SketchStart,
+        SketchEnd,
+        StateData.PlaneById if Feature.native_end is not None else None,
     )
     Support, SupportSource, UnframedSupport = SupportPlaneRef(
         StateData.Resolved,
@@ -993,6 +1025,7 @@ class NativeProfile:
     parameter_name: str | None = None
     dimension_kind: str | None = None
     start_angle_degrees: float | None = None
+    EntityMarkerOffset: int | None = None
     HeaderOffset: int | None = None
 
 
@@ -1057,6 +1090,8 @@ class NativeSketch:
     support_plane: NativeSketchPlane | None = None
     support_source: str = KRefSupportSource
     unframed_support_plane_id: int | None = None
+    TypedLines: LineLoop | None = None
+    TypedCircle: LocalCircle | None = None
     rectangle: RectanglePart | None = None
     rectangle_geometry_stream: str | None = None
 
@@ -1127,6 +1162,8 @@ class NativeOperation(NativeOpFrame):
     angle_copies: tuple[NativeDepthCopy, ...] = ()
     instance_count: int | None = None
     spacing_mm: float | None = None
+    extrusion_end: ExtrudeEnd | None = None
+    second_extrusion_end: ExtrudeEnd | None = None
     archive_spans: tuple[tuple[int, int, str], ...] = ()
 
 
@@ -1144,6 +1181,7 @@ class NativeFeature:
     data: bytes = b""
     class_name: str = ""
     native_stream: str = ResolvedFeaturesStream
+    TypedOwner: Mapping[str, object] = Field(default_factory=dict[str, object])
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1184,6 +1222,8 @@ class NativeModel:
     equations: tuple[NativeEquation, ...] = Field(default_factory=tuple)
     active_configuration_id: int | None = None
     bounding_box: NativeBoundingBox | None = None
+    TypedGraph: Mapping[str, object] = Field(default_factory=dict[str, object])
+    WidthDepth: WidthDepthLink | None = None
     linear_display: LinearDisplay | None = None
     cut_source: CutSource | None = None
 
@@ -1295,18 +1335,7 @@ def ReadHeaderObjs(
         Offset += 2
         ActionIndex = 0
         while ActionIndex < ActionCount:
-            Offset = ExpectBytes(DataValue, Offset, bytes.fromhex("0a80"))
-            StoredIndex = Struct.unpack_from("<I", DataValue, Offset)[0]
-            if StoredIndex != ActionIndex:
-                raise SldprtFormatError(
-                    "native SOLIDWORKS header action index is invalid"
-                )
-            Offset += 10
-            ActionName, Offset = ReadSerialized(DataValue, Offset)
-            if ActionName not in {"Created", "Modified"}:
-                raise SldprtFormatError(
-                    "native SOLIDWORKS header action name is invalid"
-                )
+            Offset = ReadHdrAction(DataValue, Offset, ActionIndex, ReadSerialized)
             ActionIndex += 1
         (ObjectId,) = Struct.unpack_from("<I", DataValue, Offset)
         Offset += 4
@@ -1692,18 +1721,14 @@ def DecodeNotices(
     return tuple(Diagnostics)
 
 
-# this definition exists because focused behavior needs one stable owner
-def DecodeNative(
-    Keywords: bytes,
-    Resolved: bytes,
-    ConfigData: bytes = b"",
-    *,
-    ConfigId: int | None = None,
-    ResolvedStream: str = ResolvedFeaturesStream,
-    ConfigStream: str = "",
-    Display: LinearDisplay | None = None,
-    **LegacyValues: object,
-) -> NativeModel:
+# framework callers also supply the existing snake case configuration arguments
+def DecodeOptions(
+    LegacyValues: dict[str, object],
+    ConfigData: bytes,
+    ConfigId: int | None,
+    ResolvedStream: str,
+    ConfigStream: str,
+) -> tuple[bytes, int | None, str, str]:
     UnknownValues = set(LegacyValues) - {
         "configuration_data",
         "configuration_id",
@@ -1729,10 +1754,25 @@ def DecodeNative(
         raise TypeError("resolved_stream must be a string")
     if not isinstance(LegacyStream, str):
         raise TypeError("configuration_stream must be a string")
-    ConfigData = LegacyConfig
-    ConfigId = LegacyConfigId
-    ResolvedStream = LegacyResolved
-    ConfigStream = LegacyStream
+    return LegacyConfig, LegacyConfigId, LegacyResolved, LegacyStream
+
+
+# the selected configuration owns its feature and sketch archive state
+def DecodeNative(
+    Keywords: bytes,
+    Resolved: bytes,
+    ConfigData: bytes = b"",
+    *,
+    ConfigId: int | None = None,
+    ResolvedStream: str = ResolvedFeaturesStream,
+    ConfigStream: str = "",
+    ModelVersion: int | None = None,
+    Display: LinearDisplay | None = None,
+    **LegacyValues: object,
+) -> NativeModel:
+    ConfigData, ConfigId, ResolvedStream, ConfigStream = DecodeOptions(
+        LegacyValues, ConfigData, ConfigId, ResolvedStream, ConfigStream
+    )
     Configurations, XmlFeatures = ParseKeywords(Keywords)
     Names = ParseNames(Resolved)
     if ResolvedStream == ResolvedFeaturesStream:
@@ -1752,6 +1792,8 @@ def DecodeNative(
         FeatureIndexes,
     )
     DecodeTreeMut(StateData, Author)
+    if ModelVersion == 19000 and ResolvedStream != KitResolvedStream:
+        BindCentersMut(StateData)
     SketchesById = {Sketch.object_id: Sketch for Sketch in StateData.Sketches}
     StateData.Operations = [
         ResolveProfile(Operation, SketchesById, Resolved, NativeFeatures)
@@ -1863,7 +1905,9 @@ def ParseKeywords(
             if TagValue != "Feature"
             else ElemValue.attrib.get("Type", "Feature")
         )
-        if KindValue.casefold() in PlaneFeatureTypes:
+        if KindValue.casefold() in PlaneFeatureTypes or (
+            TagValue == "Feature" and KindValue == "moRefPlane_c"
+        ):
             KindValue = CanonicalPlaneFeatureType.title()
         NameValue = ElemValue.attrib.get("Name", "")
         Dimensions = [
@@ -2460,7 +2504,103 @@ def PrincipalPlaneA(
 
 # this definition exists because focused behavior needs one stable owner
 def IsOriginFeature(Feature: NativeFeature) -> bool:
-    return Feature.properties.get("Type", "").casefold() == "origin"
+    return Feature.properties.get("Type", "").casefold() in {
+        "origin",
+        "mooriginprofilefeature_c",
+    }
+
+
+# the unique typed origin sketch supplies the first local point class declaration
+def OriginSketch(StateData: DecodeState) -> bytes:
+    Origins = [
+        Feature
+        for Feature in StateData.NativeFeatures
+        if IsOriginFeature(Feature) and Feature.class_name == "moOriginProfileFeature_c"
+    ]
+    if len(Origins) != 1:
+        return b""
+    (Origin,) = Origins
+    Start, EndValue = Origin.native_offset, Origin.native_end
+    if Start is None or EndValue is None:
+        return b""
+    Declarations = [
+        Record.offset
+        for Record in StateData.Classes
+        if Record.name == "sgSketch" and Start + 6 <= Record.offset < EndValue
+    ]
+    if len(Declarations) != 1:
+        return b""
+    return StateData.Resolved[Declarations[0] - 6 : EndValue]
+
+
+# the current sketch and its dimension must agree on the same circle record
+def CenterSpan(
+    Resolved: bytes, Sketch: NativeSketch, OriginData: bytes
+) -> tuple[int, int] | None:
+    if len(Sketch.profiles) != 1 or len(Sketch.markers) != 3:
+        return None
+    (Profile,) = Sketch.profiles
+    if Profile.kind != "circle" or len(Profile.marker_offsets) != 3:
+        return None
+    if len(Sketch.dimensions) != 1 or Profile.dimension_kind != "radius":
+        return None
+    (Dimension,) = Sketch.dimensions
+    if (
+        Dimension.name != Profile.parameter_name
+        or Dimension.native_offset is None
+        or Dimension.value_mm is None
+    ):
+        return None
+    Start, EndValue = Sketch.native_offset, Sketch.native_end
+    CenterMark, SeamMark, ArcMark = Profile.marker_offsets
+    if (
+        not Start
+        <= CenterMark
+        < SeamMark
+        < ArcMark
+        < Dimension.native_offset
+        < EndValue
+    ):
+        return None
+    return ReadCenterFix(
+        Resolved[Start:EndValue],
+        OriginData,
+        (CenterMark - Start, SeamMark - Start, ArcMark - Start),
+        (Profile.coordinates[0], Profile.coordinates[1]),
+        RadialAnchor(
+            Dimension.name,
+            Dimension.native_offset - Start,
+            Dimension.value_mm,
+        ),
+    )
+
+
+# centre fixation augments existing relations while preserving radius editability
+def AddCenterRule(Sketch: NativeSketch, SpanValue: tuple[int, int]) -> NativeSketch:
+    Start, EndValue = SpanValue
+    RuleValue = NativeRule(
+        id=f"{Sketch.object_id}:profile:0:fixed-center",
+        kind="fixed",
+        references=(f"{Sketch.object_id}:profile:0",),
+        parameter=None,
+        value=None,
+        native_offset=Sketch.native_offset + Start,
+        native_code=0x11,
+        reference_points=("center",),
+        native_length=EndValue - Start,
+    )
+    return Replace(Sketch, constraints=(*Sketch.constraints, RuleValue))
+
+
+# the selected stream keeps origin and circle bindings within the same map context
+def BindCentersMut(StateData: DecodeState) -> None:
+    OriginData = OriginSketch(StateData)
+    if not OriginData:
+        return
+    for Index, Sketch in enumerate(StateData.Sketches):
+        SpanValue = CenterSpan(StateData.Resolved, Sketch, OriginData)
+        if SpanValue is not None:
+            StateData.Sketches[Index] = AddCenterRule(Sketch, SpanValue)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2604,7 +2744,11 @@ def SupportPlaneRef(
 
 # this definition exists because focused behavior needs one stable owner
 def SketchPlaneRef(
-    DataValue: bytes, Classes: tuple[NativeClass, ...], Start: int, EndValue: int
+    DataValue: bytes,
+    Classes: tuple[NativeClass, ...],
+    Start: int,
+    EndValue: int,
+    Planes: Mapping[int, NativePlane] | None = None,
 ) -> NativeSketchA | None:
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
@@ -2620,7 +2764,30 @@ def SketchPlaneRef(
         )
         if Scanned is not None:
             return Scanned
-    return None
+    return ReadPlaneHandle(DataValue, Start, EndValue, Planes) if Planes else None
+
+
+# the handle is authoritative when its axis and frame agree with the owned plane
+def ReadPlaneHandle(
+    DataValue: bytes, Start: int, EndValue: int, Planes: Mapping[int, NativePlane]
+) -> NativeSketchA | None:
+    OwnedPlanes = frozenset(
+        Plane.object_id for Plane in Planes.values() if Plane.principal
+    )
+    Match = FindPlaneRef(DataValue, Start, EndValue, OwnedPlanes)
+    if Match is None:
+        return None
+    Offset, PlaneId, AxisKind = Match
+    Plane = Planes[PlaneId]
+    Frame = ReadPlaneBasis(DataValue, Offset, EndValue, PlaneId, AxisKind)
+    if (
+        Frame is None
+        or KIdentityBasis[AxisKind - 1] != Plane.normal
+        or (Frame.u_axis, Frame.v_axis, Frame.normal)
+        != (Plane.u_axis, Plane.v_axis, Plane.normal)
+    ):
+        raise SldprtFormatError("SOLIDWORKS principal plane reference frame disagrees")
+    return Frame
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -2639,6 +2806,13 @@ def ReadSketchPlane(
     AxisCode = Struct.unpack_from("<I", DataValue, Offset + KSketchPlaneAxisDelta)[0]
     if AxisCode != KSketchPlaneAxisComplemeA - PlaneObjectId:
         return None
+    return ReadPlaneBasis(DataValue, Offset, EndValue, PlaneObjectId, AxisCode)
+
+
+# both reference layouts share the same optional sketch basis representation
+def ReadPlaneBasis(
+    DataValue: bytes, Offset: int, EndValue: int, PlaneObjectId: int, AxisCode: int
+) -> NativeSketchA | None:
     FlagValue = DataValue[Offset + KSketchPlaneBasisFlagDelA]
     BasisOffset = Offset + KSketchPlaneBasisDelta
     if FlagValue == 0:
@@ -2866,9 +3040,23 @@ def DecodeSketch(
     Start = Feature.native_offset or 0
     EndValue = Feature.native_end or len(DataValue)
     Markers = list(ParseMarkers(DataValue, Start, EndValue))
-    ProfileValues, ProfileMarkers, Dimensions = DecodeProfiles(
-        Markers, Feature.dimensions
+    LineOnly = (
+        SupportPlane is not None
+        and DataValue[SupportPlane.offset - len(KHandleVersion) : SupportPlane.offset]
+        == KHandleVersion
+        and HasLineOnlyRect(
+            DataValue, tuple(Marker.offset for Marker in Markers), Start, EndValue
+        )
     )
+    OwnedRect = RectFromRows(DataValue, Markers) if LineOnly else None
+    if OwnedRect is None:
+        ProfileValues, ProfileMarkers, Dimensions = DecodeProfiles(
+            Markers, Feature.dimensions, LineOnly=LineOnly
+        )
+    else:
+        ProfileValues = (OwnedRect,)
+        ProfileMarkers = set(OwnedRect.marker_offsets)
+        Dimensions = Feature.dimensions
     NormalizedMarkers = tuple(
         (
             NativeMarker(
@@ -3437,12 +3625,17 @@ def AppendRectsMut(
 
 # this definition exists because focused behavior needs one stable owner
 def DecodeProfiles(
-    Markers: list[NativeMarker], Dimensions: tuple[NativeDimension, ...]
+    Markers: list[NativeMarker],
+    Dimensions: tuple[NativeDimension, ...],
+    *,
+    LineOnly: bool = False,
 ) -> tuple[tuple[NativeProfile, ...], set[int], tuple[NativeDimension, ...]]:
     LinkedRectangles, LinkedMarkers = LinkedRectangle(Markers)
     StructuralRectangles, StructuralRectangle = StructuralA(Markers, LinkedMarkers)
-    StructuralCircles, StructuralMarkers, StructuralDimensions = Structural(
-        Markers, Dimensions, LinkedMarkers | StructuralRectangle
+    StructuralCircles, StructuralMarkers, StructuralDimensions = (
+        ((), set[int](), {})
+        if LineOnly
+        else Structural(Markers, Dimensions, LinkedMarkers | StructuralRectangle)
     )
     StructuralPolylines, StructuralPolylineMarkers = PolyProfiles(
         Markers, LinkedMarkers | StructuralRectangle | StructuralMarkers
@@ -3456,7 +3649,9 @@ def DecodeProfiles(
     RemainingMarkers = [
         Marker for Marker in Markers if Marker.offset not in ExcludedMarkers
     ]
-    CircleProfileValues, CircleDimensions = CircleSet(RemainingMarkers, Dimensions)
+    CircleProfileValues, CircleDimensions = (
+        ((), {}) if LineOnly else CircleSet(RemainingMarkers, Dimensions)
+    )
     CircleDimensions.update(StructuralDimensions)
     Normalized = tuple(
         (
@@ -3559,7 +3754,7 @@ def RectComponent(
     Markers: Sequence[NativeMarker],
     Component: set[int],
     Vertices: set[int],
-    MarkerIndexes: Mapping[int, int],
+    MarkerIndexes: Mapping[int, int] | None = None,
 ) -> NativeProfile | None:
     if len(Component) != 4 or len(Vertices) != 4:
         return None
@@ -3587,9 +3782,43 @@ def RectComponent(
         "rectangle",
         (XsValue[0], YsValue[0], XsValue[1], YsValue[1]),
         LineOffsets,
-        HeaderOffset=ProfileHeader(
-            Edges, Markers, Component, Vertices, KCircleLocus.hex(), MarkerIndexes
+        HeaderOffset=(
+            ProfileHeader(
+                Edges, Markers, Component, Vertices, KCircleLocus.hex(), MarkerIndexes
+            )
+            if MarkerIndexes is not None
+            else None
         ),
+    )
+
+
+# established array ownership keeps edge decoding independent of heuristic marker spacing
+def RectFromRows(
+    DataValue: bytes, Markers: Sequence[NativeMarker]
+) -> NativeProfile | None:
+    Points: list[NativeMarker] = []
+    Edges: list[NativeMarker] = []
+    for Marker in Markers[:KVertexCount]:
+        Position = KPointPosition.unpack_from(
+            DataValue, Marker.offset + KOrdinaryEntity.size
+        )
+        XYValue = (
+            Clean(round(Position[1] * KMillimetres, 12)),
+            Clean(round(Position[2] * KMillimetres, 12)),
+        )
+        Points.append(Replace(Marker, coordinates_mm=XYValue))
+    for Marker in Markers[KVertexCount:]:
+        TailValue = KLineTail.unpack_from(
+            DataValue, Marker.offset + KOrdinaryEntity.size
+        )
+        Edges.append(Replace(Marker, endpoint_indices=(TailValue[0], TailValue[1])))
+    Slots = set(range(KVertexCount))
+    Profile = RectComponent(Edges, Points, Slots, Slots)
+    if Profile is None:
+        return None
+    return Replace(
+        Profile,
+        marker_offsets=(*Profile.marker_offsets, *(Point.offset for Point in Points)),
     )
 
 
@@ -3800,17 +4029,6 @@ def CircleClosure(
     return (Center, RimValue, Closure, Radius, MarkerStart(Center, RimValue), GeomValue)
 
 
-# circle dimension matching owns unique radius and diameter normalization
-def CircleDimension(Value: float | None, Radius: float) -> tuple[str, float] | None:
-    if Value is None:
-        return None
-    if MathValue.isclose(Value, Radius, rel_tol=1e-07, abs_tol=1e-07):
-        return ("radius", Value)
-    if MathValue.isclose(Value, Radius * 2.0, rel_tol=1e-07, abs_tol=1e-07):
-        return ("diameter", Value / 2.0)
-    return None
-
-
 # circle recovery needs a stable dimension link when the scalar identifies one geometry
 def MatchCircleMut(
     Dimensions: tuple[NativeDimension, ...],
@@ -3820,7 +4038,7 @@ def MatchCircleMut(
 ) -> tuple[tuple[float, float, float], str | None, str | None]:
     Matches: list[tuple[int, str, float]] = []
     for Index, Dimension in enumerate(Dimensions):
-        Match = CircleDimension(Dimension.value_mm, Radius)
+        Match = MatchRadialVal(Dimension.value_mm, Radius)
         if Match is not None:
             Matches.append((Index, *Match))
     ParamName = None
@@ -3983,10 +4201,10 @@ def CircleSet(
                 continue
             StartAngle = MarkerStart(CenterMarker, RimMarker)
             for Index, Dimension in enumerate(Dimensions):
-                Match = CircleDimension(Dimension.value_mm, RadiusValue)
-                if Match is None:
+                MatchedValue = MatchRadialVal(Dimension.value_mm, RadiusValue)
+                if MatchedValue is None:
                     continue
-                Semantic, NormalizedRadius = Match
+                Semantic, NormalizedRadius = MatchedValue
                 CenterCoordinates = CenterMarker.coordinates_mm
                 if CenterCoordinates is None:
                     continue
@@ -4608,10 +4826,21 @@ VERTICAL_AXIS_SUBELEMENT = KVerticalAxisSubElem
 _SKETCH_PLANE_ID_RELATIVE = KSketchPlaneIdRelative  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
+_SKETCH_PLANE_REFERENCE_PREFIX = (
+    KSketchPlaneRefPrefix  # lgtm[py/unused-global-variable]
+)
+
+# this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_REFERENCE_TAG = KSketchPlaneRefTag  # lgtm[py/unused-global-variable]
 
 # this binding exists because shared behavior needs one stable value
 _SKETCH_PLANE_SCAN_BYTES = KSketchPlaneScanBytes  # lgtm[py/unused-global-variable]
+
+
+# this binding exists because shared behavior needs one stable value
+_SURFACE_EXTRUSION_FEATURE_TYPES = (
+    KSurfaceExtrusionFeature  # lgtm[py/unused-global-variable]
+)
 
 
 # this binding exists because shared behavior needs one stable value

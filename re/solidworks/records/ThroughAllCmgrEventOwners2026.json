@@ -1,0 +1,217 @@
+{
+  "complete_source_preparation": false,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "native_rules_sha256": "54bcf9c3a1ebf9c8c0e6211db774b7d5908cec55ecc38300b6903a2192274832",
+  "public_activation": false,
+  "remaining_frontiers": {
+    "D01": {
+      "cmgr_frontiers": 23,
+      "cmgr_paths": [
+        "CMgr/ext/@length",
+        "CMgr/f360/f2c",
+        "CMgr/f360/f450/@length",
+        "CMgr/f360/f460/@length",
+        "CMgr/f360/f4c4",
+        "CMgr/f360/f4c8",
+        "CMgr/f360/f6f8",
+        "CMgr/f360/f78",
+        "CMgr/f360/f85c",
+        "CMgr/f360/f860",
+        "CMgr/f360/fb00/@length",
+        "CMgr/f360/fb98/@length",
+        "CMgr/f360/fce8/@length",
+        "CMgr/f360/n450",
+        "CMgr/f360/n460",
+        "CMgr/f360/nb00",
+        "CMgr/f360/nb98",
+        "CMgr/f360/nce8",
+        "CMgr/f5b8/@length",
+        "CMgr/f658",
+        "CMgr/f6d0",
+        "CMgr/n5b8",
+        "CMgr/n_ext"
+      ],
+      "definition_frontiers": 2,
+      "definition_paths": [
+        "Definition/faf8/@length",
+        "Definition/nenv"
+      ]
+    },
+    "D02": {
+      "cmgr_frontiers": 23,
+      "cmgr_paths": [
+        "CMgr/ext/@length",
+        "CMgr/f360/f2c",
+        "CMgr/f360/f450/@length",
+        "CMgr/f360/f460/@length",
+        "CMgr/f360/f4c4",
+        "CMgr/f360/f4c8",
+        "CMgr/f360/f6f8",
+        "CMgr/f360/f78",
+        "CMgr/f360/f85c",
+        "CMgr/f360/f860",
+        "CMgr/f360/fb00/@length",
+        "CMgr/f360/fb98/@length",
+        "CMgr/f360/fce8/@length",
+        "CMgr/f360/n450",
+        "CMgr/f360/n460",
+        "CMgr/f360/nb00",
+        "CMgr/f360/nb98",
+        "CMgr/f360/nce8",
+        "CMgr/f5b8/@length",
+        "CMgr/f658",
+        "CMgr/f6d0",
+        "CMgr/n5b8",
+        "CMgr/n_ext"
+      ],
+      "definition_frontiers": 2,
+      "definition_paths": [
+        "Definition/faf8/@length",
+        "Definition/nenv"
+      ]
+    }
+  },
+  "schema": "kit.sw2026.throughall-cmgr-event-source-owners.v1",
+  "source_policy": "The same two explicitly disclosed controls only; no D03 or hidden inputs",
+  "sources": {
+    "D01": {
+      "config": {
+        "class": "moPartConfiguration_c",
+        "fields": {
+          "f08": 0,
+          "f0c": 0,
+          "f29c": 101,
+          "f2a0": 392410882,
+          "f2a4": 31291260,
+          "f2ac": 370108,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f2c": 512,
+          "f300": 5,
+          "f301": 0,
+          "f6f8": 1,
+          "f85c": 40,
+          "f860": 126
+        },
+        "map_index": 4,
+        "moment": {
+          "FractionTicks": 3043842,
+          "SecondsValue": 1795020274
+        },
+        "moment_utc": "2026-11-18T16:44:34+00:00",
+        "name": "Default",
+        "schema": 1
+      },
+      "current_alias": true,
+      "current_in_config_rows": true,
+      "heldout_inputs_read": 0,
+      "linked_model_class": "moPart_c",
+      "linked_model_native_id": 0,
+      "manager": {
+        "class": "moConfigurationMgr_c",
+        "fields": {
+          "f08": -1,
+          "f0c": 0,
+          "f29c": 101,
+          "f2a0": 392410882,
+          "f2a4": 31291260,
+          "f2ac": 370108,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f2c": 0,
+          "f300": 5,
+          "f301": 0,
+          "f658": 1,
+          "f860": 0
+        },
+        "map_index": 2,
+        "moment": {
+          "FractionTicks": 3043842,
+          "SecondsValue": 1795020274
+        },
+        "moment_utc": "2026-11-18T16:44:34+00:00",
+        "name": null,
+        "schema": 1
+      },
+      "manager_is_config": false,
+      "native_processes": 0,
+      "schema": "kit.sw2026.disclosed-cmgr-feature-owner-observation.v1",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "wire_reemit_exact": true
+    },
+    "D02": {
+      "config": {
+        "class": "moPartConfiguration_c",
+        "fields": {
+          "f08": 0,
+          "f0c": 0,
+          "f29c": 101,
+          "f2a0": -1350226186,
+          "f2a4": 31291260,
+          "f2ac": 370108,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f2c": 512,
+          "f300": 5,
+          "f301": 0,
+          "f6f8": 1,
+          "f85c": 40,
+          "f860": 126
+        },
+        "map_index": 4,
+        "moment": {
+          "FractionTicks": 5374070,
+          "SecondsValue": 1795020529
+        },
+        "moment_utc": "2026-11-18T16:48:49+00:00",
+        "name": "Default",
+        "schema": 1
+      },
+      "current_alias": true,
+      "current_in_config_rows": true,
+      "heldout_inputs_read": 0,
+      "linked_model_class": "moPart_c",
+      "linked_model_native_id": 0,
+      "manager": {
+        "class": "moConfigurationMgr_c",
+        "fields": {
+          "f08": -1,
+          "f0c": 0,
+          "f29c": 101,
+          "f2a0": -1350226186,
+          "f2a4": 31291260,
+          "f2ac": 370108,
+          "f2b0": 19000,
+          "f2b4": 2026306,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f2c": 0,
+          "f300": 5,
+          "f301": 0,
+          "f658": 1,
+          "f860": 0
+        },
+        "map_index": 2,
+        "moment": {
+          "FractionTicks": 5374070,
+          "SecondsValue": 1795020529
+        },
+        "moment_utc": "2026-11-18T16:48:49+00:00",
+        "name": null,
+        "schema": 1
+      },
+      "manager_is_config": false,
+      "native_processes": 0,
+      "schema": "kit.sw2026.disclosed-cmgr-feature-owner-observation.v1",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "wire_reemit_exact": true
+    }
+  }
+}

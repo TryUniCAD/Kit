@@ -1,0 +1,5 @@
+# Stage a SOLIDWORKS edge-fillet partition-omission experiment
+
+The offline fillet packager freezes two external variants of one disclosed SOLIDWORKS 2026 SP05.2 axial fillet. The intact and changed arms share every retained logical stream. Only the changed arm omits the partition stream. The oracle supervisor measures clean cold open, explicit rebuild and a live D1 edit with healthy before and after controls. It restores and rechecks the disclosed source at the original task-owned locator.
+
+Host verification independently parses both exact trial artifacts and compares retained streams, stream order, file ID, version, signatures and type IDs. Both arms passed cold open, geometry, rebuild and the D1 edit. Four distinct native processes include both passing controls. The task-owned original hash was verified after restoration. The experiment is limited to one disclosed native source. [Scope and recovery](../../../../re/solidworks/records/EdgeFilletColdPlan2026.md) · [Native receipt](../../../../re/solidworks/measurements/2026/EdgeFilletColdDiagnosticResult01.json)

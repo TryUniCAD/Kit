@@ -1,0 +1,432 @@
+{
+  "construction_denied_reads": 0,
+  "cut_owner_refusals": {
+    "missing_file_owner": "part property manager has an unexpected native owner",
+    "populated_cut_list": "unsupported SOLIDWORKS native field path populated advanced property manager",
+    "wrong_cut_list_class": "part property manager has an unexpected native owner"
+  },
+  "disclosed_imports_and_control": {
+    "Control": {
+      "all_other_sdk_fields_sha256": "3cde25f6d502564f4d11cf44d8efff0764cea0bb4ae1bde32c77bd180dfcb4f6",
+      "all_sdk_fields_sha256": "280cee586b368d56fa73e85bf0bf8e3f53c89053e2e71b56b2d2f51c7bfdd03d",
+      "brep_payloads_sha256": "2b79bcec824a302c60478b199d467b45308f5f94aab18bb252c39215d77c3484",
+      "brep_sha256": "494968faf0abba0abb9cfd3cc52da191d5477ea002cd6ee461bb7a8cb6ef92dc",
+      "cut_list_is_absent": false,
+      "feature_timeline_sha256": "3729168829a5a19c70f5be46791c9acd6de5ca5f10277c5ecc3e49edaf4f6ea3",
+      "manager": {
+        "bytes": 138,
+        "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+      },
+      "properties": {
+        "configuration": {},
+        "document": {},
+        "summary": {}
+      },
+      "property_streams": {
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 522,
+          "sha256": "d24858b2dc6f29b1093552cd498c5a53a1d00eca8d7616cf65eb12a313a3bd41"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "source_unchanged": true
+    },
+    "DisclosedImported": {
+      "all_other_sdk_fields_sha256": "90676243b7e7b8aca8a63140a30300e27eb782d526a6c1829a0b734060d59293",
+      "all_sdk_fields_sha256": "5370668815d511293a07ae4efdc39bce5523d0be9866abb744a4c87d7bb310d5",
+      "body_name": "Imported1",
+      "body_name_is_authored": false,
+      "brep_payloads_sha256": "3a040d892b1c7e7339e45e344a9f27bef7e516b9ba218a576bc18ea30cf48ebe",
+      "brep_sha256": "e4c15ff65be27deafc355fa65c6eb8e9c2dfae16b4f5dfac6c5ef4e1f568822c",
+      "cut_list_is_absent": true,
+      "feature_name": "Imported1",
+      "feature_timeline_sha256": "e0446b2b930818f4d1ca534cff435ba523b010e55818ba295232a9d4f6142b35",
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "properties": {
+        "configuration": {},
+        "document": {},
+        "summary": {}
+      },
+      "property_streams": {
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 522,
+          "sha256": "8437c6c7206df037f7611fb0a0db6243580eded5e53adf7a63171d14ec5b71f5"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+      "source_unchanged": true
+    },
+    "OtherShape": {
+      "all_other_sdk_fields_sha256": "7e878d5e9e994b7b93a959d7583855e4312568b0eacd01ad6feb24c42d167f7f",
+      "all_sdk_fields_sha256": "cc69ad749ca6d800d515897d1bc3514ba75b22f98eab5b6035f79feceb57782a",
+      "body_name": "Imported1",
+      "body_name_is_authored": false,
+      "brep_payloads_sha256": "3ae11a79aec6b97e9c410a00392d5bea0cae468a2faa06d558ff9e76fbea30ff",
+      "brep_sha256": "8fd5ac0aabea3ad1266e9923cef2f53842f6a9eea232240b298ffc3c95f211ce",
+      "cut_list_is_absent": true,
+      "feature_name": "Imported1",
+      "feature_timeline_sha256": "b7a398ff9c1268eca7f624b6393fa62453123c0ce6519cbac6e7a3e0d675196a",
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "properties": {
+        "configuration": {},
+        "document": {},
+        "summary": {}
+      },
+      "property_streams": {
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 522,
+          "sha256": "0099a80c7a75fdef1d574c3ca526d96a0442946f898f2b503abf7f3aaef8d3a4"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "source_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+      "source_unchanged": true
+    },
+    "RenamedBody": {
+      "all_other_sdk_fields_sha256": "ead758391b79ac745b92b7bca3344f3025fd5a2d32c188e84da10fbfe9168e21",
+      "all_sdk_fields_sha256": "a11707b0fa790a948ec463650626bc80ffe79a2583be392580299cdc4db12fc1",
+      "body_name": "Casting Ω72",
+      "body_name_is_authored": true,
+      "brep_payloads_sha256": "d7a9fbbc959acf38e63a7a0a3448a72d2048ded4408d2de649e348638e11500a",
+      "brep_sha256": "93f8ae4afbfa7449a6af7b32921f722ac0f9de58aa9bc2a7a6849b966c9ef790",
+      "cut_list_is_absent": true,
+      "feature_name": "Transfer Δ17",
+      "feature_timeline_sha256": "9b9dd3677729097eb25aae22213286bb33451532d8d7849d702df2d873eb9bf3",
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "properties": {
+        "configuration": {},
+        "document": {},
+        "summary": {}
+      },
+      "property_streams": {
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 522,
+          "sha256": "361367e3fb488d8bcdd922131e0e30c8a9174f06b2cc9d5aee22b6d5f1a38730"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "source_sha256": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43",
+      "source_unchanged": true
+    },
+    "RenamedFeature": {
+      "all_other_sdk_fields_sha256": "ee71229275b773074ab64c5e4f76e93fb4f2c40d8712f8a2b361ee97b19f710d",
+      "all_sdk_fields_sha256": "4f3002ac74b1f719e8f674d15ec2eca2fe42c599f952585feab14b7cd8935c3f",
+      "body_name": "Transfer Δ17",
+      "body_name_is_authored": false,
+      "brep_payloads_sha256": "276f77c2d0904e2f49c87e24d050efba48ec78ae11facdd3be6a147a74a7a41c",
+      "brep_sha256": "618ba705e9b0d4fffcdfeb90db37ba756fca47f44d7c9615c41e81deb4ac6800",
+      "cut_list_is_absent": true,
+      "feature_name": "Transfer Δ17",
+      "feature_timeline_sha256": "1a06b5d05136e51788c04d2b0032669a1288a59ebec7eae2b1fe77279b6e4179",
+      "manager": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      },
+      "properties": {
+        "configuration": {},
+        "document": {},
+        "summary": {}
+      },
+      "property_streams": {
+        "docProps/Config-0-Properties.xml": {
+          "bytes": 699,
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6"
+        },
+        "docProps/core.xml": {
+          "bytes": 522,
+          "sha256": "2ca99947912cbff9fe2e7fe83bda2e6bde627e8a2bc85735b60240695b61168f"
+        },
+        "docProps/custom.xml": {
+          "bytes": 853,
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5"
+        }
+      },
+      "source_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+      "source_unchanged": true
+    }
+  },
+  "generated_source_scope_candidates": {
+    "DisclosedImported": {
+      "body": "Imported1",
+      "configuration": "Default",
+      "feature": "Imported1",
+      "neutral_sha256": "92ad47e5c4c74814da30ba67306108fefe0207f45264b96274bb2a263268eb35",
+      "part": {
+        "bytes": 10165,
+        "sha256": "5e7f5ac7fc17a6e4e6d1e8095a62780e9e72c3b7632953a2c601350ae86d9692"
+      },
+      "properties": {
+        "configuration": 0,
+        "document": 0,
+        "summary": 0
+      },
+      "property_streams": {}
+    },
+    "OtherShape": {
+      "body": "Imported1",
+      "configuration": "Default",
+      "feature": "Imported1",
+      "neutral_sha256": "ada660c7cbc028746b031b656a08b53149d22da218dbb139c6651e8a049a685a",
+      "part": {
+        "bytes": 10131,
+        "sha256": "0c815e2f28bf3c89d34b1e712ba6d95b81237f522d0384515d0d474cdf9946c8"
+      },
+      "properties": {
+        "configuration": 0,
+        "document": 0,
+        "summary": 0
+      },
+      "property_streams": {}
+    },
+    "RenamedFeature": {
+      "body": "Transfer Δ17",
+      "configuration": "Default",
+      "feature": "Transfer Δ17",
+      "neutral_sha256": "3c41cbb1b0e94bdcc7e46f5354b70d238c7f45f10a9077d7d44a97463a86549b",
+      "part": {
+        "bytes": 10210,
+        "sha256": "bd4f2d62e8bba4e05db70cfa8ebdbfe6a203a9452af56343ed2fe1e00f6c9468"
+      },
+      "properties": {
+        "configuration": 0,
+        "document": 0,
+        "summary": 0
+      },
+      "property_streams": {}
+    }
+  },
+  "heldout_sources_read": 0,
+  "independent_neutral_text": {
+    "body": "Transfer neutral Δ47",
+    "configuration": "Clearance A",
+    "edited_only_streams": {
+      "docProps/Config-0-Properties.xml": {
+        "bytes": 1110,
+        "sha256": "f641cadf59eeb247a4d9c7af07a5e43efe8e1721d48976be713eab0406398e45"
+      },
+      "docProps/custom.xml": {
+        "bytes": 1369,
+        "sha256": "15d401e8faa595723f10891465a2d33bce28840674c4f006ee7b4f7f9fa7d9d3"
+      }
+    },
+    "feature": "Transfer neutral Δ47",
+    "neutral_sha256": "5e89e99a058fab067fe965429ef687f05c910a412f88262f5b7f47cf11dab1ad",
+    "part": {
+      "bytes": 11787,
+      "sha256": "fe6e5a09e1ce3a0c3227f0c4eeac66d66393d94a65b74f6ae55ede605707de8c"
+    },
+    "properties": {
+      "configuration": 2,
+      "document": 2,
+      "summary": 2
+    },
+    "property_streams": {
+      "docProps/Config-0-Properties.xml": {
+        "bytes": 1095,
+        "sha256": "bf10feaddd6403cbb25cc5226061a98d67c0133a5f298945f0762b151212f6ed"
+      },
+      "docProps/core.xml": {
+        "bytes": 451,
+        "sha256": "bdadba6e6323b90995f17d4f5916d9a62c2b3754756d60ba02b1c924cd86dcb9"
+      },
+      "docProps/custom.xml": {
+        "bytes": 1339,
+        "sha256": "b321ecc8bffcd330a340698c53dc2b04db7963695803c7fc6330f629ff85a0e3"
+      }
+    }
+  },
+  "native_candidate_runs": 0,
+  "oracle_version_of_disclosed_sources": "34.5.2.0604",
+  "property_sources": {
+    "CircularProperties": {
+      "native_author_sha256": "2d3e7c0fdb5e32d482e5fde77b7b8359bbed07dda8e937856fb3979c49e3ee7c",
+      "projected_property_counts": {
+        "configuration": 2,
+        "document": 3,
+        "summary": 3
+      },
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+    },
+    "RectangleProperties": {
+      "native_property_diagnostic": "unsupported SOLIDWORKS native field path populated advanced property manager",
+      "refusal": "source part text owners have no complete compatible projection",
+      "source_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805"
+    }
+  },
+  "public_import_writer_changes": 0,
+  "schema": "kit.sw2026.imported-local-part-semantics.v1",
+  "source_and_neutral_refusals": {
+    "detached_source_body_label": "source derived local body name does not match its native feature key",
+    "duplicate_name": "custom property names must be distinct within a scope",
+    "formula": "ordinary text properties require literal unlinked values",
+    "link": "ordinary text properties require literal unlinked values",
+    "malformed_summary_bag": "local import properties require three typed literal text bags",
+    "number": "drawing metadata requires explicit xml text",
+    "unequal_derived_label": "the derived local body name must agree with the actual feature",
+    "unknown_summary": "part summary contains an unsupported field",
+    "unowned_configuration_data": "local import requires an active neutral configuration without unowned fields",
+    "unqualified_native_authored_body": "local import authored body name needs a qualified compatibility carrier",
+    "wrong_configuration": "local import text belongs to the selected neutral configuration"
+  },
+  "unchanged_geometry_path_candidates": {
+    "ConcaveBare": {
+      "bytes": 10365,
+      "sha256": "7299b87755a94eaa77f7e08c8d86c65811c101f187c24430b9729bc82a68096f"
+    },
+    "ConcaveOwned": {
+      "bytes": 10795,
+      "sha256": "1b59088e2468d9a56f1c41ce0803b1475e9a43a5f6ef186e795dc9ebc2807fd4"
+    },
+    "RectangularBare": {
+      "bytes": 9819,
+      "sha256": "ccd73a7a86a204f86a48121ff127d0c0e1adf541c9c3fc3dfacb073355bb9569"
+    },
+    "RectangularOwned": {
+      "bytes": 10247,
+      "sha256": "7491ab6943dcceb74b1f6d8c7a4d872c144ad15d26a394d583ed4afa19b53dc0"
+    }
+  },
+  "disclosed_root_relative_locators": {
+    "Control": "ImportedBodyContrast02/Control.SLDPRT",
+    "DisclosedImported": "ImportedBodySourceDisclosed03/DisclosedImported.SLDPRT",
+    "OtherShape": "ImportedBodyContrast02/OtherShape.SLDPRT",
+    "RenamedBody": "ImportedBodyContrast02/RenamedBody.SLDPRT",
+    "RenamedFeature": "ImportedBodyContrast02/RenamedFeature.SLDPRT",
+    "CircularProperties": "PartPropertySource01/Inspection/CircularPropertiesAuthor/CircularProperties.SLDPRT",
+    "RectangleProperties": "PartPropertySource01/Inspection/RectanglePropertiesAuthor/RectangleProperties.SLDPRT"
+  },
+  "host_reproduction": {
+    "command": "PYTHONPATH=src:.:re/tooling/sw2026:re/tooling/sw2026/serial:re/tooling/sw2026/imported_body_source python3.14 -B re/tooling/sw2026/imported_body_source/VerifyImportedSemantics.py DISCLOSED_ROOT",
+    "identical_process_results": 3,
+    "host_python_versions": [
+      "3.13.15",
+      "3.14.7"
+    ],
+    "owning_code_and_evidence_sha256": {
+      "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "3032c0f6ecbc490c74016225932cccf4b55731d80a8ecdbd87f2bfd0b7394568",
+      "re/tooling/sw2026/imported_body_source/ProjectImportedSemantics.py": "c1d60d047baf25ab1e0347bf2bed3d1157427f19e76ea3f4d179a218c4fff919",
+      "re/tooling/sw2026/imported_body_source/VerifyImportedSemantics.py": "6e3014fcdb7517c484c9cdbc0a02b3ce5b48d4a89712629de5097da243aefec8",
+      "re/tooling/sw2026/imported_body_source/ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+      "re/tooling/sw2026/imported_body_source/VerifyDisclosedImport.py": "9e3660f38d297b77167d72b313cf184131c4714120e26ddfb0c9dfc5492434f0",
+      "src/convert/adapters/solidworks/Archive/Properties/CheckEmptyProps.py": "fa4e992c524d53df4e9e5afe80ca1f26969a42cbf69b5866ad5097e3abc25917",
+      "src/convert/adapters/solidworks/Archive/Properties/ReadPropManager.py": "c859a2ba193dbecf27f632161c41a59fdce6cba78aae0ff15f928cae87cd2641",
+      "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakePartProps.py": "69a354cfea17218ad5cc57aff8b5c15da60d38effb434c09b346ae42ce7f5542",
+      "src/convert/adapters/solidworks/Core/Properties/ApplyPartText.py": "a516d86e3fa5e805f213c0419e1bd2859ed40e44905cd38f32b2436809c648d0",
+      "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "9c16562d10820753b697d42b4c8ea32cfd97b0aee128b1149ef9427a9750bac1",
+      "re/solidworks/measurements/2026/ImportedBodyNamesContrast01.json": "96b2727a9a5e7a8520ad373ab671638263eb821798fd9408fe45b57938b02e80",
+      "re/solidworks/measurements/2026/PartPropertySources01.json": "587ab07636c9331da3881f99dd8932133d75c5b4b7aaf71312863ca52b75981f"
+    }
+  },
+  "compatibility_comparison": {
+    "baseline_check_empty_props_and_legacy_build_revision": "99a83aef03fe531e7a3de309c407889315b830a7",
+    "compared_against_old_reader": {
+      "Control": {
+        "all_other_sdk_fields_sha256": "3cde25f6d502564f4d11cf44d8efff0764cea0bb4ae1bde32c77bd180dfcb4f6",
+        "changed_document_fields": [],
+        "changed_metadata_keys": [],
+        "previous_sdk_document_sha256": "280cee586b368d56fa73e85bf0bf8e3f53c89053e2e71b56b2d2f51c7bfdd03d"
+      },
+      "DisclosedImported": {
+        "all_other_sdk_fields_sha256": "90676243b7e7b8aca8a63140a30300e27eb782d526a6c1829a0b734060d59293",
+        "changed_document_fields": [
+          "configurations",
+          "diagnostics",
+          "metadata"
+        ],
+        "changed_metadata_keys": [
+          "custom_properties",
+          "document_summary",
+          "solidworks.part_text_properties",
+          "solidworks_source_semantic_sha256"
+        ],
+        "previous_sdk_document_sha256": "244a43c612dbf62e3f5464e6dcbe0905720cc39ae3b2ee6c9613d11b1f8c397b"
+      },
+      "OtherShape": {
+        "all_other_sdk_fields_sha256": "7e878d5e9e994b7b93a959d7583855e4312568b0eacd01ad6feb24c42d167f7f",
+        "changed_document_fields": [
+          "configurations",
+          "diagnostics",
+          "metadata"
+        ],
+        "changed_metadata_keys": [
+          "custom_properties",
+          "document_summary",
+          "solidworks.part_text_properties",
+          "solidworks_source_semantic_sha256"
+        ],
+        "previous_sdk_document_sha256": "7b32d82660c0413fea8f659375d6346068006b3c28c48e360e66abd10961f751"
+      },
+      "RenamedBody": {
+        "all_other_sdk_fields_sha256": "ead758391b79ac745b92b7bca3344f3025fd5a2d32c188e84da10fbfe9168e21",
+        "changed_document_fields": [
+          "configurations",
+          "diagnostics",
+          "metadata"
+        ],
+        "changed_metadata_keys": [
+          "custom_properties",
+          "document_summary",
+          "solidworks.part_text_properties",
+          "solidworks_source_semantic_sha256"
+        ],
+        "previous_sdk_document_sha256": "722bca4bf943b00b7b9b9cc9efa7a31567a4bcfa43d779b6296a9b4ff260fe96"
+      },
+      "RenamedFeature": {
+        "all_other_sdk_fields_sha256": "ee71229275b773074ab64c5e4f76e93fb4f2c40d8712f8a2b361ee97b19f710d",
+        "changed_document_fields": [
+          "configurations",
+          "diagnostics",
+          "metadata"
+        ],
+        "changed_metadata_keys": [
+          "custom_properties",
+          "document_summary",
+          "solidworks.part_text_properties",
+          "solidworks_source_semantic_sha256"
+        ],
+        "previous_sdk_document_sha256": "7ef6336afcde27016591ab86d55c9de85db2b19d00c815365e44305aa2cad41c"
+      }
+    },
+    "all_other_sdk_field_fingerprints_exact": true,
+    "older_geometry_only_candidate_files_byte_identical": 4
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schema": "kit.sw2026.sdk-original-drawing-geometry-receipt.v1",
+  "outcome": "partial geometry lifecycle qualified; complete original semantics and held-out acceptance failed",
+  "evidence": "re/solidworks/records/SdkOriginalDrawingNativeComparison2026.json",
+  "evidence_sha256": "8c1ed4c0080896989784b94362c0a842a4d4d760f4111aef283be7f53a866ed9",
+  "writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "packet_sha256": "cc970ee5951921b6e4f489e5b32faff568ec189d399e8a61b82f88be71f3fc7a",
+  "raw_result_sha256": "7013cb2b91f08649e93a3f87465977cbc3c4193be3ff6f4a4bd83b43e152b175",
+  "raw_host_sha256": "8d91cde1164276fbf16679d257c7e26877d2f3dad4fc280374e3c73048e1deb8",
+  "geometry_qualified": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "complete_source_admitted": false,
+  "source_semantics_passed": false,
+  "measured_partial_candidates": {
+    "vendor_loadable": true,
+    "geometry_usable": true
+  },
+  "controls_healthy": true,
+  "distinct_native_processes": 12,
+  "native_snapshots": 30,
+  "numeric_checks": 1704,
+  "all_numeric_checks_passed": true,
+  "source_drawing_rows_per_case": 16,
+  "generated_drawing_rows_per_case": 16,
+  "source_child_rows_per_case": 27,
+  "generated_child_rows_per_case": 26,
+  "drawing_name_differences_per_case": 13,
+  "semantic_tree_equality": false,
+  "child_driving_edit_performed": false,
+  "full_parametric_bundle_qualification": false,
+  "public_drawing_writer_admission_changed": false
+}

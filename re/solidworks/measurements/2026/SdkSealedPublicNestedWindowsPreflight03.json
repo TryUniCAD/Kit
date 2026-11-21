@@ -1,0 +1,83 @@
+{
+  "audit_sha256": "2b66872092ca0e7ee22129aac94dd6bda7863b61adc34b83f47bf938c9b706e3",
+  "cases": {
+    "SdkNestedDimensionedNative01": {
+      "mac_native_tested_manifest_sha256": "4c150a0a799307c9fdea89332fc5ae2b2becc521fc1c9e2188ef50a23089040b",
+      "matches_mac_manifest": false,
+      "original_guest_manifest_sha256": "bccc09ac8b76b650e9b7e0a15188b9c8bffd13dc63c4c1e9e12a13246c466f38",
+      "original_preparer_runtime_input_reads": 0,
+      "request_sha256": "cb0ea01ba88f2ec3fb5165f0aa0b8e12207ded5352a65f9758d082c21e95f25d",
+      "routes": {
+        "adapter": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 3,
+          "generated_artifact_manifest_sha256": "bccc09ac8b76b650e9b7e0a15188b9c8bffd13dc63c4c1e9e12a13246c466f38",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        },
+        "registry": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 3,
+          "generated_artifact_manifest_sha256": "bccc09ac8b76b650e9b7e0a15188b9c8bffd13dc63c4c1e9e12a13246c466f38",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        }
+      },
+      "typed_stream_roundtrips": 34
+    },
+    "SdkRepeatedDimensionedNative01": {
+      "mac_native_tested_manifest_sha256": "c08e96b6d76167f583f5a6c27b3fb3356e82248181ab9fd762789a7955ed6e3f",
+      "matches_mac_manifest": false,
+      "original_guest_manifest_sha256": "9849325b57bcfe5c9e60a7423ca8a3ee234015f1b4d45f2e6a7bece1c8482e43",
+      "original_preparer_runtime_input_reads": 0,
+      "request_sha256": "f163a1a04fa4a35ef013f92da944a9ba29257af967d3edd2f9a1ba4762a3c94a",
+      "routes": {
+        "adapter": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 4,
+          "generated_artifact_manifest_sha256": "9849325b57bcfe5c9e60a7423ca8a3ee234015f1b4d45f2e6a7bece1c8482e43",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        },
+        "registry": {
+          "application_usable": true,
+          "byte_identity": true,
+          "files_compared": 4,
+          "generated_artifact_manifest_sha256": "9849325b57bcfe5c9e60a7423ca8a3ee234015f1b4d45f2e6a7bece1c8482e43",
+          "native_transfer_count": 8,
+          "runtime_input_file_reads": 0,
+          "vendor_loadable": true
+        }
+      },
+      "typed_stream_roundtrips": 44
+    }
+  },
+  "code_manifest_sha256": "71f02b4e6ba3cc4671af95010d035ff64c2ee0cabebda3cc6e41605bfa8c6ffc",
+  "disclosed_guest_native_lifecycle_measured": false,
+  "guarded_workers": 6,
+  "native_processes_started": 0,
+  "original_preparer_revision": "e8b7a00dc166443cb575328b5210c4bf8593b782",
+  "parity_packet_sha256": "a3c6c51f917e6a28cdcb4a05d7fa3a16695f9961351e9d04ad89c9186c6e500d",
+  "passed": true,
+  "private_requests_read": 0,
+  "reference_code_manifest_sha256": "16921bc24410c694bce7331d781d85ef365e48bf8fb3c4d86b4fdd4b0c37b1c6",
+  "reference_worker_sha256": "4a9df9873a2e98f88496bf0f0fb25a5188d2c162107ad00aa7da004002e459f8",
+  "runtime": {
+    "implementation": "cpython",
+    "python_executable_sha256": "ca60cf785b2314a6d6599eced15bdf094e6db171bec996b97a70b995942c3c37",
+    "version": [
+      3,
+      12,
+      7
+    ],
+    "zlib_runtime_version": "1.3.1"
+  },
+  "schema": "kit.sw2026.sealed-public-nested-windows-disclosed.v2",
+  "sdk_revision": "96fe5d97f67efc03bcf394f9b3e3caaa5e9469fb"
+}

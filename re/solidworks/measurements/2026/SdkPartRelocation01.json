@@ -1,0 +1,94 @@
+{
+  "distinct_native_processes": 8,
+  "heldout_inputs_read": 0,
+  "numeric_comparisons": 220,
+  "oracle": "SOLIDWORKS 2026 SP05.2 x64 34.5.2.0604 under Parallels Windows 11",
+  "passed": true,
+  "public_writer_enabled": false,
+  "relocations": [
+    {
+      "build_proof_sha256": "e1291e07bc665ac737886dab257d377b32bc2e135ac196536509f69e1569c763",
+      "case_sha256": "d858ef1d15d0a58476d5eafa56228d3cdcc3cafd30607e0670b13be239aab849",
+      "depth_m": [
+        0.012750000000000001,
+        0.016625
+      ],
+      "design": "Alpha",
+      "encoded_path": "C:\\KitSdkCandidates\\sdk plain alpha.SLDPRT",
+      "encoded_self_absent_before_and_after": false,
+      "generated_bytes": 8166,
+      "generated_sha256": "750261e28691593f0163c172498ea3c5760a5c29fa231d4a5a9f8f309aaebe9d",
+      "guarded_runtime_reads": 0,
+      "immutable_generated_image": true,
+      "input_packet_sha256": "2692639695bda636183769c767e4972f57ee1f526d8f36b6b6df2feff39951f1",
+      "license_processes_preserved": true,
+      "native_feature_count": 25,
+      "native_processes": 4,
+      "numeric_comparisons": 110,
+      "observer_sha256": "6c3be86dd078a0a25e1d10b92fb751aa90e743dd4b7f79d9f8736b65f0ad2bdd",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened_from_different_unc_drive": true,
+      "phases": {
+        "ControlAfter": "261843f028e7ca393cf66b16a1f7d0bdd9d0b0d24144b3fb2456bfe5b8865c6c",
+        "ControlBefore": "53c2438c2d2028dd223c8d9b1f7f30a7404020936b56079117ecda2e793375ac",
+        "FreshReopen": "5cff4c3e19760f7b311d6ea7411f61a2db26c5c9bbb6e5f71233ed1fea68ce82",
+        "Relocated": "1fc6db33ee9104eb11c459fb3873dacfc72650b1abc3c5272e4f183bd0802b6b"
+      },
+      "post_inventory_sha256": "7d0e980da657f93fd8c57ea70c602ad4732a83fac994a29250863b3b3b41cc8d",
+      "pre_inventory_sha256": "84f093decefeb6a19abb4a7d7fce4b056b446b045fbd83c65d3be3612c0b8d4f",
+      "raw_host_report_sha256": "b126f4c2b353a75fe7aac78828944407e7d1828b28f486ccb701ab1f65513032",
+      "raw_native_result_sha256": "94d50d17798d1c6d26d947e74e4218223b5b15a3e779d4cc77f3b59ec3079b80",
+      "request_sha256": "1bc6400888f34b18fc2643deca3740ec2701d2a1f66c9c3fb4cef013d4f933e3",
+      "same_native_basename": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "build_proof_sha256": "e1291e07bc665ac737886dab257d377b32bc2e135ac196536509f69e1569c763",
+      "case_sha256": "eb81bda8ffdeb96aba828b22d2b3329fa09b1252d7ea61cb4424a4a40fdbf13b",
+      "depth_m": [
+        0.018625,
+        0.02275
+      ],
+      "design": "Beta",
+      "encoded_path": "C:\\KitSdkCandidates\\sdk \u90e8\u54c1 plain beta extended.SLDPRT",
+      "encoded_self_absent_before_and_after": true,
+      "generated_bytes": 8243,
+      "generated_sha256": "9166c766f48fe5e20a4f041ed0bfa9f368ce1d1b790d654baaafab81a9428618",
+      "guarded_runtime_reads": 0,
+      "immutable_generated_image": true,
+      "input_packet_sha256": "5f3ac69e4d6e71d22da0ad11c4fc851684341e65a6d837eeb79136d698ed6425",
+      "license_processes_preserved": true,
+      "native_feature_count": 25,
+      "native_processes": 4,
+      "numeric_comparisons": 110,
+      "observer_sha256": "2a2586e6b58998efb4973a69e2466a81b4f22c5414f774a057b9259cc290bf9f",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened_from_different_unc_drive": true,
+      "phases": {
+        "ControlAfter": "49ba17c3a79a2a9c02b05f0a562667bb5dd4dfc57a1742370b92481f70bdd8b3",
+        "ControlBefore": "1be81db6ebf696d430e9269b61b57ade222e0bd341a09dcc0b30486ad32c7bd4",
+        "FreshReopen": "5d412e42139f7c248b654c25fe5b8b4f5528b717c6b5598898bfd329395ea677",
+        "Relocated": "7437917fb07cdec1b4de66dbdf08b8be7387a33adf3945e4c0767fb74b124d67"
+      },
+      "post_inventory_sha256": "22853bf6d4bc24f10164ff1392510e27f7f4d49908709f66565948e10224f972",
+      "pre_inventory_sha256": "7d0e980da657f93fd8c57ea70c602ad4732a83fac994a29250863b3b3b41cc8d",
+      "raw_host_report_sha256": "97c2e28d918b3d61db7a5dc7f0d3abe08ee80a24baac75b080621263bc72876f",
+      "raw_native_result_sha256": "027228403b8784b8c98bc928dbab065b4481d28bbfea4ac4f6a7d8175531f9dd",
+      "request_sha256": "22557f8802ffe13daf3285225ec45ee64d798e53ee08a6c33b20fbd86d9aa149",
+      "same_native_basename": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ]
+    }
+  ],
+  "schema": "kit.sw2026.sdk-part-relocation-receipt.v1",
+  "standalone_only": true
+}

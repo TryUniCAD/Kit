@@ -1,0 +1,14 @@
+{
+  "ambient": {
+    "AmbientValue": 0.3125,
+    "ColourValue": 13535815,
+    "DiffuseValue": 0.75,
+    "ExternalName": "KitAuthoredAmbientBeta",
+    "NameValue": "authored cool ambient beta",
+    "SpecularValue": 0.0625
+  },
+  "feature_target": {
+    "DateCode": 2026306,
+    "ParasolidVersion": 370108
+  }
+}

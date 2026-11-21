@@ -1,0 +1,59 @@
+{
+  "application_controls_healthy": true,
+  "controls_healthy": false,
+  "distinct_exact_processes": 4,
+  "generated_candidates_opened": 0,
+  "job_sha256": "1f5ff7dd594ffd4b2d141c55f8ae96546f9d8a36088a1e6fe4160b39cb758c26",
+  "native_receipt_sha256": "0fcf4cd2960055d50786fbbea31b7aa0a861b755b043aa9f51a7602f8176bfa0",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "phases": [
+    {
+      "name": "ApplicationBefore",
+      "passed": true,
+      "record_sha256": "7fb6f0ad44eec859be45653398ab156dc1dd19f073c076a3b1e90a7bc23bd3e0",
+      "role": "native_application_control"
+    },
+    {
+      "first_failure": {
+        "error": "EvidenceFailure('failed to select the legacy Parasolid translator')",
+        "pending_capability": false,
+        "stage": "SetUserPreferenceToggle",
+        "type": "EvidenceFailure"
+      },
+      "name": "Before",
+      "passed": false,
+      "payload": {
+        "bytes": 6448,
+        "sha256": "49434ef62b861d6a2582c7adbb52e07b67d5b656f6187b6652169afa16b65d09"
+      },
+      "record_sha256": "fb31a7839a66b998fc3c68270fa2755cc59f49e507e14d777a93dca0f041ec03",
+      "role": "native_stream_control"
+    },
+    {
+      "first_failure": {
+        "error": "EvidenceFailure('failed to select the legacy Parasolid translator')",
+        "pending_capability": false,
+        "stage": "SetUserPreferenceToggle",
+        "type": "EvidenceFailure"
+      },
+      "name": "After",
+      "passed": false,
+      "payload": {
+        "bytes": 6446,
+        "sha256": "788b63cf730e05b2e051d13b07e90caa0f1ff589a3d2e0a5dd01feeaaca0f1f7"
+      },
+      "record_sha256": "2ba886e8fc721e0a32f4acb7546f27ba095e48aaad0d2c05def4ff08a3cee6bf",
+      "role": "native_stream_control"
+    },
+    {
+      "name": "ApplicationAfter",
+      "passed": true,
+      "record_sha256": "7ada084c2020611787983c4db9e3b7aea22a1a77aad758d6665bcc872bde9c5f",
+      "role": "native_application_control"
+    }
+  ],
+  "schema": "kit.sw2026.local-kernel-exchange-preference.v1",
+  "tool_revision": "1ca96aa8313d7840cc3adbfbd110e40e4ce0fdc5",
+  "translator_started": false
+}

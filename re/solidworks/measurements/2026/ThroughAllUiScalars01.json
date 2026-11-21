@@ -1,0 +1,812 @@
+{
+  "application_usable": false,
+  "complete_source_preparation": false,
+  "counts": {
+    "fresh_process_count": 92,
+    "independent_fragment_round_trips": 70,
+    "independent_scalar_cases": 8,
+    "negative_process_count": 48,
+    "old_complete_container_pairs": 2,
+    "old_definition_and_owner_pairs": 2,
+    "owner_inventory_stream_round_trips": 8,
+    "source_scalar_cases": 2
+  },
+  "delivery_pr": 121,
+  "fresh_environment_count_each": 0,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "native_processes": 0,
+  "native_rules_sha256": "96599c5694a0c89ed64e09b1b2a81a7c94fcc0b95cd6ca1abd696af560fd7a26",
+  "negative_groups": {
+    "semantic_input": 12,
+    "source_owner_and_count": 33,
+    "wire": 3
+  },
+  "new_complete_native_outputs": 0,
+  "outcome": "Scoped host construction passes. Per-user environment construction, complete-source and native acceptance remain unfinished.",
+  "owner": "PR121 root; configuration_header source UI tranche",
+  "passed": true,
+  "positive_cases": [
+    {
+      "case": "D01",
+      "four_ui_fields_exact": true,
+      "fresh_environment_count": 0,
+      "old_definition_and_six_fragments_exact": true,
+      "old_source_projection_and_full_refusal_exact": true,
+      "remaining_definition_frontiers": 2,
+      "remaining_manager_frontiers": 29,
+      "seven_fragment_round_trips": true,
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_environment_count": 1,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "source_window_state_still_refused": true
+    },
+    {
+      "case": "D02",
+      "four_ui_fields_exact": true,
+      "fresh_environment_count": 0,
+      "old_definition_and_six_fragments_exact": true,
+      "old_source_projection_and_full_refusal_exact": true,
+      "remaining_definition_frontiers": 2,
+      "remaining_manager_frontiers": 29,
+      "seven_fragment_round_trips": true,
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_environment_count": 1,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "source_window_state_still_refused": true
+    },
+    {
+      "case": "independent_1",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "none",
+        "DisplayGrid": false,
+        "HlrQualityCode": 0
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_2",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "features",
+        "DisplayGrid": false,
+        "HlrQualityCode": 0
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_3",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "none",
+        "DisplayGrid": true,
+        "HlrQualityCode": 0
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_4",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "features",
+        "DisplayGrid": true,
+        "HlrQualityCode": 0
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_5",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "none",
+        "DisplayGrid": false,
+        "HlrQualityCode": 1
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_6",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "features",
+        "DisplayGrid": false,
+        "HlrQualityCode": 1
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_7",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "none",
+        "DisplayGrid": true,
+        "HlrQualityCode": 1
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    },
+    {
+      "case": "independent_8",
+      "four_native_operands_exact": true,
+      "previous_fragments_and_presentations_exact": true,
+      "semantic_input": {
+        "DefaultCommandGroup": "features",
+        "DisplayGrid": true,
+        "HlrQualityCode": 1
+      },
+      "seven_fragment_round_trips": true,
+      "window_state_not_generated": true
+    }
+  ],
+  "preserved": [
+    "Two exact source neutral projections and complete-source refusals",
+    "Prior six owner fragments, line tables, cameras and empty managers",
+    "Old complete Definition bytes for unchanged callers",
+    "Two existing complete-container/public-reader pairs",
+    "All prior frozen line and empty-manager packages"
+  ],
+  "public_activation": false,
+  "raw_process_report_sha256": "20697d750ec97a92bd8f4fcd986ac1e2f1f76a9c204f8b1fc2f36d113b1ad7ff",
+  "records": [
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BaselineSource",
+      "record_sha256": "304c7c4a29eaf54dd3fc029f63b339a9916719f7edbb4fe14569b8ccd4d41608"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/Source",
+      "record_sha256": "4488577143415ae70662b80fcf058bba53e261e6fc5c7432014a2746919db316"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BuildA",
+      "record_sha256": "49d82f0b26e6164d4d0c85a4e78cba85609aa66dde0845a41b1e3a4e37ec6863"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BuildB",
+      "record_sha256": "49d82f0b26e6164d4d0c85a4e78cba85609aa66dde0845a41b1e3a4e37ec6863"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/Readback",
+      "record_sha256": "91ba34336d6a3f49d97c042dc863571605f394a894d894da807d19d69f4470f6"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/RemainingOwners",
+      "record_sha256": "eb8d8d55743e98bc254dce924317b4a78d2ca2ddf20c98931d969555149874c6"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/OldCallerBaseline",
+      "record_sha256": "fad26319b45e89a3334c3cd07d77a2a9a15c0b54a768b7291ec57f1765096e35"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/OldCallerCandidate",
+      "record_sha256": "fad26319b45e89a3334c3cd07d77a2a9a15c0b54a768b7291ec57f1765096e35"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BaselineSource",
+      "record_sha256": "f9b1d85bc7e02fdd807bcb4350392a666599d0e49b1e8a3150c5848648a854d7"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/Source",
+      "record_sha256": "616b895e2170dcd78af9c484a694b32bbeacaa1abec869fe578d983416333fb3"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BuildA",
+      "record_sha256": "6002df89714aecc5dacf9dc2f1edc8728bea63e91992307d122f1b1d99ac3327"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BuildB",
+      "record_sha256": "6002df89714aecc5dacf9dc2f1edc8728bea63e91992307d122f1b1d99ac3327"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/Readback",
+      "record_sha256": "9b608df3a14d290fb6c3ee6796bff0d8a7fc1c2fab9948de910f0733ccd8dc24"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/RemainingOwners",
+      "record_sha256": "668f6b0b12609187a6beaeae1aef8d034cdaa3b7315988573deaca3f52b33f77"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/OldCallerBaseline",
+      "record_sha256": "edbb746f324129345374750ce3c908295a0bec8a7028e113f9425faa440fa6b1"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/OldCallerCandidate",
+      "record_sha256": "edbb746f324129345374750ce3c908295a0bec8a7028e113f9425faa440fa6b1"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/BuildA",
+      "record_sha256": "eb5bbe4d5ca19c6a8e6ae86be11519cee0ea8967663468fcaf605520a4c97c02"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/BuildB",
+      "record_sha256": "eb5bbe4d5ca19c6a8e6ae86be11519cee0ea8967663468fcaf605520a4c97c02"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/Readback",
+      "record_sha256": "7cbbf1729f7849f3dd78ddde27790e64acbf9cb01f1c47bebe88ec38cb9582ef"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/BuildA",
+      "record_sha256": "7b2f67060f5b148cce014728837f1245211884b45b6797830b357d3449f76931"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/BuildB",
+      "record_sha256": "7b2f67060f5b148cce014728837f1245211884b45b6797830b357d3449f76931"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/Readback",
+      "record_sha256": "4276200ccbb80066443c4c56699b4f1bb3446a2c80bc8bb257176aba5b7a3917"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/BuildA",
+      "record_sha256": "12392d844335c73ec99ac5a03435e74410bfd44a7f9b752638041445828d3288"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/BuildB",
+      "record_sha256": "12392d844335c73ec99ac5a03435e74410bfd44a7f9b752638041445828d3288"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/Readback",
+      "record_sha256": "83b051544a65bdb37b059a3b413b6d63fef8754dbe800163400fd039a7269286"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/BuildA",
+      "record_sha256": "e9559dd401ca28d1a2302bea2af2f624ab3eea7e9811232189099e77babc8a79"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/BuildB",
+      "record_sha256": "e9559dd401ca28d1a2302bea2af2f624ab3eea7e9811232189099e77babc8a79"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/Readback",
+      "record_sha256": "3f3afa316827b3b5d99ae3ddb3ad9385b030e4bf3ac95415845c4e415a05412f"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/BuildA",
+      "record_sha256": "1dfe1a04f7adbfb6c0744b40d41af81ff410d5ceba197b58a6e3bdc033003b74"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/BuildB",
+      "record_sha256": "1dfe1a04f7adbfb6c0744b40d41af81ff410d5ceba197b58a6e3bdc033003b74"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/Readback",
+      "record_sha256": "3abf680da4377147cf31ea7b1c4c81c09788b1ac92face3167e3643249268420"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/BuildA",
+      "record_sha256": "49d82f0b26e6164d4d0c85a4e78cba85609aa66dde0845a41b1e3a4e37ec6863"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/BuildB",
+      "record_sha256": "49d82f0b26e6164d4d0c85a4e78cba85609aa66dde0845a41b1e3a4e37ec6863"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/Readback",
+      "record_sha256": "91ba34336d6a3f49d97c042dc863571605f394a894d894da807d19d69f4470f6"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent7/BuildA",
+      "record_sha256": "10ddb0250b43d14b8c65373629fccc87b67b27e2eb373ddc9018ec60603b1a97"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent7/BuildB",
+      "record_sha256": "10ddb0250b43d14b8c65373629fccc87b67b27e2eb373ddc9018ec60603b1a97"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent7/Readback",
+      "record_sha256": "1b8d001b49b69635dec9b3aa14009cd9dfff1c20c3d7106745e33769dd02e7a4"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent8/BuildA",
+      "record_sha256": "cb947b66d0d72827d392187f192ae981a1aa82edebaf6123ed9017005aab72c8"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent8/BuildB",
+      "record_sha256": "cb947b66d0d72827d392187f192ae981a1aa82edebaf6123ed9017005aab72c8"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent8/Readback",
+      "record_sha256": "76d00c1df4a80f3e4f7302fb1373a616001139d4f1a0880bd768e41a9aee6e93"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/quality_reserved",
+      "record_sha256": "af2d12c53eff59635c0df34baad35ba7f275f8506b13afc95fd2f2f2ed003a9f"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/quality_unqualified",
+      "record_sha256": "af2d12c53eff59635c0df34baad35ba7f275f8506b13afc95fd2f2f2ed003a9f"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/quality_boolean",
+      "record_sha256": "7b1e2bb573d2610d1b69393128a4256bfaddcfbc0fabe3b2128a7650386f5192"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/quality_missing",
+      "record_sha256": "7b1e2bb573d2610d1b69393128a4256bfaddcfbc0fabe3b2128a7650386f5192"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/grid_unsupported_bits",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/grid_missing_seed",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/grid_boolean",
+      "record_sha256": "5a7b2d384c8708305270e00fc3b4b2342b8b4a41f74505811a107f60eaa9a954"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/grid_missing",
+      "record_sha256": "5a7b2d384c8708305270e00fc3b4b2342b8b4a41f74505811a107f60eaa9a954"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/context_unconfirmed",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/context_assembly",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/context_drawing",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/context_boolean",
+      "record_sha256": "6be3836ec0b9303779c24761c279cdb7a06d955bf43830954d16de2434e70ee3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/context_missing",
+      "record_sha256": "6be3836ec0b9303779c24761c279cdb7a06d955bf43830954d16de2434e70ee3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/group_drawing",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/group_unqualified",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/group_boolean",
+      "record_sha256": "a4a09b897fffb2267e672948639153157065b2e593d3f3da5f6616c80155ce9b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/group_missing",
+      "record_sha256": "a4a09b897fffb2267e672948639153157065b2e593d3f3da5f6616c80155ce9b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/display_mode",
+      "record_sha256": "3d1253d6385265d262c497e650f9adfc6be774552cb3cff04483511eee1d5554"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/display_boolean",
+      "record_sha256": "00e06e3b84f0f42717a44a66cd22f6f2c491104095f1196facce9eb92810c2e1"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/count_mismatch",
+      "record_sha256": "eecce23ac73834aa1a597dd8ff8d71390224a7d47169814cd883985285031189"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/count_boolean",
+      "record_sha256": "1d7dbb3225d5dfa13aeb83517e36e57b01e8e1697398c68676dd8b5a86a2a0c4"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/count_negative",
+      "record_sha256": "eecce23ac73834aa1a597dd8ff8d71390224a7d47169814cd883985285031189"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/count_overflow",
+      "record_sha256": "eecce23ac73834aa1a597dd8ff8d71390224a7d47169814cd883985285031189"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/count_missing",
+      "record_sha256": "1d7dbb3225d5dfa13aeb83517e36e57b01e8e1697398c68676dd8b5a86a2a0c4"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_rows_missing",
+      "record_sha256": "16f6c0f8426aff0fc837fcb66b90159a04d240f73a80924d2083e8fc5df2c611"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_unknown_row",
+      "record_sha256": "eecce23ac73834aa1a597dd8ff8d71390224a7d47169814cd883985285031189"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_alias",
+      "record_sha256": "eecce23ac73834aa1a597dd8ff8d71390224a7d47169814cd883985285031189"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_null",
+      "record_sha256": "13ed45b0f32e665003232b70bc52b1491872164aaffbbcaa46ff81ca1215fddc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_wrong_class",
+      "record_sha256": "13ed45b0f32e665003232b70bc52b1491872164aaffbbcaa46ff81ca1215fddc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/environment_wrong_schema",
+      "record_sha256": "13ed45b0f32e665003232b70bc52b1491872164aaffbbcaa46ff81ca1215fddc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_schema",
+      "record_sha256": "8917d6759a03707145301d6517a30620664185bec873fb7f621ef0aee67bb51b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_class",
+      "record_sha256": "8917d6759a03707145301d6517a30620664185bec873fb7f621ef0aee67bb51b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_version",
+      "record_sha256": "d4456878f75be79cc468e7c4c97b4df2d8a02a3c51c2e0a9cd0bbdcf5fd47d15"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/quality_boolean",
+      "record_sha256": "86c43127550562f43bcbb206e2c6001cce8b751630420c062b320034fa26a9fa"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/quality_negative",
+      "record_sha256": "86c43127550562f43bcbb206e2c6001cce8b751630420c062b320034fa26a9fa"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/quality_unqualified",
+      "record_sha256": "86c43127550562f43bcbb206e2c6001cce8b751630420c062b320034fa26a9fa"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/quality_reserved",
+      "record_sha256": "86c43127550562f43bcbb206e2c6001cce8b751630420c062b320034fa26a9fa"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/quality_float",
+      "record_sha256": "86c43127550562f43bcbb206e2c6001cce8b751630420c062b320034fa26a9fa"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/grid_integer",
+      "record_sha256": "4b0e7db3a66108d4d1d98fe6c0b4d7ed608bd75a45c4410b1e1896bf4889efad"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/grid_text",
+      "record_sha256": "4b0e7db3a66108d4d1d98fe6c0b4d7ed608bd75a45c4410b1e1896bf4889efad"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/group_unknown",
+      "record_sha256": "1e9fefc5f984cdfb8454c6ce388ba22d4e3481214d871db0226368c72cb6741a"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/group_drawing",
+      "record_sha256": "1e9fefc5f984cdfb8454c6ce388ba22d4e3481214d871db0226368c72cb6741a"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/group_empty",
+      "record_sha256": "1e9fefc5f984cdfb8454c6ce388ba22d4e3481214d871db0226368c72cb6741a"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/group_integer",
+      "record_sha256": "1e9fefc5f984cdfb8454c6ce388ba22d4e3481214d871db0226368c72cb6741a"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/wrong_type",
+      "record_sha256": "cf500fd7755958b31e2374572ad280683de7ef9c63ef673a167bfcdf88a0322e"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "WireRejects/truncated_definition",
+      "record_sha256": "8b80813872f7e8dca171c5916319d55e19bde2ffb1274a7710812245f231062b"
+    },
+    {
+      "error_type": "BodyUnsupported",
+      "exit": 3,
+      "label": "WireRejects/definition_trailer",
+      "record_sha256": "265b57e48283b3e46353b856ecf4fb10db3f6e8ab430cc0db8620d17e668c538"
+    },
+    {
+      "error_type": "BodyUnsupported",
+      "exit": 3,
+      "label": "WireRejects/resolved_map_base",
+      "record_sha256": "c6531bc35df9fe42ecf3f8257719f8b13e8b79a3c1b1adbf3beabab6da8a05df"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/BaseRoot0",
+      "record_sha256": "92cab56a7b89a5e76ff120910bb9e39e487c42c28e0a0eabc8fc7f90dfac5d16"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/Code010",
+      "record_sha256": "92cab56a7b89a5e76ff120910bb9e39e487c42c28e0a0eabc8fc7f90dfac5d16"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/BaseRoot1",
+      "record_sha256": "f80710096f28b807dc0d082be3ed0d82de5b06f1dedd09d3318a26b3b3601a50"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/Code011",
+      "record_sha256": "f80710096f28b807dc0d082be3ed0d82de5b06f1dedd09d3318a26b3b3601a50"
+    }
+  ],
+  "remaining_cmgr_frontiers": 29,
+  "remaining_definition_frontiers": [
+    "faf8",
+    "nenv"
+  ],
+  "runtime_input_reads_during_construction": 0,
+  "schema": "kit.sw2026.throughall-ui-scalar-measurement.v1",
+  "scope": "Four source-owned part UI scalars and a separate typed environment-count audit",
+  "source_environment_construction": false,
+  "source_environment_count_each": 1,
+  "source_generation_rule": "Construct actual HLR quality, document grid bit and confirmed part command group from typed semantic inputs. Part context1 and Features resourceID38284 are pinned native vocabulary. Never forward source words, raw environment records or captured defaults.",
+  "source_manifest_sha256": "efd2d828c25a9dcc472c0c3e2d9107395bce5485aef2f61a54d8d0b6d90ce362",
+  "source_window_semantics_dropped_as_success": false,
+  "static_checks": [
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceConfig/MakeThruUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceConfig/MakeThruUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/PartUi/CountPartEnvs.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/PartUi/CountPartEnvs.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/PartUi/MakePartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/PartUi/MakePartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/PartUi/PartUiInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/PartUi/PartUiInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/PartUi/ReadPartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/PartUi/ReadPartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/PartUi/RequirePartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/PartUi/RequirePartUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/ReadThruUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/ReadThruUi.py"
+    },
+    {
+      "exit": 0,
+      "name": "ruff"
+    },
+    {
+      "exit": 0,
+      "name": "mypy"
+    },
+    {
+      "exit": 0,
+      "name": "pyright"
+    },
+    {
+      "exit": 0,
+      "name": "steering"
+    },
+    {
+      "exit": 0,
+      "name": "donors"
+    }
+  ],
+  "static_report_sha256": "2cfc37ce05486719d7eff17fb91136b608f3d45f30921964f80f078cb92b79ca",
+  "task_id": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "vendor_loadable": false
+}

@@ -1,0 +1,909 @@
+{
+  "api_retry_cause_or_fix_proved": false,
+  "comparisons": [
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        ".?AVmoDrSheet@@",
+        null,
+        ".?AVgfxSgSheetView_c@@"
+      ],
+      "stage": "after_open",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        null,
+        null,
+        ".?AVgfxSgDrawingView_c@@"
+      ],
+      "stage": "after_open",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        ".?AVmoDrSheet@@",
+        null,
+        ".?AVgfxSgSheetView_c@@"
+      ],
+      "stage": "after_rebuild",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        null,
+        null,
+        ".?AVgfxSgDrawingView_c@@"
+      ],
+      "stage": "after_rebuild",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        ".?AVmoDrSheet@@",
+        null,
+        ".?AVgfxSgSheetView_c@@"
+      ],
+      "stage": "after_redraw",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        null,
+        null,
+        ".?AVgfxSgDrawingView_c@@"
+      ],
+      "stage": "after_redraw",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        ".?AVmoDrSheet@@",
+        null,
+        ".?AVgfxSgSheetView_c@@"
+      ],
+      "stage": "before_rebuild",
+      "state_equal": true,
+      "unique_role_type_match": true
+    },
+    {
+      "identity": [
+        ".?AVuiDrawingView_c@@",
+        null,
+        null,
+        ".?AVgfxSgDrawingView_c@@"
+      ],
+      "stage": "before_rebuild",
+      "state_equal": true,
+      "unique_role_type_match": true
+    }
+  ],
+  "data_collected": true,
+  "distinct_processes": 4,
+  "healthy_controls": true,
+  "heldout_accepted": false,
+  "hidden_inputs_read": 0,
+  "independent_memory_complete": true,
+  "job_sha256": "ece0432aba11e6af754c86593d3c82c0fede2773cbb2a37b8cd4cee9f3c16f9c",
+  "ordinary_com_complete": true,
+  "overall_exit": 0,
+  "phases": [
+    {
+      "all_stage_layer_object_count": 1,
+      "all_stage_ui_object_count": 1,
+      "controller_diagnostics_empty": true,
+      "immutable_input": true,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open": [
+        0,
+        0
+      ],
+      "owned_handle_closed": true,
+      "passed": true,
+      "phase_sha256": "b6c9c4d6538bc3257f85c421a74b4994423add9de994c7dfe8c1fa02ebb887a4",
+      "rebuild": true,
+      "record_sha256": "30d10078b98e49c4b031cb70e1ffe67961469a54144cc29073529c48d69c867a",
+      "role": "ControlAfter",
+      "stages": [
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        }
+      ]
+    },
+    {
+      "all_stage_layer_object_count": 1,
+      "all_stage_ui_object_count": 1,
+      "controller_diagnostics_empty": true,
+      "immutable_input": true,
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open": [
+        0,
+        0
+      ],
+      "owned_handle_closed": true,
+      "passed": true,
+      "phase_sha256": "ed90fdec6e56cb61c8572c653933bc6c3b5d03e9b8581b053e0bb47b46b28d3c",
+      "rebuild": true,
+      "record_sha256": "d473d2baa36ef8a7b525948b8fd5f964b89b414d730a774967c36ff9cdf229f3",
+      "role": "ControlBefore",
+      "stages": [
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        }
+      ]
+    },
+    {
+      "all_stage_layer_object_count": 1,
+      "all_stage_ui_object_count": 1,
+      "controller_diagnostics_empty": true,
+      "immutable_input": true,
+      "input_sha256": "5e5e7612b4ba3167623187673b0729ef125a55dde697f3969438c939c6124bc5",
+      "open": [
+        0,
+        0
+      ],
+      "owned_handle_closed": true,
+      "passed": true,
+      "phase_sha256": "db2d1ab9a979fe05c2e33bba379cc6c229e9ee377679821d0b4a5525e5a39704",
+      "rebuild": true,
+      "record_sha256": "2d3fb1ca854ccd7ed56b360bd9512f5baab765932fb674ab8eded11db31fe1b7",
+      "role": "Generated",
+      "stages": [
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        }
+      ]
+    },
+    {
+      "all_stage_layer_object_count": 1,
+      "all_stage_ui_object_count": 1,
+      "controller_diagnostics_empty": true,
+      "immutable_input": true,
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "open": [
+        0,
+        0
+      ],
+      "owned_handle_closed": true,
+      "passed": true,
+      "phase_sha256": "43b4a24f02a4a2186eaa032c40d82ee15a8b08003b312cd1a06477310ebeb741",
+      "rebuild": true,
+      "record_sha256": "445a77ad4052fe3c4366b3ec1ba27ee97b25dc391b45665699491ebd1e292b32",
+      "role": "NativeSource",
+      "stages": [
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_open",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "before_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_rebuild",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        },
+        {
+          "all_layer_fields_verified": true,
+          "role_count": 2,
+          "selection_ambiguous": false,
+          "stage": "after_redraw",
+          "states": [
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                null,
+                null,
+                ".?AVgfxSgDrawingView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            },
+            {
+              "getter_lane": "drawing override",
+              "getter_verified": true,
+              "identity": [
+                ".?AVuiDrawingView_c@@",
+                ".?AVmoDrSheet@@",
+                null,
+                ".?AVgfxSgSheetView_c@@"
+              ],
+              "layer_present": true,
+              "layer_type": ".?AVuiDrawingSceneGraphEngine_c@@",
+              "target": {
+                "disk_sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+                "module": "slddrwu.dll",
+                "rva": "0x4f26c4"
+              }
+            }
+          ],
+          "tree_stable": true,
+          "unique_layer_object_count": 1,
+          "unique_ui_object_count": 1
+        }
+      ]
+    }
+  ],
+  "prior_failed_result_sha256": "8b72327abb9fa7b73fc5b1b1f880b8c7f0f0be750b7736393bef39cb425e716e",
+  "raster_measured_by_this_packet": false,
+  "raw_result_sha256": "c8a6b996e77acc44b5cb85b03ebd314dd86ac8b3b6010553acf74364a28d1109",
+  "runtime_target_invocation_observed": false,
+  "schema": "kit.sw2026.drawing-scene-view-runtime.v1",
+  "snapshot_count": 16,
+  "task": "DRAWING-NOTES-C10",
+  "vm_calls_by_followup": 0,
+  "writer_qualified": false
+}

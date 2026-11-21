@@ -1,0 +1,375 @@
+{
+  "alternate_inventory": {
+    "added_paths": 0,
+    "collection_path_counts": {
+      "CADMPEG": 57,
+      "FreeCAD114Resources": 45,
+      "GA3DBasicBot": 68,
+      "LulzBotTAZ6": 1
+    },
+    "distinct_content_identities": 162,
+    "historical_assembly_example_match_verified": false,
+    "identity_counts_by_path_alias_count": {
+      "1": 156,
+      "2": 4,
+      "3": 1,
+      "4": 1
+    },
+    "matched_resolved_path_set": true,
+    "method": [
+      "Recurse over the four disclosed source collections and select files whose suffix case-folds to .fcstd.",
+      "Resolve each original path, preserve separate paths for identical content, and group by SHA-256 of the original file bytes.",
+      "Open Document.xml once for each identity with Python zipfile and parse the Objects element. Compare path coverage, sizes, hashes and type counts with the cited inventory.",
+      "Emit anonymized per-collection aliases. Each alias represents one distinct resolved path from the verified inventory."
+    ],
+    "named_public_comparator": {
+      "alias": "FreeCAD114Resources-40",
+      "resource_relative_path": "share/examples/AssemblyExample.FCStd",
+      "sha256": "fef362c529aae88cb32905ac7dda5d056832a22aa13cf4089ec9f0da773efcb2",
+      "size_bytes": 173572
+    },
+    "prior_inventory_sha256": "db7280b68f5bd30d5d3a3f8e3fe92b1ed335e7cd76786ae5cfbddb0064efa52c",
+    "private_independent_inventory_sha256": "17a259771c4f774f1deb14fae97e8d3a157ab8ea95c541a13a0430809b18d6c3",
+    "resolved_paths": 171,
+    "unmatched_xml_or_content": 0,
+    "vanished_paths": 0
+  },
+  "alternate_inventory_path": "re/solidworks/measurements/2026/DisclosedFcstdSourceInventory01.json",
+  "alternate_inventory_sha256": "ef346903b676bae54ca66f5e3c9c6a07aa7b02358e3b805406adf6329ac02e71",
+  "alternate_neutral_read": {
+    "assembly_documents": 2,
+    "original_benchmark_membership_verified": false,
+    "path": "re/solidworks/measurements/2026/NeutralCorpusRead01.json",
+    "revision": "c9d64090b37b2fa56971662f926441aa9bb2be1f",
+    "sha256": "82a05718893d52e806884ebd24870933ebf3fae3d8e2ebd8931087bfbfe7657d",
+    "source_count": 162
+  },
+  "alternate_public_write": {
+    "accepted_conversions": 0,
+    "actual_destination_formats": {
+      "solidworks.sldasm": 2,
+      "solidworks.sldprt": 169
+    },
+    "generated_outputs": 0,
+    "historical_165_plus_5_roster_membership_verified": false,
+    "original_paths_attempted": 171,
+    "path": "re/solidworks/measurements/2026/PublicFcstdWriterCensus01.json",
+    "revision": "c9d64090b37b2fa56971662f926441aa9bb2be1f",
+    "sha256": "29ed2791196e69949270d242740ce4f42f524bd5855a39844852763eba3c80ff"
+  },
+  "audit_source_sha256": "b6c40909f99700e27680a1f1b1c1ee217f91c076c47c8b34a24f2d02cc46fd19",
+  "generated_outputs": 0,
+  "git_snapshots": {
+    "accepted_main": {
+      "revision": "0ec0b3e9e3d503e1dde0c18d8ff0a3cfdd0d0750",
+      "tracked_document_paths": 9
+    },
+    "additive_box_original_snapshot": {
+      "revision": "a7de8bb522c654a98de68b01f4e7d4254d84d6dd",
+      "tracked_document_paths": 2
+    },
+    "additive_box_pr_snapshot": {
+      "revision": "4662af4b49b9b820f02ad3472b7fce6723ef6f63",
+      "tracked_document_paths": 2
+    },
+    "audit_base": {
+      "revision": "c9d64090b37b2fa56971662f926441aa9bb2be1f",
+      "tracked_document_paths": 9
+    },
+    "historical_discovery": {
+      "revision": "48ff095c940efb439c5aea674484bff1522412b6",
+      "tracked_document_paths": 0
+    },
+    "inventory_revision": {
+      "revision": "c739ea4da218983a66f05e54342f7f0f124538f7",
+      "tracked_document_paths": 9
+    },
+    "original_pr_121_head": {
+      "revision": "960ffde7a866ba94a83043fc8a7d21d0b9edb882",
+      "tracked_document_paths": 0
+    },
+    "recorded_audit": {
+      "revision": "2ac05f439476115605ee911cf6eef6fc4221129e",
+      "tracked_document_paths": 0
+    },
+    "saved_control_introduction": {
+      "revision": "22075ee5e77c3db9b56bd8c2bc8c415d6baf237d",
+      "tracked_document_paths": 9
+    }
+  },
+  "historical_audit": {
+    "git_blobs": {
+      "re/solidworks/CorpusCoverage.md": "7a6708c2d58c1a98108dba4999ad8fee7530a4fe",
+      "re/solidworks/records/AssemblyClosure.md": "312aee8f09492984f10e35976d716e6f1ed69ae5",
+      "tools/audit/FcstdArgs.py": "19d21cc0f1788dd86a370d59617b74fe75fdd161",
+      "tools/audit/FcstdCli.py": "62ee1a94605fd4941a42db1c98b48d6f2e7da166",
+      "tools/audit/FcstdDiscovery.py": "51e900208ecc2c1b26ca9403b6d76bcccbaea5da",
+      "tools/audit/FcstdSummary.py": "0c8fe50050d57e34f6ca25e639418e3194fb658e"
+    },
+    "historical_command": "uv run python tools/audit/AuditFcstdSolidworks.py . --require-vendor-loadable",
+    "historical_full_path_list_available": false,
+    "historical_source_hashes_available": false,
+    "part_paths_inferred_from_total_and_assembly_count": 160,
+    "recorded_revision": "2ac05f439476115605ee911cf6eef6fc4221129e",
+    "recursive_root_argument": ".",
+    "reported_assembly_paths_in_same_audit": 5,
+    "reported_on": "2026-08-11",
+    "reported_resolved_paths": 165
+  },
+  "native_processes_started": 0,
+  "physical_repository_re": {
+    "archive_metadata_exceptions": [],
+    "candidates": [],
+    "checkout_re_tree": "18da5065fb6418932c275f233e3775e7a1904db8",
+    "checkout_revision": "127711bc090d8faa3b3ba37a6152af117a6f26a3",
+    "historical_locator_states": {
+      ".rescratch/freecad/FreeCAD_1.1.3-Windows-x86_64-py311/data/examples/AssemblyExample.FCStd": "absent",
+      ".rescratch/out.FCStd": "absent",
+      "re/solidworks/examples/Random/V8_engine.FCStd": "absent",
+      "re/solidworks/examples/Random/V8_engine/Conrod_2.FCStd": "absent",
+      "re/solidworks/examples/Random/V8_engine/Piston_2.FCStd": "absent"
+    },
+    "historical_random_directory": "absent",
+    "walk_counts": {
+      "directory_symlinks": 0,
+      "filesystem_paths": 6403,
+      "standalone_xz_decoded_headers": 70,
+      "tar_member_tables": 5,
+      "walked_directories": 547,
+      "zip_central_directories": 1772
+    }
+  },
+  "production_conversion_credit": {
+    "assemblies": 0,
+    "parts": 0
+  },
+  "requested_target": {
+    "assembly_inputs": 5,
+    "membership_verified": false,
+    "part_inputs": 165
+  },
+  "schema": "kit.sw2026.fcstd-corpus-availability.v1",
+  "sealed_inputs_opened": 0,
+  "tracked_controls_by_git_blob": {
+    "07e499cddd302b378c5e0c7648914d976f2f226a": {
+      "assembly_or_link_classes": {},
+      "bytes": 5166,
+      "disclosed_aliases": [
+        "CADMPEG-19"
+      ],
+      "document_dates": {
+        "CreationDate": "2026-10-28T19:05:09Z",
+        "LastModifiedDate": "2026-10-28T19:05:09Z"
+      },
+      "document_xml_sha256": "b4babf92316ae57c6419b2fbb390708a89563cafa135d45928ae7f754bc5b976",
+      "path_snapshots": {
+        "re/solidworks/examples/FreeCAD/AdditiveBox-0.21.2.FCStd": [
+          "additive_box_pr_snapshot",
+          "additive_box_original_snapshot"
+        ]
+      },
+      "program_version": "0.21R33771 (Git)",
+      "source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d"
+    },
+    "232a48a04a0faec3ee2eed72c01a04db48c735f4": {
+      "assembly_or_link_classes": {},
+      "bytes": 5058,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "2026-11-17T22:58:57+00:00",
+        "LastModifiedDate": "2026-11-17T22:58:57+00:00"
+      },
+      "document_xml_sha256": "6d23be3d79b8ab00b4fb89ab336cc610ab3863e0ad3a2e31961961a8434c98cd",
+      "path_snapshots": {
+        "re/FreeCad/Verification/AliasMixed.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "225f7afebb1fea828b8abbd3c0867440201c9792f9c93baed52ebabe47b98066"
+    },
+    "50d8599474f00eadaed6932d006790f26db1c873": {
+      "assembly_or_link_classes": {},
+      "bytes": 5057,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "2026-11-17T22:58:57+00:00",
+        "LastModifiedDate": "2026-11-17T22:58:57+00:00"
+      },
+      "document_xml_sha256": "0d49fe92a0f9726d4cd243c263d607a130bf1c2cb84b6141b58f64e16777aa37",
+      "path_snapshots": {
+        "re/FreeCad/Verification/AliasEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "cec3b5e0a0936c7e14e48078ee0657697f0df774ca6af326a5e7f96ea38a4055"
+    },
+    "5c3ab178e07b760b9b1f79ed46db88c1d82c5e0b": {
+      "assembly_or_link_classes": {},
+      "bytes": 5477,
+      "disclosed_aliases": [
+        "CADMPEG-27"
+      ],
+      "document_dates": {
+        "CreationDate": "2026-10-28T15:16:06-04:00",
+        "LastModifiedDate": "2026-10-28T15:16:06-04:00"
+      },
+      "document_xml_sha256": "470381e0aa4b1a351d8b8a8ed53b3c7aa5bfd794882dfa846f32641e4d7e35b3",
+      "path_snapshots": {
+        "re/solidworks/examples/FreeCAD/AdditiveBox-1.1.4.FCStd": [
+          "additive_box_pr_snapshot",
+          "additive_box_original_snapshot"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8"
+    },
+    "5e0d375ad89a59e4a5cb86cfc54f26b61bbeb60d": {
+      "assembly_or_link_classes": {},
+      "bytes": 9298,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:58:57+00:00"
+      },
+      "document_xml_sha256": "df20ebd5ad8f6f2a64ba2fd46a510122d08fa71d8abafd4b2f76dc0925fae843",
+      "path_snapshots": {
+        "re/FreeCad/Verification/SymmetricEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "f4c03d01d086946f963c52c37e41dd7e731acb55db360fc8af8fcd22bc9c832d"
+    },
+    "65673620aac436d99c4b583f9739af2bebedfe21": {
+      "assembly_or_link_classes": {},
+      "bytes": 9467,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:58:56+00:00"
+      },
+      "document_xml_sha256": "85321f095400fe54da5dcba325fe8f14638d8812b6fdd2ba7314ebe5ee380739",
+      "path_snapshots": {
+        "re/FreeCad/Verification/ReversedRearEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "c86a24fe388c442dbbac9f79cab2c997210dcc4a5f3c5c1a080a976b26db4937"
+    },
+    "6a60954a5528b3ae28bbe4aaa2d57e41f8884103": {
+      "assembly_or_link_classes": {},
+      "bytes": 9465,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:58:56+00:00"
+      },
+      "document_xml_sha256": "27e9b0433da1be7b40cc0e87ea6c7efacb957ab457a436dc08a250e60f7a3685",
+      "path_snapshots": {
+        "re/FreeCad/Verification/ForwardFrontEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "6aa2d615697bea85dabd5e7d744ca316751901c6dd2f445fe2492fbbd2116506"
+    },
+    "74222258e29d815f4b79089ca80e4c54249af503": {
+      "assembly_or_link_classes": {},
+      "bytes": 9468,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:58:56+00:00"
+      },
+      "document_xml_sha256": "32e59d631c8338cc0b28e928fd003522df9dcbd891ddb637ca02a03667955907",
+      "path_snapshots": {
+        "re/FreeCad/Verification/ReversedFrontEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "74f0ff0e5eb6a0267b368b3fe1084c0a6d7fefc3035609ac012895382e291d32"
+    },
+    "920634dd42d7123beb216e7fd2f5eefbdc1ed33c": {
+      "assembly_or_link_classes": {},
+      "bytes": 5066,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "2026-11-17T22:58:57+00:00",
+        "LastModifiedDate": "2026-11-17T22:58:57+00:00"
+      },
+      "document_xml_sha256": "6bfd4516a415b2162d2b580f361508d8132e447b31b91808e3434f725a33c74e",
+      "path_snapshots": {
+        "re/FreeCad/Verification/AliasEqual.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "ddcbc42179f2ed5497be363c96f8cb57366f916cfa8aaa5ba7cd0f9cd2fd58f7"
+    },
+    "98d5cb6b9483b2b4c08a43536e6d016ea79dea22": {
+      "assembly_or_link_classes": {},
+      "bytes": 9465,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:58:56+00:00"
+      },
+      "document_xml_sha256": "5a1f155e64e46d853ee7c83a627f389fa707e0af0996bdd2114137e1fde11f63",
+      "path_snapshots": {
+        "re/FreeCad/Verification/ForwardRearEdited.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "301219f9e6bba4a4d82daae94a67767ab9a08d879e7fc8e93f57f10fb54a727f"
+    },
+    "f9782a140ee6c7850429090d5800e96932ad4139": {
+      "assembly_or_link_classes": {},
+      "bytes": 9461,
+      "disclosed_aliases": [],
+      "document_dates": {
+        "CreationDate": "1980-01-01T00:00:00Z",
+        "LastModifiedDate": "2026-11-17T22:56:41+00:00"
+      },
+      "document_xml_sha256": "7eee6067dcde8558b2a101ed118dcd11bf3715f48c82620b4f270d560e1dfcbb",
+      "path_snapshots": {
+        "re/FreeCad/Verification/RestoredForward.FCStd": [
+          "audit_base",
+          "accepted_main",
+          "inventory_revision",
+          "saved_control_introduction"
+        ]
+      },
+      "program_version": "1.1R20260928 (Git shallow)",
+      "source_sha256": "c208eb140dc74464762a0db0b37368832c868d8040c54e7e6eec6dacb2fa2ffa"
+    }
+  }
+}

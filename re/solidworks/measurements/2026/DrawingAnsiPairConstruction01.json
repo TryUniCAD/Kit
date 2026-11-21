@@ -1,0 +1,283 @@
+{
+  "atomic_refusals": 6,
+  "base_commit": "ebe51e167c0cc43b28fbca94033b7122d2042004",
+  "comparisons": [
+    {
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Definition"
+      ],
+      "child_detail_changes": 173,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "drawing_detail_changes": 173,
+      "name": "AnsiDetailCornerAlpha",
+      "scope": "Compare"
+    },
+    {
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Definition",
+        "Header2"
+      ],
+      "child_detail_changes": 173,
+      "drawing_changed_streams": [
+        "Contents/Definition",
+        "Header2",
+        "docProps/ISolidWorksInformation.xml"
+      ],
+      "drawing_detail_changes": 173,
+      "name": "AnsiDetailCornerAlpha",
+      "scope": "Native"
+    },
+    {
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Definition"
+      ],
+      "child_detail_changes": 173,
+      "drawing_changed_streams": [
+        "Contents/Definition"
+      ],
+      "drawing_detail_changes": 173,
+      "name": "AnsiDetailCenteredBetaΩ",
+      "scope": "Compare"
+    },
+    {
+      "child_changed_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Definition",
+        "Header2"
+      ],
+      "child_detail_changes": 173,
+      "drawing_changed_streams": [
+        "Contents/Definition",
+        "Header2",
+        "docProps/ISolidWorksInformation.xml"
+      ],
+      "drawing_detail_changes": 173,
+      "name": "AnsiDetailCenteredBetaΩ",
+      "scope": "Native"
+    }
+  ],
+  "failed_predecessor_result_sha256": "8cf0eda763b804400b633ee59ab80932fef92c2116ca1d6c57dee6c26645fe23",
+  "fresh_guarded_builds": 16,
+  "fresh_independent_preparations": 8,
+  "fresh_worker_count": 30,
+  "full_original_source_admission": false,
+  "generated_native_artifacts": [
+    {
+      "case": "AnsiDetailCornerAlphaNativeIso",
+      "edit": {
+        "field": "width_m",
+        "parameter": "D1@Sketch1",
+        "value_m": 0.047349999999999996,
+        "view_move_m": [
+          0.002371,
+          -0.001129
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 8893,
+          "sha256": "d9c6eebe65d73182b4bbe6a2c06828c11f4d4bd36e2aa3b869a993d0ed98ff1c"
+        },
+        "drawing": {
+          "bytes": 7255,
+          "sha256": "a10479a5681d7128b9d6e0decdf34f0f4155df89b44f6571f9fb67f1ed27fd30"
+        }
+      },
+      "mode": "iso",
+      "part": {
+        "depth_m": 0.009173,
+        "height_m": 0.027613,
+        "width_m": 0.041927
+      },
+      "view": {
+        "name": "AnsiDetailCornerAlpha model view",
+        "orientation": "*Front",
+        "position_m": [
+          0.11917,
+          0.09137
+        ],
+        "scale": 0.893
+      }
+    },
+    {
+      "case": "AnsiDetailCornerAlphaNativeAnsi",
+      "edit": {
+        "field": "width_m",
+        "parameter": "D1@Sketch1",
+        "value_m": 0.047349999999999996,
+        "view_move_m": [
+          0.002371,
+          -0.001129
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 8845,
+          "sha256": "3c9b51c034870be2884bcdb8646fa66d6e103cf0378c591f63ab523c660f7a87"
+        },
+        "drawing": {
+          "bytes": 7234,
+          "sha256": "2ce15b77b112bb5c1b68791e1f437a475a8e06d74c008ce059fb8a80977ac5e4"
+        }
+      },
+      "mode": "ansi",
+      "part": {
+        "depth_m": 0.009173,
+        "height_m": 0.027613,
+        "width_m": 0.041927
+      },
+      "view": {
+        "name": "AnsiDetailCornerAlpha model view",
+        "orientation": "*Front",
+        "position_m": [
+          0.11917,
+          0.09137
+        ],
+        "scale": 0.893
+      }
+    },
+    {
+      "case": "AnsiDetailCenteredBetaΩNativeIso",
+      "edit": {
+        "field": "height_m",
+        "parameter": "D2@Sketch1",
+        "value_m": 0.036188,
+        "view_move_m": [
+          0.002371,
+          -0.001129
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 9033,
+          "sha256": "ad4e7cf974c6e2117b9864b39a114a45f03e446191c83016ad55ffec33cbfa22"
+        },
+        "drawing": {
+          "bytes": 7304,
+          "sha256": "6f16db65369808ddb4028b5784cb6bff094696877cb13e0387ccf2df6f0e174c"
+        }
+      },
+      "mode": "iso",
+      "part": {
+        "depth_m": 0.007349,
+        "height_m": 0.031871,
+        "width_m": 0.053219
+      },
+      "view": {
+        "name": "AnsiDetailCenteredBetaΩ model view",
+        "orientation": "*Top",
+        "position_m": [
+          0.13371,
+          0.09913
+        ],
+        "scale": 1.071
+      }
+    },
+    {
+      "case": "AnsiDetailCenteredBetaΩNativeAnsi",
+      "edit": {
+        "field": "height_m",
+        "parameter": "D2@Sketch1",
+        "value_m": 0.036188,
+        "view_move_m": [
+          0.002371,
+          -0.001129
+        ]
+      },
+      "files": {
+        "child": {
+          "bytes": 8987,
+          "sha256": "822e137ad6a405b8d66e6b893185b9349c8ed2496cb41a0a5cc66e81e51b18e9"
+        },
+        "drawing": {
+          "bytes": 7283,
+          "sha256": "b2bbbcff671c0d70d6f2f6940bbd939b6755d12f571c4ed705dd0861644aa523"
+        }
+      },
+      "mode": "ansi",
+      "part": {
+        "depth_m": 0.007349,
+        "height_m": 0.031871,
+        "width_m": 0.053219
+      },
+      "view": {
+        "name": "AnsiDetailCenteredBetaΩ model view",
+        "orientation": "*Top",
+        "position_m": [
+          0.13371,
+          0.09913
+        ],
+        "scale": 1.071
+      }
+    }
+  ],
+  "heldout_acceptance": false,
+  "heldout_qualification_pending": true,
+  "independent_root_result_sha256": "665dec1e01965baac9c62ceabc94698f71363ee15a2c46093147287931e39d8b",
+  "malformed_refusals": [
+    {
+      "case": "unknown_mode",
+      "diagnostic": "ANSI full-pair mode is unsupported",
+      "request_sha256": "e145c6612ed307750d30fce7209884e67d1ae45a54ca57910b613db1889c92d9",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "9ed744b320b96fd57bd1edbec19df0ed845741a5f383e16e012c70791b52ebaa"
+    },
+    {
+      "case": "part_style",
+      "diagnostic": "complete authored part/drawing detail selectors disagree",
+      "request_sha256": "9d841581b8911de4a6cbace170ba658ba820354d108ac89937862374c09e671e",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c0641b9c1a22b42fff515b3d69338c5da210ffa8f0bb6e694d216f3523ee1303"
+    },
+    {
+      "case": "drawing_style",
+      "diagnostic": "complete authored part/drawing detail selectors disagree",
+      "request_sha256": "d496637f27121ecf053bc04115a9052622b287029335b883aebd317c191a40f0",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c0641b9c1a22b42fff515b3d69338c5da210ffa8f0bb6e694d216f3523ee1303"
+    },
+    {
+      "case": "part_ui",
+      "diagnostic": "complete authored part/drawing UI owners disagree",
+      "request_sha256": "5e76a7b7a1c5fca679b707254ad1d102004110214e9fc8db73ac5f6631685256",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "12ca702f921e8274db087e10674ad31f69a89a2222ba262cb192addcc07053fd"
+    },
+    {
+      "case": "drawing_ui",
+      "diagnostic": "complete authored part/drawing UI owners disagree",
+      "request_sha256": "6b7ba619f6e06cbc73b496ad5c694f4f738fb62c272f98100d32cd791d1bd691",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "12ca702f921e8274db087e10674ad31f69a89a2222ba262cb192addcc07053fd"
+    },
+    {
+      "case": "boolean_style",
+      "diagnostic": "complete authored part/drawing detail selectors disagree",
+      "request_sha256": "50c2707203d92aad0a5fcb181495638cc80c2061a5c5a69d1d8cbce6db008df1",
+      "returncode": 3,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c0641b9c1a22b42fff515b3d69338c5da210ffa8f0bb6e694d216f3523ee1303"
+    }
+  ],
+  "native_acceptance": false,
+  "native_qualification_pending": true,
+  "public_drawing_admission_changed": false,
+  "schema": "drawing-ansi-complete-pair-process-receipt-v1",
+  "sdk_sources_changed": false,
+  "source_files": 5721,
+  "source_manifest_sha256": "5e95bcc51ac344e298d1056bd70dc80c616e3d12ccdd4f6c6263c4fb9eaf6d5f",
+  "status": "guarded-host-pass-native-protocol-frozen-pending-execution",
+  "zero_runtime_input_reads": true
+}

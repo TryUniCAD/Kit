@@ -1,0 +1,5 @@
+# Public output parity for square revolutions
+
+The normal SOLIDWORKS writer accepts an explicit equal-length relation on a partial square Mid Plane or Two Directions boss revolve on the canonical Top or Right plane. The square sketch requires four actual unary owners and one ordered equality pair on adjacent contour edges. Mid Plane uses one total D1, and Two Directions uses independent D1 and D2.
+
+The Windows parity packet reproduces both exact independent native candidates at their measured locators. Direct and registry path and stream writes agree at fresh locators, and the strict reader recovers the five sketch relations and editable drivers. Guarded workers make zero runtime input-file reads. The integration suite exercises the normal one-driver square route. [Method and scope](../../../../../re/solidworks/records/SquareRevolvePublicParity2026.md) · [Prior native acceptance](../../../../../re/solidworks/measurements/2026/SdkSquareRevolveHeldoutNative01.json) · [Windows parity receipt](../../../../../re/solidworks/measurements/2026/SdkSquareRevolvePublicParity01.json)

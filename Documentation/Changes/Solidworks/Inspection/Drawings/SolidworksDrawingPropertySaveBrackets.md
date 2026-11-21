@@ -1,0 +1,9 @@
+# Bracket drawing property bags and summary saves
+
+The paired SOLIDWORKS 2026 observer follows the inner document-properties save through its general property bag, summary storage and SOLIDWORKS property bag. It records each call and return, each property's actual XML mode and DOM nullness, and the verified owner-chain matches. The corrected generated blank and reduced native control use the same physical input and save paths between pristine native brackets.
+
+The observer pins the original `doccplu.dll`, `sldappu.dll` and `sldmfcu.dll` hashes. Each stop validates the owned process, AMD64 instruction, original save thread and expected frame. A completed save with an armed site and no delivered stop receives an explicit unobserved state. Original instruction restoration and debugger absence are measured after cleanup.
+
+Freeze the two scripts, ancestor packet, original tools, controls and debugger engine into a private packet. The ancestor retains its own tools directory. Run the frozen Windows Python entrypoint with `--packet-sha256 HASH`, adding `--verify-only` for host custody verification. [Paired observer](../../../../../re/tooling/sw2026/drawing_property_brackets/InspectBlankDrawingSavePropertyBracketsMatched.py) · [Three-module debugger](../../../../../re/tooling/sw2026/drawing_property_brackets/DrawingSavePropertyBracketsDbgEng.py)
+
+Host custody verification and the seven-process native comparison pass. The general property and summary saves return 1 on both inputs. Both SOLIDWORKS-specific bags have valid owner and storage pointers, XML mode 1 and a present retained DOM. The reduced-native bag returns 1. The generated save finishes with error 1 and its final bag return stop armed and unobserved. All native reference lanes save and reopen and both traced lanes explicitly remove their breakpoints. [Measured save brackets](../../../../../re/solidworks/measurements/2026/DrawingBlankPropertySaveBracketsNative01.json)

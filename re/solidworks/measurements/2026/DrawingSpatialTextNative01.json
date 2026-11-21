@@ -1,0 +1,630 @@
+{
+  "active_solidworks_processes_after": 0,
+  "actual_signed_stored_depth_m": [
+    0.000237,
+    -0.000419
+  ],
+  "annotation_api_z_m": 0.0001,
+  "annotation_api_z_observations": 16,
+  "corrected_qualifier": {
+    "path": "re/tooling/sw2026/spatial_text/QualifySpatialTextLifecycle.py",
+    "sha256": "8e937fdaab471d26d1ee70b3a20ce333cb5a97e119bc3b9ea4aef9deb443ff26"
+  },
+  "flexnet_inventory_unchanged": true,
+  "fresh_native_processes": 10,
+  "healthy_controls": 2,
+  "heldout_inputs_read": 0,
+  "native_phases": [
+    {
+      "case": "TextDepthCornerHeightPositive",
+      "numeric_checks": 303,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "open-save",
+      "record_sha256": "6c25508be222d64488d963a86bd8aecdff679b934b342c95c71c8fb8027abb5d"
+    },
+    {
+      "case": "TextDepthCornerHeightPositive",
+      "numeric_checks": 140,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "reopen",
+      "record_sha256": "ae16464a097b788526a8d4485debbb53632cfe094538dac50f78ed3af9b6ae84"
+    },
+    {
+      "case": "TextDepthCornerHeightPositive",
+      "numeric_checks": 342,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "edit-move-save",
+      "record_sha256": "bb7b96261e5389aec640f4251ffe7539fb6555e650c43fe8039df944c89acb6e"
+    },
+    {
+      "case": "TextDepthCornerHeightPositive",
+      "numeric_checks": 140,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "reopen-edited",
+      "record_sha256": "b58ea0f1968a0a5b0920f9a3ab7e9e5d3f23df6b47298272a97bc54f1e52b8d4"
+    },
+    {
+      "case": "TextDepthCenteredHeightNegative",
+      "numeric_checks": 303,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "open-save",
+      "record_sha256": "771b7b65fe941fcfbb819862d08791cdf3d5f039574eec13e30b35b97748bf2c"
+    },
+    {
+      "case": "TextDepthCenteredHeightNegative",
+      "numeric_checks": 140,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "reopen",
+      "record_sha256": "33b4908fb527dcba2b26ab172a0e4c963114cbb8a4b6a3cc0d806bf54e5f8e73"
+    },
+    {
+      "case": "TextDepthCenteredHeightNegative",
+      "numeric_checks": 342,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "edit-move-save",
+      "record_sha256": "179a8517dc7fb8de07aad407f2af4a2372d43dd8375f5d85493fc44e9f97239e"
+    },
+    {
+      "case": "TextDepthCenteredHeightNegative",
+      "numeric_checks": 140,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "phase": "reopen-edited",
+      "record_sha256": "a7d902d2a7cec876ce6af8edfb09f04a9807f69bd6057db13d2539c454ef88bd"
+    }
+  ],
+  "numeric_candidate_checks": 1850,
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_executable_version": "34.5.2.0604",
+  "original_packet_qualifier_sha256": "24bf49a58934b5dad6f7d8f08904319bb3316c999851b7dc2b5ae4807ce46467",
+  "original_source_admissions": 0,
+  "packet_inputs_unchanged": true,
+  "passed_disclosed_field_lifecycle": true,
+  "public_drawing_writer_qualified": false,
+  "raw_sha256": {
+    "corrected_typed_result": "f8f2f2bd2703ebf03d675fb1e318e672bdfa6c9e5540cc191114b230ae21b236",
+    "first_typed_observer": "b85e0a45e9ed3c85ee42d7e487d2dd3c9f178dd63847bc29b03993c6ce3e9465",
+    "host_transport_result": "827e3381bbd1568490cbfdce8238b44a69415a4e9a4a4960f887441e5397d9fc",
+    "native_packet": "0921dfc23ce26653139a09634cfebeec58932cb71fda508bc940aa1379637bdc",
+    "native_result": "94636c9c4b06afde0ce1f7399c943ea98530a4876ecf49410e5dcf4cd7a38ed2"
+  },
+  "schema": "kit.sw2026.drawing-signed-depth-native-receipt.v1",
+  "source_file_count": 5041,
+  "source_manifest_sha256": "69b7098e0e64d320364d218bf7cc1a8ba21eab7d2b16ca10878f04bce68ce182",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "typed_snapshots": [
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "TextDepthCornerHeightPositive",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "6d77e80914a7493daeb69fb0733a929d18cc531e4c63585c7ad5530366b43178",
+      "drawing_sha256": "9bc852072f36b6598f1430a8f042711c4d52108edcd492bed9ce6bf8929e1c0a",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "constructed",
+      "stored_dimension_length_m": [
+        0.037483,
+        0.024719
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0001
+        ],
+        [
+          0.048727900000000005,
+          0.012359499999999997,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCornerHeightPositive",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "b056fa6affc54765f5dbe0b9c8f7148eb1ba6bd41a843d1f81b5e3ce231cc064",
+      "drawing_sha256": "43790084ec6de029b7b1a2283a402493c95b1a3ac0441a5f1acd8e523bf6b4cb",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "open-save",
+      "stored_dimension_length_m": [
+        0.037483,
+        0.024719
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0001
+        ],
+        [
+          0.048727900000000005,
+          0.012359499999999997,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCornerHeightPositive",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "b056fa6affc54765f5dbe0b9c8f7148eb1ba6bd41a843d1f81b5e3ce231cc064",
+      "drawing_sha256": "43790084ec6de029b7b1a2283a402493c95b1a3ac0441a5f1acd8e523bf6b4cb",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "reopen",
+      "stored_dimension_length_m": [
+        0.037483,
+        0.024719
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          0.021828,
+          -0.0074157,
+          0.0001
+        ],
+        [
+          0.0549009,
+          0.012359499999999997,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCornerHeightPositive",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "88988d47aee96de2eb02ca9951574790389fc87ce153439b5e7b69b239b691e1",
+      "drawing_sha256": "850c4f97c47b9e617892c3cf2502f8f11c878f0e68ee61be7852195b724b5f42",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "edit-move-save",
+      "stored_dimension_length_m": [
+        0.043656,
+        0.024719
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          0.021828,
+          -0.0074157,
+          0.0001
+        ],
+        [
+          0.0549009,
+          0.012359499999999997,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCornerHeightPositive",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "88988d47aee96de2eb02ca9951574790389fc87ce153439b5e7b69b239b691e1",
+      "drawing_sha256": "850c4f97c47b9e617892c3cf2502f8f11c878f0e68ee61be7852195b724b5f42",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "reopen-edited",
+      "stored_dimension_length_m": [
+        0.043656,
+        0.024719
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0187415,
+          -0.0074157,
+          0.0
+        ],
+        [
+          0.048727900000000005,
+          0.0123595,
+          0.000237
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "case": "TextDepthCenteredHeightNegative",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "6de7454c1a845894eee48630c1f86f0803473f4d2a2c1ec6d363e830a0449043",
+      "drawing_sha256": "b4fee8b3571502c1f2bc15c5001c8cba9af28159ec820ebbeceaa9019e3ab5c7",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "constructed",
+      "stored_dimension_length_m": [
+        0.045127,
+        0.028913
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          5.311231935562115e-19,
+          -0.023130400000000002,
+          0.0001
+        ],
+        [
+          0.036101600000000005,
+          -2.6404774103767747e-18,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCenteredHeightNegative",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "f41275d3bdd8081fc811443396bcb9fcdc978e78af7d082169d065848dc26e52",
+      "drawing_sha256": "9ef97b705b4c0c31cfcfd3d83555ed1c29528d8a99a74274769674e2de04a306",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "open-save",
+      "stored_dimension_length_m": [
+        0.045127,
+        0.028913
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          5.311231935562115e-19,
+          -0.023130400000000002,
+          0.0001
+        ],
+        [
+          0.036101600000000005,
+          -2.6404774103767747e-18,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCenteredHeightNegative",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "f41275d3bdd8081fc811443396bcb9fcdc978e78af7d082169d065848dc26e52",
+      "drawing_sha256": "9ef97b705b4c0c31cfcfd3d83555ed1c29528d8a99a74274769674e2de04a306",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "reopen",
+      "stored_dimension_length_m": [
+        0.045127,
+        0.028913
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          7.47001709746344e-18,
+          -0.025226899999999997,
+          0.0001
+        ],
+        [
+          0.03610160000000001,
+          7.767863445484068e-18,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCenteredHeightNegative",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "c0bc6d7f89944f7ae464f10153719525c5fa5c77d58143366a2cda189d6ccf17",
+      "drawing_sha256": "c4db6ffc514ce05857aa1191d1872e392ce6ac4f868b0cc4e5481694ff216cc7",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "edit-move-save",
+      "stored_dimension_length_m": [
+        0.045127,
+        0.033106000000000003
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ]
+    },
+    {
+      "actual_child_origin": {
+        "creation_time": 2592000,
+        "id": 17
+      },
+      "annotation_api_position_m": [
+        [
+          7.47001709746344e-18,
+          -0.025226899999999997,
+          0.0001
+        ],
+        [
+          0.03610160000000001,
+          7.767863445484068e-18,
+          0.0001
+        ]
+      ],
+      "case": "TextDepthCenteredHeightNegative",
+      "child_configuration": {
+        "id": 0,
+        "name": "modeled default",
+        "self_text_type": "unicode CStringValue",
+        "view_text_type": "str"
+      },
+      "child_sha256": "c0bc6d7f89944f7ae464f10153719525c5fa5c77d58143366a2cda189d6ccf17",
+      "drawing_sha256": "c4db6ffc514ce05857aa1191d1872e392ce6ac4f868b0cc4e5481694ff216cc7",
+      "independent_cmgr_first_map_entry": 1,
+      "persistent_display_and_value_ids": [
+        [
+          10,
+          19
+        ],
+        [
+          11,
+          20
+        ]
+      ],
+      "phase": "reopen-edited",
+      "stored_dimension_length_m": [
+        0.045127,
+        0.033106000000000003
+      ],
+      "stored_xy_z_m": [
+        [
+          0.0,
+          -0.023130400000000002,
+          0.0
+        ],
+        [
+          0.036101600000000005,
+          0.0,
+          -0.000419
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "schema": "kit.sw2026.sdk-part-property-native-v1.receipt",
+  "evidence": {
+    "Packet.json": "b50bf3403ef52b1e43c60664c6ba4ce993530c52ccabaa256dbf45638e7cacfd",
+    "Inspection/Result.json": "050128fb98c6d565bb696b58302c1865458339bf97293c718920d6f1b0858031",
+    "Host01.json": "f7b230eac9cbe00b78bacbf75be3bec1d849b181ed381c570ee10e8ce9af14ce",
+    "WriterSourceManifest.json": "8b01c85de2917cda2cc886522d38f669b8af71d91755ec3029388d7fead6633e"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "writer_base_revision": "85c8f2ae3319c135df7ff12a3f8deaf0d662e3c9",
+  "writer_overlay_sha256": "bf6cf4aa462d53a8abd76ec2e4ace40ba645f14034f4f9c74e165c8232317e0c",
+  "oracle_observer_sha256": "24dbf5854951f14b81d1c7614fd748fccd43e24ff5024f4274ef1dcb20ed98a2",
+  "distinct_processes": 6,
+  "cases": [
+    {
+      "profile": "polygon",
+      "input_sha256": "9129993976bd060e0cbea10c0ba0e837334d68964daf65bc4e8f091f69e84bf2",
+      "build_sha256": "46a83b038ac622e5384f070f90cacf986f3e4b1ee5b4070eedafbdcdd9550db8",
+      "candidate_sha256": "0d3ec3a66fa50793bc54f18d2b9b16cf5aef7a58545f2cd527b2c1a240922062",
+      "candidate_bytes": 9646,
+      "original_stream_count": 13,
+      "property_streams": {
+        "docProps/core.xml": {
+          "sha256": "c133adfa22b8e752a3b33a5d48b111bbdf74033e5b62bffde1758d81c3f82df8",
+          "bytes": 563
+        },
+        "docProps/custom.xml": {
+          "sha256": "2386f188fb7f14b7d93553ab20b5c48dd290f06641d7c1adb66c1dcbc1437a7e",
+          "bytes": 1381
+        },
+        "docProps/Config-0-Properties.xml": {
+          "sha256": "624c177eadbe94b3ec312a560e1e24738f0e60785bfbb564aae350696c335dcd",
+          "bytes": 910
+        }
+      },
+      "saved_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+      "preserved_summary": [
+        "title",
+        "subject",
+        "author",
+        "comments"
+      ],
+      "edited_scopes": {
+        "document": {
+          "name": "KitHoleNote",
+          "initial": "Check <edge> & scale",
+          "edited": "Document-only revised α",
+          "resolved": "Document-only revised α",
+          "type": 30,
+          "linked": false
+        },
+        "configured": {
+          "name": "KitHoleNote",
+          "initial": "Use the narrow profile",
+          "edited": "Configuration-only revised B6",
+          "resolved": "Configuration-only revised B6",
+          "type": 30,
+          "linked": false
+        }
+      },
+      "measured_geometry": {
+        "body_count": 1,
+        "volume_m3": 1.5300000000000004e-06,
+        "area_m2": 0.0009453785466371103,
+        "centre_m": [
+          0.0036666666666666666,
+          -0.001999999999999999,
+          0.006375000000000001
+        ]
+      },
+      "reopened_verified": true
+    },
+    {
+      "profile": "circle",
+      "input_sha256": "ef966168c7f3fa7765ba0ab88a0f716778c785ddc55be80ed5a035c3897cc125",
+      "build_sha256": "6d9843eb8b11b550b742fde07b4eb8860eee6f2f61a5172564cc7d4b58f7cc82",
+      "candidate_sha256": "392c5b51b63761f4bba2baf6dc0715de4af8d3e5036b83a42e0f388031cc6edd",
+      "candidate_bytes": 10050,
+      "original_stream_count": 13,
+      "property_streams": {
+        "docProps/core.xml": {
+          "sha256": "cf35efb1218db6197c1e6c28c41f585a50421dcb4e15f1b5bde70b5101a5bd07",
+          "bytes": 515
+        },
+        "docProps/custom.xml": {
+          "sha256": "0a9b762273102e18e6235dc8e78b9b9ca5a365b210833890c9e8c72a4072b4ce",
+          "bytes": 1640
+        },
+        "docProps/Config-0-Properties.xml": {
+          "sha256": "4849ef982a8d752eb8873f12887894632f1358bab314e3e4a9b38c01bc4b3972",
+          "bytes": 1114
+        }
+      },
+      "saved_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30",
+      "preserved_summary": [
+        "title",
+        "keywords",
+        "comments"
+      ],
+      "edited_scopes": {
+        "document": {
+          "name": "KitRevision",
+          "initial": "Release C8",
+          "edited": "Release C9 & check",
+          "resolved": "Release C9 & check",
+          "type": 30,
+          "linked": false
+        },
+        "configured": {
+          "name": "KitRevision",
+          "initial": "Revised configuration",
+          "edited": "Variant C11 <finished>",
+          "resolved": "Variant C11 <finished>",
+          "type": 30,
+          "linked": false
+        }
+      },
+      "measured_geometry": {
+        "body_count": 1,
+        "volume_m3": 7.373688714995753e-06,
+        "area_m2": 0.002112516856016652,
+        "centre_m": [
+          0.007125,
+          -0.005675,
+          0.0089125
+        ]
+      },
+      "reopened_verified": true
+    }
+  ],
+  "phases": [
+    {
+      "role": "ControlBefore",
+      "record_sha256": "86f4b85b8fe9ffacba53e222b56b9b43e802eb9281f22ff2b618dcfff18a9e6b",
+      "numeric_checks": 0,
+      "process_creation_filetime": 134394582412659283,
+      "passed": true
+    },
+    {
+      "role": "polygonEdit",
+      "record_sha256": "03e31da4b1e97e88af6c6ed945973b20be235191745b2afcf4725f73e0347d6a",
+      "numeric_checks": 16,
+      "process_creation_filetime": 134394582699039126,
+      "passed": true
+    },
+    {
+      "role": "polygonReopen",
+      "record_sha256": "f2c04a2d72d333dfd974da4733ee3c45abfa10343b6171755f6eb7da8f14df6a",
+      "numeric_checks": 22,
+      "process_creation_filetime": 134394583008157651,
+      "passed": true
+    },
+    {
+      "role": "circleEdit",
+      "record_sha256": "6b2aea71137e4f7b231cd1ad4c1d92bb46528afa3a111108749755b4b1722f95",
+      "numeric_checks": 16,
+      "process_creation_filetime": 134394583308029373,
+      "passed": true
+    },
+    {
+      "role": "circleReopen",
+      "record_sha256": "cec1f97dc3598c557ad97a742f6aba9d48351d55f2260af4ec84996b6aacbc12",
+      "numeric_checks": 22,
+      "process_creation_filetime": 134394583628934074,
+      "passed": true
+    },
+    {
+      "role": "ControlAfter",
+      "record_sha256": "0669cf5200e2ad1597d7aa043b9d2500d5594883d311f7e764e0131163e5cf39",
+      "numeric_checks": 0,
+      "process_creation_filetime": 134394583935701596,
+      "passed": true
+    }
+  ],
+  "controls_healthy": true,
+  "numeric_comparisons": 76,
+  "native_profiles_passed": true,
+  "heldout_inputs_read": 0,
+  "public_writer_qualified": false,
+  "qualified_fcstd_outputs": 0
+}

@@ -1,0 +1,2821 @@
+{
+  "audit_tool_sha256": "d4b04459f61351a1709c3f73a886738ba8bb66ae4cc00695a63cee097f26479c",
+  "cases": [
+    {
+      "container_stream_count": 40,
+      "name": "D01X.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.09711166160000002,
+        "com": [
+          0.06691268513519787,
+          0.03105503053032814,
+          0.0032012997178269354
+        ],
+        "mass": 0.00029136301970099994,
+        "volume": 0.00029136301970099994
+      },
+      "native_sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839",
+      "phase": "pristine-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18147,
+        28875
+      ],
+      "resolved_counter": 427,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18165,
+        "class_tag_offset": 18147,
+        "config_counter": 112,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2375,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "2026c2dbe46d30f92ae45f7b1ee19677ceaaf7fa47d3ad59133cd5dec95891f1",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "288fa0da2f5460c8ce040a692c0b8280ed9d7de18282c5e78d5a34e5c41eae8c",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 25840,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 112,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2631,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 84,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "f37cffe2a40eef5c35b88d9047c618036c2df3c14f0ae68ca1b68437ad3f8b02",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28879,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 112,
+          "map_count": 427,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 112,
+          "sha256": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "55642e75408ce02294e78df856f3771a966fcde630117c230a82c83ad792513e"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2631,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 84,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "f37cffe2a40eef5c35b88d9047c618036c2df3c14f0ae68ca1b68437ad3f8b02",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "661e055430f4184e45061c2617b4f2c450bc05b0fbd01318a96baf8d6b839ebc",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "8bf94054f8782bc836c3455342a95f0a7a0d8d8092e4e9ead8b5fa413177a009",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "3bc52a9d4e4ccda36c59397001b76ce9ddde4f82ae1789db5ddfd3488067a371",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "0403311ae6de4dcecec86a0fd2fb3a4c7e06e73478cdd905de005d1c2bc031c8",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1567,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "bc96c06b74f90286f804598b418a2e41f94eedf8ba8fdf5f14ff1384fc9e5485",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 3.0,
+            "dimension": {
+              "archive_object": 388,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 385,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 386,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 390,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 3
+          },
+          "f1260": {
+            "cached_display": 0.027183,
+            "dimension": {
+              "archive_object": 395,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 393,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 394,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 396,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.027183
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 401,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 399,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 400,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 402,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 407,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 405,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 406,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 408,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 417,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 415,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 416,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 418,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 423,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 421,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 422,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 424,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 364,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "plane": {
+          "archive_object": 178,
+          "class": "moRefPlane_c",
+          "name": "Right Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 4,
+        "plane_key": 1,
+        "reverse": false,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 366,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 308,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "container_stream_count": 40,
+      "name": "D01XSpacing.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.09711166160000002,
+        "com": [
+          0.06692566374729121,
+          0.03105503053032814,
+          0.0032012997178269336
+        ],
+        "mass": 0.0002913630197009999,
+        "volume": 0.0002913630197009999
+      },
+      "native_sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403",
+      "phase": "spacing-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18357,
+        29085
+      ],
+      "resolved_counter": 427,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18375,
+        "class_tag_offset": 18357,
+        "config_counter": 112,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "4d03506316a9eae893eac77acef3f4624532fa1f9b9bc240253c33d946986dd9",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b1b9007dfd28ce1addf1e11a37ceb596385eb2c59378db75ffdc2d44867f1d06",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 25846,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 112,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "f562342137c92321c3b5dccc5fc52bbfcb85942a2c336ce35a96580c497e0ccc",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 112,
+          "map_count": 427,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 112,
+          "sha256": "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "d9217aa53d228794191eaa0fcb25a4ef024ca455098afa608d0e90e8244f5cb6"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "f562342137c92321c3b5dccc5fc52bbfcb85942a2c336ce35a96580c497e0ccc",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "fa0a5125664f577fa1ab60a0d8328ad61c243cdd64d2e752e8534d0e971ecff9",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "adaad72045360ec75bdf6d0864933e745a2717bd175c14ec72f137ba1c9ed5fb",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "3bc52a9d4e4ccda36c59397001b76ce9ddde4f82ae1789db5ddfd3488067a371",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "8513d8d1affeacd8418a71470ad602f8c565cbaf91475f7cf117eb22bb5473bc",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2283,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b7d3b1de1882f50303ebff66aa87fbe6e18fddb352359a86749b59f8c860efeb",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 3.0,
+            "dimension": {
+              "archive_object": 388,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 385,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 386,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 390,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 3
+          },
+          "f1260": {
+            "cached_display": 0.031427,
+            "dimension": {
+              "archive_object": 395,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 393,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 394,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 396,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.031427
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 401,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 399,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 400,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 402,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 407,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 405,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 406,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 408,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 417,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 415,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 416,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 418,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 423,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 421,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 422,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 424,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 364,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "plane": {
+          "archive_object": 178,
+          "class": "moRefPlane_c",
+          "name": "Right Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 4,
+        "plane_key": 1,
+        "reverse": false,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 366,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 308,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "container_stream_count": 40,
+      "name": "D01XInstances.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.09725614880000003,
+        "com": [
+          0.06699549718476454,
+          0.031043421521116856,
+          0.003206710825749639
+        ],
+        "mass": 0.00029166002626799994,
+        "volume": 0.00029166002626799994
+      },
+      "native_sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600",
+      "phase": "instances-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18357,
+        29085
+      ],
+      "resolved_counter": 427,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18375,
+        "class_tag_offset": 18357,
+        "config_counter": 112,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "45e8fce328fac0942920619bfb4f1fbb872dc02ecc4cbb1591dd368bbbd49c6b",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "4b4632c27cbd7a13a692f3354feab2cf6421313081df4db79f608dcf4ef3e5f2",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 25846,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 112,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b7513ef268702cb98b23dc29f7233a5357190facb46395742a19798510c561b8",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 112,
+          "map_count": 427,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 112,
+          "sha256": "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "d9217aa53d228794191eaa0fcb25a4ef024ca455098afa608d0e90e8244f5cb6"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b7513ef268702cb98b23dc29f7233a5357190facb46395742a19798510c561b8",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "fa0a5125664f577fa1ab60a0d8328ad61c243cdd64d2e752e8534d0e971ecff9",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "4fa156d1a2e7f4f204fc9114bf00ad02b7d8d61a64d571e2d8e541e2aa95ca7a",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "3bc52a9d4e4ccda36c59397001b76ce9ddde4f82ae1789db5ddfd3488067a371",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "8513d8d1affeacd8418a71470ad602f8c565cbaf91475f7cf117eb22bb5473bc",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2287,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "1ef2632c34392ed92f5b27a5709f90e76588c752a1ff2df2298133ffa4dd521a",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 4.0,
+            "dimension": {
+              "archive_object": 388,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 385,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 386,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 390,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 4
+          },
+          "f1260": {
+            "cached_display": 0.027183,
+            "dimension": {
+              "archive_object": 395,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 393,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 394,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 396,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.027183
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 401,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 399,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 400,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 402,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 407,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 405,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 406,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 408,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 417,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 415,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 416,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 418,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 423,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 421,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 422,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 424,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 364,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "plane": {
+          "archive_object": 178,
+          "class": "moRefPlane_c",
+          "name": "Right Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 4,
+        "plane_key": 1,
+        "reverse": false,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 366,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 308,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      }
+    },
+    {
+      "container_stream_count": 40,
+      "name": "D02Y.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.13875054879999998,
+        "com": [
+          0.09651360857178427,
+          0.06135416550168296,
+          0.0021144475736824208
+        ],
+        "mass": 0.000278007307532,
+        "volume": 0.000278007307532
+      },
+      "native_sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371",
+      "phase": "pristine-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18147,
+        28875
+      ],
+      "resolved_counter": 428,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18165,
+        "class_tag_offset": 18147,
+        "config_counter": 113,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2375,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "27fe57924a554eca2e6c7a1ef87b4671ba3af77c641f1d0826b99718c71957c5",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "3338b4126744b9d8e1cd96a49157e9c5001c33387624cbdc0e3619caf82241ef",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 26098,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 113,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2631,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 84,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "6a89b2bc4d43e1477102a188396c05ea838c3caf5ef0fee0e3168dd4d252fc0e",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 28879,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 113,
+          "map_count": 428,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 113,
+          "sha256": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "fb6fc4758f91cef5d61c9813ff41d890c94defc79bed865c58ae8e13285353a8"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2631,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 84,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "6a89b2bc4d43e1477102a188396c05ea838c3caf5ef0fee0e3168dd4d252fc0e",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "0c9dba9a4b87d9e5bdd65c2d4655ef6873ac9c588d9de1b51f890fd44f0a6157",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "d87ab448008e291e7c93ea7c0db7836133bd0069ce617e86001052d81fc41d43",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9489a27023ddea26ebbce25dc51a08547b4e9be136d7603e95cf4fa1d2ce93f5",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "0403311ae6de4dcecec86a0fd2fb3a4c7e06e73478cdd905de005d1c2bc031c8",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 1567,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "bd82bef34dcca6a0de9560fe481d9eb20436d3733e9ef83c012c5a3e13a0d361",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 4.0,
+            "dimension": {
+              "archive_object": 389,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 386,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 387,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 391,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 4
+          },
+          "f1260": {
+            "cached_display": 0.025163,
+            "dimension": {
+              "archive_object": 396,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 394,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 395,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 397,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.025163
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 402,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 400,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 401,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 403,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 408,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 406,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 407,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 409,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 418,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 416,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 417,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 419,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 424,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 422,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 423,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 425,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 365,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "plane": {
+          "archive_object": 176,
+          "class": "moRefPlane_c",
+          "name": "Top Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 3,
+        "plane_key": 2,
+        "reverse": true,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 367,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 309,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "container_stream_count": 40,
+      "name": "D02YSpacing.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.13875054879999998,
+        "com": [
+          0.09651360857178427,
+          0.06129928964269776,
+          0.0021144475736824208
+        ],
+        "mass": 0.000278007307532,
+        "volume": 0.000278007307532
+      },
+      "native_sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d",
+      "phase": "spacing-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18357,
+        29085
+      ],
+      "resolved_counter": 428,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18375,
+        "class_tag_offset": 18357,
+        "config_counter": 113,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "112961502a89e6727c04c9ae4ee0b144b10640cbc09166ba726b5a228c532a3a",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "2f6e5fd285e02602cbad2ff9478e121ce095f43600612fda8d8cd515567070b9",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 26104,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 113,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "672c678b2c58cdf284fcf504556b60ad9acef4e9791551765a43fbe5a3293dd4",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 113,
+          "map_count": 428,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 113,
+          "sha256": "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b3019b57fb570efdd87a992d2b259383b91a1aacbf1176246d1838ac0fa0c5ad"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "672c678b2c58cdf284fcf504556b60ad9acef4e9791551765a43fbe5a3293dd4",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "c36ad98fae32377ff55d7b3c7b28b8ddbff5b8d9327d2b25e57e0ee3135c3406",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "350a76eb62bd6a40de31f3ea7c03d930aff64cba931dcf6de2dd870094347254",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9489a27023ddea26ebbce25dc51a08547b4e9be136d7603e95cf4fa1d2ce93f5",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "8513d8d1affeacd8418a71470ad602f8c565cbaf91475f7cf117eb22bb5473bc",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2283,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "ba8d646f65b099176e74feec70635c32e43243c0b7a07a28e83843714a592184",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 4.0,
+            "dimension": {
+              "archive_object": 389,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 386,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 387,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 391,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 4
+          },
+          "f1260": {
+            "cached_display": 0.029173,
+            "dimension": {
+              "archive_object": 396,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 394,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 395,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 397,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.029173
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 402,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 400,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 401,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 403,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 408,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 406,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 407,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 409,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 418,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 416,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 417,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 419,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 424,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 422,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 423,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 425,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 365,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "plane": {
+          "archive_object": 176,
+          "class": "moRefPlane_c",
+          "name": "Top Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 3,
+        "plane_key": 2,
+        "reverse": true,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 367,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 309,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    },
+    {
+      "container_stream_count": 40,
+      "name": "D02YInstances.SLDPRT",
+      "native_mass_properties": {
+        "area": 0.13901438599999996,
+        "com": [
+          0.0964576546857051,
+          0.06112059506337412,
+          0.0021266688133579877
+        ],
+        "mass": 0.000278641384415,
+        "volume": 0.000278641384415
+      },
+      "native_sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2",
+      "phase": "instances-reopen",
+      "public_cached_bodies": 1,
+      "public_generic_selection_kind": "edge",
+      "research_pattern_span": [
+        18357,
+        29085
+      ],
+      "resolved_counter": 428,
+      "resolved_raw_fields_per_direction": [
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDim_c",
+          "operations": 2,
+          "schema": "dm.FUN_4bd03960"
+        },
+        {
+          "bytes": 8,
+          "field": "data",
+          "object_class": "moDisplayDistanceDim_c",
+          "operations": 6,
+          "schema": "dm.FUN_4bd03960"
+        }
+      ],
+      "sdk_prefix": {
+        "body_offset": 18375,
+        "class_tag_offset": 18357,
+        "config_counter": 113,
+        "previous_roots": 21,
+        "reason": "unsupported SOLIDWORKS body class moLPattern_c schema 1",
+        "resolved_root_count": 22,
+        "root_ordinal": 21
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2585,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 21,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "92d6ffbf98bd0205512e0a37fc92154fd65636c909dbd2ade144f133ab31c291",
+          "tail": 0
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "a09d1b424b4c7eae539d5b9a42fc9c790f28fea60d49ad2f069808a1edae3427",
+          "tail": 0
+        },
+        "Contents/Config-0": {
+          "bytes": 26104,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 4,
+          "map_count": 113,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49",
+          "tail": 0
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "c7029e41f46c90d6eb537f40d8744203a5038ab3704b4c4396656b8dae47631b",
+          "tail": 0
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 29089,
+          "exact_without_raw": false,
+          "exact_without_tail": true,
+          "map_base": 113,
+          "map_count": 428,
+          "missing_schemas": [],
+          "proven_typed_exact": false,
+          "provisional_schemas": [],
+          "raw_operations": 16,
+          "seeded_map_count": 113,
+          "sha256": "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70",
+          "tail": 0
+        },
+        "Contents/CusProps": {
+          "bytes": 138,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 9,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "tail": 0
+        },
+        "Contents/Definition": {
+          "bytes": 3672,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_count": 60,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "b3019b57fb570efdd87a992d2b259383b91a1aacbf1176246d1838ac0fa0c5ad"
+        },
+        "Contents/eModelLic": {
+          "bytes": 4,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "tail": 0
+        },
+        "Header2": {
+          "bytes": 2873,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 85,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "c7029e41f46c90d6eb537f40d8744203a5038ab3704b4c4396656b8dae47631b",
+          "tail": 0
+        },
+        "ModelStamps": {
+          "bytes": 12,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "c36ad98fae32377ff55d7b3c7b28b8ddbff5b8d9327d2b25e57e0ee3135c3406",
+          "tail": 0
+        },
+        "SwDocContentMgr/SwDocContentMgrInfo": {
+          "bytes": 471,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "04e87a7c858de5f741f5a80f74737dc50e9ca567f079d2e1dafae14935716411",
+          "tail": 0
+        },
+        "ThirdPtyStore/VisualStates": {
+          "bytes": 1900,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 28,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "9489a27023ddea26ebbce25dc51a08547b4e9be136d7603e95cf4fa1d2ce93f5",
+          "tail": 0
+        },
+        "_DL_VERSION_19000/DLUpdateStamp": {
+          "bytes": 6,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 1,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "8513d8d1affeacd8418a71470ad602f8c565cbaf91475f7cf117eb22bb5473bc",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 2287,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 3,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "73fe6dff81cb554096e05eeef144171b971d20169e93f78a709a4afc2a088179",
+          "tail": 0
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 101,
+          "exact_without_raw": true,
+          "exact_without_tail": true,
+          "map_base": 1,
+          "map_count": 5,
+          "missing_schemas": [],
+          "proven_typed_exact": true,
+          "provisional_schemas": [],
+          "raw_operations": 0,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "tail": 0
+        }
+      },
+      "typed_pattern_evidence": {
+        "axis": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dimensions": {
+          "f1258": {
+            "cached_display": 5.0,
+            "dimension": {
+              "archive_object": 389,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 41,
+            "display": {
+              "archive_object": 386,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 387,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 391,
+              "class": "moIntegerParameter_c",
+              "name": "D1"
+            },
+            "presentation_code": 11,
+            "stored_value": 5
+          },
+          "f1260": {
+            "cached_display": 0.025163,
+            "dimension": {
+              "archive_object": 396,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 42,
+            "display": {
+              "archive_object": 394,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 395,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 397,
+              "class": "moLengthParameter_c",
+              "name": "D3"
+            },
+            "presentation_code": 10,
+            "stored_value": 0.025163
+          },
+          "f1268": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 402,
+              "class": "moNumberDim_c",
+              "name": null
+            },
+            "dimension_id": 43,
+            "display": {
+              "archive_object": 400,
+              "class": "moDisplayDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 401,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 403,
+              "class": "moIntegerParameter_c",
+              "name": "D2"
+            },
+            "presentation_code": 0,
+            "stored_value": 1
+          },
+          "f1270": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 408,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 44,
+            "display": {
+              "archive_object": 406,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 407,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 409,
+              "class": "moLengthParameter_c",
+              "name": "D4"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1318": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 418,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 45,
+            "display": {
+              "archive_object": 416,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 417,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 419,
+              "class": "moLengthParameter_c",
+              "name": "D5"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          },
+          "f1320": {
+            "cached_display": 0.0,
+            "dimension": {
+              "archive_object": 424,
+              "class": "ParallelPlaneDistanceDim_c",
+              "name": null
+            },
+            "dimension_id": 46,
+            "display": {
+              "archive_object": 422,
+              "class": "moDisplayDistanceDim_c",
+              "name": null
+            },
+            "handle": {
+              "archive_object": 423,
+              "class": "moFeatureDimHandle_c",
+              "name": null
+            },
+            "parameter": {
+              "archive_object": 425,
+              "class": "moLengthParameter_c",
+              "name": "D6"
+            },
+            "presentation_code": 0,
+            "stored_value": 0.0
+          }
+        },
+        "feature": {
+          "archive_object": 365,
+          "class": "moLPattern_c",
+          "name": "LinearPattern"
+        },
+        "feature_id": 47,
+        "line_point_m": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "plane": {
+          "archive_object": 176,
+          "class": "moRefPlane_c",
+          "name": "Top Plane"
+        },
+        "plane_epoch": 1794529625,
+        "plane_id": 3,
+        "plane_key": 2,
+        "reverse": true,
+        "scope": {
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "producer_ids": [
+            32,
+            40,
+            47
+          ],
+          "retired_consumed": true,
+          "wrapper": {
+            "archive_object": 367,
+            "class": "moCompSolidBody_c",
+            "name": null
+          },
+          "wrapper_base_producer": 32,
+          "wrapper_face_class": "moFaceRef_c",
+          "wrapper_lineage": [
+            102,
+            101
+          ],
+          "wrapper_remap": [
+            0,
+            0
+          ]
+        },
+        "seed": {
+          "archive_object": 309,
+          "class": "moICE_c",
+          "name": "SeedBoss"
+        },
+        "seed_id": 40,
+        "signed_axis": [
+          -0.0,
+          -1.0,
+          -0.0
+        ]
+      }
+    }
+  ],
+  "codec_revision": "5664d55335d9af2403f60ffe1f59ee0e8aba89bc",
+  "codec_source_tree": "5643590bea98d664353f5ba6879ba55eb6b263c9",
+  "heldout_inputs_read": 0,
+  "native_files_written": 0,
+  "native_oracle_phases_rechecked": 14,
+  "native_processes_started": 0,
+  "native_source_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "schema": "kit.sw2026.local-linear-pattern-disclosed-archive-intake.v1"
+}

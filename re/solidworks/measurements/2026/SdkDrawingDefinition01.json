@@ -1,0 +1,381 @@
+{
+  "application_usable": false,
+  "cases": [
+    {
+      "all_logical_streams_identical": true,
+      "artifact_bytes": 5907,
+      "artifact_sha256": "020de4e0423d5316b8372cbe45623e0024346a8a078426c282d661540dc50e6f",
+      "complete_research_readback": true,
+      "complete_sdk_readback": true,
+      "completed_schema_count": 175,
+      "definition_bytes": 23857,
+      "definition_map_next_index": 131,
+      "definition_sha256": "979b41f931b71ea2957ce7df3f5dfee620f58d36e6016c9e7dba31998fc1e081",
+      "fixed_width_typed_fields": [
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f784",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f7a4",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f380",
+          "length_rule": "fixed_native_field",
+          "object_class": "moSketchBlockMgr_c",
+          "observed_length": 16,
+          "schema": "moSketchBlockMgr_c"
+        }
+      ],
+      "input_sha256": "1b207b12a10f6ffdb8243d43af35d53a24dff0704d2889de41be7f3210be931a",
+      "name": "WholeAlpha",
+      "public_reader_passed": true,
+      "runtime_input_file_access_attempts": 0,
+      "sdk_read_write_identical": true,
+      "twice_identical": true
+    },
+    {
+      "all_logical_streams_identical": true,
+      "artifact_bytes": 5949,
+      "artifact_sha256": "ff1aa6193abb1aeb789bc0fa9950e2273bc82ab4e4d14d46d4ebab59aabdc727",
+      "complete_research_readback": true,
+      "complete_sdk_readback": true,
+      "completed_schema_count": 175,
+      "definition_bytes": 24553,
+      "definition_map_next_index": 131,
+      "definition_sha256": "264d7b10d2fac89c815cf631ca39bf34c8a147e67ab2a2bb14209eb3ea0efec7",
+      "fixed_width_typed_fields": [
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f784",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f7a4",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f380",
+          "length_rule": "fixed_native_field",
+          "object_class": "moSketchBlockMgr_c",
+          "observed_length": 16,
+          "schema": "moSketchBlockMgr_c"
+        }
+      ],
+      "input_sha256": "2250f6ee05e0c63f3a8006f24c3e87c87d3b72623bd8bf0d45c3293b2112a386",
+      "name": "WholeBeta",
+      "public_reader_passed": true,
+      "runtime_input_file_access_attempts": 0,
+      "sdk_read_write_identical": true,
+      "twice_identical": true
+    },
+    {
+      "all_logical_streams_identical": true,
+      "artifact_bytes": 5941,
+      "artifact_sha256": "90374c24500e9c681232749555d8c4881eb35c970680747aa5842d7ab7298a6e",
+      "complete_research_readback": true,
+      "complete_sdk_readback": true,
+      "completed_schema_count": 175,
+      "definition_bytes": 23857,
+      "definition_map_next_index": 131,
+      "definition_sha256": "323095d50f6fe229bc35d069d7ea782c5084d7869fa7cbe2fab832fe792d74d5",
+      "fixed_width_typed_fields": [
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f784",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f7a4",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f380",
+          "length_rule": "fixed_native_field",
+          "object_class": "moSketchBlockMgr_c",
+          "observed_length": 16,
+          "schema": "moSketchBlockMgr_c"
+        }
+      ],
+      "input_sha256": "87157518f37d6dd750ee69d02837c09772895c656640b5133c16756f42ffa83d",
+      "name": "WholeGamma",
+      "public_reader_passed": true,
+      "runtime_input_file_access_attempts": 0,
+      "sdk_read_write_identical": true,
+      "twice_identical": true
+    },
+    {
+      "all_logical_streams_identical": true,
+      "artifact_bytes": 5903,
+      "artifact_sha256": "e42207a735546e3d54d64783f8b21d71f04fb4c8032408bede9fc309287758d4",
+      "complete_research_readback": true,
+      "complete_sdk_readback": true,
+      "completed_schema_count": 175,
+      "definition_bytes": 23856,
+      "definition_map_next_index": 131,
+      "definition_sha256": "f847bc806e0878ba3fee751c5df3309bae648401d1ae7a80ced01b478cc5a842",
+      "fixed_width_typed_fields": [
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f784",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f7a4",
+          "length_rule": "fixed_native_field",
+          "object_class": "moDrawing_c",
+          "observed_length": 16,
+          "schema": "moModel_c.FUN_4c22ec80"
+        },
+        {
+          "completed": true,
+          "declared_length": 16,
+          "field": "f380",
+          "length_rule": "fixed_native_field",
+          "object_class": "moSketchBlockMgr_c",
+          "observed_length": 16,
+          "schema": "moSketchBlockMgr_c"
+        }
+      ],
+      "input_sha256": "eab38f4cdca3e7237845c66ead73dc99384c29ff274d76a148edfcb873286b74",
+      "name": "WholeDelta",
+      "public_reader_passed": true,
+      "runtime_input_file_access_attempts": 0,
+      "sdk_read_write_identical": true,
+      "twice_identical": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition requires current ui drawing ownership",
+      "exit_code": 1,
+      "input_sha256": "553532567ceb5041086f71bab1d299eab0926a5b1315b4ef83f9306f9c67b65a",
+      "output_bytes": 0,
+      "probe": "archive_version",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition requires current ui drawing ownership",
+      "exit_code": 1,
+      "input_sha256": "06b75cbc50e1dda967c72d0ae788b271c917eb7e7d5e29a489a567d461024e69",
+      "output_bytes": 0,
+      "probe": "runtime_schema",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: unsupported SOLIDWORKS body class moDrawing_c schema 2",
+      "exit_code": 1,
+      "input_sha256": "0fc530fa36bd61ce79d0cc52d9d7f8f8c7787729e2ecfaee65a0feec7259d7dd",
+      "output_bytes": 0,
+      "probe": "drawing_root",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition excludes populated model links",
+      "exit_code": 1,
+      "input_sha256": "1a699c3dbcdde92b4c89d180cad4b443c92c50e2543e7a6df1809ad3bb0374d3",
+      "output_bytes": 0,
+      "probe": "populated_links",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition has unqualified sheet supports or format",
+      "exit_code": 1,
+      "input_sha256": "122d7d9e90ecb8888fecc7a4e97e6ba13421e35001250a8bec604577ea5f6548",
+      "output_bytes": 0,
+      "probe": "sheet_format",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition has unqualified sheet supports or format",
+      "exit_code": 1,
+      "input_sha256": "f914350630ae63c2cc3abb01e7116eda0ab8c86fe4abbdc09535894d6ff96e70",
+      "output_bytes": 0,
+      "probe": "sheet_alias",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition has unqualified ui state",
+      "exit_code": 1,
+      "input_sha256": "85f328184fd2f3cd09ee762583ef6e29003cbf7b0df0099c6b0215e6975fa5eb",
+      "output_bytes": 0,
+      "probe": "material_payload",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition has unqualified ui state",
+      "exit_code": 1,
+      "input_sha256": "df62cc3aa14d8d457c9f6e8161b405c6b6f024710b0a0855fb5c0f12a519a421",
+      "output_bytes": 0,
+      "probe": "trailer_marker",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition excludes populated layer masks",
+      "exit_code": 1,
+      "input_sha256": "0197db5e59b96485144517777085cbb36b71456df00466e563bc7fc76b7016ac",
+      "output_bytes": 0,
+      "probe": "layer_mask",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition excludes annotation buckets",
+      "exit_code": 1,
+      "input_sha256": "aca3636657bb21d52d095a8ca2af0f2f66e6db590c6a12db5d96c661947ce678",
+      "output_bytes": 0,
+      "probe": "detail_bucket",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition excludes populated sketch rows",
+      "exit_code": 1,
+      "input_sha256": "5557aa12727da29fe0485d6487157bdbfdfd649a7a26c08db41398d9a14de7bb",
+      "output_bytes": 0,
+      "probe": "sketch_rows",
+      "rejected": true
+    },
+    {
+      "error": "convert.adapters.solidworks.Archive.Bodies.BodyUnsupported.BodyUnsupported: blank drawing Definition has unqualified sheet supports or format",
+      "exit_code": 1,
+      "input_sha256": "4aa7317701b55a89c0a5297c98b8c1e639421b021a9104867caf87ba9493527c",
+      "output_bytes": 0,
+      "probe": "sheet_presence",
+      "rejected": true
+    }
+  ],
+  "checks": {
+    "black": {
+      "passed": true,
+      "python_files": 30
+    },
+    "donor_scan": {
+      "passed": true,
+      "source_files_observed": 3533
+    },
+    "mypy": {
+      "passed": true,
+      "python_files": 30
+    },
+    "pyright": {
+      "errors": 0,
+      "existing_unrecognized_project_settings": [
+        "reportImplicitAbstractClass",
+        "reportIncompleteStubValue",
+        "reportUnsafeMultipleInheritance"
+      ],
+      "information": 0,
+      "warnings": 0
+    },
+    "steering": {
+      "passed": true,
+      "python_files": 30
+    }
+  },
+  "delivery_pr": 121,
+  "evidence_level": "offline integration and complete generated stream parity",
+  "fresh_processes": 20,
+  "heldout_inputs_read": 0,
+  "independent_generative_constructions": 40,
+  "native_acceptance": false,
+  "owner": "/root/configuration_header",
+  "passed": true,
+  "positive_designs": 4,
+  "positive_runs_each": 2,
+  "previous_process_receipt_sha256": "78f2379ed9288956bda85f48e850ab2d2fbf203d3a8922b719f2b2b01b6825f3",
+  "previous_source_manifest_sha256": "0ee88a045baa5afbc491f875251822c029ed7fefc530a5e06926c2c2e4d6e54d",
+  "private_process_receipt_sha256": "7fcef3e673fb8ae76a03de810a5f8a114db546881d625e3979d8c7cc25a006a3",
+  "public_writer_enabled": false,
+  "python_version": "3.13.15",
+  "rejected_jobs": 12,
+  "remaining_requirements": [
+    "neutral document to complete SDK drawing factory",
+    "populated view and annotation Definition ownership",
+    "new vendor edit save and fresh reopen qualification",
+    "public adapter writer admission and the complete CAD success criteria"
+  ],
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-drawing-definition-measurement.v1",
+  "scope": "complete version19000 Definition codec for generated unformatted blank ANSI A sheet graphs",
+  "semantic_neutral_factory_in_src": false,
+  "source_files_sha256": {
+    "re/tooling/sw2026/DrawingDefinitionProcess.py": "cdf3ff8121b05ae7bd05ae28c96f2fa0efc468144bfb16550a3277eae6e0f14d",
+    "re/tooling/sw2026/serial/DrawingGraphBridge.py": "629cf7b68359e9aed5722e4c77c69a7619d210f6837d96fe3123920f3fe3a911",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/BlankGraph.py": "bd6a1a240dbe57d93b18747722d1bc2eef5b188b1bb4f1bffd4c357ea2382787",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/BlankInherited.py": "060ee0017f205aa59949a3311f8dcb4553f6982a7e90d900262e88d467980d8b",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/BlankSchemas.py": "482bf85188a554ac23c69d606df3bd006959afb05660b174edf94fe5183bcd6a",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/BlankVirtuals.py": "7bb635d79d90d0980e200e135558af47731c8f0926fb5af43d5df124b4ceb190",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankDoc.py": "c3708a533963dbf5d7aaed45eacac78218dd61130d265f4e4b6aed27e81b589b",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankGraph.py": "16dfd2c9d42c83cdb7d3eaa97c8b27b1c9115b1f7c68af9a21c78dd4c244b8e8",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankNode.py": "772670e629c37bce733395fe9b7c2d475a630921c80caf4a1f61c3bbb9dcabb4",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankSheet.py": "8afa5918f1fe02c5225cd690401c65eddc96395167bb4769f56a6d115e0479da",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckEmptyRows.py": "15b1e0776a83d529913ab929ce174f192ec9ef8451d762267cd825bcd55b7614",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/DefinitionRead.py": "01469fb589f50a209b5ece265919ccd60e920f2169bd4ea2ad1b7530988d6651",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/DefinitionWire.py": "810eb14631b6961a0ce265dc23cdcfeb6697c182d70eb2c3b332597a1b5f5d6f",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/BlankLayouts.py": "cd8124e93bd6e708c1bb785d65681d3561eef4fb4d6be9e0ffbd16645b959bc3",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/DetailFields.py": "03322a6cf075cb46b87b2b0179958fa9ca13e9ed3fee82b7b2d3f5497cb99ab1",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/DocHeadFields.py": "c42a685c5651c45c426aa75d63f27365841caee8cb2dcc8f2b205834dee9da50",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/DocHelperFields.py": "9d4af5f8c4e871e892825a4bbd7fa639ad0c504f03893a223c68d1e6c6020edf",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/DocTailFields.py": "9f1acf8f3036dcc4140128084f56a5fb8c14a43b233b6d446b86941a04ec5af5",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/ManagerFields.py": "b74c0497e1fbdd58b9506a1e34ca856da79186cff88decde3531ddefee65e863",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/RootFields.py": "4cdb86e6cfd1a99479810b34c136070997bb7b02e78224f19b3d417c823b863d",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/Layouts/ScalarFields.py": "ca6be763424c41e6d69865f92854d2cad1646046d113a81bf14b48aa5ea1e3d4",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/ReadBlankDef.py": "fb206e25f838cbdf369adfe59d68596729ca4855039103b4c90550299ef749b6",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/ReadBlankKids.py": "584b0a66555e72ec62cabd21cc8d01bd7d5a327e1dda48ea2c2f595a59da7c0f",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/ReadDrawMut.py": "c5ba7ce9f76562d546d78a414d018be5423508f3986f3c076362b7a753f142c1",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/WalkDrawNodes.py": "cecb1b3eebe2881305ed75a5d7f129ea9f1981bf457b6d579048a3faa6e1943a",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/WriteBlankDef.py": "a17f05e4c855e0d49f1401ee38620960499232bfe88114de8cc8f110a07b1ea4",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/WriteDrawMut.py": "ac69ac466ae44d5024878286bdf89b40e7a3da8efa4af6fec3b48647a5014171",
+    "tests/Convert/Solidworks/Research/Drawing/Definition/DefGuardTests.py": "3f241ec3e0671ffddd26f4f7cce781756c6fe0c8cc33beb48fc4a87194392c64",
+    "tests/Convert/Solidworks/Research/Drawing/Definition/MakeDefInput.py": "700692b2d2b5acf92eb824667f2004ef095a39e30b3f23acc5fb56f62ed0cdf7",
+    "tests/Convert/Solidworks/Research/Drawing/Definition/RunDefCase.py": "598cc5a8757f666ca67e130a534108d68a6efc54cc69947548afb3adc01dddbb",
+    "tests/Convert/Solidworks/Research/Drawing/Definition/RunDefReject.py": "39fc104c73a8333d017734435a739972219c0fab450583b77abe8eeba45d8956",
+    "tests/Convert/Solidworks/Research/Drawing/Definition/WholeDefTests.py": "12fcdff57fc7aae7da604e91cb3244d734a52242f273842778a576fc21b5c095"
+  },
+  "source_manifest_sha256": "232f3f0f1dac63e9c110e271f24b24bac3b5b4177fbe3bd404d1e49f24d16c98",
+  "source_unchanged": true,
+  "task": "B04-SW2026-DRAWPROPS / SDK blank Definition",
+  "unit_tests_run": 0,
+  "vendor_files_or_prior_native_trial_outputs_opened": 0,
+  "vendor_loadable": false,
+  "vendor_measurement_status": "not run in this codec slice",
+  "vendor_runtime_executed": false
+}

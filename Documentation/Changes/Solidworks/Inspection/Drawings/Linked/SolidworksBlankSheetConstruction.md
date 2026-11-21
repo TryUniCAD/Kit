@@ -1,0 +1,9 @@
+# SDK blank sheet and support construction
+
+The SDK now builds a fresh native blank-sheet subtree from explicit neutral paper, scale, names, units, target provenance, creation time and ID allocation inputs. It constructs the sheet, absolute plane, actual component-plane reference, empty profile sketch, detail folder and separate UI sketch. It reuses the shared sketch seed and complete Definition codec without reading saved fields or importing research/vendor modules in production code.
+
+Use `SheetBuild` and `MakeBlankSheet` under `Drawing.Construction.Sheet`. The caller owns the drawing/self component, reserves four consecutive persistent IDs and composes the returned objects into the parent. The admitted profile is unformatted ANSI A landscape at archive version 19000 and SP05.2. Unsupported paper, scale, text, target, owner and provenance input rejects explicitly. Parent model/style/metadata construction and public writer admission remain unfinished.
+
+Four new neutral designs each pass two isolated processes with exact complete Definition, final map and all-stream parity. Full SDK read/write and public readback preserve real aliases, the preallocation plane handle, exclusive component copy and source-proven scale arithmetic. Fourteen invalid complete jobs reject without output. All 22 processes record zero runtime input-file access. Targeted steering, Black, Mypy, Pyright and the donor scan pass. No Windows oracle, original drawing, hidden input or prior native output is used in this slice.
+
+See the [usage guide](../../../../../Reference/Research/Solidworks/DrawingSheetConstruction.md), [source ledger](../../../../../../re/solidworks/records/DrawingSheetConstruction2026.md), [process evidence](../../../../../../re/solidworks/measurements/2026/SdkDrawingSheetConstruction01.json) and [reciprocal rounding gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingScaleReciprocalsKeepNativeOrder.md).

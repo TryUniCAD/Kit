@@ -1,0 +1,688 @@
+{
+  "cases": [
+    {
+      "actual_build_aliases": {
+        "actual_active_configuration": true,
+        "actual_manager_header": true,
+        "actual_model_alias": true,
+        "actual_profile_dependency": true,
+        "actual_self_file_alias": true,
+        "plain_archive_nodes": true,
+        "retained_from_dimension": true
+      },
+      "all_streams_independent_mathematical_equal": true,
+      "all_streams_typed_preparation_equal": true,
+      "all_typed_usage_complete": true,
+      "all_typed_usage_missing_or_provisional": false,
+      "build_repeat_byte_identical": true,
+      "config_map_counter": 87,
+      "config_schema_count": 120,
+      "configuration_count": 1,
+      "container": {
+        "bytes": 8166,
+        "sha256": "750261e28691593f0163c172498ea3c5760a5c29fa231d4a5a9f8f309aaebe9d"
+      },
+      "dimension_ids": [20, 21, 22, 23, 24],
+      "driving_depth": {
+        "actual_feature_path": true,
+        "actual_handle": true,
+        "length_m": 0.012750000000000001,
+        "native_name": "D1",
+        "persistent_id": 20
+      },
+      "feature_count": 19,
+      "name": "Alpha",
+      "parameter_names": ["D1", "D2", "D3", "D4", "D19"],
+      "predicted_analytic_geometry": {
+        "area_m2": 0.001788,
+        "body_count": 1,
+        "com_m": [0.0, 0.0, 0.0063750000000000005],
+        "volume_m3": 4.896e-6
+      },
+      "prepared_geometry": {
+        "conditional_wire_fields": true,
+        "creation_counters": true,
+        "endpoint_handles": 8,
+        "line_count": 4,
+        "ordered_endpoints": true,
+        "point_count": 4,
+        "positions": true,
+        "runtime_profile_backlink_absent": true
+      },
+      "raw_reports": {
+        "BuildA": {
+          "bytes": 83046,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Alpha/BuildA.stdout",
+          "sha256": "3c032fea55e6b876c286b0f98ee048f94f9226d2fd320bac0d07fdf3e30dd46f"
+        },
+        "BuildB": {
+          "bytes": 83046,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Alpha/BuildB.stdout",
+          "sha256": "3c032fea55e6b876c286b0f98ee048f94f9226d2fd320bac0d07fdf3e30dd46f"
+        },
+        "Counterpart": {
+          "bytes": 1935,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Alpha/Counterpart.stdout",
+          "sha256": "16d657801d7d4576a2f6b8a7c29fa9beda609ece9eafd7bbfda702b3a8fb1705"
+        },
+        "Prepare": {
+          "bytes": 35790,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Alpha/Prepare.stdout",
+          "sha256": "8039d64e261eb4228e6c0f70441c4f444fcd406b848c3779a37a8c0b8fbc9111"
+        },
+        "Request": {
+          "bytes": 6898,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Alpha/Request.json",
+          "sha256": "1bc6400888f34b18fc2643deca3740ec2701d2a1f66c9c3fb4cef013d4f933e3"
+        }
+      },
+      "rejection_cases": [
+        "reverse_direction",
+        "mid_plane",
+        "through_all",
+        "inactive_configuration",
+        "duplicate_sketch",
+        "native_payload",
+        "missing_loop",
+        "wrong_parameter_name",
+        "wrong_parameter_owner",
+        "wrong_body_owner",
+        "negative_density",
+        "wrong_front_support"
+      ],
+      "resolved_map_counter": 202,
+      "resolved_schema_count": 105,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 22076,
+          "sha256": "4a2a08afcd017aecb4c31ccd71684b4cac846bed22da3bd680c15dbfa6c903f2"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 735,
+          "sha256": "60b9a87fa30e19c07d3a45e2a82a0842c1751e0ad5e6def0af0d2ee33a6b63a0"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "f71147b061e3e810a4ed7bc1e70c71b01420af0974bed6f06211d63e097e5c4e"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 735,
+          "sha256": "9120586ee40c98f8a8ec8c1d3a6591cb853ad9f333e9d1ab6ce430bbfce6e9a5"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1420,
+          "sha256": "9762c7373f3084978172d84e401104ac3b628a36fde1e8745e89cb7b98b0102f"
+        }
+      },
+      "unique_rejected_requests": 12
+    },
+    {
+      "actual_build_aliases": {
+        "actual_active_configuration": true,
+        "actual_manager_header": true,
+        "actual_model_alias": true,
+        "actual_profile_dependency": true,
+        "actual_self_file_alias": true,
+        "plain_archive_nodes": true,
+        "retained_from_dimension": true
+      },
+      "all_streams_independent_mathematical_equal": true,
+      "all_streams_typed_preparation_equal": true,
+      "all_typed_usage_complete": true,
+      "all_typed_usage_missing_or_provisional": false,
+      "build_repeat_byte_identical": true,
+      "config_map_counter": 87,
+      "config_schema_count": 120,
+      "configuration_count": 1,
+      "container": {
+        "bytes": 8243,
+        "sha256": "9166c766f48fe5e20a4f041ed0bfa9f368ce1d1b790d654baaafab81a9428618"
+      },
+      "dimension_ids": [20, 21, 22, 23, 24],
+      "driving_depth": {
+        "actual_feature_path": true,
+        "actual_handle": true,
+        "length_m": 0.018625,
+        "native_name": "D1",
+        "persistent_id": 20
+      },
+      "feature_count": 19,
+      "name": "Beta",
+      "parameter_names": ["D1", "D2", "D3", "D4", "D19"],
+      "predicted_analytic_geometry": {
+        "area_m2": 0.00376815625,
+        "body_count": 1,
+        "com_m": [0.0, 0.0, 0.0093125],
+        "volume_m3": 1.47544921875e-5
+      },
+      "prepared_geometry": {
+        "conditional_wire_fields": true,
+        "creation_counters": true,
+        "endpoint_handles": 8,
+        "line_count": 4,
+        "ordered_endpoints": true,
+        "point_count": 4,
+        "positions": true,
+        "runtime_profile_backlink_absent": true
+      },
+      "raw_reports": {
+        "BuildA": {
+          "bytes": 84165,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Beta/BuildA.stdout",
+          "sha256": "e996a06c8cda09bc49844dd3b222260267650510f084ba4a5c6763d9569a7fd0"
+        },
+        "BuildB": {
+          "bytes": 84165,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Beta/BuildB.stdout",
+          "sha256": "e996a06c8cda09bc49844dd3b222260267650510f084ba4a5c6763d9569a7fd0"
+        },
+        "Counterpart": {
+          "bytes": 1935,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Beta/Counterpart.stdout",
+          "sha256": "f782efdee2ba62d63f01dd2815600f8cc0f69f87bba6629553ed73d94e368934"
+        },
+        "Prepare": {
+          "bytes": 35778,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Beta/Prepare.stdout",
+          "sha256": "e1874071a99ccd33f6e49f25ede1da38f319fc9bf8c0344b30f317884a65666d"
+        },
+        "Request": {
+          "bytes": 7108,
+          "relative_path": "SdkBlindPartRootVerify01/Replay/Beta/Request.json",
+          "sha256": "22557f8802ffe13daf3285225ec45ee64d798e53ee08a6c33b20fbd86d9aa149"
+        }
+      },
+      "rejection_cases": [
+        "reverse_direction",
+        "mid_plane",
+        "through_all",
+        "inactive_configuration",
+        "duplicate_sketch",
+        "native_payload",
+        "missing_loop",
+        "wrong_parameter_name",
+        "wrong_parameter_owner",
+        "wrong_body_owner",
+        "negative_density",
+        "wrong_front_support"
+      ],
+      "resolved_map_counter": 202,
+      "resolved_schema_count": 105,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8f3d3dfe37c2e5134ea041ef9235be762daf74b8167c3dfcb0680044ef497521"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 22648,
+          "sha256": "2c67e58597b263cc1d0c8292cd152ea7aed55213e4c314176bbd2f0b59a4ee37"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 801,
+          "sha256": "c4b93b48b8c7fed353d97f289a5f784d0a5d84a79bf76f63a8d1117ab603c057"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "40346795f2977069196975f89db71b7c31e77ea17c5dbef661e668dc31d6a5db"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 801,
+          "sha256": "dc1da218c8179588d07d6fb6300c89750857e3f4c6b6c1eba6434fe9e0dddb41"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1436,
+          "sha256": "80e9a6f31bb568dc52993743b4b33719241b9d615ef69552e6cc0d89067549bf"
+        }
+      },
+      "unique_rejected_requests": 12
+    }
+  ],
+  "delivery_pr": 121,
+  "independent_frozen_source": {
+    "all_overlay_hashes_verified": true,
+    "base_label": "420e6c9c2",
+    "manifest_sha256": "61f13cdca7100618f9b0e9925649b8a684b43b93d8eb384cb9f77d4e8c9db65b",
+    "source_count": 4576
+  },
+  "limits": {
+    "held_out_inputs_used": false,
+    "native_acceptance": false,
+    "native_cache_regeneration_measured_by_this_receipt": false,
+    "native_lifecycle_receipt": "separate root-owned follow-up; not transferred from process proof",
+    "public_writer_qualified": false,
+    "research_implementation_in_sdk": false,
+    "source_of_analytic_geometry": "independently authored neutral dimensions, not native measurement",
+    "vendor_runtime_in_sdk": false
+  },
+  "permanent_integrations": {
+    "TestBlindPart": "passed on the independently frozen source, reported by root",
+    "TestPartSystem": "passed unchanged on the same independently frozen source, reported by root",
+    "separate_raw_test_framework_report_retained": false
+  },
+  "root_execution": {
+    "distinct_authored_designs": 2,
+    "distinct_container_lengths": true,
+    "exact_logical_streams": 20,
+    "guarded_workers": 8,
+    "passed": true,
+    "python_version": "not recorded in the raw proof",
+    "raw_proof": "SdkBlindPartRootVerify01/Replay/BuildProof.json",
+    "raw_proof_sha256": "e1291e07bc665ac737886dab257d377b32bc2e135ac196536509f69e1569c763",
+    "runtime_input_file_reads": 0,
+    "sdk_builds_per_design": 2,
+    "unique_atomic_rejections": 24
+  },
+  "scope": "complete SDK-only ordinary rectangular forward blind-boss construction process proof",
+  "source_manifest": {
+    "executable_count": 70,
+    "files": [
+      {
+        "bytes": 5631,
+        "path": "re/tooling/sw2026/SdkBlindPartChecks.py",
+        "sha256": "5c0e54ecb73bf2f0784274044ad23fcb892cb9c7ad2979301dbe0323baf61ec8"
+      },
+      {
+        "bytes": 5577,
+        "path": "re/tooling/sw2026/SdkBlindPartCounterpart.py",
+        "sha256": "38b2386d6a8b469beed537ee0c6d5a454f4882ad4dd3054be386f3e371578c5b"
+      },
+      {
+        "bytes": 11962,
+        "path": "re/tooling/sw2026/SdkBlindPartPrepare.py",
+        "sha256": "5db977bca5cdc284b3648dbcc8cede9fa39ca212dc6ba61148dfb6f4d7b8909a"
+      },
+      {
+        "bytes": 8379,
+        "path": "re/tooling/sw2026/SdkBlindPartProcess.py",
+        "sha256": "a4a09d5c2af3c5b13d43b02096cc65bd1e94093a8577ad960847eb9d9bca8cd3"
+      },
+      {
+        "bytes": 2728,
+        "path": "re/tooling/sw2026/SdkBlindPartSettings.py",
+        "sha256": "74a11d3da0943b21450878367693b63dd0fc0e9ead5354c0391462336789bc13"
+      },
+      {
+        "bytes": 734,
+        "path": "src/convert/adapters/solidworks/Archive/CmgrHeader/ManagerContext.py",
+        "sha256": "4f7ca5657091032d7cc0bf01f60e3b7c0fc6664a81b582be31eb8b3b52437efc"
+      },
+      {
+        "bytes": 536,
+        "path": "src/convert/adapters/solidworks/Archive/CmgrHeader/ManagerGraph.py",
+        "sha256": "33ec8ed32142b6ab50c70a5f057ac25d9ed4b8eb575f95a7b35a1e5817c13c77"
+      },
+      {
+        "bytes": 1499,
+        "path": "src/convert/adapters/solidworks/Archive/CmgrHeader/ManagerLayouts.py",
+        "sha256": "b83b8d061d60d0f96171e7da5586be34c1435e0a69c8bb3399f466570cf34cd7"
+      },
+      {
+        "bytes": 1789,
+        "path": "src/convert/adapters/solidworks/Archive/CmgrHeader/ReadMgrHdrMut.py",
+        "sha256": "0849442c7f966c36dc979f816bb151df0f93c686ce98b6a37d4699af7a585a47"
+      },
+      {
+        "bytes": 1637,
+        "path": "src/convert/adapters/solidworks/Archive/CmgrHeader/WriteMgrHdrMut.py",
+        "sha256": "413bd3d6fbd31ed34f9461c80a25a403ff415b94a010e971d6dc9ee6cc6e8477"
+      },
+      {
+        "bytes": 5749,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeCommonView.py",
+        "sha256": "274ded614aed423575e08c0f807b54d54f0f07b4c8a66cce2b9564ba286a988c"
+      },
+      {
+        "bytes": 303,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDimText.py",
+        "sha256": "9c1bbcaa08cc420304b86a198abaeb80222c85b7520714f864d9eda47b89afa2"
+      },
+      {
+        "bytes": 618,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDimValue.py",
+        "sha256": "1ce92d5eecfaa8910c423b6802a67e5b74e47f8871acbcea6ac5a8f6df99517e"
+      },
+      {
+        "bytes": 817,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDisplayCore.py",
+        "sha256": "8b589905e1d5ba403e6ee899285f0255c89f052b578798eaf880969d542f443f"
+      },
+      {
+        "bytes": 440,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDistTail.py",
+        "sha256": "7302148dfcd050b41f802caf2447ba7ab233d53b65f1b946a4c6671e2ab2f994"
+      },
+      {
+        "bytes": 1030,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeTextFields.py",
+        "sha256": "28fef281120f70b428dad81ba9fb60490390008e7e51b54eb0c01a44f7589d48"
+      },
+      {
+        "bytes": 909,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeValueFields.py",
+        "sha256": "39124b4410dbd9e054e6f2b40c9c1111649a9f62a84bace6bcbd5cfa2623db7b"
+      },
+      {
+        "bytes": 2245,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py",
+        "sha256": "1c9e4faf84714c1fb9c48cad67227fcf79d9aaec40b3a159dcf59a6b220e7615"
+      },
+      {
+        "bytes": 715,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/ExtrusionGraph.py",
+        "sha256": "ed822b7594e56a9bc513cbeacb54ae036ba909686c35618459f961705af5e269"
+      },
+      {
+        "bytes": 645,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeAngleValue.py",
+        "sha256": "eefd9b59c3ed3be7de969256a4eed2c7d45a951f50305f8e6c4ae486ee81cd3d"
+      },
+      {
+        "bytes": 3140,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBlindMut.py",
+        "sha256": "92958cf37b809e7d3e2c413026a40e7a4cea2c32edb8d2702bf33708364fceab"
+      },
+      {
+        "bytes": 2013,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBossDimMut.py",
+        "sha256": "08505b6c887a24cbdd1cdae39b93122415f5eee249fbdea659b78ea93fe2b5b7"
+      },
+      {
+        "bytes": 1677,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBossNodeMut.py",
+        "sha256": "7a9bbd6878272a3a8e1a86af05e2eb3ee6efa78b86b7d910a6316defd7f6b5bd"
+      },
+      {
+        "bytes": 1859,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBossView.py",
+        "sha256": "74341cbf10d0d786117dfbc4c9297e3120ab988be8b0d2bdff6e0d813a0162ff"
+      },
+      {
+        "bytes": 1884,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileConfig.py",
+        "sha256": "953cf773e15b30d2d80c347cff312ac9a53750a802d948449eaf7c3d02d10037"
+      },
+      {
+        "bytes": 1862,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileDef.py",
+        "sha256": "1b8c67a6560355d6a1cbd2f94b5079079a56dd34518e72afefc1ba055c678c41"
+      },
+      {
+        "bytes": 2337,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeSelfFile.py",
+        "sha256": "eef75c9d3168b1e68453415030f67ae1d74d665049f0d49c46e35f24f33b1473"
+      },
+      {
+        "bytes": 1465,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Files/SelfFileInput.py",
+        "sha256": "3edb1923d66605000aab20e511520d095a6f28d25c4ce2425a3dacd24edc6111"
+      },
+      {
+        "bytes": 805,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/FrameKeywords.py",
+        "sha256": "8a487d9c9f5a18eb09438ebc26c9bd31ef40a12e95e44e642032b94a878634f0"
+      },
+      {
+        "bytes": 1862,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/HistoryInput.py",
+        "sha256": "fe725f478d0b950ae352f22b7d9daf8a31a5127305d41c23e07de8fd4d2c4060"
+      },
+      {
+        "bytes": 894,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/KeywordConfig.py",
+        "sha256": "f587cc43f1ec6b0644a14ca6bfc45e84d6d05e1360a45cff94f80349a4fb3e74"
+      },
+      {
+        "bytes": 999,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/KeywordDim.py",
+        "sha256": "49be6c72ebe5bb9928b1661c1fff6f3131911d37fc51ba495210e6b9684e41c4"
+      },
+      {
+        "bytes": 2447,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/KeywordFeature.py",
+        "sha256": "2e2310a48cb984761747652980492858126033fc236c5862fbd5b460aedb3148"
+      },
+      {
+        "bytes": 400,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeBiography.py",
+        "sha256": "7afe5cc7a6d86c7bf1000b23b4386da8cab607a951ef339c36066c5c364282fd"
+      },
+      {
+        "bytes": 1387,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeFreshHist.py",
+        "sha256": "eb21500b68700e08aa0b54ff429c1bfb2511f41b781a72e92884d730cc55d41e"
+      },
+      {
+        "bytes": 760,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeKeyDimMut.py",
+        "sha256": "449bfce0d15758ddcc430059b3c1f021b7917731f70cb23542d228bb9076332a"
+      },
+      {
+        "bytes": 2043,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeKeyFeatMut.py",
+        "sha256": "306e2f119cb7183671c24c56de67673ee5a8b40f02778c5666291b1cf08400af"
+      },
+      {
+        "bytes": 3183,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeKeywords.py",
+        "sha256": "f6584ab9ff04191a33be5ad96477f7b3aa43ee296e43c77707db15242d0cecac"
+      },
+      {
+        "bytes": 3186,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeMgrHeader.py",
+        "sha256": "e1e8108fc014808c97321200de346e1624ec4dfc0b36c4f6ae3bfc82c838c7a7"
+      },
+      {
+        "bytes": 664,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Origin/MakeOriginSeed.py",
+        "sha256": "023af42a1bb5ff895a2a39fb232791ad77797ef9e157e04b8e0e74c496153b6e"
+      },
+      {
+        "bytes": 3462,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/CheckPartInput.py",
+        "sha256": "0c92a8451b300edf06561da354596fbc8d8f109c96e509115959e8276897ee6c"
+      },
+      {
+        "bytes": 3333,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py",
+        "sha256": "caf5258889166e2043f1f3cd9378a1288559760ee5eff1f4a66cff170cd3047f"
+      },
+      {
+        "bytes": 3508,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakeBlindPart.py",
+        "sha256": "266a958c6f474c5d45c7eda54553e88f75bc8635abc20309f224d043b62c1343"
+      },
+      {
+        "bytes": 1712,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartBaseMut.py",
+        "sha256": "d0cb1173869953d47c13e29f7f3803d3a0331e7cad9525e4ad665043c70b2cf8"
+      },
+      {
+        "bytes": 1602,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartHeaders.py",
+        "sha256": "0fdd244c2cb2f1a8c1b2b7df3411b172be8174dde29146029114691e5c6dff76"
+      },
+      {
+        "bytes": 2471,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py",
+        "sha256": "d0d7193abbc28f45379bf1d414ccdda4f3396600a73a3e0eb553622babe3488b"
+      },
+      {
+        "bytes": 514,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/BlindPlan.py",
+        "sha256": "1349aac984b049f2fbc7de2ff2aacec10001c3c1d1439755599e8f172a3f26e5"
+      },
+      {
+        "bytes": 3099,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/CheckPlainLinks.py",
+        "sha256": "78d6786dd4ca36441ff5c74ad5c0699ef99bea1f53aa508230f326bb8e6994c7"
+      },
+      {
+        "bytes": 2469,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectPlain.py",
+        "sha256": "3ba05778168d16d5a90e35156fca76a121eff67f735b789f6ab16ed2287026e0"
+      },
+      {
+        "bytes": 1011,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadLength.py",
+        "sha256": "5477b54b72f7066fdf9d5eff717e8cbce57e479916c085afb8de30f7d22a3c29"
+      },
+      {
+        "bytes": 3057,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadRectSketch.py",
+        "sha256": "f477cb71ddcfb9fd6bbbac14ccc3e3a7e2b413f1d09fb352eb3a336509030aa7"
+      },
+      {
+        "bytes": 2108,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireBossDef.py",
+        "sha256": "eb0b194fadad3cd574bf0bb52a6d7ea57e49880e2e6644064597c3447cd4a6d5"
+      },
+      {
+        "bytes": 1714,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequirePlainDoc.py",
+        "sha256": "fbf4cd984177f02705321ed43e36173b3b6af85bee564cb08a99b4e3be0484a1"
+      },
+      {
+        "bytes": 1446,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/PartBuildInput.py",
+        "sha256": "53dbd5d8e8b19f7037c70d15b713c7f6bb8292ec8b4bb4d476ac27bef06ba758"
+      },
+      {
+        "bytes": 1630,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Part/PartCandidate.py",
+        "sha256": "aa407d6e0a5e5e66346bf1feaaf0af079a24863bbc303aed2114a2248515a4a9"
+      },
+      {
+        "bytes": 1389,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Profile/MakeProfileData.py",
+        "sha256": "138c37f046f7f24a8ed208c92e457b6c8eb2cc5bdc233f643a950de469798b84"
+      },
+      {
+        "bytes": 2410,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Profile/MakeProfileMut.py",
+        "sha256": "a1a79ab6ce5224f9864ff42e1daf6b3b529407849edccda971c32e07882009ab"
+      },
+      {
+        "bytes": 649,
+        "path": "src/convert/adapters/solidworks/Archive/Construction/Profile/ProfileGraph.py",
+        "sha256": "5e087407548ba9c39eb096cdec8b38024593643d8f9d4cdeee5114472f2463fd"
+      },
+      {
+        "bytes": 1317,
+        "path": "src/convert/adapters/solidworks/Archive/History/CheckHistRoot.py",
+        "sha256": "84b803774cdda18acc64adee595c9881904341968e55892cbc0137bdaac802c1"
+      },
+      {
+        "bytes": 725,
+        "path": "src/convert/adapters/solidworks/Archive/History/HistoryContext.py",
+        "sha256": "69ae19f20e9a318f72f9d9b75a60e5f176c2e6c903c7ef37e95ed5f4039be8fc"
+      },
+      {
+        "bytes": 531,
+        "path": "src/convert/adapters/solidworks/Archive/History/HistoryGraph.py",
+        "sha256": "e93c018764adb6b9d70b762bfb7b8f6ab99399ff9025adff0454b707707c41b0"
+      },
+      {
+        "bytes": 3601,
+        "path": "src/convert/adapters/solidworks/Archive/History/HistoryLayouts.py",
+        "sha256": "ba28fca674800e3d26287a51e45c2f7694e2b86bfc7bd136628d279812597e01"
+      },
+      {
+        "bytes": 1648,
+        "path": "src/convert/adapters/solidworks/Archive/History/ReadHistMut.py",
+        "sha256": "491a4c48eb859f180106bd6dc43322a468a94bf50d870fba0acbf069c0d2ffe8"
+      },
+      {
+        "bytes": 1393,
+        "path": "src/convert/adapters/solidworks/Archive/History/WriteHistMut.py",
+        "sha256": "eed1655c8f3a08ccab6c63455ca3a80e1f27c58e6f958f2a9682a293efb3eac6"
+      },
+      {
+        "bytes": 2542,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/AssertPartFlow.py",
+        "sha256": "fade469405a2b1e3f7444020c7bd7a82bb9fadbf2e5e2c415879813e6e809277"
+      },
+      {
+        "bytes": 1500,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/AssertPartBytes.py",
+        "sha256": "4ee4d6f7b3fcc9f4f4e7959025daa94a62e95eaa28eb5c5e410a135dedc6a9fe"
+      },
+      {
+        "bytes": 3647,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/BlindCaseInput.py",
+        "sha256": "9e989beb50a114c41f5c6c5fa9c4d936c0093ec5bb1fcaca464fef19ea45b624"
+      },
+      {
+        "bytes": 1073,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/BlindPartFlowTests.py",
+        "sha256": "a18be02b233faa1ddf4814677236af0919c0d5c6284cac7598317c22833c0983"
+      },
+      {
+        "bytes": 3110,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/MakePlainDoc.py",
+        "sha256": "1ebc4d22746f79b8bfc1affd9e312b0404ea26accca3d3e780a4ef0b732d40b0"
+      },
+      {
+        "bytes": 1443,
+        "path": "tests/Convert/Solidworks/Research/Construction/Part/RunPartPhase.py",
+        "sha256": "d9b3fb91a29eaa9bae0dbf263d659d868c25af0a8d5a990118e95a7348438f37"
+      }
+    ],
+    "permanent_process_module_count": 6,
+    "research_transport_count": 5,
+    "sdk_count": 59,
+    "sha256": "5ac79c146843c81750bdd3ee64eacd8854951d88b5937de3a390c027553749f8"
+  },
+  "static_checks": {
+    "ast": "parsed70 owned executable sources",
+    "black": "26.10.1 passed scoped65",
+    "direct_file_density": "all owned normal source directories at most32 direct files",
+    "donor_scan": "no recorded payloads in3866 production files",
+    "local_worker_product_execution": false,
+    "local_worker_vm_access": false,
+    "mypy": "2.4.1 strict passed scoped65 after six-module test repair recheck",
+    "pyright": "1.1.414 passed scoped65 after six-module test repair recheck",
+    "ruff": "0.17.4 passed scoped65",
+    "steering": "passed scoped65 after six-module test repair recheck"
+  },
+  "task": "B04-SW2026-CONSTRUCTION"
+}

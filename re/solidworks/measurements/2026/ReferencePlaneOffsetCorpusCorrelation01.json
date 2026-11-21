@@ -1,0 +1,1065 @@
+{
+  "schema": "kit.sw2026.disclosed-offset-compatibility-corpus.v1",
+  "task_id": "B04-SW2026-REFPLANES",
+  "owner": "/root/assembly_occurrence",
+  "delivery_pr": 121,
+  "status": "qualified disclosed typed correlation, no generated output or native writer acceptance",
+  "raw_result_sha256": "5eb5ff6d82277c54d36135343dd242fece5ffd0271a3e75659bd17d73423d152",
+  "frozen_code_manifest_sha256": "45796d29c804de3b73937d75a9eb1f1afd7d543a15c0b7263e3e08900da36722",
+  "recipe_sha256": "188bed51a5090f29ddee58e626b409fee7de5c98ae082a129e8ba2f40e81ba1d",
+  "source_packet_sha256": "db56b95bad3543b5949848ce263bc8865c578ead20b688166d0b576310eeda7a",
+  "pre_writer_source_lock": {
+    "path": "re/solidworks/v2026/heldout/ReferencePlaneSourceLock01.json",
+    "sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703"
+  },
+  "cases": [
+    {
+      "case_id": "D01",
+      "passed": true,
+      "source_qualification": {
+        "phase_receipts_sha256": {
+          "before": "69758029b9f543af0fdb0508d8890d4f2d099abe002529c0f6229ccfab5306a6",
+          "author": "c02f4cc66c3835fa41ba1627af5e8151280a088ef66195115377718f81397745",
+          "reopen": "9979bfc1832f7a5e06241c19b6942cda1f157265ec36d9d46d8edbd9ecce75c6",
+          "after": "7c34257cb0c17c0ade767d431f273a2f6438bfffd6d82c1d4229967cf4e2c4c9"
+        },
+        "source_manifest_sha256": "15a102badb019604500f8125f0f645946843b0c3a1fdcb83cd3cbba8612b9371",
+        "saved_snapshot_sha256": "c6716a8c39c62e8e15711bda9d9417c0c70b3e7ece1b9d8acd75f2a9a91e8bc9",
+        "healthy_brackets": true,
+        "distinct_native_processes": 4
+      },
+      "source_assets_unchanged": true,
+      "edit_checks": {
+        "plane_feature_identity_preserved": true,
+        "distance_dimension_identity_preserved": true,
+        "selected_principal_preserved": true,
+        "declared_distance_changed": true,
+        "stored_origin_changed": true,
+        "boss_depth_preserved": true
+      },
+      "siblings": {
+        "source": {
+          "sha256": "32e0ff7e00be032841c1e9ec62a4f68b14695e42025d4de1830f054d209df296",
+          "bytes": 81141,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.01379,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.0,
+            0.01379
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.01379
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25664,
+              "sha256": "1ee37b81f8e28c71515f65985ee7a05693981d7e6f4a0e7d52b45c9a17b948fb",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14616,
+              "sha256": "a06be61aa118e2c46fb2a7273a1a6ffd76e13bb44d4faa25984175ad268ce012",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "9639a0b2b15d61ba1c4f64d53c512b38600410ad15fed8fd9a71037368a519d2",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "9639a0b2b15d61ba1c4f64d53c512b38600410ad15fed8fd9a71037368a519d2",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2159,
+              "sha256": "d4d7439b22b1997aba50855262bf2aa7b5fcde618f64731c2533f637a6dd7915",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "07de6da69cf3622b36f5443de4274dab2daa06d5951143458de3c16dc8a1270c",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        },
+        "edited": {
+          "sha256": "c8cfa6fbf1ff06c3d9a94547a2d153e8ea4709696baad183a725bf8bacf96461",
+          "bytes": 81718,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.02453,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.0,
+            0.02453
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.02453
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25696,
+              "sha256": "bd63306bcf17fc3a61423dedff124b6beb18b5d8503f9554ffb50d41b696326d",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14868,
+              "sha256": "9dc79cdeac59d77dbf209e841be391be1a7309f4d90c9084a2edb6e57f7588ff",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "7c68fdc20b78f6ca2a59ed3e5897776c6c101c1cebcb59358f4e2556420ac317",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "7c68fdc20b78f6ca2a59ed3e5897776c6c101c1cebcb59358f4e2556420ac317",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2411,
+              "sha256": "93b7fa7a7efe5b330aa2d2223b95691ecafd082cb35ff7b3ef159c8cecb97800",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "25796521398af390ecd5bea5dc505523f5611719fe9568b6c5e8a1f769f2a07a",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        }
+      }
+    },
+    {
+      "case_id": "D02",
+      "passed": true,
+      "source_qualification": {
+        "phase_receipts_sha256": {
+          "before": "69758029b9f543af0fdb0508d8890d4f2d099abe002529c0f6229ccfab5306a6",
+          "author": "460db2aae823eb4ede64c6a7fae4842328b71d9243fdd2c63c6e082cf476ef04",
+          "reopen": "47256f64869022099838403f1a662a24006a68c290a8183e8df68f3c23f49bba",
+          "after": "7c34257cb0c17c0ade767d431f273a2f6438bfffd6d82c1d4229967cf4e2c4c9"
+        },
+        "source_manifest_sha256": "1c70950519a5ac87f1033f4f8cf31d7552011c3bc6ddbe9f0b97575e3e818a62",
+        "saved_snapshot_sha256": "337dd17c7c73ac6ae20790b4349e1f6ef118b919f02cea3975dd2fe07a88aab0",
+        "healthy_brackets": true,
+        "distinct_native_processes": 4
+      },
+      "source_assets_unchanged": true,
+      "edit_checks": {
+        "plane_feature_identity_preserved": true,
+        "distance_dimension_identity_preserved": true,
+        "selected_principal_preserved": true,
+        "declared_distance_changed": true,
+        "stored_origin_changed": true,
+        "boss_depth_preserved": true
+      },
+      "siblings": {
+        "source": {
+          "sha256": "b214b25fdc38fa370c1df378510d7661b8da3a45d51585186ccc44b9c931432d",
+          "bytes": 80279,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.01379,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.0,
+            0.01379
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.01379
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25664,
+              "sha256": "0e059557e7a26e1f1389e196e0ec115149647ec6038e6f313a7fd24d781f1baf",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14616,
+              "sha256": "e25756f85acef99026fd80433fd949a03a2b59c51b81b676b8f9421e394c83a6",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "5041b73abbe4428f5b0d34caad447e970f4b0831560a4af76c1aed6afd0f5a26",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "5041b73abbe4428f5b0d34caad447e970f4b0831560a4af76c1aed6afd0f5a26",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2159,
+              "sha256": "6994ef99cf155ae1ce16765753eecc82d6188782025308205c2c5f7696dbaf16",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "4f4bac4ee1f8d43ce1e3f113336e41f0591dc21b3b59bb6bafb59fbbcf553a2e",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        },
+        "edited": {
+          "sha256": "d1e27137573ca2ba012e1eb9f32fbf7f9cbecaad88c56a767cd17e78ca3da59c",
+          "bytes": 80684,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.02453,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.0,
+            0.02453
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.02453
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25696,
+              "sha256": "508462f95fac6a7a205c7ba2ebbd2810e19f49b9befe5bb239aaced5a5da802a",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14868,
+              "sha256": "a97598c0a73c3ba70d33d1322afd0e28cca1c24cc84b468f73169c193e19e2ef",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "6eb436bc6f7c1f14a92939caefd5567331df5be5636a3f472d443246da9b64e9",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "6eb436bc6f7c1f14a92939caefd5567331df5be5636a3f472d443246da9b64e9",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2411,
+              "sha256": "9d5f4dc6a254c7ab2233c33a065773df37d6c298d54c45e145fcad8d85f09dcd",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "f9ba3dc9c6d381f1c8c0054733dd9b09d968b3783e5ac52660296d3ab12d27a0",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        }
+      }
+    },
+    {
+      "case_id": "D03",
+      "passed": true,
+      "source_qualification": {
+        "phase_receipts_sha256": {
+          "before": "69758029b9f543af0fdb0508d8890d4f2d099abe002529c0f6229ccfab5306a6",
+          "author": "24e0854fae51f5991acbb7b6f1b81ce17b447ddc529f90247c6fcd7ac9390bc4",
+          "reopen": "2cbf9a386cd9dc20ef662b4f725f19ed6c9ee203d2bc83a9928bf226a53118a2",
+          "after": "7c34257cb0c17c0ade767d431f273a2f6438bfffd6d82c1d4229967cf4e2c4c9"
+        },
+        "source_manifest_sha256": "407d807a5e649a040280e5547e22685c11152066f4e482d8035a2ff95902a20d",
+        "saved_snapshot_sha256": "e8d206bacfa674ccd9167c0753f01b48557c844913bd8ee04571d2e367a647b8",
+        "healthy_brackets": true,
+        "distinct_native_processes": 4
+      },
+      "source_assets_unchanged": true,
+      "edit_checks": {
+        "plane_feature_identity_preserved": true,
+        "distance_dimension_identity_preserved": true,
+        "selected_principal_preserved": true,
+        "declared_distance_changed": true,
+        "stored_origin_changed": true,
+        "boss_depth_preserved": true
+      },
+      "siblings": {
+        "source": {
+          "sha256": "0db39456711220babb5b3ecb38dff72fcc84b5311a038b5796ceed68d8ec09fb",
+          "bytes": 84505,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.02713,
+          "flip": true,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.02713,
+            0.0
+          ],
+          "common_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "common_transform": {
+            "has_matrix": 1,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.02713
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25734,
+              "sha256": "cd2e66aac510ca106469eceeb905a1c97de707a1e247a2081c21df0bf7bdaf88",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14760,
+              "sha256": "eb34abc4faa2491b8f59ef6f050619bdb8c6a1e22b453160516287cb67d020c8",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "23079e76eca0329f88bb6f2c01d0adf042d891690616d7b3dbd0314b467c2121",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "23079e76eca0329f88bb6f2c01d0adf042d891690616d7b3dbd0314b467c2121",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2159,
+              "sha256": "ba49eaec212196fb293fb6b09c2aaa793b90d71df5b18c2db25a269069ff8c5b",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "32f9a93f9272fe232248bd10ca536169614c68c472fb4bccb411098fb86993d6",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        },
+        "edited": {
+          "sha256": "9c6b2373d81f032b558ff7a9e04fcddca23e6fd37accad6e1b944f2b9ba79f45",
+          "bytes": 84720,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.01471,
+          "flip": true,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.01471,
+            0.0
+          ],
+          "common_normal": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "common_transform": {
+            "has_matrix": 1,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              0.01471
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25764,
+              "sha256": "d419ff85144a66e82ab4bd43f992f2093c7579dd0bb5c8453e040366b8a17ea0",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 15008,
+              "sha256": "e544b3044ff4a05111ca80a1ac0681158cb9c57a7d5c74929f55ef551878ddcc",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2723,
+              "sha256": "944d1238c79ef2d71c124b74fa4c022f6076cab86b7a43c84a1f42b9cddd4f72",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2723,
+              "sha256": "944d1238c79ef2d71c124b74fa4c022f6076cab86b7a43c84a1f42b9cddd4f72",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2407,
+              "sha256": "5a72144455589b8bf5e7cb70ba2657e4edca423d1e8c62bc9f2575f504b19c46",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "9021bc69ffffc7c7cad08d1424f02253aafa93d50ce28584b3b7ae765bbb9208",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        }
+      }
+    },
+    {
+      "case_id": "D04",
+      "passed": true,
+      "source_qualification": {
+        "phase_receipts_sha256": {
+          "before": "69758029b9f543af0fdb0508d8890d4f2d099abe002529c0f6229ccfab5306a6",
+          "author": "a75a532fe6ec01d8e29681488800dc2f9f221bf854d3e71b00e6d48a5a6bbc9f",
+          "reopen": "c5a6ffcfacf9230a875b2d15a628090dc1384522e552e5c5e9d375c2608e1173",
+          "after": "7c34257cb0c17c0ade767d431f273a2f6438bfffd6d82c1d4229967cf4e2c4c9"
+        },
+        "source_manifest_sha256": "d38f393a3cff568d2ee4e2396e77ca84ba7c0d5d29918812aa89f6d103dd94c3",
+        "saved_snapshot_sha256": "53f07a99284bd8cbfb9f6b3ae6dc1e3c60de122563fa3b6ddfb47bb9d6479216",
+        "healthy_brackets": true,
+        "distinct_native_processes": 4
+      },
+      "source_assets_unchanged": true,
+      "edit_checks": {
+        "plane_feature_identity_preserved": true,
+        "distance_dimension_identity_preserved": true,
+        "selected_principal_preserved": true,
+        "declared_distance_changed": true,
+        "stored_origin_changed": true,
+        "boss_depth_preserved": true
+      },
+      "siblings": {
+        "source": {
+          "sha256": "5e38824c7e8cb2e8966498f15cff4fa971916680b5561ec3f7cb7ccb4035babb",
+          "bytes": 82522,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.01937,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            0.01937,
+            0.0,
+            0.0
+          ],
+          "common_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "common_transform": {
+            "has_matrix": 1,
+            "matrix": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.01937
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25736,
+              "sha256": "a6932f39d13643619e76231950df66d62c96da90d8071c3482f65b69b534d75d",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 14832,
+              "sha256": "8bacbdd0197c0ef5803dea09df2b77251602c56ed9d7048b6ea66b6b8bc950d2",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "a0e9ea522fa0ef479c2dc644b2cc9b277d33bb4463cea1321710863ec1eccccd",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2443,
+              "sha256": "a0e9ea522fa0ef479c2dc644b2cc9b277d33bb4463cea1321710863ec1eccccd",
+              "map_base": 1,
+              "map_count": 78,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2159,
+              "sha256": "f72fc25fe16e40b73d2fbadcd89569f7e9b1a7370fe903f21b6eccb297c70bb1",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "69c36758874d723fbd9d655d35b6dc44362a6c2df4293192b45d96977fd79e8e",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        },
+        "edited": {
+          "sha256": "80e8290c4d8db5b1a18e3d3f56509e9cd2e5763998be3a70035f9f31c04a2e16",
+          "bytes": 83079,
+          "passed": true,
+          "wire_owner": "moFaceRefPlnData_c",
+          "plane_feature_id": 27,
+          "distance_m": 0.03163,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            0.03163,
+            0.0,
+            0.0
+          ],
+          "common_normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "common_transform": {
+            "has_matrix": 1,
+            "matrix": [
+              -0.0,
+              0.0,
+              1.0,
+              -0.0,
+              1.0,
+              0.0,
+              -1.0,
+              0.0,
+              0.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.03163
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "streams": {
+            "Contents/Config-0": {
+              "passed": true,
+              "bytes": 25768,
+              "sha256": "b38711334d2d1e34574881d9e66e81a50f9748b81dd09f86789d7d36ec03f314",
+              "map_base": 4,
+              "map_count": 110,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "passed": true,
+              "bytes": 15084,
+              "sha256": "3ce4bb11f0fd64c5a42186b709a977afb8de131761d065ded221b781c0051afa",
+              "map_base": 110,
+              "map_count": 268,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/Config-0-ModelHeader": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "30253f9fa71e3149ac93fb7cf500fa97d6dd2e57748570fc1033bf350626423b",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Header2": {
+              "passed": true,
+              "bytes": 2727,
+              "sha256": "30253f9fa71e3149ac93fb7cf500fa97d6dd2e57748570fc1033bf350626423b",
+              "map_base": 1,
+              "map_count": 79,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgr": {
+              "passed": true,
+              "bytes": 2411,
+              "sha256": "c41aa1bbc4dc0ac9c56790e953a6f25412240ee9ebc21e1d442db5940f784d4f",
+              "map_base": 1,
+              "map_count": 19,
+              "tail": 0,
+              "error": null
+            },
+            "Contents/CMgrHdr2": {
+              "passed": true,
+              "bytes": 137,
+              "sha256": "4a847c88ce7e20213bc65a796ca0748c0bbfb94d1d541de11d858a76e827668e",
+              "map_base": 1,
+              "map_count": 5,
+              "tail": 0,
+              "error": null
+            }
+          },
+          "provisional_load_schemas": [],
+          "raw_load_operation_count": 9,
+          "linked_map_seed_re_emitted": true
+        }
+      }
+    }
+  ],
+  "source_read_custody": {
+    "allowed_disclosed_native_files": 8,
+    "native_open_events": 40,
+    "denied_events": 0,
+    "heldout_inputs_read": 0,
+    "source_write_events": 0
+  },
+  "passed": true,
+  "writer_output_count": 0,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "generated_native_acceptance": false,
+  "all_fields_classified": false,
+  "cache_formulas_and_neutral_states_qualified": false,
+  "limits": [
+    "Native source author/reopen qualification is separate from this offline audit",
+    "Existing enclosing stream codecs retain raw operations; typed ownership is not full field classification",
+    "Only declared disclosed native files were read; both held-out sources remain sealed",
+    "No native vendor acceptance of a generated reference-plane family is claimed"
+  ]
+}

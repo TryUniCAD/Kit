@@ -1,0 +1,69 @@
+{
+  "schema": "kit.sw2026.system-scale-sdk-diagnostics.v1",
+  "outcome": "proved zero-body class admitted; both complete original streams still rejected at moCompProfile_c schema 1",
+  "reader_source_manifest_sha256": "d6caeb07dc0a1dfb862643fc09cd38385fdbac603fc442a43b1bf76441bdc8cc",
+  "reader_delta_paths": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontLayouts.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py"
+  ],
+  "native_rule_evidence": "re/solidworks/records/ScaleSystemArchive2026.json",
+  "native_rule_evidence_sha256": "ace2ecd7adf7a26619e394a16f29b064b015593e022e8af17931a9cde6edd3f4",
+  "private_read_report_sha256": "db061e394dfdf33051be76c9aae286e685bf687a969a4fe3933bc19eaa6472e2",
+  "cases": [
+    {
+      "case": "H01SheetA",
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "stream": "Contents/Definition",
+      "stream_bytes": 37612,
+      "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "codec_round_trip_passed": false,
+      "typed_stream_complete": false,
+      "next_boundary": {
+        "type": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body class moCompProfile_c schema 1",
+        "cursor_not_exposed_by_reader": true
+      },
+      "input_unchanged": true
+    },
+    {
+      "case": "H02SheetB",
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "stream": "Contents/Definition",
+      "stream_bytes": 37608,
+      "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "codec_round_trip_passed": false,
+      "typed_stream_complete": false,
+      "next_boundary": {
+        "type": "BodyUnsupported",
+        "message": "unsupported SOLIDWORKS body class moCompProfile_c schema 1",
+        "cursor_not_exposed_by_reader": true
+      },
+      "input_unchanged": true
+    }
+  ],
+  "source_immutable": true,
+  "codec_round_trip_passed": false,
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "original_heldout_verdict_changed": false,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "constructor_added": false,
+  "public_drawing_strict_read_admitted": false,
+  "prior_disclosed_profile_replay": {
+    "baseline_workers": 43,
+    "baseline_passed": true,
+    "baseline_sha256": "93d934e39d17426e292b6b0f5819cefbaffefe504d020c59e39eac5d0358f99e",
+    "new_reader_candidate_status": "passed independent root execution",
+    "new_reader_real_workers": 43,
+    "new_reader_result_sha256": "e475046e88482ef88dc14b3ea3cdf67ec2dc9eebd93a7d01dd3b2be15c518723",
+    "source_immutable": true
+  },
+  "verification_by_worker": {
+    "actual_disclosed_source_reads": 2,
+    "test_suite_execution": false,
+    "native_execution": false,
+    "ast": true,
+    "black": true,
+    "ruff": true
+  }
+}

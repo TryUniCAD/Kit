@@ -1,0 +1,146 @@
+{
+  "schema": "kit.sw2026.generated-combined-mate-native.v1",
+  "scope": "disclosed A21 distance and independent perpendicular coincident mate between two direct occurrences",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "com": "SldWorks.Application.34",
+    "guest": "Windows 11 ARM64 with x64 emulation",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "source": {
+    "author_packet_sha256": "c92867ced938cdf3160c1260f2fea8fe3470411e21e4c332faa60844240bd732",
+    "terminal_sha256": "8706f37d1f04a35915ae9edae7a41ae8844bd5060b3c8ff675653b9b24090c4e",
+    "healthy_processes": 4,
+    "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "file_sha256": {
+      "source_parent": "39974ae1b89010de458186b6ecf4878e13a5cd7cb6e9ddaa81b4f49848443406",
+      "source_child": "c3027fff82b69efb53da0d885077442e557cd018e75eb275cb955cf7f8db09ef"
+    }
+  },
+  "generation": {
+    "child_sha256": "527f3bd7f9104eeb9736888cb3ae4735062008e91297cfad2f3e1729eca724a4",
+    "guarded_builds": 2,
+    "guarded_report_sha256": "aecbf92d1dd43336cb1d4732f196f6c061a7b2b7f216e0b35472b13a99807377",
+    "parent_sha256": "6989984caec52112a641dd4285e00def2071f955bbd32dd214735d97a72386f3",
+    "request_sha256": "5fd5196fcff48779256af7b39063b2108c9f0913e2553f397b51ad5431cafcb3",
+    "runtime_file_reads": 0,
+    "source_manifest_sha256": "89b0f2173550398723bbf0168cc5afb37527509e562765308d4571dcc502b0c2",
+    "writer_revision": "f178387d2759b0b658091f4004f2ef95f279660c",
+    "executable_source_files": 4312,
+    "pair_packet_sha256": "93685667d93a36a0ec7240769d772098faba7a16bc0af26ff1fbb614932486e5"
+  },
+  "observations": {
+    "raw_terminal_sha256": "754dd1174046cc552845f729a0899cdafccc83e5d940a24d73296d574cec048f",
+    "transport_sha256": "031b2c98a70a55eb1f44bb1c87bc544f931d31b6bdfc9ac41bda0f042b20d620",
+    "transport_exit_code": 0,
+    "phases": [
+      {
+        "role": "ControlBefore",
+        "record_sha256": "47e4b6bf4268e0b72ddc5114122927182fb6da3899c5643d2c0ba959df1c59b2",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394336457995551,
+        "body_count": 2
+      },
+      {
+        "role": "Generated",
+        "record_sha256": "95efe6ccd11ea1bb62144d8489586339829b956727b5c3780f4c8ea2d4772c02",
+        "numeric_checks": 111,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394336872504422,
+        "body_count": 2
+      },
+      {
+        "role": "Reopen",
+        "record_sha256": "9c76638770a0de2d7db1ee00d2d781b48c92b444c4a39f85ccac80432ef0cc61",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394337478844579,
+        "body_count": 2
+      },
+      {
+        "role": "ControlAfter",
+        "record_sha256": "ebe26cd57e2e3a099ee097452eac0b0c7a05939fa27981748af019b6d0fafaed",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "process_creation_filetime": 134394337881328131,
+        "body_count": 2
+      }
+    ],
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "numeric_comparisons": 333,
+    "whole_tree_rows": {
+      "assembly": 26,
+      "part": 25
+    },
+    "comparisons": {
+      "tree": true,
+      "child_tree": true,
+      "occurrences": true,
+      "mates": true
+    },
+    "initial_distance_m": 0.071375,
+    "edited_distance_m": 0.088625,
+    "centre_of_mass_m": {
+      "rebuilt": [
+        0.0356875,
+        0.0,
+        0.013125000000000001
+      ],
+      "edited": [
+        0.0443125,
+        0.0,
+        0.013125000000000001
+      ]
+    },
+    "parent_save": {
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "sha256": "46054894984df204cab8b7f9055d2993d799c7aacae489dbd343416377375495"
+    },
+    "child_save": {
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "sha256": "026b8d4a5b1a35608e18fac751ff5eefeba178d9c351655bddffae1077d82d2d",
+      "update_stamp": 144
+    },
+    "child_stamp_on_reopen": 144,
+    "child_stamp_after_explicit_rebuild": 158,
+    "persistent_input_files_unchanged": true,
+    "edit_and_reopen_identity_preserved": true
+  },
+  "prior_trials": [
+    {
+      "terminal_sha256": "7f32b9890691ca64a55b2ffc0fce8e10bee9fa1908e46f803a87c0d629a16cf0",
+      "passed": false,
+      "healthy_controls": true,
+      "failure": "wrong child folder construction and observer compared the stamp after an explicit rebuild"
+    },
+    {
+      "transport_sha256": "000181b6ebc329a4da3017a50570df1f41ff9c49e31c38a6c1b7b786fc95a599",
+      "transport_exit_code": 255,
+      "records": 0,
+      "result": "no native phase; identical packet retried after separately checking that SOLIDWORKS was idle and license services were running"
+    }
+  ],
+  "pre_writer_heldout_inputs_read": 0,
+  "qualified_production_corpus_outputs": 0,
+  "public_writer_qualified": false,
+  "passed": true
+}

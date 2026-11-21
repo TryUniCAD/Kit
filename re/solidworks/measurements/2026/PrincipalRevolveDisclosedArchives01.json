@@ -1,0 +1,385 @@
+{
+  "archive_generation": 19000,
+  "asset_revision": "36347d69a22f2dca8e681fde3c1dbb1f80ce1bbf",
+  "cases": [
+    {
+      "angle_radians": 6.283185307179586,
+      "asset": {
+        "format": "sldprt",
+        "git_blob": "a2d5850f129b310fa6d67c35a028eaabfdf9ace7",
+        "kind": "native",
+        "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveFrontFull.SLDPRT",
+        "prefix_hex": "57c7505900000004a4b7cc954e555be8",
+        "sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+        "size_bytes": 61363
+      },
+      "axis_cache": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 0.037000000000000005,
+        "fc8": {
+          "x": 0.002,
+          "y": -0.013000000000000001,
+          "z": 0.0
+        },
+        "fe0": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "cli_fingerprint": "5e70342c2bb9e0154a9f9baa82f6382f9ce9481fdda3cd75b7a72dd21075ffb8",
+      "cli_neutral_sha256": "0becdf986ecce63f483c332168e107f3f3b86e1774308f31c2fc59d48d714f5f",
+      "cli_receipt_sha256": "ebcab4c454d2e00399f8fa35e1c6560a2da13ed366622b921a61e4793f04bdf8",
+      "container_streams": 40,
+      "envelope_version": 4,
+      "portable_complete": false,
+      "replayed": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d50bf0d2b3fd676ba7d8f18fbb97e1b83117718a6154684dd46c6af6425653df"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "f275206fa6ee28440fc737f9e289782b983f96159436296bf8e2c065c79daa70"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25476,
+          "sha256": "0fb179347b9454c7ce21fd494f82044ce502ec17e9639089648b5220dc341ef0"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "100d4597c4d9a9726c399f050c202175cf6bc0c020859dd0849b8ddd3278fb8f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12345,
+          "sha256": "3ef6d380f8873f6b9693e58a6c2b3ba6a106bc28ae5bfd6a68a363e4b7ae2db5"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3672,
+          "sha256": "33f8d2b17058d64e71e980c797a853dd90728dc1134cd8c3baa08f391a93c54d"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "100d4597c4d9a9726c399f050c202175cf6bc0c020859dd0849b8ddd3278fb8f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1599,
+          "qualified": true,
+          "sha256": "2e9c5d5e61ce0fb12d1274098d0347c1d9b86f2ffb322f812db9bbe4e5851f29"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "bb9d492888698503269570e96e7c0e5f2f9eb68cb089b0d5195436417237dab6"
+        }
+      },
+      "reverse": false,
+      "sdk_source_sha256": "fc12524e083b0e7a01d8e843b4ce78befb0bf7582f8ea04bd5690c3dd04f213d",
+      "selected_axis_index": 5,
+      "support_axis_code": 3,
+      "support_datum_id": 2,
+      "unresolved": 48
+    },
+    {
+      "angle_radians": 1.8151424220741028,
+      "asset": {
+        "format": "sldprt",
+        "git_blob": "ab25577933d63c0c84b85035cbeeb4ae7021e23b",
+        "kind": "native",
+        "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopForward.SLDPRT",
+        "prefix_hex": "b045397400000004bd945d86349a461c",
+        "sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+        "size_bytes": 65739
+      },
+      "axis_cache": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 0.039,
+        "fc8": {
+          "x": 0.004,
+          "y": 0.0,
+          "z": 0.016
+        },
+        "fe0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        }
+      },
+      "cli_fingerprint": "bce046ae4f771c44af05361d2566ce04b44d4818546d7c8584079da99b19cae4",
+      "cli_neutral_sha256": "7200dd87f5929aa43136fe9190b956548f61f9372301669c657b55d609ebc4a4",
+      "cli_receipt_sha256": "2f162d030820ac08b7730129035cc19854bf60d952cc048a9f91828aab205574",
+      "container_streams": 40,
+      "envelope_version": 4,
+      "portable_complete": false,
+      "replayed": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "2550d39810ef0bf0f2070f2d5cca6a12ea8982d18ba6307b86e39dbf88efd65b"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "847b794c27c616dca532a6a2325eb6af8fe1155e99052b9e4ded54e37e04c7ac"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25478,
+          "sha256": "abc2a22fccc2e6f08f6d3cbf982df48c5c16d721641db7aa72dc1120eb47a4ac"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "8c4d329ab569b1b77a58a4eced4499defbaf19d908b599984b982e022ea0cb8c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12537,
+          "sha256": "8ae01dea66fda2c0058ad4b5f82d797b90447e81a0d64387a5e68b8e83becd26"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3816,
+          "sha256": "6c2c8c726bfa94d8139196874719792be15c4cc6c914a8c3095a7a5963ed2991"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "8c4d329ab569b1b77a58a4eced4499defbaf19d908b599984b982e022ea0cb8c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1603,
+          "qualified": true,
+          "sha256": "5c0cf026284bd2b3556a9832294122e498625eb7a012e72ce5734b75870b9453"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "7546e1254e2a2ad587b8ea93116835ff138c1a1c84083b1cd3c64cb5bb224963"
+        }
+      },
+      "reverse": false,
+      "sdk_source_sha256": "fc12524e083b0e7a01d8e843b4ce78befb0bf7582f8ea04bd5690c3dd04f213d",
+      "selected_axis_index": 5,
+      "support_axis_code": 2,
+      "support_datum_id": 3,
+      "unresolved": 58
+    },
+    {
+      "angle_radians": 1.8151424220741028,
+      "asset": {
+        "format": "sldprt",
+        "git_blob": "dfad3c9eb755fdeec902f7b2df4f0363daf3167e",
+        "kind": "native",
+        "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveTopReverse.SLDPRT",
+        "prefix_hex": "29b7471e00000004d572ed761bde3214",
+        "sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+        "size_bytes": 74355
+      },
+      "axis_cache": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 0.039,
+        "fc8": {
+          "x": 0.004,
+          "y": 0.0,
+          "z": 0.016
+        },
+        "fe0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": -1.0
+        }
+      },
+      "cli_fingerprint": "81e2dc68b72f88cc6166afe5ccb3d6a2892f4d134505a672b0016f64a1ef7750",
+      "cli_neutral_sha256": "18037aa523c0839d0c61768bf5c7afc22446571dcf0f5474398c45c43fb8a0df",
+      "cli_receipt_sha256": "45f88a7cd6047f08be7827af6eb1638fdd39dbbd682a0fb1281a12c0765f7473",
+      "container_streams": 40,
+      "envelope_version": 4,
+      "portable_complete": false,
+      "replayed": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "2e178351fffd8ddcdb9f839205d7d18537f10907860918d06acef1fc32fd5bbf"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "20dc8ded53d726479cf124366ca64990fa2e68d81005005a87be08d8d5c5cba9"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25408,
+          "sha256": "7a3a50961bb59d6e1e0256c74d7892d4400e3a727e1480893dc374fd65524a75"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "3b8ef34a867ad08c71329b75c36f48bda7be015e5a360680362dff00f270c469"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12465,
+          "sha256": "21c7fc7a4c2873f8326ee472189e888b560750f818e4f56d777c88cf637a9668"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3816,
+          "sha256": "6c2c8c726bfa94d8139196874719792be15c4cc6c914a8c3095a7a5963ed2991"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "3b8ef34a867ad08c71329b75c36f48bda7be015e5a360680362dff00f270c469"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1603,
+          "qualified": true,
+          "sha256": "45d8a566d0e3cac246d8788aa3ff227a6d7eef5b773115867862349d89e42aa7"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1667,
+          "sha256": "adf1f1f9894e0fe5674158f678197a0b06fe16082d719d4d63a11e29a06cf8ee"
+        }
+      },
+      "reverse": true,
+      "sdk_source_sha256": "fc12524e083b0e7a01d8e843b4ce78befb0bf7582f8ea04bd5690c3dd04f213d",
+      "selected_axis_index": 5,
+      "support_axis_code": 2,
+      "support_datum_id": 3,
+      "unresolved": 58
+    },
+    {
+      "angle_radians": 1.5271630954950384,
+      "asset": {
+        "format": "sldprt",
+        "git_blob": "1838b6ccd991b5ddfaa9815dbb82af5fe04c1f26",
+        "kind": "native",
+        "path": "re/solidworks/v2026/corpus/principal-revolve-discovery/PrincipalRevolveRightReverse.SLDPRT",
+        "prefix_hex": "7a607cee000000042fe92953868a955b",
+        "sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+        "size_bytes": 57732
+      },
+      "axis_cache": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 0.0421,
+        "fc8": {
+          "x": 0.0,
+          "y": -0.0219,
+          "z": -0.0093
+        },
+        "fe0": {
+          "x": 0.0,
+          "y": 1.0,
+          "z": 0.0
+        }
+      },
+      "cli_fingerprint": "a5b944c454d984c3843eba6b43353523b1837534b41f3f9309b89760af3b959c",
+      "cli_neutral_sha256": "3bf68131564a3add6c3089978a9a2e9bb32fbe312ff0646908230a7b7aa05ddc",
+      "cli_receipt_sha256": "1277ee75ecd85eb42ea2143ab3f6d8a0723ab5e4d25eae05dd62cac66d961a8c",
+      "container_streams": 40,
+      "envelope_version": 4,
+      "portable_complete": false,
+      "replayed": {
+        "Contents/CMgr": {
+          "byte_identity": true,
+          "bytes": 2159,
+          "sha256": "d2263eb195d6b0469a93207b8568f768906021e711f87c66b1d64769f9334054"
+        },
+        "Contents/CMgrHdr2": {
+          "byte_identity": true,
+          "bytes": 137,
+          "sha256": "752dfc82730ce9a50c593058965c3a7903e6178be60823dad0a1b3127049f4e2"
+        },
+        "Contents/Config-0": {
+          "byte_identity": true,
+          "bytes": 25482,
+          "sha256": "1e929957cb4f07b5552c4f38109aff17e1befc4b14e9bd4416cdb94862442b9a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "94f38ce8a471582286b262e364cbf69143032003fcf6d03e6471fffb8726a087"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_identity": true,
+          "bytes": 12537,
+          "sha256": "1b3d1ed66899468551438297d0548549fd9e24093df5595b5e12d5f259a63c69"
+        },
+        "Contents/Definition": {
+          "byte_identity": true,
+          "bytes": 3816,
+          "sha256": "023def33651f824fc30b06b64dcdd55c80a5dcfb17b487b4f62d884d437dc938"
+        },
+        "Header2": {
+          "byte_identity": true,
+          "bytes": 2371,
+          "sha256": "94f38ce8a471582286b262e364cbf69143032003fcf6d03e6471fffb8726a087"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "byte_identity": true,
+          "bytes": 1517,
+          "qualified": true,
+          "sha256": "d5311e17782b59444e283d2f5b9bcf16b9aacdfedb7d203f3b91a7fc56882f4e"
+        },
+        "_MO_VERSION_19000/History": {
+          "byte_identity": true,
+          "bytes": 101,
+          "qualified": true,
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+        },
+        "swXmlContents/KeyWords": {
+          "byte_identity": true,
+          "bytes": 1668,
+          "sha256": "3fb3d15e44b14f252932be4197d63841cdb9abfdee325febd77524fc05be52ec"
+        }
+      },
+      "reverse": true,
+      "sdk_source_sha256": "fc12524e083b0e7a01d8e843b4ce78befb0bf7582f8ea04bd5690c3dd04f213d",
+      "selected_axis_index": 5,
+      "support_axis_code": 1,
+      "support_datum_id": 4,
+      "unresolved": 58
+    }
+  ],
+  "included_exact_load_critical_streams": 40,
+  "manifest_sha256": "dfbcd01d5def3dd1dbe32ee504c223c6fcd0a823d52fb413cf4e2f6fbe1afb53",
+  "native_build": "34.5.2.0604",
+  "schema": "kit.sw2026.principal-revolve-disclosed-archives.v1",
+  "sdk_revision": "61bb95c2d7b0996c0efe920f4a305cfc650cf0f2",
+  "sdk_source_tree": "c1967f83c511b6ffc699684335e132704851a1fb",
+  "sealed_sources_read": 0
+}

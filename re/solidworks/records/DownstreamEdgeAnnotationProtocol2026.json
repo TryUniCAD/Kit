@@ -1,0 +1,162 @@
+{
+  "actual_native_executions": 0,
+  "actual_runtime_observer_implemented": false,
+  "classification": {
+    "cache_lookup_refused": "aed7/aedc observed and null result; this does not alone prove a later body fallback",
+    "cache_route_observed": "matching aed7/aedc call-return and nonnull result, exact id, plus optional owner supplement when claiming intended generated child cache",
+    "consumer_unobserved": "no qualified hit before synchronous return/settled measured completion; not success or proof of fallback",
+    "fallback_observed": "a separately pinned actual fallback entry and returned intended edge observed, with the cache route refused/bypassed explicitly recorded",
+    "unqualified": "failed native control, wrong identity/RIP/frame, incomplete custody, timeout without completed save, uncertain cleanup or unverified pointer/owner domain"
+  },
+  "cleanup": "reuse the previously qualified owned-AMD64 fixed software-breakpoint engine with bounded waits, exact process/exe/module hashes, dynamic original instruction reads/restoration proofs before and after detach, and independent debugger absence; no raw writes, arbitrary targets, installation or license-service changes",
+  "com_owner": "reuse pinned Swapp/OracleIdentity/AuthorCurves and source IID binding; exact one owned process, immutable inputs and same encoded paths; graceful COM shutdown and healthy brackets",
+  "construction_boundary": "root supplies independently frozen generated current cache+child+linked drawing from neutral inputs; all bytes model/rules; no captured rows or source-generated cache substitution",
+  "contrasts": [
+    "same neutral geometry/path/settings with standalone downstream stream omitted; do not predict absence of cache use because native rebuild may create a new cache",
+    "separate deliberately authored SaveModelData=0 drawing diagnostic and true counterpart; expected store count0 is source-proven, but do not silently change production settings or claim full detailing support"
+  ],
+  "copy_divergence_supplement": [
+    {
+      "module": "sldmodu.dll",
+      "preferred_va": "0x4bb5d4a0",
+      "role": "keeper forced context conversion entry",
+      "rva": "0xa1d4a0",
+      "sample": "RDX null/current model, R8d mode, keeper+8 cached-feature presence and+10 persistent-FR presence; global0x4db608b0 presence only"
+    },
+    {
+      "module": "sldmodu.dll",
+      "preferred_va": "0x4c95d74e",
+      "role": "native outgoing f1570 count",
+      "rva": "0x181d74e",
+      "sample": "EDX count, actual drawing owner and selected detail SaveModelData int; pair with typed post-save map readback"
+    }
+  ],
+  "disclosed_geometry_requests_mm": [
+    {
+      "depth": 14.3,
+      "edge_rule": "unique front left vertical rail x=0 spanning the full authored height; require unique actual line and endpoints, no ordinal selection",
+      "height": 22.7,
+      "name": "front_edge_note_alpha",
+      "scale": 1.0,
+      "view": "Front",
+      "width": 37.9
+    },
+    {
+      "depth": 8.6,
+      "edge_rule": "unique front left vertical rail x=0 spanning the full authored height; require unique actual line and endpoints, no ordinal selection",
+      "height": 9.8,
+      "name": "front_edge_note_beta",
+      "scale": 1.0,
+      "view": "Front",
+      "width": 31.4
+    }
+  ],
+  "held_out_inputs_read": 0,
+  "lifecycle": [
+    "qualify a disclosed native positive control using the same ordinary edge annotation and software-stop mechanism before any candidate route claim",
+    "in fresh owned process open exact linked drawing/child and verify file/config identity, original 16-row drawing/19-row child tree where applicable, analytic solid geometry and view transform",
+    "enumerate actual component/view edges; select one exact line through independent endpoint predicate, create one note, attach to that edge and require boolean success, one nonnull attached entity, exact expected type, not dangling and exact geometry",
+    "edit only the note text and its explicitly chosen position, then arm all required stops before SaveAs; do not wait until event7; record operation start/return and normal events7/9/28 separately",
+    "save with0errors0warnings; remove stops, verify dynamic original bytes restored and debugger absence; COM owns close",
+    "fresh process opens saved drawing, verifies the same actual child/configuration and note text/position plus one nonnull actual edge attachment, geometry and non-dangling state",
+    "independently change the existing linked child boss depth driver, rebuild/update the drawing and verify body mass/volume/area response plus continued edge attachment against independent analytic endpoints; the chosen Front rail remains geometrically fixed when only depth changes, so do not claim a changed projected length; save synchronized child/drawing and fresh reopen",
+    "final known control must repeat its own edit/save/reopen with healthy license inventory and distinct process identities; do not count post-constructor controls as pre-writer heldouts"
+  ],
+  "metadata_preflight": {
+    "enum_domains": "get visible entities uses swViewEntityType_e; annotation attached types use swSelectType_e; obtain actual constants from pinned wrapper/interop, do not interchange them",
+    "major_minor": [
+      34,
+      0
+    ],
+    "members_to_verify": [
+      "IView.GetVisibleComponents",
+      "IView.GetVisibleEntities2",
+      "IView.ModelToViewTransform",
+      "IEdge.GetStartVertex",
+      "IEdge.GetEndVertex",
+      "IVertex.GetPoint",
+      "IModelDoc2.InsertNote",
+      "INote.GetAnnotation",
+      "INote.SetText",
+      "INote.GetText",
+      "IAnnotation.SetAttachedEntities",
+      "IAnnotation.GetAttachedEntities3",
+      "IAnnotation.GetAttachedEntityTypes",
+      "IAnnotation.IsDangling",
+      "IAnnotation.GetPosition",
+      "IModelDocExtension.GetPersistReference3",
+      "IModelDocExtension.GetObjectByPersistReference3",
+      "ISldWorks.IsSame",
+      "IModelDoc2.ForceRebuild3"
+    ],
+    "output": "stable member names, IIDs, method/property shape, argument names/counts and integer enum values only; exclude volatile repr addresses and proprietary wrapper source",
+    "prior_known_generated_wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959",
+    "proposed_document_toggle": "swDetailingModeSaveModelData appears in official2026 enum; native f220 semantic getter is independently bound, but exact COM preference id/option-to-field dispatch is not claimed here",
+    "required_before_native": true,
+    "type_library_guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}"
+  },
+  "minimal_runtime_sites": [
+    {
+      "module": "slduiu.dll",
+      "preferred_va": "0x4a24aed7",
+      "role": "before exact cache-wrapper call",
+      "rva": "0x13aaed7",
+      "sample": "RCX actual component, EDX requested downstream id, R8 actual kernel edge; capture thread/frame and bounded operation id privately"
+    },
+    {
+      "module": "slduiu.dll",
+      "preferred_va": "0x4a24aedc",
+      "role": "immediate return of the same cache-wrapper call",
+      "rva": "0x13aaedc",
+      "sample": "nonnull/null RAX; exact matching individual thread/frame; nonnull proves actual f380/f60 route completed"
+    }
+  ],
+  "not_a_runnable_or_accepted_packet": true,
+  "oracle_identity": "SOLIDWORKS2026 SP05.2 34.5.2.0604, SldWorks.Application.34, reserved Windows11 ARM64/x64 emulation; root only",
+  "ownership_supplement": [
+    {
+      "module": "sldmodu.dll",
+      "preferred_va": "0x4b5287f0",
+      "role": "actual f380 lookup entry",
+      "rva": "0x3e87f0",
+      "sample": "RCX actual cache and EDX id; data.f6d0 actual owner/model, owner.f1348 equality and actual active configuration; bounded f60 row/id/result joins, no virtual calls from debugger"
+    },
+    {
+      "module": "slduiu.dll",
+      "preferred_va": "0x4a24b67b",
+      "role": "initial component-model return before downstream owner substitution",
+      "rva": "0x13ab67b",
+      "sample": "RAX initial model; tie to observed component/current child through actual pointer/owner and COM identity evidence"
+    },
+    {
+      "module": "slduiu.dll",
+      "preferred_va": "0x4a24af1e",
+      "role": "copied reference insertion into the drawing map",
+      "rva": "0x13aaf1e",
+      "sample": "RCX actual view, RDX component-key string owner, R8 pointer to exact downstream id and R9 copied edge ref; classify copy source versus new owner without publishing pointers"
+    }
+  ],
+  "publication": "retain private pointer addresses/code samples, publish only booleans, ids, lengths, hashes, source sites and measured outcomes; do not infer a COM-to-native pointer join from matching filenames",
+  "purpose": "distinguish actual child f380/f60 use from reference refusal, drawing-map/body fallback and unobserved consumer during an ordinary COM-owned edge annotation lifecycle",
+  "references": [
+    {
+      "title": "official2026 user preference toggle vocabulary",
+      "url": "https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swUserPreferenceToggle_e.html"
+    },
+    {
+      "title": "annotation attachment API and boolean result",
+      "url": "https://help.solidworks.com/2019/english/api/sldworksapi/solidworks.interop.sldworks~solidworks.interop.sldworks.iannotation~setattachedentities.html"
+    },
+    {
+      "title": "attached types, null and dangling behavior",
+      "url": "https://help.solidworks.com/2022/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IAnnotation~GetAttachedEntityTypes.html"
+    },
+    {
+      "title": "visible entity API successor vocabulary",
+      "url": "https://help.solidworks.com/2020/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IView_members.html"
+    }
+  ],
+  "schema": 1,
+  "status": "source-bound experiment design only; native observer/typelibrary/custody freeze still required",
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-SAVE"
+}

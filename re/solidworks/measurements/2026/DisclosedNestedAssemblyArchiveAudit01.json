@@ -1,0 +1,1361 @@
+{
+  "cases": {
+    "N01NestedSingle": {
+      "documents": {
+        "RiseModule": {
+          "bounds": {
+            "comparisons": {
+              "f1a18": {
+                "aabb_radius_abs_delta_m": 0.0012160618487688478,
+                "direct_fold_exact": true,
+                "direct_fold_max_abs_delta_m": 0.0,
+                "flat_leaves_extents_max_abs_delta_m": 0.0
+              },
+              "f1a20": {
+                "aabb_radius_abs_delta_m": 0.0012160618487688478,
+                "direct_fold_exact": true,
+                "direct_fold_max_abs_delta_m": 0.0,
+                "flat_leaves_extents_max_abs_delta_m": 0.0
+              }
+            },
+            "f1a28": 1,
+            "present": [
+              1,
+              1
+            ],
+            "two_boxes_byte_equal": true
+          },
+          "class": "moAssembly_c",
+          "cmgr": {
+            "default_option_values_equal": true,
+            "rows": [
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 24,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc50"
+              }
+            ],
+            "self_first": true
+          },
+          "cmgrhdr2_f4c_transform_stamp": 102,
+          "cmgrhdr2_f50_geometry_stamp": 216,
+          "direct_external_records": [
+            {
+              "f48_uses": 1,
+              "f60_file_time": 1794925236,
+              "f70_save_time": 1794925236,
+              "f78_index": 0,
+              "kind": 2,
+              "map_slot": 4,
+              "target": "SinglePlate"
+            }
+          ],
+          "f1300_own_geometry_stamp": 104,
+          "f1560_direct_occurrences": 1,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925237,
+            "configuration_flags": 2147746176,
+            "configuration_id": 0,
+            "f28_creation_time": 1794925163,
+            "f40_update_stamp": 109,
+            "f48_modification_time": 1794925208,
+            "fc4_expanded_occurrences": 1,
+            "self_f60_file_time": 1794925237
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 59422,
+          "native_sha256": "42da82c1d119a829ce92678b2f6d8416e292baec0dbe750fb1b1375df3453ba0",
+          "refs": [
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 24,
+              "map_slot": 8,
+              "stamps": {
+                "f3e0": 246,
+                "f3e8": 1794925208,
+                "f3f0": 102,
+                "f3f4": 112,
+                "f3f8": 101
+              },
+              "target": "SinglePlate"
+            }
+          ],
+          "resolved_root_count": 16,
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2491,
+              "map_base": 1,
+              "map_count": 36,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "711437049cfc18f4ae917c69c5952b15009d017ee61a917fe58408d15742edae",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "b3bff0d854a34035325d0120b3463b154f371944684121c94c275cd0825c0b94",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25166,
+              "map_base": 5,
+              "map_count": 103,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "4620f7fa727999c7c4035bee39696ac8aa07f5f030711044ce69c74cbe367489",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2699,
+              "map_base": 1,
+              "map_count": 73,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "fbaa7aa06a9dc99ad611784c958ac4437ef5fc1552e7d6f6ff730e7c8fb46729",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "map_base": 103,
+              "map_count": 164,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c",
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "6edb83ace96206339db74380873a2f3d1330e2fbbd4af2b0324423ac67f23a50",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2699,
+              "map_base": 1,
+              "map_count": 73,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "fbaa7aa06a9dc99ad611784c958ac4437ef5fc1552e7d6f6ff730e7c8fb46729",
+              "tail": 0
+            }
+          },
+          "xml": {
+            "bytes": 2112,
+            "definition_direct_counts": {
+              "RiseModule": 1,
+              "SinglePlate": 0
+            },
+            "definition_local_occurrences": 1,
+            "definitions": 2,
+            "expanded_occurrence_paths": 1,
+            "files": 2,
+            "sha256": "a26f85b75e1f65652840786b1cfc3b21c3527d930020d117b43f323db1a43788"
+          }
+        },
+        "SingleFrame": {
+          "bounds": {
+            "comparisons": {
+              "f1a18": {
+                "aabb_radius_abs_delta_m": 0.0068327026853992195,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 1.734723475976807e-18,
+                "flat_leaves_extents_max_abs_delta_m": 3.469446951953614e-18
+              },
+              "f1a20": {
+                "aabb_radius_abs_delta_m": 0.0068327026853992195,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 1.734723475976807e-18,
+                "flat_leaves_extents_max_abs_delta_m": 3.469446951953614e-18
+              }
+            },
+            "f1a28": 1,
+            "present": [
+              1,
+              1
+            ],
+            "two_boxes_byte_equal": true
+          },
+          "class": "moAssembly_c",
+          "cmgr": {
+            "default_option_values_equal": true,
+            "rows": [
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 24,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc48"
+              }
+            ],
+            "self_first": true
+          },
+          "cmgrhdr2_f4c_transform_stamp": 102,
+          "cmgrhdr2_f50_geometry_stamp": 320,
+          "direct_external_records": [
+            {
+              "f48_uses": 1,
+              "f60_file_time": 1794925237,
+              "f70_save_time": 1794925237,
+              "f78_index": 0,
+              "kind": 3,
+              "map_slot": 4,
+              "target": "RiseModule"
+            }
+          ],
+          "f1300_own_geometry_stamp": 104,
+          "f1560_direct_occurrences": 1,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925238,
+            "configuration_flags": 2147746176,
+            "configuration_id": 0,
+            "f28_creation_time": 1794925171,
+            "f40_update_stamp": 106,
+            "f48_modification_time": 1794925208,
+            "fc4_expanded_occurrences": 2,
+            "self_f60_file_time": 1794925238
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 54903,
+          "native_sha256": "57a12e043333c2d8ca841b9471ed01b46026a52e6717e12504c5ac73d8094f22",
+          "refs": [
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 24,
+              "map_slot": 8,
+              "stamps": {
+                "f3e0": 109,
+                "f3e8": 1794925208,
+                "f3f0": 102,
+                "f3f4": 216,
+                "f3f8": 102
+              },
+              "target": "RiseModule"
+            }
+          ],
+          "resolved_root_count": 16,
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2473,
+              "map_base": 1,
+              "map_count": 36,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "014f2b5ce75fdae2f644c89ec7cba74dd3a3aec7b95d14f623d67a40779a4b98",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "4aefa90be0d85fda37a3102bec3c40307ef8eed37b77a5fc04202794937b045b",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25168,
+              "map_base": 5,
+              "map_count": 103,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "a619eec248781e8784b748814446059f03d4f933fc9a9e9639724a578faaf600",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2697,
+              "map_base": 1,
+              "map_count": 73,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "c618120e1067bb54d5a44850737b8c02311f4f40ff696f65b59d14f5f7c5bfb6",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "map_base": 103,
+              "map_count": 164,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c",
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "55d6c6c3f4924d9824bfc0ee7658f916dabc973c3fe683b43a3b908629dc401d",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2697,
+              "map_base": 1,
+              "map_count": 73,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "c618120e1067bb54d5a44850737b8c02311f4f40ff696f65b59d14f5f7c5bfb6",
+              "tail": 0
+            }
+          },
+          "xml": {
+            "bytes": 3195,
+            "definition_direct_counts": {
+              "RiseModule": 1,
+              "SingleFrame": 1,
+              "SinglePlate": 0
+            },
+            "definition_local_occurrences": 2,
+            "definitions": 3,
+            "expanded_occurrence_paths": 2,
+            "files": 3,
+            "sha256": "fbefe988c72591f00673f7e5cdb673be31760773d4b7bc91b8411afe02a0874a"
+          }
+        },
+        "SinglePlate": {
+          "class": "moPart_c",
+          "cmgrhdr2_f4c_transform_stamp": 101,
+          "cmgrhdr2_f50_geometry_stamp": 112,
+          "f1300_own_geometry_stamp": 112,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925236,
+            "configuration_flags": 2151678336,
+            "configuration_id": 0,
+            "f28_creation_time": 1794690236,
+            "f40_update_stamp": 246,
+            "f48_modification_time": 1794925208,
+            "fc4_expanded_occurrences": 0,
+            "self_f60_file_time": 1794925236
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 60022,
+          "native_sha256": "afa4a7440b791ee90560e6fb0482994286c8de3a0bb66558a3259f00ee8ffa5e",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2407,
+              "map_base": 1,
+              "map_count": 19,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "7155a175aebabcf1f55b6a224692719c325d732d7f03dcd2cef00397e5d36029",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "a376ab3bf0f2cd1bf4feacea89ef2ec61f918528e1f29f6aeb8f8e028b23755a",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25690,
+              "map_base": 4,
+              "map_count": 110,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "29265e1d1a5975e8a1f1650d4b2809aa6a5fbc6182692daa2e1aded83bafc208",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2627,
+              "map_base": 1,
+              "map_count": 76,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "6dbfb86b1d430daf7f325659d7518c488ada25bedc24deda2cf4d2eda022911f",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 14655,
+              "map_base": 110,
+              "map_count": 288,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 6
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "b8c732282cc35c017a067bd2b4c35b36fb275c626f2801a982ba7fb239f14188",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2627,
+              "map_base": 1,
+              "map_count": 76,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "6dbfb86b1d430daf7f325659d7518c488ada25bedc24deda2cf4d2eda022911f",
+              "tail": 0
+            }
+          }
+        }
+      },
+      "original_reopen_sha256": "3f793c6aa6d5fd8569f7ed627e7c12b44ec380c2deeecb36a62a817e546e67d3",
+      "source_author_sha256": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330"
+    },
+    "N02MixedRepeated": {
+      "documents": {
+        "IndexModule": {
+          "bounds": {
+            "comparisons": {
+              "f1a18": {
+                "aabb_radius_abs_delta_m": 0.0005859831117747266,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 8.673617379884035e-19,
+                "flat_leaves_extents_max_abs_delta_m": 6.938893903907228e-18
+              },
+              "f1a20": {
+                "aabb_radius_abs_delta_m": 0.0005859831117747266,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 8.673617379884035e-19,
+                "flat_leaves_extents_max_abs_delta_m": 6.938893903907228e-18
+              }
+            },
+            "f1a28": 1,
+            "present": [
+              1,
+              1
+            ],
+            "two_boxes_byte_equal": true
+          },
+          "class": "moAssembly_c",
+          "cmgr": {
+            "default_option_values_equal": true,
+            "rows": [
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 25,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc50"
+              },
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 24,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc50"
+              }
+            ],
+            "self_first": true
+          },
+          "cmgrhdr2_f4c_transform_stamp": 204,
+          "cmgrhdr2_f50_geometry_stamp": 328,
+          "direct_external_records": [
+            {
+              "f48_uses": 2,
+              "f60_file_time": 1794925456,
+              "f70_save_time": 1794925456,
+              "f78_index": 0,
+              "kind": 2,
+              "map_slot": 4,
+              "target": "RotorPlate"
+            }
+          ],
+          "f1300_own_geometry_stamp": 104,
+          "f1560_direct_occurrences": 2,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925459,
+            "configuration_flags": 2147746176,
+            "configuration_id": 0,
+            "f28_creation_time": 1794925312,
+            "f40_update_stamp": 109,
+            "f48_modification_time": 1794925397,
+            "fc4_expanded_occurrences": 2,
+            "self_f60_file_time": 1794925459
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 49543,
+          "native_sha256": "4457e4b8f59712c1cb15e8aae176bbd821865b7e15251dfcfbfc569f10af39c8",
+          "refs": [
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 24,
+              "map_slot": 8,
+              "stamps": {
+                "f3e0": 246,
+                "f3e8": 1794925397,
+                "f3f0": 102,
+                "f3f4": 112,
+                "f3f8": 101
+              },
+              "target": "RotorPlate"
+            },
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 25,
+              "map_slot": 16,
+              "stamps": {
+                "f3e0": 246,
+                "f3e8": 1794925397,
+                "f3f0": 102,
+                "f3f4": 112,
+                "f3f8": 101
+              },
+              "target": "RotorPlate"
+            }
+          ],
+          "resolved_root_count": 16,
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2879,
+              "map_base": 1,
+              "map_count": 44,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "accccc275ce9f740e8d2f250d7218bc73e70b4d9477f05e721ba3f6c766fd9dd",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "c075ff368196a3e84f03a07cfe8b80aa68050215e7fe0b2741293c5fce78cbe3",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25760,
+              "map_base": 5,
+              "map_count": 107,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "01f6582f31c3a331f18e124fcab532a8644063d87d8cc69aee7ce705538b0fdf",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2767,
+              "map_base": 1,
+              "map_count": 75,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "d9d78a1b7be4596ab9cf08749f1cc38ced14830a626bd7258ff0a6190603b0cd",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "map_base": 107,
+              "map_count": 168,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c",
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "2664bf9fb411a82e960fbeed523985a87ec4c4301b8ab6c57144ed5ffdfe4546",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2767,
+              "map_base": 1,
+              "map_count": 75,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "d9d78a1b7be4596ab9cf08749f1cc38ced14830a626bd7258ff0a6190603b0cd",
+              "tail": 0
+            }
+          },
+          "xml": {
+            "bytes": 2640,
+            "definition_direct_counts": {
+              "IndexModule": 2,
+              "RotorPlate": 0
+            },
+            "definition_local_occurrences": 2,
+            "definitions": 2,
+            "expanded_occurrence_paths": 2,
+            "files": 2,
+            "sha256": "235878b04876ad4314128038edb35a53ece65d379f8aa2570ba315a0e9eb8558"
+          }
+        },
+        "MixedFrame": {
+          "bounds": {
+            "comparisons": {
+              "f1a18": {
+                "aabb_radius_abs_delta_m": 0.009390265121485414,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 2.7755575615628914e-17,
+                "flat_leaves_extents_max_abs_delta_m": 0.0004757318729328719
+              },
+              "f1a20": {
+                "aabb_radius_abs_delta_m": 0.009390265121485414,
+                "direct_fold_exact": false,
+                "direct_fold_max_abs_delta_m": 2.7755575615628914e-17,
+                "flat_leaves_extents_max_abs_delta_m": 0.0004757318729328719
+              }
+            },
+            "f1a28": 1,
+            "present": [
+              1,
+              1
+            ],
+            "two_boxes_byte_equal": true
+          },
+          "class": "moAssembly_c",
+          "cmgr": {
+            "default_option_values_equal": true,
+            "rows": [
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 26,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc48"
+              },
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 25,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc50"
+              },
+              {
+                "chain_length": 1,
+                "containing_file_name_equal": false,
+                "f30_stamp": 203,
+                "feature_id": 24,
+                "saved_option_deltas": [
+                  "f48",
+                  "f50",
+                  "f64"
+                ],
+                "target_option_field_from_native_dispatch": "fc48"
+              }
+            ],
+            "self_first": true
+          },
+          "cmgrhdr2_f4c_transform_stamp": 306,
+          "cmgrhdr2_f50_geometry_stamp": 869,
+          "direct_external_records": [
+            {
+              "f48_uses": 2,
+              "f60_file_time": 1794925459,
+              "f70_save_time": 1794925459,
+              "f78_index": 0,
+              "kind": 3,
+              "map_slot": 4,
+              "target": "IndexModule"
+            },
+            {
+              "f48_uses": 1,
+              "f60_file_time": 1794925458,
+              "f70_save_time": 1794925458,
+              "f78_index": 1,
+              "kind": 2,
+              "map_slot": 5,
+              "target": "TailPlate"
+            }
+          ],
+          "f1300_own_geometry_stamp": 104,
+          "f1560_direct_occurrences": 3,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925460,
+            "configuration_flags": 2147746176,
+            "configuration_id": 0,
+            "f28_creation_time": 1794925322,
+            "f40_update_stamp": 106,
+            "f48_modification_time": 1794925397,
+            "fc4_expanded_occurrences": 7,
+            "self_f60_file_time": 1794925460
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 49087,
+          "native_sha256": "f97c64d22168b832e425dbb657ba564ff93da97a4d4a633918bb5816a6c88c65",
+          "refs": [
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 24,
+              "map_slot": 9,
+              "stamps": {
+                "f3e0": 109,
+                "f3e8": 1794925397,
+                "f3f0": 102,
+                "f3f4": 328,
+                "f3f8": 204
+              },
+              "target": "IndexModule"
+            },
+            {
+              "child_config_id": 0,
+              "directory_slot": 5,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 25,
+              "map_slot": 17,
+              "stamps": {
+                "f3e0": 204,
+                "f3e8": 1794925397,
+                "f3f0": 102,
+                "f3f4": 109,
+                "f3f8": 101
+              },
+              "target": "TailPlate"
+            },
+            {
+              "child_config_id": 0,
+              "directory_slot": 4,
+              "f370_target_local_exact": true,
+              "f4b0": -1,
+              "feature_id": 26,
+              "map_slot": 21,
+              "stamps": {
+                "f3e0": 109,
+                "f3e8": 1794925397,
+                "f3f0": 102,
+                "f3f4": 328,
+                "f3f8": 204
+              },
+              "target": "IndexModule"
+            }
+          ],
+          "resolved_root_count": 16,
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 3528,
+              "map_base": 1,
+              "map_count": 52,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [
+                    "moContextChainComponent_c"
+                  ],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "f2c9e8c689d8917fdba8469e8077026d3bb048fe0591c931d6b0f0d78a95e093",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "27bc889859d0d6e07c4ee402d73562d11d7fb2acf749e371623b3be8fda337e6",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 26348,
+              "map_base": 6,
+              "map_count": 112,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "20fe287143b961b492689272d5e832804c02d37551aaee02585f9e0c5de6649c",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 3158,
+              "map_base": 1,
+              "map_count": 80,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "515c4f0706c85fe04a269bb0af6a2c0e6cc190c8e7234de4a74250637537b1be",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 5295,
+              "map_base": 112,
+              "map_count": 173,
+              "schema_usage": {
+                "load": {
+                  "provisional": [
+                    "moContextChainComponent_c",
+                    "su_CMapStringToString"
+                  ],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "87f72c320fe4350f066ab35c4ed94bda743a8968a983971df1ae023b259b4e47",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 3158,
+              "map_base": 1,
+              "map_count": 80,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "515c4f0706c85fe04a269bb0af6a2c0e6cc190c8e7234de4a74250637537b1be",
+              "tail": 0
+            }
+          },
+          "xml": {
+            "bytes": 5111,
+            "definition_direct_counts": {
+              "IndexModule": 2,
+              "MixedFrame": 3,
+              "RotorPlate": 0,
+              "TailPlate": 0
+            },
+            "definition_local_occurrences": 5,
+            "definitions": 4,
+            "expanded_occurrence_paths": 7,
+            "files": 4,
+            "sha256": "168692b050de90d371347739e918388f7508a45dc931f8a50da62a4d2d82c719"
+          }
+        },
+        "RotorPlate": {
+          "class": "moPart_c",
+          "cmgrhdr2_f4c_transform_stamp": 101,
+          "cmgrhdr2_f50_geometry_stamp": 112,
+          "f1300_own_geometry_stamp": 112,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925456,
+            "configuration_flags": 2151678336,
+            "configuration_id": 0,
+            "f28_creation_time": 1794690236,
+            "f40_update_stamp": 246,
+            "f48_modification_time": 1794925397,
+            "fc4_expanded_occurrences": 0,
+            "self_f60_file_time": 1794925456
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 60669,
+          "native_sha256": "a45911685ed326a97138f5e53d07de922af0d2ac228df253028d7730e42e6206",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2405,
+              "map_base": 1,
+              "map_count": 19,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "43f3671b397d144d606c12892c4673e51d7e6e05931c1296aab1c8234c3c3b6d",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "85b18a4cfbcc5743e1968cc0e2228aa350132c5b753a95273d096b4745af2c1e",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25688,
+              "map_base": 4,
+              "map_count": 110,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "671ac49582abc821321c5dc736bdf51fa851790e921a4c73e475a714d161fa04",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2625,
+              "map_base": 1,
+              "map_count": 76,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "779c7818bcdc78f07a49d4ca8d29bedf71ac17673f1ce7984bf849091d111671",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 14653,
+              "map_base": 110,
+              "map_count": 288,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 6
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "472327a89357f79629e4a655ecd75803ab691ab42c31103721e13a16052e60af",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2625,
+              "map_base": 1,
+              "map_count": 76,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "779c7818bcdc78f07a49d4ca8d29bedf71ac17673f1ce7984bf849091d111671",
+              "tail": 0
+            }
+          }
+        },
+        "TailPlate": {
+          "class": "moPart_c",
+          "cmgrhdr2_f4c_transform_stamp": 101,
+          "cmgrhdr2_f50_geometry_stamp": 109,
+          "f1300_own_geometry_stamp": 109,
+          "header_state": {
+            "cmgrhdr2_f60_save_time": 1794925458,
+            "configuration_flags": 2151678336,
+            "configuration_id": 0,
+            "f28_creation_time": 1794690236,
+            "f40_update_stamp": 204,
+            "f48_modification_time": 1794925397,
+            "fc4_expanded_occurrences": 0,
+            "self_f60_file_time": 1794925458
+          },
+          "model_header_self_map_slot": 3,
+          "native_bytes": 59384,
+          "native_sha256": "332d072b69598bbdd9de29631046d5e700f1c17b417a598062f3cb48bb4501c9",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 2401,
+              "map_base": 1,
+              "map_count": 19,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "59e49160784a5fde2549be6888e8083b3e254c7e7b2ee370a0838dbfdbc7fce9",
+              "tail": 0
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "map_base": 1,
+              "map_count": 5,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "ad151b328b42b3408b8dc06514fd40c90d639bc767837e445052518ce4440230",
+              "tail": 0
+            },
+            "Contents/Config-0": {
+              "bytes": 25686,
+              "map_base": 4,
+              "map_count": 110,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 3
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "0d3cedaecf9779627658182975b9ba53cc05db885c9f5cb199ec1ad9490992c9",
+              "tail": 0
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 2589,
+              "map_base": 1,
+              "map_count": 75,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "6d8f7e1aed1fa20fce7fb38d02716e1b6032b1b2e8353620b96ddd0168ba026d",
+              "tail": 0
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 14649,
+              "map_base": 110,
+              "map_count": 288,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 6
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 3
+                }
+              },
+              "sha256": "e0daf0cf32503f93b328de46dfc9849df9ee03123391132d7afd72c84f479d05",
+              "tail": 0
+            },
+            "Header2": {
+              "bytes": 2589,
+              "map_base": 1,
+              "map_count": 75,
+              "schema_usage": {
+                "load": {
+                  "provisional": [],
+                  "raw_operations": 0
+                },
+                "store": {
+                  "provisional": [],
+                  "raw_operations": 0
+                }
+              },
+              "sha256": "6d8f7e1aed1fa20fce7fb38d02716e1b6032b1b2e8353620b96ddd0168ba026d",
+              "tail": 0
+            }
+          }
+        }
+      },
+      "original_reopen_sha256": "a980abd0a602a587d9277a05e12a84cddba657c8513ff3418128f8056645aa37",
+      "source_author_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f"
+    }
+  },
+  "heldout_payloads_read": 0,
+  "native_replay": {
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "native_replay_sha256": "0ba5c90e2481411bae1e69e15f548fd08a0382d2c8ca1ce6cf96dc5ddfaba1ce",
+    "raw_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8"
+  },
+  "schema": "kit.sw2026.disclosed-nested-assembly-archive-audit.v1",
+  "tool_sha256": "8c00582797488e77e5e6e25707be62b774d80cacbffe31ac7da1367200db6fee",
+  "typed_audit_passed": true,
+  "version": 19000,
+  "writer_output_count": 0
+}

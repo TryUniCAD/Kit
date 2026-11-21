@@ -3,6 +3,10 @@ from interchange.document.Models.DocumentError import DocumentError
 from interchange.document.Models.DocumentFilter import FilterDocument
 from interchange.document.Models.DocumentMetadata import AddWrapperMeta, GetSemanticMeta
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.document.Models.Drawing.DrawingData import DrawingData
+from interchange.document.Models.Drawing.DrawingModelRef import DrawingModelRef
+from interchange.document.Models.Drawing.DrawingSheet import DrawingSheet
+from interchange.document.Models.Drawing.DrawingView import DrawingView
 from interchange.document.Models.DocumentPayload import GetPayloadIds
 from interchange.document.Behavior.DocumentMethods import BindDocumentMut
 from interchange.Compatibility.PythonCompat import BindCompatMut
@@ -10,7 +14,10 @@ from interchange.Compatibility.PublicMetadata import BindFunctionMut, BindNameMu
 from inspect import Signature as FuncSig
 from inspect import Parameter as FuncParam
 
-BindCompatMut((CadDocument,), {__name__: globals()})
+BindCompatMut(
+    (CadDocument, DrawingData, DrawingModelRef, DrawingSheet, DrawingView),
+    {__name__: globals()},
+)
 BindDocumentMut(CadDocument)
 
 BindNameMut(
@@ -194,6 +201,10 @@ with_wrapper_metadata = AddWrapperMeta
 __all__ = (
     "CadDocument",
     "CadDocumentValidationError",
+    "DrawingData",
+    "DrawingModelRef",
+    "DrawingSheet",
+    "DrawingView",
     "filter_document",
     "infer_capabilities",
     "retained_capabilities",

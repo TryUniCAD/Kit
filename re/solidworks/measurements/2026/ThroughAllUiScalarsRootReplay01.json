@@ -1,0 +1,35 @@
+{
+  "author_report_sha256": "20697d750ec97a92bd8f4fcd986ac1e2f1f76a9c204f8b1fc2f36d113b1ad7ff",
+  "candidate_sha256": "25c9842a4111fcba4c179dd6fc5a8870cd38e894e16578511614849332ca4a7a",
+  "expected_refusals": 48,
+  "fragment_reemissions": 70,
+  "fresh_process_count": 92,
+  "independent_report_sha256": "9dd0b3a811d69a78cafa5cd4b6c53ce74e4369d6b51dcb028cb953f40d15de62",
+  "native_launches": 0,
+  "native_rules_sha256": "96599c5694a0c89ed64e09b1b2a81a7c94fcc0b95cd6ca1abd696af560fd7a26",
+  "new_complete_native_outputs": 0,
+  "normalized_reports_equal": true,
+  "public_activation": false,
+  "remaining_owner_inventories": {
+    "D01": {
+      "changed_frontier_counts": [
+        2,
+        29
+      ],
+      "inventory_sha256": "251ed2b3503c81f7844f99431a2e9039b5c7889e03eb408cc5d78df079489b37",
+      "process_record_index": 5
+    },
+    "D02": {
+      "changed_frontier_counts": [
+        2,
+        29
+      ],
+      "inventory_sha256": "c296afbf4896ddceb930ac6ab66160bfd1aefe3ea36574c548af3b0f5d62734b",
+      "process_record_index": 13
+    }
+  },
+  "report_discrepancy": "two inventory transport records include their absolute output paths",
+  "schema": "kit.sw2026.through-all-ui-root-replay.v1",
+  "sealed_inputs_read": 0,
+  "source_manifest_sha256": "efd2d828c25a9dcc472c0c3e2d9107395bce5485aef2f61a54d8d0b6d90ce362"
+}

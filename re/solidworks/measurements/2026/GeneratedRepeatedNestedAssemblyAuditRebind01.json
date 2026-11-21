@@ -1,0 +1,23 @@
+{
+  "auditor_source_sha256": "39d61a39bea5ca86d350be8843fc244ea07fddb459515e034592b6a88373c60e",
+  "changed_codec_source_sha256": {
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "68953a7c45010a44a02136a8e3d48979a8cbb385c01a5d46773aa62ff6bc26b2",
+    "re/tooling/sw2026/serial/defs/MfcMaps.py": "99ab160b15521ee724426216b4a7917e77733500de84e78571ec3c559abcc3f6",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "c607a62dca5d9d7a40c2df91cc1ddf059f39305cbafddeba56c017d0f51a9614"
+  },
+  "changed_public_receipt_field": "typed_saved_audit.receipt_sha256",
+  "codec_dependency_snapshot_sha256": "67d68817da9ac9f14bb2c1e37a3015210846804888b2cd6c5744ce09dbaf1df7",
+  "constructor_and_predictor_hashes_unchanged": true,
+  "current_public_native_receipt_sha256": "65e6d044d9325ad0f9380e81452b0c917141b75b420814638e0b0ddf2eef3858",
+  "current_typed_audit_sha256": "17354e53036148332a988a78b5ed40924531b80631b59f311866aa2c5fc1d730",
+  "explanation": "Codec qualification metadata changed after ordinary context-chain and string-map owners were promoted; exact native bytes, geometry, transforms, saves and typed field values are unchanged",
+  "heldout_inputs_read": 0,
+  "native_inputs_and_result_unchanged": true,
+  "native_packet_sha256": "13c6f53da57a592e12304281f4cd6b025a60b5aab6f1df23ea3748d29c49cde1",
+  "native_phases_reexecuted": false,
+  "prior_public_native_receipt_sha256": "d635a9f5f5e74ac57cc4564a7381067e6acf86c483e0407ccd84d0aad8878b14",
+  "prior_revision_prefix": "0093",
+  "prior_typed_audit_sha256": "0bf56c4d1c80a82b7bd297b7c1bf0efc5d6a144dbe3f4abbf02c0d1b02a23669",
+  "raw_native_result_sha256": "eded243a834ae840c9e77b9effcfe5cb2a4c95318c299c67debbcd77e2dd6501",
+  "schema": "kit.sw2026.generated-repeated-nested-codec-audit-rebind.v1"
+}

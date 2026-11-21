@@ -1,0 +1,228 @@
+{
+  "annotation_buckets_still_rejected": true,
+  "cases": [
+    {
+      "case": "H01SheetA",
+      "definition_bytes": 37612,
+      "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "detail_folder_count": 2,
+      "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "malformed_full_store_rejections": 43,
+      "map_next_value": 331,
+      "modeled_flag_cases": [
+        {
+          "actual_aliases_preserved": true,
+          "authored_native_flag": 0,
+          "authored_variant_not_native_measurement": true,
+          "boolean_projection_matches_native_bit": true,
+          "native_flag_preserved": true,
+          "output_bytes": 37612,
+          "output_sha256": "507ca66aac2299ac8534ed7621fc3255e6e5aeb3048708a6cbc229e360879ea4",
+          "read_store_byte_identical": true,
+          "unprojected": [
+            "drawing.detailing_edges",
+            "drawing.occurrence_colours",
+            "drawing.profile_displays"
+          ]
+        },
+        {
+          "actual_aliases_preserved": true,
+          "authored_native_flag": 1,
+          "authored_variant_not_native_measurement": true,
+          "boolean_projection_matches_native_bit": true,
+          "native_flag_preserved": true,
+          "output_bytes": 37612,
+          "output_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+          "read_store_byte_identical": true,
+          "unprojected": [
+            "drawing.detailing_edges",
+            "drawing.occurrence_colours",
+            "drawing.profile_displays"
+          ]
+        }
+      ],
+      "normal_definition_profile_admitted": true,
+      "normal_map_slots_equal": true,
+      "normal_object_identities_preserved": true,
+      "normal_store_byte_identical": true,
+      "normal_store_output_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "portable_child_profile_join_claimed": false,
+      "profile_display_count": 1,
+      "profile_reference_aliases_preserved": true,
+      "raw_byte_identity_passed": true,
+      "raw_load_complete": true,
+      "raw_map_slots_equal": true,
+      "raw_object_identities_preserved": true,
+      "raw_store_complete": true,
+      "source_immutable": true,
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "unread_tail_bytes": 0
+    },
+    {
+      "case": "H02SheetB",
+      "definition_bytes": 37608,
+      "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "detail_folder_count": 2,
+      "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "malformed_full_store_rejections": 43,
+      "map_next_value": 331,
+      "modeled_flag_cases": [
+        {
+          "actual_aliases_preserved": true,
+          "authored_native_flag": 0,
+          "authored_variant_not_native_measurement": true,
+          "boolean_projection_matches_native_bit": true,
+          "native_flag_preserved": true,
+          "output_bytes": 37608,
+          "output_sha256": "6ea84f9ea0c3f2e7c087b376031d58a21c1aae3e373d69d98981f49fe7e84faf",
+          "read_store_byte_identical": true,
+          "unprojected": [
+            "drawing.detailing_edges",
+            "drawing.occurrence_colours",
+            "drawing.profile_displays"
+          ]
+        },
+        {
+          "actual_aliases_preserved": true,
+          "authored_native_flag": 1,
+          "authored_variant_not_native_measurement": true,
+          "boolean_projection_matches_native_bit": true,
+          "native_flag_preserved": true,
+          "output_bytes": 37608,
+          "output_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+          "read_store_byte_identical": true,
+          "unprojected": [
+            "drawing.detailing_edges",
+            "drawing.occurrence_colours",
+            "drawing.profile_displays"
+          ]
+        }
+      ],
+      "normal_definition_profile_admitted": true,
+      "normal_map_slots_equal": true,
+      "normal_object_identities_preserved": true,
+      "normal_store_byte_identical": true,
+      "normal_store_output_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "portable_child_profile_join_claimed": false,
+      "profile_display_count": 1,
+      "profile_reference_aliases_preserved": true,
+      "raw_byte_identity_passed": true,
+      "raw_load_complete": true,
+      "raw_map_slots_equal": true,
+      "raw_object_identities_preserved": true,
+      "raw_store_complete": true,
+      "source_immutable": true,
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "unread_tail_bytes": 0
+    }
+  ],
+  "complete_source_semantics_admitted": false,
+  "control": {
+    "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+    "empty_profile_display_count": 0,
+    "input_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+    "normal_read_passed": true,
+    "normal_store_byte_identical": true,
+    "unprojected": []
+  },
+  "executed_runner_sha256": "5335169c7eb4c15f0f9bb5e1428ff1d4099d3bdcd74f6867d6f999e6763b966e",
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "native_execution": false,
+  "native_proof_sha256": "db6343491612761ae1cbc7aabcea1c6b5be824770126c5fa82dae13e4bd91bb3",
+  "new_public_adapter_mode": false,
+  "original_heldout_verdict_changed": false,
+  "original_writer_changed": false,
+  "other_detail_collections_unchanged": 33,
+  "portable_child_profile_join_projected": false,
+  "prior_processes": {
+    "disclosed_positive_workers": 18,
+    "passed": true,
+    "real_workers": 43,
+    "unsupported_job_workers": 25
+  },
+  "public_reader": {
+    "normal_adapter_changed": false,
+    "scope": "legacy prefix/layout projection remains separate from complete internal Definition codec",
+    "strict_false_layout": [
+      {
+        "admitted": true,
+        "case": "H01SheetA",
+        "diagnostic_codes": [
+          "slddrw.layout_inspection"
+        ],
+        "input_unchanged": true
+      },
+      {
+        "admitted": true,
+        "case": "H02SheetB",
+        "diagnostic_codes": [
+          "slddrw.layout_inspection"
+        ],
+        "input_unchanged": true
+      }
+    ],
+    "strict_true": [
+      {
+        "admitted": false,
+        "case": "H01SheetA",
+        "error_type": "SldprtFormat",
+        "message": "strict SOLIDWORKS drawing reading is unavailable. Use strict=False for layout inspection."
+      },
+      {
+        "admitted": false,
+        "case": "H02SheetB",
+        "error_type": "SldprtFormat",
+        "message": "strict SOLIDWORKS drawing reading is unavailable. Use strict=False for layout inspection."
+      }
+    ],
+    "typed_full_definition_reader_used_by_public_adapter": false
+  },
+  "raw_reports": {
+    "exact_original_normal_definition": {
+      "name": "ProfileDisplayOriginalsRoot01.json",
+      "sha256": "cb30a5a446f9f5e07b07237e216c6a24d0b94e1b707e653ef5bfdb139cf017b4"
+    },
+    "full_retention": {
+      "bytes": 359037,
+      "name": "ProfileDisplayProcessResults01.json",
+      "sha256": "c029e5b50efed8b5c8e2467c4255af09225de02f97f36f7fe10938f596db5d70"
+    },
+    "original_collection_observer": {
+      "name": "SheetAnnotationOriginals01.json",
+      "sha256": "931ddb3d646bfeeb85a41381a537aed5ccc9e6af0b78eefc1916f882c499d5a7"
+    },
+    "prior43": {
+      "name": "ProfileDisplayPrior43Root01.json",
+      "sha256": "89ce1c354b7211b544f7f7278a54f8c27ee8fd287771d2c4ecf26a3da2f7a56b"
+    },
+    "public_layout_route": {
+      "name": "ProfileDisplayPublicLayoutRoot01.json",
+      "sha256": "766a8cad92c29bc930b8867efb375f21f8f6540b234f04c540a931f4b32bd15b"
+    }
+  },
+  "reader_source_manifest_sha256": "66b81576ae9424372bb89f70369b90f28727e3cd6fa39e8070f5270bb5ff4a33",
+  "schema": "kit.sw2026.drawing-profile-display-read-receipt.v1",
+  "sdk_delta_paths": 13,
+  "sdk_runtime_research_imports": false,
+  "source_files": 4389,
+  "source_saved_byte_fallback": false,
+  "source_saved_defaults": false,
+  "status": "full typed Definition read/store retention passed for both disclosed originals; portable display semantics and original writer remain unqualified",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "total_authored_flag_full_store_read_variants": 4,
+  "total_malformed_full_store_rejections": 86,
+  "vm_access": false,
+  "worker_product_execution": false
+}

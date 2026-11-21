@@ -1,0 +1,439 @@
+{
+  "schema": "kit.sw2026.component-profile-native-field-proof.v2",
+  "scope": "ordinary version19000 raw drawing Definition; outer conditions0, documented temporary view bit0x40 only; no constructor or writer promotion",
+  "modules": {
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "base": "0x4b140000",
+      "exception_directory": {
+        "rva": "0x2a6a000",
+        "bytes": 988296,
+        "records": 82358
+      }
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "base": "0x3c720000",
+      "exception_directory": {
+        "rva": "0x7e6000",
+        "bytes": 222504,
+        "records": 18542
+      }
+    },
+    "swccu.dll": {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "bytes": 252504,
+      "base": "0x31a30000",
+      "exception_directory": {
+        "rva": "0x3a000",
+        "bytes": 11748,
+        "records": 979
+      }
+    }
+  },
+  "class": {
+    "name": "moCompProfile_c",
+    "vtable": "0x4ce96e68",
+    "vtable_range": {
+      "start": "0x4ce96e68",
+      "end": "0x4ce96e98",
+      "bytes": 48,
+      "sha256": "371092c43644d3a00a03a306cb4f9bc45e1fb6d48e8a8c1bb8a40a167ba4da5c"
+    },
+    "complete_object_locator": {
+      "start": "0x4d318ae0",
+      "end": "0x4d318af8",
+      "bytes": 24,
+      "sha256": "97b8d08d5c1a947b96644c19d2ecca25f8447ee68fd3110d9a98fc98e2756834"
+    },
+    "rtti_chain": [
+      ".?AVmoCompProfile_c@@",
+      ".?AVmoCompFeature_c@@",
+      ".?AVmoCompRef_c@@",
+      ".?AVsu_CObject@@",
+      ".?AVCObject@@",
+      ".?AVutDisplayedEntity_c@@"
+    ],
+    "serializer_slot": "0x28",
+    "serializer_target": "0x4bba6b20",
+    "runtime_getter": {
+      "ranges": [
+        {
+          "start": "0x4bb96900",
+          "end": "0x4bb96908",
+          "bytes": 8,
+          "sha256": "01e207bfb0e61cb3fbfdc3074a5a37dfe039f272ce4a9ae3c6735a4f1a78296b"
+        }
+      ],
+      "unwind_rows": [],
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+    },
+    "runtime_descriptor": {
+      "start": "0x4dade5f0",
+      "end": "0x4dade620",
+      "bytes": 48,
+      "sha256": "15008b2af3b5154b04ddf76759259a7ef0b03294b018a4ec0b3535426f61c96a"
+    },
+    "versioned_schema_word": "0x80000001",
+    "wire_schema": 1,
+    "object_size": 272
+  },
+  "functions": {
+    "moCompProfile_c_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bba6b20",
+          "end": "0x4bba6b5a",
+          "bytes": 58,
+          "sha256": "ea2d20324ac8c95d31a945c20139b7f06c1425116df1b2f082107c2095d8b876"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bba6b20",
+          "end": "0x4bba6b5a",
+          "unwind": "0x4d385bbc"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "moCompFeature_c_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bba62a0",
+          "end": "0x4bba676d",
+          "bytes": 1229,
+          "sha256": "1703ec55102f92d9eea09ab356986b5766df3d2d40a947a7a343d0b2979b9ac1"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bba62a0",
+          "end": "0x4bba676d",
+          "unwind": "0x4d4d56ac"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "moCompRef_c_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bba6ed0",
+          "end": "0x4bba7c87",
+          "bytes": 3511,
+          "sha256": "6c741d6c802d356c0773b7e6460b7d3f10ee1cec1c9a3773238c9a13f9ffaa76"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bba6ed0",
+          "end": "0x4bba7c87",
+          "unwind": "0x4d4d5638"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "legacy_component_feature_helper": {
+      "ranges": [
+        {
+          "start": "0x4bbacf80",
+          "end": "0x4bbad13c",
+          "bytes": 444,
+          "sha256": "05c5e82d3d34e2333fd0bcd675e25a7ba97b2bb265ef7601192184eb38354ae4"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bbacf80",
+          "end": "0x4bbad13c",
+          "unwind": "0x4d4d56e0"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "moFRData_c_serializer": {
+      "ranges": [
+        {
+          "start": "0x4bb34b60",
+          "end": "0x4bb34e82",
+          "bytes": 802,
+          "sha256": "ced5415c3962d6c81ef561fe83f61b9417f458c5eebcb108832b354186efd19d"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4bb34b60",
+          "end": "0x4bb34e82",
+          "unwind": "0x4d4c95b4"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "moArchiveHelper_c_constructor": {
+      "ranges": [
+        {
+          "start": "0x3c7a8e60",
+          "end": "0x3c7a8ec6",
+          "bytes": 102,
+          "sha256": "43d00bfac3fc4a45622bf45cc39a88da36265905d07c2c948b5b12eca77dd804"
+        },
+        {
+          "start": "0x3c7a8ec6",
+          "end": "0x3c7a8ef0",
+          "bytes": 42,
+          "sha256": "f4ebd6ccbb3f592e5206e4cc4079e5630a1dd689074b8e67464bd7621ff63311"
+        },
+        {
+          "start": "0x3c7a8ef0",
+          "end": "0x3c7a8ef9",
+          "bytes": 9,
+          "sha256": "d6572387dfd7fea0782fda1d64a5968ca95e5526c26531f5b35345da20a58d55"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x3c7a8e60",
+          "end": "0x3c7a8ec6",
+          "unwind": "0x3cce346c"
+        },
+        {
+          "begin": "0x3c7a8ec6",
+          "end": "0x3c7a8ef0",
+          "unwind": "0x3ccef72c"
+        },
+        {
+          "begin": "0x3c7a8ef0",
+          "end": "0x3c7a8ef9",
+          "unwind": "0x3ccef740"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    },
+    "su_CArchive_IsStoring": {
+      "ranges": [
+        {
+          "start": "0x31a36450",
+          "end": "0x31a36459",
+          "bytes": 9,
+          "sha256": "c38fc7125df48956e9d50c82141cee0571eef224e35ef431208d394362b6aa16"
+        }
+      ],
+      "unwind_rows": [],
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+    },
+    "empty_section_serializer": {
+      "ranges": [
+        {
+          "start": "0x4b27e120",
+          "end": "0x4b27e123",
+          "bytes": 3,
+          "sha256": "b6cbececf1b07e74f37d57710c68c31f0b92cb08d51093252b321b07542e177b"
+        }
+      ],
+      "unwind_rows": [],
+      "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+    },
+    "moDrView_serializer": {
+      "ranges": [
+        {
+          "start": "0x4c958dc0",
+          "end": "0x4c95d339",
+          "bytes": 17785,
+          "sha256": "b1018566bae23e886645bb5ffcc13ee501f2f6a0bd57fb041f9a1f4c516d2656"
+        }
+      ],
+      "unwind_rows": [
+        {
+          "begin": "0x4c958dc0",
+          "end": "0x4c95d339",
+          "unwind": "0x4d6c3820"
+        }
+      ],
+      "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+    }
+  },
+  "profile_wrapper": {
+    "ordered_calls": [
+      {
+        "site": "0x4bba6b35",
+        "iat": "0x4cd33cf0",
+        "dll": "sldmfcu.dll",
+        "target": "0x3c7a8e60",
+        "method": "moArchiveHelper_c constructor",
+        "receiver": "stack-local wrapper",
+        "archive_argument": "unchanged input"
+      },
+      {
+        "site": "0x4bba6b41",
+        "target": "0x4bba62a0",
+        "method": "moCompFeature_c serializer",
+        "receiver": "actual moCompProfile_c",
+        "archive_argument": "unchanged input"
+      },
+      {
+        "site": "0x4bba6b49",
+        "iat": "0x4cd3d870",
+        "dll": "swccu.dll",
+        "target": "0x31a36450",
+        "method": "su_CArchive IsStoring",
+        "result": "unused"
+      }
+    ],
+    "own_serialized_fields": [],
+    "own_archive_map_entries": [],
+    "additional_wire_width_beyond_base": 0,
+    "own_version_or_mode_branches": []
+  },
+  "helper_state": {
+    "archive_lookup": "iMFCtoMOArchiveTable lookup; helper pointer and conditions copied to local wrapper",
+    "cache_map": "helper object +0x290",
+    "capacity_branch": "when the map is empty and bucket count <=17, choose ut_AskHashTableInitializer(3001) and InitHashTable with false initialization flag",
+    "wire_entries_inserted_by_constructor": 0,
+    "wire_primitives_called_by_constructor": [],
+    "hash_capacity_is_runtime_cache_not_serialized_default": true
+  },
+  "section_virtuals": [
+    {
+      "slot": "0x4b8",
+      "target": "0x4b27e120",
+      "additional_body_fields": []
+    },
+    {
+      "slot": "0x4c0",
+      "target": "0x4b27e120",
+      "additional_body_fields": []
+    }
+  ],
+  "reusable_schema": {
+    "moCompProfile_c": [
+      {
+        "operation": "Base",
+        "schema": "moCompFeature_c"
+      }
+    ]
+  },
+  "ordinary_base_field_sequence": [
+    "moCompRef_c.f58 object reference",
+    "f68 i32",
+    "f18 i32",
+    "f1c i32",
+    "f20 i32",
+    "f30 i32",
+    "f70 i32",
+    "f84 i32",
+    "if f84 nonzero embed moOldRef_c at f88",
+    "fa0 i32",
+    "f34 u32",
+    "f48 i32",
+    "f90 i32",
+    "f94 i32",
+    "f98 i32",
+    "f9c i32",
+    "has_fb0 i32",
+    "if has_fb0 nonzero object fb0",
+    "has_fb8 i32",
+    "if has_fb8 nonzero CString fb8",
+    "has_fc0 i32",
+    "if has_fc0 nonzero embed moCompRefInfo_c",
+    "has_fc8 i32",
+    "if has_fc8 nonzero embed mgXform_c.restore",
+    "has_fd0 i32",
+    "if has_fd0 nonzero CString fd0",
+    "f4c u32",
+    "moCompFeature_c inherited FRData branch"
+  ],
+  "fr_data_branch": {
+    "native_version_cut": "versions <0x2c9 use legacy helper; ordinary19000 excludes it",
+    "cond_fr_i32_present": "(conditions & 1) !=0 and (conditions &0x10000) !=0",
+    "inline_on_read": "cond_fr !=0 or conditions bit1 clear or conditions bit0x200000 set or ctx874 !=0 or ctx894 !=0",
+    "additional_inline_on_native_store": "conditions bit0x8000000 set",
+    "ordinary_selected_profile": "outer conditions0, effective conditions0 or0x40, ctx874=ctx894=0; bit0x1 remains clear so inline ff0 moFRData_c is mandatory",
+    "ordinary_inline_fields": [
+      "f00 i32",
+      "f08 time32/u32"
+    ],
+    "other_branch": "has_ff0 i32 followed by inline moFRData_c only when nonzero",
+    "conditional_runtime_map": "load has_ff0 nonzero with condition0x800 toggles helper+0x618 and registers retained nonnull FRData at helper+0x5f8[index helper+0x608]",
+    "fr_data_runtime_fixups": [
+      "condition0x800 with helper+0x618 clear can remap ID/time using the native model",
+      "condition mask0x1002000 can set runtime time to unset",
+      "condition0x2000 can negate/remap runtime IDs through the native global model/ID map"
+    ],
+    "runtime_fixups_do_not_add_wire_fields": true,
+    "ordinary_map_branch_excluded": "conditions restricted to0 or0x40 excludes0x800,0x1002000,0x2000 and0x8000000; no special FRData retention or ID/time normalization is promoted",
+    "native_store_vs_raw_wire_normalization_kept_separate": true
+  },
+  "transitive_reachability": [
+    "moComponent_c concrete subtype from f58",
+    "moFRData_c",
+    "conditional moOldRef_c",
+    "conditional moFacetedData_c",
+    "conditional moCompRefInfo_c and its own references",
+    "conditional mgXform_c.restore"
+  ],
+  "direct_introduced_class": "moCompProfile_c only",
+  "original_writer_unchanged": true,
+  "original_heldout_verdict_unchanged": true,
+  "native_execution": false,
+  "remaining": [
+    "moChainComponent_c schema1 is the next concrete dependency in both original streams; complete source stream parity remains false",
+    "no universal admission for special archive conditions or conditional dependent layouts",
+    "no fresh component-profile factory, ID, log, display or writer construction rules supplied",
+    "original frozen writer full semantic/native/heldout rejection remains fixed"
+  ],
+  "prior_native_checkpoint_sha256": "0f38e05a716c7f2ae1d40d860351e93ee11d6e382beb9a8f9f91ca0167c947e9",
+  "actual_drawing_scope": {
+    "outer_conditions": 0,
+    "documented_view_temporary_mask": "0x40",
+    "accepted_effective_conditions": [
+      0,
+      64
+    ],
+    "required_owner_is_drawing": 1,
+    "required_ctx874": 0,
+    "required_ctx894": 0,
+    "guard": "owner_is_drawing ==1 and ((conditions & ~0x40) | ctx874 | ctx894) ==0",
+    "native_set_site": "0x4c958f87",
+    "native_restore_site": "0x4c95cb24",
+    "source_context_report_sha256": "9ec14b60c1f2ba19d5d88454482bbb731fc5bafbf9460e64ce4a29361d80e587",
+    "source_context_evidence": "both already disclosed originals reach the concrete profile with owner_is_drawing1 and effective conditions0x40; absent helper flags mean0 in the existing archive context",
+    "evidence_kind": "static native instructions plus actual SDK source decode context, not a native runtime trace",
+    "outside_profile": "special FRData condition bits, nonzero ctx874/ctx894, nondrawing owner, older file versions and unsupported concrete schemas remain closed"
+  },
+  "new_sdk_scope": {
+    "concrete_schema_one_layout": "guarded Base(moCompFeature_c)",
+    "new_wire_fields": [],
+    "saved_values_or_defaults_added": false,
+    "shared_component_layouts_modified": false,
+    "public_drawing_admission_changed": false
+  },
+  "source_checkpoint_paths": {
+    "re/solidworks/records/DrawingLinkedDefinition2026.md": "b8b10a5464d0689cec8a74c4aff41a7765494b13dd706f4d813878a4e1a18a17",
+    "re/solidworks/records/DrawingAbsoluteViewFields2026.md": "879b53085e29f335651c4cc0fc05fa2df1fdb5f2c2cd82ceedab40ba38b4eaea",
+    "re/data/Serialization/SerializeMap2026.json": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+  },
+  "confidence": {
+    "concrete_wrapper_native_identity": {
+      "status": "confirmed",
+      "evidence": "original PE RTTI, actual vtable dispatch and complete native serializer; concrete schema1 occurs in both authorized disclosed originals"
+    },
+    "ordinary_base_wire_order": {
+      "status": "confirmed",
+      "evidence": "complete native base functions and existing shared typed ComponentFields grammar; no new primitive or per-file field program"
+    },
+    "actual_source_component_body_completion": {
+      "status": "partial",
+      "evidence": "actual whole-stream decoders enter the concrete owner and stop inside its first unresolved dependency, moChainComponent_c schema1; no full-body or stream parity claim"
+    },
+    "special_FRData_runtime_contexts": {
+      "status": "partial",
+      "evidence": "native branches documented but intentionally rejected by this drawing-specific profile; no dynamic acceptance or universal map semantics claim"
+    },
+    "fresh_component_profile_construction": {
+      "status": "not found",
+      "evidence": "no factory, identifier, log or semantic constructor is added by this tranche"
+    }
+  }
+}

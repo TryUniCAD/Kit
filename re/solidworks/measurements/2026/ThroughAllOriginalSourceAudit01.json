@@ -1,0 +1,365 @@
+{
+  "schema_version": 1,
+  "task_id": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "owner": "assembly_occurrence",
+  "delivery_pr": 121,
+  "status": "disclosed_source_audit_passed_original_conversion_unqualified",
+  "reader_revision": "7fd67d22dafb5078e0b82e3d2108481641a91e41",
+  "reader_source_file_count": 4510,
+  "reader_source_manifest_sha256": "3c257d29aecb41668dbf0b3620ea59be7a90ef0b7f6d03ef2a753617b54853ef",
+  "method_code_manifest_sha256": "f1538117ea54dc6d225213932fe4b1a1b8b8d15209a29f8d67aaeca4074ea354",
+  "method_code_files_sha256": {
+    "AuditThroughSource.py": "41c876556e0625087df28ca38cfd33a219d089b8d03621ca5efe1f15f8b3be08",
+    "throughsource/Compare.py": "74125af6b34d6fd664cd12b0a69e5fd057c969630d7934d713a0b80d9d6938cd",
+    "throughsource/Coverage.py": "06be06279d826dfaca6f8a2304bd17634019cf94602818105f4eea797ae3bbfd",
+    "throughsource/Predict.py": "aa548dd0839983416e5f2c3ba2c8124b34ba3ecaca15b6fa447e0de28ca9da61",
+    "throughsource/Process.py": "8ae14a046a8ee31493e6e64d7693c9b424c2d3bfe99e0b3d0f8a0127bc24e208",
+    "throughsource/Propose.py": "71d105cb00522c3e1c81cf8da2edaaa289817c994c3db9c703edcf2bed05ba55",
+    "throughsource/ReadSource.py": "2b4928c4f90d737397331ceac4217c5043d080f64056a0ebd2913f3cb790638e",
+    "throughsource/Shape.py": "a97e89a34ee61dbc7cef586da1917d737492d7be5d659f9d77b94c4940f54f95"
+  },
+  "source_audit_raw_sha256": "50f466099a5bb7e0215d50a1078b22c14470be04f2e10e75c6427bdc5700e399",
+  "proposal_raw_sha256": "0ee062fdf039aa299cc78f5cb1dd3389d0693e9d36f5d1a53a5901fe6978dbc5",
+  "fresh_processes": {
+    "source_audit": 33,
+    "lifecycle_proposal": 5,
+    "total": 38
+  },
+  "scope": {
+    "native_controls_disclosed": 3,
+    "ordinary_and_geometry_disabled_sdk_reads": 6,
+    "shape_scope_negatives": 21,
+    "removed_history_comparisons": 3,
+    "lifecycle_positive_proposals": 3,
+    "invalid_edit_policy_rejections": 2,
+    "source_runtime": "pinned Python 3.11 SDK processes, no CAD",
+    "source_access": "exact Trial.json control_file payloads only, no author semantic sidecars",
+    "writer_output_count": 0,
+    "held_out_accessed": false,
+    "native_oracle_used": false,
+    "native_acceptance": false,
+    "full_original_source_equivalence": false
+  },
+  "cases": [
+    {
+      "id": "D01",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "trial_sha256": "b390c68864a8508316d7badd4b43c7643c3dffbcac9ba797fac21a4eb417ab3b",
+      "coverage_sha256": "c10ad384dd59682319401e9978bb3e6b9e6b38838e10956b8e9c199a64dff8da",
+      "normalized_document_sha256": "11e3613c58f5e43525d7f147f2567657840355c1aa9fc5d6a55183a2714d478f",
+      "source_owner_ids_preserved": true,
+      "native_bytes_in_normalized_document": 0,
+      "counts": {
+        "history_rows": 28,
+        "typed_root_ids": 21,
+        "legacy_only_ids": 7,
+        "support_planes": 3,
+        "sketches": 2,
+        "line_entities": 4,
+        "circle_entities": 1,
+        "centre_point_entities": 1,
+        "axis_relations": 4,
+        "parameters": 1,
+        "selections": 3,
+        "bodies": 1,
+        "configurations": 1
+      },
+      "source_tree_projection": "unqualified",
+      "stock_operation": "join",
+      "cut_scope": "explicit_selected_stock",
+      "selection_path": [
+        "feature",
+        "actual Boss.id",
+        "body"
+      ],
+      "continuous_automatic_selection_proved": false,
+      "independent_prediction": {
+        "active_cut_dimensions": 0,
+        "basis": "independent analytic rectangle-minus-cylinder integration from complete portable owners",
+        "body_count": 1,
+        "bounds_m": {
+          "maximum": [
+            0.03882,
+            0.020960000000000003,
+            0.013955
+          ],
+          "minimum": [
+            -0.03248,
+            -0.02574,
+            -0.013955
+          ]
+        },
+        "center_of_mass_m": [
+          0.003496777343316303,
+          -0.0026071914059617434,
+          -0.00023031201141308176
+        ],
+        "cut_interval_local_m": [
+          0.0,
+          0.013955
+        ],
+        "edge_count": 14,
+        "face_count": 8,
+        "rim_centers_world_m": [
+          [
+            -0.00673,
+            0.00419,
+            0.0
+          ],
+          [
+            -0.00673,
+            0.00419,
+            0.013955
+          ]
+        ],
+        "stock_driver_m": 0.02791,
+        "surface_area_m2": 0.01396780163341472,
+        "vertex_count": 10,
+        "volume_m3": 8.996273307849845e-05
+      },
+      "brep_postprediction_checks": {
+        "bounds_equal": true,
+        "signed_rims_equal": true,
+        "topology_counts_equal": true
+      },
+      "proposal_edit": {
+        "before_m": 0.02791,
+        "after_m": 0.03937925,
+        "policy": {
+          "ratio": 1.375,
+          "offset_m": 0.001003
+        },
+        "measured_natively": false
+      },
+      "shape_identical_history_crop_rejected": true,
+      "unmapped_owner_roles": [
+        "system_presentation",
+        "system_history",
+        "source_provenance",
+        "style_units_and_appearance",
+        "native_system_children",
+        "body_caption",
+        "sketch_incidence",
+        "circle_center",
+        "operation_links",
+        "direction_axes",
+        "source_metadata"
+      ]
+    },
+    {
+      "id": "D02",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "trial_sha256": "0f4c456cdb1d1c4d820c931fe558ff910aabb6ec99c2f1043b7f264d8482437b",
+      "coverage_sha256": "73f4940dcf6a40e8667c2d9eb16264619e188e98c653c64f167d26fcbfe5bbf1",
+      "normalized_document_sha256": "7cd3183c1ec1314fc4016bda841deeb7a9d940fb61b24486bd213bdd17b0b49d",
+      "source_owner_ids_preserved": true,
+      "native_bytes_in_normalized_document": 0,
+      "counts": {
+        "history_rows": 28,
+        "typed_root_ids": 21,
+        "legacy_only_ids": 7,
+        "support_planes": 3,
+        "sketches": 2,
+        "line_entities": 4,
+        "circle_entities": 1,
+        "centre_point_entities": 1,
+        "axis_relations": 4,
+        "parameters": 1,
+        "selections": 3,
+        "bodies": 1,
+        "configurations": 1
+      },
+      "source_tree_projection": "unqualified",
+      "stock_operation": "join",
+      "cut_scope": "explicit_selected_stock",
+      "selection_path": [
+        "feature",
+        "actual Boss.id",
+        "body"
+      ],
+      "continuous_automatic_selection_proved": false,
+      "independent_prediction": {
+        "active_cut_dimensions": 0,
+        "basis": "independent analytic rectangle-minus-cylinder integration from complete portable owners",
+        "body_count": 1,
+        "bounds_m": {
+          "maximum": [
+            0.037739999999999996,
+            0.016235,
+            0.023220000000000005
+          ],
+          "minimum": [
+            -0.04636,
+            -0.016235,
+            -0.030680000000000002
+          ]
+        },
+        "center_of_mass_m": [
+          -0.004690194149386643,
+          0.00026836747892574464,
+          -0.004046057049403155
+        ],
+        "cut_interval_local_m": [
+          -0.016235,
+          0.0
+        ],
+        "edge_count": 14,
+        "face_count": 8,
+        "rim_centers_world_m": [
+          [
+            0.00719,
+            -0.016235,
+            0.00583
+          ],
+          [
+            0.00719,
+            0.0,
+            0.00583
+          ]
+        ],
+        "stock_driver_m": 0.03247,
+        "surface_area_m2": 0.019007992204370404,
+        "vertex_count": 10,
+        "volume_m3": 0.0001424758812580002
+      },
+      "brep_postprediction_checks": {
+        "bounds_equal": true,
+        "signed_rims_equal": true,
+        "topology_counts_equal": true
+      },
+      "proposal_edit": {
+        "before_m": 0.03247,
+        "after_m": 0.045649249999999995,
+        "policy": {
+          "ratio": 1.375,
+          "offset_m": 0.001003
+        },
+        "measured_natively": false
+      },
+      "shape_identical_history_crop_rejected": true,
+      "unmapped_owner_roles": [
+        "system_presentation",
+        "system_history",
+        "source_provenance",
+        "style_units_and_appearance",
+        "native_system_children",
+        "body_caption",
+        "sketch_incidence",
+        "circle_center",
+        "operation_links",
+        "direction_axes",
+        "source_metadata"
+      ]
+    },
+    {
+      "id": "D03",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712",
+      "trial_sha256": "d93d03377834e6235e0aaf6c1433e6b6f43e3a053566203761e3f3968f3ab0d4",
+      "coverage_sha256": "82b6c86357fae13cf59bafb16881dd04a70ddb309e10b86d91ba9dd57df8667c",
+      "normalized_document_sha256": "11bf210ea8b3caa577394888f4990a9cd75815395040338d818bf02d62d4e525",
+      "source_owner_ids_preserved": true,
+      "native_bytes_in_normalized_document": 0,
+      "counts": {
+        "history_rows": 28,
+        "typed_root_ids": 21,
+        "legacy_only_ids": 7,
+        "support_planes": 3,
+        "sketches": 2,
+        "line_entities": 4,
+        "circle_entities": 1,
+        "centre_point_entities": 1,
+        "axis_relations": 4,
+        "parameters": 1,
+        "selections": 3,
+        "bodies": 1,
+        "configurations": 1
+      },
+      "source_tree_projection": "unqualified",
+      "stock_operation": "join",
+      "cut_scope": "explicit_selected_stock",
+      "selection_path": [
+        "feature",
+        "actual Boss.id",
+        "body"
+      ],
+      "continuous_automatic_selection_proved": false,
+      "independent_prediction": {
+        "active_cut_dimensions": 0,
+        "basis": "independent analytic rectangle-minus-cylinder integration from complete portable owners",
+        "body_count": 1,
+        "bounds_m": {
+          "maximum": [
+            0.012415,
+            0.020519999999999997,
+            0.029140000000000006
+          ],
+          "minimum": [
+            -0.012415,
+            -0.02878,
+            -0.03456
+          ]
+        },
+        "center_of_mass_m": [
+          0.0,
+          -0.004556713057964951,
+          -0.003177630748454735
+        ],
+        "cut_interval_local_m": [
+          -0.012415,
+          0.012415
+        ],
+        "edge_count": 14,
+        "face_count": 7,
+        "rim_centers_world_m": [
+          [
+            -0.012415,
+            0.00317,
+            0.00529
+          ],
+          [
+            0.012415,
+            0.00317,
+            0.00529
+          ]
+        ],
+        "stock_driver_m": 0.02483,
+        "surface_area_m2": 0.012704702762882792,
+        "vertex_count": 10,
+        "volume_m3": 7.3670080915354e-05
+      },
+      "brep_postprediction_checks": {
+        "bounds_equal": true,
+        "signed_rims_equal": true,
+        "topology_counts_equal": true
+      },
+      "proposal_edit": {
+        "before_m": 0.02483,
+        "after_m": 0.03514425,
+        "policy": {
+          "ratio": 1.375,
+          "offset_m": 0.001003
+        },
+        "measured_natively": false
+      },
+      "shape_identical_history_crop_rejected": true,
+      "unmapped_owner_roles": [
+        "system_presentation",
+        "system_history",
+        "source_provenance",
+        "style_units_and_appearance",
+        "native_system_children",
+        "body_caption",
+        "sketch_incidence",
+        "circle_center",
+        "operation_links",
+        "direction_axes",
+        "source_metadata"
+      ]
+    }
+  ],
+  "retained_preliminary_failure": {
+    "scope": "source comparator preflight only, no native execution",
+    "method_manifest_sha256": "62817cf5b3a8d6add068a1b3c93eaa73cf016353c29bc96f2b8dae0558c65111",
+    "reason": "Transform did not expose to_dict; explicit frame projection repaired the comparator before the passed Process02"
+  }
+}

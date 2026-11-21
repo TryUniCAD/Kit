@@ -1,0 +1,1182 @@
+{
+  "all_positive_complete_containers_identical": true,
+  "cases": [
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "7c6c2710859d9747e7edb6f6755b28e314ea4ec2c250c7a646f9b8ab90f2fa0a",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29222,
+            "sha256": "88ab112e29ec18e2820f779ba33cec963985d759f0458ce78f63c817df176797"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "b934fa7251bb7385462dff19f453d078c6fca6f85f87a0ce9fcae1513c662d6f"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 173,
+            "sha256": "4dae2c4f793c0fe16c6524830f01200399faf04bc5441560c21d8e685df6e3f2"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1481,
+            "sha256": "a0a9b7385fc98c50a91ffa5d5948586a3f3eb0d1e6b53c73fbcef3c4adacdb1c"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 677,
+            "sha256": "2eaf318efc18a8f3841b862097aee1d5f8e0d34f406c4472a79c37c834079e80"
+          }
+        }
+      },
+      "counterpart_input_sha256": "195000c4e789687f7f8847df05263bbd11d71a240d112d6ec27fa9b2b7fc2505",
+      "counterpart_stdout_sha256": "0df4983c4de521140f7b70e514a3bde7774dfb148df34d9651b882c43daeb07e",
+      "input_sha256": "4300cb70f222170e0c75e788d49f6656032ed0d7780a48130c79c6aef1eafbb9",
+      "name": "LinkedFrontAlpha",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7109,
+        "artifact_sha256": "7c6c2710859d9747e7edb6f6755b28e314ea4ec2c250c7a646f9b8ab90f2fa0a",
+        "child_artifact_sha256": "af0c68541b02d5c3f4647efa8d9e3a74f0e0b1a67758d9018f9ae5c2a8730f7f",
+        "child_depth_m": 0.0143,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.018949999999999998,
+            -0.01135
+          ],
+          [
+            0.018949999999999998,
+            -0.01135
+          ],
+          [
+            0.018949999999999998,
+            0.01135
+          ],
+          [
+            -0.018949999999999998,
+            0.01135
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.1217,
+          0.0,
+          1.0,
+          0.0,
+          0.0873,
+          0.0,
+          0.0,
+          1.0,
+          -0.00715,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Front",
+        "outline_m": [
+          0.098432,
+          0.071632,
+          0.14496799999999999,
+          0.102968
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          1.0,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedFrontAlpha",
+        "source_sheet_id": "neutral:sheet:LinkedFrontAlpha",
+        "source_view_id": "neutral:view:LinkedFrontAlpha",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29222,
+            "sha256": "88ab112e29ec18e2820f779ba33cec963985d759f0458ce78f63c817df176797"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "b934fa7251bb7385462dff19f453d078c6fca6f85f87a0ce9fcae1513c662d6f"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 173,
+            "sha256": "4dae2c4f793c0fe16c6524830f01200399faf04bc5441560c21d8e685df6e3f2"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1481,
+            "sha256": "a0a9b7385fc98c50a91ffa5d5948586a3f3eb0d1e6b53c73fbcef3c4adacdb1c"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 677,
+            "sha256": "2eaf318efc18a8f3841b862097aee1d5f8e0d34f406c4472a79c37c834079e80"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "4dce74cb758c455118c78bfd3197857788b8abc7c18d8922ff8419a7a0edda34",
+      "twice_identical": true
+    },
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "c746be4756d80bd7d95b3328f994818aa0be0777fde5e3919fa3266c870ebe38",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29222,
+            "sha256": "1105e16f3dbb5ad938feb89bed859609dd7f62f67045c94bdd2975f026d9be7b"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "1914ee16ed587843f042042df5e534f92f01bcb649372b75fcfcff63a6ea4c0e"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 173,
+            "sha256": "3b4f609ebbe9c03badb920b6a90ddd9a0a1ed4df20bffdd912ef90f8b115f959"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1487,
+            "sha256": "7a0fd3c8e7c3ed2ef7e0914418fac330404379090fb523c3218888a886bce594"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 684,
+            "sha256": "37a8537351808b16010db3d18381000a07e36fbedd99763c1da8ce7e68ad39bc"
+          }
+        }
+      },
+      "counterpart_input_sha256": "6c8152870f19d8b122174e82469015dd7404649393a68c8d3cc14207f98c7cba",
+      "counterpart_stdout_sha256": "40f9bb1a70c2c761adb97724384ce8a2e82dec091a03b3e1f9918dabaaa3d56d",
+      "input_sha256": "6051eeb82f113adb2d894bc572faef2deb6e3a7cd94f191e11df9bf0f92e1eb5",
+      "name": "LinkedFrontBeta\u03a9",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7157,
+        "artifact_sha256": "c746be4756d80bd7d95b3328f994818aa0be0777fde5e3919fa3266c870ebe38",
+        "child_artifact_sha256": "6d585de92181157689436f12b49a7ca5c098ec580889ec3a8cb1012642e1453f",
+        "child_depth_m": 0.0091,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.00965,
+            -0.01585
+          ],
+          [
+            0.00965,
+            -0.01585
+          ],
+          [
+            0.00965,
+            0.01585
+          ],
+          [
+            -0.00965,
+            0.01585
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          0.625,
+          0.0,
+          0.0,
+          0.1217,
+          0.0,
+          0.625,
+          0.0,
+          0.0873,
+          0.0,
+          0.0,
+          0.625,
+          -0.00284375,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Front",
+        "outline_m": [
+          0.11135075,
+          0.07307575,
+          0.13204924999999998,
+          0.10152425000000001
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          0.625,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedFrontBeta\u03a9",
+        "source_sheet_id": "neutral:sheet:LinkedFrontBeta\u03a9",
+        "source_view_id": "neutral:view:LinkedFrontBeta\u03a9",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29222,
+            "sha256": "1105e16f3dbb5ad938feb89bed859609dd7f62f67045c94bdd2975f026d9be7b"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "1914ee16ed587843f042042df5e534f92f01bcb649372b75fcfcff63a6ea4c0e"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 173,
+            "sha256": "3b4f609ebbe9c03badb920b6a90ddd9a0a1ed4df20bffdd912ef90f8b115f959"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1487,
+            "sha256": "7a0fd3c8e7c3ed2ef7e0914418fac330404379090fb523c3218888a886bce594"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 684,
+            "sha256": "37a8537351808b16010db3d18381000a07e36fbedd99763c1da8ce7e68ad39bc"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "182c8c8fd729561230d9341d17f331b418949e613ebc83ca954ee52d85801cb6",
+      "twice_identical": true
+    },
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "2f428cdba09afcd145597f38eadc840138603cfbfb76ddbfc886dd939ce8669a",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29056,
+            "sha256": "4cd301b3db1cb9f5e296fd0ca64b11a666ca40a6a2e1fdf7625a44ec404213b7"
+          },
+          "Header2": {
+            "bytes": 995,
+            "sha256": "d90c83e309f54be691c201a657058acbd648b2fb552b486dda655685d0363e2f"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 159,
+            "sha256": "4660bd8c9909eaca6894d0a8340a96c6377afcfc396b570ddab18c9b610efbfc"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1439,
+            "sha256": "5df0285665c999b2fc9e08b04b05fcccda18874aefc1c5ade2555efdbca04ec4"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 628,
+            "sha256": "517f1c5c8c65a6e2a2d0ba429c7251d8bc78cc1f69d889152d8671330f32dcf1"
+          }
+        }
+      },
+      "counterpart_input_sha256": "3f4aca6338bcdd706fa1a32d816455c1aaed2d8543e3be4d5e35302a84c8eb91",
+      "counterpart_stdout_sha256": "14384d090ab1953a6a93f8d63fb2d57fe6fb75c89d324ff2a0349ae85d6f1bab",
+      "input_sha256": "c8e93baa1cad49130356e33dc1411175499d4702bdc7dd8f7a3d5a770fd9fad1",
+      "name": "LinkedTop",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7140,
+        "artifact_sha256": "2f428cdba09afcd145597f38eadc840138603cfbfb76ddbfc886dd939ce8669a",
+        "child_artifact_sha256": "a6c0dbfab0778b5d0a89e965c66b4d79831eb626113bf42e6595226c987c27bb",
+        "child_depth_m": 0.0077,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.020649999999999998,
+            -0.00945
+          ],
+          [
+            0.020649999999999998,
+            -0.00945
+          ],
+          [
+            0.020649999999999998,
+            0.00945
+          ],
+          [
+            -0.020649999999999998,
+            0.00945
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          1.375,
+          0.0,
+          -0.0,
+          0.1217,
+          -0.0,
+          -4.884981308350689e-15,
+          -1.375,
+          0.09259375,
+          0.0,
+          1.375,
+          -4.884981308350689e-15,
+          1.880717803715015e-17,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Top",
+        "outline_m": [
+          0.08898825,
+          0.07768824999999996,
+          0.15441175,
+          0.09691175000000005
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          1.375,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedTop",
+        "source_sheet_id": "neutral:sheet:LinkedTop",
+        "source_view_id": "neutral:view:LinkedTop",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29056,
+            "sha256": "4cd301b3db1cb9f5e296fd0ca64b11a666ca40a6a2e1fdf7625a44ec404213b7"
+          },
+          "Header2": {
+            "bytes": 995,
+            "sha256": "d90c83e309f54be691c201a657058acbd648b2fb552b486dda655685d0363e2f"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 159,
+            "sha256": "4660bd8c9909eaca6894d0a8340a96c6377afcfc396b570ddab18c9b610efbfc"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1439,
+            "sha256": "5df0285665c999b2fc9e08b04b05fcccda18874aefc1c5ade2555efdbca04ec4"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 628,
+            "sha256": "517f1c5c8c65a6e2a2d0ba429c7251d8bc78cc1f69d889152d8671330f32dcf1"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "08466c64307ddba33a39c5c2a49058808fa1314620652fc3b6c859dcde718794",
+      "twice_identical": true
+    },
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "ad1a73a354a4177910311620a032a76cfe4856658a0e110e5b5c71511e36d20b",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29168,
+            "sha256": "5755e437b4d7bdc8a8d4dda626572de4e76569068ac08229ce5aaa617f60bfad"
+          },
+          "Header2": {
+            "bytes": 1023,
+            "sha256": "3aabf0f185b32f72051c30d4cd723d439ab204b46745a598fbedc333ca5d1625"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "048722a569b050b32c63641951e99e7d3037a470d4ecb3c61d95528a5a4a64be"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1451,
+            "sha256": "b7d858478519322b82dc338c5727acd168b9378efa25cb463d3815165ffc5b24"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 642,
+            "sha256": "2a3cb7995056d0fb0e00afb7e037e93729054757418faa25976b4a25093f7154"
+          }
+        }
+      },
+      "counterpart_input_sha256": "f98e468ba1c21210728350d25b32c504863b8b6b91c64dcf1085827b843ab3b4",
+      "counterpart_stdout_sha256": "88e4c3e0ed603da709196b1099a723ddc0e1545dc666735034d063addf37c202",
+      "input_sha256": "55ef15f4079f94b74daa913561dc8e9eb260bd7725055b918ca0bf8744ba3daa",
+      "name": "LinkedRight",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7144,
+        "artifact_sha256": "ad1a73a354a4177910311620a032a76cfe4856658a0e110e5b5c71511e36d20b",
+        "child_artifact_sha256": "3c0e148845de804797ccbfd591ff28035188d18b0068e48384f0a9a5b14af369",
+        "child_depth_m": 0.013900000000000001,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.00935,
+            -0.01455
+          ],
+          [
+            0.00935,
+            -0.01455
+          ],
+          [
+            0.00935,
+            0.01455
+          ],
+          [
+            -0.00935,
+            0.01455
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          -3.1086244689504383e-15,
+          0.0,
+          -0.875,
+          0.12778125,
+          0.0,
+          0.875,
+          0.0,
+          0.0873,
+          0.875,
+          0.0,
+          -3.1086244689504383e-15,
+          2.160494005920555e-17,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Right",
+        "outline_m": [
+          0.11130074999999998,
+          0.07025075,
+          0.13209925000000003,
+          0.10434925
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          0.875,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedRight",
+        "source_sheet_id": "neutral:sheet:LinkedRight",
+        "source_view_id": "neutral:view:LinkedRight",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29168,
+            "sha256": "5755e437b4d7bdc8a8d4dda626572de4e76569068ac08229ce5aaa617f60bfad"
+          },
+          "Header2": {
+            "bytes": 1023,
+            "sha256": "3aabf0f185b32f72051c30d4cd723d439ab204b46745a598fbedc333ca5d1625"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "048722a569b050b32c63641951e99e7d3037a470d4ecb3c61d95528a5a4a64be"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1451,
+            "sha256": "b7d858478519322b82dc338c5727acd168b9378efa25cb463d3815165ffc5b24"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 642,
+            "sha256": "2a3cb7995056d0fb0e00afb7e037e93729054757418faa25976b4a25093f7154"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "ae0b02ad0c5d5afdefc6a59032071eff0d5766e3f425ad98c59fccdab834e128",
+      "twice_identical": true
+    },
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "849af10dc9ed670eb5d5399b105b305d00f6fe095e3d5f417ed847a4d171bab2",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29392,
+            "sha256": "7ca8bb4faacc8ea31f9d191c3a14f0600ee592220fc59b6952206d0f6e936267"
+          },
+          "Header2": {
+            "bytes": 1079,
+            "sha256": "666729c57be3befcd702bd0a710eaf4552d1cadd95a8d3b6cfbb4c8a9a25cbe5"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 171,
+            "sha256": "fde2437459ef8f2de54a4f41a01bde2dd6efb7a7d44cb725b104037c97a4fb0f"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1475,
+            "sha256": "1f2d36192af1bc4853c16e02e40d48ae6d6a19027df37c0c4bfbdaaa41596f80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 670,
+            "sha256": "3e5cfc5b47ae18c9deeb3e313d79bac3c862ff2c8f7ba2d7db6588616626eec1"
+          }
+        }
+      },
+      "counterpart_input_sha256": "4a925efc45a9fbc8e4dd3543bad11d75e25e976730e5a43162f06c016f4acbbb",
+      "counterpart_stdout_sha256": "95d1185d4ac6f8eada15220964dae0e8e1ad339b48c043a7a95530a98a1bb441",
+      "input_sha256": "21e10fedbd2fb02628731303079957148e55219bc2e441c74e00e846137e651f",
+      "name": "LinkedIsometric",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7211,
+        "artifact_sha256": "849af10dc9ed670eb5d5399b105b305d00f6fe095e3d5f417ed847a4d171bab2",
+        "child_artifact_sha256": "a85a93f8e6a7da64bec06439719b2ef8e8c101c48172e6983c4b7ba9cd74e2ee",
+        "child_depth_m": 0.0211,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.01465,
+            -0.00895
+          ],
+          [
+            0.01465,
+            -0.00895
+          ],
+          [
+            0.01465,
+            0.00895
+          ],
+          [
+            -0.01465,
+            0.00895
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          0.4949747468305824,
+          1.9428902930940238e-17,
+          -0.4949747468305841,
+          0.12692198357906267,
+          -0.28574283913794857,
+          0.5715785683200248,
+          -0.2857428391379476,
+          0.09031458695290535,
+          0.4041670816399886,
+          0.4041013984598798,
+          0.40416708163998727,
+          -0.004263962711301866,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Isometric",
+        "outline_m": [
+          0.1049086363798693,
+          0.07066565226725949,
+          0.13849136362013068,
+          0.10393434773274052
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          0.7,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedIsometric",
+        "source_sheet_id": "neutral:sheet:LinkedIsometric",
+        "source_view_id": "neutral:view:LinkedIsometric",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29392,
+            "sha256": "7ca8bb4faacc8ea31f9d191c3a14f0600ee592220fc59b6952206d0f6e936267"
+          },
+          "Header2": {
+            "bytes": 1079,
+            "sha256": "666729c57be3befcd702bd0a710eaf4552d1cadd95a8d3b6cfbb4c8a9a25cbe5"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 171,
+            "sha256": "fde2437459ef8f2de54a4f41a01bde2dd6efb7a7d44cb725b104037c97a4fb0f"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1475,
+            "sha256": "1f2d36192af1bc4853c16e02e40d48ae6d6a19027df37c0c4bfbdaaa41596f80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 670,
+            "sha256": "3e5cfc5b47ae18c9deeb3e313d79bac3c862ff2c8f7ba2d7db6588616626eec1"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "3e7e6762ab42fcbdbe918ca73437a30694a1cb34ccfbceab3e5c9a8f04fdda59",
+      "twice_identical": true
+    },
+    {
+      "counterpart": {
+        "all_logical_streams_identical": true,
+        "artifact_sha256": "20eb0ce15d5f4ed83362f2f1a38e440ad524840b1734f65328e6f22d36f23f1e",
+        "container_identical": true,
+        "corner_count": 8,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "independent_canonical_frame": true,
+        "independent_corner_projection": true,
+        "native_acceptance": false,
+        "passed": true,
+        "public_writer_enabled": false,
+        "runtime_input_file_access_attempts": 0,
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29168,
+            "sha256": "1ff8aa4d10917743fa6e689c977d1462ad1c9d41fd61d00b80f93bfcbb77da17"
+          },
+          "Header2": {
+            "bytes": 1079,
+            "sha256": "b759d7b8b62af66d652ef012067ca76365616838665ce9b45d4b0fe1cdbf5351"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 171,
+            "sha256": "ee34835cd8913f54c756ad4cb2a3833b4a59f631358f6460446e47e7f127bb99"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1475,
+            "sha256": "9c62152c764548aa121f17bbaa8656b9ec8a32c29ec01ad54aad7aaa6e580045"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 670,
+            "sha256": "fa0b5e246f02785a130c62a33a84e157d9b4c599b729d1f3364d39aa503f7771"
+          }
+        }
+      },
+      "counterpart_input_sha256": "c4d4c6c855011ca10d7b53001cc3b04b1d2a03ad85eac0a6017a653d78a16254",
+      "counterpart_stdout_sha256": "a908061bb711c86ddaec3bae49815947bcdfe839e6197189eb115e4244763dca",
+      "input_sha256": "b6ca63ac86b6c37f78705307437a93a75403e0bd0e3f9830a43785e3630016f9",
+      "name": "LinkedNearUnity",
+      "result": {
+        "actual_generated_child_identity": true,
+        "artifact_bytes": 7135,
+        "artifact_sha256": "20eb0ce15d5f4ed83362f2f1a38e440ad524840b1734f65328e6f22d36f23f1e",
+        "child_artifact_sha256": "274a22cd80bcfe1e20591b046c698a4b72b8b82ba4720fb8c7ceb5b753dd7b77",
+        "child_depth_m": 0.0089,
+        "child_graph_reemission_unchanged": true,
+        "child_vertices_m": [
+          [
+            -0.00785,
+            -0.00655
+          ],
+          [
+            0.00785,
+            -0.00655
+          ],
+          [
+            0.00785,
+            0.00655
+          ],
+          [
+            -0.00785,
+            0.00655
+          ]
+        ],
+        "complete_sdk_only_linked_factory": true,
+        "complete_sdk_read_write_identical": true,
+        "definition_map_next_index": 172,
+        "heldout_inputs_read": 0,
+        "model_next_id": 16,
+        "model_to_sheet": [
+          1.0,
+          0.0,
+          0.0,
+          0.1217,
+          0.0,
+          1.0,
+          0.0,
+          0.0873,
+          0.0,
+          0.0,
+          1.0,
+          -0.00445,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "native_acceptance": false,
+        "native_sheet_id": 4,
+        "native_view_id": 11,
+        "neutral_drawing_semantics": true,
+        "orientation": "*Front",
+        "outline_m": [
+          0.109532,
+          0.076432,
+          0.133868,
+          0.098168
+        ],
+        "passed": true,
+        "public_writer_enabled": false,
+        "research_builder_modules_loaded": false,
+        "runtime_input_file_access_attempts": 0,
+        "scale_ratio": [
+          1.000000005,
+          1.0
+        ],
+        "schema": "kit.sw2026.sdk-linked-drawing-result.v1",
+        "source_model_ref_id": "neutral:child:LinkedNearUnity",
+        "source_sheet_id": "neutral:sheet:LinkedNearUnity",
+        "source_view_id": "neutral:view:LinkedNearUnity",
+        "streams": {
+          "Contents/Definition": {
+            "bytes": 29168,
+            "sha256": "1ff8aa4d10917743fa6e689c977d1462ad1c9d41fd61d00b80f93bfcbb77da17"
+          },
+          "Header2": {
+            "bytes": 1079,
+            "sha256": "b759d7b8b62af66d652ef012067ca76365616838665ce9b45d4b0fe1cdbf5351"
+          },
+          "ModelStamps": {
+            "bytes": 12,
+            "sha256": "7a6923277be01e4c9e9a24957982d57709bb5d46094150f3cbd9090b1bd1ad7d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 171,
+            "sha256": "ee34835cd8913f54c756ad4cb2a3833b4a59f631358f6460446e47e7f127bb99"
+          },
+          "docProps/ISolidWorksInformation.xml": {
+            "bytes": 1475,
+            "sha256": "9c62152c764548aa121f17bbaa8656b9ec8a32c29ec01ad54aad7aaa6e580045"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 670,
+            "sha256": "fa0b5e246f02785a130c62a33a84e157d9b4c599b729d1f3364d39aa503f7771"
+          }
+        },
+        "vendor_runtime_executed": false
+      },
+      "sdk_stdout_sha256": "0088f1502f199de158dfa709142b65493f2e7b24e30d44656da0fa6aa51eb695",
+      "twice_identical": true
+    }
+  ],
+  "child_graph_reemission_unchanged": true,
+  "complete_sdk_only_linked_factory": true,
+  "delivery_pr": 121,
+  "dependencies": 3230,
+  "dependency_manifest_sha256": "59c31b587acbefacb0b400efe4d368e58416f535bf3a44ed613d23d8cb4ef4db",
+  "fresh_processes": 43,
+  "heldout_inputs_read": 0,
+  "independent_research_processes": 6,
+  "limitations": [
+    "one unformatted ANSI A landscape sheet",
+    "one actual generated nonvirtual rectangular XY forward blind part",
+    "one explicit Front Top Right or Isometric absolute view",
+    "positive finite scalar view scale with denominator one",
+    "new native and heldout qualification separate; public writer disabled"
+  ],
+  "native_acceptance": false,
+  "native_fixture": {
+    "child_sha256": "251e91656acb06a2ed17f50b9e45676b455bcf8da214fa3e205f19e95f86a03c",
+    "drawing_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+    "fixture_sha256": "39670020e79d93747b8018dd5e7ac4becf60bd91a6331016834cd1d22fa314b3",
+    "guarded_builds": 2,
+    "independent_counterpart_processes": 1,
+    "native_acceptance": false,
+    "native_execution_owner": "root",
+    "neutral_request_sha256": "b25d66ef0b1176687481eef7db746df7c08ff3f24760ddf420124660fad7cca6"
+  },
+  "native_measurement_processes": 0,
+  "owned_code_paths": 36,
+  "owner": "configuration_header",
+  "process_proof_sha256": "475e2ff249676a96200a768462885cb833beea7af40c19e3324106f0cf893f76",
+  "public_writer_enabled": false,
+  "references": [
+    "re/solidworks/records/SdkLinkedDrawingFile2026.md",
+    "Documentation/Reference/Research/Solidworks/SdkLinkedDrawingFile.md",
+    "Documentation/Gotchas/Conversion/Solidworks/Archive/Drawings/BoundingSphereUsesNativeAdditionOrder.md"
+  ],
+  "rejection_processes": 25,
+  "rejections": [
+    {
+      "diagnostic_sha256": "e4304c31f262c049782f1f2911ede6a6cb45eb13a9c567f2930ce47d2b645f1e",
+      "exit_code": 1,
+      "input_sha256": "9b7a549a12cf469f6dcf852761249a66215365df06d8e8778c6bb79af5c55f05",
+      "name": "Rejectactive_sheet",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "8e10745ced11ec48b00f2fa8f7f39b93d7ebf17e2ee57856f27a9f84bf558081",
+      "exit_code": 1,
+      "input_sha256": "0047a526c2a3be9daba98be8061d0d6e5608c5b799fb651c522974613b07d882",
+      "name": "Rejectno_models",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "8e10745ced11ec48b00f2fa8f7f39b93d7ebf17e2ee57856f27a9f84bf558081",
+      "exit_code": 1,
+      "input_sha256": "6d893a85c6987117f325bbf5bfdd147e99ec0dbb0c634807e50b5c52bfa1fc92",
+      "name": "Rejecttwo_models",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "6140454f74a0a4a13aeb5ee9369316c5a9be8cfebe3bb2d6df96471bb6f1b452",
+      "exit_code": 1,
+      "input_sha256": "743d929708da1deb89d249c657d5dbb93b70da3d0887061a4032cb11f197f3ce",
+      "name": "Rejecttwo_sheets",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "8e10745ced11ec48b00f2fa8f7f39b93d7ebf17e2ee57856f27a9f84bf558081",
+      "exit_code": 1,
+      "input_sha256": "e0ab7cf5c715cd90a460585185331d64ef1dc6edefbcfef825b4533814855255",
+      "name": "Rejectno_views",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "8e10745ced11ec48b00f2fa8f7f39b93d7ebf17e2ee57856f27a9f84bf558081",
+      "exit_code": 1,
+      "input_sha256": "2e09c4d6cc574c1f033d0d7c412f3e09b4c20cc6ffd53c44f5796a7c75a601f0",
+      "name": "Rejecttwo_views",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "86fed85242940a7cd7f1ff843fcde2ac8d35264e70f76986b3bf1b3af740f7b9",
+      "exit_code": 1,
+      "input_sha256": "5136ce561916acf28f7ec01943cd3461ac7f4345b596dd5cca0e2ea14aa95e13",
+      "name": "Rejectmodel_path",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "86fed85242940a7cd7f1ff843fcde2ac8d35264e70f76986b3bf1b3af740f7b9",
+      "exit_code": 1,
+      "input_sha256": "874a08ac24688a1cb5c6bc0ba068cc1c49fc3c74cd6c18b4bf7a38fe33f15522",
+      "name": "Rejectmodel_format",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "eff0dfddcda96d0f26b3246d45c0dccf326b3df349b00b146548adf39e7b591b",
+      "exit_code": 1,
+      "input_sha256": "92ae24bb63d23a6d12990c1ee9de8de20f5d992f5d354f9effc42965a0125ac2",
+      "name": "Rejectview_ref",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "86fed85242940a7cd7f1ff843fcde2ac8d35264e70f76986b3bf1b3af740f7b9",
+      "exit_code": 1,
+      "input_sha256": "a68cd2cf4e9da662f1e685257a055e9aff2c48bc563e0b30cd6a1182f4f2f2fc",
+      "name": "Rejectconfiguration",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "b8f638a72a98fe8644ee403a6ce3acb8b4ef9a5470772007316f4930ace5adfc",
+      "exit_code": 1,
+      "input_sha256": "3f72ca19f93c1934f9a8d44e1bc84ac9338fc8fd91d097b7ad39dfe8387117b0",
+      "name": "Rejectorientation",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "b8f638a72a98fe8644ee403a6ce3acb8b4ef9a5470772007316f4930ace5adfc",
+      "exit_code": 1,
+      "input_sha256": "73fd5e90d393a040206e15eb4f97234e06c3cfa8c28197a15d3a214902eb179c",
+      "name": "Rejectno_orientation",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "b8f638a72a98fe8644ee403a6ce3acb8b4ef9a5470772007316f4930ace5adfc",
+      "exit_code": 1,
+      "input_sha256": "29eb9c3833c1fdea9ef8bf23a9d85c53e042bcfea207f284628dc06e848b44fc",
+      "name": "Rejectinherited_scale",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "87a2aacde8b4d5199745f512ad9c6efbd4cebe087c0973dba1c36b84af6d93d3",
+      "exit_code": 1,
+      "input_sha256": "4de4a2f5a7cf32aa8a51520f7437a367225587ee8f021864153cd500415017dc",
+      "name": "Rejectzero_scale",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "c31ba1a9d35599a89d9c3dabcff899a1399f2d7613c804bca36bdfe77e37fcf1",
+      "exit_code": 1,
+      "input_sha256": "5e398d3c0b7922b533ac289596ab3ac841654078446313712cbb18f186c2a195",
+      "name": "Rejectboolean_scale",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "87a2aacde8b4d5199745f512ad9c6efbd4cebe087c0973dba1c36b84af6d93d3",
+      "exit_code": 1,
+      "input_sha256": "f3c5e8e7d5648c52f5198ed8f8c16186cfa60225c18034993e123c14c0f6d959",
+      "name": "Rejectdenominator",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "87a2aacde8b4d5199745f512ad9c6efbd4cebe087c0973dba1c36b84af6d93d3",
+      "exit_code": 1,
+      "input_sha256": "5a83ce99c0a5fe1ee4e2b8dbff53d4baead33e78747bb53ed343e28793baf32e",
+      "name": "Rejectzero_denominator",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "c13fbbf40ef4144647973117e6f7c0a33fa60c038afac85cb9bbb69e545c7820",
+      "exit_code": 1,
+      "input_sha256": "b8f5c3da9262ab914822683cd5f894455e0b4d02df39869aff1cd8b8b236ac83",
+      "name": "Rejectboolean_position",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "be497d941a297e3fd0969b918ac04b721ebb05ad08663ceafb6e961ac19bc389",
+      "exit_code": 1,
+      "input_sha256": "885b91ceaf2c7c5ffc6b9eeb92303aebe34e3bffd8b1926c1d7deb61941d9f4c",
+      "name": "Rejectview_name",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "eff0dfddcda96d0f26b3246d45c0dccf326b3df349b00b146548adf39e7b591b",
+      "exit_code": 1,
+      "input_sha256": "c1f6ceda89db0bcb599a5f4e8a524d09a4f88e9ddaf3eb47e3fbaadb8505c07f",
+      "name": "Rejectduplicate_id",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "969101303bc35255300180931aab8077e9cf694130e178f16bdf8f777aca2021",
+      "exit_code": 1,
+      "input_sha256": "4ba9b74923a7908d62c1ffa13e575f9db843c11b389d3f5ddcc500df5d7cf26d",
+      "name": "Rejectoutline_cache",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "a02ad7984a4bbd0487f7a86b3bc2d6746dbbbcce0e6ecaf3045b0874ef631c06",
+      "exit_code": 1,
+      "input_sha256": "17fe2093c04382c0985399daf9bd1045ab4478f92d148e1151cba9a0c5d14f26",
+      "name": "Rejecttransform_cache",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "3dcf7da7b3e865137453dddae001c7f0dd0a2e5fca81ce2ef6cb9f7d28a6cf64",
+      "exit_code": 1,
+      "input_sha256": "14a861c5efa8b09c0d30e0beeec483260af6cf26d4ae7e4be215c041f130d9d1",
+      "name": "Rejectsupport_name",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "a07a8fc8393fe0410e734cc57750540a72262da12cc2e982732d0a0382fe9dec",
+      "exit_code": 1,
+      "input_sha256": "a05ba04eec594fd469aa9de6ee7a9ead7a7b9f957e7dc06d22edeef711345c1a",
+      "name": "Rejectunknown_native",
+      "output_bytes": 0,
+      "rejected": true
+    },
+    {
+      "diagnostic_sha256": "df6b8b6a9dd9d5c02ecb91e30afe48232b17a644348984c80e90be2b4ac08e3c",
+      "exit_code": 1,
+      "input_sha256": "12a110eb16d08d47a5d63aabeb5a935c8af2ce75b1a32f29fc30e0929784acd8",
+      "name": "Rejectunknown_part",
+      "output_bytes": 0,
+      "rejected": true
+    }
+  ],
+  "runtime_input_file_access_attempts": 0,
+  "schema": "kit.sw2026.sdk-linked-drawing-offline-receipt.v1",
+  "sdk_positive_processes": 12,
+  "source_manifest_sha256": "36fb3183c61246c3af50f5db8761d183811f301f527af2cd4ba88631241e6eb9",
+  "source_unchanged": true,
+  "status": "offline_complete_sdk_linked_construction_only",
+  "task_id": "PR121-SDK-DRAW-LINKED-FILE",
+  "vendor_runtime_executed": false
+}

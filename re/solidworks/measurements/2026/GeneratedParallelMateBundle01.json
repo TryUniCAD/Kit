@@ -1,0 +1,294 @@
+{
+  "schema": "kit.sw2026.generated-parallel-mate-structural-proof.v1",
+  "scope": "One ordinary aligned two-principal-plane parallel mate between resolved occurrences of the same generated part in one configuration.",
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "input_runtime_file_access_attempts": 0,
+  "writer_output_count": 2,
+  "oracle_target_version": "34.5.2.0604",
+  "archive_version": 19000,
+  "writer_predecessor_revision": "b2cca3ac62148b7b3b74293b9c96f3241a85eb4e",
+  "writer_tool_hashes": {
+    "ParallelMateBundleProcess.py": "3e0359e235497a978884fbac4f0f430b1c7621750e5ab3176a068751b65685a9",
+    "CoincidentMateBundleProcess.py": "fd3cb0d9a867c77fd963907bba421b6bec77fc7da1f0e3dd4d133c6e6644d083",
+    "builders/Assembly.py": "eae0dffac6cdd8f4907e98648d46079642914705608463109d1145d3358d778d",
+    "builders/AssemblyDocument.py": "e26a0d9cf87aeea7efbadc5c5a379d189d4f6f6df40f74db66523e272ed6ff24",
+    "builders/AssemblyMateEndpoint.py": "14f3896e089cfd87b8d962ed74b8a69c7d06b0cde26a2d78c4e9535a12ef8142",
+    "builders/AssemblyPlanarMate.py": "e48dbe3a7a7fcc08e0edda7563b9c4580d0625197b4df8c0258213c8095b40cd"
+  },
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "source_specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "rea_evidence": {
+    "module": "sldasmu.dll",
+    "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390",
+    "address": "0x3f815e00",
+    "evidence_id": "ev_993cf64afe51cf2a77a182f43923e50fddc79ef96d2724c1e262b3a688d464ca",
+    "private_evidence_bundle_sha256": "773a21c83d79f634fde19c2494ded6f68ee0dae8fdbde7627346304c92406b3b",
+    "observed_effect": "Uses the parallel class descriptor and shared two-geometry factory with the selected wrapper pair and no help data."
+  },
+  "model_image": {
+    "module": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "parallel_descriptor": "0x4dac9b80",
+    "parallel_vtable": "0x4cf9fe10",
+    "parallel_rtti_locator": "0x4d338af0",
+    "parallel_allocate_extent": [
+      "0x4b653b80",
+      "0x4b653bae"
+    ],
+    "parallel_allocate_sha256": "96785cb54f670968679d7b7bdd684319e72a9d7cc8230bbad6c01e7d4e3d445a",
+    "parallel_constructor_extent": [
+      "0x4bc2dd90",
+      "0x4bc2dde1"
+    ],
+    "parallel_constructor_sha256": "9e735960a30635a8587d28bd88b82b117afad3f3381f680a0fd882d970231470",
+    "tested_common_slots": {
+      "0x28": "0x4b668a60",
+      "0x188": "0x4b283ba0",
+      "0x1e0": "0x4b27cbe0",
+      "0x498": "0x4bb44300",
+      "0x500": "0x4b27e150",
+      "0x650": "0x4b27cbe0",
+      "0x1288": "0x4bb51930",
+      "0x1590": "0x4bb4de30",
+      "0x16d0": "0x4bc51070",
+      "0x1ef8": "0x4b289870",
+      "0x1f00": "0x4bc44ed0",
+      "0x2170": "0x4b27cbe0",
+      "0x21f0": "0x4b2cfe10",
+      "0x23b0": "0x4b27e120",
+      "0x23d0": "0x4bc5d920",
+      "0x2410": "0x4b27e120"
+    }
+  },
+  "disclosed_a19": {
+    "files": {
+      "A19PlaneParallel.SLDASM": {
+        "sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+        "bytes": 51399
+      },
+      "CohortChild.SLDPRT": {
+        "sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+        "bytes": 60693
+      }
+    },
+    "parent_roundtripped_streams": 9,
+    "child_roundtripped_streams": 8,
+    "mate_class": "moMateParallel",
+    "mate_id": 26,
+    "mate_list_bytes": 3234,
+    "mate_map_next_index": 196,
+    "archive_planes": [
+      "Front Plane",
+      "Front Plane"
+    ],
+    "datum_ids": [
+      2,
+      2
+    ],
+    "state": {
+      "f0c": 256,
+      "f3b4": 1,
+      "f3b8": 1,
+      "f2b8": 19000,
+      "f2bc": 2026306,
+      "occurrence_f400": [
+        4,
+        3
+      ],
+      "occurrence_f408": [
+        1,
+        0
+      ],
+      "resolved_wrapper_f50": [
+        2,
+        1
+      ]
+    }
+  },
+  "generated_artifact": {
+    "files": {
+      "ParallelPlatePair.SLDASM": {
+        "bytes": 9320,
+        "sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719"
+      },
+      "DatumPlate.SLDPRT": {
+        "bytes": 8648,
+        "sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4"
+      }
+    },
+    "request_sha256": "f2d56274820d484b200817e9bc01694d3cd9a9892e0dee06e4b5777502202c92",
+    "authored_prediction_sha256": "06659face1eb09158ec021b1f94fcbc45c44c206b2806e4ace274c28689d61c5",
+    "private_structural_report_sha256": "9d67f119240eaad73a83b7d193ff94f8bc56c587ea36a1ce95d5b6b00b561b44",
+    "proof": {
+      "config_map_next_index": 76,
+      "configuration_highest_id": 19,
+      "creation_logs": [
+        {
+          "name": "Parallel1",
+          "object_id": 19,
+          "timestamp": 1794700043
+        },
+        {
+          "name": "Parallel1",
+          "object_id": 19,
+          "timestamp": 1794700043
+        }
+      ],
+      "fixed_occurrence": 0,
+      "group_id": 16,
+      "logical_round_trips": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-MatesList",
+        "Header2",
+        "Contents/Config-0-ModelHeader",
+        "Contents/CMgr"
+      ],
+      "mate_fields": {
+        "f0c": 1,
+        "f2a0": 2124969856,
+        "f2a4": 31290514,
+        "f2b8": 0,
+        "f2bc": 0,
+        "f3b4": 1,
+        "f3b8": 0
+      },
+      "mate_id": 19,
+      "mate_list_bytes": 2842,
+      "mate_map_next_index": 161,
+      "mate_name": "Parallel1",
+      "next_wrapper_id": 2,
+      "resolved_map_next_index": 133,
+      "wrappers": [
+        {
+          "detached": {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 14,
+            "world_normal": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            },
+            "world_origin": {
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          },
+          "resolved": {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 17,
+            "selection": [
+              19,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "detached": {
+            "anonymous_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "assembly_configuration_id": 0,
+            "assembly_update_stamp": 101,
+            "original_datum_id": 14,
+            "world_normal": {
+              "x": 0.0,
+              "y": -0.0,
+              "z": 1.0000000000000002
+            },
+            "world_origin": {
+              "x": 0.10321,
+              "y": -0.01873,
+              "z": 0.02261
+            }
+          },
+          "resolved": {
+            "configuration_id": 0,
+            "datum": {
+              "f00": 14,
+              "f08": 2592000
+            },
+            "initial_rigid_status": 0,
+            "occurrence_id": 18,
+            "selection": [
+              19,
+              1,
+              1
+            ]
+          }
+        }
+      ]
+    },
+    "mate_kind": "parallel",
+    "plane_gap_m": 0.02261,
+    "authored_placements": [
+      {
+        "angle_deg": 0.0,
+        "axis": "z",
+        "translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "angle_deg": 38.419,
+        "axis": "z",
+        "translation_m": [
+          0.10321,
+          -0.01873,
+          0.02261
+        ]
+      }
+    ]
+  },
+  "kind_only_comparison": {
+    "other_generated_kind": "coincident",
+    "coincident_parent_sha256": "7a8e1ca1ebd7704d3d71d3d35d58d5cabf6b600fa215d661e0daf8f5d1d06841",
+    "differing_logical_streams": [
+      "Contents/Config-0-MatesList"
+    ],
+    "coincident_stream_bytes": 2844,
+    "parallel_stream_bytes": 2842,
+    "child_bytes_equal": true
+  },
+  "coincident_regression": [
+    {
+      "case": "coplanar",
+      "parent_sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "child_sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+      "entire_guarded_report_equal": true
+    },
+    {
+      "case": "displaced",
+      "parent_sha256": "99061cdaf6901ea04b7455475da46c6de4e8621eedeb2e9429fed048124ae338",
+      "child_sha256": "21431fa7032ff75b910c0e00dde5b495846a49ed6b2563bc2494554a3fd74bda",
+      "entire_guarded_report_equal": true
+    }
+  ],
+  "rejected_with_zero_output": [
+    "unsupported mate kind",
+    "unsupported alignment",
+    "unspecified extension field",
+    "duplicate occurrence endpoint"
+  ],
+  "native_packet": {
+    "manifest_sha256": "3a9f0ff69f35d37f0b379764ea0ec50ed87ac9ef33ef187fb5574f8639bd1948",
+    "observer_sha256": "10ce11b542c44ccb4cc1927e8fdc1ca303ebd6af3d5139935f176b060accbf45",
+    "host_frozen_input_check_passed": true
+  }
+}

@@ -1,0 +1,392 @@
+{
+  "schema": "kit.sw2026.drawing-empty-appearance-reader-receipt.v1",
+  "task_id": "B04-SW2026-DRAWPROPS",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "scope": "ordinary version19000 typed genuinely empty appearance manager with exact source allocator retained; whole original drawing admission remains closed",
+  "reader_manifest_sha256": "a34cd41281726a08d732b71c0addd4448745c0e16419910cd87f25af7adbdaf2",
+  "reader_source_files": 4356,
+  "parent_reader_manifest_sha256": "b89ea3132b84887218a1a2ed6fca7f0e397d7a03b744a663d97a3b1ce4b962b5",
+  "original_frozen_writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "native_rule_record_sha256": "13d9939901e71634fc63d44455a79777afd6d796603d6de70f6697c707c8677f",
+  "actual_sdk_delta_files": [
+    {
+      "bytes": 864,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Appearance/AppearanceState.py",
+      "sha256": "aff4a1a2bd71fc25d36f68b8483049d29760ff1c7a7434db97275d09c244bd43"
+    },
+    {
+      "bytes": 711,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Appearance/NeedAppearEmpty.py",
+      "sha256": "2661331c734de9322d6fc7c77c53564c19963110a68492a6b25232d01349f21e"
+    },
+    {
+      "bytes": 472,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Appearance/NeedAppearMap.py",
+      "sha256": "5dec5a6dd46be80f3f8d954a7487fd01a091aadc4ba9b3df28107352520ade2e"
+    },
+    {
+      "bytes": 762,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearCount.py",
+      "sha256": "759e4db49a048942715f22aaacb879965d9a0d9ac691e73fbe873092acfee420"
+    },
+    {
+      "bytes": 1657,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearState.py",
+      "sha256": "ef9ef8d0db46e0f86ab739148c0b5f994ff8863cbe1a3718e2a90017d2a65d06"
+    },
+    {
+      "bytes": 1715,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankDoc.py",
+      "sha256": "bc6c176f327e330a144ec5bcdab02ac141ed17af158ba51de07b430d08ba16c4"
+    }
+  ],
+  "native_modules": [
+    {
+      "name": "slduiu.dll",
+      "bytes": 36036696,
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "file_version": [34, 5, 2, 604]
+    },
+    {
+      "name": "sldmodu.dll",
+      "bytes": 46536280,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "file_version": [34, 5, 2, 604]
+    },
+    {
+      "name": "slddrwu.dll",
+      "bytes": 8949848,
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+      "file_version": [34, 5, 2, 604]
+    }
+  ],
+  "material_observation": {
+    "report": "MaterialStateOriginals01.json",
+    "sha256": "510cecbeca761beca4ad58e9e13ffedf2b343ee50ac6f654e568c445f421e3ea",
+    "tool": "re/tooling/sw2026/InspectDrawingMaterialState.py",
+    "tool_sha256": "4b7666337a5124de01b680624d096668f9750b6beadce4c4f14f5ddfe7ab4176",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "definition_bytes": 37612,
+        "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "typed_pw_manager": {
+          "presence_byte": 1,
+          "serialized_manager_present": true,
+          "constructor_counter_seed": 1,
+          "constructor_evidence": "PWMaterialManager_c constructor0x4c1f15f0",
+          "source_counter_replaced_by_constructor": false,
+          "low_word_i32": 1,
+          "high_word_i32": 0,
+          "source_next_appearance_id_u64": 1,
+          "counter_equals_constructor_seed": true,
+          "declared_reference_count": 0,
+          "observed_reference_rows": 0,
+          "reference_count_matches_rows": true,
+          "reference_list_genuinely_empty": true,
+          "reference_rows": []
+        },
+        "raw_byte_round_trip_passed": true,
+        "unread_tail_bytes": 0,
+        "map_slots_equal": true,
+        "same_object_identities": true,
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "definition_bytes": 37608,
+        "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "typed_pw_manager": {
+          "presence_byte": 1,
+          "serialized_manager_present": true,
+          "constructor_counter_seed": 1,
+          "constructor_evidence": "PWMaterialManager_c constructor0x4c1f15f0",
+          "source_counter_replaced_by_constructor": false,
+          "low_word_i32": 1,
+          "high_word_i32": 0,
+          "source_next_appearance_id_u64": 1,
+          "counter_equals_constructor_seed": true,
+          "declared_reference_count": 0,
+          "observed_reference_rows": 0,
+          "reference_count_matches_rows": true,
+          "reference_list_genuinely_empty": true,
+          "reference_rows": []
+        },
+        "raw_byte_round_trip_passed": true,
+        "unread_tail_bytes": 0,
+        "map_slots_equal": true,
+        "same_object_identities": true,
+        "input_unchanged": true
+      }
+    ]
+  },
+  "prior_cohort": {
+    "report": "SdkDrawingEmptyAppearancePrior01.json",
+    "sha256": "c2527bd13b721254634debee5adebb2a225bca02fe07cd4fe250d83ace5920e3",
+    "source_manifest_sha256": "a34cd41281726a08d732b71c0addd4448745c0e16419910cd87f25af7adbdaf2",
+    "runner_sha256": "d2dcacded379755882c20b1925119fa238c9766d1a00b1bd1071ecaeed6865d2",
+    "real_workers": 43,
+    "passed": true,
+    "source_immutable": true
+  },
+  "modeled_component_process": {
+    "report": "EmptyAppearanceProcessResults01.json",
+    "sha256": "0ef1c97b74b8bcf7efc29d96fafd9e4c398f11b73e500399213ca7debeca29eb",
+    "tool": "re/tooling/sw2026/InspectEmptyAppearanceAdmission.py",
+    "result": {
+      "schema": "kit.sw2026.empty-drawing-appearance-process.v1",
+      "source_manifest_sha256": "a34cd41281726a08d732b71c0addd4448745c0e16419910cd87f25af7adbdaf2",
+      "source_files": 4356,
+      "runner_sha256": "2bfde192e584d02e6a56112d3bc6f8138973b5827be0ac1f8359f7c907a6ca2b",
+      "generated_input_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+      "generated_definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+      "orientation": "*Front",
+      "input_provenance": "caller pinned SDK generated neutral drawing; no native vendor fixture added",
+      "baseline_byte_identical": true,
+      "positive_cases": [
+        {
+          "next_appearance_id": 1,
+          "low_word": 1,
+          "high_word": 0,
+          "output_bytes": 29418,
+          "output_sha256": "7833909d754f0fa8e668f74c88302aa9d7dad39f19256f64e1985a2293bb9a95",
+          "counter_and_raw_fields_retained": true,
+          "passed": true
+        },
+        {
+          "next_appearance_id": 4294967298,
+          "low_word": 2,
+          "high_word": 1,
+          "output_bytes": 29418,
+          "output_sha256": "5d0e3c3c50a75a1e1fd8bc05b4770701fbb7eff352327ced1fd4a148d627ff3e",
+          "counter_and_raw_fields_retained": true,
+          "passed": true
+        },
+        {
+          "next_appearance_id": 9223372041149743107,
+          "low_word": 3,
+          "high_word": -2147483647,
+          "output_bytes": 29418,
+          "output_sha256": "1c90b67d1ef4074206a662e31f120ec131e2c86ead40cebcd7863f450b529dea",
+          "counter_and_raw_fields_retained": true,
+          "passed": true
+        },
+        {
+          "next_appearance_id": 18446744073709551615,
+          "low_word": -1,
+          "high_word": -1,
+          "output_bytes": 29418,
+          "output_sha256": "b8a917ba84d70b6a15b2da865a71f181fe3addd227e22e9ed6236279accafc37",
+          "counter_and_raw_fields_retained": true,
+          "passed": true
+        }
+      ],
+      "negative_cases": [
+        {
+          "case": "negative count",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "minimum signed count",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "positive count without rows",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "populated null row",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "zero count with a row",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "untyped row container",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "floating count",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "boolean count",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance state requires exactly empty reference rows",
+          "result_returned": false
+        },
+        {
+          "case": "low word overflow",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance allocator requires signed32 words",
+          "result_returned": false
+        },
+        {
+          "case": "high word underflow",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance allocator requires signed32 words",
+          "result_returned": false
+        },
+        {
+          "case": "untyped low word",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance allocator requires signed32 words",
+          "result_returned": false
+        },
+        {
+          "case": "untyped high word",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance allocator requires signed32 words",
+          "result_returned": false
+        },
+        {
+          "case": "other presence",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "drawing appearance presence is outside the profile",
+          "result_returned": false
+        },
+        {
+          "case": "footer remains closed",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "blank drawing Definition has unqualified ui state",
+          "result_returned": false
+        },
+        {
+          "case": "legacy remains closed",
+          "rejected": true,
+          "exception": "BodyUnsupported",
+          "message": "blank drawing Definition requires current ui drawing ownership",
+          "result_returned": false
+        }
+      ],
+      "native_execution": false,
+      "vm_access": false,
+      "native_acceptance": false,
+      "heldout_acceptance": false,
+      "public_writer_enabled": false,
+      "source_immutable": true,
+      "input_unchanged": true,
+      "passed": true
+    }
+  },
+  "normal_original_reads": {
+    "report": "EmptyAppearanceOriginals01.json",
+    "sha256": "2c5af92e6e7ecd2c949a264111d0cc6d4a28388dda48657ee3deb5a8ec2b01af",
+    "runner_sha256": "2d0b69d5d9c4366ba54e9f52cc814bc50dabb91c1a1e3163c04406e05716ad48",
+    "source_manifest_sha256": "a34cd41281726a08d732b71c0addd4448745c0e16419910cd87f25af7adbdaf2",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition has unqualified root ownership or model link caches",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "named drawing Definition has unqualified root ownership or model link caches",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ],
+    "source_immutable": true,
+    "historical_delta_list_notice": "raw inspector retains an older five-path field; exact frozen source and actual_sdk_delta_files above establish this six-file tranche"
+  },
+  "static_checks": {
+    "ast": "passed",
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed with three inherited config-option notices and zero errors/warnings",
+    "steering": "passed",
+    "donor_scan": "passed",
+    "worker_product_or_test_execution": false
+  },
+  "other_semantic_guards_unchanged": true,
+  "fresh_writer_constructor_changed": false,
+  "original_writer_changed": false,
+  "normal_original_definition_round_trip_claimed": false,
+  "complete_source_semantics_admitted": false,
+  "native_execution": false,
+  "vm_access": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "original_heldout_verdict_changed": false,
+  "public_writer_registration_changed": false,
+  "source_saved_byte_fallback": false,
+  "sanitization": "private raw artifacts retained by hash; no host home paths, proprietary listings, vendor instruction bytes or CAD payloads published",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "appearance_shape_validation_replay": {
+    "prior_receipt_sha256": "a58b19b581326e1e45dabd6b0f35e5ec6b3155a17d8800348913a3736f47ced0",
+    "reader_manifest_sha256": "f2ed9763541e932998a0f6f1fd44631e707267b1af3edf9c4f7e519e1ff737de",
+    "integration_boundary": "present appearance flag without a manager fails with a typed unsupported result",
+    "source_file_sha256": {
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/NeedAppearEmpty.py": "58be3f79aec72e35e3d568a6d217917fd253d28d89f1c76f0e63c6be41b98726",
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearCount.py": "87baf7ca85d6cade17e968c55e259adfb47e207778c55a1191d05c94a8aa0fce",
+      "src/convert/adapters/solidworks/Drawing/Definition/Appearance/ReadAppearState.py": "6ffdc469f165dd2ed515d89fcf7f98ac915dd1227e3ffe73b1b6a853e9562b9b",
+      "tests/Convert/Solidworks/Research/Drawing/Definition/RunDefReject.py": "ab7e7159157ce50d2146268bd1ad91f240e62e575290961e260668288ae770ab"
+    },
+    "counter_process": {
+      "report_sha256": "bc76842299dcbc66ed0ec1d24397fab72e61a7345564eafa781b465708a4a366",
+      "counter_cases": 4,
+      "rejected_cases": 15
+    },
+    "original_root_process": {
+      "report_sha256": "89063a943ff99b9ece6b4efc811e96c534ada9119dcd39e25b3b28284b5a69b7",
+      "source_byte_round_trips": 2,
+      "retained_strict_source_rejections": 2
+    }
+  }
+}

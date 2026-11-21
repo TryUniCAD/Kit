@@ -1,0 +1,55 @@
+{
+  "acceptance": false,
+  "cad_execution": false,
+  "complete_functions": 24,
+  "data_windows": 6,
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "imports": 22,
+  "instruction_windows": 8,
+  "modules": 5,
+  "native_context_receipts": [
+    {
+      "candidate_acceptance": false,
+      "file": "AdmissionMatrix01.json",
+      "sha256": "f70156b289191f3aae426ba9d9785f9e765bbb23fcafdc27d179708ef21950f5"
+    },
+    {
+      "candidate_acceptance": false,
+      "file": "GeneratedReceive02.json",
+      "sha256": "065fc3ac0ca26de019f33be8239296ea327e48126fbe719a59d0eba9176c985a"
+    },
+    {
+      "candidate_acceptance": false,
+      "file": "NativeControlReceive02.json",
+      "sha256": "d4fa0636954c6a93b80372eb361c7b7ef7dad2cf233db9e465648310d9ef2da9"
+    },
+    {
+      "candidate_acceptance": false,
+      "file": "ApiWarningBoundary01.json",
+      "sha256": "54ac38cb1f9589f771cbcbddcd263988856e56834c7b95adaff37926fece165c"
+    },
+    {
+      "candidate_acceptance": false,
+      "file": "ActiveBodyInventoryBoundary01.json",
+      "sha256": "e30da89e2c5d8a34e1c235e1aab6b374e31106af9dc5f1e845571b0fb5734b00"
+    },
+    {
+      "candidate_acceptance": false,
+      "file": "KernelAskBodiesBoundary01.json",
+      "sha256": "a3add91a7e7080cb48bfd56d2774f9341e36fe3e96cd0901e53b9b84613c36b5"
+    }
+  ],
+  "native_execution": false,
+  "native_measurement_performed_by_worker": false,
+  "owner": "flag_ownership",
+  "record_sha256": "cf704cb500837bb1da909384135469c35bf9301aebe797800fec4c670b81faf1",
+  "schema": "kit.sw2026.part-rebuild-warning-source-replay.v1",
+  "schema_or_codec_execution": false,
+  "task": "B04-SW2026-ORDINARY-PART-PARTITION-LOAD / warning publication",
+  "tests": false,
+  "vendor_bytes_or_listings": false,
+  "verified": true,
+  "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+  "vtable_cells": 6
+}

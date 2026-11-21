@@ -1,0 +1,181 @@
+{
+  "confidence": {
+    "actual_archive_owner_rule": "confirmed_by_pinned_2026_implementation",
+    "ascii_cacheless_public_projection": "confirmed_for_two_disclosed_generated_parts_by_independent_process_replay",
+    "null_body_and_output_reuse": "confirmed_by_pinned_implementation_and_disclosed_native_lifecycle",
+    "old_paths_and_rejections": "confirmed_by_exact_paired_process_comparison",
+    "unicode_cacheless_and_original_named_sources": "unqualified_not_evaluated"
+  },
+  "delivery_pr": 121,
+  "first_public_probe": {
+    "fresh_processes": 1,
+    "passed": true,
+    "public_modes": 5,
+    "root_independently_executed": true,
+    "sha256": "0c553e61e10954e43c833f9975c21a0f45c274045400d203a80cd3b3e350d1d9"
+  },
+  "full_process_method": {
+    "additional_runtime_file_access_attempts": 0,
+    "executed_processes": 128,
+    "fixture_producer_processes": 30,
+    "fixture_producers_separate": true,
+    "inputs_sha256": "aa68b04553fd586d0866f8b8807e44963cd1355632541cba88a0eb48ce0723ca",
+    "negative_variants": [
+      "MissingOutput",
+      "EmptyOutput",
+      "DuplicateOutput",
+      "ForeignOutput",
+      "WrongOutputClass",
+      "AlternateInput",
+      "WrongOutputId",
+      "MissingOutputId",
+      "WrongAtomId",
+      "WrongBase",
+      "WrongModifier",
+      "AtomTag",
+      "AtomDisplay",
+      "DerivedName",
+      "EmptyName",
+      "NonAsciiName",
+      "ManagerCounter",
+      "OldManager",
+      "EmbeddedBody",
+      "ExtraAtom",
+      "GhostAtom",
+      "ExtraRoot",
+      "ModelMode",
+      "ReversedEnd",
+      "DraftEnd",
+      "ProfileMode",
+      "SketchState",
+      "EmptyPresentCache",
+      "CorruptPresentCache",
+      "UnknownRole"
+    ],
+    "outside_sdk_module_origins": 0,
+    "paired_mode_comparisons": 245,
+    "paired_old_document_and_error_retention": true,
+    "passed": true,
+    "passed_groups": 49,
+    "planned_processes": 128,
+    "public_api_calls": 490,
+    "public_mode_names": [
+      "Default",
+      "Repeat",
+      "NoTess",
+      "History",
+      "Lenient"
+    ],
+    "public_reader_processes": 98,
+    "root_process_result_sha256": "467ee34b13341c748860e8aaa04c4331d430a2b5180f533e7200605529587e54",
+    "runtime_file_access_denied": true,
+    "runtime_research_imports": 0,
+    "source_closures_unchanged": true,
+    "source_states": 19,
+    "sources_immutable": true,
+    "tools_sha256": "2782e9dadd3157e4b7186f9cce7817715019a7239b99d2679a02b7cfdedbf056"
+  },
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "non_ascii_cold_names_not_qualified",
+    "multiple_or_ambiguous_atoms_not_qualified",
+    "unsupported_model_and_end_modes_not_qualified",
+    "present_empty_or_corrupt_cache_never_reconstructed",
+    "history_only_name_projection_unchanged",
+    "original_named_h_sources_not_opened_or_qualified",
+    "no_writer_registration_change"
+  ],
+  "native_disclosed_packet_sha256": "20f481f114288850a77b9c9cbf3a22e251c563c54692ff9b05e614f8232032f4",
+  "native_disclosed_result_sha256": "1904630cd69b81e200c353023bae8b55c519a7cf45136316befa6cf63107d0ed",
+  "owner": "configuration_header",
+  "pinned_module": {
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "prior_fixture_failure": {
+    "cause": "replacement fd90 omitted manager f80 and used atom node rather than embedded ghost-object schema",
+    "completed_processes": 125,
+    "executed_processes": 126,
+    "failure_stage": "research_fixture_producer_before_public_reader",
+    "full_trial_passed": false,
+    "input_files_changed_for_repair": false,
+    "only_failed_group": "GhostAtom",
+    "passed_groups": 48,
+    "public_observer_changed_for_repair": false,
+    "root_process_result_sha256": "34dff88065a4ba5cccbe414b8dd15b77a98977f27ea6ebc066b8125f1b7fb845",
+    "sdk_source_changed_for_repair": false
+  },
+  "process_receipt": "../measurements/2026/SdkCachelessBodyReaderProcess01.json",
+  "process_receipt_sha256": "92e18483b7f0f27db1bbc6bdfb62945fdade0479ab84664053854f780589e851",
+  "schema": "kit.sw2026.cacheless-body-name-reader-evidence.v1",
+  "scope": {
+    "actual_boss_output_identity": true,
+    "ascii_only": true,
+    "complete_neutral_brep_binding": true,
+    "existing_complete_prism_scope_retained": true,
+    "geometry_source": "typed_parametric_history",
+    "model_version": 19000,
+    "native_kernel_identity": false,
+    "native_payloads_present": false,
+    "ordinary_single_prism": true,
+    "reciprocal_base_modifier_and_atom_ids": true,
+    "sole_actual_atom_manager_member": true
+  },
+  "shared_source_changed": false,
+  "source_manifests": {
+    "baseline_sha256": "c589bf20ed89c6aca3d77564d392bbc1a9ebbc8be52f9427d0ce180411b22637",
+    "candidate_files": 4340,
+    "candidate_sha256": "71043174b6de572419356ffc457e5f1c327b10a623f604201272948abbc1e4c9",
+    "delta_paths": 19
+  },
+  "source_ranges": [
+    {
+      "counter_increment": "0x4bcf0cb8",
+      "entry": "0x4bcf0ca0",
+      "owner": "manager_allocate"
+    },
+    {
+      "end": "0x4b7178fe",
+      "entry": "0x4b717825",
+      "map_lookup": "0x4b717842",
+      "owner": "actual_existing_output_lookup"
+    },
+    {
+      "end_exclusive": "0x4bcf9b15",
+      "owner": "feature_id_reconcile",
+      "start": "0x4bcf98c0"
+    },
+    {
+      "end_exclusive": "0x4bcf02e1",
+      "null_body_branch": "0x4bcefcaa",
+      "owner": "atom_serializer",
+      "start": "0x4bcefbb0"
+    },
+    {
+      "end_exclusive": "0x4bcee024",
+      "owner": "atom_constructor",
+      "start": "0x4bcede70"
+    },
+    {
+      "end_exclusive": "0x4b293567",
+      "owner": "set_name_derived",
+      "start": "0x4b293560"
+    },
+    {
+      "end_exclusive": "0x4b292077",
+      "owner": "set_display_mode",
+      "start": "0x4b292070"
+    }
+  ],
+  "static_checks": {
+    "donor_scan": true,
+    "pyright_geometry": true,
+    "ruff": true,
+    "steering": true,
+    "strict_mypy": true
+  },
+  "status": "bounded_disclosed_reader_profile_qualified",
+  "task_id": "B04-SW2026-CACHELESS-BODY-NAME-READ",
+  "vendor_code_or_payloads_added": false
+}

@@ -1,0 +1,1881 @@
+{
+  "schema": "kit.sw2026.camera-writer-freeze.v1",
+  "frozen_at_utc": "2026-11-16T20:41:08.711139+00:00",
+  "writer_revision": "f5953529e2114b5648cfe1e5341a83b1c2f0d9d6",
+  "writer_tree": "41b119280d876975e2a2ee3d4def85c78ac2c7fe",
+  "source_lock_path": "re/solidworks/v2026/heldout/ViewSourceLock.json",
+  "source_lock_sha256": "857ff7ff95ac69d81b229379136a988f64aed6af9be2b5fae105ac505499b697",
+  "source_author_revision": "8672dd3340337a02cec5300bb838ebbc209063af",
+  "specs_path": "re/tooling/sw2026/ViewSourceSpecs.json",
+  "specs_sha256": "8ce6c26c535afd87910448592a437ba1d954b5242dd3aa844025b929c95844bf",
+  "base_freeze_path": "re/solidworks/v2026/heldout/EndConditionWriterFreeze.json",
+  "base_freeze_sha256": "fb208a5b8dd8cf9e033ad8450fd466e9754cf6374dc88bce68ee1bcd709a2918",
+  "curve_freeze_path": "re/solidworks/v2026/heldout/CurveCircleWriterFreeze.json",
+  "curve_freeze_sha256": "4a6cb20e311fa1572b234f12b4fb3dfdd672b5095ca147268bb410d76c5694f7",
+  "heldout_native_payloads_inspected_before_freeze": false,
+  "private_api_observations_inspected_before_freeze": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "evaluated_heldouts": [
+    {
+      "name": "H01TrimetricPan",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "H01TrimetricPan/author/H01TrimetricPan.SLDPRT",
+      "native_sha256": "0a50a4d9a2fbea543ee90d05a487cc07a3fe4b0ec23e7ede1b7777f18d728895",
+      "native_bytes": 70805,
+      "record_sha256": [
+        "2b251bdeb17992466e149256a052e265a14b6ece7d564eff44dd2765b4c8d337",
+        "4054ba752e3f9503d47bfb7adeb56be6c992b417e1092667d6852604a6313170"
+      ],
+      "numeric_check_count": 96
+    },
+    {
+      "name": "H02DimetricPan",
+      "split": "heldout",
+      "passed": true,
+      "fresh_process": true,
+      "phases": 2,
+      "native_file": "H02DimetricPan/author/H02DimetricPan.SLDPRT",
+      "native_sha256": "8082c3a3eeed0c08ff65b96b19590ea847c2b8b8dcc1dadcfd11ee4d3977a432",
+      "native_bytes": 47782,
+      "record_sha256": [
+        "b33b63390d3455234ef279cd3c7263ddb737e5d24983e3eb0ad0498e4f743034",
+        "8e4ed181cca63eb3398ade79438a7a0ee33e77484c7a21fee12430521dd7570a"
+      ],
+      "numeric_check_count": 96
+    }
+  ],
+  "constructor_dependency_count": 354,
+  "files": [
+    {
+      "path": "re/tooling/sw2026/Author.py",
+      "bytes": 9982,
+      "sha256": "860525d39f4da77d495898969a89120064af91d8ffce0b30bdf0f1dd493742c6"
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorAsm.py",
+      "bytes": 2844,
+      "sha256": "9d4fe1ac95fb8233f9df23db438bfefee4a4890b2f574a2b1a65372cd012f248"
+    },
+    {
+      "path": "re/tooling/sw2026/AuthorCurves.py",
+      "bytes": 70324,
+      "sha256": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde"
+    },
+    {
+      "path": "re/tooling/sw2026/CameraProcess.py",
+      "bytes": 2306,
+      "sha256": "315a076e2ec558a4c9c519c2e7706a252ee663610ae1d514c088a9e637e60774"
+    },
+    {
+      "path": "re/tooling/sw2026/CaptureFreecad.py",
+      "bytes": 4547,
+      "sha256": "3f7ff6c7cd1385956ff100d3a11e8eb1f057c20754066bc07aed0b346ce28e9c"
+    },
+    {
+      "path": "re/tooling/sw2026/CloseApprovedSession.py",
+      "bytes": 3695,
+      "sha256": "db844b93a60f84daf27a3e3c1151c97862c5dc8c058b7cb543445975c5169c03"
+    },
+    {
+      "path": "re/tooling/sw2026/Construct.py",
+      "bytes": 1287,
+      "sha256": "063a762aba492b50d004a73ded082cd008f9431d1ac69bf49f28aa0184b62b4e"
+    },
+    {
+      "path": "re/tooling/sw2026/Deletion.py",
+      "bytes": 1296,
+      "sha256": "a662a4ca2cc5ab1d08d1c4eeb628bfc2a0e644b9c604bbcaa6b1d9023405dce4"
+    },
+    {
+      "path": "re/tooling/sw2026/Dis.py",
+      "bytes": 1526,
+      "sha256": "7dd8a800ecfa273bbe198b11ab0516fa116676c351fefbcdd997f084b459ff53"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectCircleSketch.py",
+      "bytes": 27950,
+      "sha256": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectEdit.py",
+      "bytes": 7248,
+      "sha256": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectExistingSession.py",
+      "bytes": 8081,
+      "sha256": "309fc445c58acee82c46a6c0521fe5775c90b9c5a9a046d4090de36e21bdd660"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectFresh.py",
+      "bytes": 4187,
+      "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectMfcFiles.py",
+      "bytes": 22237,
+      "sha256": "195a0d90fe26169b31e87234910af29b2b1f5289b58d29a2e91cafca62602960"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectMfcRuntime.py",
+      "bytes": 22329,
+      "sha256": "f83885f25f9661fff7fc893cd2e5d63fc9db07c5769e983eb25a6c378c93fb71"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectTypeLib.py",
+      "bytes": 4554,
+      "sha256": "a49ec38dc1bc97b0074516f2e2a728eb44be26301e748451539f4fa356656302"
+    },
+    {
+      "path": "re/tooling/sw2026/InspectView.py",
+      "bytes": 5841,
+      "sha256": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314"
+    },
+    {
+      "path": "re/tooling/sw2026/Measure.py",
+      "bytes": 3078,
+      "sha256": "507890f1c7f222de979bcf5ae0413452deb60fe3dcd1df8101f4bf8b559890e1"
+    },
+    {
+      "path": "re/tooling/sw2026/OracleIdentity.py",
+      "bytes": 4284,
+      "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    {
+      "path": "re/tooling/sw2026/PrepareCorpus.py",
+      "bytes": 3667,
+      "sha256": "224f21eb3a281906574f1cf2751d5a17fc8370b98084d44c5ad6007fcfe41589"
+    },
+    {
+      "path": "re/tooling/sw2026/PrepareCurveCorpus.py",
+      "bytes": 35360,
+      "sha256": "18105df07ce8652c1455b0e7f7a5e9e575ae4bbf94beb0bbf0c5b76ef980285f"
+    },
+    {
+      "path": "re/tooling/sw2026/PrepareEndConditions.py",
+      "bytes": 8119,
+      "sha256": "2754087a01cd1f8f9af15350bf1ef4f240f4f056943744b80da0452f168c23b0"
+    },
+    {
+      "path": "re/tooling/sw2026/PrepareSavedCircles.py",
+      "bytes": 12670,
+      "sha256": "a130ec053e551410ac6804195de7ce63172d7e350ad0c8c48fc73abb647f87a3"
+    },
+    {
+      "path": "re/tooling/sw2026/ProbeIdleGuard.py",
+      "bytes": 2409,
+      "sha256": "d89d48aa0baa1b2a86669aaefd874e43ec440bd707ec2a211162d460d59fdb12"
+    },
+    {
+      "path": "re/tooling/sw2026/ProbeInstance.py",
+      "bytes": 3095,
+      "sha256": "7c4b5f88eb3c240d72e964cd45de4d125d3ceea173d48d2a8cdc321f03ec2795"
+    },
+    {
+      "path": "re/tooling/sw2026/Resave.py",
+      "bytes": 2746,
+      "sha256": "4ee7d2f922d214060579de5ea5fd70670a3057ed2392bff05639b18d30298fb5"
+    },
+    {
+      "path": "re/tooling/sw2026/RunOracleBatch.py",
+      "bytes": 18234,
+      "sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd"
+    },
+    {
+      "path": "re/tooling/sw2026/SerializeMap.py",
+      "bytes": 1544,
+      "sha256": "0c4f194326a4264139c87fdae81eae566518f82dfe05eb44bed19d3e27c03ed7"
+    },
+    {
+      "path": "re/tooling/sw2026/Smoke.py",
+      "bytes": 1234,
+      "sha256": "f784aef0f65f9b14c11c9143b463a1dd526601aecdcf428aac3981809c91a0ee"
+    },
+    {
+      "path": "re/tooling/sw2026/Specs.py",
+      "bytes": 1950,
+      "sha256": "1622d4b4433612f20db62e98f5769ef57ed56c86eceaff9d58e582a2ade6553d"
+    },
+    {
+      "path": "re/tooling/sw2026/Swapp.py",
+      "bytes": 15278,
+      "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Arc.py",
+      "bytes": 2187,
+      "sha256": "75277621e14e82ab49ad2565db6482a42172477f595d34a2755d84aed1846990"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Assembly.py",
+      "bytes": 5242,
+      "sha256": "562f3f815ff29fa6846f027e943a9754f5dc6b7d000ee7418155dcfef90789a7"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Camera.py",
+      "bytes": 2450,
+      "sha256": "57a5333e1189ab10f2eadedf6693b2ad23419844377304575b39ab26c96ad7a7"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Capsule.py",
+      "bytes": 2485,
+      "sha256": "5fa402f0b42dd9a1a9a48600738e136a7ae112613fb7b6ba398657338ad434c6"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Circle.py",
+      "bytes": 4423,
+      "sha256": "4d423d515d0b3ab117fd8e9edbded818d724bef2f16d73e23f641357d2b91452"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Definition.py",
+      "bytes": 5012,
+      "sha256": "ae519f5cdbc47a55ab555b98c04591a9ee02e8ec4bf146509e51f4ce90ca1694"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Extrude.py",
+      "bytes": 23208,
+      "sha256": "f7331da8e91ce47cd646edee109de47f44feceaddf7215d80eec3b758ff77187"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Geometry.py",
+      "bytes": 5242,
+      "sha256": "fabe62d663f3c7ceb343cb9f011eca1e98483d3eb7bb337225122238e06e40b1"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Metadata.py",
+      "bytes": 14756,
+      "sha256": "492d176712371e8eb5d344ff31b639612bd016df06ef031362da73807f8172f2"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Model.py",
+      "bytes": 34300,
+      "sha256": "6c93027c35b2c622294e6e33db628ab882f2c3dd5d36b9cf9eefd4487a93610c"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Part.py",
+      "bytes": 13174,
+      "sha256": "5d2232e7dfb65c01a3c3b341e9f894d5c27660d0010de7b57f9755b43d737e0b"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Radial.py",
+      "bytes": 9887,
+      "sha256": "bbe74beaacaecadf7a4d19ae7286b0ab7ee16d2a3fe295998de30a77cf8a5591"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Sketch.py",
+      "bytes": 30451,
+      "sha256": "6bcc5521491ab6b5366c80c2ad3d8291f0c40e3891d2287d7e2c0a2ae1539900"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Styles.py",
+      "bytes": 21494,
+      "sha256": "fcee44b9d8394016f1ec000bcd40962c19ebcfc0dc3ec45ac3f2ddf9e1da5be0"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Units.py",
+      "bytes": 4205,
+      "sha256": "78a451ed2705df1bea8d4346116dc2f4d8be0c71605005614791537a4493d68a"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Views.py",
+      "bytes": 3169,
+      "sha256": "1b2d621fdd33ac8f77ff3ba466be75dc52a7c506d2b22f126e392c370bd02874"
+    },
+    {
+      "path": "re/tooling/sw2026/builders/Visual.py",
+      "bytes": 824,
+      "sha256": "e6cc025112f0570a8a3c7f0151d204bf589bc0afb0aea2bfa713efa0f0bb1366"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/AnnotationWire.py",
+      "bytes": 499,
+      "sha256": "1736c889060ff4147e6e18ecaf35fe31ae68f99cfda8c5bd87a9f0ebd5675bd2"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/Classes.py",
+      "bytes": 1289,
+      "sha256": "7bcba68ca5d75b23f18b81eb1a54c1da1381f744242c63dc1aaca13cc10dcc4b"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/Core.py",
+      "bytes": 11916,
+      "sha256": "a57ee11c90fb018739e99f10a47a2e501d0dc06296c34362074def4bb0a5dd66"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/Dsl.py",
+      "bytes": 1420,
+      "sha256": "8467587af31c6d2b92d2fd3191640ca75a15b4840c3958abca32707e8e9f9ea4"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/EndSources.py",
+      "bytes": 10147,
+      "sha256": "6527f57dca0a5d892e4bc15c309e44e736258a5eb8c8594c8607f5672d4886b9"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/FieldScan.py",
+      "bytes": 17993,
+      "sha256": "b4663fffc67df7a65e998ab259dac5094d029fb74fe481e3a0ae52a8431822a0"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/MapBridge.py",
+      "bytes": 1928,
+      "sha256": "eeb9b26114a3862e124e393c615c0c979c3dbf38c2b6d9b9cf2c54321d441393"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/RoundTrip.py",
+      "bytes": 12033,
+      "sha256": "c4f307e4a2b4277351ff919d0cc54ea68c76193986b417d654f38df59a5fd5ae"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/SavedCircles.py",
+      "bytes": 13798,
+      "sha256": "8b450da5ff2f6bc00d81b881956ae6aa795a30e05720cd80f175daef143946d9"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/Schema.py",
+      "bytes": 14164,
+      "sha256": "fafa579ea5bc961792fdaa697f1c8cf20856a9d4bedd1b14c288be938046b2bf"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/Streams.py",
+      "bytes": 1243,
+      "sha256": "5732b6b5358676d32bff872d4919d6d40b4cf30107f243b87a330bbc5519f8d5"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/StringCorpus.py",
+      "bytes": 27445,
+      "sha256": "f6b31a97abfa2d408b33e9eb30f38be5168425ed07856a1aab63f00fc56f92c9"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/CommonPartOwners2026.py",
+      "bytes": 3546,
+      "sha256": "035daed40818b8d4e1eed7b3560d6db05296f6b3158915e6d46dd2a15ab216e2"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ConfigAssembly.py",
+      "bytes": 12950,
+      "sha256": "a47e9c7ce0f85c2e2df60211b5a7f14ac70cda942a29ee4d3f0c234b01ca7f62"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ConfigDetail.py",
+      "bytes": 24720,
+      "sha256": "c0522965c64530e568aa6ff688b58e86edaaaa369c9d4ad23530ad2798180d52"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ConfigPart.py",
+      "bytes": 31971,
+      "sha256": "5a94e9ad6554ec6e54f40c311ae3a3b2328b90dd3e4318b5cc649f7aff4208eb"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ConfigUnits.py",
+      "bytes": 2653,
+      "sha256": "3aceb00b5912707087c29e4061eaa52c5022daa2c6db23720b7b36eba031fb7c"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ConfigVisual.py",
+      "bytes": 5083,
+      "sha256": "613d12ea8d6514015db720f5c12e1a7a2ff68e481a540a0abfcf3ab45a35e712"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/Definition.py",
+      "bytes": 12512,
+      "sha256": "7f8b6ad83f7305498a7aaf9ab9b66ca9ad68442e42492a55c0b45fc0e19f649a"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ExtObject.py",
+      "bytes": 1340,
+      "sha256": "c1b196cc17902c8acc19ff9ddac3147d7d44d38415f77fc85df84cee119fba5d"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/Geometry.py",
+      "bytes": 1607,
+      "sha256": "6512745e04f882620f35890d4f1fdef0f92333272e7654f7ec5de1bfb1e8f000"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/MaterialDisplay.py",
+      "bytes": 5463,
+      "sha256": "a5efe19dbd86e8aebc70a0b2f9816d785c17f8fa84a571170d55f37ae72f4556"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/MfcMaps.py",
+      "bytes": 911,
+      "sha256": "15644267281dc8454741a5bd25d3037ea08022d377afa353a599df8a8e4bc924"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ModelHeader.py",
+      "bytes": 1629,
+      "sha256": "2a05200a42ae279b0ae147ae9879a7a8375a86c40a29098b3f7cc192a071521b"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedBody.py",
+      "bytes": 7051,
+      "sha256": "0c0590805852de9698a7bea9d1d0e9e1580d317ae0e93597a0015e28cfb8e457"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedComp.py",
+      "bytes": 4724,
+      "sha256": "40a5d6b8b32475ff050deddaf2b16093d38da79c983e9625434a0db9049e5946"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedCore.py",
+      "bytes": 11466,
+      "sha256": "e8205429dce688a2d41ccb2f8ef781b428f9099c5b695adc182a6557c6095413"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedDims.py",
+      "bytes": 26768,
+      "sha256": "7197676232c6a07616f87384e7630ea998ef598d81bf64020d3541ff986e645a"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedFeatures.py",
+      "bytes": 10316,
+      "sha256": "7130a0a40aafedd7d61c408fac6c14f2cd7bbcb12fe6bf3b18be34f209c93b47"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedFillet.py",
+      "bytes": 8450,
+      "sha256": "b4d1e51baaa2fd6b0b864baedd191177d98193f717aa2058320bcc673ecbf0bc"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedFolders.py",
+      "bytes": 2528,
+      "sha256": "982d6ee0100e863d40f29f7e6353200931e460f8117d95855f25a224195ec718"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedPattern.py",
+      "bytes": 8070,
+      "sha256": "59b8b39337809c4297277a71f5095c50b8eb0929d07f5f6edd89156176fa34a4"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedProfile.py",
+      "bytes": 5946,
+      "sha256": "4ea3ccd45146f3e70ff6aeada3c408265551f60925e4fef8ccb34ecb33a1d1f4"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedRefGeom.py",
+      "bytes": 5356,
+      "sha256": "0990cfbe85b2ee755e18ae27284b17b9f22e39c1f03a1b8869594e280d31ae5b"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedRefs.py",
+      "bytes": 36136,
+      "sha256": "b0ff1ee52afc7e4e528d0eab780dc8c2d359fe019fa0de4525bf8940ecdae576"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/ResolvedSketch.py",
+      "bytes": 27499,
+      "sha256": "c6dcf4efa511acc92dc2a77aa2bc0def883a07941b2ab1690293185c055b8c9a"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallCMgr.py",
+      "bytes": 21560,
+      "sha256": "c47ae4c157592a8c2da63150e59420699961b1fd94e6b11d429eb4e0290bc97b"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallCusProps.py",
+      "bytes": 1148,
+      "sha256": "4fb716a697648aaecf0c4417869cde9ef350d2bf7df99ac5e87289455ad16f79"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallDocContent.py",
+      "bytes": 1300,
+      "sha256": "8b26de84ad013e16cf0f077c079101a59ef79e5289be847d9c3d201812f0787e"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallHeader.py",
+      "bytes": 814,
+      "sha256": "ced15854e8a25899a453f4df5aaea9ea348891b26dfeef11a3466ba10c71a444"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallHistory.py",
+      "bytes": 1895,
+      "sha256": "0243867b6e96c213b9a5603425c4240410648ff5d90d4cdd7a660cddb23433ff"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmallStreams.py",
+      "bytes": 1060,
+      "sha256": "2c36304e92909de38874348a694d20900f628f5159a03e2d02161e3a29342183"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/SmmMaster.py",
+      "bytes": 1554,
+      "sha256": "5942042520e93d84a36d9e2b7914c7227a76a4d90163a7d2caf26aa866129a32"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDefinitions.py",
+      "bytes": 4073,
+      "sha256": "2a66ed3df6aa9864974f3cb3778a9bbd09c462547044ea809ca320f7ba8bc9da"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDetail.py",
+      "bytes": 5363,
+      "sha256": "f3eaeb136de7666a9cf4bba85e0cfedb6a11fa43e7264127b4316305b953aa03"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationDimensions.py",
+      "bytes": 4179,
+      "sha256": "6280dcfe1af0c7236fd818df2dd0a4ffe771ad250f1ecea5e052b0af2cc4e9e6"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFormats.py",
+      "bytes": 796,
+      "sha256": "90978760e3d058d12e71778443c8ceae868b66d64a7bd4768d36efa5e5cfc27a"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationFrame.py",
+      "bytes": 1294,
+      "sha256": "8b0a93853c3fb409d31e2ea36fae53f4bbd360e7366aa6c07f7b0981f5a9f37e"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationHelpers.py",
+      "bytes": 7633,
+      "sha256": "e9602884db9466963c95acdf838140bde83ca68068fa75df326c4ad6e8610cd2"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationLabels.py",
+      "bytes": 2345,
+      "sha256": "af3428274f3cd1624a8e1b14e6c9684b659d00d5a0f40246403bde2b8e76073d"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationTables.py",
+      "bytes": 3200,
+      "sha256": "e14f968e23ef2590d554a9adb45724e60a7df28e3e4ce4f966be0875acc481af"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VerifiedAnnotationView.py",
+      "bytes": 636,
+      "sha256": "ac3b349bc593cf8990c8357821477098b6265c19e475442afb883c58278d8df5"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/Visual.py",
+      "bytes": 4107,
+      "sha256": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/VisualRefs.py",
+      "bytes": 6306,
+      "sha256": "dbf0c8ea784d2128573af6e21d7f7e808bacb36ea859c4146853c8fa372bbf81"
+    },
+    {
+      "path": "re/tooling/sw2026/serial/defs/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/base/AdapterInfo.py",
+      "bytes": 5313,
+      "sha256": "e7339d05978a53daf6cf406e715585caea878ae8c385f4fa8be55e0f07055063"
+    },
+    {
+      "path": "src/convert/adapters/base/AdapterInfoView.py",
+      "bytes": 2297,
+      "sha256": "5c286161c68a2faa62034c73714b4eba99e908bccf9d5e2f13bc7decd966dc61"
+    },
+    {
+      "path": "src/convert/adapters/base/AdapterMetadata.py",
+      "bytes": 5084,
+      "sha256": "02e614644cc89141eeebe90f3d8b233c80138936aa78dc6a6ef2c8939b9c28ce"
+    },
+    {
+      "path": "src/convert/adapters/base/AdapterProtocols.py",
+      "bytes": 5531,
+      "sha256": "ce171fa8009c8fd5f01c68702cc811ddd393634c0ff493569f137216148240a9"
+    },
+    {
+      "path": "src/convert/adapters/base/CapabilityView.py",
+      "bytes": 2561,
+      "sha256": "7e15a15430cbf9e3965a899587ad7b1f0be4c530d118659a04ec527eea87ea13"
+    },
+    {
+      "path": "src/convert/adapters/base/ContractCompat.py",
+      "bytes": 6270,
+      "sha256": "e5a1d064b5c1f0236d5bfbe5f4c57206d7467575650893614e757621d3fcb70f"
+    },
+    {
+      "path": "src/convert/adapters/base/ContractTypes.py",
+      "bytes": 2617,
+      "sha256": "dd321da3fdd8049f4529cce6a45f576e86f15d353341e80ee99c4f897f68c574"
+    },
+    {
+      "path": "src/convert/adapters/base/FieldAliases.py",
+      "bytes": 1458,
+      "sha256": "fd661caa831de5cd81dd586507d17adab57a83f932f8911f9078ce1333ad5f74"
+    },
+    {
+      "path": "src/convert/adapters/base/Materials/CheckMatWrites.py",
+      "bytes": 751,
+      "sha256": "2c28504918d9090250593e3f25ce50255e963e64650e88659cc580078780d5cf"
+    },
+    {
+      "path": "src/convert/adapters/base/Materials/MaterialWriter.py",
+      "bytes": 479,
+      "sha256": "9023e7b9342d45856e5f0e30254b86e68d33f2e5c76c5166e03a2b90f78426b5"
+    },
+    {
+      "path": "src/convert/adapters/base/ProbeResult.py",
+      "bytes": 1123,
+      "sha256": "4feef5840a934af213f8da47209ae00625fbc4b36c138f38ca317a7d6afeaeac"
+    },
+    {
+      "path": "src/convert/adapters/base/ReadOptions.py",
+      "bytes": 1588,
+      "sha256": "0971f2783833f8c69bba8c79b8e7e8d02d7f67f4e0bbd570b5f2c0b0708c4227"
+    },
+    {
+      "path": "src/convert/adapters/base/ResultOutputs.py",
+      "bytes": 1604,
+      "sha256": "4c74a2d6bf707e00974a07f455457a9e7460d5fd31f91e86d300145f9ec7301e"
+    },
+    {
+      "path": "src/convert/adapters/base/ResultPolicy.py",
+      "bytes": 1063,
+      "sha256": "86a1757533d099c5f582e40b78a370f68f3d6c468ba41dbacaba37c90da6ae2d"
+    },
+    {
+      "path": "src/convert/adapters/base/SafeParsing.py",
+      "bytes": 868,
+      "sha256": "34176ee3004ea51c8b1e29d02d797d0ac9a20a253bb708c9c77cbae2a45db47a"
+    },
+    {
+      "path": "src/convert/adapters/base/TransferContract.py",
+      "bytes": 3122,
+      "sha256": "67212e3019b72a9545cd1765fb2f9db84db48f8aae155a80e455e0275c6d1867"
+    },
+    {
+      "path": "src/convert/adapters/base/UsabilityError.py",
+      "bytes": 11417,
+      "sha256": "afeb8c3078e51c46530e9f49c41460262c22e396c74ee4e6fbd20b6ab417db16"
+    },
+    {
+      "path": "src/convert/adapters/base/WriteOptions.py",
+      "bytes": 3299,
+      "sha256": "45e0d1a1c55f862f9f65a6c38932f5925c8d3f8331cd70041a15d4110a9dacfc"
+    },
+    {
+      "path": "src/convert/adapters/base/WritePolicy.py",
+      "bytes": 7652,
+      "sha256": "2fa1aa0e6d6654384d527ac0f95d121da9d7fc86ca42fa5afa607953f3ce8337"
+    },
+    {
+      "path": "src/convert/adapters/base/WriteResult.py",
+      "bytes": 2783,
+      "sha256": "849455a4aa3a0d597208c7fe37e53d53c4b2a5f860f7390e2fa3bdd57432b6ae"
+    },
+    {
+      "path": "src/convert/adapters/base/WriteValidate.py",
+      "bytes": 5765,
+      "sha256": "5ad99be93124d76252f02bdd69d6efb625210093085dc0d2ec467dd227c17fde"
+    },
+    {
+      "path": "src/convert/adapters/base/__init__.py",
+      "bytes": 3537,
+      "sha256": "8b73f813fa25e7931f4408c45a163c1b28f530c350139b4d069cebe02ffcad04"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Counts/EncodeCount.py",
+      "bytes": 782,
+      "sha256": "a36a080ff7e73a6bc84d9e9d1bed111539447560958598f56daa0cda421cbce6"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Counts/ReadCount.py",
+      "bytes": 1296,
+      "sha256": "359ffb24181c7a2b9deead3e46cc7eb024b3ef0c569a760c86f474475f4bc01e"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Counts/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/AddEntryMut.py",
+      "bytes": 998,
+      "sha256": "74a2b02aa91f016609da5b01032e210de5d05984bd5f13034978048771a9a6f4"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/ArchiveMaps.py",
+      "bytes": 1602,
+      "sha256": "d7e8ccdd0d8c81c68279672b3c6ccecc9a6330e3d4c814007a11f4e97d6a3841"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/BindClassMut.py",
+      "bytes": 1052,
+      "sha256": "b2249e7e0d2d8c14113dd6f8efff5d0ee8bdcca98ec47e86806f0b054d4d0269"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/ClassIndex.py",
+      "bytes": 613,
+      "sha256": "ea249652c2da2f6037d3637debe031c167a232b780c2782fff2fa76d7ecb41ba"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/FindClass.py",
+      "bytes": 938,
+      "sha256": "7eb6b1c2920019aa100de053ca6f1d6160b98256d2563a24008f2ee32b7d7701"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/FindObject.py",
+      "bytes": 1246,
+      "sha256": "a772341da8f423e6ece816082caaf7e54e7d052993968f47c67fa550c0c8a56c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/MapEntry.py",
+      "bytes": 1192,
+      "sha256": "3422480656f9d6f8219839e6cad430fd0ad0b43522c4b16315a0407bfd1a85c0"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/MapSnapshot.py",
+      "bytes": 1410,
+      "sha256": "ea3fd9a0b3a2494a15180d5b4ce661f8498e96168debc583db85e1fdf7934493"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/ObjectIndex.py",
+      "bytes": 396,
+      "sha256": "f4ecf8ba48b9c68beb41b13dd984b820c42b88d09a0a6647e34f74aa972d3bf0"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/PutEntryMut.py",
+      "bytes": 984,
+      "sha256": "290ec9d3ec0236b58bec2259c73e9aeee48121a13c2cb984bee6ff989ec3e32b"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Maps/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ArchiveNode.py",
+      "bytes": 1542,
+      "sha256": "550abe31b41eeffce87931ea07c8a8fe04a349c37bf42bc07c82897ad2d75179"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ExternalClass.py",
+      "bytes": 642,
+      "sha256": "ab73b43cc167a36e361ecd30c85109f1efaf81da90bf35b0d9b4a6fd92448dad"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ExternalRef.py",
+      "bytes": 588,
+      "sha256": "19258628bfa23ec0cc98f75532537a90127d38cfce999c0155b4fa5fdfbc9dcc"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ObjectRead.py",
+      "bytes": 886,
+      "sha256": "79d8cdd212237716fac6145a048aa5d2b50410ddef03c94a03648cc6abbbea39"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ObjectStore.py",
+      "bytes": 703,
+      "sha256": "619fc4dbd2e9865c738af1df63929ddcfe2ef5997ae3a6f864b08507458df69f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ReadClassMut.py",
+      "bytes": 627,
+      "sha256": "f1e7fe9da0b747258fed8a46c9ec11689766c013d21f89f414b3b73d8b1ca906"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ReadObjectMut.py",
+      "bytes": 1716,
+      "sha256": "3f0b2e3565ed9a44f54f5840ca2cd2816fb540a4038c3b2ab863ec1926999a73"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/ReadTypeMut.py",
+      "bytes": 1170,
+      "sha256": "52f1287b945bc1f9b952a409b0436d27a512d251e4426d513847da661d642b7c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/RuntimeClass.py",
+      "bytes": 649,
+      "sha256": "be3d1dc45163164ab169648d5ab98e3bbb274f1c256c0606e9af8a1f6886240a"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/WriteClassMut.py",
+      "bytes": 1368,
+      "sha256": "d53198ac370718d013ae35b0daef81aba0996f2743a1dc79734e1f85a67d2260"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/WriteObjectMut.py",
+      "bytes": 1661,
+      "sha256": "6cc29be5679a0f6c11ce3339624a256e7c5b1fbf3bb220b531c4ae1c314bc33f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Objects/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Strings/CStringValue.py",
+      "bytes": 568,
+      "sha256": "98732874a4fa36c8af8e5dde44dc1844617547a182f57e2d4f7c04844779dc86"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Strings/EncodeString.py",
+      "bytes": 1504,
+      "sha256": "850cba1b90e592be68e7fb6558df4b798d22abf756ff963eb7210a5cd650419c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Strings/ReadLength.py",
+      "bytes": 1478,
+      "sha256": "82c9924a621ee1a3a16d0226d39f16601d8689c9040e2870cecc8492a0263c4a"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Strings/ReadString.py",
+      "bytes": 1062,
+      "sha256": "1d5c8222608e80a69d92f68b9fe36a87647bb87009df949678aad61ec5d81512"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Strings/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Tags/ArchiveTag.py",
+      "bytes": 310,
+      "sha256": "5046d947fbc1c2d6c7e9afa0904d1a3817d71573949aaa7768a0697decde11cf"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Tags/EncodeTag.py",
+      "bytes": 1450,
+      "sha256": "399f98355bf255a8ee498b3c3c71451f9cb3edaa1d83efd5262959243ef12f6a"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Tags/ReadTag.py",
+      "bytes": 1492,
+      "sha256": "0a3dec0525cec4978adef4ac7b71e79396ce8c150cd04a41792b39e0f0be12db"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Tags/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Views/CheckRotation.py",
+      "bytes": 1455,
+      "sha256": "62e7da96e9bef4af747eee7cd24e1917f1133cfeb526b416e8eea316efdb11d1"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Views/MakeViewPair.py",
+      "bytes": 1286,
+      "sha256": "aa00af5d438ee7110a6d72283976bb8906ba5e9d1b72ef6cb740c0ea0570e442"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Views/RequireScalar.py",
+      "bytes": 523,
+      "sha256": "6a0831d9643a5ee453672165e512c88eacd4fd42e926829f24363cd09d2cc51a"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Views/ViewInput.py",
+      "bytes": 1173,
+      "sha256": "8a24d35109185bb1255bd804ab450181a59661ca178717f305b05e61455b0d22"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/Views/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Archive/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Assembly/Assembly.py",
+      "bytes": 46146,
+      "sha256": "1ea7c7f7bb31f2f6560dce31dae0002af76530bbc7260ac5625d5f61d390e929"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Assembly/MateTypeCatalog.py",
+      "bytes": 7830,
+      "sha256": "0ce1e4f60923a93bef8fa18912297e584e9ec404d7ec8c2bfa857afc74464e11"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Assembly/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Archive.py",
+      "bytes": 110756,
+      "sha256": "6f09542d473fbc806f30e9dca8484422743e1cde39b57deb1a8ad0fab3a92eb0"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Cmgr.py",
+      "bytes": 51229,
+      "sha256": "2bab2554e90fd8155d1ab50c1f8b50c869bc139820117535bdacece2957d4e8c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Container.py",
+      "bytes": 24041,
+      "sha256": "dc5603f0ff3c6064edcda09e0ea2bf61ea73e64f4a8c6f8e5becf67f398f0e81"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/DecodeName.py",
+      "bytes": 503,
+      "sha256": "5fe691829bd89bae76a0694c1d7cf737e24b771bbd9e6789f8325bef518a45a6"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/DecodePayload.py",
+      "bytes": 859,
+      "sha256": "bcd29a4cc9702a9ea714b4e6a0254ee214e8796f907403c6a9e0ad9dda8314a5"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/DecodeScanned.py",
+      "bytes": 2327,
+      "sha256": "68b2f995303a13f0d2f6a52874d9cb07e8ceddc6896fba019db35b7fe4971c1d"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Definition.py",
+      "bytes": 35229,
+      "sha256": "f0cc64fbb208ce3bc6b670c9d0800315c69b0231b471210acc7490a6c5b3a071"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Format.py",
+      "bytes": 13153,
+      "sha256": "2765a1d4cd829871e013e187481b526f2e11781a3861faf5745be5a7f9da3c79"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/InflateStream.py",
+      "bytes": 617,
+      "sha256": "eca4684d60f0a72a12ee09bf397c7e25092ddbb8b2d2c197b51b0264d9d1a5fe"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/LayoutQueries.py",
+      "bytes": 2081,
+      "sha256": "fcd7b0ca746dda67e662c1a0a2497e33be9c50103fa5679c4efc42be8fb30259"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/Parasolid.py",
+      "bytes": 3543,
+      "sha256": "220107059a26880ec51a7a9f0eca8eb2096e745c73423d90fb5e2f2721a96c6c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/RotateBytes.py",
+      "bytes": 329,
+      "sha256": "3f2dade005b18415e1715da6ae80ef60e060b696424be5d3203d5a236137b630"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/RunGroups.py",
+      "bytes": 2107,
+      "sha256": "04a8784a98cdeecf1647829410ae072e27a5f29a08e4d10c0b6c57b03e7a532e"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/SldprtFormat.py",
+      "bytes": 171,
+      "sha256": "a8d8e087329d2c23270177ab2feec439ae05eae63d6b72b40e88749a2b1ea552"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/StreamLimits.py",
+      "bytes": 309,
+      "sha256": "185abca48f0511d4c607f83bccbf1ec3c243b0d9b709a960fa54c4f5e8fbbece"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/StreamRecord.py",
+      "bytes": 379,
+      "sha256": "b404735f9226a93ab290e64f30342fbd09ad85a2bc8a8fabb41f0bf879d56399"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Container/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/Adapter.py",
+      "bytes": 153656,
+      "sha256": "5f0d19ce0f955ac117bba9b7bd0be1d77dff2c5763ca00c81f0e84943da37dff"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/AxisSketchId.py",
+      "bytes": 501,
+      "sha256": "744d26e17aa8e15a44eb8a05449e18e5d67411419805c72bed4dffa65cf9b506"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/BuildRevolve.py",
+      "bytes": 1775,
+      "sha256": "7c191c2fc8d1cdbe8b8b54fc949788a83a099598c832aaba3095564dd527551f"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/Display.py",
+      "bytes": 13186,
+      "sha256": "0268f3ee4ae1e38a263eb5a7b3222a0b713274876263e8cc5c476f23f0e45887"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/FeatureKindByNative.py",
+      "bytes": 11159,
+      "sha256": "43bc483d38be800f16d1aa45556b5f02042268fbf1a53d946e27eb4539808a62"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/Native.py",
+      "bytes": 172424,
+      "sha256": "028ceb2abbdd5793d6378d60ee10f2159da905014721ccaa554a84ab214b416c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/SketchIdentity.py",
+      "bytes": 456,
+      "sha256": "397f2bccd963a338b2019f4d704ff9869fdfef0f093b236a25c9f443c4258b22"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/Topology.py",
+      "bytes": 10193,
+      "sha256": "9ade30e822847de6479acd7e25e79e548853c906e7efaacde7a6177e3ac1bc86"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Core/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/ArcMath.py",
+      "bytes": 3093,
+      "sha256": "9806e62805f51cc8903fd1d56383d776dca53aad69e198342aea6420d9276b5c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/Core.py",
+      "bytes": 81555,
+      "sha256": "3b2d89000b7315cbe8835f9fc0f7f080a8f361c035484d3aab177fff6b40ace0"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/FeatureMath.py",
+      "bytes": 2203,
+      "sha256": "cc36a21058096c3032ea05977c3fd03de0e79059e08435459b89039747ea63cf"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/LayoutCompat.py",
+      "bytes": 1394,
+      "sha256": "ce0cc7d6e783d77862f077c2bcaa68ef432cbef6c969b67966c2081b3898e857"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/Legacy.py",
+      "bytes": 14768,
+      "sha256": "1834eea7f63a24ff346690da0a4476934d96fc80790a9b2ea595e59293b16b2c"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/SweepCompat.py",
+      "bytes": 2191,
+      "sha256": "ca400e3159682cae8487c1220fda995a9957e5ed8feabbd4343a422d8d19d48d"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/Resolved/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "src/convert/adapters/solidworks/__init__.py",
+      "bytes": 5211,
+      "sha256": "973e0ac09957d673255f746a4ca4caa9fb6bdd052d8402707b833f67160f8a14"
+    },
+    {
+      "path": "src/interchange/Enums/EnumBase.py",
+      "bytes": 861,
+      "sha256": "7a61a58b37bd722470c9a90b3927b4ffb4ab05058de835080d9cedb93ae94d60"
+    },
+    {
+      "path": "src/interchange/Enums/EnumDocument.py",
+      "bytes": 1708,
+      "sha256": "e39fa9274913b8b378a33af70ae25bbcd9c96b9cec9e4e1a216b80c79bf29afe"
+    },
+    {
+      "path": "src/interchange/Enums/EnumFeatures.py",
+      "bytes": 1505,
+      "sha256": "f94afc21384891ab15783f336de1c95ad8103f6803a347cb5dd7a59b0c262706"
+    },
+    {
+      "path": "src/interchange/Enums/EnumGeometry.py",
+      "bytes": 2392,
+      "sha256": "feb920c164a27dc5b1a8d295f650f6afec4b5d137ba71dc36a3d34c64bec7f32"
+    },
+    {
+      "path": "src/interchange/Enums/EnumUnits.py",
+      "bytes": 273,
+      "sha256": "92517a364c30a5e4b67544aa3f8315c6c1011158b2200d471b7a70b8979a2572"
+    },
+    {
+      "path": "src/interchange/Enums/EnumValues.py",
+      "bytes": 795,
+      "sha256": "a545291246379d35e829941533974c853164ad6899d701eea931ebfe18360409"
+    },
+    {
+      "path": "src/interchange/Enums/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ArchiveLinkedRoundTests.py",
+      "bytes": 522,
+      "sha256": "ac0c48a8334ad6de1b407568d9b90eac6a259a9a01fac4afbd02c62fd2c330b7"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ArchiveProcess.py",
+      "bytes": 1079,
+      "sha256": "794774cc0c0d42fd8e1cc865c7b4c13576a74bf633db810ce7d695f076bb5c81"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ArchiveRejectTests.py",
+      "bytes": 766,
+      "sha256": "59efa0d6671762313c754cfae5db6630a98c6376612788697b194e8b31c8b307"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ArchiveReportTests.py",
+      "bytes": 898,
+      "sha256": "aa025731964d85069e8a6dcf51d267ce5c3ee0346b1507c5aedb815ea7a36262"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ArchiveRoundTests.py",
+      "bytes": 786,
+      "sha256": "31da9df7b73e057d6ee435af27ca6424f7ef16ba42bd4c959b7f48d3cee93403"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Assembly/Build.py",
+      "bytes": 899,
+      "sha256": "6f1b3abdcd89f1810c4623869c4c512863ae532894718ed127d752a846c469ee"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Assembly/Codec.py",
+      "bytes": 1540,
+      "sha256": "aeadb228bbd65cdf637d34001709be0d24df24e30442d18b454a7cc3b74a9c86"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Assembly/Report.py",
+      "bytes": 1886,
+      "sha256": "2353d8b33b0ec1ce880a4771e8553c8cd7042a4584b3df15522a02f67c60503f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/AssemblyBuilderProcess.py",
+      "bytes": 3581,
+      "sha256": "34690fb4a1352dfb0d5d04e38cd73fa20230024d603f86dde07708228aafc868"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/AssemblyBuilderProcessTests.py",
+      "bytes": 4779,
+      "sha256": "d16c13dcd735b6f560455cc0fa2a1d6997b1753a54d0974311e5eae40622f4da"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/AssemblyRoundTests.py",
+      "bytes": 983,
+      "sha256": "e8dff19dafedecbcf32cc8eba542ee15a517fa24290cd99ce4d33969a431b08e"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/CameraInput.py",
+      "bytes": 773,
+      "sha256": "51837ec5d46e3d39aa22e97fd1bb9cc675900f24d98fc537427f10ad10d7e95d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/CameraPartTests.py",
+      "bytes": 3271,
+      "sha256": "c3874fb4807f1b98903c748c68645ab98f14aecdacad5aee8548023927b948da"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/HeldViewInput.py",
+      "bytes": 592,
+      "sha256": "56e49241fdf07c9f44a0c3053dd43cf23bb54b9cf2f8f164cecadcad2295e848"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Camera/RunCamera.py",
+      "bytes": 744,
+      "sha256": "d0d6afa9031091ce3e9f901d30820dabb73feecf521534c01eb07e4e87d56dd0"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Composition/ConfigurationProgress.py",
+      "bytes": 1319,
+      "sha256": "38bde87c5053b2b1fdb10791a445b9c445734079f62daed54d547ac6ca022281"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Composition/NodeFields.py",
+      "bytes": 475,
+      "sha256": "3682188748ef1bb1ab4d86284b5d5a2bb91688870e4c510d08f47a8b92b0808d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Composition/PlaneOwners.py",
+      "bytes": 1612,
+      "sha256": "e7fd8f20bdacef561cb477650298595874fa7e51a96d7a436839770faebd9090"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Composition/ProfileRoots.py",
+      "bytes": 1591,
+      "sha256": "806fcb9c81285ddf17e231ece93b0a2b1c0d236bc913c79a7537df921cee229c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Composition/ViewTargets.py",
+      "bytes": 1163,
+      "sha256": "c7d357a61ae29f0d3f70f84e1ce31bd9ea5994392ff9277d7e1a79dc65711e51"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ConstructionGuard.py",
+      "bytes": 2476,
+      "sha256": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertFile.py",
+      "bytes": 1412,
+      "sha256": "bbf872b8dd10f324bced304c055d21797cfb628d7e230417ceb16cfe65970ed5"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertFixture.py",
+      "bytes": 1298,
+      "sha256": "cd11186785664fb4cf68488265137a9c06916331bc1b3a6fc8dfcdc2c89fadf4"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertFixtures.py",
+      "bytes": 1758,
+      "sha256": "30f403cde6dddf2faefd5cc9b602c6bd8fe5d6a13e0b1a85b1729bc73f686069"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertReport.py",
+      "bytes": 1624,
+      "sha256": "48545384486300fa6758103cb34a903a5553631773dcf0db5e46b644bb939e53"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertSnapshot.py",
+      "bytes": 371,
+      "sha256": "d5b6095c6a48e89f5f3eb4f9a723a64b183bcd27cfc86f3139d396a1330dd8a3"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertStream.py",
+      "bytes": 1424,
+      "sha256": "359c83358b6c82a908f1435c62ab725061567ab5cb2815456edd064c528cd006"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertSummary.py",
+      "bytes": 1820,
+      "sha256": "4565cb0672fc95f851aeab98c77d488c9ad11f4d48b7b9096ba7d0ad9009c6e2"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/AssertUsage.py",
+      "bytes": 417,
+      "sha256": "66144959c1c2970c9711a91840aeb93d5ba08ef81cb1fe83e5dbf5de011ac743"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/ArcSketchTests.py",
+      "bytes": 1756,
+      "sha256": "6aea04d55afab3d75bc095285bc0a5c9e75cefd7b6aaaa19a2616e9145b6ac32"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CapsuleBodyTests.py",
+      "bytes": 1998,
+      "sha256": "bfd280f0b9fc5c71b0127868851b98cd662f327992634d2014e97ab59e390e5b"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CapsuleInput.py",
+      "bytes": 764,
+      "sha256": "5e654a5842f9603e83f922a08bfe8230ecbc0655fff3c50f19e6cde3618647d2"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CapsuleSketchTests.py",
+      "bytes": 1607,
+      "sha256": "2186351970a407a6500a7452563928f9be5476fa07a60f38ac6682f5c5f7df07"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CircleBodyInput.py",
+      "bytes": 733,
+      "sha256": "a7dff68fcf3ac61fdfb3aa8229bc25c3f1880589c3a92142f77a9a42ce6a8a3a"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CircleBodyTests.py",
+      "bytes": 1884,
+      "sha256": "0400762e0b78316efdb81197cffa54614c05c908ebac919a41cb7a24531eeb20"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CircleInput.py",
+      "bytes": 745,
+      "sha256": "5f3791a398af30699ae4a2df1cf9791a5ed041f62c80f0bac3b84b9f61f6fe7a"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/CircleSketchTests.py",
+      "bytes": 1584,
+      "sha256": "17ca433c3c82ec7beb21f0b84b26ad74f429417bb90ae40dbaefdc6c10e9a790"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/DrivingCircleTests.py",
+      "bytes": 2221,
+      "sha256": "6d6d2ac50f959900434a630f88a3f4802a97b73f938bb9f5a75168b88128b710"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/DrivingInput.py",
+      "bytes": 818,
+      "sha256": "be7e9dba2252f4bcbdbf28bc326e414f1a3bbae10f3f3d5d602f5d57e5acbb0e"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/EndBodyTests.py",
+      "bytes": 2957,
+      "sha256": "7ee72f56212b32b20f8b1b0f2602234f13944351bbac77773780f27bb6768fbd"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/FixedCircleTests.py",
+      "bytes": 1703,
+      "sha256": "4fed6542c2499ae4cab7bbc830aa87f94cb631909bb5497f57244a8f4eaecbd2"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/HeldoutInput.py",
+      "bytes": 1723,
+      "sha256": "d71af4b46994cdfcbd1206f479115c48236bf7c6d57bc4f9ab9834b0625e9911"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/MultiCircleTests.py",
+      "bytes": 2570,
+      "sha256": "b4ecd98b5b6de9725714e0551e61af4fe6a0d206c8a6425b2fed8fe2029ff0f8"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/PlaneCircleTests.py",
+      "bytes": 2031,
+      "sha256": "cf8ed72f237270ea1f0a7f7b1c42d99abba58dd75e79a91de4ff472f92f6b410"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/SavedCircleTests.py",
+      "bytes": 1719,
+      "sha256": "5095b419c8a0368c00422c643e3950b64bcda35ccdae4e96c93f6dbfa301c77d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/CorpusPaths.py",
+      "bytes": 807,
+      "sha256": "6ab56a0c27c7afbc865bc40be974c234ca6814b1765775eeeed68d5d348cf537"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/CurveDiscoveryArchiveTests.py",
+      "bytes": 1752,
+      "sha256": "fb29ce8e9d3a2e5f1f1b995831eb3bbcf7628198f86fa170275cc8f5b22af4cc"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertBytes.py",
+      "bytes": 563,
+      "sha256": "b82f6c79b2b7cd03f9f717bf1fff8f08379a8f40be4a8062896dc7b1065f0fa1"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertContext.py",
+      "bytes": 818,
+      "sha256": "bda813d2e39ebc6791910adb7e74b45a505439cf96da6e865b9185d699ed8afe"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertDigest.py",
+      "bytes": 305,
+      "sha256": "f4cf0a4661d460c126a56a8ed1538303fc453118934b0ee9588cc39852de3fcf"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertDocument.py",
+      "bytes": 2118,
+      "sha256": "566a3de53e38bf222cd5614f35b73968ef53f040838e73e0f2a6cb1dde007d5b"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertFailFile.py",
+      "bytes": 1600,
+      "sha256": "9c4f86912ac21977e39633c6e529e5020ec13129df67d82d0b0e32673a451399"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertFailure.py",
+      "bytes": 1443,
+      "sha256": "ac5a61a3eadf8a029fc981cbe9cf6388b16815e8554f796f2e4ba92bf31ab4e9"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertFieldCode.py",
+      "bytes": 2688,
+      "sha256": "4a559eccc44eba4c903bdf8994458e0df9e0dbdf38364b2ddbe496d2e42ca42a"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertFieldFile.py",
+      "bytes": 1923,
+      "sha256": "ac23888c439fb43e583193c5e2888759053e9f6f851d2e7b47ea515bba3ac3ef"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertFloat.py",
+      "bytes": 1314,
+      "sha256": "b177390c0fcc6b3387e3e60d425eab50da33c8fcf819b1113802035331d14171"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertGraph.py",
+      "bytes": 1869,
+      "sha256": "60366741f8c11e8ed8b09cfcc5f4dda153df6f03a85df04d0d0937cba618752f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertInteger.py",
+      "bytes": 467,
+      "sha256": "d22fd3e39b54ca6a250cc64021a4f4db5269796f481f258735f2c1d8280c0b8f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertInventory.py",
+      "bytes": 2152,
+      "sha256": "4d548a7d592d1717c11fa4c6d62d0894390379f61f36715bfdf279da11335068"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertLoadSnap.py",
+      "bytes": 1073,
+      "sha256": "146473f45168095f03f604e91a9a6c0891371fe71248efc20677a9835eb59a0f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertLoadUse.py",
+      "bytes": 1289,
+      "sha256": "834c42c6cf60d784806b6d31edb14f61fbaadc368148081b97cae680caa3f36b"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertNode.py",
+      "bytes": 1636,
+      "sha256": "47509b561728e1b74036e175a5cf2c937a3dd66ca8dc948a522670e986799de5"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertObjNode.py",
+      "bytes": 1782,
+      "sha256": "e514b294718d8fbeb16ae007c56491264b6dd675be40c3355d68f4182164ff27"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertPosition.py",
+      "bytes": 1009,
+      "sha256": "635281c9cc6a99efa02334caafa79e40fc53878f7f9c334bc573d077a7ab82d7"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertReachable.py",
+      "bytes": 829,
+      "sha256": "9f393c8842b586fc867ff1635e269a8d5d20ab287daa603085b52df375db0f31"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertSeedMap.py",
+      "bytes": 1477,
+      "sha256": "6fb80a34087e91edde2f3285fd501163d0b9478b409fee64524dfe57d886524a"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertSources.py",
+      "bytes": 1684,
+      "sha256": "ac0461e1d41b4ae9fb798bdd52064e53768d5dcd1710222609e00b43d4f9f39c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/AssertValue.py",
+      "bytes": 1852,
+      "sha256": "b56ad329882ea6f0502b60b458ddb651a381492b25d649c45a37457bd8b1a838"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/CountGraph.py",
+      "bytes": 1008,
+      "sha256": "96517c39cf31e1be18592e98a799abfe2b42c60552f2007ab814726955e1d173"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/EndSourceTests.py",
+      "bytes": 1664,
+      "sha256": "4e9226f74894bbdea29f0b9b866e07e2d625b5cfaa67dac04045493510d55f2e"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/FieldFailureTests.py",
+      "bytes": 1477,
+      "sha256": "b48d85b31c37ce2669a1dc0cf8421f899389782153f452ec96536d30814fa276"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/FieldInventoryTests.py",
+      "bytes": 2231,
+      "sha256": "091c57db34eb3c7cf497de8d3a0acba48ecf58e6ebd2587d02c86e7f1e96f9ca"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/InventoryCases.py",
+      "bytes": 340,
+      "sha256": "495aa559e5ae0875d2868bfcf83f5d970144b1ca6d074308a1715dc3fd76248c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/PrepareFailure.py",
+      "bytes": 1624,
+      "sha256": "6e5e707a15e3b831884925157dd0c396e67ada89d03a12706cea72827aace4fe"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/RunFieldCli.py",
+      "bytes": 2491,
+      "sha256": "626e5a9a2ab4a3bde6a258b8f2cb600c4677bafac34adc311a4e3021f8bf3a88"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/WriterFreeze.py",
+      "bytes": 1771,
+      "sha256": "ed0d0b3662708184a290cb5916f0c9ef595a23d6d1b3dedd970a39420160d342"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/ReadManifest.py",
+      "bytes": 2071,
+      "sha256": "96d882f692c6818d95f06ad04d4ac18c740233bab6fa9e883f984133bdedb0b7"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/ReadObject.py",
+      "bytes": 403,
+      "sha256": "766b750789a753a7d37169929c9e1333ea63884ca00bcdf905782dc304927553"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/SaveReceipt.py",
+      "bytes": 1179,
+      "sha256": "794e7dbf744bf9a6683a1c0a52d9cc7140dca352e6081a5e939ff3f2e1b51a4c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Strings/StringArchiveTests.py",
+      "bytes": 2397,
+      "sha256": "42ae707e7011b34c011e8a0d099e722e406f2713ab7ea5ad8e8b89067751acff"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/FreshPartInput.py",
+      "bytes": 3235,
+      "sha256": "d9bb6741549a14043f05676c76a4fc1945434d768626a443bb6dbefc75476404"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/FreshPartProcess.py",
+      "bytes": 5096,
+      "sha256": "9e5aca3d2555055b93c44200cbf59f6dcf4ad73a36cdf98792e653de52810056"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/FreshPartRunner.py",
+      "bytes": 1050,
+      "sha256": "4148ac53f46aaba0469f4e95455e1f136a5bf4b2d1a49f073d633af597011096"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/FreshPartTests.py",
+      "bytes": 2158,
+      "sha256": "aac423c3f335462adf6879f25c8122a1d7c446362409ef06ace45c54486028a5"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/LockedPartInput.py",
+      "bytes": 801,
+      "sha256": "bebcdeb8bed52eacd8833a793deba20abd6c54e1b07a210afae692b25e885250"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/LockedPartTests.py",
+      "bytes": 1458,
+      "sha256": "3062716308c5418727aa77355bb54b91fd7e730226c38964f189d7b892c901d1"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/MetadataConstructionTests.py",
+      "bytes": 10157,
+      "sha256": "17cf925d611228b0158555100697717311440f362eda8d886c9e7021eadd478c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/MetadataProcess.py",
+      "bytes": 3424,
+      "sha256": "41ae830cfb64b30645fdf442cb4cfedc4e6102505cf6b447d66ca52ff0c105f7"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/MetadataProcessBuild.py",
+      "bytes": 1123,
+      "sha256": "d904a4ffd09df180920a56dce7cb93661196eebf2778bd6079309ed002798496"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/MetadataProcessCodec.py",
+      "bytes": 958,
+      "sha256": "af056e34ba1f0e55840a5c9b6830059be3e746d3d484945c6629caecdd680307"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/MetadataProcessReport.py",
+      "bytes": 2486,
+      "sha256": "d6eaf32f4e8ba5e1cdde28f5eb09154c9b18f86cc8407bc1943d12902a853f8e"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseAliases.py",
+      "bytes": 575,
+      "sha256": "3ceef1c04fda044899f2f80abe7d8b13fa6ed7fc706a76637180d618a6d7186b"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseCheck.py",
+      "bytes": 732,
+      "sha256": "e45c23798d1d5183877ffa99983aa6a4d60c929484ebd5d6101a2a7de9df3d33"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseGraph.py",
+      "bytes": 772,
+      "sha256": "1d49a5f5d2216893ab35ea1ff8ff4b21a6481c217d062f286ab690f2cad9b7ea"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseHeader.py",
+      "bytes": 687,
+      "sha256": "5e7f3020c7a3154dc32f14a5b6e21960c409d2fae406fc1d3b338421030af9ea"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseImports.py",
+      "bytes": 878,
+      "sha256": "58e5f1d1ddd949b16b294a2c5ed16749e4443d1c38eaae6d8767bbe08a707374"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseLifecycle.py",
+      "bytes": 368,
+      "sha256": "3bb34884e1f936ce936be808e4a8dd0327c3372570659b956efef605f2261c1d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseLoad.py",
+      "bytes": 808,
+      "sha256": "d1b1f51bd49d8b370f3064635c0f867f1f3cdc0580643d1d49d07f0fc3098f70"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseMetrics.py",
+      "bytes": 1128,
+      "sha256": "42f19e21d41fa412ef8434b7dc4ec7072e8ef9e4301edda2f1dff5cca7188cc0"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseRevision.py",
+      "bytes": 392,
+      "sha256": "c5dc7db70b0ffbebeb127380112fc73b29b5371cc568cb1a4dd660904fcb60e4"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseStreams.py",
+      "bytes": 876,
+      "sha256": "e718e29f4a58a8fa6b38e7b1646711997e3bb3a5c30724410db9f1aa43fdcddd"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/BaseStyles.py",
+      "bytes": 788,
+      "sha256": "4823ed0185917dc5cfd8dbf03b6d4f0feaba9e5970f16de36c1fcf4e67162a05"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelBuilders.py",
+      "bytes": 516,
+      "sha256": "709c9d2a88548b92bca6068ec223f4611f6dd362a96c9ecfcaac7caa790c0476"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelCabinet.py",
+      "bytes": 465,
+      "sha256": "cf888bc0f7752b1206357b828899722eeb858bdbced4009b3052df39f395416c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelCheck.py",
+      "bytes": 1113,
+      "sha256": "b1f3706699b2d2b0f4d42a6e42fab8f0eeb2bada59c9643279cf952007a9b48f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelCodec.py",
+      "bytes": 499,
+      "sha256": "28e00595c2e4727c8dfde4139a4fdc3cce29a4a3ca73fd90665950cca96bfe1d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelComponents.py",
+      "bytes": 846,
+      "sha256": "21b20a977f96de5b6a03faad6d08551a55aad7ea7dfa8728d56897aa0f165c2f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelContainer.py",
+      "bytes": 912,
+      "sha256": "053c9c9558b10ebe4fde1778e52e5187add748bcb61d3efd2a01e0336f2f1539"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelFolders.py",
+      "bytes": 811,
+      "sha256": "7dd91dc0ded3e530e9ca573ad8c1a0ab981087d8aa00a5d84489c5f55bb2a29a"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelGuard.py",
+      "bytes": 375,
+      "sha256": "8893bbeecc5ab0b8c39086a546a95eea365b41e12ce7a26ff6bb309d92acdab9"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelMetrics.py",
+      "bytes": 1250,
+      "sha256": "dd6dbc8f16682ebeed48fe592e01c63a79a53b5c66dc4ed8ed994f567003ef4e"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelNative.py",
+      "bytes": 353,
+      "sha256": "1358f373a40e3c25f3fdee8381c080885c28e594261308e01e55175a2a6222bc"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelPaths.py",
+      "bytes": 672,
+      "sha256": "d2664e0ea2769aaa8bd34c99c6537c52f9ab2a1d822282ddd22e2d9ad544f8b7"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelPlanes.py",
+      "bytes": 615,
+      "sha256": "c4bcd04993151836ac376a0851a3f973a18632d8ec8bf1e1eaa06f731eb2e0d5"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelProgram.py",
+      "bytes": 2529,
+      "sha256": "d41c11caa47797bd10fbb387f6cd6edb778cf0a664ed9644d6cf40dd8880f0b9"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/ModelReport.py",
+      "bytes": 795,
+      "sha256": "1fcb57d8ae1dcae216878460eef1e0d69d45572f53bac21faba3fc5d9360bfc9"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/References/Build.py",
+      "bytes": 676,
+      "sha256": "a741cdbff07cb2a469282c7f09eff02f41b9fb0f8794a555544ab67313052e2f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Model/References/Load.py",
+      "bytes": 1328,
+      "sha256": "6cf33a19e1f3c3026f1a723a4e21ed7abedd5cacf3b5f58d547a0e4790def01f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ModelBuilderProcess.py",
+      "bytes": 969,
+      "sha256": "8544eb7c2f834367132db733587daee2474e2b0477880df98c9f2176ee79145f"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/ModelBuilderProcessTests.py",
+      "bytes": 4777,
+      "sha256": "a5cb601373d5a847474ed2298790798eed490c7769b48c83eac201f534d5b2ab"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/PartArtifacts.py",
+      "bytes": 1539,
+      "sha256": "8b529a9da42fc4ecbb69ebf1c0f58d301ad4bbb13afc3407f288a6ee1b266284"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonDecode.py",
+      "bytes": 1437,
+      "sha256": "1457a60c5aeac1ed90f48e6e3af90e1ba8ec06b53217808d4ed3f9a873160de6"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonEdit.py",
+      "bytes": 369,
+      "sha256": "e5b4c6ec26ac05947beadf6ac1c0cbe61cadb8d7da6731f35f04390239a542a5"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonEncode.py",
+      "bytes": 790,
+      "sha256": "c5d0c9786f8080d25d88929489f2b0920ac20dd33d0751e1d7f6b955d6678f69"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonFeature.py",
+      "bytes": 455,
+      "sha256": "bc5afacf9c1bab010ec95048693c1095aa3e2ee07224f38a09d7e3747f5973b1"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonInput.py",
+      "bytes": 679,
+      "sha256": "aed7e6f9100dd9e43cdf7a2a35a579f8504abe3e34ca465e346eb57bd28c80ec"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonLoad.py",
+      "bytes": 1067,
+      "sha256": "58655199901c64fe12b89f7bf7c5c29d09cc5e104c178481fb4bc0c9c4ece522"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonOrigin.py",
+      "bytes": 840,
+      "sha256": "472a3a299e17dd34030533ba9cf9f8c3b39a3b7624851bfae330e19f7f872455"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonOriginCodec.py",
+      "bytes": 1270,
+      "sha256": "e1b72d88b1a2580a9eb6388a33835b3091b0e88b9be6a6cad5dc7d635613eaed"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonOriginReport.py",
+      "bytes": 842,
+      "sha256": "1a87c694833ecdee266e1125cf6ce7a5da36bac9d1b848c204b8daf11c6c0f2d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonPaths.py",
+      "bytes": 939,
+      "sha256": "8d905a001627610888f57019444c05e5a1e88e2766aa028d0bd8bfac4ebdfd47"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonProgram.py",
+      "bytes": 1405,
+      "sha256": "e5810d70e1ffa0cf47f89058b08302d6ad251f175f0aac5055543131b42987c6"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonReferences.py",
+      "bytes": 847,
+      "sha256": "e54e447a94c2f40f839572749aede2f40c6de55982fce941c9f7d4065dd448ed"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonReport.py",
+      "bytes": 1619,
+      "sha256": "aa91dee2ee23f621cb204cd81b862a2f7d25401879a6a98bbd0a6215ce29930c"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonSketch.py",
+      "bytes": 978,
+      "sha256": "e2023a6940e8c6095877c76c7921fd293ecb68289e0219eca8b3079732cbd80b"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Polygon/PolygonWidths.py",
+      "bytes": 422,
+      "sha256": "aed04ed4459319bb9fd65dea168bb2c994e435623c47b095aa45b1d0af3df06d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/PolygonConstructTests.py",
+      "bytes": 6037,
+      "sha256": "c54cc25ce56cb1341dfde03200542a3b3fb3e58b658e52000f66c575c34320e4"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/PolygonProcess.py",
+      "bytes": 916,
+      "sha256": "d3a88806b4512e99289363708d8a4bce6025d1aa4a68f764c17581b0009660f3"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/StyleBuilderProcess.py",
+      "bytes": 3690,
+      "sha256": "b153375393a9572b95cc0c5b416ea6e178e7f1a74d67d5838f0810d52eac1764"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/StyleBuilderProcessTests.py",
+      "bytes": 5935,
+      "sha256": "af5c94b3fba8667730155affd17aed045146e42160e116c469f625296163f8ef"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/StyleProcessBuild.py",
+      "bytes": 746,
+      "sha256": "e752652c1e9611cdf0b20efe67bfe61e40ed2b749ded5c23c2d200b9870b658d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/StyleProcessCodec.py",
+      "bytes": 983,
+      "sha256": "c54edb16e7e867ecd65ce756879dda140b73399f8651947a97601538f8bff09d"
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/StyleProcessReport.py",
+      "bytes": 2183,
+      "sha256": "27f175e67a0cb26e285fc304780364428d9d2d4e28932b23c6c6dc5eb33a5c98"
+    },
+    {
+      "path": "uv.lock",
+      "bytes": 848982,
+      "sha256": "ef5d1832726781d96894d655a7b9c2276c8a465eae2ce5741063c9e841eb4942"
+    }
+  ],
+  "schema_directory": "re/tooling/sw2026/serial/defs",
+  "schema_membership": [
+    "CommonPartOwners2026.py",
+    "ConfigAssembly.py",
+    "ConfigDetail.py",
+    "ConfigPart.py",
+    "ConfigUnits.py",
+    "ConfigVisual.py",
+    "Definition.py",
+    "ExtObject.py",
+    "Geometry.py",
+    "MaterialDisplay.py",
+    "MfcMaps.py",
+    "ModelHeader.py",
+    "ResolvedBody.py",
+    "ResolvedComp.py",
+    "ResolvedCore.py",
+    "ResolvedDims.py",
+    "ResolvedFeatures.py",
+    "ResolvedFillet.py",
+    "ResolvedFolders.py",
+    "ResolvedPattern.py",
+    "ResolvedProfile.py",
+    "ResolvedRefGeom.py",
+    "ResolvedRefs.py",
+    "ResolvedSketch.py",
+    "SmallCMgr.py",
+    "SmallCusProps.py",
+    "SmallDocContent.py",
+    "SmallHeader.py",
+    "SmallHistory.py",
+    "SmallStreams.py",
+    "SmmMaster.py",
+    "VerifiedAnnotationDefinitions.py",
+    "VerifiedAnnotationDetail.py",
+    "VerifiedAnnotationDimensions.py",
+    "VerifiedAnnotationFormats.py",
+    "VerifiedAnnotationFrame.py",
+    "VerifiedAnnotationHelpers.py",
+    "VerifiedAnnotationLabels.py",
+    "VerifiedAnnotationTables.py",
+    "VerifiedAnnotationView.py",
+    "Visual.py",
+    "VisualRefs.py",
+    "__init__.py"
+  ],
+  "scope": "Freeze the complete shared body/archive baseline, new view source model, camera composition, isolated producer, process/input helpers and lockfile before unseen camera predictions or native reference observation access",
+  "discovery_evidence": {
+    "source_revision": "a50894fb171658221a123681495e50acdc033550",
+    "run": 43950212352,
+    "job": 133590389752,
+    "native_format_cases_passed": 200,
+    "native_format_cases_skipped": 158,
+    "policy_cases_passed": 171,
+    "camera_discovery_tests_passed": 2,
+    "new_revision_discovery_and_quality": "pending; no reference observations may be read until frozen predictions are produced and process checks pass"
+  }
+}

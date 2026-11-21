@@ -1,0 +1,196 @@
+{
+  "archive_version": 19000,
+  "cases": [
+    {
+      "child_sha256": "c3027fff82b69efb53da0d885077442e557cd018e75eb275cb955cf7f8db09ef",
+      "entities": [
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:4"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:4"
+        },
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:3"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:3"
+        }
+      ],
+      "label": "native_disclosed",
+      "map_base": 168,
+      "map_terminal": 226,
+      "mates": [
+        "Distance1",
+        "Coincident1"
+      ],
+      "next_wrapper_id": 4,
+      "owners": [
+        {
+          "class": "moMateDistanceDim_c",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 27,
+          "wrapper_ids": [
+            0,
+            1
+          ]
+        },
+        {
+          "class": "moMateCoincident",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 28,
+          "wrapper_ids": [
+            2,
+            3
+          ]
+        }
+      ],
+      "parent_sha256": "39974ae1b89010de458186b6ecf4878e13a5cd7cb6e9ddaa81b4f49848443406"
+    },
+    {
+      "child_sha256": "08bceb29ac2597b163d708c0ec6a2fd3cbc2d3759b04d4ce8f637ba6f8b4e9f8",
+      "entities": [
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:16"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:16"
+        },
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:15"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:15"
+        }
+      ],
+      "label": "generated_t01",
+      "map_base": 133,
+      "map_terminal": 195,
+      "mates": [
+        "Distance1",
+        "Coincident1"
+      ],
+      "next_wrapper_id": 4,
+      "owners": [
+        {
+          "class": "moMateDistanceDim_c",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 20,
+          "wrapper_ids": [
+            0,
+            1
+          ]
+        },
+        {
+          "class": "moMateCoincident",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 21,
+          "wrapper_ids": [
+            2,
+            3
+          ]
+        }
+      ],
+      "parent_sha256": "785c4d70583de75134cbfecac12f53d8c41d84767a4c1485cbe2e7e4410cd512"
+    },
+    {
+      "child_sha256": "527f3bd7f9104eeb9736888cb3ae4735062008e91297cfad2f3e1729eca724a4",
+      "entities": [
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:16"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:16"
+        },
+        {
+          "occurrence": "sldasm:instance:4",
+          "reference": "sldprt:plane:15"
+        },
+        {
+          "occurrence": "sldasm:instance:7",
+          "reference": "sldprt:plane:15"
+        }
+      ],
+      "label": "generated_t02",
+      "map_base": 133,
+      "map_terminal": 195,
+      "mates": [
+        "Distance1",
+        "Coincident1"
+      ],
+      "next_wrapper_id": 4,
+      "owners": [
+        {
+          "class": "moMateDistanceDim_c",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 20,
+          "wrapper_ids": [
+            0,
+            1
+          ]
+        },
+        {
+          "class": "moMateCoincident",
+          "endpoint_order": [
+            0,
+            1
+          ],
+          "mate_id": 21,
+          "wrapper_ids": [
+            2,
+            3
+          ]
+        }
+      ],
+      "parent_sha256": "6989984caec52112a641dd4285e00def2071f955bbd32dd214735d97a72386f3"
+    }
+  ],
+  "integration": {
+    "duplicate_assembly_wrapper_ids_rejected": true,
+    "generated_mate_counts": [
+      2,
+      3
+    ],
+    "single_mate_process_regression_passed": true
+  },
+  "native_saved_followup": {
+    "child_sha256": "026b8d4a5b1a35608e18fac751ff5eefeba178d9c351655bddffae1077d82d2d",
+    "diagnostic": "unsupported SOLIDWORKS body schema moSheetMetalMaster_c",
+    "legacy_distance_mm": 88.625,
+    "legacy_endpoints_available": 4,
+    "parent_sha256": "46054894984df204cab8b7f9055d2993d799c7aacae489dbd343416377375495",
+    "typed_child_graph": false,
+    "typed_parent_graph": true
+  },
+  "new_native_writer_acceptance": false,
+  "original_heldout_inputs_read": 0,
+  "passed": true,
+  "public_writer_enabled": false,
+  "schema": "kit.sw2026.public-combined-mate-read.v1",
+  "source_phase_packet_sha256": "c92867ced938cdf3160c1260f2fea8fe3470411e21e4c332faa60844240bd732"
+}

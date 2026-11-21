@@ -1,0 +1,187 @@
+{
+  "schema": "kit.sw2026.generated-revolve-edited-reopen.v1",
+  "scope": "Three disclosed ordinary boss revolve cases with the native English empty-material caption.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generator_revision": "cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6",
+  "source_revision": "fb556fe21601f22a3b4fefea053b0bb3af33eaf4",
+  "private_inspection_sha256": "974d99d1f11a066833587f25aa244fb7158a94fa7cd59b7ae800bbe662420ed3",
+  "private_transport_sha256": "930bff6ba950accf65d1fda3eb33a428a2d2911ebc0e700f1147ea1281d6a767",
+  "job_sha256": "dfcc3ec679484ee6e6b48d44952f1b8507f2bcddb001d6d54a98906037232a10",
+  "tool_sha256": {
+    "InspectGeneratedRevolves.py": "c3fe6d9afa8bf0cd5427adefd2aee914ee10bc9143e44bd83c81982451297b26",
+    "AuthorRevolveSources.py": "09c38f8ed8e06ccdaa44c1f3a4ce53cdd2177efbace71d595b538136f672423b",
+    "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+    "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+  },
+  "prior_presentation_failure_sha256": "159466c109c772429b7753155ddbcaa3fb7f6c26d023a9436172c8632f6e224f",
+  "controls_healthy": true,
+  "distinct_processes": 8,
+  "solidworks_processes_after": [],
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "cases": [
+    {
+      "name": "KitRevolveFull",
+      "generation": {
+        "name": "KitRevolveFull",
+        "previous_presentation_sha256": "7a9d859b21d02544bc4427d9c9001a172b79c013d0ec7e36abadce87d0f68480",
+        "sha256": "b0967bf63fd6545bed8c0959c519679ca6461e1daeef53473d8d4711ffce7ae2",
+        "bytes": 8035,
+        "modeled_streams": 9
+      },
+      "generated_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "derivative_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "save": {
+        "sha256": "14c8f65d013fe6644a8e5f14b85eac4d04186137f32da7df9c69089d3942d003",
+        "bytes": 57852,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "feature_tree_equal": true,
+      "tree_nodes": 20,
+      "edited_angle_radians": 3.612831551628262,
+      "edited_direction": -1,
+      "edited_mass_properties": {
+        "volume": 6.21551540142126e-05,
+        "area": 0.010802654076994402,
+        "com": [
+          -0.00011055458885260589,
+          0.008000000000000002,
+          -0.01295639231380146
+        ],
+        "mass": 6.21551540142126e-05
+      },
+      "written_file_sha256": "14c8f65d013fe6644a8e5f14b85eac4d04186137f32da7df9c69089d3942d003",
+      "initial_record_sha256": "c43daaf919f557ff14ef0c2e421f2a483bbd7f5ff60d4f0207910c621177e560",
+      "derivative_record_sha256": "b47e86d1598bdb9d646daef6be35b3e7c06209242fc46b4e72e33306b38f90d6",
+      "generator_receipt_sha256": "d4a01c548a7fa266fac075cbda9f3f82fe89e5623075c978d1217d64f9180006",
+      "numeric_checks": 37
+    },
+    {
+      "name": "KitRevolveForward",
+      "generation": {
+        "name": "KitRevolveForward",
+        "previous_presentation_sha256": "2a058a4b28e9908d17d94c17c1aa7f210c1cbca8b5c69197e574193030b5d309",
+        "sha256": "da38c70df352ddd84b2943efdba11c5f3569d4c27486ad3bba453fba06c00a7e",
+        "bytes": 8054,
+        "modeled_streams": 9
+      },
+      "generated_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "derivative_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "save": {
+        "sha256": "01e7a875c3a9bbe6ea68ad468e5f7fc7e01d44308a2c2788ba4bb22e44389250",
+        "bytes": 50521,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "feature_tree_equal": true,
+      "tree_nodes": 20,
+      "edited_angle_radians": 1.3089969389957472,
+      "edited_direction": -1,
+      "edited_mass_properties": {
+        "volume": 9.657779415910621e-06,
+        "area": 0.0027780507298990668,
+        "com": [
+          0.007584193325607712,
+          -0.0009999999999999996,
+          -0.009656191160683503
+        ],
+        "mass": 9.657779415910621e-06
+      },
+      "written_file_sha256": "01e7a875c3a9bbe6ea68ad468e5f7fc7e01d44308a2c2788ba4bb22e44389250",
+      "initial_record_sha256": "44800d26fdafa7a8c2809e10f80d2f2d160837e1d98e4325a200ae3a4e80b788",
+      "derivative_record_sha256": "8a89aa63ee83f364ba943ebdd526b883f953eb7c3a446b8a74b323f584728420",
+      "generator_receipt_sha256": "3638f338d6693f4087e00331af6c27ba07ccfb13baa0233a64e1c5ff1143c459",
+      "numeric_checks": 37
+    },
+    {
+      "name": "KitRevolveReverse",
+      "generation": {
+        "name": "KitRevolveReverse",
+        "previous_presentation_sha256": "01287ff5392439b017a46dce4b543ce7204558523981063af5a9bd9b16db62b9",
+        "sha256": "eb736538f4ddb797f42262392f6c769d2ef5eb0d795c8bd5eb1553a057d121f6",
+        "bytes": 8059,
+        "modeled_streams": 9
+      },
+      "generated_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "derivative_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "save": {
+        "sha256": "c985ea6a54d94204445592fb06c07df91ff19a6e6840822a6584b0778d23dea4",
+        "bytes": 73025,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "feature_tree_equal": true,
+      "tree_nodes": 20,
+      "edited_angle_radians": 1.858775653373961,
+      "edited_direction": -1,
+      "edited_mass_properties": {
+        "volume": 2.0460473004513867e-05,
+        "area": 0.0047662843570915004,
+        "com": [
+          0.02921444321107444,
+          0.013678798363937882,
+          -0.013500000000000002
+        ],
+        "mass": 2.0460473004513867e-05
+      },
+      "written_file_sha256": "c985ea6a54d94204445592fb06c07df91ff19a6e6840822a6584b0778d23dea4",
+      "initial_record_sha256": "4b3a44008406b7999e299d395e0735ca3fe323d5a0b36ee6758ed13364d2c543",
+      "derivative_record_sha256": "0858c4e05eac57af182012b3d585b75288f176383c8d3d239e97fbf07013892d",
+      "generator_receipt_sha256": "a89576f59903a99660f04a57584cadca65e27a5402988105c3cf49ae74e9f9fb",
+      "numeric_checks": 37
+    }
+  ],
+  "numeric_checks": 111,
+  "passed": true,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

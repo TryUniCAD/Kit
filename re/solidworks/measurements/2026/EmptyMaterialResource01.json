@@ -1,0 +1,23 @@
+{
+  "schema": "kit.sw2026.empty-material-resource.v1",
+  "module_sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111",
+  "resource_evidence_id": "ev_7e513ce8b9f9419b73636aa095412620b818d9fdf3a0acd86c84e94338ce4190",
+  "resource_type": 6,
+  "string_id": 17559,
+  "block_id": 1098,
+  "index_within_block": 7,
+  "language": 1033,
+  "payload_file_offset": 1949848,
+  "payload_bytes": 2288,
+  "payload_sha256": "ac8673a065e924a4514e8db2d26babd3063dc87b231d71886e6fb0c35389f2f2",
+  "format_rule": "Sixteen UTF16LE strings with unsigned little-endian word code-unit lengths; resource block is string_id // 16 + 1 and entry is string_id % 16",
+  "consumed_payload_bytes": 2288,
+  "selected_text": "Material <not specified>",
+  "complete_resource_inventory": {
+    "entries": 4738,
+    "resources": 2363
+  },
+  "vendor_binary_or_payload_redistributed": false,
+  "native_code_executed": false,
+  "native_acceptance": false
+}

@@ -1,0 +1,25 @@
+{
+  "candidate_skipped": true,
+  "full_lifecycle_controls_healthy": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "bf759fd068dcc988f34c7f81c46d262bc822682788dfc8abc102cfbbe31cb302",
+  "phases": {
+    "ControlAfter": {
+      "correspondence_proved": true,
+      "first_failed_stage": "GetPosition",
+      "measured_note_depth_m": 0.0035,
+      "original_predicted_depth_m": 0,
+      "raw_record_sha256": "1ac968c293ec75dbb44a95d280495bbe3b5015e0375e8edd5acef945aa4f86e5"
+    },
+    "ControlBefore": {
+      "correspondence_proved": true,
+      "first_failed_stage": "GetPosition",
+      "measured_note_depth_m": 0.0035,
+      "original_predicted_depth_m": 0,
+      "raw_record_sha256": "b25d9d9bb63a53ff1838415d7752a09adeb057ab2cce31cfef848ba8c55b3aaa"
+    }
+  },
+  "processes": 2,
+  "raw_summary_sha256": "ec4f7fd0edf20c15ad6c493f5a2529de61dbadf23f0dfe0293ba8ccaa87b397e",
+  "schema": "kit.sw2026.draw-edge-correspondence-native.v1"
+}

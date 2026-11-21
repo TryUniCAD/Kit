@@ -1,0 +1,66 @@
+{
+  "case_order": [
+    {
+      "case": "AnsiDetailCornerAlphaNativeIso",
+      "kind": "corner",
+      "mode": "iso"
+    },
+    {
+      "case": "AnsiDetailCornerAlphaNativeAnsi",
+      "kind": "corner",
+      "mode": "ansi"
+    },
+    {
+      "case": "AnsiDetailCenteredBetaΩNativeIso",
+      "kind": "center",
+      "mode": "iso"
+    },
+    {
+      "case": "AnsiDetailCenteredBetaΩNativeAnsi",
+      "kind": "center",
+      "mode": "ansi"
+    }
+  ],
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "full_original_source_admission": false,
+  "gates": [
+    "both native controls healthy and matching",
+    "18 distinct process id and birth pairs",
+    "open and rebuild without errors or warnings",
+    "full ordered feature trees and actual origin/configuration/component identities",
+    "analytical volume area center frames and dimensions",
+    "independent driving edits and view moves",
+    "native save and fresh-process reopen",
+    "complete typed child and drawing stream replay",
+    "matching actual ISO/ANSI model details and UI class owners",
+    "complete generated presentation retention or explicit failed differences"
+  ],
+  "heldout_acceptance": false,
+  "hidden_inputs_read": 0,
+  "host_tool_hashes": {
+    "QualifyAnsiLifecycle.py": "81a6cbdeb5562266a4fea69ad99c5ff3c8b066bd97f87d0e313731027037213c"
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "native_processes": 18,
+  "native_tool_hashes": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "InspectAnsiDrawingLifecycle.py": "05c17b09e25117030b7837abf88df87c1e8631343cd10ed27930b45a01fe2e64",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "OriginNativeObserve.py": "5a4decd8efd207b8938ed7d1b8c955f1a8ebda8acebe53db64539dbb3a70c7ea",
+    "OriginNativePredict.py": "e55bbfe9cc1ca77eef9ea87790be28f2321cb179e075eb940cae1b52b9576dff",
+    "SpatialTextNativeObserve.py": "04857bb589843f77a48330bd4e24dc3a512a5bf171f39d9f73f84f91a19df3b4",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_files": 36,
+  "packet_sha256": "f0ab2884ee6c296f352598f788d8ccbf5e8e5832ff5cdecb3b28f6353ad70b17",
+  "preflight": "all eight exact encoded child and drawing targets must be absent, exclusive creation only",
+  "process_result_sha256": "665dec1e01965baac9c62ceabc94698f71363ee15a2c46093147287931e39d8b",
+  "schema": "drawing-ansi-native-protocol-v1",
+  "source_manifest_sha256": "5e95bcc51ac344e298d1056bd70dc80c616e3d12ccdd4f6c6263c4fb9eaf6d5f",
+  "typed_join_count": 20
+}

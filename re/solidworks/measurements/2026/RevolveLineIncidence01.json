@@ -1,0 +1,271 @@
+{
+  "all_worker_output_sha256": "37e016b98b5d296a61c390290076a96b399a0f7fe211b76c465fe9a01b7281ac",
+  "cases": [
+    {
+      "active_point_wire_ids": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "asset_sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+      "case": "PrincipalRevolveFrontFull",
+      "contour_lines_mm": [
+        [
+          [
+            9.000000000000002,
+            -8.0
+          ],
+          [
+            23.0,
+            -8.0
+          ]
+        ],
+        [
+          [
+            23.0,
+            -8.0
+          ],
+          [
+            23.0,
+            17.0
+          ]
+        ],
+        [
+          [
+            9.000000000000002,
+            17.0
+          ],
+          [
+            23.0,
+            17.0
+          ]
+        ],
+        [
+          [
+            9.000000000000002,
+            -8.0
+          ],
+          [
+            9.000000000000002,
+            17.0
+          ]
+        ]
+      ],
+      "line_order_indexes": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "line_order_values_missing_from_point_domain": [
+        2,
+        3
+      ],
+      "semantic_profile_admitted": true
+    },
+    {
+      "active_point_wire_ids": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "asset_sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+      "case": "PrincipalRevolveRightReverse",
+      "contour_lines_mm": [
+        [
+          [
+            20.6,
+            -16.9
+          ],
+          [
+            44.0,
+            -16.9
+          ]
+        ],
+        [
+          [
+            44.0,
+            -16.9
+          ],
+          [
+            44.0,
+            12.200000000000001
+          ]
+        ],
+        [
+          [
+            20.6,
+            12.200000000000001
+          ],
+          [
+            44.0,
+            12.200000000000001
+          ]
+        ],
+        [
+          [
+            20.6,
+            -16.9
+          ],
+          [
+            20.6,
+            12.200000000000001
+          ]
+        ]
+      ],
+      "line_order_indexes": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "line_order_values_missing_from_point_domain": [
+        2,
+        3
+      ],
+      "semantic_profile_admitted": true
+    },
+    {
+      "active_point_wire_ids": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "asset_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+      "case": "PrincipalRevolveTopForward",
+      "contour_lines_mm": [
+        [
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            33.0,
+            -11.0
+          ]
+        ],
+        [
+          [
+            33.0,
+            -11.0
+          ],
+          [
+            33.0,
+            16.0
+          ]
+        ],
+        [
+          [
+            16.0,
+            16.0
+          ],
+          [
+            33.0,
+            16.0
+          ]
+        ],
+        [
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            16.0,
+            16.0
+          ]
+        ]
+      ],
+      "line_order_indexes": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "line_order_values_missing_from_point_domain": [
+        2,
+        3
+      ],
+      "semantic_profile_admitted": true
+    },
+    {
+      "active_point_wire_ids": [
+        0,
+        1,
+        6,
+        7
+      ],
+      "asset_sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+      "case": "PrincipalRevolveTopReverse",
+      "contour_lines_mm": [
+        [
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            33.0,
+            -11.0
+          ]
+        ],
+        [
+          [
+            33.0,
+            -11.0
+          ],
+          [
+            33.0,
+            16.0
+          ]
+        ],
+        [
+          [
+            16.0,
+            16.0
+          ],
+          [
+            33.0,
+            16.0
+          ]
+        ],
+        [
+          [
+            16.0,
+            -11.0
+          ],
+          [
+            16.0,
+            16.0
+          ]
+        ]
+      ],
+      "line_order_indexes": [
+        0,
+        3,
+        2,
+        1
+      ],
+      "line_order_values_missing_from_point_domain": [
+        2,
+        3
+      ],
+      "semantic_profile_admitted": true
+    }
+  ],
+  "guarded_fresh_processes": 8,
+  "heldout_sources_read": 0,
+  "new_native_processes": 0,
+  "parser_source_sha256": {
+    "re/tooling/sw2026/revolve/EndModes/AuditRevEndOwners.py": "e0489821997bb0a41868a3435686577a169afc65b09468693c91fb6f64e284e3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/MakePrismLines.py": "e2ecd910fa569028870e3f40d10a7c8ed4c8bda23bed79527de2c6c7addb117c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Lines/LineLoop.py": "ace3405aa498c6330852c25286a10d020ec2fe57ec9210e976d537d16b113ea7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Lines/LineOrder.py": "066128911fe3db02eba582f3fa24a5d389c0f8813d2ef0bab4ab8b170ea1dbce",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/BuildRevBodyGeom.py": "9ab3d983c45773fd7da448b76b7f27107d1cf5ed84c3dcb21331ad5bcfdc8c78"
+  },
+  "runtime_external_access_attempts": 0,
+  "schema": "kit.sw2026.revolve-line-incidence.v1",
+  "sdk_revision": "19e2e99aa8269dd0687e7edd332ca16671982190",
+  "source_manifest_sha256": "dfbcd01d5def3dd1dbe32ee504c223c6fcd0a823d52fb413cf4e2f6fbe1afb53"
+}

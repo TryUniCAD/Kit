@@ -1,0 +1,13 @@
+{
+  "schema": "kit.sw2026.ordinary-assembly-specs.v1",
+  "scope": "Independent ordinary assemblies with a privately saved referenced part. No payload or API observation from the new held-out cases may enter writer construction.",
+  "synchronize_owned_children": true,
+  "placement_units": "metres and degrees",
+  "cases": [
+    {"name": "A12SyncedEmpty", "split": "discovery", "placements": []},
+    {"name": "A13SyncedSingle", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}]},
+    {"name": "A14SyncedRepeat", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "y", "angle_deg": -71.317, "translation_m": [0.08973, -0.04413, 0.01731]}]},
+    {"name": "A15HeldoutSyncedThree", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "x", "angle_deg": 43.671, "translation_m": [0.08741, 0.02137, 0.01019]}, {"axis": "y", "angle_deg": -116.391, "translation_m": [-0.03313, 0.10471, -0.02291]}]},
+    {"name": "A16HeldoutSyncedFour", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "y", "angle_deg": 55.109, "translation_m": [0.13679, -0.03791, 0.01963]}, {"axis": "z", "angle_deg": -78.631, "translation_m": [0.03219, 0.10063, 0.04719]}, {"axis": "x", "angle_deg": 23.079, "translation_m": [-0.05613, -0.09317, 0.04193]}]}
+  ]
+}

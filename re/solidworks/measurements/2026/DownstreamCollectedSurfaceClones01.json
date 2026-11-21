@@ -1,0 +1,72 @@
+{
+  "cad_input_reads": 0,
+  "delivery_pr": 121,
+  "heldout_input_reads": 0,
+  "native_runs": 0,
+  "qualified_corpus_assemblies": 0,
+  "qualified_corpus_parts": 0,
+  "replay_processes": 6,
+  "results": [
+    {
+      "fresh_clone_processes": 2,
+      "prior_receipt_sha256": "37cbcf2f5fbd27252be38471241aeba213a9b568c09cb1374ef0e30221718eae",
+      "result": {
+        "cache_bytes": 664,
+        "cache_sha256": "d9bc7eb1b2f5f76c10c7a04cb67665710d7cb739591edbfe7f1843e3d304a507",
+        "cloned_file_slots": [
+          6,
+          13,
+          16
+        ],
+        "container_sha256": "d8ba5c74e6d9273554760c6daaf27410a9de271e725e58172daca3052e17c42b",
+        "map_counter": 17,
+        "native_runs": 0,
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "saved_copy_epoch": 0,
+        "saved_file_index": -1,
+        "scope": "collector clone semantics in a scoped typed cylinder cache",
+        "source_file_index": 11,
+        "variant": 1
+      },
+      "stdout_sha256": "84dc6e3bb4d37dca9742d292892a47dd198f75294ea79cc9d020a6050dd1e208",
+      "variant": 1
+    },
+    {
+      "fresh_clone_processes": 2,
+      "prior_receipt_sha256": "d4b4673dd8cba0cf6f5a61a990584f2d430f13477e765028fc47a914cee130e6",
+      "result": {
+        "cache_bytes": 664,
+        "cache_sha256": "7b412d1821d6c5e6d796973bb67bc964150691c2dd50a92a815e31db5f6e5a9a",
+        "cloned_file_slots": [
+          6,
+          13,
+          16
+        ],
+        "container_sha256": "920e9a03a7aa34cda5275e6d86bc7c83bea3f1e9a17ef72f952e06d4fbfce49e",
+        "map_counter": 17,
+        "native_runs": 0,
+        "passed": true,
+        "preserved_part_streams": 11,
+        "runtime_io_attempts": 0,
+        "saved_copy_epoch": 0,
+        "saved_file_index": -1,
+        "scope": "collector clone semantics in a scoped typed cylinder cache",
+        "source_file_index": 22,
+        "variant": 2
+      },
+      "stdout_sha256": "d33fd659863e86b0de92740661411c1e632a9ddc72265681a0bfc1d5318ed11c",
+      "variant": 2
+    }
+  ],
+  "schema": "kit.sw2026.downstream-collected-surface-clones-replay.v1",
+  "scope": "collector clone semantics in generated typed body with explicit membership",
+  "source_build": "34.5.2.0604",
+  "source_sha256": {
+    "re/solidworks/records/DownstreamCollectedSurfaceClones2026.json": "304f1b578dd5310a869990c6f8cbda55dc2ed517b838d97acb329c290d7d4a8c",
+    "re/tooling/sw2026/downstream/CheckCollectedSurfaceClones.py": "ec5195170600736a3ad623496868b964a08a33fb5473ac7ef4de9615ea946b48",
+    "re/tooling/sw2026/downstream/CheckSurfaceIdentities.py": "0f8c804550862ee427a7a8789cc4dad672b03f3c9121dc3998049c129d972b72",
+    "re/tooling/sw2026/downstream/SurfaceIdentities.py": "f3e2944ca53a24f58dca26538d022633473eeea2cfd1b3db21d1b9a503f5c58c"
+  }
+}

@@ -75,9 +75,13 @@ C++ CAD kernels expose their class hierarchy through RTTI even when stripped of 
 
 1. Find RTTI type descriptors (`.?AV` names for MSVC, `_ZTS` for Itanium) with `search_strings`.
 2. Walk complete object locators to vtables.
-3. Identify the virtual slot that holds `Serialize` (or the vendor's equivalent). In SOLIDWORKS the
-   reader dispatched **slot 5**, the vendor's own serializer, not MFC's slot 2. Find it by
-   decompiling the archive's object-read routine and seeing which slot it calls on the new object.
+3. Identify the virtual slot that holds `Serialize` (or the vendor's equivalent).
+   In the verified SOLIDWORKS 2026 path, the custom `su_CArchive::ReadObject`
+   invokes MFC slot 2. Its `su_CObject::Serialize(CArchive&)` bridge then jumps
+   to vendor slot 5, which contains the format serializer. Follow both stages;
+   hooking the framework's separate object reader or treating the bridge as the
+   field serializer misses the actual path. Decompile the object-read routine
+   and each bridge to establish this for the exact vendor build.
 4. Dump every vtable's serializer slot to get a complete map: class name → serializer address.
    `re/tooling/ghidra/Java/DumpVtableSlot.java` and `re/tooling/ghidra/Generation/SerializeMap.py`
    produced the 2607-class `re/data/Serialization/SerializeMap.json`.

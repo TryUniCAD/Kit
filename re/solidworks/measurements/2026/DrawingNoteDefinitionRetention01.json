@@ -1,0 +1,1130 @@
+{
+  "all_five_complete_definition_round_trips": true,
+  "all_five_maps_and_aliases_equal": true,
+  "candidate": "NoteReaderCandidate12",
+  "cohorts": [
+    {
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "concrete_class_counts": {
+            "moANSI_c": 1,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAbsoluteView": 1,
+            "moAngleUserUnits_c": 1,
+            "moAttachPointData_c": 1,
+            "moBlockFolder_c": 1,
+            "moBomInfoMgr_c": 1,
+            "moCStringHandle_c": 5,
+            "moChainComponent_c": 2,
+            "moCommentsFolder_c": 1,
+            "moCompEdge_c": 1,
+            "moCompNote_c": 1,
+            "moCompProfile_c": 1,
+            "moCompRefPlane_c": 3,
+            "moDensityUnits_c": 1,
+            "moDetailCabinet_c": 1,
+            "moDetailFolder_c": 2,
+            "moDisplayNote_c": 1,
+            "moDisplayProfileFeature_c": 1,
+            "moDocsFolder_c": 1,
+            "moDrSheet": 1,
+            "moDrawingRefPlnData_c": 1,
+            "moDrawing_c": 1,
+            "moDrwCompPropMgr_c": 1,
+            "moEdgeRef_c": 1,
+            "moEndFaceSurfIdRep_c": 1,
+            "moEnergyUnits_c": 1,
+            "moExtFeatureList_c": 1,
+            "moExtFeature_c": 1,
+            "moExtObjectList_c": 1,
+            "moExtObject_c": 3,
+            "moFR_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFloatNumberUserUnits_c": 1,
+            "moForceUnits_c": 1,
+            "moFrequencyUserUnits_c": 1,
+            "moFromSktEntSurfIdRep_c": 3,
+            "moGenTextDataList_c": 1,
+            "moGeneralCurveRef_w": 1,
+            "moGenericText_c": 1,
+            "moGravityUnits_c": 1,
+            "moHeader_c": 1,
+            "moInkMarkupFolder_c": 1,
+            "moLayerMask_c": 1,
+            "moLayerMgr_c": 1,
+            "moLengthUserUnits_c": 10,
+            "moLineStyle_c": 7,
+            "moLinearMotorUnits_c": 1,
+            "moLogs_c": 15,
+            "moMarkupCommentFolder_c": 1,
+            "moNodeName_c": 19,
+            "moNoteData_c": 1,
+            "moNumberUserUnits_c": 1,
+            "moParametricPoint_c": 1,
+            "moPowerUnits_c": 1,
+            "moProfileFeature_c": 3,
+            "moRefPlane_c": 3,
+            "moReferenceChain_c": 1,
+            "moReferenceInternal_c": 1,
+            "moReferenceModel_c": 1,
+            "moRelMgr_c": 1,
+            "moRotaryMotorUnits_c": 1,
+            "moScaleSysScale_c": 1,
+            "moSketchBlockMgr_c": 1,
+            "moSpringConstantUnits_c": 1,
+            "moStamp_c": 15,
+            "moStressUnits_c": 1,
+            "moTextDataChar_c": 6,
+            "moTextDataLineHead_c": 1,
+            "moTimeUnits_c": 1,
+            "moTransRefPlaneData_c": 1,
+            "moUnitComponent_c": 4,
+            "moUnitSysUnits_c": 1,
+            "moUnitsTable_c": 1,
+            "moView_c": 10,
+            "sgSketch": 3,
+            "suObArray": 2,
+            "suObList": 12,
+            "su_CStringArray": 2,
+            "uiLFConfig_c": 40,
+            "uiLineFontMgr_c": 1,
+            "uiUserModelEnv_c": 1,
+            "uoJournal_c": 1,
+            "uoSketch": 1
+          },
+          "definition_bytes": 37572,
+          "definition_sha256": "3e212267b70be0b5d3f92a6365b2c642a4efb43aefac725cde21f74a90ec0cdb",
+          "input_sha256": "662d4af295f3db77e49cb7eae3ad69c2d7140560dfc2be786d3f3843796060df",
+          "input_unchanged": true,
+          "map_counter": 321,
+          "map_slots_equal": true,
+          "normal_rejection": {
+            "message": "named drawing Definition ui sketch has the wrong active sheet profile",
+            "type": "BodyUnsupported"
+          },
+          "normal_semantic_admission": false,
+          "raw_byte_round_trip": true,
+          "raw_load_complete": true,
+          "raw_only_passed": true,
+          "raw_store_complete": true,
+          "same_object_identities": true
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "concrete_class_counts": {
+            "moAbsoluteRefPlnData_c": 2,
+            "moAbsoluteView": 1,
+            "moAngleUserUnits_c": 1,
+            "moAttachPointData_c": 1,
+            "moBlockFolder_c": 1,
+            "moBomInfoMgr_c": 1,
+            "moCStringHandle_c": 5,
+            "moChainComponent_c": 1,
+            "moCommentsFolder_c": 1,
+            "moCompEdge_c": 1,
+            "moCompNote_c": 1,
+            "moCompRefPlane_c": 3,
+            "moDensityUnits_c": 1,
+            "moDetailCabinet_c": 1,
+            "moDetailFolder_c": 2,
+            "moDisplayNote_c": 1,
+            "moDocsFolder_c": 1,
+            "moDrSheet": 1,
+            "moDrawingRefPlnData_c": 1,
+            "moDrawing_c": 1,
+            "moDrwCompPropMgr_c": 1,
+            "moEdgeRef_c": 5,
+            "moEndFaceSurfIdRep_c": 5,
+            "moEnergyUnits_c": 1,
+            "moExtFeatureList_c": 1,
+            "moExtFeature_c": 1,
+            "moExtObjectList_c": 1,
+            "moExtObject_c": 19,
+            "moFR_c": 20,
+            "moFavoriteHandle_c": 1,
+            "moFloatNumberUserUnits_c": 1,
+            "moForceUnits_c": 1,
+            "moFrequencyUserUnits_c": 1,
+            "moFromSktEntSurfIdRep_c": 15,
+            "moGenTextDataList_c": 1,
+            "moGeneralCurveRef_w": 1,
+            "moGenericText_c": 1,
+            "moGravityUnits_c": 1,
+            "moHeader_c": 1,
+            "moISO_c": 1,
+            "moInkMarkupFolder_c": 1,
+            "moLayerMask_c": 1,
+            "moLayerMgr_c": 1,
+            "moLengthUserUnits_c": 10,
+            "moLinearMotorUnits_c": 1,
+            "moLogs_c": 1,
+            "moMarkupCommentFolder_c": 1,
+            "moNodeName_c": 19,
+            "moNoteData_c": 1,
+            "moNumberUserUnits_c": 1,
+            "moParametricPoint_c": 1,
+            "moPowerUnits_c": 1,
+            "moProfileFeature_c": 3,
+            "moRefPlane_c": 3,
+            "moReferenceChain_c": 1,
+            "moReferenceInternal_c": 1,
+            "moReferenceModel_c": 1,
+            "moRelMgr_c": 1,
+            "moRotaryMotorUnits_c": 1,
+            "moScaleSysScale_c": 1,
+            "moSketchBlockMgr_c": 1,
+            "moSpringConstantUnits_c": 1,
+            "moStamp_c": 1,
+            "moStressUnits_c": 1,
+            "moTextDataChar_c": 6,
+            "moTextDataLineHead_c": 1,
+            "moTimeUnits_c": 1,
+            "moTransRefPlaneData_c": 1,
+            "moUnitComponent_c": 4,
+            "moUnitSysUnits_c": 1,
+            "moUnitsTable_c": 1,
+            "moView_c": 10,
+            "sgSketch": 3,
+            "suObArray": 2,
+            "suObList": 12,
+            "su_CStringArray": 2,
+            "uiLineFontMgr_c": 1,
+            "uiUserModelEnv_c": 1,
+            "uoJournal_c": 1,
+            "uoSketch": 1
+          },
+          "definition_bytes": 35404,
+          "definition_sha256": "044a5afc1b406fae438956bd1a681b54d0e35442eb970323fda4aefeb9215e9f",
+          "input_sha256": "ad722ffc3fbe6c0ff36c2707bc79c124c9582406d5a19b2fbf1930cb86f55e52",
+          "input_unchanged": true,
+          "map_counter": 291,
+          "map_slots_equal": true,
+          "normal_rejection": {
+            "message": "named drawing Definition ui sketch has the wrong active sheet profile",
+            "type": "BodyUnsupported"
+          },
+          "normal_semantic_admission": false,
+          "raw_byte_round_trip": true,
+          "raw_load_complete": true,
+          "raw_only_passed": true,
+          "raw_store_complete": true,
+          "same_object_identities": true
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "concrete_class_counts": {
+            "moANSI_c": 1,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAbsoluteView": 1,
+            "moAngleUserUnits_c": 1,
+            "moAttachPointData_c": 1,
+            "moBlockFolder_c": 1,
+            "moBomInfoMgr_c": 1,
+            "moCStringHandle_c": 5,
+            "moChainComponent_c": 2,
+            "moCommentsFolder_c": 1,
+            "moCompEdge_c": 1,
+            "moCompNote_c": 1,
+            "moCompProfile_c": 1,
+            "moCompRefPlane_c": 3,
+            "moDensityUnits_c": 1,
+            "moDetailCabinet_c": 1,
+            "moDetailFolder_c": 2,
+            "moDisplayNote_c": 1,
+            "moDisplayProfileFeature_c": 1,
+            "moDocsFolder_c": 1,
+            "moDrSheet": 1,
+            "moDrawingRefPlnData_c": 1,
+            "moDrawing_c": 1,
+            "moDrwCompPropMgr_c": 1,
+            "moEdgeRef_c": 1,
+            "moEndFaceSurfIdRep_c": 1,
+            "moEnergyUnits_c": 1,
+            "moExtFeatureList_c": 1,
+            "moExtFeature_c": 1,
+            "moExtObjectList_c": 1,
+            "moExtObject_c": 3,
+            "moFR_c": 4,
+            "moFavoriteHandle_c": 1,
+            "moFloatNumberUserUnits_c": 1,
+            "moForceUnits_c": 1,
+            "moFrequencyUserUnits_c": 1,
+            "moFromSktEntSurfIdRep_c": 3,
+            "moGenTextDataList_c": 1,
+            "moGeneralCurveRef_w": 1,
+            "moGenericText_c": 1,
+            "moGravityUnits_c": 1,
+            "moHeader_c": 1,
+            "moInkMarkupFolder_c": 1,
+            "moLayerMask_c": 1,
+            "moLayerMgr_c": 1,
+            "moLengthUserUnits_c": 10,
+            "moLineStyle_c": 7,
+            "moLinearMotorUnits_c": 1,
+            "moLogs_c": 15,
+            "moMarkupCommentFolder_c": 1,
+            "moNodeName_c": 19,
+            "moNoteData_c": 1,
+            "moNumberUserUnits_c": 1,
+            "moParametricPoint_c": 1,
+            "moPowerUnits_c": 1,
+            "moProfileFeature_c": 3,
+            "moRefPlane_c": 3,
+            "moReferenceChain_c": 1,
+            "moReferenceInternal_c": 1,
+            "moReferenceModel_c": 1,
+            "moRelMgr_c": 1,
+            "moRotaryMotorUnits_c": 1,
+            "moScaleSysScale_c": 1,
+            "moSketchBlockMgr_c": 1,
+            "moSpringConstantUnits_c": 1,
+            "moStamp_c": 15,
+            "moStressUnits_c": 1,
+            "moTextDataChar_c": 6,
+            "moTextDataLineHead_c": 1,
+            "moTimeUnits_c": 1,
+            "moTransRefPlaneData_c": 1,
+            "moUnitComponent_c": 4,
+            "moUnitSysUnits_c": 1,
+            "moUnitsTable_c": 1,
+            "moView_c": 10,
+            "sgSketch": 3,
+            "suObArray": 2,
+            "suObList": 12,
+            "su_CStringArray": 2,
+            "uiLFConfig_c": 40,
+            "uiLineFontMgr_c": 1,
+            "uiUserModelEnv_c": 1,
+            "uoJournal_c": 1,
+            "uoSketch": 1
+          },
+          "definition_bytes": 37572,
+          "definition_sha256": "938d15a0df41f38e236a1bee989d43efa4a895e530133cde236de9a6dcdeec9d",
+          "input_sha256": "7f4abafbafc3f7afdd8d3970d265ffbc96124589f06cfacc421967abc229c67c",
+          "input_unchanged": true,
+          "map_counter": 321,
+          "map_slots_equal": true,
+          "normal_rejection": {
+            "message": "named drawing Definition ui sketch has the wrong active sheet profile",
+            "type": "BodyUnsupported"
+          },
+          "normal_semantic_admission": false,
+          "raw_byte_round_trip": true,
+          "raw_load_complete": true,
+          "raw_only_passed": true,
+          "raw_store_complete": true,
+          "same_object_identities": true
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "input_manifest_sha256": "ff4fb68796a0f2de13376d0244d07dffcf1fe9474cc069f1abb3d8bb206baff9",
+      "raw_report_sha256": "dc732897dde33378101674b07eeb3ccdc21658a05c2ef5d8077a5bde9d71e289"
+    },
+    {
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "concrete_class_counts": {
+            "moANSI_c": 1,
+            "moAbsolutePoint_c": 1,
+            "moAbsoluteRefPlnData_c": 1,
+            "moAngleUserUnits_c": 1,
+            "moAttachPointData_c": 1,
+            "moBlockFolder_c": 1,
+            "moBomInfoMgr_c": 1,
+            "moCStringHandle_c": 2,
+            "moCommentsFolder_c": 1,
+            "moCompNote_c": 1,
+            "moCompRefPlane_c": 1,
+            "moDensityUnits_c": 1,
+            "moDetailCabinet_c": 1,
+            "moDetailFolder_c": 1,
+            "moDisplayNote_c": 1,
+            "moDocsFolder_c": 1,
+            "moDrSheet": 1,
+            "moDrawing_c": 1,
+            "moDrwCompPropMgr_c": 1,
+            "moEnergyUnits_c": 1,
+            "moExtObject_c": 1,
+            "moFavoriteHandle_c": 1,
+            "moFloatNumberUserUnits_c": 1,
+            "moForceUnits_c": 1,
+            "moFrequencyUserUnits_c": 1,
+            "moGenTextDataList_c": 1,
+            "moGenericText_c": 1,
+            "moGravityUnits_c": 1,
+            "moHeader_c": 1,
+            "moInkMarkupFolder_c": 1,
+            "moLayerMask_c": 1,
+            "moLayerMgr_c": 1,
+            "moLengthUserUnits_c": 10,
+            "moLineStyle_c": 7,
+            "moLinearMotorUnits_c": 1,
+            "moLogs_c": 9,
+            "moMarkupCommentFolder_c": 1,
+            "moNodeName_c": 12,
+            "moNoteData_c": 1,
+            "moNumberUserUnits_c": 1,
+            "moPowerUnits_c": 1,
+            "moProfileFeature_c": 1,
+            "moRefPlane_c": 1,
+            "moRelMgr_c": 1,
+            "moRotaryMotorUnits_c": 1,
+            "moScaleSysScale_c": 1,
+            "moSketchBlockMgr_c": 1,
+            "moSpringConstantUnits_c": 1,
+            "moStamp_c": 9,
+            "moStressUnits_c": 1,
+            "moTextDataChar_c": 16,
+            "moTextDataLineHead_c": 1,
+            "moTimeUnits_c": 1,
+            "moTransRefPlaneData_c": 1,
+            "moUnitComponent_c": 2,
+            "moUnitSysUnits_c": 1,
+            "moUnitsTable_c": 1,
+            "moView_c": 10,
+            "sgSketch": 1,
+            "suObArray": 1,
+            "suObList": 8,
+            "su_CStringArray": 2,
+            "uiLFConfig_c": 40,
+            "uiLineFontMgr_c": 1,
+            "uiUserModelEnv_c": 1,
+            "uoJournal_c": 1,
+            "uoSketch": 1
+          },
+          "definition_bytes": 31197,
+          "definition_sha256": "811a56f2e202281c30cb1dfaf0b78acde3da80cc6dcbcbd1cd49332c4cecd173",
+          "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+          "input_unchanged": true,
+          "map_counter": 250,
+          "map_slots_equal": true,
+          "normal_rejection": {
+            "message": "front drawing Definition requires one qualified active sheet and view",
+            "type": "BodyUnsupported"
+          },
+          "normal_semantic_admission": false,
+          "raw_byte_round_trip": true,
+          "raw_load_complete": true,
+          "raw_only_passed": true,
+          "raw_store_complete": true,
+          "same_object_identities": true
+        },
+        {
+          "case": "Disclosed02",
+          "concrete_class_counts": {
+            "moANSI_c": 1,
+            "moAbsolutePoint_c": 1,
+            "moAbsoluteRefPlnData_c": 1,
+            "moAngleUserUnits_c": 1,
+            "moAttachPointData_c": 1,
+            "moBlockFolder_c": 1,
+            "moBomInfoMgr_c": 1,
+            "moCStringHandle_c": 2,
+            "moCommentsFolder_c": 1,
+            "moCompNote_c": 1,
+            "moCompRefPlane_c": 1,
+            "moDensityUnits_c": 1,
+            "moDetailCabinet_c": 1,
+            "moDetailFolder_c": 1,
+            "moDisplayNote_c": 1,
+            "moDocsFolder_c": 1,
+            "moDrSheet": 1,
+            "moDrawing_c": 1,
+            "moDrwCompPropMgr_c": 1,
+            "moEnergyUnits_c": 1,
+            "moExtObject_c": 1,
+            "moFavoriteHandle_c": 1,
+            "moFloatNumberUserUnits_c": 1,
+            "moForceUnits_c": 1,
+            "moFrequencyUserUnits_c": 1,
+            "moGenTextDataList_c": 1,
+            "moGenericText_c": 1,
+            "moGravityUnits_c": 1,
+            "moHeader_c": 1,
+            "moInkMarkupFolder_c": 1,
+            "moLayerMask_c": 1,
+            "moLayerMgr_c": 1,
+            "moLengthUserUnits_c": 10,
+            "moLineStyle_c": 7,
+            "moLinearMotorUnits_c": 1,
+            "moLogs_c": 9,
+            "moMarkupCommentFolder_c": 1,
+            "moNodeName_c": 12,
+            "moNoteData_c": 1,
+            "moNumberUserUnits_c": 1,
+            "moPowerUnits_c": 1,
+            "moProfileFeature_c": 1,
+            "moRefPlane_c": 1,
+            "moRelMgr_c": 1,
+            "moRotaryMotorUnits_c": 1,
+            "moScaleSysScale_c": 1,
+            "moSketchBlockMgr_c": 1,
+            "moSpringConstantUnits_c": 1,
+            "moStamp_c": 9,
+            "moStressUnits_c": 1,
+            "moTextDataChar_c": 15,
+            "moTextDataLineHead_c": 1,
+            "moTimeUnits_c": 1,
+            "moTransRefPlaneData_c": 1,
+            "moUnitComponent_c": 2,
+            "moUnitSysUnits_c": 1,
+            "moUnitsTable_c": 1,
+            "moView_c": 10,
+            "sgSketch": 1,
+            "suObArray": 1,
+            "suObList": 8,
+            "su_CStringArray": 2,
+            "uiLFConfig_c": 40,
+            "uiLineFontMgr_c": 1,
+            "uiUserModelEnv_c": 1,
+            "uoJournal_c": 1,
+            "uoSketch": 1
+          },
+          "definition_bytes": 31153,
+          "definition_sha256": "1471abf3f32fc003e6903aa8f195c6d4754bd397e73cb6a23ba308b8f2791131",
+          "input_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+          "input_unchanged": true,
+          "map_counter": 249,
+          "map_slots_equal": true,
+          "normal_rejection": {
+            "message": "front drawing Definition requires one qualified active sheet and view",
+            "type": "BodyUnsupported"
+          },
+          "normal_semantic_admission": false,
+          "raw_byte_round_trip": true,
+          "raw_load_complete": true,
+          "raw_only_passed": true,
+          "raw_store_complete": true,
+          "same_object_identities": true
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "input_manifest_sha256": "b5d4f2b5a06324dcddb1bb324f81ea32e7460a93ba07712e4480de4b62875d39",
+      "raw_report_sha256": "92ca46010dc659b300bada4f8e73d98dd6469e71020797de4946c0c7651982a9"
+    }
+  ],
+  "definition_bytes_total": 172898,
+  "delivery_pr": 121,
+  "earlier_candidates_and_reports_preserved": true,
+  "frozen_source_files": 4704,
+  "heldout_acceptance": false,
+  "initial_observer_failure": {
+    "candidate": "NoteReaderCandidate01",
+    "product_conclusion": false,
+    "root_report_persisted": false,
+    "root_reported_error": "unsupported observer NativeHeader value",
+    "source_manifest_sha256": "cf1ca645ce6b05edd1c92ee737b4b6483b4e241767a972c2203ad13a1495517f"
+  },
+  "limits": [
+    "only version19000 ordinary nonDB drawing owner with conditions0/64 and closed special helper states",
+    "nonnull component-detail external owner branch remains unsupported",
+    "curve wrapper supports the actual CompEdge selection branch only; part anchor declaration unchanged",
+    "unknown note data and stacked/BOM/thread/chooser concrete payloads fail closed",
+    "raw field retention does not project editable note semantics or establish fresh construction defaults",
+    "the original drawing heldout verdict is unchanged; no sealed source/result was accessed"
+  ],
+  "native_generated_writer_acceptance": false,
+  "normal_rejections_preserved": true,
+  "normal_semantic_admission": false,
+  "note_constructor_admission": false,
+  "owner": "PR121 flag_ownership",
+  "previous_boundaries": [
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 6950,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6610,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 6950,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path drawing note alternate archive context",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate02.json",
+      "sha256": "9ff825eb778ad48b4b6490723ad4a4a93938a96d5d575edfbad10536e7301a9e",
+      "source_manifest_sha256": "844f8412f1fd99084f4866d53aaaeadbcc9839346c2bb0fb3e0c0034ecab10c1"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 7074,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6734,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 7074,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body virtual slot 0x4b8 for moNoteData_c",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate03.json",
+      "sha256": "0cb4e914df084203de0f26d00a82ea4d43eb6575a28c84ac8b45163cfd52d0fa",
+      "source_manifest_sha256": "ff3c3edc9170c3e2cfdee990bf0fd4de5c66a683b7ecd8c506ef58549dfb6ac8"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 7297,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6957,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 7297,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGeneralCurveRef_w schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate04.json",
+      "sha256": "8debfdc2f281a091dbd072bc8be04541692020e071ad1939b614b7cd4b9cf929",
+      "source_manifest_sha256": "916208520d64ebf9baa3df580330ff84f351aa45ee5b9d3c8dc40428cda6d83a"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 7315,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moCompEdge_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 6975,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moCompEdge_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 7315,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moCompEdge_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate05.json",
+      "sha256": "23200b365545399b5f43c83dbc510a5e8e247cf8cde63aabe851febfd4b6f330",
+      "source_manifest_sha256": "daf687ecfd3e0c6f23ef69a157ca4cbf529b865d28b0eb68674c9748ea142c1a"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 8514,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path anchor wrapper requires its component sketch selection",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 8158,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path anchor wrapper requires its component sketch selection",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 8514,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS native field path anchor wrapper requires its component sketch selection",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate07.json",
+      "sha256": "7df27f095ae89875118bbc0d329e0604a44f258178df9a93d38d973cff1b7601",
+      "source_manifest_sha256": "73fedf5a664b86e50984581021ffdf9c93e0e267d057d8c9628d55e11d0778c4"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 8978,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataLineHead_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 8622,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataLineHead_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 8978,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataLineHead_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate08.json",
+      "sha256": "1458518a9251087398d4647a3148dcb04d91e50736a142f70e20138e724bfc2f",
+      "source_manifest_sha256": "f32cb6fa841fcb19d09914051f884d3ede1c7ab7f3b2f7c94d9448db59ff5b72"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 9148,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataChar_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 8792,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataChar_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 9148,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataChar_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate10.json",
+      "sha256": "7647a136af791b3d636ac0a9f2caa695228175f77639c5f71bd354c079060827",
+      "source_manifest_sha256": "a67b6e484c0afd720710cf6843f2a13118851b04879d31ef4c1d939fc94a696e"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "ControlBeforeOpenEditSave",
+          "cursor_offset": 10157,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moFavoriteHandle_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "GeneratedOpenEditSave",
+          "cursor_offset": 9801,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moFavoriteHandle_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "ControlAfterOpenEditSave",
+          "cursor_offset": 10157,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moFavoriteHandle_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "DrawingAnnotationDepth01",
+      "report": "NoteDefinitionCandidate11.json",
+      "sha256": "a432c00cbfb20383d30d5e930f97dc83b3c8a8b4a9df47b84fe3f50a46f79873",
+      "source_manifest_sha256": "cda2a8cbb58cc013536b3a35d4f4f07f119eadbb604ad4669715c7c893c950fb"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 5712,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moAbsolutePoint_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 5712,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moAbsolutePoint_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate01.json",
+      "sha256": "61a5f5f921917edacd8a58ff01ad69c0c27b2494aa0cb9c39eba9160fd410b97",
+      "source_manifest_sha256": "858927cb61b8040aa23edec499627e334532ff7249eae541801a94f722ef6b82"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 5850,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGenericText_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 5850,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGenericText_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate02.json",
+      "sha256": "92fab1d9d991aace6f5fcf564a12ca72428c282cfdb1a2a1b623609edd12f358",
+      "source_manifest_sha256": "8fdc4453b2f1d2d2bd7150e64e7f13d73b00b8cc24dfd7e88255dd5f7fb5f785"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 5850,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGenericText_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 5850,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moGenericText_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate07.json",
+      "sha256": "899e3c09c274582ff31da826529d8dbaf06358d77ed8b50a014f01cd91bf1a24",
+      "source_manifest_sha256": "73fedf5a664b86e50984581021ffdf9c93e0e267d057d8c9628d55e11d0778c4"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 6082,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataLineHead_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 6080,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataLineHead_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate08.json",
+      "sha256": "8fcd2c1fec34ed70427067356b63a60e740515fa2fdfd010737013c70cb9f863",
+      "source_manifest_sha256": "f32cb6fa841fcb19d09914051f884d3ede1c7ab7f3b2f7c94d9448db59ff5b72"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 6252,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataChar_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 6250,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moTextDataChar_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate10.json",
+      "sha256": "0d36fd5b2ccae626f20c0a48c0d955a2a67bad33fd9d839e40912ef0dd5eef0e",
+      "source_manifest_sha256": "a67b6e484c0afd720710cf6843f2a13118851b04879d31ef4c1d939fc94a696e"
+    },
+    {
+      "all_raw_round_trips": false,
+      "cases": [
+        {
+          "case": "Disclosed01",
+          "cursor_offset": 7681,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moFavoriteHandle_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        },
+        {
+          "case": "Disclosed02",
+          "cursor_offset": 7637,
+          "raw_failure": {
+            "message": "unsupported SOLIDWORKS body class moFavoriteHandle_c schema 1",
+            "phase": "raw_body",
+            "type": "BodyUnsupported"
+          }
+        }
+      ],
+      "cohort": "PlainDrawingNoteSources01",
+      "report": "NoteDefinitionCandidate11.json",
+      "sha256": "16e1ebdca2f0506a8daf9af65216b28dd6cb8e4758373ff96a8db6781b4813c7",
+      "source_manifest_sha256": "cda2a8cbb58cc013536b3a35d4f4f07f119eadbb604ad4669715c7c893c950fb"
+    }
+  ],
+  "prior_public_drawing_regression": {
+    "full_candidate12_regression": "pending independent root run; earlier core check does not qualify later dependency edits",
+    "root_reported_core_overlay_checks_passed": 20
+  },
+  "public_reader_admission": false,
+  "public_writer_admission": false,
+  "schema": "drawing-note-definition-retention-v1",
+  "scope": "exact three disclosed attached saved derivatives and two independently prewriter-locked disclosed plain-note sources",
+  "sdk_overlay_paths": 21,
+  "sdk_source_files": [
+    {
+      "bytes": 1462,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteGate.py",
+      "sha256": "58be4bf32b0a26adc76189caebdf09a8177f01fefd559924c19772c496903511"
+    },
+    {
+      "bytes": 1101,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteHead.py",
+      "sha256": "5f88352ff4a84ee1abd6111dec268eb4e469bb899079cc0ae79ef6ea62777f4e"
+    },
+    {
+      "bytes": 803,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteTail.py",
+      "sha256": "cf08171989408148ff86bb82e0abd7422ffe60c8e1013602da58afd4019fba36"
+    },
+    {
+      "bytes": 1127,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteFields.py",
+      "sha256": "974df01b02b0ae30429debded65fd52891933bda7e63217db1027850a2882d05"
+    },
+    {
+      "bytes": 2183,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/DetailFields.py",
+      "sha256": "27c3c0ab212941e835c431bb953dcd42757f8c73f9de6050371e237b80757357"
+    },
+    {
+      "bytes": 2016,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/AttachFields.py",
+      "sha256": "d17440bf4885b20ac068dca8b1d099e19b450b401b1005bc1b403837f0847e80"
+    },
+    {
+      "bytes": 978,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteSchemas.py",
+      "sha256": "32667181677c4377a399794658cd7c36054124ad8a808ab97b4814a512cb20be"
+    },
+    {
+      "bytes": 3046,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontLayouts.py",
+      "sha256": "91185577c71ec1cb3e035fbedaa24294b23fc12853f230d50e2530e2eecea6f8"
+    },
+    {
+      "bytes": 1272,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py",
+      "sha256": "0d6d55252ab91f55b709a10a645fd20b38a09fac513366762cb856f6fb192711"
+    },
+    {
+      "bytes": 961,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontVirtuals.py",
+      "sha256": "56d8b25508e5f98b96db9a0e87fbed8237a42c783f474238433e71e3e2a1717b"
+    },
+    {
+      "bytes": 390,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/NoteVirtuals.py",
+      "sha256": "638ff52769407ed51f4f821bcaa1780b09eeaf907a14f3364f60374a2adfcf50"
+    },
+    {
+      "bytes": 1145,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/CurveFields.py",
+      "sha256": "4c568b776f64145c055cb2cf29a8ef20d1daccc96d026683c29ffbd0aedb6d37"
+    },
+    {
+      "bytes": 1569,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/ComponentFields.py",
+      "sha256": "0c24500da7304c3bf0ecd52fe20eb7f9dac22b455dc653f3c23cd51b5c4c71ec"
+    },
+    {
+      "bytes": 471,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/AbsoluteFields.py",
+      "sha256": "4aa7f8c91c9b383c5191d30609702c1c35251d0e18c12533232f6c909304be08"
+    },
+    {
+      "bytes": 1774,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/ComponentPrefixes.py",
+      "sha256": "6291a306958239e08da6d9a0cd9771d799270f51506069771363d80966111538"
+    },
+    {
+      "bytes": 1498,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/WrapperFields.py",
+      "sha256": "f4391af93f75bad97f39b34fc06e37f4f63fcd1410879232e8eed650aa178ba4"
+    },
+    {
+      "bytes": 772,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/ParagraphFields.py",
+      "sha256": "34ebbb124b7e857088cce538a126fd7fb312739a0c1b8265bf12063d6e362cb2"
+    },
+    {
+      "bytes": 1449,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/TextFields.py",
+      "sha256": "4834598b8cec8eb0ae89db64fa0cd4443222886c5a858c95e3efc42c8ba157dd"
+    },
+    {
+      "bytes": 1330,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/LineFields.py",
+      "sha256": "c77f145e4ff3b1db7b57289b67fc9f21835942e5af87ebfe3d49b0b233737852"
+    },
+    {
+      "bytes": 1163,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/CharacterFields.py",
+      "sha256": "3496a79c486873cfbe3a29bcf592426680e38234ea437dbf36ce4c7dbf2051bb"
+    },
+    {
+      "bytes": 635,
+      "path": "src/convert/adapters/solidworks/Drawing/Definition/Linked/Fields/Notes/FavoriteFields.py",
+      "sha256": "46f6a13de7c7dc8f683b656d8ae770ffb075d6fa52a3d87972473dac8b78b58a"
+    }
+  ],
+  "source_manifest_sha256": "0b97e54b0ba69662bcce2140316d33790fb2257be22af999fedfc7a10ede80ff",
+  "static_native_proof": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 36,
+    "data_windows": 15,
+    "imports": 35,
+    "instruction_windows": 406,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "2c3e28c3c2250d9376011a169eebc69fe5d0b627fa9c036a72a0da30b1ee88da",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 15
+  },
+  "task": "B04-SW2026-DRAWING-NOTE-GRAMMAR",
+  "worker_execution": {
+    "ast_and_formatting": true,
+    "cad": false,
+    "hidden_inputs": false,
+    "original_pe_metadata_replay": true,
+    "sdk_or_codec": false,
+    "shared_changes": false,
+    "tests": false,
+    "vendor_code": false,
+    "vm": false
+  }
+}

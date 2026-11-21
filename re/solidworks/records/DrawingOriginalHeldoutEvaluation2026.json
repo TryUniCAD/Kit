@@ -1,0 +1,51 @@
+{
+  "case_names": [
+    "H01SheetA",
+    "H02SheetB"
+  ],
+  "heldout_inputs_read": 0,
+  "method_sources": {
+    "files": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+      "BlindDrawingSemantics.py": "8dfa8aca84a2b959b7942a0242cc5440435b14eecc4b761bcfc675b91fb88fe1",
+      "DrawingBlindQualification.py": "5edf8f2f527c4194bc7653abe6a176954d644e8fc015dd637ed1c237f2177d45",
+      "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+      "InspectBlindDrawing.py": "d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa",
+      "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+      "InspectFrontDrawingMap.py": "fd43794f78ddbb2e98562fcd55e9cace592927e5ff5b14bf378d5caa243fa3dd",
+      "InspectScaledDrawing.py": "182487e2d8d9e630a00234969903ceff298eb96fac3471fef09bf443d92697b8",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "PrepareBlindDrawing.py": "56270949c9ae6a1f62941755c8274cc101b87107fae3352d8e3802a0101b3fe9",
+      "PrepareScaledDrawing.py": "a8d82bb025ccc441523484bdd81e775c60b4fb5ac070a548ae2ff91936f92551",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+      "serial/CheckDrawingDefinitions.py": "7303fe1e7ee4fb7da343118a00c6b3bee90e4aa4917be9ff2bb3bf48c41954a4"
+    },
+    "schema": "kit.sw2026.blind-drawing-method-source-snapshot.v1"
+  },
+  "neutral_binding_sha256": "3611c049a520b0d3855d70c5e7da650dc5e24e18a41bb349f6cd849ad63b06e1",
+  "order": [
+    "verify-qualification-only",
+    "generate",
+    "freeze-generation",
+    "attach-comparison",
+    "native-evaluation"
+  ],
+  "qualification": {
+    "complete_cad_acceptance": false,
+    "corrected_native_receipt_sha256": "4d2021603b29662787eb19ecf4aa00a3b9c659e2e38ed13cbb8e68f02292a736",
+    "heldout_inputs_read": 0,
+    "neutral_binding_sha256": "3611c049a520b0d3855d70c5e7da650dc5e24e18a41bb349f6cd849ad63b06e1",
+    "order_process_proof_sha256": "a5cf6630e981ed66a68327dbf44d8264c34dd56ab6e37d3cd504a719e9150870",
+    "predecessor_source_manifest_sha256": "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4",
+    "qualified": true,
+    "scaled_native_result_sha256": "674daf809255fdc3261aee698006fcc1af5f7b0644c25d9b4b2f4f1082622d07",
+    "schema": "kit.sw2026.corrected-blind-drawing-qualification.v1",
+    "writer_source_manifest_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
+  },
+  "schema": "kit.sw2026.original-blind-drawing-evaluation-freeze.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_specs_sha256": "2174e5c33aa724610eb90723125281953634bf0d9dd5cd7be65e18339e20c9f1",
+  "vendor_runtime_executed": false,
+  "writer_source_manifest_sha256": "ba27d8eb41a580553678995b9d863a1162325b2d3dcf17c31a9e5c8b96840293"
+}

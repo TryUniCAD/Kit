@@ -1,0 +1,152 @@
+{
+  "schema": "kit.sw2026.blank-drawing-save-aggregate-matched-native.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "script_revision": "f150a1cd6499e98107a3e607640ad573fae73c60",
+  "trace_backend": "dbgeng_managed_software",
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "packet_sha256": "44e2ab7b78ee6101db7fe4b85bc67317c3bcbac89bed3a498776554bdc8e9c84",
+  "raw_native_result_sha256": "708291b345da572147dd227deefbf1324f1596baf5bf636d7958fc5393eed8d0",
+  "host_transport_result_sha256": "f440e2ca05ba93436118f434bda7fc425f86a0a78943962634e5e5a2cac883b2",
+  "observer_tool_sha256": {
+    "DrawingSaveAggregateDbgEng.py": "e457e00853168e405febf430ff876e6faf4fc4a774c891e6c739760010c09d5c",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwareMatched.py": "c3c2216301dbba22526522a513b324910dba156e417ced11371554f4acac9410"
+  },
+  "distinct_processes": 7,
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "same_physical_paths": true,
+  "transport_exit_code": 0,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "opened_and_rebuilt_without_errors": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "target_before_save": {
+        "exists": false,
+        "bytes": null
+      },
+      "target_at_event7": {
+        "exists": false,
+        "bytes": null
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19043
+      },
+      "fresh_reopen_passed": true,
+      "debugger_sample": null
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "opened_and_rebuilt_without_errors": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "target_before_save": {
+        "exists": false,
+        "bytes": null
+      },
+      "target_at_event7": {
+        "exists": false,
+        "bytes": null
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 18047
+      },
+      "fresh_reopen_passed": true,
+      "debugger_sample": {
+        "aggregate": 0,
+        "rva": "0x15966",
+        "bytes_read": 4,
+        "cleanup_confirmed": true
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "opened_and_rebuilt_without_errors": true,
+      "events": [
+        7
+      ],
+      "target_before_save": {
+        "exists": false,
+        "bytes": null
+      },
+      "target_at_event7": {
+        "exists": false,
+        "bytes": null
+      },
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 0
+      },
+      "fresh_reopen_passed": false,
+      "debugger_sample": {
+        "aggregate": 0,
+        "rva": "0x15966",
+        "bytes_read": 4,
+        "cleanup_confirmed": true
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "opened_and_rebuilt_without_errors": true,
+      "events": [
+        7,
+        9,
+        28
+      ],
+      "target_before_save": {
+        "exists": false,
+        "bytes": null
+      },
+      "target_at_event7": {
+        "exists": false,
+        "bytes": null
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save": {
+        "exists": true,
+        "bytes": 19036
+      },
+      "fresh_reopen_passed": true,
+      "debugger_sample": null
+    }
+  ],
+  "generated_nonzero_aggregate_edge": false,
+  "generated_downstream_native_return": "unmeasured"
+}

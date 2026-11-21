@@ -1,0 +1,448 @@
+{
+  "first_attempt": {
+    "controls_healthy": true,
+    "distinct_processes": 3,
+    "host_report_sha256": "161ddcdda092e84a5e747d763f54a252861f82416a93808c0b1eea917a36e789",
+    "initial_solids": 1,
+    "native_open_errors": 0,
+    "native_open_warnings": 0,
+    "observer_prediction_fault": "Expected the disclosed control environment caption instead of the authored caption. The initial and rebuilt native states otherwise exist. The observer also omitted the From support plane from the boss parents.",
+    "observer_revision": "11b5f13dfad43b6095967d88d83cd0409d14c1a8",
+    "observer_sha256": "0b6a2128d9f2fd536de8522ef3572deeff5c8fdf7c2216f2ac3c9d8125ca3fb7",
+    "packet_sha256": "0600566f399d250a6a83d5a4d7a1297d916bb0e4e591996c1563b5cd035c43ce",
+    "passed": false,
+    "record_sha256": {
+      "ControlAfter": "0fbaf98b1c410518deba3ce20750c45bfc377aef44f70077ab991ce104c5efd3",
+      "ControlBefore": "c0f739d7be173352175ae0072b23b43a1bfae6fa49af35aecf5710859a8659ac",
+      "Generated": "4733faae5714f765b14ccbaeb2286e8659cd410c17270022a2eb19e7d2f3a2fb"
+    },
+    "result_sha256": "8e5b018d842a1980d82424777349d266f6d3af53f78b5bc0494900157ef74bdc"
+  },
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "native_trial": {
+    "boss_parents": [
+      "Sketch1",
+      "Front Plane"
+    ],
+    "case_sha256": "d858ef1d15d0a58476d5eafa56228d3cdcc3cafd30607e0670b13be239aab849",
+    "configuration": "modeled default",
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "edited_native_bytes": 56821,
+    "edited_native_sha256": "16b7cfa11d4d76612b84c53abc4f0ea6229bbdb0800dc38fc355ed1796f54dd0",
+    "host_report_sha256": "22f004b6be63e582b4e31271109f469a79b64662bf645c8ad44412adc1ae1482",
+    "immutable_inputs_unchanged": true,
+    "license_inventory_preserved": true,
+    "numeric_comparisons": 110,
+    "open_errors": 0,
+    "open_warnings": 0,
+    "packet_sha256": "2692639695bda636183769c767e4972f57ee1f526d8f36b6b6df2feff39951f1",
+    "phases": [
+      {
+        "passed": true,
+        "process_creation_filetime": 134394390041461032,
+        "record_sha256": "05ba1b9f40738700feab61a8b05e7a119c0a23708f5563944830abdf0eb75d96",
+        "role": "ControlBefore"
+      },
+      {
+        "passed": true,
+        "process_creation_filetime": 134394390288846202,
+        "record_sha256": "8887a9128be21958ea01a7bb5c5a66b00d06fadba1e6eb7829d74d2843047205",
+        "role": "Generated"
+      },
+      {
+        "passed": true,
+        "process_creation_filetime": 134394390657617953,
+        "record_sha256": "52f83b3951520e0d8df34382143c1df88b74e318ee80804936e92ba7af0bb006",
+        "role": "FreshReopen"
+      },
+      {
+        "passed": true,
+        "process_creation_filetime": 134394391004935023,
+        "record_sha256": "d36fd7e10274a9582a4bf19fb063c42d2c9d7ce9a8ef1d849ac9a1cc24ae4ee5",
+        "role": "ControlAfter"
+      }
+    ],
+    "postflight_sha256": "2310346e17ab34f82112bc368994f502d6c1cacac2d39a73ebf2019cf7fcd71c",
+    "preflight_sha256": "359cf545f5e0776cd71fbc6c01566212dfe204b7cc8544984c36f68d3a8347ca",
+    "rebuild_errors": 0,
+    "rebuild_warnings": 0,
+    "result_sha256": "917b371904420349bb6a6fbc5ad08b0029bdd8ad6b3e0288a3fcd2748432463c",
+    "save_status": [
+      true,
+      0,
+      0
+    ],
+    "sketch_parents": [
+      "Front Plane"
+    ],
+    "sketch_segments": 4,
+    "states": {
+      "Edited": {
+        "body_count": 1,
+        "depth_m": 0.016625,
+        "live_d1": true,
+        "mass": {
+          "area": 0.002098,
+          "com": [
+            -5.514537417020184e-19,
+            0.0,
+            0.0083125
+          ],
+          "mass": 6.384000000000001e-06,
+          "volume": 6.384000000000001e-06
+        }
+      },
+      "FreshReopenInitial": {
+        "body_count": 1,
+        "depth_m": 0.016625,
+        "live_d1": true,
+        "mass": {
+          "area": 0.002098,
+          "com": [
+            -5.514537417020184e-19,
+            0.0,
+            0.0083125
+          ],
+          "mass": 6.384000000000001e-06,
+          "volume": 6.384000000000001e-06
+        }
+      },
+      "FreshReopenRebuilt": {
+        "body_count": 1,
+        "depth_m": 0.016625,
+        "live_d1": true,
+        "mass": {
+          "area": 0.002098,
+          "com": [
+            -5.514537417020184e-19,
+            0.0,
+            0.0083125
+          ],
+          "mass": 6.384000000000001e-06,
+          "volume": 6.384000000000001e-06
+        }
+      },
+      "Initial": {
+        "body_count": 1,
+        "depth_m": 0.012750000000000001,
+        "live_d1": true,
+        "mass": {
+          "area": 0.001788,
+          "com": [
+            -5.473989347777389e-19,
+            0.0,
+            0.0063750000000000005
+          ],
+          "mass": 4.896000000000001e-06,
+          "volume": 4.896000000000001e-06
+        }
+      },
+      "Rebuilt": {
+        "body_count": 1,
+        "depth_m": 0.012750000000000001,
+        "live_d1": true,
+        "mass": {
+          "area": 0.001788,
+          "com": [
+            -6.758011540465912e-19,
+            0.0,
+            0.0063750000000000005
+          ],
+          "mass": 4.896e-06,
+          "volume": 4.896e-06
+        }
+      }
+    },
+    "tools_sha256": {
+      "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+      "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+      "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+      "InspectSdkBlindPart.py": "d76ecc7e985141be3b5c333ff5fa27cfdd734d62329a764ebbf2c7a742defffa",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+    },
+    "tree": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "parent": null,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "parent": null,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "parent": null,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "parent": null,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "parent": null,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "parent": null,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "parent": null,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes1___EndTag___",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Environment",
+        "parent": null,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Ambient",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "AmbientLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional1",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional2",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional3",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "parent": null,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "parent": null,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "parent": null,
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "parent": null,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sketch1",
+        "parent": null,
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Boss-Extrude1",
+        "parent": null,
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      }
+    ]
+  },
+  "oracle": {
+    "com": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "file_version": "34.5.2.0604",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "passed": true,
+  "production_corpus_count": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.sdk-blind-part-native-receipt.v1",
+  "sdk_build": {
+    "generated_bytes": 8166,
+    "generated_sha256": "750261e28691593f0163c172498ea3c5760a5c29fa231d4a5a9f8f309aaebe9d",
+    "guarded_builds": 2,
+    "logical_streams": {
+      "Contents/CMgr": {
+        "bytes": 1145,
+        "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 169,
+        "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+      },
+      "Contents/Config-0": {
+        "bytes": 22076,
+        "sha256": "4a2a08afcd017aecb4c31ccd71684b4cac846bed22da3bd680c15dbfa6c903f2"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 735,
+        "sha256": "60b9a87fa30e19c07d3a45e2a82a0842c1751e0ad5e6def0af0d2ee33a6b63a0"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 13867,
+        "sha256": "f71147b061e3e810a4ed7bc1e70c71b01420af0974bed6f06211d63e097e5c4e"
+      },
+      "Contents/Definition": {
+        "bytes": 477,
+        "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+      },
+      "Header2": {
+        "bytes": 735,
+        "sha256": "9120586ee40c98f8a8ec8c1d3a6591cb853ad9f333e9d1ab6ce430bbfce6e9a5"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 169,
+        "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1420,
+        "sha256": "9762c7373f3084978172d84e401104ac3b628a36fde1e8745e89cb7b98b0102f"
+      }
+    },
+    "raw_build_proof_sha256": "e1291e07bc665ac737886dab257d377b32bc2e135ac196536509f69e1569c763",
+    "request_sha256": "1bc6400888f34b18fc2643deca3740ec2701d2a1f66c9c3fb4cef013d4f933e3",
+    "revision": "11b5f13dfad43b6095967d88d83cd0409d14c1a8",
+    "runtime_input_reads": 0,
+    "sanitized_process_receipt_sha256": "e27a63084e8a596345bcbef81ba4bb19a3c15fa3b2033602d65b2b555b52bf3d",
+    "source_closure_sha256": "61f13cdca7100618f9b0e9925649b8a684b43b93d8eb384cb9f77d4e8c9db65b"
+  },
+  "sdk_readback": {
+    "depth_mm": [
+      12.750000000000002,
+      16.625
+    ],
+    "native_trees_equal": true,
+    "public_feature_counts": [
+      19,
+      27
+    ],
+    "public_tree_parity_qualified": false,
+    "raw_sha256": "d0e76cbc9e19f7b85caf3aa828f27a5ad080bf76ee8faaac6afda11669d48a06",
+    "scope": "Normal adapter reads for both inputs with B-rep and tessellation disabled. Native and SDK tree surfaces differ.",
+    "strict": true,
+    "supplemented": true
+  }
+}

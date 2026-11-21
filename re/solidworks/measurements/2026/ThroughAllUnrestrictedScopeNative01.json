@@ -1,0 +1,243 @@
+{
+  "native_com": "SldWorks.Application.34",
+  "native_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_result": {
+    "api_sha256": "5041ee6b078887bb2fe1ee9ec1279f7cd6f5beb973d3483750190e6481f0a7f3",
+    "distinct_processes": 4,
+    "freeze_sha256": "d0903de8152222422b33d94dbbf878c0ed8a46fcabebe9112f7d633c645e5fe5",
+    "healthy_bracket": true,
+    "heldout_coverage": 0,
+    "outcome": {
+      "edited_moving_body_cut": [
+        true,
+        true
+      ],
+      "edited_moving_stock": {
+        "area_m2": 0.001461966900309363,
+        "box_m": [
+          0.0,
+          0.004,
+          0.002,
+          0.029,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.01317404628957175,
+          0.00848139029025492,
+          0.009
+        ],
+        "cut_face": true,
+        "face_owners": [
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "ThroughFeature"
+        ],
+        "volume_m3": 2.697690375023277e-06
+      },
+      "edited_scope": [
+        {
+          "auto_select": null,
+          "context": "direct",
+          "feature_scope": false,
+          "owner_status": "all_bodies",
+          "reported_count": null,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        {
+          "auto_select": null,
+          "context": "direct",
+          "feature_scope": false,
+          "owner_status": "all_bodies",
+          "reported_count": null,
+          "returned_array_count": null,
+          "scope_owners": null
+        }
+      ],
+      "edited_states_match": true,
+      "fresh_reopen_matches_save": true,
+      "initial_moving_body_cut": [
+        false,
+        false,
+        false
+      ],
+      "initial_moving_stock": {
+        "area_m2": 0.0006640000000000001,
+        "box_m": [
+          0.0,
+          0.004,
+          0.002,
+          0.01,
+          0.012,
+          0.016
+        ],
+        "com_m": [
+          0.005,
+          0.008,
+          0.009000000000000001
+        ],
+        "cut_face": false,
+        "face_owners": [
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock",
+          "MovingStock"
+        ],
+        "volume_m3": 1.12e-06
+      },
+      "initial_scope": [
+        {
+          "auto_select": null,
+          "context": "direct",
+          "feature_scope": false,
+          "owner_status": "all_bodies",
+          "reported_count": null,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        {
+          "auto_select": null,
+          "context": "direct",
+          "feature_scope": false,
+          "owner_status": "all_bodies",
+          "reported_count": null,
+          "returned_array_count": null,
+          "scope_owners": null
+        },
+        {
+          "auto_select": null,
+          "context": "direct",
+          "feature_scope": false,
+          "owner_status": "all_bodies",
+          "reported_count": null,
+          "returned_array_count": null,
+          "scope_owners": null
+        }
+      ],
+      "numeric_checks": [
+        127,
+        79
+      ],
+      "passed": true,
+      "save_sha256": "f87568db0dfa361ea44c42def01063c8ed07ea57c8270098cf3c60995e3e3b22"
+    },
+    "passed": true,
+    "phase_receipts": {
+      "After": "5ad8cf13e57ce42705efb1a1d2fb6ca9dd17acd8ff9ea001caed70491dc97afb",
+      "AllBodiesAuthor": "a46696064b9b9abd45e517e03f6518945a0c234e30c9195f38035914f98990d0",
+      "AllBodiesReopen": "1ea91276fc3d132abfc252f48d036a40dca9b4b39b8ba3fcab2ded971c5ae6b5",
+      "Before": "b3f6ca7ed6517b57b0e69bdc6433416a8a8ac836d520a3bc44ab20b04931b3f3"
+    },
+    "phase_status": {
+      "After": true,
+      "AllBodiesAuthor": true,
+      "AllBodiesReopen": true,
+      "Before": true
+    },
+    "production_coverage": 0,
+    "schema": "kit.sw2026.disclosed-through-all-unrestricted-scope.v1",
+    "sealed_payloads_read": 0,
+    "serial": true
+  },
+  "native_summary_sha256": "b5d7e1356302f05f7fff12728f7963b487a1c05f16aa8e949b65a5ec12e6ca6f",
+  "oracle_version": "34.5.2.0604",
+  "prior_automatic_request": {
+    "freeze_sha256": "76e4f9205867ce93230b7d35a52fbf7ddf4686ea19a8e75ef91ed7973e4d0397",
+    "native_summary_sha256": "b0e0eddd721f8beb756cf081100671631815c1fe740804369bb108c817207f77",
+    "observed_source_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+    "packet": "ThroughMultiStock03"
+  },
+  "requested_scope": {
+    "use_auto_select": false,
+    "use_feature_scope": false
+  },
+  "same_analytic_geometry": true,
+  "schema": "kit.sw2026.disclosed-through-all-unrestricted-scope-observation.v1",
+  "scope_contrast": {
+    "automatic_request_edited_stock": {
+      "area_m2": 0.0014999999999999998,
+      "box_m": [
+        0.0,
+        0.004,
+        0.002,
+        0.029,
+        0.012,
+        0.016
+      ],
+      "com_m": [
+        0.014500000000000004,
+        0.008,
+        0.009
+      ],
+      "cut_face": false,
+      "face_owners": [
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock"
+      ],
+      "volume_m3": 3.2479999999999992e-06
+    },
+    "unrestricted_request_edited_stock": {
+      "area_m2": 0.001461966900309363,
+      "box_m": [
+        0.0,
+        0.004,
+        0.002,
+        0.029,
+        0.012,
+        0.016
+      ],
+      "com_m": [
+        0.01317404628957175,
+        0.00848139029025492,
+        0.009
+      ],
+      "cut_face": true,
+      "face_owners": [
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "MovingStock",
+        "ThroughFeature"
+      ],
+      "volume_m3": 2.697690375023277e-06
+    },
+    "unrestricted_request_predicted_stock": {
+      "area_m2": 0.0014619669003093632,
+      "box_m": [
+        0,
+        0.004,
+        0.002,
+        0.029,
+        0.012,
+        0.016
+      ],
+      "com_m": [
+        0.013174046289571745,
+        0.008481390290254917,
+        0.009000000000000001
+      ],
+      "volume_m3": 2.6976903750232777e-06
+    }
+  },
+  "tool_revision": "ccbdaf8522479b5a2035a33f8b5bde33c30bf542",
+  "tool_sha256": {
+    "ProbeThroughAllBodies01.py": "058024cc41b833de7995142292e4af26744c440345a2ead099aa2bef181a6484",
+    "ProbeThroughAutoScope01.py": "9d9065ea04a275b77e24371e74c7f98ebbfaa9fa2bc80bf774dd8e908a663f83",
+    "ProbeThroughMultiStock01.py": "b892caa8c228c816bb11cf81a04e2fefea8c9159ed952873b895798f64dabe4e"
+  }
+}

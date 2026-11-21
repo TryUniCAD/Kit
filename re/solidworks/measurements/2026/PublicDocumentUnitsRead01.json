@@ -1,0 +1,293 @@
+{
+  "cases": [
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/center/Author/CustomGram.SLDPRT",
+      "file_sha256": "cb96f6085b89252564bb10a7d932e3104e7bffecbe28d9e79b420de03fc1d656",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 2,
+        "length": "mm",
+        "length_decimal_places": 2,
+        "mass": "g",
+        "mass_decimal_places": 2,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "authored:center:CustomGram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/center/Author/CustomKilogram.SLDPRT",
+      "file_sha256": "abce0b27f4a0ba6022faf291aa1cf620b9809973871a06c0a7398e02073e800e",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 2,
+        "length": "mm",
+        "length_decimal_places": 2,
+        "mass": "kg",
+        "mass_decimal_places": 2,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "authored:center:CustomKilogram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/center/Author/MillimeterGram.SLDPRT",
+      "file_sha256": "e5d4de7f58d6c87f9580b46633a1755ffca61afed82e881114c0d07626de0bde",
+      "observed_document_units": null,
+      "role": "authored:center:MillimeterGram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/corner/Author/CustomGram.SLDPRT",
+      "file_sha256": "93444d4df9c5e52d2800f7ce91d33fe469fa622bd8b31b61e287447ef5e3b757",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 2,
+        "length": "mm",
+        "length_decimal_places": 2,
+        "mass": "g",
+        "mass_decimal_places": 2,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "authored:corner:CustomGram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/corner/Author/CustomKilogram.SLDPRT",
+      "file_sha256": "0f409d1bd3fefc67a5eb85335c7a34876f8458ab1c625fcadfbb45e4fe5782db",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 2,
+        "length": "mm",
+        "length_decimal_places": 2,
+        "mass": "kg",
+        "mass_decimal_places": 2,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "authored:corner:CustomKilogram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "DocumentMassUnitsOracle01/Inspection/corner/Author/MillimeterGram.SLDPRT",
+      "file_sha256": "a77b749e885d7d3f70ce7a6f633c54f30d6ee3efbcc6e5e50c1699a2206890d5",
+      "observed_document_units": null,
+      "role": "authored:corner:MillimeterGram",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inputs/CustomMassA/grams/CustomMassA.SLDPRT",
+      "file_sha256": "6cd1a2c5fa7a3d88b0e8edbf5a5ecfb3b97955ea7deee7e67e0e56816d590615",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "g",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "generated:CustomMassA:g",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inspection/CustomMassA-g/Initial/CustomMassA.SLDPRT",
+      "file_sha256": "3eaf31c9e52720b573add20a817e33d317c42731d27f92616f068f1ff9f0dc95",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "g",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "saved:CustomMassA:g",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inputs/CustomMassA/kilograms/CustomMassA.SLDPRT",
+      "file_sha256": "1e0ee00ee204a65016f2af6188ab7ab2b2070bea8bb017b3620b3da4187d43ea",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "generated:CustomMassA:kg",
+      "unqualified_edit_files_sha256": {
+        "aliased-length-format": "645387c3e9c32e51df2d06378fff3c0885eaa4f336c05f82cb5501e747d3c389",
+        "alternate-length-format": "e34cd3efe465009512b1ccc5697340afb951e2cd9ea7ebc2de2c6c9ecebb2bfa",
+        "other-angle": "01f2098603d8c6fbfd02b8cb86f4c9f2fdaf3af62d1aaa54b9c0209e2547181f",
+        "other-length": "d408a6f6205e73906d8ad2eaf8e2a8af4b97aa96dc4b2794b40959b1eea6d5f3",
+        "other-mass": "23b403dd9242ca68a058e937314973209158d1790f0b4db1a183bf83dd651305",
+        "other-volume": "9a0fbf9af14be75b3f55b6b0da948e56f43f7bc368522e1a8de9f6dd49e4421f"
+      }
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inspection/CustomMassA-kg/Initial/CustomMassA.SLDPRT",
+      "file_sha256": "f0a1c102c483906abfb846a35b3e1a1f5cb544c2210260425b1aaaa82ab0ea50",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "saved:CustomMassA:kg",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inputs/CustomMassB/grams/CustomMassB.SLDPRT",
+      "file_sha256": "00c0e0eddefd3b25b05fd940f15b9d1ca6b014d46800bbb6b8597c72035aba17",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "g",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "generated:CustomMassB:g",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inspection/CustomMassB-g/Initial/CustomMassB.SLDPRT",
+      "file_sha256": "bd4a4642881a07bc8fb51ace67ad2bef81241c61921e186fb1b41b6000b4731c",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "g",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "saved:CustomMassB:g",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inputs/CustomMassB/kilograms/CustomMassB.SLDPRT",
+      "file_sha256": "6573b4dbd5ce329325b2b7fbbac4cb163fc4c11540e9d7fb10bfb51b192aab6d",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "generated:CustomMassB:kg",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "GeneratedCustomMassOracle01/Inspection/CustomMassB-kg/Initial/CustomMassB.SLDPRT",
+      "file_sha256": "6d00b1b72f3e13efb36a72ed90849746016a3b7662168e640958dc9370190720",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "saved:CustomMassB:kg",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "FreecadOriginBoxSchema01/GuardedVersionReplay01/recipe-0.21.2-F14a/F14a.SLDPRT",
+      "file_sha256": "6cf763971a9d8afe8b0385da387b92ad570ba48961fef70c8a8ecf0d6ef7b450",
+      "observed_document_units": null,
+      "role": "freecad:recipe-0.21.2-F14a",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "FreecadOriginBoxSchema01/GuardedVersionReplay01/recipe-1.0.2-F14a/F14a.SLDPRT",
+      "file_sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "freecad:recipe-1.0.2-F14a",
+      "unqualified_edit_files_sha256": {}
+    },
+    {
+      "evidence_relative_path": "FreecadOriginBoxSchema01/GuardedVersionReplay01/recipe-1.1.4-F14a/F14a.SLDPRT",
+      "file_sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+      "observed_document_units": {
+        "angle": "degree",
+        "angle_decimal_places": 4,
+        "length": "mm",
+        "length_decimal_places": 4,
+        "mass": "kg",
+        "mass_decimal_places": 4,
+        "system": "custom",
+        "volume": "mm^3"
+      },
+      "role": "freecad:recipe-1.1.4-F14a",
+      "unqualified_edit_files_sha256": {}
+    }
+  ],
+  "custom_metadata_projections": 14,
+  "files_sha256": {
+    "re/tooling/sw2026/units/CheckPublicDocumentUnits.py": "247a786ded7ebd322c142e5d044bb2d45078ed57a8e5ae681019197a792c617d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReportTyped.py": "1fcf380cecb71d2f4d690d02543e5e349f48255b8766dfac2c2e33999772cfbc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Units/ReadPartUnitNodes.py": "738f45f5afeb14b0d398b7b84c11642ee7c5201b946808918d4c0ab19fa2c4b9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Units/ReportPartUnits.py": "45358bb2c8ea0950c26919329271469b8a92a03d9a3bca7d1271e57087295370"
+  },
+  "full_corpus_acceptance": false,
+  "heldout_inputs_read": 0,
+  "input_plan_sha256": "988191f5e88a1135df55f1642204284d07cb1a42e6ba08b942dd6ed53bf8af15",
+  "passed": true,
+  "preset_metadata_omissions": 3,
+  "raw_result_sha256": "9db6c5ca4f81d0abc0e7f39d7ed5cd2aa25b5e3bdbb159c9600d50569eb7b4bb",
+  "schema": "kit.sw2026.public-document-units-read-receipt.v1",
+  "source_receipts_sha256": {
+    "DocumentMassUnitsNative01": "450595ed39d4a1a0adf08b758475832038b8a675873a60e193a5374559c160e6",
+    "SdkCustomMassUnitsNative01": "a06d753b20adc1d056c448acd12a5eacc1fcdbe39abcc40624033c90472bdc66",
+    "SdkFreecadBoxReleaseConstruction01": "9d7cc9d615fe8bd6fd9c3e10f1e3eca63fedec4e6638517a90a61f21f833173e"
+  },
+  "strict_path_byte_equivalences": 17,
+  "strict_read_processes": 17,
+  "task": "B04-SW2026-UNITS",
+  "topology": [
+    8,
+    12,
+    6,
+    1,
+    1
+  ],
+  "topology_order": [
+    "vertices",
+    "edges",
+    "faces",
+    "shells",
+    "bodies"
+  ],
+  "unqualified_byte_reads_preserving_topology_and_history": 6
+}

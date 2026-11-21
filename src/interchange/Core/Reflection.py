@@ -10,6 +10,7 @@ class DataField(TypeProtocol):
     name: str
     type: object
     kw_only: bool
+    metadata: MappingBase[str, object]
 
 
 # compatibility renames runtime classes so wire identity needs the preserved source name

@@ -1,0 +1,34 @@
+{
+  "authored_camera_readbacks": {},
+  "complete": false,
+  "distinct_processes": 4,
+  "document_saves": 0,
+  "exact_owned_process_stopped": true,
+  "generated_cameras_observed": 0,
+  "generated_frames_differ_from_pristine": {
+    "Default": false
+  },
+  "healthy_controls": false,
+  "heldout_source_reads": 0,
+  "interrupted_input_sha256": "f5c6d0f530bb360d9e1191c25b5d485d99ea2e08abb70702ae03796e3b6d10cc",
+  "interruption_com_result": "com_error(-2147023179, 'The interface is unknown.', None, None)",
+  "interruption_stage": "GetFirstView",
+  "last_phase_refusals": [
+    "PanB",
+    "ControlAfter"
+  ],
+  "native_crash_classified": false,
+  "positive_branches_before_interruption": [
+    "ControlBefore",
+    "NativeSource",
+    "Default"
+  ],
+  "process_remains_after_recovery": 0,
+  "raw_guest_result_sha256": "6660e4ea368423a762b8182bf19241d54c7fa06c7e51f0b3445caf139b40cdc0",
+  "read_only": true,
+  "recovery_inspection_sha256": "3a841dfc3bd78437ec5ee965fe09fdcbfe1e11ff712e8a19c0abb6443a7f6a6a",
+  "recovery_result_sha256": "7ab0f57292516aa4779241628d1b0b0c4598861f3b99694316f8e51a82808301",
+  "schema": "kit.sw2026.disclosed-drawing-viewport-input.v1",
+  "settings_writes": 0,
+  "trial_sha256": "b775d4b86642c2544e6a963278556ec48e5b8fbd432a759e13afb556b3fada52"
+}

@@ -1,0 +1,119 @@
+{
+  "closed_frontiers": [
+    "Definition/fab8",
+    "Definition/has_pwmaterial",
+    "Definition/f1110"
+  ],
+  "delivery_pr": 121,
+  "full_source_admission": false,
+  "public_activation": false,
+  "remaining_definition": {
+    "line_font_manager": [
+      "f870/f10/@length",
+      "f870/n"
+    ],
+    "line_styles": [
+      "f878/styles/@length",
+      "f878/n"
+    ],
+    "per_user_windows": [
+      "faf8/@length",
+      "nenv"
+    ],
+    "unresolved_ui_words": [
+      "fad0",
+      "fad4",
+      "fb00",
+      "fb04"
+    ]
+  },
+  "remaining_manager_frontiers": 29,
+  "schema": "kit.sw2026.throughall-empty-manager-owner-summary.v1",
+  "sources": [
+    {
+      "after_definition_frontiers": 10,
+      "after_definition_owner_counts": {
+        "Definition/f870": 2,
+        "Definition/f878": 2,
+        "Definition/fad0": 1,
+        "Definition/fad4": 1,
+        "Definition/faf8": 1,
+        "Definition/fb00": 1,
+        "Definition/fb04": 1,
+        "Definition/nenv": 1
+      },
+      "after_inventory_sha256": "bcc9f801f968cbb6d99852e98e9f5bda39b907caecafb6df64ece6a4b872474c",
+      "before_definition_frontiers": 13,
+      "before_inventory_sha256": "d0430b65afa744495a4f9b085cb3a827475005602d54d0429535d726c45025ba",
+      "case": "D01",
+      "manager_frontiers_after": 29,
+      "manager_frontiers_before": 29,
+      "source_empty_manager_input": {
+        "AppearanceValue": {
+          "ManagerOnWire": true,
+          "NextAppearanceId": 6
+        },
+        "BomOnWire": true
+      },
+      "source_record_sha256": "d20de6701285fdb59fd9f792bf21f3ade66a6eb28b6c48dbffc05bd8ba0e347c",
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    },
+    {
+      "after_definition_frontiers": 10,
+      "after_definition_owner_counts": {
+        "Definition/f870": 2,
+        "Definition/f878": 2,
+        "Definition/fad0": 1,
+        "Definition/fad4": 1,
+        "Definition/faf8": 1,
+        "Definition/fb00": 1,
+        "Definition/fb04": 1,
+        "Definition/nenv": 1
+      },
+      "after_inventory_sha256": "8195def0222534456c6c64af60da744421b8455e284fc34479b1869284511fe6",
+      "before_definition_frontiers": 13,
+      "before_inventory_sha256": "e06c5b130df8b1e63d3f2d6a0bcc5f03ac73bbda3fb88ee3f8c3605a0163bb0c",
+      "case": "D02",
+      "manager_frontiers_after": 29,
+      "manager_frontiers_before": 29,
+      "source_empty_manager_input": {
+        "AppearanceValue": {
+          "ManagerOnWire": true,
+          "NextAppearanceId": 6
+        },
+        "BomOnWire": true
+      },
+      "source_record_sha256": "f6b0b0d95540ce88f5e3ee087dafc07fc911b5df9e4ed3b3c3bc220ddb470d8b",
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431"
+    },
+    {
+      "after_definition_frontiers": 10,
+      "after_definition_owner_counts": {
+        "Definition/f870": 2,
+        "Definition/f878": 2,
+        "Definition/fad0": 1,
+        "Definition/fad4": 1,
+        "Definition/faf8": 1,
+        "Definition/fb00": 1,
+        "Definition/fb04": 1,
+        "Definition/nenv": 1
+      },
+      "after_inventory_sha256": "d5c64242e758ac5650eb1a26487235d9ca03213f67ce4352013935dc5969d0ff",
+      "before_definition_frontiers": 13,
+      "before_inventory_sha256": "5008a1dc103a738c7992d0ce017bb928763ba7bbb5077400c33c476cd170c879",
+      "case": "D03",
+      "manager_frontiers_after": 29,
+      "manager_frontiers_before": 29,
+      "source_empty_manager_input": {
+        "AppearanceValue": {
+          "ManagerOnWire": true,
+          "NextAppearanceId": 6
+        },
+        "BomOnWire": true
+      },
+      "source_record_sha256": "561a024788ac5f85f7a66e193410111b07f17ed61fa5c39d74479d0bf74e07ba",
+      "source_sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712"
+    }
+  ],
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL/source-empty-managers"
+}

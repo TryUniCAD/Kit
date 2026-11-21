@@ -25,8 +25,9 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 
 | Format               | Suffixes                  | Registration      |
 | -------------------- | ------------------------- | ----------------- |
-| SOLIDWORKS part      | `.SLDPRT`                 | Reader            |
-| SOLIDWORKS assembly  | `.SLDASM`                 | Reader            |
+| SOLIDWORKS part      | `.SLDPRT`                 | Reader and bounded writer |
+| SOLIDWORKS assembly  | `.SLDASM`                 | Reader and bounded writer |
+| SOLIDWORKS drawing   | `.SLDDRW`                 | Partial reader and bounded writer |
 | FreeCAD              | `.FCStd`                  | Reader and writer |
 | CATIA V5             | `.CATPart`, `.CATProduct` | Reader and writer |
 | Kit interchange JSON | `.json`                   | Reader and writer |
@@ -35,7 +36,17 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
-SOLIDWORKS output is unavailable until a generative serializer replaces the removed recorded-payload writer.
+The generative SOLIDWORKS part writer supports a canonical line-loop sketch with a forward blind boss and four fixed-centre circle boss profiles spanning blind, symmetric mid-plane and two-direction ends. An origin-anchored Front Plane rectangle can also drive its blind boss depth from half the actual sketch width. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing) · [Circle end modes](Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md) · [Local equation scope](Documentation/Changes/Solidworks/Construction/SolidworksPublicWidthDepthWriter.md)
+
+An explicitly anchored Top Plane rectangle retains its actual fixed corner, two editable sketch lengths and reversed blind depth. [Top rectangle scope](Documentation/Changes/Solidworks/Construction/Part/SolidworksExplicitTopRectangleOrigin.md)
+The SOLIDWORKS writer accepts ordinary rectangular one-sided and two-direction partial boss revolves with a selected construction axis on the canonical Top or Right plane. The square Mid Plane and Two Directions profiles preserve their explicit equal-length sketch relation. [Principal-plane revolve scope](Documentation/Changes/Solidworks/Construction/Parts/SolidworksPrincipalRevolveWriterRegistration.md) · [Two-direction revolve scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksTwoDirectionRevolveWriting.md) · [Square revolve scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksSquareRevolvePublicParity.md)
+
+The same principal planes support a partial revolve cut explicitly restricted to one of two independent coaxial annular stocks. Both sweep directions retain three editable angles and two solids. [Selected revolve cut scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksSelectedRevolvePublic.md)
+The forward partial thin boss profile retains editable angle and wall drivers on all three canonical principal planes. [Thin revolve scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksThinRevolvePublic.md)
+The SOLIDWORKS writer also generates one closed periodic cylinder or axis-aligned rectangular solid as a native geometry-only import. [Periodic cylinder scope](Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md) · [Rectangular solid scope](Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
+The SOLIDWORKS assembly writer supports bounded principal-plane mate groups, a single initially satisfied perpendicular between two occurrences of one owned rectangular part, and rigid nested hierarchies with owned rectangular blind-boss parts. [Assembly writer scope](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
+The SOLIDWORKS drawing writer generates one editable unlinked ANSI A landscape sheet from a neutral layout. The strict reader recovers the generated sheet and its native metadata, which the writer can use to regenerate the unchanged layout at a new destination. [Drawing writer scope](Documentation/Reference/Adapters/Solidworks.md#writing-standalone-blank-drawings) · [Strict reader scope](Documentation/Reference/Research/Solidworks/Reading/GeneratedBlankStrictReader.md)
+The partial SOLIDWORKS drawing reader also recovers a single unattached plain note and its position from an unlinked sheet. [Drawing inspection scope](Documentation/Reference/Adapters/Solidworks.md#drawing-layout-inspection)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line

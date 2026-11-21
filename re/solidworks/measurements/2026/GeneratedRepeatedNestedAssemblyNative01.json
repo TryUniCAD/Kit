@@ -1,0 +1,431 @@
+{
+  "bracket_order_verified": true,
+  "controls_healthy": true,
+  "definition_trees_preserved_on_reopen": true,
+  "distinct_processes": 4,
+  "frozen_generated_files": {
+    "module": {
+      "bytes": 8988,
+      "file": "OffsetModule.SLDASM",
+      "sha256": "c5e35659a66a95371f9085c3d1bd39651b852d37d47aaa69a73ead41258af003"
+    },
+    "other": {
+      "bytes": 8645,
+      "file": "GaugePlate.SLDPRT",
+      "sha256": "02a28a6d2df18fc9c957a81e9de099dd5c958da6cc1838cd48b5b88f8dd77cc7"
+    },
+    "plate": {
+      "bytes": 8653,
+      "file": "LinkPlate.SLDPRT",
+      "sha256": "6b8dad3871b7cd331257fba8e6eeab009b36fd054561d97a1c31ed8e389b2852"
+    },
+    "root": {
+      "bytes": 9574,
+      "file": "TiltFrame.SLDASM",
+      "sha256": "5cf0fbc9ca38ec592f5f1b61d9e44c2ae798c59f1fe966daf1389121fcc9195f"
+    }
+  },
+  "generated_input_files_immutable": true,
+  "generated_profile_native_passed": true,
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "Disclosed Default-configuration rigid prism hierarchy",
+    "Separate sealed evaluation pending",
+    "Generated header construction and native saved header lifecycle remain distinct",
+    "Public adapter writing remains unqualified"
+  ],
+  "native_acceptance": false,
+  "observer_tool_sha256": {
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedNestedAssembly.py": "a75a9cc22f21520e58e856c751a81c691f0d7bbe15c1657c7b646606d6e4b229",
+    "InspectRepeatedNestedAssembly.py": "c7f45011bc0e89e35fe09361012d5665a7fb7734d2493421d7b213c6e10cd15d",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "13c6f53da57a592e12304281f4cd6b025a60b5aab6f1df23ea3748d29c49cde1",
+  "phases": [
+    {
+      "finished_at": 1794933020.653219,
+      "mode": "before",
+      "native_process_creation_filetime": 134394065481986239,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "85b4813681097a15b73e5373f739abaaa3f26b608ee9358e065ee1e58ef789e6",
+      "source_files_unchanged": true,
+      "started_at": 1794932943.677007,
+      "transport_exit_code": 0,
+      "transport_sha256": "c527f9456626c730b495def0a7427af6dedead9a24628ed2b35047c604b90653"
+    },
+    {
+      "edited": {
+        "body_count": 5,
+        "expanded_paths": 7,
+        "expected": {
+          "area": 0.007339579999999999,
+          "com": [
+            0.02241104884854805,
+            0.062471264515813786,
+            0.028695371470989238
+          ],
+          "volume": 1.7537598e-05
+        },
+        "measured": {
+          "area": 0.007339579999999998,
+          "com": [
+            0.02241104884854806,
+            0.062471264515813786,
+            0.028695371470989238
+          ],
+          "volume": 1.7537597999999997e-05
+        }
+      },
+      "finished_at": 1794933161.4866984,
+      "initial": {
+        "body_count": 5,
+        "expanded_paths": 7,
+        "expected": {
+          "area": 0.00626718,
+          "com": [
+            0.024625203610622374,
+            0.05629801199197829,
+            0.026408136445768227
+          ],
+          "volume": 1.2656357999999998e-05
+        },
+        "measured": {
+          "area": 0.00626718,
+          "com": [
+            0.024625203610622374,
+            0.05629801199197829,
+            0.026408136445768223
+          ],
+          "volume": 1.2656358e-05
+        }
+      },
+      "mode": "generated",
+      "native_process_creation_filetime": 134394066514062300,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "rebuilt": {
+        "body_count": 5,
+        "expanded_paths": 7,
+        "expected": {
+          "area": 0.00626718,
+          "com": [
+            0.024625203610622374,
+            0.05629801199197829,
+            0.026408136445768227
+          ],
+          "volume": 1.2656357999999998e-05
+        },
+        "measured": {
+          "area": 0.00626718,
+          "com": [
+            0.024625203610622374,
+            0.05629801199197829,
+            0.026408136445768223
+          ],
+          "volume": 1.2656358000000001e-05
+        }
+      },
+      "record_sha256": "ac800ef3e0a12b15f54250896dc8557319bccc18976a4f8493855a8df7a759db",
+      "saved_files": {
+        "module": {
+          "bytes": 22391,
+          "sha256": "1af2d384c3375ecac7bb7aa2411997fd2f6d3a720aa84b633e3056024c632e6c",
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "update_stamp": 107
+        },
+        "other": {
+          "bytes": 27724,
+          "sha256": "2c4b737f3aabdf2b14ffddbaae3f7c27b48a8fe14d995775f5e6d1d3502640c8",
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "update_stamp": 177
+        },
+        "plate": {
+          "bytes": 28207,
+          "sha256": "db5932b36859202031798d01970445e60ef4c2e14251a30aa3199d297be58262",
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "update_stamp": 207
+        },
+        "root": {
+          "bytes": 42387,
+          "sha256": "a883af0c3d1befbeb3c0f04c7765f2e246da3410537bf5f53c04fd10b977e2b7",
+          "status": [
+            true,
+            0,
+            0
+          ],
+          "update_stamp": 105
+        }
+      },
+      "started_at": 1794933046.978034,
+      "transport_exit_code": 0,
+      "transport_sha256": "2261520b4e0a790711b13e6f8e6ed8cac9c74b62331d87392ac50fda8477c887"
+    },
+    {
+      "finished_at": 1794933305.1298125,
+      "initial": {
+        "body_count": 5,
+        "expanded_paths": 7,
+        "expected": {
+          "area": 0.007339579999999999,
+          "com": [
+            0.02241104884854805,
+            0.062471264515813786,
+            0.028695371470989238
+          ],
+          "volume": 1.7537598e-05
+        },
+        "measured": {
+          "area": 0.007339579999999998,
+          "com": [
+            0.02241104884854806,
+            0.062471264515813786,
+            0.028695371470989238
+          ],
+          "volume": 1.7537597999999997e-05
+        }
+      },
+      "mode": "reopen",
+      "native_process_creation_filetime": 134394068430961774,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "rebuilt": {
+        "body_count": 5,
+        "expanded_paths": 7,
+        "expected": {
+          "area": 0.007339579999999999,
+          "com": [
+            0.02241104884854805,
+            0.062471264515813786,
+            0.028695371470989238
+          ],
+          "volume": 1.7537598e-05
+        },
+        "measured": {
+          "area": 0.007339579999999998,
+          "com": [
+            0.02241104884854806,
+            0.062471264515813786,
+            0.02869537147098924
+          ],
+          "volume": 1.7537597999999997e-05
+        }
+      },
+      "record_sha256": "7c0a46f2d01c2235314aced5af1e79e8d8a5ad65bc6b87901635b4e410d779e4",
+      "started_at": 1794933238.622009,
+      "transport_exit_code": 0,
+      "transport_sha256": "446a5b3f4c3a62eea8affcf1b071519b666a850da886203585f3b4df182cbc34"
+    },
+    {
+      "finished_at": 1794933394.7674634,
+      "mode": "after",
+      "native_process_creation_filetime": 134394069338597299,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "passed": true,
+      "record_sha256": "eb22329a28dbb59ce609c92968e8995b005073839fc3645f054e11f1e9de62f4",
+      "source_files_unchanged": true,
+      "started_at": 1794933329.370527,
+      "transport_exit_code": 0,
+      "transport_sha256": "f7340d05e1994f9fde1254826574f744cf6e376695f0abc6ae31ca8fa20600b9"
+    }
+  ],
+  "prediction_sha256": "f5d87c822a39f7bae11c7ad11528c3871412fda250413cd5f7ce0d77efe9974e",
+  "production_corpus_conversions": 0,
+  "raw_native_result_sha256": "eded243a834ae840c9e77b9effcfe5cb2a4c95318c299c67debbcd77e2dd6501",
+  "schema": "kit.sw2026.generated-repeated-nested-native-persistence.v1",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "synchronized_derivative_files_match": true,
+  "typed_saved_audit": {
+    "direct_directory_users_exact": true,
+    "receipt_sha256": "17354e53036148332a988a78b5ed40924531b80631b59f311866aa2c5fc1d730",
+    "saved_child_local_bounds_byte_equal": true,
+    "states": {
+      "FrozenGenerated": {
+        "module": {
+          "activity_count": 2,
+          "config_header_geometry_stamp": 303,
+          "config_header_transform_stamp": 204,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 2
+            },
+            "Header2": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 2
+            }
+          }
+        },
+        "other": {
+          "activity_count": -1,
+          "config_header_geometry_stamp": 101,
+          "config_header_transform_stamp": 101,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 0
+            },
+            "Header2": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 0
+            }
+          }
+        },
+        "plate": {
+          "activity_count": -1,
+          "config_header_geometry_stamp": 101,
+          "config_header_transform_stamp": 101,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 0
+            },
+            "Header2": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 0
+            }
+          }
+        },
+        "root": {
+          "activity_count": 7,
+          "config_header_geometry_stamp": 808,
+          "config_header_transform_stamp": 306,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 7
+            },
+            "Header2": {
+              "f40": 101,
+              "f48": 1794700000,
+              "fc4": 7
+            }
+          }
+        }
+      },
+      "GeneratedInput": {
+        "module": {
+          "activity_count": 2,
+          "config_header_geometry_stamp": 317,
+          "config_header_transform_stamp": 204,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 107,
+              "f48": 1794933110,
+              "fc4": 0
+            },
+            "Header2": {
+              "f40": 107,
+              "f48": 1794933110,
+              "fc4": 0
+            }
+          }
+        },
+        "other": {
+          "activity_count": -1,
+          "config_header_geometry_stamp": 105,
+          "config_header_transform_stamp": 101,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 177,
+              "f48": 1794933110,
+              "fc4": 0
+            },
+            "Header2": {
+              "f40": 177,
+              "f48": 1794933110,
+              "fc4": 0
+            }
+          }
+        },
+        "plate": {
+          "activity_count": -1,
+          "config_header_geometry_stamp": 107,
+          "config_header_transform_stamp": 101,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 207,
+              "f48": 1794933110,
+              "fc4": 0
+            },
+            "Header2": {
+              "f40": 207,
+              "f48": 1794933110,
+              "fc4": 0
+            }
+          }
+        },
+        "root": {
+          "activity_count": 7,
+          "config_header_geometry_stamp": 842,
+          "config_header_transform_stamp": 306,
+          "headers": {
+            "Contents/Config-0-ModelHeader": {
+              "f40": 105,
+              "f48": 1794933110,
+              "fc4": 7
+            },
+            "Header2": {
+              "f40": 105,
+              "f48": 1794933110,
+              "fc4": 8
+            }
+          }
+        }
+      }
+    },
+    "stream_round_trips": 48,
+    "target_states_and_configs_exact": true,
+    "tool_sha256": "39d61a39bea5ca86d350be8843fc244ea07fddb459515e034592b6a88373c60e"
+  },
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  }
+}

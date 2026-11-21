@@ -1,0 +1,473 @@
+{
+  "delivery_pr": 121,
+  "disclosed_source_locks": 3,
+  "flexnet_inventory_unchanged": true,
+  "guest_sealed_spec_sha256": "3afff19bff54e29c7ebf1542e398baecb549f7cf51eccb759fed6a2cadd48761",
+  "healthy_controls": 14,
+  "heldout_source_locks": 4,
+  "heldout_writer_acceptance": false,
+  "host_heldout_payloads_read": 0,
+  "native_processes": 35,
+  "native_source_files_created_and_saved_under_guest_custody": true,
+  "new_writer_constructed_at_source_freeze": false,
+  "owner": "/root and /root/assembly_occurrence",
+  "packet_sha256": "6ff86683ab5da1f99aab8b6efaccb978ce115a1d0d3013a73c315cb0c5d1362c",
+  "passed": true,
+  "recipe_sha256": "df674c287ae71006659e5d37410edc679175cf3a64680649b2865cce513cb59a",
+  "registered_api_metadata_sha256": "ec1bdf5acf1a72a5b909bffd2402c400cfb085762b6b06485f477e0bbdbf4574",
+  "same_opaque_spec_before_and_after_observer_repair": true,
+  "schema": "kit.sw2026.through-all-native-source-lock.v1",
+  "slots": [
+    {
+      "analytic_geometry_qualified": true,
+      "case_lock_sha256": "9a542b0c62e94d9f3273582d57468923f61ca1fb1932bfeac395bd3dcea7c634",
+      "heldout": false,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 68438,
+          "sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144"
+        },
+        "source": {
+          "bytes": 68269,
+          "sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394939983273553,
+            "process_id": 7612,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "cf72f5ede047fe90bbd60b9227397823375f324854853a4c95c078dbaa2c97e1"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394938640225131,
+            "process_id": 8564,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "6bad6ff7b7ef786bf7d8085aed32fd1b02b400be70ed5e23f7563fddb4abf60b"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394938335547948,
+            "process_id": 10448,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "c00f49ad971c908f78ce8aaa1e169c3038c9e17ab8910f3a9a2b23c266129b34"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394939648475191,
+            "process_id": 2740,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "01d3b631e8c689d42e63128bc13fad9432fb07d24d7ae60e1a8ded3495962ea8"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394939296622572,
+            "process_id": 1184,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "4cee9ee3da78111dad7c2c117de3eaa5d9e6aab6666a6e0b8594b71ea3c613ff"
+        }
+      },
+      "slot": "D01",
+      "source_manifest_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5"
+    },
+    {
+      "analytic_geometry_qualified": true,
+      "case_lock_sha256": "0b4b7fb59bcc35c59f325d430897416b8615e226bf0449d695c3f0e5883a9715",
+      "heldout": false,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 65103,
+          "sha256": "b7be92611a06555870b2779e31df2f8e3c9d8967450a9a9326faba4295f6feda"
+        },
+        "source": {
+          "bytes": 67227,
+          "sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394942564541453,
+            "process_id": 9340,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "790832a29f71ef20b21c67007f398fbfadff2b4574f33afd3f487654d568fbb4"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394941191658330,
+            "process_id": 8524,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "2dfa2226a0ccf86b13370600ecbbe52cfdbb56ae85a324fc5ca056cb7861bbe8"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394940949403438,
+            "process_id": 7564,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "a1424537c89c8cf130291aa34147d891436fad62eef041c339d4b967c17fe78c"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394942241244165,
+            "process_id": 5848,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "8f20b80c2720c53aec8a0e8e80b58dac8e1789f1ca021727e47859f98ed8083a"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394941818697524,
+            "process_id": 10348,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "f5e048532b9550d5cf01c0c4a26aa10a70d17a9a2179abb6610ffe780303564d"
+        }
+      },
+      "slot": "D02",
+      "source_manifest_sha256": "5df107f3993808088bd99aabf5bd28ce8e029dd278a46dc2145bc4cad9d74b15"
+    },
+    {
+      "analytic_geometry_qualified": true,
+      "case_lock_sha256": "7fcdc2a61261dde2cfbf9f2de0fb91132c98c042cf58bd079d420c8548262acf",
+      "heldout": false,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 65753,
+          "sha256": "074bf01c6b349eb0f48162c51409ab2e1a688ca6240d0b626cf96ba96fea8f82"
+        },
+        "source": {
+          "bytes": 64368,
+          "sha256": "cc4ec3d3d0d337186a83338eada5d16c73d041aec73962beb3ce0be852c19712"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394944357354920,
+            "process_id": 10104,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "7a6f89fd06ce0981c2a619aa0501689547d17dbee6f9ea580e22cbc11d960ec3"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394943063976264,
+            "process_id": 9912,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "400bed508c04052ac54840501dbbef801e6cb8829c92d3e75ae066c6a9a574fb"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394942830834115,
+            "process_id": 6988,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "b568605c16cd81c49d6c06ecdc42d909e84605edd3411568b8d4befdaa17a58a"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394944015339010,
+            "process_id": 4844,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "d41cde427df9225acfee1660502ab3ae1e936f64cbf123274889309c1dbd80ee"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394943671126240,
+            "process_id": 1920,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "9a173d30ec22458593ce3b166612372e806b0a4d90ff8f78cf31b7a89a16c98b"
+        }
+      },
+      "slot": "D03",
+      "source_manifest_sha256": "60c71697e31d036b217f5350891d3b337a9eb35e9b5c16eeae5835b73f10a4e0"
+    },
+    {
+      "analytic_geometry_qualified": true,
+      "case_lock_sha256": "ecf1820465da3d8fdb821e1b2ebec238d9ec1c3d4c4b813a8048d105e04f4ca9",
+      "heldout": true,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 68162,
+          "sha256": "5fe58907ae1be7c8672dddf831d250a8326cafc395b12d34008ddd2f5f86478b"
+        },
+        "source": {
+          "bytes": 72349,
+          "sha256": "b87e4b6066e94673ffd1cf4938096eeef3227749e94a6fb4b24a54bd643fdba0"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394946180862743,
+            "process_id": 5796,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "ca8fda6a8d599ff2e6fdfd029643a1de36626c39741f8cbe529c1e4a18741874"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394944858586495,
+            "process_id": 10048,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "23d1523095ffee4ba5f1e0471182c811323bad9fd8f7de0e9ea67ef79c9dd918"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394944624645160,
+            "process_id": 7256,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "cd18444e40a17df6c9c7a21849f50946139792d6ad41def9df5dab75cd945d65"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394945855540923,
+            "process_id": 2148,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "4f26a23c19b329a4b98d65d2c4e296aa2925ef133567c571f8a236d10918f014"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394945522704420,
+            "process_id": 7468,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "69124dea8d45824fda71e056597a3e49567a68bd354782d5847a398ea31d9b92"
+        }
+      },
+      "slot": "H01",
+      "source_manifest_sha256": "cdf12e0dd54ee6b6f9890d364f9c35964cf0d795d45bedc2378128140848b239"
+    },
+    {
+      "analytic_geometry_qualified": true,
+      "case_lock_sha256": "6c6b63bbcea08cfa7abeaf53a8cec0a0a07dbbee929c439477b77d04334e34cb",
+      "heldout": true,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 66366,
+          "sha256": "e036869549d6e5437e9c032878cf4f9560a221b1c2ff688c4cf2a776d51d47a3"
+        },
+        "source": {
+          "bytes": 62983,
+          "sha256": "a4073781169570818a16dd4c76250038c81f7f3c6e721072b0b1a36ee921265f"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394947980669712,
+            "process_id": 10044,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "f6c81807a13abf95cc9fb6cde02607143247b2e6500042ef44596fbd5298f01a"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394946689029989,
+            "process_id": 2588,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "d16fd4b5d472c684ba6d3ad3e79d5b7086a52581e76105bca078431b8bbf5abc"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394946455631484,
+            "process_id": 1096,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "c02667589e0e4cb2fe0226f151e340c30cb716c860b7bab070c2c21912594cd7"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394947638805908,
+            "process_id": 6700,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "e4657d7edc9b579b929ee525ff2c48b46838b72d9f5cc171bebbdbbb78e9eeef"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394947295680767,
+            "process_id": 4656,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "2355dbf2ffd28a4e6a7761d24f5f2a6297045a492714161d39b14afac07695c8"
+        }
+      },
+      "slot": "H02",
+      "source_manifest_sha256": "b0180e51ad36c8567a1201f627daf7e10d9cb37703ecc3a5db7566c62e511861"
+    },
+    {
+      "analytic_geometry_qualified": false,
+      "case_lock_sha256": "a0c5a2f10e1d353536d1f72263c515f2b28786c9cd87251c116983c4f97d004e",
+      "heldout": true,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 66451,
+          "sha256": "6aa8b5871ec356ff368500083b1baa84aaeb00bbb88a5ae65ea4a873f00dd0f2"
+        },
+        "source": {
+          "bytes": 63236,
+          "sha256": "6fd26d0df822ef046251b79ed0a757c5a9e79384c867d9ae0b27507f0be0e92b"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394953195535080,
+            "process_id": 8172,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "b740fe42e43c807de1bfb482425db8bd474476f10c2eeaa1871d5b526e44c69f"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394951873390272,
+            "process_id": 7040,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "e3b85009ab1729e83e14a509f779bcfa5d3ac06e72d3cea8a25a8de7b5d48e66"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394951619775756,
+            "process_id": 7292,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "301e78c9ac14d9ce53342f184c721fed560ef436b593159de0f57fd98c608084"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394952868115269,
+            "process_id": 11216,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "a8a6840660c8b178126e371a372686e0f7ab29ca3c4e38c4e6d031482e556877"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394952519896896,
+            "process_id": 4084,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "cb6fbb578aca5559770f54262a994f141aeceb4845e75197d30947ba53e9ce35"
+        }
+      },
+      "slot": "H03",
+      "source_manifest_sha256": "feec38d68141f62c75cb6f8ac3a3b052d9d7e82ffada91c7c3afa500efb5f38f"
+    },
+    {
+      "analytic_geometry_qualified": false,
+      "case_lock_sha256": "99d2abbd28ee1cc0cecc6dd6e3bf3bcbd2770d207fb3f5115b56887f6c9f6bb3",
+      "heldout": true,
+      "native_artifacts": {
+        "edited": {
+          "bytes": 63837,
+          "sha256": "56f9d6435dca35f832a087de40cd4d677dd05bb228d9bfc2b65183be2ccdb02e"
+        },
+        "source": {
+          "bytes": 68976,
+          "sha256": "f042c349af8fa8332e32449fc8eae90d9562bfe62ac17c6a0701815421ddfa7a"
+        }
+      },
+      "phase_records": {
+        "after": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394955092795559,
+            "process_id": 3888,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "6b38363862900903ce8188209e56a2541180e551a60cbc0473303ece202202d8"
+        },
+        "author": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394953758615159,
+            "process_id": 7540,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "d6917d2c012059bccd9cd58e5ddec58ee3943bdb67efe63cf883baba2c023d5d"
+        },
+        "before": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394953480022698,
+            "process_id": 10676,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "bc8474ba9d4a65e556ac473957b109a408d8094dbb2102a5ebfd92215f61598d"
+        },
+        "reopen-edited": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394954759572191,
+            "process_id": 4960,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "32f243ff292589d8e7a33ec17c751fbd201bf9ada1a1453a567b5f2f7eae285d"
+        },
+        "reopen-source": {
+          "native_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394954405206729,
+            "process_id": 10796,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "public_record_sha256": "8e375dc296c1dd7dbf77eac4cb9b5d8e49eecea9b28193520f9ed77a8e5c990a"
+        }
+      },
+      "slot": "H04",
+      "source_manifest_sha256": "f2633a3333c8e45d61359b03e579ca596bd8640c4c2d3342b22e6877cda8191b"
+    }
+  ],
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "transport_result_sha256": "24c0f791a8f9c0ed1e30cc293627114e54b66c9300cbc5ae1880d4c09deff549",
+  "writer_output_count": 0
+}

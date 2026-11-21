@@ -1,0 +1,78 @@
+{
+  "cases": {
+    "Concave": [
+      {
+        "bytes": 2291,
+        "key": "Imported geometry",
+        "sha256": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93"
+      },
+      {
+        "bytes": 2281,
+        "key": "Transfer \u039417",
+        "sha256": "8555155122d37ad82b3998f3fe5c4ef10c0122b565ca0a1dd50e074ffac87909"
+      },
+      {
+        "bytes": 2769,
+        "key": "\u03a9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "sha256": "88563de5ee263f47deca21b57af44ea1bc9ab918776be59ac6e8401f01fe956e"
+      }
+    ],
+    "Rectangular": [
+      {
+        "bytes": 1726,
+        "key": "Imported geometry",
+        "sha256": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250"
+      },
+      {
+        "bytes": 1716,
+        "key": "Transfer \u039417",
+        "sha256": "b09908277a671a76f748205a826aef9672ca5eec69cb42007d0d5dea06991209"
+      },
+      {
+        "bytes": 2204,
+        "key": "\u03a9xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+        "sha256": "00bf50be5fa0f261b27769dc9a828e635003976f30b363bc585410b859f75ae6"
+      }
+    ]
+  },
+  "exact_local_envelopes": 6,
+  "exact_prior_native_measured_parts": 4,
+  "exact_prior_native_measured_streams": 48,
+  "integrated_parts": {
+    "ConcaveBare": {
+      "container_sha256": "21867dbe53b94bbfadfc343ed47f8ca3b0af1fb30114f3a921f730c84f087429",
+      "exact_logical_streams": 12,
+      "local_stream_sha256": "6d3500c0fc16dc0c54577deeddbbca79c0df11103ab26fe05e7de95b995b4d93"
+    },
+    "ConcaveOwned": {
+      "container_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "exact_logical_streams": 12,
+      "local_stream_sha256": "c54c8b504f25ec18667159b70b9163f2590dff3f5db5c61b1cc1976d7036761c"
+    },
+    "RectangularBare": {
+      "container_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "exact_logical_streams": 12,
+      "local_stream_sha256": "31a52229b347abdfbd649901ee99360310e70b0d89170595fe612bfc11551250"
+    },
+    "RectangularOwned": {
+      "container_sha256": "dafdf93377f504435d3fe62dd9417f7292ac03c2c23ade9d379b4632311f9149",
+      "exact_logical_streams": 12,
+      "local_stream_sha256": "c6efdb81335ca033c63a61b744d7d753a532f2f579a2cd323b8e3f7229b423dd"
+    }
+  },
+  "new_native_processes": 0,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildImportedLocalPart.py": "e3ba9fd77fd6292e09ff251cd315c15287fedf44180cb111c839f9210fc39b1d",
+    "re/tooling/sw2026/imported_body_source/VerifyGeneratedLocalEnvelope.py": "d90273d92a4bf0b096e8a1ccba90913bc8a2543c5d3afbc746e3b58e6a861605",
+    "src/convert/adapters/solidworks/Archive/Partition/LocalWrite/EncodeLocalBody.py": "4cbd2c9fcaa7b3484fe91005c4029fa6b6284d735b5e6497eb2606ed6851af0d"
+  },
+  "refusals": {
+    "embedded_null": true,
+    "empty": true,
+    "newline": true,
+    "nil": true,
+    "opaque_kernel": true
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.generated-local-body-envelope.v1"
+}

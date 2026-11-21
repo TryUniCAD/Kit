@@ -1,0 +1,5 @@
+# Frozen FreeCAD release phases store the verdict under result
+
+The four exact generated and reopened phase records from the original FreeCAD 1.0.2 and 1.1.4 box run have a top-level `passed` value of `false`. The phase recorder initializes it before opening the part. The frozen observer subsequently assigns `result.passed` and leaves the initial outer value in place. All four exact records have `result.passed` and `result.immutable_input` set to `true`, no first failure or cleanup error, and a passing row in the terminal result with the matching phase-record digest. [Frozen observer](../../../../../../re/tooling/sw2026/InspectFreecadBoxNative.py) · [Disclosed native receipt and digests](../../../../../../re/solidworks/measurements/2026/SdkFreecadBoxReleaseNative01.json)
+
+When binding this particular frozen packet, check its nested result together with the exact terminal digest, matching published phase row and immutable input. Keep the four historical records byte-identical. The live-reference runner writes the final verdict at both levels of its own phase records. [Packet custody check](../../../../../../re/tooling/sw2026/f14a_references/ReferencePacket.py)

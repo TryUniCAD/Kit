@@ -1,0 +1,104 @@
+{
+  "all_sdk_containers_byte_equal_to_research_controls": true,
+  "all_seven_logical_streams_byte_equal_to_research_controls": true,
+  "cases": {
+    "Primary": {
+      "container_bytes": 6651,
+      "container_sha256": "00e0175943682a25ffa6045b7a7f60189015a185dabf53f63ea127e28dc550ff",
+      "definition_length": 27770,
+      "definition_reemit_exact": true,
+      "intent_sha256": "f8329f63bbaaa1855bbd6213855480b25e2969de047e892438e037ef68447fa0",
+      "logical_streams": {
+        "Contents/Definition": "7729bd5111673547ecc0892ce864bbf51e671fd4804f2045198354b97601e65b",
+        "Header2": "d085c4d48b8fb005ac068d5b714b9766df0ae6f8140789adbe230df9babb2615",
+        "ModelStamps": "dc9ca227dd0475899f5bb7d1d6e9b2346c5be57575eee9c5fba65463f559e519",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "355fad4f122b702610fcc79410601323fc4c29bc73fd82ee92bf0681397d7931",
+        "docProps/ISolidWorksInformation.xml": "afc83e60c98f7ee32611e5bf1e438d263fcfe06da5b615170d892b9fdd2dfa2d",
+        "swXmlContents/KeyWords": "930553fd59a0e55d4a1f8bba4e8d743aa7ad9e2ba360cb9e2da735dbe5f3c47c"
+      },
+      "map_counter": 176,
+      "native_qualified": false,
+      "output_operations": [
+        "output_write"
+      ],
+      "passed": true,
+      "public_output_qualified": false,
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.sdk-plain-note-worker.v1",
+      "sdk_partial_note_visible": true
+    },
+    "Variant": {
+      "container_bytes": 6544,
+      "container_sha256": "7f08b542555f84b0bd627dda4a27f70a978a66d7df5f5ef3cc14b28e44cd981d",
+      "definition_length": 27350,
+      "definition_reemit_exact": true,
+      "intent_sha256": "fcc09c387e7fa7aec291d8d542f6bc1d3083393dea5f6ff683f1280dba67d58c",
+      "logical_streams": {
+        "Contents/Definition": "90ba2b7ff51355598db81b46f02a3063954035c4e66df696172696481c5a57ce",
+        "Header2": "d085c4d48b8fb005ac068d5b714b9766df0ae6f8140789adbe230df9babb2615",
+        "ModelStamps": "dc9ca227dd0475899f5bb7d1d6e9b2346c5be57575eee9c5fba65463f559e519",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "355fad4f122b702610fcc79410601323fc4c29bc73fd82ee92bf0681397d7931",
+        "docProps/ISolidWorksInformation.xml": "afc83e60c98f7ee32611e5bf1e438d263fcfe06da5b615170d892b9fdd2dfa2d",
+        "swXmlContents/KeyWords": "930553fd59a0e55d4a1f8bba4e8d743aa7ad9e2ba360cb9e2da735dbe5f3c47c"
+      },
+      "map_counter": 166,
+      "native_qualified": false,
+      "output_operations": [
+        "output_write"
+      ],
+      "passed": true,
+      "public_output_qualified": false,
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.sdk-plain-note-worker.v1",
+      "sdk_partial_note_visible": true
+    }
+  },
+  "changed_sdk_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeCommonView.py": "aeb5682e52d951bc299bd884afee83104cf1b8d36fc8710af9f943e600be38f9",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeDisplayFields.py": "c319d4ef304421824d5f57345382028dd93b6f2695893c2cc794ed533602f7b5",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeTextFields.py": "aaddbf71c52e8a83f22edf6714bb37a79bb24350773e5c62a30638bb970604bf",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteData.py": "c10b8abc055e5dd506dbc8f033e1dfda38e170fe1666e1a19d45560ad40fec15",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteDisplay.py": "bc129ee5c66b20ff5635a922d803c37c68f1f091c6ff86ffbe512fb83bf47b92",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteGlyph.py": "486bf20d9e3d09b5a786fb734638b9de832e5940241950778af40954eff53b45",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteLine.py": "77ce0a85ea75128f7bee14c62ae3b68b302d20fa3637f53d98387f8dd4c57e31",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteParagraph.py": "76301c7e99b0d98e15e35f0e2d5cb019ec73e40f049d954d10dd5851cc8623d0",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteReference.py": "1cd80982a147eca2ccec403a60a29d3465af16474537b26c60242f71e2f7e7ca",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteStyleFields.py": "fc00798386043b6d2f8562273d64683225757e9148e7bf818418adf1ffe9a5dd",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteTail.py": "fadb926191ccf9674df8209ae2ebee50df6223875414d6056515d2d3dee8bf2f",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteText.py": "72b432fa23c67baf4ca5d6d8fc39f7af86dc3ad9cb1af02cf1b2da16dced5ece",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakeNoteTokens.py": "a1316b762c0e12cf272f513ac29b94ed3899ada136100d5dd26583a4bdac1209",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/MakePlainNoteFile.py": "6ede73155e0279987d107340a721f740e091f949c5d3a4e87f2f35879478ac29",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/NeedPlainNote.py": "17a826b261a29e452e91f0dac09f4272298e848c70d079443fa8edecaf1abea5",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/PublishPlainNoteMut.py": "532a6aa43353943592306c571ac5e21f61abd825d63f3be8ad11ba58744debc5",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/PutPlainNoteMut.py": "deb5e31c908f101f5c079a0f8ae3dcf50f00e8a4c9b0cc7f1b41688c4ab7901d",
+    "src/convert/adapters/solidworks/Drawing/Construction/Notes/SetNotePointMut.py": "c1f03dbd25455cea152e65972b178af1803580aad3525df312c98541fe439350",
+    "src/convert/adapters/solidworks/Drawing/Construction/Portable/FinishDrawFile.py": "0ed05edd6d17c6648008427ded6092dda8fdfc700b1f7e509e7ed7794a82b10b",
+    "src/convert/adapters/solidworks/Drawing/Construction/Portable/MakeBlankFile.py": "db259b7b357fec0a03f4ea543f5022acd9f4f4037bd1a5941c53e6dd99e793b5",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/CheckBlankNode.py": "a521b51b60b23e4c0b43ab00413c02aebc7d89dc0fd3f2a87be24172e71b5a4e",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/WriteBlankDef.py": "1e0afaf086b1d50009b647b1a35de09da1ffa81dc181a8bceeabbe2886b1be50",
+    "src/convert/adapters/solidworks/Drawing/Definition/Emission/WriteDrawBody.py": "68127395681ac796eb6dde920d28701de3b06a363f2e32e95956e350bc355f36",
+    "src/convert/adapters/solidworks/Drawing/Definition/PlainNotes/WritePlainNoteDef.py": "130c1f0ad7154cb72255cdd70bf4db4df10e0f224e1d15d6ad703e1f06ce34f8"
+  },
+  "first_exact_container_native_lifecycle": "7d2c96bea00778506276ece58e36c7aa4fd658c4271547e11442b04811fb9cab",
+  "full_source_or_public_writer_qualified": false,
+  "guard_sha256": "e5b7147ccef4fd148b90fb0aec50900f5a73cf6f9f8c3894bd90caffadedceb7",
+  "guarded_output_processes": 4,
+  "guarded_refusal_processes": 6,
+  "heldout_source_reads": 0,
+  "note_dependent_map_and_definition_span": true,
+  "oracle_build": "34.5.2.0604",
+  "refusal_diagnostics": {
+    "Empty": "ValueError: plain note construction requires one valid unlinked sheet",
+    "Formatted": "ValueError: plain note construction requires printable unformatted text",
+    "MissingAnchor": "ValueError: SDK constructor requires ordinary display and note identity",
+    "MultiLine": "ValueError: plain note construction requires printable unformatted text",
+    "NoIdentity": "ValueError: SDK constructor requires ordinary display and note identity",
+    "RelativePath": "ValueError: SDK note recipe requires an absolute native drawing locator"
+  },
+  "runtime_writer_input_reads": 0,
+  "same_path_earlier_public_boundary_preserved": true,
+  "schema": "kit.sw2026.sdk-plain-note-pair.v1",
+  "worker_sha256": "a48578c07f36cee287724437c4c6729d7b3d29397eeccea6be9375fb63262291"
+}

@@ -1,0 +1,282 @@
+{
+  "cases": [
+    {
+      "active_root_count": 23,
+      "bytes": 9005,
+      "config_counter": 90,
+      "name": "KitScopeTopDisclosure",
+      "packet_sha256": "fa54b00919aec9116c36b0d16a2a447d59621a2e20118f67bb0a9c1eaea380e0",
+      "plane": "top",
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "reverse": false,
+      "runtime_reads": 0,
+      "scope": "inner",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          101
+        ],
+        "f18": 101,
+        "ff0": null,
+        "producer_id": 19
+      },
+      "sha256": "2fd8a4d877e0a5f7772ca2656d8e4ad60df7e73e2e0ad05fc6b378bbe5197eb3",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22464,
+          "sha256": "2ff5cff1983658abf2353d5aa38fe26381259e3a132d0f78b6d80a562c65a9ed"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 717,
+          "sha256": "5cfb4c54cadcc98fdc92a8c9cc9b0662e036ce8c3c0960273cbc2498d8dcfe6d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "68d5b64b8db1fd62ed7d388e238fbb49b14b26a68c82da0b9c6a6746a7f1a1ea"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 717,
+          "sha256": "4a01602b3722d2264050aca6f7685c1472f68a21fb44ae627b21bd70fa8e85df"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1736,
+          "sha256": "ce3d15bf97462994000e94ad2af90816f818aae2bce2eb2ccef9d7f109df7837"
+        }
+      },
+      "wrong_body_path_refused": true
+    },
+    {
+      "active_root_count": 23,
+      "bytes": 8910,
+      "config_counter": 90,
+      "name": "KitScopeRightDisclosure",
+      "packet_sha256": "fa54b00919aec9116c36b0d16a2a447d59621a2e20118f67bb0a9c1eaea380e0",
+      "plane": "right",
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "reverse": false,
+      "runtime_reads": 0,
+      "scope": "outer",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          102
+        ],
+        "f18": 102,
+        "ff0": null,
+        "producer_id": 22
+      },
+      "sha256": "b5b89d1fdafb48beac24818e351f69059183ab1923702c1e1d2a5d1d4109fba4",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22468,
+          "sha256": "780cf6f6df6de4e765a9cbeb18862b7608e7f5161d0d388be7bc5600255245d5"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 729,
+          "sha256": "a3cac6f53f8841965e48997c9f3b8a9872d0fb109500cfe86a801df1ef14797d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "8fcb0727c318097001c3fbe5320ca3bfe0113d79430e65e19bbc6e24a21545d6"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 729,
+          "sha256": "68144da366420ba2c8d5a84f27c6ab7672e0d2fef8a8402c3d1bbd2fb231c243"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1739,
+          "sha256": "5156203db750a5a79b8bab6180a8c2a23cfbfa0c8e8569de08317fca860948a5"
+        }
+      },
+      "wrong_body_path_refused": true
+    },
+    {
+      "active_root_count": 23,
+      "bytes": 8979,
+      "config_counter": 90,
+      "name": "KitScopeTopReverse",
+      "packet_sha256": "36380d1259581b8594f977ca3970239cd7c2bfdb3d06811dc97afddee4bbe59d",
+      "plane": "top",
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "reverse": true,
+      "runtime_reads": 0,
+      "scope": "outer",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          102
+        ],
+        "f18": 102,
+        "ff0": null,
+        "producer_id": 22
+      },
+      "sha256": "d6faebf0c1b7bce699cf2793e52ea63c513702ee55ae21674e604adffea87448",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22458,
+          "sha256": "b03044368302dfe1e43806f403229f277e2571886ba39a1cd184a7a51614cd7c"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 697,
+          "sha256": "be67c84acae255cf020eec44f633073ec191c8942ee60035cb4b54a9a11dd3bd"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "9cb53058f995b13bc410acfac111d672f2cadb32ad8880ed20944d04fd02c04f"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 697,
+          "sha256": "7f713ed4e717c2bae0440e998c3c42b334aa63c220c6bce852ef7570710bfec7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1746,
+          "sha256": "8d00319286ebe1b6697465aa35f0544649be2aed3e3cb6bae01fc01e9593b4fd"
+        }
+      },
+      "wrong_body_path_refused": true
+    },
+    {
+      "active_root_count": 23,
+      "bytes": 8863,
+      "config_counter": 90,
+      "name": "KitScopeRightReverse",
+      "packet_sha256": "36380d1259581b8594f977ca3970239cd7c2bfdb3d06811dc97afddee4bbe59d",
+      "plane": "right",
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "reverse": true,
+      "runtime_reads": 0,
+      "scope": "inner",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          101
+        ],
+        "f18": 101,
+        "ff0": null,
+        "producer_id": 19
+      },
+      "sha256": "4d23fcf26a33b846fc98c25e1156969a6f453f8935252b1a18f780d553188a7a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22462,
+          "sha256": "82cdd7b2c7ee26b87838e00c3f3e77e21d077f1ac91b4b0f176bd7288eaa59f8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 709,
+          "sha256": "98ce688e688f1fe9b6193f834380a7a9fa81f1e26cd8e600e2144c3cc047616d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "2269bf34fa5055a15d2f7e6c7f5617640531940581fe17aad8a72ec0121e0d66"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 709,
+          "sha256": "bd480c969ae0564d145bdc0795256a2b18abdc0ef3aa30db1caa4282ded3e928"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1748,
+          "sha256": "500f1da54e760264d9dc5e4f418982e891cd2278e8a64c574bf3aa6f77d5e22d"
+        }
+      },
+      "wrong_body_path_refused": true
+    }
+  ],
+  "fresh_processes": 4,
+  "heldout_writer_acceptance": false,
+  "identical_streams": 40,
+  "passed": true,
+  "public_writer": false,
+  "schema": "kit.sw2026.selected-revolve-composer-disclosure.v1"
+}

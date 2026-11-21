@@ -1,0 +1,307 @@
+{
+  "active_invalid_angle_correction_qualified": false,
+  "delivery_pr": 121,
+  "distinct_native_processes": 12,
+  "fcstd_corpus_qualified_outputs_added": 0,
+  "guest_runtime_record_sha256": "ef799a7d67672bbc535c9a63ab30c2cc0450866e8960abfcc9c2c35b7c548608",
+  "guest_runtime_sha256": "39b354c60a31785ac033c36361c5d3445daa3763b8065d2d1d3922716ec7540c",
+  "guest_transport_summary_sha256": "f9588b7e02c6c26ee21b8b4ef228dbe3a22735670b33b3c665b07f6bec443b65",
+  "healthy_control_processes": 4,
+  "host_guest_arithmetic_comparison_sha256": "20ad63b13cbe7916d3482605b245eed46d4e081c58fd602a9f286b32de43d079",
+  "host_interpreter_arithmetic_sha256": "2108abad920a482a895d4913ee0fba9afb5f8402441a1596ffe4dfc67335e0a2",
+  "method_sha256": "5083d1cbee90ffc531d6c646d917449c402c0b8bc57dc599433d0f5ec27c2c35",
+  "native_numeric_checks": 484,
+  "new_unseen_design_credit": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "owner": "/root and /root/assembly_occurrence",
+  "paired_comparisons_passed": 12,
+  "passed": true,
+  "promotion_replay_sha256": "1c3247a5735877218bc5810b80dc2c96e803fe97246dbb1545cb0e4bd52058ea",
+  "promotion_replays": {
+    "3.11": {
+      "baseline_report_sha256": "4e01a51c10642e440e5c0a9e873c83c5734cda83354b4bf9e949ff8f66a701d2",
+      "baseline_worker_pid": 52528,
+      "both_match_disclosed_measured": true,
+      "both_match_frozen_same_interpreter": true,
+      "files": {
+        "NeutralPerpPair.SLDASM": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187",
+        "NeutralPerpPrism.SLDPRT": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+      },
+      "qualified_report_sha256": "927af14e15af18a2e9ec26bee7bd50f817fe5825f524ecf5736fba1ede8a30b8",
+      "qualified_worker_pid": 52533
+    },
+    "3.12": {
+      "baseline_report_sha256": "11e1147735e14e8a804aeb6dae15ad14c4f06e5b9fd667116352e2f23f51e0be",
+      "baseline_worker_pid": 52529,
+      "both_match_disclosed_measured": false,
+      "both_match_frozen_same_interpreter": true,
+      "files": {
+        "NeutralPerpPair.SLDASM": "cdafb249fa0cc465cd18476222ca41d94def38767e6194f3bd8c1f1a0a97ba0f",
+        "NeutralPerpPrism.SLDPRT": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+      },
+      "qualified_report_sha256": "2d5aa7547bed4ab391b3fedcf8c8d29b1739750ff8d52a4b35cf666cfb4402a5",
+      "qualified_worker_pid": 52532
+    },
+    "3.13": {
+      "baseline_report_sha256": "4a17671aa973d43cd3fa3709359b3688066735b63869d88b53485ebd8aa8976d",
+      "baseline_worker_pid": 52530,
+      "both_match_disclosed_measured": false,
+      "both_match_frozen_same_interpreter": true,
+      "files": {
+        "NeutralPerpPair.SLDASM": "cdafb249fa0cc465cd18476222ca41d94def38767e6194f3bd8c1f1a0a97ba0f",
+        "NeutralPerpPrism.SLDPRT": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+      },
+      "qualified_report_sha256": "cbae380d8bd39cacff15b1ff6fc183daa9a2ca1730b1a9d91410f4d77f3f1ae1",
+      "qualified_worker_pid": 52531
+    }
+  },
+  "recipe_sha256": "f157e3d12e97794fd4f9143b6b3e2dae5083875f9bc4ed3faa1b55c7b6405385",
+  "release_specific_inputs_remained_private": true,
+  "replayed_registered_result_metadata_with_strict_native_path": true,
+  "runtime_input_file_reads_during_generation": 0,
+  "runtime_sdk_research_imports": 0,
+  "same_original_prewriter_source_locks_used_for_public_route": true,
+  "same_runtime_before_and_after_complete_file_identity": true,
+  "schema": "kit.sw2026.public-perpendicular-heldout-registration.v1",
+  "scope": "one initially satisfied ordinary nondimensional perpendicular between principal planes on two direct resolved occurrences of one owned centered dimensioned rectangular part with one fixed occurrence",
+  "slots": [
+    {
+      "build_lock_sha256": "f2a70c6661ed7fdb610d266779d563430d4d65f6be29d13249c03f091561fa13",
+      "build_progress_sha256": "03baead5890e6245d020aad23ad64d2d38c9bab6b3870ea6e78e081fb5f799dd",
+      "generated_files": {
+        "child": {
+          "bytes": 8786,
+          "sha256": "43d96b380a1beb00168e7b57c5e629d832611e2d8cfd8f9a808f2e3abeac1197"
+        },
+        "parent": {
+          "bytes": 10287,
+          "sha256": "938bf1023b877f1e52d47c6d4643ba13ecef9c3b0bab59bcc1581997c2f4c7f2"
+        }
+      },
+      "native_final_sha256": "96804667c0d17c4f05974436f1eef204e77f542800d49c4d15c7d09ea447a74b",
+      "native_processes": [
+        {
+          "native_record_sha256": "d3e2e3bec2f5265b38f2d72be9d8e09b2c90b51a8cbdaede9cec2407d9b80da8",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394914637901092,
+            "process_id": 11216,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "control-after",
+          "public_progress_sha256": "db40df0a447b4ef646d7e2f519ead8e33cafd30662e2674d8da5a7c7c386007a"
+        },
+        {
+          "native_record_sha256": "fd25c50bb108bee5f682d3a7e35955f1c31fee20f4c41b07f2e5dbba5bad146d",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394911569208750,
+            "process_id": 2100,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "control-before",
+          "public_progress_sha256": "516431314d78872f5638e2990953fbed6c3e5206b2205385057a0e9191e1e3a7"
+        },
+        {
+          "native_record_sha256": "5cf6956febb440461afbc5a8899f005d2045b8ec1cae0cbe26d7a5d0e7adef95",
+          "numeric_checks": 92,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394913180286690,
+            "process_id": 9024,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "generated",
+          "public_progress_sha256": "c2af471a0460f44c8fdbbc52c0609d14478735ae513d4c1ab654b3314173bd3c"
+        },
+        {
+          "native_record_sha256": "1ca21a8c59d1ed79d68a10db920d0dbf9efb74c6b6d13ef2c0c12c6290d4cdd0",
+          "numeric_checks": 46,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394914118329104,
+            "process_id": 1532,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "reopen",
+          "public_progress_sha256": "981e2c57e73ed8d07f316e369637fda87dbc9a46dee481325164107834d0bf82"
+        },
+        {
+          "native_record_sha256": "478fd32d14fd5aaf91ef27f48e3d57aae0838490353284871d79eacf0ffd95f4",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394912102410679,
+            "process_id": 640,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "source",
+          "public_progress_sha256": "78db864a35aefdf06dd63694cebd5487140f4d1b6abaa8d0d60d07001b91c3b9"
+        },
+        {
+          "native_record_sha256": "cc5d4c5459fe271a7392d82e2f5c424b119a3e21a343b4080255160366fc6b5e",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394912684017108,
+            "process_id": 1764,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "source-edited",
+          "public_progress_sha256": "47db765a1bb3d6d790f5c7e1121918de03fc3df6130edeea1821d11622ec80d3"
+        }
+      ],
+      "preparation_lock_sha256": "eeecac61f58b3d07a4e9e11434c574b1a2c87a8f18d7e97f60442ac424457e7e",
+      "slot": "Slot01",
+      "strict_public_readbacks": [
+        {
+          "audit_sha256": "cc677ec4c0904138e21fb4183c0184e3396dc5f61f75c3ce93d00029d5bb1087",
+          "child_drivers": 3,
+          "child_sha256": "fdc9008b6a54e2270f527fd89464e701a2d2014193f8a541ffdac0e916e0570b",
+          "parent_sha256": "f212ee64bfab9ced4ca2d505ccf5307670c3ebe4848f8f41035fcf46ee9af1fb",
+          "public_status": "admitted",
+          "state": "source"
+        },
+        {
+          "audit_sha256": "2c72c64ea1bff2fc5bc70be6608c8d38b5a4a713063b4de407555ad1bafa9688",
+          "child_drivers": 3,
+          "child_sha256": "32e20ee0ae96da3b821df8c79083dabd2c9fbaf12b6a40c4cd3b53fac7d78549",
+          "parent_sha256": "499ed7be6daa8d646c54fa98f9c961fd7e46722165276c77a113fecc620d4115",
+          "public_status": "admitted",
+          "state": "edited"
+        },
+        {
+          "audit_sha256": "22c614081ffe2712b5ac9279fe0764ffef427f059a24164f6b359ee8e512e9df",
+          "child_drivers": 3,
+          "child_sha256": "bb741546d0fc80c7234f8a1e8e5fcc831aa11ebf4b056213f0d2a4af93938225",
+          "parent_sha256": "b171347e380fa1d9ac4c9f9ffe7f239bba37d1bdec33be55400b9ef6636b07e9",
+          "public_status": "admitted",
+          "state": "generated-saved"
+        }
+      ]
+    },
+    {
+      "build_lock_sha256": "366aa9c7f6473d8f56be2440cc28d3965af0087e1f2b73afe1ce2043454c8234",
+      "build_progress_sha256": "31fba97607630177dbf6a90cf8360b0953527aa27eb8e985dc426ab489c879ba",
+      "generated_files": {
+        "child": {
+          "bytes": 8781,
+          "sha256": "796a5abaad7d7141a7d1eb77f351a4e9b1b921c647342132ab1a6588829dbbd0"
+        },
+        "parent": {
+          "bytes": 10241,
+          "sha256": "94c368a6ea4fac5791c1005968e7ec430ec1d0a492fd265be9559f5c9984a66b"
+        }
+      },
+      "native_final_sha256": "72d7f4cb045481d57dbf8d60d34a4286ba79698ae41435b123321d1c9fa899ca",
+      "native_processes": [
+        {
+          "native_record_sha256": "b1dd377c4b5969a106eacadef34354cd84798d37d3d57490ec83cad23acb72d0",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394919239168358,
+            "process_id": 10816,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "control-after",
+          "public_progress_sha256": "4b17d86954f66a9b25d6175c5142859387f8d97d2d6e2bf8feb5607e912d2152"
+        },
+        {
+          "native_record_sha256": "709a53f57cb3feda4f4817ae6416dc1c18df995cb76b6dabb55fa59013dcc3df",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394916263567308,
+            "process_id": 2220,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "control-before",
+          "public_progress_sha256": "f4dc2df2ba1b37a1df06d9c542b54fdb8b47163a93d559442ab65c2d18f8d3fa"
+        },
+        {
+          "native_record_sha256": "9176e14e671b46f29bd0980c0c89a3c68f35e631d2c3e65d467d8573f5d8265f",
+          "numeric_checks": 92,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394917762341782,
+            "process_id": 1428,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "generated",
+          "public_progress_sha256": "f72efd1ba1e5e42711a1b5797531b91075ec9c3edec5837d6f4b8c7861b0315b"
+        },
+        {
+          "native_record_sha256": "547be1715d03083cb40cc2184862d4a760f28c1d2d8614017e3f462495fb4454",
+          "numeric_checks": 46,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394918702735013,
+            "process_id": 1832,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "reopen",
+          "public_progress_sha256": "928da638f9ddfecf081e56afe6e1219fadcc0ffc65252cb5ebd355140ad880f6"
+        },
+        {
+          "native_record_sha256": "6b0d1a48c3288e4d76116aa172fa96b614102d810e8cf00929f07981abf2c2fa",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394916759727384,
+            "process_id": 10764,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "source",
+          "public_progress_sha256": "1142ca9a062341f474f970cdee0eab50dbdea77c347d893ca440f243295c5a46"
+        },
+        {
+          "native_record_sha256": "6e1dae8eb00b8934cf37fd8dcff18fb22bbafbc024e6e069d180c20946f74d11",
+          "numeric_checks": 26,
+          "oracle_identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394917256060764,
+            "process_id": 1280,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "phase": "source-edited",
+          "public_progress_sha256": "32f366236e3d71f35060d7e502cb575095c17bf34363a7db20365324bc315072"
+        }
+      ],
+      "preparation_lock_sha256": "b5c47eddb1cc14bdc966c6ba3236e70ebaaa2cb010618d179c310851e2c412e9",
+      "slot": "Slot02",
+      "strict_public_readbacks": [
+        {
+          "audit_sha256": "fdf8c8d5583dcddbe97580d8bc4a8470d6d321afe9c56aedaa71434b2c35ad05",
+          "child_drivers": 3,
+          "child_sha256": "110ce92ed5b6638bda0b27388918a5f03cae691ca406487beb117eee4d793655",
+          "parent_sha256": "b0fcf46aa61ec77e9811264a7e41500443ebf12d73d6e9f0864bfb376265cd6e",
+          "public_status": "admitted",
+          "state": "source"
+        },
+        {
+          "audit_sha256": "e472ee935f584bc1138f8ab2370cddd325e6db2b6d6c6fe9df0ebd6441696803",
+          "child_drivers": 3,
+          "child_sha256": "cd121748e14bbbce0621366407f80426088f69096323c1650b77eff3705044fd",
+          "parent_sha256": "98151d7f3a1f03a57b48d782055d7d2a6527adb9b2fc355cf65149ecb037241d",
+          "public_status": "admitted",
+          "state": "edited"
+        },
+        {
+          "audit_sha256": "daf7b4631a24b8160d7d7a7821a6b61857eb95b0e31c06ccb404c66e33e8a1be",
+          "child_drivers": 3,
+          "child_sha256": "fede2085907bd84256b5b6c59b0397d2f738f06f67d6551fe003ed78914f109e",
+          "parent_sha256": "774af29394e152f14316231ac85101f2381f2b332e4b46a596ea002794076a70",
+          "public_status": "admitted",
+          "state": "generated-saved"
+        }
+      ]
+    }
+  ],
+  "source_only_controls_and_runtime_unchanged": true,
+  "strict_source_and_saved_readbacks_passed": 6,
+  "task": "B04-SW2026-MATES-PERPENDICULAR-REGISTRY"
+}

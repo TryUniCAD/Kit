@@ -1,0 +1,3 @@
+# SOLIDWORKS front drawing view graph research
+
+The research generator projects one explicit 1:1 front view of the generated rectangular prism onto an unformatted ANSI A drawing sheet. The projection matched 20 typed view fields and all ten header bounds values in each disclosed control. The guarded process round-tripped two independently authored reference and sketch support graphs with zero runtime input reads. The remaining view state, projected-edge map and native populated save need qualification. [Construction, scope and command](../../../../../re/solidworks/records/DrawingFrontViewConstruction2026.md) · [Measurements](../../../../../re/solidworks/measurements/2026/GeneratedFrontViewGraph01.json)

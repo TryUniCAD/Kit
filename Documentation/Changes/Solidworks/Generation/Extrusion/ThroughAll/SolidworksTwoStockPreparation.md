@@ -1,0 +1,9 @@
+# Prepare a selected through cut across two independent stocks
+
+The internal SOLIDWORKS part preparer accepts a neutral millimetre document with two disjoint rectangular blind bosses on the fixed Front and Right planes, a free circular through cut explicitly scoped to the Front stock and one active Default configuration. It binds both editable D1 drivers, the historical selection and the two final body producers before generating a complete cache-free `.SLDPRT` container.
+
+Evaluators can call `PrepareStockPart` with the neutral document, a binary destination or output path, an explicit save time in Unix seconds and ordinary `WriteOptions`. A binary destination requires an explicit `final_destination` whose part basename matches the document name. Preparation returns the complete bytes and their named streams for a separate write step.
+
+Fourteen guarded host processes recorded zero file or runtime access attempts. All ten streams reproduced the previously native-tested 8,574-byte disclosed file. A separately authored enclosed-cut input changed the stream lengths and matched analytic volume, area and centre of mass on both solids. Eleven malformed or unsupported inputs were refused before emission. [Method and scope](../../../../../../re/solidworks/records/SdkTwoStockPreparation2026.md) · [Guarded process receipt](../../../../../../re/solidworks/measurements/2026/SdkTwoStockPreparation01.json)
+
+The locked native comparison qualifies two independent pre-writer source parts for the exact preparer. The recheck used their authored datum labels with the same writer source, matched all 29 native tree rows and passed 144 numeric checks between healthy controls. Public admission is a separate SDK boundary. [Native qualification](../../../../../../re/solidworks/records/TwoStockHoldoutStudy2026.md)

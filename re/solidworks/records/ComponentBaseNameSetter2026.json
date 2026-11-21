@@ -1,0 +1,465 @@
+{
+  "data_windows": [
+    {
+      "bytes": 35,
+      "end_exclusive": "0x4af0c1d3",
+      "module": "slduiu.dll",
+      "name": "auComponent TypeDescriptor",
+      "sha256": "578d51b8130c8e11f6f7df665e937370484e2d08f3691e93ee2cc6a8ca6771f3",
+      "start": "0x4af0c1b0"
+    },
+    {
+      "bytes": 24,
+      "end_exclusive": "0x4a8e9428",
+      "module": "slduiu.dll",
+      "name": "auComponent complete object locator",
+      "sha256": "770b7e58466efc866cbfaeb2334bab0a2747afb217dd5bfa594a1bd49301cc0b",
+      "start": "0x4a8e9410"
+    },
+    {
+      "bytes": 16,
+      "end_exclusive": "0x4a52e810",
+      "module": "slduiu.dll",
+      "name": "actual owner primary vtable locator",
+      "sha256": "0352c36d20b6b081e18bf6e07dffc7dafa8d8afeaaee804d290a05a21306848e",
+      "start": "0x4a52e800"
+    },
+    {
+      "bytes": 16,
+      "end_exclusive": "0x4a6dc230",
+      "module": "slduiu.dll",
+      "name": "actual IComponent2 IID",
+      "sha256": "6fbf69759ed78d04304dc07efd000b03b76ae580ab57da7c8434cfb76ad3abba",
+      "start": "0x4a6dc220"
+    },
+    {
+      "bytes": 16,
+      "end_exclusive": "0x4a52dd80",
+      "module": "slduiu.dll",
+      "name": "IComponent2 interface map entry",
+      "sha256": "a6b4b410962c8fe134cb416706b5ae4ffe0e0a8afca4f22e6fe64396b189d3b2",
+      "start": "0x4a52dd70"
+    },
+    {
+      "bytes": 6,
+      "end_exclusive": "0x4cdb05f6",
+      "module": "sldmodu.dll",
+      "name": "decimal instance format",
+      "sha256": "a9edba2fc4741e8db1282ca45156f8cd7d91ab8ab4b6598a1dabd673c17986e1",
+      "start": "0x4cdb05f0"
+    }
+  ],
+  "delivery_pr": 121,
+  "functions": [
+    {
+      "bytes": 229,
+      "end_exclusive": "0x49102e85",
+      "module": "slduiu.dll",
+      "name": "auComponent actual-owner constructor",
+      "sha256": "8e6849b7282d9f9fae213c517f9d0c790f23aa9c0624b9f99d1faea029667361",
+      "start": "0x49102da0",
+      "unwind_fragments": [
+        {
+          "bytes": 229,
+          "end_exclusive": "0x49102e85",
+          "module": "slduiu.dll",
+          "name": "auComponent actual-owner constructor fragment",
+          "sha256": "8e6849b7282d9f9fae213c517f9d0c790f23aa9c0624b9f99d1faea029667361",
+          "start": "0x49102da0",
+          "unwind_rva": "0x1b02bd4"
+        }
+      ]
+    },
+    {
+      "bytes": 87,
+      "end_exclusive": "0x491216a7",
+      "module": "slduiu.dll",
+      "name": "IComponent2 Name2 getter entry",
+      "sha256": "404258fa4cf6dca4406bb39f108daeb3b9d04c76d515d07c25ef59f9f1d7bc5e",
+      "start": "0x49121650",
+      "unwind_fragments": [
+        {
+          "bytes": 87,
+          "end_exclusive": "0x491216a7",
+          "module": "slduiu.dll",
+          "name": "IComponent2 Name2 getter entry fragment",
+          "sha256": "404258fa4cf6dca4406bb39f108daeb3b9d04c76d515d07c25ef59f9f1d7bc5e",
+          "start": "0x49121650",
+          "unwind_rva": "0x1b076ec"
+        }
+      ]
+    },
+    {
+      "bytes": 115,
+      "end_exclusive": "0x4912f353",
+      "module": "slduiu.dll",
+      "name": "IComponent2 Name2 setter entry",
+      "sha256": "6269f081fca4612566423542e4029283bd7fc74640d204ac0eaf2f09fadd5b45",
+      "start": "0x4912f2e0",
+      "unwind_fragments": [
+        {
+          "bytes": 115,
+          "end_exclusive": "0x4912f353",
+          "module": "slduiu.dll",
+          "name": "IComponent2 Name2 setter entry fragment",
+          "sha256": "6269f081fca4612566423542e4029283bd7fc74640d204ac0eaf2f09fadd5b45",
+          "start": "0x4912f2e0",
+          "unwind_rva": "0x1b07928"
+        }
+      ]
+    },
+    {
+      "bytes": 1048,
+      "end_exclusive": "0x4911a738",
+      "module": "slduiu.dll",
+      "name": "actual component name setter implementation",
+      "sha256": "ed385679fc1dc9f69606234a8a027e623128501b708680126e45bfa10f1fecd3",
+      "start": "0x4911a320",
+      "unwind_fragments": [
+        {
+          "bytes": 1048,
+          "end_exclusive": "0x4911a738",
+          "module": "slduiu.dll",
+          "name": "actual component name setter implementation fragment",
+          "sha256": "ed385679fc1dc9f69606234a8a027e623128501b708680126e45bfa10f1fecd3",
+          "start": "0x4911a320",
+          "unwind_rva": "0x1b056d4"
+        }
+      ]
+    },
+    {
+      "bytes": 433,
+      "end_exclusive": "0x491275f1",
+      "module": "slduiu.dll",
+      "name": "actual component name getter implementation",
+      "sha256": "03c7a6e852ecf80999dd0b5688b537a6ce87636cea223402c373c214893d9543",
+      "start": "0x49127440",
+      "unwind_fragments": [
+        {
+          "bytes": 433,
+          "end_exclusive": "0x491275f1",
+          "module": "slduiu.dll",
+          "name": "actual component name getter implementation fragment",
+          "sha256": "03c7a6e852ecf80999dd0b5688b537a6ce87636cea223402c373c214893d9543",
+          "start": "0x49127440",
+          "unwind_rva": "0x1b03bd4"
+        }
+      ]
+    },
+    {
+      "bytes": 354,
+      "end_exclusive": "0x3f729302",
+      "module": "sldasmu.dll",
+      "name": "native assembly bridge registration",
+      "sha256": "444d06685882eeea3aa47cc4c1dea9b6ce461d8e7537ce404c8d57225046eea9",
+      "start": "0x3f7291a0",
+      "unwind_fragments": [
+        {
+          "bytes": 354,
+          "end_exclusive": "0x3f729302",
+          "module": "sldasmu.dll",
+          "name": "native assembly bridge registration fragment",
+          "sha256": "444d06685882eeea3aa47cc4c1dea9b6ce461d8e7537ce404c8d57225046eea9",
+          "start": "0x3f7291a0",
+          "unwind_rva": "0x7e9e90"
+        }
+      ]
+    },
+    {
+      "bytes": 59,
+      "end_exclusive": "0x3f6b1cbb",
+      "module": "sldasmu.dll",
+      "name": "component property command allocation",
+      "sha256": "655c005a22f091d2776cd945008e03cd34acc4892f93da9b0adba58d41b2d761",
+      "start": "0x3f6b1c80",
+      "unwind_fragments": [
+        {
+          "bytes": 59,
+          "end_exclusive": "0x3f6b1cbb",
+          "module": "sldasmu.dll",
+          "name": "component property command allocation fragment",
+          "sha256": "655c005a22f091d2776cd945008e03cd34acc4892f93da9b0adba58d41b2d761",
+          "start": "0x3f6b1c80",
+          "unwind_rva": "0x80a7fc"
+        }
+      ]
+    },
+    {
+      "bytes": 106,
+      "end_exclusive": "0x3f6b1d2a",
+      "module": "sldasmu.dll",
+      "name": "component property request allocation",
+      "sha256": "0425cb6db3a2c76dbd110a2aafe49819d7602300e2c2f397266d1c27dca135c0",
+      "start": "0x3f6b1cc0",
+      "unwind_fragments": [
+        {
+          "bytes": 106,
+          "end_exclusive": "0x3f6b1d2a",
+          "module": "sldasmu.dll",
+          "name": "component property request allocation fragment",
+          "sha256": "0425cb6db3a2c76dbd110a2aafe49819d7602300e2c2f397266d1c27dca135c0",
+          "start": "0x3f6b1cc0",
+          "unwind_rva": "0x80a824"
+        }
+      ]
+    },
+    {
+      "bytes": 109,
+      "end_exclusive": "0x3f850e9d",
+      "module": "sldasmu.dll",
+      "name": "component property command constructor",
+      "sha256": "d26842582423a25e3508ff1eebfc3b0540148da4c978a079e59073111c539807",
+      "start": "0x3f850e30",
+      "unwind_fragments": [
+        {
+          "bytes": 109,
+          "end_exclusive": "0x3f850e9d",
+          "module": "sldasmu.dll",
+          "name": "component property command constructor fragment",
+          "sha256": "d26842582423a25e3508ff1eebfc3b0540148da4c978a079e59073111c539807",
+          "start": "0x3f850e30",
+          "unwind_rva": "0x841f48"
+        }
+      ]
+    },
+    {
+      "bytes": 260,
+      "end_exclusive": "0x3f852274",
+      "module": "sldasmu.dll",
+      "name": "component property request constructor",
+      "sha256": "87133fcf6292ae90ad297fb37dc2ddc0a49dc07d3917fda105f842f9ad11adaf",
+      "start": "0x3f852170",
+      "unwind_fragments": [
+        {
+          "bytes": 260,
+          "end_exclusive": "0x3f852274",
+          "module": "sldasmu.dll",
+          "name": "component property request constructor fragment",
+          "sha256": "87133fcf6292ae90ad297fb37dc2ddc0a49dc07d3917fda105f842f9ad11adaf",
+          "start": "0x3f852170",
+          "unwind_rva": "0x840bc8"
+        }
+      ]
+    },
+    {
+      "bytes": 12893,
+      "end_exclusive": "0x3f85a9ad",
+      "module": "sldasmu.dll",
+      "name": "component property command apply",
+      "sha256": "7933eae9f6f21abf8aefbc54d8ea021bae6050875b65c07a377fb2f289eb34aa",
+      "start": "0x3f857750",
+      "unwind_fragments": [
+        {
+          "bytes": 12893,
+          "end_exclusive": "0x3f85a9ad",
+          "module": "sldasmu.dll",
+          "name": "component property command apply fragment",
+          "sha256": "7933eae9f6f21abf8aefbc54d8ea021bae6050875b65c07a377fb2f289eb34aa",
+          "start": "0x3f857750",
+          "unwind_rva": "0x841fa0"
+        }
+      ]
+    },
+    {
+      "bytes": 221,
+      "end_exclusive": "0x4bbbbded",
+      "module": "sldmodu.dll",
+      "name": "moReference changeName wrapper",
+      "sha256": "9ac6db79fc0d46f3badba1712e74335d1e35132389e7692a9a0d03c0ff617bb8",
+      "start": "0x4bbbbd10",
+      "unwind_fragments": [
+        {
+          "bytes": 46,
+          "end_exclusive": "0x4bbbbd3e",
+          "module": "sldmodu.dll",
+          "name": "moReference changeName wrapper fragment",
+          "sha256": "c7564c50d56cb6fae58806149aebb74aa2902bb9e13f64fdfa7fbb0795d22b7a",
+          "start": "0x4bbbbd10",
+          "unwind_rva": "0x2399fd0"
+        },
+        {
+          "bytes": 135,
+          "end_exclusive": "0x4bbbbdc5",
+          "module": "sldmodu.dll",
+          "name": "moReference changeName wrapper fragment",
+          "sha256": "1f5d30bc7d5b5bf4aca93e8d51bebe82e35035aa260c99e04f17375b47965a8c",
+          "start": "0x4bbbbd3e",
+          "unwind_rva": "0x2399fe0"
+        },
+        {
+          "bytes": 22,
+          "end_exclusive": "0x4bbbbddb",
+          "module": "sldmodu.dll",
+          "name": "moReference changeName wrapper fragment",
+          "sha256": "37245c0095f8c28a7c28080af544e638ff0ac5b2000599ba766d9c650bf5556c",
+          "start": "0x4bbbbdc5",
+          "unwind_rva": "0x2399ff8"
+        },
+        {
+          "bytes": 18,
+          "end_exclusive": "0x4bbbbded",
+          "module": "sldmodu.dll",
+          "name": "moReference changeName wrapper fragment",
+          "sha256": "00888cea629224d0f1a64d35f2dd9e520f8b8967410a005550aa34c642422ef3",
+          "start": "0x4bbbbddb",
+          "unwind_rva": "0x239a00c"
+        }
+      ]
+    },
+    {
+      "bytes": 2161,
+      "end_exclusive": "0x4bbbc661",
+      "module": "sldmodu.dll",
+      "name": "moReference changeNameR numbered publication",
+      "sha256": "ca8ceb848e270a5431ccbe152993b3790f7a202555df7e0625a6ed0bd7f06a3c",
+      "start": "0x4bbbbdf0",
+      "unwind_fragments": [
+        {
+          "bytes": 2161,
+          "end_exclusive": "0x4bbbc661",
+          "module": "sldmodu.dll",
+          "name": "moReference changeNameR numbered publication fragment",
+          "sha256": "ca8ceb848e270a5431ccbe152993b3790f7a202555df7e0625a6ed0bd7f06a3c",
+          "start": "0x4bbbbdf0",
+          "unwind_rva": "0x2399edc"
+        }
+      ]
+    }
+  ],
+  "imports": [],
+  "instruction_windows": [],
+  "interface_binding": {
+    "actual_interface_vtable": "0x4a52e0a8",
+    "getter_vtable_offset": 552,
+    "guid": "{655D6F2A-5441-45D1-8CBA-D35FB26988E4}",
+    "owner_interface_offset": 144,
+    "parameter": "BSTR base-name input, preserved unchanged before ordinary request publication",
+    "public_dispid": 59,
+    "setter_entry": "0x4912f2e0",
+    "setter_implementation": "0x4911a320",
+    "setter_vtable_offset": 560
+  },
+  "limits": [
+    "source rule and one measured rejected full-name call only; corrected base-name source author/save/reopen is pending",
+    "no constructor, generation or public writer change",
+    "no ordinary current-load name cause inferred solely from the optional database owner",
+    "no heldout source access, native execution or retained analysis sessions in this source audit"
+  ],
+  "modules": [
+    {
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "name": "sldasmu.dll",
+      "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390"
+    },
+    {
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  ],
+  "native_discriminator": {
+    "accepted": false,
+    "actual_native_id": 24,
+    "after": "AuthoredAxisA-1-1",
+    "author_record_sha256": "de627bf51e636753f9d66601aeff33ac398dc222b10e5b2541075fd8a91edd0b",
+    "before": "IndependentNameCylinder-1",
+    "controls_healthy": true,
+    "distinct_processes": 3,
+    "full_name_prediction_changed": false,
+    "preference_restored": true,
+    "raw_result_sha256": "da64946316bcea15fa51d1dd3662994b8f3ca23ecff9ade283b906f3e0886800",
+    "setter_input": "AuthoredAxisA-1"
+  },
+  "oracle_build": "34.5.2.0604",
+  "owner": "assembly_occurrence",
+  "rules": [
+    {
+      "name": "ordinary setter preference",
+      "rule": "Ordinary non-DotWorks branch returns without name mutation while internal environment option 0x72 is true; public enum18 readback is measured independently, with no direct enum-number identity claim",
+      "sites": [
+        "0x4911a41d",
+        "0x4911a426",
+        "0x4911a464"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "name": "base-name request publication",
+      "rule": "Ordinary setter constructs a component-property request from the input string unchanged; bridge stores it in the actual request +0x70",
+      "sites": [
+        "0x4911a517",
+        "0x4911a52e",
+        "0x3f6b1d05",
+        "0x3f6b1d0c"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "name": "ordinary reference publication",
+      "rule": "The ordinary command calls the actual reference changeName virtual; changeNameR builds the requested base plus hyphen and a native auto-name index, retaining a greater prior decimal suffix where its ordinary branch admits it",
+      "sites": [
+        "0x3f8588f8",
+        "0x3f858902",
+        "0x4bbbbdb6",
+        "0x4bbbbe77",
+        "0x4bbbc394",
+        "0x4bbbc3ab",
+        "0x4bbbc3f7"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "name": "native overridden-name flag",
+      "rule": "After publication the command sets actual reference runtime +0x540 to one; adding its ID to the separate manager override set is DotWorks-predicate gated and is not an established ordinary requirement",
+      "sites": [
+        "0x3f858908",
+        "0x3f858915",
+        "0x3f858925",
+        "0x3f85892b",
+        "0x3f85893e"
+      ],
+      "status": "confirmed"
+    },
+    {
+      "name": "requested retry names",
+      "rule": "Pass AuthoredAxisA and AuthoredAxisB as setter bases, while still requiring original intended full names AuthoredAxisA-1 and AuthoredAxisB-2; both actual current ordinal guards must pass and native acceptance remains unmeasured",
+      "status": "partial"
+    }
+  ],
+  "schema": "kit.sw2026.component-base-name-setter-source.v1",
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "vtable_cells": [
+    {
+      "cell": "0x4a52e2d0",
+      "module": "slduiu.dll",
+      "target": "0x49121650"
+    },
+    {
+      "cell": "0x4a52e2d8",
+      "module": "slduiu.dll",
+      "target": "0x4912f2e0"
+    },
+    {
+      "cell": "0x3fc59fe0",
+      "module": "sldasmu.dll",
+      "target": "0x3f6b1c80"
+    },
+    {
+      "cell": "0x3fc59fe8",
+      "module": "sldasmu.dll",
+      "target": "0x3f6b1cc0"
+    },
+    {
+      "cell": "0x3fc98c08",
+      "module": "sldasmu.dll",
+      "target": "0x3f857750"
+    },
+    {
+      "cell": "0x4cf7c5f8",
+      "module": "sldmodu.dll",
+      "target": "0x4bbbbd10"
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "schema": "kit.sw2026.generated-coincident-mate-active-solve.v1",
+  "scope": "One generated aligned Top Plane mate with one fixed rectangular-child occurrence and one floating occurrence authored 0.00473 m off-plane.",
+  "passed": true,
+  "vendor_loadable": true,
+  "application_usable": true,
+  "heldout_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "active_placement_correction_observed": true,
+  "first_solved_observation": "after_native_open_before_first_explicit_rebuild",
+  "open_error": 0,
+  "open_warning": 0,
+  "force_rebuild_passed": true,
+  "read_only_trials": true,
+  "writer_output_count": 2,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "distinct_processes": 3,
+  "controls_healthy": true,
+  "frozen_inputs_and_working_copies_unchanged": true,
+  "raw_native_receipt_sha256": "c61470aa31a99997e6d40bbda92c809b61703d5b164ee480093a4d820abddde9",
+  "trial_packet_sha256": "11f03dd8c1445d96bf1a63ae89f230b9f5a0cfb0449dd507f65c6efe578d77da",
+  "observer_sha256": "2bbace3ada03db252ecfa6f93fe378e3051502ef9a3ce3d2df0c69d4064c3a9c",
+  "writer_revision": "8db458c1a5d2029143deaa8f011cdb80968660d8",
+  "authored_prediction_sha256": "b4e5cb007984e7e73828b1186dc6fb6bc40b0603c89f4aeea67f62a345ad1b92",
+  "generator_report_sha256": "012f706223baa617692a3e5810c4411fe96daad7da78c1b036815d45a8eccad9",
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "prior_native_receipt_sha256": "59438ac9c310e9e798ebc3e0a8390e4aeefae246bed34d54cfe89f4d40ab2e81",
+  "generated_files": {
+    "OffsetPlatePair.SLDASM": {
+      "bytes": 9219,
+      "sha256": "99061cdaf6901ea04b7455475da46c6de4e8621eedeb2e9429fed048124ae338"
+    },
+    "DatumPlate.SLDPRT": {
+      "bytes": 8656,
+      "sha256": "21431fa7032ff75b910c0e00dde5b495846a49ed6b2563bc2494554a3fd74bda"
+    }
+  },
+  "a17_control_files": {
+    "A17PlaneCoincident.SLDASM": {
+      "sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "bytes": 48227
+    },
+    "CohortChild.SLDPRT": {
+      "sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "bytes": 60059
+    }
+  },
+  "typed_input": {
+    "version": 19000,
+    "mate_id": 19,
+    "mate_pending_word": 1,
+    "mate_solve_state": 0,
+    "frames": [
+      {
+        "occurrence_id": 17,
+        "stored_translation_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "wrapper_origin_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "wrapper_normal": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "detached_frame_matches": true
+      },
+      {
+        "occurrence_id": 18,
+        "stored_translation_m": [
+          0.1074,
+          0.00473,
+          0.0123
+        ],
+        "wrapper_origin_m": [
+          0.1074,
+          0.00473,
+          0.0123
+        ],
+        "wrapper_normal": [
+          -0.0,
+          1.0,
+          0.0
+        ],
+        "detached_frame_matches": true
+      }
+    ],
+    "parent_sha256": "99061cdaf6901ea04b7455475da46c6de4e8621eedeb2e9429fed048124ae338",
+    "mate_list_sha256": "c4e4d23968a5b8147b636afdcb1f72371f559b90a2ff45f6d03c2dac6c819f32"
+  },
+  "authored_floating_offset_m": 0.00473,
+  "a17_brackets": [
+    {
+      "phase": "ControlBefore",
+      "open_error": 0,
+      "open_warning": 0,
+      "force_rebuild_passed": true,
+      "initial_child_stamp": 134,
+      "rebuilt_body_count": 2,
+      "assembly_properties": {
+        "volume": 1.6000000000000003e-05,
+        "area": 0.0056,
+        "com": [
+          0.04266905034404961,
+          0.0,
+          0.01223179846090388
+        ],
+        "mass": 0.016000000000000004
+      }
+    },
+    {
+      "phase": "ControlAfter",
+      "open_error": 0,
+      "open_warning": 0,
+      "force_rebuild_passed": true,
+      "initial_child_stamp": 134,
+      "rebuilt_body_count": 2,
+      "assembly_properties": {
+        "volume": 1.6000000000000003e-05,
+        "area": 0.0056,
+        "com": [
+          0.04266905034404961,
+          0.0,
+          0.01223179846090388
+        ],
+        "mass": 0.016000000000000004
+      }
+    }
+  ],
+  "native_phases": {
+    "initial": {
+      "pose": "solved",
+      "body_count": 2,
+      "child_stamp": 117,
+      "parent_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "child_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "parent_tree_rows": 25,
+      "child_tree_rows": 26,
+      "child_dimensions_m": {
+        "D1@Sketch1": 0.0317,
+        "D2@Sketch1": 0.0126,
+        "D1@Boss-Extrude1": 0.0089
+      },
+      "mass_properties": {
+        "child": {
+          "volume": 3.554838e-06,
+          "area": 0.00158738,
+          "com": [
+            0.01585,
+            0.0063,
+            0.00445
+          ],
+          "mass": 3.554838e-06
+        },
+        "assembly": {
+          "volume": 7.109676e-06,
+          "area": 0.00317476,
+          "com": [
+            0.06955,
+            0.0063,
+            0.0106
+          ],
+          "mass": 0.007109676
+        }
+      },
+      "occurrences": [
+        {
+          "name": "DatumPlate-1",
+          "configuration": "Default",
+          "fixed": true,
+          "child_path_matches": true,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "DatumPlate-2",
+          "configuration": "Default",
+          "fixed": false,
+          "child_path_matches": true,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1074,
+            0.0,
+            0.0123,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "mate": {
+        "name": "Coincident1",
+        "feature_type": "MateCoincident",
+        "suppressed": false,
+        "type": 0,
+        "alignment": 0,
+        "entity_count": 2,
+        "entities": [
+          {
+            "occurrence": "DatumPlate-1",
+            "reference_type": 4,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "child_path_matches": true,
+            "resolved_principal_plane": "Top Plane",
+            "reference_comparison": {
+              "returned_reference": true,
+              "feature_equality": 0,
+              "plane_equality": 1
+            }
+          },
+          {
+            "occurrence": "DatumPlate-2",
+            "reference_type": 4,
+            "point": [
+              0.1074,
+              0.0,
+              0.0123
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "child_path_matches": true,
+            "resolved_principal_plane": "Top Plane",
+            "reference_comparison": {
+              "returned_reference": true,
+              "feature_equality": 0,
+              "plane_equality": 1
+            }
+          }
+        ],
+        "api_plane_residual": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.0
+        },
+        "placement_plane_residual": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.0
+        },
+        "matches": true
+      }
+    },
+    "rebuilt": {
+      "pose": "solved",
+      "body_count": 2,
+      "child_stamp": 132,
+      "parent_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "child_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "parent_tree_rows": 25,
+      "child_tree_rows": 26,
+      "child_dimensions_m": {
+        "D1@Sketch1": 0.0317,
+        "D2@Sketch1": 0.0126,
+        "D1@Boss-Extrude1": 0.0089
+      },
+      "mass_properties": {
+        "child": {
+          "volume": 3.554838e-06,
+          "area": 0.00158738,
+          "com": [
+            0.01585,
+            0.0063,
+            0.00445
+          ],
+          "mass": 3.554838e-06
+        },
+        "assembly": {
+          "volume": 7.109676e-06,
+          "area": 0.00317476,
+          "com": [
+            0.06955,
+            0.0063,
+            0.010600000000000002
+          ],
+          "mass": 0.0071096760000000005
+        }
+      },
+      "occurrences": [
+        {
+          "name": "DatumPlate-1",
+          "configuration": "Default",
+          "fixed": true,
+          "child_path_matches": true,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "name": "DatumPlate-2",
+          "configuration": "Default",
+          "fixed": false,
+          "child_path_matches": true,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1074,
+            0.0,
+            0.0123,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      ],
+      "mate": {
+        "name": "Coincident1",
+        "feature_type": "MateCoincident",
+        "suppressed": false,
+        "type": 0,
+        "alignment": 0,
+        "entity_count": 2,
+        "entities": [
+          {
+            "occurrence": "DatumPlate-1",
+            "reference_type": 4,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "child_path_matches": true,
+            "resolved_principal_plane": "Top Plane",
+            "reference_comparison": {
+              "returned_reference": true,
+              "feature_equality": 0,
+              "plane_equality": 1
+            }
+          },
+          {
+            "occurrence": "DatumPlate-2",
+            "reference_type": 4,
+            "point": [
+              0.1074,
+              0.0,
+              0.0123
+            ],
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "child_path_matches": true,
+            "resolved_principal_plane": "Top Plane",
+            "reference_comparison": {
+              "returned_reference": true,
+              "feature_equality": 0,
+              "plane_equality": 1
+            }
+          }
+        ],
+        "api_plane_residual": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.0
+        },
+        "placement_plane_residual": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.0
+        },
+        "matches": true
+      }
+    }
+  }
+}

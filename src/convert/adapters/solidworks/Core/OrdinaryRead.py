@@ -117,7 +117,10 @@ def IsEmptyPart(Archive: SldprtArchive, Model: NativeModel) -> bool:
         return False
     (SketchValue,) = Model.sketches
     Rectangle = SketchValue.rectangle
-    if Rectangle is None or not Rectangle.IsSketchOnly:
+    if Rectangle is None:
+        if SketchValue.TypedLines is None:
+            return False
+    elif not Rectangle.IsSketchOnly:
         return False
     Partition = Archive.get(f"Contents/Config-{ConfigId}-Partition")
     return Partition is not None and IsEmptyStream(Partition)

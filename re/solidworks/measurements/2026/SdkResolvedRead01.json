@@ -1,0 +1,385 @@
+{
+  "task": "B04-SW2026-RESOLVED",
+  "owner": "/root/flag_ownership",
+  "delivery_pr": 121,
+  "scope": "normal SDK typed feature identity and one ordinary forward blind boss depth/profile supplement",
+  "parent_revision": "d87ff3975c132eaa3fd89de78f69a63de15bbbad",
+  "profile": {
+    "container_version": 4,
+    "archive_version": 19000,
+    "configuration_id": 0,
+    "multiple_operation_history_admitted": false,
+    "sketch_geometry_promoted": false,
+    "full_public_linked_graph_admitted": false,
+    "assembly_mate_codec_promoted": false,
+    "public_writer_qualified": false
+  },
+  "sources": {
+    "overlay_files": [
+      {
+        "path": "src/convert/adapters/solidworks/Core/Native.py",
+        "bytes": 179409,
+        "sha256": "2126a3d41c3381c8a23dfb28578c516e0c99fde53c80e3ded9bd87b66003caeb"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/Adapter.py",
+        "bytes": 155749,
+        "sha256": "9e91dee18aa6bec9d4e77783da0adab3501e8b9fe40ec109b72e3639b01bb099"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/HeaderActions.py",
+        "bytes": 972,
+        "sha256": "7093314da9e8fe08f6e923c9739b504dfd26df2dc68223d04ae9438d9b990c74"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/RadialValue.py",
+        "bytes": 443,
+        "sha256": "26f2ba596e20210699c9e09fa22595c2ef7e548ac044f0ed887b4019a664b0e5"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/BindExtrude.py",
+        "bytes": 1350,
+        "sha256": "7900a0571379a193fed733dc98a73b1dc59cb00386f034c0635ab4e8a7413ef5"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/BindFeature.py",
+        "bytes": 1083,
+        "sha256": "3e69382694f829ef8ae06fbf64e94749f57d8e6203449dd31ed1d93b275f9aef"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/DepthOwner.py",
+        "bytes": 492,
+        "sha256": "0c440a86b9aaf05124a45439939fa53dad0175e5cbd5eac19208c02fd16719cf"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ExtrudeOwner.py",
+        "bytes": 543,
+        "sha256": "126c4ce0ac711e86e5d683ad747875f4374261df00572987b0fcf24230714675"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/IndexFeatures.py",
+        "bytes": 1344,
+        "sha256": "280f23fc8870b209fa74b244c4893356d74bb7c66a67db752b0bd828ae3395ef"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/NativeLink.py",
+        "bytes": 469,
+        "sha256": "b41fbb314e1829dad823be4a8dc387e9365dd6fd5d9310b4758ad8474c3a3982"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/NativeNodeId.py",
+        "bytes": 420,
+        "sha256": "2a17eaf7d7174423a500ee97a79a365f1183b470b358216b7e5fd27c8546c18d"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/NativeNodeSpan.py",
+        "bytes": 853,
+        "sha256": "8d7acb14d46108a5b665990159492dea41939903214b877064ab1680c3dc8656"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/NativeRecord.py",
+        "bytes": 401,
+        "sha256": "4a34e81a3201250a9f953a9c11b9794dd0ee5968cf82ba1af741ce937d727181"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/NativeRows.py",
+        "bytes": 580,
+        "sha256": "89c06d602b42365f004d7b755dadbe5af7492e6ac4f1334dbe10ca1b553cf2ed"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ProjectTyped.py",
+        "bytes": 3026,
+        "sha256": "34d34ac71a113d7bb5c67bdd99ed08a8861819ecdd773ba0c5e824d97aab904c"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadDepthOwner.py",
+        "bytes": 2888,
+        "sha256": "f8080b3dcf3b8ca62abb8b62703775e734324ac5d468789e296b3e95103ebfa5"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadExtrude.py",
+        "bytes": 2549,
+        "sha256": "99f495d34071b8da8cd6a8fef2747440efd468312f3d7988d6bed0c903b3d911"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py",
+        "bytes": 1934,
+        "sha256": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeName.py",
+        "bytes": 826,
+        "sha256": "f796e79d854195c3756bda6e65833fb354271984d48d849fc6e712b07b209639"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReadParents.py",
+        "bytes": 1231,
+        "sha256": "1617df49a116ed71c8ae18c179a3c9c83d668e50c56027c2886ee3ec680a8562"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/ReportTyped.py",
+        "bytes": 2343,
+        "sha256": "6468cc8ff25f2648361407a3ec93b1d1964900fee802a80ceea5a22e7c38f863"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/RequireNative.py",
+        "bytes": 745,
+        "sha256": "5b4c51612c682aa66527cb908433c13e63d97e5e3cf46e2e42249cd92b732efa"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/TypedProvenance.py",
+        "bytes": 927,
+        "sha256": "261f129cd3fae7d3a498cb24dde808cfc4885cdfd2aa0bfdb592c349ce54810c"
+      },
+      {
+        "path": "src/convert/adapters/solidworks/Core/TypedResolved/WithTypedNative.py",
+        "bytes": 1457,
+        "sha256": "7f66c90a5359d941f006a9d9ad2ba6c43c1d38585a4685af55f95f7d3e5c3b3b"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Resolved/PublicReadProcess.py",
+        "bytes": 452,
+        "sha256": "33d1048c26180fe4db552be84e1f304f7b9465db07df51e1f2ee2b5a139623ea"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Resolved/RunPublicRead.py",
+        "bytes": 822,
+        "sha256": "dcbf386946cae6727c1c4865864737772a9cb43cf68476c67beaaa64f81a45f2"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Resolved/StaleKeywords.py",
+        "bytes": 1376,
+        "sha256": "2aeded187b6ed154cc576e2af30c9d44326a16a70073068b57c334cf9d1fd0f5"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Resolved/AssertTypedRead.py",
+        "bytes": 2678,
+        "sha256": "a7fa23328e9dfea4c50364252c3bbe6fe65612780a0641cab8e4f4c263202c60"
+      },
+      {
+        "path": "tests/Convert/Solidworks/Research/Resolved/PublicGraphTests.py",
+        "bytes": 2060,
+        "sha256": "91984139ea59eb577fb5badaaa3697526953d5c52df886d73fffe81c39aa3d4f"
+      }
+    ],
+    "overlay_manifest_sha256": "dfb8eb7966c3df5fcfbf8f2ac59203534fe6a0d2e48306fd9dce02e3c649c6ae",
+    "complete_source_files": 4656,
+    "complete_source_closure_sha256": "47656ac9e5368ee2e724f7f32bdccaa19e053dc590c6b0e39dd7dfe053c17b71"
+  },
+  "disclosed_check": {
+    "report_sha256": "9483a1142f4d21c01e8fdddfbfeedd477fe4860b02559ef9f2d0fce817c4440e",
+    "input_cohort_manifest_sha256": "21a55366683f87c326da583ceb56bb973f43b0808b6edc7785dc64fac123ebf1",
+    "internal_supplements_passed": 12,
+    "public_part_reads_passed": 6,
+    "public_assembly_reads_passed": 3,
+    "public_assembly_validation_failures": 3,
+    "matched_feature_identities": 210,
+    "live_depth_owners": 6,
+    "resolved_schema_union": 138,
+    "files": [
+      {
+        "file": "A17PlaneCoincident.SLDASM",
+        "source_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 9,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "CohortChild.SLDPRT",
+        "source_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 7,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "A18PlaneDistance.SLDASM",
+        "source_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 9,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "CohortChild.SLDPRT",
+        "source_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 7,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "A19PlaneParallel.SLDASM",
+        "source_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 9,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "CohortChild.SLDPRT",
+        "source_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 7,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "AlignedPlatePair.SLDASM",
+        "source_sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 2,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": false,
+        "public_exception": "CadDocumentValidationError"
+      },
+      {
+        "file": "DatumPlate.SLDPRT",
+        "source_sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 0,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "ParallelPlatePair.SLDASM",
+        "source_sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 2,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": false,
+        "public_exception": "CadDocumentValidationError"
+      },
+      {
+        "file": "DatumPlate.SLDPRT",
+        "source_sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 0,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      },
+      {
+        "file": "DistanceMateDiscovery.SLDASM",
+        "source_sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+        "typed_status": "supplemented",
+        "feature_identities": 16,
+        "retained_legacy_only_rows": 2,
+        "typed_only_rows": 0,
+        "depth_owner_count": 0,
+        "public_read": false,
+        "public_exception": "CadDocumentValidationError"
+      },
+      {
+        "file": "DistanceDatumPlate.SLDPRT",
+        "source_sha256": "6cce1a1b81935a6f3e0505bdf81908f496f010fa1a733233562af427ac200b37",
+        "typed_status": "supplemented",
+        "feature_identities": 19,
+        "retained_legacy_only_rows": 0,
+        "typed_only_rows": 0,
+        "depth_owner_count": 1,
+        "public_read": true,
+        "public_exception": null
+      }
+    ]
+  },
+  "real_process_regression": {
+    "report_sha256": "94f419b2cb937ffad14888dbe48deeca30c9d066b098604368f29ac1f45345d2",
+    "source_closure_sha256": "47656ac9e5368ee2e724f7f32bdccaa19e053dc590c6b0e39dd7dfe053c17b71",
+    "test_source_sha256": "91984139ea59eb577fb5badaaa3697526953d5c52df886d73fffe81c39aa3d4f",
+    "python": "3.11.16 (main, Sep  1 2026, 14:08:22) [Clang 22.1.3 ]",
+    "execution": "direct invocation of integration case from the frozen worktree",
+    "passed": true,
+    "verified": [
+      "neutral pair writer produced bytes without runtime input reads",
+      "fresh SDK process consumed ordinary typed part",
+      "stale keyword name, depth and dependency retained typed owner",
+      "unadmitted configuration tail rejected typed projection"
+    ],
+    "artifacts": {
+      "pair/ConfigurationWithTail.SLDPRT": "748ef6dfe4624c9e6fd4bd15e2c08bbea9619cab2939f94af74c1f09f66c77c3",
+      "pair/GeneratedChildFile.SLDPRT": "1da25454db660a17db476889094a0b90650d858101e8eec32aa209b592406b89",
+      "pair/ProjectedPlaneMate.SLDASM": "d0191576c99e113616f6bbc45b58d9ad1f4ae21d1a38c1dc42e042ef68df6c86",
+      "pair/StaleKeywordChild.SLDPRT": "3c4ba1abc60a36def6bcf2e86cf1f9c438366d5068fefb604e198f78a58472f6"
+    },
+    "fresh_public_sdk_processes": 3,
+    "pytest_suite_claimed": false
+  },
+  "exact_parent_assembly_comparison": {
+    "report_sha256": "21e978a9fe76988162f8f28c10403fef81d6de59042c99718f4b78eac846e7e2",
+    "parent_revision": "d87ff3975c132eaa3fd89de78f69a63de15bbbad",
+    "source_archive_sha256": "aaaac1a4a9818f486896cc7b408fb444f60c7220b780abc5282e86898e8f26ed",
+    "same_six_outcomes_and_error_texts": true,
+    "failed_assembly_acceptance": false
+  },
+  "worker_verification": {
+    "tests_codecs_or_schemas_executed": false,
+    "vm_or_native_application_access": false,
+    "static_checks": {
+      "black": {
+        "exit_code": 0,
+        "report_sha256": "45f992ba6f8e7219b842f9a46e23de1104f15f0a5ca7cc2c8bab6154257e3d17"
+      },
+      "ruff": {
+        "exit_code": 0,
+        "report_sha256": "dd7f3ab7889aacdaf4c4cff6c62479fb04c1aee4d6f46544cec21439c47f7d66"
+      },
+      "mypy": {
+        "exit_code": 0,
+        "report_sha256": "775c196c16e0c3a5436d82c6b295c6ae0424328d618b3708da6ecabb738c0acf"
+      },
+      "pyright": {
+        "exit_code": 0,
+        "report_sha256": "2fd0a57dd93a5c10a3f3fbbf8dd56aa9876f23daa8ce042503320924112f7de9"
+      },
+      "steering": {
+        "exit_code": 0,
+        "report_sha256": "e5cdd5ef150745a24eebe233bbf7dd1989c3f4044890116feb279a9a25495741"
+      },
+      "donors": {
+        "exit_code": 0,
+        "report_sha256": "4fbc122eb3d348b1b0289e09d7285f3e2cb5e3b502e5aa82550a0563135429c8"
+      }
+    }
+  },
+  "acceptance": {
+    "native_application_runs": 0,
+    "held_out_inputs_opened": 0,
+    "native_writer_acceptance_transferred": false,
+    "complete_cad_criteria": false
+  },
+  "limits": [
+    "complete semantic feature tree and body topology remain open",
+    "sketch geometry remains on its existing reader path",
+    "generated public assemblies still fail their original mate validation",
+    "held-out and native conversion acceptance are not established"
+  ]
+}

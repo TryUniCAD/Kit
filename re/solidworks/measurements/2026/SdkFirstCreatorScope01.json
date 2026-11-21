@@ -1,0 +1,1095 @@
+{
+  "base_revision": "f7e0266527dfcb0e37e47056b6b04b47f57beed6",
+  "binary_files_published": 0,
+  "bound_helper_sha256": {
+    "MeasureWarmNestedLeaf.py": "234bf42ea19712bc4f2ac978d98442aed4f52356f394cffd4ee1661a3aa94bfd",
+    "TraceSavedEndWords.py": "f3509bd3e62783445c29d65b9cc017f67b8d878ac7ae3546ef46bb943bb4d277",
+    "WarmLeafBoundary.py": "415a0bbddf0029d235f21b5fe0e5a4cc7f2a053d0b9d5db53a442a3344654df2"
+  },
+  "cases": {
+    "RotorPlate": {
+      "cold_composition": {
+        "binary_files_published": 0,
+        "construction_runtime_reads": 0,
+        "control_sha256": "24034f1d2fe7e7ed051fa63c5a5539c8dd284965215e8b7deaf03d32785aed84",
+        "control_stream_sha256": {
+          "Contents/CMgr": "5e6f6a9685d627a0aff1d314137d16c89b1bfbacd737b2ffb1615bf92a4701fc",
+          "Contents/CMgrHdr2": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3",
+          "Contents/Config-0": "ba35cd3e3cf23338d09e6c1bb55e5c94300b2fee9f99decb5512e698b14298ed",
+          "Contents/Config-0-ModelHeader": "d5238174a0c0716060d09035ab76ce52598b865cc58a9bbfa995cfb2cabf4b8c",
+          "Contents/Config-0-ResolvedFeatures": "451aa3119297433df415eaa6dbc5217644671dbefd8a48e9401ba420f091b8a1",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "32e79217728ec8175bce598acb29e6f1c67523c64037df9e3167fc216ffee732",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164",
+          "swXmlContents/KeyWords": "2418d9677a7cb22fb3f00b2a634679717d7ecfd0b455ab87f9e798be74ca5d05"
+        },
+        "epoch": 1795300000,
+        "exact_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "input_locator": "C:\\KitWarmFirstCreatorScope\\RotorPlate.SLDPRT",
+        "neutral_request_sha256": "b6ee69187ce080878de35e62a701c61d30fd65c453b90bf4e3e218f130fbdf1b",
+        "ordinary_strict_geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              11.73
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            5.865
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            11.73
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 3007.6000000000004,
+          "vertex_count": 8,
+          "volume_mm3": 9384.0
+        },
+        "ordinary_strict_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 11.73
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              11.73
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "create"
+        },
+        "scope_i32_offset": 10524,
+        "scope_only_stream": "Contents/Config-0-ResolvedFeatures",
+        "scope_word": [
+          0,
+          1
+        ],
+        "selected_default_strict_refusal": {
+          "diagnostic": "SLDPRT contains no readable Parasolid payload",
+          "error": "SldprtFormat"
+        },
+        "selected_metadata_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 11.73
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              11.73
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "join"
+        },
+        "selected_resolved_sha256": "a27ac55725ae4b73396abd86c21e41ac10dc0a30892f4dd63247c075a158b990",
+        "selected_sha256": "a6a48b5696f5ffb555ae79745d550c97bd22ecd1d53fee499b78354a52e7716e",
+        "selected_typed_geometry_refusal": {
+          "diagnostic": "cache free prism has atom attachment or modifier flags",
+          "error": "ValueError"
+        },
+        "shared_owner_graph": {
+          "atom_count": 0,
+          "depth": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 22,
+            "dimension_index": 197,
+            "display_index": 193,
+            "end": 11411,
+            "field_span": false,
+            "handle_index": 195,
+            "object_index": 198,
+            "offset": 11368,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "depth_m": 0.01173,
+          "feature": {
+            "class": "moExtrusion_c",
+            "end": 17289,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 10296,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "profile": {
+            "class": "moProfileFeature_c",
+            "end": 10296,
+            "field_span": false,
+            "object_index": 147,
+            "offset": 5086,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "selected_wrappers": 0,
+          "system_feature_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21
+          ]
+        }
+      },
+      "original_sha256": "a45911685ed326a97138f5e53d07de922af0d2ac228df253028d7730e42e6206",
+      "stored_existing_body_policy": {
+        "first_existing_body_scope": "selected",
+        "prior_body_ids": []
+      }
+    },
+    "SinglePlate": {
+      "cold_composition": {
+        "binary_files_published": 0,
+        "construction_runtime_reads": 0,
+        "control_sha256": "7ec852a2142a4db16b818d6feef0b2b2308c2af04de1b28cb030d20045562c28",
+        "control_stream_sha256": {
+          "Contents/CMgr": "5e6f6a9685d627a0aff1d314137d16c89b1bfbacd737b2ffb1615bf92a4701fc",
+          "Contents/CMgrHdr2": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3",
+          "Contents/Config-0": "8d70aaa7363f81cfd9023e6ca797aabb7437c0415f6f9ffdef77999a973878b2",
+          "Contents/Config-0-ModelHeader": "72fca1f1b55bcbebd0ae914c9a76776620a9aa693d116336297b13604026943d",
+          "Contents/Config-0-ResolvedFeatures": "37a8d258e2d21f874e612e9ebc506754f3975fb03506bf0a63d7a5daa220a4c7",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "f029ba0f616fa51e311f395511ad2353be8ce485f5f20794fef9957fae1a7329",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164",
+          "swXmlContents/KeyWords": "60bf6d91407836fde9cc1d495f027d6b7667500ee16b61c1eb97451051726bb7"
+        },
+        "epoch": 1795300000,
+        "exact_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "input_locator": "C:\\KitWarmFirstCreatorScope\\SinglePlate.SLDPRT",
+        "neutral_request_sha256": "5f39d2f0b2b6b2bf7c841d26356fbe5a41d30b2336e1e90a26ed5dbd2baacb06",
+        "ordinary_strict_geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              8.370000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            4.1850000000000005
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            8.370000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 2604.4,
+          "vertex_count": 8,
+          "volume_mm3": 6696.000000000002
+        },
+        "ordinary_strict_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 8.370000000000001
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              8.370000000000001
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "create"
+        },
+        "scope_i32_offset": 10524,
+        "scope_only_stream": "Contents/Config-0-ResolvedFeatures",
+        "scope_word": [
+          0,
+          1
+        ],
+        "selected_default_strict_refusal": {
+          "diagnostic": "SLDPRT contains no readable Parasolid payload",
+          "error": "SldprtFormat"
+        },
+        "selected_metadata_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 8.370000000000001
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              8.370000000000001
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "join"
+        },
+        "selected_resolved_sha256": "e15941da0e6afbe9b7e399679ac51ead93474e1d3f594be61230819f99977216",
+        "selected_sha256": "a6bf929cccf7bf33642e41e8078faaed378dcba9d9b49e23667e092d5a47ad35",
+        "selected_typed_geometry_refusal": {
+          "diagnostic": "cache free prism has atom attachment or modifier flags",
+          "error": "ValueError"
+        },
+        "shared_owner_graph": {
+          "atom_count": 0,
+          "depth": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 22,
+            "dimension_index": 197,
+            "display_index": 193,
+            "end": 11411,
+            "field_span": false,
+            "handle_index": 195,
+            "object_index": 198,
+            "offset": 11368,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "depth_m": 0.00837,
+          "feature": {
+            "class": "moExtrusion_c",
+            "end": 17289,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 10296,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "profile": {
+            "class": "moProfileFeature_c",
+            "end": 10296,
+            "field_span": false,
+            "object_index": 147,
+            "offset": 5086,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "selected_wrappers": 0,
+          "system_feature_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21
+          ]
+        }
+      },
+      "original_sha256": "afa4a7440b791ee90560e6fb0482994286c8de3a0bb66558a3259f00ee8ffa5e",
+      "stored_existing_body_policy": {
+        "first_existing_body_scope": "selected",
+        "prior_body_ids": []
+      }
+    },
+    "TailPlate": {
+      "cold_composition": {
+        "binary_files_published": 0,
+        "construction_runtime_reads": 0,
+        "control_sha256": "a44b264f1a2603e81275bdb5c0dcd7c4cc05f790a810edd831f95f74f15ee3ec",
+        "control_stream_sha256": {
+          "Contents/CMgr": "5e6f6a9685d627a0aff1d314137d16c89b1bfbacd737b2ffb1615bf92a4701fc",
+          "Contents/CMgrHdr2": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3",
+          "Contents/Config-0": "5217e0701a94236db9a5b8f146bce1a093563fa05cba0bf97c534a32142eb9bf",
+          "Contents/Config-0-ModelHeader": "6aabe640f1b20dfd91b28a8cba9a704c33ea3ce6f94b7714eb2c0970685233f6",
+          "Contents/Config-0-ResolvedFeatures": "1badcdfd92c1190012b007e82b1a4284a9b4cbfbbbdb3fe35c938118d68a1854",
+          "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "Header2": "0d2918e46269b35550771dc43685d314be45b425ccf4bcf9a9ca5c93315ab267",
+          "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "_MO_VERSION_19000/History": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164",
+          "swXmlContents/KeyWords": "f30c935e5f6b7341b028ddd7fb2af5741051efe31bac14ea70c0fde696d206c9"
+        },
+        "epoch": 1795300000,
+        "exact_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "input_locator": "C:\\KitWarmFirstCreatorScope\\TailPlate.SLDPRT",
+        "neutral_request_sha256": "f13947dcb02c14643c2c34185807f445fe85ebc9aae6a247d6eb3b06ceea5fac",
+        "ordinary_strict_geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              5.890000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            2.9450000000000003
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            5.890000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 2306.8,
+          "vertex_count": 8,
+          "volume_mm3": 4712.0
+        },
+        "ordinary_strict_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 5.890000000000001
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              5.890000000000001
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "create"
+        },
+        "scope_i32_offset": 10524,
+        "scope_only_stream": "Contents/Config-0-ResolvedFeatures",
+        "scope_word": [
+          0,
+          1
+        ],
+        "selected_default_strict_refusal": {
+          "diagnostic": "SLDPRT contains no readable Parasolid payload",
+          "error": "SldprtFormat"
+        },
+        "selected_metadata_history": {
+          "constraints": 6,
+          "definition": {
+            "$type": "ExtrusionFeature",
+            "direction": null,
+            "draft_angle": null,
+            "end_condition": {
+              "$enum": "ExtrusionEndCondition",
+              "value": "blind"
+            },
+            "length": {
+              "$type": "ParameterValue",
+              "kind": {
+                "$enum": "ValueKind",
+                "value": "length"
+              },
+              "unit": "mm",
+              "value": 5.890000000000001
+            },
+            "offset": null,
+            "reversed": false,
+            "second_draft_angle": null,
+            "second_end_condition": null,
+            "second_length": null,
+            "second_offset": null,
+            "second_up_to_reference": "",
+            "symmetric": false,
+            "up_to_reference": ""
+          },
+          "editable_parameters": [
+            [
+              "D1",
+              "driving",
+              40.0
+            ],
+            [
+              "D2",
+              "driving",
+              20.0
+            ],
+            [
+              "D1",
+              "driving",
+              5.890000000000001
+            ]
+          ],
+          "feature_name": "Boss-Extrude1",
+          "operation": "join"
+        },
+        "selected_resolved_sha256": "6f0b8ee4b526565157a0b0d15a40c7aea9a7b0a61bede9b9c87635c292ac9517",
+        "selected_sha256": "f72e61b82e10f43000c313265423ecc26eef66aef82feafb2c19278e0ca10e38",
+        "selected_typed_geometry_refusal": {
+          "diagnostic": "cache free prism has atom attachment or modifier flags",
+          "error": "ValueError"
+        },
+        "shared_owner_graph": {
+          "atom_count": 0,
+          "depth": {
+            "class": "moLengthParameter_c",
+            "dimension_id": 22,
+            "dimension_index": 197,
+            "display_index": 193,
+            "end": 11411,
+            "field_span": false,
+            "handle_index": 195,
+            "object_index": 198,
+            "offset": 11368,
+            "slot": "f818.f18",
+            "stream": "Contents/Config-0-ResolvedFeatures",
+            "value_field": "f58"
+          },
+          "depth_m": 0.00589,
+          "feature": {
+            "class": "moExtrusion_c",
+            "end": 17289,
+            "field_span": false,
+            "object_index": 189,
+            "offset": 10296,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "profile": {
+            "class": "moProfileFeature_c",
+            "end": 10296,
+            "field_span": false,
+            "object_index": 147,
+            "offset": 5086,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "selected_wrappers": 0,
+          "system_feature_ids": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            21
+          ]
+        }
+      },
+      "original_sha256": "332d072b69598bbdd9de29631046d5e700f1c17b417a598062f3cb48bb4501c9",
+      "stored_existing_body_policy": {
+        "first_existing_body_scope": "selected",
+        "prior_body_ids": []
+      }
+    }
+  },
+  "guarded_no_read_composers": 3,
+  "guarded_source_workers": 3,
+  "native_processes_started": 0,
+  "native_static": {
+    "automatic_wrapper_requires_existing_targets": true,
+    "bootstrap_selected_list": "absent from fresh first-creator construction",
+    "build": "SOLIDWORKS 2026 SP05.2 (34.5.2.0604)",
+    "editor": {
+      "bytes": 36036696,
+      "file": "slduiu.dll",
+      "image_base": "0x48ea0000",
+      "ranges": {
+        "extrusion_dialog_application": {
+          "end_exclusive": "0x493e638a",
+          "sha256": "f4e5053b4a3f8c4edefae0b7dd8c62cb70e42ec2cf8c37cbd545cf71d594e244",
+          "start": "0x493e5a80",
+          "unwind_range": true
+        }
+      },
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    "model": {
+      "bytes": 46536280,
+      "file": "sldmodu.dll",
+      "image_base": "0x4b140000",
+      "ranges": {
+        "archive_factory": {
+          "end_exclusive": "0x4bb0236e",
+          "sha256": "03fa565d056cdfe66f9395806e895aa762fbdb7079d8764d54dfe17eb06346f1",
+          "start": "0x4bb02340",
+          "unwind_range": true
+        },
+        "atom_feature_constructor": {
+          "end_exclusive": "0x4b6ff172",
+          "sha256": "13720513c2bfc857d0ef3a0626935d5f7ca994dc81a0c54165ba374f8dc81d87",
+          "start": "0x4b6feec0",
+          "unwind_range": true
+        },
+        "atom_feature_serializer": {
+          "end_exclusive": "0x4bb0cd82",
+          "sha256": "73fc5118ed366b226491bdfd3b064c5c1a8bff8f74456bdcce47449cc24b41c3",
+          "start": "0x4bb0b0c0",
+          "unwind_range": true
+        },
+        "body_feature_constructor": {
+          "end_exclusive": "0x4b76f07a",
+          "sha256": "e6cc9ffbf8957a07bbd70258ae87499fe833083661a0e99a6d9aabbb91a847e1",
+          "start": "0x4b76ef40",
+          "unwind_range": true
+        },
+        "body_feature_serializer": {
+          "end_exclusive": "0x4bb0d53d",
+          "sha256": "7e931ccc1f9c48d5b8f5b4de5c8211551e7f6af6417f26bf1c130739ec5c3085",
+          "start": "0x4bb0d460",
+          "unwind_range": true
+        },
+        "extrusion_factory_constructor": {
+          "end_exclusive": "0x4bad3aa2",
+          "sha256": "bde2cdddf980f665bafa1b59bc673421d7fafb44e8a6989afc28f4d61a1155c4",
+          "start": "0x4bad3a20",
+          "unwind_range": true
+        },
+        "merge_and_output": {
+          "end_exclusive": "0x4b710cd7",
+          "sha256": "bc1063f80e2b3fadb964d6b45975759a1e91112e3818aa177c01558043d2704c",
+          "start": "0x4b70c7c0",
+          "unwind_range": true
+        },
+        "moAtomFeature_c.setAutoSelect": {
+          "end_exclusive": "0x4b291067",
+          "sha256": "27837c7a2a64883433b8313d28ea9b0366681c1527d5230cc706a17e101cfbd4",
+          "start": "0x4b291060",
+          "unwind_range": false
+        },
+        "moAtomFeature_c.setFeatureScope": {
+          "end_exclusive": "0x4b2924f7",
+          "sha256": "5ccfffec9c703dee68e43f6a86de826a1f7585eab6d8d907eddba5966fa6ba7a",
+          "start": "0x4b2924f0",
+          "unwind_range": false
+        },
+        "ordinary_boss_serializer": {
+          "end_exclusive": "0x4bb11888",
+          "sha256": "c5a878eddfee6d1a099f896cb01229c738f9dca684a60d8428ab115ef171d2ef",
+          "start": "0x4bb11640",
+          "unwind_range": true
+        },
+        "ordinary_rebuild": {
+          "end_exclusive": "0x4bad69aa",
+          "sha256": "5fb7eb1b08d94a9019efc9c1d0805d64da07d414f800f0274d5de9f815fb5786",
+          "start": "0x4bad58d0",
+          "unwind_range": true
+        },
+        "ordinary_selection": {
+          "end_exclusive": "0x4b707317",
+          "sha256": "2781cb199fe88a53351db50ca3219048c4d47a3ffa74888e58314181be67f4a4",
+          "start": "0x4b706f00",
+          "unwind_range": true
+        },
+        "ordinary_zero_predicate": {
+          "end_exclusive": "0x4b27cbe3",
+          "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+          "start": "0x4b27cbe0",
+          "unwind_range": false
+        },
+        "profile_base_constructor": {
+          "end_exclusive": "0x4c5a89ce",
+          "sha256": "f58a2e5cda0f3f894e61da529afa3585504097fc39e12bb8a06ffcb5bef74ac8",
+          "start": "0x4c5a8980",
+          "unwind_range": true
+        }
+      },
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "native_processes_started": 0,
+    "no_target_non_cut_geometry": [
+      "0x4b70ce95",
+      "0x4b70cea6",
+      "0x4b70cf2c",
+      "0x4b70d03f",
+      "0x4b70d07c"
+    ],
+    "runtime_auto_select": {
+      "constructor_default": 0,
+      "direct_archive_member": false,
+      "owner": "moAtomFeature_c+0x558"
+    },
+    "stored_policy": {
+      "all_existing_bodies": 0,
+      "owner": "moAtomFeature_c.f544",
+      "selected_existing_bodies": 1
+    },
+    "vendor_instruction_listings_retained": false
+  },
+  "negative": {
+    "extra_body": {
+      "diagnostic": "first-creator scope requires a single fresh neutral rectangle",
+      "error": "ValueError"
+    },
+    "operation_join": {
+      "diagnostic": "scope belongs to the actual first solid producer",
+      "error": "ValueError"
+    },
+    "runtime_auto_option": {
+      "diagnostic": "first-creator scope requires only its existing-body mode",
+      "error": "ValueError"
+    },
+    "selected_output_itself": {
+      "diagnostic": "standalone first creator cannot select an existing body",
+      "error": "ValueError"
+    }
+  },
+  "new_oracle_acceptance": false,
+  "original_source_transfer_complete": false,
+  "prior_receipt_sha256": {
+    "saved_end": "f96930c3a407dbb01aaa6fe6d337b545b55732f0101f63e63a4ad94caf90f4ed",
+    "warm": "350155bb14aa5db60ae2910837b5affbdda51186a86e932b0d96bdbb477a1ae4"
+  },
+  "protected_sources_opened": 0,
+  "schema": "kit.sw2026.standalone-first-creator-scope-proof.v1",
+  "source_tree": "c56041deca7810851b85dca00e27a266eabf5cf2",
+  "tool_runtime": {
+    "capstone": "5.0.9",
+    "pefile": "2024.8.26",
+    "python": "3.14.7"
+  },
+  "tool_sha256": {
+    "MeasureFirstCreatorScope.py": "3b26972fb36c9741b3e34a1cda06a73a5760cbd46e265d18ac456a5a2a69d19a",
+    "TraceFirstCreatorScope.py": "4e036731cb04f01753d48e7e34e30640a96be0c74a6f71f61852e9da4d062705"
+  }
+}

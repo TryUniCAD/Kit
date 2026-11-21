@@ -1,0 +1,77 @@
+{
+  "disclosed_observations": [
+    {
+      "bytes": 2479,
+      "name": "GeneratedFirstDirtyDirtyStore02.json",
+      "sha256": "8f67d69fab10efade2954f2859d57c81f22950d3bf11033ac83842300b847daf"
+    },
+    {
+      "bytes": 3010,
+      "name": "GeneratedFirstDirtyEnvironmentInsertion01.json",
+      "sha256": "b830931e6b268d6e220864401d032738bf3dca2c6dbd5fdcfd0e08f6541139ff"
+    }
+  ],
+  "implementation": {
+    "public_admission": false,
+    "suppression_fix": false,
+    "writer_changes": false
+  },
+  "independent_static_scope": {
+    "complete_functions": 15,
+    "conditional_deeper_frames_not_observed": true,
+    "data_windows": 5,
+    "decoded_instruction_windows": 7,
+    "imports": 5,
+    "modules": 3,
+    "three_observed_return_addresses": true,
+    "virtual_cells": 7
+  },
+  "measured": {
+    "actual_outer_postload_caller_measured": false,
+    "child_class": "moAmbientLight_c",
+    "child_id": 27,
+    "folder_id": 9,
+    "part_mask1_transition": [
+      0,
+      1
+    ],
+    "public_body_count_before_rebuild": 0,
+    "state": 11,
+    "warning": 32
+  },
+  "qualification": {
+    "application_usable": false,
+    "constructor_proposal_pending_separately": true,
+    "native_acceptance": false,
+    "ordinary_default_light_parity": false
+  },
+  "record": "re/solidworks/records/PartEnvironmentDirtyPropagation2026.json",
+  "schema": "part-environment-dirty-source-receipt-v1",
+  "static_replay": {
+    "acceptance": false,
+    "cad_execution": false,
+    "complete_functions": 15,
+    "data_windows": 5,
+    "imports": 5,
+    "instruction_windows": 7,
+    "modules": 3,
+    "native_execution": false,
+    "record_sha256": "e79cc366e25bcf27d11cdfc98bd359aa81a345da2cc0d723a4b5aee1930571cc",
+    "schema_or_codec_execution": false,
+    "tests": false,
+    "verified": true,
+    "verifier_sha256": "8580bf461e0d2c146f5b93414b991c1d466d9f77a6acc36c08f12cbcbb318fa9",
+    "vtable_cells": 7
+  },
+  "static_replay_report_sha256": "f2b1dff2b7580b156bd73ff27b3fdde766e8bf8be047e2a686862ec85f560ad5",
+  "task": "B04-SW2026-PART-COLD-ADMISSION",
+  "worker_execution": {
+    "cad": false,
+    "codec_or_schema": false,
+    "heldout_inputs": 0,
+    "original_pe_metadata_replay": true,
+    "tests": false,
+    "vendor_functions": false,
+    "vm": false
+  }
+}

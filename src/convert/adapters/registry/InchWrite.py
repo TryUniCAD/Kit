@@ -1,4 +1,4 @@
-from convert.adapters.solidworks.Core.Inch.BindInch import KUnresolvedInchDimension
+from convert.adapters.base.NativeEvidence import KUnresolvedInchDimension
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 

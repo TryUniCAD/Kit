@@ -1,0 +1,140 @@
+{
+  "schema": "kit.sw2026.generated-revolve-regeneration-diagnostic.v1",
+  "scope": "Three independently generated ordinary boss revolves with all nine modeled streams checked per part.",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generator_head": "fc159fb6fd4f03396a0cdf0f15bf15cc7dd4bb50",
+  "exact_source_file_count": 3530,
+  "exact_source_verification_sha256": "aa75846771ff9e62021b405a2ab9ff17f8771b85781d7930bbb528a9f549f3bc",
+  "generated_cases": [
+    {
+      "name": "KitRevolveForward",
+      "sha256": "bc67724748b21faf07df507e0a82d0c719b15506ae892aba237928384e804b25",
+      "byte_count": 8026,
+      "stream_count": 9,
+      "denied_reads": 0
+    },
+    {
+      "name": "KitRevolveFull",
+      "sha256": "e834c6e4c564711dafb8da8eef08aaa084d5bb5c98f7cd254c380d21c0866cef",
+      "byte_count": 8008,
+      "stream_count": 9,
+      "denied_reads": 0
+    },
+    {
+      "name": "KitRevolveReverse",
+      "sha256": "01733f71b47f42670f0cb652a4b41ffd0925cbd42c9234ead46e18869b0d1632",
+      "byte_count": 8033,
+      "stream_count": 9,
+      "denied_reads": 0
+    }
+  ],
+  "first_probe": {
+    "source_revision": "fc159fb6fd4f03396a0cdf0f15bf15cc7dd4bb50",
+    "private_report_sha256": "4552b718153066c1af67249fe463bb37e9ecb74a667369741c81de6c1b95e49d",
+    "job_sha256": "438f890eb4d89c58b66db366fa33716e323f045cb0245c7846b972cb4594dc57",
+    "controls_healthy": true,
+    "distinct_processes": 5
+  },
+  "diagnostic_probe": {
+    "source_revision": "968ec51210a1213c0ada8f2794c8b88fdeffee92",
+    "private_report_sha256": "81371f9768e9f40ff6b1f60b779f26fb8cabf311769ba10c0f7afa3d5371bc84",
+    "job_sha256": "ea873cdb93b6b6ed522e6240a61d3d2a83eb3a8252a9689f3173e06bfa88ae66",
+    "inspector_sha256": "402d5923d935be184d57d658d773ccfadc5284b297974b7082f67acb3ce4f9de",
+    "transport_sha256": "37e686a7de8945440d4af329a760525e41b60a318da6c9480facda034826c20d",
+    "controls_healthy": true,
+    "distinct_processes": 5
+  },
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "solidworks_processes_after": [],
+  "cases": [
+    {
+      "open_status": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 32
+      },
+      "before_explicit_rebuild": {
+        "needs_rebuild": 0,
+        "whats_wrong": 1,
+        "save_flag": true,
+        "bodies": 0
+      },
+      "source_sha256": "e834c6e4c564711dafb8da8eef08aaa084d5bb5c98f7cd254c380d21c0866cef",
+      "phase_sha256": "dce21f53a60b81ad4c2dd5d2e2cf7af6f37f195210868d2d66f4bbea308972c7",
+      "generator_receipt_sha256": "cab94025f5e70dce13181a242071c1d5927b6359c669ace4571176c45ea7e348",
+      "geometry_and_edit_passed": false,
+      "first_failure": {
+        "stage": "ForceRebuild3",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('revolve rebuild failed')",
+        "pending_capability": false
+      },
+      "name": "KitRevolveFull"
+    },
+    {
+      "open_status": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 32
+      },
+      "before_explicit_rebuild": {
+        "needs_rebuild": 0,
+        "whats_wrong": 1,
+        "save_flag": true,
+        "bodies": 0
+      },
+      "source_sha256": "bc67724748b21faf07df507e0a82d0c719b15506ae892aba237928384e804b25",
+      "phase_sha256": "abbf8bafd37f44de507c763475e74899f2438ec2a6cf87cb5ceac83b529c9724",
+      "generator_receipt_sha256": "3e41ae58020cd0f3dd11b1d8e2431d8bcc46980b6e467b6678a49e83e671c657",
+      "geometry_and_edit_passed": false,
+      "first_failure": {
+        "stage": "ForceRebuild3",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('revolve rebuild failed')",
+        "pending_capability": false
+      },
+      "name": "KitRevolveForward"
+    },
+    {
+      "open_status": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 32
+      },
+      "before_explicit_rebuild": {
+        "needs_rebuild": 0,
+        "whats_wrong": 1,
+        "save_flag": true,
+        "bodies": 0
+      },
+      "source_sha256": "01733f71b47f42670f0cb652a4b41ffd0925cbd42c9234ead46e18869b0d1632",
+      "phase_sha256": "42d445a9a527ef08f7fe4b70228696e96f0beee8c5b0714702fe55e7888dbbf2",
+      "generator_receipt_sha256": "5536e26fc11b7dbb78fbfd2bbdf1739da18f7d96d0c856bab0a67a4a0a0e048f",
+      "geometry_and_edit_passed": false,
+      "first_failure": {
+        "stage": "ForceRebuild3",
+        "type": "EvidenceFailure",
+        "error": "EvidenceFailure('revolve rebuild failed')",
+        "pending_capability": false
+      },
+      "name": "KitRevolveReverse"
+    }
+  ],
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "accepted_production_parts": 0
+}

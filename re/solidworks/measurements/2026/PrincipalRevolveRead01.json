@@ -1,0 +1,1014 @@
+{
+  "authored_cold": {
+    "x-0-1": {
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "public_refusal": "SOLIDWORKS principal plane reference frame disagrees",
+      "refused": "boss support must be a canonical principal frame at origin",
+      "sha256": "f6621ae36e81e01ffb6382cf6d466e12cdf4ce73ea5da37841c9e8818c64b798"
+    },
+    "x-1-0": {
+      "area_mm2": 2347.4107209964322,
+      "bounds_mm": [
+        [
+          0.0,
+          -8.75,
+          -22.625
+        ],
+        [
+          18.289328457793054,
+          24.5,
+          -5.327323154517105
+        ]
+      ],
+      "bytes": 7997,
+      "forged_public_support_refused": "ordinary revolve public support differs from its actual datum",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "projection": {
+        "axis": "sldprt:sketch:18:line:5",
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "driver": "sldprt:parameter:19:D1",
+        "feature": "sldprt:feature:19",
+        "local_mm": [
+          [
+            3.5,
+            -14.625
+          ],
+          [
+            3.5,
+            31.0
+          ]
+        ],
+        "plane": "sldprt:plane:16",
+        "radians": 1.2740903539558606,
+        "world_mm": [
+          [
+            0.0,
+            -14.625,
+            -3.5
+          ],
+          [
+            0.0,
+            31.0,
+            -3.5
+          ]
+        ]
+      },
+      "sha256": "1a55827ff53acecbc66c75f890676aff9e16ab9433c830af13bd749f4943a61b",
+      "volume_mm3": 6920.144615321857
+    },
+    "y-0-0": {
+      "area_mm2": 2347.4107209964322,
+      "bounds_mm": [
+        [
+          5.327323154517105,
+          -18.289328457793054,
+          -24.5
+        ],
+        [
+          22.625,
+          0.0,
+          8.75
+        ]
+      ],
+      "bytes": 8014,
+      "forged_public_support_refused": "ordinary revolve public support differs from its actual datum",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "projection": {
+        "axis": "sldprt:sketch:18:line:5",
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "driver": "sldprt:parameter:19:D1",
+        "feature": "sldprt:feature:19",
+        "local_mm": [
+          [
+            3.5,
+            -14.625
+          ],
+          [
+            3.5,
+            31.0
+          ]
+        ],
+        "plane": "sldprt:plane:15",
+        "radians": 1.2740903539558606,
+        "world_mm": [
+          [
+            3.5,
+            0.0,
+            14.625
+          ],
+          [
+            3.5,
+            0.0,
+            -31.0
+          ]
+        ]
+      },
+      "sha256": "54abb55cb1ac12461943aa698bbd3b964124c67618f88857992d3af3b8706a54",
+      "volume_mm3": 6920.144615321857
+    },
+    "y-0-1": {
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "public_refusal": "SOLIDWORKS principal plane reference frame disagrees",
+      "refused": "boss support must be a canonical principal frame at origin",
+      "sha256": "a38cbe66acd7e293fefaf508bce145b4c0c1db43f1ba81eb12852921f48342c7"
+    },
+    "y-1-0": {
+      "area_mm2": 2347.4107209964322,
+      "bounds_mm": [
+        [
+          5.327323154517105,
+          0.0,
+          -24.5
+        ],
+        [
+          22.625,
+          18.289328457793054,
+          8.75
+        ]
+      ],
+      "bytes": 7999,
+      "forged_public_support_refused": "ordinary revolve public support differs from its actual datum",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "projection": {
+        "axis": "sldprt:sketch:18:line:5",
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "driver": "sldprt:parameter:19:D1",
+        "feature": "sldprt:feature:19",
+        "local_mm": [
+          [
+            3.5,
+            -14.625
+          ],
+          [
+            3.5,
+            31.0
+          ]
+        ],
+        "plane": "sldprt:plane:15",
+        "radians": 1.2740903539558606,
+        "world_mm": [
+          [
+            3.5,
+            0.0,
+            14.625
+          ],
+          [
+            3.5,
+            0.0,
+            -31.0
+          ]
+        ]
+      },
+      "sha256": "e02ce73c671f83aabe9222293c1e92424cb0207e277acf7f6739f56194943273",
+      "volume_mm3": 6920.144615321857
+    },
+    "z-0-0": {
+      "area_mm2": 2347.4107209964322,
+      "bounds_mm": [
+        [
+          5.327323154517105,
+          -8.75,
+          -18.289328457793054
+        ],
+        [
+          22.625,
+          24.5,
+          0.0
+        ]
+      ],
+      "bytes": 7982,
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 0,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "projection": {
+        "axis": "sldprt:sketch:18:line:5",
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "driver": "sldprt:parameter:19:D1",
+        "feature": "sldprt:feature:19",
+        "local_mm": [
+          [
+            3.5,
+            -14.625
+          ],
+          [
+            3.5,
+            31.0
+          ]
+        ],
+        "plane": "sldprt:plane:14",
+        "radians": 1.2740903539558606,
+        "world_mm": [
+          [
+            3.5,
+            -14.625,
+            0.0
+          ],
+          [
+            3.5,
+            31.0,
+            0.0
+          ]
+        ]
+      },
+      "sha256": "1c8ea239e6848d132ec387572d98622bdfafaf05ae1a6b3530ce655f81539907",
+      "volume_mm3": 6920.144615321857
+    }
+  },
+  "baseline_revision": "03e2e5ed376229565c6d381b132dd1c946d89218",
+  "guarded_processes": 14,
+  "heldout_inputs_read": 0,
+  "methods": {
+    "AuditPrincipalReader.py": "afc558b979142149dc2517b3d1cafb483dc14f7147d04ccfecadf92c84171c73",
+    "MakePrincipalCold.py": "b5df64e81104b1b1abe73d15ba3d0bdb0143ff34983cdc20cdd36c17d67bc851"
+  },
+  "native": {
+    "PrincipalRevolveFrontFull": {
+      "baseline": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "OrdinaryBossRevolve",
+            "bound_name": true,
+            "document_sha256": "5293dc57d6a89527f692d5fb12b3fe18136e11d05b7d65877385f8b37272ff24",
+            "native_brep_counts": {
+              "faces": 4,
+              "vertices": 4
+            },
+            "payloads": [
+              "a46bea419ea50af26894473dd71fc8ff7142280457691b8bf6f1271348ea3ef6",
+              "b22e3eab0bb2c0bdc1cc9db6084d26b122e9189b688a113198a9dd3f690245a9"
+            ],
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  2.0,
+                  -13.000000000000002
+                ],
+                [
+                  2.0,
+                  24.0
+                ]
+              ],
+              "plane": "sldprt:plane:2",
+              "radians": 6.283185307179586,
+              "world_mm": [
+                [
+                  2.0,
+                  -13.000000000000002,
+                  0.0
+                ],
+                [
+                  2.0,
+                  24.0,
+                  0.0
+                ]
+              ]
+            }
+          },
+          "semantics": {
+            "document_sha256": "fd2bf2f747efa54144131c2c3ab718386b5e479381eb4123ede2d8c3ea7ae154",
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  2.0,
+                  -13.000000000000002
+                ],
+                [
+                  2.0,
+                  24.0
+                ]
+              ],
+              "plane": "sldprt:plane:2",
+              "radians": 6.283185307179586,
+              "world_mm": [
+                [
+                  2.0,
+                  -13.000000000000002,
+                  0.0
+                ],
+                [
+                  2.0,
+                  24.0,
+                  0.0
+                ]
+              ]
+            }
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.006861238355440108,
+          "com": [
+            0.002,
+            0.004499999999999998,
+            5.293924799524071e-19
+          ],
+          "mass": 3.078760800517997e-05,
+          "volume": 3.078760800517997e-05
+        },
+        "original_native_edit_angle_radians": 2.670353755551324,
+        "original_native_saved_edit_supplied": false
+      },
+      "candidate": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "OrdinaryBossRevolve",
+            "bound_name": true,
+            "document_sha256": "5293dc57d6a89527f692d5fb12b3fe18136e11d05b7d65877385f8b37272ff24",
+            "native_brep_counts": {
+              "faces": 4,
+              "vertices": 4
+            },
+            "payloads": [
+              "a46bea419ea50af26894473dd71fc8ff7142280457691b8bf6f1271348ea3ef6",
+              "b22e3eab0bb2c0bdc1cc9db6084d26b122e9189b688a113198a9dd3f690245a9"
+            ],
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  2.0,
+                  -13.000000000000002
+                ],
+                [
+                  2.0,
+                  24.0
+                ]
+              ],
+              "plane": "sldprt:plane:2",
+              "radians": 6.283185307179586,
+              "world_mm": [
+                [
+                  2.0,
+                  -13.000000000000002,
+                  0.0
+                ],
+                [
+                  2.0,
+                  24.0,
+                  0.0
+                ]
+              ]
+            }
+          },
+          "semantics": {
+            "document_sha256": "fd2bf2f747efa54144131c2c3ab718386b5e479381eb4123ede2d8c3ea7ae154",
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  2.0,
+                  -13.000000000000002
+                ],
+                [
+                  2.0,
+                  24.0
+                ]
+              ],
+              "plane": "sldprt:plane:2",
+              "radians": 6.283185307179586,
+              "world_mm": [
+                [
+                  2.0,
+                  -13.000000000000002,
+                  0.0
+                ],
+                [
+                  2.0,
+                  24.0,
+                  0.0
+                ]
+              ]
+            }
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.006861238355440108,
+          "com": [
+            0.002,
+            0.004499999999999998,
+            5.293924799524071e-19
+          ],
+          "mass": 3.078760800517997e-05,
+          "volume": 3.078760800517997e-05
+        },
+        "original_native_edit_angle_radians": 2.670353755551324,
+        "original_native_saved_edit_supplied": false
+      },
+      "pinned": {
+        "dimension_edit_passed": true,
+        "name": "PrincipalRevolveFrontFull",
+        "native_bytes": 61363,
+        "native_sha256": "04763616b53383aa354b130613a4ccd85e2b6fecc4b2a504c38893d6007e9705",
+        "passed": true,
+        "phase_record_sha256": [
+          "05cbb90ed886f2cdcf8f130f01cf22a9c4509a1fa90a0f3a654a11291e396f50",
+          "5dd6427b6577ceff87c5a2c645416f7ee05d0d12093c96b82d4f3fc43ef8f93a"
+        ],
+        "split": "discovery"
+      }
+    },
+    "PrincipalRevolveRightReverse": {
+      "baseline": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "Body 1",
+            "bound_name": false,
+            "document_sha256": "026573f26e0aeee70d6157893374c281f58161f3915255418da781a2ec9be381",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              0.0,
+              34.66697328889045
+            ],
+            "payloads": [
+              "35c5819847356761bcce150e8a0f6e8dfc4a676c2506403a727f484848836196",
+              "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+            ],
+            "projected": false
+          },
+          "semantics": {
+            "document_sha256": "02afb536a3f45cb302d3325de76fa430887b8a4ecb3512257d30e81118d3a7d7",
+            "projected": false
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.0050499788756205154,
+          "com": [
+            0.0156460892310834,
+            -0.0023499999999999992,
+            -0.025644118036817647
+          ],
+          "mass": 2.391784807966699e-05,
+          "volume": 2.391784807966699e-05
+        },
+        "original_native_edit_angle_radians": 2.4129176908821606,
+        "original_native_saved_edit_supplied": false
+      },
+      "candidate": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "OrdinaryBossRevolve",
+            "bound_name": true,
+            "document_sha256": "5afc744b801c5d5a3496bc31170a7270cb7d3cd7fabc1c98eebfeb0929168916",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              0.0,
+              34.66697328889045
+            ],
+            "payloads": [
+              "35c5819847356761bcce150e8a0f6e8dfc4a676c2506403a727f484848836196",
+              "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+            ],
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                -1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  9.299999999999999,
+                  -21.9
+                ],
+                [
+                  9.299999999999999,
+                  20.2
+                ]
+              ],
+              "plane": "sldprt:plane:4",
+              "radians": 1.5271630954950384,
+              "world_mm": [
+                [
+                  0.0,
+                  -21.9,
+                  -9.299999999999999
+                ],
+                [
+                  0.0,
+                  20.2,
+                  -9.299999999999999
+                ]
+              ]
+            }
+          },
+          "semantics": {
+            "document_sha256": "f4feacb7dc9bb54cb5c9897a5713807a41b3940d6723fd724f1df67b6ac5ea87",
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                -1,
+                0
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  9.299999999999999,
+                  -21.9
+                ],
+                [
+                  9.299999999999999,
+                  20.2
+                ]
+              ],
+              "plane": "sldprt:plane:4",
+              "radians": 1.5271630954950384,
+              "world_mm": [
+                [
+                  0.0,
+                  -21.9,
+                  -9.299999999999999
+                ],
+                [
+                  0.0,
+                  20.2,
+                  -9.299999999999999
+                ]
+              ]
+            }
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.0050499788756205154,
+          "com": [
+            0.0156460892310834,
+            -0.0023499999999999992,
+            -0.025644118036817647
+          ],
+          "mass": 2.391784807966699e-05,
+          "volume": 2.391784807966699e-05
+        },
+        "original_native_edit_angle_radians": 2.4129176908821606,
+        "original_native_saved_edit_supplied": false
+      },
+      "pinned": {
+        "native_receipt_sha256": "83f0043cf3ce9a8c68ffbbc329681bfc3a887edc0f65851f9f8da7db44b09f01",
+        "native_sha256": "0c3ef35a0f8412895cf870359df037ae3450aad45abaa426767838894e18e681",
+        "reopen_sha256": "4b49e414e21229f93f0b704e0a0468babf6cc21f58960884363cb40f6c93eca1"
+      }
+    },
+    "PrincipalRevolveTopForward": {
+      "baseline": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "Body 1",
+            "bound_name": false,
+            "document_sha256": "eeeaead5ed753aceb7c7a9206f3d1d924e08be87a8060e78d133fc05c9afdf71",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              -28.138576062003896,
+              0.0
+            ],
+            "payloads": [
+              "0e356b7fdff70028362a627c200d1c14bd9af1c0128e0877eabac02e0165b82e",
+              "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+            ],
+            "projected": false
+          },
+          "semantics": {
+            "document_sha256": "0bf118eb11de0d498cd39ae68eaf8fe10ff44e4b1d8d771c0b4665f3e303162f",
+            "projected": false
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.004192516929421682,
+          "com": [
+            0.015586398068104395,
+            -0.014829913254528272,
+            -0.002499999999999999
+          ],
+          "mass": 1.707958262050627e-05,
+          "volume": 1.707958262050627e-05
+        },
+        "original_native_edit_angle_radians": 2.9845130209103035,
+        "original_native_saved_edit_supplied": false
+      },
+      "candidate": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "OrdinaryBossRevolve",
+            "bound_name": true,
+            "document_sha256": "0e5758abfc4d0c330ff9d846b68fdb6bff6fae91233c152f84690c8ad6bbc483",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              -28.138576062003896,
+              0.0
+            ],
+            "payloads": [
+              "0e356b7fdff70028362a627c200d1c14bd9af1c0128e0877eabac02e0165b82e",
+              "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+            ],
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                0,
+                -1
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  4.0,
+                  -16.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ]
+              ],
+              "plane": "sldprt:plane:3",
+              "radians": 1.8151424220741028,
+              "world_mm": [
+                [
+                  4.0,
+                  0.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  0.0,
+                  -23.0
+                ]
+              ]
+            }
+          },
+          "semantics": {
+            "document_sha256": "51738e743e650ded7f61ac5558bd6f39b681b3cd9ba141cd3312f2851f9aee2d",
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                0,
+                -1
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  4.0,
+                  -16.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ]
+              ],
+              "plane": "sldprt:plane:3",
+              "radians": 1.8151424220741028,
+              "world_mm": [
+                [
+                  4.0,
+                  0.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  0.0,
+                  -23.0
+                ]
+              ]
+            }
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.004192516929421682,
+          "com": [
+            0.015586398068104395,
+            -0.014829913254528272,
+            -0.002499999999999999
+          ],
+          "mass": 1.707958262050627e-05,
+          "volume": 1.707958262050627e-05
+        },
+        "original_native_edit_angle_radians": 2.9845130209103035,
+        "original_native_saved_edit_supplied": false
+      },
+      "pinned": {
+        "dimension_edit_passed": true,
+        "name": "PrincipalRevolveTopForward",
+        "native_bytes": 65739,
+        "native_sha256": "4bf2c202be9ae4fc7786e50a92c4f83dc17ea4bc80492b7173075d74f678d3f0",
+        "passed": true,
+        "phase_record_sha256": [
+          "ab8ce37ebf91ff912f52fdb583534aea2a4fbac6f77e39bc737dd47fe2ed4291",
+          "a70e49bd5c9d179dcb0c93496ed52dc546a34653eafced80d335f4020962df6b"
+        ],
+        "split": "discovery"
+      }
+    },
+    "PrincipalRevolveTopReverse": {
+      "baseline": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "Body 1",
+            "bound_name": false,
+            "document_sha256": "d0c7b3e8a34f214600aaa596c0fa7e249876a32dfccfa31e1b23869d675324a2",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              0.0,
+              28.138576062003896
+            ],
+            "payloads": [
+              "a59b6cf218cd7a8a41955fc2f62c286bdc96ffa31a1316ab0d7b4b10bd1d42af",
+              "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+            ],
+            "projected": false
+          },
+          "semantics": {
+            "document_sha256": "69e61934ef30f20f6cc4b7121cca55607fa49ba55447ca2d855f4c70d0aa7019",
+            "projected": false
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.004192516929421681,
+          "com": [
+            0.015586398068104395,
+            0.014829913254528272,
+            -0.002499999999999999
+          ],
+          "mass": 1.707958262050627e-05,
+          "volume": 1.707958262050627e-05
+        },
+        "original_native_edit_angle_radians": 2.9845130209103035,
+        "original_native_saved_edit_supplied": false
+      },
+      "candidate": {
+        "guard": {
+          "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+          "grammar_reads": 2,
+          "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+          "unexpected_attempts": []
+        },
+        "modes": {
+          "default": {
+            "body": "OrdinaryBossRevolve",
+            "bound_name": true,
+            "document_sha256": "dcb2d8647d31d8be6de2d6dcb57585314a7a5c595900391645551bdbeade9aa3",
+            "native_brep_counts": {
+              "faces": 6,
+              "vertices": 8
+            },
+            "native_vertex_bounds_signed_mm": [
+              0.0,
+              28.138576062003896
+            ],
+            "payloads": [
+              "a59b6cf218cd7a8a41955fc2f62c286bdc96ffa31a1316ab0d7b4b10bd1d42af",
+              "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+            ],
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                0,
+                1
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  4.0,
+                  -16.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ]
+              ],
+              "plane": "sldprt:plane:3",
+              "radians": 1.8151424220741028,
+              "world_mm": [
+                [
+                  4.0,
+                  0.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  0.0,
+                  -23.0
+                ]
+              ]
+            }
+          },
+          "semantics": {
+            "document_sha256": "9d720cba3212cd5174b188056d806ce5d16b4907891a03090c175adc54146507",
+            "projected": true,
+            "projection": {
+              "axis": "sldprt:sketch:26:line:1",
+              "direction": [
+                0,
+                0,
+                1
+              ],
+              "driver": "sldprt:parameter:31:D1",
+              "feature": "sldprt:feature:31",
+              "local_mm": [
+                [
+                  4.0,
+                  -16.0
+                ],
+                [
+                  4.0,
+                  23.0
+                ]
+              ],
+              "plane": "sldprt:plane:3",
+              "radians": 1.8151424220741028,
+              "world_mm": [
+                [
+                  4.0,
+                  0.0,
+                  16.0
+                ],
+                [
+                  4.0,
+                  0.0,
+                  -23.0
+                ]
+              ]
+            }
+          }
+        },
+        "oracle_mass_properties": {
+          "area": 0.004192516929421681,
+          "com": [
+            0.015586398068104395,
+            0.014829913254528272,
+            -0.002499999999999999
+          ],
+          "mass": 1.707958262050627e-05,
+          "volume": 1.707958262050627e-05
+        },
+        "original_native_edit_angle_radians": 2.9845130209103035,
+        "original_native_saved_edit_supplied": false
+      },
+      "pinned": {
+        "dimension_edit_passed": true,
+        "name": "PrincipalRevolveTopReverse",
+        "native_bytes": 74355,
+        "native_sha256": "04f734b81c99be660bfb3bf9c4b98cd4bf50d456ea13cb3008584dd2892ba932",
+        "passed": true,
+        "phase_record_sha256": [
+          "715692e7bdabb1f239904be02bae6908c71c289a7db204c2d950067a3d21cf83",
+          "0aa976eab39c8a6398741e0dbad4cf30eb861c966e260acd164cb591da969ae6"
+        ],
+        "split": "discovery"
+      }
+    }
+  },
+  "native_launches": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "reader_sources": {
+    "Projection/ApplyRevDoc.py": "ce4a0f1fa33eaeb38efa63ddc6a37e4a766c11d1079b9a45715ab17249b2e2cc",
+    "Projection/CheckRevSupport.py": "923f5abda73c35d465e44dc2813129646e39cbb5e0cc48d2fe9b3e3e716dab5a",
+    "Projection/ReportRevolve.py": "132088baea07e01735f798e62376634c0fb8c5d561bebdfea9126325ad50c970",
+    "ReadRevFrame.py": "b9fa53f3c1708234322dcec96b6bee8afc42efd0fb1db3b745ace9b5a2ed4e46"
+  },
+  "schema": "kit.sw2026.principal-revolve-reader.v1",
+  "source_lock_sha256": "9396b94d1d503a0389c1db4ce7711125429265b271694bbe28a890b49059dc48"
+}

@@ -1,9 +1,9 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.PartMatFields import (
-    KPartMatFields,
-)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Definition.Fields.AppearanceFields import (
+    KAppearanceList,
+)
 from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
     MakeScalarRows,
 )
@@ -11,6 +11,10 @@ from convert.adapters.solidworks.Archive.Definition.Fields.ScalarFields import (
 # document helpers keep counted collections and preferences in their original native owners
 KDocHelperFields = MappingProxyType(
     {
+        "uoSketch": (
+            NativeField("Scalar", "profile_feature_id", "i32"),
+            NativeField("Embed", "f80", "mgXform_c.restore"),
+        ),
         "moDimStandard_c": (),
         "moANSI_c": (NativeField("Base", "moDimStandard_c"),),
         "moISO_c": (NativeField("Base", "moDimStandard_c"),),
@@ -66,9 +70,12 @@ KDocHelperFields = MappingProxyType(
         ),
         "PWMaterialManager_c.restore": (
             *MakeScalarRows("i32", "f08 f0c"),
-            NativeField("Embed", "list", "suObList"),
+            KAppearanceList,
         ),
-        "uoModelData_c.restore": KPartMatFields["uoModelData_c"],
+        "uoModelData_c.restore": (
+            NativeField("Node", "f08"),
+            NativeField("Scalar", "f10", "i32"),
+        ),
         "su_CWordArray": (
             NativeField(
                 "Array",

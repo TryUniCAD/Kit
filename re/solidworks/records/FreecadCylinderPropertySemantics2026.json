@@ -1,0 +1,627 @@
+{
+  "schema": "kit.sw2026.freecad-cylinder-property-semantics.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "owner": "/root/assembly_occurrence",
+  "delivery_pr": 121,
+  "authority": {
+    "repository": "FreeCAD/FreeCAD",
+    "revision": "4fd3bf320d9566a27e60069fc8387448aaa3a094",
+    "application_version": [
+      "1",
+      "1",
+      "4",
+      "20260928 (Git shallow)",
+      "Unknown",
+      "2026/09/28 13:46:34",
+      "(HEAD detached at 4fd3bf320)",
+      "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+    ],
+    "source_deck_receipt_sha256": "97a20ff36c7b4383117c139dd65b34eed862f1aeb4e0d32ccb005913d379b9d4",
+    "source_manifest_sha256": "d7d79efe44cde2525a793aa9c63f5fd9a257c87da837c3c16be80525bd7c6b5b"
+  },
+  "sources": [
+    {
+      "bytes": 38618,
+      "git_blob_sha1": "3edb27df142827ce5f153b61078341db2e3acb10",
+      "path": "src/Mod/Part/App/PrimitiveFeature.cpp",
+      "sha256": "ae1157583a8a5e69f4290b3d3629492da3ef4f7f97e229af097a03ff78732cb5",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/PrimitiveFeature.cpp"
+    },
+    {
+      "bytes": 3387,
+      "git_blob_sha1": "2ebc59b3a12e602b6e885dbaba7fb249fe1da655",
+      "path": "src/Mod/Part/App/PrismExtension.cpp",
+      "sha256": "aaf5018cdaad95197960593761ce2c4b696769f64a63b5c8ccf03b5e41f68086",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/PrismExtension.cpp"
+    },
+    {
+      "bytes": 28162,
+      "git_blob_sha1": "f6b29b2ca43ae1a9e8f695fefb81bcc87e27c6a6",
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "sha256": "9286f0e2ef4df069c5ddc5ceb857c4e54f93707e9284efd69e8567457d6f9966",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/AttachExtension.cpp"
+    },
+    {
+      "bytes": 12866,
+      "git_blob_sha1": "4149b59af2c8decdb93c6edc3f7d2bd436c0856d",
+      "path": "src/Mod/Part/App/PrimitiveFeature.h",
+      "sha256": "9caec91c15ef58b1081875b2af210406b2a540658874fe4bf1ebf080cd8c7e25",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/PrimitiveFeature.h"
+    },
+    {
+      "bytes": 6614,
+      "git_blob_sha1": "83d79c325e81f69414fd1eec76344d9ea4559dd9",
+      "path": "src/Mod/Part/App/AttachExtension.h",
+      "sha256": "061857662ef9f8e618bf7695587add38f7645b67d81d5932521abcb54152d8bc",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/AttachExtension.h"
+    },
+    {
+      "bytes": 2484,
+      "git_blob_sha1": "354223dca055b004d2b03d4e7d0191ee018898b2",
+      "path": "src/Mod/Part/App/PrismExtension.h",
+      "sha256": "02c978fab555224a40e1099f6c0a41afb14f284996b12d6f882328337050c058",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/PrismExtension.h"
+    },
+    {
+      "bytes": 80025,
+      "git_blob_sha1": "c7b66efe00916aa319675f42fccc82143d9bf5f2",
+      "path": "src/Mod/Part/App/PartFeature.cpp",
+      "sha256": "d2c6c7434b3196402f41de34524f3127c10107b887d3130cede046d4ada70628",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/PartFeature.cpp"
+    },
+    {
+      "bytes": 54222,
+      "git_blob_sha1": "73ac609c9bbdf0db1273b6132e6aed7913ed5029",
+      "path": "src/App/DocumentObject.cpp",
+      "sha256": "9ea7e1cfbfd1349c36c834082f878d7294b749361dce58204861cd7a543a3b2f",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/App/DocumentObject.cpp"
+    },
+    {
+      "bytes": 38213,
+      "git_blob_sha1": "339cdc9b856464a9b11cffcdbfee61d10408cfdc",
+      "path": "src/App/Property.h",
+      "sha256": "a1e7320ff880133a2131db148dc6c87659de5c765387c2d41995c9650f12d8b6",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/App/Property.h"
+    },
+    {
+      "bytes": 11525,
+      "git_blob_sha1": "faa2b9a7ee3a6b7b65e9042d5a3f0bdde878fb36",
+      "path": "src/App/GeoFeature.cpp",
+      "sha256": "d8a71f95087339fdc688014ca1c88b950be3655b4e6cad8314ba505c96906ad2",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/App/GeoFeature.cpp"
+    },
+    {
+      "bytes": 116572,
+      "git_blob_sha1": "0737fa8722b35e10558c0ec49e438294deba79c7",
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "sha256": "3888ebed5b5790c68f573160d14046896fcb87333826a3ba069b70d8a3585cf8",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/Attacher.cpp"
+    },
+    {
+      "bytes": 19559,
+      "git_blob_sha1": "2b2263bed06c9bafca00c1430608acd491b89852",
+      "path": "src/Mod/Part/App/Attacher.h",
+      "sha256": "50a5d42910a0b14faa8112c9396ca32c0b2d9f08a0d2920ee4bda37651d8fb94",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Mod/Part/App/Attacher.h"
+    },
+    {
+      "bytes": 26003,
+      "git_blob_sha1": "0090e3c3a75ae325e5c6e3288b6bc1f033172a16",
+      "path": "src/Gui/ViewProviderDocumentObject.cpp",
+      "sha256": "d2cf589333cf538cae9a9f85b624d951b82fdd4a6492ce730797fc2685364c74",
+      "url": "https://github.com/FreeCAD/FreeCAD/blob/4fd3bf320d9566a27e60069fc8387448aaa3a094/src/Gui/ViewProviderDocumentObject.cpp"
+    }
+  ],
+  "evidence": {
+    "cylinder_declaration": {
+      "path": "src/Mod/Part/App/PrimitiveFeature.h",
+      "start_line": 192,
+      "end_line": 207
+    },
+    "cylinder_inputs": {
+      "path": "src/Mod/Part/App/PrimitiveFeature.cpp",
+      "start_line": 483,
+      "end_line": 505
+    },
+    "cylinder_build": {
+      "path": "src/Mod/Part/App/PrimitiveFeature.cpp",
+      "start_line": 507,
+      "end_line": 536
+    },
+    "sweep_constraint": {
+      "path": "src/Mod/Part/App/PrimitiveFeature.cpp",
+      "start_line": 55,
+      "end_line": 63
+    },
+    "prism_inputs": {
+      "path": "src/Mod/Part/App/PrismExtension.cpp",
+      "start_line": 37,
+      "end_line": 61
+    },
+    "prism_vector": {
+      "path": "src/Mod/Part/App/PrismExtension.cpp",
+      "start_line": 73,
+      "end_line": 85
+    },
+    "prism_types": {
+      "path": "src/Mod/Part/App/PrismExtension.h",
+      "start_line": 38,
+      "end_line": 53
+    },
+    "attachment_engine_labels": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 43,
+      "end_line": 89
+    },
+    "attachment_properties": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 94,
+      "end_line": 175
+    },
+    "attachment_engine_reconstruction": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 281,
+      "end_line": 335
+    },
+    "attachment_disabled_and_position": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 338,
+      "end_line": 392
+    },
+    "attachment_change": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 438,
+      "end_line": 482
+    },
+    "attachment_restore": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 710,
+      "end_line": 734
+    },
+    "attachment_visibility": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 739,
+      "end_line": 769
+    },
+    "attachment_setup": {
+      "path": "src/Mod/Part/App/AttachExtension.cpp",
+      "start_line": 782,
+      "end_line": 798
+    },
+    "attachment_types": {
+      "path": "src/Mod/Part/App/AttachExtension.h",
+      "start_line": 91,
+      "end_line": 115
+    },
+    "attachment_enum": {
+      "path": "src/Mod/Part/App/Attacher.h",
+      "start_line": 52,
+      "end_line": 75
+    },
+    "attachment_state": {
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "start_line": 286,
+      "end_line": 322
+    },
+    "attachment_reverse": {
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "start_line": 420,
+      "end_line": 423
+    },
+    "attachment_disabled": {
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "start_line": 1319,
+      "end_line": 1337
+    },
+    "attachment_curve_parameter": {
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "start_line": 1697,
+      "end_line": 1742
+    },
+    "attachment_offset": {
+      "path": "src/Mod/Part/App/Attacher.cpp",
+      "start_line": 2288,
+      "end_line": 2300
+    },
+    "base_metadata": {
+      "path": "src/App/DocumentObject.cpp",
+      "start_line": 65,
+      "end_line": 81
+    },
+    "base_no_touch": {
+      "path": "src/App/DocumentObject.cpp",
+      "start_line": 889,
+      "end_line": 942
+    },
+    "visibility_restore": {
+      "path": "src/App/DocumentObject.cpp",
+      "start_line": 1264,
+      "end_line": 1273
+    },
+    "property_status": {
+      "path": "src/App/Property.h",
+      "start_line": 65,
+      "end_line": 136
+    },
+    "visibility_gui": {
+      "path": "src/Gui/ViewProviderDocumentObject.cpp",
+      "start_line": 180,
+      "end_line": 218
+    },
+    "visibility_sync": {
+      "path": "src/Gui/ViewProviderDocumentObject.cpp",
+      "start_line": 404,
+      "end_line": 420
+    },
+    "placement": {
+      "path": "src/App/GeoFeature.cpp",
+      "start_line": 45,
+      "end_line": 61
+    },
+    "placement_shape_sync": {
+      "path": "src/Mod/Part/App/PartFeature.cpp",
+      "start_line": 1520,
+      "end_line": 1555
+    }
+  },
+  "fields": [
+    {
+      "path": "Angle",
+      "source_type": "App::PropertyAngle",
+      "portable_kind": "angle",
+      "unit": "deg",
+      "semantic_class": "geometric_input",
+      "property_status": ["Prop_None"],
+      "meaning": "Sector sweep passed in radians to the cylinder maker; its bottom face is then prism-extruded",
+      "evidence": [
+        "cylinder_declaration",
+        "cylinder_inputs",
+        "cylinder_build",
+        "sweep_constraint"
+      ],
+      "lossless_lowering_obligation": "Retain the actual source ID, name, unit and editable sweep. A closed circle alone does not represent a live partial-sector input",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "AttacherEngine",
+      "source_type": "App::PropertyEnumeration",
+      "portable_kind": "string",
+      "unit": "",
+      "semantic_class": "attachment_selector",
+      "property_status": ["Prop_None"],
+      "meaning": "Object-level attachment-engine selection; the labels map to concrete engine class names",
+      "evidence": [
+        "attachment_engine_labels",
+        "attachment_properties",
+        "attachment_change"
+      ],
+      "lossless_lowering_obligation": "Preserve the selected label, complete ordered enum vocabulary and consistency with AttacherType; do not invent a document configuration",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "AttacherType",
+      "source_type": "App::PropertyString",
+      "portable_kind": "string",
+      "unit": "",
+      "semantic_class": "attachment_restore_mirror",
+      "property_status": ["Prop_ReadOnly", "Prop_Hidden"],
+      "meaning": "Mirrors the selected/current engine but is also consumed to reconstruct it and repair the enum on restore",
+      "evidence": [
+        "attachment_engine_reconstruction",
+        "attachment_engine_labels",
+        "attachment_change",
+        "attachment_restore"
+      ],
+      "lossless_lowering_obligation": "Retain and validate it with AttacherEngine. It is persisted lifecycle state, not a discardable cache or an independent geometric dimension",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "FirstAngle",
+      "source_type": "App::PropertyAngle",
+      "portable_kind": "angle",
+      "unit": "deg",
+      "semantic_class": "geometric_input",
+      "property_status": ["Prop_None"],
+      "meaning": "Controls the X component of the prism displacement: Height*tan(radians(FirstAngle))",
+      "evidence": [
+        "prism_inputs",
+        "prism_vector",
+        "prism_types",
+        "cylinder_build"
+      ],
+      "lossless_lowering_obligation": "Preserve a live oblique-extrusion direction input and its relation to Height; a rotated right cylinder changes the base-plane geometry",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "Height",
+      "source_type": "App::PropertyLength",
+      "portable_kind": "length",
+      "unit": "mm",
+      "semantic_class": "geometric_input",
+      "property_status": ["Prop_None"],
+      "meaning": "Z component of the prism displacement and independent construction input; it is not the oblique vector length",
+      "evidence": [
+        "cylinder_declaration",
+        "cylinder_inputs",
+        "cylinder_build",
+        "prism_vector"
+      ],
+      "lossless_lowering_obligation": "Retain the actual source ID/name and mm-to-m conversion; nonzero prism angles require an along-vector depth derived from all three inputs",
+      "confidence": "confirmed",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "Label",
+      "source_type": "App::PropertyString",
+      "portable_kind": "string",
+      "unit": "",
+      "semantic_class": "identity_metadata",
+      "property_status": ["Prop_Output"],
+      "meaning": "User-authored object label; relabeling updates label identity and signals without touching geometry",
+      "evidence": ["base_metadata", "base_no_touch"],
+      "lossless_lowering_obligation": "Keep source internal name and label distinct and preserve the actual target feature caption; do not create a length/angle dimension",
+      "confidence": "confirmed",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "Label2",
+      "source_type": "App::PropertyString",
+      "portable_kind": "string",
+      "unit": "",
+      "semantic_class": "identity_metadata",
+      "property_status": ["Prop_Hidden", "Status.Output"],
+      "meaning": "User-authored object description; hidden/output status suppresses geometry touch",
+      "evidence": ["base_metadata", "base_no_touch"],
+      "lossless_lowering_obligation": "Preserve the description in a qualified native metadata owner; an empty value is still present, not absent",
+      "confidence": "confirmed",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "MapMode",
+      "source_type": "App::PropertyEnumeration",
+      "portable_kind": "integer",
+      "unit": "",
+      "semantic_class": "attachment_selector",
+      "property_status": ["Prop_None"],
+      "meaning": "Persistent attachment mode; enum ordinal 0 is deactivated and returns without updating Placement",
+      "evidence": [
+        "attachment_enum",
+        "attachment_properties",
+        "attachment_disabled_and_position",
+        "attachment_disabled"
+      ],
+      "lossless_lowering_obligation": "Preserve the actual ordinal and support dependency; first lowering must refuse active modes until their native relationship is represented",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "MapPathParameter",
+      "source_type": "App::PropertyFloat",
+      "portable_kind": "number",
+      "unit": "",
+      "semantic_class": "attachment_input",
+      "property_status": ["Prop_None", "conditional Status.Hidden"],
+      "meaning": "For applicable single-curve modes, interpolates the underlying curve parameter domain; it is dormant with deactivated mapping",
+      "evidence": [
+        "attachment_properties",
+        "attachment_setup",
+        "attachment_state",
+        "attachment_visibility",
+        "attachment_curve_parameter"
+      ],
+      "lossless_lowering_obligation": "Preserve the scalar and dependency. It is neither an arc-length fraction nor a geometric cylinder dimension; no universal clamping rule is proved",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "MapReversed",
+      "source_type": "App::PropertyBool",
+      "portable_kind": "boolean",
+      "unit": "",
+      "semantic_class": "attachment_input",
+      "property_status": ["Prop_None", "conditional Status.Hidden"],
+      "meaning": "For the common attachment placement factory, reverses both Z and X axes; dormant with deactivated mapping",
+      "evidence": [
+        "attachment_properties",
+        "attachment_setup",
+        "attachment_reverse",
+        "attachment_disabled_and_position"
+      ],
+      "lossless_lowering_obligation": "Preserve reversal state and full placement semantics; do not map it to negative Height or feature suppression",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "Radius",
+      "source_type": "App::PropertyLength",
+      "portable_kind": "length",
+      "unit": "mm",
+      "semantic_class": "geometric_input",
+      "property_status": ["Prop_None"],
+      "meaning": "Radius of the cylinder-maker bottom face used by the prism",
+      "evidence": ["cylinder_declaration", "cylinder_inputs", "cylinder_build"],
+      "lossless_lowering_obligation": "Bind the actual Radius source owner to a radius-driven native parameter, preserving units and avoiding an implicit diameter rename",
+      "confidence": "confirmed",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "SecondAngle",
+      "source_type": "App::PropertyAngle",
+      "portable_kind": "angle",
+      "unit": "deg",
+      "semantic_class": "geometric_input",
+      "property_status": ["Prop_None"],
+      "meaning": "Controls the Y component of the prism displacement: Height*tan(radians(SecondAngle))",
+      "evidence": [
+        "prism_inputs",
+        "prism_vector",
+        "prism_types",
+        "cylinder_build"
+      ],
+      "lossless_lowering_obligation": "Preserve a live oblique-extrusion direction input and its relation to Height; neither zero observation proves a format constant",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    },
+    {
+      "path": "Visibility",
+      "source_type": "App::PropertyBool",
+      "portable_kind": "boolean",
+      "unit": "",
+      "semantic_class": "presentation_metadata",
+      "property_status": ["Status.Output", "Status.Hidden", "Status.NoModify"],
+      "meaning": "App visibility is synchronized with GUI show/hide; its default output status prevents geometry touch",
+      "evidence": [
+        "base_metadata",
+        "base_no_touch",
+        "property_status",
+        "visibility_restore",
+        "visibility_gui",
+        "visibility_sync"
+      ],
+      "lossless_lowering_obligation": "Preserve display visibility independently of feature suppression and solid existence; do not invent a geometric driving parameter",
+      "confidence": "partial",
+      "source_owner_correlation": "two_disclosed_zero_angle_unattached_originals",
+      "target_mapping": "unqualified"
+    }
+  ],
+  "rules": {
+    "geometric_parameter_paths": [
+      "Radius",
+      "Height",
+      "Angle",
+      "FirstAngle",
+      "SecondAngle"
+    ],
+    "displacement_formula": "d=(Height*tan(radians(FirstAngle)), Height*tan(radians(SecondAngle)), Height)",
+    "directional_length_formula": "L=Height*sqrt(1+tan(radians(FirstAngle))^2+tan(radians(SecondAngle))^2)",
+    "nonzero_angle_inference": "The circle/sector stays in the original base plane and is translated by d; a rigidly tilted right cylinder is generally not equivalent",
+    "angle_constraint": {
+      "declared_min_degrees": 0,
+      "declared_max_degrees": 360,
+      "step_degrees": 1,
+      "execute_rejects_below": "Precision::Confusion()",
+      "confidence": "partial"
+    },
+    "prism_angle_constraints": {
+      "declared_min_degrees": -89.99999,
+      "declared_max_degrees": 89.99999,
+      "step_degrees": 1,
+      "confidence": "partial"
+    },
+    "cylinder_execute_checks": {
+      "Radius": "rejects below Precision::Confusion()",
+      "Height": "rejects below Precision::Confusion()",
+      "Angle": "rejects below Precision::Confusion()"
+    },
+    "attacher_engine_classes": {
+      "Engine 3D": "Attacher::AttachEngine3D",
+      "Engine Plane": "Attacher::AttachEnginePlane",
+      "Engine Line": "Attacher::AttachEngineLine",
+      "Engine Point": "Attacher::AttachEnginePoint"
+    },
+    "deactivated_map_mode": 0,
+    "map_path_single_curve_formula": "u=curve_first_parameter+MapPathParameter*(curve_last_parameter-curve_first_parameter)",
+    "output_status_meaning": "Suppresses geometry touch; it does not imply a computed value, absence, non-persistence or immutability",
+    "hidden_status_meaning": "Editor visibility; it does not imply a cache or disposable data"
+  },
+  "nonscalar_owners": [
+    {
+      "path": "AttachmentOffset",
+      "source_type": "App::PropertyPlacement",
+      "semantic_class": "attachment_input",
+      "role": "Local attachment transform; dormant when mapping is deactivated",
+      "evidence": [
+        "attachment_properties",
+        "attachment_disabled_and_position",
+        "attachment_offset"
+      ]
+    },
+    {
+      "path": "AttachmentSupport",
+      "source_type": "App::PropertyLinkSubList",
+      "semantic_class": "attachment_dependency",
+      "role": "Actual document/subelement dependency, empty in the disclosed profile",
+      "evidence": [
+        "attachment_properties",
+        "attachment_setup",
+        "attachment_state"
+      ]
+    },
+    {
+      "path": "ExpressionEngine",
+      "source_type": "App::PropertyExpressionEngine",
+      "semantic_class": "parametric_dependency",
+      "role": "Actual expression dependency owner; empty in the disclosed profile",
+      "evidence": ["base_metadata"]
+    },
+    {
+      "path": "Placement",
+      "source_type": "App::PropertyPlacement",
+      "semantic_class": "conditional_placement_input_or_result",
+      "role": "Authored transform while unattached; updated by active attachment, synchronized with Shape transform",
+      "evidence": [
+        "placement",
+        "placement_shape_sync",
+        "attachment_disabled_and_position"
+      ]
+    },
+    {
+      "path": "Shape",
+      "source_type": "Part::PropertyPartShape",
+      "semantic_class": "derived_geometry",
+      "role": "Output of cylinder execution plus Placement, retained as independent input validation; never copied into a target writer",
+      "evidence": ["cylinder_build", "placement_shape_sync"]
+    },
+    {
+      "path": "ShapeMaterial",
+      "source_type": "Materials::PropertyMaterial",
+      "semantic_class": "unresolved_material_owner",
+      "role": "Actual source material reference is retained; empty portable material list does not establish unassigned material",
+      "evidence": []
+    }
+  ],
+  "disclosed_inputs": [
+    {
+      "case_id": "CylinderA",
+      "neutral_sha256": "b4e645ed21b3ae02d82f6fd6b0bec2d339ff548cedf6b1158e9fbeb31e9335fc",
+      "source_sha256": "dae320f82c08ccb47056aaafb31f46ac0c7136c3024ed0dc2b1484825df02faa"
+    },
+    {
+      "case_id": "CylinderB",
+      "neutral_sha256": "362c141a119dc2872c4215b1b9eada0645a6938ff37a93b0acd612b93889ed0f",
+      "source_sha256": "ea39285f9b32d6f173eed57ccdeb8182d3ac1c0e7b7f13516f4f53635061891a"
+    }
+  ],
+  "confidence_limits": {
+    "actual_defaults_and_source_owners": "confirmed on the two disclosed strict neutral envelopes",
+    "radius_height_ordinary_geometry": "confirmed by the previously published fifty native companion comparisons",
+    "nonzero_prism_angles": "partial: exact source branch, no new author/edit measurement",
+    "partial_sector": "partial: exact source call path, no partial-sector corpus in this tranche",
+    "active_attachment": "partial: exact source lifecycle, no active-attachment corpus in this tranche",
+    "target_native_lowering": "not found: no target mapping or new writer/native acceptance",
+    "heldout_generalization": "not found: no primitive heldout lock or input access"
+  },
+  "invariants": {
+    "generated_writer_outputs": 0,
+    "native_processes_started": 0,
+    "heldout_inputs_read": 0,
+    "shared_checkout_edits": 0,
+    "public_writer_changes": 0
+  }
+}

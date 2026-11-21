@@ -1,0 +1,3338 @@
+{
+  "distinct_worker_processes": 32,
+  "full_document_sdk_writer": false,
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "sdk construction subtree only; research composer publishes the rest of each document",
+    "one aligned coincident or parallel mate with two direct resolved part occurrences",
+    "generic feature owners are constructor/runtime state, separate from wire component-owner aliases",
+    "no distance display construction or multiple/nested mate admission",
+    "no new native acceptance or held-out evaluation",
+    "public writer remains disabled"
+  ],
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "fault": "foreign_occurrence",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "5c4bcfde277125a19a409dadcbe15c697e083962e225544297c16a9800ccd655",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3e1d996bc7a11fcc445c2012ad256278bd6eb1b94990cc9f79ff58f05c94d25c",
+        "worker_pid": 38351
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence must belong to the actual containing assembly",
+        "error_type": "ValueError",
+        "fault": "foreign_occurrence",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_external_backlink",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "fd0898df89b819243169f0512acd363b89d114126bbee19c325fb87d68b7e9cc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "772e653bde7129d3223dd773085aac916b4ec00efdcf39aa948e9df6f358e10c",
+        "worker_pid": 38354
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence external entry lost its actual backlink",
+        "error_type": "ValueError",
+        "fault": "wrong_external_backlink",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_child_configuration",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "eea2c81110f0145887c28c86daf46907a64ae8e709168874fc5cca4c762d28dd",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "61a8ae145c26b01435ada847d5dcfeb806cbb48806e1f987280ac48ffed7f56f",
+        "worker_pid": 38356
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence child configuration or update differs",
+        "error_type": "ValueError",
+        "fault": "wrong_child_configuration",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "stale_child_update",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "4b7c6a97e69195317352d2713ede8330ba5fa3379593b25cf8d73d5fc3604502",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8ffc70d2c28662a6839e75968029c14876ad07ea64b1258f169917d5167096f6",
+        "worker_pid": 38368
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate occurrence child configuration or update differs",
+        "error_type": "ValueError",
+        "fault": "stale_child_update",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_datum_owner",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "b57950271e253937c3a3b53a871e93283101ffd39c18b9f1c9d08fd1af626383",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a52ce2a14779f6d067b64daa0f8c4ad9ad527ef4d0a4ab176f0be22f14f174ec",
+        "worker_pid": 38373
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate datum and configuration must belong to the actual child part",
+        "error_type": "ValueError",
+        "fault": "wrong_datum_owner",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unregistered_datum",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "49f43cf039bb92eac924a9e5d37b202dd51eb9b6326f5a01275dee59688e1199",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b900faf469d765426121f86987b9ffbb288757075f2bf38c7b842741b7143ff6",
+        "worker_pid": 38377
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires a registered ordinary principal datum",
+        "error_type": "ValueError",
+        "fault": "unregistered_datum",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "bad_datum_bounds",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "69c8d462be7ddcf7840e739dd1590cc26b95a059a14c3d87cb47a07dd05192ae",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "e45f0fd8e16fcf300bd193e71a352f1e5f1bd7d08c830fef20f9ca489609997f",
+        "worker_pid": 38770
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be finite",
+        "error_type": "ValueError",
+        "fault": "bad_datum_bounds",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "scaled_placement",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "bbbc4b1c65d66270fdeff6a09042119f8b42c8e29b8a0b4e5035790c7400fd4d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a5b225e75abd54f3149ea6928763ef785803d7c0e543902a8f52cd998abc8d85",
+        "worker_pid": 38800
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires an ordinary rigid native transform",
+        "error_type": "ValueError",
+        "fault": "scaled_placement",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "reflected_placement",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "739484350a847dcde1d5e60171a72b81c11a642a2bad5f77d17f8841acc10e65",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b82b9d7b5757d841a71b67c0ebedfd5779c9e3fade45fe82c7d6d89f022c7c41",
+        "worker_pid": 38838
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate placement matrix must be proper and orthonormal",
+        "error_type": "ValueError",
+        "fault": "reflected_placement",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "repeated_selection",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "b373c3b45e174f1ac0e2c8b3fe1ae9d4ee33e110d64e61c20d5acd95c0c4f50f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b395f26285e0b771b38299868d77a1d5fbc9b3504d5df5654b557eae6c534e3b",
+        "worker_pid": 38854
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            18
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            18
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate selections require distinct actual occurrences",
+        "error_type": "ValueError",
+        "fault": "repeated_selection",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "foreign_fixed_input",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "655eb750c144d90332684886de9073bfcdb29ce306cfd6fce76c92f9c6be72bf",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "fb7433d87f6ac9d0a8d0eb1b4df4a89e361c8b593112f04345527a51327d2c39",
+        "worker_pid": 38863
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate fixed input or occurrence identities are ambiguous",
+        "error_type": "ValueError",
+        "fault": "foreign_fixed_input",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrong_allocator_boundary",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "120342a4c5f6098d78b7a24494b853b06341a722d8d192228cc2183f095da064",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "3da4367a543ee2dd52b3b817b22a4742895d61ea33fd3093077edbf07e89d145",
+        "worker_pid": 38865
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 20,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 20,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate allocator and parent occurrence publication differ",
+        "error_type": "ValueError",
+        "fault": "wrong_allocator_boundary",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "wrapper_counter_exhausted",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "448147a70ccbaeeb78ae461677e16364c7bd4950bb976563c662856f0f88edd7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "a8b87e20009c61291e878f73e17696e8394d8799f5f7ff7fb43d54ff0c7ff5bb",
+        "worker_pid": 38866
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 2147483646
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 2147483646
+        },
+        "error": "assembly wrapper counter cannot allocate two resolved references",
+        "error_type": "ValueError",
+        "fault": "wrapper_counter_exhausted",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_kind",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "6273c5a9f62e50c5ca613fd03ca74c2182061b127fc6710f8e9a888e0ea36432",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "4df1182df651b516809ed147d55a421f8f6491be0a27d7ea50132e4e04f749ca",
+        "worker_pid": 38867
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate factory admits coincident or parallel with two selected principal planes",
+        "error_type": "ValueError",
+        "fault": "unsupported_kind",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_mate_name",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "73e463f340f54b163da64a618764f9dbf2d14ae63c351935c24132815cb4a8b2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "8646430744ea97b6d00adf6a1bc2f064ab8f0cb2501f9e6415745c7fff13f7c2",
+        "worker_pid": 38868
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "node names must be nonempty strings without null characters",
+        "error_type": "ValueError",
+        "fault": "invalid_mate_name",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "invalid_creation_epoch",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "4e578fb9b62fad9aef468d247efbc203ba61fea64051c8c45b30bcc064391f14",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "0d04766ba775064db6202a4439b189700a7cd4ae632e78564bbe816292c2f7dc",
+        "worker_pid": 38875
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "feature creation time must fit unsigned unix seconds",
+        "error_type": "ValueError",
+        "fault": "invalid_creation_epoch",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_parent_schema",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "dd20b8cbb93a1a78cbdf13f0d66c824579cac6ab2ca1a1ab1b837f37b54bd387",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c3ac7077ad72d4b8a9af7d514a1d336ae9c2a08c3a914aae1c145ae2aab63a85",
+        "worker_pid": 38878
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate construction requires schema one owned graph roots",
+        "error_type": "ValueError",
+        "fault": "unsupported_parent_schema",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_child_schema",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "c83e4135ddf874a82a7f91bd9119e344c3d34cddd4279ed6160d18303e06dbc2",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "bbe703c2da37b30e18e5078e28b0937161497ebda236f973adc6ae62477ca52b",
+        "worker_pid": 38880
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate child construction requires schema one graph roots",
+        "error_type": "ValueError",
+        "fault": "unsupported_child_schema",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "unsupported_datum_version",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "8bbee0554bea95f5d4f6cba601b1f1309ca939c868026fab6d6a560ee6fea9d7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "73af15a1a6670fdcaa1ae53c741450bc3f21310443573ad4795fa26d7e0f6854",
+        "worker_pid": 38881
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "mate child datum requires native feature version 19000",
+        "error_type": "ValueError",
+        "fault": "unsupported_datum_version",
+        "parent_state_unchanged": true
+      }
+    },
+    {
+      "fault": "overflowing_inverse_frame",
+      "identity": {
+        "exit_code": 0,
+        "request_sha256": "8177f0f967fa98a690d19c2196a7ef92198e6e8cb69fe98528944b018733eab3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "56e2c04a397225dedc47f264e84e4657ba44aeec8a9bf81b85cb9d630f64e43c",
+        "worker_pid": 38883
+      },
+      "passed": true,
+      "rejection": {
+        "after": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "before": {
+          "allocations": 0,
+          "allocator_next": 19,
+          "fixed_flags": [
+            0,
+            0
+          ],
+          "header_next": 19,
+          "selected_ids": [
+            18,
+            17
+          ],
+          "wrapper_counter": 0
+        },
+        "error": "view coordinate or scale must be finite",
+        "error_type": "ValueError",
+        "fault": "overflowing_inverse_frame",
+        "parent_state_unchanged": true
+      }
+    }
+  ],
+  "passed": true,
+  "positive_cases": [
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9315,
+        "sha256": "e97246c68c4713b3090d89814dfb158f0c2997050aecfccf9da9882cadf51100",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2420,
+            "sha256": "ecfa48e414da71517c0c8f8a4c0b9e2222f2ff85a80871e2fde62f856e1a1560"
+          },
+          "Contents/Config-0": {
+            "bytes": 21447,
+            "sha256": "7abeb04ee14c5039fc5f6e5247ed0fb6154f504d0dfe1c93607f8ba580cd1f2c"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 2800,
+            "sha256": "f70d08cbbffe0c6c4b953f220cdd91f11fd68a2cc5695398f8a2ebba3b99894e"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1109,
+            "sha256": "c884edf3c90f6fe4aa9f2678091465bef7896b43ed1281e74577c0b7125d23be"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 557,
+            "sha256": "fc6c8c631af0689e0122d2db3ba2bfdd8cf8fd84e097166025ce5ff713a621bb"
+          },
+          "Header2": {
+            "bytes": 1109,
+            "sha256": "be4c3d17fe55ecc84e5f7b51de049390c400f4177d6fe5f7e9b2f3800e41999a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2082,
+            "sha256": "6f3de3eb8555402624db123c936abab0ad266b04d3870662b86dec655dac8c41"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1165,
+            "sha256": "b775256436450b0b92f8782bf1b89ecd2171b98f42cfd12369a0888cd9f1718d"
+          }
+        }
+      },
+      "case": "CoincidentX",
+      "child": {
+        "bytes": 8156,
+        "sha256": "1037b63a9c7d009d5d1a0dfca68c2273462c8d75afa85c1f56873f4f97e5197a"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 2800,
+        "native_class": "moMateCoincident",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 55,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 494,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 55,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 494,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 2800,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "f70d08cbbffe0c6c4b953f220cdd91f11fd68a2cc5695398f8a2ebba3b99894e"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "d454537c1e17b190819c5a07f8ae3f2eb1d2861f71f38ed576736e25613bbcbc",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "97bf0f2f9c31898e945b1f174404f6ea1367dedd9449fd60983201b8d87a12f3",
+        "worker_pid": 38291
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "a7175fa9714a9c14321325cc9580048f080caef6aa43e4fc05442e6a539a0a91",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "08dd5376ae0ad229780ad83372529f322b75acf5719aa5ab3d5f2bfdfd221094",
+        "worker_pid": 38139
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9413,
+        "sha256": "7ec34d9352c9011ce94f9ef0e195d2f592ddbd59c9eeb4050c17437ffd28676a",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2420,
+            "sha256": "dd8781d3528e4c14a49c578fc81f525bd03d8bd7794e7fe9af991f399a9b3747"
+          },
+          "Contents/Config-0": {
+            "bytes": 21591,
+            "sha256": "654b31d8d472ecb13ba284c9178806a08065fcf1df74713f7e50fdcee8ce3935"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 3088,
+            "sha256": "dfbd6cbe7d27535399207586e2ef042751837b9e8bfd91edb0985c8a38774117"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1109,
+            "sha256": "c7d7ef6c4bd9e1f4528ed259327a40162e7833f66ccffa1aaee7973ceb15456d"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 557,
+            "sha256": "ea6d7d879340a5cd77db44961a6361ef6467a588d9d13dfd7a85348b85dd95e5"
+          },
+          "Header2": {
+            "bytes": 1109,
+            "sha256": "097753ec9e37303ac9118348318baab120a8d736248cca6066b764c1dc7c41d1"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2118,
+            "sha256": "3d3cfb421ced06f3323d42ae69a88df022cfc8f61f1ed5814fac50ff6ba3a97c"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1165,
+            "sha256": "d80e24118f05b6fdfc8837f284c23f3d93d36a0cb7c70cecc2588260f6022b17"
+          }
+        }
+      },
+      "case": "CoincidentY",
+      "child": {
+        "bytes": 8132,
+        "sha256": "63013aa584a2344fa74a01c7c2f4af4d75681940cefcb966b7b0757d3269b53e"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 3088,
+        "native_class": "moMateCoincident",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 3088,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "dfbd6cbe7d27535399207586e2ef042751837b9e8bfd91edb0985c8a38774117"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "3edb5a1801ac15e8e66ce5f9bb4fb88bd8f7d7295a5f8018241ccff6198474c3",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "44b0c011d255f786b3bbc361f4e5f6ccd875176e51392687c632bd3c49976f62",
+        "worker_pid": 38308
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "05992a99f70f3d7d6a65a7daa09dc06e7111a68e48916805492637b654923892",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "2431df465b5c850c2719e3080818424a705b14eb524497c6d1ba46dc3121dd82",
+        "worker_pid": 38303
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9431,
+        "sha256": "e9b6bba337ae7d3c7bddce9f5b4b0b123927e45900edadc8d52a1c46c05d2f33",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2420,
+            "sha256": "6f744d6431ff9d90023c81f81c239d5ecc78889028cfcb62e1a8ce8f7e4a56d2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21591,
+            "sha256": "5811858f03891d9ea90aed7a0b04e82f5053b0ddeb2540c280dd91dc943119fd"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 3088,
+            "sha256": "6c83e294851d744872052d94cf7781b41153ef4959c90b3d32c62320e93b1b34"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1109,
+            "sha256": "532653884db5419e994befaec7912ab4c286a6c38c05fefaf0ec285be185fb51"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 557,
+            "sha256": "d1ddb4aed08a8c68e443322c81fed11291d9a81f4011f8690dee3357b773e25c"
+          },
+          "Header2": {
+            "bytes": 1109,
+            "sha256": "ed65a13adfd895b5a01975f1cee2526670903ef4e18bbb4b4c9196ad57616626"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2105,
+            "sha256": "ad1efa38f203cbe43e34caa6bb1022597847cc515fc73d596ce06d3ed8703c7a"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1165,
+            "sha256": "ea3b4da06008655b021c9007cac794038d264b6a8f3e728cf1613c2bc16889a5"
+          }
+        }
+      },
+      "case": "CoincidentZ",
+      "child": {
+        "bytes": 8202,
+        "sha256": "8529ee7ad955e05b20231eafdeb50eb41f2b922d9eef41de13e118bb8dcc9507"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 3088,
+        "native_class": "moMateCoincident",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          17,
+          18
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateCoincident": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateCoincident",
+            "moMateNGeoms_c",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 3088,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "6c83e294851d744872052d94cf7781b41153ef4959c90b3d32c62320e93b1b34"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          17,
+          18
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "0d582317f1bea589d5c32ee56c2b020936715782b3f6b806dc307dfcec0bda2f",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "c04a7d9e3158594bb87712f3e394252cd5eeb66a08133742711e416bce21ad83",
+        "worker_pid": 38319
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "ca8b5a5714738f971d16fa3f6ae377ed359bdb6466c90bcb372d1eea378d3f7d",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "7314d38e8171b3090735870b4ee211b5a0efe49ac84d3cb18d651812e7338aa4",
+        "worker_pid": 38312
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9298,
+        "sha256": "ef59095a281f84ae08628c91685a3b7e38eab8b3581de474ed8cd135cb60372e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2412,
+            "sha256": "28c21ddd3299871cdc278511a260b560942b504048700cfd8f0a20cdcb5c9d08"
+          },
+          "Contents/Config-0": {
+            "bytes": 21435,
+            "sha256": "1a728c1e4a463f4ad3fac5047eee76d6ab4127296a8d074a9bad460229b4ecf5"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 2794,
+            "sha256": "6c0d52c4b37a58336af2c0b0cd2e826d44dad3fc8e599f066e263a471a7c16a5"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1093,
+            "sha256": "a075d8dfa2ffb2f0e8967cee7d7f8fef10992f1490210b5d35a5fa8e050615b9"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "b794f3eac93d4cff31bef3875c8b0a4aa2cb24fa72fbf0c9fbe4519074ae3b8e"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "cc1b8b480ca5adde45baf5df35bd82a499b6a8a5264ac5bab3d4d5b96ece97a9"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2074,
+            "sha256": "8413c5443467eb5ac4ed4f5320b98b1530fc486230ea0ec491bfbf092adadaad"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1163,
+            "sha256": "6cb25aa48b0d42387c22d7b57320966ad8c3f93cda7b710657789b02d5253990"
+          }
+        }
+      },
+      "case": "ParallelX",
+      "child": {
+        "bytes": 8156,
+        "sha256": "1037b63a9c7d009d5d1a0dfca68c2273462c8d75afa85c1f56873f4f97e5197a"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 2794,
+        "native_class": "moMateParallel",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 55,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 494,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 55,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 494,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 2,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 2794,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "6c0d52c4b37a58336af2c0b0cd2e826d44dad3fc8e599f066e263a471a7c16a5"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          16,
+          16
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "130da6a10e639368eed07b804375f57ff8368f0c5592475983e6ea1cb948b1ae",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "cb7ed18da63f5b554fe172d297a03953a520b4988e5033902341aa498af84801",
+        "worker_pid": 38334
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "dd76e0fe03fc120102f593ccdc65ea64280a0ccf5f1b73e04d7a69d8183d66da",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "71304478efd8c9093f542347e428298b7bcfd0d9a89920f6ddd02cc4bb2397a0",
+        "worker_pid": 38331
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9396,
+        "sha256": "f7e72a4f4d1b83141e8cbc137fc71aec40c269f33b1fd12e715631f19e7d004e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2412,
+            "sha256": "4e4e1fc42b4c26d2cbdecd2e43611459762b846ea7bb4d05d9f59dc866194994"
+          },
+          "Contents/Config-0": {
+            "bytes": 21579,
+            "sha256": "9b1127d492dc8e3296c2e385e17d3ddb1f30c1c017ae360a01730704a55f4d26"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 3082,
+            "sha256": "bfec4ce29932caf08060cfdb120dff27f8c1347ab015addeaef61e736c76b901"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1093,
+            "sha256": "c1b0d360d5241074965d27b1e6cf94252c036466994c849df82802175714d1c7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "5bbefdeee29479f0d84235d22fbcc8c2875fdd302b6e52da009849b7ef8add29"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "1371dedb686e7d01f54a63d3a890269d352d7161a3dffeaa840a07b92507351d"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2110,
+            "sha256": "c763afbad5e70f125120011ceafee331dcb7f2f391e73985068ada327d857520"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1163,
+            "sha256": "c35e2bb4825f25b8f9f43056e53dac4d16394cad8b25ee7125d18b01be2a041b"
+          }
+        }
+      },
+      "case": "ParallelY",
+      "child": {
+        "bytes": 8132,
+        "sha256": "63013aa584a2344fa74a01c7c2f4af4d75681940cefcb966b7b0757d3269b53e"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          0,
+          1
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 3082,
+        "native_class": "moMateParallel",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 3082,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "bfec4ce29932caf08060cfdb120dff27f8c1347ab015addeaef61e736c76b901"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          15,
+          15
+        ],
+        "ordered_occurrence_ids": [
+          18,
+          17
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "493f28034e74212e2b1df930b678de20d088b0809bd07954acff60f531d084f7",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "b89229bc8348bfba255dee5bdb8a712b64c0eb763c259f97d617c976a2d75634",
+        "worker_pid": 38343
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "4a4d9080f7c844348db8ea19273bba5713add0dcbb34ba5c75923070daee587a",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "693416ce9963bd7a937b465b60860d303d58e687cfbf20b290b6b66b1125b2ce",
+        "worker_pid": 38337
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    },
+    {
+      "all_parent_streams_identical": true,
+      "assembly": {
+        "bytes": 9417,
+        "sha256": "76b5d92f12d6f4a0f40cb3f95e4b79a63911de56f91860bdd26c296c1a14e1dd",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 2412,
+            "sha256": "573a86fafbf9de04a10892125081a29e93235e34e5abe42408275c4d87c287c4"
+          },
+          "Contents/Config-0": {
+            "bytes": 21579,
+            "sha256": "935f6af4a4a42cfb50b4ced224b61a6f128b3d8ab0496057bbbc96061f95c142"
+          },
+          "Contents/Config-0-MatesList": {
+            "bytes": 3082,
+            "sha256": "875f95fd9cd25cf6500231f01d30330563af02c6f85fd7e75da35a2962f75116"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1093,
+            "sha256": "a52a71b80ec0a3ed97aa1769d87b6f91a76dc585258f0acadbcd692176551e76"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 4839,
+            "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+          },
+          "Contents/Definition": {
+            "bytes": 553,
+            "sha256": "cd2639c2d13e8da9b8c72acbd913634ecd23c3bb19235cf479fe6cc98b579dcf"
+          },
+          "Header2": {
+            "bytes": 1093,
+            "sha256": "8c74a0bd9229c6d2fde51c4eb1521b2b125de7f21423885243c8ddfbde09a6e2"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/COMPINSTANCETREE": {
+            "bytes": 2097,
+            "sha256": "5e8d1c8654bc68e95a05ea7173c3e5c52f4b0a79cccb709c509d483ef91afb9c"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1163,
+            "sha256": "a71eb4b76b84887d4443448c841217da0b1b788465751122bb05c6d6899faf72"
+          }
+        }
+      },
+      "case": "ParallelZ",
+      "child": {
+        "bytes": 8202,
+        "sha256": "8529ee7ad955e05b20231eafdeb50eb41f2b922d9eef41de13e118bb8dcc9507"
+      },
+      "constructor": {
+        "actual_occurrence_backlinks": true,
+        "distinct_detached_wrappers": true,
+        "distinct_resolved_wrappers": true,
+        "exclusive_detached_components": true,
+        "fixed_flags": [
+          1,
+          0
+        ],
+        "independent_transform_caches": true,
+        "map_base": 133,
+        "map_terminal": 161,
+        "mate_stream_bytes": 3082,
+        "native_class": "moMateParallel",
+        "next_persistent_id": 20,
+        "next_wrapper_id": 2,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          17,
+          18
+        ],
+        "parent_owner_identity": true,
+        "persistent_id": 19,
+        "unregistered_detached_planes": [
+          -1,
+          -1
+        ]
+      },
+      "coverage": {
+        "read": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        },
+        "write": {
+          "completed": true,
+          "field_calls": {
+            "Array": 27,
+            "Base": 45,
+            "Boolean": 1,
+            "Branch": 138,
+            "Embed": 59,
+            "Node": 60,
+            "Present": 9,
+            "Scalar": 530,
+            "Text": 11,
+            "Virtual": 12
+          },
+          "missing_schemas": [],
+          "native_byte_fields": [],
+          "provisional_schemas": [],
+          "schema_calls": {
+            "mgMatrix_c.restore": 6,
+            "mgPoint_c.restore": 12,
+            "mgVector_c.restore": 6,
+            "mgXform_c.restore": 10,
+            "moAbsoluteRefPlnData_c": 2,
+            "moAtomFeature_c": 2,
+            "moChainComponent_c": 2,
+            "moCompFeature_c": 4,
+            "moCompRefPlane_c": 4,
+            "moCompRef_c": 4,
+            "moComponent_c": 4,
+            "moConcept_c.SerializeLWData": 3,
+            "moConcept_c.SerializeResolvedData": 3,
+            "moEntVisProp_c": 3,
+            "moExtFeatureList_c": 2,
+            "moFRData_c": 4,
+            "moFeature_c": 3,
+            "moFeature_c.FUN_4bb2b240": 3,
+            "moFeature_c.SerializeXmlData": 1,
+            "moMate": 1,
+            "moMate2Geoms_c": 1,
+            "moMateNGeoms_c": 1,
+            "moMateParallel": 1,
+            "moMateParent": 1,
+            "moModelFeature_c": 3,
+            "moNodeList_c.Serialize": 3,
+            "moNodeName_c": 1,
+            "moNode_c.SerializeLWData": 3,
+            "moNode_c.SerializeNode": 3,
+            "moPlaneRef_w": 4,
+            "moRefGeom_c": 2,
+            "moRefPlane_c": 2,
+            "moRefPlane_c.SerializeXmlData": 2,
+            "moRefPlnData_c.serializePlaneData": 2,
+            "moRefWrapper_c": 4,
+            "moReferenceChain_c": 2,
+            "moReferencedConfiguration_c": 2,
+            "moSurfaceRef_w": 4,
+            "moUnitComponent_c": 2,
+            "moVisProp_c": 3,
+            "rf.suObArray": 4,
+            "rf.suObList": 3,
+            "utLineWidth_c.Serialize2": 3
+          },
+          "used_schemas": [
+            "mgMatrix_c.restore",
+            "mgPoint_c.restore",
+            "mgVector_c.restore",
+            "mgXform_c.restore",
+            "moAbsoluteRefPlnData_c",
+            "moAtomFeature_c",
+            "moChainComponent_c",
+            "moCompFeature_c",
+            "moCompRefPlane_c",
+            "moCompRef_c",
+            "moComponent_c",
+            "moConcept_c.SerializeLWData",
+            "moConcept_c.SerializeResolvedData",
+            "moEntVisProp_c",
+            "moExtFeatureList_c",
+            "moFRData_c",
+            "moFeature_c",
+            "moFeature_c.FUN_4bb2b240",
+            "moFeature_c.SerializeXmlData",
+            "moMate",
+            "moMate2Geoms_c",
+            "moMateNGeoms_c",
+            "moMateParallel",
+            "moMateParent",
+            "moModelFeature_c",
+            "moNodeList_c.Serialize",
+            "moNodeName_c",
+            "moNode_c.SerializeLWData",
+            "moNode_c.SerializeNode",
+            "moPlaneRef_w",
+            "moRefGeom_c",
+            "moRefPlane_c",
+            "moRefPlane_c.SerializeXmlData",
+            "moRefPlnData_c.serializePlaneData",
+            "moRefWrapper_c",
+            "moReferenceChain_c",
+            "moReferencedConfiguration_c",
+            "moSurfaceRef_w",
+            "moUnitComponent_c",
+            "moVisProp_c",
+            "rf.suObArray",
+            "rf.suObList",
+            "utLineWidth_c.Serialize2"
+          ]
+        }
+      },
+      "mate_stream": {
+        "bytes": 3082,
+        "map_base": 133,
+        "map_terminal": 161,
+        "sha256": "875f95fd9cd25cf6500231f01d30330563af02c6f85fd7e75da35a2962f75116"
+      },
+      "passed": true,
+      "readback": {
+        "actual_component_parent_identity": true,
+        "actual_ordered_occurrence_backlinks": true,
+        "exclusive_detached_components": true,
+        "feature_owner_is_loader_attachment": true,
+        "independent_unregistered_planes": [
+          -1,
+          -1
+        ],
+        "mate_id": 19,
+        "ordered_datum_ids": [
+          14,
+          14
+        ],
+        "ordered_occurrence_ids": [
+          17,
+          18
+        ],
+        "resolved_group_id": 16
+      },
+      "reference": {
+        "exit_code": 0,
+        "request_sha256": "4e4a4676b20f7b5fbaa3217abdc4b0329a9dbe42550d756b76d344c7c2f842d9",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "963e3c76be354fa96a27be66e88956fa7478220a087e87571e2236bcaa7a03e2",
+        "worker_pid": 38348
+      },
+      "sdk": {
+        "exit_code": 0,
+        "request_sha256": "89be0ca12e4823e2b02e20476388f4b7e1229a979f16f5a7ba413170003de555",
+        "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stdout_sha256": "73ae32699464b5358db8adfce82f333af1e2ec61b6deb909867d502df93044a9",
+        "worker_pid": 38346
+      },
+      "whole_child_container_identical": true,
+      "whole_parent_container_identical": true
+    }
+  ],
+  "previous_frozen_proof": {
+    "distinct_worker_processes": 31,
+    "negative_cases": 19,
+    "positive_cases": 6,
+    "raw_sha256": "44b9d4d8e75c9f3097d7fc9914a6f0d7eb6be0deb505b33133391288b27fd993",
+    "retained_unchanged": true,
+    "source_manifest_sha256": "1de869d880d91ed9f8e17ea1c3f29034abb72508d0f7671e6450830beff85d98"
+  },
+  "proof_identity": {
+    "fresh_workers": 32,
+    "python_version": "3.11",
+    "raw_sha256": "2b19bbc88fb912d8dafc0f4d13c19bd26900a00613ca18e09fe4607fa5b6b7b0",
+    "source_unchanged": true
+  },
+  "public_writer_enabled": false,
+  "runtime_input_file_read_attempts": 0,
+  "schema": "kit.sw2026.sdk-planar-construction.v1",
+  "source": {
+    "existing_shared_dependencies": [
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/IdentityXform.py",
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/CheckIdSeed.py",
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitConceptMut.py"
+    ],
+    "manifest_sha256": "4423af120f396a83b392db9908a17f84aa7917b68866421a24a108c4fb8eeac2",
+    "owned_files": {
+      "re/tooling/sw2026/CheckSdkPlanar.py": {
+        "bytes": 7056,
+        "sha256": "aeb3f16e226d529967c450346b488df08d8c7ce489df0de0debe599980a2b8a8"
+      },
+      "re/tooling/sw2026/SdkPlanarBridge.py": {
+        "bytes": 7989,
+        "sha256": "509687b40e9fa6086d4e4bf7186d7f4e021ce710376270fd01a5073cca711bf6"
+      },
+      "re/tooling/sw2026/SdkPlanarFaults.py": {
+        "bytes": 3860,
+        "sha256": "6a2edc8d3a97e16f07041134a34c9d3bd00163e1a42fd32dbafd36edd1d1812b"
+      },
+      "re/tooling/sw2026/SdkPlanarMateProcess.py": {
+        "bytes": 5960,
+        "sha256": "1182994773ca89a3a8499059ad01305e4ce600f030d8217925a899596bdf3cd4"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/CrossVector.py": {
+        "bytes": 390,
+        "sha256": "fcf824959cdafa584f93f5325fcfcf5104fbb345a8ed66351f5ff19d823b181b"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/DotVector.py": {
+        "bytes": 287,
+        "sha256": "4bc03762414cc3d9b33eed58c173b5dbea6b1f1251ccdf7398f114a2c4a53dc5"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/FrameXform.py": {
+        "bytes": 1207,
+        "sha256": "13051666781be88c070757bd34b36c33ece596ae28b85e23b1cd321dec9a409c"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/IdentityXform.py": {
+        "bytes": 233,
+        "sha256": "5828cbc26dd182dacad0affd36b3572ea2233639c03cf936800e9621a9343719"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/MakePlaneFrame.py": {
+        "bytes": 1186,
+        "sha256": "f5ab450d75332657f58b8f7c7b0ef3ad20cd682733393a3abf3d280c25680450"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/PlaneFrame.py": {
+        "bytes": 367,
+        "sha256": "d60abe6039f5076596d772228d84ea2cb0d8a266ef86cd7716256eef28db7397"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/ReadRigidXform.py": {
+        "bytes": 2003,
+        "sha256": "1bf043d07a5c8cf5860d8b837938e2f0fff702eebcabf199e5e2a70c0722b5b3"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/RotateVector.py": {
+        "bytes": 397,
+        "sha256": "8d46efbb9265faf691ba0c9c560f3250a2cc1ff8213b41779ce56e4bfe6418d3"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Geometry/UnitVector.py": {
+        "bytes": 578,
+        "sha256": "eb22b2477fbcd1fa7f70b5c7cbb708492ad7a6207edb94b70e65a34a592049ee"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/AtomSeeds.py": {
+        "bytes": 622,
+        "sha256": "2348ceb48e396ad4464ddaa1a9ffeddd36037bee6d3bbe2d4275580543d0f1d4"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/CheckIdSeed.py": {
+        "bytes": 551,
+        "sha256": "8a3b61be1e1c436ee1c67dc76f02507397b00a360dd432db72e4c4f7dc794157"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureSeeds.py": {
+        "bytes": 528,
+        "sha256": "eab7babb494145f389c268cdd457335a42b4e1f5550cd01b5998582e27939d83"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureTarget.py": {
+        "bytes": 1347,
+        "sha256": "96c6ce32cb952b1846c49a28015216802438c58711046ff6b9b75e5683dc0e62"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureTime.py": {
+        "bytes": 619,
+        "sha256": "9bf7f911632029b9a5e6e745e6f43e37d98ca3ad12af76fbe9a78659cf5f6e01"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitConceptMut.py": {
+        "bytes": 742,
+        "sha256": "8d0eaaeca75c72c9dfa2d0e11ed78e32191a72073ef10153f5e87d075d1653c5"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitFeatureMut.py": {
+        "bytes": 2022,
+        "sha256": "40cf0e9ec106523121772a7aea145849d98535bcfde0ed09316cea04173e68f7"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py": {
+        "bytes": 1824,
+        "sha256": "669b06946bddad5c50fdb28390b9492c2ed83efacbbc8b2daa16552628dd5613"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/MakeAtomFeat.py": {
+        "bytes": 1035,
+        "sha256": "2a1a4d94d30e5c16aad8c9137bd2bfd46f4728d011eb63654049854d2b7d45af"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/MakeEntityVis.py": {
+        "bytes": 296,
+        "sha256": "95470b3eb33a3ca6750246926a0efb5e86340116ca385dec8789ee5f077e51d0"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/MakeFeature.py": {
+        "bytes": 1146,
+        "sha256": "771424b21abd3f60e39e217f9dfa60253cfa1fcb8a29b90aaf35b19b0de71458"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/MakeModelFeat.py": {
+        "bytes": 832,
+        "sha256": "b6fd56468f964083ddb8fd5b637e14e0c28f0749c34e7b7747e5537ad8571b68"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py": {
+        "bytes": 2271,
+        "sha256": "1ceff807e1f749498984af1749f77f93a1d19aef3261229b72da3dee3662dd60"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CheckChildRoots.py": {
+        "bytes": 794,
+        "sha256": "231cb615a9a21e359b7f18f7fad4f8570ea89444cc1e05ad92ee830142aade3a"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CheckMateChild.py": {
+        "bytes": 2401,
+        "sha256": "eb04634a8997c75abd91d39a24e70c23531f01afda3f12f121a0d48cbcfc0792"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CheckMateCtx.py": {
+        "bytes": 3369,
+        "sha256": "24652ce071322ce337105218e2bcecebc0b0339e68de6b93a40d100b1d29ca38"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CheckMateIds.py": {
+        "bytes": 1555,
+        "sha256": "73fc5d57e7650f3c7b75ea73d8c89e576de1ee7b7ac8d826c0e4e5d61d60c972"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CompRefFields.py": {
+        "bytes": 1465,
+        "sha256": "c0c1f8abf6b7dcf77630f3dd85b5343216565fda461de0f4a61d58edadd0dab4"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/CopyPlacement.py": {
+        "bytes": 626,
+        "sha256": "ac2e99aec26dbee66eb35d3bfb684198d1ca110ffb7049c3ba127e686a0cb777"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/DatumTime.py": {
+        "bytes": 1097,
+        "sha256": "f2beceeec65fe1907787c2dd5764a777d83410a25346a6ccee77853bacd13c0a"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/EndpointData.py": {
+        "bytes": 636,
+        "sha256": "bc288f266b72d14a9d4f769d96a4891b07d6e76801dfa03967f92f61d4322137"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/FieldRecord.py": {
+        "bytes": 451,
+        "sha256": "3a8b864d977611cbe2d6f32af3f503e1d49e4577d3a6311b9fd74fdf2775f6f4"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeAbsPlane.py": {
+        "bytes": 1674,
+        "sha256": "03564b54ab6fc8fbd5697f110fe89d4dd7ad743d6c09885bcc942bab09e95837"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeDetached.py": {
+        "bytes": 2487,
+        "sha256": "423c70c1369fcc739d27c0452ee188bd638c7c77c33008049d261b6b21eaeea3"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeEndpoint.py": {
+        "bytes": 2886,
+        "sha256": "03867d34dbe9fcb043f9689cd6b79a8469ff738bc5db74d0537ea4104c7b0e25"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeMateChain.py": {
+        "bytes": 1842,
+        "sha256": "de2e0f1b699edd2d3b096940d4ab5b0514120f8a881a81b2bcb7f8d86b845436"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeMateMut.py": {
+        "bytes": 2742,
+        "sha256": "896bc1654bc60dc47c636f57bdf422533519399da8691262f44c2df37c41133b"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MakeResolved.py": {
+        "bytes": 1784,
+        "sha256": "17b883d9947e0da7c14172ce4ca12a80d31213bae813919d8ffcd8f83c54b670"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MateChild.py": {
+        "bytes": 419,
+        "sha256": "dfc0bdc841de22e0a34565a397b981b82acfb7f30b49b08157522635ef3cfedf"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MateContext.py": {
+        "bytes": 668,
+        "sha256": "a79d0aba142758ac88cd2be362d6090c20e1edb3d60d17aa0b41b0be17767c2e"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/MateSelection.py": {
+        "bytes": 485,
+        "sha256": "c4306eecc8f2078bbb798478fc06b776325543ea4f04e1ddf81febb834c1f4f2"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/PlaceDatum.py": {
+        "bytes": 1035,
+        "sha256": "63419214af3a9c043a4a89a4219fc9b510cdc9362f90a585033b3f3ed1163356"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/PlanarMateIn.py": {
+        "bytes": 536,
+        "sha256": "cabd4173c56c4d208a3b355f6cdf666d123d8eee5491df78592770d971134d85"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/ReadDatumFrame.py": {
+        "bytes": 1670,
+        "sha256": "e83f3ab8edc366fbae0d165928564f40e917bd9fe00e9e222a9e08a5a9cbe331"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/SignedStamp.py": {
+        "bytes": 335,
+        "sha256": "24fca04ab559371a581ef0e6db38d58409863a86988117a22abdeb5fe1375afc"
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/PlanarMates/WrapperFields.py": {
+        "bytes": 841,
+        "sha256": "dff5186758eb05603d83014be981ddd3bc94f216224c9a6ad57ec1009b821537"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/AssertSdkMate.py": {
+        "bytes": 1594,
+        "sha256": "a024072a11d1760daa8e9a26591fb89f1d58af18641c60700d110913497e94fe"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/MakeSdkMate.py": {
+        "bytes": 1849,
+        "sha256": "06c349b94c0244498490080cb73ae2540ff36f892048490b6154c503532e01cb"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/MateDesigns.py": {
+        "bytes": 692,
+        "sha256": "b157c5625e4582e0b05e5cf9c934674e2c459b5009db7afc281b354b5cab276a"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/RunSdkMate.py": {
+        "bytes": 1056,
+        "sha256": "7314fe712c4cf130ff14608b4ab8feb730b885169f788e6b2522fb2cfa61ffd5"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/SdkMateFaultTests.py": {
+        "bytes": 1639,
+        "sha256": "1cfca9d2b5ad9e51be57ea4540be4758a9b22bae17f6a5a909f8ca5561d42470"
+      },
+      "tests/Convert/Solidworks/Research/Mates/Construction/SdkMateTests.py": {
+        "bytes": 778,
+        "sha256": "360ff4a0d2c5c3190b76da56d2f972d005633faabd9125a102db58f44b8c73e3"
+      }
+    },
+    "python_files": 4318
+  },
+  "source_locked_before_generation": true,
+  "source_manifest_sha256": "4423af120f396a83b392db9908a17f84aa7917b68866421a24a108c4fb8eeac2",
+  "source_repairs": {
+    "complete_positive_outputs_unchanged_cases": [
+      "CoincidentX",
+      "CoincidentY",
+      "CoincidentZ",
+      "ParallelX",
+      "ParallelY",
+      "ParallelZ"
+    ],
+    "mechanical_shared_primitive_repairs": {
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/InitNodeMut.py": {
+        "after": {
+          "bytes": 1824,
+          "sha256": "669b06946bddad5c50fdb28390b9492c2ed83efacbbc8b2daa16552628dd5613"
+        },
+        "before": {
+          "bytes": 1791,
+          "sha256": "f402f44ac35cffe31befdd9c8e6d3d5d8e1502eff28d5a537ff77b0527847e35"
+        }
+      },
+      "src/convert/adapters/solidworks/Archive/Construction/Nodes/PersistentIds.py": {
+        "after": {
+          "bytes": 2271,
+          "sha256": "1ceff807e1f749498984af1749f77f93a1d19aef3261229b72da3dee3662dd60"
+        },
+        "before": {
+          "bytes": 2244,
+          "sha256": "01a5203cbdb4d74e2ed5bcbe3c9ab1d5f7fe05af01c5b92e17efbdd6a4ecb375"
+        }
+      }
+    },
+    "other_validation_changes": [
+      "explicit discarded guard return values",
+      "reject nonfinite derived inverse frame before allocation"
+    ]
+  },
+  "source_unchanged": true,
+  "verification": {
+    "black": {
+      "passed": true
+    },
+    "donor_scan": {
+      "python_files_scanned": 3670,
+      "recorded_payloads": 0
+    },
+    "mypy": {
+      "passed": true,
+      "strict": true
+    },
+    "process_integration": {
+      "failed": 0,
+      "passed": 26,
+      "seconds": 19.6
+    },
+    "pyright": {
+      "errors": 0,
+      "existing_unrecognized_settings": 3,
+      "information": 0,
+      "warnings": 0
+    },
+    "ruff": {
+      "passed": true
+    },
+    "steering": {
+      "passed": true,
+      "python_files": 51
+    }
+  }
+}

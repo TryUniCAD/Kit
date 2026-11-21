@@ -1,0 +1,202 @@
+{
+  "comparison": {
+    "0.21.2": {
+      "request_sha256": "bfc2aebf050999e5d8eefa0b2d10196af09ed982de6b94c0e2be1f5b9ff54854",
+      "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+      "with_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 15,
+        "source_cache_compared": true,
+        "support": "Top Plane"
+      },
+      "without_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 15,
+        "source_cache_compared": false,
+        "support": "Top Plane"
+      }
+    },
+    "1.0.2": {
+      "request_sha256": "3a241aefd40124fed9d414a5ca7fbebb87c863b9e6a9a8e8fd3502743432c978",
+      "source_sha256": "40a68d097af87a4ca192fe8d0caa227e236547cc1a5e8b95ddba1037eb8dca70",
+      "with_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 21,
+        "source_cache_compared": true,
+        "support": "Top Plane"
+      },
+      "without_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 21,
+        "source_cache_compared": false,
+        "support": "Top Plane"
+      }
+    },
+    "1.1.4": {
+      "request_sha256": "157d2fbe911c585748a214ca0b0aa344b8ceef69dd1ac6111ebc837a9068f38c",
+      "source_sha256": "dba4b4257d5b44c03051121c52d9ffb84e73fe17deae499256d807a129cd8852",
+      "with_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 24,
+        "source_cache_compared": true,
+        "support": "Top Plane"
+      },
+      "without_shape_cache": {
+        "dimensions_mm": [
+          20.0,
+          30.0,
+          10.0
+        ],
+        "equal_fields": [
+          "body_name",
+          "creation_epoch",
+          "dimensions",
+          "feature_name",
+          "geometry",
+          "lowered_model",
+          "parameter_bindings",
+          "properties",
+          "units"
+        ],
+        "native_boss_reversed": true,
+        "property_count": 24,
+        "source_cache_compared": false,
+        "support": "Top Plane"
+      }
+    }
+  },
+  "native_application_launches": 0,
+  "native_files_generated": 0,
+  "rejections": {
+    "displaced_origin_point": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "foreign_dimension_owner": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "foreign_unit_selector": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "inconsistent_object_owner": {
+      "ported_projector_refused": true,
+      "reference_refused": false
+    },
+    "populated_string_map": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "positive_attachment_offset": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "subelement_support": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "unknown_document_property": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "unknown_feature_property": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "unknown_material": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "unknown_release": {
+      "ported_projector_refused": true,
+      "reference_refused": true
+    },
+    "unowned_neutral_plane": {
+      "ported_projector_refused": true,
+      "reference_refused": false
+    }
+  },
+  "runtime_input_file_reads": 0,
+  "scope": "disclosed F14c source projections"
+}

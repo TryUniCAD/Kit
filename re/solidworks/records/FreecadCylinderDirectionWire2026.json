@@ -1,0 +1,418 @@
+{
+  "calls": [
+    {
+      "kind": "direct",
+      "module": "sldmodu",
+      "site": "0x4c302add",
+      "target": "0x4c302c80"
+    },
+    {
+      "kind": "direct",
+      "module": "sldmodu",
+      "site": "0x4c27bf6d",
+      "target": "0x4c281520"
+    },
+    {
+      "kind": "direct",
+      "module": "sldmodu",
+      "site": "0x4c307bfd",
+      "target": "0x4c308370"
+    },
+    {
+      "kind": "direct",
+      "module": "sldmodu",
+      "site": "0x4b278bc1",
+      "target": "0x4b7e7980"
+    },
+    {
+      "kind": "direct",
+      "module": "sldmodu",
+      "site": "0x4b7e79c9",
+      "target": "0x4b815370"
+    },
+    {
+      "iat": "0x4cd33510",
+      "kind": "import",
+      "module": "sldmodu",
+      "site": "0x4c695e06",
+      "symbol": "?serializePtr@suObArray@@SAXAEAVsu_CArchive@@AEAPEAV1@@Z"
+    },
+    {
+      "iat": "0x4cd33d50",
+      "kind": "import",
+      "module": "sldmodu",
+      "site": "0x4baf931f",
+      "symbol": "?addUnique@suObArray@@QEAAHPEAVCObject@@@Z"
+    },
+    {
+      "iat": "0x4cd33930",
+      "kind": "import",
+      "module": "sldmodu",
+      "site": "0x4c302e1b",
+      "symbol": "?deleteAll@suObArray@@QEAAXXZ"
+    },
+    {
+      "iat": "0x3cb1d248",
+      "kind": "import",
+      "module": "sldmfcu",
+      "site": "0x3c8cfde5",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    {
+      "iat": "0x3cb1d238",
+      "kind": "import",
+      "module": "sldmfcu",
+      "site": "0x3c8cfdfe",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    }
+  ],
+  "classes": [
+    {
+      "descriptor_symbol": "?classmoDirectionSpec_c@moDirectionSpec_c@@2UCRuntimeClass@@A",
+      "name": "moDirectionSpec_c",
+      "serializer": "0x4c695dd0",
+      "vtable": "0x4d178a78"
+    },
+    {
+      "descriptor_symbol": "?classmoRefSpec_c@moRefSpec_c@@2UCRuntimeClass@@B",
+      "name": "moRefSpec_c",
+      "serializer": "0x4c696320",
+      "vtable": "0x4d1789d0"
+    },
+    {
+      "descriptor_symbol": "?classmoPlaneInterAxisData_c@moPlaneInterAxisData_c@@2UCRuntimeClass@@A",
+      "name": "moPlaneInterAxisData_c",
+      "serializer": "0x4c2744f0",
+      "vtable": "0x4d162258"
+    },
+    {
+      "descriptor_symbol": "?classmoRefAxisData_c@moRefAxisData_c@@2UCRuntimeClass@@A",
+      "name": "moRefAxisData_c",
+      "serializer": "0x4c275790",
+      "vtable": "0x4d1619a0"
+    },
+    {
+      "descriptor_symbol": "?classmoRefAxis_c@moRefAxis_c@@2UCRuntimeClass@@A",
+      "name": "moRefAxis_c",
+      "serializer": "0x4c2759c0",
+      "vtable": "0x4d1571b0"
+    },
+    {
+      "descriptor_symbol": "?classmoCompRefAxis_c@moCompRefAxis_c@@2UCRuntimeClass@@A",
+      "name": "moCompRefAxis_c",
+      "serializer": "0x4bba6c80",
+      "vtable": "0x4cd8ef60"
+    },
+    {
+      "descriptor_symbol": "?classmoCompRefPlane_c@moCompRefPlane_c@@2UCRuntimeClass@@A",
+      "name": "moCompRefPlane_c",
+      "serializer": "0x4bba6dd0",
+      "vtable": "0x4cd8d220"
+    },
+    {
+      "descriptor_symbol": "?classmoLineRef_w@moLineRef_w@@2UCRuntimeClass@@A",
+      "name": "moLineRef_w",
+      "serializer": "0x4c272640",
+      "vtable": "0x4ce5cd20"
+    },
+    {
+      "descriptor_symbol": "?classmoPlaneRef_w@moPlaneRef_w@@2UCRuntimeClass@@A",
+      "name": "moPlaneRef_w",
+      "serializer": "0x4c274810",
+      "vtable": "0x4cf52068"
+    }
+  ],
+  "confidence": "partial: exact native code and shared grammar only; no non-null native source corpus or generated output acceptance",
+  "delivery_pr": 121,
+  "document_version": 19000,
+  "field_rules": {
+    "axis_intersection_graph": {
+      "axis_data": "moRefAxis_c.f700 -> moPlaneInterAxisData_c",
+      "data_refs": [
+        "f80 -> first actual moPlaneRef_w",
+        "f88 -> second actual moPlaneRef_w"
+      ],
+      "runtime_owner": "moRefAxisData_c.f48 -> actual axis, not serialized by the inspected base grammar"
+    },
+    "body_branches": {
+      "f78": "reference when native f0c==7",
+      "f80": "reference when native f10==7"
+    },
+    "component_geometry_lifecycle": "Registered feature identity uses the common feature reference and null ff8; the constructor keeps a direct ff8 geometry owner only while the selected feature id is -1",
+    "direction_modern_wire_order": [
+      "shared su_CObject base",
+      "i32 has_f08",
+      "conditional embedded rf.suObArray f08",
+      "i32 f10",
+      "u8 has_f18",
+      "if has_f18: mgVector f18, u8 has_f20 and optional mgVector f20, u8 has_f28 and optional mgPoint f28",
+      "i32 f14"
+    ],
+    "direction_reference_graph": [
+      "moEndSpec_c.f138 -> moDirectionSpec_c",
+      "moDirectionSpec_c.f08 -> owned nullable suObArray",
+      "array item -> moLineRef_w or moPlaneRef_w",
+      "wrapper.f58 -> moCompRefAxis_c or moCompRefPlane_c",
+      "component reference.f58 -> actual owning component",
+      "component reference.ff0 -> actual feature id and creation time"
+    ],
+    "direction_vector_priority": "Non-null f18 is normalized before any selected-geometry dispatch and bypasses the reference-backed route",
+    "distance_graph": {
+      "f18": "forward moDisplayDim_c pointer",
+      "f20": "reverse moDisplayDim_c pointer",
+      "fa0": "serialized f64 with unbound role here; not established as the height or the active end distance",
+      "height_driver": "for the proposed plane-limit route, Height belongs to the selected plane offset dimension",
+      "meaning": "getDistance(index) reads the chosen display model handle and its value; never a raw double in either pointer slot"
+    },
+    "limit_forward": {
+      "array": "embedded suObArray at f28",
+      "candidate_item": "actual moPlaneRef_w",
+      "constructor_action": "setISurfRef(wrapper,0,replace) clears if requested and adds the actual wrapper uniquely",
+      "presence": "u8 has_f28"
+    },
+    "limit_reverse": {
+      "array": "embedded suObArray at f48",
+      "candidate_item": "actual moPlaneRef_w",
+      "presence": "u8 has_f48"
+    },
+    "ownership": "Reference-array destruction deletes its wrapper objects; allocate separate wrapper/comp-reference instances for separate owning arrays while retaining the same actual selected feature identity",
+    "parent_dependencies": "Native end-reference collection includes selected limit wrappers, explicit direction refs and from-end refs; profile-only parent registration is insufficient for the new construction",
+    "point_branches": {
+      "f68": "moPointRef_w only when native f0c==3",
+      "f70": "moPointRef_w only when native f10==3"
+    },
+    "reference_candidate_identity_options": {
+      "f10": 0,
+      "f14": 0,
+      "status": "partial: native update retains primary geometry with these inputs; public selection-to-options mapping remains unmeasured"
+    },
+    "reference_constructor_state": {
+      "array_rows": 1,
+      "f10": "authored polarity integer",
+      "f14": "authored axis-choice integer",
+      "f18": null,
+      "f20": null,
+      "f28": null
+    },
+    "selected_geometry_dispatch": {
+      "line_wrapper_virtual_slot": "0x3f8",
+      "plane_wrapper_virtual_slot": "0x338",
+      "returned_vector": "temporary output value, not a persistent f18 cache"
+    },
+    "surface_presence_rule": "Load consumes each surface array only when its u8 gate is nonzero. Current ordinary native store derives the gate from archive/context conditions rather than array count; do not derive all presence flags from n"
+  },
+  "functions": [
+    {
+      "entry": "0x4c302ac0",
+      "key": "direction_reference_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c302910",
+      "key": "direction_vector_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c302c80",
+      "key": "reference_array_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c303070",
+      "key": "reference_append",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c3032a0",
+      "key": "direction_update",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c695dd0",
+      "key": "direction_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c302d70",
+      "key": "direction_destructor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b283bd0",
+      "key": "end_direction_getter",
+      "leaf_bytes": 8,
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b30fb20",
+      "key": "end_direction_setter",
+      "leaf_bytes": 8,
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4baf92d0",
+      "key": "end_surface_setter",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4bae2060",
+      "key": "end_surface_getter",
+      "leaf_bytes": 52,
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b3100b0",
+      "key": "end_type_setter",
+      "leaf_bytes": 8,
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4badf660",
+      "key": "end_distance_getter",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4bb10250",
+      "key": "end_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c27bef0",
+      "key": "axis_intersection_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c281520",
+      "key": "axis_intersection_data_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c281770",
+      "key": "axis_data_base_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c2744f0",
+      "key": "axis_intersection_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c2759c0",
+      "key": "axis_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b278b80",
+      "key": "component_axis_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b7e7980",
+      "key": "component_geometry_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4b815370",
+      "key": "component_feature_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4bba6c80",
+      "key": "component_axis_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c307bf0",
+      "key": "line_wrapper_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c307f20",
+      "key": "plane_wrapper_ctor",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c3031f0",
+      "key": "reference_collector",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4bae3be0",
+      "key": "end_reference_collector",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c272640",
+      "key": "line_wrapper_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4c274810",
+      "key": "plane_wrapper_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x4bba6dd0",
+      "key": "component_plane_serializer",
+      "module": "sldmodu"
+    },
+    {
+      "entry": "0x3c8cfda0",
+      "key": "nullable_array_serializer",
+      "module": "sldmfcu",
+      "symbol": "?serializePtr@suObArray@@SAXAEAVsu_CArchive@@AEAPEAV1@@Z"
+    }
+  ],
+  "invariants": {
+    "external_communications": 0,
+    "generated_native_files": 0,
+    "heldout_inputs_read": 0,
+    "hopper_documents_opened": 0,
+    "native_processes_started": 0,
+    "shared_checkout_edits": 0
+  },
+  "modules": {
+    "sldmfcu": {
+      "base": "0x3c720000",
+      "bytes": 8274520,
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    },
+    "sldmodu": {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "native_api_translation": {
+    "native_end_enum_mapping": "not found in this bounded source trace; do not choose a wire enum from the public number alone",
+    "public_up_to_selection": 10,
+    "typed_direction_inputs": "partial: constructor options and consumer behavior pinned; actual public-call ownership still needs source authoring"
+  },
+  "owner": "/root/assembly_occurrence",
+  "pe_reader_sha256": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+  "remaining_edges": [
+    "public selected-end enum to native gcEndSpecType_e translation",
+    "selected-end active/inactive distance display lifecycle",
+    "signed and zero-angle datum/native axis publication and cache lifecycle",
+    "complete source-preserving metadata, all five geometry drivers and full/partial sweep transition",
+    "fresh independent pre-writer source locks for this combined primitive profile"
+  ],
+  "schema": "kit.sw2026.cylinder-direction-wire.v1",
+  "scope": "Exact-build static ordinary version-19000 reference-backed direction and selected-plane limit grammar; no writer or corpus qualification",
+  "source_lowering_packet_handoff_sha256": "40ac416609c2dc5fc3355b44d6965090e74b19fd682b26f03bab9a2e331e3fe3",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "virtual_slots": [
+    {
+      "name": "line selected geometry",
+      "slot_bytes": 1016,
+      "target": "0x4c316200",
+      "vtable": "0x4ce5cd20"
+    },
+    {
+      "name": "plane selected geometry",
+      "slot_bytes": 824,
+      "target": "0x4c319570",
+      "vtable": "0x4cf52068"
+    }
+  ]
+}

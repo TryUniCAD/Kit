@@ -1,0 +1,156 @@
+{
+  "blank_sheet": {
+    "edited_saved_reopened_ratio": [
+      3.0,
+      2.0
+    ],
+    "height_m": 0.21589999999999998,
+    "model_views": 0,
+    "original_ratio": [
+      1.0,
+      1.0
+    ],
+    "paper_size": 0,
+    "template": 13,
+    "width_m": 0.2794
+  },
+  "cases": [
+    {
+      "derivative_sha256": "9d746b04b8db723d0caf0cc7efa33bae269ead89674ab92c7e2cc07a4e408897",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "name": "ControlBefore",
+      "omitted_streams": [],
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "7a53b66694ed578ef1a32cd1c2db775ad8ac671a989381b4a6fe811499ebf22c",
+        "5cf5765f34048beb96084108c09294e2f12a9dbb7aedaf2ff5a98714510aaacb"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "1d22f4cb93cce8f8f4c4b4cfe62bfd6ef675b122cda0d4b00c146ae78844f1b8",
+      "input_sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "input_stream_count": 29,
+      "name": "Repacked",
+      "omitted_streams": [],
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "f787e4c11e52b81896d37738af893d27a9cdcf2ac9a005be4ea60755a6775fc0",
+        "92e2f6cdcb6a5fbde56d12efffc5fc525d4a7f3b18c2832caac5c350529136be"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "f54b9c294e067949211f11daaf09b115a021498003bd621e21138a328fac00cc",
+      "input_sha256": "aac068f84cc7f8b802edda4c65f72167ad8ee09be08242fb05bdfb3ef9da2627",
+      "input_stream_count": 25,
+      "name": "OmitAllFourIndexes",
+      "omitted_streams": [
+        "Contents/DisplayLists",
+        "Contents/VBLists",
+        "_DL_VERSION_19000/DLUpdateStamp",
+        "SheetPreviews/SheetNames"
+      ],
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "5506cd06b90d09cad8718e7bac347c4026a7302313b0878cce5c57e3be5c21a2",
+        "c2c386f61353acc55410a1bcaf1642c7f98b0665bfc0ccf08a680b711507a2df"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "restored_stream_bytes": {
+        "Contents/DisplayLists": 3249,
+        "Contents/VBLists": 8,
+        "SheetPreviews/SheetNames": 22,
+        "_DL_VERSION_19000/DLUpdateStamp": 6
+      },
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    },
+    {
+      "derivative_sha256": "bf42cc7e22fccf2aea8018b9e6a91122e73f37346bc2bbb6f0553aaacc1acd2c",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "input_stream_count": 29,
+      "name": "ControlAfter",
+      "omitted_streams": [],
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "phase_record_sha256": [
+        "3214aa736f98ce543663abd923a2c0ebfd2848f2d543565c2e6278eeedde8998",
+        "7cae26844671abb10ad4d2e1c9ccf3a865482e007a3c282a537abbbae4e254e6"
+      ],
+      "reopen_errors_warnings": [
+        0,
+        0
+      ],
+      "save_success_errors_warnings": [
+        true,
+        0,
+        0
+      ],
+      "source_immutable": true
+    }
+  ],
+  "combined_omission_measured": true,
+  "control_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+  "controls_passed": [
+    true,
+    true
+  ],
+  "dialog_count": 0,
+  "distinct_processes": 8,
+  "host_transport_sha256": "f12805ed02181adb7fa6687e0af1b16ec050b01768c4e88bae2c80535a44874d",
+  "immutable_inputs": true,
+  "live_tree_rows": 10,
+  "native_acceptance": false,
+  "native_record_sha256": "cea7ce29e934e7255a245ea4a79c6e5503d8a2c1c1485fe01e687897055d34ba",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "packet_sha256": "386394e858da7fa9892267cd4151e746622d8873aab9ccc5d9b0e568f9b01359",
+  "rebuild_problem_count": 0,
+  "repacked_control_passed": true,
+  "retained_logical_payloads_verified": 25,
+  "schema": "kit.sw2026.drawing-cache-combined-omission.v1",
+  "scope": "four display and preview indexes jointly omitted from the disclosed blank drawing",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "transport_exit_code": 0,
+  "writer_output_count": 0
+}

@@ -1,0 +1,115 @@
+{
+  "actual_children_stream_inventory": [
+    {
+      "bytes": 8122,
+      "downstream_id_stream_present": false,
+      "partition_stream_present": false,
+      "role": "Control",
+      "sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "stream_count": 10,
+      "stream_names": [
+        "Header2",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "Contents/Config-0-ModelHeader",
+        "swXmlContents/KeyWords",
+        "Contents/Config-0",
+        "Contents/CMgr",
+        "Contents/Definition",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/CMgrHdr2"
+      ]
+    },
+    {
+      "bytes": 8309,
+      "downstream_id_stream_present": false,
+      "partition_stream_present": false,
+      "role": "Generated",
+      "sha256": "251e91656acb06a2ed17f50b9e45676b455bcf8da214fa3e205f19e95f86a03c",
+      "stream_count": 10,
+      "stream_names": [
+        "Header2",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0",
+        "Contents/CMgr",
+        "Contents/CMgrHdr2",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Definition",
+        "_MO_VERSION_19000/Biography",
+        "_MO_VERSION_19000/History",
+        "swXmlContents/KeyWords"
+      ]
+    }
+  ],
+  "adapted_runner_sha256": "17b23172c38f541d4221a652e2765ee76278c55c120b6f5a0b299f4fd6193076",
+  "all_frozen_packet_files_verified": true,
+  "baseline_files_copied_byte_identical": 24,
+  "baseline_files_sha256": "52d0fa5ec22dea33cc296e42d97ca47992a452af3b403b878b3a481ad7da033c",
+  "baseline_trial_sha256": "2c2ac4aa9a09a170c9667abc8d81d6cf5c25a4f6192cf436ef7380f14869adf7",
+  "cad_processes_started": 0,
+  "compiled_sources": 7,
+  "copied_vendor_binaries": 0,
+  "delivery_pr": 121,
+  "generated_downstream_writer_qualified": false,
+  "generated_owner_id_discriminator_enabled": false,
+  "generic_prism_edge_id_domain": {
+    "actual_owned_edges_required": 12,
+    "actual_owned_faces_required": 6,
+    "baseline_native_allocation_inferred": false,
+    "first_edge_id": 7,
+    "last_edge_id": 18
+  },
+  "guest_recipe_paths_canonical": true,
+  "heldout_inputs_read": 0,
+  "host_verify": {
+    "cad_processes_started": 0,
+    "native_acceptance": false,
+    "passed": true
+  },
+  "native_acceptance": false,
+  "native_trace_runs": 0,
+  "original_trace_sources_sha256": {
+    "DrawingEdgeCacheTrace01.py": "bc41c15f5de299732c271facc40aa7d18ae0111cc8054a16df84fa74987260c7",
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "DrawingSavePreviewGateDbgEng.py": "53dc45e2ec6628b9518d3a31aa9ea50ed1c6add2156a68fb61f92aedd798906c",
+    "DrawingSavePropertiesGateDbgEng.py": "9a42ce005817effb3aa28c1d3f1fad98d7a18aa0ebaf783bfca560586863cf04",
+    "ObserveDrawingEdgeCache01.py": "920e889e557e32071726842725a00d45dee896abe0deed6bc329e6320e62ab2e",
+    "RunDrawingEdgeCacheTrace01.py": "b5ee3f713ddab5f0e9899c6e1b8ac719dc176ec53d8f7489cd0a09b4a9616011"
+  },
+  "owner": "/root/assembly_occurrence",
+  "packet_file_count_excluding_manifest": 33,
+  "recipe_sha256": "b78b29ab0a11df03af4aab69a7dcab4e9cb79f53d86adb9618d36a0b9341c6f4",
+  "refusals": [
+    {
+      "case": "occupied_output",
+      "reason": "use an unused trace packet directory",
+      "refused": true
+    },
+    {
+      "actual_failed_receipt_sha256": "ec4f7fd0edf20c15ad6c493f5a2529de61dbadf23f0dfe0293ba8ccaa87b397e",
+      "case": "actual_failed_predecessor",
+      "reason": "terminal depth baseline receipt differs",
+      "refused": true
+    }
+  ],
+  "remaining": "exact generated owner/ID discriminator requires a separately generated attached partition and proven runtime owner join",
+  "required_baseline_sha256": "92f51a9a5c5e7c7136b01d7a56d73c840e1a5e81df8f7af4a612ca36aa644401",
+  "runner_change_count": 1,
+  "runner_changed_binding_only": "BASE_TRIAL",
+  "schema": "kit.sw2026.drawing-depth-cache-freeze.v1",
+  "scope": "host-only exact passed depth-baseline adaptation of the pre-event7 first-lookup two-stop method",
+  "selected_annotation_edge_joined_to_sampled_id": false,
+  "shared_checkout_writes": 0,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "trace_files_sha256": "c12415d47bae7dd9c228ae055ed7caa6776bdf236f7b1c68f46c745e900c1a41",
+  "trace_trial_sha256": "84c6c59ced8ee7dea5b3fe3332d83febe438109cfabb43ac9c6b3e6912454d0e",
+  "unchanged_low_level_sources": [
+    "DrawingEdgeCacheTrace01.py",
+    "DrawingSaveAggregateDbgEng.py",
+    "DrawingSavePreviewGateDbgEng.py",
+    "DrawingSavePropertiesGateDbgEng.py",
+    "ObserveDrawingEdgeCache01.py"
+  ],
+  "undefined_name_check": "ruff 0.17.3 F821 passed",
+  "vm_calls": 0
+}

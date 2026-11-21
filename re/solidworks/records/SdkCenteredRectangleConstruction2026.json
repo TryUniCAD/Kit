@@ -1,0 +1,74 @@
+{
+  "basis_records": [
+    "re/solidworks/records/RectangleCenterAnchorConstruction2026.md",
+    "re/solidworks/records/RectangleCornerAnchorConstruction2026.md",
+    "re/solidworks/records/SdkRectangleCornerAnchor2026.md",
+    "re/solidworks/records/CurvedSketchConstruction2026.md"
+  ],
+  "field_rules": [
+    {
+      "class": "input/derived",
+      "owner": "ordinary contour",
+      "rule": "four actual contour points and lines remain the blind boss loop; no construction geometry becomes a body edge"
+    },
+    {
+      "class": "derived/native role",
+      "owner": "local center",
+      "rule": "new ordinary local point at symmetric rectangle origin, type1 marker, next actual point creation id, zero endpoint incidences"
+    },
+    {
+      "class": "derived",
+      "owner": "external origin",
+      "rule": "reuse actual same-owner origin reference, wrapper and type6 external point constructors; append after local center"
+    },
+    {
+      "class": "derived/native constructor",
+      "owner": "diagonals",
+      "rule": "new sgLine from shared EntityFields, existing opposite corner endpoints, next line creation ids; construction bit8, constructor f08=0 and fd0=0"
+    },
+    {
+      "class": "native constructor/derived",
+      "owner": "relation fields",
+      "rule": "shared binary logical dimension constructor type9 with two actual handles and its proved zero/null/negative option fields; two point/line relations plus external/local point relation"
+    },
+    {
+      "class": "derived",
+      "owner": "entity reference counts",
+      "rule": "derive three incident segment uses per corner; retain original contour h1/h2; increment relation references from the three actual handle pairs"
+    },
+    {
+      "class": "derived",
+      "owner": "arrays and counters",
+      "rule": "two added point rows and two line rows; actual array lengths determine counts and next creation ids; original contour frontier f130 remains unchanged"
+    },
+    {
+      "class": "volatile/previously qualified omission",
+      "owner": "nonpermanent source auxiliary line",
+      "rule": "do not synthesize an unreferenced transient source-only center-to-vertex entry; the two visible diagonals and all three relation owners remain present"
+    }
+  ],
+  "heldout_acceptance": false,
+  "hidden_source_values_read": 0,
+  "native_acceptance": false,
+  "public_drawing_writer_enabled": false,
+  "result_sha256": "23314e11d78d40d95477828d95855b74d923ce679201ddefec0b0d279bed93c5",
+  "root_proof": {
+    "guarded_builds": 8,
+    "logical_child_stream_comparisons": 40,
+    "mathematical_counterparts": 4,
+    "negative_requests": 12,
+    "old_corner_pairs_exact": true,
+    "preparations": 4,
+    "processes": 28,
+    "runtime_input_reads": 0
+  },
+  "schema": "kit.sw2026.sdk-centered-anchor-knowledge.v1",
+  "source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+  "source_only_method_sha256": "cefe8cff7a28b5c084bd7d57fe31cdb71a13465c4d0b9a6ffc89ee90257e9d1c",
+  "status": "source construction and independent process parity, native SDK lifecycle pending",
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ],
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE"
+}

@@ -1,0 +1,208 @@
+{
+  "schema": "kit.sw2026.blank-drawing-cosmetic-thread-native-comparison.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "55cf50a377dfab21140d936d09df81de8e88ba1200c8622916b1081e1b5a8d1b",
+  "offline_comparison_receipt_sha256": "9243d90d626860d1d0b434e3dc8c774871d21fa0597872f2bb95c6b2e2559e1a",
+  "observer_sha256": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+  "preparer_sha256": "3f19d5f31883122b81a4d8b32fccf3c36ecb938b90c3c86d6351e25cb8d3abcd",
+  "tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "private_result_sha256": "acd4c3e3bd8313d57fc47c6b6c920c612c281530489adde25b805aec366cf603",
+  "host_transport_sha256": "1267eabcb23227babf5f2161f3cc01ff6f588e7fe18ac1770abf63aa96ac483a",
+  "started_at": "2026-11-17T10:35:48.482712+00:00",
+  "finished_at": "2026-11-17T10:38:48.115793+00:00",
+  "distinct_processes": 8,
+  "controls_healthy": [
+    true,
+    true,
+    true
+  ],
+  "input_files_immutable": true,
+  "matched_input_and_output_paths": true,
+  "save_outcome_unchanged": true,
+  "cases": [
+    {
+      "name": "ControlBefore",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "feature_tree_rows": 10,
+      "initial_scale": [
+        1.0,
+        1.0
+      ],
+      "rebuilt_problem_count": 0,
+      "edited_scale": [
+        3.0,
+        2.0
+      ],
+      "edited_problem_count": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 18238,
+      "input_immutable": true,
+      "open_edit_save_record_sha256": "b9d185f28cf00ef3cfe916699c767aa621ae34cedc711dfbff9954afbcae1e49",
+      "fresh_reopen": true,
+      "passed": true,
+      "derivative_sha256": "9b1259206ee5e2ae514d969a54955f3a928cb6a4e8ee48dab889f5383e2d4419",
+      "fresh_reopen_record_sha256": "abffd0c80ae768e99d79251fb924ddfbbb0ac193717612fc4d6aa3db0e1de9a7",
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "ReducedNative",
+      "kind": "native-stream-reduction",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "feature_tree_rows": 10,
+      "initial_scale": [
+        1.0,
+        1.0
+      ],
+      "rebuilt_problem_count": 0,
+      "edited_scale": [
+        3.0,
+        2.0
+      ],
+      "edited_problem_count": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 18614,
+      "input_immutable": true,
+      "open_edit_save_record_sha256": "8e214b11d4ead030374d697b744516779afd771b2317ba103887c8a9e249cc91",
+      "fresh_reopen": true,
+      "passed": true,
+      "derivative_sha256": "e2e06f5c7da7ae01810f66cdc5106bc4bc249c09c1364a31c7c52e411710d166",
+      "fresh_reopen_record_sha256": "ec709feb9366890e30746699b7309be13bfc864da81a286f97158bd5ec868563",
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "Baseline",
+      "kind": "generated",
+      "input_sha256": "5d188f8d270ca7de00e54589bcee8083f9a4f46165badb2fb1ef111aa33cdcba",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "feature_tree_rows": 10,
+      "initial_scale": [
+        2.0,
+        3.0
+      ],
+      "rebuilt_problem_count": 0,
+      "edited_scale": [
+        3.0,
+        2.0
+      ],
+      "edited_problem_count": 0,
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "save_target_bytes": 0,
+      "input_immutable": true,
+      "open_edit_save_record_sha256": "2c41aba791634abed4f475891cf73f0f55c78e401cf8e30c1297b5a59a3d4677",
+      "fresh_reopen": false,
+      "passed": false,
+      "matched_input_relative_path": "GeneratedComparison/KitBlankSheetProbe.SLDDRW",
+      "matched_save_relative_path": "GeneratedComparison/open_edit_save/EditedDrawing.SLDDRW"
+    },
+    {
+      "name": "ThreadFlag",
+      "kind": "generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "feature_tree_rows": 10,
+      "initial_scale": [
+        2.0,
+        3.0
+      ],
+      "rebuilt_problem_count": 0,
+      "edited_scale": [
+        3.0,
+        2.0
+      ],
+      "edited_problem_count": 0,
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "save_target_bytes": 0,
+      "input_immutable": true,
+      "open_edit_save_record_sha256": "8f605279013fbcf3c6400b45be1c11ff095d9a280dd2c142c38d8ce9f81aa444",
+      "fresh_reopen": false,
+      "passed": false,
+      "matched_input_relative_path": "GeneratedComparison/KitBlankSheetProbe.SLDDRW",
+      "matched_save_relative_path": "GeneratedComparison/open_edit_save/EditedDrawing.SLDDRW"
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors_warnings": [
+        0,
+        0
+      ],
+      "feature_tree_rows": 10,
+      "initial_scale": [
+        1.0,
+        1.0
+      ],
+      "rebuilt_problem_count": 0,
+      "edited_scale": [
+        3.0,
+        2.0
+      ],
+      "edited_problem_count": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "save_target_bytes": 19209,
+      "input_immutable": true,
+      "open_edit_save_record_sha256": "1a955bc91d4da9414d4c8dfdef1e8fdab17bbe20559c0831fadc6ad8e6cbc78c",
+      "fresh_reopen": true,
+      "passed": true,
+      "derivative_sha256": "7218e0f9becb716cedd1b0768a0d2557f62159060868519feaf61e32bfdcfdd3",
+      "fresh_reopen_record_sha256": "46510553a45057b9e207d5b0ad2724ebf0ff34ecec6e7426f97930dce9d356a8",
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    }
+  ]
+}

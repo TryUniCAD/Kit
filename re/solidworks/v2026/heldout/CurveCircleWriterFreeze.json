@@ -1,0 +1,64 @@
+{
+  "schema": "kit.sw2026.curve-circle-writer-freeze.v1",
+  "frozen_at_utc": "2026-11-16T17:49:49.009969+00:00",
+  "freeze_revision": "cd41e7b1d9beee0c345e878cc9ec707f7a7fc1e5",
+  "measured_writer_revision": "4b51bebc716892c220d12dee047d31fcc784f367",
+  "base_freeze_path": "re/solidworks/v2026/heldout/EndConditionWriterFreeze.json",
+  "base_freeze_sha256": "fb208a5b8dd8cf9e033ad8450fd466e9754cf6374dc88bce68ee1bcd709a2918",
+  "curve_source_lock_sha256": "7773c393e60696c12a7a7202d294762dc5a7e35c25d1ea364201f59a8ee04c24",
+  "curve_source_author_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+  "curve_specs_sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0",
+  "additional_files": [
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Construction/HeldoutInput.py",
+      "sha256": "d71af4b46994cdfcbd1206f479115c48236bf7c6d57bc4f9ab9834b0625e9911",
+      "bytes": 1723
+    },
+    {
+      "path": "tests/Convert/Solidworks/Research/Curve/Fields/WriterFreeze.py",
+      "sha256": "ed0d0b3662708184a290cb5916f0c9ef595a23d6d1b3dedd970a39420160d342",
+      "bytes": 1771
+    }
+  ],
+  "evaluated_heldouts": [
+    {
+      "name": "H01TranslatedDiameter",
+      "split": "heldout",
+      "sha256": "16837814717ae5a5c2a815b42afda8583b2cc51db4411b5837ca904ee8d5dddc",
+      "file": "Heldout/H01TranslatedDiameter/H01TranslatedDiameter.SLDPRT",
+      "manifest_sha256": "1025125888fbc059af33e1118d60f5614d14fcb9a2d27687cd09037776ce9103"
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "split": "heldout",
+      "sha256": "236c9191b5b0cab47ff43398d66ec9c984b7c3d6b11c76b600b00303e4dba200",
+      "file": "Heldout/H02ReverseTopCircle/H02ReverseTopCircle.SLDPRT",
+      "manifest_sha256": "9a565cdbedb8266052956112de2349eeac045192916fbaa7270edaaa056d12d9"
+    }
+  ],
+  "outside_proven_coverage": [
+    {
+      "name": "H03ThinRightAnnulus",
+      "sha256": "7e26c77f86ab8c33bdf12fb52835723d2a8cd60b9213b0e8d6a192c60ddbbe88",
+      "reason": "Closed annulus, arc/chord, dimensioned capsule or multibody/construction pattern has no complete frozen writer contract"
+    },
+    {
+      "name": "H04ClockwiseSeamArc",
+      "sha256": "4193f7aa95bd104fcfacc854fe37e4ba3feedede79c56182b0a0038ffffd5261",
+      "reason": "Closed annulus, arc/chord, dimensioned capsule or multibody/construction pattern has no complete frozen writer contract"
+    },
+    {
+      "name": "H05RotatedCapsule",
+      "sha256": "f2ed589c9405bc81dc5d76b99ab469a2a14818ab0967cbb4a44128e5ea6b0662",
+      "reason": "Closed annulus, arc/chord, dimensioned capsule or multibody/construction pattern has no complete frozen writer contract"
+    },
+    {
+      "name": "H06ReorderedIslands",
+      "sha256": "cc6e723d82e439c9035d97afd002cb900bb6758ac62eee3a032205c8c2e0fbd2",
+      "reason": "Closed annulus, arc/chord, dimensioned capsule or multibody/construction pattern has no complete frozen writer contract"
+    }
+  ],
+  "heldout_native_payloads_inspected": false,
+  "evaluation_policy": "Evaluate two original circle heldouts with the unchanged writer; preserve all four unevaluated cases as incomplete coverage. A failed prediction stays failed for this freeze; repairs require new unseen source inputs locked before writer changes",
+  "full_family_acceptance": false
+}

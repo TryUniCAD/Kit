@@ -1,0 +1,255 @@
+{
+  "audited_replay_denied_accesses": 0,
+  "cases": {
+    "Disclosed": {
+      "archive_version": 19000,
+      "class": "moBaseBody_c",
+      "configuration_map": 107,
+      "explicit_atom_name": null,
+      "feature_id": 26,
+      "feature_name": "Imported1",
+      "intentional_refusals": {
+        "read_manager_mode_zero": "unsupported ordinary base body archive context",
+        "write_local_mode_-1": "unsupported SOLIDWORKS native field path unsupported base body storage mode",
+        "write_local_mode_0": "unsupported SOLIDWORKS native field path unsupported base body storage mode",
+        "write_local_mode_2": "unsupported SOLIDWORKS native field path unsupported base body storage mode",
+        "write_manager_mode_zero": "unsupported ordinary base body archive context",
+        "write_schema_two": "unsupported SOLIDWORKS body class moBaseBody_c schema 2"
+      },
+      "linked_context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "local_body_switch": 1,
+      "local_storage_key": {
+        "encoding": "unicode",
+        "text": "Imported1"
+      },
+      "resolved_base": 107,
+      "resolved_map": 180,
+      "runtime_schema": 1,
+      "segment_mesh_count": 0,
+      "segment_mesh_ids": [],
+      "source": {
+        "bytes": 49188,
+        "sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+      },
+      "source_filename": {
+        "encoding": "unicode",
+        "text": ""
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "e5c4856063b212515420d6c5042c68e662e5fa516b61117a7cb1c68136ee86b3"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "4e0da104cd358f2c2797182b62dbdd0d5577fcf61e2d983fa785ccf5c00fddfd"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "5c038eab2f3862e3b536c5b6e6526db9357e5fa9daa13928901dde93017fab12"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "190793f61f2f160b979b323b50025001920940353bab458410530dcaa15276e4"
+        }
+      }
+    },
+    "OtherShape": {
+      "archive_version": 19000,
+      "class": "moBaseBody_c",
+      "configuration_map": 107,
+      "explicit_atom_name": null,
+      "feature_id": 26,
+      "feature_name": "Imported1",
+      "linked_context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "local_body_switch": 1,
+      "local_storage_key": {
+        "encoding": "unicode",
+        "text": "Imported1"
+      },
+      "resolved_base": 107,
+      "resolved_map": 180,
+      "runtime_schema": 1,
+      "segment_mesh_count": 0,
+      "segment_mesh_ids": [],
+      "source": {
+        "bytes": 45208,
+        "sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d"
+      },
+      "source_filename": {
+        "encoding": "unicode",
+        "text": ""
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "cd16b315f9ca9f902341773557690d85e14127312889fe2a02721cb3f732a05b"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "a7b43fdc3f696124d253a307649d06ed2d64af1ad4d2f9a8702d739f60e2c666"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2219,
+          "sha256": "808e9e66ab91d27d0c389c1154eceb38828474ff6d601ef37d15b15931084427"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6080,
+          "sha256": "a5b2fdc4e6a77e79692e84463c36d760f9d68d4b41dc2d5215ab3c973efe0d7d"
+        },
+        "Header2": {
+          "bytes": 2219,
+          "sha256": "808e9e66ab91d27d0c389c1154eceb38828474ff6d601ef37d15b15931084427"
+        }
+      }
+    },
+    "RenamedBody": {
+      "archive_version": 19000,
+      "class": "moBaseBody_c",
+      "configuration_map": 108,
+      "explicit_atom_name": "Casting Ω72",
+      "feature_id": 26,
+      "feature_name": "Transfer Δ17",
+      "linked_context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "local_body_switch": 1,
+      "local_storage_key": {
+        "encoding": "unicode",
+        "text": "Transfer Δ17"
+      },
+      "resolved_base": 108,
+      "resolved_map": 181,
+      "runtime_schema": 1,
+      "segment_mesh_count": 0,
+      "segment_mesh_ids": [],
+      "source": {
+        "bytes": 49368,
+        "sha256": "2814fd13c29c840f2079485d47856333e756860fd0abee927703fc47a7cb7f43"
+      },
+      "source_filename": {
+        "encoding": "unicode",
+        "text": ""
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "638f2163219a8910cfa75feb911de1b9e7ec0af5ba596c42ff9ca3d22c82e5ee"
+        },
+        "Contents/Config-0": {
+          "bytes": 25216,
+          "sha256": "55a5fbf2f711b04a36b921fa4bd8557d99ca88d89449531df75ebd831e1f84a5"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2257,
+          "sha256": "6d34b53059d48e6d197b9fdd07b8cfdb7f2e1cdf2f92d982837cadc3282a6145"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6092,
+          "sha256": "fccae163f632567db3a06c36c0384fe16b5ebbb1348ef2977092566002e63f13"
+        },
+        "Header2": {
+          "bytes": 2257,
+          "sha256": "6d34b53059d48e6d197b9fdd07b8cfdb7f2e1cdf2f92d982837cadc3282a6145"
+        }
+      }
+    },
+    "RenamedFeature": {
+      "archive_version": 19000,
+      "class": "moBaseBody_c",
+      "configuration_map": 107,
+      "explicit_atom_name": null,
+      "feature_id": 26,
+      "feature_name": "Transfer Δ17",
+      "linked_context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "local_body_switch": 1,
+      "local_storage_key": {
+        "encoding": "unicode",
+        "text": "Transfer Δ17"
+      },
+      "resolved_base": 107,
+      "resolved_map": 180,
+      "runtime_schema": 1,
+      "segment_mesh_count": 0,
+      "segment_mesh_ids": [],
+      "source": {
+        "bytes": 49820,
+        "sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8"
+      },
+      "source_filename": {
+        "encoding": "unicode",
+        "text": ""
+      },
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "f924e611b0628d48a1b6dc8ad034dd91a27a1e662d34cbe8cfa8b43f6653ea4f"
+        },
+        "Contents/Config-0": {
+          "bytes": 25190,
+          "sha256": "dbbd4968cf911ed37598a82c5d419f445e88c25ebcce496a7a2e99282b9e33e1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2257,
+          "sha256": "85b95981de86c72b53b9c98956db8bdfe3552bc72c29c08d42269af8c826e4ce"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6092,
+          "sha256": "04c011a279ad330e8f566ab7a34069544773832d00ff73b05b268678db0daf3b"
+        },
+        "Header2": {
+          "bytes": 2257,
+          "sha256": "85b95981de86c72b53b9c98956db8bdfe3552bc72c29c08d42269af8c826e4ce"
+        }
+      }
+    }
+  },
+  "heldout_payloads_read": 0,
+  "linked_streams_byte_exact": 20,
+  "native_writer_acceptance": false,
+  "native_writer_outputs": 0,
+  "oracle_source_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "owning_source_sha256": {
+    "re/tooling/sw2026/imported_body_source/ReplayTypedBaseBody.py": "a7c082ffe7468e02421bd89e5f9c2ef18f59f0470a43ffd2c4a687b4b7ff1463",
+    "src/convert/adapters/solidworks/Archive/Bodies/CheckBaseCtx.py": "4919de7a3d9f34f841822f8b29a4df4fd43eb1daace2e1a35472c36720133395",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ImportFields.py": "b9548dedc68be6e481131b350880474da27999bba404fae12701fbe67b469399",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedLayouts.py": "a2758dce8b9939eadfb6431707418e799d96330c3257f8a5d6a2f2a9dee54285",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedSchemas.py": "daeb697fdeec2ee4525a4abbf23d9e549d9ecd3c717347444a4a9f296ecc7ea1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/ResolvedVirtuals.py": "c01248f725735d32ecfd4c1d38d62629d9a37b79e5e497a1021611f206bca04f",
+    "src/convert/adapters/solidworks/Archive/Bodies/ValidateFields.py": "afb04025ffeba4f17fe84c62bf6935852de8058cc877e2d7b78766b121f4b354",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "c00869fa3ead56527000885d53532451dd2a2c16cdd0e13e930b1e2466716ac7"
+  },
+  "production_context_unpatched": true,
+  "python": "3.13.15",
+  "schema": "kit.sw2026.imported-base-body-typed-replay.v1",
+  "source_receipt_sha256": {
+    "re/solidworks/measurements/2026/ImportedBaseBodyWitnessReplay01.json": "355fdb1fe931bbf64784f02e0c227e0b2e1be5c6771a9662c93706df56a85bd2",
+    "re/solidworks/measurements/2026/ImportedBodyNamesContrast01.json": "96b2727a9a5e7a8520ad373ab671638263eb821798fd9408fe45b57938b02e80"
+  },
+  "reproduction": {
+    "independent_offline_processes": 2,
+    "identical_measurement_receipts": true,
+    "standard_library_encodings_loaded_before_guard": [
+      "latin-1",
+      "utf-16-le"
+    ]
+  }
+}

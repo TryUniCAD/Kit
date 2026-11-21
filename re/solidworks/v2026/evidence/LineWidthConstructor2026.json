@@ -1,0 +1,33 @@
+{
+  "authority": "direct static inspection of pinned 2026 images",
+  "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "model_preferred_base": "0x4b140000",
+  "model_constructor_category_arguments": {
+    "embedded_entity": 0,
+    "visibility": -1
+  },
+  "import": {
+    "iat_address": "0x4cd33038",
+    "dll": "SLDMFCU.dll",
+    "symbol": "??0utLineWidth_c@@QEAA@W4swLineWeights_e@@@Z",
+    "descriptor_first_thunk": "0x4cd31968",
+    "slot_index": 730,
+    "bounded_before_null_terminator": true
+  },
+  "framework_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+  "framework_preferred_base": "0x3c720000",
+  "constructor_address": "0x3c84a8f0",
+  "constructor_rva": "0x12a8f0",
+  "constructor_instruction_range": ["0x3c84a8f0", "0x3c84a904"],
+  "constructor_instruction_sha256": "f951312561b74f61b6f696015b52afea00078d53968bd1fc9430e75b9901412f",
+  "constructor_rule": {
+    "width_binary32_bits": "0xbf800000",
+    "width": -1.0,
+    "word_04": 0,
+    "word_06": "input category"
+  },
+  "refuted_record_base": "0x3c800000",
+  "absolute_constructor_address_changed": false,
+  "scope": "no CAD application, saved CAD stream, repository module or test executed",
+  "matching_named_export_address": "0x3c84a8f0"
+}

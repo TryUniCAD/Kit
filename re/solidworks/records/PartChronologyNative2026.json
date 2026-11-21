@@ -1,0 +1,146 @@
+{
+  "schema": "kit.sw2026.part-chronology-native-ranges.v1",
+  "modules": [
+    {
+      "module": "sldarchiveu.dll",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "preferred_base": "0x319f0000",
+      "bytes": 231512
+    },
+    {
+      "module": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "preferred_base": "0x4b140000",
+      "bytes": 46536280
+    }
+  ],
+  "functions": [
+    {
+      "module": "sldarchiveu.dll",
+      "name": "moStamp constructor",
+      "start": "0x31a02790",
+      "end_exclusive": "0x31a02854",
+      "file_offset": 72592,
+      "bytes": 196,
+      "sha256": "ba49b4e6312171215e1ec6401340933c4220f65d69a82eaa8648507f436b98b7",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "1dc43de96b49bdcddc95f07777e43f987854c32db0a44edac7a3232702c7e7ad"
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "name": "moLogs addLog",
+      "start": "0x31a04aa0",
+      "end_exclusive": "0x31a04b1e",
+      "file_offset": 81568,
+      "bytes": 126,
+      "sha256": "bee30220ddc4ca3542f6eaf336ce0c5418b885c3d31847199d137d65d0567384",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "347cc94d6cf11e0c67d46e0551b106798c7222b99417912df93eab84fd6ccd99"
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "name": "moStamp statusStr",
+      "start": "0x31a06140",
+      "end_exclusive": "0x31a06206",
+      "file_offset": 87360,
+      "bytes": 198,
+      "sha256": "d14286a040060c9189bbf5b139318149c3c04cb0927124a9f98e268a761ed08d",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "05430b69ce953a3b59935e1a1f19f8f4748e3e73984049568829c9729932fb92"
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "name": "moStamp updateStamp",
+      "start": "0x31a063e0",
+      "end_exclusive": "0x31a0642e",
+      "file_offset": 88032,
+      "bytes": 78,
+      "sha256": "73199ba59be7ec36b528565149f4a0cc40913a37d1ad1def0000b122ead6804a",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "6d232634b1ca752f27fb68cedeb750df5a361d9b169235d85c9186d5f6c1a21d"
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "name": "moHeader latest modification",
+      "start": "0x31a05250",
+      "end_exclusive": "0x31a05297",
+      "file_offset": 83536,
+      "bytes": 71,
+      "sha256": "6d4777b7ad17e852dbdff3e9c33085502ee5b7f73a87de9062a803aef293c8a3",
+      "bound": "complete exported leaf through return or explicitly bounded original owner span",
+      "private_listing_sha256": "a14c1fcdf234428a199ae5b338cb773214031502a6c505a34771572e6ffa50f6"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moLoggedNode onCreate",
+      "start": "0x4c03e630",
+      "end_exclusive": "0x4c03e726",
+      "file_offset": 15718960,
+      "bytes": 246,
+      "sha256": "56927052930fbd6a60beb6584ca84137ed8c52510001d8a579f5d2280c4b3b56",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "7858c46d65c6b8da5d59dc5746aea000ee6c85ea5108cd7d465104cf47e2982f"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moLoggedNode onRevision",
+      "start": "0x4c03e830",
+      "end_exclusive": "0x4c03e8fe",
+      "file_offset": 15719472,
+      "bytes": 206,
+      "sha256": "0b8d76c136fbd56343f118a6ff00005e468048a47d8816d55f62db201da5c7d9",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "a3a16f373c7271ed5471542ab42f0f5c11828905e8c50ed634033b600d955caf"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moFeature getCreateVersion",
+      "start": "0x4bb42a40",
+      "end_exclusive": "0x4bb42a84",
+      "file_offset": 10493504,
+      "bytes": 68,
+      "sha256": "d58071b1416b0f412f3c8bb316acf9f1057c1cc90678f874473fb11f15960fc9",
+      "bound": "complete exported leaf through return or explicitly bounded original owner span",
+      "private_listing_sha256": "664d0478fffddbcd65ef5820f992799fbbc4768b9cc8d23278b3f2cc4f1cf183"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moFeature getLastUpdateVersion",
+      "start": "0x4bb45c10",
+      "end_exclusive": "0x4bb45c24",
+      "file_offset": 10506256,
+      "bytes": 20,
+      "sha256": "8036046a7492e20ba6ec5d3f5dc717b52bb508e20f41318877c2ead1d1c5e37a",
+      "bound": "complete exported leaf through return or explicitly bounded original owner span",
+      "private_listing_sha256": "5cdb2230e54913f1996f4d11b5056c72bd160033e5b07bb8c8eb2be1f37cfed0"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moFeature setFeatTimeStampForConfigs",
+      "start": "0x4bb50cc0",
+      "end_exclusive": "0x4bb50d24",
+      "file_offset": 10551488,
+      "bytes": 100,
+      "sha256": "f0193f792a1af3bd59718614233b35580112351ca267b29fbdef162aa2ba04ab",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "dcbd4a0a66e4bdace52a54426ccefba8bfee602781e41a0e84bb504abc6c0c39"
+    },
+    {
+      "module": "sldmodu.dll",
+      "name": "moFeature postUpdate",
+      "start": "0x4c1ce660",
+      "end_exclusive": "0x4c1ce838",
+      "file_offset": 17357408,
+      "bytes": 472,
+      "sha256": "f0dcc188969f7aa1ef0ea243398eb9313b41d7046d5bf838802b6a7f1f2ee343",
+      "bound": "single exact entry PE runtime function range; chained continuations are not inferred",
+      "private_listing_sha256": "3d7e2a2110b4323bed9bb0fe4576f39bfe5ac2b05677ca0de7d03bacac6862e2"
+    }
+  ],
+  "new_runtime_execution": false,
+  "vendor_listing_in_report": false,
+  "instruction_tool": {
+    "name": "llvm-objdump",
+    "sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  }
+}

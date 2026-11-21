@@ -1,0 +1,927 @@
+{
+  "cad_files_written": 0,
+  "disclosed_graphs": {
+    "DatumHeightShort.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "actual_fields": {
+        "f1000": 0.0010000000000000009,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.7740715846299298,
+          "y": -0.6330980823446786,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.003838991664200273,
+        "f958": {
+          "x": 0.0,
+          "y": 0.0010000000000000005,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.0007071067811865481,
+          "y": 0.0007071067811865481,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": -2.168404344971009e-19,
+          "z": 0.0
+        },
+        "fad0": 0.00076536686473018,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.7071067811865476,
+          "y": 0.7071067811865476,
+          "z": -0.0
+        },
+        "ffe8": 2.168404344971009e-19,
+        "fff0": 0.0010000000000000007,
+        "fff8": 1.5332934166833742e-19
+      },
+      "comparison": {
+        "absolute_errors": {
+          "f1000": 6.505213034913027e-19,
+          "f880": 2.482534153247273e-16,
+          "f8a8": 0.0,
+          "f8b0": 0.0,
+          "f958": 0.0,
+          "f970": 0.0,
+          "f988": 4.336808689942018e-19,
+          "f9a0": 0.0,
+          "f9b8": 4.336808689942018e-19,
+          "fad0": 4.336808689942018e-19,
+          "ffb8": 0.0,
+          "ffd0": 2.482534153247273e-16,
+          "ffe8": 4.336808689942018e-19,
+          "fff0": 4.336808689942018e-19,
+          "fff8": 3.066586833366749e-19
+        },
+        "binary_equal_fields": [
+          "f8a8",
+          "f8b0",
+          "f958",
+          "f970",
+          "f9a0",
+          "f100c",
+          "f1010",
+          "f1008",
+          "ffb8",
+          "f1018"
+        ]
+      },
+      "config_sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a",
+      "display_context_outside_arc": {
+        "identity_padding": {
+          "canonical": 0,
+          "source": 32764,
+          "word_index": 19
+        },
+        "observed_leader": 0
+      },
+      "first_witness_side": -0.5473512666156399,
+      "linked_stream_sizes": [
+        25918,
+        33618
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "opposite_first_ray": "arc field differs from independent geometry or native text branch for ffb8",
+        "swapped_first_second_witness": "arc field differs from independent geometry or native text branch for f958",
+        "unupdated_constructor_midpoint": "arc field differs from independent geometry or native text branch for f8a8",
+        "unupdated_constructor_radius": "arc field differs from independent geometry or native text branch for f8b0",
+        "wrong_constructor_mask": "wrong angular display selector for f1018"
+      },
+      "resolved_sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f",
+      "root_count": 24,
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    "DatumHeightTall.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "actual_fields": {
+        "f1000": 0.000999999999999999,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.7329160612904115,
+          "y": -0.6803190774206982,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.010289489250691251,
+        "f958": {
+          "x": 0.0,
+          "y": 0.0009999999999999992,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.0007071067811865468,
+          "y": 0.0007071067811865468,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": -2.168404344971009e-19,
+          "z": 0.0
+        },
+        "fad0": 0.0007653668647301788,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.7071067811865476,
+          "y": 0.7071067811865476,
+          "z": -0.0
+        },
+        "ffe8": 2.168404344971009e-19,
+        "fff0": 0.0009999999999999994,
+        "fff8": 1.533293416683374e-19
+      },
+      "comparison": {
+        "absolute_errors": {
+          "f1000": 4.336808689942018e-19,
+          "f880": 1.1102230246251565e-16,
+          "f8a8": 0.0,
+          "f8b0": 1.734723475976807e-18,
+          "f958": 0.0,
+          "f970": 0.0,
+          "f988": 0.0,
+          "f9a0": 0.0,
+          "f9b8": 6.505213034913027e-19,
+          "fad0": 0.0,
+          "ffb8": 0.0,
+          "ffd0": 1.5700924586837752e-16,
+          "ffe8": 6.505213034913027e-19,
+          "fff0": 6.505213034913027e-19,
+          "fff8": 4.599880250050122e-19
+        },
+        "binary_equal_fields": [
+          "f8a8",
+          "f958",
+          "f970",
+          "f988",
+          "f9a0",
+          "fad0",
+          "f100c",
+          "f1010",
+          "f1008",
+          "ffb8",
+          "f1018"
+        ]
+      },
+      "config_sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f",
+      "display_context_outside_arc": {
+        "identity_padding": {
+          "canonical": 0,
+          "source": 32764,
+          "word_index": 19
+        },
+        "observed_leader": 16777215
+      },
+      "first_witness_side": -0.5182499169789854,
+      "linked_stream_sizes": [
+        25918,
+        33618
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "opposite_first_ray": "arc field differs from independent geometry or native text branch for ffb8",
+        "swapped_first_second_witness": "arc field differs from independent geometry or native text branch for f958",
+        "unupdated_constructor_midpoint": "arc field differs from independent geometry or native text branch for f8a8",
+        "unupdated_constructor_radius": "arc field differs from independent geometry or native text branch for f8b0",
+        "wrong_constructor_mask": "wrong angular display selector for f1018"
+      },
+      "resolved_sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9",
+      "root_count": 24,
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "actual_fields": {
+        "f1000": 0.0010000000000000002,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.7520248213998794,
+          "y": -0.65913478742855,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.0058262019832314785,
+        "f958": {
+          "x": 0.0,
+          "y": 0.001,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.0007071067811865476,
+          "y": 0.0007071067811865476,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": -2.168404344971009e-19,
+          "z": 0.0
+        },
+        "fad0": 0.0007653668647301796,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.7071067811865476,
+          "y": 0.7071067811865476,
+          "z": -0.0
+        },
+        "ffe8": 2.168404344971009e-19,
+        "fff0": 0.0010000000000000002,
+        "fff8": 1.533293416683374e-19
+      },
+      "comparison": {
+        "absolute_errors": {
+          "f1000": 2.168404344971009e-19,
+          "f880": 3.510833468576701e-16,
+          "f8a8": 0.0,
+          "f8b0": 0.0,
+          "f958": 0.0,
+          "f970": 0.0,
+          "f988": 0.0,
+          "f9a0": 0.0,
+          "f9b8": 4.336808689942018e-19,
+          "fad0": 0.0,
+          "ffb8": 0.0,
+          "ffd0": 1.5700924586837752e-16,
+          "ffe8": 4.336808689942018e-19,
+          "fff0": 4.336808689942018e-19,
+          "fff8": 3.066586833366748e-19
+        },
+        "binary_equal_fields": [
+          "f8a8",
+          "f8b0",
+          "f958",
+          "f970",
+          "f988",
+          "f9a0",
+          "fad0",
+          "f100c",
+          "f1010",
+          "f1008",
+          "ffb8",
+          "f1018"
+        ]
+      },
+      "config_sha256": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784",
+      "display_context_outside_arc": {
+        "identity_padding": {
+          "canonical": 0,
+          "source": 32764,
+          "word_index": 19
+        },
+        "observed_leader": 0
+      },
+      "first_witness_side": -0.531761850832457,
+      "linked_stream_sizes": [
+        25918,
+        33618
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "opposite_first_ray": "arc field differs from independent geometry or native text branch for ffb8",
+        "swapped_first_second_witness": "arc field differs from independent geometry or native text branch for f958",
+        "unupdated_constructor_midpoint": "arc field differs from independent geometry or native text branch for f8a8",
+        "unupdated_constructor_radius": "arc field differs from independent geometry or native text branch for f8b0",
+        "wrong_constructor_mask": "wrong angular display selector for f1018"
+      },
+      "resolved_sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305",
+      "root_count": 24,
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "actual_driver": {
+        "angle_rad": 0.7853981633974483,
+        "annotation_view": "*Back",
+        "annotation_view_id": 201,
+        "id": 44,
+        "name": "D1",
+        "standard_view_id": 2
+      },
+      "actual_fields": {
+        "f1000": 0.0010000000000000002,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.7520248213998794,
+          "y": -0.65913478742855,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.0058262019832314785,
+        "f958": {
+          "x": 0.0,
+          "y": 0.001,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.0007071067811865476,
+          "y": 0.0007071067811865476,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": -2.168404344971009e-19,
+          "z": 0.0
+        },
+        "fad0": 0.0007653668647301796,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.7071067811865476,
+          "y": 0.7071067811865476,
+          "z": -0.0
+        },
+        "ffe8": 2.168404344971009e-19,
+        "fff0": 0.0010000000000000002,
+        "fff8": 1.533293416683374e-19
+      },
+      "comparison": {
+        "absolute_errors": {
+          "f1000": 2.168404344971009e-19,
+          "f880": 3.510833468576701e-16,
+          "f8a8": 0.0,
+          "f8b0": 0.0,
+          "f958": 0.0,
+          "f970": 0.0,
+          "f988": 0.0,
+          "f9a0": 0.0,
+          "f9b8": 4.336808689942018e-19,
+          "fad0": 0.0,
+          "ffb8": 0.0,
+          "ffd0": 1.5700924586837752e-16,
+          "ffe8": 4.336808689942018e-19,
+          "fff0": 4.336808689942018e-19,
+          "fff8": 3.066586833366748e-19
+        },
+        "binary_equal_fields": [
+          "f8a8",
+          "f8b0",
+          "f958",
+          "f970",
+          "f988",
+          "f9a0",
+          "fad0",
+          "f100c",
+          "f1010",
+          "f1008",
+          "ffb8",
+          "f1018"
+        ]
+      },
+      "config_sha256": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff",
+      "display_context_outside_arc": {
+        "identity_padding": {
+          "canonical": 0,
+          "source": 32764,
+          "word_index": 19
+        },
+        "observed_leader": 0
+      },
+      "first_witness_side": -0.531761850832457,
+      "linked_stream_sizes": [
+        25942,
+        33860
+      ],
+      "map_counters": [
+        112,
+        472
+      ],
+      "refusals": {
+        "opposite_first_ray": "arc field differs from independent geometry or native text branch for ffb8",
+        "swapped_first_second_witness": "arc field differs from independent geometry or native text branch for f958",
+        "unupdated_constructor_midpoint": "arc field differs from independent geometry or native text branch for f8a8",
+        "unupdated_constructor_radius": "arc field differs from independent geometry or native text branch for f8b0",
+        "wrong_constructor_mask": "wrong angular display selector for f1018"
+      },
+      "resolved_sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9",
+      "root_count": 24,
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    }
+  },
+  "earlier_evidence_sha256": [
+    "7c0f8111ce899b34bbac361f0e2c4394cc8b366a0e98311666d943b9d125c6d2",
+    "adf414b19f9e6c9e47463dad4ea4799fd3de589dca4099edeb625abb59240498",
+    "6d763f146c13b64014a73fe5c07c830664742b9bf5401a248352bf94740aab68"
+  ],
+  "full_angular_feature_represented": false,
+  "full_display_owner_represented": false,
+  "guarded_model_processes": 4,
+  "heldout_accesses": 0,
+  "native_calls": 0,
+  "neutral_model_proofs": [
+    {
+      "angle_degrees": 28.625,
+      "cad_files_written": 0,
+      "closed_form_radius_m": 0.008590845781916746,
+      "closed_form_second_witness_m": [
+        -0.0004790749047028064,
+        0.0008777740231312367,
+        0.0
+      ],
+      "field_slice_bytes": 257,
+      "field_slice_sha256": "e07858e834292bda8e7fbc8ad9c20bc7abebe828ad0964eb7e44718ad4811dd5",
+      "fields": {
+        "f1000": 0.0009999999999999994,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.5041353616080468,
+          "y": -0.8636246506303094,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.008590845781916746,
+        "f958": {
+          "x": 0.0,
+          "y": 0.0009999999999999992,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.00047907490470280607,
+          "y": 0.0008777740231312361,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": -2.168404344971009e-19,
+          "z": 0.0
+        },
+        "fad0": 0.0004944208265612667,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.47907490470280645,
+          "y": 0.8777740231312368,
+          "z": -0.0
+        },
+        "ffe8": 2.168404344971009e-19,
+        "fff0": 0.0009999999999999994,
+        "fff8": 1.9033690056604566e-19
+      },
+      "guarded_runtime_reads": 0,
+      "label": "ExteriorAlpha",
+      "neutral_intent_sha256": "229fe972d30e6c40f821c6c3d8e081a67bed1842fdd3141a71f6fece52803eba",
+      "ordered_field_names": [
+        "f880",
+        "f8a8",
+        "f8b0",
+        "f958",
+        "f970",
+        "f988",
+        "f9a0",
+        "f9b8",
+        "fad0",
+        "f100c",
+        "f1010",
+        "f1008",
+        "ffb8",
+        "ffd0",
+        "ffe8",
+        "fff0",
+        "fff8",
+        "f1000",
+        "f1018"
+      ],
+      "refusals": {
+        "interior_label": "ordinary angular arcs require a label exterior to the first witness",
+        "parallel_tolerance": "parallel angular witnesses require a different centre branch",
+        "reverse_constraint": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "straight_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "swapped_finite_hinge": "an actual directed through-origin negative-Z hinge is required"
+      },
+      "selected_endpoints_m": [
+        [
+          0.0,
+          0.0,
+          0.018243750000000003
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0008687499999999997
+        ]
+      ]
+    },
+    {
+      "angle_degrees": 63.125,
+      "cad_files_written": 0,
+      "closed_form_radius_m": 0.013526811286048076,
+      "closed_form_second_witness_m": [
+        -0.0008919948565893142,
+        0.00045204554617671967,
+        0.0
+      ],
+      "field_slice_bytes": 257,
+      "field_slice_sha256": "f4aca8e1ddb47baabdaeb55e0064cbb253ca91adf210efa8d1c7f62394e7a653",
+      "fields": {
+        "f1000": 0.0009999999999999996,
+        "f1008": 1,
+        "f100c": 1,
+        "f1010": 1,
+        "f1018": 24,
+        "f880": {
+          "x": 0.90881897409864,
+          "y": -0.4171906905939966,
+          "z": 0.0
+        },
+        "f8a8": -0.5,
+        "f8b0": 0.013526811286048074,
+        "f958": {
+          "x": 0.0,
+          "y": 0.001,
+          "z": 0.0
+        },
+        "f970": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f988": {
+          "x": -0.0008919948565893135,
+          "y": 0.00045204554617672005,
+          "z": 0.0
+        },
+        "f9a0": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "f9b8": {
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0
+        },
+        "fad0": 0.0010468566796111869,
+        "ffb8": {
+          "x": -0.0,
+          "y": 1.0,
+          "z": -0.0
+        },
+        "ffd0": {
+          "x": -0.8919948565893139,
+          "y": 0.45204554617672027,
+          "z": -0.0
+        },
+        "ffe8": 0.0,
+        "fff0": 0.001,
+        "fff8": 0.0
+      },
+      "guarded_runtime_reads": 0,
+      "label": "ExteriorBeta",
+      "neutral_intent_sha256": "6d295425035271da0cbe4d58731a68c93e4394adbdc9ec741f5dcbbd83b8ac40",
+      "ordered_field_names": [
+        "f880",
+        "f8a8",
+        "f8b0",
+        "f958",
+        "f970",
+        "f988",
+        "f9a0",
+        "f9b8",
+        "fad0",
+        "f100c",
+        "f1010",
+        "f1008",
+        "ffb8",
+        "ffd0",
+        "ffe8",
+        "fff0",
+        "fff8",
+        "f1000",
+        "f1018"
+      ],
+      "refusals": {
+        "interior_label": "ordinary angular arcs require a label exterior to the first witness",
+        "parallel_tolerance": "parallel angular witnesses require a different centre branch",
+        "reverse_constraint": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "straight_angle": "the analytic pattern datum covers an acute unreversed Right plane constraint",
+        "swapped_finite_hinge": "an actual directed through-origin negative-Z hinge is required"
+      },
+      "selected_endpoints_m": [
+        [
+          0.0,
+          0.0,
+          0.027431249999999997
+        ],
+        [
+          0.0,
+          0.0,
+          -0.0013062500000000001
+        ]
+      ]
+    }
+  ],
+  "schema": "kit.sw2026.research-only.constrained-angle-arc.v1",
+  "static_owners": {
+    "angular_display_virtual_slots": {
+      "derive_geometry": [
+        "0xd10",
+        "0x4c861870"
+      ],
+      "existing_position": [
+        "0x9c8",
+        "0x4c866db0"
+      ],
+      "initial_position": [
+        "0x9c0",
+        "0x4c866bd0"
+      ],
+      "update_radius": [
+        "0x5e8",
+        "0x4c8995e0"
+      ]
+    },
+    "constants": {
+      "native_comparison_tolerance": [
+        "0x4cd9a3b0",
+        1e-08
+      ],
+      "ordinary_arc_mode_threshold": [
+        "0x4d1bd400",
+        3.1415926435898003
+      ],
+      "ordinary_text_midpoint": [
+        "0x4cd9a3c0",
+        0.5
+      ],
+      "outside_first_witness": [
+        "0x4ce32cb8",
+        -0.5
+      ],
+      "outside_second_witness": [
+        "0x4cde9a88",
+        1.5
+      ],
+      "witness_m": [
+        "0x4cddcd28",
+        0.001
+      ]
+    },
+    "display_spans": {
+      "arc_seed_fields": {
+        "range": [
+          "0x4c862790",
+          "0x4c862810"
+        ],
+        "sha256": "c9a13d2485d095d0da42e23f3a72b6b518ddacc59e775be7f5bc6d327f9787db"
+      },
+      "base_display_initialization": {
+        "range": [
+          "0x4c88a1e0",
+          "0x4c88a673"
+        ],
+        "sha256": "26b25fd6dda4d0294f77cfbdbcabd98e111861194e2f91e92fcc0cd59988f09d"
+      },
+      "choose_text_parameter": {
+        "range": [
+          "0x4c860820",
+          "0x4c860dd9"
+        ],
+        "sha256": "d0cc817381a2e154cafa64999e255ae93ba7c63b5cf1965e5614f873f4a57ade"
+      },
+      "datum_adornment": {
+        "range": [
+          "0x4b8f4fa0",
+          "0x4b8f5986"
+        ],
+        "sha256": "a6edd279997adff6f12087cbaf5d0d209ad830959159741ea3d49ff940d20813"
+      },
+      "double_angle_guard": {
+        "range": [
+          "0x4c863720",
+          "0x4c863752"
+        ],
+        "sha256": "459b2994c0cf6a003ee92cae613ac14e1b84ebe7832688ba4207fca42c17cd3b"
+      },
+      "existing_label_update": {
+        "range": [
+          "0x4c866db0",
+          "0x4c867321"
+        ],
+        "sha256": "f267442436390d631dfce2198cfe47361fc6d055ef7b2842b12fa802b65bbb49"
+      },
+      "feature_arc_constructor": {
+        "range": [
+          "0x4c85aae0",
+          "0x4c85ab7a"
+        ],
+        "sha256": "064c3b044baf9c668217ede271e4cf669d18673d23a844e6e42bfc9c095e8273"
+      },
+      "new_label_update": {
+        "range": [
+          "0x4c866bd0",
+          "0x4c866daf"
+        ],
+        "sha256": "980082355c8b89b90687d6171c2ad5fb10d122c261e351964ad2b44104ea7851"
+      },
+      "serialize_angle_tail": {
+        "range": [
+          "0x4c82b8f0",
+          "0x4c82be01"
+        ],
+        "sha256": "85fdae2dd30cf8baf74d28fef9d6f7b36a4f7982c7dfaf8c93f7bc1ee74e204d"
+      },
+      "serialize_display_base": {
+        "range": [
+          "0x4c82c3d0",
+          "0x4c8310da"
+        ],
+        "sha256": "1590b966dad82241f29d36dd8d02182b006a423eedc91f7dd9014d1ef9986fd2"
+      },
+      "set_text_parameter": {
+        "range": [
+          "0x4c8984a0",
+          "0x4c8984a9"
+        ],
+        "sha256": "e6fd45f7076d93f50965ff7384e445d49c8d48a05cd05ea1f82c5b9052cea9f4"
+      },
+      "set_text_radius": {
+        "range": [
+          "0x4c8995e0",
+          "0x4c8995e9"
+        ],
+        "sha256": "893d80e75a8f4b28468562d7ba6b94b8f795c25cc8ee69229fe47977918419ca"
+      },
+      "update_angle_def": {
+        "range": [
+          "0x4c866450",
+          "0x4c866a10"
+        ],
+        "sha256": "595798f0942711ff80bf97be479ff5f92c2cdcf13115279f83efeb6d17f4919a"
+      },
+      "witness_centre_and_radius": {
+        "range": [
+          "0x4c861870",
+          "0x4c86276d"
+        ],
+        "sha256": "d813d8eecf25a1d6eb5d5548ffd932ce3f77456573bb6bbfb4399aa9d3d5ffd6"
+      }
+    },
+    "math_imports": {
+      "cross": "0x4cd3a978",
+      "dot": "0x4cd3a600",
+      "intersect": "0x4cd3bdb8",
+      "write_raw_transform": "0x4cd3b538"
+    },
+    "math_spans": {
+      "intersect_normalized_rays": {
+        "range": [
+          "0x31e24b10",
+          "0x31e24e00"
+        ],
+        "sha256": "ee3bc86ee12edaf27673da794a849efbea4f02db6cb32aaa8e49de8aa8ecbaab"
+      },
+      "line_intersection": {
+        "range": [
+          "0x31e1de80",
+          "0x31e1deac"
+        ],
+        "sha256": "004f91ca836efeca9c5e3a7c3e9de6be53707d3f2c56dfcbab3c482b1c69bb95"
+      },
+      "raw_transform_writer": {
+        "range": [
+          "0x31f1d9a0",
+          "0x31f1da7d"
+        ],
+        "sha256": "20ffb94cf1d4e4714e02f56bc25bea180527ffe137015b84b80a4224fd41a4c9"
+      }
+    },
+    "modules": [
+      {
+        "bytes": 46536280,
+        "image_base": "0x4b140000",
+        "machine": "0x8664",
+        "name": "sldmodu.dll",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "bytes": 2363992,
+        "image_base": "0x31dd0000",
+        "machine": "0x8664",
+        "name": "sldmgu.dll",
+        "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+      }
+    ]
+  },
+  "tools": {
+    "CheckPatternAngleOwners.py": "b148da977c283b104f8bdd7091cb63baf952d176d91ac9691b0a88e954159bec",
+    "PatternAngleArc.py": "77dec9cab948516d10ffca240fed122afc125ffb6a31db6d6a244121dc26445f",
+    "PatternAngleArcProcess.py": "71b4780327096baafb421ccac4110130c756d03c653558729c6139417ecb3f4e",
+    "PatternAngleGeometry.py": "a62f674d895c28fba00408ccff6cea089ea83d3ce1d816fe943d01958b42403b",
+    "PatternAngleWire.py": "7ac09e40f5678a24aa80460d80c39693338475d2ebc3e740839e31250f0fda43",
+    "PatternPlaneDirectionRule.py": "39a74b69a3670475a015e23a0e31ade1d34ba6762bfa3283921c0d865f0ef76e",
+    "ProvePatternAngleArc.py": "c986bd2e6335657c1c9a4cb9b7b205d911d425dbd031b813ff688b736f4a0b05"
+  }
+}

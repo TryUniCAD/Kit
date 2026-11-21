@@ -1,0 +1,17 @@
+# Project the disclosed assembly display-state owner through the SDK
+
+Task `B04-SW2026-MATES-CONCENTRIC/typed-parent-display-read`, owner `assembly_frontier`, delivery PR #121. This read-only slice completes the known direct XML visibility join on disclosed assemblies. The separately serialized VisualStates graph, native precedence and whole-source writing remain unqualified. [Prior typed wire audit](ConcentricDisplayState2026.md) · [SDK process proof](../../tooling/sw2026/para/concentric/VerifyConcentricDisplayRead.py) · [Revision-bound receipt](../measurements/2026/ConcentricDisplayRead01.json)
+
+## Read contract
+
+Read `assembly.attributes["typed_display_states"]` when the view is present. Its sole row carries `configuration_object_id`, `configuration_id`, `configuration_name`, `model_object_id`, `list_object_id`, `state_object_id`, `name` and an ordered `visibility` tuple. Each visibility row binds `native_object_id` in the XML occurrence namespace, `native_feature_id` in the persistent feature namespace and the measured boolean `visible`.
+
+The reader requires a complete version-19000 tree with one selected configuration, a direct display list, one state and one or two ordinary direct occurrences. The XML-local IDs and counts must agree. The list indexes live persistent occurrence IDs in order, and the actions must be the measured literal `Yes` slots with explicit XML `swHidden=NO`. The actual linked CMgr selection, root model name, occurrence name, `f68` membership, persistent ID and binary hidden word must agree. The product route reads the model header, CMgr and Config-0. [Typed XML ownership](../../../src/convert/adapters/solidworks/Assembly/Display/ReadDisplayXml.py) · [Binary owner checks](../../../src/convert/adapters/solidworks/Assembly/Display/CheckDisplay.py)
+
+The existing raw `display_states` tuples preserve their original label, optional configuration ID and raw attributes. The existing per-occurrence `hidden` and generic reader and writer guards retain their behavior. An ambiguous, detached, unsupported or absent owner yields no typed view. The existing retained-source semantic fingerprint includes the new typed metadata on an admitted read. Removing that derived view yields the earlier fingerprint.
+
+## Verification
+
+The process proof freezes `dcfa8476bc1323ce0d6ee32b86b1b1b446ddf6a5` and overlays the eight SDK files and the proof script. Two independent SDK processes compare 28 complete public document pairs. Ten reads expose the expected typed view. The existing fields agree in every pair after accounting for the new field and its independently recomputed fingerprint. D01 original and edit, native-saved radial, A13 and A14 have the expected typed projections. A12 and frozen radial retain their earlier documents. Default sibling resolution for the D01 and radial cases exercises the ordinary public open route in addition to the deferred-component path.
+
+Fourteen diagnostic refusals exercise short, mixed or unknown actions, explicit hidden conflict, duplicate or reordered membership, substituted XML IDs, detached list, ownership mismatch and stale configuration or model names. Another diagnostic preserves the legacy name fallback and precedence. Two additional host diagnostic copies omit or replace the VisualStates payload and retain the same typed ownership as the original D01. These comparisons establish SDK read independence. Native behavior still requires the separate mixed-visibility and stale-copy discriminator described in the wire audit.

@@ -1,0 +1,195 @@
+{
+  "controls_healthy": true,
+  "diagnostic_completed": true,
+  "distinct_processes": 4,
+  "file_saves": 0,
+  "guarded_part_variants": {
+    "Off": "6fa75f03fc6e201e29dfc65e90b20a773ca8212568b8a9dae0fb9601116ef785",
+    "On": "6569127deb36821679c7b425b65e0bfffbd2c3f9d3fa68777baa3a6f507d1129"
+  },
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "parameter_edits": 0,
+  "phase_details": {
+    "ControlAfter": {
+      "observed": true,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395740414923839"
+    },
+    "ControlBefore": {
+      "observed": true,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": "134395739408304207"
+    },
+    "Off": {
+      "force_rebuild_return": true,
+      "immutable_inputs_unchanged": true,
+      "initial": {
+        "configuration": "Default",
+        "cylinder": [
+          0.003913,
+          -0.0074210000000000005,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.005137
+        ],
+        "dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "mass": {
+          "area": 0.0009023280660348718,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647858e-06,
+          "volume": 1.8917581449647858e-06
+        },
+        "ordered_tree_rows": 25,
+        "single_solid_measurement_passed": true,
+        "state": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        }
+      },
+      "observed": true,
+      "open_errors": 0,
+      "open_warnings": 32,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "original_zero_warning_gate_passed": false,
+      "process_creation_filetime": "134395739847953061",
+      "rebuilt": {
+        "configuration": "Default",
+        "cylinder": [
+          0.003913,
+          -0.0074210000000000005,
+          0.022819,
+          -0.0,
+          -0.0,
+          -1.0,
+          0.005136999999999999
+        ],
+        "dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "mass": {
+          "area": 0.0009023280660348716,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647856e-06,
+          "volume": 1.8917581449647856e-06
+        },
+        "ordered_tree_rows": 25,
+        "single_solid_measurement_passed": true,
+        "state": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 118,
+          "whats_wrong": 0
+        }
+      }
+    },
+    "On": {
+      "force_rebuild_return": true,
+      "immutable_inputs_unchanged": true,
+      "initial": {
+        "configuration": "Default",
+        "cylinder": [
+          0.003913,
+          -0.0074210000000000005,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.005137
+        ],
+        "dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "mass": {
+          "area": 0.0009023280660348718,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647858e-06,
+          "volume": 1.8917581449647858e-06
+        },
+        "ordered_tree_rows": 22,
+        "single_solid_measurement_passed": true,
+        "state": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 104,
+          "whats_wrong": 0
+        }
+      },
+      "observed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "original_zero_warning_gate_passed": true,
+      "process_creation_filetime": "134395740131417521",
+      "rebuilt": {
+        "configuration": "Default",
+        "cylinder": [
+          0.003913,
+          -0.0074210000000000005,
+          0.022819,
+          -0.0,
+          -0.0,
+          -1.0,
+          0.005136999999999999
+        ],
+        "dimensions_m": {
+          "D1@RoundBoss": 0.022819,
+          "D1@RoundProfile": 0.010273999999999998
+        },
+        "mass": {
+          "area": 0.0009023280660348716,
+          "com": [
+            0.003912999999999999,
+            -0.0074210000000000005,
+            0.0114095
+          ],
+          "mass": 1.8917581449647856e-06,
+          "volume": 1.8917581449647856e-06
+        },
+        "ordered_tree_rows": 22,
+        "single_solid_measurement_passed": true,
+        "state": {
+          "active_configuration": "Default",
+          "actual_document_type": 1,
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 118,
+          "whats_wrong": 0
+        }
+      }
+    }
+  },
+  "raw_result_sha256": "a959d6f3127b4d8ee2fb7279d312b538a2ad4dfd6ab52fa4838b4e66f145ad3b",
+  "same_actual_guest_locator": true,
+  "schema": "kit.sw2026.concentric-ambient-native-result.v1",
+  "trial_sha256": "a62380477a13f4bb16402634307b75a14b687262c4e190bfd77dc9c8b6f89d69",
+  "warning_changed_32_to_0": true
+}

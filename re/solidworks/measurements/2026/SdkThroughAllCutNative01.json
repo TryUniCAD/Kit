@@ -1,0 +1,564 @@
+{
+  "all_inputs_immutable": true,
+  "application_usable": true,
+  "artifact_attestation_only": true,
+  "cold_process_receipt_sha256": "394101602b3e62296fb6f446ed240a27ea155b1a4b60b1701f2ee887fb9284e8",
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_native_processes": 4,
+  "generated_bytes": 8497,
+  "generated_saved_scope": 0,
+  "generated_sha256": "5cefc9124919cb2d75a141610fa40a23c328d41297eba6aefe4bcb9f185a3115",
+  "heldout_payloads_read": 0,
+  "independent_prediction": {
+    "edited": {
+      "area": 0.023686746740836317,
+      "body_count": 1,
+      "com": [
+        0.0014804889430259415,
+        -0.0022446324958918483,
+        -0.00020423521991402537
+      ],
+      "stock_depth_m": 0.04739,
+      "volume": 0.00021952385744891857
+    },
+    "source": {
+      "area": 0.018973720099825626,
+      "body_count": 1,
+      "com": [
+        0.0014804889430259415,
+        -0.0022446324958918483,
+        -0.0001367458013899984
+      ],
+      "stock_depth_m": 0.03173,
+      "volume": 0.00014698231687812168
+    }
+  },
+  "initial_pre_native_observer_failure_receipt_sha256": "9cf8cb3f437e0fd7ff076561c5ad4841f45aedc5aa41bafa0f2ef30545664c77",
+  "maximum_nonzero_relative_geometry_error": 1.0252579383519986e-15,
+  "native_packet_sha256": "b390c68864a8508316d7badd4b43c7643c3dffbcac9ba797fac21a4eb417ab3b",
+  "native_recipe_sha256": "65c768b6d0d41375adcafb7004a1a2494ea135e432a4346ad10258d195e9cd26",
+  "native_result_sha256": "a7a14451eb72a459aa70ff9937c996880cc3a8427ac90dcd6d49245187215dff",
+  "native_source_lock_sha256": "3efe141cd31cc06e8b7545db590548dd1ba511960261e8b78cf72523d5d5ba79",
+  "numeric_checks": 72,
+  "observer_sha256": "7119d2a9f9bf14c67c0ef15712a8e72d1d294ae5d83d82949e20e969b18234be",
+  "original_heldout_compared": false,
+  "passed": true,
+  "phases": [
+    {
+      "controller_diagnostics": [],
+      "dialogs_count": 0,
+      "input_immutable": true,
+      "numeric_checks": 14,
+      "open": [
+        true,
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394992707141100,
+        "process_id": 536,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "phase": "ControlBefore",
+      "record_sha256": "25dde075c3e73ae6df6aa8d2f905e8904517e80218e2e4c3cf9dc839d8a42dbf",
+      "save": null,
+      "saved_bytes": null,
+      "saved_sha256": null,
+      "states": {
+        "initial": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.013967801633414718,
+            "com": [
+              0.0034967773433163024,
+              -0.002607191405961744,
+              -0.00023031201141308192
+            ],
+            "mass": 8.996273307849843e-05,
+            "volume": 8.996273307849843e-05
+          },
+          "stock_depth_m": 0.02791,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.02791
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "rebuilt": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.013967801633414718,
+            "com": [
+              0.0034967773433163024,
+              -0.002607191405961744,
+              -0.00023031201141308192
+            ],
+            "mass": 8.996273307849843e-05,
+            "volume": 8.996273307849843e-05
+          },
+          "stock_depth_m": 0.02791,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.02791
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        }
+      }
+    },
+    {
+      "controller_diagnostics": [],
+      "dialogs_count": 0,
+      "input_immutable": true,
+      "numeric_checks": 30,
+      "open": [
+        true,
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394993097864220,
+        "process_id": 2644,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "phase": "Generated",
+      "record_sha256": "f057f9a9b49081de16ff5558dc6c053591932f84554ab9b2316a34357a4ddf0f",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "saved_bytes": 63007,
+      "saved_sha256": "f1ac3d1b8657352c1a9c031b878b3fa336782746529ff66523f4e41a48df3ce7",
+      "states": {
+        "edited": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.023686746740836314,
+            "com": [
+              0.001480488943025943,
+              -0.0022446324958918496,
+              -0.00020423521991402532
+            ],
+            "mass": 0.00021952385744891854,
+            "volume": 0.00021952385744891854
+          },
+          "stock_depth_m": 0.04739,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.04739
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "initial": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.018973720099825626,
+            "com": [
+              0.001480488943025943,
+              -0.002244632495891849,
+              -0.00013674580138999838
+            ],
+            "mass": 0.00014698231687812165,
+            "volume": 0.00014698231687812165
+          },
+          "stock_depth_m": 0.03173,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.03173
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "rebuilt": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.018973720099825626,
+            "com": [
+              0.0014804889430259428,
+              -0.0022446324958918496,
+              -0.00013674580138999838
+            ],
+            "mass": 0.00014698231687812168,
+            "volume": 0.00014698231687812168
+          },
+          "stock_depth_m": 0.03173,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.03173
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "saved": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.023686746740836314,
+            "com": [
+              0.001480488943025943,
+              -0.0022446324958918496,
+              -0.00020423521991402532
+            ],
+            "mass": 0.00021952385744891854,
+            "volume": 0.00021952385744891854
+          },
+          "stock_depth_m": 0.04739,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.04739
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        }
+      }
+    },
+    {
+      "controller_diagnostics": [],
+      "dialogs_count": 0,
+      "input_immutable": true,
+      "numeric_checks": 14,
+      "open": [
+        true,
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394993728323030,
+        "process_id": 6320,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "phase": "Reopen",
+      "record_sha256": "fa996432e32fa4e3433d15050deaa9a28e9e8593d15eea2e7f14137d008685ac",
+      "save": null,
+      "saved_bytes": null,
+      "saved_sha256": null,
+      "states": {
+        "initial": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.023686746740836314,
+            "com": [
+              0.001480488943025943,
+              -0.0022446324958918496,
+              -0.00020423521991402532
+            ],
+            "mass": 0.00021952385744891854,
+            "volume": 0.00021952385744891854
+          },
+          "stock_depth_m": 0.04739,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.04739
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "rebuilt": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.023686746740836314,
+            "com": [
+              0.001480488943025943,
+              -0.0022446324958918496,
+              -0.00020423521991402532
+            ],
+            "mass": 0.00021952385744891854,
+            "volume": 0.00021952385744891854
+          },
+          "stock_depth_m": 0.04739,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.04739
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        }
+      }
+    },
+    {
+      "controller_diagnostics": [],
+      "dialogs_count": 0,
+      "input_immutable": true,
+      "numeric_checks": 14,
+      "open": [
+        true,
+        0,
+        0
+      ],
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394995835027190,
+        "process_id": 8892,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "phase": "ControlAfter",
+      "record_sha256": "6d34470641425cd4c5d5b7523677fd405676f069a94d98b3736bcb08295e71c0",
+      "save": null,
+      "saved_bytes": null,
+      "saved_sha256": null,
+      "states": {
+        "initial": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.013967801633414718,
+            "com": [
+              0.0034967773433163024,
+              -0.002607191405961744,
+              -0.00023031201141308192
+            ],
+            "mass": 8.996273307849843e-05,
+            "volume": 8.996273307849843e-05
+          },
+          "stock_depth_m": 0.02791,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.02791
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        },
+        "rebuilt": {
+          "active_configuration": "Default",
+          "body_count": 1,
+          "cut_depths_m": [
+            0.0,
+            0.0
+          ],
+          "cut_dimensions": [],
+          "measured_geometry": {
+            "area": 0.013967801633414718,
+            "com": [
+              0.0034967773433163024,
+              -0.002607191405961744,
+              -0.00023031201141308192
+            ],
+            "mass": 8.996273307849843e-05,
+            "volume": 8.996273307849843e-05
+          },
+          "stock_depth_m": 0.02791,
+          "stock_dimensions": [
+            {
+              "driven_state": 2,
+              "feature_owner": "StockBoss",
+              "parameter_name": "D1",
+              "read_only": false,
+              "value_m": 0.02791
+            }
+          ],
+          "stock_relation_types": [
+            4,
+            4,
+            5,
+            5
+          ],
+          "tree_rows": 27,
+          "whats_wrong": 0
+        }
+      }
+    }
+  ],
+  "public_writer_qualified": false,
+  "saved_typed_receipt_sha256": "ad5760716c0c95b2ec8099ed0444cea76805c89913726a91e06d73a7f67d55c5",
+  "schema": "kit.sw2026.sdk-generated-through-all-native.v1",
+  "scope": "disclosed generated ordinary forward circular through-all cut in finite mid-plane rectangular stock on Front",
+  "scope_difference_preserved": true,
+  "source_saved_scope": 1,
+  "stock_relations_match_control": true,
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "transport": {
+    "before_after_inventory_sha256": [
+      "7fa3d45e5db331cbb26f2c2bce8fd8550b752cfef73885c1615b14808b72733d",
+      "7fa3d45e5db331cbb26f2c2bce8fd8550b752cfef73885c1615b14808b72733d",
+      "7fa3d45e5db331cbb26f2c2bce8fd8550b752cfef73885c1615b14808b72733d",
+      "7fa3d45e5db331cbb26f2c2bce8fd8550b752cfef73885c1615b14808b72733d"
+    ],
+    "constructor_or_input_changed_during_resume": false,
+    "initial_pre_control_after_inventory_exit_reported_by_root": 255,
+    "license_process_names_and_pids_unchanged": [
+      {
+        "Name": "lmgrd.exe",
+        "ProcessId": 4256
+      },
+      {
+        "Name": "lmgrd.exe",
+        "ProcessId": 4644
+      },
+      {
+        "Name": "sw_d.exe",
+        "ProcessId": 4988
+      }
+    ],
+    "new_control_after_native_identity_verified": true,
+    "trailing_control_resume_report_sha256": "583204af6c030c586a379517d5db240daf4b350538053d1e5bdf1c79d0992259"
+  },
+  "vendor_loadable": true,
+  "whole_family_qualified": false,
+  "writer_source_manifest_sha256": "7ff3eacf713c39e109c09bb786f521c9f97df3413c1224a5e7278438d4a4639e"
+}

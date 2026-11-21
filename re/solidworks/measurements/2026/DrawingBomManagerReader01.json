@@ -1,0 +1,97 @@
+{
+  "schema": "kit.sw2026.drawing-bom-manager-reader-custody.v1",
+  "task": "PR121 ordinary drawing BOM manager linkage",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43 worker prior pass; both original normal reads remain rejected by existing UI semantic guard",
+  "candidate_manifest_sha256": "b89ea3132b84887218a1a2ed6fca7f0e397d7a03b744a663d97a3b1ce4b962b5",
+  "source_files": 4351,
+  "sdk_deltas": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontLayouts.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py"
+  ],
+  "native_proof_sha256": "76cc5a3159aff601c4bb1547e562404342b3a66beded39db495c8d4ea5f982b4",
+  "splitter_parent_manifest_sha256": "43c1fc7f49f8b697022a9f48c8678d03d6554cb2e4de7e8c8991926bf07229a3",
+  "concrete_class_added": "moBomInfoMgr_c schema1",
+  "shared_field_layouts_changed": [],
+  "concrete_BOM_child_schema_added": false,
+  "actual_previous_failures": {
+    "raw_sha256": "d795686e707ddfbdcc88b0735682857c1b5d0327e06f89d0fc49cec3bc98538d",
+    "both_failed": true,
+    "next_boundary": "moBomInfoMgr_c schema1"
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingBomInfoPrior01.json",
+    "raw_sha256": "02da948f460b96328e112ebfb490a563fd5f7bd7b026ad9063033676f23cd91b",
+    "source_manifest_sha256": "b89ea3132b84887218a1a2ed6fca7f0e397d7a03b744a663d97a3b1ce4b962b5"
+  },
+  "new_original_probe": {
+    "status": "both remain rejected at unchanged normal reader UI guard",
+    "raw_sha256": "876173b1020a360cd05eb15221cd93fe32d1e5a86e0b7551e1d960a794f1e6f4",
+    "source_immutable": true,
+    "normal_reader_passed": false,
+    "full_byte_parity_measured": false,
+    "normal_qualification_complete": false,
+    "next_boundary": "blank drawing Definition has unqualified ui state",
+    "runtime_class_failure_at_this_cursor": false,
+    "source_order_note": "ReadNamedDef finishes body decoding and its zero remaining bytes check before BindFrontMut and graph/UI semantic validation; the rejection does not measure an emission or raw byte identity",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "blank drawing Definition has unqualified ui state",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "blank drawing Definition has unqualified ui state",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in2files"
+  },
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "normal_UI_guard_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

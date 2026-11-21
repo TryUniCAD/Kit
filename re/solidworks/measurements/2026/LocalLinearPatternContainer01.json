@@ -1,0 +1,3351 @@
+{
+  "build": "34.5.2.0604",
+  "changed_streams_for_each_independent_edit": [
+    "Contents/Config-0-ResolvedFeatures",
+    "swXmlContents/KeyWords"
+  ],
+  "guarded_processes": 10,
+  "heldout_cases": 0,
+  "host_only": true,
+  "model_cases": {
+    "ColdRaisedPatternA": {
+      "count_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036957,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07353666700339966,
+            0.05430437644490481,
+            0.0034703343003177236
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.09228821066905289,
+                0.012589492109188544,
+                0.0
+              ],
+              [
+                0.10228821066905289,
+                0.02458949210918854,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.000108585
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036957,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.09228821066905289,
+                0.012589492109188541,
+                0.0
+              ],
+              [
+                0.10228821066905289,
+                0.024589492109188538,
+                0.01375
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.07353666700339966,
+            0.05430437644490481,
+            0.0034703343003177228
+          ],
+          "face_count": 26,
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "volume_m3": 0.00010858499999999999
+        },
+        "input_sha256": "e18793b551ce12d78f01bdfa9bf78ff8aa7d6336b3e6cc21f82cb4a43695fbf8",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              },
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternA hinge",
+          "pattern": {
+            "count": 4,
+            "name": "ColdRaisedPatternA feature pattern",
+            "pitch_m": 0.018,
+            "reverse": false,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.027,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.028999999999999998,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.03,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.031,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.032,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.5759586531581288,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternA direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Default",
+            "epoch": 1795251123,
+            "name": "ColdRaisedPatternA",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternA.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0.147,
+                  0.11,
+                  0.0065
+                ]
+              ],
+              "feature": "Model plate",
+              "sketch": "Model plate rectangle"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.047,
+                  0.042,
+                  0.0
+                ],
+                [
+                  0.057,
+                  0.054,
+                  0.01375
+                ]
+              ],
+              "feature": "Model raised seed",
+              "sketch": "Model seed rectangle"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10470,
+          "sha256": "68a7c2d2a8a82539038079d4d4fbaf3ddd8573b4c79fc5b72fe9d0e028cc64c6",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.018,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.018,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.062096070223017635,
+              0.032196497369729515,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "3e876dc24b6f31d5975dfef77e89f3b0ef25aa5d60bccfa6a4cec44f47d4b663"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "e6fe566ee2503d04e9f010f14d9f53422322a0ea895c2575251d394d1e002d5d"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "original": {
+        "analytic_geometry": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07334482888439006,
+            0.05459284090549129,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.00010771500000000001
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.062096070223017635,
+                0.032196497369729515,
+                0.0
+              ],
+              [
+                0.07209607022301763,
+                0.04419649736972951,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.07719214044603526,
+                0.022392994739459028,
+                0.0
+              ],
+              [
+                0.08719214044603527,
+                0.034392994739459025,
+                0.01375
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.07334482888439006,
+            0.05459284090549128,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "volume_m3": 0.000107715
+        },
+        "input_sha256": "b05cd17e49cc5464848bb9a07340a7d9dc8f3f56e10f5a6bb68c5f7d41db0929",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              },
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternA hinge",
+          "pattern": {
+            "count": 3,
+            "name": "ColdRaisedPatternA feature pattern",
+            "pitch_m": 0.018,
+            "reverse": false,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.027,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.028999999999999998,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.03,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.031,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.032,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.5759586531581288,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternA direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Default",
+            "epoch": 1795251123,
+            "name": "ColdRaisedPatternA",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternA.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0.147,
+                  0.11,
+                  0.0065
+                ]
+              ],
+              "feature": "Model plate",
+              "sketch": "Model plate rectangle"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.047,
+                  0.042,
+                  0.0
+                ],
+                [
+                  0.057,
+                  0.054,
+                  0.01375
+                ]
+              ],
+              "feature": "Model raised seed",
+              "sketch": "Model seed rectangle"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10473,
+          "sha256": "da626618d90dc521357742ab52554a18474ccbad778cb54b173efc0622fb8ddf",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            3.0,
+            0.018,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            3,
+            0.018,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.062096070223017635,
+              0.032196497369729515,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "771dfb067226d588bd1db4aa3c77dc8dfda74b18eb5d157b4e5b52773059501d"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "7d34679f4851719275d4ba5598b4c21dd028c8fd07cd30311b78fca90c6fa7ed"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "pitch_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "centroid_m": [
+            0.07346675787379751,
+            0.05451365929393918,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "instance_boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.06712809363069018,
+                0.02892866315963935,
+                0.0
+              ],
+              [
+                0.07712809363069018,
+                0.04092866315963935,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.08725618726138035,
+                0.015857326319278702,
+                0.0
+              ],
+              [
+                0.09725618726138036,
+                0.0278573263192787,
+                0.01375
+              ]
+            ]
+          ],
+          "volume_m3": 0.00010771500000000001
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036638,
+          "body_count": 1,
+          "bounds_m": [
+            0,
+            0,
+            0,
+            0.147,
+            0.11,
+            0.01375
+          ],
+          "boxes_m": [
+            [
+              [
+                0.047,
+                0.042,
+                0.0
+              ],
+              [
+                0.057,
+                0.054,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.06712809363069018,
+                0.02892866315963935,
+                0.0
+              ],
+              [
+                0.07712809363069018,
+                0.04092866315963935,
+                0.01375
+              ]
+            ],
+            [
+              [
+                0.08725618726138035,
+                0.015857326319278702,
+                0.0
+              ],
+              [
+                0.09725618726138036,
+                0.0278573263192787,
+                0.01375
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.07346675787379753,
+            0.05451365929393918,
+            0.0034165854337835956
+          ],
+          "face_count": 21,
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "volume_m3": 0.000107715
+        },
+        "input_sha256": "2339930d1db028dc8614bf2ba26d76afbd73d70592fede221de2a5e41bd36dce",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              },
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternA hinge",
+          "pattern": {
+            "count": 3,
+            "name": "ColdRaisedPatternA feature pattern",
+            "pitch_m": 0.024,
+            "reverse": false,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.027,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.028999999999999998,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.03,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.031,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0285,
+                  0.032,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.5759586531581288,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternA direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Default",
+            "epoch": 1795251123,
+            "name": "ColdRaisedPatternA",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternA.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0,
+                  0,
+                  0
+                ],
+                [
+                  0.147,
+                  0.11,
+                  0.0065
+                ]
+              ],
+              "feature": "Model plate",
+              "sketch": "Model plate rectangle"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.047,
+                  0.042,
+                  0.0
+                ],
+                [
+                  0.057,
+                  0.054,
+                  0.01375
+                ]
+              ],
+              "feature": "Model raised seed",
+              "sketch": "Model seed rectangle"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10463,
+          "sha256": "7193fcd52f168498faddc301f86c64ad49b97dea20a47cdfea20376fa094f915",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternA direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.014437499999999999
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0006874999999999997
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            3.0,
+            0.024,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            3,
+            0.024,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.047,
+              0.042,
+              0.0
+            ],
+            [
+              0.06712809363069018,
+              0.02892866315963935,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.004118832702301142,
+              0.006342446170087269,
+              0.006874999999999999
+            ],
+            "fe0": [
+              0.838670567945424,
+              -0.5446390350150271,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            0.838670567945424,
+            -0.5446390350150271,
+            0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "431dc5e0d58b349671999e006f9b87b13b4bd133ee58ecdad29884fbc4917405"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "e0fbcf79e93e9fb0560761e3296a0f507b8abe5cc38eba4275ee10b83beb7e25"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "02beb00b9570b487180263d492dd5c8e341e5f9d43c28b10c2ba3d2617634396"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1465,
+            "sha256": "2336622f99758ccb6893cd5520eb12ad6450c4f52689968e8b93811bd982dd33"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28290,
+            "sha256": "0ad7dbee59da5db35e3e6ac4146bea99a02eb829bd97562b0b66d092bb883d70"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1465,
+            "sha256": "72c88f734345ec1805ee5324789b53879ba806d3402f83bbc782afdbc13ddb09"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "64aeb145412ae5e0f3b4cc798e48ec08ff8abae0e9a026903044b28f7ee28d80"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1939,
+            "sha256": "a51a3f7b305c42d4779877b255a90155ffe1ef150a94deaa48469467424c6f9b"
+          }
+        },
+        "typed_replay_count": 9
+      }
+    },
+    "ColdRaisedPatternB": {
+      "count_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036941999999999996,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.061312551492543325,
+            0.062241713024796905,
+            0.0035124868117471096
+          ],
+          "face_count": 31,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.026955575004143462,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414346,
+                0.09280422237288916,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.016607433338857946,
+                0.09473896316385223,
+                0.0
+              ],
+              [
+                0.03160743333885794,
+                0.10873896316385223,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.6251e-05
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036942,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.02695557500414346,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414345,
+                0.09280422237288917,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.016607433338857946,
+                0.09473896316385223,
+                0.0
+              ],
+              [
+                0.03160743333885794,
+                0.10873896316385223,
+                0.01625
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.061312551492543325,
+            0.062241713024796905,
+            0.0035124868117471096
+          ],
+          "face_count": 31,
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            0.0
+          ],
+          "volume_m3": 8.6251e-05
+        },
+        "input_sha256": "341234daeb944d51d55c32065478ff33708fefeb84d14fdb4951684f7823b682",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              },
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternB hinge",
+          "pattern": {
+            "count": 5,
+            "name": "ColdRaisedPatternB feature pattern",
+            "pitch_m": 0.019,
+            "reverse": true,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0225,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0245,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0255,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0265,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0275,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.9948376736367679,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternB direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Modelled",
+            "epoch": 1795262162,
+            "name": "ColdRaisedPatternB",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternB.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.128,
+                  0.122,
+                  0.00475
+                ]
+              ],
+              "feature": "Base extrusion",
+              "sketch": "Base plate footprint"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.058,
+                  0.031,
+                  0.0
+                ],
+                [
+                  0.073,
+                  0.045,
+                  0.01625
+                ]
+              ],
+              "feature": "Raised extrusion",
+              "sketch": "Raised island footprint"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10457,
+          "sha256": "7e29bec55ab3c0ecbd2b324c654c948450f4f87709dc084755033592e33e68eb",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            5.0,
+            0.019,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            5,
+            0.019,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04765185833471449,
+              0.04693474079096306,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "a74481f67be9e543bb4e5cec34e93dff6e7b3bed4ca1757adb1a0dc41b3cde74"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "a151dd1fae2b3ea7039d439fd120030f687716dd815c8326873cae1d33852f32"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "original": {
+        "analytic_geometry": {
+          "area_m2": 0.036274999999999995,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.06238429108342493,
+            0.061103945728100746,
+            0.0033112028245622397
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.026955575004143462,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414346,
+                0.09280422237288916,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.3836e-05
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036275,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04765185833471449,
+                0.04693474079096306,
+                0.0
+              ],
+              [
+                0.06265185833471448,
+                0.06093474079096306,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03730371666942897,
+                0.06286948158192612,
+                0.0
+              ],
+              [
+                0.05230371666942897,
+                0.07686948158192611,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.02695557500414346,
+                0.07880422237288917,
+                0.0
+              ],
+              [
+                0.04195557500414345,
+                0.09280422237288917,
+                0.01625
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.06238429108342494,
+            0.06110394572810076,
+            0.00331120282456224
+          ],
+          "face_count": 26,
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            0.0
+          ],
+          "volume_m3": 8.383599999999999e-05
+        },
+        "input_sha256": "4f976097b0f5fd952a426fcfbfc5fb44564925f619813b7a1f491db153a9b941",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              },
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternB hinge",
+          "pattern": {
+            "count": 4,
+            "name": "ColdRaisedPatternB feature pattern",
+            "pitch_m": 0.019,
+            "reverse": true,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0225,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0245,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0255,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0265,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0275,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.9948376736367679,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternB direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Modelled",
+            "epoch": 1795262162,
+            "name": "ColdRaisedPatternB",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternB.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.128,
+                  0.122,
+                  0.00475
+                ]
+              ],
+              "feature": "Base extrusion",
+              "sketch": "Base plate footprint"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.058,
+                  0.031,
+                  0.0
+                ],
+                [
+                  0.073,
+                  0.045,
+                  0.01625
+                ]
+              ],
+              "feature": "Raised extrusion",
+              "sketch": "Raised island footprint"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10460,
+          "sha256": "be64f638eb8051c6f44c8439a488ea41e7272c43fa6a5b28e27171e873cfa6d5",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.019,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.019,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04765185833471449,
+              0.04693474079096306,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "7f3de2325f688b3a93bdad5b1ec89987d3dcbe149aaa996b2a5adb98edaee64f"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "e3ed195b37d9d3b06423a955b02b6658b33afdbdfd598ccdc3b31482bc14d685"
+          }
+        },
+        "typed_replay_count": 9
+      },
+      "pitch_only": {
+        "analytic_geometry": {
+          "area_m2": 0.036274999999999995,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "centroid_m": [
+            0.06210188902640762,
+            0.06153880676141087,
+            0.0033112028245622397
+          ],
+          "face_count": 26,
+          "instance_boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04601794122966941,
+                0.04945075249479933,
+                0.0
+              ],
+              [
+                0.0610179412296694,
+                0.06345075249479933,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03403588245933881,
+                0.06790150498959865,
+                0.0
+              ],
+              [
+                0.049035882459338806,
+                0.08190150498959865,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.022053823689008212,
+                0.08635225748439798,
+                0.0
+              ],
+              [
+                0.037053823689008204,
+                0.100352257484398,
+                0.01625
+              ]
+            ]
+          ],
+          "volume_m3": 8.3836e-05
+        },
+        "bad_input": {
+          "boolean_count": "ordinary local pattern requires an active positive pitch and two to eight instances",
+          "coincident_footprints": "patterned raised footprints must remain strictly separated",
+          "duplicate_feature_name": "pattern feature, hinge and plane labels must be distinct actual native names",
+          "features_leave_plate": "patterned raised footprints must all be wholly interior to the plate",
+          "invalid_annotation_role": "pattern display style is outside the oblique Back count and unassigned pitch profile"
+        },
+        "bad_readback": {
+          "active_dormant_driver_alias": "pattern requires separate actual count and pitch and an inactive second direction",
+          "alternate_owner_geometry": "pattern lost its actual D3 witnesses or independent registered driver order",
+          "borrowed_warm_appearance_state": "complete cold pattern contains alternate pattern modes, visual application or extra selection",
+          "borrowed_warm_scope_state": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "crossed_line_plane": "angle support does not join the actual registered target and both creation logs",
+          "dropped_count_annotation": "pattern dimensions changed an actual label, annotation role or selected leader",
+          "flipped_stored_direction": "pattern direction differs from the actual registered angled plane and its finite display rectangle",
+          "wrong_previous_result": "cold pattern must consume the sole current seed result and retain original producer lineage",
+          "wrong_retired_result": "cold pattern must consume the sole current seed result and retain original producer lineage"
+        },
+        "guarded_runtime_reads": 0,
+        "independent_cell_measure": {
+          "area_m2": 0.036275,
+          "body_count": 1,
+          "bounds_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.128,
+            0.122,
+            0.01625
+          ],
+          "boxes_m": [
+            [
+              [
+                0.058,
+                0.031,
+                0.0
+              ],
+              [
+                0.073,
+                0.045,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.04601794122966941,
+                0.04945075249479933,
+                0.0
+              ],
+              [
+                0.0610179412296694,
+                0.06345075249479933,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.03403588245933881,
+                0.06790150498959865,
+                0.0
+              ],
+              [
+                0.049035882459338806,
+                0.08190150498959865,
+                0.01625
+              ]
+            ],
+            [
+              [
+                0.022053823689008212,
+                0.08635225748439798,
+                0.0
+              ],
+              [
+                0.037053823689008204,
+                0.10035225748439798,
+                0.01625
+              ]
+            ]
+          ],
+          "centroid_m": [
+            0.06210188902640763,
+            0.06153880676141087,
+            0.00331120282456224
+          ],
+          "face_count": 26,
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            0.0
+          ],
+          "volume_m3": 8.383599999999999e-05
+        },
+        "input_sha256": "657fc059d9efd30327b70f6d385f82d789d92dead216f6f9c17dd47e476d09de",
+        "map_counters": [
+          94,
+          316
+        ],
+        "modeled_input": {
+          "annotation": {
+            "active": null,
+            "shown": [
+              null
+            ],
+            "views": [
+              {
+                "basis": [
+                  [
+                    1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    1.0
+                  ]
+                ],
+                "name": "*Front"
+              },
+              {
+                "basis": [
+                  [
+                    -1.0,
+                    0.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    1.0,
+                    0.0
+                  ],
+                  [
+                    0.0,
+                    0.0,
+                    -1.0
+                  ]
+                ],
+                "name": "*Back"
+              }
+            ]
+          },
+          "axis": "ColdRaisedPatternB hinge",
+          "pattern": {
+            "count": 4,
+            "name": "ColdRaisedPatternB feature pattern",
+            "pitch_m": 0.022,
+            "reverse": true,
+            "styles": [
+              {
+                "annotation_view": "*Back",
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0225,
+                  0.0
+                ],
+                "name": "D1",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "D3",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0245,
+                  0.0
+                ],
+                "name": "D2",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0255,
+                  0.0
+                ],
+                "name": "D4",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0265,
+                  0.0
+                ],
+                "name": "D5",
+                "selected_leader": 0
+              },
+              {
+                "annotation_view": null,
+                "design_intent": true,
+                "label_m": [
+                  0.0365,
+                  0.0275,
+                  0.0
+                ],
+                "name": "D6",
+                "selected_leader": 0
+              }
+            ]
+          },
+          "plane": {
+            "angle_rad": 0.9948376736367679,
+            "annotation_view": "*Back",
+            "design_intent": true,
+            "name": "ColdRaisedPatternB direction",
+            "reverse": false,
+            "selected_leader": 0,
+            "shifted_point_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "seed": {
+            "configuration": "Modelled",
+            "epoch": 1795262162,
+            "name": "ColdRaisedPatternB",
+            "path": "C:\\KitGeneratedLocalPattern\\ColdRaisedPatternB.SLDPRT",
+            "plate": {
+              "bounds_m": [
+                [
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                [
+                  0.128,
+                  0.122,
+                  0.00475
+                ]
+              ],
+              "feature": "Base extrusion",
+              "sketch": "Base plate footprint"
+            },
+            "seed": {
+              "bounds_m": [
+                [
+                  0.058,
+                  0.031,
+                  0.0
+                ],
+                [
+                  0.073,
+                  0.045,
+                  0.01625
+                ]
+              ],
+              "feature": "Raised extrusion",
+              "sketch": "Raised island footprint"
+            }
+          }
+        },
+        "native_container": {
+          "bytes": 10458,
+          "sha256": "80a37e96df805b463ae68ba4909f002d1b65b6cc4195fab2b662ce2bd23aec8b",
+          "version": 4
+        },
+        "observed": {
+          "angle_owner": {
+            "constraint_slots": [
+              "moRefPlaneAngleGeom_c",
+              "moRefPlaneCoincidentGeom_c",
+              "moRefPlaneCoincidentGeom_c"
+            ],
+            "id": 26,
+            "mode": 22,
+            "name": "ColdRaisedPatternB direction",
+            "selected_endpoints_m": [
+              [
+                0.0,
+                0.0,
+                0.0170625
+              ],
+              [
+                0.0,
+                0.0,
+                -0.0008125000000000007
+              ]
+            ],
+            "signed_selector": -3
+          },
+          "atom_ids": [
+            101,
+            102,
+            103
+          ],
+          "axis_id": 24,
+          "depth_driver_ids": [
+            20,
+            23
+          ],
+          "display_cache_values": [
+            4.0,
+            0.022,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "driver_ids": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "driver_order": [
+            "D1",
+            "D3",
+            "D2",
+            "D4",
+            "D5",
+            "D6"
+          ],
+          "driver_values": [
+            4,
+            0.022,
+            1,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "next_display_id": 12,
+          "parent_root_ids": [
+            26,
+            22
+          ],
+          "pattern_id": 33,
+          "pitch_witnesses_m": [
+            [
+              0.058,
+              0.031,
+              0.0
+            ],
+            [
+              0.04601794122966941,
+              0.04945075249479933,
+              0.0
+            ]
+          ],
+          "plane_id": 26,
+          "root_count": 24,
+          "selected_line": {
+            "f68": 1,
+            "fb0": 0.0,
+            "fb8": 1.0,
+            "fc8": [
+              0.0074956182010122285,
+              0.004867711375446804,
+              0.008125
+            ],
+            "fe0": [
+              0.5446390350150271,
+              -0.838670567945424,
+              0.0
+            ]
+          },
+          "signed_direction": [
+            -0.5446390350150271,
+            0.838670567945424,
+            -0.0
+          ],
+          "stored_face_cache": null
+        },
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1131,
+            "sha256": "d6027a6f4740aedd8f1b0a5662f61dd46f2721b98ebf1060ced220fe40d77e82"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 141,
+            "sha256": "2b96448bda77cbe279cbdf944a59daf065a03cde0779d77b4313e92a033cba70"
+          },
+          "Contents/Config-0": {
+            "bytes": 23018,
+            "sha256": "9cb4d127b14bc63d422f48fb34942f842a0c4ecb53c4c053093d7f069be62876"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1471,
+            "sha256": "cc3de77ce59f1a912ffe290b73b7027b815cc14b1092cecdcab746ddc3b4a8b7"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 28298,
+            "sha256": "a5673546e98bd172be562b3ec845da4e73cb1240b5f46de47928fe55d835de49"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1471,
+            "sha256": "278ee8e8d8cad5df89aed85347ae2052ac034e89bcbe261f67b9dfb1313627b4"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "684db7fc5c91b7e3df56c35324a014c86b415e45e0bedbec3ea730f0b54ee8ef"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1961,
+            "sha256": "5b45f7ec10f08c439977cc6c66ccdeb672eca8a2d491e7230589a600a585cb18"
+          }
+        },
+        "typed_replay_count": 9
+      }
+    }
+  },
+  "native_lifecycles": 0,
+  "schema": "kit.sw2026.local-linear-pattern-model-only-candidate.v1",
+  "static_owners": {
+    "exact_boundaries": {
+      "line_and_six_driver_factory": {
+        "range": [
+          "0x4bfe62b0",
+          "0x4bfe6578"
+        ],
+        "sha256": "9259a5c8c6f884307b809f23d50927f3e6875efcdbd714a750fbd13f13f82c94"
+      },
+      "ordinary_distance_display_ctor": {
+        "range": [
+          "0x4c8a4840",
+          "0x4c8a4903"
+        ],
+        "sha256": "0b62ceeb9427a41911a579a302411f03b16489473022c54e4c516856f306314c"
+      },
+      "ordinary_number_display_ctor": {
+        "range": [
+          "0x4c86f550",
+          "0x4c86fd02"
+        ],
+        "sha256": "fcb0bf4d329370dc77bfcf4bf61deb35930516c9185f03be84cea0ee59e64f62"
+      },
+      "pattern_base_owner_ctor": {
+        "range": [
+          "0x4c0423d0",
+          "0x4c042801"
+        ],
+        "sha256": "8456291a5a731ec7985c63414aa60033233a4d50b4210cd858b9c7501850eb4d"
+      },
+      "pattern_original_dim_ctor": {
+        "range": [
+          "0x4c041560",
+          "0x4c041780"
+        ],
+        "sha256": "8fd8e38b37498d097f98bf76b121c0178acc624305abd08975d141321fd46421"
+      },
+      "pattern_owner_ctor": {
+        "range": [
+          "0x4bfbb9d0",
+          "0x4bfbbbfb"
+        ],
+        "sha256": "f4dc9d130a734302806066de1d75c99d9c50b069584b35b3bec3904421ee1e30"
+      },
+      "pattern_shape_ctor": {
+        "range": [
+          "0x4c042df0",
+          "0x4c042e9d"
+        ],
+        "sha256": "e4c697307cb9259aed120f17ab9493c3f8e5fe0d77d0d47b22e13f0025a26d2f"
+      },
+      "pattern_visual_application": {
+        "range": [
+          "0x4c0481d0",
+          "0x4c048b05"
+        ],
+        "sha256": "55ab9358dea60022f6dad4345ff2904bc03a28144a0fd2dc974f766a96476670"
+      },
+      "single_stock_scope_transition": {
+        "range": [
+          "0x4c044ec0",
+          "0x4c046d76"
+        ],
+        "sha256": "ae6f00b232a5bdbca095332cd4a3a9480f48d5ba3cdccc41de6be31c9fca423c"
+      }
+    },
+    "module": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "tools": {
+    "re/tooling/sw2026/linear_pattern/EmitLocalPattern.py": "469ca511608006b6202a2fd5b97d6df985eb09bdd48c22936fc9e7295c2ce824",
+    "re/tooling/sw2026/linear_pattern/LocalPatternContainerProcess.py": "f658333cedc4e8f49a4ba620c2a640fc1ae3ce9216facfe471f0501e1051cc5b",
+    "re/tooling/sw2026/linear_pattern/MakeLocalPattern.py": "96a574c6569906c4d99e1567092af7514165719c54b8fd2d3cd8e90c7873fb24",
+    "re/tooling/sw2026/linear_pattern/MakeLocalPatternDrivers.py": "c9b47c4c2212f6cfe0576fd89a33180f39e2b00844aa320f5ea7b777f6d33780",
+    "re/tooling/sw2026/linear_pattern/MakePatternAngularPlane.py": "b89f9a4bdace8d640046eb6db36e2c7e30caa416ab00b978e6f11e04090f275a",
+    "re/tooling/sw2026/linear_pattern/MakePatternSeed.py": "0e3ca04a65f85c3dae79c75bbf202396738b1f005e243e96e0f6fedda38f47f9",
+    "re/tooling/sw2026/linear_pattern/PatternAngleWire.py": "7ac09e40f5678a24aa80460d80c39693338475d2ebc3e740839e31250f0fda43",
+    "re/tooling/sw2026/linear_pattern/PatternBoxGeometry.py": "a97fcb1539d44e5ef06ba3616486bc64275229f2e7ee23ce8e83795f8647e7fe",
+    "re/tooling/sw2026/linear_pattern/ProveLocalPatternContainer.py": "a04dbd5fed44db54416726c2f02f83ba727a250f1dd13669654f2535ddb7f672"
+  },
+  "warm_replay": {
+    "DatumHeightShort.SLDPRT": {
+      "active_annotation_roles": [
+        "*Back",
+        199
+      ],
+      "active_display_ids": [
+        11,
+        10
+      ],
+      "actual_model_distance_style": {
+        "f8ec": 2,
+        "fb68": 1,
+        "fb6c": 1,
+        "fe40": 0,
+        "ff00": 1
+      },
+      "driver_ids": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "independent_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.019857864376269053,
+          0.0
+        ]
+      ],
+      "line_f0c": 0,
+      "linked_replay": {
+        "Config-0": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a",
+        "Config-0-ResolvedFeatures": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+      },
+      "next_model_display_id": 12,
+      "pattern_id": 52,
+      "source_sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b",
+      "stored_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.01985786437626905,
+          0.0
+        ]
+      ],
+      "warm_scope_and_visual_application": [
+        1,
+        1
+      ],
+      "wire_count_pitch": [
+        2,
+        0.02
+      ],
+      "wire_line_owner_id": 45
+    },
+    "DatumHeightTall.SLDPRT": {
+      "active_annotation_roles": [
+        "*Back",
+        199
+      ],
+      "active_display_ids": [
+        11,
+        10
+      ],
+      "actual_model_distance_style": {
+        "f8ec": 2,
+        "fb68": 1,
+        "fb6c": 1,
+        "fe40": 0,
+        "ff00": 1
+      },
+      "driver_ids": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "independent_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.019857864376269053,
+          0.0
+        ]
+      ],
+      "line_f0c": 0,
+      "linked_replay": {
+        "Config-0": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f",
+        "Config-0-ResolvedFeatures": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+      },
+      "next_model_display_id": 12,
+      "pattern_id": 52,
+      "source_sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb",
+      "stored_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.01985786437626905,
+          0.0
+        ]
+      ],
+      "warm_scope_and_visual_application": [
+        1,
+        1
+      ],
+      "wire_count_pitch": [
+        2,
+        0.02
+      ],
+      "wire_line_owner_id": 45
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "active_annotation_roles": [
+        "*Back",
+        199
+      ],
+      "active_display_ids": [
+        11,
+        10
+      ],
+      "actual_model_distance_style": {
+        "f8ec": 2,
+        "fb68": 1,
+        "fb6c": 1,
+        "fe40": 0,
+        "ff00": 1
+      },
+      "driver_ids": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "independent_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.019857864376269053,
+          0.0
+        ]
+      ],
+      "line_f0c": 0,
+      "linked_replay": {
+        "Config-0": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784",
+        "Config-0-ResolvedFeatures": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305"
+      },
+      "next_model_display_id": 12,
+      "pattern_id": 52,
+      "source_sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f",
+      "stored_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.10114213562373095,
+          0.01985786437626905,
+          0.0
+        ]
+      ],
+      "warm_scope_and_visual_application": [
+        1,
+        1
+      ],
+      "wire_count_pitch": [
+        2,
+        0.02
+      ],
+      "wire_line_owner_id": 45
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "active_annotation_roles": [
+        "*Back",
+        199
+      ],
+      "active_display_ids": [
+        11,
+        10
+      ],
+      "actual_model_distance_style": {
+        "f8ec": 2,
+        "fb68": 1,
+        "fb6c": 1,
+        "fe40": 0,
+        "ff00": 1
+      },
+      "driver_ids": [
+        46,
+        47,
+        48,
+        49,
+        50,
+        51
+      ],
+      "independent_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.1124558441227157,
+          0.008544155877284295,
+          0.0
+        ]
+      ],
+      "line_f0c": 0,
+      "linked_replay": {
+        "Config-0": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff",
+        "Config-0-ResolvedFeatures": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9"
+      },
+      "next_model_display_id": 12,
+      "pattern_id": 52,
+      "source_sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168",
+      "stored_witnesses_m": [
+        [
+          0.087,
+          0.034,
+          0.0
+        ],
+        [
+          0.1124558441227157,
+          0.008544155877284292,
+          0.0
+        ]
+      ],
+      "warm_scope_and_visual_application": [
+        1,
+        1
+      ],
+      "wire_count_pitch": [
+        2,
+        0.036
+      ],
+      "wire_line_owner_id": 45
+    }
+  }
+}

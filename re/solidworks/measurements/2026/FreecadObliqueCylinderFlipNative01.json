@@ -1,0 +1,357 @@
+{
+  "build": "34.5.2.0604",
+  "cases": {
+    "F01": {
+      "after": {
+        "passed": true,
+        "sha256": "e102994f12ac4e67202c033595e48e9cd9503fbbebb59f1c7563b1edff535e5a"
+      },
+      "author": {
+        "expected": {
+          "analytic_area_method": "4096-interval composite Simpson rule on an independently parameterized oblique circular extrusion",
+          "angle_input_plans": {
+            "angle_a": {
+              "arguments": [
+                272,
+                0.2831,
+                4,
+                0.0,
+                0,
+                0.0
+              ],
+              "base_normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "directed_hinge": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "normal": [
+                0.9601941193046905,
+                0.0,
+                -0.27933358776325107
+              ],
+              "reverse": true,
+              "rodrigues_normal": [
+                0.9601941193046905,
+                0.0,
+                -0.27933358776325107
+              ],
+              "signed_rotation_rad": -0.2831
+            },
+            "angle_b": {
+              "arguments": [
+                272,
+                0.4367,
+                4,
+                0.0,
+                0,
+                0.0
+              ],
+              "base_normal": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "directed_hinge": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.9061523345351826,
+                -0.42295147075809825
+              ],
+              "reverse": true,
+              "rodrigues_normal": [
+                0.0,
+                0.9061523345351826,
+                -0.42295147075809825
+              ],
+              "signed_rotation_rad": -0.4367
+            }
+          },
+          "angle_plane_normals": {
+            "angle_a": [
+              0.9601941193046905,
+              0.0,
+              -0.27933358776325107
+            ],
+            "angle_b": [
+              0.0,
+              0.9061523345351826,
+              -0.42295147075809825
+            ]
+          },
+          "area_m2": 0.0018870930694928315,
+          "axis_unit_positive_z": [
+            0.25490402664923417,
+            0.40897984322282815,
+            0.8762188225754098
+          ],
+          "body_count": 1,
+          "bounds_m": [
+            [
+              -0.00823,
+              -0.00823,
+              0.0
+            ],
+            [
+              0.01590139327477961,
+              0.020538339181857518,
+              0.02637
+            ]
+          ],
+          "com_m": [
+            0.0038356966373898037,
+            0.00615416959092876,
+            0.013185
+          ],
+          "directed_axis_unit": [
+            -0.25490402664923417,
+            -0.40897984322282815,
+            -0.8762188225754098
+          ],
+          "drivers": {
+            "angle_a_rad": 0.2831,
+            "angle_b_rad": 0.4367,
+            "height_m": 0.02637,
+            "radius_m": 0.00823
+          },
+          "extrusion_displacement_m": [
+            0.007671393274779607,
+            0.01230833918185752,
+            0.02637
+          ],
+          "hinge_units": {
+            "hinge_a": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "hinge_b": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "limit_origin_m": [
+            0.0,
+            0.0,
+            0.02637
+          ],
+          "volume_m3": 5.611250704191777e-06
+        },
+        "first_failure": {
+          "error": "EvidenceFailure('independent oblique volume: 5.611074280887201e-06 differs from 5.611250704191777e-06')",
+          "pending_capability": false,
+          "stage": "GetNextFeature",
+          "type": "EvidenceFailure"
+        },
+        "native_body_count": 1,
+        "observed_mass": {
+          "area": 0.0018870288349126046,
+          "com": [
+            0.0038358215717005984,
+            0.006154252036096712,
+            0.013184967543010767
+          ],
+          "mass": 5.611074280887201e-06,
+          "volume": 5.611074280887201e-06
+        },
+        "passed": false,
+        "sha256": "cf46ae56fd2e07fa61e067c1c2d56910067b093698ee0e38dbc3f7ed80ca1bce",
+        "typed_plane_axis_and_extrusion_observed": true
+      },
+      "before": {
+        "passed": true,
+        "sha256": "ca107f70fd937f48626647ca81478bca9f6c932ad0e1cdcd825481a259568eee"
+      }
+    },
+    "F02": {
+      "after": {
+        "passed": true,
+        "sha256": "75efff3da37508925bcecbcc4ab37bbf45fc46d8e558764e2e67ac4ab14cd394"
+      },
+      "author": {
+        "expected": {
+          "analytic_area_method": "4096-interval composite Simpson rule on an independently parameterized oblique circular extrusion",
+          "angle_input_plans": {
+            "angle_a": {
+              "arguments": [
+                16,
+                0.3191,
+                4,
+                0.0,
+                0,
+                0.0
+              ],
+              "base_normal": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "directed_hinge": [
+                0.0,
+                -1.0,
+                0.0
+              ],
+              "normal": [
+                0.9495181435084572,
+                0.0,
+                0.3137121214557272
+              ],
+              "reverse": false,
+              "rodrigues_normal": [
+                0.9495181435084572,
+                0.0,
+                0.3137121214557272
+              ],
+              "signed_rotation_rad": 0.31909999999999994
+            },
+            "angle_b": {
+              "arguments": [
+                16,
+                0.1973,
+                4,
+                0.0,
+                0,
+                0.0
+              ],
+              "base_normal": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "directed_hinge": [
+                1.0,
+                0.0,
+                0.0
+              ],
+              "normal": [
+                0.0,
+                0.9805994120421477,
+                0.19602243010072629
+              ],
+              "reverse": false,
+              "rodrigues_normal": [
+                0.0,
+                0.9805994120421477,
+                0.19602243010072629
+              ],
+              "signed_rotation_rad": 0.19730000000000003
+            }
+          },
+          "angle_plane_normals": {
+            "angle_a": [
+              0.9495181435084572,
+              0.0,
+              0.3137121214557272
+            ],
+            "angle_b": [
+              0.0,
+              0.9805994120421477,
+              0.19602243010072629
+            ]
+          },
+          "area_m2": 0.0026382941889065287,
+          "axis_unit_positive_z": [
+            -0.3082092339043816,
+            -0.18647978268304036,
+            0.9328624543771501
+          ],
+          "body_count": 1,
+          "bounds_m": [
+            [
+              -0.02047655557370818,
+              -0.016184731380458728,
+              0.0
+            ],
+            [
+              0.00961,
+              0.00961,
+              0.03289
+            ]
+          ],
+          "com_m": [
+            -0.005433277786854089,
+            -0.0032873656902293645,
+            0.016445
+          ],
+          "directed_axis_unit": [
+            0.3082092339043816,
+            0.18647978268304033,
+            -0.93286245437715
+          ],
+          "drivers": {
+            "angle_a_rad": -0.3191,
+            "angle_b_rad": -0.1973,
+            "height_m": 0.03289,
+            "radius_m": 0.00961
+          },
+          "extrusion_displacement_m": [
+            -0.010866555573708178,
+            -0.006574731380458729,
+            0.03289
+          ],
+          "hinge_units": {
+            "hinge_a": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "hinge_b": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          "limit_origin_m": [
+            0.0,
+            0.0,
+            0.03289
+          ],
+          "volume_m3": 9.542463809139074e-06
+        },
+        "first_failure": {
+          "error": "EvidenceFailure('independent oblique volume: 9.541649491561081e-06 differs from 9.542463809139074e-06')",
+          "pending_capability": false,
+          "stage": "GetNextFeature",
+          "type": "EvidenceFailure"
+        },
+        "native_body_count": 1,
+        "observed_mass": {
+          "area": 0.0026381085883833704,
+          "com": [
+            -0.005432748337376648,
+            -0.0032871855429660187,
+            0.01644433716029815
+          ],
+          "mass": 9.541649491561081e-06,
+          "volume": 9.541649491561081e-06
+        },
+        "passed": false,
+        "sha256": "7e34243169851baeb75ee3d48c2cf9995efded05012fd7eac46a1159b8890424",
+        "typed_plane_axis_and_extrusion_observed": true
+      },
+      "before": {
+        "passed": true,
+        "sha256": "aeccc1f3f396c45f055a473bd8f136df79995d3deecebb9fecb56c8652baf309"
+      }
+    }
+  },
+  "distinct_native_processes": 6,
+  "healthy_native_controls": 4,
+  "heldout_reads": 0,
+  "metadata_sha256": "3c37cc9921fd68aab9a731b751d67f0704d711763d6b9bceb420967faa8ea518",
+  "native_source_acceptance": false,
+  "oracle_tools_git_revision": "37b74237dfcb7b77e36301a5e80251123f8d90dd",
+  "protocol_sha256": "0cc67981af46bcee916354bdf90b7204c9a6bf74d89fb8104636e2728c3034d8",
+  "schema": "kit.sw2026.oblique-cylinder-flip-disclosed-native.v1",
+  "tool_recipe_sha256": "632ef609315674ad5cbfbfd7f06afe7cd3d55645a4816c749dc3398be1508596",
+  "writer_output_count": 0
+}

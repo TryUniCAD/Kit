@@ -1,0 +1,173 @@
+{
+  "build_sha256": "23fdf324754776508064f0f175228d4baaad61888015a7cb0c676313f02b1353",
+  "cases": {
+    "Disclosed": {
+      "authored_scene_sha256": "964aae41b71fa6afb8915b7f9ef765800be3879d64bce567948e497ff5400a43",
+      "changed_streams_vs_same_destination_without_lights": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "explicit_empty_text_owners_preserved": false,
+      "feature_name": "Imported1",
+      "generated": {
+        "bytes": 9982,
+        "sha256": "9ea50a12ab4ff60a4217e478a273ba00008ccb82db97b120df969845f48eeff7"
+      },
+      "logical_stream_count": 12,
+      "native_saved_authored_light_values_preserved": 64,
+      "native_saved_sha256": "7198d450d54b0f3c8cd2b49e3168a0a4b88e3c713c675e540b5b442fb139f706",
+      "phases": {
+        "Generated": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "c6c718453a6f858248931650c5dd755fef60764ddcbd54319111d45626449159"
+        },
+        "Reopen": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "fff145e28771c18e16ce1df2aaa054d1dcf372329f087b65c89cf7d7e48bd3d5"
+        },
+        "Source": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "7645a2c1f5de4a84eb1843a61d9c2ed74711099f2d1954970e91bf9b4792c4ff"
+        }
+      },
+      "runtime_file_reads": 0,
+      "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+    },
+    "OtherShape": {
+      "authored_scene_sha256": "964aae41b71fa6afb8915b7f9ef765800be3879d64bce567948e497ff5400a43",
+      "changed_streams_vs_same_destination_without_lights": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "explicit_empty_text_owners_preserved": false,
+      "feature_name": "Imported1",
+      "generated": {
+        "bytes": 9977,
+        "sha256": "b27df6e174bbe2b9765dca4eff41412f82388740d38ea9c188aee9b3278f39ad"
+      },
+      "logical_stream_count": 12,
+      "native_saved_authored_light_values_preserved": 64,
+      "native_saved_sha256": "039a0e30b37f5c9af593558da6d05416d0e5b5230e978918f3ba840886c3001a",
+      "phases": {
+        "Generated": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "d3a7fd459ab935fd1660c1f750e383beb24b292b42378fa9bae10b309547b6a2"
+        },
+        "Reopen": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "ae2de7b9a76bb9512e07e4d224f9f1bf5cbfef204f4e44f6261e5ea4e44d1bbb"
+        },
+        "Source": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "93b9de479df2c3cefc209344f79ed09fe2d551d428b035734e8498993374a991"
+        }
+      },
+      "runtime_file_reads": 0,
+      "source_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d"
+    },
+    "RenamedFeature": {
+      "authored_scene_sha256": "964aae41b71fa6afb8915b7f9ef765800be3879d64bce567948e497ff5400a43",
+      "changed_streams_vs_same_destination_without_lights": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "explicit_empty_text_owners_preserved": false,
+      "feature_name": "Transfer Δ17",
+      "generated": {
+        "bytes": 10054,
+        "sha256": "335d508e50f111e6c912db4f89c3d067c7288dc3ede503519436d8a8de097788"
+      },
+      "logical_stream_count": 12,
+      "native_saved_authored_light_values_preserved": 64,
+      "native_saved_sha256": "7f6f3ed4745e3b3460283f6861c4c50e699d1691e7153f72fe5f8f8fae86c57e",
+      "phases": {
+        "Generated": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "054644aa5ee714345b5439b416587e9f4cae64256ffd1ec0f0f03816f5e037ca"
+        },
+        "Reopen": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "6a21e468e4667dba0855d513c1789fed6f2cbdf9d1d7c60a75bdabf47953e0ed"
+        },
+        "Source": {
+          "numeric_checks": 58,
+          "open": {
+            "error": 0,
+            "returned_document": true,
+            "warning": 0
+          },
+          "record_sha256": "60ed5ea2d063fb8fd7f707bd2f14375f6a6969a95a7b040c9a361299d0bc3ac0"
+        }
+      },
+      "runtime_file_reads": 0,
+      "source_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8"
+    }
+  },
+  "complete_disclosed_geometry_and_light_lifecycles": 3,
+  "controls_healthy": true,
+  "distinct_native_processes": 11,
+  "full_original_source_conversions": 0,
+  "heldout_cases": 0,
+  "job_sha256": "331f43998a17c0487d1f10e2c8c18c5232426ce92ef06f6c4bfa5a52d50b09af",
+  "native_candidate_reopen_geometry_checks": 348,
+  "native_controls": {
+    "ControlAfter": "0813d275f4889d0ded5f0bf2d7c17fd8ea9859be700cd1bffc2f79a0dfeecbf1",
+    "ControlBefore": "7b443235840ac8de8d23497721bd36a56643f5e0b814d16d1aae15d00aa9ca27"
+  },
+  "native_result_sha256": "65aa688a4473873d4f8959e11c2671a45648ccd1f7611ef225a7fd6efefdd544",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_admitted": false,
+  "saved_authored_light_checks": 192,
+  "schema": "kit.sw2026.imported-local-authored-scene-native.v1",
+  "writer_revision": "ae0795a1e0bf1535fd02b12e9caf3cf3135442f0"
+}

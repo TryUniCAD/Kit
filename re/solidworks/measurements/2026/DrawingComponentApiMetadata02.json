@@ -1,0 +1,399 @@
+{
+  "cad_objects_created": 0,
+  "enums": {
+    "swAnnotationType_e": {
+      "swBlock": 12,
+      "swCThread": 1,
+      "swCenterLine": 15,
+      "swCenterMarkSym": 13,
+      "swCustomSymbol": 9,
+      "swDatumOrigin": 16,
+      "swDatumTag": 2,
+      "swDatumTargetSym": 3,
+      "swDisplayDimension": 4,
+      "swDowelSym": 10,
+      "swGTol": 5,
+      "swLeader": 11,
+      "swNote": 6,
+      "swPMIOnly": 19,
+      "swRevisionCloud": 18,
+      "swSFSymbol": 7,
+      "swTableAnnotation": 14,
+      "swWeldBeadSymbol": 17,
+      "swWeldSymbol": 8
+    },
+    "swLeaderStyle_e": {
+      "swAlwaysAttachToBalloon": 4100,
+      "swAttachLeaderBottom": 1024,
+      "swAttachLeaderCenter": 512,
+      "swAttachLeaderNearest": 2048,
+      "swAttachLeaderTop": 256,
+      "swBENT": 2,
+      "swNO_LEADER": 0,
+      "swSPLINE": 4,
+      "swSTRAIGHT": 1,
+      "swUNDERLINED": 3,
+      "swVDA": 8
+    },
+    "swObjectEquality": {
+      "swObjectNotSame": 0,
+      "swObjectSame": 1,
+      "swObjectUnsupported": 2
+    },
+    "swSelectType_e": {
+      "swSelEDGES": 1,
+      "swSelNOTHING": 0
+    },
+    "swUserPreferenceOption_e": {
+      "swDetailingNoOptionSpecified": 0
+    },
+    "swUserPreferenceToggle_e": {
+      "swDetailingModeIncludeStandardViewsInViewPalette": 780,
+      "swDetailingModeSaveModelData": 779
+    },
+    "swViewEntityType_e": {
+      "swViewEntityType_Edge": 1,
+      "swViewEntityType_Face": 3,
+      "swViewEntityType_SilhouetteEdge": 4,
+      "swViewEntityType_Vertex": 2
+    }
+  },
+  "interfaces": {
+    "IComponent2": {
+      "guid": "{655D6F2A-5441-45D1-8CBA-D35FB26988E4}",
+      "members": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "function_ordinal": 38,
+          "invoke_kind": 4,
+          "member_id": 30,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 304,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 39,
+          "invoke_kind": 2,
+          "member_id": 30,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 312,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 44,
+          "invoke_kind": 1,
+          "member_id": 34,
+          "names": [
+            "GetPathName"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 352,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 83,
+          "invoke_kind": 1,
+          "member_id": 71,
+          "names": [
+            "GetParent"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50337792
+              ]
+            ],
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 664,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 116,
+          "invoke_kind": 2,
+          "member_id": 101,
+          "names": [
+            "UseNamedConfiguration"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 928,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 137,
+          "invoke_kind": 1,
+          "member_id": 121,
+          "names": [
+            "IsRoot"
+          ],
+          "return_type": [
+            11,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 1096,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 138,
+          "invoke_kind": 1,
+          "member_id": 122,
+          "names": [
+            "GetModelDoc2"
+          ],
+          "return_type": [
+            9,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 1104,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    },
+    "IModelDoc2": {
+      "guid": "{B90793FB-EF3D-4B80-A5C4-99959CDB6CEB}",
+      "members": [
+        {
+          "arguments": [],
+          "function_ordinal": 92,
+          "invoke_kind": 1,
+          "member_id": 65609,
+          "names": [
+            "GetType"
+          ],
+          "return_type": [
+            3,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 736,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 799,
+          "invoke_kind": 2,
+          "member_id": 66307,
+          "names": [
+            "ConfigurationManager"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50351488
+              ]
+            ],
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 6392,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        }
+      ],
+      "missing": []
+    },
+    "IView": {
+      "guid": "{83A33D50-27C5-11CE-BFD4-00400513BB57}",
+      "members": [
+        {
+          "arguments": [
+            [
+              8,
+              1,
+              null
+            ]
+          ],
+          "function_ordinal": 94,
+          "invoke_kind": 4,
+          "member_id": 87,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            24,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 752,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 95,
+          "invoke_kind": 2,
+          "member_id": 87,
+          "names": [
+            "ReferencedConfiguration"
+          ],
+          "return_type": [
+            8,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 760,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": true
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 278,
+          "invoke_kind": 2,
+          "member_id": 261,
+          "names": [
+            "ReferencedDocument"
+          ],
+          "return_type": [
+            [
+              26,
+              [
+                29,
+                50333824
+              ]
+            ],
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 2224,
+          "wrapper_has_property_get": true,
+          "wrapper_has_property_put": false
+        },
+        {
+          "arguments": [],
+          "function_ordinal": 320,
+          "invoke_kind": 1,
+          "member_id": 300,
+          "names": [
+            "GetVisibleComponents"
+          ],
+          "return_type": [
+            12,
+            0,
+            null
+          ],
+          "vtable_offset_bytes": 2560,
+          "wrapper_has_property_get": false,
+          "wrapper_has_property_put": false,
+          "wrapper_parameters": [
+            {
+              "default": null,
+              "has_default": false,
+              "kind": "POSITIONAL_OR_KEYWORD",
+              "name": "self"
+            }
+          ]
+        }
+      ],
+      "missing": []
+    }
+  },
+  "libraries": {
+    "sldworks": {
+      "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+      "locale": 0,
+      "major": 34,
+      "minor": 0
+    },
+    "swconst": {
+      "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+      "locale": 0,
+      "major": 34,
+      "minor": 0
+    }
+  },
+  "model_documents_opened": 0,
+  "native_processes_started_by_tool": 0,
+  "schema": 1,
+  "tool_sha256": "3382bba2349ad33ff40ac6d8ffa021c1322fe4d54104a3e47eb26bd45142311c",
+  "wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959"
+}

@@ -1,0 +1,114 @@
+{
+  "cad_files_read": 0,
+  "configuration_id_leaf": {
+    "end_exclusive": "0x4b283ba4",
+    "returns": "signed configuration f08",
+    "sha256": "916ae10aa3fd76a4d5b25b2fb66e9df0fd04957c7ab10930268d1ed7808be689",
+    "start": "0x4b283ba0"
+  },
+  "direct_slots": [
+    {
+      "address": "0x4d027620",
+      "get_0x188": "0x4b283ba0",
+      "name": "moBaseConfiguration_c",
+      "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+      "table": "0x4d027498"
+    },
+    {
+      "address": "0x4cecc8a8",
+      "get_0x188": "0x4b283ba0",
+      "name": "moConfiguration_c",
+      "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+      "table": "0x4cecc720"
+    },
+    {
+      "address": "0x4ce12c20",
+      "get_0x188": "0x4b283ba0",
+      "name": "moDeformConfiguration_c",
+      "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+      "table": "0x4ce12a98"
+    },
+    {
+      "address": "0x4ce2d190",
+      "get_0x188": "0x4b283ba0",
+      "name": "moPartConfiguration_c",
+      "sha256": "07507ac110dc8671c782a98915557194ceedc0363c545c3ca4b2373d5bc5a18a",
+      "table": "0x4ce2d008"
+    }
+  ],
+  "flex_rule": "when fbf0 nonzero, FlexCfg- plus signed decimal fbec, hyphen, signed decimal fbe8",
+  "fresh_sdk_processes": 2,
+  "get_storage_name": {
+    "bound": "all contiguous PE chained unwind fragments",
+    "bytes": 244,
+    "end_exclusive": "0x4bdda964",
+    "name": "moBaseConfiguration_c::getStorageName",
+    "sha256": "c95dbd28370dc5c8376d6f785bbe7886ecf3ff3e3857a11113bf3bb09979181e",
+    "start": "0x4bdda870",
+    "unwind_fragments": [
+      {
+        "bound": "PE exception directory and complete chained unwind group",
+        "bytes": 244,
+        "end_exclusive": "0x4bdda964",
+        "sha256": "c95dbd28370dc5c8376d6f785bbe7886ecf3ff3e3857a11113bf3bb09979181e",
+        "start": "0x4bdda870",
+        "unwind_rva": "0x23e3e0c"
+      }
+    ]
+  },
+  "guarded_stdout_sha256": "6d0175802e8a447d6f567873654aad6d9d5772a618f9bd8bb702ce621e9d47b7",
+  "helper_sha256": "768b58ce99724d0a09f2d1b308cb5171d4187abc641f4e33e6f89340a047a9db",
+  "imports": [
+    {
+      "iat": "0x4cd34e90",
+      "module": "mfc140u.dll",
+      "name": "ordinal:1670"
+    },
+    {
+      "iat": "0x4cd33fc0",
+      "module": "api-ms-win-crt-convert-l1-1-0.dll",
+      "name": "_itow"
+    }
+  ],
+  "literals": [
+    {
+      "bytes": 18,
+      "sha256": "8e605eaee04af04f768eba828f83e3d064510f697012f5ae4f43c06355f0445e",
+      "text": "FlexCfg-",
+      "va": "0x4d0295c8"
+    },
+    {
+      "bytes": 4,
+      "sha256": "28276425d45829d4e6f5e18aefbf1f62862f07260a904532fb6e2106dec973e6",
+      "text": "-",
+      "va": "0x4cdc8b34"
+    },
+    {
+      "bytes": 16,
+      "sha256": "12253c83653b719e0dd495f818f250dab33d61429858c6901ad077213f72875f",
+      "text": "Config-",
+      "va": "0x4ce2f2b0"
+    }
+  ],
+  "live_helper_calls": 0,
+  "model_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "modeled_container_replay": {
+    "container_bytes": 1315,
+    "container_sha256": "19a3d4c97fa680751bbba01d8909b93639521ab34295007f2394da68654ec4ec",
+    "passed": true,
+    "paths": [
+      "Contents/Config-42-DownstreamIdData",
+      "Contents/FlexCfg-12-9-DownstreamIdData"
+    ],
+    "runtime_io_attempts": 0,
+    "scope": "modeled native stream names and typed cache bodies in a generated SDK archive envelope",
+    "stream_sizes": [
+      1491,
+      1503
+    ],
+    "vendor_runs": 0
+  },
+  "ordinary_rule": "when fbf0 is zero, Config- plus signed decimal virtual +0x188",
+  "schema": "kit.sw2026.config-storage-name-proof.v1",
+  "source_head": "d8302ce60cf70397b1ebe908aea457ed1db204a6"
+}

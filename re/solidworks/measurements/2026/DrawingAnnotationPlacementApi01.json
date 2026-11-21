@@ -1,0 +1,49 @@
+{
+  "interfaces": {
+    "IAnnotation": {
+      "GetPosition": {
+        "arguments": "()",
+        "interface_guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+        "invocation_kind": 1,
+        "member_id": 8,
+        "return_type": "(12, 0, None)",
+        "vtable_offset": 112
+      },
+      "SetPosition2": {
+        "arguments": "((5, 1, None), (5, 1, None), (5, 1, None))",
+        "interface_guid": "{83A33DA9-27C5-11CE-BFD4-00400513BB57}",
+        "invocation_kind": 1,
+        "member_id": 91,
+        "return_type": "(11, 0, None)",
+        "vtable_offset": 904
+      }
+    },
+    "INote": {
+      "GetTextPoint": {
+        "arguments": "()",
+        "interface_guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+        "invocation_kind": 1,
+        "member_id": 11,
+        "return_type": "(12, 0, None)",
+        "vtable_offset": 144
+      },
+      "GetTextPoint2": {
+        "arguments": "()",
+        "interface_guid": "{83A33D55-27C5-11CE-BFD4-00400513BB57}",
+        "invocation_kind": 1,
+        "member_id": 107,
+        "return_type": "(12, 0, None)",
+        "vtable_offset": 952
+      }
+    }
+  },
+  "native_processes_started": 0,
+  "raw_guest_result_sha256": "5b6457113837dd7acbf4fa2c6edbb7aac8479f05d05a811244883e05db318b74",
+  "registered_metadata_only": true,
+  "schema": "kit.sw2026.registered-annotation-placement-access.v1",
+  "tool_sha256": "eb7b695b1387643b4f03d7afe43e2ed021c52b71782179efe0b15e27d9644cd0",
+  "type_library_version": [
+    34,
+    0
+  ]
+}

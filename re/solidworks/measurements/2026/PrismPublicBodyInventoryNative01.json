@@ -1,0 +1,192 @@
+{
+  "distinct_measured_processes": 8,
+  "healthy_uninstrumented_controls": 4,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "phases": {
+    "PublicBodyInventory01/ControlAfter": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": false,
+      "observation": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": null,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395667313870385,
+      "raw_sha256": "a19f2355d650397857c74e9bee10a0bbcf422bd46d7acc0c4949be6e39e25b1c",
+      "site": "no_debugger"
+    },
+    "PublicBodyInventory01/ControlBefore": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": false,
+      "observation": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": null,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395666364516983,
+      "raw_sha256": "cb7af282284354ec0e5f7276dc68ae23800a601ca0a115cb61ef72ee6ebd6ced",
+      "site": "no_debugger"
+    },
+    "PublicBodyInventory01/GeneratedSolidList": {
+      "body_count_before_rebuild": 0,
+      "debugger_armed_after_open": true,
+      "observation": {
+        "atom_manager_present": true,
+        "part_dirty_word": 0,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 0,
+        "public_solid_array_storage_present": false,
+        "site": "public_solid_owner_return",
+        "source_address": "0x33418f07",
+        "thread": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": true,
+      "part_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "process_creation_filetime": 134395666822013607,
+      "raw_sha256": "d231219f8aa81fb9c0021f6d1d0a10b7eab35a50ad664bd62dc382918194552f",
+      "site": "public_solid_owner_return"
+    },
+    "PublicBodyInventory01/NativeAtomManager": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": true,
+      "observation": {
+        "atom_manager_present": true,
+        "body_type_filter": 3,
+        "feature_filter_present": false,
+        "id_filter": 0,
+        "option_6": 1,
+        "option_8": 0,
+        "part_dirty_word": 0,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 0,
+        "public_solid_array_storage_present": false,
+        "site": "atom_inventory_call",
+        "source_address": "0x4c1aba65",
+        "thread": 0,
+        "visibility_filter": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": true,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395667063643778,
+      "raw_sha256": "48bea724242dfd078494329e32d0a288fc8c1275be95725aa5d2c21930b83838",
+      "site": "atom_inventory_call"
+    },
+    "PublicBodyInventory01/NativeSolidList": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": true,
+      "observation": {
+        "atom_manager_present": true,
+        "part_dirty_word": 0,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 1,
+        "public_solid_array_storage_present": true,
+        "site": "public_solid_owner_return",
+        "source_address": "0x33418f07",
+        "thread": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": true,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395666585676275,
+      "raw_sha256": "96db1c8c354c1d814df695264ba67bafcc31f687242901af46ea64f527b1a27b",
+      "site": "public_solid_owner_return"
+    },
+    "PublicBodyInventory02/ControlAfter": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": false,
+      "observation": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": null,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395668909663052,
+      "raw_sha256": "e5091a40d6f2790e104e54cf9030c0d410e071f2e705b0240e7c0ed7ef91a2e8",
+      "site": "no_debugger"
+    },
+    "PublicBodyInventory02/ControlBefore": {
+      "body_count_before_rebuild": 1,
+      "debugger_armed_after_open": false,
+      "observation": null,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": null,
+      "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+      "process_creation_filetime": 134395668449967808,
+      "raw_sha256": "aad2a0cd6ef9d55a917e079fb8ded7f7c5155965b995e5479fa53c230972a1b3",
+      "site": "no_debugger"
+    },
+    "PublicBodyInventory02/GeneratedAtomManager": {
+      "body_count_before_rebuild": 0,
+      "debugger_armed_after_open": true,
+      "observation": {
+        "atom_manager_present": true,
+        "body_type_filter": 3,
+        "feature_filter_present": false,
+        "id_filter": 0,
+        "option_6": 1,
+        "option_8": 0,
+        "part_dirty_word": 0,
+        "part_ordered_body_cache_enabled": false,
+        "part_special_body_context_present": false,
+        "public_solid_array_count": 0,
+        "public_solid_array_storage_present": false,
+        "site": "atom_inventory_call",
+        "source_address": "0x4c1aba65",
+        "thread": 0,
+        "visibility_filter": 0
+      },
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "owned_debugger_detach_confirmed": true,
+      "part_sha256": "b1cb16c72923b2f8b898dcdf7167ba5c9f67348aa9aeb7efcd51ef1986c2d97a",
+      "process_creation_filetime": 134395668672085941,
+      "raw_sha256": "18838e789020d3dd9c3d52a161a4a7c0a5608aba59e441009025c3d79620c358",
+      "site": "atom_inventory_call"
+    }
+  },
+  "schema": "kit.sw2026.prism-post-open-solid-inventory-native.v1",
+  "tool": {
+    "path": "re/tooling/sw2026/ProbePrismOpenBoundary.py",
+    "sha256": "538422482978d577a8c33db313738ed9e3a3ead91b5c0ad91377d12722c0e849"
+  },
+  "unmeasured_transport_attempt": {
+    "guest_receipt_present": false,
+    "stderr_sha256": "50201bdc18a90ce0d1625f353b857ebf76d8110a827e45c0314f8722d6fcdfb7",
+    "transport_exit": 255,
+    "worker_label": "PublicBodyInventory01/GeneratedAtomManager"
+  }
+}

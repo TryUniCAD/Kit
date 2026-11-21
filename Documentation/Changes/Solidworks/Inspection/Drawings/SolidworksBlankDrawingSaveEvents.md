@@ -1,0 +1,3 @@
+# SOLIDWORKS blank drawing save events
+
+The oracle probe binds the pinned drawing event interface and records event ordinals and relative times during a matched-path SaveAs. In seven fresh native processes, all three controls saved, reopened and emitted `[7,9,28]`. The generated blank emitted `[7]`, returned `[false,1,0]` and left an empty target. The failing save reaches native storage dispatch, with the later storage callbacks still absent. Offline re-evaluation corrected a tuple and list comparison in the observed result grading. [Usage and measured save boundaries](../../../../../re/solidworks/records/DrawingSaveEvents2026.md) · [Measurement receipt](../../../../../re/solidworks/measurements/2026/DrawingBlankSaveEventsNative01.json)

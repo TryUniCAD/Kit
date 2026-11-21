@@ -1,0 +1,303 @@
+{
+  "schema": "kit.sw2026.part-property-source.v1",
+  "packet_sha256": "57755e3c2933c8bbca63a8de669533e8964b00166ba82748e760fcad16e15207",
+  "native_result_sha256": "1dae1948432256172450ef6c71a18a65bafedd7b94cb3ec045cb0d609eb23aff",
+  "host_sha256": "28e470d75f26abf4f48eb67fee3f71befb40cc8acc40a930bd4c4beb9752b289",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "native_version": "34.5.2.0604",
+  "distinct_processes": 6,
+  "controls_healthy": true,
+  "source_observed": true,
+  "heldout_inputs_read": 0,
+  "writer_outputs": 0,
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "record_sha256": "64a130e10468060a6a0e79349cbfd73a43b66cd053c3d5fd76cbbc5e400c529d",
+      "numeric_checks": 0,
+      "process_creation_filetime": 134394564223554246
+    },
+    {
+      "phase": "RectanglePropertiesAuthor",
+      "record_sha256": "3fd27558d4604cbcf23342962dabe4468c807e8dce0c15b59e24f4cf4ee6d9cd",
+      "numeric_checks": 6,
+      "process_creation_filetime": 134394564504364608
+    },
+    {
+      "phase": "RectanglePropertiesReopen",
+      "record_sha256": "2a1b0a5a2f7253e3527c51fc9594edd87737863ea704a847abb2617a8cd13fb5",
+      "numeric_checks": 12,
+      "process_creation_filetime": 134394564804915443
+    },
+    {
+      "phase": "CircularPropertiesAuthor",
+      "record_sha256": "2d3e7c0fdb5e32d482e5fde77b7b8359bbed07dda8e937856fb3979c49e3ee7c",
+      "numeric_checks": 6,
+      "process_creation_filetime": 134394565076306217
+    },
+    {
+      "phase": "CircularPropertiesReopen",
+      "record_sha256": "bf751c23977aadb70b42c63d8690e88106a86b8015be1dc4f9f0bdb7f59044c8",
+      "numeric_checks": 12,
+      "process_creation_filetime": 134394565408186455
+    },
+    {
+      "phase": "ControlAfter",
+      "record_sha256": "75b5d3e917c3e546106cb4c63077bf94dafebe2ea9893bf06bb73e8c4f7ee8fd",
+      "numeric_checks": 0,
+      "process_creation_filetime": 134394565690635321
+    }
+  ],
+  "cases": {
+    "RectangleProperties": {
+      "save_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+      "xml": {
+        "summary_fields": [
+          "title",
+          "subject",
+          "creator",
+          "lastModifiedBy",
+          "keywords",
+          "description",
+          "created",
+          "modified"
+        ],
+        "document": {
+          "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/custom-properties",
+          "entries": [
+            {
+              "name": "KitMaterialNote",
+              "pid": 3,
+              "type_id": 30,
+              "evaluated_values": 1
+            },
+            {
+              "name": "KitDrawingRef",
+              "pid": 4,
+              "type_id": 30,
+              "evaluated_values": 1
+            }
+          ],
+          "reserved": [
+            [
+              1,
+              "i2",
+              "65001"
+            ]
+          ],
+          "dictionary": [
+            [
+              "",
+              0
+            ],
+            [
+              "KitDrawingRef",
+              4
+            ],
+            [
+              "KitMaterialNote",
+              3
+            ]
+          ],
+          "summary_ids": [
+            1,
+            22,
+            0
+          ]
+        },
+        "configured": {
+          "namespace": "http://www.solidworks.com/config-properties",
+          "entries": [
+            {
+              "name": "KitMaterialNote",
+              "pid": 3,
+              "type_id": 30,
+              "evaluated_values": 1
+            }
+          ],
+          "reserved": [
+            [
+              1,
+              "i2",
+              "65001"
+            ]
+          ],
+          "dictionary": [
+            [
+              "",
+              0
+            ],
+            [
+              "KitMaterialNote",
+              3
+            ]
+          ],
+          "summary_ids": [
+            0
+          ]
+        }
+      },
+      "archive_streams": {
+        "core": {
+          "bytes": 768,
+          "sha256": "0046376248177f566b78b6baec66268f915b4d54c7e204968a8225256f7fa173"
+        },
+        "document": {
+          "bytes": 1391,
+          "sha256": "8adb1422a2cda190485ffc62d9c414d088555e59b0389089dfc76f7c375f6c8c"
+        },
+        "configured": {
+          "bytes": 971,
+          "sha256": "aa64a5e1ffbb2a1c1c196de1677926aad1c2a00c02e191f877ee255f0b4e79c7"
+        },
+        "advanced_manager": {
+          "bytes": 697,
+          "sha256": "d3c0e5375aa456e6c3908c147a2b1aa399fabea13cd504f22183734b1987f5ed"
+        }
+      },
+      "advanced_manager": {
+        "map_base": 1,
+        "terminal_map": 23,
+        "f08": 1,
+        "f0c": 2,
+        "container_count": 1,
+        "f54": 0,
+        "byte_exact": true
+      }
+    },
+    "CircularProperties": {
+      "save_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "xml": {
+        "summary_fields": [
+          "title",
+          "lastModifiedBy",
+          "keywords",
+          "description",
+          "modified"
+        ],
+        "document": {
+          "namespace": "http://schemas.openxmlformats.org/officeDocument/2006/custom-properties",
+          "entries": [
+            {
+              "name": "KitMaterialNote",
+              "pid": 3,
+              "type_id": 0,
+              "evaluated_values": 1
+            },
+            {
+              "name": "KitBatch",
+              "pid": 4,
+              "type_id": 0,
+              "evaluated_values": 1
+            },
+            {
+              "name": "KitRevision",
+              "pid": 5,
+              "type_id": 0,
+              "evaluated_values": 1
+            }
+          ],
+          "reserved": [
+            [
+              1,
+              "i2",
+              "65001"
+            ]
+          ],
+          "dictionary": [
+            [
+              "",
+              0
+            ],
+            [
+              "KitBatch",
+              4
+            ],
+            [
+              "KitMaterialNote",
+              3
+            ],
+            [
+              "KitRevision",
+              5
+            ]
+          ],
+          "summary_ids": [
+            1,
+            22,
+            0
+          ]
+        },
+        "configured": {
+          "namespace": "http://www.solidworks.com/config-properties",
+          "entries": [
+            {
+              "name": "KitSetting",
+              "pid": 3,
+              "type_id": 0,
+              "evaluated_values": 0
+            },
+            {
+              "name": "KitRevision",
+              "pid": 4,
+              "type_id": 0,
+              "evaluated_values": 0
+            }
+          ],
+          "reserved": [
+            [
+              1,
+              "i2",
+              "65001"
+            ]
+          ],
+          "dictionary": [
+            [
+              "",
+              0
+            ],
+            [
+              "KitRevision",
+              4
+            ],
+            [
+              "KitSetting",
+              3
+            ]
+          ],
+          "summary_ids": [
+            0
+          ]
+        }
+      },
+      "archive_streams": {
+        "core": {
+          "bytes": 606,
+          "sha256": "248150ba0460b84801282172bdaaa879abe71ce221771b1ab4cdb40646b903b4"
+        },
+        "document": {
+          "bytes": 1636,
+          "sha256": "3de9be941501450e7d668435dbce17c93456217d8e5dcad48d01591c8eb75cc0"
+        },
+        "configured": {
+          "bytes": 1108,
+          "sha256": "841c27f3bc7ea16c5729b13d594bd63fb3a479f51901600437e5e1512608ce25"
+        },
+        "advanced_manager": {
+          "bytes": 33,
+          "sha256": "becd5b67dff32e75102e20443e9e3a3f3def6896ebf05ae7dc188bcaae57ff58"
+        }
+      },
+      "advanced_manager": {
+        "map_base": 1,
+        "terminal_map": 3,
+        "f08": 0,
+        "f0c": -1,
+        "container_count": 0,
+        "f54": 0,
+        "byte_exact": true
+      }
+    }
+  },
+  "passed": true
+}

@@ -3,7 +3,7 @@ from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConceptFields import (
     KConceptFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.FeatColorFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.FeatColorFields import (
     KFeatColorFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GeometryFields import (
@@ -21,10 +21,10 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RecordFields impo
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RelMgrFields import (
     KRelMgrFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ThreadFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.ThreadFields import (
     KThreadFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ViewFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.ViewFields import (
     KViewFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.FeatureFields import (

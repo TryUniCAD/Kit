@@ -1,0 +1,59 @@
+{
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "passed": true,
+  "processes": 12,
+  "public_note_writer_enabled": false,
+  "rows": [
+    {
+      "blank_writer_refused_before_publication": true,
+      "case": "Disclosed01",
+      "neutral_json_round_trip": true,
+      "normal_cli_partial_passed": true,
+      "normal_cli_strict_rejected": true,
+      "normal_sdk_partial_passed": true,
+      "semantic_drawing_sha256": "f2d8142199aacfd8ed49442ab2efc6378c7296507ac3d897224d62945a87fe10",
+      "source_preserved": true,
+      "source_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "stage": "original"
+    },
+    {
+      "blank_writer_refused_before_publication": true,
+      "case": "Disclosed01",
+      "neutral_json_round_trip": true,
+      "normal_cli_partial_passed": true,
+      "normal_cli_strict_rejected": true,
+      "normal_sdk_partial_passed": true,
+      "semantic_drawing_sha256": "118bad85c16f8e1e26ae72acd2c0377a6da20b6f04bf28931450ab7b7385a672",
+      "source_preserved": true,
+      "source_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "stage": "edited"
+    },
+    {
+      "blank_writer_refused_before_publication": true,
+      "case": "Disclosed02",
+      "neutral_json_round_trip": true,
+      "normal_cli_partial_passed": true,
+      "normal_cli_strict_rejected": true,
+      "normal_sdk_partial_passed": true,
+      "semantic_drawing_sha256": "d08cc8ed52cff8b8995b588f76d05b9a811232fa070082206e6d55cf31499193",
+      "source_preserved": true,
+      "source_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "stage": "original"
+    },
+    {
+      "blank_writer_refused_before_publication": true,
+      "case": "Disclosed02",
+      "neutral_json_round_trip": true,
+      "normal_cli_partial_passed": true,
+      "normal_cli_strict_rejected": true,
+      "normal_sdk_partial_passed": true,
+      "semantic_drawing_sha256": "210f1b67e5bf003bce22e22084a793f193655530da272eace27dd00c5f808237",
+      "source_preserved": true,
+      "source_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "stage": "edited"
+    }
+  ],
+  "schema": "kit.sw2026.plain-note-public-read-process.v1",
+  "source_lock_sha256": "ec77426e3a5e4c9f8e95252121bea1c1c2330e496d6d9db07b6286e9e07b5c5b"
+}

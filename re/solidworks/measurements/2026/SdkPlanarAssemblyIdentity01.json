@@ -1,0 +1,582 @@
+{
+  "additional_heldout_credit": 0,
+  "base_revision": "b18caa86c15d2c65ad95c9a572bbc9d06701da8c",
+  "cases": {
+    "A20": {
+      "changed_parent_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Header2",
+        "swXmlContents/COMPINSTANCETREE",
+        "swXmlContents/KeyWords"
+      ],
+      "child_constructor_plan": "BlindPlan",
+      "child_sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab",
+      "constructed_parent": "a07d61226cd845ac20c56b57a5d54f29deefd051a7f48470344e4de01a8188c5",
+      "constructed_xml_sha256": "7d9d1dea0df7d11d055440d2ec48a351dfc0f91156b88b05a9718f7003c89b7c",
+      "exact_original_wire_custody": {
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "source_child_wire_sha256": "acc72159b3eb76b4d73798aa7655c2685f6eb6a68d339a48242f6bde8d53f6e3",
+        "source_wire_sha256": "528c96f58b066f9c7fe31f45941ac74b3cf8f69082bbfa1a68738c409f55fec2"
+      },
+      "generated": {
+        "configuration": "Default",
+        "configuration_reference": "Assem1",
+        "file_stem": "A20HeldoutPlaneCoincidentDistance",
+        "header_files": [
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": false
+          },
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": false
+          }
+        ],
+        "keyword_model": "Assem1",
+        "native_model": "Assem1",
+        "view": null,
+        "xml_file_name": "A20HeldoutPlaneCoincidentDistance.SLDASM",
+        "xml_model_captions": [
+          "A20HeldoutPlaneCoincidentDistance",
+          "A20HeldoutPlaneCoincidentDistance"
+        ]
+      },
+      "independently_bound_generated_xml": {
+        "ConfigId": 0,
+        "ConfigName": "Default",
+        "ConfigObjectId": 1,
+        "ListObjectId": 8,
+        "MemberValues": [
+          {
+            "FeatureId": 24,
+            "NativeName": "CohortChild-1",
+            "ObjectId": 4,
+            "Visible": true
+          },
+          {
+            "FeatureId": 25,
+            "NativeName": "CohortChild-2",
+            "ObjectId": 7,
+            "Visible": true
+          }
+        ],
+        "ModelNativeName": "Assem1",
+        "ModelObjectId": 2,
+        "StateName": "Display State-1",
+        "StateObjectId": 9
+      },
+      "neutral_request_sha256": "fb8b80d2f6bf9770aaff1cd9172f91b2fb1cbb6b699b310e58b0b42de61fbde3",
+      "previous_parent": "cbc9f7375bd32fb00746a2d0e72dec781312bcc8f504f3c58eed729c4ffba7c3",
+      "refusals": {
+        "blank_model_name": "assembly model name must not be empty",
+        "crossed_display_order": "source display intent must own the actual generated occurrences in order",
+        "foreign_alias": "ValueError('assembly display state refers to a foreign binary model')",
+        "mixed_visibility": "ValueError('assembly display state cannot bind the measured ordered visibility')"
+      },
+      "source": {
+        "configuration": "Default",
+        "configuration_reference": "Assem1",
+        "file_stem": "A20HeldoutPlaneCoincidentDistance",
+        "header_files": [
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": true
+          },
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": true
+          }
+        ],
+        "keyword_model": "Assem1",
+        "native_model": "Assem1",
+        "view": {
+          "ConfigId": 0,
+          "ConfigName": "Default",
+          "ConfigObjectId": 1,
+          "ListObjectId": 8,
+          "MemberValues": [
+            {
+              "FeatureId": 24,
+              "NativeName": "CohortChild-1",
+              "ObjectId": 4,
+              "Visible": true
+            },
+            {
+              "FeatureId": 25,
+              "NativeName": "CohortChild-2",
+              "ObjectId": 7,
+              "Visible": true
+            }
+          ],
+          "ModelNativeName": "Assem1",
+          "ModelObjectId": 2,
+          "StateName": "Display State-1",
+          "StateObjectId": 9
+        },
+        "xml_file_name": "A20HeldoutPlaneCoincidentDistance.sldasm",
+        "xml_model_captions": [
+          "A20HeldoutPlaneCoincidentDistance",
+          "A20HeldoutPlaneCoincidentDistance"
+        ]
+      },
+      "source_locks": {
+        "child_sha256": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "native_record_sha256": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "parent_sha256": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd"
+      },
+      "source_read_delta": [],
+      "source_visual_owners": {
+        "child": {
+          "appearance_class": "moVisualProperties_c",
+          "appearance_owner": "moCompHolder_c row -> visStateVisualPropertiesAttribute_c.f10 -> moVisualProperties_c.f20.f90",
+          "byte_identity": true,
+          "bytes": 1789,
+          "context_count": 0,
+          "feature_count": 6,
+          "holder_class": "moCompHolder_c",
+          "holder_material_id_words": [
+            3,
+            0
+          ],
+          "opaque_bytes": 0,
+          "provisional_schemas": [],
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "state": [
+            {
+              "f384": 0,
+              "f38c": 0,
+              "f394": 0,
+              "id": 1,
+              "name": "<Default>_Display State 1"
+            }
+          ],
+          "terminal_map": 26
+        },
+        "parent": {
+          "byte_identity": true,
+          "bytes": 1247,
+          "components_in_store_order": [
+            {
+              "alias_state_id": 1,
+              "chain_word": 203,
+              "feature_id": 25,
+              "internal_display_alias": "<Default>_Display State 1",
+              "visual_attribute": [
+                1,
+                6,
+                0,
+                1
+              ]
+            },
+            {
+              "alias_state_id": 1,
+              "chain_word": 203,
+              "feature_id": 24,
+              "internal_display_alias": "<Default>_Display State 1",
+              "visual_attribute": [
+                1,
+                6,
+                0,
+                1
+              ]
+            }
+          ],
+          "config_to_state": {
+            "key": 0,
+            "one": 1,
+            "value": 1
+          },
+          "feature_plane_rows": [
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 5,
+              "name": "Right Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 4,
+              "name": "Top Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 3,
+              "name": "Front Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            }
+          ],
+          "file_version": 19000,
+          "map_counter": 38,
+          "object_classes": {
+            "moCStringHandle_c": 4,
+            "moCompFeature_c": 3,
+            "moContextChainComponent_c": 2,
+            "moExtFeatureList_c": 2,
+            "moExtFeature_c": 2,
+            "moExtObject_c": 2,
+            "moReferenceChain_c": 2,
+            "moUnitComponent_c": 3,
+            "visStateDisplayStateAttribute_c": 1,
+            "visStateKeyData_c": 1,
+            "visStateVisualPropertiesAttribute_c": 1,
+            "visStateVisualStateAttribute_c": 2
+          },
+          "provisional_schemas": [],
+          "sha256": "bfb7322cd381aabf6d27a1e192ab92c08d70a05df18a320bd5086819c3dfd926",
+          "shown_header_word": 0,
+          "state": {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 1,
+            "name": "Display State-1"
+          },
+          "state_header_words": [
+            5,
+            0
+          ],
+          "strict_schema_admitted": true,
+          "unread_tail_bytes": 0
+        }
+      },
+      "stable_previous_bytes": true,
+      "unchanged_child_bytes": true,
+      "visual_guard": "assembly visibility requires the ordinary radial child without a visual store",
+      "whole_source_guard": "ValueError('assembly root contains unprojected model content')"
+    },
+    "A21": {
+      "changed_parent_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Header2",
+        "swXmlContents/COMPINSTANCETREE",
+        "swXmlContents/KeyWords"
+      ],
+      "child_constructor_plan": "BlindPlan",
+      "child_sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab",
+      "constructed_parent": "346e020ad69b53159ad53d78b5b818d8fc38ad79e7fa26f7314b22c03925054e",
+      "constructed_xml_sha256": "aa13660a1dd5e8881f2a2ba02494e2a6b62385e4e6e6963c19f9e8c7ae462a93",
+      "exact_original_wire_custody": {
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "source_child_wire_sha256": "91c0f3f52ffa41fcf1b5ac0c9e0a5a6a4decf18cb42ea84767841f23af416d9c",
+        "source_wire_sha256": "b112f564fc7145bf08c04d4bb88d3fbf737ca6e28f4ecbf30b206067eb3e8c56"
+      },
+      "generated": {
+        "configuration": "Default",
+        "configuration_reference": "Assem1",
+        "file_stem": "A21HeldoutPlaneParallelDistance",
+        "header_files": [
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": false
+          },
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": false
+          }
+        ],
+        "keyword_model": "Assem1",
+        "native_model": "Assem1",
+        "view": null,
+        "xml_file_name": "A21HeldoutPlaneParallelDistance.SLDASM",
+        "xml_model_captions": [
+          "A21HeldoutPlaneParallelDistance",
+          "A21HeldoutPlaneParallelDistance"
+        ]
+      },
+      "independently_bound_generated_xml": {
+        "ConfigId": 0,
+        "ConfigName": "Default",
+        "ConfigObjectId": 1,
+        "ListObjectId": 9,
+        "MemberValues": [
+          {
+            "FeatureId": 24,
+            "NativeName": "CohortChild-1",
+            "ObjectId": 4,
+            "Visible": true
+          },
+          {
+            "FeatureId": 25,
+            "NativeName": "CohortChild-2",
+            "ObjectId": 7,
+            "Visible": true
+          },
+          {
+            "FeatureId": 26,
+            "NativeName": "CohortChild-3",
+            "ObjectId": 8,
+            "Visible": true
+          }
+        ],
+        "ModelNativeName": "Assem1",
+        "ModelObjectId": 2,
+        "StateName": "Display State-1",
+        "StateObjectId": 10
+      },
+      "neutral_request_sha256": "05cdad7c703f65b6fe7df9e9f889406aebd015dbd2461501c599b034da8a0996",
+      "previous_parent": "18ae07b9ac8da369f87501020eeea9acf258f8c97e6d3980d26faa484233a155",
+      "refusals": {
+        "blank_model_name": "assembly model name must not be empty",
+        "crossed_display_order": "source display intent must own the actual generated occurrences in order",
+        "foreign_alias": "ValueError('assembly display state refers to a foreign binary model')",
+        "mixed_visibility": "ValueError('assembly display state cannot bind the measured ordered visibility')"
+      },
+      "source": {
+        "configuration": "Default",
+        "configuration_reference": "Assem1",
+        "file_stem": "A21HeldoutPlaneParallelDistance",
+        "header_files": [
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": true
+          },
+          {
+            "configuration": "Default",
+            "model": "Assem1",
+            "path_empty": true
+          }
+        ],
+        "keyword_model": "Assem1",
+        "native_model": "Assem1",
+        "view": {
+          "ConfigId": 0,
+          "ConfigName": "Default",
+          "ConfigObjectId": 1,
+          "ListObjectId": 9,
+          "MemberValues": [
+            {
+              "FeatureId": 24,
+              "NativeName": "CohortChild-1",
+              "ObjectId": 4,
+              "Visible": true
+            },
+            {
+              "FeatureId": 25,
+              "NativeName": "CohortChild-2",
+              "ObjectId": 7,
+              "Visible": true
+            },
+            {
+              "FeatureId": 26,
+              "NativeName": "CohortChild-3",
+              "ObjectId": 8,
+              "Visible": true
+            }
+          ],
+          "ModelNativeName": "Assem1",
+          "ModelObjectId": 2,
+          "StateName": "Display State-1",
+          "StateObjectId": 10
+        },
+        "xml_file_name": "A21HeldoutPlaneParallelDistance.sldasm",
+        "xml_model_captions": [
+          "A21HeldoutPlaneParallelDistance",
+          "A21HeldoutPlaneParallelDistance"
+        ]
+      },
+      "source_locks": {
+        "child_sha256": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "native_record_sha256": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "parent_sha256": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0"
+      },
+      "source_read_delta": [
+        "assembly.attributes.typed_display_states",
+        "metadata.solidworks_source_semantic_sha256"
+      ],
+      "source_visual_owners": {
+        "child": {
+          "appearance_class": "moVisualProperties_c",
+          "appearance_owner": "moCompHolder_c row -> visStateVisualPropertiesAttribute_c.f10 -> moVisualProperties_c.f20.f90",
+          "byte_identity": true,
+          "bytes": 1789,
+          "context_count": 0,
+          "feature_count": 6,
+          "holder_class": "moCompHolder_c",
+          "holder_material_id_words": [
+            3,
+            0
+          ],
+          "opaque_bytes": 0,
+          "provisional_schemas": [],
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "state": [
+            {
+              "f384": 0,
+              "f38c": 0,
+              "f394": 0,
+              "id": 1,
+              "name": "<Default>_Display State 1"
+            }
+          ],
+          "terminal_map": 26
+        },
+        "parent": {
+          "byte_identity": true,
+          "bytes": 1439,
+          "components_in_store_order": [
+            {
+              "alias_state_id": 1,
+              "chain_word": 203,
+              "feature_id": 26,
+              "internal_display_alias": "<Default>_Display State 1",
+              "visual_attribute": [
+                1,
+                6,
+                0,
+                1
+              ]
+            },
+            {
+              "alias_state_id": 1,
+              "chain_word": 203,
+              "feature_id": 25,
+              "internal_display_alias": "<Default>_Display State 1",
+              "visual_attribute": [
+                1,
+                6,
+                0,
+                1
+              ]
+            },
+            {
+              "alias_state_id": 1,
+              "chain_word": 203,
+              "feature_id": 24,
+              "internal_display_alias": "<Default>_Display State 1",
+              "visual_attribute": [
+                1,
+                6,
+                0,
+                1
+              ]
+            }
+          ],
+          "config_to_state": {
+            "key": 0,
+            "one": 1,
+            "value": 1
+          },
+          "feature_plane_rows": [
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 5,
+              "name": "Right Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 4,
+              "name": "Top Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            {
+              "creation_seconds": 1794529626,
+              "feature_id": 3,
+              "name": "Front Plane",
+              "visual_attribute": [
+                0,
+                6,
+                1,
+                0
+              ]
+            }
+          ],
+          "file_version": 19000,
+          "map_counter": 44,
+          "object_classes": {
+            "moCStringHandle_c": 5,
+            "moCompFeature_c": 3,
+            "moContextChainComponent_c": 3,
+            "moExtFeatureList_c": 3,
+            "moExtFeature_c": 3,
+            "moExtObject_c": 3,
+            "moReferenceChain_c": 3,
+            "moUnitComponent_c": 3,
+            "visStateDisplayStateAttribute_c": 1,
+            "visStateKeyData_c": 1,
+            "visStateVisualPropertiesAttribute_c": 1,
+            "visStateVisualStateAttribute_c": 2
+          },
+          "provisional_schemas": [],
+          "sha256": "55327f27a7835573592b9c0d1de96980d8ea8346621339abe87f658b6ed2a2e9",
+          "shown_header_word": 0,
+          "state": {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 1,
+            "name": "Display State-1"
+          },
+          "state_header_words": [
+            5,
+            0
+          ],
+          "strict_schema_admitted": true,
+          "unread_tail_bytes": 0
+        }
+      },
+      "stable_previous_bytes": true,
+      "unchanged_child_bytes": true,
+      "visual_guard": "assembly visibility requires the ordinary radial child without a visual store",
+      "whole_source_guard": "ValueError('assembly root contains unprojected model content')"
+    }
+  },
+  "guarded_writer_refusals": 4,
+  "native_processes": 0,
+  "passed": true,
+  "prior_root_receipt_sha256": "c26b016604972bdcd0e7614d013e6600ace17654b5ba44499d33b1cb9e5f9c19",
+  "published_cad_files": 0,
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.planar-assembly-identity.v1",
+  "source_files": {
+    "re/tooling/sw2026/para/concentric/MakeDisplayTree.py": "951fe3a754fb6e30e293a99c67940f115e81112cca8cbb42eb066150f24d2650",
+    "re/tooling/sw2026/planar_registry/PlanarAssemblyIdentity.py": "9c8779ed950cedf8d49d1f330843802a5e7daf54632f3d5573854c2987f9e68c",
+    "re/tooling/sw2026/planar_registry/PlanarRootProjection.py": "6a1698da7545a5222ebfaafd098fcf307256667e2ec2b41f681d364ac61db5b2",
+    "re/tooling/sw2026/planar_registry/ProvePlanarAssemblyIdentity.py": "f072aac07ce097f322be4cf74c39ab53c38570c5d7852625355504ea69bce55f",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/AssemblyInput.py": "0180dd6abf7e39e947cde2e97c7c2cab8ccaa2ffc6e1bdb3f80ac01710aabb6e",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/CheckAsmMeta.py": "ba45fe149bede48a5d68982219bb012ee42373ac3c37fbc3505120006f6d2d0c",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/MakeAsmBase.py": "b4e29d5a3b9d2999eef8d48d148e578822e51d1d8b9b4bc473ba8ac9e4b65774",
+    "src/convert/adapters/solidworks/Assembly/Display/ReadDisplayXml.py": "396bab244b41c9b485c50068e724061931996243bf84b5951c6734fd13ce0ba4"
+  },
+  "successful_workers": 12,
+  "whole_source_admitted": false
+}

@@ -1,0 +1,2964 @@
+{
+  "application_usable": true,
+  "attestation_scope": "Only this independently authored disclosed SDK three-occurrence bundle and its measured edited saved derivative",
+  "constructor_result_sha256": "e2f664a081f6219678a6311001b0853f2702393ade63bb7f8ce5e52cfb099c2e",
+  "control_identity_preserved": true,
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_processes": 4,
+  "edit_distance_m": [
+    0.13438,
+    0.15011
+  ],
+  "edit_identity_preserved": true,
+  "exact_prediction": true,
+  "fixture_sha256": "ff2d1877c6ec4142d52ed81da410e98fd48ada349422268dd06bec89c29cafce",
+  "frozen_inputs_unchanged": true,
+  "generated_files": {
+    "frozen_child": {
+      "bytes": 8882,
+      "sha256": "1d158e0f67507587a2cb5056f103f34dbc930138b4f43ee5d20359c6329dbfcc"
+    },
+    "frozen_parent": {
+      "bytes": 11540,
+      "sha256": "1522aa21cb3f39db16a6b082088fef0a0063acf6a53df6cb31c479137761eda3"
+    },
+    "saved_child": {
+      "bytes": 27861,
+      "sha256": "0a1af095e9bffdba6aa1dc5eba61670bd309fa4bf7c0ebdd9ce0a6540369b09d"
+    },
+    "saved_parent": {
+      "bytes": 52099,
+      "sha256": "9fb699429dd5d25400bd225451f5f48aaa83793edf171ac924d7d985a9bc39d9"
+    }
+  },
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "host_transport": {
+    "acceptance": false,
+    "acceptance_scope": "research host transport observations only; inspect native batch and controls separately",
+    "automatic_guest_kill": false,
+    "automatic_retry": false,
+    "automatic_vm_reset": false,
+    "guest_state_unknown": true,
+    "raw_sha256": "6cd2ee1ff33ced1b2fb51124b3b5de72524faf851e86efd17cdcb5cd0d8d9174",
+    "status": "transport_exited",
+    "supervisor_exit_code": 0,
+    "transport_exit_confirmed": true,
+    "transport_returncode": 0
+  },
+  "limits": [
+    "No A20/A21 or other sealed input was read; C10 acceptance remains pending",
+    "The host transport is not the native acceptance oracle and reports acceptance false and guest state unknown",
+    "Mass API values remain separate for parent and child; measured ratios near 1000 also occur in both A22 controls",
+    "Canonical specific-plane COM equality is diagnostic; repeated-object controls and full ordered component/datum semantics are gated",
+    "This generated native lifecycle is not source/generated lossless parity for either sealed original"
+  ],
+  "native_feature_trees": {
+    "control_child": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "parent": null,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "parent": null,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "parent": null,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "parent": null,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "parent": null,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "parent": null,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "parent": null,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes1___EndTag___",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "parent": null,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Ambient",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "AmbientLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional1",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional2",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional3",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "parent": null,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "parent": null,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "parent": null,
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "parent": null,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sketch1",
+        "parent": null,
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Boss-Extrude1",
+        "parent": null,
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      }
+    ],
+    "control_parent": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "parent": null,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "parent": null,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "parent": null,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "parent": null,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "parent": null,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Live Section Planes",
+        "parent": null,
+        "suppressed": false,
+        "type": "LiveSectionFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "parent": null,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "parent": null,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes1___EndTag___",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "parent": null,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Ambient",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "AmbientLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional1",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional2",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional3",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "parent": null,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "parent": null,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "parent": null,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "CohortChild-1",
+        "parent": null,
+        "suppressed": false,
+        "type": "Reference",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "CohortChild-2",
+        "parent": null,
+        "suppressed": false,
+        "type": "Reference",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Mates",
+        "parent": null,
+        "suppressed": false,
+        "type": "MateGroup",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Parallel1",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateParallel",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Distance1",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateDistanceDim",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Coincident1",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateCoincident",
+        "warning": false
+      }
+    ],
+    "generated_child": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "parent": null,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "parent": null,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "parent": null,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "parent": null,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "parent": null,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "parent": null,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "parent": null,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes1___EndTag___",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "parent": null,
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Environment",
+        "parent": null,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Ambient",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "AmbientLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional1",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional2",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional3",
+        "parent": "Environment",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "parent": null,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "parent": null,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "parent": null,
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "parent": null,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sketch1",
+        "parent": null,
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Boss-Extrude1",
+        "parent": null,
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      }
+    ],
+    "generated_parent": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "parent": null,
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "parent": null,
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "parent": null,
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "parent": null,
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "parent": null,
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Live Section Planes",
+        "parent": null,
+        "suppressed": false,
+        "type": "LiveSectionFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "parent": null,
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "parent": null,
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Notes1___EndTag___",
+        "parent": "Annotations",
+        "suppressed": false,
+        "type": "NotesAreaFtrFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "parent": null,
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Ambient",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "AmbientLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional1",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional2",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Directional3",
+        "parent": "Lights and Cameras",
+        "suppressed": false,
+        "type": "DirectionLight",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "parent": null,
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "parent": null,
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "parent": null,
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "parent": null,
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "SdkGroupPlateAlpha-1",
+        "parent": null,
+        "suppressed": false,
+        "type": "Reference",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "SdkGroupPlateAlpha-2",
+        "parent": null,
+        "suppressed": false,
+        "type": "Reference",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "SdkGroupPlateAlpha-3",
+        "parent": null,
+        "suppressed": false,
+        "type": "Reference",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Mates",
+        "parent": null,
+        "suppressed": false,
+        "type": "MateGroup",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "FreeParallel",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateParallel",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Distance1",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateDistanceDim",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Coincident2",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateCoincident",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Parallel2",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateParallel",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Coincident3",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateCoincident",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Parallel3",
+        "parent": "Mates",
+        "suppressed": false,
+        "type": "MateParallel",
+        "warning": false
+      }
+    ]
+  },
+  "numeric_checks": 440,
+  "observer_interpreter": "Windows Python 3.12",
+  "packet_sha256": "c572ae2ea2340b30c3096844c6a835c77068701617ace624ea0ee83f51312b57",
+  "passed": true,
+  "phases": {
+    "ControlAfter": {
+      "child_stamp_on_open": 134,
+      "numeric_checks": 80,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394557202007855,
+        "process_id": 9872,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "ea56c013d42527ce0662a3aef11229055421d10b074bb13dca0c59fac6376ef5",
+      "role": "ControlAfter",
+      "states": {
+        "initial": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06,
+            "volume": 8.000000000000001e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.01,
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "89a1cd5957ce187dd2f65ff4d6f327f7b36353111445d6370c0e3860569f15b6",
+          "configurations": [
+            "Default",
+            "Default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.0635
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.0056,
+            "com": [
+              -0.015874999999999997,
+              0.02749630657015593,
+              0.014125000000000002
+            ],
+            "mass": 0.016000000000000004,
+            "volume": 1.6000000000000003e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 6,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident1"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 3,
+          "mate_entity_count": 6,
+          "mate_names": [
+            "Parallel1",
+            "Distance1",
+            "Coincident1"
+          ],
+          "occurrences": [
+            {
+              "configuration": "Default",
+              "fixed": true,
+              "name": "CohortChild-1",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "Default",
+              "fixed": false,
+              "name": "CohortChild-2",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                -0.031749999999999994,
+                0.05499261314031186,
+                0.01825,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 1000.0000000000001,
+          "parent_tree_rows": 27,
+          "parent_tree_sha256": "ed1667eb04d2aca6f504478bf56ff2f3f7d74100fcb2e707871bc80ea1b5413a",
+          "top_level_count": 2,
+          "total_count": 2
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06,
+            "volume": 8.000000000000001e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.01,
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "89a1cd5957ce187dd2f65ff4d6f327f7b36353111445d6370c0e3860569f15b6",
+          "configurations": [
+            "Default",
+            "Default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.0635
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.0056,
+            "com": [
+              -0.015874999999999997,
+              0.02749630657015593,
+              0.014125000000000002
+            ],
+            "mass": 0.016000000000000004,
+            "volume": 1.6000000000000003e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 6,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident1"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 3,
+          "mate_entity_count": 6,
+          "mate_names": [
+            "Parallel1",
+            "Distance1",
+            "Coincident1"
+          ],
+          "occurrences": [
+            {
+              "configuration": "Default",
+              "fixed": true,
+              "name": "CohortChild-1",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "Default",
+              "fixed": false,
+              "name": "CohortChild-2",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                -0.031749999999999994,
+                0.05499261314031186,
+                0.01825,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 1000.0000000000001,
+          "parent_tree_rows": 27,
+          "parent_tree_sha256": "ed1667eb04d2aca6f504478bf56ff2f3f7d74100fcb2e707871bc80ea1b5413a",
+          "top_level_count": 2,
+          "total_count": 2
+        }
+      }
+    },
+    "ControlBefore": {
+      "child_stamp_on_open": 134,
+      "numeric_checks": 80,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394554104474140,
+        "process_id": 8872,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "5562d679f6e4244b3c72f29a584251fca751ce56848c30afe95c0f5f658e0965",
+      "role": "ControlBefore",
+      "states": {
+        "initial": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06,
+            "volume": 8.000000000000001e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.01,
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "89a1cd5957ce187dd2f65ff4d6f327f7b36353111445d6370c0e3860569f15b6",
+          "configurations": [
+            "Default",
+            "Default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.0635
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.0056,
+            "com": [
+              -0.015874999999999997,
+              0.02749630657015593,
+              0.014125000000000002
+            ],
+            "mass": 0.016000000000000004,
+            "volume": 1.6000000000000003e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 6,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident1"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 3,
+          "mate_entity_count": 6,
+          "mate_names": [
+            "Parallel1",
+            "Distance1",
+            "Coincident1"
+          ],
+          "occurrences": [
+            {
+              "configuration": "Default",
+              "fixed": true,
+              "name": "CohortChild-1",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "Default",
+              "fixed": false,
+              "name": "CohortChild-2",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                -0.031749999999999994,
+                0.05499261314031186,
+                0.01825,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 1000.0000000000001,
+          "parent_tree_rows": 27,
+          "parent_tree_sha256": "ed1667eb04d2aca6f504478bf56ff2f3f7d74100fcb2e707871bc80ea1b5413a",
+          "top_level_count": 2,
+          "total_count": 2
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_mass": {
+            "area": 0.0028,
+            "com": [
+              0.0,
+              0.0,
+              0.005
+            ],
+            "mass": 8.000000000000001e-06,
+            "volume": 8.000000000000001e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.01,
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "89a1cd5957ce187dd2f65ff4d6f327f7b36353111445d6370c0e3860569f15b6",
+          "configurations": [
+            "Default",
+            "Default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.0635
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.0056,
+            "com": [
+              -0.015874999999999997,
+              0.02749630657015593,
+              0.014125000000000002
+            ],
+            "mass": 0.016000000000000004,
+            "volume": 1.6000000000000003e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 6,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "CohortChild-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident1"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 3,
+          "mate_entity_count": 6,
+          "mate_names": [
+            "Parallel1",
+            "Distance1",
+            "Coincident1"
+          ],
+          "occurrences": [
+            {
+              "configuration": "Default",
+              "fixed": true,
+              "name": "CohortChild-1",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "Default",
+              "fixed": false,
+              "name": "CohortChild-2",
+              "path_basename": "CohortChild.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.8660254037844387,
+                0.49999999999999994,
+                0.0,
+                -0.49999999999999994,
+                0.8660254037844387,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                -0.031749999999999994,
+                0.05499261314031186,
+                0.01825,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 1000.0000000000001,
+          "parent_tree_rows": 27,
+          "parent_tree_sha256": "ed1667eb04d2aca6f504478bf56ff2f3f7d74100fcb2e707871bc80ea1b5413a",
+          "top_level_count": 2,
+          "total_count": 2
+        }
+      }
+    },
+    "FreshReopen": {
+      "child_stamp_after_rebuild": 158,
+      "child_stamp_on_open": 144,
+      "numeric_checks": 112,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394556333569057,
+        "process_id": 1768,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "adeb4410b7ca761464386fc48368ba31219a5b770d263d724f3b2c619b420413",
+      "role": "FreshReopen",
+      "states": {
+        "initial": {
+          "body_count": 3,
+          "child_mass": {
+            "area": 0.0031320000000000007,
+            "com": [
+              0.0,
+              0.0,
+              0.004125
+            ],
+            "mass": 8.019000000000002e-06,
+            "volume": 8.019000000000002e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.00825,
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018000000000000002
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "90c632282c550f7330bf9dc30d841436c8216021338f7f9eec25548b4cce115a",
+          "configurations": [
+            "Default",
+            "modeled default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.15011
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.009396000000000002,
+            "com": [
+              0.08756245113849541,
+              0.02677052785676285,
+              0.017255000000000003
+            ],
+            "mass": 0.024057000000000005,
+            "volume": 2.4057000000000007e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 12,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "FreeParallel"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident3"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel3"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 6,
+          "mate_entity_count": 12,
+          "mate_names": [
+            "FreeParallel",
+            "Distance1",
+            "Coincident2",
+            "Parallel2",
+            "Coincident3",
+            "Parallel3"
+          ],
+          "occurrences": [
+            {
+              "configuration": "modeled default",
+              "fixed": true,
+              "name": "SdkGroupPlateAlpha-1",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.018294109981572867,
+                0.005593070711345955,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-2",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.08254822653472922,
+                0.02523752555166664,
+                0.01313,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-3",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 2,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.16184501689918412,
+                0.04948098730727596,
+                0.02626,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 999.9999999999999,
+          "parent_tree_rows": 31,
+          "parent_tree_sha256": "932dabfa65df319799f2769b993c2f967941919d5a8055cca255eeb96ab67c24",
+          "top_level_count": 3,
+          "total_count": 3
+        },
+        "rebuilt": {
+          "body_count": 3,
+          "child_mass": {
+            "area": 0.0031320000000000007,
+            "com": [
+              0.0,
+              0.0,
+              0.004125
+            ],
+            "mass": 8.019000000000002e-06,
+            "volume": 8.019000000000002e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.00825,
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018000000000000002
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "90c632282c550f7330bf9dc30d841436c8216021338f7f9eec25548b4cce115a",
+          "configurations": [
+            "Default",
+            "modeled default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.15011
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.009396000000000002,
+            "com": [
+              0.08756245113849538,
+              0.026770527856762844,
+              0.017255
+            ],
+            "mass": 0.024057000000000005,
+            "volume": 2.4057000000000007e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 12,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "FreeParallel"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident3"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel3"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 6,
+          "mate_entity_count": 12,
+          "mate_names": [
+            "FreeParallel",
+            "Distance1",
+            "Coincident2",
+            "Parallel2",
+            "Coincident3",
+            "Parallel3"
+          ],
+          "occurrences": [
+            {
+              "configuration": "modeled default",
+              "fixed": true,
+              "name": "SdkGroupPlateAlpha-1",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.018294109981572867,
+                0.005593070711345955,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-2",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.08254822653472922,
+                0.02523752555166664,
+                0.01313,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-3",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 2,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.16184501689918412,
+                0.04948098730727596,
+                0.02626,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 999.9999999999999,
+          "parent_tree_rows": 31,
+          "parent_tree_sha256": "932dabfa65df319799f2769b993c2f967941919d5a8055cca255eeb96ab67c24",
+          "top_level_count": 3,
+          "total_count": 3
+        }
+      }
+    },
+    "Generated": {
+      "child_stamp_on_open": 116,
+      "edit_status": 0,
+      "numeric_checks": 168,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394554719034616,
+        "process_id": 4740,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "f589a578322bb7cfc2ffa1b7a47aa7635a60e2a69a753088589fd954bb15c0c8",
+      "role": "Generated",
+      "saved": {
+        "child": {
+          "native_bytes": 27861,
+          "native_sha256": "0a1af095e9bffdba6aa1dc5eba61670bd309fa4bf7c0ebdd9ce0a6540369b09d",
+          "original_sha256": "1d158e0f67507587a2cb5056f103f34dbc930138b4f43ee5d20359c6329dbfcc",
+          "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "update_stamp": 144
+        },
+        "parent": "9fb699429dd5d25400bd225451f5f48aaa83793edf171ac924d7d985a9bc39d9",
+        "parent_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "states": {
+        "edited": {
+          "body_count": 3,
+          "child_mass": {
+            "area": 0.0031320000000000007,
+            "com": [
+              0.0,
+              0.0,
+              0.004125
+            ],
+            "mass": 8.019000000000002e-06,
+            "volume": 8.019000000000002e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.00825,
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018000000000000002
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "90c632282c550f7330bf9dc30d841436c8216021338f7f9eec25548b4cce115a",
+          "configurations": [
+            "Default",
+            "modeled default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.15011
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.009396000000000002,
+            "com": [
+              0.08756245113849541,
+              0.02677052785676285,
+              0.017255000000000003
+            ],
+            "mass": 0.024057000000000005,
+            "volume": 2.4057000000000007e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 12,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "FreeParallel"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident3"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel3"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 6,
+          "mate_entity_count": 12,
+          "mate_names": [
+            "FreeParallel",
+            "Distance1",
+            "Coincident2",
+            "Parallel2",
+            "Coincident3",
+            "Parallel3"
+          ],
+          "occurrences": [
+            {
+              "configuration": "modeled default",
+              "fixed": true,
+              "name": "SdkGroupPlateAlpha-1",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.018294109981572867,
+                0.005593070711345955,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-2",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.08254822653472922,
+                0.02523752555166664,
+                0.01313,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-3",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 2,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.16184501689918412,
+                0.04948098730727596,
+                0.02626,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 999.9999999999999,
+          "parent_tree_rows": 31,
+          "parent_tree_sha256": "932dabfa65df319799f2769b993c2f967941919d5a8055cca255eeb96ab67c24",
+          "top_level_count": 3,
+          "total_count": 3
+        },
+        "initial": {
+          "body_count": 3,
+          "child_mass": {
+            "area": 0.0031320000000000007,
+            "com": [
+              0.0,
+              0.0,
+              0.004125
+            ],
+            "mass": 8.019000000000002e-06,
+            "volume": 8.019000000000002e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.00825,
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018000000000000002
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "90c632282c550f7330bf9dc30d841436c8216021338f7f9eec25548b4cce115a",
+          "configurations": [
+            "Default",
+            "modeled default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.13438
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.009396000000000002,
+            "com": [
+              0.08254822653472922,
+              0.02523752555166664,
+              0.017255000000000003
+            ],
+            "mass": 0.024057000000000005,
+            "volume": 2.4057000000000007e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 12,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "FreeParallel"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident3"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel3"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 6,
+          "mate_entity_count": 12,
+          "mate_names": [
+            "FreeParallel",
+            "Distance1",
+            "Coincident2",
+            "Parallel2",
+            "Coincident3",
+            "Parallel3"
+          ],
+          "occurrences": [
+            {
+              "configuration": "modeled default",
+              "fixed": true,
+              "name": "SdkGroupPlateAlpha-1",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.018294109981572867,
+                0.005593070711345955,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-2",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.08254822653472922,
+                0.02523752555166664,
+                0.01313,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-3",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 2,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.1468023430878856,
+                0.044881980391987326,
+                0.02626,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 999.9999999999999,
+          "parent_tree_rows": 31,
+          "parent_tree_sha256": "932dabfa65df319799f2769b993c2f967941919d5a8055cca255eeb96ab67c24",
+          "top_level_count": 3,
+          "total_count": 3
+        },
+        "rebuilt": {
+          "body_count": 3,
+          "child_mass": {
+            "area": 0.0031320000000000007,
+            "com": [
+              0.0,
+              0.0,
+              0.004125
+            ],
+            "mass": 8.019e-06,
+            "volume": 8.019e-06
+          },
+          "child_parameters_m": {
+            "D1@Boss-Extrude1": 0.00825,
+            "D1@Sketch1": 0.054,
+            "D2@Sketch1": 0.018000000000000002
+          },
+          "child_tree_rows": 25,
+          "child_tree_sha256": "90c632282c550f7330bf9dc30d841436c8216021338f7f9eec25548b4cce115a",
+          "configurations": [
+            "Default",
+            "modeled default"
+          ],
+          "distance_values_m": {
+            "Distance1": 0.13438
+          },
+          "feature_errors": 0,
+          "feature_warnings": 0,
+          "mass": {
+            "area": 0.009396000000000002,
+            "com": [
+              0.08254822653472922,
+              0.02523752555166664,
+              0.017255000000000003
+            ],
+            "mass": 0.024057000000000005,
+            "volume": 2.4057000000000007e-05
+          },
+          "matched_reference_checks": {
+            "canonical_specific_plane_equality_diagnostics": [
+              1
+            ],
+            "entities": 12,
+            "ordered_endpoints": [
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "FreeParallel"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Right Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Distance1"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-2",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel2"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Top Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Coincident3"
+              },
+              {
+                "endpoints": [
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-3",
+                    "reference_type": 4
+                  },
+                  {
+                    "datum": "Front Plane",
+                    "occurrence": "SdkGroupPlateAlpha-1",
+                    "reference_type": 4
+                  }
+                ],
+                "mate": "Parallel3"
+              }
+            ],
+            "repeated_reference_equality_values": [
+              1
+            ],
+            "repeated_specific_plane_equality_values": [
+              1
+            ]
+          },
+          "mate_count": 6,
+          "mate_entity_count": 12,
+          "mate_names": [
+            "FreeParallel",
+            "Distance1",
+            "Coincident2",
+            "Parallel2",
+            "Coincident3",
+            "Parallel3"
+          ],
+          "occurrences": [
+            {
+              "configuration": "modeled default",
+              "fixed": true,
+              "name": "SdkGroupPlateAlpha-1",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 0,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.018294109981572867,
+                0.005593070711345955,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-2",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 1,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.08254822653472922,
+                0.02523752555166664,
+                0.01313,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            },
+            {
+              "configuration": "modeled default",
+              "fixed": false,
+              "name": "SdkGroupPlateAlpha-3",
+              "path_basename": "SdkGroupPlateAlpha.SLDPRT",
+              "placement_index": 2,
+              "transform": [
+                0.9563047559630354,
+                0.29237170472273677,
+                0.0,
+                -0.29237170472273677,
+                0.9563047559630354,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.1468023430878856,
+                0.044881980391987326,
+                0.02626,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "visible_child_bodies": 1
+            }
+          ],
+          "parent_mass_over_repeated_child_mass": 1000.0000000000001,
+          "parent_tree_rows": 31,
+          "parent_tree_sha256": "932dabfa65df319799f2769b993c2f967941919d5a8055cca255eeb96ab67c24",
+          "top_level_count": 3,
+          "total_count": 3
+        }
+      }
+    }
+  },
+  "prediction_sha256": "76a4f22310244c5544c3bb4a0d309a8b9f67438491361e24bd7f4db0c80a0769",
+  "public_assembly_writer_enabled": false,
+  "raw_result_sha256": "333574efef8ac855ccb4b2a4a933b48e386ccbb03aa995d9c975e9a3c2c5198b",
+  "reopen_identity_preserved": true,
+  "schema": "kit.sw2026.sdk-explicit-planar-group-native.v1",
+  "task": "B04-SW2026-ASSEMBLIES-C10",
+  "tools_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+    "InspectCombinedPlanarMates.py": "496d598d645e9faeee80bd71bd6717f4c260fd1e72370fe7b44bd8d3ce00956b",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectSdkPlanarGroup.py": "aa9886a0a552ba731cb6d119258a1a973f1184f291db9c5503e18fcc63e35e5a",
+    "InspectSdkSingleMate.py": "e00760bd5666e1f90dc4be978b78d25b035b766a1fd97636d37036ddd339a492",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PlanarMateEdit.py": "61f99e2e8ecd075b4c7d3c5732db35bc18563b3999ad1b06fcf01e9ee4198466",
+    "PrepareDimensionedAssemblyPredictions.py": "639dbf7f80f594d4e7da459638bfe3037f8ad9116e36755d02a38bebc2dc48a7",
+    "PrepareSdkAssemblyNative.py": "ca99618a4461b8418edff4e02297d8534a10636bbb86230c7af3df877345bf5b",
+    "SdkPlanarGroupPrediction.py": "a603f1a089a557d57d523fd97312e8f73f1db43d69e74f5ae062b202cb25d2bf",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "vendor_loadable": true,
+  "writer_process_interpreter": "Python 3.11",
+  "writer_revision": "a06b6d4ef0aa7f185e5e9ac8b82803dc159aa583",
+  "writer_source_manifest_sha256": "753f64e4222ee9172b24d65abd02cbd2469254b5bf865f1a085c39276791f162"
+}

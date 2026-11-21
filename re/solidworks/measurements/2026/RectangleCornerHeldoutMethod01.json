@@ -1,0 +1,21 @@
+{
+  "schema": "kit.sw2026.corner-anchor-heldout-method-process.v1",
+  "method_sha256": "22db4dcc713dd95920c5a3fe0803e037086d313fc434fc66d035f18bbef1582f",
+  "source_closure_sha256": "042a7857d6e271281c752d78d4c4876f776979ecf331fa8b62533d24fc6d3966",
+  "source_files": 3993,
+  "observer_sha256": "9e0ba9035043fdc0859dd00eab2658136b48f671a4f7669b450d016ae64dda0f",
+  "writer_source_sha256": "c848ac56db5a2b6f06eefbec3a7941c26ba490aab50092b24185fc304fd1ec2c",
+  "host_verify_only_sha256": "efe2ba421de0171695e230cb2578c322434a245fd3fcf4f9e258ada9a0a1c046",
+  "disclosed_native_source_receipt_sha256": "2dfc27e4a4ecc546142593bc42d2e147bc163b6d402d97a9d16af94da8043a30",
+  "source_lock_sha256": "7770ae975152aae0a6f211b5ab262541aeb15bea2861f96da9b80cd9cd432e7b",
+  "disclosed_recipe_sha256": "50b38f8b41873512c91f1ec9852e31434a5d18df0a4533c63613c462696599e3",
+  "disclosed_build_sha256": "b35682366f340290e5e6e89c843dca309e42e844e98b368b3ffcc8bd7a694e1f",
+  "disclosed_constructor_file_sha256": "a06be0d75ec2fd5bb5df6b74be06bcb0e5a64a227a206a1d09b0c9a61314b1c9",
+  "linked_streams": 8,
+  "rejected_stale_method_digest": true,
+  "rejected_generation_without_selected_recipe": true,
+  "actual_private_recipes_read": 0,
+  "heldout_source_files_read": 0,
+  "runtime_input_reads": 0,
+  "native_processes_started": 0
+}

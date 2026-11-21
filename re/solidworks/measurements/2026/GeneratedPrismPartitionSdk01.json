@@ -1,0 +1,537 @@
+{
+  "schema": "kit.sw2026.generated-assembly-partition-sdk.v1",
+  "base_revision": "3c17262762ed465e4a29125dee46dfd38b696528",
+  "base_tree": "495a774e45ca6507d6208c9fb8bc93fa2331773a",
+  "index_sha256": "2ba14f2f3fd8185c2011bd9243566185fe3f309a9d8835be67581c3e3426b1eb",
+  "source_inventory_sha256": "c9c461db8a2c02eb7b3807aea53afbb4f717de0835581513102f498f82f07a54",
+  "tool_sources": {
+    "re/tooling/sw2026/AssemblyPartitionProbe.py": "d28949efa9b37e4ee7e0f0de15d2ba4484530ccdde9ad0e0d41ab03b784d4902",
+    "re/tooling/sw2026/AssemblyPartitionProcess.py": "588597a9fdb253ef0dd9d5b4efc056c95cf5c4770c258e1016d42fe560b31207",
+    "src/convert/Geometry/Parasolid.py": "539d7a62018e956df488b4cc49271bf4f8073ef521c702181d7979dd463a7353"
+  },
+  "cases": [
+    {
+      "name": "OffsetRepeated",
+      "receipt_sha256": "12b3566fea83b2e7a120a17bc04c470752d87ac144a67888f93171f4bdc0dba4",
+      "neutral_sha256": "6cbf3f05e6fe14bba3fa40b9dbe389e0ec103a678514a3f8bf374aa6757e4c3c",
+      "sdk_strict_sketch_semantics": false,
+      "sdk_strict_summary_bounds": false,
+      "parent": {
+        "bytes": 8698,
+        "sha256": "61e61265bb9734eeec2641dd64dfb337c2d4c2716c3228d8ccc0c8ac297caae9"
+      },
+      "child_baseline": {
+        "bytes": 8745,
+        "sha256": "6160d806cc201b07e214a13ba80086d1b3c44a5b7fe660c2715208ae292f2e5a"
+      },
+      "child_with_partition": {
+        "bytes": 10306,
+        "sha256": "7eaa42554f38c89b6926b98ce16fa5c6e49e79c142a47dd338f90e7ed0083a5a"
+      },
+      "partition": {
+        "stream_name": "Contents/Config-0-Partition",
+        "kind": "partition",
+        "schema": "SCH_1200000_12006",
+        "decoded_bytes": 3434,
+        "decoded_sha256": "003b12b9727aa99b11e3d3d653e9ad192d9e33c38344bbc43f7a527357720cef",
+        "bytes": 1426,
+        "sha256": "b2cb2e6bfc21fa20880acae92e9ede092416034d2e7c5c4c2cfe1b50c8afbe6d"
+      },
+      "geometry": {
+        "generated_body_id": "prism-feature-21-prism-body",
+        "sketch_id": 18,
+        "extrusion_id": 21,
+        "volume_mm3": 7661.96,
+        "area_mm2": 2363.8199999999997,
+        "bounds_mm": [
+          [
+            2.8,
+            -6.1,
+            0.0
+          ],
+          [
+            21.3,
+            18.7,
+            16.7
+          ]
+        ]
+      },
+      "encoding_calls": {
+        "EncodeBrepModel": 1,
+        "EncodeBrepBody": 1,
+        "EmitBodiesMut": 1,
+        "EmitVendorMut": 1,
+        "DeriveBodyTree": 1,
+        "EncodePartData": 1
+      },
+      "excluded_calls": [
+        "EncodeBlankApi",
+        "EncodeBlankPart",
+        "WriteBodySuffix",
+        "WriteSolidAttrs"
+      ],
+      "denied_reads": [],
+      "without_partition_default_error": "SLDPRT contains no readable Parasolid payload",
+      "measured_brep": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 7661.959999999999,
+        "area_mm2": 2363.8199999999997,
+        "centre_mm": [
+          12.050000000000002,
+          6.3,
+          8.35
+        ],
+        "bounds_mm": [
+          [
+            2.8,
+            -6.1,
+            0.0
+          ],
+          [
+            21.3,
+            18.7,
+            16.7
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 18.5,
+          "sldprt:parameter:18:D2": 24.799999999999994,
+          "sldprt:parameter:21:D1": 16.7
+        },
+        "sketch_profiles": [
+          {
+            "kind": "circle",
+            "coordinates_mm": [
+              21.3,
+              -6.1,
+              24.799999999999994
+            ],
+            "marker_offsets": [
+              5493,
+              5655
+            ],
+            "parameter": "D2",
+            "dimension_kind": "radius"
+          },
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              2.8,
+              -6.1,
+              21.3,
+              18.7
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "circle",
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          1,
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D2": "radius",
+          "sldprt:parameter:18:D1": "distance_x"
+        },
+        "summary_bounds_mm": [
+          [
+            -3.499999999999993,
+            -30.89999999999999,
+            0.0
+          ],
+          [
+            46.099999999999994,
+            18.7,
+            16.7
+          ]
+        ],
+        "strict_sketch_semantics": false,
+        "strict_summary_bounds": false
+      },
+      "sdk_document_valid": true,
+      "native_oracle_run": false
+    },
+    {
+      "name": "CenteredSingle",
+      "receipt_sha256": "d7117f9fac6b9a998c1d2c749c9ae6b40c0c21045a9b65e53ef750473b1636ab",
+      "neutral_sha256": "35664d07dad6f356e5737d12cb552f9d70baed588c5458de4347f7a4d2704970",
+      "sdk_strict_sketch_semantics": false,
+      "sdk_strict_summary_bounds": false,
+      "parent": {
+        "bytes": 8406,
+        "sha256": "3eb0e85733c9806bf1dc6f01b1b8c3f1747ddf4754557d489692683fccd0bc58"
+      },
+      "child_baseline": {
+        "bytes": 8712,
+        "sha256": "acbf7fc13501ad4c6ed77cc2084b65185f06b99438701fb54f3ea34758dca68e"
+      },
+      "child_with_partition": {
+        "bytes": 10254,
+        "sha256": "7e58becef1bb82cbf33d88826077825d139e23e175998b6d2ed333f34f74aa86"
+      },
+      "partition": {
+        "stream_name": "Contents/Config-0-Partition",
+        "kind": "partition",
+        "schema": "SCH_1200000_12006",
+        "decoded_bytes": 3434,
+        "decoded_sha256": "7ebf0cbaa448c74d5d2dbbbafbdd5a59d1dff8cba59a3d8b9f7203bfd3d4281f",
+        "bytes": 1407,
+        "sha256": "8710d890c937400454322860fc36dd6741c2535f0bd1f76859a838bdcd110c92"
+      },
+      "geometry": {
+        "generated_body_id": "prism-feature-21-prism-body",
+        "sketch_id": 18,
+        "extrusion_id": 21,
+        "volume_mm3": 8770.576000000001,
+        "area_mm2": 2895.48,
+        "bounds_mm": [
+          [
+            -18.8,
+            -10.7,
+            0.0
+          ],
+          [
+            18.8,
+            10.7,
+            10.9
+          ]
+        ]
+      },
+      "encoding_calls": {
+        "EncodeBrepModel": 1,
+        "EncodeBrepBody": 1,
+        "EmitBodiesMut": 1,
+        "EmitVendorMut": 1,
+        "DeriveBodyTree": 1,
+        "EncodePartData": 1
+      },
+      "excluded_calls": [
+        "EncodeBlankApi",
+        "EncodeBlankPart",
+        "WriteBodySuffix",
+        "WriteSolidAttrs"
+      ],
+      "denied_reads": [],
+      "without_partition_default_error": "SLDPRT contains no readable Parasolid payload",
+      "measured_brep": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 8770.576000000001,
+        "area_mm2": 2895.48,
+        "centre_mm": [
+          0.0,
+          0.0,
+          5.45
+        ],
+        "bounds_mm": [
+          [
+            -18.8,
+            -10.7,
+            0.0
+          ],
+          [
+            18.8,
+            10.7,
+            10.9
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 37.6,
+          "sldprt:parameter:18:D2": 21.4,
+          "sldprt:parameter:21:D1": 10.9
+        },
+        "sketch_profiles": [
+          {
+            "kind": "circle",
+            "coordinates_mm": [
+              18.8,
+              -10.7,
+              21.4
+            ],
+            "marker_offsets": [
+              5493,
+              5655
+            ],
+            "parameter": "D2",
+            "dimension_kind": "radius"
+          },
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              -18.8,
+              -10.7,
+              18.8,
+              10.7
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "circle",
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          1,
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D2": "radius",
+          "sldprt:parameter:18:D1": "distance_x"
+        },
+        "summary_bounds_mm": [
+          [
+            -18.8,
+            -32.099999999999994,
+            0.0
+          ],
+          [
+            40.2,
+            10.7,
+            10.9
+          ]
+        ],
+        "strict_sketch_semantics": false,
+        "strict_summary_bounds": false
+      },
+      "sdk_document_valid": true,
+      "native_oracle_run": false
+    },
+    {
+      "name": "L1Single",
+      "receipt_sha256": "f90adc887ee81968e83f35e0dffd3b1814e3f652fcac366b3f66e2bd15d7702e",
+      "neutral_sha256": "3af577c60c2b4347b2316f141385f282583ff1d1fd8e9081a3fe362d30d55fd0",
+      "sdk_strict_sketch_semantics": false,
+      "sdk_strict_summary_bounds": false,
+      "parent": {
+        "bytes": 8339,
+        "sha256": "75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e"
+      },
+      "child_baseline": {
+        "bytes": 8650,
+        "sha256": "2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331"
+      },
+      "child_with_partition": {
+        "bytes": 10172,
+        "sha256": "024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e"
+      },
+      "partition": {
+        "stream_name": "Contents/Config-0-Partition",
+        "kind": "partition",
+        "schema": "SCH_1200000_12006",
+        "decoded_bytes": 3434,
+        "decoded_sha256": "430ffda612d38ac90991b628b58fed9638f90bf89333dfa89ec47864c29dfed8",
+        "bytes": 1387,
+        "sha256": "249b8e5fbe45f0d5eff17fd3361ee2d7c425f1fc2748a3d7b08bc03011f3140a"
+      },
+      "geometry": {
+        "generated_body_id": "prism-feature-21-prism-body",
+        "sketch_id": 18,
+        "extrusion_id": 21,
+        "volume_mm3": 8000.0,
+        "area_mm2": 2800.0,
+        "bounds_mm": [
+          [
+            -20.0,
+            -10.0,
+            0.0
+          ],
+          [
+            20.0,
+            10.0,
+            10.0
+          ]
+        ]
+      },
+      "encoding_calls": {
+        "EncodeBrepModel": 1,
+        "EncodeBrepBody": 1,
+        "EmitBodiesMut": 1,
+        "EmitVendorMut": 1,
+        "DeriveBodyTree": 1,
+        "EncodePartData": 1
+      },
+      "excluded_calls": [
+        "EncodeBlankApi",
+        "EncodeBlankPart",
+        "WriteBodySuffix",
+        "WriteSolidAttrs"
+      ],
+      "denied_reads": [],
+      "without_partition_default_error": "SLDPRT contains no readable Parasolid payload",
+      "measured_brep": {
+        "counts": {
+          "curves": 12,
+          "surfaces": 6,
+          "vertices": 8,
+          "edges": 12,
+          "coedges": 24,
+          "loops": 6,
+          "faces": 6,
+          "face_uses": 6,
+          "shells": 1,
+          "shell_uses": 1,
+          "regions": 1,
+          "bodies": 1
+        },
+        "volume_mm3": 8000.0,
+        "area_mm2": 2800.0,
+        "centre_mm": [
+          0.0,
+          0.0,
+          5.0
+        ],
+        "bounds_mm": [
+          [
+            -20.0,
+            -10.0,
+            0.0
+          ],
+          [
+            20.0,
+            10.0,
+            10.0
+          ]
+        ]
+      },
+      "history": {
+        "unchanged_by_cache": true,
+        "sketch_id": "sldprt:sketch:18",
+        "support_plane_id": "sldprt:plane:14",
+        "extrusion_id": "sldprt:feature:21",
+        "design_body_id": "sldprt:body:1",
+        "three_driving_values_mm": {
+          "sldprt:parameter:18:D1": 40.0,
+          "sldprt:parameter:18:D2": 20.0,
+          "sldprt:parameter:21:D1": 10.0
+        },
+        "sketch_profiles": [
+          {
+            "kind": "circle",
+            "coordinates_mm": [
+              20.0,
+              -10.0,
+              20.0
+            ],
+            "marker_offsets": [
+              5493,
+              5655
+            ],
+            "parameter": "D2",
+            "dimension_kind": "radius"
+          },
+          {
+            "kind": "rectangle",
+            "coordinates_mm": [
+              -20.0,
+              -10.0,
+              20.0,
+              10.0
+            ],
+            "marker_offsets": [
+              5983,
+              6075,
+              6167,
+              6259
+            ],
+            "parameter": null,
+            "dimension_kind": null
+          }
+        ],
+        "sdk_entities": [
+          "circle",
+          "line",
+          "line",
+          "line",
+          "line"
+        ],
+        "closed_profile_sizes": [
+          1,
+          4
+        ],
+        "dimension_constraints": {
+          "sldprt:parameter:18:D2": "radius",
+          "sldprt:parameter:18:D1": "distance_x"
+        },
+        "summary_bounds_mm": [
+          [
+            -20.0,
+            -30.0,
+            0.0
+          ],
+          [
+            40.0,
+            10.0,
+            10.0
+          ]
+        ],
+        "strict_sketch_semantics": false,
+        "strict_summary_bounds": false
+      },
+      "sdk_document_valid": true,
+      "native_oracle_run": false
+    }
+  ],
+  "oracle_heldout": false
+}

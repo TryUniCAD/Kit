@@ -1,0 +1,215 @@
+{
+  "cases": [
+    {
+      "case_id": "D02",
+      "phases": {
+        "after": {
+          "finished_at": 1795001010.9623742,
+          "passed": true,
+          "process_creation_filetime": 134394745905171697,
+          "process_id": 6384,
+          "public_record_sha256": "3ab99d6613592878d21a405a10eb729d6ca2ea009e72fcbea61bdc7f4d27b01a"
+        },
+        "author": {
+          "finished_at": 1795000837.9254603,
+          "passed": true,
+          "process_creation_filetime": 134394743461126377,
+          "process_id": 4288,
+          "public_record_sha256": "d66fd093818f133698e04ed5c1fe2718eb1a60b26ab951a4c88a7effce134594"
+        },
+        "before": {
+          "finished_at": 1795000686.7319522,
+          "passed": true,
+          "process_creation_filetime": 134394742663320520,
+          "process_id": 5448,
+          "public_record_sha256": "6d0a0a2162cfca34c26f6f75edbb46c364a573b98aadf363addfd79b781b6803"
+        },
+        "lock": {
+          "finished_at": 1795001121.1076598,
+          "heldout_source_locked": false,
+          "passed": true,
+          "public_record_sha256": "bf16c18d8224dd2b03ffa9f484d6b7130ef33f3fe12ba21f3f7698f01d08e105",
+          "source_manifest_sha256": "3ac958f4c1f8c1a7062b7e3750f2fea651da46c0762f585f6a4baca418c27d74"
+        },
+        "reopen-edited": {
+          "finished_at": 1795000924.5050044,
+          "passed": true,
+          "process_creation_filetime": 134394744860185851,
+          "process_id": 7848,
+          "public_record_sha256": "688e36ea77d582cb6738e291bec03d786d7626edf3203d1d214223b1386c7ef6"
+        },
+        "reopen-source": {
+          "finished_at": 1795000880.01636,
+          "passed": true,
+          "process_creation_filetime": 134394744436645241,
+          "process_id": 3232,
+          "public_record_sha256": "cb82a18c66d03ea85fce9682ff4d66736237fc92a1a5ffdc8f27175cf9d66e10"
+        }
+      },
+      "writer_output_count": 0
+    },
+    {
+      "case_id": "D03",
+      "phases": {
+        "after": {
+          "finished_at": 1795001392.1122012,
+          "passed": true,
+          "process_creation_filetime": 134394749717586944,
+          "process_id": 4656,
+          "public_record_sha256": "d4f0987d29f9dbc42490ec81ae36ecad792fb3a29cd70b0da56cd2560f5440b8"
+        },
+        "author": {
+          "finished_at": 1795001282.6541123,
+          "passed": true,
+          "process_creation_filetime": 134394747950443157,
+          "process_id": 4792,
+          "public_record_sha256": "59c3feea1a44135bfbfbbda5141bcff017ed693b3fca9dbb8ac484dbbfcb338a"
+        },
+        "before": {
+          "finished_at": 1795001189.2447083,
+          "passed": true,
+          "process_creation_filetime": 134394747690976951,
+          "process_id": 7900,
+          "public_record_sha256": "20dcf3243f4b099c98ff49f05aefc31adfd87eddc4429aeed097aa9697c422a7"
+        },
+        "lock": {
+          "finished_at": 1795001393.6308122,
+          "heldout_source_locked": false,
+          "passed": true,
+          "public_record_sha256": "0da5fe90c35b7b4119383a5ba598233560be64aeb5d7b0601af353b058155967",
+          "source_manifest_sha256": "f51701468901fe3ddcc171166c61386859f273d0a686eee7435857d6799bc9b7"
+        },
+        "reopen-edited": {
+          "finished_at": 1795001366.144754,
+          "passed": true,
+          "process_creation_filetime": 134394749284123859,
+          "process_id": 5788,
+          "public_record_sha256": "09af273604485c98f1abe3a7feb0d2e161a27bf1f05fc558dbf89e47cfcd3460"
+        },
+        "reopen-source": {
+          "finished_at": 1795001322.6529531,
+          "passed": true,
+          "process_creation_filetime": 134394748879383449,
+          "process_id": 4948,
+          "public_record_sha256": "5a397e07755fa945fb9f4f875314047b137d029dad29cc3ebed097fcaaea86ed"
+        }
+      },
+      "writer_output_count": 0
+    },
+    {
+      "case_id": "H01",
+      "phases": {
+        "after": {
+          "finished_at": 1795002520.5520005,
+          "passed": true,
+          "process_creation_filetime": 134394761002434479,
+          "process_id": 6304,
+          "public_record_sha256": "0bb83093e2f5a34303e2ca09156d32ee27b30d0d9a3fc90b28978aae0e83286f"
+        },
+        "author": {
+          "finished_at": 1795002148.3552568,
+          "passed": true,
+          "process_creation_filetime": 134394756590976713,
+          "process_id": 4736,
+          "public_record_sha256": "43f5fb5626036c8ce0a9f4465411bf3e5804e5d631c26b9841cc90a816af51d5"
+        },
+        "before": {
+          "finished_at": 1795002053.6599903,
+          "passed": true,
+          "process_creation_filetime": 134394756330028418,
+          "process_id": 10228,
+          "public_record_sha256": "798354e1b3e605f6d7ad0e8523e3a60e32e294cc4f8c51c55e48804b384c6ac4"
+        },
+        "lock": {
+          "finished_at": 1795002522.049914,
+          "heldout_source_locked": true,
+          "passed": true,
+          "public_record_sha256": "6538c86b5fa05b7f3f7b7c605cbdad10a565820432959562e591f86d41beed7b",
+          "source_manifest_sha256": "d689a3fc7be2a2953108f51cb5f168911f70cc6ea84c5857dff033b08b7ba727"
+        },
+        "reopen-edited": {
+          "finished_at": 1795002495.0283177,
+          "passed": true,
+          "process_creation_filetime": 134394760590141158,
+          "process_id": 10964,
+          "public_record_sha256": "6e46faba8f6072045d9c8f1c25fff63a9d565e5817ce4dd2d8b4da3e4225a24b"
+        },
+        "reopen-source": {
+          "finished_at": 1795002452.9160395,
+          "passed": true,
+          "process_creation_filetime": 134394760168157716,
+          "process_id": 5884,
+          "public_record_sha256": "339e9a841b0c4ecad996cb62fdf6b9ecdfce3e7b5d70279df4df2e98c9e88237"
+        }
+      },
+      "writer_output_count": 0
+    },
+    {
+      "case_id": "H02",
+      "phases": {
+        "after": {
+          "finished_at": 1795002927.6195753,
+          "passed": true,
+          "process_creation_filetime": 134394765055251567,
+          "process_id": 5140,
+          "public_record_sha256": "a391c0a27f1ce1c3701c18bf334450db601c25de8f472a230087998b8ef0387f"
+        },
+        "author": {
+          "finished_at": 1795002806.3129933,
+          "passed": true,
+          "process_creation_filetime": 134394763063623750,
+          "process_id": 2524,
+          "public_record_sha256": "dfc1ea47ab43c56e915d7b3ac5ce82eef7f2366fe1092f4fafbf787f068f6be5"
+        },
+        "before": {
+          "finished_at": 1795002700.8204393,
+          "passed": true,
+          "process_creation_filetime": 134394762795664201,
+          "process_id": 10000,
+          "public_record_sha256": "e21b1a8f5a696829632bb5183a7d0cf448077937d759fe0faee32537383b045a"
+        },
+        "lock": {
+          "finished_at": 1795002929.0582497,
+          "heldout_source_locked": true,
+          "passed": true,
+          "public_record_sha256": "bcc0ad312a740ddfa56f2dade91ab6d7a209d7a2121bf555db82bcc2f732b416",
+          "source_manifest_sha256": "dab748dc9a1eaf45dd6ddd389ee69c300bfc44c6d994615b3e176832b9c318cf"
+        },
+        "reopen-edited": {
+          "finished_at": 1795002899.7620711,
+          "passed": true,
+          "process_creation_filetime": 134394764597841581,
+          "process_id": 9056,
+          "public_record_sha256": "ad45161c40ef938a7141f0d656979a6c9b36df0925ebd2c253b21fc632a9dda5"
+        },
+        "reopen-source": {
+          "finished_at": 1795002853.8942864,
+          "passed": true,
+          "process_creation_filetime": 134394764123923467,
+          "process_id": 4352,
+          "public_record_sha256": "b908b80c0da5707b82dfa17915d46e32667de2c7f375c549d60e179f35ad595d"
+        }
+      },
+      "writer_output_count": 0
+    }
+  ],
+  "delivery_pr": 121,
+  "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "generated_heldout_acceptance": false,
+  "heldout_source_contents_accessed_by_sdk_or_writer": false,
+  "heldout_source_locks": 2,
+  "host_transport_retry": {
+    "case_id": "H01",
+    "counted_as_oracle_failure": false,
+    "first_error": "PrlJob_GetResult: Invalid argument. An invalid argument was passed.",
+    "first_host_report_sha256": "0c78363c35a7a58c0255b0d0e32d28d4b1873baf8b2996a15d697a5a74f404e2",
+    "phase": "reopen-source",
+    "recovery": "no guest phase progress existed; Windows task inventory confirmed no owning SolidWorks or Python process; the same source reopen was retried",
+    "second_host_report_sha256": "e608e4765fe20723ac6747f6d93423ede026928e3961dcac83724dd621b981ce"
+  },
+  "packet_sha256": "de5f421da1caae884565329c2d99bfbd4d9c262ccdda92b74eea71df05394b3c",
+  "schema": "kit.sw2026.perpendicular-native-source-packet05.v1",
+  "software_build": "34.5.2.0604",
+  "verified_fresh_native_processes": 20,
+  "writer_output_count": 0
+}

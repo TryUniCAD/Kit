@@ -1,0 +1,188 @@
+{
+  "schema": "kit.sw2026.disclosed-import-notes.v1",
+  "job_sha256": "075597c57e15f7afc29d98b078535639671d425a76bf9d1880d24f47b3f4acf8",
+  "raw_native_receipt_sha256": "03ad7c677292f94fd66733b4b30dd2a96b5105d884e93f61e14b505a58bf02e8",
+  "build_receipt_sha256": "b6113002e6f611abe51be40d8eafb625ed2010c886e90e2751275ef6dc75228f",
+  "writer_revision": "3a651f09276a88c33dd2f8463c4516c2a04557bf",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "controls_healthy": true,
+  "distinct_native_processes": 11,
+  "case_results": {
+    "Disclosed": {
+      "input_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+      "generated_sha256": "1bc3db85a92d7eab9a04b166239a5489983d437d76e7313352d3b0aba447d203",
+      "native_saved_sha256": "f25158ac79a995abeec079c6249634b273c730d869b2ba8873fe704f14e6ea37",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "same_location_note_delta": [
+        "Contents/CMgr",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2",
+        "swXmlContents/KeyWords"
+      ],
+      "saved_note_pair": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "native_note_rows": [
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "native_cold_tree_rows": 24,
+      "native_cold_trees_equal": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "6e258650275a6380dddcc1906a00b1e0bf15a33bb171277cb4203d4be9179c57",
+        "Generated": "dfbaede02117444d1c3151c96cc7a42d7538c1a7fe2dfc24d71bb0aafa0e18ad",
+        "Reopen": "050d995390263eb3ef1605cf302cbcfec7dccdc564d314216211d79c36898ca1"
+      },
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      }
+    },
+    "OtherShape": {
+      "input_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+      "generated_sha256": "e73b8e444d37f788a46b100120b45c171ea317b95eb1543d03e90970039a47d3",
+      "native_saved_sha256": "bd91afdb5d5f9e3c017152dc44da8ee67cb7228cf3443e0ac0c0fd01eb21cbf5",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "same_location_note_delta": [
+        "Contents/CMgr",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2",
+        "swXmlContents/KeyWords"
+      ],
+      "saved_note_pair": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "native_note_rows": [
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "native_cold_tree_rows": 24,
+      "native_cold_trees_equal": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "1ce5e1eb1f15f77ad71db213f9f11c0f754606c82269f2ed3ce2da8b4115cdd6",
+        "Generated": "a7881ac69d6a8c61f56c198a3914920772da5eab77c524f9c1b360b2d8adc93e",
+        "Reopen": "a2b4904e82e2d8c91f94bf68e2dbc6d5977ef1aae51080029c19df1a9d1858e7"
+      },
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      }
+    },
+    "RenamedFeature": {
+      "input_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+      "generated_sha256": "eca8ffacbe9fb55660d5e8e14e9e08252b35530466afdfebd582ba7e0eeb46a0",
+      "native_saved_sha256": "40e9e217d109811c37bb9eb0023674e88f1570d3331770f8f0b42568548ed8bd",
+      "model_generated_streams": 16,
+      "runtime_input_file_reads": 0,
+      "same_location_note_delta": [
+        "Contents/CMgr",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2",
+        "swXmlContents/KeyWords"
+      ],
+      "saved_note_pair": {
+        "count": 2,
+        "chronology_equal": true
+      },
+      "native_note_rows": [
+        {
+          "name": "Notes",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        },
+        {
+          "name": "Notes1___EndTag___",
+          "type": "NotesAreaFtrFolder",
+          "parent": "Annotations",
+          "error": 0,
+          "warning": false,
+          "suppressed": false
+        }
+      ],
+      "native_cold_tree_rows": 24,
+      "native_cold_trees_equal": true,
+      "numeric_candidate_checks": 116,
+      "native_phase_records": {
+        "Source": "90cb78db5f1a262981131fe827185289da0a47e2748b9fd651aa5e6475932db6",
+        "Generated": "7b0f0e797a9852aafac6386aee388c76f109bb670ae8c2c99f5853a549c283a1",
+        "Reopen": "3a4aebd76a9e92b46e63538f525f3604f3cd288ae8a993a8c6b00e163f9330d0"
+      },
+      "saved_light_values": 64,
+      "saved_empty_text_scopes": 3,
+      "file_property_owner": {
+        "bytes": 102,
+        "sha256": "22ecc7dd4564532e71f54ca4b59e9aee9c6e98c62a2f9c7fecc6fe72d793134e"
+      }
+    }
+  },
+  "control_receipts": {
+    "ControlBefore": "fe18363b52ee566ed8191a9928f46fb85ea0d625d1ed181bc8e544fab00f9a46",
+    "ControlAfter": "e2518ff126a59cec69c0fb6fa8a51dda05139c7c7cd2bdfd9ed7bec803794d40"
+  },
+  "frozen_operators": {
+    "re/tooling/sw2026/imported_body_source/ProbeImportedPartScene.py": "ae6b1b7ee7a2804574f1b5b0b46d19c09fdb7b9f289404357f298409fdd4dd91",
+    "re/tooling/sw2026/imported_body_source/ObserveLocalImportedPart.py": "9a4c3b0756688aea9e8ba5560b0ce500387f03199cabcc84c960a607b860b506",
+    "re/tooling/sw2026/imported_body_source/ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+    "re/tooling/sw2026/imported_body_source/ProjectImportedSemantics.py": "4ecea9266afd8ba428171e96f0ca14facdf68febd396ca241a31683c9010b398",
+    "re/tooling/sw2026/AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "re/tooling/sw2026/AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "re/tooling/sw2026/OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "re/tooling/sw2026/Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "re/tooling/sw2026/downstream/lighting/AuditStockPartLights.py": "6b29f143855ef58e3b9992168b05d1e49f9c4ca1aec0a7e4d13aa5a0abceb177",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/BindImportScene.py": "c4bb61896f66c28fd0b3bc202b6a5ae313c03477d04dfb3b3a1fdea3c6d3d6ff",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/CheckBareImport.py": "e6d185886955e6b1f12539373243e686037a46abf9ca81f7c882e2f820ea232e",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeBareImport.py": "4ee6daf323a3c1b572eef3dc333f14541e5dfdea5b0da58b0c23abee35b37ba9",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/MakeImportKeys.py": "95e3559a00154c0694f33299e8a2d39d76d34d2101ad21bf1d2bb2405a6b472f",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Imports/ReadImportScene.py": "00656296cb1864057dc0529354c27ae0c4d06472bede813c54fc70f7a1ea9c06",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/MakePartProps.py": "6c92897a0ecb4c773cd87c26ed539d025fd24c27b0e7d237bad569a206751faf",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PartTextInput.py": "11e3a41952389cf6ac61f049a3ee0961aa349c8ad98afaf8727f08d1fa02c9d2"
+  },
+  "heldout_lifecycles": 0,
+  "complete_original_source_conversions": 0,
+  "public_writer_qualified": false
+}

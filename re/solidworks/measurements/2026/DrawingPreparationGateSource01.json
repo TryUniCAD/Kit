@@ -1,0 +1,33 @@
+{
+  "activity": {
+    "held_out_inputs_read": 0,
+    "provider_or_hopper_targets_opened": 0,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "counts": {
+    "complete_functions_or_leaves": 6,
+    "concrete_virtual_cells": 0,
+    "direct_calls": 4,
+    "function_fragments": 6,
+    "import_identities": 5,
+    "instruction_windows": 3,
+    "original_modules": 3
+  },
+  "evidence": "original-PE metadata verification of manually reviewed conditional source rules",
+  "generated_pair_accepted": false,
+  "metadata_helper_sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+  "native_route_executed": false,
+  "record_sha256": "7122b4506207830ac4983f420e3e24b3c2366d91517d31620eaa3cbe38f50e4e",
+  "repository_input_observation": [
+    {
+      "matches_observed_source": true,
+      "path": "re/tooling/sw2026/materials/MaterialPe.py"
+    }
+  ],
+  "schema": 1,
+  "source_identity_passed": true,
+  "task_id": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "verifier_sha256": "8ac15af6346a09c7f8304c01f97395eaa3695157f3dde4718fe5f3dcf12a85ab"
+}

@@ -1,0 +1,676 @@
+{
+  "schema": "kit.sw2026.generated-parallel-mate-native.v1",
+  "scope": "Read-only native open and rebuild of one generated aligned Front Plane parallel mate with two resolved occurrences of a generated rectangular child.",
+  "passed": true,
+  "vendor_loadable": true,
+  "application_usable": true,
+  "read_only": true,
+  "writer_output_count": 2,
+  "driving_edit_tested": false,
+  "active_rotation_correction_tested": false,
+  "persistence_tested": false,
+  "heldout_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "writer_revision": "c7eaaff300b20dbf106fec52f6845f8a47ad459b",
+  "committed_source_hashes": {
+    "ParallelMateBundleProcess.py": "3e0359e235497a978884fbac4f0f430b1c7621750e5ab3176a068751b65685a9",
+    "CoincidentMateBundleProcess.py": "fd3cb0d9a867c77fd963907bba421b6bec77fc7da1f0e3dd4d133c6e6644d083",
+    "builders/Assembly.py": "eae0dffac6cdd8f4907e98648d46079642914705608463109d1145d3358d778d",
+    "builders/AssemblyDocument.py": "e26a0d9cf87aeea7efbadc5c5a379d189d4f6f6df40f74db66523e272ed6ff24",
+    "builders/AssemblyMateEndpoint.py": "14f3896e089cfd87b8d962ed74b8a69c7d06b0cde26a2d78c4e9535a12ef8142",
+    "builders/AssemblyPlanarMate.py": "e48dbe3a7a7fcc08e0edda7563b9c4580d0625197b4df8c0258213c8095b40cd",
+    "InspectGeneratedParallelMate.py": "10ce11b542c44ccb4cc1927e8fdc1ca303ebd6af3d5139935f176b060accbf45"
+  },
+  "native_trial_packet_sha256": "3a9f0ff69f35d37f0b379764ea0ec50ed87ac9ef33ef187fb5574f8639bd1948",
+  "native_raw_receipt_sha256": "9c178a46d700dd7a840d97e501d56b6690fffac790582fcf95406adb27629abe",
+  "host_transport_sha256": "f58da9f4d2469ca622714c9269d35b165f577c8f0c3d790525624c34f1d357df",
+  "host_transport_exit_code": 0,
+  "structural_receipt_sha256": "198c3b6417fa9e69f6419d4b0c621ed4bf893a88ba562d452e00a4f2fb36728d",
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "source_specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "a19_prior_native_reopen_sha256": "2171c9907a835eff4e0f2bf826fb603e1593c142544dd4f3f39765a4367483bd",
+  "distinct_processes": 3,
+  "controls_healthy": true,
+  "frozen_inputs_and_working_copies_unchanged": true,
+  "generated_files": {
+    "ParallelPlatePair.SLDASM": {
+      "bytes": 9320,
+      "sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719"
+    },
+    "DatumPlate.SLDPRT": {
+      "bytes": 8648,
+      "sha256": "95e61a7d84fa9759a075310c2f6ebafb4318ba2a48abfc102dada2e5e8e041e4"
+    }
+  },
+  "a19_control_files": {
+    "A19PlaneParallel.SLDASM": {
+      "sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "bytes": 51399
+    },
+    "CohortChild.SLDPRT": {
+      "sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+      "bytes": 60693
+    }
+  },
+  "authored_parallel_gap_m": 0.02261,
+  "authored_placements": [
+    {
+      "angle_deg": 0.0,
+      "axis": "z",
+      "translation_m": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "angle_deg": 38.419,
+      "axis": "z",
+      "translation_m": [
+        0.10321,
+        -0.01873,
+        0.02261
+      ]
+    }
+  ],
+  "a19_brackets": [
+    {
+      "phase": "ControlBefore",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "input_hashes_unchanged": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 134,
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25,
+          "parent_rebuild_problem_count": 0,
+          "child_rebuild_problem_count": 0,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "exact_ordered_plane_object_comparisons": [
+            1,
+            1
+          ],
+          "mass_properties": {
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.035565,
+                0.014455,
+                -0.0029850000000000002
+              ],
+              "mass": 0.016000000000000004
+            }
+          }
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 148,
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25,
+          "parent_rebuild_problem_count": 0,
+          "child_rebuild_problem_count": 0,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "exact_ordered_plane_object_comparisons": [
+            1,
+            1
+          ],
+          "mass_properties": {
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.035565,
+                0.014455,
+                -0.0029850000000000002
+              ],
+              "mass": 0.016000000000000004
+            }
+          }
+        }
+      }
+    },
+    {
+      "phase": "ControlAfter",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "input_hashes_unchanged": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 134,
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25,
+          "parent_rebuild_problem_count": 0,
+          "child_rebuild_problem_count": 0,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "exact_ordered_plane_object_comparisons": [
+            1,
+            1
+          ],
+          "mass_properties": {
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.035565,
+                0.014455,
+                -0.0029850000000000002
+              ],
+              "mass": 0.016000000000000004
+            }
+          }
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 148,
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25,
+          "parent_rebuild_problem_count": 0,
+          "child_rebuild_problem_count": 0,
+          "entity_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "placement_relation": {
+            "normal_dot": 1.0,
+            "signed_offset_m": -0.01597
+          },
+          "exact_ordered_plane_object_comparisons": [
+            1,
+            1
+          ],
+          "mass_properties": {
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.035565,
+                0.014455,
+                -0.0029850000000000002
+              ],
+              "mass": 0.016000000000000004
+            }
+          }
+        }
+      }
+    }
+  ],
+  "generated": {
+    "phase": "Generated",
+    "open_error": 0,
+    "open_warning": 0,
+    "forced_rebuild_passed": true,
+    "input_hashes_unchanged": true,
+    "observations": {
+      "initial": {
+        "body_count": 2,
+        "child_stamp": 117,
+        "parent_tree_rows": 25,
+        "child_tree_rows": 26,
+        "parent_rebuild_problem_count": 0,
+        "child_rebuild_problem_count": 0,
+        "entity_relation": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.02261
+        },
+        "placement_relation": {
+          "normal_dot": 1.0000000000000002,
+          "signed_offset_m": 0.02261
+        },
+        "exact_ordered_plane_object_comparisons": [
+          1,
+          1
+        ],
+        "mass_properties": {
+          "child": {
+            "volume": 3.554838e-06,
+            "area": 0.00158738,
+            "com": [
+              0.01585,
+              0.0063,
+              0.00445
+            ],
+            "mass": 3.554838e-06
+          },
+          "assembly": {
+            "volume": 7.109676e-06,
+            "area": 0.00317476,
+            "com": [
+              0.06378170388269909,
+              0.001177640874128904,
+              0.015755
+            ],
+            "mass": 0.007109676
+          }
+        }
+      },
+      "rebuilt": {
+        "body_count": 2,
+        "child_stamp": 132,
+        "parent_tree_rows": 25,
+        "child_tree_rows": 26,
+        "parent_rebuild_problem_count": 0,
+        "child_rebuild_problem_count": 0,
+        "entity_relation": {
+          "normal_dot": 1.0,
+          "signed_offset_m": 0.02261
+        },
+        "placement_relation": {
+          "normal_dot": 1.0000000000000002,
+          "signed_offset_m": 0.02261
+        },
+        "exact_ordered_plane_object_comparisons": [
+          1,
+          1
+        ],
+        "mass_properties": {
+          "child": {
+            "volume": 3.5548380000000005e-06,
+            "area": 0.00158738,
+            "com": [
+              0.01585,
+              0.0063,
+              0.00445
+            ],
+            "mass": 3.5548380000000005e-06
+          },
+          "assembly": {
+            "volume": 7.109676e-06,
+            "area": 0.00317476,
+            "com": [
+              0.06378170388269909,
+              0.001177640874128904,
+              0.015755
+            ],
+            "mass": 0.007109676
+          }
+        }
+      }
+    },
+    "occurrences": [
+      {
+        "name": "DatumPlate-1",
+        "configuration": "Default",
+        "fixed": true,
+        "suppressed": false,
+        "visible_child_bodies": 1,
+        "child_path_matches": true,
+        "transform": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "name": "DatumPlate-2",
+        "configuration": "Default",
+        "fixed": false,
+        "suppressed": false,
+        "visible_child_bodies": 1,
+        "child_path_matches": true,
+        "transform": [
+          0.783487433835211,
+          0.6214076287126801,
+          0.0,
+          -0.6214076287126801,
+          0.783487433835211,
+          0.0,
+          0.0,
+          0.0,
+          1.0000000000000002,
+          0.10321,
+          -0.01873,
+          0.02261,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "native_mate": {
+      "name": "Parallel1",
+      "feature_type": "MateParallel",
+      "api_type": 3,
+      "api_alignment": 0,
+      "suppressed": false,
+      "ordered_references": [
+        {
+          "occurrence": "DatumPlate-1",
+          "datum": "Front Plane",
+          "reference_type": 4,
+          "point_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        },
+        {
+          "occurrence": "DatumPlate-2",
+          "datum": "Front Plane",
+          "reference_type": 4,
+          "point_m": [
+            0.10321,
+            -0.01873,
+            0.02261
+          ],
+          "normal": [
+            0.0,
+            0.0,
+            1.0
+          ]
+        }
+      ]
+    },
+    "parent_tree": [
+      [
+        "Comments",
+        "CommentsFolder",
+        null
+      ],
+      [
+        "Favorites",
+        "FavoriteFolder",
+        null
+      ],
+      [
+        "History",
+        "HistoryFolder",
+        null
+      ],
+      [
+        "Selection Sets",
+        "SelectionSetFolder",
+        null
+      ],
+      [
+        "Sensors",
+        "SensorFolder",
+        null
+      ],
+      [
+        "Live Section Planes",
+        "LiveSectionFolder",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        null
+      ],
+      [
+        "Annotations",
+        "DetailCabinet",
+        null
+      ],
+      [
+        "Notes",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Notes1___EndTag___",
+        "NotesAreaFtrFolder",
+        "Annotations"
+      ],
+      [
+        "Lights and Cameras",
+        "EnvFolder",
+        null
+      ],
+      [
+        "Ambient",
+        "AmbientLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "Lights and Cameras"
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder",
+        null
+      ],
+      [
+        "Equations",
+        "EqnFolder",
+        null
+      ],
+      [
+        "Front Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Top Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Right Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Origin",
+        "OriginProfileFeature",
+        null
+      ],
+      [
+        "DatumPlate-1",
+        "Reference",
+        null
+      ],
+      [
+        "DatumPlate-2",
+        "Reference",
+        null
+      ],
+      [
+        "Mates",
+        "MateGroup",
+        null
+      ],
+      [
+        "Parallel1",
+        "MateParallel",
+        "Mates"
+      ]
+    ],
+    "child_tree": [
+      [
+        "authored comments",
+        "CommentsFolder",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        null
+      ],
+      [
+        "authored annotations",
+        "DetailCabinet",
+        null
+      ],
+      [
+        "Notes",
+        "NotesAreaFtrFolder",
+        "authored annotations"
+      ],
+      [
+        "Notes1___EndTag___",
+        "NotesAreaFtrFolder",
+        "authored annotations"
+      ],
+      [
+        "authored environment",
+        "EnvFolder",
+        null
+      ],
+      [
+        "Ambient",
+        "AmbientLight",
+        "authored environment"
+      ],
+      [
+        "Directional1",
+        "DirectionLight",
+        "authored environment"
+      ],
+      [
+        "Directional2",
+        "DirectionLight",
+        "authored environment"
+      ],
+      [
+        "Directional3",
+        "DirectionLight",
+        "authored environment"
+      ],
+      [
+        "authored equations",
+        "EqnFolder",
+        null
+      ],
+      [
+        "authored favorites",
+        "FavoriteFolder",
+        null
+      ],
+      [
+        "authored history",
+        "HistoryFolder",
+        null
+      ],
+      [
+        "Material <not specified>",
+        "MaterialFolder",
+        null
+      ],
+      [
+        "authored markups",
+        "NotesAreaFtrFolder",
+        null
+      ],
+      [
+        "authored selection sets",
+        "SelectionSetFolder",
+        null
+      ],
+      [
+        "authored sensors",
+        "SensorFolder",
+        null
+      ],
+      [
+        "authored solids",
+        "SolidBodyFolder",
+        null
+      ],
+      [
+        "authored surfaces",
+        "SurfaceBodyFolder",
+        null
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder",
+        null
+      ],
+      [
+        "Front Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Top Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Right Plane",
+        "RefPlane",
+        null
+      ],
+      [
+        "Origin",
+        "OriginProfileFeature",
+        null
+      ],
+      [
+        "Sketch1",
+        "ProfileFeature",
+        null
+      ],
+      [
+        "Boss-Extrude1",
+        "Extrusion",
+        null
+      ]
+    ],
+    "child_dimensions_m": {
+      "D1@Sketch1": 0.0317,
+      "D2@Sketch1": 0.0126,
+      "D1@Boss-Extrude1": 0.0089
+    }
+  }
+}

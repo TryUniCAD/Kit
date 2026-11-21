@@ -1,0 +1,1376 @@
+{
+  "schema": "kit.sw2026.generated-offset-plane-native-discovery.v1",
+  "status": "passed_disclosed_front_offset_candidate",
+  "passed": true,
+  "task_id": "B04-SW2026-REFPLANES",
+  "delivery_pr": 121,
+  "oracle": {
+    "version": "SOLIDWORKS 2026 SP05.2",
+    "revision": "34.5.2",
+    "file_version": "34.5.2.0604",
+    "executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "pre_writer_source_lock_sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703",
+  "source_packet_sha256": "db56b95bad3543b5949848ce263bc8865c578ead20b688166d0b576310eeda7a",
+  "source_correlation_sha256": "e57aa3912b10f038421e83e433f0cfb9015e1676949ae902cea61bc2b3ec10ce",
+  "writer_revision": "ebbfb4d8d4e7b888968c8197f37baf064b26060b",
+  "writer_files_sha256": {
+    "re/tooling/sw2026/builders/Part.py": "03b790ed89ba64354ba5ca3ed119629ce402c68e6f4918ad53a554e61ac3373b",
+    "re/tooling/sw2026/builders/Radial.py": "8f9d8fd3f7e18c7f9763ec10835734c7a887cced83e601537b84555193d2d619",
+    "re/tooling/sw2026/builders/ReferencePlane.py": "b9686f0f643049b0bdc18793011516139dba72d991a0adbc5a177d76dcf39f15",
+    "re/tooling/sw2026/ReferencePlanePartProcess.py": "1dedb6929e14811ea92e88c972c81b0a66ed8d185dace86039a83fc71d5b2ff0"
+  },
+  "code_manifest_sha256": "7491a46458bfd56f81acc93bbc6aebd58c8980df0cc5d18d2b03300d0f44ff0c",
+  "code_closure_python_files": 3879,
+  "observer_sha256": "4e4cf6bc4e2d9dfd807cbd6c00ec3376ca41b895c1579f8ba26df65d0c263cef",
+  "preparer_sha256": "e035e8fd904c1555f7f013446a5eaa4bf5f22bbd33e393a6b2682153f4be60c4",
+  "native_packet_sha256": "13d2595920eefd54b5e323f5ad179f3c46aee32797605b7d3293ec7a66a93501",
+  "native_result_sha256": "fe6f62da47f725614508e7d51fefb0a000b83d32c1ea82a7ef095c48d760074e",
+  "host_transport_sha256": "cbeb02437ead2f122c073b236351d96cfe421fdee763f94ec3113d48ae7b8b72",
+  "transport_exit_code": 0,
+  "native_aggregate_passed": true,
+  "native_aggregate_exception": null,
+  "all_four_native_phase_snapshots_passed": true,
+  "distinct_native_processes": 4,
+  "controls_healthy": true,
+  "immutable_inputs_unchanged": true,
+  "generated_request_sha256": "504e6c81b2cbfb74d23467ee3f649599353ecabfa4827dac4673ebe11f189fa6",
+  "generated_input": {
+    "filename": "GeneratedOffsetCylinder.SLDPRT",
+    "sha256": "3e051c5639f5c8797e6ec39860e50c433b252e28af421999737eeb033f647f27",
+    "bytes": 8671
+  },
+  "saved_edited_output": {
+    "filename": "GeneratedOffsetCylinderEdited.SLDPRT",
+    "status": [
+      true,
+      0,
+      0
+    ],
+    "sha256": "c99b33b4f95e478502321e3b1db6649821ac6e72da29ffc48bc73476c434a1c9",
+    "bytes": 60344
+  },
+  "phases": [
+    {
+      "role": "ControlBefore",
+      "phase_snapshot_passed": true,
+      "phase_record_sha256": "56d3bbaaa7caf569ecd1d67e6d0cf83a6b1923702d7a5e363eff78d333983cf3",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": 134394206200345350,
+      "load_errors": 0,
+      "load_warnings": 0,
+      "initial_body_count": 1,
+      "initial_needs_rebuild": 0,
+      "snapshots": {
+        "rebuilt": {
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.4036415028027867e-06,
+            "area": 0.0007717121291613496,
+            "com": [
+              8.205263352965236e-20,
+              1.0895718255931566e-50,
+              0.017025
+            ],
+            "mass": 1.4036415028027867e-06
+          },
+          "expected_geometry": {
+            "distance_m": 0.01379,
+            "radius_m": 0.00831,
+            "depth_m": 0.00647,
+            "body_count": 1,
+            "volume": 1.403641502802787e-06,
+            "area": 0.0007717121291613497,
+            "plane_origin": [
+              0.0,
+              0.0,
+              0.01379
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "com": [
+              0.0,
+              0.0,
+              0.017025
+            ]
+          },
+          "plane": {
+            "constraint": 8,
+            "type": 5,
+            "type2": 11,
+            "parents": [
+              {
+                "name": "Front Plane",
+                "type": "RefPlane"
+              }
+            ],
+            "distance_m": 0.01379,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.01379,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "driving_dimensions_m": {
+            "plane_distance": 0.01379,
+            "radius": 0.00831,
+            "boss_depth": 0.00647
+          },
+          "sketch_world_origin": [
+            0.0,
+            0.0,
+            0.01379
+          ],
+          "sketch_world_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "feature_tree": {
+            "nodes": 26,
+            "sha256": "6b237fc168fd426ce70b1895179a6f41330fe67866127ef775d2a3f2e51bc0d4",
+            "errors": 0,
+            "warnings": 0,
+            "suppressed": 0
+          }
+        }
+      },
+      "native_dialog_count": 0,
+      "controller_diagnostics": []
+    },
+    {
+      "role": "Generated",
+      "phase_snapshot_passed": true,
+      "phase_record_sha256": "30306988cbfefd6baf18ae69f67b60d277c7664778074b8d8d6900e3f78e8dde",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": 134394206463612857,
+      "load_errors": 0,
+      "load_warnings": 0,
+      "initial_body_count": 1,
+      "initial_needs_rebuild": 0,
+      "snapshots": {
+        "rebuilt": {
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.5793197786817582e-06,
+            "area": 0.0009194763113044148,
+            "com": [
+              1.6634145239525144e-19,
+              -1.6139524700561296e-50,
+              0.020545
+            ],
+            "mass": 1.5793197786817582e-06
+          },
+          "expected_geometry": {
+            "distance_m": 0.01789,
+            "radius_m": 0.00973,
+            "depth_m": 0.00531,
+            "body_count": 1,
+            "volume": 1.5793197786817586e-06,
+            "area": 0.0009194763113044151,
+            "plane_origin": [
+              0.0,
+              0.0,
+              0.01789
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "com": [
+              0.0,
+              0.0,
+              0.020545
+            ]
+          },
+          "plane": {
+            "constraint": 8,
+            "type": 5,
+            "type2": 11,
+            "parents": [
+              {
+                "name": "Front Plane",
+                "type": "RefPlane"
+              }
+            ],
+            "distance_m": 0.01789,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.01789,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "driving_dimensions_m": {
+            "plane_distance": 0.01789,
+            "radius": 0.00973,
+            "boss_depth": 0.00531
+          },
+          "sketch_world_origin": [
+            0.0,
+            0.0,
+            0.01789
+          ],
+          "sketch_world_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "feature_tree": {
+            "nodes": 27,
+            "sha256": "09059c53bc7b78cd9100e92ed333a135b680e2203b4c038afaa0aaaa782b803d",
+            "errors": 0,
+            "warnings": 0,
+            "suppressed": 0
+          }
+        },
+        "edited": {
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.5793197786817593e-06,
+            "area": 0.000919476311304415,
+            "com": [
+              1.6634145239525144e-19,
+              -3.066509693106644e-50,
+              0.031325
+            ],
+            "mass": 1.5793197786817593e-06
+          },
+          "expected_geometry": {
+            "distance_m": 0.02867,
+            "radius_m": 0.00973,
+            "depth_m": 0.00531,
+            "body_count": 1,
+            "volume": 1.5793197786817586e-06,
+            "area": 0.0009194763113044151,
+            "plane_origin": [
+              0.0,
+              0.0,
+              0.02867
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "com": [
+              0.0,
+              0.0,
+              0.031325
+            ]
+          },
+          "plane": {
+            "constraint": 8,
+            "type": 5,
+            "type2": 11,
+            "parents": [
+              {
+                "name": "Front Plane",
+                "type": "RefPlane"
+              }
+            ],
+            "distance_m": 0.02867,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.02867,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "driving_dimensions_m": {
+            "plane_distance": 0.02867,
+            "radius": 0.00973,
+            "boss_depth": 0.00531
+          },
+          "sketch_world_origin": [
+            0.0,
+            0.0,
+            0.02867
+          ],
+          "sketch_world_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "feature_tree": {
+            "nodes": 27,
+            "sha256": "09059c53bc7b78cd9100e92ed333a135b680e2203b4c038afaa0aaaa782b803d",
+            "errors": 0,
+            "warnings": 0,
+            "suppressed": 0
+          }
+        }
+      },
+      "native_dialog_count": 0,
+      "controller_diagnostics": []
+    },
+    {
+      "role": "Reopen",
+      "phase_snapshot_passed": true,
+      "phase_record_sha256": "d356a11c243daf6efec7e95ee8ade74bf3cc7d1eebdf9d3bbf0ece46e644c171",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": 134394206892006964,
+      "load_errors": 0,
+      "load_warnings": 0,
+      "initial_body_count": 1,
+      "initial_needs_rebuild": 0,
+      "snapshots": {
+        "rebuilt": {
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.5793197786817593e-06,
+            "area": 0.000919476311304415,
+            "com": [
+              1.6634145239525144e-19,
+              -3.066509693106644e-50,
+              0.031325
+            ],
+            "mass": 1.5793197786817593e-06
+          },
+          "expected_geometry": {
+            "distance_m": 0.02867,
+            "radius_m": 0.00973,
+            "depth_m": 0.00531,
+            "body_count": 1,
+            "volume": 1.5793197786817586e-06,
+            "area": 0.0009194763113044151,
+            "plane_origin": [
+              0.0,
+              0.0,
+              0.02867
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "com": [
+              0.0,
+              0.0,
+              0.031325
+            ]
+          },
+          "plane": {
+            "constraint": 8,
+            "type": 5,
+            "type2": 11,
+            "parents": [
+              {
+                "name": "Front Plane",
+                "type": "RefPlane"
+              }
+            ],
+            "distance_m": 0.02867,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.02867,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "driving_dimensions_m": {
+            "plane_distance": 0.02867,
+            "radius": 0.00973,
+            "boss_depth": 0.00531
+          },
+          "sketch_world_origin": [
+            0.0,
+            0.0,
+            0.02867
+          ],
+          "sketch_world_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "feature_tree": {
+            "nodes": 27,
+            "sha256": "09059c53bc7b78cd9100e92ed333a135b680e2203b4c038afaa0aaaa782b803d",
+            "errors": 0,
+            "warnings": 0,
+            "suppressed": 0
+          }
+        }
+      },
+      "native_dialog_count": 0,
+      "controller_diagnostics": []
+    },
+    {
+      "role": "ControlAfter",
+      "phase_snapshot_passed": true,
+      "phase_record_sha256": "7628e546880244cddf85e0537dae8e70651fbfbbcd31d1d759d23c5c00b16c86",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "process_creation_filetime": 134394207217505194,
+      "load_errors": 0,
+      "load_warnings": 0,
+      "initial_body_count": 1,
+      "initial_needs_rebuild": 0,
+      "snapshots": {
+        "rebuilt": {
+          "body_count": 1,
+          "mass_properties": {
+            "volume": 1.4036415028027867e-06,
+            "area": 0.0007717121291613496,
+            "com": [
+              8.205263352965236e-20,
+              1.0895718255931566e-50,
+              0.017025
+            ],
+            "mass": 1.4036415028027867e-06
+          },
+          "expected_geometry": {
+            "distance_m": 0.01379,
+            "radius_m": 0.00831,
+            "depth_m": 0.00647,
+            "body_count": 1,
+            "volume": 1.403641502802787e-06,
+            "area": 0.0007717121291613497,
+            "plane_origin": [
+              0.0,
+              0.0,
+              0.01379
+            ],
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "com": [
+              0.0,
+              0.0,
+              0.017025
+            ]
+          },
+          "plane": {
+            "constraint": 8,
+            "type": 5,
+            "type2": 11,
+            "parents": [
+              {
+                "name": "Front Plane",
+                "type": "RefPlane"
+              }
+            ],
+            "distance_m": 0.01379,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              -0.0,
+              -0.0,
+              0.01379,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "driving_dimensions_m": {
+            "plane_distance": 0.01379,
+            "radius": 0.00831,
+            "boss_depth": 0.00647
+          },
+          "sketch_world_origin": [
+            0.0,
+            0.0,
+            0.01379
+          ],
+          "sketch_world_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "feature_tree": {
+            "nodes": 26,
+            "sha256": "6b237fc168fd426ce70b1895179a6f41330fe67866127ef775d2a3f2e51bc0d4",
+            "errors": 0,
+            "warnings": 0,
+            "suppressed": 0
+          }
+        }
+      },
+      "native_dialog_count": 0,
+      "controller_diagnostics": []
+    }
+  ],
+  "strict_tree_comparison": {
+    "passed": true,
+    "before_nodes": 27,
+    "after_nodes": 27,
+    "differences": [],
+    "all_rows_equal": true
+  },
+  "independent_typed_readback": {
+    "passed": true,
+    "result_sha256": "d7006261739d2b8e7b30e90528b1ff9724463c2dc8969a8fe91a2f0d4f9b72e5",
+    "audit_tool_sha256": "fc0d96207f23567929f90dcc5fc6dda9e4048b1803e3ac824620588694df8ff7",
+    "scoped_stream_roundtrips": 12,
+    "linked_map_reemissions": 2,
+    "edit_checks": {
+      "plane_identity_preserved": true,
+      "dimension_identity_preserved": true,
+      "support_identity_preserved": true,
+      "distance_persists_declared_edit": true,
+      "boss_depth_preserved": true,
+      "radius_preserved": true
+    },
+    "source_read_custody": {
+      "allowed_native_files": 2,
+      "native_open_events": 4,
+      "distinct_native_files_opened": [
+        "FrozenGenerated/GeneratedOffsetCylinder.SLDPRT",
+        "Saved/GeneratedOffsetCylinderEdited.SLDPRT"
+      ],
+      "denied_events": 0,
+      "heldout_inputs_read": 0,
+      "packet_write_events": 0
+    },
+    "siblings": {
+      "generated": {
+        "sha256": "3e051c5639f5c8797e6ec39860e50c433b252e28af421999737eeb033f647f27",
+        "bytes": 8671,
+        "projection": {
+          "plane_feature_id": 18,
+          "plane_map_slot": 130,
+          "support_feature_id": 14,
+          "profile_feature_id": 20,
+          "boss_feature_id": 22,
+          "wire_owner": "moFaceRefPlnData_c",
+          "data_map_slot": 133,
+          "reference": {
+            "class": "moCompRefPlane_c",
+            "map_slot": 135,
+            "datum_id": 14,
+            "datum_creation": 2592000,
+            "principal_kind": 3,
+            "component_map_slot": 136
+          },
+          "distance_m": 0.01789,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            0.0,
+            0.0,
+            0.01789
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.01789
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "border": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mode_words": {
+            "f50": 0,
+            "f54": -4,
+            "f58": -4,
+            "f5c": 5,
+            "f60": 0,
+            "f64": 0,
+            "fa0": 0,
+            "fa4": 1,
+            "has_fa8": 0,
+            "fb4": 0
+          },
+          "distance_graph": {
+            "display": "moDisplayDistanceDim_c",
+            "handle": "moFeatureDimHandle_c",
+            "dimension": "ParallelPlaneDistanceDim_c",
+            "parameter": "moLengthParameter_c",
+            "display_map_slot": 138,
+            "handle_map_slot": 140,
+            "dimension_map_slot": 142,
+            "parameter_map_slot": 144,
+            "dimension_persistent_id": 17,
+            "parameter_node_id": -1,
+            "parameter_name": "D1"
+          },
+          "dimension_points": {
+            "f80": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fa0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fc0": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "dimension_axes_present": 0,
+          "dimension_frame_present": 0,
+          "sketch_reference": {
+            "class": "moCompRefPlane_c",
+            "map_slot": 181,
+            "datum_id": 18,
+            "datum_creation": 2592000,
+            "principal_kind": 0,
+            "component_map_slot": 182
+          },
+          "sketch_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.01789
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "boss_depth_m": 0.00531,
+          "native_parameters": [
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 144,
+              "value": 0.01789,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 168,
+              "value": 0.00973,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 191,
+              "value": 0.00531,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 197,
+              "value": 0.00531,
+              "name": "D2",
+              "alternate_name": null
+            },
+            {
+              "class": "moAngleParameter_c",
+              "map_slot": 206,
+              "value": 0.0,
+              "name": "D3",
+              "alternate_name": null
+            },
+            {
+              "class": "moAngleParameter_c",
+              "map_slot": 212,
+              "value": 0.0,
+              "name": "D4",
+              "alternate_name": null
+            }
+          ],
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": false,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "passed": false,
+          "construction_rule_source": "native Distance_c.CreateData, moFaceRefPlnData_c ctor/getters and existing shared serializer",
+          "cache_formulas_and_neutral_states_qualified": false
+        },
+        "radius": {
+          "value_m": 0.00973,
+          "parameter_name": "D1",
+          "parameter_id": -1,
+          "cache_m": 0.00973,
+          "reference_norm_m": 0.01789
+        },
+        "material": {
+          "name": "Material <not specified>",
+          "material_string": "",
+          "flags380": 2147483648
+        },
+        "headers": {
+          "model_update": 101,
+          "top_update": 101,
+          "configuration_update": 101,
+          "configuration_header_update": 101,
+          "manager_save_time": 1794700051,
+          "configuration_header": {
+            "f08": 1,
+            "f10": "Default",
+            "f30": 0,
+            "f38": 101,
+            "f34": -1,
+            "f40": 0,
+            "f44": 256,
+            "f48": 0,
+            "f50": 101,
+            "f4c": 101
+          }
+        },
+        "map": {
+          "config_base": 4,
+          "config_count": 83,
+          "resolved_base": 83,
+          "resolved_count": 217,
+          "re_emitted_seed_continuity": true
+        },
+        "checks": {
+          "plane_inputs_match_neutral_and_native": true,
+          "distance_display_cache_matches_lifecycle": true,
+          "radius_parameter_matches_neutral": true,
+          "radius_cache_matches_parameter": true,
+          "radial_reference_norm_matches_offset": true,
+          "material_is_unassigned": true,
+          "model_and_top_update_stamps_agree": true,
+          "configuration_update_matches_header": true,
+          "configuration_name_matches_request": true
+        },
+        "distance_display_cache": {
+          "value_m": 0.0,
+          "expected_m": 0.0,
+          "lifecycle": "fresh_shared_constructor",
+          "fresh_rule": "shared common_display_fields initializes fad0 to zero",
+          "native_saved_profile_cache_check_passed": false
+        },
+        "streams": {
+          "Contents/Config-0": {
+            "passed": true,
+            "bytes": 21152,
+            "sha256": "8434ab2b2ba3bf541108f1ae4566b412a8f428b206d40ae57a9c1002574e2715",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "passed": true,
+            "bytes": 17640,
+            "sha256": "1f9cd3f72cdea3cef9cdedad0ad501c7f090db9b4c68680c393b12cfdec1a806",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 6
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 6
+              }
+            }
+          },
+          "Contents/Config-0-ModelHeader": {
+            "passed": true,
+            "bytes": 875,
+            "sha256": "65156840962796d2ba8231555c5b17aa758d756adcd7ae1a65e74096870a29ba",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Header2": {
+            "passed": true,
+            "bytes": 875,
+            "sha256": "ab4311f2d8c7836af06012d1e6efa3b4f7d7dd5f6b223be673861f317ddd1cee",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Contents/CMgr": {
+            "passed": true,
+            "bytes": 1129,
+            "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Contents/CMgrHdr2": {
+            "passed": true,
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          }
+        }
+      },
+      "edited_saved": {
+        "sha256": "c99b33b4f95e478502321e3b1db6649821ac6e72da29ffc48bc73476c434a1c9",
+        "bytes": 60344,
+        "projection": {
+          "plane_feature_id": 18,
+          "plane_map_slot": 175,
+          "support_feature_id": 14,
+          "profile_feature_id": 20,
+          "boss_feature_id": 22,
+          "wire_owner": "moFaceRefPlnData_c",
+          "data_map_slot": 178,
+          "reference": {
+            "class": "moCompRefPlane_c",
+            "map_slot": 180,
+            "datum_id": 14,
+            "datum_creation": 2592000,
+            "principal_kind": 3,
+            "component_map_slot": 181
+          },
+          "distance_m": 0.02867,
+          "flip": false,
+          "reference_index": 0,
+          "common_origin_m": [
+            -0.0,
+            -0.0,
+            0.02867
+          ],
+          "common_normal": [
+            0.0,
+            0.0,
+            1.0
+          ],
+          "common_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.02867
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "border": [
+            0.010703,
+            -0.010703,
+            0.010703,
+            -0.010703
+          ],
+          "mode_words": {
+            "f50": 0,
+            "f54": 1,
+            "f58": 2,
+            "f5c": 5,
+            "f60": 0,
+            "f64": 0,
+            "fa0": 0,
+            "fa4": 1,
+            "has_fa8": 0,
+            "fb4": 0
+          },
+          "distance_graph": {
+            "display": "moDisplayDistanceDim_c",
+            "handle": "moFeatureDimHandle_c",
+            "dimension": "ParallelPlaneDistanceDim_c",
+            "parameter": "moLengthParameter_c",
+            "display_map_slot": 183,
+            "handle_map_slot": 185,
+            "dimension_map_slot": 187,
+            "parameter_map_slot": 189,
+            "dimension_persistent_id": 17,
+            "parameter_node_id": -1,
+            "parameter_name": "D1"
+          },
+          "dimension_points": {
+            "f80": [
+              0.0,
+              0.0,
+              0.02867
+            ],
+            "fa0": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "fc0": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "dimension_axes_present": 1,
+          "dimension_frame_present": 1,
+          "sketch_reference": {
+            "class": "moCompRefPlane_c",
+            "map_slot": 227,
+            "datum_id": 18,
+            "datum_creation": 2592000,
+            "principal_kind": 0,
+            "component_map_slot": 228
+          },
+          "sketch_transform": {
+            "has_matrix": 0,
+            "matrix": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ],
+            "translation": [
+              0.0,
+              0.0,
+              -0.02867
+            ],
+            "scale": 1.0,
+            "flags": 0
+          },
+          "boss_depth_m": 0.00531,
+          "native_parameters": [
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 189,
+              "value": 0.02867,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 212,
+              "value": 0.00973,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 265,
+              "value": 0.00531,
+              "name": "D1",
+              "alternate_name": null
+            },
+            {
+              "class": "moLengthParameter_c",
+              "map_slot": 271,
+              "value": 0.00531,
+              "name": "D2",
+              "alternate_name": null
+            },
+            {
+              "class": "moAngleParameter_c",
+              "map_slot": 280,
+              "value": 0.0,
+              "name": "D3",
+              "alternate_name": null
+            },
+            {
+              "class": "moAngleParameter_c",
+              "map_slot": 286,
+              "value": 0.0,
+              "name": "D4",
+              "alternate_name": null
+            }
+          ],
+          "checks": {
+            "distance_matches_authored_input": true,
+            "distance_matches_native_api": true,
+            "display_value_matches_parameter": true,
+            "flip_matches_authored_input": true,
+            "compatibility_mode_matches_factory": true,
+            "factory_argument_fa4": true,
+            "first_reference_index": true,
+            "optional_plane_data_reference_absent": true,
+            "selected_principal_datum": true,
+            "cached_origin_matches_input": true,
+            "cached_normal_matches_input": true,
+            "sketch_supports_actual_authored_plane": true,
+            "boss_depth_matches_input": true
+          },
+          "passed": true,
+          "construction_rule_source": "native Distance_c.CreateData, moFaceRefPlnData_c ctor/getters and existing shared serializer",
+          "cache_formulas_and_neutral_states_qualified": false
+        },
+        "radius": {
+          "value_m": 0.00973,
+          "parameter_name": "D1",
+          "parameter_id": -1,
+          "cache_m": 0.00973,
+          "reference_norm_m": 0.02867
+        },
+        "material": {
+          "name": "Material <not specified>",
+          "material_string": "",
+          "flags380": 2147483648
+        },
+        "headers": {
+          "model_update": 156,
+          "top_update": 156,
+          "configuration_update": 156,
+          "configuration_header_update": 156,
+          "manager_save_time": 1794947081,
+          "configuration_header": {
+            "f08": 1,
+            "f10": "Default",
+            "f30": 0,
+            "f38": 156,
+            "f34": -1,
+            "f40": 0,
+            "f44": -2143288960,
+            "f48": 0,
+            "f50": 107,
+            "f4c": 101
+          }
+        },
+        "map": {
+          "config_base": 4,
+          "config_count": 121,
+          "resolved_base": 121,
+          "resolved_count": 291,
+          "re_emitted_seed_continuity": true
+        },
+        "checks": {
+          "plane_inputs_match_neutral_and_native": true,
+          "distance_display_cache_matches_lifecycle": true,
+          "radius_parameter_matches_neutral": true,
+          "radius_cache_matches_parameter": true,
+          "radial_reference_norm_matches_offset": true,
+          "material_is_unassigned": true,
+          "model_and_top_update_stamps_agree": true,
+          "configuration_update_matches_header": true,
+          "configuration_name_matches_request": true
+        },
+        "distance_display_cache": {
+          "value_m": 0.02867,
+          "expected_m": 0.02867,
+          "lifecycle": "native_edited_save",
+          "fresh_rule": "shared common_display_fields initializes fad0 to zero",
+          "native_saved_profile_cache_check_passed": true
+        },
+        "streams": {
+          "Contents/Config-0": {
+            "passed": true,
+            "bytes": 24971,
+            "sha256": "125e6c4b66426579e6dab08eefb4eca83e81b4d59dab694a675613b79269e930",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 3
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 3
+              }
+            }
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "passed": true,
+            "bytes": 19692,
+            "sha256": "1fba505c3e0077d4aebf3a15c81a5a9d0b1270ac00a345252cfcd5ba6a907017",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 9
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 6
+              }
+            }
+          },
+          "Contents/Config-0-ModelHeader": {
+            "passed": true,
+            "bytes": 1413,
+            "sha256": "93b1ce8fe3dcd9558cbfbc5f9f5910616729508578b8cf6987e1f9de19facf12",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Header2": {
+            "passed": true,
+            "bytes": 1413,
+            "sha256": "93b1ce8fe3dcd9558cbfbc5f9f5910616729508578b8cf6987e1f9de19facf12",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Contents/CMgr": {
+            "passed": true,
+            "bytes": 2565,
+            "sha256": "345b47f0115c78823f6cbf711dfda52dcb181587ff1b3dcc7b6a3d6c23160f0b",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          },
+          "Contents/CMgrHdr2": {
+            "passed": true,
+            "bytes": 137,
+            "sha256": "62ff2fced2b87643ecf025113b8ef787181933a462962ba49dbe165dacd139aa",
+            "tail": 0,
+            "schema_coverage": {
+              "load": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              },
+              "store": {
+                "provisional_schemas": [],
+                "missing_schemas": [],
+                "raw_operation_count": 0
+              }
+            }
+          }
+        }
+      }
+    },
+    "full_field_classification_claimed": false,
+    "native_saved_cache_states_are_writer_inputs": false
+  },
+  "unassigned_material_vocabulary": {
+    "existing_rule_record": "re/solidworks/records/MaterialFolderConstruction2026.md",
+    "independent_reverification_sha256": "9c460d4a7e531622267499c4a08a09282d02b0d09e3e5dd38341832a7aefbabe",
+    "model_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "constructor": {
+      "start": "0x4beae310",
+      "end_exclusive": "0x4beae3a8",
+      "body_sha256": "f203b52a0c8cdf3af76ade6cc860ffee137026c46d560536dfc6a66e74a7e5e7",
+      "resource_id": "0x4497",
+      "actual_name_setter": "0x4bb3c560"
+    },
+    "resource_module_sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111",
+    "resource": {
+      "language": 1033,
+      "type": 6,
+      "block": 1098,
+      "index": 7,
+      "rva": "0x1e0498",
+      "bytes": 2288,
+      "sha256": "ac8673a065e924a4514e8db2d26babd3063dc87b231d71886e6fb0c35389f2f2",
+      "consumed_bytes": 2288,
+      "selected_caption": "Material <not specified>"
+    },
+    "saved_node_name": "Material <not specified>",
+    "fresh_reopen_live_name": "Material <not specified>",
+    "higher_level_reopen_rename_caller_identified": false
+  },
+  "scope_limits": {
+    "native_trials": 1,
+    "discovery_only": true,
+    "heldout_inputs_read": 0,
+    "heldout_writer_evaluations": 0,
+    "other_principal_planes_or_reverse_native_generated_acceptance": false,
+    "angle_or_multiple_reference_plane_support": false,
+    "public_writer_enabled": false,
+    "full_goal_complete": false
+  },
+  "native_acceptance": true,
+  "application_usable_acceptance": true,
+  "fully_parametric_family_qualified": false,
+  "vendor_loadable": true,
+  "application_usable": true,
+  "qualification_scope": "Exact disclosed generated Front-offset cylinder and its edited native derivative; held-out family and public writer qualification remain open",
+  "prior_failed_discovery_receipt_sha256": "ff93a8c57e3d0ab7eb819ef1d3638246ee88c1cc995fce47b856a96892095489",
+  "prior_failed_native_result_sha256": "9ae09c539f93e399c73ff2c30802c42b9095650ed5904ed042e0fe6ecd5dd768",
+  "neutral_changes_from_first_trial": [
+    "presentation.folder_names.moMaterialFolder_c: native English unassigned-material resource vocabulary",
+    "output.path_name: separate immutable trial custody"
+  ],
+  "writer_and_observer_unchanged": true,
+  "strict_native_and_tree_gates_unchanged": true,
+  "composition_proof_sha256": "f42ec1e295e25d1553c5ebb7d50c2d502d7001a9e60a7fc4d46679f96fc41581",
+  "guarded_builds": {
+    "fresh_processes": 2,
+    "identical_outputs": true,
+    "roundtrips_per_build": 11,
+    "runtime_input_file_access_attempts": 0
+  }
+}

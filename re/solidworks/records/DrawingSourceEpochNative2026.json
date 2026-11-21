@@ -1,0 +1,683 @@
+{
+  "execution": {
+    "cad_calls": false,
+    "native_calls": false,
+    "product_tests": false,
+    "schema_or_codec_execution": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 323,
+      "end_exclusive": "0x31a02683",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c constructor",
+      "sha256": "9daa4af66a3808b25fd51ae8fa4b4275a4b227fe65f5c181bc07602b242d5017",
+      "start": "0x31a02540",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 323,
+          "end_exclusive": "0x31a02683",
+          "sha256": "9daa4af66a3808b25fd51ae8fa4b4275a4b227fe65f5c181bc07602b242d5017",
+          "start": "0x31a02540",
+          "unwind_rva": "0x25db8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4921,
+      "end_exclusive": "0x31a04829",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::Serialize",
+      "sha256": "92ca4d48682e6f37ff9be31e90a567658575b254ed8252feabfe7c68adbd81d5",
+      "start": "0x31a034f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4921,
+          "end_exclusive": "0x31a04829",
+          "sha256": "92ca4d48682e6f37ff9be31e90a567658575b254ed8252feabfe7c68adbd81d5",
+          "start": "0x31a034f0",
+          "unwind_rva": "0x25fdc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 196,
+      "end_exclusive": "0x31a02854",
+      "module": "sldarchiveu.dll",
+      "name": "moStamp_c constructor",
+      "sha256": "ba49b4e6312171215e1ec6401340933c4220f65d69a82eaa8648507f436b98b7",
+      "start": "0x31a02790",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 196,
+          "end_exclusive": "0x31a02854",
+          "sha256": "ba49b4e6312171215e1ec6401340933c4220f65d69a82eaa8648507f436b98b7",
+          "start": "0x31a02790",
+          "unwind_rva": "0x25b20"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 273,
+      "end_exclusive": "0x31a049c1",
+      "module": "sldarchiveu.dll",
+      "name": "moStamp_c::Serialize",
+      "sha256": "9163c3c81a097137b0342378e0bb8c45712927ff064b5e7c5b52488bbbdc55b0",
+      "start": "0x31a048b0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 273,
+          "end_exclusive": "0x31a049c1",
+          "sha256": "9163c3c81a097137b0342378e0bb8c45712927ff064b5e7c5b52488bbbdc55b0",
+          "start": "0x31a048b0",
+          "unwind_rva": "0x25c44"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x31a05165",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::getCreationTime",
+      "sha256": "9e75390b88319a6173004f77bafd6781be7a5a066de6edc258240b4e00e70898",
+      "start": "0x31a05160",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 11,
+      "end_exclusive": "0x319f8a6b",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::getCurrentUpdateTimeStamp",
+      "sha256": "e1ed8dd71c15a2b718042126df56ff948bbf4911798b51c35d1687c65b02ef17",
+      "start": "0x319f8a60",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 71,
+      "end_exclusive": "0x31a05297",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::getLatestModificationTime",
+      "sha256": "6d4777b7ad17e852dbdff3e9c33085502ee5b7f73a87de9062a803aef293c8a3",
+      "start": "0x31a05250",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 73,
+      "end_exclusive": "0x31a05b79",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::resetCreationTime",
+      "sha256": "270a9172a73c2e9a35d60954ad4e6e5ef4893b01fed0b8aacfb6526154309fc7",
+      "start": "0x31a05b30",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 73,
+          "end_exclusive": "0x31a05b79",
+          "sha256": "270a9172a73c2e9a35d60954ad4e6e5ef4893b01fed0b8aacfb6526154309fc7",
+          "start": "0x31a05b30",
+          "unwind_rva": "0x23238"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 95,
+      "end_exclusive": "0x31a05cef",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::sanityCheckAndSetCreationTime",
+      "sha256": "6b67daeb8875aee6ee9b92c5ec30ba8d8874c9ac818a0a9ffdcdf266a4309220",
+      "start": "0x31a05c90",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 95,
+          "end_exclusive": "0x31a05cef",
+          "sha256": "6b67daeb8875aee6ee9b92c5ec30ba8d8874c9ac818a0a9ffdcdf266a4309220",
+          "start": "0x31a05c90",
+          "unwind_rva": "0x2334c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 102,
+      "end_exclusive": "0x31a05f26",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::setCreationTime",
+      "sha256": "f247a6db85dd71a04ca0079d935af7aa9000ab44199757f0766f65679566aaab",
+      "start": "0x31a05ec0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 102,
+          "end_exclusive": "0x31a05f26",
+          "sha256": "f247a6db85dd71a04ca0079d935af7aa9000ab44199757f0766f65679566aaab",
+          "start": "0x31a05ec0",
+          "unwind_rva": "0x2334c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 8,
+      "end_exclusive": "0x31a05f38",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::setCurrentUpdateTimeStamp",
+      "sha256": "ab8b2f3d2f2cc2032074c3f807e9dfe9a6c9ff940475404a6e51633c2e9df607",
+      "start": "0x31a05f30",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 18,
+      "end_exclusive": "0x31a06122",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::setUpdateTimeStamp",
+      "sha256": "85163a683770f988cceedd56837627744a2b4e9def55923b82bfaa3f49b04a6a",
+      "start": "0x31a06110",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 167,
+      "end_exclusive": "0x31a063d7",
+      "module": "sldarchiveu.dll",
+      "name": "moHeader_c::updateRevisionLog",
+      "sha256": "838a22194c664f9da7dad975ced5da7d11bd435c49ecbf20e05647dbed1aeaa8",
+      "start": "0x31a06330",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 37,
+          "end_exclusive": "0x31a06355",
+          "sha256": "b2e34860453a24c93f522d6eed58b20c6570907aaa30fac681dde70b1b187bb5",
+          "start": "0x31a06330",
+          "unwind_rva": "0x25f38"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 46,
+          "end_exclusive": "0x31a06383",
+          "sha256": "df3bedb2b91dfefacaa988b58cc54e82d0400b576dfdf665f574de4e0a2d58fa",
+          "start": "0x31a06355",
+          "unwind_rva": "0x25f44"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 71,
+          "end_exclusive": "0x31a063ca",
+          "sha256": "649d0986e4a5e2bb3cb6f09cdda8c6ec23301dc108cb76be74ee0e310b763ab6",
+          "start": "0x31a06383",
+          "unwind_rva": "0x25f58"
+        },
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 13,
+          "end_exclusive": "0x31a063d7",
+          "sha256": "6283330cdd1a31be5899b60aede10555729e759640185092879053b8d4a62e6a",
+          "start": "0x31a063ca",
+          "unwind_rva": "0x25f6c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 78,
+      "end_exclusive": "0x31a0642e",
+      "module": "sldarchiveu.dll",
+      "name": "moStamp_c::updateStamp",
+      "sha256": "73199ba59be7ec36b528565149f4a0cc40913a37d1ad1def0000b122ead6804a",
+      "start": "0x31a063e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 78,
+          "end_exclusive": "0x31a0642e",
+          "sha256": "73199ba59be7ec36b528565149f4a0cc40913a37d1ad1def0000b122ead6804a",
+          "start": "0x31a063e0",
+          "unwind_rva": "0x25c1c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 9,
+      "end_exclusive": "0x31a00a39",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectInterface_c::getTimestamp",
+      "sha256": "471cbfe5bba5bee3875330ccce84db65fd811c28cc1174cfaa540f5619cfc5e3",
+      "start": "0x31a00a30",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 98,
+      "end_exclusive": "0x31a01fc2",
+      "module": "sldarchiveu.dll",
+      "name": "moExtObjectInterface_c::setTimestamp",
+      "sha256": "3fdb2ee479909d8904345854d0d9c2cd0591704d1ca5af28cbcdea6eb76ebecb",
+      "start": "0x31a01f60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 98,
+          "end_exclusive": "0x31a01fc2",
+          "sha256": "3fdb2ee479909d8904345854d0d9c2cd0591704d1ca5af28cbcdea6eb76ebecb",
+          "start": "0x31a01f60",
+          "unwind_rva": "0x24d84"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 59,
+      "end_exclusive": "0x31a4bc9b",
+      "module": "swccu.dll",
+      "name": "su_CTime archive read",
+      "sha256": "5e0bb27c0fa5d954e24cfa64e04c845558552ba5c3d53da260b45e47b9638bbe",
+      "start": "0x31a4bc60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 59,
+          "end_exclusive": "0x31a4bc9b",
+          "sha256": "5e0bb27c0fa5d954e24cfa64e04c845558552ba5c3d53da260b45e47b9638bbe",
+          "start": "0x31a4bc60",
+          "unwind_rva": "0x25120"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x31a4bcb7",
+      "module": "swccu.dll",
+      "name": "su_CTime archive store",
+      "sha256": "fc596e92ddbeda39458b55c631d432df1dbb3b3429dfcae6ff0ef06ac3b10583",
+      "start": "0x31a4bcb0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 72,
+      "end_exclusive": "0x31a4c4e8",
+      "module": "swccu.dll",
+      "name": "su_CTime::GetLocalTm",
+      "sha256": "914fbad360393c806156b2b41872aaa9bec513d4b143d959bcae8bfdc4a7750d",
+      "start": "0x31a4c4a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 72,
+          "end_exclusive": "0x31a4c4e8",
+          "sha256": "914fbad360393c806156b2b41872aaa9bec513d4b143d959bcae8bfdc4a7750d",
+          "start": "0x31a4c4a0",
+          "unwind_rva": "0x25120"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 29,
+      "end_exclusive": "0x31a4c5ed",
+      "module": "swccu.dll",
+      "name": "su_CTime::GetTickCount",
+      "sha256": "a22dea2b9ff75c55c551b2e17006bdea9af5a8fad5d47bb85b9f49658101154c",
+      "start": "0x31a4c5d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 29,
+          "end_exclusive": "0x31a4c5ed",
+          "sha256": "a22dea2b9ff75c55c551b2e17006bdea9af5a8fad5d47bb85b9f49658101154c",
+          "start": "0x31a4c5d0",
+          "unwind_rva": "0x25120"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 21,
+      "end_exclusive": "0x31a4c575",
+      "module": "swccu.dll",
+      "name": "su_CTime::GetMonth",
+      "sha256": "4bb3b17e3eb87cd7cb7bd5ad7a7a2795b32dc2829a464285c8a321ae2d703736",
+      "start": "0x31a4c560",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 21,
+          "end_exclusive": "0x31a4c575",
+          "sha256": "4bb3b17e3eb87cd7cb7bd5ad7a7a2795b32dc2829a464285c8a321ae2d703736",
+          "start": "0x31a4c560",
+          "unwind_rva": "0x24c78"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 24,
+      "end_exclusive": "0x31a4c668",
+      "module": "swccu.dll",
+      "name": "su_CTime::GetYear",
+      "sha256": "2eb4e718f38a665eaa21a604fd0855e010ecdb8e19217157f99b282860aee860",
+      "start": "0x31a4c650",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 24,
+          "end_exclusive": "0x31a4c668",
+          "sha256": "2eb4e718f38a665eaa21a604fd0855e010ecdb8e19217157f99b282860aee860",
+          "start": "0x31a4c650",
+          "unwind_rva": "0x24c78"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 6,
+      "end_exclusive": "0x3d03ebb6",
+      "module": "sldutu.dll",
+      "name": "ut_getUnsetTime",
+      "sha256": "69b57496f39e3a204515198f0e0e5dc9398277036a302e93cca01c178bf36725",
+      "start": "0x3d03ebb0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 94,
+      "end_exclusive": "0x4c71defe",
+      "module": "sldmodu.dll",
+      "name": "moVersionHistory_c constructor",
+      "sha256": "26682966e963fcf45a4da31f1aac00aa90c18f6eb70f4e6bb7944febd3983982",
+      "start": "0x4c71dea0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 94,
+          "end_exclusive": "0x4c71defe",
+          "sha256": "26682966e963fcf45a4da31f1aac00aa90c18f6eb70f4e6bb7944febd3983982",
+          "start": "0x4c71dea0",
+          "unwind_rva": "0x2535498"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1208,
+      "end_exclusive": "0x4c720028",
+      "module": "sldmodu.dll",
+      "name": "moVersionHistory_c::Serialize",
+      "sha256": "eba027202d14b3f47547ee95bcca4ba5af555b6d9c00ce6fe42615cb09f1064e",
+      "start": "0x4c71fb70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1208,
+          "end_exclusive": "0x4c720028",
+          "sha256": "eba027202d14b3f47547ee95bcca4ba5af555b6d9c00ce6fe42615cb09f1064e",
+          "start": "0x4c71fb70",
+          "unwind_rva": "0x2535750"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 624,
+      "end_exclusive": "0x4c7202a0",
+      "module": "sldmodu.dll",
+      "name": "moVersionState_c::Serialize",
+      "sha256": "dc6a04b9ffb48ab7c4e7abd57554e4cacef0fea0e6e2a1ae2e728a3b14728242",
+      "start": "0x4c720030",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 624,
+          "end_exclusive": "0x4c7202a0",
+          "sha256": "dc6a04b9ffb48ab7c4e7abd57554e4cacef0fea0e6e2a1ae2e728a3b14728242",
+          "start": "0x4c720030",
+          "unwind_rva": "0x2535bc0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 233,
+      "end_exclusive": "0x4c7208e9",
+      "module": "sldmodu.dll",
+      "name": "moVersionHistory_c::fileCreated",
+      "sha256": "3f9fc8b3bdc45267a6da5724b855efc3a7b151874a4d6962987884bcf3c8bc95",
+      "start": "0x4c720800",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 233,
+          "end_exclusive": "0x4c7208e9",
+          "sha256": "3f9fc8b3bdc45267a6da5724b855efc3a7b151874a4d6962987884bcf3c8bc95",
+          "start": "0x4c720800",
+          "unwind_rva": "0x2535550"
+        }
+      ]
+    }
+  ],
+  "imports": {
+    "sldarchiveu.dll": [
+      {
+        "iat": "0x31a0e140",
+        "module": "SLDMFCU.dll",
+        "name": "?AddTail@suObList@@QEAAPEAU__POSITION@@PEAVCObject@@@Z"
+      },
+      {
+        "iat": "0x31a0e218",
+        "module": "SLDMFCU.dll",
+        "name": "?hasCondition@moArchiveHelper_c@@QEAAHH@Z"
+      },
+      {
+        "iat": "0x31a0e790",
+        "module": "sldutu.dll",
+        "name": "?ut_getUnsetTime@@YA_JXZ"
+      },
+      {
+        "iat": "0x31a0e7c8",
+        "module": "swccu.dll",
+        "name": "?GetTickCount@su_CTime@@SA?AV1@XZ"
+      },
+      {
+        "iat": "0x31a0e818",
+        "module": "swccu.dll",
+        "name": "?Find@su_CObList@@QEBAPEAU__POSITION@@PEAVCObject@@PEAU2@@Z"
+      },
+      {
+        "iat": "0x31a0e870",
+        "module": "swccu.dll",
+        "name": "??5@YAAEAVsu_CArchive@@AEAV0@AEAVsu_CTime@@@Z"
+      },
+      {
+        "iat": "0x31a0e878",
+        "module": "swccu.dll",
+        "name": "??6@YAAEAVsu_CArchive@@AEAV0@Vsu_CTime@@@Z"
+      },
+      {
+        "iat": "0x31a0e880",
+        "module": "swccu.dll",
+        "name": "??0su_CTime@@QEAA@HHHHHHH@Z"
+      },
+      {
+        "iat": "0x31a0e960",
+        "module": "swccu.dll",
+        "name": "?IsStoring@su_CArchive@@QEBAHXZ"
+      },
+      {
+        "iat": "0x31a0e9b8",
+        "module": "swccu.dll",
+        "name": "?GetLocalTm@su_CTime@@QEBAPEAUtm@@PEAU2@@Z"
+      },
+      {
+        "iat": "0x31a0e448",
+        "module": "api-ms-win-crt-time-l1-1-0.dll",
+        "name": "_time64"
+      }
+    ],
+    "sldmodu.dll": [
+      {
+        "iat": "0x4cd356a8",
+        "module": "sldarchiveu.dll",
+        "name": "??0moStamp_c@@QEAA@HHW4moRevisionStatus_e@@PEB_W@Z"
+      },
+      {
+        "iat": "0x4cd356e8",
+        "module": "sldarchiveu.dll",
+        "name": "?CurrentUser@moHeader_c@@QEAAHXZ"
+      }
+    ],
+    "swccu.dll": [
+      {
+        "iat": "0x31a50240",
+        "module": "api-ms-win-crt-time-l1-1-0.dll",
+        "name": "_localtime64"
+      },
+      {
+        "iat": "0x31a50250",
+        "module": "api-ms-win-crt-time-l1-1-0.dll",
+        "name": "_time64"
+      }
+    ]
+  },
+  "instruction_decoder": "Apple LLVM 21.0.0 llvm-objdump; unchanged original PE bytes",
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 112,
+      "end_exclusive": "0x31a03616",
+      "module": "sldarchiveu.dll",
+      "name": "f50 sentinel-year repair",
+      "sha256": "3fa509a83b3f20a3b496e0f6907b7d05e1decedcf97f3c99f16db3e5f87c9aaf",
+      "start": "0x31a035a6"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 28,
+      "end_exclusive": "0x31a0366b",
+      "module": "sldarchiveu.dll",
+      "name": "f50 current-version store",
+      "sha256": "0d9a94dfdeac9ec88a55512f2b2f42c20c043cbeb993f6a4f02423b2630719f8",
+      "start": "0x31a0364f"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 141,
+      "end_exclusive": "0x31a0381e",
+      "module": "sldarchiveu.dll",
+      "name": "f70 alternate-context store",
+      "sha256": "fabe6b5e4a6bfd924f92ca77a6b9a2c8f5f51c8906fdddc7bb647ad2caea11be",
+      "start": "0x31a03791"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 34,
+      "end_exclusive": "0x31a039b8",
+      "module": "sldarchiveu.dll",
+      "name": "f48 ordinary store",
+      "sha256": "d2676e3d59b4b1bf5490a322401955945431ec15a543a9760825ac89a30f5023",
+      "start": "0x31a03996"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 32,
+      "end_exclusive": "0x31a03ef6",
+      "module": "sldarchiveu.dll",
+      "name": "f50 load",
+      "sha256": "90d921f2b9a8528ddaf200e0b31567a0fc08fbb595313f26387d3b2c7f7a1302",
+      "start": "0x31a03ed6"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 178,
+      "end_exclusive": "0x31a04231",
+      "module": "sldarchiveu.dll",
+      "name": "f70 load and self-identity repair",
+      "sha256": "ad8739a7764ce2d0b0686521fcbe5211e1f6297d7b7754bcf8b65e9f75213e99",
+      "start": "0x31a0417f"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 20,
+      "end_exclusive": "0x31a04417",
+      "module": "sldarchiveu.dll",
+      "name": "f48 current-version load",
+      "sha256": "61a2f98b2ccd7896bf96af5fb0d9c3b7d71584415704bfc4f9d37ed67bd6a992",
+      "start": "0x31a04403"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 20,
+      "end_exclusive": "0x31a027f2",
+      "module": "sldarchiveu.dll",
+      "name": "stamp constructor wall clock",
+      "sha256": "b97e7dfe8c0181f2a8fb98bda81a3b2981764f7433350acc51b542ecaeb47bc0",
+      "start": "0x31a027de"
+    },
+    {
+      "bound": "instruction-boundary window within complete function above",
+      "bytes": 27,
+      "end_exclusive": "0x4c7208a1",
+      "module": "sldmodu.dll",
+      "name": "history embedded stamp constructor arguments",
+      "sha256": "8d9bfeddcc0814fe696622e298fc10082dc7a0a662310a39902b5cbd1c987f5e",
+      "start": "0x4c720886"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 231512,
+      "exception_directory_bytes": 9000,
+      "exception_directory_rva": "0x37000",
+      "machine": "0x8664",
+      "name": "sldarchiveu.dll",
+      "preferred_base": "0x319f0000",
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48"
+    },
+    {
+      "bytes": 252504,
+      "exception_directory_bytes": 11748,
+      "exception_directory_rva": "0x3a000",
+      "machine": "0x8664",
+      "name": "swccu.dll",
+      "preferred_base": "0x31a30000",
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+    },
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 4061272,
+      "exception_directory_bytes": 98892,
+      "exception_directory_rva": "0x3db000",
+      "machine": "0x8664",
+      "name": "sldutu.dll",
+      "preferred_base": "0x3cf80000",
+      "sha256": "dbc147c10b658544e44a7c13d3ae656c26a0778e9241fe74d6ca9ecae8730933"
+    }
+  ],
+  "proprietary_code_in_report": false,
+  "schema": "drawing-source-epoch-native-evidence-v1",
+  "static_metadata_helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad"
+}

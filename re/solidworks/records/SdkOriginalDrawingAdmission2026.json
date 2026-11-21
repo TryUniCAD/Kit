@@ -1,0 +1,457 @@
+{
+  "schema": "kit.sw2026.sdk-original-drawing-admission-evidence.v1",
+  "task_id": "B04-SW2026-DRAWPROPS",
+  "owner": "PR 121 original-drawing qualification lane",
+  "delivery_pr": 121,
+  "outcome": "complete source admission failed; partial geometry builds passed",
+  "complete_source_admitted": false,
+  "source_semantics_passed": false,
+  "heldout_acceptance": false,
+  "native_acceptance": false,
+  "vendor_loadable": false,
+  "application_usable": false,
+  "native_execution_by_worker": false,
+  "public_drawing_writer_admission_changed": false,
+  "writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "writer_source_files": 4347,
+  "pre_unseal_record_sha256": "3b119b30cf7038acbc428227a15c9b6cd224254e864c613e84d6c17d46dd8f42",
+  "pre_unseal_disclosed_replay": {
+    "real_workers": 43,
+    "report_sha256": "93d934e39d17426e292b6b0f5819cefbaffefe504d020c59e39eac5d0358f99e",
+    "performed_by": "root from independently frozen source"
+  },
+  "authorized_sources": [
+    {
+      "name": "H01SheetA.SLDDRW",
+      "bytes": 22694,
+      "sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b"
+    },
+    {
+      "name": "GeneratedChildFile.SLDPRT",
+      "bytes": 8122,
+      "sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce"
+    },
+    {
+      "name": "H02SheetB.SLDDRW",
+      "bytes": 22279,
+      "sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77"
+    }
+  ],
+  "source_semantic_read_sha256": "69941b876694dfbd60cdf8f5c75ba7a7a921c5777603c3a5e6a4fd0dba945b87",
+  "source_owner_inventory_sha256": "720a4fed755321045d143822e1fc43b03271b4ff4407e8ea215390a039e597ac",
+  "source_family_admission_sha256": "8c7117865823d5bcd503270b1c5d81d19e537faca999498d397d9de3c04972e7",
+  "source_model_name": "GeneratedChildModel",
+  "source_child_file_name": "GeneratedChildFile.SLDPRT",
+  "source_geometry": {
+    "ordinary_single_rectangle": true,
+    "vertices_m": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.02,
+        0.0
+      ],
+      [
+        0.02,
+        0.01
+      ],
+      [
+        0.0,
+        0.01
+      ]
+    ],
+    "blind_depth_m": 0.007,
+    "canonical_xy_support": true,
+    "sketch_relations": 0,
+    "sketch_dimensions": 0,
+    "driving_parameter": "D1@Boss-Extrude1",
+    "configuration": "authored configuration",
+    "sheets_per_original": 1,
+    "views_per_original": 1,
+    "sheet_size_m": [
+      0.2794,
+      0.2159
+    ],
+    "sheet_scale": [
+      5.0,
+      1.0
+    ]
+  },
+  "unsupported": [
+    {
+      "owner": "moNotesAreaFtrFolder_c",
+      "field": "system folder class",
+      "name": "authored markups",
+      "native_id": 10,
+      "resolved_map_index": 108,
+      "frozen_factory_alternative": "moInkMarkupFolder_c",
+      "original_base": "moFtrFolder_c",
+      "alternative_base": "moFolder_c",
+      "diagnostic": "system folder inputs do not cover the classified fresh part profile",
+      "diagnostic_provenance": "static exact SystemInput class-set guard, not an executed construction",
+      "substitution_is_full_semantic_admission": false
+    },
+    {
+      "owner": "moScaleSysScale_c",
+      "schema": 1,
+      "stream": "Contents/Definition",
+      "cases": [
+        "H01SheetA",
+        "H02SheetB"
+      ],
+      "diagnostic": "unsupported SOLIDWORKS body class moScaleSysScale_c schema 1",
+      "diagnostic_provenance": "actual frozen ReadNamedDef read of each exact original"
+    }
+  ],
+  "additional_unadmitted_semantics": [
+    "drawing strict read and complete native Definition owner graph",
+    "original system presentation and complete UI row ordering",
+    "native class equivalence between notes-area and ink-markup folder owners",
+    "original basename/internal-model-name mismatch versus stricter frozen fresh-link input guard",
+    "styles provenance custom properties and any remaining unprojected native presentation fields",
+    "neutral intent and inactive/driving roles of serialized nonpublic depth/draft parameter occurrences"
+  ],
+  "serialized_parameter_schema_calls": {
+    "moLengthParameter_c": 2,
+    "moAngleParameter_c": 2,
+    "ParallelPlaneDistanceDim_c": 2,
+    "AngleDim_c": 2
+  },
+  "projected_active_parameters": [
+    {
+      "name": "D1",
+      "owner": "Boss-Extrude1",
+      "value_m": 0.007
+    }
+  ],
+  "public_projection_diagnostics": {
+    "drawing_strict_read": "unsupported",
+    "part_native_tree": {
+      "diagnostic": "part presentation has an unqualified root layout",
+      "status": "unqualified"
+    },
+    "part_info_diagnostics": [
+      "native name records unavailable for 9:authored environment"
+    ],
+    "native_tree_and_link_comparison_still_required": true
+  },
+  "source_feature_inventory": [
+    {
+      "id": "sldprt:feature:1",
+      "name": "authored comments",
+      "class": "moCommentsFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:2",
+      "name": "authored favorites",
+      "class": "moFavoriteFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:3",
+      "name": "authored history",
+      "class": "moHistoryFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:4",
+      "name": "authored selection sets",
+      "class": "moSelectionSetFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:5",
+      "name": "authored sensors",
+      "class": "moSensorFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:6",
+      "name": "authored document binder",
+      "class": "moDocsFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:7",
+      "name": "authored surfaces",
+      "class": "moSurfaceBodyFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:8",
+      "name": "authored solids",
+      "class": "moSolidBodyFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:10",
+      "name": "authored markups",
+      "class": "moNotesAreaFtrFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:11",
+      "name": "authored equations",
+      "class": "moEqnFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:12",
+      "name": "authored material",
+      "class": "moMaterialFolder_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:13",
+      "name": "authored annotations",
+      "class": "moDetailCabinet_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:14",
+      "name": "Front Plane",
+      "class": "Plane",
+      "kind": "reference"
+    },
+    {
+      "id": "sldprt:feature:15",
+      "name": "Top Plane",
+      "class": "Plane",
+      "kind": "reference"
+    },
+    {
+      "id": "sldprt:feature:16",
+      "name": "Right Plane",
+      "class": "Plane",
+      "kind": "reference"
+    },
+    {
+      "id": "sldprt:feature:17",
+      "name": "Origin",
+      "class": "moOriginProfileFeature_c",
+      "kind": "native"
+    },
+    {
+      "id": "sldprt:feature:18",
+      "name": "Sketch1",
+      "class": "Sketch",
+      "kind": "reference"
+    },
+    {
+      "id": "sldprt:feature:19",
+      "name": "Boss-Extrude1",
+      "class": "Extrusion",
+      "kind": "extrusion"
+    },
+    {
+      "id": "sldprt:feature:9",
+      "name": "authored environment",
+      "class": "moEnvFolder_c",
+      "kind": "native"
+    }
+  ],
+  "source_resolved_root_inventory": [
+    {
+      "class": "moCommentsFolder_c",
+      "name": "authored comments",
+      "native_id": 1,
+      "object_index": 84
+    },
+    {
+      "class": "moFavoriteFolder_c",
+      "name": "authored favorites",
+      "native_id": 2,
+      "object_index": 87
+    },
+    {
+      "class": "moHistoryFolder_c",
+      "name": "authored history",
+      "native_id": 3,
+      "object_index": 90
+    },
+    {
+      "class": "moSelectionSetFolder_c",
+      "name": "authored selection sets",
+      "native_id": 4,
+      "object_index": 93
+    },
+    {
+      "class": "moSensorFolder_c",
+      "name": "authored sensors",
+      "native_id": 5,
+      "object_index": 96
+    },
+    {
+      "class": "moDocsFolder_c",
+      "name": "authored document binder",
+      "native_id": 6,
+      "object_index": 99
+    },
+    {
+      "class": "moSurfaceBodyFolder_c",
+      "name": "authored surfaces",
+      "native_id": 7,
+      "object_index": 102
+    },
+    {
+      "class": "moSolidBodyFolder_c",
+      "name": "authored solids",
+      "native_id": 8,
+      "object_index": 105
+    },
+    {
+      "class": "moEnvFolder_c",
+      "name": "authored environment",
+      "native_id": 9,
+      "object_index": 53
+    },
+    {
+      "class": "moNotesAreaFtrFolder_c",
+      "name": "authored markups",
+      "native_id": 10,
+      "object_index": 108
+    },
+    {
+      "class": "moEqnFolder_c",
+      "name": "authored equations",
+      "native_id": 11,
+      "object_index": 111
+    },
+    {
+      "class": "moMaterialFolder_c",
+      "name": "authored material",
+      "native_id": 12,
+      "object_index": 114
+    },
+    {
+      "class": "moDetailCabinet_c",
+      "name": "authored annotations",
+      "native_id": 13,
+      "object_index": 117
+    },
+    {
+      "class": "moRefPlane_c",
+      "name": "Front Plane",
+      "native_id": 14,
+      "object_index": 120
+    },
+    {
+      "class": "moRefPlane_c",
+      "name": "Top Plane",
+      "native_id": 15,
+      "object_index": 124
+    },
+    {
+      "class": "moRefPlane_c",
+      "name": "Right Plane",
+      "native_id": 16,
+      "object_index": 127
+    },
+    {
+      "class": "moOriginProfileFeature_c",
+      "name": "Origin",
+      "native_id": 17,
+      "object_index": 131
+    },
+    {
+      "class": "moProfileFeature_c",
+      "name": "Sketch1",
+      "native_id": 18,
+      "object_index": 144
+    },
+    {
+      "class": "moExtrusion_c",
+      "name": "Boss-Extrude1",
+      "native_id": 19,
+      "object_index": 161
+    }
+  ],
+  "partial_geometry": {
+    "geometry_builds_passed": true,
+    "source_semantics_passed": false,
+    "real_workers": 6,
+    "sdk_builds_per_case": 2,
+    "independent_drawing_counterparts_per_case": 1,
+    "runtime_input_file_access_attempts": 0,
+    "independent_comparison_scope": "seven drawing logical streams, compressed drawing container, eight-corner layout mathematics; SDK child graph reemission is separately checked unchanged",
+    "original_outline_and_model_to_sheet_match": true,
+    "results_sha256": "dc3268d6d5c9f96e9a0aa2a0e4a51592fd13c8329537e3d70a415398d9355b2e",
+    "generation_seal_sha256": "11b4d72abfbad5dcc856078ffc57335c5b5c332cea859bd09ccce3c6bd5b4fa6",
+    "original_observations_read_before_or_after_seal": false,
+    "cases": [
+      {
+        "name": "H01SheetA",
+        "artifacts": {
+          "drawing": {
+            "filename": "H01SheetA.SLDDRW",
+            "bytes": 7155,
+            "sha256": "dc45e3d9b9b3096a1bf84a6ee7f6b65ec73067d9a6aee517da946f3f12459f3b"
+          },
+          "part": {
+            "filename": "GeneratedChildModel.SLDPRT",
+            "bytes": 8239,
+            "sha256": "749c354e7f96b001f5965cc3fce10aa1042ee215e44b57cc89279e4f719e48ab"
+          }
+        }
+      },
+      {
+        "name": "H02SheetB",
+        "artifacts": {
+          "drawing": {
+            "filename": "H02SheetB.SLDDRW",
+            "bytes": 7164,
+            "sha256": "d88b4e0df2fb252ce736ad6d59a47399148b83f9aa4e8e350f490f9a4a6bb129"
+          },
+          "part": {
+            "filename": "GeneratedChildModel.SLDPRT",
+            "bytes": 8243,
+            "sha256": "a787d62ea03b856851483357d14975d0ca741c884ac9556a1b4bac25f046172d"
+          }
+        }
+      }
+    ]
+  },
+  "retained_failures": [
+    {
+      "phase": "first partial geometry request",
+      "workers": 2,
+      "emitted_files": 0,
+      "diagnostic": "neutral blank drawing has an unsupported active sheet paper or view content",
+      "cause": "decoded 0.2159 m differs by one binary64 ulp from the frozen 8.5 * 0.0254 m guard",
+      "results_sha256": "dbeab28594b193445e7e28d6d2133c889028997ce18aa7557cd553d339769d8d",
+      "seal_sha256": "6861dd81c98d878d767fc7e5262bef9461a3e15caa75961b70a5b2bef12a2cb5",
+      "paper_rejection_sha256": "686d545fa103edb006e9a653f452d2720f2232e203828dbc3fbd4a8676c4fa70"
+    },
+    {
+      "phase": "first native packet metadata preparation",
+      "native_execution": false,
+      "diagnostic": "counterpart executable installs a process-wide construction audit; unrelated metadata reads are rejected",
+      "record_sha256": "3c6919d992bada7355dd14ca9336dba9a4546fb8f2fdeaec76cd594222c62054",
+      "construction_guard_changed": false
+    }
+  ],
+  "native_packet": {
+    "packet_sha256": "cc970ee5951921b6e4f489e5b32faff568ec189d399e8a61b82f88be71f3fc7a",
+    "source_tool": "re/tooling/sw2026/InspectOriginalDrawingGeometry.py",
+    "observer_sha256": "7ed35ffd5c2c98b58456293de4e95d05268065fced21253c6741e0c1ecd67ce7",
+    "tools": 8,
+    "fresh_processes_planned": 12,
+    "controls": "pristine disclosed D01 before and after, both open/view-edit/save/fresh-reopen",
+    "comparison": "each exact original and each partial generated pair in separate fresh processes",
+    "all_solid_bodies_including_hidden": true,
+    "exact_drawing_and_child_tree_rows_retained": true,
+    "exact_child_configuration_parameter_dependency_links_retained": true,
+    "full_tree_differences_are_observables_not_semantic_pass": true,
+    "child_driving_edit_performed": false,
+    "full_parametric_bundle_qualification": false,
+    "new_native_result": "pending root execution",
+    "source_semantics_passed_always_false": true
+  },
+  "frozen_writer_unchanged": true,
+  "source_intent_values_used_only_for_these_same_source_documents": true,
+  "saved_field_programs_or_native_payloads_in_generator_inputs": false,
+  "follow_up": "independent disclosed class/owner verification and a new source freeze before any new held-out evaluation"
+}

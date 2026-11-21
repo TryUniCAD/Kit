@@ -1,0 +1,401 @@
+{
+  "schema": "kit.sw2026.radial-training-observation-publication.v1",
+  "status": "checked_activation_rejected_before_training_no_native_acceptance",
+  "source_revision": "3a8f7180627c1402bd5059a839f27e57eaf7c0a2",
+  "phase": "author",
+  "trace_authority": "native-api-boundary-observation",
+  "instruction_taint": false,
+  "oracle_identity": {
+    "process_id": 4580,
+    "process_creation_filetime": 134392816146489183,
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "version_matches": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "pe_machine": "0x8664"
+  },
+  "frida": {
+    "version": "17.26.3",
+    "realm": "native",
+    "extension_sha256": "ff3ed36723b20f23167454d2cc883ad13fc4f978a26161c35d59549714c5ab10",
+    "extension_bytes": 169237504
+  },
+  "source_binding": {
+    "manifest_sha256": "8a7ff5414c1d85bfd78d50ea91a83ae14061530bdd6a385626c8bef3c860622d",
+    "freeze_time_guest_probe_executed": false,
+    "freeze_time_flag_preserved": true,
+    "all_frozen_sources_match_original_git_revision": true,
+    "files": [
+      {
+        "path": "re/tooling/tupni/Observe.py",
+        "bytes": 16114,
+        "sha256": "8274cba79359c17244d6a9be251dc563402e98a9b4305b965ab15c4dc4306744"
+      },
+      {
+        "path": "re/tooling/tupni/Solidworks2026.js",
+        "bytes": 50104,
+        "sha256": "ac887f3292422c47a595cb2a55e91db24e13471b1f27f1188e2ae53d75b27730"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTrainingModules.json",
+        "bytes": 683,
+        "sha256": "99190c0e0f8c7cfaf4d43d4a248f22af24a1549bd0f32aaebc8a514ab84c0dc7"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTraining.json",
+        "bytes": 1234,
+        "sha256": "4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01"
+      },
+      {
+        "path": "re/tooling/tupni/AnnulusTraining.json",
+        "bytes": 831,
+        "sha256": "060fc61251afee7c172f731fb7c6501220f6671d0a5a9e69fb3db940028a9383"
+      },
+      {
+        "path": "re/tooling/tupni/PrepareSolidworks.py",
+        "bytes": 1837,
+        "sha256": "17ffe44c90853f39a91139517acc0c829a4c5f60f349b50bffb9a49e22b10f0b"
+      },
+      {
+        "path": "re/tooling/tupni/AuthorRadialTraining.py",
+        "bytes": 12499,
+        "sha256": "37bcf3a7324c22331e9155012f371844ce3373525c5c4d778b32742c5f33bfb7"
+      },
+      {
+        "path": "re/tooling/tupni/ExerciseSolidworks.py",
+        "bytes": 1216,
+        "sha256": "3a49580204e57062f533b864371063b99d586b88d59dfa7efa1a35ed311e1093"
+      },
+      {
+        "path": "re/tooling/sw2026/AuthorCurves.py",
+        "bytes": 65987,
+        "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+      },
+      {
+        "path": "re/tooling/sw2026/Swapp.py",
+        "bytes": 15278,
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+      },
+      {
+        "path": "re/tooling/sw2026/OracleIdentity.py",
+        "bytes": 4284,
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+      },
+      {
+        "path": "re/tooling/sw2026/InspectFresh.py",
+        "bytes": 4187,
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+      },
+      {
+        "path": "re/tooling/sw2026/CurveSpecs.json",
+        "bytes": 17275,
+        "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0"
+      },
+      {
+        "path": "re/solidworks/records/RadialTrainingHooks2026.json",
+        "bytes": 30042,
+        "sha256": "38789b137da445a0341c4931f49f8391c076f6e36d8fd7d7890f17d585c8f03a"
+      }
+    ],
+    "job_sha256": "322bb2d20411a1b732f037543b2b23bfacba9e5ae437c8a31cd6756b7a4c41c0",
+    "argument_file_sha256": "1e93f1042f2d5651f5725cc0dcaf13ca80551db91bfad550db1d734c4bcfc5c1",
+    "training_specification_sha256": "4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01"
+  },
+  "raw_records": [
+    {
+      "name": "AuthorObservation01.json",
+      "bytes": 14875,
+      "sha256": "421d49bb177d1c5b439c73a34f358a8d890d12e5ea2c41365f9d648de0c200c3"
+    },
+    {
+      "name": "RadialTrainingAuthor01.Host.json",
+      "bytes": 3580,
+      "sha256": "59382f761ee3ac2c2ed9907dc9cff3baf941490955488d8175d76466855d287c"
+    },
+    {
+      "name": "RadialTrainingAuthor01.PostInventory.json",
+      "bytes": 1136,
+      "sha256": "94545ddb65ba495d56db5089ee5d4040d0edfc0299013e97e63baf31e7b6d6c1"
+    }
+  ],
+  "original_module_files": [
+    {
+      "module": "sldmodu.dll",
+      "original_file_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "original_file_bytes": 46536280,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x4b140000",
+      "runtime_size": 46923776
+    },
+    {
+      "module": "sldappu.dll",
+      "original_file_sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "original_file_bytes": 16519768,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x453f0000",
+      "runtime_size": 16912384
+    },
+    {
+      "module": "swccu.dll",
+      "original_file_sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "original_file_bytes": 252504,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x31a30000",
+      "runtime_size": 258048
+    },
+    {
+      "module": "sldarchiveu.dll",
+      "original_file_sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "original_file_bytes": 231512,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x319f0000",
+      "runtime_size": 245760
+    },
+    {
+      "module": "sldmfcu.dll",
+      "original_file_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "original_file_bytes": 8274520,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x3c720000",
+      "runtime_size": 8753152
+    },
+    {
+      "module": "sldmgu.dll",
+      "original_file_sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c",
+      "original_file_bytes": 2363992,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x31dd0000",
+      "runtime_size": 2379776
+    },
+    {
+      "module": "slduiu.dll",
+      "original_file_sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "original_file_bytes": 36036696,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x48ea0000",
+      "runtime_size": 36245504
+    },
+    {
+      "module": "sldprtu.dll",
+      "original_file_sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494",
+      "original_file_bytes": 3340888,
+      "original_pe_machine": "0x8664",
+      "runtime_base": "0x6e0e0000",
+      "runtime_size": 3481600
+    }
+  ],
+  "mapped_instruction_prefixes": [
+    {
+      "module": "sldmodu.dll",
+      "rva": 24640528,
+      "bytes": 20,
+      "mapped_address": "0x4c8bfc10",
+      "mapped_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "expected_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24755440,
+      "bytes": 14,
+      "mapped_address": "0x4c8dbcf0",
+      "mapped_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "expected_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060064,
+      "bytes": 14,
+      "mapped_address": "0x4c8320a0",
+      "mapped_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "expected_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060252,
+      "bytes": 15,
+      "mapped_address": "0x4c83215c",
+      "mapped_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "expected_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021482,
+      "bytes": 14,
+      "mapped_address": "0x4c54c32a",
+      "mapped_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "expected_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021512,
+      "bytes": 15,
+      "mapped_address": "0x4c54c348",
+      "mapped_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "expected_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 6654129,
+      "bytes": 18,
+      "mapped_address": "0x4b7988b1",
+      "mapped_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "expected_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260336,
+      "bytes": 14,
+      "mapped_address": "0x492b01f0",
+      "mapped_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "expected_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260634,
+      "bytes": 21,
+      "mapped_address": "0x492b031a",
+      "mapped_sha256": "f740036c5dfab1d1acbff75c885fb80eaaf2535b1391d113e471587db6532f15",
+      "expected_sha256": "f740036c5dfab1d1acbff75c885fb80eaaf2535b1391d113e471587db6532f15",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260683,
+      "bytes": 16,
+      "mapped_address": "0x492b034b",
+      "mapped_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "expected_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21106256,
+      "bytes": 15,
+      "mapped_address": "0x4c560e50",
+      "mapped_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "expected_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "matches": true
+    }
+  ],
+  "full_mapped_function_bodies_verified": false,
+  "outcome": {
+    "attached": true,
+    "activation_completed": false,
+    "rejected_module": "slduiu.dll",
+    "rejected_preferred_address": "0x492b031a",
+    "failure": "Checked Frida interception rejected the listener-acquisition instruction site",
+    "exact_relocator_rejection_cause": "unresolved; static instruction and patch-window checks did not prove runtime support",
+    "elapsed_seconds": 28.2029999999977,
+    "native_events": 0,
+    "action_executed": false,
+    "training_cases_executed": 0,
+    "controls_executed": 0,
+    "training_qualified": false,
+    "qualification_summary": {
+      "qualified": false,
+      "incomplete_native_states": 0,
+      "reasons": [
+        {
+          "reason": "training action and controls did not start"
+        },
+        {
+          "reason": "checked native interception rejected before action"
+        }
+      ],
+      "reason_limit": 256,
+      "case_event_counts": {},
+      "field_closure_proven": false,
+      "callback_effects_proven": false,
+      "acceptance": false,
+      "reason_text_normalized_for_publication": true
+    }
+  },
+  "cleanup": {
+    "session_detached": true,
+    "detach_reason": "application-requested",
+    "crash_reported": false,
+    "script_unload_error_present": false,
+    "owned_controller_diagnostics": [],
+    "host_transport_returncode": 1,
+    "host_supervisor_exit_code": 1,
+    "host_transport_exit_confirmed": true,
+    "host_guest_state_unknown_preserved": true,
+    "host_external_inventory_required_preserved": true,
+    "subsequent_read_only_inventory_completed": true,
+    "post_inventory_processes": [
+      {
+        "ProcessName": "lmgrd",
+        "Id": 1604
+      },
+      {
+        "ProcessName": "lmgrd",
+        "Id": 7936
+      },
+      {
+        "ProcessName": "sw_d",
+        "Id": 4276
+      }
+    ],
+    "solidworks_processes_after": 0,
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false,
+    "automatic_retry": false,
+    "licensing_services_operated": false,
+    "preflight_processes": [
+      {
+        "ProcessName": "lmgrd",
+        "Id": 1604
+      },
+      {
+        "ProcessName": "lmgrd",
+        "Id": 7936
+      },
+      {
+        "ProcessName": "sw_d",
+        "Id": 4276
+      }
+    ],
+    "preflight_evidence": "Root read-only process inventory tool output in the active chat; no standalone raw preflight receipt",
+    "licensing_pid_set_unchanged": true
+  },
+  "limits": {
+    "passing_control_credit": false,
+    "cad_crash_credit": false,
+    "native_format_failure": false,
+    "field_closure_proven": false,
+    "callback_effects_proven": false,
+    "generated_output": false,
+    "heldout_native_payloads_read": 0,
+    "native_writer_acceptance": false,
+    "full_goal_complete": false
+  },
+  "publication": {
+    "private_operator_paths_omitted": true,
+    "raw_exception_stack_omitted": true,
+    "raw_instruction_bytes_omitted": true,
+    "raw_records_rewritten": false,
+    "integer_values_preserved_without_javascript_numeric_conversion": true
+  },
+  "next_evidence": "Review a different bounded listener target/argument-selection location, freeze a new committed tool revision, and collect a fresh controlled training batch without forcing relocation"
+}

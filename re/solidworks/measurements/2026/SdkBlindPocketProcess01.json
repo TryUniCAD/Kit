@@ -1,0 +1,640 @@
+{
+  "archive_version": 19000,
+  "author_input_equality_count": 4,
+  "author_sha256": "319a717b0ccb04dcbe244a912bbd81edf1535dea63109651823d9223f7abb1ef",
+  "cases": [
+    {
+      "audit": {
+        "bytes": 8843,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 28
+        },
+        "passed": true,
+        "phase": "audit",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "845baefabee7a690d594a095e1bb5a45e70614b2ee25b29b55d007400f898f64",
+        "streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "86f79c390810d2ad6da9b775bd694719db3d37b88aab39cb659a2fb578bd2618"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22254,
+            "sha256": "7ff20fdf0d3804aedc6eb6ba82f2f54cf733d4da475c612a7fe3d76391a039a8"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 709,
+            "sha256": "fc2a6be6cb0245edba09ba58954f9bc600c7a70ad4803eaf3d0238ca411bcefb"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 18769,
+            "sha256": "daade8cdc8e811b56daf69883a71289a532a82218a9b62cb19ac0259f2714932"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 709,
+            "sha256": "4be8db06643ba10fee471f1b5eea4a6e9a4bf18847c0381982cea0f5648c8f69"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1666,
+            "sha256": "49508891a73de1cc96fbcd2da36b112a5ac8cb24d6d34da53781536db96345be"
+          }
+        }
+      },
+      "build": {
+        "bytes": 8843,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 28
+        },
+        "history_topology_comparison": {
+          "boss_map_counter": 202,
+          "boss_resolved_bytes": 13865,
+          "pocket_map_counter": 235,
+          "pocket_resolved_bytes": 18769
+        },
+        "passed": true,
+        "phase": "build",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "845baefabee7a690d594a095e1bb5a45e70614b2ee25b29b55d007400f898f64",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "86f79c390810d2ad6da9b775bd694719db3d37b88aab39cb659a2fb578bd2618"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "bytes": 22254,
+            "sha256": "7ff20fdf0d3804aedc6eb6ba82f2f54cf733d4da475c612a7fe3d76391a039a8"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 709,
+            "sha256": "fc2a6be6cb0245edba09ba58954f9bc600c7a70ad4803eaf3d0238ca411bcefb"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 18769,
+            "sha256": "daade8cdc8e811b56daf69883a71289a532a82218a9b62cb19ac0259f2714932"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 709,
+            "sha256": "4be8db06643ba10fee471f1b5eea4a6e9a4bf18847c0381982cea0f5648c8f69"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1666,
+            "sha256": "49508891a73de1cc96fbcd2da36b112a5ac8cb24d6d34da53781536db96345be"
+          }
+        }
+      },
+      "feature_roles": [
+        "BossProfile",
+        "BaseBoss",
+        "PocketCircle",
+        "BlindPocket"
+      ],
+      "geometry": {
+        "boss_depth_mm": 18.0,
+        "boss_profile": {
+          "center_mm": [
+            0.0,
+            0.0
+          ],
+          "height_mm": 33.0,
+          "kind": "rectangle",
+          "width_mm": 47.0
+        },
+        "cut_depth_mm": 4.2,
+        "cut_profile": {
+          "center_mm": [
+            4.0,
+            -3.0
+          ],
+          "kind": "circle",
+          "radius_mm": 5.6
+        },
+        "edit_depth_mm": 6.8
+      },
+      "identical_repeat": true,
+      "independent_geometry": {
+        "edited": {
+          "area_m2": 0.006221263696497399,
+          "body_count": 1,
+          "com_m": [
+            -9.834656993995084e-05,
+            7.375992745496313e-05,
+            0.009137685197915931
+          ],
+          "volume_m3": 2.7248061649807286e-05
+        },
+        "initial": {
+          "area_m2": 0.006129780518424863,
+          "body_count": 1,
+          "com_m": [
+            -6.0177752156683017e-05,
+            4.513331411751226e-05,
+            0.00910380662247028
+          ],
+          "volume_m3": 2.7504214548410382e-05
+        }
+      },
+      "name": "SdkPocketA",
+      "radial_mode": "radius",
+      "request_sha256": "2666251d240b93e918dd998c31edc4694243fdef373debd811cd2af125ec6e0b"
+    },
+    {
+      "audit": {
+        "bytes": 8896,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 28
+        },
+        "passed": true,
+        "phase": "audit",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "1e1ef032581521f029c09b923bd24cc70c5ca079d4fa946d45bd0944f14efcb5",
+        "streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "86f79c390810d2ad6da9b775bd694719db3d37b88aab39cb659a2fb578bd2618"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22268,
+            "sha256": "8570c9b70853a7ec7af92054f2865b83c63e61415e3b1a10602481af1fd0c237"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 751,
+            "sha256": "018b33f0ae7e726faa84ae3f3e3184a0c765a365f3f42959543c1c1d09f3fcb2"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 18787,
+            "sha256": "fb9df3453a61e868e8421458bc863cfd7dc3614f89ea31bf5cf9794fec02c9ce"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 751,
+            "sha256": "69a1f784afb2e4188ae32fc3a3e7580c80db64b972a63e0567e5dadde6d5f7b0"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1689,
+            "sha256": "0d9465eaa71a9f0e205cd4c06b53a1234ca09a3e8bb59c2ad084d2f9c2145d83"
+          }
+        }
+      },
+      "build": {
+        "bytes": 8896,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 28
+        },
+        "history_topology_comparison": {
+          "boss_map_counter": 202,
+          "boss_resolved_bytes": 13865,
+          "pocket_map_counter": 235,
+          "pocket_resolved_bytes": 18787
+        },
+        "passed": true,
+        "phase": "build",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "1e1ef032581521f029c09b923bd24cc70c5ca079d4fa946d45bd0944f14efcb5",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "86f79c390810d2ad6da9b775bd694719db3d37b88aab39cb659a2fb578bd2618"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "bytes": 22268,
+            "sha256": "8570c9b70853a7ec7af92054f2865b83c63e61415e3b1a10602481af1fd0c237"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 751,
+            "sha256": "018b33f0ae7e726faa84ae3f3e3184a0c765a365f3f42959543c1c1d09f3fcb2"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 18787,
+            "sha256": "fb9df3453a61e868e8421458bc863cfd7dc3614f89ea31bf5cf9794fec02c9ce"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 751,
+            "sha256": "69a1f784afb2e4188ae32fc3a3e7580c80db64b972a63e0567e5dadde6d5f7b0"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1689,
+            "sha256": "0d9465eaa71a9f0e205cd4c06b53a1234ca09a3e8bb59c2ad084d2f9c2145d83"
+          }
+        }
+      },
+      "feature_roles": [
+        "BossProfile",
+        "BaseBoss",
+        "PocketCircle",
+        "BlindPocket"
+      ],
+      "geometry": {
+        "boss_depth_mm": 11.7,
+        "boss_profile": {
+          "center_mm": [
+            0.0,
+            0.0
+          ],
+          "height_mm": 26.8,
+          "kind": "rectangle",
+          "width_mm": 77.4
+        },
+        "cut_depth_mm": 2.3,
+        "cut_profile": {
+          "center_mm": [
+            -7.0,
+            1.4
+          ],
+          "kind": "circle",
+          "radius_mm": 3.4
+        },
+        "edit_depth_mm": 5.3
+      },
+      "identical_repeat": true,
+      "independent_geometry": {
+        "edited": {
+          "area_m2": 0.006700142999235376,
+          "body_count": 1,
+          "com_m": [
+            5.5960047307437196e-05,
+            -1.1192009461487438e-05,
+            0.0058755817359119715
+          ],
+          "volume_m3": 2.4077064901299863e-05
+        },
+        "initial": {
+          "area_m2": 0.006636054509102144,
+          "body_count": 1,
+          "com_m": [
+            2.4175154535722043e-05,
+            -4.835030907144409e-06,
+            0.005866231889473985
+          ],
+          "volume_m3": 2.4186015334526358e-05
+        }
+      },
+      "name": "SdkPocketWideBeta",
+      "radial_mode": "diameter",
+      "request_sha256": "bda0938b741b51904d3aaa2c77af15584d3618e61f2265ca5424867dcea2e4b7"
+    },
+    {
+      "audit": {
+        "bytes": 8554,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 27
+        },
+        "passed": true,
+        "phase": "audit",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "c47b5350093a8ef1442a39aca1ae75ef1950f87ba72550828131fd3b97430e11",
+        "streams": {
+          "Contents/CMgr": {
+            "byte_identity": true,
+            "bytes": 1145,
+            "sha256": "41a1f3a775f071aa0519ce1bc3908f2afac74033c4813522c31750787ff75a1e"
+          },
+          "Contents/CMgrHdr2": {
+            "byte_identity": true,
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "byte_identity": true,
+            "bytes": 22260,
+            "sha256": "c36dcc9c5e79777451d58e9d4054dc8765a3d8fef362c92f7cbf8d77a190d9e0"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "byte_identity": true,
+            "bytes": 727,
+            "sha256": "97832baab74536f77e946de3a7d96e42ea32b134a0238ec22f80469bb28d09cd"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "byte_identity": true,
+            "bytes": 16976,
+            "sha256": "73adcd44bf46c662e0ca2185adf01a3f70479f3dba8f7a11fe8241ce9be56950"
+          },
+          "Contents/Definition": {
+            "byte_identity": true,
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "byte_identity": true,
+            "bytes": 727,
+            "sha256": "4ab486fd4fb924c998e039958a5f5cf2c35ef6a0fd1416ef3c905f4d4e59d078"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "byte_identity": true,
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "byte_identity": true,
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "byte_identity": true,
+            "bytes": 1627,
+            "sha256": "fbb0ddadea1ad1a59ef38e056b4fffb1f69d3ede051795d60a8cf0a66cdd0c64"
+          }
+        }
+      },
+      "build": {
+        "bytes": 8554,
+        "depth_ids": {
+          "boss": 20,
+          "cut": 27
+        },
+        "history_topology_comparison": {
+          "boss_map_counter": 202,
+          "boss_resolved_bytes": 13865,
+          "pocket_map_counter": 222,
+          "pocket_resolved_bytes": 16976
+        },
+        "passed": true,
+        "phase": "build",
+        "public_writer_qualified": false,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "sha256": "c47b5350093a8ef1442a39aca1ae75ef1950f87ba72550828131fd3b97430e11",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1145,
+            "sha256": "41a1f3a775f071aa0519ce1bc3908f2afac74033c4813522c31750787ff75a1e"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 169,
+            "sha256": "a612f7ee0d6ad951b1fa6ed3532ecaa08f57866f8c7341fedf847d6e374e30df"
+          },
+          "Contents/Config-0": {
+            "bytes": 22260,
+            "sha256": "c36dcc9c5e79777451d58e9d4054dc8765a3d8fef362c92f7cbf8d77a190d9e0"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 727,
+            "sha256": "97832baab74536f77e946de3a7d96e42ea32b134a0238ec22f80469bb28d09cd"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 16976,
+            "sha256": "73adcd44bf46c662e0ca2185adf01a3f70479f3dba8f7a11fe8241ce9be56950"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 727,
+            "sha256": "4ab486fd4fb924c998e039958a5f5cf2c35ef6a0fd1416ef3c905f4d4e59d078"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "44514755789fc6f486264aee758b759d2272b18619db6fc0946bfd8205b56e3d"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1627,
+            "sha256": "fbb0ddadea1ad1a59ef38e056b4fffb1f69d3ede051795d60a8cf0a66cdd0c64"
+          }
+        }
+      },
+      "feature_roles": [
+        "BossProfile",
+        "BaseBoss",
+        "PocketCircle",
+        "BlindPocket"
+      ],
+      "geometry": {
+        "boss_depth_mm": 14.3,
+        "boss_profile": {
+          "center_mm": [
+            0.0,
+            0.0
+          ],
+          "height_mm": 37.9,
+          "kind": "rectangle",
+          "width_mm": 61.7
+        },
+        "cut_depth_mm": 3.8,
+        "cut_profile": {
+          "center_mm": [
+            7.4,
+            4.2
+          ],
+          "kind": "circle",
+          "radius_mm": 4.1
+        },
+        "edit_depth_mm": 7.9
+      },
+      "identical_repeat": true,
+      "independent_geometry": {
+        "edited": {
+          "area_m2": 0.0077289323720995465,
+          "body_count": 1,
+          "com_m": [
+            -9.349070590553486e-05,
+            -5.3062292540979255e-05,
+            0.007190428413364556
+          ],
+          "volume_m3": 3.302234863719593e-05
+        },
+        "initial": {
+          "area_m2": 0.007623312027085858,
+          "body_count": 1,
+          "com_m": [
+            -4.4677271986150764e-05,
+            -2.5357370586734217e-05,
+            0.007181696713233419
+          ],
+          "volume_m3": 3.323887034447399e-05
+        }
+      },
+      "name": "SdkPocketFree",
+      "radial_mode": null,
+      "request_sha256": "a0ce32585346e32c86d93769ccbd5b7fad2a290b1b3018e69c4eb39dbad43e94"
+    }
+  ],
+  "changed_sources_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/MakeBlindEnd.py": "c249e104ebb3f2a74cc1a00694edb552c42b01c3eb22c9cb030a787ff7f3fb01",
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/MakeEndSpec.py": "bc3a706eec9d83fffab3ee8875ee218b62e6dfd4c997a4597f2997352b40c91a",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py": "81e4fe6865df0daf8d149e074005c1aabeaf039475cbf994cb4ac9d32ffdb9a1",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/BindExtrusionMut.py": "be6207e513b2c9d16f06592e67b81a92f10a28316d2c319d531f63aec715dec7",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/CutGraph.py": "9bf43f74ccde626948634fb5300a53e1608ed9e780b9e3843ca16e111b869e7c",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBlindCutMut.py": "f2bf66b3a0e394ebf9ed0e57a2bb3dae3857187218292af0aaff54d4de3a1bb2",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeBlindMut.py": "a445497e02f398ba7be9fc3d0641bf86b59e434d39b72a8851ab36656def056c",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeExtrusionDimMut.py": "4f6b2315096d03944cbeee94d81545a92ff843c2a799f19f86e50aba1f87ac58",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeExtrusionNodeMut.py": "d351eea84fc7808925c2778c2a80f7e2375ddc4265d52a5b78f6bd900fd7f23d",
+    "src/convert/adapters/solidworks/Archive/Construction/Extrusion/MakeExtrusionView.py": "ebfeb04631425cccae635467d0a8f1b1e31a9b468fd4516b857c3c6e790b7533",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/CheckPartInput.py": "0bcd8c9eb96cdfd0c811e00d265eef0cf9c2c28b328dcdbb74402acc62347bfe",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py": "9b22d624bbc2c3d564110cca588fb45f7a920da4b114627ce4b64345df0185ad",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py": "74468a9e2bea62be251569dc8bf4104ec9527740aa83a73a00714741a8b0666c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakeBlindPart.py": "8c2ac36b96704bfc9e2509703b97bbaeac565526e85e0d0451a24838b5f87b73",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakeCutKeys.py": "80bab8751fb0af0d1399b4d52583b7e9bc724a968ab32c207bde1aeb1ea8a237",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartCutMut.py": "deab9e47f2c501dbebdd4feca5987715a6c06510342f191aa152754da962b467",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py": "a46ed808beb3458787570a6097d943bce73f55e52ab814c7f8c0e3c54f085c9c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePocketPart.py": "1ee7b9f1a5abe8bfefb20996385286687b5fb1b0db8bc6eba7c013e3551a1e19",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/CheckPartLinks.py": "3be6ef320f5513e94555a01ac51af04cbd8da697fa326a9a750ee6da48ecd68a",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/CheckPocketBounds.py": "b8d2fd02a33434651d7176802d78575a1c6072727c488f07753fd55795870f55",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/MakeBlindPlan.py": "b184e4e6130331c9bca119faa33a8111a69ad178e6b08c671462362e74d50db4",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/PocketPlan.py": "902d657fd37955cdb5241ae612f5932681fa4126d2e98d6a8491c7ad91ea53ed",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectBlind.py": "14721cc62afb47c236a1c08e5fbde6c77f8a68a37b97c8468bb56a6a3110b497",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectCircle.py": "c8f511b70683a780074b36571412c5123766acc79afcaf539047703340f1e499",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectPocket.py": "e185803afec04aed51abc210ad8ad6f1a7b48b0b4069e720b614fb445d0a0d93",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadPocketDrives.py": "64c8ff7e035d3d03e32425b680bf034d190f4bebbd75090176370ff4d3498cfa",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireBossDef.py": "ce68df599d0b8427c844184c043c352dc66953fb7f63be954060e795d94e98b3",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireCutDef.py": "a7f9cc7f26838255a4b2352139ebcecefee9c4827edbbc1bf7f2cf9eee3b64f0",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireExtrusion.py": "ee4932f3f6e21a98a5fecb23d2442a4c6ec8c26c3cb2bd5f6b252dba84f935b5",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequirePlainDoc.py": "1102ffb26c9857521875a38a7053496b41dd3163981fc5330107d5241d6a0278",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/PartCandidate.py": "62bd199e9480b7fc965522a6ef1fb41001379d5e8ff606a6c64cee001eecfac7"
+  },
+  "differential_rejections": [
+    {
+      "case": "forward_cut",
+      "diagnostic": "ValueError: ordinary cut requires a single reversed blind termination",
+      "rejected": true
+    },
+    {
+      "case": "overlong_cut",
+      "diagnostic": "ValueError: ordinary blind pocket must lie inside the actual boss",
+      "rejected": true
+    },
+    {
+      "case": "outside_circle",
+      "diagnostic": "ValueError: ordinary blind pocket must lie inside the actual boss",
+      "rejected": true
+    },
+    {
+      "case": "disconnected_cut",
+      "diagnostic": "ValueError: ordinary extrusion requires active unextended features with the admitted dependency order",
+      "rejected": true
+    },
+    {
+      "case": "unowned_circle_driver",
+      "diagnostic": "ValueError: ordinary pocket requires every driver to have an actual owner",
+      "rejected": true
+    },
+    {
+      "case": "unprojected_document",
+      "diagnostic": "ValueError: plain boss candidate does not admit unprojected document metadata",
+      "rejected": true
+    }
+  ],
+  "exact_stream_comparisons": 30,
+  "format": "SOLIDWORKS 2026 SP05.2",
+  "fresh_processes": 17,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "passed": true,
+  "prior_qualified_recipe_bytes_retained": [
+    {
+      "case": "SdkPocketA",
+      "exact_after_optional_radial_mode": true,
+      "sha256": "bfe77361236ebeec9ade0e16597af9f60b828e3e009c63286717d65434800ad7"
+    },
+    {
+      "case": "SdkPocketWideBeta",
+      "exact_after_optional_radial_mode": true,
+      "sha256": "59d1d632763e885b337adff2aa9c774d14f6e8d8e14c4e4db3f2bef2b123b2f9"
+    }
+  ],
+  "public_writer_qualified": false,
+  "root_replay_sha256": "8525372dd93224533c5d63027f61fa759063550ab9e0bd29a7bce779ea8828e3",
+  "schema": "kit.sw2026.sdk-blind-pocket-process.v1",
+  "worker_sha256": "83480938459ecb5003473f6a64ec563019614b29d7bb0135caae3427a5517da1"
+}

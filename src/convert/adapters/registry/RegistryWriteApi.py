@@ -7,6 +7,7 @@ from typing import Protocol
 from interchange import CadDocument
 
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
+from convert.adapters.base.Drawing.CheckDrawWrites import CheckDrawWrites
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.Staging.PathStaging import WritePathStaged
@@ -121,7 +122,8 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
-        CheckNative(DocumentData)
+        CheckNative(DocumentData, AdapterData, TargetData)
+        CheckDrawWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)

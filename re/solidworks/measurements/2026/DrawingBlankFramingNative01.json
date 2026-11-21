@@ -1,0 +1,289 @@
+{
+  "controls": [
+    {
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ],
+        "record_sha256": "2b1f3bf0b1d293195b4b044fcdb148c1b46e5c43dbd5a573e8aad5d0004d4e5b",
+        "tree_rows": 10
+      },
+      "name": "ControlBefore",
+      "open_edit_save": {
+        "numeric_checks": 24,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "0e3d77cf636fa6941fabec07fa7369c05c42200fdd9fa4a7b25263231e91b685",
+        "tree_rows": 10
+      },
+      "passed": true
+    },
+    {
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ],
+        "record_sha256": "eb9e58dd0e1e772431b5da47531f35c71e4f37667e4410699068d1e5586dcf67",
+        "tree_rows": 10
+      },
+      "name": "ControlAfter",
+      "open_edit_save": {
+        "numeric_checks": 24,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "8aa23f39cbb0b44a6a6010cabbbd150d5929879e6134e7e525a72fd67c650fb1",
+        "tree_rows": 10
+      },
+      "passed": true
+    }
+  ],
+  "controls_healthy": true,
+  "distinct_processes": 12,
+  "heldout_inputs_tested": 0,
+  "inputs_immutable": true,
+  "lanes": [
+    {
+      "derivative": {
+        "bytes": 17628,
+        "definition_map_next_index": 212,
+        "detail_buckets": 0,
+        "exact_definition_header": true,
+        "file_id": 587575287,
+        "header_map_next_index": 34,
+        "sha256": "ed6012f91bf525f1ad5bf5242820a3919f737d825056472f8d0758160dcca568",
+        "stream_roles": 28
+      },
+      "frame": "ReducedVendorFraming",
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "2ec6198a6699b2b2ca02a7949c361447d2feff39927787a7a4bd050f5e1050f2",
+        "tree_rows": 10
+      },
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "matched_input": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "mode": "RebuildSaveAs",
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "open_and_save": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "9f7dd0b911369c06c1e5935ae2d2cc55ec4698de8502171869905a01e33e3601",
+        "tree_rows": 10
+      },
+      "passed": true
+    },
+    {
+      "derivative": {
+        "bytes": 18398,
+        "definition_map_next_index": 212,
+        "detail_buckets": 0,
+        "exact_definition_header": true,
+        "file_id": 1966580600,
+        "header_map_next_index": 34,
+        "sha256": "ee8f735361e5b7ff9e80f384998a9a9ce80f9f813d9c5a94f5ec1d92942f0f94",
+        "stream_roles": 28
+      },
+      "frame": "ReducedKitFraming",
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "a291267de11111d1a4c71573571c876281160f13bf626cd0fe82972474a2a7fb",
+        "tree_rows": 10
+      },
+      "input_sha256": "c7251fc8aff23478daa02689de23471ed3166240d87e1a3c08f56b6ba71b7e6f",
+      "matched_input": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "matched_save": "MatchedDrawing/open_and_save/SavedDrawing.SLDDRW",
+      "mode": "RebuildSaveAs",
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "open_and_save": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "29896f7160c7c18b44284798c9f37a9d4b9e250db5e8318aeed1a316e56cef22",
+        "tree_rows": 10
+      },
+      "passed": true
+    },
+    {
+      "derivative": {
+        "bytes": 18878,
+        "definition_map_next_index": 212,
+        "detail_buckets": 0,
+        "exact_definition_header": true,
+        "file_id": 3488555523,
+        "header_map_next_index": 34,
+        "sha256": "9b6839e6575dc238447320bd28b06f2cf74d4ea3aedc8dc75ea65054754597c6",
+        "stream_roles": 29
+      },
+      "frame": "ReducedVendorFraming",
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ],
+        "record_sha256": "d058d87f08f7fb0686689baba705051b09ae5fa3b556ba8607724e1b1a863584",
+        "tree_rows": 10
+      },
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "matched_input": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "matched_save": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "mode": "EditSaveInPlace",
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "open_and_save": {
+        "numeric_checks": 24,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "ca9b1a4ef130100860b6f6d26119cbd9b23c72db00d83ceb94f6176dc7d9e2e0",
+        "tree_rows": 10
+      },
+      "passed": true
+    },
+    {
+      "derivative": {
+        "bytes": 19237,
+        "definition_map_next_index": 212,
+        "detail_buckets": 0,
+        "exact_definition_header": true,
+        "file_id": 3393859205,
+        "header_map_next_index": 34,
+        "sha256": "9de92b2e146f6624d3b7bf65717543889d945426c7eeb44750988effcb3a96aa",
+        "stream_roles": 29
+      },
+      "frame": "ReducedKitFraming",
+      "fresh_reopen": {
+        "numeric_checks": 16,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          3.0,
+          2.0
+        ],
+        "record_sha256": "d7bde556e2520b7ea9a3be022c328d12e2787a0676277b38d65a7c635fe47a50",
+        "tree_rows": 10
+      },
+      "input_sha256": "c7251fc8aff23478daa02689de23471ed3166240d87e1a3c08f56b6ba71b7e6f",
+      "matched_input": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "matched_save": "MatchedDrawing/D00EmptySheet.SLDDRW",
+      "mode": "EditSaveInPlace",
+      "native_save_status": [
+        true,
+        0,
+        0
+      ],
+      "open_and_save": {
+        "numeric_checks": 24,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "passed": true,
+        "rebuilt_problems": 0,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "record_sha256": "6c2dd0d5cd367d5f5c07b24f6c1d4a34ca6994bc6b65a8413c2509761e078a1d",
+        "tree_rows": 10
+      },
+      "passed": true
+    }
+  ],
+  "native_acceptance": false,
+  "native_result_sha256": "b8f5132457e128dbc8ea9f571492b3db93195531811b97e4a276c00fd6b7b852",
+  "offline_receipt_sha256": "67f278d5dbc600f1236d0a489c00340367ebec7c050c5fea2419b8bb61baddc2",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "a9e12d81ceb33587e99efa57325fc022908385f1f2b15587776215429235f4a0",
+  "physical_comparison_sha256": "dad5a4bff602b006a440766c0ce6a0525f34c4aac8f000bca4a5e5f54bada355",
+  "reframed_control_save_passed": true,
+  "same_physical_paths": true,
+  "schema": "kit.sw2026.blank-drawing-framing-native-measurement.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "tool_hashes": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawingFraming.py": "f242f60abf8fc4fe9a346a8218a08dbaf2d7117d8631a26c5aa59e532c84969c",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "writer_output_count": 0
+}

@@ -1,0 +1,1509 @@
+{
+  "schema": "kit.sw2026.synchronized-assembly-fixtures.v1",
+  "source_lock_sha256": "50de39dc21405cd346566f64244b62d457857758f339a95be4baf3466dfc1f80",
+  "privacy_ledger_sha256": "3e81cdcbeb6c857eac82c0163feaf816b28c1fe3f3bb74e68c0ba29fd7e06a0c",
+  "heldout_payloads_read": false,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "records": [
+    {
+      "name": "A12SyncedEmpty",
+      "role": "parent",
+      "file": "A12SyncedEmpty.SLDASM",
+      "sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+      "bytes": 22923,
+      "source_sha256": "116ef8b6ff8c96d3a258ef4352c9c95745e0289d4124f996c1665b44ff2a5d6a",
+      "streams": [
+        {
+          "name": "Contents/3DExperienceExchange2",
+          "bytes": 12288,
+          "source_sha256": "8f278c4a67c61f5b5b7aeff1e528437892410b9f4250b5d38cea76f8d38f3034",
+          "sha256": "8f278c4a67c61f5b5b7aeff1e528437892410b9f4250b5d38cea76f8d38f3034",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/3DExperienceExchange_ConfigHeader",
+          "bytes": 12288,
+          "source_sha256": "02c023265f4c06f0924b121ff11ba273632cc5f7b6bcff6c2014349013b6441c",
+          "sha256": "02c023265f4c06f0924b121ff11ba273632cc5f7b6bcff6c2014349013b6441c",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgr",
+          "bytes": 1345,
+          "source_sha256": "f0ce9f2e707e9675e61c0791b71905d260d70bb57c036a6961ffe3bf528fcb0c",
+          "sha256": "f0ce9f2e707e9675e61c0791b71905d260d70bb57c036a6961ffe3bf528fcb0c",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgrHdr2",
+          "bytes": 137,
+          "source_sha256": "bd6a97891c664f6cb2e23a845e0ce78e2fb8f91445e079c69a7f606c82235a30",
+          "sha256": "bd6a97891c664f6cb2e23a845e0ce78e2fb8f91445e079c69a7f606c82235a30",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CnfgObjs",
+          "bytes": 12,
+          "source_sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0",
+          "bytes": 24001,
+          "source_sha256": "7126f392714da89e0ddd250f6426a3c4dc7ff8dc771e23517e621dd032a448d8",
+          "sha256": "7126f392714da89e0ddd250f6426a3c4dc7ff8dc771e23517e621dd032a448d8",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-Attachment",
+          "bytes": 2,
+          "source_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-LWDATA",
+          "bytes": 1437,
+          "source_sha256": "c1297484bffb7615feac2ceea39909dc3fb6be154b85c5b3210eac62951d5f03",
+          "sha256": "c1297484bffb7615feac2ceea39909dc3fb6be154b85c5b3210eac62951d5f03",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-MatesList",
+          "bytes": 6,
+          "source_sha256": "37f76ab9a476f8407c16daf7c74e969ae6bd0f1ee37729cf1fd9186817c90343",
+          "sha256": "37f76ab9a476f8407c16daf7c74e969ae6bd0f1ee37729cf1fd9186817c90343",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ModelHeader",
+          "bytes": 1957,
+          "source_sha256": "ba1c52b2b68dd48a2b1bacf90359ecedd316698f7e7583f0d5eab68a1014b1ba",
+          "sha256": "d4653bb2b6ddf03917331834612dd33ceb1ade538675d2850d9e143f7e6532ca",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 5295,
+          "source_sha256": "1623da6a9a2c570b86a33efe4f66e447256e1f58370d0c5ea2db32e781710062",
+          "sha256": "1623da6a9a2c570b86a33efe4f66e447256e1f58370d0c5ea2db32e781710062",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CusProps",
+          "bytes": 106,
+          "source_sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Definition",
+          "bytes": 3900,
+          "source_sha256": "8eb72cb6edc0b934d14b37591345b2a7948a508c7a0545885041ffaa4620d89f",
+          "sha256": "f2c00aa356a6da26f786bbfa7386097921a97ccf76c7f81d2b99a9e9bab47932",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/DisplayLists",
+          "bytes": 5792,
+          "source_sha256": "12fc550b4ec311929776281c22233c805d6f095ace3734c64cf7cae64032e004",
+          "sha256": "33215b1e718132e2199a6d3eff936072b7c7f92fed97d08e9fec450d901822b3",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/OleItems",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/User Units Table",
+          "bytes": 1487,
+          "source_sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/eModelLic",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Header2",
+          "bytes": 1957,
+          "source_sha256": "1a4c3072c1ed9a8257eebc3dd97d2943f7f2bdc0d2c565cecfd8651ddbbfffd2",
+          "sha256": "31111c7a5996cf1c67ecd843b2420fc5691a9b52ead0a22e536c9d85c220e3b5",
+          "privacy_operations": 1
+        },
+        {
+          "name": "ModelStamps",
+          "bytes": 12,
+          "source_sha256": "e20298b9d87051d1ba4498a613c2faf17bccb6595994701d42caa60bf0297264",
+          "sha256": "e20298b9d87051d1ba4498a613c2faf17bccb6595994701d42caa60bf0297264",
+          "privacy_operations": 0
+        },
+        {
+          "name": "OleItemInformation/OLE_Item_Data",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Preview",
+          "bytes": 35966,
+          "source_sha256": "e67c72241f0331e7ab8c9cc0211d69bb3c7a82d56b4cb62c89e758393704a9c0",
+          "sha256": "e67c72241f0331e7ab8c9cc0211d69bb3c7a82d56b4cb62c89e758393704a9c0",
+          "privacy_operations": 0
+        },
+        {
+          "name": "PreviewPNG",
+          "bytes": 2353,
+          "source_sha256": "4f05115f1e2dc0abb27e4a32e7c13f5debf8526ae853a09332b53d33c69d7eaf",
+          "sha256": "4f05115f1e2dc0abb27e4a32e7c13f5debf8526ae853a09332b53d33c69d7eaf",
+          "privacy_operations": 0
+        },
+        {
+          "name": "SwDocContentMgr/SwDocContentMgrInfo",
+          "bytes": 420,
+          "source_sha256": "0d75af585987b1a33fead5b49a1a1cf2b3f7ba35f3bad2b0a3617bba8ef3e3e9",
+          "sha256": "0d75af585987b1a33fead5b49a1a1cf2b3f7ba35f3bad2b0a3617bba8ef3e3e9",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/Animator",
+          "bytes": 342,
+          "source_sha256": "9463ab5cdc1d51d2dd3c55a7d2d275407e9d55506dcbcce842d7cfaa2c93ffe9",
+          "sha256": "9463ab5cdc1d51d2dd3c55a7d2d275407e9d55506dcbcce842d7cfaa2c93ffe9",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CMMotionLoadMapU",
+          "bytes": 56,
+          "source_sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CM_MOTION_LOAD_1",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/SWA_Schedules",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPtyStore/VisualStates",
+          "bytes": 597,
+          "source_sha256": "c4c1cc25419c807851dc6814e4ce4a6ffbf3c99cc0f0c942ddde3e75bb2e4ed9",
+          "sha256": "c4c1cc25419c807851dc6814e4ce4a6ffbf3c99cc0f0c942ddde3e75bb2e4ed9",
+          "privacy_operations": 0
+        },
+        {
+          "name": "[Content_Types].xml",
+          "bytes": 556,
+          "source_sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_DL_VERSION_19000/DLUpdateStamp",
+          "bytes": 6,
+          "source_sha256": "5bc6968defc4311b24f67e0dc2f0b774b913ddf289957294bccad4dfa8ced4a1",
+          "sha256": "5bc6968defc4311b24f67e0dc2f0b774b913ddf289957294bccad4dfa8ced4a1",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_MO_VERSION_19000/Biography",
+          "bytes": 1583,
+          "source_sha256": "c92a6453aa907e717c9900a37d43511c3c27496f1cbdf319739f9cfe9b7e4875",
+          "sha256": "7d9ef0d217ccafcd7c477dec84d652f1c7c8f4b3931ac7e42f04373428613e26",
+          "privacy_operations": 5
+        },
+        {
+          "name": "_MO_VERSION_19000/History",
+          "bytes": 101,
+          "source_sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_rels/.rels",
+          "bytes": 597,
+          "source_sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/Config-0-Properties.xml",
+          "bytes": 699,
+          "source_sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/ISolidWorksInformation.xml",
+          "bytes": 10709,
+          "source_sha256": "6f47b7a9e1acbb8bb1aa11b426895c5650c1a5cc2e919c9caee218b756bc77b5",
+          "sha256": "004078a181391041291486e2cfc837fe69a0182d477b1d0d9421cbe9bc3b1157",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/OpenTime.xml",
+          "bytes": 403,
+          "source_sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/app.xml",
+          "bytes": 570,
+          "source_sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/core.xml",
+          "bytes": 522,
+          "source_sha256": "012a62a37adef31a786dd0aa2871a999cd872d06ad2c9aa9f7eb7b06791d27cc",
+          "sha256": "1e258f35a3933f08ba95725034640bb010967189c54246c37531e96494a8b79e",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/custom.xml",
+          "bytes": 853,
+          "source_sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/COMPINSTANCETREE",
+          "bytes": 832,
+          "source_sha256": "1809d909707df3b042612430429dc220f9f38b0f131d747ff4b6d37392a3affc",
+          "sha256": "1809d909707df3b042612430429dc220f9f38b0f131d747ff4b6d37392a3affc",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/KeyWords",
+          "bytes": 1374,
+          "source_sha256": "5d916e926debd60bed32113214e18ea915c6aa0dd14d62ad01898200ec348433",
+          "sha256": "5d916e926debd60bed32113214e18ea915c6aa0dd14d62ad01898200ec348433",
+          "privacy_operations": 0
+        }
+      ]
+    },
+    {
+      "name": "A13SyncedSingle",
+      "role": "parent",
+      "file": "A13SyncedSingle.SLDASM",
+      "sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+      "bytes": 51335,
+      "source_sha256": "6b06937ca95ad7b2489e448537365b59ba09ea6498587593dcb1c44e502cb720",
+      "streams": [
+        {
+          "name": "Contents/3DExperienceExchange2",
+          "bytes": 12288,
+          "source_sha256": "6cb40dfc46f0b99a3d442ac79feaa9faa4aa381798016450eef53f5b2be18e7d",
+          "sha256": "6cb40dfc46f0b99a3d442ac79feaa9faa4aa381798016450eef53f5b2be18e7d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/3DExperienceExchange_ConfigHeader",
+          "bytes": 12288,
+          "source_sha256": "cdb465d56a63e3d0f2d73e33b036bba70ff879766137831562a6a349b7997613",
+          "sha256": "cdb465d56a63e3d0f2d73e33b036bba70ff879766137831562a6a349b7997613",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgr",
+          "bytes": 2229,
+          "source_sha256": "199e59c89ff675c85ed514b00bb7f75151f61ebdb7df92d655268cec3ef82565",
+          "sha256": "199e59c89ff675c85ed514b00bb7f75151f61ebdb7df92d655268cec3ef82565",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgrHdr2",
+          "bytes": 137,
+          "source_sha256": "27dac0e2d33e4d0a8d7319a4b8e110de98147bf07c2641bd88c2b80b8867d9fc",
+          "sha256": "27dac0e2d33e4d0a8d7319a4b8e110de98147bf07c2641bd88c2b80b8867d9fc",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CnfgObjs",
+          "bytes": 12,
+          "source_sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0",
+          "bytes": 24844,
+          "source_sha256": "9267b8175165bb8318e90569f48423647b8ead39758a7841217e3cfd8c678e37",
+          "sha256": "9267b8175165bb8318e90569f48423647b8ead39758a7841217e3cfd8c678e37",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-Attachment",
+          "bytes": 2,
+          "source_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-LWDATA",
+          "bytes": 1437,
+          "source_sha256": "b6193aca5a86e8413aa5bdb1aaa22f6a58b576638543f09c1f53e3a27179a15f",
+          "sha256": "b6193aca5a86e8413aa5bdb1aaa22f6a58b576638543f09c1f53e3a27179a15f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-MatesList",
+          "bytes": 6,
+          "source_sha256": "92b7043b6164971b77143b14c5428efcb7369e590af49779f8e2705244f1beea",
+          "sha256": "92b7043b6164971b77143b14c5428efcb7369e590af49779f8e2705244f1beea",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ModelHeader",
+          "bytes": 2429,
+          "source_sha256": "ad8c25d090b3f4dcdf6e6c259efd37dc240c2f8dd249b68938695f70675eba4a",
+          "sha256": "fe31f215fecc4085965808f35557a84fde3300532ae0855c0f3296f4f1a64586",
+          "privacy_operations": 2
+        },
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 5295,
+          "source_sha256": "cfe6ec356f95c21885a8fbd5d279071d358c043cc83ccf6c4abd39e9d93a245a",
+          "sha256": "cfe6ec356f95c21885a8fbd5d279071d358c043cc83ccf6c4abd39e9d93a245a",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CusProps",
+          "bytes": 106,
+          "source_sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Definition",
+          "bytes": 3900,
+          "source_sha256": "b670545af7b14351848b655194325bd488f067b5f69adbb817109828689c6551",
+          "sha256": "277828eba47fa279ab56a0c22bdb72936abcdff4f97c1e1e6bd227de98ebb1a1",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/DisplayLists",
+          "bytes": 9028,
+          "source_sha256": "453a780a3e558eb86a0bc8c9ba173005e6742e247b386afa842b70edc978e130",
+          "sha256": "b01f4f183e61bb4b1cb8c56bdfa930d0935220317128855163f81ad46a252922",
+          "privacy_operations": 2
+        },
+        {
+          "name": "Contents/OleItems",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/User Units Table",
+          "bytes": 1487,
+          "source_sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/eModelLic",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "FaceTessellations/000-000-001",
+          "bytes": 4872,
+          "source_sha256": "10add01d27e7ca9aa5d83728c8b1024a0fe0db15498c76898cccf79c8ddb6860",
+          "sha256": "10add01d27e7ca9aa5d83728c8b1024a0fe0db15498c76898cccf79c8ddb6860",
+          "privacy_operations": 0
+        },
+        {
+          "name": "FaceTessellations/Directory",
+          "bytes": 134,
+          "source_sha256": "1c5e43a54caf9acf9db1fc323da3784af9643bfccfb8450b0035fe3e93863e0f",
+          "sha256": "1c5e43a54caf9acf9db1fc323da3784af9643bfccfb8450b0035fe3e93863e0f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Header2",
+          "bytes": 2429,
+          "source_sha256": "ad8c25d090b3f4dcdf6e6c259efd37dc240c2f8dd249b68938695f70675eba4a",
+          "sha256": "fe31f215fecc4085965808f35557a84fde3300532ae0855c0f3296f4f1a64586",
+          "privacy_operations": 2
+        },
+        {
+          "name": "ModelStamps",
+          "bytes": 12,
+          "source_sha256": "8eed780792b77ad562fa17dc2bd7e9d3cf481eeec6cec0988a4ebd9fce3b1675",
+          "sha256": "8eed780792b77ad562fa17dc2bd7e9d3cf481eeec6cec0988a4ebd9fce3b1675",
+          "privacy_operations": 0
+        },
+        {
+          "name": "OleItemInformation/OLE_Item_Data",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Preview",
+          "bytes": 58624,
+          "source_sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "privacy_operations": 0
+        },
+        {
+          "name": "PreviewPNG",
+          "bytes": 16325,
+          "source_sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "privacy_operations": 0
+        },
+        {
+          "name": "SwDocContentMgr/SwDocContentMgrInfo",
+          "bytes": 822,
+          "source_sha256": "dc6fba03217592c34cc71d61f7fb81f326a08284515b4d6671d79300d967b8eb",
+          "sha256": "723cb56b90228a4dfd59927f3006a29c859cfd2446d2306ecd9d5552af24b0de",
+          "privacy_operations": 1
+        },
+        {
+          "name": "ThirdPty/Animator",
+          "bytes": 342,
+          "source_sha256": "a6de8a511e287e9adcc62248c781d76ee471c15b57a63426857bfff4e9034419",
+          "sha256": "a6de8a511e287e9adcc62248c781d76ee471c15b57a63426857bfff4e9034419",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CMMotionLoadMapU",
+          "bytes": 56,
+          "source_sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CM_MOTION_LOAD_1",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/SWA_Schedules",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPtyStore/VisualStates",
+          "bytes": 1055,
+          "source_sha256": "0ae3419e9e12f3e237e76835f6a7241f9c85b7eb7afda08bb2688d1cb423809e",
+          "sha256": "0ae3419e9e12f3e237e76835f6a7241f9c85b7eb7afda08bb2688d1cb423809e",
+          "privacy_operations": 0
+        },
+        {
+          "name": "[Content_Types].xml",
+          "bytes": 556,
+          "source_sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_DL_VERSION_19000/DLUpdateStamp",
+          "bytes": 6,
+          "source_sha256": "6b4d85d5ca9a8ae740c651fc90bda79f503c9fe222aca0b2d00ec8a15937347d",
+          "sha256": "6b4d85d5ca9a8ae740c651fc90bda79f503c9fe222aca0b2d00ec8a15937347d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_MO_VERSION_19000/Biography",
+          "bytes": 1587,
+          "source_sha256": "e1f681969d512da7031d11bf724ad72f1c7661e33e63259390bb399d65ac0152",
+          "sha256": "4aceef6ff3a391e5eb52cfce566a16912a023f44c9ac889dc30e36cbb2d594f0",
+          "privacy_operations": 5
+        },
+        {
+          "name": "_MO_VERSION_19000/History",
+          "bytes": 101,
+          "source_sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_rels/.rels",
+          "bytes": 597,
+          "source_sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/Config-0-Properties.xml",
+          "bytes": 699,
+          "source_sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/ISolidWorksInformation.xml",
+          "bytes": 10710,
+          "source_sha256": "64357f9469185d89cb25f5831eeb757a8d2dbfa20d69d7bd7b6fdc9ac308b7bf",
+          "sha256": "38060df5ca010e4dbbb3ff2e56846a5b8d90c6197c0f04cdf6abc562564b021a",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/OpenTime.xml",
+          "bytes": 403,
+          "source_sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/app.xml",
+          "bytes": 570,
+          "source_sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/core.xml",
+          "bytes": 522,
+          "source_sha256": "d2bfc36b5052d9d975a1aaceb6c9102176b468463de03043d356a27d8515c206",
+          "sha256": "0951eb41241c3fe850e3fcb05bcb440f75daad9acfaa21092c49089e37816d28",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/custom.xml",
+          "bytes": 853,
+          "source_sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/COMPINSTANCETREE",
+          "bytes": 1837,
+          "source_sha256": "a456795611bffad13d146f4d88fc0a584667dec6bff90a2c657a3c3b33e82e1f",
+          "sha256": "c87104f275be6d6fa65a3b57f49e3219fd6ef778d2b0732ffadd41f007620087",
+          "privacy_operations": 1
+        },
+        {
+          "name": "swXmlContents/KeyWords",
+          "bytes": 1435,
+          "source_sha256": "297d5058a21b4c0fe3fbdbbfef311e32fd18c79f24433b81712ea7b2d141fa11",
+          "sha256": "297d5058a21b4c0fe3fbdbbfef311e32fd18c79f24433b81712ea7b2d141fa11",
+          "privacy_operations": 0
+        }
+      ]
+    },
+    {
+      "name": "A13SyncedSingle",
+      "role": "child",
+      "file": "A13SyncedSingleChild.SLDPRT",
+      "sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+      "bytes": 56419,
+      "source_sha256": "f7dcb761afd5f3761cbcabdda07928d22936884c34a5b1c4decdab45657f4fd8",
+      "streams": [
+        {
+          "name": "Contents/3DExperienceExchange2",
+          "bytes": 12288,
+          "source_sha256": "8840b13225b2b5a598e0591c937d57a503578029a7eb1b44b69ba98066470742",
+          "sha256": "8840b13225b2b5a598e0591c937d57a503578029a7eb1b44b69ba98066470742",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/3DExperienceExchange_ConfigHeader",
+          "bytes": 12288,
+          "source_sha256": "403ce77f5c30f371087ed906811727623db58b46f3136318c782e879df6eff82",
+          "sha256": "403ce77f5c30f371087ed906811727623db58b46f3136318c782e879df6eff82",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgr",
+          "bytes": 2379,
+          "source_sha256": "238ea8712c05d2d7967a19884986e6fe78abcd2019f00add9588c1fcdbe443fe",
+          "sha256": "e066663c458edc371e6412d62ec546cb463956a9dc2ff44b6be461d3a6c82baa",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/CMgrHdr2",
+          "bytes": 137,
+          "source_sha256": "f3494eefb431ec46ddd8b1fbb5d9dbcc58e5a4be12db16536abe883d07fa0a24",
+          "sha256": "f3494eefb431ec46ddd8b1fbb5d9dbcc58e5a4be12db16536abe883d07fa0a24",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CnfgObjs",
+          "bytes": 12,
+          "source_sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0",
+          "bytes": 25408,
+          "source_sha256": "9e8a1ac23e1ddee85ff47f38bdec29afe64bc310c02acee32f74e5816322058b",
+          "sha256": "9e8a1ac23e1ddee85ff47f38bdec29afe64bc310c02acee32f74e5816322058b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-LWDATA",
+          "bytes": 1437,
+          "source_sha256": "a7679b1ebfbee9adeeb271337c8b2c9e72685f039e2907c12b8a1ae99a616c64",
+          "sha256": "a7679b1ebfbee9adeeb271337c8b2c9e72685f039e2907c12b8a1ae99a616c64",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ModelHeader",
+          "bytes": 2535,
+          "source_sha256": "2d66f9fa895c827c20468191b037f8895323296d11cea830269d2edb07667bfd",
+          "sha256": "da19d251d424f6aaa16dba6b83c35a394e9d6b1a67f6e1425bd8e0f6173d6f3e",
+          "privacy_operations": 2
+        },
+        {
+          "name": "Contents/Config-0-Partition",
+          "bytes": 3729,
+          "source_sha256": "31f0c3838e5754acedcb0bd00c28b73ca780c6918960d4c7c8c204acda8feede",
+          "sha256": "31f0c3838e5754acedcb0bd00c28b73ca780c6918960d4c7c8c204acda8feede",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 14627,
+          "source_sha256": "0c7c1f1b84002b618be557ff218c09bf54edfcf16b8c971201c758cc4df0b9c1",
+          "sha256": "265dbef165db81bccb498b425a29d3cf7730172b6a29fc7c59f7ee19dfba03ab",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/CusProps",
+          "bytes": 138,
+          "source_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Definition",
+          "bytes": 3816,
+          "source_sha256": "95e272da1e72999b96682fb318162ef30fbce748d3ceb4f6ce54f484df4b1ec9",
+          "sha256": "7fa456b6979140dc87b863601c18675b9b1d59cba99ca1898387f4b111563375",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/OleItems",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/PMISemanticDataDB",
+          "bytes": 12288,
+          "source_sha256": "c3f1fa7b605531cd200fe4667ed611db4b213b44d3726745ec3d94aff75c2abd",
+          "sha256": "c3f1fa7b605531cd200fe4667ed611db4b213b44d3726745ec3d94aff75c2abd",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/eModelLic",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Header2",
+          "bytes": 2535,
+          "source_sha256": "2d66f9fa895c827c20468191b037f8895323296d11cea830269d2edb07667bfd",
+          "sha256": "da19d251d424f6aaa16dba6b83c35a394e9d6b1a67f6e1425bd8e0f6173d6f3e",
+          "privacy_operations": 2
+        },
+        {
+          "name": "ModelStamps",
+          "bytes": 12,
+          "source_sha256": "840de5efb927bf239986aab66a63f693df3f2dce9dcd1437def23b273230f6ef",
+          "sha256": "840de5efb927bf239986aab66a63f693df3f2dce9dcd1437def23b273230f6ef",
+          "privacy_operations": 0
+        },
+        {
+          "name": "OleItemInformation/OLE_Item_Data",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "SwDocContentMgr/SwDocContentMgrInfo",
+          "bytes": 471,
+          "source_sha256": "7c8e459210fe7c059ca2903c9d03e0ed3b7a0e4d7fff6c637ffee79e53ab69e7",
+          "sha256": "7c8e459210fe7c059ca2903c9d03e0ed3b7a0e4d7fff6c637ffee79e53ab69e7",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPtyStore/VisualStates",
+          "bytes": 1789,
+          "source_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "privacy_operations": 0
+        },
+        {
+          "name": "[Content_Types].xml",
+          "bytes": 556,
+          "source_sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_DL_VERSION_19000/DLUpdateStamp",
+          "bytes": 6,
+          "source_sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb",
+          "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_MO_VERSION_19000/Biography",
+          "bytes": 2235,
+          "source_sha256": "c73c6ef2a0677c7a984870aa9d53be21c16b8607ef4b8fc3efd3ecb3b2d01d78",
+          "sha256": "ebd4e4a40612945b0d197639f962778f9a1634bd469ad8ca092b8398899b5f99",
+          "privacy_operations": 7
+        },
+        {
+          "name": "_MO_VERSION_19000/History",
+          "bytes": 101,
+          "source_sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_rels/.rels",
+          "bytes": 597,
+          "source_sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/Config-0-Properties.xml",
+          "bytes": 699,
+          "source_sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/ISolidWorksInformation.xml",
+          "bytes": 10634,
+          "source_sha256": "4a745f8df47d84449b455eb71700e5ce56f39ab41ed4553d3f517b3bc7ed7429",
+          "sha256": "fcb1212249dfc6ac32e3707b4de5f4a3e8e8d3763be15aa11308160fb9627e9c",
+          "privacy_operations": 2
+        },
+        {
+          "name": "docProps/OpenTime.xml",
+          "bytes": 402,
+          "source_sha256": "31bf54eb417fca4f8e55095c69fea019f7f6b55f5385d4dce84a5d77a49efa4f",
+          "sha256": "31bf54eb417fca4f8e55095c69fea019f7f6b55f5385d4dce84a5d77a49efa4f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/app.xml",
+          "bytes": 570,
+          "source_sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/core.xml",
+          "bytes": 522,
+          "source_sha256": "7e7111e24270c2fd759eae5dd616ad4f7a996ffa1db12e7ab35a59415f9bfa51",
+          "sha256": "ab60d0212bbe20517bcd4f1d9b25de348e790fcf7b17374c78a91729fba7277a",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/custom.xml",
+          "bytes": 853,
+          "source_sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/Features",
+          "bytes": 941,
+          "source_sha256": "1cd26df3f32a3c0e9a677e2ebbac740061dc6eb1e39e081af7f1faa3bd99862b",
+          "sha256": "5b7fa4a5a48ab15456ae0f5cdb7724fc668fe1aa168f728da18e5878b7bf0203",
+          "privacy_operations": 2
+        },
+        {
+          "name": "swXmlContents/KeyWords",
+          "bytes": 1745,
+          "source_sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+          "sha256": "4fe5a57b847840e7dcb7e25245372b6091b809b2d905b31623b81158f9a8096b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/DisplayLists",
+          "bytes": 12796,
+          "source_sha256": "7bbf7e1525619d91a1df7d30a516b228fcf86861a347b73dad70277bf3f2403a",
+          "sha256": "415cfe44f72c88606b921a1f27068f77ffb55e827511000f080a6115d5fc2d2a",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Preview",
+          "bytes": 58624,
+          "source_sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "privacy_operations": 0
+        },
+        {
+          "name": "PreviewPNG",
+          "bytes": 16325,
+          "source_sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/Animator",
+          "bytes": 342,
+          "source_sha256": "02dc92838d2ffcf5b3499f7c04345824bf685b78ba132697016440fae1bd7da1",
+          "sha256": "02dc92838d2ffcf5b3499f7c04345824bf685b78ba132697016440fae1bd7da1",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CMMotionLoadMapU",
+          "bytes": 56,
+          "source_sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CM_MOTION_LOAD_1",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/SWA_Schedules",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        }
+      ]
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "role": "parent",
+      "file": "A14SyncedRepeat.SLDASM",
+      "sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+      "bytes": 42746,
+      "source_sha256": "afbadce4776edbf47a86f954eedac88336e1235c655781688b0974d305fe553f",
+      "streams": [
+        {
+          "name": "Contents/3DExperienceExchange2",
+          "bytes": 12288,
+          "source_sha256": "d969b52be2c6942d9eec03f86f26ff780fb8f78fd8222fa05d6a630b27190a2e",
+          "sha256": "d969b52be2c6942d9eec03f86f26ff780fb8f78fd8222fa05d6a630b27190a2e",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/3DExperienceExchange_ConfigHeader",
+          "bytes": 12288,
+          "source_sha256": "2ebcdd1aa6103598bad8050cf50060bcddd0ca1ba9c86a2fdd1ab5346e291883",
+          "sha256": "2ebcdd1aa6103598bad8050cf50060bcddd0ca1ba9c86a2fdd1ab5346e291883",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgr",
+          "bytes": 2617,
+          "source_sha256": "d71a1f772c0d46b34f60b9a8897d3c4fb143530dc5629929c2492ec1142c116f",
+          "sha256": "d71a1f772c0d46b34f60b9a8897d3c4fb143530dc5629929c2492ec1142c116f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgrHdr2",
+          "bytes": 137,
+          "source_sha256": "50ce4f4e57a231235cf38d7b5d6640bdc859e5798d8c56a0d6145aeef47c6e49",
+          "sha256": "50ce4f4e57a231235cf38d7b5d6640bdc859e5798d8c56a0d6145aeef47c6e49",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CnfgObjs",
+          "bytes": 12,
+          "source_sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0",
+          "bytes": 25438,
+          "source_sha256": "5558e65c5667b40e0e902efb9b727ab72586fbcf1796d93bdb707c1b4f3e5cf0",
+          "sha256": "5558e65c5667b40e0e902efb9b727ab72586fbcf1796d93bdb707c1b4f3e5cf0",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-Attachment",
+          "bytes": 2,
+          "source_sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-LWDATA",
+          "bytes": 1437,
+          "source_sha256": "f5262cc92902a5e4af066452866631da1f157c81beab2bf25ba1b8eb488c2240",
+          "sha256": "f5262cc92902a5e4af066452866631da1f157c81beab2bf25ba1b8eb488c2240",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-MatesList",
+          "bytes": 6,
+          "source_sha256": "1b7daa4fb6499933b149b4b632b31520a936381c8425be8abca83716decd6a32",
+          "sha256": "1b7daa4fb6499933b149b4b632b31520a936381c8425be8abca83716decd6a32",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ModelHeader",
+          "bytes": 2497,
+          "source_sha256": "b60b376b215f265d2aeb73ba6bc54c84c3de5997d98b2c4f974384a9265469bb",
+          "sha256": "0b221ec5ae888399e97cfb2f09a240d6e7dc478e4dbd89d989ad8bb5fcfdf1b5",
+          "privacy_operations": 2
+        },
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 5295,
+          "source_sha256": "4878020498538eda725ba25aef1333a21ad4f7495fb7fa8906469f16003192df",
+          "sha256": "4878020498538eda725ba25aef1333a21ad4f7495fb7fa8906469f16003192df",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CusProps",
+          "bytes": 106,
+          "source_sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "sha256": "799684c1e7c614a24b0c78b0d88257ef3232c5b076cc93a6aa1a0541ed6f9440",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Definition",
+          "bytes": 3900,
+          "source_sha256": "ea44d0d1abac67c19653c557492b3a1d88c3414cd51d87c1ab971c4a9a8444d4",
+          "sha256": "1b9bec06510f34ff99269d06f16ca51c408bbab70e762c6c9770e106533d9f0a",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/DisplayLists",
+          "bytes": 9805,
+          "source_sha256": "a4f84d75edebc12313333099362e8e6859c7e3cc350cdbfcf59320139f90166f",
+          "sha256": "7df06db07cebdf69aebccb64466fe792226d3565cd48095af73d91883391dcad",
+          "privacy_operations": 3
+        },
+        {
+          "name": "Contents/OleItems",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/User Units Table",
+          "bytes": 1487,
+          "source_sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "sha256": "8fee3b134da781fcc947cc5cdfd6892872bf48e8c73b8e1e7c2af6b71af22b75",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/eModelLic",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "FaceTessellations/000-000-001",
+          "bytes": 4872,
+          "source_sha256": "249e45350a3cc6e18e5a352314095b21f45d92f60530d280105f598cea0da199",
+          "sha256": "249e45350a3cc6e18e5a352314095b21f45d92f60530d280105f598cea0da199",
+          "privacy_operations": 0
+        },
+        {
+          "name": "FaceTessellations/Directory",
+          "bytes": 234,
+          "source_sha256": "b428046447c0ed384d8b80a603e763e81af4ffe85e9387a373924ce5bb351eaa",
+          "sha256": "b428046447c0ed384d8b80a603e763e81af4ffe85e9387a373924ce5bb351eaa",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Header2",
+          "bytes": 2497,
+          "source_sha256": "b60b376b215f265d2aeb73ba6bc54c84c3de5997d98b2c4f974384a9265469bb",
+          "sha256": "0b221ec5ae888399e97cfb2f09a240d6e7dc478e4dbd89d989ad8bb5fcfdf1b5",
+          "privacy_operations": 2
+        },
+        {
+          "name": "ModelStamps",
+          "bytes": 12,
+          "source_sha256": "09f3b637c9be0c696ac378d4250a982445803892fe409f7002a45c91e3611432",
+          "sha256": "09f3b637c9be0c696ac378d4250a982445803892fe409f7002a45c91e3611432",
+          "privacy_operations": 0
+        },
+        {
+          "name": "OleItemInformation/OLE_Item_Data",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Preview",
+          "bytes": 51742,
+          "source_sha256": "5b450f9956b5423df39d91f0c7e1965572cde03e0d11eb635089cd6de7fe3f82",
+          "sha256": "5b450f9956b5423df39d91f0c7e1965572cde03e0d11eb635089cd6de7fe3f82",
+          "privacy_operations": 0
+        },
+        {
+          "name": "PreviewPNG",
+          "bytes": 10002,
+          "source_sha256": "451fd326b345e7aca92e2fb70e9179dc4f07a79ef07a49549b0b30263daeba65",
+          "sha256": "451fd326b345e7aca92e2fb70e9179dc4f07a79ef07a49549b0b30263daeba65",
+          "privacy_operations": 0
+        },
+        {
+          "name": "SwDocContentMgr/SwDocContentMgrInfo",
+          "bytes": 1254,
+          "source_sha256": "141555626989be963d80c74aa9e8115a2b4a179ece24e33c81df676534d9bfb3",
+          "sha256": "dce113b047d7ded6fe6b29f5ba5903e73b9079cc495495efc7b2eb7904c106e1",
+          "privacy_operations": 2
+        },
+        {
+          "name": "ThirdPty/Animator",
+          "bytes": 342,
+          "source_sha256": "d41591f2381915be6b81cd3927e34187a5b8449400d710cfca3b38cc0b7bfe99",
+          "sha256": "d41591f2381915be6b81cd3927e34187a5b8449400d710cfca3b38cc0b7bfe99",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CMMotionLoadMapU",
+          "bytes": 56,
+          "source_sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CM_MOTION_LOAD_1",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/SWA_Schedules",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPtyStore/VisualStates",
+          "bytes": 1247,
+          "source_sha256": "05204284bb871770638d93f06f1746fbe327fcb8e1b57dfaed481c4327b6eb4e",
+          "sha256": "05204284bb871770638d93f06f1746fbe327fcb8e1b57dfaed481c4327b6eb4e",
+          "privacy_operations": 0
+        },
+        {
+          "name": "[Content_Types].xml",
+          "bytes": 556,
+          "source_sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_DL_VERSION_19000/DLUpdateStamp",
+          "bytes": 6,
+          "source_sha256": "6b4d85d5ca9a8ae740c651fc90bda79f503c9fe222aca0b2d00ec8a15937347d",
+          "sha256": "6b4d85d5ca9a8ae740c651fc90bda79f503c9fe222aca0b2d00ec8a15937347d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_MO_VERSION_19000/Biography",
+          "bytes": 1587,
+          "source_sha256": "b24ad7732c146f18dfe221eb04873d297a0cefd20933ce40b62b9b3a5ddaa400",
+          "sha256": "f452d1e94eb0f2709e6ff04e13371cf73f9d752b75ef4376827452c91e854846",
+          "privacy_operations": 5
+        },
+        {
+          "name": "_MO_VERSION_19000/History",
+          "bytes": 101,
+          "source_sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "sha256": "cdc60a185265c27a1fd1fd1eaa2dc322cb1984a98be3247d49722f0127d8f682",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_rels/.rels",
+          "bytes": 597,
+          "source_sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/Config-0-Properties.xml",
+          "bytes": 699,
+          "source_sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/ISolidWorksInformation.xml",
+          "bytes": 10710,
+          "source_sha256": "56284399895809223f69b990f83c06cafd1a975c53049a44938d7c1a478e03ca",
+          "sha256": "f89732f0fe8c332a12232c661a5666158b9bc443d5ce90b1b0c8c5fdf3d613c8",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/OpenTime.xml",
+          "bytes": 403,
+          "source_sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "sha256": "d4f8f737a68254a385bb281db7c44ec79d862e90b416d143ff8cdd941741ffec",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/app.xml",
+          "bytes": 570,
+          "source_sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/core.xml",
+          "bytes": 522,
+          "source_sha256": "2168f3abddb099bf3d8bca729c533db2c1abd2addbc3d78bf6e1f8f481eba99d",
+          "sha256": "c3f829759ee85d9b42955435e4889e9ac2df543fb6355a932f593d795057ab60",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/custom.xml",
+          "bytes": 853,
+          "source_sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/COMPINSTANCETREE",
+          "bytes": 2424,
+          "source_sha256": "e8837b88fce8b0ef5eca55015c089507945f0f2517933e7ed1186890b87d7d4c",
+          "sha256": "408dc317e1878ec8f386934351543e96753db22c1a344a412e8e212abe75b156",
+          "privacy_operations": 1
+        },
+        {
+          "name": "swXmlContents/KeyWords",
+          "bytes": 1496,
+          "source_sha256": "58ebb4eb288eac7480fdc5c5b79017b44a7e8c7061b5a4fb1bafff5d4eff3854",
+          "sha256": "58ebb4eb288eac7480fdc5c5b79017b44a7e8c7061b5a4fb1bafff5d4eff3854",
+          "privacy_operations": 0
+        }
+      ]
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "role": "child",
+      "file": "A14SyncedRepeatChild.SLDPRT",
+      "sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+      "bytes": 56422,
+      "source_sha256": "1e8c99c6ab8777daec2b28cb57a9b3db8c18adf9d700415a9a4629e07d9d7550",
+      "streams": [
+        {
+          "name": "Contents/3DExperienceExchange2",
+          "bytes": 12288,
+          "source_sha256": "7fb8432511c8ee75059dd9a09f3a7dc8495bdd79468dc6a7e599ca77069d2a0c",
+          "sha256": "7fb8432511c8ee75059dd9a09f3a7dc8495bdd79468dc6a7e599ca77069d2a0c",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/3DExperienceExchange_ConfigHeader",
+          "bytes": 12288,
+          "source_sha256": "ad297a87090b684ead1d4096923b0728f746c48e7633251546b4c99961ca56e5",
+          "sha256": "ad297a87090b684ead1d4096923b0728f746c48e7633251546b4c99961ca56e5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CMgr",
+          "bytes": 2379,
+          "source_sha256": "af9a3f023e8d81f9bcf8088e6336c0d437d55d24106d78b28d7cebd5d2cd58bf",
+          "sha256": "678085e74c8cbbf9d9354186ddc6a0e1c1f315fd0ac48df8f6c48a544bc581b1",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/CMgrHdr2",
+          "bytes": 137,
+          "source_sha256": "23cac64b6aece59a2158182fbeb65842655ebfabdcbb62486213496dd0ab7d96",
+          "sha256": "23cac64b6aece59a2158182fbeb65842655ebfabdcbb62486213496dd0ab7d96",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/CnfgObjs",
+          "bytes": 12,
+          "source_sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "sha256": "be190659d40a87652a4baed7dd86e3dcaa7bc6f32aa7ab9e4b007f109aadaf06",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0",
+          "bytes": 25408,
+          "source_sha256": "ee7808bd942f82ef7d9f516aec4aa32b04ff726d943c76eec989a47d6ae2a691",
+          "sha256": "ee7808bd942f82ef7d9f516aec4aa32b04ff726d943c76eec989a47d6ae2a691",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-LWDATA",
+          "bytes": 1437,
+          "source_sha256": "a7679b1ebfbee9adeeb271337c8b2c9e72685f039e2907c12b8a1ae99a616c64",
+          "sha256": "a7679b1ebfbee9adeeb271337c8b2c9e72685f039e2907c12b8a1ae99a616c64",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ModelHeader",
+          "bytes": 2535,
+          "source_sha256": "712eedaeadc153b796fabb159325014c355e305ee52222be6af932951cc6dd10",
+          "sha256": "0d225265c1d28604fa1a95338bb16b668b6503f44ecceafa65b538e23edd4a68",
+          "privacy_operations": 2
+        },
+        {
+          "name": "Contents/Config-0-Partition",
+          "bytes": 3729,
+          "source_sha256": "6c04bf42ad4b62fa8e164bd2b17e6a60812ee9d931229f45958c5f1b1a3477b0",
+          "sha256": "6c04bf42ad4b62fa8e164bd2b17e6a60812ee9d931229f45958c5f1b1a3477b0",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Config-0-ResolvedFeatures",
+          "bytes": 14627,
+          "source_sha256": "db0eb7b6718fc5d68971a266b83765f3de0758656a9ce35d3570db39a1052cf3",
+          "sha256": "5b1632e4df0d5597fddffae8eb030623600e54b0ed6f6dc3f6f90214db87555d",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/CusProps",
+          "bytes": 138,
+          "source_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/Definition",
+          "bytes": 3816,
+          "source_sha256": "5a4a61864b8d3159eed46d34c434603dc0643a15d4074fb4246fbd58899f0c06",
+          "sha256": "527c90f79b20917b5a83fb9a0820ec3d8e9f1ef9ce82c6390028d0b57b1a51df",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Contents/OleItems",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/PMISemanticDataDB",
+          "bytes": 12288,
+          "source_sha256": "951d0611436e0899d2a9495bf515fded5ca6608d039abd5a51c716650bbdce5f",
+          "sha256": "951d0611436e0899d2a9495bf515fded5ca6608d039abd5a51c716650bbdce5f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/eModelLic",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Header2",
+          "bytes": 2535,
+          "source_sha256": "712eedaeadc153b796fabb159325014c355e305ee52222be6af932951cc6dd10",
+          "sha256": "0d225265c1d28604fa1a95338bb16b668b6503f44ecceafa65b538e23edd4a68",
+          "privacy_operations": 2
+        },
+        {
+          "name": "ModelStamps",
+          "bytes": 12,
+          "source_sha256": "840de5efb927bf239986aab66a63f693df3f2dce9dcd1437def23b273230f6ef",
+          "sha256": "840de5efb927bf239986aab66a63f693df3f2dce9dcd1437def23b273230f6ef",
+          "privacy_operations": 0
+        },
+        {
+          "name": "OleItemInformation/OLE_Item_Data",
+          "bytes": 4,
+          "source_sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+          "privacy_operations": 0
+        },
+        {
+          "name": "SwDocContentMgr/SwDocContentMgrInfo",
+          "bytes": 471,
+          "source_sha256": "bfd24a591064301e975413300905f0d66944c37049c99e308b3c7726bea227cc",
+          "sha256": "bfd24a591064301e975413300905f0d66944c37049c99e308b3c7726bea227cc",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPtyStore/VisualStates",
+          "bytes": 1789,
+          "source_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438",
+          "privacy_operations": 0
+        },
+        {
+          "name": "[Content_Types].xml",
+          "bytes": 556,
+          "source_sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "sha256": "a50ae48af011114c4a400111c09ca34e083c21db7e82a2f3e3c641c752b89f4d",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_DL_VERSION_19000/DLUpdateStamp",
+          "bytes": 6,
+          "source_sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb",
+          "sha256": "9e5e80acb3e91907a8945d31becb412919ac8a09c71293c8434692bf99c0efeb",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_MO_VERSION_19000/Biography",
+          "bytes": 2235,
+          "source_sha256": "c681218c1aded365b01085ea3b4e5180b11150896ac8de9a21f086f4a25bbbd4",
+          "sha256": "68efab3408a86e4a18ebf0865cfc8593979d3541b290192d332823021c13fb0b",
+          "privacy_operations": 7
+        },
+        {
+          "name": "_MO_VERSION_19000/History",
+          "bytes": 101,
+          "source_sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0",
+          "privacy_operations": 0
+        },
+        {
+          "name": "_rels/.rels",
+          "bytes": 597,
+          "source_sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "sha256": "8fae89749a8d95ff5996361cf8f7dedb7c74a374c6ed87285d3d8c9e5a48717b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/Config-0-Properties.xml",
+          "bytes": 699,
+          "source_sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "sha256": "74295bb0e2888c500a9e979eb21ea08e97fd1f1f597160d284be476d6f3144f6",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/ISolidWorksInformation.xml",
+          "bytes": 10634,
+          "source_sha256": "c7378cbf8db8dd99b294847e6e079f9c84754db1aa3da0b46e4e8cf85896d338",
+          "sha256": "852a574afa694fb8af64c17a9d82e50646b450f0f00fafe0f5b39afc69a48dc9",
+          "privacy_operations": 2
+        },
+        {
+          "name": "docProps/OpenTime.xml",
+          "bytes": 402,
+          "source_sha256": "31bf54eb417fca4f8e55095c69fea019f7f6b55f5385d4dce84a5d77a49efa4f",
+          "sha256": "31bf54eb417fca4f8e55095c69fea019f7f6b55f5385d4dce84a5d77a49efa4f",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/app.xml",
+          "bytes": 570,
+          "source_sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "sha256": "d69d246f37c251bb4a300d89745e66fbb6c19a4f6a23cf3dcb1cec93c24f6f51",
+          "privacy_operations": 0
+        },
+        {
+          "name": "docProps/core.xml",
+          "bytes": 522,
+          "source_sha256": "985d4f8678c796d6e84972e066bb298677ca6e12e9e5780227dddbf80e027172",
+          "sha256": "3ed04dd750e0e9c2d78bb45b3250e1b0972242d9aa53ee874e28d16374651217",
+          "privacy_operations": 1
+        },
+        {
+          "name": "docProps/custom.xml",
+          "bytes": 853,
+          "source_sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "sha256": "9e1eb86e90840d66d6dba6cf3fb53bdecf1972e3b18342d874eb30aff80e64d5",
+          "privacy_operations": 0
+        },
+        {
+          "name": "swXmlContents/Features",
+          "bytes": 941,
+          "source_sha256": "d470681ce5dbb195eebffb970c453f33ab757b4af42bc4ae381129918787a41c",
+          "sha256": "5b7fa4a5a48ab15456ae0f5cdb7724fc668fe1aa168f728da18e5878b7bf0203",
+          "privacy_operations": 2
+        },
+        {
+          "name": "swXmlContents/KeyWords",
+          "bytes": 1745,
+          "source_sha256": "07fe42c5d59bb1d887ef7922f3638878688bb4f19099e0aaf49c65b27bb43cdb",
+          "sha256": "07fe42c5d59bb1d887ef7922f3638878688bb4f19099e0aaf49c65b27bb43cdb",
+          "privacy_operations": 0
+        },
+        {
+          "name": "Contents/DisplayLists",
+          "bytes": 12796,
+          "source_sha256": "7bbf7e1525619d91a1df7d30a516b228fcf86861a347b73dad70277bf3f2403a",
+          "sha256": "415cfe44f72c88606b921a1f27068f77ffb55e827511000f080a6115d5fc2d2a",
+          "privacy_operations": 1
+        },
+        {
+          "name": "Preview",
+          "bytes": 58624,
+          "source_sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "sha256": "a184fb1a992183d6fda5a14cda3c5a869f6016befa1fc543121374779c2e0d38",
+          "privacy_operations": 0
+        },
+        {
+          "name": "PreviewPNG",
+          "bytes": 16325,
+          "source_sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "sha256": "431e4bebc21130449a82a58570301b687e185e1ad528b1ef2bd436ce0f1465cf",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/Animator",
+          "bytes": 342,
+          "source_sha256": "02dc92838d2ffcf5b3499f7c04345824bf685b78ba132697016440fae1bd7da1",
+          "sha256": "02dc92838d2ffcf5b3499f7c04345824bf685b78ba132697016440fae1bd7da1",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CMMotionLoadMapU",
+          "bytes": 56,
+          "source_sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "sha256": "6fe33dbe7c73fe9371512c903cb9b5cf2536c4ba8882a00ffd632f70933d917b",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/CM_MOTION_LOAD_1",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        },
+        {
+          "name": "ThirdPty/SWA_Schedules",
+          "bytes": 0,
+          "source_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "privacy_operations": 0
+        }
+      ]
+    }
+  ]
+}

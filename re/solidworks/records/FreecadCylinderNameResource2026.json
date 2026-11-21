@@ -1,0 +1,423 @@
+{
+  "bindings": {
+    "binary_written": false,
+    "chpe": {
+      "auxiliary_iat_rva": "0x993000",
+      "code_ranges": [
+        {
+          "end_rva": 3367228,
+          "start_rva": 4096,
+          "type": 0
+        },
+        {
+          "end_rva": 6873544,
+          "start_rva": 3371008,
+          "type": 1
+        },
+        {
+          "end_rva": 7102864,
+          "start_rva": 6877184,
+          "type": 2
+        }
+      ],
+      "normal_iat_rva": "0x6c7000",
+      "rva": "0x6fdd70",
+      "version": 2
+    },
+    "explicit_names": [
+      {
+        "equals_english_special_name": false,
+        "name": "Radius",
+        "native_custom_name_lifecycle_qualified": false,
+        "new_f2c_mask_from_this_branch": 0
+      },
+      {
+        "equals_english_special_name": false,
+        "name": "Height",
+        "native_custom_name_lifecycle_qualified": false,
+        "new_f2c_mask_from_this_branch": 0
+      }
+    ],
+    "generated_native_files": 0,
+    "heldout_inputs_read": 0,
+    "hybrid_bodies": {
+      "compare": "0x18037f2a0",
+      "load_string": "0x18034a4f0"
+    },
+    "hybrid_ordinals": {
+      "compare": {
+        "address": "0x180699f80",
+        "forward": null,
+        "ordinal": 2909,
+        "rva": 6922112
+      },
+      "load_string": {
+        "address": "0x1806ae170",
+        "forward": null,
+        "ordinal": 8161,
+        "rva": 7004528
+      }
+    },
+    "kernel_resource_imports": {
+      "find": {
+        "auxiliary_slot": "0x180993598",
+        "exit_thunk": "0x18066a0c0",
+        "exit_window": {
+          "bytes": 20,
+          "code_unchanged_from_original": true,
+          "end": "0x18066a0d4",
+          "original_sha256": "d74e63af70ee1300cd9a0a45c829bacc5e608293d2f90d90eb5f4b04ad827141",
+          "sha256": "d74e63af70ee1300cd9a0a45c829bacc5e608293d2f90d90eb5f4b04ad827141",
+          "start": "0x18066a0c0"
+        },
+        "import": {
+          "module": "KERNEL32.dll",
+          "name": "FindResourceW",
+          "ordinal": null
+        },
+        "normal_slot": "0x1806c7598",
+        "thunk": "0x180337d68"
+      },
+      "load": {
+        "auxiliary_slot": "0x180993720",
+        "exit_thunk": "0x18066a0a0",
+        "exit_window": {
+          "bytes": 20,
+          "code_unchanged_from_original": true,
+          "end": "0x18066a0b4",
+          "original_sha256": "118c26e8d28b18e165a97dc5828e51f4acd4a1760e814edf72ab93203bfb8e95",
+          "sha256": "118c26e8d28b18e165a97dc5828e51f4acd4a1760e814edf72ab93203bfb8e95",
+          "start": "0x18066a0a0"
+        },
+        "import": {
+          "module": "KERNEL32.dll",
+          "name": "LoadResource",
+          "ordinal": null
+        },
+        "normal_slot": "0x1806c7720",
+        "thunk": "0x180337d5c"
+      },
+      "lock": {
+        "auxiliary_slot": "0x180993750",
+        "exit_thunk": "0x18066a080",
+        "exit_window": {
+          "bytes": 20,
+          "code_unchanged_from_original": true,
+          "end": "0x18066a094",
+          "original_sha256": "48c23f251eabeadc963d207059aa28df8eb71b843a1c8ed214ce83bba503a114",
+          "sha256": "48c23f251eabeadc963d207059aa28df8eb71b843a1c8ed214ce83bba503a114",
+          "start": "0x18066a080"
+        },
+        "import": {
+          "module": "KERNEL32.dll",
+          "name": "LockResource",
+          "ordinal": null
+        },
+        "normal_slot": "0x1806c7750",
+        "thunk": "0x180337d50"
+      },
+      "size": {
+        "auxiliary_slot": "0x1809937c0",
+        "exit_thunk": "0x18066a060",
+        "exit_window": {
+          "bytes": 20,
+          "code_unchanged_from_original": true,
+          "end": "0x18066a074",
+          "original_sha256": "eb516a92a7ecde54f9616cc4037ea1993bd7c3c262297a56652739a0df5b63be",
+          "sha256": "eb516a92a7ecde54f9616cc4037ea1993bd7c3c262297a56652739a0df5b63be",
+          "start": "0x18066a060"
+        },
+        "import": {
+          "module": "KERNEL32.dll",
+          "name": "SizeofResource",
+          "ordinal": null
+        },
+        "normal_slot": "0x1806c77c0",
+        "thunk": "0x180337d44"
+      }
+    },
+    "live_selected_resource_handle_observed": false,
+    "method_windows": {
+      "arm64ec_compare_import_thunk": {
+        "bytes": 12,
+        "code_unchanged_from_original": false,
+        "end": "0x180338544",
+        "original_sha256": "8d75dcfc140d6abec4e6d458f76667c98679f23365884f12155ecde3061637b2",
+        "sha256": "b534ecc46d04e4bef07f0a8272ecb89608e8630dd643edfe49a69598dace782e",
+        "start": "0x180338538"
+      },
+      "arm64ec_compare_leaf": {
+        "bytes": 20,
+        "code_unchanged_from_original": true,
+        "end": "0x18037f2b4",
+        "original_sha256": "1681ea87c847c5acb4d6d9f3df18db218971faf58c450f581a5febb0ab2bcf72",
+        "sha256": "1681ea87c847c5acb4d6d9f3df18db218971faf58c450f581a5febb0ab2bcf72",
+        "start": "0x18037f2a0"
+      },
+      "arm64ec_explicit_string_load": {
+        "bytes": 228,
+        "code_unchanged_from_original": true,
+        "end": "0x18034a4e4",
+        "original_sha256": "9189334cb3b431a95dc62f25bf6abef50d4f6bc26559cdb7c3e4a0a94bce7216",
+        "sha256": "9189334cb3b431a95dc62f25bf6abef50d4f6bc26559cdb7c3e4a0a94bce7216",
+        "start": "0x18034a400"
+      },
+      "arm64ec_load_string": {
+        "bytes": 88,
+        "code_unchanged_from_original": true,
+        "end": "0x18034a548",
+        "original_sha256": "1585fbf6d8b800ab6b151fd69b00c2d6776ac3eb96fe8b5aac2f1ffdb969f972",
+        "sha256": "1585fbf6d8b800ab6b151fd69b00c2d6776ac3eb96fe8b5aac2f1ffdb969f972",
+        "start": "0x18034a4f0"
+      },
+      "arm64ec_resource_handle_search": {
+        "bytes": 668,
+        "code_unchanged_from_original": true,
+        "end": "0x1806606ec",
+        "original_sha256": "35ce205a625dda2141826abe72675df5f4dabd149df5757add2db8b8fc45e347",
+        "sha256": "35ce205a625dda2141826abe72675df5f4dabd149df5757add2db8b8fc45e347",
+        "start": "0x180660450"
+      },
+      "arm64ec_string_block_lookup": {
+        "bytes": 184,
+        "code_unchanged_from_original": true,
+        "end": "0x18034a3f8",
+        "original_sha256": "25eaf9ca043045ae6aebd576879ce8f7e6f80782051e7c6095667ffc76d1ba2b",
+        "sha256": "25eaf9ca043045ae6aebd576879ce8f7e6f80782051e7c6095667ffc76d1ba2b",
+        "start": "0x18034a340"
+      },
+      "x64_compare_stub": {
+        "bytes": 14,
+        "code_unchanged_from_original": true,
+        "end": "0x180699f8e",
+        "original_sha256": "e2cc62a9f36c018ac5279c132eec6c2c539783423217440736d15142d2c8ce9b",
+        "sha256": "e2cc62a9f36c018ac5279c132eec6c2c539783423217440736d15142d2c8ce9b",
+        "start": "0x180699f80"
+      },
+      "x64_load_string_stub": {
+        "bytes": 14,
+        "code_unchanged_from_original": true,
+        "end": "0x1806ae17e",
+        "original_sha256": "16b0873c36a7599de2111a0231bc43c7a67385237ed642c34586aa23eb523529",
+        "sha256": "16b0873c36a7599de2111a0231bc43c7a67385237ed642c34586aa23eb523529",
+        "start": "0x1806ae170"
+      }
+    },
+    "mfc_hybrid_view": {
+      "binary_written": false,
+      "dynamic_table_version": 1,
+      "fixup_counts": {
+        "0": 4,
+        "1": 1697,
+        "2": 34
+      },
+      "fixups": 1735,
+      "header_machine_after": "0x8664",
+      "header_machine_before": "0xaa64",
+      "hybrid_sha256": "364d5bb2e7c7cb62bb8987047e71c848de3c8967a4d3b93bcf6611550fe0895f",
+      "native_execution": false,
+      "original_sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1"
+    },
+    "model_imports": {
+      "compare": {
+        "module": "mfc140u.dll",
+        "name": null,
+        "ordinal": 2909,
+        "slot": "0x4cd34e80"
+      },
+      "load_string": {
+        "module": "mfc140u.dll",
+        "name": null,
+        "ordinal": 8161,
+        "slot": "0x4cd34e70"
+      }
+    },
+    "native_processes_started": 0,
+    "original_images": [
+      {
+        "bytes": 46536280,
+        "machine": "0x8664",
+        "matches": [],
+        "name": "sldmodu.dll",
+        "resource_id": "0x2e56",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "bytes": 4461656,
+        "machine": "0x8664",
+        "matches": [
+          {
+            "block_id": 742,
+            "code_page": 0,
+            "language_id": 1033,
+            "payload_bytes": 2716,
+            "payload_rva": 2828856,
+            "payload_sha256": "b9cb75379bdb13d750743dd7b9c1f0351d915cbfefb18e484eb12a52c6b1f800",
+            "slot": 6,
+            "value": "Thickness"
+          }
+        ],
+        "name": "sldresu.dll",
+        "resource_id": "0x2e56",
+        "sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111"
+      },
+      {
+        "bytes": 40024,
+        "machine": "0x8664",
+        "matches": [],
+        "name": "mfresu.dll",
+        "resource_id": "0x2e56",
+        "sha256": "a5cba60ca4df309845febfc39b7881a3025b53e5a4879bc66898d884a7830384"
+      },
+      {
+        "bytes": 19074648,
+        "machine": "0x8664",
+        "matches": [],
+        "name": "slddialogresu.dll",
+        "resource_id": "0x2e56",
+        "sha256": "bd8d2e40405059d270917e7d2907934c023a245d990b219ee41dee944c0d8b31"
+      },
+      {
+        "bytes": 718936,
+        "machine": "0x8664",
+        "matches": [],
+        "name": "sldworks.exe",
+        "resource_id": "0x2e56",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      {
+        "bytes": 12118600,
+        "machine": "0xaa64",
+        "matches": [],
+        "name": "mfc140u.dll",
+        "resource_id": "0x2e56",
+        "sha256": "88beebf73667ab0d603355f54562aa9cf9316f4d585a40ec93430c6715ffc8d1"
+      }
+    ],
+    "other_locales_qualified": false,
+    "passed": true,
+    "raw_arm64_ordinals": {
+      "compare": {
+        "address": "0x18013dac0",
+        "forward": null,
+        "ordinal": 2909,
+        "rva": 1301184
+      },
+      "load_string": {
+        "address": "0x1800a2b30",
+        "forward": null,
+        "ordinal": 8161,
+        "rva": 666416
+      }
+    },
+    "schema": "kit.sw2026.cylinder-native-name-resource.v1",
+    "scope": "original English resource and declared correct-view setter branch only",
+    "special_name_resource": {
+      "block_id": 742,
+      "code_page": 0,
+      "language_id": 1033,
+      "payload_bytes": 2716,
+      "payload_rva": 2828856,
+      "payload_sha256": "b9cb75379bdb13d750743dd7b9c1f0351d915cbfefb18e484eb12a52c6b1f800",
+      "slot": 6,
+      "value": "Thickness"
+    },
+    "wide_compare": {
+      "auxiliary_slot": "0x1809947b0",
+      "exit_thunk": "0x18066c3c0",
+      "exit_window": {
+        "bytes": 20,
+        "code_unchanged_from_original": true,
+        "end": "0x18066c3d4",
+        "original_sha256": "0b9f8ec2bee93cd42e7f54f788494b54ffaa13425d31b6a2ea16fd178e322907",
+        "sha256": "0b9f8ec2bee93cd42e7f54f788494b54ffaa13425d31b6a2ea16fd178e322907",
+        "start": "0x18066c3c0"
+      },
+      "import": {
+        "module": "api-ms-win-crt-string-l1-1-0.dll",
+        "name": "_wcsicmp",
+        "ordinal": null
+      },
+      "normal_slot": "0x1806c87b0",
+      "thunk": "0x180338538"
+    }
+  },
+  "delivery_pr": 121,
+  "generated_native_files": 0,
+  "heldout_inputs_read": 0,
+  "hopper_documents_opened": 0,
+  "loader_route": {
+    "additional_handle_field": "0x98",
+    "block_id": 742,
+    "block_lookup": "0x18034a340",
+    "current_state_handle_field": "0x18",
+    "extension_list_field": "0x88",
+    "full_loaded_module_chain_qualified": false,
+    "handle_search": "0x180660450",
+    "language_parameter": "the traced call is FindResourceW and passes no explicit LANGID",
+    "live_resource_handle_observed": false,
+    "resource_type": 6,
+    "string_slot": 6
+  },
+  "native_processes_started": 0,
+  "native_rule": {
+    "comparison": "case-insensitive Unicode via the correct-view _wcsicmp import",
+    "confidence": "confirmed for the bounded static path and original resource; no new runtime",
+    "effect": "OR mask on equality; this branch does not clear a prior mask",
+    "english_resource_owner": "sldresu.dll",
+    "english_value": "Thickness",
+    "field": "parameter node f2c",
+    "fresh_Height_mask_from_this_branch": 0,
+    "fresh_Radius_mask_from_this_branch": 0,
+    "language_id": 1033,
+    "mask": "0x1",
+    "parameter_setter": "0x4c19c9b0",
+    "preconditions": [
+      "the selected resource is the pinned English resource",
+      "a fresh ordinary private parameter starts with f2c zero",
+      "no earlier operation has set other secondary-mask bits"
+    ],
+    "resource_id": "0x2e56"
+  },
+  "owner": "/root/assembly_occurrence",
+  "pin_output_sha256": "e72f405ec5c7783e9d7f0911b496b9f3f34ee3087cb825939b05d8ab5a9e3b22",
+  "proprietary_listing_files_in_delivery": 0,
+  "public_format_sources": [
+    {
+      "scope": "architecture-dependent PE views",
+      "title": "Microsoft Arm64X PE files",
+      "url": "https://learn.microsoft.com/en-us/windows/arm/arm64x-pe"
+    },
+    {
+      "download_sha256": "4dabc46a75ccf3af4b5e953fec9334e23df82afd4c1be70ea08d77b076cb0234",
+      "scope": "dynamic relocation decoding and in-memory view transformation",
+      "title": "LLVM 21.1.0 COFFObjectFile hybrid view",
+      "url": "https://github.com/llvm/llvm-project/blob/llvmorg-21.1.0/llvm/lib/Object/COFFObjectFile.cpp"
+    },
+    {
+      "download_sha256": "38b71769688bc99d1780fe61539586faf86b27821e32cfc912f4cd0c8f540c32",
+      "scope": "CHPE code map and auxiliary IAT fields",
+      "title": "LLVM 21.1.0 COFF structures",
+      "url": "https://github.com/llvm/llvm-project/blob/llvmorg-21.1.0/llvm/include/llvm/Object/COFF.h"
+    }
+  ],
+  "schema": "kit.sw2026.freecad-cylinder-name-resource-knowledge.v1",
+  "scope_limits": [
+    "new primitive native output is not constructed",
+    "original heldout native sources are not locked by this task",
+    "custom-name syntax, collisions, equations and native save/reopen remain unmeasured",
+    "eleven other source parameter owners and full source envelope remain unqualified",
+    "English resource inventory does not establish other languages or arbitrary injected MFC resource chains"
+  ],
+  "shared_files_written": 0,
+  "source_knowledge_dependency": {
+    "record": "FreecadCylinderNativeParameter2026.md",
+    "stageable_manifest_sha256": "1aa190ce00f832e0573ac66bab6ca6aba834a972d7b7dc6b3a9ac06a5ec705d4"
+  },
+  "status": "exact English resource and correct ARM64X-view source rule; native custom names unqualified",
+  "task": "B04-SW2026-FREECAD-CYLINDER",
+  "tools_sha256": {
+    "NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7",
+    "PinCylinderNameResource.py": "6c1a1294c92a001d695760e5b285846cecaa0730eb48460e89a90c7ba5942ad1"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "actual_child_cache_lookup_observed": false,
+  "control_geometry_lifecycles_passed": true,
+  "disclosed_source_unchanged": true,
+  "distinct_processes": 3,
+  "fallback_asserted": false,
+  "generated_native_inputs_run": 0,
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "oracle_build": "34.5.2.0604",
+  "packet_sha256": "2af0a40c0f3d0a096cb28c02bc00cd126cb25bafec6ec9733b59e472221e1f94",
+  "phases": {
+    "ControlAfter": {
+      "open": [
+        0,
+        0
+      ],
+      "ordinary_annotation_save_passed": true,
+      "process_creation_filetime": 134395689525996143,
+      "raw_phase_sha256": "b36770ad62d3f65f32aff0eecddd8ae6ceafbc778211515ba7355cbff894e7da",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "save_model_data_before": true
+    },
+    "ControlBefore": {
+      "open": [
+        0,
+        0
+      ],
+      "ordinary_annotation_save_passed": true,
+      "process_creation_filetime": 134395688545471226,
+      "raw_phase_sha256": "77db92fd0b2eb7351318ea4d64b18a87835ed4738e82f1d6f703db1e43bbfa89",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "save_model_data_before": true
+    },
+    "PreparationProbe": {
+      "open": [
+        0,
+        0
+      ],
+      "ordinary_annotation_save_passed": true,
+      "process_creation_filetime": 134395689027345696,
+      "raw_phase_sha256": "27be8f30fd7b8eb77165d59a17cd6a82af1be625c24cca47e16470c8f8ebe80d",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "save_model_data_before": true
+    }
+  },
+  "probe": {
+    "cleanup_explicit_removal_restored": true,
+    "debugger_absent_after": true,
+    "preparation_gate": {
+      "other_view_ids": [],
+      "resume_requested_offset_ns": 1078000000,
+      "rva": 3439566,
+      "sample": null,
+      "save_wait_ended_offset_ns": 1812000000,
+      "save_wait_started_offset_ns": 1078000000,
+      "state": "unobserved_after_completed_save",
+      "timed_out_wait_calls": 2,
+      "wait_calls": 2,
+      "wait_exit_reason": "save_returned"
+    },
+    "save_events": [
+      [
+        7,
+        1125000000
+      ],
+      [
+        9,
+        1281000000
+      ],
+      [
+        28,
+        1359000000
+      ]
+    ]
+  },
+  "probe_scope_armed_and_restored": true,
+  "raw_result_sha256": "8df6ec13cb1fba061e6c5e30095731a7c3c6aca872c572f4afb4289fdc09e6b4",
+  "schema": "kit.sw2026.drawing-preparation-gate-measurement.v1",
+  "source_commit_before_native": "307acdc357c7b4ac18792fec4ab4efc95ffcf042",
+  "view_preparation_gate_observed": false
+}

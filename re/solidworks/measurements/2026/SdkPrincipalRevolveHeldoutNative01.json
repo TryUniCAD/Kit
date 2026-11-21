@@ -1,0 +1,1042 @@
+{
+  "cases": {
+    "PrincipalRevolveHeldoutRight": {
+      "generated_sha256": "07df0e087581fb9fcb68b94da523508074576e4bf925839c5aed65f897298313",
+      "measured": {
+        "edited": {
+          "actual": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586934
+            ],
+            "mass": 1.998728594203906e-05,
+            "volume": 1.998728594203906e-05
+          }
+        },
+        "open": {
+          "actual": {
+            "area": 0.0031078329947389844,
+            "com": [
+              -0.01202367550757136,
+              0.00479,
+              -0.021009558996276358
+            ],
+            "mass": 1.1620515082580853e-05,
+            "volume": 1.1620515082580853e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.003107832994738985,
+            "com": [
+              -0.01202367550757136,
+              0.004789999999999999,
+              -0.021009558996276358
+            ],
+            "mass": 1.1620515082580853e-05,
+            "volume": 1.1620515082580853e-05
+          }
+        },
+        "reopen": {
+          "actual": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          }
+        }
+      },
+      "neutral_request_sha256": "bf3e34416686536fd1782143775b94a3da6a6dbd99101de363a31e7122d5bf7b",
+      "passed": true,
+      "phases": {
+        "generated": {
+          "edited_sha256": "e1bf4fcb589024e4a953e9f028aa1cf59528f7483152ff930d1f606aa9a93545",
+          "open": {
+            "native_receipt_sha256": "5805c040d59c0e2fd25575c70ac5ccd139feff3aae15c94c9e52d6d36428de15",
+            "oracle_process": 134396930344477465,
+            "sdk": {
+              "body_name": "Body 1",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 0,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "07df0e087581fb9fcb68b94da523508074576e4bf925839c5aed65f897298313",
+              "projection": {
+                "axis": "sldprt:sketch:18:line:5",
+                "direction": [
+                  0,
+                  1,
+                  0
+                ],
+                "driver": "sldprt:parameter:19:D1",
+                "feature": "sldprt:feature:19",
+                "local_mm": [
+                  [
+                    5.34,
+                    -12.19
+                  ],
+                  [
+                    5.34,
+                    23.77
+                  ]
+                ],
+                "plane": "sldprt:plane:16",
+                "radians": 1.3089969389957472,
+                "world_mm": [
+                  [
+                    0.0,
+                    -12.19,
+                    -5.34
+                  ],
+                  [
+                    0.0,
+                    23.77,
+                    -5.34
+                  ]
+                ]
+              },
+              "saved_body_cache": false,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 1129,
+                  "sha256": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 22296,
+                  "sha256": "8d97841d2639938abd30c62dfc81498fc973a00c91a65355050cdbc9b3077d82"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 807,
+                  "sha256": "aa035278e4cf2f730b901095fd1ee3c244d71cb9d84a5412cc76afad03d5bcd4"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 9931,
+                  "sha256": "98ca785f98118c6a87f1e5b97419ea3d45d7cef8476bf96dbabf0021ebf827b8"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 459,
+                  "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 807,
+                  "sha256": "eaa1891afd621553315cb9488798244ee7892a2849758c63b65dd3ee8968697d"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 23,
+                  "qualified": true,
+                  "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 187,
+                  "qualified": true,
+                  "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1410,
+                  "sha256": "32ab4857b028724f9dd2efb2e217cde9d26ca70642d71a78443236f673755398"
+                }
+              }
+            }
+          },
+          "reopen": {
+            "native_receipt_sha256": "346ff68772a3c00af86027834264647173d340345c35648f7f8620f382b3053d",
+            "oracle_process": 134396931020205941,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "e1bf4fcb589024e4a953e9f028aa1cf59528f7483152ff930d1f606aa9a93545",
+              "projection": {
+                "axis": "sldprt:sketch:18:line:5",
+                "direction": [
+                  0,
+                  1,
+                  0
+                ],
+                "driver": "sldprt:parameter:19:D1",
+                "feature": "sldprt:feature:19",
+                "local_mm": [
+                  [
+                    5.34,
+                    -12.19
+                  ],
+                  [
+                    5.34,
+                    23.77
+                  ]
+                ],
+                "plane": "sldprt:plane:16",
+                "radians": 2.251474735072685,
+                "world_mm": [
+                  [
+                    0.0,
+                    -12.19,
+                    -5.34
+                  ],
+                  [
+                    0.0,
+                    23.77,
+                    -5.34
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2545,
+                  "sha256": "445b6cedd427611499424e9e4830167f3212e5c0bdcd316287933ebd28d2e6f0"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "b01f5d73b38db11781dc74b441218dbfc7be61065081d9ab6c060534098ca5eb"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 26099,
+                  "sha256": "6d658d31df5e4777773e8c66b754466b620ccb9eebc7e69ebc0ea4fff3050119"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 1285,
+                  "sha256": "79c41eed14b5cda35467b9423fb7e435b2b5a2d28282ec44881a228b7411fc0f"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 11757,
+                  "sha256": "d0630b24e9e85a11d2daf1b6cfb2095e254aad4e548dda3c6b34fc53b02ea25d"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 855,
+                  "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 1285,
+                  "sha256": "79c41eed14b5cda35467b9423fb7e435b2b5a2d28282ec44881a228b7411fc0f"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 1385,
+                  "qualified": true,
+                  "sha256": "132ad55c0ad790991c4ec98894bb9595c86cd9c3ddd8bf3241cb098e8c61a8c8"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 187,
+                  "qualified": true,
+                  "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1703,
+                  "sha256": "6b018fab035eae23ebfdffc547acec8c90c09e0566b06674e626287b3c1d2a55"
+                }
+              }
+            }
+          }
+        },
+        "source": {
+          "edited_sha256": "e6ad25a47017a34a053121fea6d57bb6903c36d6e8462e69ff46fccf3f6a8917",
+          "open": {
+            "native_receipt_sha256": "ccbd55d778ae8bdc944f12242a13f9f421cb316aeef3c85e9c37a24b8645706d",
+            "oracle_process": 134396929298479436,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "029c9528398e56edefbe54f362965ceed84f4c6a4ad2f6c30e48e6b15d18ef74",
+              "projection": {
+                "axis": "sldprt:sketch:26:line:1",
+                "direction": [
+                  0,
+                  1,
+                  0
+                ],
+                "driver": "sldprt:parameter:31:D1",
+                "feature": "sldprt:feature:31",
+                "local_mm": [
+                  [
+                    5.34,
+                    -12.19
+                  ],
+                  [
+                    5.34,
+                    23.77
+                  ]
+                ],
+                "plane": "sldprt:plane:4",
+                "radians": 1.3089969389957472,
+                "world_mm": [
+                  [
+                    0.0,
+                    -12.19,
+                    -5.34
+                  ],
+                  [
+                    0.0,
+                    23.77,
+                    -5.34
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2159,
+                  "sha256": "75a69387e6ae39a801aca65836b5e8d59dfb55965bfa2c7ec9fb95896d294d63"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "ad01bfeb03af983db3919494c0321a203a8364750c1ca466f853d54da8fb7681"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 25476,
+                  "sha256": "116f002cd8001d77f1c17aac942882adedc9fbfb6795dbfe44799842503e4587"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 2371,
+                  "sha256": "dbb37d3d98fbc452ee76069b38a77652dffeabd926d083b95c02467934e412e6"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 12537,
+                  "sha256": "5c84dacd7a9bf0998627b209f5396de111b888db83cd5794fef937a50282b330"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 3816,
+                  "sha256": "023def33651f824fc30b06b64dcdd55c80a5dcfb17b487b4f62d884d437dc938"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 2371,
+                  "sha256": "dbb37d3d98fbc452ee76069b38a77652dffeabd926d083b95c02467934e412e6"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 1607,
+                  "qualified": true,
+                  "sha256": "5fa2e43390939a6d4a8e9d16e947f5f4be77251d3e217dc7281f249947ff861a"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 101,
+                  "qualified": true,
+                  "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1666,
+                  "sha256": "5938e039e718b7927fbd57bedabbeafbe711a33bff20de829b347ff9e8aec40d"
+                }
+              }
+            }
+          },
+          "reopen": {
+            "native_receipt_sha256": "ca7073227cd5987f00fc7b2d578a4f7968a9431ba551829e812eb149bc0869f8",
+            "oracle_process": 134396929909060752,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "e6ad25a47017a34a053121fea6d57bb6903c36d6e8462e69ff46fccf3f6a8917",
+              "projection": {
+                "axis": "sldprt:sketch:26:line:1",
+                "direction": [
+                  0,
+                  1,
+                  0
+                ],
+                "driver": "sldprt:parameter:31:D1",
+                "feature": "sldprt:feature:31",
+                "local_mm": [
+                  [
+                    5.34,
+                    -12.19
+                  ],
+                  [
+                    5.34,
+                    23.77
+                  ]
+                ],
+                "plane": "sldprt:plane:4",
+                "radians": 2.251474735072685,
+                "world_mm": [
+                  [
+                    0.0,
+                    -12.19,
+                    -5.34
+                  ],
+                  [
+                    0.0,
+                    23.77,
+                    -5.34
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2457,
+                  "sha256": "a3c1075b8a57c62a34939b59e2b923af8ad50b27aa73f9e2347e0259ecbf4f61"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "4c5594c5f8fdd1b66e57e4d97790c5420947ed6ddfae6b79d8eb6899387c69a3"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 25530,
+                  "sha256": "a0868a796e938a19924e24943c193b9c98362965b6786aa02396e817f75432cb"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 2701,
+                  "sha256": "393ef65e924e8cb8fe4c33428d8e209a648206af4d196dc0e6f723046edd07e5"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 12835,
+                  "sha256": "3781f6bc2d4f304df3fcd26310b9817499ca75da2553f890a1b4464fc1495e59"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 3816,
+                  "sha256": "61f0e6fa53b3acf79a54e383a5b690957d317fdf70243b50abc5acd075a43f07"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 2701,
+                  "sha256": "393ef65e924e8cb8fe4c33428d8e209a648206af4d196dc0e6f723046edd07e5"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 2707,
+                  "qualified": true,
+                  "sha256": "8fcb8d1fa36f71f6a6805c4fac82ba501e29a475d2cf43212194d82ee3b86d15"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 101,
+                  "qualified": true,
+                  "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1690,
+                  "sha256": "e0aa22bc6978903dd8d8cfd29a767fac2a68e541a5ce59afdc39071adf298b0f"
+                }
+              }
+            }
+          }
+        }
+      },
+      "source_sha256": "029c9528398e56edefbe54f362965ceed84f4c6a4ad2f6c30e48e6b15d18ef74"
+    },
+    "PrincipalRevolveHeldoutTop": {
+      "generated_sha256": "479a98f542d63471d1cbca0958870dca70294e1adbcbdb08f8eeaae9822d9736",
+      "measured": {
+        "edited": {
+          "actual": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.012390472836628112,
+              0.0072796302927560985,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.01239047283662811,
+              0.0072796302927561,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          }
+        },
+        "open": {
+          "actual": {
+            "area": 0.008900666117151325,
+            "com": [
+              -0.004023207567788548,
+              0.02001050449952112,
+              0.002294999999999998
+            ],
+            "mass": 4.4804312142665895e-05,
+            "volume": 4.4804312142665895e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.008900666117151325,
+            "com": [
+              -0.0040232075677885505,
+              0.02001050449952112,
+              0.002294999999999998
+            ],
+            "mass": 4.4804312142665895e-05,
+            "volume": 4.4804312142665895e-05
+          }
+        },
+        "reopen": {
+          "actual": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.012390472836628108,
+              0.007279630292756097,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "body_name": "OrdinaryBossRevolve",
+          "features": 19,
+          "recursive_tree_rows": 25,
+          "reference": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.01239047283662811,
+              0.0072796302927561,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          }
+        }
+      },
+      "neutral_request_sha256": "350db06c694c5fe3cce8d874b79e57bbaf5262b2629749d929ff55cb9da06ee3",
+      "passed": true,
+      "phases": {
+        "generated": {
+          "edited_sha256": "eae6856beb4dd204e877c0d9d46d6311d2e98a6e1e55b9101a2496cd6647595a",
+          "open": {
+            "native_receipt_sha256": "bbb7c71b7e4b079952149816ddf8553e494aa544fbcc4eecb47603c77b6bdb3e",
+            "oracle_process": 134396932583708151,
+            "sdk": {
+              "body_name": "Body 1",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 0,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "479a98f542d63471d1cbca0958870dca70294e1adbcbdb08f8eeaae9822d9736",
+              "projection": {
+                "axis": "sldprt:sketch:18:line:5",
+                "direction": [
+                  0,
+                  0,
+                  1
+                ],
+                "driver": "sldprt:parameter:19:D1",
+                "feature": "sldprt:feature:19",
+                "local_mm": [
+                  [
+                    -5.95,
+                    -20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    17.8
+                  ]
+                ],
+                "plane": "sldprt:plane:15",
+                "radians": 2.949606435870417,
+                "world_mm": [
+                  [
+                    -5.95,
+                    -0.0,
+                    20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    0.0,
+                    -17.8
+                  ]
+                ]
+              },
+              "saved_body_cache": false,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 1129,
+                  "sha256": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 22292,
+                  "sha256": "db44dfc9472bb18d2fb9332d4ad643e3706b984e7b4cfb53567cc3b43a7368a7"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 795,
+                  "sha256": "72493c5c46c89fb0d1a8cc872ef52d659d1198db73c2020c6143777b91c902ff"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 9931,
+                  "sha256": "e81bfa9f08022ed23d45a8b8a353564e7ab1d460a6016b6d4953363732ce23de"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 459,
+                  "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 795,
+                  "sha256": "cfd5b44fdf5f9b6875fac55aaf034aab0282abb15c86601db08881082e8be13a"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 23,
+                  "qualified": true,
+                  "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 187,
+                  "qualified": true,
+                  "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1409,
+                  "sha256": "b29829aa655ae66834ca10effa27a2c597a1ace10523e6be2d8fab97a39ee63a"
+                }
+              }
+            }
+          },
+          "reopen": {
+            "native_receipt_sha256": "349d714c60c68aefe10c210aa698a7216aa4436b5206d23be51ab427f934cc67",
+            "oracle_process": 134396933289157808,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "eae6856beb4dd204e877c0d9d46d6311d2e98a6e1e55b9101a2496cd6647595a",
+              "projection": {
+                "axis": "sldprt:sketch:18:line:5",
+                "direction": [
+                  0,
+                  0,
+                  1
+                ],
+                "driver": "sldprt:parameter:19:D1",
+                "feature": "sldprt:feature:19",
+                "local_mm": [
+                  [
+                    -5.95,
+                    -20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    17.8
+                  ]
+                ],
+                "plane": "sldprt:plane:15",
+                "radians": 4.590215932745087,
+                "world_mm": [
+                  [
+                    -5.95,
+                    -0.0,
+                    20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    0.0,
+                    -17.8
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2533,
+                  "sha256": "53f02f7b768e53275d2e69f218a258e68108c25fdc065d32b9c53130ee1aa370"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "2154178eff2d421e9d6496fe2c0255832482d6349089c142eaaaf73d2fecb667"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 26095,
+                  "sha256": "a505defe72479ab06bf74f1738cbf4c2b5bc38dc5611a73c985db1e234d3ee5e"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 1273,
+                  "sha256": "ab4a87228e0f3941b7b822a67e00761f1b3b8a14f9d3f35fcc2df61edb5f9a72"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 11677,
+                  "sha256": "b00cbcca0fe96ae1cc3e39fa0fa3df29f744e95c9ff3c2883da902138a1d176b"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 855,
+                  "sha256": "4f9bd8501d59840a0dbcc1f1f4cfcfe746ce64ac11b9170def333cbe25ef2658"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 1273,
+                  "sha256": "ab4a87228e0f3941b7b822a67e00761f1b3b8a14f9d3f35fcc2df61edb5f9a72"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 1373,
+                  "qualified": true,
+                  "sha256": "361bd4a563a42490799c21e97570170e74b5bd92d859430bd213ad472ac911ac"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 187,
+                  "qualified": true,
+                  "sha256": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1701,
+                  "sha256": "f2ce0080cab4d442b4d3c338e74b23f567421028ee50db2c27355ffe63091323"
+                }
+              }
+            }
+          }
+        },
+        "source": {
+          "edited_sha256": "354b7ffd549ba3a8459b24a119b5ec8e4cf0360f5c7433ac8d479ae25c403950",
+          "open": {
+            "native_receipt_sha256": "4b5da0a3f6cdf32a1239f377280a1f704243e03ff2dae9d3766e67ccd79e9d8e",
+            "oracle_process": 134396931477413689,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "e7021d5bf67b00bcfa09777c5ae0a417200645712afc33a27300b41d361c2d80",
+              "projection": {
+                "axis": "sldprt:sketch:26:line:1",
+                "direction": [
+                  0,
+                  0,
+                  1
+                ],
+                "driver": "sldprt:parameter:31:D1",
+                "feature": "sldprt:feature:31",
+                "local_mm": [
+                  [
+                    -5.95,
+                    -20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    17.8
+                  ]
+                ],
+                "plane": "sldprt:plane:3",
+                "radians": 2.949606435870417,
+                "world_mm": [
+                  [
+                    -5.95,
+                    -0.0,
+                    20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    0.0,
+                    -17.8
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2159,
+                  "sha256": "ca0e9f8a4875a0d7dfd1c342a174800ee117653dff2a3fb7c94e73f1b8106e0c"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "16ee9c1cb27fd5e852f4631c8ab2f6f2444ef3232230504590b8913e22aba315"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 25408,
+                  "sha256": "0d9f5c7c342130bed15a3e527ba920f0f0fd118588c123c940f00eed1e2f9653"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 2371,
+                  "sha256": "2b9f86abfd355e8aa9c45441b1105a1a6205fbeee24970e3075cbee054ad61bc"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 12465,
+                  "sha256": "87db08964c837e6997fd6a97aeeffa699a8f36b4ba68d629944e7917b5eaa2dd"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 3816,
+                  "sha256": "6c2c8c726bfa94d8139196874719792be15c4cc6c914a8c3095a7a5963ed2991"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 2371,
+                  "sha256": "2b9f86abfd355e8aa9c45441b1105a1a6205fbeee24970e3075cbee054ad61bc"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 1599,
+                  "qualified": true,
+                  "sha256": "a8e19391b30889a39b595f31b1247f6b689726986b0f7bee5d5249e2f90b3b02"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 101,
+                  "qualified": true,
+                  "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1667,
+                  "sha256": "c310602bbc1297ae6cd0f217914e55caa7c438e59a8511cc271a03f8a3acf003"
+                }
+              }
+            }
+          },
+          "reopen": {
+            "native_receipt_sha256": "072ee36f7509858e8802f047518219063f7a7360c0c9c1fbe3338fb470efb1f8",
+            "oracle_process": 134396932111722261,
+            "sdk": {
+              "body_name": "OrdinaryBossRevolve",
+              "guard": {
+                "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+                "grammar_reads": 1,
+                "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+                "unexpected_attempts": []
+              },
+              "input_sha256": "354b7ffd549ba3a8459b24a119b5ec8e4cf0360f5c7433ac8d479ae25c403950",
+              "projection": {
+                "axis": "sldprt:sketch:26:line:1",
+                "direction": [
+                  0,
+                  0,
+                  1
+                ],
+                "driver": "sldprt:parameter:31:D1",
+                "feature": "sldprt:feature:31",
+                "local_mm": [
+                  [
+                    -5.95,
+                    -20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    17.8
+                  ]
+                ],
+                "plane": "sldprt:plane:3",
+                "radians": 4.590215932745087,
+                "world_mm": [
+                  [
+                    -5.95,
+                    -0.0,
+                    20.389999999999997
+                  ],
+                  [
+                    -5.95,
+                    0.0,
+                    -17.8
+                  ]
+                ]
+              },
+              "saved_body_cache": true,
+              "streams": {
+                "Contents/CMgr": {
+                  "byte_identity": true,
+                  "bytes": 2445,
+                  "sha256": "e68c4ee1e5ddfc18447b8ec75c05cd99935b3b79ea0c3bdd4cb80903f870f4c4"
+                },
+                "Contents/CMgrHdr2": {
+                  "byte_identity": true,
+                  "bytes": 137,
+                  "sha256": "6d36992659df26e3eec9010a7f7dc880ad9d022cbd872be321e9aaf1c653fb29"
+                },
+                "Contents/Config-0": {
+                  "byte_identity": true,
+                  "bytes": 25458,
+                  "sha256": "64ea03d855dfde13c422b571950190de530e38caeb95739b2011a13495521ee2"
+                },
+                "Contents/Config-0-ModelHeader": {
+                  "byte_identity": true,
+                  "bytes": 2689,
+                  "sha256": "8321cf7d60b8eec2dcf75c96964c0c2420fa051e7a10401c626c25c51d8a2f3b"
+                },
+                "Contents/Config-0-ResolvedFeatures": {
+                  "byte_identity": true,
+                  "bytes": 12751,
+                  "sha256": "aa38bf0b8fa1f05f70c661c3d5282eb430e3d30b29392ea66c025222e61521a7"
+                },
+                "Contents/Definition": {
+                  "byte_identity": true,
+                  "bytes": 3816,
+                  "sha256": "d1714f9ceb54a65b8b337ca010a78728318b9027439a5aa8740631325359b22a"
+                },
+                "Header2": {
+                  "byte_identity": true,
+                  "bytes": 2689,
+                  "sha256": "8321cf7d60b8eec2dcf75c96964c0c2420fa051e7a10401c626c25c51d8a2f3b"
+                },
+                "_MO_VERSION_19000/Biography": {
+                  "byte_identity": true,
+                  "bytes": 2679,
+                  "qualified": true,
+                  "sha256": "fd5baa300fe3f79cc9e3341682fb7399d6b73472575011fc301cb8a423d1d41b"
+                },
+                "_MO_VERSION_19000/History": {
+                  "byte_identity": true,
+                  "bytes": 101,
+                  "qualified": true,
+                  "sha256": "50b4e737db43b1d2fb1b5df623e004466a1dabaa3072454180ff5275347cace0"
+                },
+                "swXmlContents/KeyWords": {
+                  "byte_identity": true,
+                  "bytes": 1688,
+                  "sha256": "e17dce4b08366168be783b26c5f4881102a206f1d66d996f166e750463d0a8a6"
+                }
+              }
+            }
+          }
+        }
+      },
+      "source_sha256": "e7021d5bf67b00bcfa09777c5ae0a417200645712afc33a27300b41d361c2d80"
+    }
+  },
+  "complete_original_source_conversion": false,
+  "controls": {
+    "ControlAfter": {
+      "native_receipt_sha256": "f410dc69c5ae978cadba3dcfa3ac0f8322b76495bac5dc4aad3c6ed56e2ea47b",
+      "oracle_process": 134396933777374288,
+      "passed": true
+    },
+    "ControlBefore": {
+      "native_receipt_sha256": "97e8db350ba9ae09d8e0467a67c0a7d63b2130adbe0371408d7a1178d48f3171",
+      "oracle_process": 134396928988653396,
+      "passed": true
+    }
+  },
+  "controls_healthy": true,
+  "distinct_observed_processes": 10,
+  "freeze_sha256": "e0286a250e08dcd2dc1ae7ac7891dc5a686fb4d0b3d51266aa8f445462d58d24",
+  "generation_freeze_sha256": "9b8c814e29c4862eb99ea51699dde0bbb6d308c5ce20ce0ebdcbcb52bac5630c",
+  "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+  "heldout_rule_credit": 2,
+  "method_revision": "fcc1a2206e5738bfcef982cd77ffdfac1d6644c9",
+  "observer_recovery": {
+    "attempt": "PrincipalRevolveEvaluation02",
+    "failure_sha256": "726a8941c301051722f33039b4c9d65f0483b70d58eeb659078cde42816927d6",
+    "freeze_sha256": "9b8c814e29c4862eb99ea51699dde0bbb6d308c5ce20ce0ebdcbcb52bac5630c",
+    "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "passed": true,
+  "schema": "kit.sw2026.principal-revolve-heldout-evaluation.v1",
+  "source_tree": "c1967f83c511b6ffc699684335e132704851a1fb",
+  "writer_revision": "b503656075e6934107884e15fd041705bf5c07f0"
+}

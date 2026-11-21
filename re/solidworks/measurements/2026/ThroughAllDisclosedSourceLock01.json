@@ -1,0 +1,138 @@
+{
+  "delivery_pr": 121,
+  "failed_prelaunch_transport_sha256": [
+    "fb1e021952c26de81d5c148c43efd87d4f8f0d1e766908909d575961e024d5bc",
+    "cb4eb607de6083391ae0797f632155f9bb91f11f3ead72be568374e270d69653"
+  ],
+  "healthy_controls": 2,
+  "heldout_native_sources_opened": 0,
+  "heldout_spec_hash_unchanged": true,
+  "licenses_unchanged": true,
+  "measurement_scope": "one disclosed forward through-all cut in edited mid-plane stock",
+  "native_artifacts": {
+    "edited": {
+      "bytes": 68438,
+      "sha256": "5127ba1d0360ff7e2a9137d6c2b50b3456fa91a3b2fb52fecc78ae00dedbe144"
+    },
+    "source": {
+      "bytes": 68269,
+      "sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    }
+  },
+  "native_model_states": {
+    "edited": {
+      "cut_end_type": 1,
+      "cut_feature_dimensions": 0,
+      "mass_geometry": {
+        "area": 0.017534270922096497,
+        "com": [
+          0.003496777343316305,
+          -0.002607191405961745,
+          -0.00034270361282641643
+        ],
+        "mass": 0.00013386428895557293,
+        "volume": 0.00013386428895557293
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "stock_depth_m": 0.04153
+    },
+    "source": {
+      "cut_end_type": 1,
+      "cut_feature_dimensions": 0,
+      "mass_geometry": {
+        "area": 0.013967801633414718,
+        "com": [
+          0.0034967773433163024,
+          -0.002607191405961744,
+          -0.00023031201141308197
+        ],
+        "mass": 8.996273307849843e-05,
+        "volume": 8.996273307849843e-05
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "stock_depth_m": 0.02791
+    }
+  },
+  "native_processes": 5,
+  "native_writer_outputs": 0,
+  "numeric_checks": 80,
+  "owner": "/root and /root/assembly_occurrence",
+  "passed": true,
+  "phase_records": {
+    "after": {
+      "numeric_checks": 0,
+      "observer_sha256": "bb697978a61c06c152e69dece2a8058605f744528ac9599402f5bffabe839e17",
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394939983273553,
+        "process_id": 7612,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "public_record_sha256": "cf72f5ede047fe90bbd60b9227397823375f324854853a4c95c078dbaa2c97e1"
+    },
+    "author": {
+      "numeric_checks": 36,
+      "observer_sha256": "e860edd89f22365ceb76424014fce744e5f3d4d9c6ae37cc7d7b4e6a1b4e45b6",
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394938640225131,
+        "process_id": 8564,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "public_record_sha256": "6bad6ff7b7ef786bf7d8085aed32fd1b02b400be70ed5e23f7563fddb4abf60b"
+    },
+    "before": {
+      "numeric_checks": 0,
+      "observer_sha256": "2bdb1f4713e211501ee56bf3515b1af9376148989310981fe69c2ab98a9082ee",
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394938335547948,
+        "process_id": 10448,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "public_record_sha256": "c00f49ad971c908f78ce8aaa1e169c3038c9e17ab8910f3a9a2b23c266129b34"
+    },
+    "lock": {
+      "observer_sha256": "e1928c8d6ab8ad4f0944a488f789a48fea32e8b85f4215651643baf901d39e46",
+      "public_record_sha256": "9a542b0c62e94d9f3273582d57468923f61ca1fb1932bfeac395bd3dcea7c634"
+    },
+    "reopen-edited": {
+      "numeric_checks": 22,
+      "observer_sha256": "0b6174c28f7ae4643f00330a68d57c1d28f6b13e9435361bbc529ef7bf736ba1",
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394939648475191,
+        "process_id": 2740,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "public_record_sha256": "01d3b631e8c689d42e63128bc13fad9432fb07d24d7ae60e1a8ded3495962ea8"
+    },
+    "reopen-source": {
+      "numeric_checks": 22,
+      "observer_sha256": "cea1fabe7366d73f3ba8708cd2bee4afdd0b67d8d22fbfe5d79061b7d541ff1e",
+      "oracle_identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394939296622572,
+        "process_id": 1184,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "public_record_sha256": "4cee9ee3da78111dad7c2c117de3eaa5d9e6aab6666a6e0b8594b71ea3c613ff"
+    }
+  },
+  "recipe_sha256": "df674c287ae71006659e5d37410edc679175cf3a64680649b2865cce513cb59a",
+  "saved_author_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5",
+  "schema": "kit.sw2026.through-all-disclosed-source-lock.v1",
+  "seal_public_receipt_sha256": "9f6b173e0bffee91ecd3b9ef53c9a85ace59ac7323f42318b40a18a682bc2045",
+  "source_lock_sha256": "1fce1d50c3d30aba4b9e55cae0f9854ec2a8941b233efce6f172d66aa17643e5",
+  "source_packet_sha256": "6ff86683ab5da1f99aab8b6efaccb978ce115a1d0d3013a73c315cb0c5d1362c",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "transport_result_sha256": "8c3822528cff55db42f3d73987b014ac415d76d6694ef272f3ed2667ffcf59ab"
+}

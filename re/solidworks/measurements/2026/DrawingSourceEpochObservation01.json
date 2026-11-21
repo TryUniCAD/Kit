@@ -1,0 +1,451 @@
+{
+  "attestation": {
+    "application_usable_acceptance": false,
+    "constructor_guards_changed": false,
+    "hidden_inputs_read": false,
+    "native_calls": false,
+    "original_source_rejections_changed": false,
+    "source_semantic_expansion_qualified": false,
+    "vendor_loadable_acceptance": false,
+    "vm_access": false,
+    "writer_changed": false
+  },
+  "cases": [
+    {
+      "case": "D01",
+      "documents": {
+        "child": {
+          "header_created_f70": 1795013932,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": true,
+          "header_modified_f50": 1794529625,
+          "header_updated_f48": 1795013942,
+          "model_root_log_event_times": [
+            [
+              1794529623
+            ]
+          ],
+          "self_created_shared_f28": 1795013932,
+          "self_saved_f60": 1795013949,
+          "version_history_event_times": [
+            1794529625
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794529630,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794529631,
+          "header_updated_f48": 1794529631,
+          "model_root_log_event_times": [
+            [
+              1794529630
+            ]
+          ],
+          "self_created_shared_f28": 1794529630,
+          "self_saved_f60": 1795013994,
+          "version_history_event_times": [
+            1794529631
+          ]
+        }
+      },
+      "native_source": true
+    },
+    {
+      "case": "D02",
+      "documents": {
+        "child": {
+          "header_created_f70": 1795014217,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": true,
+          "header_modified_f50": 1794529625,
+          "header_updated_f48": 1795014227,
+          "model_root_log_event_times": [
+            [
+              1794529623
+            ]
+          ],
+          "self_created_shared_f28": 1795014217,
+          "self_saved_f60": 1795014237,
+          "version_history_event_times": [
+            1794529625
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794529630,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794529631,
+          "header_updated_f48": 1794529631,
+          "model_root_log_event_times": [
+            [
+              1794529630
+            ]
+          ],
+          "self_created_shared_f28": 1794529630,
+          "self_saved_f60": 1795014294,
+          "version_history_event_times": [
+            1794529631
+          ]
+        }
+      },
+      "native_source": true
+    },
+    {
+      "case": "D03",
+      "documents": {
+        "child": {
+          "header_created_f70": 1795014533,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": true,
+          "header_modified_f50": 1794529625,
+          "header_updated_f48": 1795014542,
+          "model_root_log_event_times": [
+            [
+              1794529623
+            ]
+          ],
+          "self_created_shared_f28": 1795014533,
+          "self_saved_f60": 1795014550,
+          "version_history_event_times": [
+            1794529625
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794529630,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794529631,
+          "header_updated_f48": 1794529631,
+          "model_root_log_event_times": [
+            [
+              1794529630
+            ]
+          ],
+          "self_created_shared_f28": 1794529630,
+          "self_saved_f60": 1795014597,
+          "version_history_event_times": [
+            1794529631
+          ]
+        }
+      },
+      "native_source": true
+    },
+    {
+      "case": "D04",
+      "documents": {
+        "child": {
+          "header_created_f70": 1795014821,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": true,
+          "header_modified_f50": 1794529625,
+          "header_updated_f48": 1795014832,
+          "model_root_log_event_times": [
+            [
+              1794529623
+            ]
+          ],
+          "self_created_shared_f28": 1795014821,
+          "self_saved_f60": 1795014841,
+          "version_history_event_times": [
+            1794529625
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794529630,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794529631,
+          "header_updated_f48": 1794529631,
+          "model_root_log_event_times": [
+            [
+              1794529630
+            ]
+          ],
+          "self_created_shared_f28": 1794529630,
+          "self_saved_f60": 1795014897,
+          "version_history_event_times": [
+            1794529631
+          ]
+        }
+      },
+      "native_source": true
+    },
+    {
+      "case": "OriginConstructorAlpha",
+      "documents": {
+        "child": {
+          "header_created_f70": 1794000100,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794000110,
+          "header_updated_f48": 1794000110,
+          "model_root_log_event_times": [
+            [
+              1794000100
+            ]
+          ],
+          "self_created_shared_f28": 1794000100,
+          "self_saved_f60": 1794000120,
+          "version_history_event_times": [
+            1794000100
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794871231,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794871272,
+          "header_updated_f48": 1794871272,
+          "model_root_log_event_times": [
+            [
+              1794871231
+            ]
+          ],
+          "self_created_shared_f28": 1794871231,
+          "self_saved_f60": 1794871291,
+          "version_history_event_times": [
+            1794871231
+          ]
+        }
+      },
+      "native_source": false
+    },
+    {
+      "case": "OriginConstructorBeta\u03a9",
+      "documents": {
+        "child": {
+          "header_created_f70": 1794000100,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794000110,
+          "header_updated_f48": 1794000110,
+          "model_root_log_event_times": [
+            [
+              1794000100
+            ]
+          ],
+          "self_created_shared_f28": 1794000100,
+          "self_saved_f60": 1794000120,
+          "version_history_event_times": [
+            1794000100
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794871231,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794871272,
+          "header_updated_f48": 1794871272,
+          "model_root_log_event_times": [
+            [
+              1794871231
+            ]
+          ],
+          "self_created_shared_f28": 1794871231,
+          "self_saved_f60": 1794871291,
+          "version_history_event_times": [
+            1794871231
+          ]
+        }
+      },
+      "native_source": false
+    },
+    {
+      "case": "OriginCenterGamma",
+      "documents": {
+        "child": {
+          "header_created_f70": 1794000100,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794000110,
+          "header_updated_f48": 1794000110,
+          "model_root_log_event_times": [
+            [
+              1794000100
+            ]
+          ],
+          "self_created_shared_f28": 1794000100,
+          "self_saved_f60": 1794000120,
+          "version_history_event_times": [
+            1794000100
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794871231,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794871272,
+          "header_updated_f48": 1794871272,
+          "model_root_log_event_times": [
+            [
+              1794871231
+            ]
+          ],
+          "self_created_shared_f28": 1794871231,
+          "self_saved_f60": 1794871291,
+          "version_history_event_times": [
+            1794871231
+          ]
+        }
+      },
+      "native_source": false
+    },
+    {
+      "case": "OriginCenterDelta\u03a9",
+      "documents": {
+        "child": {
+          "header_created_f70": 1794000100,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794000110,
+          "header_updated_f48": 1794000110,
+          "model_root_log_event_times": [
+            [
+              1794000100
+            ]
+          ],
+          "self_created_shared_f28": 1794000100,
+          "self_saved_f60": 1794000120,
+          "version_history_event_times": [
+            1794000100
+          ]
+        },
+        "drawing": {
+          "header_created_f70": 1794871231,
+          "header_creation_equals_self": true,
+          "header_modification_precedes_creation": false,
+          "header_modified_f50": 1794871272,
+          "header_updated_f48": 1794871272,
+          "model_root_log_event_times": [
+            [
+              1794871231
+            ]
+          ],
+          "self_created_shared_f28": 1794871231,
+          "self_saved_f60": 1794871291,
+          "version_history_event_times": [
+            1794871231
+          ]
+        }
+      },
+      "native_source": false
+    }
+  ],
+  "delivery_pr": 121,
+  "frozen_source_dependencies": [
+    {
+      "bytes": 2841,
+      "path": "src/convert/adapters/solidworks/Archive/Header/HeaderFields.py",
+      "sha256": "c6c6e2a8e92683a4e45629ddb962de44eb95378ecb5b94b12b78b1fb269d6039"
+    },
+    {
+      "bytes": 1199,
+      "path": "src/convert/adapters/solidworks/Archive/Header/ReadHeaderBody.py",
+      "sha256": "a50588d8d4a0dd883283c9cacd86fb507836bd04763e740383b5ecdf3dd2db76"
+    },
+    {
+      "bytes": 3700,
+      "path": "src/convert/adapters/solidworks/Archive/Header/WriteHeaderBody.py",
+      "sha256": "3b1473e2091033367c5ffe22f24ff1a3f127933043d621d731190264fdf5b395"
+    },
+    {
+      "bytes": 3601,
+      "path": "src/convert/adapters/solidworks/Archive/History/HistoryLayouts.py",
+      "sha256": "ba28fca674800e3d26287a51e45c2f7694e2b86bfc7bd136628d279812597e01"
+    },
+    {
+      "bytes": 1648,
+      "path": "src/convert/adapters/solidworks/Archive/History/ReadHistMut.py",
+      "sha256": "491a4c48eb859f180106bd6dc43322a468a94bf50d870fba0acbf069c0d2ffe8"
+    },
+    {
+      "bytes": 1393,
+      "path": "src/convert/adapters/solidworks/Archive/History/WriteHistMut.py",
+      "sha256": "eed1655c8f3a08ccab6c63455ca3a80e1f27c58e6f958f2a9682a293efb3eac6"
+    },
+    {
+      "bytes": 1201,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Header/HeaderInput.py",
+      "sha256": "b0bbac75a8a7a1c2ce6350160424e562f485f31faed529e1540ef478b2fafd74"
+    },
+    {
+      "bytes": 2777,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Header/MakePartHeader.py",
+      "sha256": "1845f38d976406e970e068abbdf683f41a526ae7961b08ee4b27e45f7613f173"
+    },
+    {
+      "bytes": 1259,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Header/MakeRootLog.py",
+      "sha256": "cafe2d2b9c07b9103933590b20dcc9b96fed507c3e0b9218745be757c281c2bc"
+    },
+    {
+      "bytes": 1862,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/HistoryInput.py",
+      "sha256": "fe725f478d0b950ae352f22b7d9daf8a31a5127305d41c23e07de8fd4d2c4060"
+    },
+    {
+      "bytes": 1387,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Metadata/MakeFreshHist.py",
+      "sha256": "eb21500b68700e08aa0b54ff429c1bfb2511f41b781a72e92884d730cc55d41e"
+    },
+    {
+      "bytes": 2337,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeSelfFile.py",
+      "sha256": "eef75c9d3168b1e68453415030f67ae1d74d665049f0d49c46e35f24f33b1473"
+    },
+    {
+      "bytes": 1862,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Files/MakeFileDef.py",
+      "sha256": "1b8c67a6560355d6a1cbd2f94b5079079a56dd34518e72afefc1ba055c678c41"
+    },
+    {
+      "bytes": 3567,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/CheckPartInput.py",
+      "sha256": "0bcd8c9eb96cdfd0c811e00d265eef0cf9c2c28b328dcdbb74402acc62347bfe"
+    },
+    {
+      "bytes": 619,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Nodes/FeatureTime.py",
+      "sha256": "9bf7f911632029b9a5e6e745e6f43e37d98ca3ad12af76fbe9a78659cf5f6e01"
+    },
+    {
+      "bytes": 2393,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/System/MakeSysFolder.py",
+      "sha256": "5aa3f9768eaa5c8e7fc679d05abd7263f5f6de6399165783426268899dbb3f53"
+    },
+    {
+      "bytes": 1906,
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Portable/CheckBlankInput.py",
+      "sha256": "17c24285f5ca2262fac8acc3dc18f6704868c617bb4b51a35e25c60345023800"
+    },
+    {
+      "bytes": 2761,
+      "path": "src/convert/adapters/solidworks/Drawing/Construction/Metadata/MakeDrawHeader.py",
+      "sha256": "2645871f701e5f99b99c2d7fb2c9da5ec7945c829e3a66f0087b8128f1784378"
+    },
+    {
+      "bytes": 2728,
+      "path": "re/tooling/sw2026/SdkBlindPartSettings.py",
+      "sha256": "74a11d3da0943b21450878367693b63dd0fc0e9ead5354c0391462336789bc13"
+    },
+    {
+      "bytes": 6248,
+      "path": "re/tooling/sw2026/DrawingSdkInput.py",
+      "sha256": "282e100aa20485d264c77d9d1da398c3c8295d26badf2463b858852786c6af51"
+    }
+  ],
+  "limits": [
+    "Observed equality does not supply a generation rule",
+    "The four source child f50-before-f70 examples are not generator inputs or defaults",
+    "Feature FILETIME lifecycle is separate and remains unclosed here",
+    "No claim that every upstream save caller preserves these fields"
+  ],
+  "native_ownership_evidence_sha256": "98f3e2590309b4f5c3e348f9e145c935aec55f23fae2d86c51d363588c8da92d",
+  "schema": "drawing-source-epoch-observations-v1",
+  "scope": "Read-only reduction of the already-disclosed eight paired drawing/child metadata observations; no new native execution",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE",
+  "upstream_clock_reduction_sha256": "b973e0c04299c7131cb8b46b51f624f2b47e055d7fdc8209fce4bed5302f4b4a",
+  "upstream_intake_sha256": "a25475ec393ded731ec197a03db54863973841230be0c870b862753d5fa807df",
+  "writer_source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc"
+}

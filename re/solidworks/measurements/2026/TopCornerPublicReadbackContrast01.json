@@ -1,0 +1,16 @@
+{
+  "all_archive_streams_equal": 10,
+  "archive_sha256_equal": true,
+  "batch_passed": false,
+  "case": "Slot02",
+  "first_failure": "binary-exact comparison of decoded neutral driver values",
+  "freeze_sha256": "7615b5d8f3cf70a7d02f0b8e7c0d46fc5061d9153bb75605da5b493688f43329",
+  "generated_parameter_distances_ulps": {
+    "Height": 0,
+    "Length": 1,
+    "Width": 0
+  },
+  "parameter_kind_and_unit": ["length", "mm"],
+  "schema": "kit.sw2026.top-corner-readback-contrast.v1",
+  "source_commit": "ef425e3d20ec8b18f4fb4fe76409b7348994b1e6"
+}

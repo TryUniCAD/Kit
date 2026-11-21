@@ -1,0 +1,52 @@
+{
+  "schema": "kit.sw2026.drawing-raw-grammar-boundary.v1",
+  "task": "PR121 disclosed original drawing raw grammar inspection",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "tool": "re/tooling/sw2026/InspectDrawingRawDefinition.py",
+  "tool_sha256": "2255de925dceb557a5111cd1efc4c1f408e1aec18f2e6582b0002ff001952c4c",
+  "reader_manifest_sha256": "b89ea3132b84887218a1a2ed6fca7f0e397d7a03b744a663d97a3b1ce4b962b5",
+  "reader_source_files": 4351,
+  "raw_report_sha256": "4cded03acba32e3aa58f859bcb23c3b4f120cd993642078b518b569de81194f3",
+  "sanitized_receipt_sha256": "0bbcce44a8a076c1c46a6d82171860c3943723b77bc505a2ffc97507f2157c68",
+  "read_route": [
+    "BodyContext existing ordinary drawing layouts schemas and virtuals, version19000",
+    "BinaryReader and GraphReader with ArchiveMaps base1",
+    "shared five prefix scalar fields and checked drawing CLSID",
+    "ReadBodyMut with inline header ReadDrawMut delegate",
+    "require zero remaining stream bytes",
+    "existing runtime owner BindFrontMut without changing source fields"
+  ],
+  "store_route": [
+    "new independent BodyContext and ArchiveMaps base1",
+    "BodyWriter using shared header delegate and generic body field executor",
+    "shared prefix fields and exact format CLSID",
+    "generic existing moDrSheet base and sheet fields, without semantic sheet admission",
+    "shared field store for all other concrete nodes",
+    "compare complete bytes and complete maps, preserve object identities"
+  ],
+  "normal_route": "unchanged ReadNamedDef called separately on the same source, both exact UI state rejections required for raw only success",
+  "normal_guard_fields": {
+    "has_pwmaterial": "normal guard requires zero; both decoded sources are one",
+    "drawing_end_marker": "normal guard requires3503; both decoded sources satisfy3503"
+  },
+  "normal_guard_modified": false,
+  "guard_monkeypatch": false,
+  "sdk_code_changed_for_raw_measurement": false,
+  "full_input_file_round_trip_claim": false,
+  "header2_or_container_comparison_claim": false,
+  "native_ui_or_bom_semantic_qualification_claim": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "remaining_work": [
+    "trace actual PW presence and native marker ownership before any semantic guard extension",
+    "preserve original complete-source tree/link rejection independently of raw Definition byte identity",
+    "qualify source semantic projection and fresh constructors on independent disclosed controls before new heldout evaluation"
+  ],
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

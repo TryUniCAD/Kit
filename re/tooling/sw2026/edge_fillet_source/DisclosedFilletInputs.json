@@ -1,0 +1,24 @@
+{
+  "schema": "kit.sw2026.edge-fillet-disclosed-spec.v1",
+  "cohort": "disclosed",
+  "cases": [
+    {
+      "name": "EdgeFilletAxial",
+      "center_mm": [13.2, -7.8],
+      "size_mm": [57.4, 34.6, 22.8],
+      "edge_axis": "z",
+      "corner": {"x": "max", "y": "min"},
+      "radius_mm": 4.37,
+      "edit_radius_mm": 6.11
+    },
+    {
+      "name": "EdgeFilletTransverse",
+      "center_mm": [-8.3, 10.6],
+      "size_mm": [42.9, 31.7, 28.6],
+      "edge_axis": "x",
+      "corner": {"y": "max", "z": "max"},
+      "radius_mm": 2.83,
+      "edit_radius_mm": 5.27
+    }
+  ]
+}

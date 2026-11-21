@@ -1,0 +1,227 @@
+{
+  "control": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/NativeControl.SLDPRT",
+  "generator": {
+    "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+    "artifact": {
+      "schema": "kit-pr121-generated-artifact-comparison/1",
+      "head": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+      "artifact_id": 14182994464,
+      "artifact_name": "solidworks-construction-798a58834d29ec1d41f10b4ae4547eeb67bb2698",
+      "artifact_archive_bytes": 148693,
+      "github_archive_digest": "sha256:33e8ee91a45049fafa11ea0c35f6503c1aa352eabbd93711ae0d50f7e3cb027a",
+      "archive_digest_authority": "GitHub artifact metadata; extracted native files were independently compared in full, archive ZIP not independently rehashed",
+      "run_id": 43768766822,
+      "job_id": 132979723758,
+      "workflow_path": ".github/workflows/WorkflowQuality.yml",
+      "event": "pull_request",
+      "run_attempt": 1,
+      "synthetic_merge": "798a58834d29ec1d41f10b4ae4547eeb67bb2698",
+      "synthetic_parents": [
+        "e04e7b78699d3f567409937007b00b567620078a",
+        "4ed467bc94a9e7da00bc9782a603a525250242cd"
+      ],
+      "synthetic_tree": "8838995e02f8495af4a0cdcec36c549e4ddd0322",
+      "pr_reported_base_metadata": "249cf7dcde6197c41fafb052eda8afb210bcf49e",
+      "comparison_artifact": {
+        "head": "4559f8263ba28c9dad8cd2b1ee4c9696ee8d38b5",
+        "id": 14181859507,
+        "run_id": 43767075192,
+        "name": "solidworks-construction-9c8cfeac0d2a9bad15402681de5868f469f7716a",
+        "synthetic_merge": "9c8cfeac0d2a9bad15402681de5868f469f7716a",
+        "synthetic_parents": [
+          "e04e7b78699d3f567409937007b00b567620078a",
+          "4559f8263ba28c9dad8cd2b1ee4c9696ee8d38b5"
+        ],
+        "synthetic_tree": "e5b9cb797011f37e410af51c86367aec0efad8d0",
+        "github_archive_digest": "sha256:b49cdc6484cf74e8d5d29897b1e56c7cb917c906beb30b9de968e52fecfbb989",
+        "archive_bytes": 148693,
+        "native_measurements": "unmeasured canonical material-flag bytes"
+      },
+      "download_directory": "<host-temp>/pr121-artifacts-4ed467bc",
+      "comparison_directory": "<host-temp>/pr121-ci-compare-4559f826",
+      "native_measured_reference": "<oracle-artifacts>/PolygonsB23/inputs",
+      "files": [
+        {
+          "name": "H3_scalene.SLDPRT",
+          "current_bytes": 7618,
+          "current_sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+          "flag4559_bytes": 7618,
+          "flag4559_sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+          "measured_b23_sha256": "0605bd78a63b6d7e25e05d5000d948e555a8c7f1157d41154436a437920e7c73",
+          "byte_equal_to_4559": true,
+          "byte_equal_to_native_measured_b23": false
+        },
+        {
+          "name": "H5_irregular.SLDPRT",
+          "current_bytes": 7688,
+          "current_sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+          "flag4559_bytes": 7688,
+          "flag4559_sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+          "measured_b23_sha256": "0957e8ba435cd9dbbbe10b13a3742a26d8dc0c0d95689e38e4b93353c2120f6d",
+          "byte_equal_to_4559": true,
+          "byte_equal_to_native_measured_b23": false
+        },
+        {
+          "name": "H7_irregular.SLDPRT",
+          "current_bytes": 7783,
+          "current_sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+          "flag4559_bytes": 7783,
+          "flag4559_sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+          "measured_b23_sha256": "e9f9f23bae737109f03425040de1066ab267f212183ca55d7ec713f6f99ff000",
+          "byte_equal_to_4559": true,
+          "byte_equal_to_native_measured_b23": false
+        }
+      ],
+      "all_three_byte_equal_to_4559": true,
+      "any_byte_equal_to_native_measured_b23": false,
+      "native_acceptance_transferred": false,
+      "scope": "exact byte equivalence to the three unmeasured4559 canonical-flag candidates only; the b23/be866 controlled polygon measurements do not establish native acceptance of these changed bytes",
+      "no_native_source_stream_interpretation": true,
+      "no_oracle_calls": true,
+      "no_product_or_repository_tests": true
+    },
+    "inputs": {
+      "H3_scalene.SLDPRT": {
+        "sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+        "bytes": 7618
+      },
+      "H5_irregular.SLDPRT": {
+        "sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+        "bytes": 7688
+      },
+      "H7_irregular.SLDPRT": {
+        "sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+        "bytes": 7783
+      }
+    },
+    "inspector_tools": {
+      "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "InspectEdit.py": "730f09c4271b5a4d107ba9c2c78233c65504fd113572164addfe6a4529aba2d0",
+      "InspectView.py": "a2f5903fcbab3a75bbe5d3f6926e1a0512bb647c53aed042c7efd670943a8314",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+    },
+    "native_acceptance_before_run": "none for these canonical flag bytes"
+  },
+  "cases": [
+    {
+      "name": "H3_scalene",
+      "source": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H3_scalene.SLDPRT",
+      "destination": "<oracle-artifacts>/PolygonsCanonicalFlags01/edited/H3_scalene_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.01625,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 9.932000000000002e-6,
+          "area": 0.003166276360558158,
+          "com": [0.006666666666666669, 0.007000000000000002, 0.0065]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.2414999999999999e-5,
+          "area": 0.003575845450697697,
+          "com": [0.006666666666666669, 0.007000000000000001, 0.008125]
+        }
+      },
+      "neutral_input": {
+        "name": "H3_scalene",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.013, -0.007],
+          [0.029, -0.003],
+          [0.004, 0.031]
+        ],
+        "depth_m": 0.013,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda"
+    },
+    {
+      "name": "H5_irregular",
+      "source": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H5_irregular.SLDPRT",
+      "destination": "<oracle-artifacts>/PolygonsCanonicalFlags01/edited/H5_irregular_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.00875,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 1.31635e-5,
+          "area": 0.004932190747600379,
+          "com": [0.005411149516972432, 0.003352565806966232, 0.0035]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.6454375e-5,
+          "area": 0.0052249884345004745,
+          "com": [0.005411149516972436, 0.0033525658069662326, 0.004375]
+        }
+      },
+      "neutral_input": {
+        "name": "H5_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.023, -0.008],
+          [0.007, -0.021],
+          [0.036, -0.004],
+          [0.019, 0.028],
+          [-0.017, 0.019]
+        ],
+        "depth_m": 0.007,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "f92409497c861c9d88c6933a3bc35bba8fcce1928cda6a4608499e82a09eb734"
+    },
+    {
+      "name": "H7_irregular",
+      "source": "<oracle-artifacts>/PolygonsCanonicalFlags01/inputs/H7_irregular.SLDPRT",
+      "destination": "<oracle-artifacts>/PolygonsCanonicalFlags01/edited/H7_irregular_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.02125,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 5.3796500000000006e-5,
+          "area": 0.009896349327158964,
+          "com": [
+            0.001440669932058777, 0.006562595460051613, 0.008499999999999999
+          ]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 6.7245625e-5,
+          "area": 0.010788186658948703,
+          "com": [0.0014406699320587764, 0.006562595460051614, 0.010625]
+        }
+      },
+      "neutral_input": {
+        "name": "H7_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.031, -0.006],
+          [-0.008, -0.025],
+          [0.02, -0.019],
+          [0.039, 0.007],
+          [0.021, 0.037],
+          [-0.013, 0.032],
+          [-0.036, 0.014]
+        ],
+        "depth_m": 0.017,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604"
+    }
+  ]
+}

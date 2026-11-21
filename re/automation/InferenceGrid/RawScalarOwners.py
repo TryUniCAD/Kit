@@ -11,7 +11,7 @@ from collections import Counter, defaultdict
 import math
 import struct
 
-from convert.adapters.solidworks.Core.BindMirrorField import IsAngleMatch
+from convert.adapters.solidworks.Core.Dimensions.BindMirrorField import IsAngleMatch
 from convert.adapters.solidworks.Core.Dimensions.PickNamedScalar import PickNamedScalar
 from convert.adapters.solidworks.Core.Dimensions.CountFields import CountFields
 from convert.adapters.solidworks.Core.Native import ParseKeywords, ParseNames, ParseScalars

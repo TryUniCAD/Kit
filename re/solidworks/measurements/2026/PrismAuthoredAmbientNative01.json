@@ -1,0 +1,275 @@
+{
+  "ambient_warning_removed_in_both_shapes": true,
+  "cold_public_body_restored": false,
+  "guarded_generations": 6,
+  "healthy_controls": [
+    {
+      "body_count": 1,
+      "process_birth_filetime": 134395655402602909,
+      "warnings": 0
+    },
+    {
+      "body_count": 1,
+      "process_birth_filetime": 134395656549597419,
+      "warnings": 0
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "job_sha256": "0de333a5ac2e4c3a313cbe9ee973a064f8c92eb38cb439b35cc0fe44f6ea9249",
+  "live_native_processes": 6,
+  "native_input_lanes_use_distinct_names": true,
+  "native_result_sha256": "515aa3cb718135cb8f071c437f9a0161413ecea6bc9f444a49cd67455497673b",
+  "oracle_build": "34.5.2.0604",
+  "ordinary_default_lighting_parity": false,
+  "phases": {
+    "Prism1AuthoredAmbient": {
+      "after_explicit_rebuild": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00197125,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.004
+          ],
+          "mass": 4.693000000000001e-06,
+          "volume": 4.693000000000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "authored_ambient": true,
+      "before_explicit_rebuild": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "depth_m": 0.008,
+      "expectation": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "input_sha256": "ad7d0151ca0fdef6c16647fc0c2385c5c8cc22fb2b5b0cb98d22669fcd6a3269",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "process_birth_filetime": 134395655886440822
+    },
+    "Prism1NoLight": {
+      "after_explicit_rebuild": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00197125,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.004
+          ],
+          "mass": 4.693000000000001e-06,
+          "volume": 4.693000000000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "authored_ambient": false,
+      "before_explicit_rebuild": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "depth_m": 0.008,
+      "expectation": {
+        "area": 0.00197125,
+        "com": [
+          0.0178125,
+          0.002375,
+          0.004
+        ],
+        "depth": 0.008,
+        "volume": 4.693000000000001e-06
+      },
+      "input_sha256": "523ad38b44fa84b5eb4d23c75929df0e2a88db6ca57424cae81370368a3e8c5a",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "process_birth_filetime": 134395655663519887
+    },
+    "Prism2AuthoredAmbient": {
+      "after_explicit_rebuild": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00206675,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.004875
+          ],
+          "mass": 5.464875e-06,
+          "volume": 5.464875e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "authored_ambient": true,
+      "before_explicit_rebuild": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "depth_m": 0.00975,
+      "expectation": {
+        "area": 0.00206675,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "input_sha256": "f96f3695b090ad28d243642c72c7ace30feec86417ab9a593fc48b18e3a240cf",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "process_birth_filetime": 134395656327201344
+    },
+    "Prism2NoLight": {
+      "after_explicit_rebuild": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00206675,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.004875
+          ],
+          "mass": 5.464875e-06,
+          "volume": 5.464875e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "authored_ambient": false,
+      "before_explicit_rebuild": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "depth_m": 0.00975,
+      "expectation": {
+        "area": 0.00206675,
+        "com": [
+          0.0195,
+          0.002375,
+          0.004875
+        ],
+        "depth": 0.00975,
+        "volume": 5.464874999999999e-06
+      },
+      "input_sha256": "bf0fd0beafe6a8924d39473f512ded2326e410294c9f40e2b290ee8993e3d1c3",
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "process_birth_filetime": 134395656100324723
+    }
+  },
+  "preparation_result_sha256": "b0f06e7d44fd7b4a2b64263923e2381d477547c0473d6dbb5704c896f9438936",
+  "public_writer_coverage_added": false,
+  "runtime_data_read_attempts": 0,
+  "same_path_guarded_comparisons": [
+    {
+      "authored_light_id": 27,
+      "cache_unchanged": true,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "geometry_ids_unchanged": true,
+      "owner_flags_unchanged": true,
+      "partition_unchanged": true,
+      "variant": 1
+    },
+    {
+      "authored_light_id": 27,
+      "cache_unchanged": true,
+      "changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "geometry_ids_unchanged": true,
+      "owner_flags_unchanged": true,
+      "partition_unchanged": true,
+      "variant": 2
+    }
+  ],
+  "schema": "kit.sw2026.prism-authored-ambient-cold-native.v1",
+  "source_manifest_sha256": "a95ee1b0d7ff648a115489a936f00c656b0b5dc6032dc23550c228684b144577"
+}

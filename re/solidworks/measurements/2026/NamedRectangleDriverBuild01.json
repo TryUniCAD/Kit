@@ -1,0 +1,126 @@
+{
+  "cases": [
+    {
+      "request_sha256": "720868586ea07650965a0254a74ff2b11c63139603fdb426791f55e881c118bc",
+      "result": {
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "generated_sha256": "4104c021adc9d9aa7a7c9fc46c92fcbf5822957edde84bd61f7f340a867aff70",
+        "keyword_dimensions": [
+          [
+            "Sketch1",
+            "PanelWidth",
+            54.0
+          ],
+          [
+            "Sketch1",
+            "PanelHeight",
+            18.0
+          ],
+          [
+            "Boss-Extrude1",
+            "SolidDepth",
+            8.25
+          ]
+        ],
+        "legacy_sha256": "9bf3b4e96e573c8b41add1135854f3a66cdf7134a3a3a377b28f43179d3ef2b7",
+        "passed": true,
+        "runtime_input_reads": 0,
+        "typed_dimensions": [
+          [
+            "Sketch1",
+            "PanelWidth",
+            54.0
+          ],
+          [
+            "Sketch1",
+            "PanelHeight",
+            18.000000000000004
+          ],
+          [
+            "Boss-Extrude1",
+            "SolidDepth",
+            8.25
+          ]
+        ],
+        "zero_native_processes": true
+      },
+      "variation": false
+    },
+    {
+      "request_sha256": "c9a56fd254f7ca5261b63de5a4dfe6badfba1b2a32adceaf99d8e4e93269af0c",
+      "result": {
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "generated_sha256": "7508c0aa00d8af4358d16970296463fef9fb74d301b36a13a5dbbe972dd7c827",
+        "keyword_dimensions": [
+          [
+            "Sketch1",
+            "LateralPanelSpan",
+            37.0
+          ],
+          [
+            "Sketch1",
+            "UprightContourHeight",
+            28.999999999999996
+          ],
+          [
+            "Boss-Extrude1",
+            "StockExtrusionDepth",
+            12.5
+          ]
+        ],
+        "legacy_sha256": "155c42c3655f66dc728dcaf9f8d27b7eaf8523250b9a10a4f4169f5cac0517f9",
+        "passed": true,
+        "runtime_input_reads": 0,
+        "typed_dimensions": [
+          [
+            "Sketch1",
+            "LateralPanelSpan",
+            37.0
+          ],
+          [
+            "Sketch1",
+            "UprightContourHeight",
+            28.999999999999996
+          ],
+          [
+            "Boss-Extrude1",
+            "StockExtrusionDepth",
+            12.5
+          ]
+        ],
+        "zero_native_processes": true
+      },
+      "variation": true
+    }
+  ],
+  "heldout_specs_read": 0,
+  "native_acceptance": false,
+  "prewriter_source_lock_sha256": "289a3893f3cc7d63fcdd24a77d69d12826e0fdab81584101bbf46301c81d171e",
+  "schema": "kit.sw2026.named-rectangle-driver-build.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/ProbeNamedRectangleDrivers.py": "cc7ae84ee16bd4a7216074757b7f706276eea088a867dc6584dec3aedc00d0ef",
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/BlindEndInput.py": "e20a663d8b7badda6390c24db0a24b669f0e4e6597d7ff94b5332ded242871e9",
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/MakeBlindParam.py": "0dd65e91f9d632784288cc6b03d706bdcdb2e8084660f284122fd94f5fa51232",
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/ReadEndParam.py": "c455dae606f1f9eb63bf9e5c0a0a864f6a7a715042cfb2240b6c4d82841914d1",
+    "src/convert/adapters/solidworks/Archive/Construction/Blind/SelectEndName.py": "c5fe36ab7edd93590d103c6dc5c810d266f1c489067eb58dc685b7effb8b8433",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/MakeLengthParam.py": "8d984f102329af727c101b1648d93aa4cf36c5c0b3e40519309ae57d56a1858a",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/ReadDriverName.py": "41a51ca8bf5ae2dea03795ebe70623179a454b7f6a991787b07f49e4cb882c96",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py": "3f9cf3bd7d89eb046c80d52f914c78636c8b70c8099decf3e3d782d866ca1517",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py": "482e283c636474dfc58588dafed3d8a4f9a7d15866cc8e6cf526a0b4dd3163c1",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakeRectDimPart.py": "50a0cfb1844eba004531dd8617b4e3f0beab51cf8e9b1b52108f44368414a980",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/BlindPlan.py": "2ee8b2940a54e4a2111bfd3362d6234e20a863e08beec0c24e87d1bb18b51eb4",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/CheckPlainLinks.py": "b444d11e9381783c606fa314adb9ac7dfa291485b47b94fc322e6c201b37199c",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectBlind.py": "c763b1457fef5e31be64e803598462cc87fddf03f3d4f589c59c34ef71b8a7d3",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectRectDims.py": "be873ff073024ac88a23461f5ebfce25b00ab0935a85a2dc7643564791c34ba8",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadRectParams.py": "1f498a0e5aadadd3e851708682c2be154a710de2e0dfca5685ee64faa0a3a6a4",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDimsMut.py": "18610d6dd531bce9c77dd33ebde287fffcfbeaabb7f762f73d9483eef5513299",
+    "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectValue.py": "773cf6d18f2ca4f855d78a52fb83864c192a321087cd01c3664fcf8caf3cd390",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmShape.py": "b270d39fac899bb237768226956a28bad4caf1fbcb3a5b2ade08bcf59356d1cb"
+  }
+}

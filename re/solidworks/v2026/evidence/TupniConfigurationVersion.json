@@ -1,0 +1,299 @@
+{
+  "authority": "selected native parser-boundary observations plus static lifecycle dataflow",
+  "instruction_taint": false,
+  "native_acceptance": false,
+  "question": "Why does a globally modern file take the legacy native part serializer?",
+  "conclusion": "The saved configuration archive version must derive from the owning opened model target version rather than the base-configuration constructor seed.",
+  "native_rule": {
+    "constructor_seed": 2045,
+    "owner_target_version": 19000,
+    "base_configuration_store": "SLDMODU 0x4c217e30, around0x4c21846c",
+    "part_serialize": "SLDMODU 0x4c229a60",
+    "modern_sections_when_context_above": 3196
+  },
+  "limits": [
+    "No full instruction taint engine or measured speedup",
+    "No generated candidate accepted",
+    "Target death prevents producer-completion accounting",
+    "Exception interposition interference was not isolated to one hook"
+  ],
+  "captures": [
+    {
+      "capture_name": "loader-original-control-api-only.json",
+      "capture_sha256": "6f35d127bb555c47550b1790e7c189985abeef64a469558ed5c0746d635e798e",
+      "profile": "loader",
+      "exception_probes": false,
+      "working_directory": "C:\\",
+      "script_sha256": "58048181fc3cefee93d14432f77936335fdd6ad4ad17e1b3f9ebf78a68fda816",
+      "prepare_sha256": "098ac49c429ea47d9a8f628cfb9f89303258d02015d8c23601d43e43bf11b8bb",
+      "action_sha256": "4fad64dc6d18b2e9ec6f01dc41f18618deecfb9e25384221a34dcc26bc2ca6c7",
+      "input": {
+        "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+        "bytes": 59315,
+        "pe_machine": null
+      },
+      "elapsed_seconds": 65.15599999998813,
+      "events": 3106,
+      "host_drops": 0,
+      "script_errors": [],
+      "producer_statistics": {
+        "events": 3106,
+        "dropped": 0
+      },
+      "detach": {
+        "reason": "application-requested",
+        "crash": null
+      },
+      "loaded_modules": {
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      },
+      "context_versions": [
+        19000
+      ],
+      "selected_events": [
+        {
+          "sequence": 536,
+          "phase": "armed",
+          "kind": "part-serialize-enter",
+          "object": "0x7235f170",
+          "archive": {
+            "pointer": "0x15d4df40",
+            "buffer_start": "0x72443ca0",
+            "cursor": "0x72443cae",
+            "buffer_offset": "0xe",
+            "buffer_end": "0x72449fce",
+            "map_count": 3,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "global_file_version": 19000,
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xa6c4"
+          }
+        },
+        {
+          "sequence": 537,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x15d4df40",
+          "context": "0x6fa7d9a0",
+          "context_file_version": 19000,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10e9a9b"
+          }
+        },
+        {
+          "sequence": 538,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x15d4df40",
+          "context": "0x6fa7d9a0",
+          "context_file_version": 19000,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10d14eb"
+          }
+        },
+        {
+          "sequence": 539,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x15d4df40",
+          "context": "0x6fa7d9a0",
+          "context_file_version": 19000,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10d15ef"
+          }
+        },
+        {
+          "sequence": 540,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x15d4df40",
+          "context": "0x6fa7d9a0",
+          "context_file_version": 19000,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10fe3a8"
+          }
+        }
+      ],
+      "native_result": {
+        "revision": "34.5.2",
+        "opened": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "rebuilt": true,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-06,
+          "area": 0.0028,
+          "com": [
+            0.0,
+            0.0,
+            0.005
+          ],
+          "mass": 8.000000000000001e-06
+        },
+        "whats_wrong": 0,
+        "feature_errors": [],
+        "dialogs": []
+      }
+    },
+    {
+      "capture_name": "loader-candidate-H3-api-only.json",
+      "capture_sha256": "29633910052d689c2f249763447f7419710cc3e3c080a76a13c49fccb9420d08",
+      "profile": "loader",
+      "exception_probes": false,
+      "working_directory": "C:\\",
+      "script_sha256": "58048181fc3cefee93d14432f77936335fdd6ad4ad17e1b3f9ebf78a68fda816",
+      "prepare_sha256": "098ac49c429ea47d9a8f628cfb9f89303258d02015d8c23601d43e43bf11b8bb",
+      "action_sha256": "4fad64dc6d18b2e9ec6f01dc41f18618deecfb9e25384221a34dcc26bc2ca6c7",
+      "input": {
+        "sha256": "edd138ebf4b9067ce106e947f4c1db988f49366eb697a8aa315af6df806f3b55",
+        "bytes": 6960,
+        "pe_machine": null
+      },
+      "elapsed_seconds": 59.796000000002095,
+      "events": 133,
+      "host_drops": 0,
+      "script_errors": [],
+      "producer_statistics": null,
+      "detach": {
+        "reason": "process-terminated",
+        "crash": null
+      },
+      "loaded_modules": {
+        "swccu.dll": {
+          "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+          "bytes": 252504,
+          "pe_machine": "0x8664"
+        },
+        "sldarchiveu.dll": {
+          "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+          "bytes": 231512,
+          "pe_machine": "0x8664"
+        },
+        "sldmodu.dll": {
+          "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+          "bytes": 46536280,
+          "pe_machine": "0x8664"
+        },
+        "sldmfcu.dll": {
+          "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+          "bytes": 8274520,
+          "pe_machine": "0x8664"
+        }
+      },
+      "context_versions": [
+        2045
+      ],
+      "selected_events": [
+        {
+          "sequence": 128,
+          "phase": "armed",
+          "kind": "part-serialize-enter",
+          "object": "0x72bb2c30",
+          "archive": {
+            "pointer": "0x1db89300",
+            "buffer_start": "0x72bcf030",
+            "cursor": "0x72bcf03e",
+            "buffer_offset": "0xe",
+            "buffer_end": "0x72bd3a3a",
+            "map_count": 3,
+            "epoch": 0,
+            "logical_stream_offset": null
+          },
+          "global_file_version": 19000,
+          "caller": {
+            "module": "swccu.dll",
+            "rva": "0xa6c4"
+          }
+        },
+        {
+          "sequence": 129,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x1db89300",
+          "context": "0x5fbe70",
+          "context_file_version": 2045,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10e9a9b"
+          }
+        },
+        {
+          "sequence": 130,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x1db89300",
+          "context": "0x5fbe70",
+          "context_file_version": 2045,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10e4e41"
+          }
+        },
+        {
+          "sequence": 131,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x1db89300",
+          "context": "0x5fbe70",
+          "context_file_version": 2045,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x10e4f23"
+          }
+        },
+        {
+          "sequence": 132,
+          "phase": "armed",
+          "kind": "part-archive-helper",
+          "overload": "su-archive",
+          "input_archive": "0x1db89300",
+          "context": "0x5fbe70",
+          "context_file_version": 2045,
+          "caller": {
+            "module": "SLDMODU.dll",
+            "rva": "0x1038f04"
+          }
+        }
+      ],
+      "native_result": {
+        "exception": "com_error(-2147023170, 'The remote procedure call failed.', None, None)",
+        "accepted": false,
+        "producer_completion_unavailable": true
+      }
+    }
+  ]
+}

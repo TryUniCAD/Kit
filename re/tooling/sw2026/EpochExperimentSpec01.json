@@ -1,0 +1,274 @@
+{
+  "attestation": {
+    "candidate_emitted": false,
+    "constructor_guards_changed": false,
+    "execution_ready": false,
+    "heldout_acceptance": false,
+    "hidden_inputs_read": false,
+    "native_acceptance": false,
+    "native_run_performed": false,
+    "public_drawing_io_changed": false,
+    "writer_changed": false
+  },
+  "attribution_limits": [
+    "No live native field observation is requested; a post-save difference is phase-wide and does not prove a specific load or setter call",
+    "The semantic meaning of archive helper +0x2c mode1 remains unproved here",
+    "f50 latest-modification semantics beyond its bound sentinel normalization remain partial",
+    "Passing these four discovery inputs does not generalize to arbitrary metadata histories or qualify the original source drawings",
+    "Style, name/provenance, subsecond feature FILETIME and nonplanar dimension-text boundaries remain separate"
+  ],
+  "cases": [
+    {
+      "changed_axis": "none",
+      "drawing_clocks_fixed": true,
+      "name": "ClockBaseline",
+      "part_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      }
+    },
+    {
+      "changed_axis": "ModifiedAt",
+      "drawing_clocks_fixed": true,
+      "name": "EarlierArchiveTime",
+      "part_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1759956906,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      }
+    },
+    {
+      "changed_axis": "RootFirstEventAt",
+      "drawing_clocks_fixed": true,
+      "name": "EarlierRootEvent",
+      "part_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1759913710,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000123
+      }
+    },
+    {
+      "changed_axis": "VersionHistoryFirstEventAt",
+      "drawing_clocks_fixed": true,
+      "name": "LaterHistoryEvent",
+      "part_clocks": {
+        "CreatedAt": 1760000123,
+        "ManagerSavedAt": 1760001323,
+        "ModifiedAt": 1760000220,
+        "RootFirstEventAt": 1760000123,
+        "SelfCreatedAt": 1760000123,
+        "SelfSavedAt": 1760001323,
+        "UpdatedAt": 1760000152,
+        "VersionHistoryFirstEventAt": 1760000382
+      }
+    }
+  ],
+  "common_metadata": {
+    "AuthorName": "Kit Epoch Probe",
+    "CommentText": "independently authored clock-axis discovery",
+    "CompanyName": "Interoperability Research",
+    "all_clocks_are_unsigned_32_bit_seconds": true,
+    "child_origin_creation_time": "DatumTime(actual fresh origin, actual fresh child header); do not substitute the model-root or history event",
+    "feature_date_inputs_fixed": 1760000123,
+    "feature_logs_fixed": true,
+    "ordinary_file_version": 19000,
+    "sentinel_year_tested": false
+  },
+  "construction_boundary": {
+    "actual_owners": [
+      "Both fresh part moHeader_c nodes (Header2 and model header) receive the case header clocks",
+      "Their one actual shared self-file owner receives SelfCreatedAt and SelfSavedAt",
+      "The two distinct root-log event nodes each receive RootFirstEventAt after verifying their actual model persistent id and root name",
+      "A newly generated moVersionHistory_c receives VersionHistoryFirstEventAt",
+      "Actual manager-header SaveAt remains ManagerSavedAt",
+      "The drawing directory binds the real generated child header/self and manager-header identities"
+    ],
+    "must_preserve": [
+      "All object aliases and allocator-derived identifiers",
+      "Actual origin feature id and its own DatumTime",
+      "All neutral relations, dimensions, captions, model path/configuration and geometry",
+      "Independent child and drawing history/header domains"
+    ],
+    "private_discovery_only": true,
+    "production_guards_unchanged": true,
+    "prohibited": [
+      "Opening a saved model while building",
+      "Copying a source stamp into ClockPlan",
+      "Absolute byte offsets or field-operation replay",
+      "Changing existing HeaderInput or CheckPartInput to admit this experiment",
+      "Claiming arbitrary f70/self mismatches are supported"
+    ],
+    "reemission": "Recompute all part Config, CMgr, Resolved, Header2, model-header, history, drawing Definition/map references and both containers with shared SDK codecs from those actual fresh nodes",
+    "required_implementation": "A private source-only ClockPlan composition applies explicit clock inputs to actual fresh generated header/log/history nodes before final SDK emission; it must not edit or decode emitted bytes",
+    "saved_bytes_are_never_inputs": true
+  },
+  "delivery_pr": 121,
+  "drawing": {
+    "clocks": {
+      "CreatedAt": 1761000247,
+      "ModifiedAt": 1761000344,
+      "RootFirstEventAt": 1761000247,
+      "SelfCreatedAt": 1761000247,
+      "SelfSavedAt": 1761001447,
+      "UpdatedAt": 1761000276,
+      "VersionHistoryFirstEventAt": 1761000247
+    },
+    "has_independent_manager_header": false,
+    "named_view": "Front",
+    "origin_profile_visible": true,
+    "scale": 1.0,
+    "sheet_height_m": 0.21589999999999998,
+    "sheet_scale": [
+      1,
+      1
+    ],
+    "sheet_width_m": 0.2794,
+    "view_name": "Epoch View",
+    "view_position_m": [
+      0.11831,
+      0.09247
+    ]
+  },
+  "expected_observations": [
+    {
+      "alternatives": [
+        "Upstream native save replaces f50; record the phase-wide change without attributing it to the serializer",
+        "Open/rebuild rejects the case while both controls pass; retain the negative result"
+      ],
+      "case": "EarlierArchiveTime",
+      "condition": "The selected header store executes the bound f50 branch on a normal modern-year value without an upstream overwrite",
+      "expected": "f50 remains the modeled earlier value; the bound serializer has no f50>=f70 comparison",
+      "id": "E1",
+      "status": "static conditional prediction; unmeasured"
+    },
+    {
+      "alternatives": [
+        "Helper mode1 or an upstream caller rewrites creation identity; retain old/new header,self and root values",
+        "A root-event policy exists outside this bounded path; report the exact refusing phase"
+      ],
+      "case": "EarlierRootEvent",
+      "condition": "Header load uses helper mode other than 1 and actual self.shared.f28 already equals f70",
+      "expected": "The bound f70 repair leaves f70 and the differing root event intact",
+      "id": "E2",
+      "status": "static conditional prediction; unmeasured"
+    },
+    {
+      "alternatives": [
+        "Native high-level file history appends or revises a state; retain every state and date-code/provenance field",
+        "Native rejects this graph while both controls pass; retain the negative result"
+      ],
+      "case": "LaterHistoryEvent",
+      "condition": "The bound History and Header ordinary codecs execute without a higher-level repair",
+      "expected": "The supplied history event is independently represented; no cross-record equality is imposed by these codecs",
+      "id": "E3",
+      "status": "static independence; unmeasured acceptance"
+    },
+    {
+      "case": "all",
+      "expected": "f48 and new log events may be advanced by upstream operations; compare every changed epoch to the measured operation wall-time window and identify unmatched values explicitly",
+      "id": "E4",
+      "status": "observational, no whole-word expectation"
+    },
+    {
+      "case": "all",
+      "expected": "Every body, dimension, relation, displayed origin, view transform and external ownership matches the declared neutral model before and after edit/reopen",
+      "id": "E5",
+      "status": "semantic invariant required"
+    }
+  ],
+  "frozen_proposal_sha256": "04e0161d7f240ac654ba42a198564f3bf8c6797ed5146ca6602eb05668fa029a",
+  "input_provenance": "All geometry and clock values below are independently chosen model inputs; none are taken from a vendor save or the disclosed observation table",
+  "method_correction": "The frozen drawing codec has no CMgrHdr2 stream or corresponding manager-save input. The unconsumed drawing-only proposal field is omitted; actual child ManagerSavedAt remains explicit and verified.",
+  "native_evidence_sha256": "98f3e2590309b4f5c3e348f9e145c935aec55f23fae2d86c51d363588c8da92d",
+  "native_phases": {
+    "candidate_cases": 4,
+    "candidate_phases_per_case": [
+      "fresh open/rebuild/save",
+      "separate fresh reopen",
+      "separate fresh driving depth edit/rebuild/save and view move",
+      "separate fresh reopen of edited pair"
+    ],
+    "controls": 2,
+    "distinct_processes_total": 18,
+    "driving_depth_delta_m": 0.001931,
+    "fresh_reopen_uses_independent_edited_child_projection": true,
+    "max_launches_before_restart": 20,
+    "owner": "root only",
+    "view_move_delta_m": [
+      0.01371,
+      -0.00923
+    ]
+  },
+  "neutral_geometry": {
+    "anchor": "corner",
+    "body_name_policy": "unchanged frozen origin-family behavior; no new body naming capability",
+    "boss_name": "EpochBoss",
+    "depth_m": 0.007183,
+    "driving_dimensions": [
+      "D1@EpochProfile",
+      "D2@EpochProfile",
+      "D1@EpochBoss"
+    ],
+    "height_m": 0.023417,
+    "origin_display": "actual generated child origin, not a sketch selected by name",
+    "plane": "Front",
+    "profile_name": "EpochProfile",
+    "width_m": 0.031729
+  },
+  "oracle_reference": {
+    "control": {
+      "basename": "Control.SLDPRT",
+      "bytes": 59315,
+      "sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57"
+    },
+    "prior_packet_sha256": "862adb0519afd892aa690ce7b4e283a33de95cdf3bcdc71be465498244118842",
+    "prior_source_manifest_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+    "reuse_boundary": "The normal documented COM lifecycle and prediction mechanism; new outputs and clocks require a separately frozen packet, not silent reuse of the old acceptance"
+  },
+  "output_identity": {
+    "case_directories": "four separate, verified-unused directories; identical model/feature names across clock cases",
+    "drawing_basename": "EpochDrawing.SLDDRW",
+    "part_basename": "EpochPart.SLDPRT",
+    "path_differences_are_expected": "actual reference graph follows each declared new child path; no claim of whole-file equality across paths"
+  },
+  "pre_native_exit_gates": [
+    "New private executable/source closure and exact four request hashes frozen before first native launch",
+    "Two guarded in-memory builds per case are byte-identical with zero runtime model/file input reads and no SDK re imports",
+    "Separate preparation parses all linked typed streams and asserts the modeled clocks, self alias, actual root-log ownership, history membership and real origin link",
+    "A fresh frozen current production call still refuses ModifiedAt<CreatedAt and cross-record creation mismatch",
+    "Every generated output and working path is new; no overwrite or reuse without exact root-owned custody",
+    "Ordinary observer and analytic expectations frozen; no runtime hooks or binary instrumentation"
+  ],
+  "purpose": "Discriminate header modification ordering, model-root event coupling and version-history coupling independently in an already-proven linked origin drawing family",
+  "required_native_checks": [
+    "Pinned SOLIDWORKS 2026 SP05.2 executable identity and independent healthy controls",
+    "Exact complete child and drawing trees, names, actual origin/profile selection and model/config path",
+    "One solid, analytic volume/area/centre of mass, exact intended rectangle and live width/height/depth",
+    "No open or rebuild errors or warnings; all watchdog/dialog records retained",
+    "Depth edit changes only its intended geometry, view movement transforms its actual current projection",
+    "Save and separate fresh-process reopen preserve dimensions, relations, original selected origin and external aliases",
+    "Host typed snapshots compare Header2 and model-header clocks separately, all root-log events, self shared.f28/self.f60, CMgrHdr2.f60 and each version-history event",
+    "Record native operation start/end wall seconds and every archive change; never substitute OS filesystem times for archive fields"
+  ],
+  "schema": "kit.sw2026.sdk-epoch-experiment-spec.v1",
+  "source_manifest_baseline_sha256": "5fc9b75678f5a54f79658a47ce3e606a328b1f369debd56edde3076bb16708bc",
+  "source_observation_sha256": "a2bd7373110d621669b31dcfea73ec945cb115719833713f4693e4992960aa0c",
+  "status": "explicit modeled discovery inputs; prospective checks pending",
+  "task": "B04-SW2026-DRAWING-ORIGIN-PROFILE"
+}

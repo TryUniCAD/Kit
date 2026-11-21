@@ -1,0 +1,105 @@
+{
+  "schema": "kit.sw2026.ordinary-sdk-width-depth-native-preparation.v1",
+  "writer_revision": "8bf23f7f118082bba974bfd1c58611fb509bef43",
+  "trial_sha256": "538c128ae512d874d4673a19367e0d0fc6a0138ade258d880f71d34769e74ba1",
+  "build_sha256": "6ba37a11c412adb495cc7eb77fe107ad6f7b586addecc658609d1bf3198e3bda",
+  "full_native_result_sha256": "b544ff3d3668f7dc9815bd862b6d1f067174503cd310e4a7cff56ce8d8458ba2",
+  "oracle_identity": {
+    "bytes": 718936,
+    "executable": "SLDWORKS.exe",
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "pe_machine": "0x8664",
+    "process_creation_filetime": 134396384656904285,
+    "process_id": 10264,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version_matches": true
+  },
+  "controls_healthy": true,
+  "distinct_native_processes": 6,
+  "same_encoded_locator": true,
+  "guarded_construction_processes": 4,
+  "runtime_input_file_reads": 0,
+  "candidate_numeric_checks": 170,
+  "control_numeric_checks": 18,
+  "effective_body_density_kg_m3": 1.0,
+  "document_density_preference_kg_m3": 1000.0,
+  "heldout_inputs_read": 0,
+  "cases": {
+    "Plain": {
+      "generated_sha256": "e1f2f33d2d4ab0d7c9b78096d1ece145a0d015444c2ad99fbac451ad56dbde56",
+      "saved_sha256": "b755f5300742f949b775c09d6aa4bb0150fa5597826166036f63d8b5ff68f78f",
+      "edited_native_lengths_m": {
+        "D1@Sketch1": 0.047875,
+        "D2@Sketch1": 0.017375,
+        "D1@Boss-Extrude1": 0.0195625
+      },
+      "edited_mass_properties_si": {
+        "area": 0.0042165625,
+        "com": [
+          0.0239375,
+          0.0086875,
+          0.00978125
+        ],
+        "mass": 1.6272637695312503e-05,
+        "volume": 1.6272637695312503e-05
+      },
+      "numeric_checks": 85,
+      "open_errors_and_warnings": [
+        0,
+        0
+      ],
+      "fresh_reopen_errors_and_warnings": [
+        0,
+        0
+      ],
+      "real_equation_rows": []
+    },
+    "Reference": {
+      "generated_sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+      "saved_sha256": "320adbeeb193227fb8c0b03f7278ac7cf91d421d82da68fecb27416dc03db393",
+      "edited_native_lengths_m": {
+        "D1@Sketch1": 0.047875,
+        "D2@Sketch1": 0.017375,
+        "D1@Boss-Extrude1": 0.0239375
+      },
+      "edited_mass_properties_si": {
+        "area": 0.0047875,
+        "com": [
+          0.0239375,
+          0.0086875,
+          0.01196875
+        ],
+        "mass": 1.9911885742187508e-05,
+        "volume": 1.9911885742187508e-05
+      },
+      "numeric_checks": 85,
+      "open_errors_and_warnings": [
+        0,
+        0
+      ],
+      "fresh_reopen_errors_and_warnings": [
+        0,
+        0
+      ],
+      "real_equation_rows": [
+        {
+          "disabled": false,
+          "global_variable": false,
+          "text": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2"
+        }
+      ]
+    }
+  }
+}

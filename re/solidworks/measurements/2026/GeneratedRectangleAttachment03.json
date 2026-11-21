@@ -1,0 +1,103 @@
+{
+  "schema": "kit.sw2026.rectangle-populated-attachment-discovery.v1",
+  "native_path": "C:\\Users\\Public\\Documents\\KitOracle\\RectangleCacheConstruction-816b\\Active\\PartitionProbeChild.SLDPRT",
+  "standalone_native_acceptance": "unmeasured",
+  "heldout_acceptance": false,
+  "construction_and_readback_file_opens": 0,
+  "variants": {
+    "WithoutPartition": "282168b2e080b6f0d450fa9b52a657e16b17e297043a92a5d90bf2a133b7b192",
+    "WithAttachment": "8dbf7463a15f14c9905720a47e24863b702d98cdf3d695dfca51e20b8d8deede"
+  },
+  "geometry": {
+    "area_mm2": 1334.875,
+    "signed_volume_mm3": 2949.84375,
+    "center_mm": [
+      14.25,
+      -5.5,
+      4.375
+    ],
+    "bounds_mm": [
+      [
+        2.625,
+        -12.75,
+        0
+      ],
+      [
+        25.875,
+        1.75,
+        8.75
+      ]
+    ],
+    "loop_direction": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "attachment": {
+    "partition_sha256": "92589106f6fb3e2f960848662c95d9d949885cd39d01e5e6dae29a87298a6935",
+    "atom_id": 101,
+    "shared_blanking_atom": true,
+    "blanking_state": 0,
+    "body_match_tag": 401,
+    "map_count": 87,
+    "cache_free_map_count": 83,
+    "model_mark": 3,
+    "boss_mark": 6,
+    "model_geometry_stamp": 103,
+    "header_update_stamp": 110,
+    "boss_update_stamp": 109,
+    "boss_regeneration_status": 3,
+    "owners": {
+      "attributes_by_owner": {
+        "BODY.ATOM_ID_2001": 1,
+        "BODY.BODY_IN_LIGHTWEIGHT_PERM": 1,
+        "BODY.BODY_MATCH": 1,
+        "BODY.BODY_RECIPE_2001": 1,
+        "BODY.ENT_TIME_STAMP_2001": 1,
+        "BODY.LAST_BODY_MODIFYING_FEATURE_ID": 1,
+        "BODY.SDL/TYSA_COLOUR_2": 1,
+        "BODY.SDL/TYSA_DENSITY": 1,
+        "BODY.SDL/TYSA_TRANSLUCENCY_2": 1,
+        "BODY.SWIMPLICITBODYNAME_ID_U": 1,
+        "FACE.DOWNSTREAM_FACE_ID": 6,
+        "FACE.FACE_ID_2001": 6,
+        "FACE.SWEntUnchanged": 6
+      },
+      "body_match_tag": 401,
+      "body_stamp": 102,
+      "atom_id": 101,
+      "last_modifying_feature": 21,
+      "configuration_stamp_low16": [
+        108
+      ],
+      "face_tags_low16": [
+        402,
+        403,
+        404,
+        405,
+        406,
+        407
+      ],
+      "downstream_updated_at": 1794700033,
+      "downstream_subsecond_ticks": 3875201
+    }
+  },
+  "dimensions_m": {
+    "D1@Sketch1": 0.02325,
+    "D2@Sketch1": 0.0145,
+    "D1@Boss-Extrude1": 0.00875
+  },
+  "changed_streams": [
+    "Contents/CMgr",
+    "Contents/CMgrHdr2",
+    "Contents/Config-0",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-Partition",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2"
+  ]
+}

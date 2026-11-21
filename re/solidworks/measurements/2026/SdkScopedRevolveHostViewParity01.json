@@ -1,0 +1,257 @@
+{
+  "cases": {
+    "KitScopeRightDisclosure": {
+      "all_other_typed_fields_equal": true,
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "guest_sha256": "49e3b083c2826c7cd74b0eb1b841a8dc14575b88f79c621da4bede08ac64fc93",
+      "host_sha256": "b5b89d1fdafb48beac24818e351f69059183ab1923702c1e1d2a5d1d4109fba4",
+      "logical_stream_count": 10,
+      "view_doubles": [
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 47,
+            "path": "/values/RootValue/fields/f9f8/3/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/3/o/fields/f368/f08/m0",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 47,
+            "path": "/values/RootValue/fields/f9f8/3/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/3/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 48,
+            "path": "/values/RootValue/fields/f9f8/4/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/4/o/fields/f368/f08/m0",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 48,
+            "path": "/values/RootValue/fields/f9f8/4/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/4/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 49,
+            "path": "/values/RootValue/fields/f9f8/5/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/5/o/fields/f368/f08/m4",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 49,
+            "path": "/values/RootValue/fields/f9f8/5/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/5/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 50,
+            "path": "/values/RootValue/fields/f9f8/6/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/6/o/fields/f368/f08/m4",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 50,
+            "path": "/values/RootValue/fields/f9f8/6/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/6/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        }
+      ]
+    },
+    "KitScopeTopDisclosure": {
+      "all_other_typed_fields_equal": true,
+      "changed_streams": [
+        "Contents/Config-0"
+      ],
+      "guest_sha256": "5e965c0b155e0b7daea6a920ddfd568cc7a46d219c9d51fbcfd223b495191569",
+      "host_sha256": "2fd8a4d877e0a5f7772ca2656d8e4ad60df7e73e2e0ad05fc6b378bbe5197eb3",
+      "logical_stream_count": 10,
+      "view_doubles": [
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 47,
+            "path": "/values/RootValue/fields/f9f8/3/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/3/o/fields/f368/f08/m0",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 47,
+            "path": "/values/RootValue/fields/f9f8/3/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/3/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 48,
+            "path": "/values/RootValue/fields/f9f8/4/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/4/o/fields/f368/f08/m0",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 48,
+            "path": "/values/RootValue/fields/f9f8/4/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/4/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 49,
+            "path": "/values/RootValue/fields/f9f8/5/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/5/o/fields/f368/f08/m4",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 49,
+            "path": "/values/RootValue/fields/f9f8/5/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/5/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 50,
+            "path": "/values/RootValue/fields/f9f8/6/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/6/o/fields/f368/f08/m4",
+          "ulp_distance": 2
+        },
+        {
+          "absolute_delta": 7.888609052210118e-31,
+          "guest_hex": "-0x1.ffffffffffffep-49",
+          "guest_value": -3.5527136788005e-15,
+          "host_hex": "-0x1.0000000000000p-48",
+          "host_value": -3.552713678800501e-15,
+          "owner": {
+            "class": "moView_c",
+            "node_id": 50,
+            "path": "/values/RootValue/fields/f9f8/6/o"
+          },
+          "path": "/values/RootValue/fields/f9f8/6/o/fields/f368/f08/m8",
+          "ulp_distance": 2
+        }
+      ]
+    }
+  },
+  "first_exact_outer_checksum_preflight_passed": false,
+  "first_freeze_sha256": "5569b49a1af4e76ca5e2ca1b27e6372dcc360ac611dbde7ba1f525ded32b26bf",
+  "guest_python": "3.12.7",
+  "guest_zlib": "1.3.1",
+  "native_processes_started": 0,
+  "prewriter_private_specs_read": 0,
+  "schema": "kit.sw2026.scoped-revolve-view-runtime-contrast.v1"
+}

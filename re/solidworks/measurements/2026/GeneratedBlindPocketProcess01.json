@@ -1,0 +1,429 @@
+{
+  "schema": "kit.sw2026.generated-blind-pocket-process.v1",
+  "scope": "Independent offline archive construction and readback for two authored scope variants of the same discovery design.",
+  "sources_sha256": {
+    "re/tooling/sw2026/builders/Cut.py": "7a813187bc07e73e501ccd3ac0d39995c7785069a0a61972cd75054aa1ad578b",
+    "re/tooling/sw2026/builders/Extrude.py": "12b26949b285eb8fd180729a7fcc57dd2457a5f13666c370f01f49f114fc3c79",
+    "re/tooling/sw2026/builders/Metadata.py": "ee90fcece0c00669626f8a154d80aab99b8988f7452830c5fdd61850847e2450",
+    "re/tooling/sw2026/builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f",
+    "re/tooling/sw2026/serial/BlindCutReadback.py": "c9c316bf604c1bab2bc33c6226d9ba93f36a061c02797193fd7c22a168689dc6",
+    "tests/Convert/Solidworks/Research/Cut/BlindCutInput.py": "a93414db3905ce508c6d76f86c5112c0028bdc8a20a8c1ef8b94188011a801a3",
+    "tests/Convert/Solidworks/Research/Cut/BlindCutTests.py": "0fd5b04c1f1ec02edf15d7150bc3380f6380f08d9592fd1dc02b3b977fa1b932",
+    "tests/Convert/Solidworks/Research/FreshPartProcess.py": "8313cf6340b1fdd13c97c88b12d8185ed2b85fb6c6af68359fc2a1ab2f91ea98"
+  },
+  "python_runtime": "3.11",
+  "test_runner": "pytest 9.1.1",
+  "process_integration_checks_passed": 1,
+  "existing_process_regressions_passed": 3,
+  "stream_roundtrips_passed": 16,
+  "different_streams": [
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "native_source_files_read": 0,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "donor_scan": {
+    "path": "src",
+    "files": 3223,
+    "recorded_payloads": 0
+  },
+  "cases": [
+    {
+      "name": "BlindPocketAllBodies",
+      "file_sha256": "340e52b7ca4acca96b977bb5f514eb361323a560a69e44c067801c91b4253b12",
+      "file_bytes": 8444,
+      "scope_word": 0,
+      "denied_runtime_reads": [],
+      "header_seed_map_count": 82,
+      "feature_graph": {
+        "feature_names": [
+          "Sketch1",
+          "Boss-Extrude1",
+          "PocketSketch",
+          "BlindPocket"
+        ],
+        "distinct_feature_ids": true,
+        "profile_ids": [
+          18,
+          25
+        ],
+        "owned_profiles": true,
+        "distinct_plane_wrappers": true,
+        "cut_profile": {
+          "counts": [
+            2,
+            0,
+            1
+          ],
+          "frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center_m": [
+            0.0097,
+            -0.0073
+          ],
+          "radius_m": 0.006409999999999999,
+          "closed": true,
+          "fixed_center": true,
+          "radial_link": true,
+          "parameter_m": 0.006409999999999999
+        },
+        "end": {
+          "f08": 1,
+          "f88": 0,
+          "f8c": 1,
+          "f0c": 0,
+          "f10": 0,
+          "f158": 0
+        },
+        "inactive_ends_absent": true,
+        "depth_parameter": {
+          "name": "D1",
+          "value_m": 0.00483,
+          "classes": [
+            "moDisplayDistanceDim_c",
+            "moFeatureDimHandle_c",
+            "ParallelPlaneDistanceDim_c",
+            "moLengthParameter_c"
+          ],
+          "distinct_from_boss": true
+        },
+        "operations": [
+          -1,
+          1
+        ],
+        "cut_flags": 1073873354,
+        "scope_word": 0,
+        "constructor_body_state": true,
+        "body_scope_qualified": false,
+        "keyword": {
+          "tag": "Extrusion",
+          "name": "BlindPocket",
+          "type": null,
+          "profile_id": 25,
+          "dimension": "D1",
+          "depth_in_document_units": 4.83
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 480,
+          "sha256": "c703b913b1bb44728d2806a746973651ca243915702acd980fdf3943f98418c7",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "9ec152c3b3078e0181a200d0bcfbf9e4e83ac2b5b5e36e84a212b4f11d4f2fdc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "a2cbe4286232a824c0a3cbdd65b0777dc5cecf949ab9558067dfede9aaf998a3"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "7b146242099c3d8f6aa53a682883d6d4b1dbbf57e46b4bf494c66a7b083bc2d1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 480,
+          "sha256": "065904bf3c7f5d3bfa6e77189ce4213fdd16b03c369c69df54ee79de3ab6a66c",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "c6e5b5921f58d3b371574da2ad3ac0d9ce62145987203b43bc126c92cf05ebed"
+        },
+        "Contents/Config-0": {
+          "bytes": 21158,
+          "sha256": "acb84b08999250cc0b6b245097e19a42a5c34c08adfae1e01931e0cea32e9f55",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 3,
+          "map_count": 82,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "bc38e90c5d9ab1357266ebd7230aeac76c84d720afb41432ba859b43971bf2c5"
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "f1c5df98e8d991845af84dd2530ed1e0d69ec7746b03be9776cd14a4766a6b57",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 10,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "d7e787d5afa387864ce539c25836915b29f6930472aa56cd433a67a52acc03a4"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 7,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "99ede53bbd59ab8109964db7d703188d9c726804ae30c48d1d8cb3ea4409960f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 18968,
+          "sha256": "a76fa074b7bcea3a20b4c1c7a29cf2aef1a142750c830fab07b6f9c3231507b4",
+          "passed": true,
+          "seeded_map_count": 82,
+          "roots": 21,
+          "tail": 0,
+          "identical": true,
+          "map_base": 82,
+          "map_count": 231,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "213edc7a750ba6b8750c730e2c8daaa7d9107127e7442221a800a4730c8faf2e"
+        }
+      },
+      "full_process_receipt_sha256": "5b622ecf89299afe3a243a768f626046259c0cb514282572fafb72bc0d59b15a"
+    },
+    {
+      "name": "BlindPocketEmptyFeatureScope",
+      "file_sha256": "49423910d16837ee8f3bfcd4dcfa61f471cd0274c93d6c6af3281ce2e8901d24",
+      "file_bytes": 8446,
+      "scope_word": 1,
+      "denied_runtime_reads": [],
+      "header_seed_map_count": 82,
+      "feature_graph": {
+        "feature_names": [
+          "Sketch1",
+          "Boss-Extrude1",
+          "PocketSketch",
+          "BlindPocket"
+        ],
+        "distinct_feature_ids": true,
+        "profile_ids": [
+          18,
+          25
+        ],
+        "owned_profiles": true,
+        "distinct_plane_wrappers": true,
+        "cut_profile": {
+          "counts": [
+            2,
+            0,
+            1
+          ],
+          "frame": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "center_m": [
+            0.0097,
+            -0.0073
+          ],
+          "radius_m": 0.006409999999999999,
+          "closed": true,
+          "fixed_center": true,
+          "radial_link": true,
+          "parameter_m": 0.006409999999999999
+        },
+        "end": {
+          "f08": 1,
+          "f88": 0,
+          "f8c": 1,
+          "f0c": 0,
+          "f10": 0,
+          "f158": 0
+        },
+        "inactive_ends_absent": true,
+        "depth_parameter": {
+          "name": "D1",
+          "value_m": 0.00483,
+          "classes": [
+            "moDisplayDistanceDim_c",
+            "moFeatureDimHandle_c",
+            "ParallelPlaneDistanceDim_c",
+            "moLengthParameter_c"
+          ],
+          "distinct_from_boss": true
+        },
+        "operations": [
+          -1,
+          1
+        ],
+        "cut_flags": 1073873354,
+        "scope_word": 1,
+        "constructor_body_state": true,
+        "body_scope_qualified": false,
+        "keyword": {
+          "tag": "Extrusion",
+          "name": "BlindPocket",
+          "type": null,
+          "profile_id": 25,
+          "dimension": "D1",
+          "depth_in_document_units": 4.83
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 480,
+          "sha256": "c703b913b1bb44728d2806a746973651ca243915702acd980fdf3943f98418c7",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "9ec152c3b3078e0181a200d0bcfbf9e4e83ac2b5b5e36e84a212b4f11d4f2fdc"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 3,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "a2cbe4286232a824c0a3cbdd65b0777dc5cecf949ab9558067dfede9aaf998a3"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 5,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "7b146242099c3d8f6aa53a682883d6d4b1dbbf57e46b4bf494c66a7b083bc2d1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 480,
+          "sha256": "065904bf3c7f5d3bfa6e77189ce4213fdd16b03c369c69df54ee79de3ab6a66c",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 12,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "c6e5b5921f58d3b371574da2ad3ac0d9ce62145987203b43bc126c92cf05ebed"
+        },
+        "Contents/Config-0": {
+          "bytes": 21158,
+          "sha256": "acb84b08999250cc0b6b245097e19a42a5c34c08adfae1e01931e0cea32e9f55",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 3,
+          "map_count": 82,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "bc38e90c5d9ab1357266ebd7230aeac76c84d720afb41432ba859b43971bf2c5"
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "f1c5df98e8d991845af84dd2530ed1e0d69ec7746b03be9776cd14a4766a6b57",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 10,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "d7e787d5afa387864ce539c25836915b29f6930472aa56cd433a67a52acc03a4"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "passed": true,
+          "roots": 1,
+          "tail": 0,
+          "identical": true,
+          "map_base": 1,
+          "map_count": 7,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "99ede53bbd59ab8109964db7d703188d9c726804ae30c48d1d8cb3ea4409960f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 18968,
+          "sha256": "c540db6fe6acece683708bc67b00821a9c918a86ba54ff7bdb97670ee5b6270c",
+          "passed": true,
+          "seeded_map_count": 82,
+          "roots": 21,
+          "tail": 0,
+          "identical": true,
+          "map_base": 82,
+          "map_count": 231,
+          "byte_identity_passed": true,
+          "proven_schemas": true,
+          "schema_usage_sha256": "213edc7a750ba6b8750c730e2c8daaa7d9107127e7442221a800a4730c8faf2e"
+        }
+      },
+      "full_process_receipt_sha256": "ae5d16574b8ee11ccd193674620be2ca31137fd9ade4088cf381697b8b7f7cca"
+    }
+  ],
+  "logical_streams_compared": 9
+}

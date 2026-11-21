@@ -1,0 +1,506 @@
+{
+  "baseline_revision": "42878d802e4d53ba1dd92528a67fa8122880cff0",
+  "baseline_src_tree": "8ec147cb733526d1b281923bf3350e15f91c77e3",
+  "bundles": {
+    "N01NestedSingle": {
+      "RiseModule.SLDASM": {
+        "after": {
+          "captions": {
+            "RiseModule": "RiseModule",
+            "SinglePlate": "SinglePlate"
+          },
+          "deferred_comparison_sha256": "ec38ae389e4f444c0765f70c628b5cd134e73f6b6a8c51539104b07518fa4336",
+          "placements": [
+            [
+              "RiseModule",
+              "SinglePlate-1",
+              "SinglePlate",
+              0
+            ]
+          ],
+          "resolved_comparison_sha256": "ef7dd0080e466f666db3c8a5f9586c3b6576a2024ff7a4e707dfa757c48b08fd"
+        },
+        "before": {
+          "captions": {
+            "RiseModule": "RiseModule",
+            "SinglePlate": "SinglePlate"
+          },
+          "deferred_comparison_sha256": "ec38ae389e4f444c0765f70c628b5cd134e73f6b6a8c51539104b07518fa4336",
+          "placements": [
+            [
+              "RiseModule",
+              "SinglePlate-1",
+              "SinglePlate",
+              0
+            ]
+          ],
+          "resolved_comparison_sha256": "ef7dd0080e466f666db3c8a5f9586c3b6576a2024ff7a4e707dfa757c48b08fd"
+        },
+        "input_sha256": "42da82c1d119a829ce92678b2f6d8416e292baec0dbe750fb1b1375df3453ba0",
+        "nested_root": false
+      },
+      "SingleFrame.SLDASM": {
+        "after": {
+          "captions": {
+            "RiseModule": "RiseModule",
+            "SingleFrame": "SingleFrame",
+            "SinglePlate": "SinglePlate"
+          },
+          "deferred_comparison_sha256": "140a5bf60162f170ab38e0d763028db2e1541d3b0c9a1718b74fe956c192110e",
+          "placements": [
+            [
+              "RiseModule",
+              "SinglePlate-1",
+              "SinglePlate",
+              0
+            ],
+            [
+              "SingleFrame",
+              "RiseModule-1",
+              "RiseModule",
+              0
+            ]
+          ],
+          "refused_owner_probes": [
+            "absent child",
+            "different physical child",
+            "unresolved configuration",
+            "different feature identity",
+            "different local placement"
+          ],
+          "resolved_comparison_sha256": "cdf25ea1057b53e824f3bad0df017aabba9283fd454fe5548986e3bcc64d2b1c"
+        },
+        "before": {
+          "captions": {
+            "RiseModule": "RiseModule",
+            "SingleFrame": "SingleFrame",
+            "SinglePlate": "SinglePlate"
+          },
+          "deferred_comparison_sha256": "140a5bf60162f170ab38e0d763028db2e1541d3b0c9a1718b74fe956c192110e",
+          "placements": [
+            [
+              "RiseModule",
+              "SinglePlate-1",
+              "SinglePlate",
+              0
+            ],
+            [
+              "SingleFrame",
+              "RiseModule-1",
+              "RiseModule",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "cdf25ea1057b53e824f3bad0df017aabba9283fd454fe5548986e3bcc64d2b1c"
+        },
+        "input_sha256": "57a12e043333c2d8ca841b9471ed01b46026a52e6717e12504c5ac73d8094f22",
+        "nested_root": true
+      }
+    },
+    "N02MixedRepeated": {
+      "IndexModule.SLDASM": {
+        "after": {
+          "captions": {
+            "IndexModule": "IndexModule",
+            "RotorPlate": "RotorPlate"
+          },
+          "deferred_comparison_sha256": "cbd9c471cb98f28c2d5cacbba89b61f3c3c8eb24515643864ac0abeee9e23fef",
+          "placements": [
+            [
+              "IndexModule",
+              "RotorPlate-1",
+              "RotorPlate",
+              0
+            ],
+            [
+              "IndexModule",
+              "RotorPlate-2",
+              "RotorPlate",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "237238e7f1c12638fd150bccd38e0cb33befb8dab8148567be11cb85d1813672"
+        },
+        "before": {
+          "captions": {
+            "IndexModule": "IndexModule",
+            "RotorPlate": "RotorPlate"
+          },
+          "deferred_comparison_sha256": "cbd9c471cb98f28c2d5cacbba89b61f3c3c8eb24515643864ac0abeee9e23fef",
+          "placements": [
+            [
+              "IndexModule",
+              "RotorPlate-1",
+              "RotorPlate",
+              0
+            ],
+            [
+              "IndexModule",
+              "RotorPlate-2",
+              "RotorPlate",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "237238e7f1c12638fd150bccd38e0cb33befb8dab8148567be11cb85d1813672"
+        },
+        "input_sha256": "4457e4b8f59712c1cb15e8aae176bbd821865b7e15251dfcfbfc569f10af39c8",
+        "nested_root": false
+      },
+      "MixedFrame.SLDASM": {
+        "after": {
+          "captions": {
+            "IndexModule": "IndexModule",
+            "MixedFrame": "MixedFrame",
+            "RotorPlate": "RotorPlate",
+            "TailPlate": "TailPlate"
+          },
+          "deferred_comparison_sha256": "e4dca92b2c81218e58e871198c83d9f895e9720718a2e0af5d610c3489347df3",
+          "placements": [
+            [
+              "IndexModule",
+              "RotorPlate-1",
+              "RotorPlate",
+              0
+            ],
+            [
+              "IndexModule",
+              "RotorPlate-2",
+              "RotorPlate",
+              1
+            ],
+            [
+              "MixedFrame",
+              "IndexModule-1",
+              "IndexModule",
+              0
+            ],
+            [
+              "MixedFrame",
+              "TailPlate-1",
+              "TailPlate",
+              1
+            ],
+            [
+              "MixedFrame",
+              "IndexModule-2",
+              "IndexModule",
+              2
+            ]
+          ],
+          "refused_owner_probes": [
+            "absent child",
+            "different physical child",
+            "unresolved configuration",
+            "different feature identity",
+            "different local placement"
+          ],
+          "resolved_comparison_sha256": "6ac8adf192b10d48eaa8360ed2ab2aea14712da8f2a43a7a44244c6b6f6ce82c"
+        },
+        "before": {
+          "captions": {
+            "IndexModule": "IndexModule",
+            "MixedFrame": "MixedFrame",
+            "RotorPlate": "RotorPlate",
+            "TailPlate": "TailPlate"
+          },
+          "deferred_comparison_sha256": "e4dca92b2c81218e58e871198c83d9f895e9720718a2e0af5d610c3489347df3",
+          "placements": [
+            [
+              "IndexModule",
+              "RotorPlate-1",
+              "RotorPlate",
+              0
+            ],
+            [
+              "IndexModule",
+              "RotorPlate-2",
+              "RotorPlate",
+              1
+            ],
+            [
+              "MixedFrame",
+              "IndexModule-1",
+              "IndexModule",
+              2
+            ],
+            [
+              "MixedFrame",
+              "TailPlate-1",
+              "TailPlate",
+              3
+            ],
+            [
+              "MixedFrame",
+              "IndexModule-2",
+              "IndexModule",
+              4
+            ]
+          ],
+          "resolved_comparison_sha256": "6ac8adf192b10d48eaa8360ed2ab2aea14712da8f2a43a7a44244c6b6f6ce82c"
+        },
+        "input_sha256": "f97c64d22168b832e425dbb657ba564ff93da97a4d4a633918bb5816a6c88c65",
+        "nested_root": true
+      }
+    },
+    "SdkNestedNeutralNative03": {
+      "SdkFrame.SLDASM": {
+        "after": {
+          "captions": {
+            "SdkFrame": "SdkFrame",
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "8b83772702a8d0a65ff0035cc3533f156be5cb001bb3459211066fe54248a52a",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-1",
+              "SdkModule",
+              0
+            ]
+          ],
+          "refused_owner_probes": [
+            "absent child",
+            "different physical child",
+            "unresolved configuration",
+            "different feature identity",
+            "different local placement"
+          ],
+          "resolved_comparison_sha256": "3075fe67d435a4a958e60e256881c5cab77368aab1054ee38edacd71d252486e"
+        },
+        "before": {
+          "captions": {
+            "SdkFrame": "SdkFrame",
+            "SdkModule": "SdkFrame",
+            "SdkNestedPlate": "SdkFrame"
+          },
+          "deferred_comparison_sha256": "8b83772702a8d0a65ff0035cc3533f156be5cb001bb3459211066fe54248a52a",
+          "placements": [
+            [
+              "SdkFrame",
+              "SdkNestedPlate-1",
+              "SdkFrame",
+              0
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-1",
+              "SdkFrame",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "3075fe67d435a4a958e60e256881c5cab77368aab1054ee38edacd71d252486e"
+        },
+        "input_sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39",
+        "nested_root": true
+      },
+      "SdkModule.SLDASM": {
+        "after": {
+          "captions": {
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "665ff0e28149332de2c6beb23f4cb212bae5a27c715c04efb8f28e5422710cad",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ]
+          ],
+          "resolved_comparison_sha256": "e3f742c43d44bc6c51601a96393fd4a80243bf8d1fff5f9eca5be0d49fcdee75"
+        },
+        "before": {
+          "captions": {
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "665ff0e28149332de2c6beb23f4cb212bae5a27c715c04efb8f28e5422710cad",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ]
+          ],
+          "resolved_comparison_sha256": "e3f742c43d44bc6c51601a96393fd4a80243bf8d1fff5f9eca5be0d49fcdee75"
+        },
+        "input_sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7",
+        "nested_root": false
+      }
+    },
+    "SdkRepeatedNeutralNative03": {
+      "SdkFrame.SLDASM": {
+        "after": {
+          "captions": {
+            "SdkFrame": "SdkFrame",
+            "SdkGaugePlate": "SdkGaugePlate",
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "cf6648fa2cb9feb7e82f20be6458e9f3e014f8144c80c2bf22ec7759bf692e2a",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ],
+            [
+              "SdkModule",
+              "SdkNestedPlate-2",
+              "SdkNestedPlate",
+              1
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-1",
+              "SdkModule",
+              0
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-2",
+              "SdkModule",
+              1
+            ],
+            [
+              "SdkFrame",
+              "SdkGaugePlate-1",
+              "SdkGaugePlate",
+              2
+            ]
+          ],
+          "refused_owner_probes": [
+            "absent child",
+            "different physical child",
+            "unresolved configuration",
+            "different feature identity",
+            "different local placement"
+          ],
+          "resolved_comparison_sha256": "15d1d66d8d80b9703b4dfdbd6b5ac4aa7e0ec02ba3afaa834284626c4ee91982"
+        },
+        "before": {
+          "captions": {
+            "SdkFrame": "SdkFrame",
+            "SdkGaugePlate": "SdkFrame",
+            "SdkModule": "SdkFrame",
+            "SdkNestedPlate": "SdkFrame"
+          },
+          "deferred_comparison_sha256": "cf6648fa2cb9feb7e82f20be6458e9f3e014f8144c80c2bf22ec7759bf692e2a",
+          "placements": [
+            [
+              "SdkFrame",
+              "SdkNestedPlate-1",
+              "SdkFrame",
+              0
+            ],
+            [
+              "SdkFrame",
+              "SdkNestedPlate-2",
+              "SdkFrame",
+              1
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-1",
+              "SdkFrame",
+              2
+            ],
+            [
+              "SdkFrame",
+              "SdkModule-2",
+              "SdkFrame",
+              3
+            ],
+            [
+              "SdkFrame",
+              "SdkGaugePlate-1",
+              "SdkFrame",
+              4
+            ]
+          ],
+          "resolved_comparison_sha256": "15d1d66d8d80b9703b4dfdbd6b5ac4aa7e0ec02ba3afaa834284626c4ee91982"
+        },
+        "input_sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10",
+        "nested_root": true
+      },
+      "SdkModule.SLDASM": {
+        "after": {
+          "captions": {
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "f959181a71c875efca0ddcc07bdab9ed0d8d053d74e1e60f5930d6a3d707df0d",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ],
+            [
+              "SdkModule",
+              "SdkNestedPlate-2",
+              "SdkNestedPlate",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "07d0863d61a31302674c459ad822ecb3609526af42498ad6cc41dd02966c13ec"
+        },
+        "before": {
+          "captions": {
+            "SdkModule": "SdkModule",
+            "SdkNestedPlate": "SdkNestedPlate"
+          },
+          "deferred_comparison_sha256": "f959181a71c875efca0ddcc07bdab9ed0d8d053d74e1e60f5930d6a3d707df0d",
+          "placements": [
+            [
+              "SdkModule",
+              "SdkNestedPlate-1",
+              "SdkNestedPlate",
+              0
+            ],
+            [
+              "SdkModule",
+              "SdkNestedPlate-2",
+              "SdkNestedPlate",
+              1
+            ]
+          ],
+          "resolved_comparison_sha256": "07d0863d61a31302674c459ad822ecb3609526af42498ad6cc41dd02966c13ec"
+        },
+        "input_sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490",
+        "nested_root": false
+      }
+    }
+  },
+  "fresh_sdk_processes": 16,
+  "heldout_inputs_read": 0,
+  "native_processes_started": 0,
+  "projected_fields": [
+    "definition name",
+    "owner-local instance order"
+  ],
+  "revised_sources_sha256": {
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/CheckIndexRef.py": "5adca7aec6eb3fed706d35e995522223450d83622a25997c03162f55ed453e25",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/IndexModel.py": "50794170aaaa4f417f63e6e21377cde87a1c2e1e3beeef35b56fc24e825de583",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexModel.py": "8ace641c8f162a7c65e672fa67c09680e967b7a5d46fa87ebfa10c5efb5bc46e",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadIndexOrders.py": "9b13b3fc5cc3ea728afabeeb0ff85072097cc7793aa680e6a78cb98045f2d8cc",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/ReadNestedIndex.py": "823d5ea158bfd7e68fdec688ae54077007f9334609a359011dad91b3140e32b2",
+    "src/convert/adapters/solidworks/Assembly/NestedIndex/WithNestedIndex.py": "df7d9cbf5ca150a5819aeebf07fcf78838bc1855ed4818ab028c2101a939dd11",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "0741b9f0bca934b24ead1c727c4a886b0a35ff793f89e40ab71d81cade3391dd",
+    "src/convert/adapters/solidworks/Core/Partition/BuildPartBody.py": "f7a82c7ccb174c90993037abac5844315bed8fbd6cbb5d5c6a8b260397fa1dfc"
+  },
+  "same_format_outputs": 0,
+  "schema": "kit.sw2026.nested-index-owners.v1",
+  "tool_sha256": "88136483c1557a027ce231a258f3aa2c0efcc2dec63c71e1ca5c63813e4f897c"
+}

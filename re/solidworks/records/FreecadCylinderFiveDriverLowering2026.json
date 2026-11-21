@@ -1,0 +1,403 @@
+{
+  "schema": "kit.sw2026.freecad-cylinder-five-driver-lowering.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "owner": "/root/assembly_occurrence",
+  "delivery_pr": 121,
+  "evidence_level": "Partial source-bound lowering design; no native target qualification",
+  "dependency": {
+    "source_semantics_knowledge_sha256": "f5d44c29244b4ca06f218fa2af2fbd28e88ed5ad37fe8f0abaf5a7fbed56eca1",
+    "source_semantics_handoff_sha256": "e6c9fdd739250698bdba69725ef5bf3cd9097ea3dc6a811fccca082ec4ef49c2",
+    "freecad_revision": "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  },
+  "sdk_files": [
+    {
+      "bytes": 2446,
+      "path": "src/interchange/Features/FeatureExtrude.py",
+      "sha256": "c45d16b2feae5e3c5b11b6d2d74dbac320da3ce2c5869de2497a53088ebc2cbc"
+    },
+    {
+      "bytes": 2167,
+      "path": "src/interchange/Features/ExtrudeShape.py",
+      "sha256": "15f676a0c4b062332d9ebaa8c7611285c035856fab714d051cdb7c7f91a6e315"
+    },
+    {
+      "bytes": 1709,
+      "path": "src/interchange/Features/FeatureBoundPlane.py",
+      "sha256": "bdc730b5fdb865baa1ed8f878ba5133fe06ce07f45bea3bfeb5c4a1b286444ad"
+    },
+    {
+      "bytes": 3147,
+      "path": "src/interchange/Features/BoundPlaneValues.py",
+      "sha256": "3ac4845233be9bc0d9609ea057e5693ef4d88e95dbd1418e319152df3e7c2ebf"
+    },
+    {
+      "bytes": 1752,
+      "path": "src/interchange/Features/FeaturePlaneExt.py",
+      "sha256": "73d0dd3d821ebea3d72aedb32a1a806cc9bfbe70f629c64c808debd79a7c5719"
+    },
+    {
+      "bytes": 2641,
+      "path": "src/interchange/Features/PlaneExtFrame.py",
+      "sha256": "3d41be60c6088d2085c908e70263ca2dcc2a2394ae739cb03c652ae59d953a13"
+    },
+    {
+      "bytes": 1994,
+      "path": "src/interchange/Features/PlaneExtInput.py",
+      "sha256": "97b6d7acf7ebee12d72d7d507efc6539a2cce6d99db0b52a685482e026e05286"
+    },
+    {
+      "bytes": 2601,
+      "path": "src/interchange/Features/PlaneExtValues.py",
+      "sha256": "0d93f52fbd69593bdae14feaa4516945ec385b2b95016b78872d3c829870e9ee"
+    },
+    {
+      "bytes": 1971,
+      "path": "src/interchange/Features/DistanceParam.py",
+      "sha256": "f6ce883e7297ffb9cca236821238e1a103deaea3bdf6b19faa971b0404cc148d"
+    },
+    {
+      "bytes": 2353,
+      "path": "src/interchange/Records/RecordParameter.py",
+      "sha256": "33840f3a979fcf5f4abed3c57c37231e5d5f5bda84f20ee542525d916c58b6b4"
+    },
+    {
+      "bytes": 1916,
+      "path": "src/interchange/geometry/Models/SupportPlane.py",
+      "sha256": "17e6700c0f70e783a42b9da6cca6a43bf7be33e17b3357ecaa08c44ecc1cf276"
+    },
+    {
+      "bytes": 1604,
+      "path": "src/interchange/document/Validation/BoundPlaneValidate.py",
+      "sha256": "f478645cec49e10770cbaffb3700877b8245e09bd81df9eec09cd60e259df904"
+    },
+    {
+      "bytes": 3166,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectCircle.py",
+      "sha256": "c8f511b70683a780074b36571412c5123766acc79afcaf539047703340f1e499"
+    },
+    {
+      "bytes": 2039,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadBossEnd.py",
+      "sha256": "c186a680806b47c3c30f29ce32fbeba7e4958877d19b4a67872bd3a593e05a94"
+    },
+    {
+      "bytes": 2221,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadCircParams.py",
+      "sha256": "3d08772039849575d4bc1441b4171211a21aa9c3c75fcc7070f9d5468b31e490"
+    },
+    {
+      "bytes": 871,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadPrincAxis.py",
+      "sha256": "b6f3adf5385d5e7ff32cb51d65322e7472e074b6f1f6d73f37a0fd6a51ea19fd"
+    },
+    {
+      "bytes": 1678,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/RequireExtrusion.py",
+      "sha256": "ed92b1e3441b64d48476f56c92f23f6d701148a72110cb6375e170ecf9892887"
+    },
+    {
+      "bytes": 1909,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Blind/MakeEndSpec.py",
+      "sha256": "43d663e7ee14902ec17d900de6d47deca65c1b059d858bbaada4fe1a9dcbefbe"
+    },
+    {
+      "bytes": 7830,
+      "path": "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/FeatureFields.py",
+      "sha256": "5f82dbd0de535014d4f3aa939d71cd1689442020c98a175710018e3987b37b57"
+    },
+    {
+      "bytes": 554068,
+      "path": "re/data/Serialization/SerializeMap2026.json",
+      "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+    }
+  ],
+  "native_image": {
+    "name": "sldmodu.dll",
+    "build": "34.5.2.0604",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "preferred_base": "0x4b140000",
+    "bytes": 46536280
+  },
+  "native_ranges": {
+    "get_dir_spec": {
+      "address": "0x4b283bd0",
+      "leaf_window_bytes": 16,
+      "sha256": "9971fe48dfe48123c85b8873c291b4d600b5296b5e35f8dc7730bc72c5740597"
+    },
+    "get_distance": {
+      "address": "0x4badf660",
+      "bytes": 49,
+      "end_exclusive": "0x4badf691",
+      "sha256": "8b8ad6c5f3f8269d5e84f2eb78ffc66205980a1bba55fff3b92e2b606ac3bf27"
+    },
+    "point_pair_ctor": {
+      "address": "0x4c302b20",
+      "bytes": 100,
+      "end_exclusive": "0x4c302b84",
+      "sha256": "c14e7f8ef9a585baad5fa5158016aa49710995f34f7a112fc384ef8c0e5e6dee"
+    },
+    "reference_ctor": {
+      "address": "0x4c302ac0",
+      "bytes": 84,
+      "end_exclusive": "0x4c302b14",
+      "sha256": "55197e5f879e9c724a0bf03de62b6fdf23858f9a654dff14e9cf74812ac544bf"
+    },
+    "serialize": {
+      "address": "0x4c695dd0",
+      "bytes": 1179,
+      "end_exclusive": "0x4c69626b",
+      "sha256": "a7175e8ea4af77a8c320177bee2d5d2f964333c570f560d2a2dc68c1c21ad0d1"
+    },
+    "set_dir_spec": {
+      "address": "0x4b30fb20",
+      "leaf_window_bytes": 16,
+      "sha256": "da6d35715c27d18a94c19aaab23c015662742deb54962ed8a66e1ff2f21d5f35"
+    },
+    "update_direction": {
+      "address": "0x4c3032a0",
+      "bytes": 1853,
+      "end_exclusive": "0x4c3039dd",
+      "sha256": "b671da06e99d81c899214a0d58e6c303bbf6c9ae2e0dd15730ef234747285105"
+    },
+    "vector_ctor": {
+      "address": "0x4c302910",
+      "bytes": 240,
+      "end_exclusive": "0x4c302a00",
+      "sha256": "a5415e34b4a9d9f1a67ab766ab6fe4b5fb06cf0dc32246f924125375af3dd637"
+    }
+  },
+  "native_static_rules": [
+    {
+      "owner": "moEndSpec_c",
+      "member": "f138",
+      "rule": "Actual explicit moDirectionSpec_c pointer read and written independently of the integer reversal field",
+      "getter": "0x4b283bd0",
+      "setter": "0x4b30fb20",
+      "confidence": "partial: exact-build static, no non-null source corpus in this tranche"
+    },
+    {
+      "owner": "moDirectionSpec_c",
+      "member": "f08",
+      "rule": "suObArray pointer serialized before subclass integers and optional numeric geometry",
+      "serializer": "0x4c695dd0",
+      "confidence": "partial"
+    },
+    {
+      "owner": "moDirectionSpec_c",
+      "member": "f10",
+      "rule": "Integer stored from reference-constructor argument; a nonzero value negates the final updated vector",
+      "constructor": "0x4c302ac0",
+      "consumer": "0x4c30392b",
+      "confidence": "partial: complete public input/flag mapping not established"
+    },
+    {
+      "owner": "moDirectionSpec_c",
+      "member": "f14",
+      "rule": "Caller-supplied option integer with several update branches; not a derived angle input",
+      "constructor": "0x4c302ac0",
+      "consumer": "0x4c303754",
+      "confidence": "partial: legal option vocabulary not qualified"
+    },
+    {
+      "owner": "moDirectionSpec_c",
+      "member": "f18",
+      "rule": "Vector constructor copies a supplied mgVector; update normalizes it through mgUnitVector construction",
+      "constructor": "0x4c302910",
+      "consumer": "0x4c303312",
+      "confidence": "partial: literal geometry does not establish live angle dependency"
+    },
+    {
+      "owner": "moEndSpec_c",
+      "member": "f18/f20",
+      "rule": "getDistance follows the selected display to its model handle and value; this accessor alone does not establish the oblique metric",
+      "getter": "0x4badf660",
+      "confidence": "partial: oblique depth metric remains open"
+    }
+  ],
+  "native_import_bindings": [
+    {
+      "iat": "0x4cd3d990",
+      "module": "swccu.dll",
+      "symbol": "su_CObject::Serialize"
+    },
+    {
+      "iat": "0x4cd33510",
+      "module": "SLDMFCU.dll",
+      "symbol": "suObArray::serializePtr"
+    },
+    {
+      "iat": "0x4cd3a900",
+      "module": "sldmgu.dll",
+      "symbol": "mgUnitVector_c constructor from mgVector_c and integer option"
+    },
+    {
+      "iat": "0x4cd3a5d0",
+      "module": "sldmgu.dll",
+      "symbol": "mgVector_c copy constructor"
+    },
+    {
+      "iat": "0x4cd3a588",
+      "module": "sldmgu.dll",
+      "symbol": "mgPoint_c copy constructor"
+    },
+    {
+      "iat": "0x4cd3a950",
+      "module": "sldmgu.dll",
+      "symbol": "mgVector_c::save"
+    },
+    {
+      "iat": "0x4cd3a968",
+      "module": "sldmgu.dll",
+      "symbol": "mgPoint_c::save"
+    }
+  ],
+  "native_constructor_overloads": [
+    {
+      "address": "0x4c302910",
+      "inputs": "mgVector reference, optional second vector, option integer, optional point"
+    },
+    {
+      "address": "0x4c302ac0",
+      "inputs": "one actual reference wrapper plus two option integers; exported aliases include line, plane and cylinder wrappers"
+    },
+    {
+      "address": "0x4c302b20",
+      "inputs": "two point wrappers, or face and point, plus two option integers"
+    }
+  ],
+  "public_api": [
+    {
+      "release": 2026,
+      "title": "GetDirectionReference (IExtrudeFeatureData2)",
+      "url": "https://help.solidworks.com/2026/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IExtrudeFeatureData2~GetDirectionReference.html",
+      "fact": "Returns one or two actual reference entities and their selection types",
+      "local_typelib_verified": false
+    },
+    {
+      "release": 2026,
+      "title": "Extrude PropertyManager",
+      "url": "https://help.solidworks.com/2026/english/SolidWorks/sldworks/r_extrude_propertymanager.htm?format=P",
+      "fact": "Direction may be non-normal to the sketch; selected face/plane termination is available",
+      "local_typelib_verified": false
+    },
+    {
+      "release": 2026,
+      "title": "GetDepth (IExtrudeFeatureData2)",
+      "url": "https://help.solidworks.com/2026/English/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IExtrudeFeatureData2~GetDepth.html",
+      "fact": "Reports selected forward/reverse end depth; does not prove its non-normal physical metric",
+      "local_typelib_verified": false
+    },
+    {
+      "release": 2026,
+      "title": "swEndConditions_e",
+      "url": "https://help.solidworks.com/2026/english/api/swconst/SolidWorks.Interop.swconst~SolidWorks.Interop.swconst.swEndConditions_e.html?id=db3cfc793dcc412a94c6e64da4c926a5",
+      "fact": "Blind 0; selected end 10; older surface 4 and vertex 3 are superseded. API-to-wire translation must be measured",
+      "local_typelib_verified": false
+    }
+  ],
+  "lowering": {
+    "source_displacement": "(H*tan(a),H*tan(b),H)",
+    "angle_unit_boundary": "FreeCAD degrees; BoundDatum evaluator radians; convert through owned parameter values",
+    "datum_planes": {
+      "first_normal": "(cos(a),0,-sin(a))",
+      "second_normal": "(0,cos(b),-sin(b))",
+      "axis_cross": "cos(a)*cos(b)*(tan(a),tan(b),1)",
+      "first_rotation_axis": "+Y",
+      "second_rotation_axis": "-X"
+    },
+    "chosen_axis_sign": "positive local Z for all admitted source prism angles",
+    "end_plane": "local z=H, transformed with the same complete source Placement as profile and axis",
+    "source_to_native": [
+      {
+        "source": "Radius",
+        "owner": "profile radius dimension"
+      },
+      {
+        "source": "Height",
+        "owner": "height-plane offset dimension"
+      },
+      {
+        "source": "Angle",
+        "owner": "sector sweep owner; full/partial topology transition unqualified"
+      },
+      {
+        "source": "FirstAngle",
+        "owner": "first tilted-plane angular dimension"
+      },
+      {
+        "source": "SecondAngle",
+        "owner": "second tilted-plane angular dimension"
+      }
+    ],
+    "alternative_blind": "unit direction d/|d| and live length H*sqrt(1+tan(a)^2+tan(b)^2), conditional on measured along-axis native depth metric",
+    "literal_vector_is_lossless": false,
+    "generated_history_must_be_disclosed": true
+  },
+  "analytic_probe": {
+    "kind": "Independent host mathematics only",
+    "case_count": 7,
+    "scalar_comparisons": 63,
+    "raw_sha256": "25d50b23186684dab6150fb92057041e2c771e678dd54e0eadba78dc34fa5217",
+    "max_absolute_difference_mm": 7.105427357601002e-15,
+    "actual_sdk_execution": false,
+    "native_execution": false
+  },
+  "public_locks": [
+    {
+      "path": "re/solidworks/v2026/heldout/CurveSourceLock.json",
+      "sha256": "7773c393e60696c12a7a7202d294762dc5a7e35c25d1ea364201f59a8ee04c24"
+    },
+    {
+      "path": "re/solidworks/v2026/heldout/CurveCircleWriterFreeze.json",
+      "sha256": "4a6cb20e311fa1572b234f12b4fb3dfdd672b5095ca147268bb410d76c5694f7"
+    },
+    {
+      "path": "re/solidworks/v2026/heldout/EndConditionSourceLock.json",
+      "sha256": "4df0938264f7761ada1f6fbc10f2335227459e6f03960ab1baa27a0395d395fe"
+    },
+    {
+      "path": "re/solidworks/v2026/heldout/EndConditionWriterFreeze.json",
+      "sha256": "fb208a5b8dd8cf9e033ad8450fd466e9754cf6374dc88bce68ee1bcd709a2918"
+    },
+    {
+      "path": "re/solidworks/v2026/heldout/ReferencePlaneSourceLock01.json",
+      "sha256": "c61560deff9c84addd65db48664ce6a5488ad3eecde9a070c62a215a5541d703"
+    }
+  ],
+  "reusable_scopes": {
+    "circle": "Existing radial/fixed-centre ordinary profile and blind body subgraphs only",
+    "end_conditions": "Existing normal-direction finite end rules only",
+    "reference_plane": "Existing ordinary offset-plane subgraph only",
+    "complete_five_driver_primitive": "No eligible lock found in this inspected public cohort inventory"
+  },
+  "blockers": [
+    "No complete non-null direction-spec writer/decoder qualification for this new scope",
+    "No native axis intersection and signed/zero-angle datum construction qualification",
+    "No selected-end API-to-wire mapping or non-normal end owner qualification",
+    "No blind oblique metric proof or SDK live trigonometric equation construction",
+    "No live full-360 to partial-sector profile transition qualification",
+    "Current circle admission rejects non-normal direction, source metadata, expressions, and source parameter names",
+    "Current PlaneExtrude evaluator rejects oblique axis/limit-normal combinations",
+    "Missing full source-to-generated-history ownership mapping and target metadata/material closure",
+    "No complete five-driver primitive source-before-writer lock in this inspected inventory"
+  ],
+  "next_milestone": "Metadata-first native source cohort, then unrelated sealed source locks before constructor work; preserve full original source contract",
+  "limitations": {
+    "source_evidence": "Exact-build static and public API contracts",
+    "math": "Analytic inference only",
+    "writer": "Not implemented",
+    "vendor_loadable": false,
+    "application_usable": false,
+    "heldout_qualified": false,
+    "original_payloads_opened": false
+  },
+  "safety": {
+    "generated_native_files": 0,
+    "native_processes_started": 0,
+    "heldout_inputs_read": 0,
+    "shared_checkout_edits": 0,
+    "production_changes": 0,
+    "hopper_documents_opened": 0,
+    "git_mutations": 0
+  }
+}

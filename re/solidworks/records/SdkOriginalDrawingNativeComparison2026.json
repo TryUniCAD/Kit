@@ -1,0 +1,3353 @@
+{
+  "schema": "kit.sw2026.sdk-original-drawing-partial-native-evidence.v1",
+  "task_id": "B04-SW2026-DRAWPROPS",
+  "delivery_pr": 121,
+  "outcome": "partial geometry lifecycle qualified; complete original semantics and held-out acceptance failed",
+  "geometry_qualified": true,
+  "complete_source_admitted": false,
+  "source_semantics_passed": false,
+  "semantic_tree_equality": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "measured_scope": "explicitly partial generated drawing/child geometry and view lifecycle only",
+  "measured_vendor_loadable": true,
+  "measured_geometry_usable": true,
+  "child_driving_edit_performed": false,
+  "full_parametric_bundle_qualification": false,
+  "writer_manifest_sha256": "645a423b76792abc04823cdf44a72c3df940847d1e4bd966dc07e6b57ea3d864",
+  "writer_source_files": 4347,
+  "pre_exposure_method_sha256": "3b119b30cf7038acbc428227a15c9b6cd224254e864c613e84d6c17d46dd8f42",
+  "generation_seal_sha256": "11b4d72abfbad5dcc856078ffc57335c5b5c332cea859bd09ccce3c6bd5b4fa6",
+  "packet_sha256": "cc970ee5951921b6e4f489e5b32faff568ec189d399e8a61b82f88be71f3fc7a",
+  "native_observer_sha256": "7ed35ffd5c2c98b58456293de4e95d05268065fced21253c6741e0c1ecd67ce7",
+  "observer_source": "re/tooling/sw2026/InspectOriginalDrawingGeometry.py",
+  "execution_commit_attribution": "not supplied in this native result; exact frozen observer and packet hashes are bound",
+  "oracle": {
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604",
+    "com": "SldWorks.Application.34"
+  },
+  "transport": {
+    "host": "macOS",
+    "vm": "Windows 11",
+    "prlctl_exec_current_user": true,
+    "returncode": 0,
+    "exit_confirmed": true,
+    "host_acceptance": false,
+    "host_guest_state_unknown": true,
+    "post_batch_inventory_bound_here": false,
+    "automatic_guest_kill": false,
+    "automatic_vm_reset": false
+  },
+  "raw": {
+    "result": {
+      "path": "Oracle121Takeover/SdkDrawingOriginalGeometryTrial01/Inspection/Result.json",
+      "sha256": "7013cb2b91f08649e93a3f87465977cbc3c4193be3ff6f4a4bd83b43e152b175"
+    },
+    "host": {
+      "path": "Oracle121Takeover/SdkDrawingOriginalGeometryTrial01/Host01.json",
+      "sha256": "8d91cde1164276fbf16679d257c7e26877d2f3dad4fc280374e3c73048e1deb8"
+    },
+    "records": [
+      {
+        "path": "Inspection/ControlBefore/OpenEditSave/Record.json",
+        "bytes": 416587,
+        "sha256": "1f0a1217ec73a3053d0aa863a8bd370f55c76db4582432f8e52f0bc842964f29"
+      },
+      {
+        "path": "Inspection/ControlBefore/FreshReopen/Record.json",
+        "bytes": 279871,
+        "sha256": "67384b4d719d0a3d576aa830997a2f2e5516c5c714c92999ff4f0f69978e0c6e"
+      },
+      {
+        "path": "Inspection/H01SheetA/Original/OpenEditSave/Record.json",
+        "bytes": 417520,
+        "sha256": "7c187ffb36d391288a159bc7133b05939abd9c7e873599b2b7a1a9856b40f786"
+      },
+      {
+        "path": "Inspection/H01SheetA/Original/FreshReopen/Record.json",
+        "bytes": 280283,
+        "sha256": "e7ad7f9f02c18b2415ff4a9f422417468b8fdb453ccd79d11f146b2d1ec53673"
+      },
+      {
+        "path": "Inspection/H01SheetA/Generated/OpenEditSave/Record.json",
+        "bytes": 414377,
+        "sha256": "918e762edcf675e7def3f66c46c567aa0990654cd849910e9a7239a192fc08a7"
+      },
+      {
+        "path": "Inspection/H01SheetA/Generated/FreshReopen/Record.json",
+        "bytes": 276237,
+        "sha256": "14000e0e1afc79700276d98e841678a7ac7098251dae1c53a8e0237a2cea938d"
+      },
+      {
+        "path": "Inspection/H02SheetB/Original/OpenEditSave/Record.json",
+        "bytes": 417328,
+        "sha256": "ab9218f7be464cc97774068f76d3c2ae178842d06bd0a009c74fd22bc12fae85"
+      },
+      {
+        "path": "Inspection/H02SheetB/Original/FreshReopen/Record.json",
+        "bytes": 279253,
+        "sha256": "ff8cff2181056837aea4bddc46db2ae5330cc0221bb694a24b59c9f5664338d9"
+      },
+      {
+        "path": "Inspection/H02SheetB/Generated/OpenEditSave/Record.json",
+        "bytes": 413559,
+        "sha256": "d8ab607f4d73f721af55ccbe362cace7623136f1446d54b4b2a69cb343ebf09d"
+      },
+      {
+        "path": "Inspection/H02SheetB/Generated/FreshReopen/Record.json",
+        "bytes": 277395,
+        "sha256": "2ce273b13fae5a59228864afe9a73917ae2f3c3c55530e527338bc155c8afd66"
+      },
+      {
+        "path": "Inspection/ControlAfter/OpenEditSave/Record.json",
+        "bytes": 416856,
+        "sha256": "48c2502cda5cdddebc8ce4aa95bed0aa10ffde3b258804a68b709ed84b76088b"
+      },
+      {
+        "path": "Inspection/ControlAfter/FreshReopen/Record.json",
+        "bytes": 279707,
+        "sha256": "8bc66873b2eee3354e76b19bdb14e833f688063a21ba77de0aef604dc13ee657"
+      }
+    ]
+  },
+  "controls_healthy": true,
+  "phases": [
+    {
+      "name": "ControlBefore/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 3888,
+      "process_creation_filetime": 134394572245546710,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "1f0a1217ec73a3053d0aa863a8bd370f55c76db4582432f8e52f0bc842964f29",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/ControlBefore/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 23022,
+        "sha256": "ccc27f842dda6dbbab20647981e573536bc1cdb9417a8051ec28a27dce45ca83"
+      }
+    },
+    {
+      "name": "ControlBefore/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 8956,
+      "process_creation_filetime": 134394572889392665,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "67384b4d719d0a3d576aa830997a2f2e5516c5c714c92999ff4f0f69978e0c6e",
+      "save_status": null,
+      "derivative": null
+    },
+    {
+      "name": "H01SheetA/Original/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 8972,
+      "process_creation_filetime": 134394573377004336,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "7c187ffb36d391288a159bc7133b05939abd9c7e873599b2b7a1a9856b40f786",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/H01SheetA/Original/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 22438,
+        "sha256": "c449409c42e650eff0fb62c804d5fedec4feffbcb8860ab05705e9ac6a3b7055"
+      }
+    },
+    {
+      "name": "H01SheetA/Original/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 8660,
+      "process_creation_filetime": 134394573998606145,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "e7ad7f9f02c18b2415ff4a9f422417468b8fdb453ccd79d11f146b2d1ec53673",
+      "save_status": null,
+      "derivative": null
+    },
+    {
+      "name": "H01SheetA/Generated/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 11112,
+      "process_creation_filetime": 134394574449983262,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "918e762edcf675e7def3f66c46c567aa0990654cd849910e9a7239a192fc08a7",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/H01SheetA/Generated/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 19955,
+        "sha256": "7f4ce1d8b04b0cc3aa2a419e2ea7d9934dbbc55edcd0708b574d9855a01f3207"
+      }
+    },
+    {
+      "name": "H01SheetA/Generated/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 2592,
+      "process_creation_filetime": 134394575067247376,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "14000e0e1afc79700276d98e841678a7ac7098251dae1c53a8e0237a2cea938d",
+      "save_status": null,
+      "derivative": null
+    },
+    {
+      "name": "H02SheetB/Original/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 10960,
+      "process_creation_filetime": 134394575550618926,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "ab9218f7be464cc97774068f76d3c2ae178842d06bd0a009c74fd22bc12fae85",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/H02SheetB/Original/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 22146,
+        "sha256": "d2b66e564646656a7cb0cd776a3b50bb18645034e092747ec6ed8872bc93e9d5"
+      }
+    },
+    {
+      "name": "H02SheetB/Original/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 9540,
+      "process_creation_filetime": 134394576173452604,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "ff8cff2181056837aea4bddc46db2ae5330cc0221bb694a24b59c9f5664338d9",
+      "save_status": null,
+      "derivative": null
+    },
+    {
+      "name": "H02SheetB/Generated/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 9392,
+      "process_creation_filetime": 134394576599081177,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "d8ab607f4d73f721af55ccbe362cace7623136f1446d54b4b2a69cb343ebf09d",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/H02SheetB/Generated/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 20077,
+        "sha256": "7937c6be6f07ef6171c51681db0176c4c8343d3ac522ffdee5384521c92e989a"
+      }
+    },
+    {
+      "name": "H02SheetB/Generated/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 3600,
+      "process_creation_filetime": 134394577157699513,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "2ce273b13fae5a59228864afe9a73917ae2f3c3c55530e527338bc155c8afd66",
+      "save_status": null,
+      "derivative": null
+    },
+    {
+      "name": "ControlAfter/OpenEditSave",
+      "passed": true,
+      "oracle_process_id": 8200,
+      "process_creation_filetime": 134394577571342397,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 172,
+      "input_immutable": true,
+      "record_sha256": "48c2502cda5cdddebc8ce4aa95bed0aa10ffde3b258804a68b709ed84b76088b",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "derivative": {
+        "path": "Inspection/ControlAfter/OpenEditSave/EditedDrawing.SLDDRW",
+        "bytes": 22397,
+        "sha256": "84677eaa3b1687a2408418d22e8c5c49c7bdebd8402be6b80ffb204a8b928059"
+      }
+    },
+    {
+      "name": "ControlAfter/FreshReopen",
+      "passed": true,
+      "oracle_process_id": 6636,
+      "process_creation_filetime": 134394578149463083,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "numeric_checks": 112,
+      "input_immutable": true,
+      "record_sha256": "8bc66873b2eee3354e76b19bdb14e833f688063a21ba77de0aef604dc13ee657",
+      "save_status": null,
+      "derivative": null
+    }
+  ],
+  "distinct_processes": 12,
+  "numeric_checks": 1704,
+  "all_numeric_checks_passed": true,
+  "snapshots": [
+    {
+      "phase": "ControlBefore/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.10341,
+          0.08763
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.089092,
+          0.07831199999999999,
+          0.117728,
+          0.096948
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.09341,
+          0.08263,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlBefore/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.10341,
+          0.08763
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.089092,
+          0.07831199999999999,
+          0.117728,
+          0.096948
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.09341,
+          0.08263,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlBefore/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlBefore/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlBefore/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Original/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.08117,
+          0.06843
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07247699999999996,
+          0.057862000000000004,
+          0.08986300000000005,
+          0.07899800000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08554500000000005,
+          0.062180000000000006,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Original/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.08117,
+          0.06843
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07247699999999996,
+          0.057862000000000004,
+          0.08986300000000005,
+          0.07899800000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08554500000000005,
+          0.062180000000000006,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Original/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Original/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Original/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Generated/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.08117,
+          0.06843
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07247699999999996,
+          0.057862000000000004,
+          0.08986300000000005,
+          0.07899800000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08554500000000005,
+          0.062180000000000006,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Generated/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.08117,
+          0.06843
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07247699999999996,
+          0.057862000000000004,
+          0.08986300000000005,
+          0.07899800000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08554500000000005,
+          0.062180000000000006,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Generated/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Generated/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H01SheetA/Generated/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Right",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.083901,
+          0.066691
+        ],
+        "scale": 1.25,
+        "outline_m": [
+          0.07520799999999996,
+          0.056123,
+          0.09259400000000005,
+          0.07725900000000001
+        ],
+        "model_to_view": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15,
+          0.08827600000000005,
+          0.060441,
+          -0.012499999999999985,
+          1.25,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Original/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.11613,
+          0.09471
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.104312,
+          0.08776699999999998,
+          0.127948,
+          0.10165300000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.10863,
+          0.09733500000000002,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Original/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.11613,
+          0.09471
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.104312,
+          0.08776699999999998,
+          0.127948,
+          0.10165300000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.10863,
+          0.09733500000000002,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Original/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Original/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Original/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Generated/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.11613,
+          0.09471
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.104312,
+          0.08776699999999998,
+          0.127948,
+          0.10165300000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.10863,
+          0.09733500000000002,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Generated/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.11613,
+          0.09471
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.104312,
+          0.08776699999999998,
+          0.127948,
+          0.10165300000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.10863,
+          0.09733500000000002,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Generated/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Generated/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "H02SheetB/Generated/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Top",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.118861,
+          0.092971
+        ],
+        "scale": 0.75,
+        "outline_m": [
+          0.10704299999999999,
+          0.08602799999999998,
+          0.130679,
+          0.09991400000000002
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          0.0,
+          -1.0,
+          -3.552713678800501e-15,
+          0.11136099999999999,
+          0.09559600000000001,
+          -0.0037499999999999903,
+          0.75,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlAfter/OpenEditSave",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.10341,
+          0.08763
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.089092,
+          0.07831199999999999,
+          0.117728,
+          0.096948
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.09341,
+          0.08263,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlAfter/OpenEditSave",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.10341,
+          0.08763
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.089092,
+          0.07831199999999999,
+          0.117728,
+          0.096948
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.09341,
+          0.08263,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlAfter/OpenEditSave",
+      "state": "edited",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlAfter/FreshReopen",
+      "state": "initial",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    },
+    {
+      "phase": "ControlAfter/FreshReopen",
+      "state": "rebuilt",
+      "sheet": "Sheet1",
+      "sheet_properties": [
+        0.0,
+        13.0,
+        5.0,
+        1.0,
+        0.0,
+        0.2794,
+        0.21589999999999998,
+        1.0
+      ],
+      "whats_wrong": 0,
+      "view": {
+        "name": "Drawing View1",
+        "orientation": "*Front",
+        "configuration": "authored configuration",
+        "position_m": [
+          0.106141,
+          0.085891
+        ],
+        "scale": 1.0,
+        "outline_m": [
+          0.091823,
+          0.07657299999999999,
+          0.120459,
+          0.095209
+        ],
+        "model_to_view": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.096141,
+          0.08089099999999999,
+          -0.0035,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "child_volume_m3": 1.4000000000000001e-06,
+        "child_area_m2": 0.00082,
+        "child_center_m": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    }
+  ],
+  "solid_bodies_including_hidden": 1,
+  "analytic_geometry": {
+    "volume_m3": 1.4e-06,
+    "area_m2": 0.00082,
+    "center_m": [
+      0.01,
+      0.005,
+      0.0035
+    ],
+    "all_30_snapshots_match_six_significant_figures": true
+  },
+  "comparisons": [
+    {
+      "case": "H01SheetA",
+      "drawing_tree": {
+        "equal_in_exact_order": false,
+        "source_count": 16,
+        "generated_count": 16,
+        "source_only_rows": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "eDrawings Markups",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Plane1",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder1",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder2",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "Plane2",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch2",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "Plane3",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch3",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "generated_only_rows": [
+          [
+            "H01SheetA comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "H01SheetA blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "H01SheetA annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "H01SheetA ink",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "H01SheetA review",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "H01SheetA datum",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA profile",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA details",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA view detail",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA paper plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA paper sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA model plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA model sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "source_rows": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "eDrawings Markups",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Sheet1",
+            "DrSheet",
+            null
+          ],
+          [
+            "Plane1",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder1",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Drawing View1",
+            "AbsoluteView",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder2",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "Plane2",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch2",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "Plane3",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch3",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "generated_rows": [
+          [
+            "H01SheetA comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "H01SheetA blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "H01SheetA annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "H01SheetA ink",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "H01SheetA review",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Sheet1",
+            "DrSheet",
+            null
+          ],
+          [
+            "H01SheetA datum",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA profile",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA details",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Drawing View1",
+            "AbsoluteView",
+            "Sheet1"
+          ],
+          [
+            "H01SheetA view detail",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA paper plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA paper sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA model plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H01SheetA model sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ]
+      },
+      "child_tree": {
+        "equal_in_exact_order": false,
+        "source_count": 27,
+        "generated_count": 26,
+        "source_only_rows": [
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ]
+        ],
+        "generated_only_rows": [
+          [
+            "authored markups",
+            "InkMarkupFolder",
+            null
+          ]
+        ],
+        "source_rows": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Boss-Extrude1"
+          ]
+        ],
+        "generated_rows": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Boss-Extrude1"
+          ]
+        ]
+      },
+      "drawing_type_parent_sequence_equal": true,
+      "drawing_rows_with_different_names": 13,
+      "source_child_basename": "GeneratedChildFile.SLDPRT",
+      "generated_child_basename": "GeneratedChildModel.SLDPRT",
+      "source_resolved_locator_kind": "Parallels home UNC",
+      "source_reference_spelling_kind": "mapped shared drive",
+      "generated_resolved_locator_kind": "exact authored C drive path",
+      "actual_child_identities_checked_in_each_state": true,
+      "configuration_equal": true,
+      "configuration_name": "authored configuration",
+      "driving_parameter": {
+        "source": {
+          "query": "D1@Boss-Extrude1",
+          "value_m": 0.007,
+          "driven_state": 2,
+          "read_only": false
+        },
+        "generated": {
+          "query": "D1@Boss-Extrude1",
+          "value_m": 0.007,
+          "driven_state": 2,
+          "read_only": false
+        }
+      },
+      "retained_original_unsupported": [
+        {
+          "owner": "moNotesAreaFtrFolder_c",
+          "field": "system folder class",
+          "name": "authored markups",
+          "native_id": 10,
+          "resolved_map_index": 108,
+          "frozen_factory_alternative": "moInkMarkupFolder_c",
+          "original_base": "moFtrFolder_c",
+          "alternative_base": "moFolder_c",
+          "diagnostic": "system folder inputs do not cover the classified fresh part profile",
+          "diagnostic_provenance": "static exact SystemInput class-set guard, not an executed construction",
+          "substitution_is_full_semantic_admission": false
+        },
+        {
+          "owner": "moScaleSysScale_c",
+          "schema": 1,
+          "stream": "Contents/Definition",
+          "cases": [
+            "H01SheetA",
+            "H02SheetB"
+          ],
+          "diagnostic": "unsupported SOLIDWORKS body class moScaleSysScale_c schema 1",
+          "diagnostic_provenance": "actual frozen ReadNamedDef read of each exact original"
+        }
+      ]
+    },
+    {
+      "case": "H02SheetB",
+      "drawing_tree": {
+        "equal_in_exact_order": false,
+        "source_count": 16,
+        "generated_count": 16,
+        "source_only_rows": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "eDrawings Markups",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Plane1",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder1",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder2",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "Plane2",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch2",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "Plane3",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch3",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "generated_only_rows": [
+          [
+            "H02SheetB comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "H02SheetB blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "H02SheetB annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "H02SheetB ink",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "H02SheetB review",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "H02SheetB datum",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB profile",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB details",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB view detail",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB paper plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB paper sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB model plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB model sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "source_rows": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "Blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "eDrawings Markups",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Sheet1",
+            "DrSheet",
+            null
+          ],
+          [
+            "Plane1",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder1",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Drawing View1",
+            "AbsoluteView",
+            "Sheet1"
+          ],
+          [
+            "Detail Folder2",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "Plane2",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch2",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "Plane3",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "Sketch3",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ],
+        "generated_rows": [
+          [
+            "H02SheetB comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "H02SheetB blocks",
+            "BlockFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "H02SheetB annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "H02SheetB ink",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "H02SheetB review",
+            "MarkupCommentFolder",
+            null
+          ],
+          [
+            "Sheet1",
+            "DrSheet",
+            null
+          ],
+          [
+            "H02SheetB datum",
+            "RefPlane",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB profile",
+            "ProfileFeature",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB details",
+            "DetailFolder",
+            "Sheet1"
+          ],
+          [
+            "Drawing View1",
+            "AbsoluteView",
+            "Sheet1"
+          ],
+          [
+            "H02SheetB view detail",
+            "DetailFolder",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB paper plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB paper sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB model plane",
+            "RefPlane",
+            "Drawing View1"
+          ],
+          [
+            "H02SheetB model sketch",
+            "ProfileFeature",
+            "Drawing View1"
+          ]
+        ]
+      },
+      "child_tree": {
+        "equal_in_exact_order": false,
+        "source_count": 27,
+        "generated_count": 26,
+        "source_only_rows": [
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ]
+        ],
+        "generated_only_rows": [
+          [
+            "authored markups",
+            "InkMarkupFolder",
+            null
+          ]
+        ],
+        "source_rows": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "NotesAreaFtrFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Boss-Extrude1"
+          ]
+        ],
+        "generated_rows": [
+          [
+            "authored comments",
+            "CommentsFolder",
+            null
+          ],
+          [
+            "authored favorites",
+            "FavoriteFolder",
+            null
+          ],
+          [
+            "authored history",
+            "HistoryFolder",
+            null
+          ],
+          [
+            "authored selection sets",
+            "SelectionSetFolder",
+            null
+          ],
+          [
+            "authored sensors",
+            "SensorFolder",
+            null
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null
+          ],
+          [
+            "authored annotations",
+            "DetailCabinet",
+            null
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "authored annotations"
+          ],
+          [
+            "authored surfaces",
+            "SurfaceBodyFolder",
+            null
+          ],
+          [
+            "authored solids",
+            "SolidBodyFolder",
+            null
+          ],
+          [
+            "authored environment",
+            "EnvFolder",
+            null
+          ],
+          [
+            "Ambient",
+            "AmbientLight",
+            "authored environment"
+          ],
+          [
+            "Directional1",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional2",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "Directional3",
+            "DirectionLight",
+            "authored environment"
+          ],
+          [
+            "authored markups",
+            "InkMarkupFolder",
+            null
+          ],
+          [
+            "authored equations",
+            "EqnFolder",
+            null
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            null
+          ],
+          [
+            "Boss-Extrude1",
+            "Extrusion",
+            null
+          ],
+          [
+            "Sketch1",
+            "ProfileFeature",
+            "Boss-Extrude1"
+          ]
+        ]
+      },
+      "drawing_type_parent_sequence_equal": true,
+      "drawing_rows_with_different_names": 13,
+      "source_child_basename": "GeneratedChildFile.SLDPRT",
+      "generated_child_basename": "GeneratedChildModel.SLDPRT",
+      "source_resolved_locator_kind": "Parallels home UNC",
+      "source_reference_spelling_kind": "mapped shared drive",
+      "generated_resolved_locator_kind": "exact authored C drive path",
+      "actual_child_identities_checked_in_each_state": true,
+      "configuration_equal": true,
+      "configuration_name": "authored configuration",
+      "driving_parameter": {
+        "source": {
+          "query": "D1@Boss-Extrude1",
+          "value_m": 0.007,
+          "driven_state": 2,
+          "read_only": false
+        },
+        "generated": {
+          "query": "D1@Boss-Extrude1",
+          "value_m": 0.007,
+          "driven_state": 2,
+          "read_only": false
+        }
+      },
+      "retained_original_unsupported": [
+        {
+          "owner": "moNotesAreaFtrFolder_c",
+          "field": "system folder class",
+          "name": "authored markups",
+          "native_id": 10,
+          "resolved_map_index": 108,
+          "frozen_factory_alternative": "moInkMarkupFolder_c",
+          "original_base": "moFtrFolder_c",
+          "alternative_base": "moFolder_c",
+          "diagnostic": "system folder inputs do not cover the classified fresh part profile",
+          "diagnostic_provenance": "static exact SystemInput class-set guard, not an executed construction",
+          "substitution_is_full_semantic_admission": false
+        },
+        {
+          "owner": "moScaleSysScale_c",
+          "schema": 1,
+          "stream": "Contents/Definition",
+          "cases": [
+            "H01SheetA",
+            "H02SheetB"
+          ],
+          "diagnostic": "unsupported SOLIDWORKS body class moScaleSysScale_c schema 1",
+          "diagnostic_provenance": "actual frozen ReadNamedDef read of each exact original"
+        }
+      ]
+    }
+  ],
+  "all_input_and_derivative_hashes_rechecked": true,
+  "frozen_writer_changed": false,
+  "no_native_runtime_hooks": true,
+  "worker_vm_access": false,
+  "original_preexisting_private_observations_read": false,
+  "public_drawing_writer_admission_changed": false
+}

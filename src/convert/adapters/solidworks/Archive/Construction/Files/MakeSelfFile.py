@@ -7,12 +7,15 @@ from convert.adapters.solidworks.Archive.Construction.Files.MakeFileDef import (
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Model.RequireModel import (
+    RequireModel,
+)
 from convert.adapters.solidworks.Archive.Construction.Model.RequireRootNode import (
     RequireRootNode,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
-from convert.adapters.solidworks.Archive.Construction.Model.GraphValue import (
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     FieldText,
 )
@@ -22,10 +25,10 @@ from convert.adapters.solidworks.Archive.Construction.Model.GraphValue import (
 def MakeSelfFile(
     ModelValue: ArchiveNode,
     HeaderValue: ArchiveNode,
-    ConfigValue: ArchiveNode,
+    ConfigValue: ArchiveNode | None,
     InputValue: SelfFileInput,
 ) -> ArchiveNode:
-    RequireRootNode(ModelValue, "moPart_c")
+    RequireModel(ModelValue)
     RequireRootNode(HeaderValue, "moHeader_c")
     if type(InputValue) is not SelfFileInput or not HeaderValue.FieldsValue["fec"]:
         raise ValueError(
@@ -35,9 +38,13 @@ def MakeSelfFile(
         raise ValueError("native save event precedes the modeled modification time")
     NameNode = ArchiveNode.RequireNode(ModelValue.FieldsValue["f18"])
     RequireRootNode(NameNode, "moNodeName_c")
+    KindValue = {"moPart_c": 2, "moAssembly_c": 3, "moDrawing_c": 4}[
+        ModelValue.ClassValue.NameValue
+    ]
     SharedFields = MakeFileDef(
         InputValue,
         FieldText(NameNode.FieldsValue, "f08"),
+        KindValue,
         FieldInt(HeaderValue.FieldsValue, "f70"),
     )
     return ArchiveNode(

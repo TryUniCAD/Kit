@@ -1,0 +1,123 @@
+{
+  "cases": [
+    {
+      "anchor_kind": "corner",
+      "driver_names": [
+        "SpanCornerAscii",
+        "RiseCornerAscii",
+        "DepthCornerAscii"
+      ],
+      "independent_edits_mm": {
+        "depth": 10.43,
+        "height": 28.91,
+        "width": 43.27
+      },
+      "name": "CornerAscii",
+      "native_trial": true,
+      "part": {
+        "body_label": "Corner Working Body",
+        "centre_xy_mm": [
+          16.705,
+          10.835
+        ],
+        "created_at": 1795006000,
+        "depth_mm": 7.13,
+        "edited_depth_mm": 10.43,
+        "height_mm": 21.67,
+        "model_name": "SdkAnchorNameCornerAscii01",
+        "self_path": "C:\\KitSdkCandidates\\SdkAnchorNameCornerAscii01.SLDPRT",
+        "width_mm": 33.41
+      }
+    },
+    {
+      "anchor_kind": "corner",
+      "driver_names": [
+        "SpanCornerWide",
+        "RiseCornerWide",
+        "DepthCornerWide"
+      ],
+      "independent_edits_mm": {
+        "depth": 12.11,
+        "height": 27.37,
+        "width": 49.61
+      },
+      "name": "CornerWide",
+      "native_trial": true,
+      "part": {
+        "body_label": "Pi\u00e8ce d\u2019angle \u6881_\ud801\udc37",
+        "centre_xy_mm": [
+          20.895,
+          9.265
+        ],
+        "created_at": 1795006047,
+        "depth_mm": 8.27,
+        "edited_depth_mm": 12.11,
+        "height_mm": 18.53,
+        "model_name": "SdkAnchorNameCornerWide01",
+        "self_path": "C:\\KitSdkCandidates\\SdkAnchorNameCornerWide01.SLDPRT",
+        "width_mm": 41.79
+      }
+    },
+    {
+      "anchor_kind": "center",
+      "driver_names": [
+        "SpanCenterAscii",
+        "RiseCenterAscii",
+        "DepthCenterAscii"
+      ],
+      "independent_edits_mm": {
+        "depth": 11.09,
+        "height": 32.87,
+        "width": 47.53
+      },
+      "name": "CenterAscii",
+      "native_trial": true,
+      "part": {
+        "body_label": "Centered Working Body",
+        "centre_xy_mm": [
+          0.0,
+          0.0
+        ],
+        "created_at": 1795006094,
+        "depth_mm": 6.47,
+        "edited_depth_mm": 11.09,
+        "height_mm": 25.19,
+        "model_name": "SdkAnchorNameCenterAscii01",
+        "self_path": "C:\\KitSdkCandidates\\SdkAnchorNameCenterAscii01.SLDPRT",
+        "width_mm": 38.63
+      }
+    },
+    {
+      "anchor_kind": "center",
+      "driver_names": [
+        "SpanCenterWide",
+        "RiseCenterWide",
+        "DepthCenterWide"
+      ],
+      "independent_edits_mm": {
+        "depth": 13.67,
+        "height": 31.73,
+        "width": 56.41
+      },
+      "name": "CenterWide",
+      "native_trial": true,
+      "part": {
+        "body_label": "Corps centr\u00e9 \u6881_\ud801\udc37_\u03b2",
+        "centre_xy_mm": [
+          0.0,
+          0.0
+        ],
+        "created_at": 1795006141,
+        "depth_mm": 9.23,
+        "edited_depth_mm": 13.67,
+        "height_mm": 22.31,
+        "model_name": "SdkAnchorNameCenterWide01",
+        "self_path": "C:\\KitSdkCandidates\\SdkAnchorNameCenterWide01.SLDPRT",
+        "width_mm": 45.17
+      }
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "native_acceptance": false,
+  "schema": "kit.sw2026.anchored-named-part-neutral-cases.v1"
+}

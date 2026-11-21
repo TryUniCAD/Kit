@@ -1,0 +1,1003 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "heldout_qualified": false,
+    "vendor_loadable": false,
+    "writer_rule_changed": false
+  },
+  "data_windows": [
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 24,
+      "end_exclusive": "0x4d35c618",
+      "module": "sldmodu.dll",
+      "name": "PMark record RTTI complete object locator",
+      "sha256": "ab84b865f5dac8793b2801973d23aef02a836e351042147130f60e95a70ae6a8",
+      "start": "0x4d35c600"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 36,
+      "end_exclusive": "0x4db4136c",
+      "module": "sldmodu.dll",
+      "name": "PMark record RTTI descriptor and name",
+      "sha256": "0dd4a568c490d32e60a1d85c4b59753414d708dba110f3bebd3773b755dcd220",
+      "start": "0x4db41348"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 8,
+      "end_exclusive": "0x4d17e9a8",
+      "module": "sldmodu.dll",
+      "name": "actual PMark record table locator pointer",
+      "sha256": "de974e76aa026eb084dd12d0c5e0fe925f0e3d6375f66fe6dd85c17b2d852d46",
+      "start": "0x4d17e9a0"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 22,
+      "end_exclusive": "0x4ce7b9b6",
+      "module": "sldmodu.dll",
+      "name": "configuration partition stream suffix",
+      "sha256": "235aba264a2ed85405dd3129aeb8221e2cc1e652e6d958ae80b50005b99916ab",
+      "start": "0x4ce7b9a0"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 26,
+      "end_exclusive": "0x4d13553a",
+      "module": "sldmodu.dll",
+      "name": "alternate StockBodies suffix",
+      "sha256": "12356c446afe7e126e867ffa7bef9f03d1c68ccce9c7e33eb7b7543e9eda324e",
+      "start": "0x4d135520"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 24,
+      "end_exclusive": "0x1800cdba8",
+      "module": "doccplu.dll",
+      "name": "SolidStorage complete object locator",
+      "sha256": "00fc3d776456d161f578b4b47b8a36303f3580f10a0b3b4791dc50de6b321127",
+      "start": "0x1800cdb90"
+    },
+    {
+      "bound": "original PE data identity; no raw vendor bytes retained",
+      "bytes": 24,
+      "end_exclusive": "0x1800cdf08",
+      "module": "doccplu.dll",
+      "name": "SolidStorageMFC complete object locator",
+      "sha256": "71b8f0522d62a2f5052981df2c2e4b6b8b901eefeb44d3b77806e87e16c290bb",
+      "start": "0x1800cdef0"
+    }
+  ],
+  "delivery_pr": 121,
+  "exact_build": "SOLIDWORKS 2026 34.5.2.0604",
+  "execution": {
+    "cad_execution": false,
+    "heldout_inputs_read": 0,
+    "llvm_decoder": true,
+    "original_pe_static": true,
+    "rea_or_hopper_open": false,
+    "schema_or_codec_execution": false,
+    "shared_writes": false,
+    "tests": false,
+    "vm_execution": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 101,
+      "end_exclusive": "0x4c02e295",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::modelContext(false)",
+      "sha256": "6815a40ee261defdd29671ffe2f5ad1d1b56611379fabae540b72d7524e677c7",
+      "start": "0x4c02e230",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 101,
+          "end_exclusive": "0x4c02e295",
+          "sha256": "6815a40ee261defdd29671ffe2f5ad1d1b56611379fabae540b72d7524e677c7",
+          "start": "0x4c02e230",
+          "unwind_rva": "0x2245b40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 168,
+      "end_exclusive": "0x458ef068",
+      "module": "sldappu.dll",
+      "name": "BaseDocModelContext_c::loadPartition",
+      "sha256": "dd59bfbe83a58ef5677e79713bc676c5e3080c6f63e6f8675f78602ff4c40216",
+      "start": "0x458eefc0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 168,
+          "end_exclusive": "0x458ef068",
+          "sha256": "dd59bfbe83a58ef5677e79713bc676c5e3080c6f63e6f8675f78602ff4c40216",
+          "start": "0x458eefc0",
+          "unwind_rva": "0xcc7d34"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 14,
+      "end_exclusive": "0x458ea40e",
+      "module": "sldappu.dll",
+      "name": "uiBaseDoc_c::getSolidStorage",
+      "sha256": "ffcd6041f8aba419b6b5f6a5525b6f0a2b80723ef24608d4e97364caae13f38a",
+      "start": "0x458ea400",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x458ee27c",
+      "module": "sldappu.dll",
+      "name": "BaseDocModelContext_c::getBCModeInfo",
+      "sha256": "ead8301136f4b21ab591daba8dd16e6e221d37ab21a14fea308b65b831034535",
+      "start": "0x458ee270",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 12,
+      "end_exclusive": "0x497ce7ec",
+      "module": "slduiu.dll",
+      "name": "ModelDocModelContext_c +0xa30 leaf",
+      "sha256": "a942d80db440a4ba7349dbda3cded90ca31bad69905d4f68485f8d8a75bfaef7",
+      "start": "0x497ce7e0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 11,
+      "end_exclusive": "0x458ee76b",
+      "module": "sldappu.dll",
+      "name": "BaseDocModelContext_c::getIsFutureVersionDocument",
+      "sha256": "f887e5ab63b136609e175ae261440e697b262140f3570efba17a4e9ad1a00215",
+      "start": "0x458ee760",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 4744,
+      "end_exclusive": "0x4c23f778",
+      "module": "sldmodu.dll",
+      "name": "moPart_c::loadExternalBodies",
+      "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+      "start": "0x4c23e4f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 4744,
+          "end_exclusive": "0x4c23f778",
+          "sha256": "c1182102c7c3336019c2945f76cf1d350ae1c3df0a4649e89583ceecdf4ace8f",
+          "start": "0x4c23e4f0",
+          "unwind_rva": "0x248319c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1807,
+      "end_exclusive": "0x180022ddf",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c::LoadModel",
+      "sha256": "1b79c436e7755212fb3ffff395c878a8a44564ee0e82a07bc77ffe2d5d1f0dfd",
+      "start": "0x1800226d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1807,
+          "end_exclusive": "0x180022ddf",
+          "sha256": "1b79c436e7755212fb3ffff395c878a8a44564ee0e82a07bc77ffe2d5d1f0dfd",
+          "start": "0x1800226d0",
+          "unwind_rva": "0xd2930"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 768,
+      "end_exclusive": "0x18002c570",
+      "module": "doccplu.dll",
+      "name": "SolidStorage_c::LoadPartition",
+      "sha256": "14fc62b147d0ae4f4abcc12798cf4f54840a88a83fd2a3f33bea0b04fb2363ef",
+      "start": "0x18002c270",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 768,
+          "end_exclusive": "0x18002c570",
+          "sha256": "14fc62b147d0ae4f4abcc12798cf4f54840a88a83fd2a3f33bea0b04fb2363ef",
+          "start": "0x18002c270",
+          "unwind_rva": "0xd6108"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 41,
+      "end_exclusive": "0x4c0231f9",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::getModelPartition",
+      "sha256": "79cdeb8e2861902caca0c29fb6ff840c389d3aa94df4f87c36d208f7f9076dcf",
+      "start": "0x4c0231d0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 544,
+      "end_exclusive": "0x43998b10",
+      "module": "sldgcu.dll",
+      "name": "gcPartition_w::loadFromStorage",
+      "sha256": "87cfc555ebad5bb93f0d86ca54e2fc82a4aad2210f89d23e1146592b472fe597",
+      "start": "0x439988f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 544,
+          "end_exclusive": "0x43998b10",
+          "sha256": "87cfc555ebad5bb93f0d86ca54e2fc82a4aad2210f89d23e1146592b472fe597",
+          "start": "0x439988f0",
+          "unwind_rva": "0x88bed0"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 120,
+      "end_exclusive": "0x43998c68",
+      "module": "sldgcu.dll",
+      "name": "gcPartition_w::restore",
+      "sha256": "9a4f02077f03912b1c0a88fb857d2e48f597e694528e05331ec152d013a98352",
+      "start": "0x43998bf0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 120,
+          "end_exclusive": "0x43998c68",
+          "sha256": "9a4f02077f03912b1c0a88fb857d2e48f597e694528e05331ec152d013a98352",
+          "start": "0x43998bf0",
+          "unwind_rva": "0x87a254"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 112,
+      "end_exclusive": "0x43e8ef40",
+      "module": "sldgcu.dll",
+      "name": "gcPartition_w backend restore bridge",
+      "sha256": "3f06b428ba496cbcc9608936848b4dca14ffc7d38e1539ea65b9c9134d416c72",
+      "start": "0x43e8eed0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 112,
+          "end_exclusive": "0x43e8ef40",
+          "sha256": "3f06b428ba496cbcc9608936848b4dca14ffc7d38e1539ea65b9c9134d416c72",
+          "start": "0x43e8eed0",
+          "unwind_rva": "0x87a254"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 756,
+      "end_exclusive": "0x3305b074",
+      "module": "sldgciParau.dll",
+      "name": "gciPartition_w::restore",
+      "sha256": "30fdf29623c3f433f32e9f849bc142d3f0ecec488d31b563590a26909ba50edc",
+      "start": "0x3305ad80",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 756,
+          "end_exclusive": "0x3305b074",
+          "sha256": "30fdf29623c3f433f32e9f849bc142d3f0ecec488d31b563590a26909ba50edc",
+          "start": "0x3305ad80",
+          "unwind_rva": "0x169b44"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 121,
+      "end_exclusive": "0x4bb1a8b9",
+      "module": "sldmodu.dll",
+      "name": "moPMarkRecord_c::Serialize",
+      "sha256": "9c304975ba308185c5d0278a791fbae60914456cd1231096b84428db6a6142ad",
+      "start": "0x4bb1a840",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 121,
+          "end_exclusive": "0x4bb1a8b9",
+          "sha256": "9c304975ba308185c5d0278a791fbae60914456cd1231096b84428db6a6142ad",
+          "start": "0x4bb1a840",
+          "unwind_rva": "0x2245bd8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 29,
+      "end_exclusive": "0x4b706efd",
+      "module": "sldmodu.dll",
+      "name": "moAtomFeature_c::getPMark",
+      "sha256": "5abd400d40af04f1cd05ccbc51162e21e3b58755985b55dcb92926a7e87922bc",
+      "start": "0x4b706ee0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "direct call target at 0x4c3382d8; complete leaf body through ret; no declared unwind entry",
+      "bytes": 8,
+      "end_exclusive": "0x4c025148",
+      "module": "sldmodu.dll",
+      "name": "model +0xe38 record getter",
+      "sha256": "ee0a3153120abf3153fc4ff9a6c9a8404dc6024b91dafe8500bd8db5cf8e040a",
+      "start": "0x4c025140",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 5311,
+      "end_exclusive": "0x4c338d5f",
+      "module": "sldmodu.dll",
+      "name": "moRegenRunTimeData_c::s_resolvePMarkAndBodies",
+      "sha256": "e00ac2456b83fce11be9ddc9de32675cdcd5db4d201161652d63ded1c5b994ed",
+      "start": "0x4c3378a0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 5311,
+          "end_exclusive": "0x4c338d5f",
+          "sha256": "e00ac2456b83fce11be9ddc9de32675cdcd5db4d201161652d63ded1c5b994ed",
+          "start": "0x4c3378a0",
+          "unwind_rva": "0x24ac13c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1925,
+      "end_exclusive": "0x4c1cfbb5",
+      "module": "sldmodu.dll",
+      "name": "moPart_c::replaceBody",
+      "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+      "start": "0x4c1cf430",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1925,
+          "end_exclusive": "0x4c1cfbb5",
+          "sha256": "81009598c2fe358f74c53c8fe28ffd241a8780ac47c7eefe2e68467a63a2fc05",
+          "start": "0x4c1cf430",
+          "unwind_rva": "0x2478720"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1882,
+      "end_exclusive": "0x4b586d2a",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::loadFutureModelBodies",
+      "sha256": "5bded576335609222e8858d3487f079c2d5f477d2768cded9627ee0258888cb9",
+      "start": "0x4b5865d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1882,
+          "end_exclusive": "0x4b586d2a",
+          "sha256": "5bded576335609222e8858d3487f079c2d5f477d2768cded9627ee0258888cb9",
+          "start": "0x4b5865d0",
+          "unwind_rva": "0x22b8284"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x180052df8",
+      "module": "sldappu.dll",
+      "name": "?getVersionNumber@uiBaseDoc_c@@QEBAKXZ",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180052f58",
+      "module": "sldappu.dll",
+      "name": "?getIsFutureVersionDocument@uiBaseDoc_c@@QEBAHXZ",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051768",
+      "module": "SLDMODU.dll",
+      "name": "?setGhostPartitionVersion@moBaseConfiguration_c@@QEAAXH@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051770",
+      "module": "SLDMODU.dll",
+      "name": "?setGhostPartitionName@moBaseConfiguration_c@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051778",
+      "module": "SLDMODU.dll",
+      "name": "?setPartitionVersion@moBaseConfiguration_c@@QEAAXH@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051780",
+      "module": "SLDMODU.dll",
+      "name": "?setPartitionName@moBaseConfiguration_c@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051788",
+      "module": "SLDMODU.dll",
+      "name": "?setDeltasKey@moBaseConfiguration_c@@QEAAXV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051790",
+      "module": "SLDMODU.dll",
+      "name": "?setPartitionHasMeshBodies@moBaseConfiguration_c@@QEAAXH@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051798",
+      "module": "SLDMODU.dll",
+      "name": "?setPartitionHasDeltas@moBaseConfiguration_c@@QEAAXH@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180051b88",
+      "module": "SLDMODU.dll",
+      "name": "?loadExternalBodies@moPart_c@@QEAAXKPEAVmoBaseConfiguration_c@@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x180053260",
+      "module": "sldsessionu.dll",
+      "name": "?App@SldSession_c@@SAPEAVSldApp_c@@XZ",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x1800531a8",
+      "module": "sldgcu.dll",
+      "name": "?loadFromStorage@gcPartition_w@@SAPEAV1@PEAVsuFileStorage@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1HKPEAVmoFiledConcept_c@@PEAV34@HPEAV1@@Z",
+      "source_module": "doccplu.dll"
+    },
+    {
+      "iat": "0x4cd37578",
+      "module": "sldgcu.dll",
+      "name": "?gc_CleanAttributesOnInput@@YAXPEAVgcBody_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd375b8",
+      "module": "sldgcu.dll",
+      "name": "?GetMultiKernel@gcEnvironment_c@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37748",
+      "module": "sldgcu.dll",
+      "name": "?getPMarks@gcPartition_w@@QEAAHQEAPEAPEAVgcPMark_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37ee0",
+      "module": "sldgcu.dll",
+      "name": "?getAllFromBody@gcAttrib_w@@SAHPEAVgcBody_w@@PEAVgcAttribDef_w@@PEAPEAPEAV1@HH@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd385d0",
+      "module": "sldgcu.dll",
+      "name": "?getTimeStamp@gcBody_w@@QEAAKH@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd385f0",
+      "module": "sldgcu.dll",
+      "name": "?getBodies@gcPartition_w@@QEAAHPEAPEAPEAVgcBody_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd386f8",
+      "module": "sldgcu.dll",
+      "name": "?getId@gcPMark_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38788",
+      "module": "sldgcu.dll",
+      "name": "?getAtomId@gcBody_w@@QEAAHXZ",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d880",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@J@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d888",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd3d940",
+      "module": "swccu.dll",
+      "name": "?Lookup@su_CMapPtrToPtr@@QEBAHPEBXAEAPEAX@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4a469c80",
+      "module": "sldappu.dll",
+      "name": "?loadPartition@BaseDocModelContext_c@@UEAAPEAVgcPartition_w@@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@HPEAVmoModel_c@@H0@Z",
+      "source_module": "slduiu.dll"
+    },
+    {
+      "iat": "0x4a469fa8",
+      "module": "sldappu.dll",
+      "name": "?getIsFutureVersionDocument@BaseDocModelContext_c@@UEAAHXZ",
+      "source_module": "slduiu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 58,
+      "end_exclusive": "0x4b586635",
+      "module": "sldmodu.dll",
+      "name": "future model entry requires actual context predicate",
+      "sha256": "8b029c4af2c688afa34e8e47313864c1441c5b16aa8ed0b98615fa7fa1d3f37a",
+      "start": "0x4b5865fb"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 148,
+      "end_exclusive": "0x4c23e5e9",
+      "module": "sldmodu.dll",
+      "name": "ordinary load selected configuration and partition suffix",
+      "sha256": "c126cebb4dab46c9219b989b5d3f11732a1eab09c4af5284d21d0b098354a12b",
+      "start": "0x4c23e555"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 89,
+      "end_exclusive": "0x4c23e7ea",
+      "module": "sldmodu.dll",
+      "name": "ordinary context partition call without alternate stock route",
+      "sha256": "62e14c6ba22d155601c61f26dc128c1ecd4485982744fa05cf98ba08118e8dc8",
+      "start": "0x4c23e791"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 64,
+      "end_exclusive": "0x4c23edf6",
+      "module": "sldmodu.dll",
+      "name": "actual partition installation and active body enumeration",
+      "sha256": "cf8f74b79b691ef37d366055f69484ddafc78e0d742f7815886d549561749b7a",
+      "start": "0x4c23edb6"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 114,
+      "end_exclusive": "0x4c23f120",
+      "module": "sldmodu.dll",
+      "name": "body model then timestamp atom and owner repair",
+      "sha256": "c2415a69b6d1f2783d2c163d5de2c4858bd28dd81c1e2363f7369a8f7e59adc3",
+      "start": "0x4c23f0ae"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 90,
+      "end_exclusive": "0x4c23f182",
+      "module": "sldmodu.dll",
+      "name": "positive atom or sole-body fallback to replaceBody",
+      "sha256": "0254693a60d6a1d88f67e983ddaff39395d6cee2f36d38dd32961fc881e0f4ca",
+      "start": "0x4c23f128"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 58,
+      "end_exclusive": "0x4c1cf85f",
+      "module": "sldmodu.dll",
+      "name": "no output atom current-version branch does not invent a body",
+      "sha256": "1b63cf254f751d67be1809bdac18aa382a245862a4259ad431e2af502702c99a",
+      "start": "0x4c1cf825"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 86,
+      "end_exclusive": "0x1800228b9",
+      "module": "doccplu.dll",
+      "name": "ordinary part not future app gate before loadExternalBodies",
+      "sha256": "b0a92d01a4518de065791eb505b6c862beb0b71092ef075e23bdc30d3f91146c",
+      "start": "0x180022863"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 53,
+      "end_exclusive": "0x18002c3fa",
+      "module": "doccplu.dll",
+      "name": "actual generic partition restore call arguments",
+      "sha256": "ac86de70ff427130ae73748d0d2e33dbf22bdc1339fc1e73d319558c72be1059",
+      "start": "0x18002c3c5"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 79,
+      "end_exclusive": "0x43998997",
+      "module": "sldgcu.dll",
+      "name": "named storage and selected stream attachment gates",
+      "sha256": "5eb847102568bfc47be7c9d58fb3f64a97398f306eaa59ba3caa1ec2ed89a0fe",
+      "start": "0x43998948"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 48,
+      "end_exclusive": "0x43998ab4",
+      "module": "sldgcu.dll",
+      "name": "restore output initialized null and actual call",
+      "sha256": "011f3d8803a2e118121e474e20a105296fd8778ed585d971300dfd2f6e7bd1b4",
+      "start": "0x43998a84"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 113,
+      "end_exclusive": "0x3305aeeb",
+      "module": "sldgciParau.dll",
+      "name": "partition receive output and conditional deltas",
+      "sha256": "6586a846b5eead8248e5a2ae076152c3d406bb7180c6f02015bc7c4681f24f06",
+      "start": "0x3305ae7a"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 92,
+      "end_exclusive": "0x4c338292",
+      "module": "sldmodu.dll",
+      "name": "kernel mark ids populate the runtime lookup map",
+      "sha256": "bd2723f2665990e881ea6b579cb6b18f8d5122610f0a27fa5d5d13e4327d3fbf",
+      "start": "0x4c338236"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 71,
+      "end_exclusive": "0x4c338315",
+      "module": "sldmodu.dll",
+      "name": "actual model mark record identity hit",
+      "sha256": "bee4a6121f10b89f9b9515c3c5014f827a7519bbf9a1d9e4d3579bb80267fe30",
+      "start": "0x4c3382ce"
+    },
+    {
+      "bound": "reviewed instruction-boundary window inside complete function above",
+      "bytes": 76,
+      "end_exclusive": "0x4c33839c",
+      "module": "sldmodu.dll",
+      "name": "actual feature mark record identity lookup",
+      "sha256": "914cae9d436333ac6c2dda567101eca936f8686c2d419fb2db0d0adee874ba6d",
+      "start": "0x4c338350"
+    }
+  ],
+  "metadata_replay_setup": {
+    "first_replay": "failed before a result: existing verifier expects imports list and explicit cell, initial draft used grouped imports and start",
+    "initial_metadata_sha256": "445a929fb9fe8ec2f1a0bd1bb7535b528807319203b5f28e6eeeaa5a31e7ce10",
+    "semantic_rules_changed": false
+  },
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 16519768,
+      "exception_directory_bytes": 567636,
+      "exception_directory_rva": "0xf4e000",
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "preferred_base": "0x453f0000",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "bytes": 36036696,
+      "exception_directory_bytes": 880608,
+      "exception_directory_rva": "0x20bf000",
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "preferred_base": "0x48ea0000",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "bytes": 1052248,
+      "exception_directory_bytes": 6528,
+      "exception_directory_rva": "0x10a000",
+      "machine": "0x8664",
+      "name": "doccplu.dll",
+      "preferred_base": "0x180000000",
+      "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8"
+    },
+    {
+      "bytes": 10893912,
+      "exception_directory_bytes": 244812,
+      "exception_directory_rva": "0xa28000",
+      "machine": "0x8664",
+      "name": "sldgcu.dll",
+      "preferred_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    {
+      "bytes": 1875032,
+      "exception_directory_bytes": 44676,
+      "exception_directory_rva": "0x1c0000",
+      "machine": "0x8664",
+      "name": "sldgciParau.dll",
+      "preferred_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    }
+  ],
+  "native_context_receipts": [
+    {
+      "bytes": 46579,
+      "file": "Result.json",
+      "provenance": "root-owned disclosed generated-prism experiment; JSON metadata only inspected in this lane",
+      "sha256": "9050f43ef2c4bf0e90933797733b7155b9bd6016cffbfb21abdd9ff6c0427153"
+    },
+    {
+      "bytes": 32001,
+      "file": "EditResult01.json",
+      "provenance": "root-owned disclosed generated-prism experiment; JSON metadata only inspected in this lane",
+      "sha256": "4c8acad55123d7d8e24fbebcf182f953f56daf086c36c131dfb1f33d6fb3a5ed"
+    },
+    {
+      "bytes": 3302,
+      "file": "Job.json",
+      "provenance": "root-owned disclosed generated-prism experiment; JSON metadata only inspected in this lane",
+      "sha256": "9da4efc46c6a798a138f07964360a571e926542635abd580307a643046fa93c1"
+    },
+    {
+      "bytes": 3447,
+      "file": "EditJob01.json",
+      "provenance": "root-owned disclosed generated-prism experiment; JSON metadata only inspected in this lane",
+      "sha256": "e1479d8955f1eb886373322bd64af7902e1c68786dd08c9c8f7aff07ad53ae27"
+    }
+  ],
+  "native_context_scope": "Existing receipt reports controls healthy and warning 32 on all four generated opens; edit receipt clean_initial_opens=false and lifecycle_passed=true. No kernel receive or mark-resolution execution was measured by this static lane.",
+  "owner": "flag_ownership",
+  "remaining": [
+    "Exact installed storage-manager constructor-to-document +0x4a8 join remains unproved; do not turn conditional table equality into a live runtime observation.",
+    "The actual failing open has no measured named-stream/PK receive status, output partition handle, active body count or mark-map result.",
+    "The ordinary ModelDoc context override +0xa30 is distinct from BaseDoc; the future-mode block is not the ordinary load witness.",
+    "The optional-delta decision in SolidStorage::LoadPartition includes framework string/platform/preferences and passed ghost flag; it is not admitted as a universal constant.",
+    "The exact selected normal-open invocation and full gates of s_resolvePMarkAndBodies remain to be joined; its reviewed mark-map block is conditional.",
+    "A nonnull raw partition with a body does not prove success of replaceBody, atom ownership, active-mark state or zero-warning native acceptance."
+  ],
+  "reported_followup_limit": "Root subsequently reported comparison without allocated downstream IDs or cache also warns, but ordinary zero-key DOWNSTREAM_FACE_ID and timestamp remain. This newer result is parent-reported here, not a separately rehashed native receipt.",
+  "schema": "ordinary-part-partition-load-native-evidence-v1",
+  "source_rules": [
+    {
+      "confidence": "partial",
+      "evidence": "doccplu 0x180022863..0x1800228b9",
+      "rule": "SolidStorage::LoadModel reaches the imported part loadExternalBodies call only for actual opened part kind 1, not a future-version document, and false reached app virtual +0x3d8; earlier model/storage gates remain applicable",
+      "subject": "ordinary caller"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "sldmodu 0x4c23e555..0x4c23e7ea",
+      "rule": "Actual selected configuration getStorageName plus -Partition is routed through actual model context +0x540; alternate kernel and stock branches retain their own names and gates",
+      "subject": "ordinary selection"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "original cells and exact import bindings",
+      "rule": "ModelDocModelContext +0x540 thunk imports BaseDocModelContext::loadPartition, whose solid-storage +0x500 target is shared by the independently bound SolidStorage and SolidStorageMFC tables",
+      "subject": "context target"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "context tables and complete leaves",
+      "rule": "Both actual context tables resolve +0xa20 to getIsFutureVersionDocument; base leaf reads owning UI document +0x4fc. Actual ModelDoc +0xa30 overrides base BC-mode getter; do not substitute base owner offsets",
+      "subject": "future-only gate"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "sldgcu 0x43998948..0x43998ab4; backend 0x3305ae7a..0x3305aeeb",
+      "rule": "Both actual storage-attachment results gate gcPartition::restore. The backend stores signed PK receive output as its partition handle and calls optional receive_deltas only when its passed flag is nonzero",
+      "subject": "receive"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "sldmodu 0x4c23edb6..0x4c23edf6 and 0x4c23f0ae..0x4c23f182",
+      "rule": "A nonnull selected partition is installed before getBodies. Each returned body gets actual model ownership, timestamp/atom bookkeeping and explicit owner repair. Positive atom IDs or exactly one returned body can reach replaceBody; this is additional to raw deserialization",
+      "subject": "publication"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "actual RTTI/serializer plus getPMark",
+      "rule": "moPMarkRecord Serialize stores gcPMark::getId when runtime +0x10 exists, else stored signed +0x18; load reads +0x18. Feature getPMark returns cached pointer or sign-extended record ID",
+      "subject": "mark persistence"
+    },
+    {
+      "confidence": "partial",
+      "evidence": "sldmodu 0x4c338236..0x4c33839c",
+      "rule": "Reached resolver builds map from actual partition marks/getId and changes model fe38 or feature mark records on exact-ID hits; model getter reads +0xe38. A lookup miss is not evidence for another numerical default",
+      "subject": "mark resolution"
+    }
+  ],
+  "task": "B04-SW2026-DOWNSTREAM-ID-DATA / ordinary prism partition admission",
+  "vendor_bytes_or_listings_distributed": false,
+  "vtable_cells": [
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4d1264a8",
+      "end_exclusive": "0x4d1264b0",
+      "module": "sldmodu.dll",
+      "name": "actual moPart context getter",
+      "sha256": "6d6b68fab9ec805d1aea8bd610a3db294254d22ef61e15cfdc5efa55e88c4269",
+      "slot": "0x11d0",
+      "start": "0x4d1264a8",
+      "target": "0x4c02e230",
+      "vtable": "0x4d1252d8"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4d126d30",
+      "end_exclusive": "0x4d126d38",
+      "module": "sldmodu.dll",
+      "name": "actual moPart named future partition loader",
+      "sha256": "12ce9ccbe5b5da60e534679cb14e44ca1cf8a0945bbd86df78c8c0552b3e4d76",
+      "slot": "0x1a58",
+      "start": "0x4d126d30",
+      "target": "0x4c1b7600",
+      "vtable": "0x4d1252d8"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x45f0adb8",
+      "end_exclusive": "0x45f0adc0",
+      "module": "sldappu.dll",
+      "name": "base document context partition load",
+      "sha256": "8ad42a89b4bd52c0d00cc028da41a2a214f25a34756fa5d142b9b019befae929",
+      "slot": "0x540",
+      "start": "0x45f0adb8",
+      "target": "0x458eefc0",
+      "vtable": "0x45f0a878"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x45f0b298",
+      "end_exclusive": "0x45f0b2a0",
+      "module": "sldappu.dll",
+      "name": "base context future-version predicate",
+      "sha256": "9c592cdb0d5a565cd35a321b62f2601da8ef8724205650bdda250b0bbea10531",
+      "slot": "0xa20",
+      "start": "0x45f0b298",
+      "target": "0x458ee760",
+      "vtable": "0x45f0a878"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x45f0b2a8",
+      "end_exclusive": "0x45f0b2b0",
+      "module": "sldappu.dll",
+      "name": "base context BC mode info",
+      "sha256": "c36dd89e80ab2e2957b2257a3677897dcc131074f1cff930f77f44d095fe8370",
+      "slot": "0xa30",
+      "start": "0x45f0b2a8",
+      "target": "0x458ee270",
+      "vtable": "0x45f0a878"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4a65de48",
+      "end_exclusive": "0x4a65de50",
+      "module": "slduiu.dll",
+      "name": "model document context partition import thunk",
+      "sha256": "f872478aa72971e65b45410c2f3579413ad4c0d0dca8899a10735cf9a10b01ba",
+      "slot": "0x540",
+      "start": "0x4a65de48",
+      "target": "0x4a31a41d",
+      "vtable": "0x4a65d908"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4a65e328",
+      "end_exclusive": "0x4a65e330",
+      "module": "slduiu.dll",
+      "name": "model context future-version predicate import thunk",
+      "sha256": "9d7663beb173c61b07e9ab0fd55893f9e566126e17715d03691084022d0ed3fb",
+      "slot": "0xa20",
+      "start": "0x4a65e328",
+      "target": "0x4a31a1bf",
+      "vtable": "0x4a65d908"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4a65e338",
+      "end_exclusive": "0x4a65e340",
+      "module": "slduiu.dll",
+      "name": "actual model context mode info override",
+      "sha256": "c08a0676456297d93e8d3e90ff8fcec86e310973c63b7e5b30376d1dcb4eab95",
+      "slot": "0xa30",
+      "start": "0x4a65e338",
+      "target": "0x497ce7e0",
+      "vtable": "0x4a65d908"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x1800fa4c8",
+      "end_exclusive": "0x1800fa4d0",
+      "module": "doccplu.dll",
+      "name": "SolidStorage partition load",
+      "sha256": "76a95542958ad092183e2f6787ad89c7319dc59f29898680e2d0e36ccab9a987",
+      "slot": "0x500",
+      "start": "0x1800fa4c8",
+      "target": "0x18002c270",
+      "vtable": "0x1800f9fc8"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x1800fc840",
+      "end_exclusive": "0x1800fc848",
+      "module": "doccplu.dll",
+      "name": "SolidStorageMFC partition load",
+      "sha256": "76a95542958ad092183e2f6787ad89c7319dc59f29898680e2d0e36ccab9a987",
+      "slot": "0x500",
+      "start": "0x1800fc840",
+      "target": "0x18002c270",
+      "vtable": "0x1800fc340"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x1800fb810",
+      "end_exclusive": "0x1800fb818",
+      "module": "doccplu.dll",
+      "name": "SolidStorage3DXML shares partition load; no profile admission",
+      "sha256": "76a95542958ad092183e2f6787ad89c7319dc59f29898680e2d0e36ccab9a987",
+      "slot": "0x500",
+      "start": "0x1800fb810",
+      "target": "0x18002c270",
+      "vtable": "0x1800fb310"
+    },
+    {
+      "bound": "exact original-image virtual cell",
+      "bytes": 8,
+      "cell": "0x4d17e9d0",
+      "end_exclusive": "0x4d17e9d8",
+      "module": "sldmodu.dll",
+      "name": "actual moPMarkRecord serializer",
+      "sha256": "04ad45dfb3aa258d45234449918e8e520294d6a25e35bea221ac2aa9a8e00ef3",
+      "slot": "0x28",
+      "start": "0x4d17e9d0",
+      "target": "0x4bb1a840",
+      "vtable": "0x4d17e9a8"
+    }
+  ]
+}

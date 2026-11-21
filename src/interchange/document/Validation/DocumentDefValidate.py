@@ -1,20 +1,24 @@
 from typing import Mapping as TypeMap
 
 from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
-from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
+from interchange.document.Validation.BoundPlaneValidate import GetBoundErrs
 from interchange.document.Validation.DistExtValidate import GetDistExtErrs
+from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
+from interchange.document.Validation.ThinRevValidate import GetThinRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
+from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.PlaneExtValues import GetPlaneExt
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane
@@ -53,21 +57,24 @@ def GetDefErrors(
     Definition = StepValue.definition
     if isinstance(Definition, ScopedExtrude):
         return GetScopeErrors(StepValue, Definition, IdentitySets["bodies"])
+    if isinstance(Definition, PlaneAxis):
+        return GetAxisErrors(StepValue, Definition, Selections, Frames)
     if isinstance(Definition, PlaneRevolve):
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
         )
     if isinstance(Definition, AngularRevolve):
         return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+    if isinstance(Definition, ThinRevolve):
+        return GetThinRevErrs(StepValue, Definition, Selections, Params)
     if isinstance(Definition, DistanceExtrude):
         return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
     if isinstance(Definition, ExtrudeFeature):
         return GetExtrudeErrs(StepValue, Definition)
-    if isinstance(Definition, BoundDatum):
-        try:
-            CheckBoundPlane(StepValue, Definition, Params, Frames)
-        except ValueError as ErrorInfo:
-            return (f"construction plane {StepValue.id} is invalid: {ErrorInfo}",)
+    if isinstance(Definition, BoundDatum) and (
+        Errors := GetBoundErrs(StepValue, Definition, Params, Frames)
+    ):
+        return Errors
     if isinstance(Definition, BoundScale):
         try:
             _ = GetScaleValues(StepValue, Definition, Params, Selections)

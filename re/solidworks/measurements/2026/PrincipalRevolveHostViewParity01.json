@@ -1,0 +1,151 @@
+{
+  "cases": [
+    {
+      "case": "PrincipalRevolveHeldoutRight",
+      "config_mismatched_byte_count": 56,
+      "config_sha256": {
+        "macos": "b97a20f58228301f3afd9086f69f2add23d538cfdb925b6f4d2364fd210b8ccc",
+        "windows": "8d97841d2639938abd30c62dfc81498fc973a00c91a65355050cdbc9b3077d82"
+      },
+      "macos_candidate_sha256": "1012d3dd414946b3f6269593da75cc1b2f877a0747b088a4fd088e2ff8507c8f",
+      "unchanged_stream_hashes": {
+        "Contents/CMgr": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c",
+        "Contents/CMgrHdr2": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb",
+        "Contents/Config-0-ModelHeader": "aa035278e4cf2f730b901095fd1ee3c244d71cb9d84a5412cc76afad03d5bcd4",
+        "Contents/Config-0-ResolvedFeatures": "98ca785f98118c6a87f1e5b97419ea3d45d7cef8476bf96dbabf0021ebf827b8",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "eaa1891afd621553315cb9488798244ee7892a2849758c63b65dd3ee8968697d",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44",
+        "swXmlContents/KeyWords": "32ab4857b028724f9dd2efb2e217cde9d26ca70642d71a78443236f673755398"
+      },
+      "view_fields": [
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m0",
+          "view_index": 3,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 3,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m0",
+          "view_index": 4,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 4,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m4",
+          "view_index": 5,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 5,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m4",
+          "view_index": 6,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 6,
+          "windows": "-0x1.ffffffffffffep-49"
+        }
+      ],
+      "windows_candidate_sha256": "07df0e087581fb9fcb68b94da523508074576e4bf925839c5aed65f897298313"
+    },
+    {
+      "case": "PrincipalRevolveHeldoutTop",
+      "config_mismatched_byte_count": 56,
+      "config_sha256": {
+        "macos": "307a989282d721357dbf2703f63f89ef8246849aca572ba4f9be27318fd015cd",
+        "windows": "db44dfc9472bb18d2fb9332d4ad643e3706b984e7b4cfb53567cc3b43a7368a7"
+      },
+      "macos_candidate_sha256": "d1c7810f9ff91ca2f5756172575d76ca9d9b95f1f28a5890edb85d643935c3fc",
+      "unchanged_stream_hashes": {
+        "Contents/CMgr": "e0ff319609d1b65cc25f36e501c23c5c111ea3d940970a9f98dfc8949d1d204c",
+        "Contents/CMgrHdr2": "50d4a067848126f1aa87218b99e737dceba132cbd6a78e35aefbc01a8d9bbdbb",
+        "Contents/Config-0-ModelHeader": "72493c5c46c89fb0d1a8cc872ef52d659d1198db73c2020c6143777b91c902ff",
+        "Contents/Config-0-ResolvedFeatures": "e81bfa9f08022ed23d45a8b8a353564e7ab1d460a6016b6d4953363732ce23de",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "cfd5b44fdf5f9b6875fac55aaf034aab0282abb15c86601db08881082e8be13a",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "701e11571ab71d159ef31cd232a024de11c63db28278d8f0259630c4f691ec44",
+        "swXmlContents/KeyWords": "b29829aa655ae66834ca10effa27a2c597a1ace10523e6be2d8fab97a39ee63a"
+      },
+      "view_fields": [
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m0",
+          "view_index": 3,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 3,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m0",
+          "view_index": 4,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 4,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m4",
+          "view_index": 5,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 5,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m4",
+          "view_index": 6,
+          "windows": "-0x1.ffffffffffffep-49"
+        },
+        {
+          "macos": "-0x1.0000000000000p-48",
+          "matrix_coefficient": "m8",
+          "view_index": 6,
+          "windows": "-0x1.ffffffffffffep-49"
+        }
+      ],
+      "windows_candidate_sha256": "479a98f542d63471d1cbca0958870dca70294e1adbcbdb08f8eeaae9822d9736"
+    }
+  ],
+  "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+  "new_native_runs": 0,
+  "schema": "kit.sw2026.principal-revolve-host-view-parity.v1",
+  "source_tree": "73c9b51c21a96d6978abbcc6a3d8a285281acc11",
+  "writer_revision": "43e7180c726e990e6e3302a45302b801f542bf79"
+}

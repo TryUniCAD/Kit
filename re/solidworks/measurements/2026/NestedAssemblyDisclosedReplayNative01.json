@@ -1,0 +1,78 @@
+{
+  "schema": "kit.sw2026.disclosed-nested-reopen-native.v1",
+  "passed": true,
+  "disclosed_author_sources_qualified": true,
+  "native_acceptance": false,
+  "heldout_inputs_read": 0,
+  "writer_output_count": 0,
+  "read_only": true,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "replay_sha256": "0ba5c90e2481411bae1e69e15f548fd08a0382d2c8ca1ce6cf96dc5ddfaba1ce",
+  "raw_native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+  "host_transport_result_sha256": "7fd029d6a84a9ed2d2077db7aaa0da12f0f50533719beb37f63aedf5c9509ddc",
+  "transport_exit_code": 0,
+  "script_revision": "68c41f1bcd72754e8cc3f0c39490cda9486d0d6a",
+  "tool_sha256": {
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "ReplayIndexedAssemblyProgress.py": "4e7fe3c9b159ee5e0eabf96c08d1b27b64d4fd8187b22b39e8df0716739324a7",
+    "ReplayNestedAssemblyReopen.py": "60c8797a27b1179e61fd1ab38f1191a5371e3e49fb2c6c1136a104e5d6b01d92"
+  },
+  "controls_healthy": true,
+  "distinct_processes": 4,
+  "input_files_unchanged": true,
+  "author_record_sha256": {
+    "N01NestedSingle": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330",
+    "N02MixedRepeated": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f"
+  },
+  "original_reopen_records": {
+    "N01NestedSingle": "3f793c6aa6d5fd8569f7ed627e7c12b44ec380c2deeecb36a62a817e546e67d3",
+    "N02MixedRepeated": "a980abd0a602a587d9277a05e12a84cddba657c8513ff3418128f8056645aa37"
+  },
+  "phases": [
+    {
+      "name": "Before",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394013584342402,
+      "unclassified_dialogs": 0,
+      "recognized_progress_windows": 0
+    },
+    {
+      "name": "N01NestedSingle",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394013853904875,
+      "unclassified_dialogs": 0,
+      "recognized_progress_windows": 4
+    },
+    {
+      "name": "N02MixedRepeated",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394014323864222,
+      "unclassified_dialogs": 0,
+      "recognized_progress_windows": 4
+    },
+    {
+      "name": "After",
+      "passed": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_creation_filetime": 134394014998038253,
+      "unclassified_dialogs": 0,
+      "recognized_progress_windows": 0
+    }
+  ]
+}

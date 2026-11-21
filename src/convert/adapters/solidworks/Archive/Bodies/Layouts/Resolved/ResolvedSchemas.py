@@ -1,0 +1,116 @@
+from types import MappingProxyType
+
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigSchemas import (
+    KConfigSchemas,
+)
+
+# current resolved object descriptors extend the pinned configuration class vocabulary without guessing schemas
+KResolvedSchemas = MappingProxyType(
+    {
+        **KConfigSchemas,
+        "AngleDim_c": (1,),
+        "ParallelPlaneDistanceDim_c": (1,),
+        "moAngleParameter_c": (1,),
+        "moAtomFeature_c": (1,),
+        "moBaseBody_c": (1,),
+        "moBBoxCenterData_c": (1,),
+        "moBodyChooser_c": (1,),
+        "moCommentsFolder_c": (1,),
+        "moCompFeature_c": (1,),
+        "moCompRefPlane_c": (1,),
+        "moCompSketchEntHandle_c": (1,),
+        "moCompSolidBody_c": (1,),
+        "moDefaultRefPlnData_c": (1,),
+        "moDetailCabinet_c": (1,),
+        "moDimText_c": (1,),
+        "moDisplayAngularDim_c": (1,),
+        "moDisplayDistanceDim_c": (1,),
+        "moDisplayRadialDim_c": (1,),
+        "moDocsFolder_c": (1,),
+        "moEndFace3IntSurfIdRep_c": (1,),
+        "moEndFaceSurfIdRep_c": (1,),
+        "moEndSpec_c": (1,),
+        "moEntityId_c": (1,),
+        "moEqnFolder_c": (1,),
+        "moExtrusion_c": (1,),
+        "moFR_c": (1,),
+        "moFaceRef_c": (1,),
+        "moFavoriteFolder_c": (1,),
+        "moFavoriteHandle_c": (1,),
+        "moFeatureDimHandle_c": (1,),
+        "moFromEndSpec_c": (1,),
+        "moFromSktEnt3IntSurfIdRep_c": (1,),
+        "moFromSktEntSurfIdRep_c": (1,),
+        "moFtrFolder_c": (1,),
+        "moHistoryFeatItemData_c": (1,),
+        "moHistoryFolder_c": (1,),
+        "moICE_c": (1,),
+        "moInkMarkupFolder_c": (1,),
+        "moLengthParameter_c": (1,),
+        "moLineRef_w": (1,),
+        "moLiveSectionFolder_c": (1,),
+        "moMateGroup_c": (1,),
+        "moMaterialFolder_c": (1,),
+        "moNotesAreaFtrFolder_c": (1,),
+        "moOriginProfileFeature_c": (1,),
+        "moPerBodyChooserData_c": (1,),
+        "moPointBackedUpData_c": (1,),
+        "moProfileFeature_c": (1,),
+        "moRefPlane_c": (1,),
+        "moRevEndSpec_c": (1,),
+        "moRevolution_c": (1,),
+        "moSelectionSetFolder_c": (1,),
+        "moSensorFolder_c": (1,),
+        "moSkDimHandleRadial_c": (1,),
+        "moSkDimHandleValG2_c": (1,),
+        "moSketchChain_c": (1,),
+        "moSketchExtRef_w": (1,),
+        "moSketchRegion_c": (1,),
+        "moSolidBodyFolder_c": (1,),
+        "moSurfaceBodyFolder_c": (1,),
+        "sgArcHandle": (1,),
+        "sgCircleDim": (1,),
+        "sgEntHandle": (1,),
+        "sgExtEnt_c": (1,),
+        "sgLineHandle": (1,),
+        "sgPntPntDist": (1,),
+        "sgPointHandle": (1,),
+        "sgSketch": (1,),
+    }
+)
+
+# part saves independently establish cut thin pattern and ordinary dimension schemas
+KPartResolvedSchemas = MappingProxyType(
+    {
+        **KResolvedSchemas,
+        "ThreeDRadiusDim_c": (1,),
+        "moCompRefAxis_c": (1,),
+        "moConstraintCoincLineAtAnglePlaneRefplaneData_c": (1,),
+        "moConstraintRefplaneInterfaceData_c": (1,),
+        "moDisplayDim_c": (1,),
+        "moIntegerParameter_c": (1,),
+        "moLPattern_c": (1,),
+        "moNumberDim_c": (1,),
+        "moPlaneInterAxisData_c": (1,),
+        "moPlaneRef_w": (1,),
+        "moRefAxis_c": (1,),
+        "moRefPlaneAngleGeom_c": (1,),
+        "moRefPlaneCoincidentGeom_c": (1,),
+        "moRevCut_c": (1,),
+        "moRevolutionThin_c": (1,),
+        "moThinClosingSurfIdRep_c": (1,),
+        "moThinOffsetSurfIdRep_c": (1,),
+        "moThinSpec_c": (1,),
+    }
+)
+
+# the resolved assembly history admits only its concrete schema one reference owners
+KAssemblyResolvedSchemas = MappingProxyType(
+    {
+        **KResolvedSchemas,
+        "moChainComponent_c": (1,),
+        "moExtFeatureList_c": (1,),
+        "moHistoryCompItemData_c": (1,),
+        "moReferenceChain_c": (1,),
+    }
+)

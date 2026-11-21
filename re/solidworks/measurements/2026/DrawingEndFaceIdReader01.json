@@ -1,0 +1,296 @@
+{
+  "schema": "kit.sw2026.drawing-end-face-id-reader-custody.v1",
+  "task": "PR121 ordinary drawing end-face concrete schema",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43-worker prior pass; eight edge bodies complete; both actual streams still reject next concrete line style",
+  "candidate_manifest_sha256": "f1e24e7038dce9449a96288829f4432349215e44b535b50721aa93bc80f3b0a3",
+  "source_files": 4350,
+  "one_sdk_delta": "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py",
+  "native_proof_sha256": "9249ca6303c52582cf60dfca1c5241f9dbf73adab9d9fd6bcac482a93292f7f4",
+  "immediate_parent_manifest_sha256": "6adc183b2305f6cc181e65b59a452b1c1ba8ef0f94e32864d970dc98ac0decfc",
+  "concrete_class_added": "moEndFaceSurfIdRep_c schema1",
+  "field_layouts_changed": [],
+  "actual_prior_rejections": {
+    "raw_sha256": "8b1fe6f14ee95b032b4c13f388b17a58d7d22033fa9aa5dbcdf95f15dbf691c4",
+    "both_failed": true,
+    "next_boundary": "moEndFaceSurfIdRep_c schema1",
+    "edge_body_complete": false
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingEndFaceIdPrior01.json",
+    "raw_sha256": "d8382866fe74b050e2118a945ba376e61821382a2e243e317379eced0c542e6d",
+    "source_manifest_sha256": "f1e24e7038dce9449a96288829f4432349215e44b535b50721aa93bc80f3b0a3"
+  },
+  "new_original_probe": {
+    "status": "both fail closed at next schema",
+    "raw_sha256": "f92c7900427452f76f4e090ca6230a4add8418a7ef4a97a2ab96da733290da11",
+    "source_immutable": true,
+    "full_stream_parity": false,
+    "completed_edge_bodies": 8,
+    "populated_downstream_branch_credit": false,
+    "populated_downstream_branch_observed_by_inspector": false,
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moLineStyle_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true,
+        "actual_edge_owner_events": [
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 215,
+            "cursor_before": 31569,
+            "map_counter_before": 216,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 32192,
+            "map_counter_after": 231
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 231,
+            "cursor_before": 32238,
+            "map_counter_before": 232,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 32800,
+            "map_counter_after": 244
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 244,
+            "cursor_before": 32846,
+            "map_counter_before": 245,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 33404,
+            "map_counter_after": 257
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 257,
+            "cursor_before": 33450,
+            "map_counter_before": 258,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 34008,
+            "map_counter_after": 270
+          }
+        ]
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class moLineStyle_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true,
+        "actual_edge_owner_events": [
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 215,
+            "cursor_before": 31565,
+            "map_counter_before": 216,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 32188,
+            "map_counter_after": 231
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 231,
+            "cursor_before": 32234,
+            "map_counter_before": 232,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 32796,
+            "map_counter_after": 244
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 244,
+            "cursor_before": 32842,
+            "map_counter_before": 245,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 33400,
+            "map_counter_after": 257
+          },
+          {
+            "class": "moEdgeRef_c",
+            "schema": 1,
+            "object_index": 257,
+            "cursor_before": 33446,
+            "map_counter_before": 258,
+            "context_flags": {
+              "owner_is_drawing": 1,
+              "conditions": 0,
+              "ctx87c": 0
+            },
+            "schema_path": [
+              "uiDrawingDoc_c",
+              "moDrawing_c"
+            ],
+            "field_path": [
+              "model",
+              "f1570",
+              "rows",
+              "ref"
+            ],
+            "body_complete": true,
+            "cursor_after": 34004,
+            "map_counter_after": 270
+          }
+        ]
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in1file"
+  },
+  "native_runtime_repair_applied_to_raw_wire": false,
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

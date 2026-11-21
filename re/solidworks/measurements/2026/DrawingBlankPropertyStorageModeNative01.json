@@ -1,0 +1,229 @@
+{
+  "generated_native_save_passed": false,
+  "schema": "kit.sw2026.blank-drawing-property-storage-mode-native.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "module_sha256": {
+    "doccplu.dll": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+    "sldappu.dll": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+  },
+  "script_revision": "c397ec9cc6015873d6016c9116042d71e57e1a4a",
+  "packet_sha256": "0de1f96aa9e9d78e8fb7254847cac35915fd5d6ee6f57316d9ca4c2dac5eb03a",
+  "raw_native_result_sha256": "ff967d1e52aa384fb67af62cdbc9fa96124935530c22c1ba05f64c7567301c86",
+  "host_transport_result_sha256": "9cc1054d363d8f0cbd8fe9c4caea669be8ed74ab7552b19d851f5691a1c6e101",
+  "transport_exit_code": 0,
+  "observer_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "DrawingSavePreviewGateDbgEng.py": "53dc45e2ec6628b9518d3a31aa9ea50ed1c6add2156a68fb61f92aedd798906c",
+    "DrawingSavePropertiesEntryDbgEng.py": "25e7a60c0a2bad3ce88ad2d584c090e7d1f2d14d154f6de27f7a17e3120eece0",
+    "DrawingSavePropertiesGateDbgEng.py": "9a42ce005817effb3aa28c1d3f1fad98d7a18aa0ebaf783bfca560586863cf04",
+    "DrawingSavePropertyStorageModeDbgEng.py": "bde8eb7ed716560853945f9dad3c21bd355e5b56e85b25e92230bbe45f3be501",
+    "DrawingSaveStorageGateDbgEng.py": "15ba6e9cf6d95d426e641ee8ae70c588bfa67b3a9c07f2d40615e00e11f3c4d3",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwarePreviewMatched.py": "1c7cc6f61aaf010bc655aa4fe8ddb07a91c7f3a63822243f5dd79f1a1abb6afb",
+    "InspectBlankDrawingSaveAggregateSoftwarePropertiesEntryMatched.py": "e6b3b70d23498abeb019e18cb4fde1539c0996d223c9a43c6becd8e22b17dd4e",
+    "InspectBlankDrawingSaveAggregateSoftwarePropertiesMatched.py": "1c9982fb3bae873244a6ee732cf104a50f13edd6e9ddc72a78ecf4d20fd2e230",
+    "InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py": "0a7dd67e7982fe3af94730201b8d7d7b518c2ed4ca7066b6d7aa9ebe0b95acc7",
+    "InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py": "2a7f4e058c449da811e54247652361a42d2d7cb63fe6844ccfb802c895c7fec0",
+    "InspectBlankDrawingSaveEventState.py": "f348545e208eb76bffde895523f17b972890d4e46df9512e70672d829c4b6212",
+    "InspectBlankDrawingSaveEvents.py": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+    "InspectBlankDrawingSavePropertyStorageModeMatched.py": "4abeeb5283f39eedfa1265863b03f54034cc46805868ea63719dfa44073a1f75",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "source_properties_entry_receipt_sha256": "8124657abeac2870d48f221a9b408c38e132349ee4a73c9afa2d179891a5c3b2",
+  "source_sections_receipt_sha256": "3e812322931dbaf696dfb56fc25ca23d22be3e75290bb4b2f30223159b96e784",
+  "stops": [
+    {
+      "instruction_rva": 5207611,
+      "module": "sldappu.dll",
+      "sample": "storage_mode_and_nullness"
+    },
+    {
+      "conditional": true,
+      "instruction_rva": 5207707,
+      "module": "sldappu.dll",
+      "sample": "signed_hresult"
+    },
+    {
+      "instruction_rva": 5207727,
+      "module": "sldappu.dll",
+      "sample": "typed_argument_nullness"
+    },
+    {
+      "instruction_rva": 5207733,
+      "module": "sldappu.dll",
+      "sample": "signed_eax"
+    }
+  ],
+  "native_processes": 7,
+  "controls_healthy": true,
+  "same_physical_paths": true,
+  "inputs_immutable": true,
+  "generated_footprint": {
+    "event_ordinals": [
+      7
+    ],
+    "save_status": [
+      false,
+      1,
+      0
+    ],
+    "target_states": [
+      {
+        "exists": false,
+        "bytes": null
+      },
+      {
+        "exists": false,
+        "bytes": null
+      },
+      {
+        "exists": true,
+        "bytes": 0
+      }
+    ]
+  },
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 19072,
+      "fresh_reopen_passed": true
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 18197,
+      "fresh_reopen_passed": true,
+      "property_storage_trace": {
+        "route": "property_store_return_observed",
+        "stages": {
+          "storage_mode": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001",
+            "retained_istorage_null": true,
+            "storage_wrapper_null": false
+          },
+          "property_store_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "property_owner_null": false,
+            "storage_argument_null": false,
+            "summary_owner_null": false,
+            "custom_data_argument": 0,
+            "property_option_argument": 0
+          },
+          "property_store_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          }
+        }
+      },
+      "breakpoint_cleanup": {
+        "mode": "explicit_removed",
+        "before_detach_read_complete": true,
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "explicit_removal_complete": true,
+        "detached_and_restored": true,
+        "qualified": true
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save_bytes": 0,
+      "fresh_reopen_passed": false,
+      "property_storage_trace": {
+        "route": "property_store_return_unobserved",
+        "stages": {
+          "storage_mode": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001",
+            "retained_istorage_null": true,
+            "storage_wrapper_null": false
+          },
+          "property_store_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "property_owner_null": false,
+            "storage_argument_null": false,
+            "summary_owner_null": false,
+            "custom_data_argument": 0,
+            "property_option_argument": 0
+          },
+          "property_store_return": {
+            "state": "save_returned_with_stop_unobserved",
+            "wait_exit_reason": "save_returned",
+            "eax_signed": null,
+            "eax_hex": null
+          }
+        }
+      },
+      "breakpoint_cleanup": {
+        "mode": "explicit_removed",
+        "before_detach_read_complete": true,
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "explicit_removal_complete": true,
+        "detached_and_restored": true,
+        "qualified": true
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 18085,
+      "fresh_reopen_passed": true
+    }
+  ],
+  "interpretation": "Both lanes select ZIP storage mode 1 and enter the property store with nonnull property, summary and storage owners and zero option arguments. The native inner call returns 1. The generated save completes error 1 with the inner return site armed and unobserved."
+}

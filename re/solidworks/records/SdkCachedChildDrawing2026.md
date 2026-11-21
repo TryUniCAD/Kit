@@ -1,0 +1,23 @@
+# Link a model view to a generated cache-bearing part
+
+Task B06-SW2026-LINKED-CACHED-CHILD, owner the PR #121 takeover agent. The disclosed preparation tool starts with a fresh typed neutral Front view and rectangular blind boss. It completes the owned analytic solid, gives the resolved extrusion the actual output atom, generates the corresponding downstream cache and passes that same part candidate to the typed drawing construction path. The view keeps the actual child locator and configuration. The drawing Definition re-emits byte for byte and the partial read recovers the exact typed reference. [Preparation tool](../../tooling/sw2026/PrepareSdkCachedDrawing.py)
+
+Two independent guarded host builds produce the same drawing, part and downstream cache hashes. The linked part has a single body atom, six downstream face identities and twelve edge identities. The constructor records zero file or subprocess accesses after warming code and validating inputs. Both attempts begin with explicit neutral parameters. [Host receipt](../measurements/2026/SdkCachedChildDrawingHost01.json)
+
+The report covers cache emission and model-reference identity. Native view rebuild and persistence still require a separately frozen comparison, and the particular cache consumer remains unobserved. [Prior generated solid lifecycle](SdkPrismPartition2026.md) · [Drawing preparation observation](DrawingPreparationGateProbe2026.md)
+
+## Frozen native comparison
+
+Trial SHA-256 efe4383034c6ac0746584bc6268999c8eead4230565bedfb507dfcfe20484f2d fixes two exact guarded builds, the authored neutral parameters, both pristine native control files and the complete observer closure before launch. The host-only verification passes without starting SOLIDWORKS. The generated drawing and part remain at their two original encoded Windows paths. The evaluator independently projects the expected ordered drawing and part feature names, part volume, area and centroid, view transform and bounds. It requires a fresh first open with the correct solid, a driving-depth read, a view position edit, save and fresh reopen. The pristine control brackets are independently repeated. [Oracle tool](../../tooling/sw2026/InspectSdkCachedDrawing.py)
+
+## First open and prediction correction
+
+Four pristine control phases pass. The generated pair opens with zero errors and warnings, and its saved part already exposes one solid. The actual drawing view, model link, child volume, area, centre of mass, child feature tree and driving depth match the authored intent. The generated lane stops at the predicted drawing feature tree before it can rebuild or save. The prediction incorrectly took the sheet tree names from the model-view support. The neutral drawing request declares distinct names in native options for the sheet and in the support settings for the model view. [First native open](../measurements/2026/SdkCachedChildDrawingFirstOpen01.json)
+
+The retry keeps all drawing, part, neutral, host proof and pristine control identities. Only the observer reads the sheet names from the explicit sheet options. The two tree owners and order remain independently checked. Retry hash b0cbc2dbaa65d6c20a2b2015ffe6ec03ed593e699b4e9c88f8a88a14e1fc4bdc is fixed before dispatch. The first packager launch encountered an unsupported Path.write_text option in the host Python and started no native phase. The unchanged judge was repackaged using explicit UTF-8 bytes in an unused directory. [Packet preparation tool](../../tooling/sw2026/PrepareSdkCachedDrawingTrial.py)
+
+## Native persistence
+
+All six fresh processes pass with error and warning zero. Four belong to the pristine control and its two independent save and reopen lifecycles. The generated drawing at its authored locator resolves the exact generated part and exposes one solid before any explicit rebuild. Its volume is 0.000006438894 m³, its area is 0.0023803 m², and its centre of mass is at a depth of 0.0049 m. The linked child still exposes the editable extrusion driver and the actual profile and datum dependencies.
+
+The generated view starts at (0.1217, 0.0873) m and moves to (0.124431, 0.085561) m. The exact configuration, projected outline and transformation, ordered 16-row drawing tree, 19-row child top-level tree and computed geometry survive native rebuild, save and fresh reopen. The paired archive hashes and cache presence are independently fixed. This repeat observes native use of the linked drawing and part. The specific downstream cache lookup and general linked drawing writer qualification remain open. [Native receipt](../measurements/2026/SdkCachedChildDrawingNative01.json)

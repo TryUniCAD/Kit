@@ -1,0 +1,55 @@
+{
+  "additional_checks": [
+    "actual configuration-directory nodes and both selected aliases",
+    "actual drawing model/folder/view owners",
+    "both external target/backlink directions",
+    "scoped generated self-file path and creation identity",
+    "independent clocks equal the immutable packet-bound collector for the same file hashes"
+  ],
+  "cases_per_state": 4,
+  "clock_observation_sha256": "a8f7c0c47b19c059da70b8486040dc469d83627d6c226d67d1e653edd32a36ae",
+  "expected_complete_pairs": 20,
+  "hidden_inputs_read": false,
+  "native_result_sha256": "93e2df4a270b472b13d8d44700c913da4e9d746ae73935d7799d0da4682298e3",
+  "packet_sha256": "e01c2bcc71d824c82e58f096d6741fbe10da79e9732b3e0fe5ab9bec3233e5e9",
+  "prior_observer_sha256": "bf6a9a76acc9040bee8bfdb5ea150d3a9d1ad7adfd1214d0af842cf4d1e91167",
+  "prior_qualifier_rule_source_sha256": "3d823c5cfb8ae30907a9d13a56c18d5c5588f4a0da262f9638fd80e6b430e3b7",
+  "schema": "kit.sw2026.epoch-origin-join-method.v1",
+  "scope": "Independent exact-byte Definition replay, actual child origin/event, component/external/configuration-directory and clock-owner join on disclosed generated epoch pairs only",
+  "scope_limits": [
+    "CMgr global part-owner cross-map alias is not admitted",
+    "Component notional stamp equation is reported without a new acceptance predicate",
+    "Native setter/helper-mode cause is not inferred from saved differences",
+    "No public constructor or original-source admission change",
+    "No original held-out acceptance"
+  ],
+  "source_manifest_sha256": "7e0b70e7d1cf2933641d99214a9919601f9aabae3f3c8c3246c7668fcd5bfcf2",
+  "states": [
+    "constructed",
+    "initial",
+    "initial_reopen",
+    "edited",
+    "edited_reopen"
+  ],
+  "static_ast_passed": true,
+  "tools": [
+    {
+      "bytes": 8619,
+      "path": "Tools/EpochJoinRules.py",
+      "sha256": "13300c2c51b5d4cdc5693c805b070d51c64ec7e2f3c4a4af376b54bed1fd208c"
+    },
+    {
+      "bytes": 24751,
+      "path": "Tools/InspectEpochProfileChild.py",
+      "sha256": "b53c76be6dc48f24db8366d7935616bf8b667b2ca93c65de377ef2a9efd3df7e"
+    },
+    {
+      "bytes": 10615,
+      "path": "Tools/QualifyEpochOrigin.py",
+      "sha256": "9899585303a6eed270f191077866680865b08616abdf5f077004469e22531383"
+    }
+  ],
+  "vm_calls": false,
+  "worker_sdk_execution": false,
+  "worker_test_execution": false
+}

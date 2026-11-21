@@ -1,0 +1,358 @@
+{
+  "actual_native_body_label": "AdditiveBox",
+  "actual_native_driver_owner_bindings": {
+    "freecad:parameter:AdditiveBox:Height": "D1@AdditiveBox",
+    "freecad:parameter:AdditiveBox:Length": "D1@AdditiveBox Profile",
+    "freecad:parameter:AdditiveBox:Width": "D2@AdditiveBox Profile"
+  },
+  "controls_healthy": true,
+  "decoded_disclosed_source_target_lifecycle_passed": true,
+  "delivery_pr": 121,
+  "direct_source_body_name_emitted": false,
+  "distinct_processes": 4,
+  "fcstd_corpus_parts_counted": 0,
+  "first_observer_failure": {
+    "correction": "measure unassigned-body effective density independently of document preference",
+    "first_native_transport_sha256": "9ccfbca708e96e4b6782425ac4ccdc417a6a2efe45f4460b1300fd513627ea8b",
+    "first_packet_sha256": "e828e6f4cbbb1a97e9d016f67dad83e6cc326900418bae95a4ef0a6d6821d8a7",
+    "first_result_sha256": "e67edbfededf32690b5c96661b545c52a5fbaf1d309c19dae701e3a3b5494c2b"
+  },
+  "full_fcstd_conversion_accepted": false,
+  "initial_generated_immutable": true,
+  "initial_generated_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+  "native_packet_sha256": "a7fe572cb1d565435a978b9f049d0285d5add19af4197598e13af7653bb52052",
+  "native_phases": [
+    {
+      "checks": 0,
+      "creation_filetime": 134394676002374063,
+      "passed": true,
+      "pid": 8168,
+      "role": "ControlBefore"
+    },
+    {
+      "checks": 126,
+      "creation_filetime": 134394676229302280,
+      "passed": true,
+      "pid": 1340,
+      "role": "Generated"
+    },
+    {
+      "checks": 36,
+      "creation_filetime": 134394678066663344,
+      "passed": true,
+      "pid": 10872,
+      "role": "FreshReopen"
+    },
+    {
+      "checks": 0,
+      "creation_filetime": 134394678461697797,
+      "passed": true,
+      "pid": 3020,
+      "role": "ControlAfter"
+    }
+  ],
+  "native_raw_sha256": "4874c6dca1f36b65dc3c2d71569174150a291afed05a75012a5286c4d9ad126b",
+  "numeric_checks": 162,
+  "oracle": {
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version": "34.5.2.0604"
+  },
+  "original_benchmark_membership_verified": false,
+  "passed": true,
+  "public_readback": [
+    {
+      "body_count": 1,
+      "document_text": 13,
+      "full_payload_read": {
+        "passed": false,
+        "reason": "SLDPRT contains no readable Parasolid payload"
+      },
+      "portable_body_label": "Solid Bodies",
+      "sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+      "state": "initial",
+      "three_live_drivers": true,
+      "typed_streams_exact": 2
+    },
+    {
+      "body_count": 1,
+      "document_text": 13,
+      "full_payload_read": {
+        "passed": true,
+        "raw_parasolid_payloads": 3,
+        "typed_bodies": 1
+      },
+      "portable_body_label": "Solid Bodies",
+      "sha256": "b0aca662be89a5e41449ea46f79ca099aba766cdea0e1c81b56f0e8e0485d122",
+      "state": "native_save",
+      "three_live_drivers": true,
+      "typed_streams_exact": 2
+    }
+  ],
+  "public_writer_qualified": false,
+  "readback_sha256": "e05deef6c9f225a6f25552894301c8311cee90fd9c32a027bf2827e219fff4aa",
+  "saved_derivative_sha256": "b0aca662be89a5e41449ea46f79ca099aba766cdea0e1c81b56f0e8e0485d122",
+  "schema": "kit.sw2026.sdk-freecad-origin-box-native-receipt.v1",
+  "snapshots": {
+    "fresh_reopen": {
+      "Initial": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.013999999999999999,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.002599999999999999,
+          "com": [
+            0.01,
+            0.015,
+            0.006999999999999999
+          ],
+          "mass": 8.399999999999996e-06,
+          "volume": 8.399999999999996e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Rebuilt": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.013999999999999999,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.002599999999999999,
+          "com": [
+            0.010000000000000002,
+            0.015,
+            0.006999999999999999
+          ],
+          "mass": 8.399999999999998e-06,
+          "volume": 8.399999999999998e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      }
+    },
+    "generated": {
+      "Edited D1@AdditiveBox": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.013999999999999999,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.002599999999999999,
+          "com": [
+            0.01,
+            0.015,
+            0.006999999999999999
+          ],
+          "mass": 8.399999999999996e-06,
+          "volume": 8.399999999999996e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Edited D1@AdditiveBox Profile": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.025,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.0026,
+          "com": [
+            0.0125,
+            0.015,
+            0.005
+          ],
+          "mass": 7.499999999999999e-06,
+          "volume": 7.499999999999999e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Edited D2@AdditiveBox Profile": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.036
+        },
+        "geometry_and_mass": {
+          "area": 0.0025599999999999998,
+          "com": [
+            0.01,
+            0.018,
+            0.005
+          ],
+          "mass": 7.2000000000000005e-06,
+          "volume": 7.2000000000000005e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Initial": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.0021999999999999997,
+          "com": [
+            0.01,
+            0.015,
+            0.005
+          ],
+          "mass": 5.999999999999999e-06,
+          "volume": 5.999999999999999e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Rebuilt": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.0021999999999999997,
+          "com": [
+            0.01,
+            0.015,
+            0.005
+          ],
+          "mass": 5.999999999999999e-06,
+          "volume": 5.999999999999999e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Restored D1@AdditiveBox Profile": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.0021999999999999997,
+          "com": [
+            0.01,
+            0.015,
+            0.005
+          ],
+          "mass": 5.999999999999999e-06,
+          "volume": 5.999999999999999e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      },
+      "Restored D2@AdditiveBox Profile": {
+        "document_density_preference_kg_m3": 1000.0,
+        "drivers_m": {
+          "D1@AdditiveBox": 0.01,
+          "D1@AdditiveBox Profile": 0.02,
+          "D2@AdditiveBox Profile": 0.03
+        },
+        "geometry_and_mass": {
+          "area": 0.0021999999999999997,
+          "com": [
+            0.01,
+            0.015,
+            0.005
+          ],
+          "mass": 5.9999999999999985e-06,
+          "volume": 5.9999999999999985e-06
+        },
+        "literal_file_properties": 13,
+        "native_body_name": "AdditiveBox",
+        "ordered_tree_rows": 25,
+        "origin_relation_preserved": true,
+        "solid_count": 1,
+        "topology_vertices_edges_faces": [
+          8,
+          12,
+          6
+        ]
+      }
+    }
+  },
+  "source_body_label": "Body",
+  "source_named_driver_labels_emitted": false,
+  "source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+  "task": "B04-SW2026-FCSTD-BOX",
+  "transport_sha256": "9f11feae0a69f64b9cd48d56a58e9d1ce4161d96eb257c85ce4151feac75be97"
+}

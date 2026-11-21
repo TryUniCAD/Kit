@@ -1,0 +1,11 @@
+# Public SOLIDWORKS blank drawing writer
+
+The SDK writes a native SOLIDWORKS 2026 SP05.2 `.SLDDRW` from an authored metre document with one empty, unlinked ANSI A landscape sheet. The active sheet's caption and integral scale terms are explicit input. Kit generates the seven streams, native stock English presentation, file identity and save event.
+
+Call `write_document(document, path)` with a filesystem destination ending in `.SLDDRW`. The explicit format ID is `solidworks.slddrw`. A supplied document name must match the target basename. The writer accepts the inch-derived ANSI A dimensions or the equivalent layout-index dimensions within one floating-point step. It rejects views, external references, additional sheets, other papers, model geometry and preserved source metadata before publishing output.
+
+Two independently authored drawings were locked before the SDK registration. Both generated copies matched their originals through native open, rebuild, scale edit, save and fresh reopen. All 12 processes passed with zero open errors or warnings. The comparison matched 30 sheet states and 120 ordered tree rows. Both registry routes produced identical bytes for each case in guarded workers. The workers observed zero data or template reads, CAD calls or dropped values and verified atomic publication and no-overwrite behavior. The existing internal constructor predates the source lock. [Held-out comparison](../../../../re/solidworks/measurements/2026/SdkPublicBlankDrawingHeldout01.json) [Disclosed native trial](../../../../re/solidworks/measurements/2026/SdkPublicBlankDrawingDisclosed01.json)
+
+After formatting and rationale edits, all six affected Python syntax trees are identical and both final guarded builds match the exact files measured in SOLIDWORKS. [Final source replay](../../../../re/solidworks/measurements/2026/SdkBlankDrawingFinalSourceReplay01.json)
+
+Existing native drawing files can be inspected with `strict=False`. Full native style, annotation, provenance and linked-model conversion remain open. [Adapter guide](../../../Reference/Adapters/Solidworks.md#writing-standalone-blank-drawings)

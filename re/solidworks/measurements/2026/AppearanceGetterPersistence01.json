@@ -1,0 +1,556 @@
+{
+  "arms": {
+    "A": {
+      "appearance": {
+        "model": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        },
+        "part_self_visual_state": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        },
+        "selected_configuration": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        }
+      },
+      "definition": {
+        "allocator_words": [
+          5,
+          0
+        ],
+        "bytes": 1623,
+        "manager_terminal_map": 13,
+        "ordered_records": [
+          {
+            "archive_slot": 12,
+            "end_exclusive": 1447,
+            "fields": {
+              "f140": 0.3141592653589793,
+              "f150": 0.05,
+              "f208.x": 0.0026300000000000004,
+              "f208.y": -0.00417,
+              "f208.z": 0.015685,
+              "f240": 0.001,
+              "f28": 15066597,
+              "f30": 0,
+              "f4c": 4,
+              "f80": 0.007651219512195123,
+              "f88": 0.007651219512195123,
+              "f90": 1.0,
+              "fe0": "<SystemTexture>\\graphics\\Materials\\color.p2m"
+            },
+            "ids": [
+              4,
+              0
+            ],
+            "matches_publication": true,
+            "role": "stock_original",
+            "roughness_hex": "0x1.41b2f769cf0e0p-2",
+            "start": 679
+          }
+        ],
+        "sha256": "4005afa802e9e578ca517ed149b4535a96bdb5609a37e0481aeae95c9c2895e8",
+        "typed_replay": true
+      },
+      "fresh_reopen_api": {
+        "asset_sha256": "5a1df25caf4be9b191ad6829ce1c2f7aaf1a9af6e80c5ae65c7d0ee8039f42e6",
+        "configuration": "Default",
+        "display_state": "<Default>_Display State 1",
+        "entity_count": 1,
+        "filename": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "get_ids_result": null,
+        "ids": [
+          4,
+          0
+        ],
+        "primary_color": 15066597,
+        "published_ids": null,
+        "roughness": 0.3141592741012573,
+        "same_model_iunknown": true
+      },
+      "linked_replays": {
+        "Contents/CMgr": 2523,
+        "Contents/Config-0": 26031,
+        "Contents/Config-0-ModelHeader": 1057,
+        "Contents/Config-0-ResolvedFeatures": 16811,
+        "Contents/Definition": 1623,
+        "Header2": 1057
+      },
+      "physical_material": {
+        "configuration_fc50": -1.0,
+        "density": 1000.0,
+        "density_class": "moDensityParameter_c",
+        "material_tree": [],
+        "part_material_class": "moMaterial_c"
+      },
+      "pre_save_api": {
+        "configuration": "Default",
+        "display_state": "<Default>_Display State 1",
+        "ids": [
+          4,
+          0
+        ],
+        "primary_color": 15066597,
+        "published_ids": [
+          4,
+          0
+        ],
+        "roughness": 0.3141592653589793
+      },
+      "published_ids": [
+        4,
+        0
+      ],
+      "saved_sha256": "1a42966b7ba32c325cc927fbfc6c417a05aa465fd79b01cdd0d64e968819e387",
+      "self_locator": [
+        "DisclosedRadialSceneProbe",
+        "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\ConcentricChildAppearanceContrast05\\Working\\DisclosedRadialSceneProbe.SLDPRT",
+        2,
+        1795163100
+      ]
+    },
+    "B": {
+      "appearance": {
+        "model": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        },
+        "part_self_visual_state": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        },
+        "selected_configuration": {
+          "legacy_roughness": 0.3141592741012573,
+          "matching_packed_color": [
+            "visual.f0c",
+            "realview.f14"
+          ],
+          "matching_pbr_color_groups": [],
+          "matching_roughness": [
+            "realview.f74"
+          ],
+          "packed_legacy_color": 15066597,
+          "packed_realview_color": 15066597,
+          "pbr_color_groups": {
+            "albedo": [
+              0.8941177129745483,
+              0.8941177129745483,
+              0.8941177129745483
+            ],
+            "attenuation": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "emission": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flake": [
+              1.0,
+              1.0,
+              1.0
+            ],
+            "flip_flop": [
+              1.0,
+              1.0,
+              1.0
+            ]
+          },
+          "pbr_roughness": 0.20000000298023224,
+          "realview_id_words": [
+            4,
+            0
+          ]
+        }
+      },
+      "definition": {
+        "allocator_words": [
+          6,
+          0
+        ],
+        "bytes": 2365,
+        "manager_terminal_map": 14,
+        "ordered_records": [
+          {
+            "archive_slot": 12,
+            "end_exclusive": 1447,
+            "fields": {
+              "f140": 0.3141592741012573,
+              "f150": 0.05000000074505806,
+              "f208.x": 0.002630000002682209,
+              "f208.y": -0.004170000087469816,
+              "f208.z": 0.015684999525547028,
+              "f240": 9.999999747378752e-06,
+              "f28": 15066597,
+              "f30": 15066597,
+              "f4c": -1,
+              "f80": 1.0,
+              "f88": 1.0,
+              "f90": -1.0,
+              "fe0": "<SystemTexture>\\graphics\\materials\\color.p2m"
+            },
+            "ids": [
+              4,
+              0
+            ],
+            "matches_publication": true,
+            "role": "visual_reconstruction",
+            "roughness_hex": "0x1.41b2f80000000p-2",
+            "start": 679
+          },
+          {
+            "archive_slot": 13,
+            "end_exclusive": 2189,
+            "fields": {
+              "f140": 0.3141592653589793,
+              "f150": 0.05,
+              "f208.x": 0.0026300000000000004,
+              "f208.y": -0.00417,
+              "f208.z": 0.015685,
+              "f240": 0.001,
+              "f28": 15066597,
+              "f30": 0,
+              "f4c": 4,
+              "f80": 0.007651219512195123,
+              "f88": 0.007651219512195123,
+              "f90": 1.0,
+              "fe0": "<SystemTexture>\\graphics\\Materials\\color.p2m"
+            },
+            "ids": [
+              4,
+              0
+            ],
+            "matches_publication": true,
+            "role": "stock_original",
+            "roughness_hex": "0x1.41b2f769cf0e0p-2",
+            "start": 1447
+          }
+        ],
+        "sha256": "adb5a05aabcbe3a1b3b99c9459a989f11ec0885a3dc384583f8d24ed09055bcb",
+        "typed_replay": true
+      },
+      "fresh_reopen_api": {
+        "asset_sha256": "5a1df25caf4be9b191ad6829ce1c2f7aaf1a9af6e80c5ae65c7d0ee8039f42e6",
+        "configuration": "Default",
+        "display_state": "<Default>_Display State 1",
+        "entity_count": 1,
+        "filename": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "get_ids_result": null,
+        "ids": [
+          4,
+          0
+        ],
+        "primary_color": 15066597,
+        "published_ids": null,
+        "roughness": 0.3141592741012573,
+        "same_model_iunknown": true
+      },
+      "linked_replays": {
+        "Contents/CMgr": 2523,
+        "Contents/Config-0": 26031,
+        "Contents/Config-0-ModelHeader": 1057,
+        "Contents/Config-0-ResolvedFeatures": 16811,
+        "Contents/Definition": 2365,
+        "Header2": 1057
+      },
+      "physical_material": {
+        "configuration_fc50": -1.0,
+        "density": 1000.0,
+        "density_class": "moDensityParameter_c",
+        "material_tree": [],
+        "part_material_class": "moMaterial_c"
+      },
+      "pre_save_api": {
+        "asset_sha256": "5a1df25caf4be9b191ad6829ce1c2f7aaf1a9af6e80c5ae65c7d0ee8039f42e6",
+        "configuration": "Default",
+        "display_state": "<Default>_Display State 1",
+        "entity_count": 1,
+        "filename": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "get_ids_result": null,
+        "ids": [
+          4,
+          0
+        ],
+        "primary_color": 15066597,
+        "published_ids": [
+          4,
+          0
+        ],
+        "roughness": 0.3141592741012573,
+        "same_model_iunknown": true
+      },
+      "published_ids": [
+        4,
+        0
+      ],
+      "saved_sha256": "87cae169bb9aba9ae899af084249e7bfe85eb705a3206ef841c59284ec6ed706",
+      "self_locator": [
+        "DisclosedRadialSceneProbe",
+        "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\ConcentricChildAppearanceContrast05\\Working\\DisclosedRadialSceneProbe.SLDPRT",
+        2,
+        1795163100
+      ]
+    }
+  },
+  "authored_f64_hex": "0x1.41b2f769cf0e0p-2",
+  "heldout_credit": 0,
+  "native_numeric_checks": 136,
+  "native_processes": 6,
+  "native_result_sha256": "d35d4686836513165f59bae69fa45878f1eb8f73a14ba64cc99fccaf61c33639",
+  "phases_sha256": {
+    "AuthorA": "ef630f8db3cefa2ddeaa9b3d24a5caf6529329a4af4334c5e612bae693c2c8c1",
+    "AuthorB": "93b6d6ca48c7d3ce8ebba4d03f0e5ee6b6e0372d4a225c1cf6a3672094e14041",
+    "ControlAfter": "cde21188d43ed859ea3f2706f5d8e2c246634cd8ac4e8398548f824fa0f2406b",
+    "ControlBefore": "88d5064d0051cd8a878c8107048e47cc8f3885a4861f5c5294c1a483d0c580d1",
+    "ReopenA": "0da14130431e9d4d88de8b79b5012c59010e5dbfc13259b0d92a3e7b3c312b69",
+    "ReopenB": "c6ae3c48220e133bb55b81921c13f2c3a23c23628e8dae1d80fffdfa040a35eb"
+  },
+  "predictions": {
+    "extra_allocator_step": true,
+    "independent_map_row": true,
+    "separate_rounding_bits": true,
+    "three_visible_owners_quantized": true
+  },
+  "presave_material_getters": {
+    "A": 0,
+    "B": 1
+  },
+  "role_roughness_sequence": {
+    "A": [
+      [
+        "stock_original",
+        "0x1.41b2f769cf0e0p-2"
+      ]
+    ],
+    "B": [
+      [
+        "visual_reconstruction",
+        "0x1.41b2f80000000p-2"
+      ],
+      [
+        "stock_original",
+        "0x1.41b2f769cf0e0p-2"
+      ]
+    ]
+  },
+  "runtime_oracle_version": "34.5.2.0604",
+  "same_locator": true,
+  "schema": "kit.sw2026.appearance-material-getter-audit.v1",
+  "shared_visual_delta": {
+    "model": {},
+    "part_self_visual_state": {},
+    "selected_configuration": {}
+  },
+  "source_evidence_only": true,
+  "trial_sha256": "787dca83f93df48b235591550657746595cff6e8688063da653a17c1f5f98866",
+  "widened_f32_hex": "0x1.41b2f80000000p-2"
+}

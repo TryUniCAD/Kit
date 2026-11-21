@@ -1,0 +1,261 @@
+{
+  "author_epoch": 1795300000,
+  "cases": {
+    "LabelOnly": {
+      "active_mark": 3,
+      "atom_id": 101,
+      "atom_scope_words": {
+        "f140": 101,
+        "f170": 0,
+        "f188": 1,
+        "f18c": 1
+      },
+      "body_name_owner": "local_storage_key",
+      "configuration": "Default",
+      "document_self": "C:\\KitBakedLabelOnly01\\Candidate\\Baked01.SLDPRT",
+      "document_text": {
+        "FreeCAD Object ID": "4041",
+        "FreeCAD Shape SHA-256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+        "FreeCAD Source UUID": "7490b28c-63bc-4aee-8a15-b20536063fab"
+      },
+      "feature_id": 18,
+      "feature_label": "Disclosed Baked B",
+      "geometry": {
+        "bounds_mm": [
+          [
+            -10.5,
+            18.125
+          ],
+          [
+            12.25,
+            28.0
+          ],
+          [
+            4.75,
+            10.874999999999998
+          ]
+        ],
+        "center_mm": [
+          3.8125,
+          20.125,
+          7.812499999999998
+        ],
+        "design_body_id": "sldprt:body:1",
+        "maximum_unit_roundtrip_residual_mm": 1.7763568394002505e-15,
+        "volume_mm3": 2761.417968749999
+      },
+      "kernel": {
+        "bytes": 3759,
+        "sha256": "b0099b39fa260e3242730291eda476e29cfe1a800c776d065bf7e87ec4fd1d86"
+      },
+      "linked_replay_streams": [
+        "Config-0-FeatureBodies/LocalBodies",
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "part": {
+        "bytes": 10568,
+        "sha256": "8d6ec9f12559ea59c115819a7472a56ddb6620bf25b22e000dad096a0f809004"
+      },
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 1733,
+          "sha256": "0f4b918a3eeb39063cffdd60cbce9f726b4d912fbd2c83bb00884d6a7885131f"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "674d843fac3e19323158217bba51096f695e488055cb3f6f94bde5772ad2dbe8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 759,
+          "sha256": "da708cfe4291ac6c91e6f3a1a4a307740dfeac4e8effb2b3765407b4518b0026"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "97f2e025b83411ca5c51581cfbcd3b7dbe67f5a3ff936bbbc6143e5e1d8fea5f"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 759,
+          "sha256": "7dfd03774b5172830640cb8d76f6b463a74e2b47d2839dc39b8932da8edce506"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164"
+        },
+        "docProps/custom.xml": {
+          "bytes": 1790,
+          "sha256": "5c5a6c5ddc4a45ae13ecfcc624e50552702895bb88e8f158a237ea6a3d274139"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "6408d291493f666aff60c3df332e9037bcd6e9aeee542f5abe398f6d5e953bbd"
+        }
+      }
+    },
+    "SourceLabel": {
+      "active_mark": 3,
+      "atom_id": 101,
+      "atom_scope_words": {
+        "f140": 101,
+        "f170": 0,
+        "f188": 1,
+        "f18c": 1
+      },
+      "body_name_owner": "local_storage_key",
+      "configuration": "Default",
+      "document_self": "C:\\KitBakedLabelOnly01\\Candidate\\Baked01.SLDPRT",
+      "document_text": {
+        "FreeCAD Object ID": "4041",
+        "FreeCAD Shape SHA-256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+        "FreeCAD Source UUID": "7490b28c-63bc-4aee-8a15-b20536063fab"
+      },
+      "feature_id": 18,
+      "feature_label": "Disclosed Baked A",
+      "geometry": {
+        "bounds_mm": [
+          [
+            -10.5,
+            18.125
+          ],
+          [
+            12.25,
+            28.0
+          ],
+          [
+            4.75,
+            10.874999999999998
+          ]
+        ],
+        "center_mm": [
+          3.8125,
+          20.125,
+          7.812499999999998
+        ],
+        "design_body_id": "sldprt:body:1",
+        "maximum_unit_roundtrip_residual_mm": 1.7763568394002505e-15,
+        "volume_mm3": 2761.417968749999
+      },
+      "kernel": {
+        "bytes": 3759,
+        "sha256": "b0099b39fa260e3242730291eda476e29cfe1a800c776d065bf7e87ec4fd1d86"
+      },
+      "linked_replay_streams": [
+        "Config-0-FeatureBodies/LocalBodies",
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Config-0-ModelHeader",
+        "Contents/Config-0-ResolvedFeatures",
+        "Header2"
+      ],
+      "part": {
+        "bytes": 10567,
+        "sha256": "596a0939c6669e1146f8c62be50aec825a329c89decea9659a1547d52e514d7e"
+      },
+      "streams": {
+        "Config-0-FeatureBodies/LocalBodies": {
+          "bytes": 1733,
+          "sha256": "c66b023850e2b80c01a5f24b28bd7e12f4d299b96efdf912db899fd419fbb407"
+        },
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a616440ae348584e9bc762a37776cd3a353c4def4d9015cc78db66083e80bd5e"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3e006159e45c7c1cf76b2ebf2a496fbfa699de438cb66dfbabcc7d4dd67343c3"
+        },
+        "Contents/Config-0": {
+          "bytes": 22690,
+          "sha256": "674d843fac3e19323158217bba51096f695e488055cb3f6f94bde5772ad2dbe8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 759,
+          "sha256": "8914121b4d39693ea0bd74682eb669a51b4aa59dcbe258eec8db4769308ba3b6"
+        },
+        "Contents/Config-0-Partition": {
+          "bytes": 606,
+          "sha256": "5f578dff6c4481ce61b1b4f1188ce9115b64031d71a30231cb3727faf8cf0c75"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 5479,
+          "sha256": "f56bdc39655ceebd2a8b77a4747d4cd1e1d55d212eab37d5fbb6fe68404299be"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 759,
+          "sha256": "28830dafa2fb3a018712e576e77168ea3af1de718712a6986bc380eaa4f4fcc9"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "81bd6e2842f0a74f49a82bb5eca0d6c7df67892065c2d143b4ab63ec84c59164"
+        },
+        "docProps/custom.xml": {
+          "bytes": 1790,
+          "sha256": "5c5a6c5ddc4a45ae13ecfcc624e50552702895bb88e8f158a237ea6a3d274139"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1301,
+          "sha256": "946286c593a043c8563f5bf552dd2789d23019b714f83accc9abd725c120b515"
+        }
+      }
+    }
+  },
+  "changed_streams": [
+    "Config-0-FeatureBodies/LocalBodies",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2",
+    "swXmlContents/KeyWords"
+  ],
+  "geometry_only_target_projection": true,
+  "heldout_inputs_read": 0,
+  "independent_host_processes": 2,
+  "intact_source_qualified": false,
+  "native_processes_started": 0,
+  "registry_enabled": false,
+  "runtime_input_reads": 0,
+  "schema": "kit.freecad.disclosed-baked-label-pair.v1",
+  "sdk_revision": "42878d802e4d53ba1dd92528a67fa8122880cff0",
+  "source_owner_audit_sha256": "76471602145cacdac72876f471b00d74cf41397df85ed946e5a719d62afaeb1e",
+  "source_relation": {
+    "negative_control_rejected": true,
+    "negative_control_sha256": "0de6a5bdd0e3c092a8ce12e932a6dd3937a8eaac8b5e7eb1fac37a73151c9c51",
+    "source_document_uid": "7490b28c-63bc-4aee-8a15-b20536063fab",
+    "source_local_design_body": "freecad:body:default",
+    "source_object_id": "4041",
+    "source_sha256": "34f028eec62cac170d87962b8397447f1bbd663aae6bbe06551af3ce58401288",
+    "source_shape_member": "Specimen.Shape.brp",
+    "source_shape_sha256": "a592c24920093bc8bcdd580212620368f30a0bcd0d3908f3d1be5c1a413e9256",
+    "source_visible": true
+  }
+}

@@ -2,7 +2,7 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# inline model bounds need their own layout because the partition cache has a separate owner
+# inline model bounds and lists have distinct owners in the external data layout
 KExternalFields = MappingProxyType(
     {
         "mgBBox_c.restore": (
@@ -17,5 +17,6 @@ KExternalFields = MappingProxyType(
             NativeField("Scalar", "b8", "f64"),
             NativeField("Scalar", "b9", "f64"),
         ),
+        "moExtObjectList_c": (NativeField("Base", "suObList"),),
     }
 )

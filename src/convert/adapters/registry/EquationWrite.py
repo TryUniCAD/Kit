@@ -1,4 +1,4 @@
-from convert.adapters.solidworks.Core.EquationTarget import KUnresolvedEqTargets
+from convert.adapters.base.NativeEvidence import KUnresolvedEqTargets
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Models.DocumentWalk import WalkDocuments
 

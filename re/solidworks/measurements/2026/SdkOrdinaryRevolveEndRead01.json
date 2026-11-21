@@ -1,0 +1,1097 @@
+{
+  "base_revision": "b18caa86c15d2c65ad95c9a572bbc9d06701da8c",
+  "cases": {
+    "ColdEndMidplane": {
+      "archive_sha256": "d4a942574936ee1ac580aae5f6f33c3e2213be89fce211231b913b5521b8adb4",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "angular_inventory_refusals": {
+          "detached_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "duplicate_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "missing_map_owner": "cache free revolve has duplicate or detached angle owners"
+        },
+        "default": {
+          "document_sha256": "a884e0bd6c962a0cf9eb2eb058a23290764c67c8e6eb6a260b3b33106da0bf28",
+          "layout_reads": 0
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 3941.4207277006467,
+          "bounds_mm": [
+            [
+              13.88013685135763,
+              -22.15487509616346,
+              -16.6
+            ],
+            [
+              35.0,
+              22.15487509616346,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              13.88013685135763,
+              9.451738522254036,
+              -16.6
+            ],
+            [
+              13.88013685135763,
+              9.451738522254036,
+              9.4
+            ],
+            [
+              24.874240779582284,
+              22.15487509616346,
+              -16.6
+            ],
+            [
+              24.874240779582284,
+              22.15487509616346,
+              9.4
+            ],
+            [
+              13.88013685135763,
+              -9.451738522254036,
+              -16.6
+            ],
+            [
+              13.88013685135763,
+              -9.451738522254036,
+              9.4
+            ],
+            [
+              24.874240779582284,
+              -22.15487509616346,
+              -16.6
+            ],
+            [
+              24.874240779582284,
+              -22.15487509616346,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            25.12427185000197,
+            -0.0,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.8573929950422144,
+            0.8573929950422144
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 15654.487077799562
+        },
+        "history": {
+          "document_sha256": "ce513941e8f8bf8a34845894081bb45aeaa130931c56ff207e6d3e675007e344",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "operator_receipt_stream_digests_checked": 10
+      }
+    },
+    "ColdEndSingle": {
+      "archive_sha256": "8147cdc67c6fd3a760cc3c80e8fca490d97f709f5468abfc32abcaf6f5dee862",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "angular_inventory_refusals": {
+          "detached_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "duplicate_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "missing_map_owner": "cache free revolve has duplicate or detached angle owners"
+        },
+        "default": {
+          "document_sha256": "8c88ae73a82dc97badfb135d2868c0d725a12fff9eb4fdc685f43fc33274a41d",
+          "layout_reads": 0
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 3941.4207277006467,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -29.3,
+              -16.6
+            ],
+            [
+              35.0,
+              -0.0,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              18.2,
+              -0.0,
+              -16.6
+            ],
+            [
+              18.2,
+              -0.0,
+              9.4
+            ],
+            [
+              35.0,
+              -0.0,
+              -16.6
+            ],
+            [
+              35.0,
+              -0.0,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            18.411456157679183,
+            -14.687451080911863,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            0,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 15654.487077799562
+        },
+        "history": {
+          "document_sha256": "925e1300597e6e49ab12e533ff2aa129538dd367ec0dfb36669003be0a66a019",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "operator_receipt_stream_digests_checked": 10
+      }
+    },
+    "ColdEndTwo": {
+      "archive_sha256": "6d8d020e57daf676b9f0315475d92e268ac177dfaa4e74c31df2de53a4c78b77",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "angular_inventory_refusals": {
+          "detached_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "duplicate_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "missing_map_owner": "cache free revolve has duplicate or detached angle owners"
+        },
+        "default": {
+          "document_sha256": "0192dfdeab3186b0804df0311078cf74d9899219b07726d21703192ade5b3ae3",
+          "layout_reads": 0
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ],
+          [
+            "D2",
+            0.7592182246175333
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 5299.692500270399,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -29.3,
+              -16.6
+            ],
+            [
+              35.0,
+              20.16878906782699,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              14.767179637653598,
+              8.604432196171924,
+              -16.6
+            ],
+            [
+              14.767179637653598,
+              8.604432196171924,
+              9.4
+            ],
+            [
+              26.95346907066003,
+              20.16878906782699,
+              -16.6
+            ],
+            [
+              26.95346907066003,
+              20.16878906782699,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            20.638811850027587,
+            -7.735276763698742,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.7592182246175333,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 22585.48135651998
+        },
+        "history": {
+          "document_sha256": "a6148e072797e9ed30bfdc985332ca201d38a5b4251bb8205cede25b0a88a1bf",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "operator_receipt_stream_digests_checked": 10
+      }
+    },
+    "ColdEndTwoReverse": {
+      "archive_sha256": "65f21b513348454d05a88a3c473a43062146b110e2161bc2db13900f50f8e7ab",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "angular_inventory_refusals": {
+          "detached_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "duplicate_map_owner": "cache free revolve has duplicate or detached angle owners",
+          "missing_map_owner": "cache free revolve has duplicate or detached angle owners"
+        },
+        "default": {
+          "document_sha256": "20f10d71cfd8019e4da3d73aee3902af32c9ec79865284b0b9b6cc5d1804b7c6",
+          "layout_reads": 0
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ],
+          [
+            "D2",
+            0.7592182246175333
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 5299.692500270399,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -20.16878906782699,
+              -16.6
+            ],
+            [
+              35.0,
+              29.3,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              14.767179637653598,
+              -8.604432196171924,
+              -16.6
+            ],
+            [
+              14.767179637653598,
+              -8.604432196171924,
+              9.4
+            ],
+            [
+              26.95346907066003,
+              -20.16878906782699,
+              -16.6
+            ],
+            [
+              26.95346907066003,
+              -20.16878906782699,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            20.638811850027587,
+            7.735276763698742,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.7592182246175333,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 22585.48135651998
+        },
+        "history": {
+          "document_sha256": "550f25e705133f35ed489bc52a7ae04eafa82b2069130868cd080a6567344d9e",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "operator_receipt_stream_digests_checked": 10
+      }
+    },
+    "EndMidplane": {
+      "archive_sha256": "c1908384a73d6d5a5027bfa865849da9b0f007a3f5fdd84096120ef02675f678",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 2,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "default": {
+          "document_sha256": "e6394af6449262027715b3fafcccf64d656a2dff44f29465b5be304462940d1d",
+          "layout_reads": 1,
+          "native_payload_digests": [
+            "89b3eb7e6ea7a12d1028e3813d4fcd6238af165bd388fd317765071101c1e78f",
+            "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+          ]
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 3941.4207277006467,
+          "bounds_mm": [
+            [
+              13.88013685135763,
+              -22.15487509616346,
+              -16.6
+            ],
+            [
+              35.0,
+              22.15487509616346,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              13.88013685135763,
+              9.451738522254036,
+              -16.6
+            ],
+            [
+              13.88013685135763,
+              9.451738522254036,
+              9.4
+            ],
+            [
+              24.874240779582284,
+              22.15487509616346,
+              -16.6
+            ],
+            [
+              24.874240779582284,
+              22.15487509616346,
+              9.4
+            ],
+            [
+              13.88013685135763,
+              -9.451738522254036,
+              -16.6
+            ],
+            [
+              13.88013685135763,
+              -9.451738522254036,
+              9.4
+            ],
+            [
+              24.874240779582284,
+              -22.15487509616346,
+              -16.6
+            ],
+            [
+              24.874240779582284,
+              -22.15487509616346,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            25.12427185000197,
+            -0.0,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.8573929950422144,
+            0.8573929950422144
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 15654.487077799562
+        },
+        "history": {
+          "document_sha256": "b16133e33629bd9e7d52b496611aeb4119ad39aedbd4a12b207918f997ea9e73",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "typed_refusals": {
+          "full_mid_plane": "ordinary revolve extended ends require a partial turn",
+          "legacy_feature_display": "ordinary revolve requires the modern angular branch",
+          "legacy_feature_mode": "ordinary revolve direction type or converted sketch state is unqualified",
+          "nonfinite_primary": "view coordinate or scale must be finite",
+          "reference_end": "ordinary revolve alternate angular end state is unqualified",
+          "reversed_mid_plane": "ordinary revolve reversed mid plane is unqualified",
+          "unexpected_mid_plane_secondary": "ordinary revolve angular end words and secondary owner disagree",
+          "wrong_end_condition": "ordinary revolve angular end words and secondary owner disagree"
+        }
+      }
+    },
+    "EndSingle": {
+      "archive_sha256": "627cbf2b12d4456e0fc17e6688c788b0f0eef65719f4e017f1357bc268724806",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 2,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "default": {
+          "document_sha256": "bc443aa00e016fabf15db7e1be865c6d4a348f059b9672769302810e2058248c",
+          "layout_reads": 1,
+          "native_payload_digests": [
+            "7ccdafdc6d2b78b4bbb6792f8480fad03fa7a2c1d4751f474e9cd2da8c443d31",
+            "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+          ]
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 3941.4207277006467,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -29.3,
+              -16.6
+            ],
+            [
+              35.0,
+              -0.0,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              18.2,
+              -0.0,
+              -16.6
+            ],
+            [
+              18.2,
+              -0.0,
+              9.4
+            ],
+            [
+              35.0,
+              -0.0,
+              -16.6
+            ],
+            [
+              35.0,
+              -0.0,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            18.411456157679183,
+            -14.687451080911863,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            0,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 15654.487077799562
+        },
+        "history": {
+          "document_sha256": "07e485bd6575f5742fe585af82dffed573c3dba47e4f20543f898a5781b97fb0",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "neutral_modes": {
+          "one_sided": [
+            0.0,
+            1.714785990084429
+          ],
+          "refusals": {
+            "legacy_halves_disagree": "symmetric angular revolution angles must agree",
+            "total_angle_has_extra_link": "angular revolution side mode and against parameter disagree",
+            "total_angle_not_positive": "symmetric full angular revolution requires one positive total angle",
+            "total_angle_over_turn": "angular revolution sweep must exceed tolerance and span at most one turn"
+          },
+          "signed_one_sided": [
+            -1.714785990084429,
+            0.0
+          ],
+          "symmetric": [
+            -1.714785990084429,
+            1.714785990084429
+          ],
+          "symmetric_full": [
+            -0.8573929950422144,
+            0.8573929950422144
+          ],
+          "two_sided": [
+            -0.75,
+            1.714785990084429
+          ]
+        },
+        "typed_refusals": {
+          "legacy_feature_display": "ordinary revolve requires the modern angular branch",
+          "legacy_feature_mode": "ordinary revolve direction type or converted sketch state is unqualified",
+          "nonfinite_primary": "view coordinate or scale must be finite",
+          "reference_end": "ordinary revolve alternate angular end state is unqualified",
+          "wrong_end_condition": "ordinary revolve angular end words and secondary owner disagree"
+        }
+      }
+    },
+    "EndTwo": {
+      "archive_sha256": "35655a2a861a7a0d2d5c276fec996da8b5bb6c5cd23681d21421a19a5f319df5",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 2,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "default": {
+          "document_sha256": "8f272f4fda6961473dbbd85bee1be279b0655aa3bdc1a320f3c88d390386f82a",
+          "layout_reads": 1,
+          "native_payload_digests": [
+            "831bbee8b1487907a3ad3672e0eb90e462f583ffeab7ea194984b1d6f6fbaff2",
+            "cf80d79d857a6d835dfcca41b67d296dbcc447c3863e359392b015aabf5ecd3f"
+          ]
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ],
+          [
+            "D2",
+            0.7592182246175333
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 5299.692500270399,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -29.3,
+              -16.6
+            ],
+            [
+              35.0,
+              20.16878906782699,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              14.767179637653598,
+              8.604432196171924,
+              -16.6
+            ],
+            [
+              14.767179637653598,
+              8.604432196171924,
+              9.4
+            ],
+            [
+              26.95346907066003,
+              20.16878906782699,
+              -16.6
+            ],
+            [
+              26.95346907066003,
+              20.16878906782699,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              -12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              -28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            20.638811850027587,
+            -7.735276763698742,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.7592182246175333,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 22585.48135651998
+        },
+        "history": {
+          "document_sha256": "0923724ff7a8d50ee365d80d6ceff56b4d53ea46419588b5e509a6c8d504e186",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "typed_refusals": {
+          "aliased_secondary": "ordinary revolve requires its distinct D1 and D2 owners",
+          "foreign_secondary_class": "typed model expected concrete schema one moDisplayAngularDim_c",
+          "legacy_feature_display": "ordinary revolve requires the modern angular branch",
+          "legacy_feature_mode": "ordinary revolve direction type or converted sketch state is unqualified",
+          "missing_secondary": "ordinary revolve angular end words and secondary owner disagree",
+          "nonfinite_primary": "view coordinate or scale must be finite",
+          "nonpositive_secondary": "ordinary revolve requires a positive angle at most one turn",
+          "reference_end": "ordinary revolve alternate angular end state is unqualified",
+          "same_dimension_id": "ordinary revolve requires its distinct D1 and D2 owners",
+          "total_over_turn": "angular revolution sweep must exceed tolerance and span at most one turn",
+          "wrong_end_condition": "ordinary revolve angular end words and secondary owner disagree"
+        }
+      }
+    },
+    "EndTwoReverse": {
+      "archive_sha256": "d947b0b56aa975e3668eb541c2e8fb83aa3127e53a25f1ec4f4e0a31fb3b6509",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 2,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "active_point_slots": [
+          0,
+          1,
+          6,
+          7
+        ],
+        "default": {
+          "document_sha256": "533516e5ffbcce8804910405913c3d8a829bdcd77bff32b3e8ea550a2ba2638e",
+          "layout_reads": 1,
+          "native_payload_digests": [
+            "86e2738cd2218223ff51aaf34618afab0a0efbd85fa509faff7ccf9a43997b0b",
+            "566a935144bc5b6ef8bcb7c36c03b9158f60288592c4d40afe66e66e8640f452"
+          ]
+        },
+        "driver_roles": [
+          [
+            "D1",
+            1.714785990084429
+          ],
+          [
+            "D2",
+            0.7592182246175333
+          ]
+        ],
+        "geometry": {
+          "area_mm2": 5299.692500270399,
+          "bounds_mm": [
+            [
+              1.4956661756584442,
+              -20.16878906782699,
+              -16.6
+            ],
+            [
+              35.0,
+              29.3,
+              9.4
+            ]
+          ],
+          "caps_mm": [
+            [
+              14.767179637653598,
+              -8.604432196171924,
+              -16.6
+            ],
+            [
+              14.767179637653598,
+              -8.604432196171924,
+              9.4
+            ],
+            [
+              26.95346907066003,
+              -20.16878906782699,
+              -16.6
+            ],
+            [
+              26.95346907066003,
+              -20.16878906782699,
+              9.4
+            ],
+            [
+              3.906342225110258,
+              12.370642335245877,
+              -16.6
+            ],
+            [
+              3.906342225110258,
+              12.370642335245877,
+              9.4
+            ],
+            [
+              1.4956661756584442,
+              28.996785633816337,
+              -16.6
+            ],
+            [
+              1.4956661756584442,
+              28.996785633816337,
+              9.4
+            ]
+          ],
+          "centre_mm": [
+            20.638811850027587,
+            7.735276763698742,
+            -3.6000000000000005
+          ],
+          "interval_radians": [
+            -0.7592182246175333,
+            1.714785990084429
+          ],
+          "radii_mm": [
+            12.5,
+            29.3
+          ],
+          "volume_mm3": 22585.48135651998
+        },
+        "history": {
+          "document_sha256": "30c9997bae42b20340a9287084b0c5a1570df815fe1d00882ec7ab04edf78ffa",
+          "layout_reads": 1
+        },
+        "line_order": [
+          0,
+          3,
+          2,
+          1
+        ],
+        "typed_refusals": {
+          "aliased_secondary": "ordinary revolve requires its distinct D1 and D2 owners",
+          "foreign_secondary_class": "typed model expected concrete schema one moDisplayAngularDim_c",
+          "legacy_feature_display": "ordinary revolve requires the modern angular branch",
+          "legacy_feature_mode": "ordinary revolve direction type or converted sketch state is unqualified",
+          "missing_secondary": "ordinary revolve angular end words and secondary owner disagree",
+          "nonfinite_primary": "view coordinate or scale must be finite",
+          "nonpositive_secondary": "ordinary revolve requires a positive angle at most one turn",
+          "reference_end": "ordinary revolve alternate angular end state is unqualified",
+          "same_dimension_id": "ordinary revolve requires its distinct D1 and D2 owners",
+          "total_over_turn": "angular revolution sweep must exceed tolerance and span at most one turn",
+          "wrong_end_condition": "ordinary revolve angular end words and secondary owner disagree"
+        }
+      }
+    },
+    "LegacyColdX": {
+      "archive_sha256": "1a55827ff53acecbc66c75f890676aff9e16ab9433c830af13bd749f4943a61b",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "default": {
+          "document_sha256": "d4cb71ccad4fc083ac8f323c378e61181e49d22f82fd083b4fb97367edea5eaf",
+          "layout_reads": 0
+        },
+        "history": {
+          "document_sha256": "4453cbfdf334b6cec5171a55737660878b0ada8e2095664f9c822f88ebc557f1",
+          "layout_reads": 1
+        }
+      }
+    },
+    "LegacyColdY": {
+      "archive_sha256": "e02ce73c671f83aabe9222293c1e92424cb0207e277acf7f6739f56194943273",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "default": {
+          "document_sha256": "2b12e09177233666586ba87079c436994aacfaf014797de0c0dbe1f01428b7be",
+          "layout_reads": 0
+        },
+        "history": {
+          "document_sha256": "485ec0f992819addf5f2aff8877a86afef33fbb67772f332ecbd777f03fa314d",
+          "layout_reads": 1
+        }
+      }
+    },
+    "LegacyColdZ": {
+      "archive_sha256": "1c8ea239e6848d132ec387572d98622bdfafaf05ae1a6b3530ce655f81539907",
+      "guard": {
+        "grammar_path": "convert/adapters/solidworks/Config/RootLayout.json",
+        "grammar_reads": 1,
+        "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+        "unexpected_attempts": []
+      },
+      "result": {
+        "default": {
+          "document_sha256": "65370d8414f6852747cc0a73044c3e3d5401a6aae19a01ba7671ad1d7546a17d",
+          "layout_reads": 0
+        },
+        "history": {
+          "document_sha256": "46b41d24b7dc6666fb924941a12d82915a583652ff4612be4fedbe633de11607",
+          "layout_reads": 1
+        }
+      }
+    }
+  },
+  "fresh_workers": 11,
+  "generated_source_revision": "59cc0c0380132f8bd03ce8b0de815b5d6b3da6e4",
+  "generated_source_tree": "1082f9bb9b69d0b2f2ba10c0902e7694cbe9a860",
+  "heldout_sources_read": 0,
+  "new_native_processes": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "portable_contract_revision": "f9a0e264b0171e3b39cff19701fef179223d66bf",
+  "prior_evidence_sha256": {
+    "disclosed_spec": "eb21b3bdbe9e4d5271e322e164ac27ba8059e30373e523973556323cb5f54cd8",
+    "discovery": "c83d0c4a1aad8e6e05bd40d80988a47b91fdc6e202403b398e169010d723969c",
+    "generated": "9f14cec8aebf970eb461b4b2e4decc2dd1f73bdec27db71a7e7d6db3c5831061",
+    "recovery": "1ee1be8250ed342bcf912c1758eb9a994b9ac9857b69ab9960a4152a3b445061",
+    "typed_wire": "68a596627dc3f3c5f2ff30efb7d3b6238936ff015874020213e5be57bc3edac4"
+  },
+  "reader_source_sha256": {
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Revolves/ReadRevolveBody.py": "ebf9e455028ddc9305b92a88194e4e130f0b77a5413c5235ad5b1156839baaa5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/BuildRevBodyGeom.py": "4ad77ba6393d359f2a19ce2a492c2832d04cfa5432dbe98fe123130f346b1ce2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/CheckRevAngles.py": "e14a5b001b042bd239fa9c4cb3e79ea0420853419739ce8f876ea7f118b1f0a5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/MakeRevMerid.py": "cac62df160509d8bd701145ea5817f31eb43590c6ab4899c824ea3cb9989aae6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Geometry/ReadRevGeom.py": "f16703c7a50052dd7e41560af49d744915942520184598565fc40adfb45286c3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/ApplyRevDoc.py": "91465502f029d480f50f2dc539c0542717e11f9a7ddf91fe094e2b45cd987c2b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/BindRevParams.py": "61ba3f78de6636e2580885877f0fb75578194f26c5aa5f753cd8b06aaee3067f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/BindRevStep.py": "e8e89f1178d80e599609198c0ac8d7f09e84351e53b1bf455991125141741c39",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/MakeRevParam.py": "4f8ffbbb810a6f954e3ae893fecb09b7e2c6310996af6948def9aea549d15f90",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/Projection/ReportRevolve.py": "177c672ee38259eb7d60278c35ca67af0089eaf7a6ec3cb60155ee81b550b7d0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevAngle.py": "4b6cd7004eedbe789b9ed1ff7f0f05b1c31fea28350834b2f9e5ce81b1888549",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevDim.py": "8391aed9e9903d0e739e70a99aff6295d22d35cfc985eb025a875c8a772d8fca",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevEnd.py": "49cd87292c7eba2102f3d753b0262fe6ad7c2f899d033ec1d926222fc9a01fc0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevMode.py": "c7c4c82a018d660cf6720635c90e60ea21a35b9a988a59594cc3dfe079dcb891",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevolve.py": "fe5c390109a0de056a0c86aae6cf6e8c1867381277511afda4626dc4f18e3696",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveEnd.py": "cd76c05b243db7719e920dcd37fcc059daa4ff9cd3cc627da50a7d0bf03d3642",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/RevolveOwner.py": "8eaa6ced8848913cb7a861bf0d9e8b50835fbf0e80914c08bde2425952d9e508",
+    "src/interchange/Features/FeatureAngleRev.py": "3a1a457f13ee53decba9f892fa3694cd8f21c34e3301e1515b7c610f874e7202",
+    "src/interchange/Features/RevolveSpan.py": "72116d31333c5b38931bab0ebb0709b23fc3dad301e1f4ba3c50d1c7cf84215a"
+  },
+  "schema": "kit.sw2026.ordinary-revolve-end-reader.v1",
+  "tool_sha256": {
+    "re/tooling/sw2026/revolve/EndModes/CheckRevEndRead.py": "50c041f3ae9e9ef01c54ee80c8272efb79898212aa2c731f67b8ece080e3bc7b",
+    "re/tooling/sw2026/revolve/EndModes/RevolveSectorMath.py": "c01c705ea2118af1b95bb86cd761367ec31ae7781c3682ea045e6e8af0fd02fa",
+    "re/tooling/sw2026/revolve/PrincipalReader/AuditPrincipalReader.py": "2ebf98dca830553cab0d29885ac9c2176fa11ec2496cda4fca9fec2dbc9a36a8",
+    "re/tooling/sw2026/revolve/PrincipalReader/MakePrincipalCold.py": "b5df64e81104b1b1abe73d15ba3d0bdb0143ff34983cdc20cdd36c17d67bc851"
+  },
+  "writer_acceptance": false
+}

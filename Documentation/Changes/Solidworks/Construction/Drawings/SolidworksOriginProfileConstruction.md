@@ -1,0 +1,9 @@
+# SOLIDWORKS origin-profile drawing construction
+
+A new internal `MakeOriginFile(LinkedDrawInput, PartCandidate)` constructor adds one actual child-origin display to the existing complete SDK linked drawing graph. It computes component selection, creation-log time, reference path, folder/view aliases, display allocation and all Definition bytes from actual neutral/generated owners. It reads no source CAD file and leaves the existing linked defaults and public drawing writer registration unchanged.
+
+Use the real child candidate from SDK construction and the ordinary single-sheet, single-view linked input. The constructor admits target19000, an actual fresh child origin with no bitmap children, one ordinary component path and the native argument0 population policy. The initial complete process child is the dimensioned corner-anchored blind rectangle; a centered child needs its separately proved construction diagonals and relations. Linked display arrays, context components, bitmap payloads and ghost follow-up remain unsupported.
+
+Root independently replayed the5,028-file frozen closure through14 fresh processes: four guarded builds, two complete typed preparations and eight explicit rejections. Both repeated pairs are byte-identical, retain actual child/profile ownership and change only the generated Definition stream relative to ordinary linked defaults. Both record zero runtime input reads. Native generated-origin, held-out and portable profile projection qualification remain pending. The preserved earlier guard failure was repaired only by preloading neutral validation code before construction.
+
+[Construction rules](../../../../../re/solidworks/records/DrawingOriginProfileConstruction2026.md) · [Process receipt](../../../../../re/solidworks/measurements/2026/SdkOriginProfileConstruction01.json) · [Allocation ownership gotcha](../../../../Gotchas/Conversion/Solidworks/Drawings/Qualification/OriginDisplaysAdvanceTheModelCounter.md)

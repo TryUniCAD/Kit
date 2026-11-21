@@ -1,0 +1,713 @@
+{
+  "schema": "kit.sw2026.planar-mate-reference-chain-proof.v1",
+  "native_archive_version": 19000,
+  "native_image_evidence": {
+    "sldmodu.dll": {
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "exception_table_rva": "0x2a6a000",
+      "exception_table_bytes": 988296,
+      "machine": "0x8664",
+      "classes": {
+        "moChainComponent_c": {
+          "vtable": "0x4ce9c808",
+          "slot": "0x4ce9c830",
+          "serialized": {
+            "entry": "0x4c21b8c0",
+            "contiguous": true,
+            "size": 1772,
+            "sha256": "2168c75b8e3f00d0bc3200969a5e1af384d0aa48040c052725256fd6587758eb",
+            "extents": [
+              {
+                "start": "0x4c21b8c0",
+                "end": "0x4c21bfac",
+                "unwind": "0x4d5c191c",
+                "sha256": "2168c75b8e3f00d0bc3200969a5e1af384d0aa48040c052725256fd6587758eb"
+              }
+            ]
+          }
+        },
+        "moComponent_c": {
+          "vtable": "0x4ce9c1a8",
+          "slot": "0x4ce9c1d0",
+          "serialized": {
+            "entry": "0x4c21cac0",
+            "contiguous": true,
+            "size": 1969,
+            "sha256": "1c0667b25d0693208ffa6e93843aba8a10984c12fd259f51644ba70e140d9f4c",
+            "extents": [
+              {
+                "start": "0x4c21cac0",
+                "end": "0x4c21d271",
+                "unwind": "0x4d5c1764",
+                "sha256": "1c0667b25d0693208ffa6e93843aba8a10984c12fd259f51644ba70e140d9f4c"
+              }
+            ]
+          }
+        },
+        "moReferenceChain_c": {
+          "vtable": "0x4d162b98",
+          "slot": "0x4d162bc0",
+          "serialized": {
+            "entry": "0x4b66e370",
+            "contiguous": true,
+            "size": 1567,
+            "sha256": "eb0860ef9ac860fa2084f8e04210d68caf347b146c3d6085cbbe26e6e4ce68a9",
+            "extents": [
+              {
+                "start": "0x4b66e370",
+                "end": "0x4b66e4d3",
+                "unwind": "0x4d415cac",
+                "sha256": "aa15ffbca554734e040e73daeadf776ce732485359ccb68a3edf3bdf1f9b331d"
+              },
+              {
+                "start": "0x4b66e4d3",
+                "end": "0x4b66e621",
+                "unwind": "0x4d415cbc",
+                "sha256": "b3772228ef1dea4e5d3deadf6f0bcd568d8d220c45d154c612b139730a617bae"
+              },
+              {
+                "start": "0x4b66e621",
+                "end": "0x4b66e77b",
+                "unwind": "0x4d415cd4",
+                "sha256": "d1ca4417d276c5f253c4ef06b9b855b0917f1146441021aac798360434e1bfe3"
+              },
+              {
+                "start": "0x4b66e77b",
+                "end": "0x4b66e956",
+                "unwind": "0x4d415ce8",
+                "sha256": "e25078a9cef7fb7d17e487f93ae649015509deb8c908e37163e007fb93e8eba5"
+              },
+              {
+                "start": "0x4b66e956",
+                "end": "0x4b66e969",
+                "unwind": "0x4d415cf8",
+                "sha256": "45f6ec39876e77fc07f14491940bb2ebd35a5305c8e7d4822e64e4feb7a1c971"
+              },
+              {
+                "start": "0x4b66e969",
+                "end": "0x4b66e97c",
+                "unwind": "0x4d415d10",
+                "sha256": "ceddc5428bb6a925286ac31f9483a3357f118015448a0ae58af705f777d1ae3c"
+              },
+              {
+                "start": "0x4b66e97c",
+                "end": "0x4b66e98f",
+                "unwind": "0x4d415cf8",
+                "sha256": "5de29b53a11279f8180b1d4f7d59457fb8a8596f93bc1d2dc506085909670e4a"
+              }
+            ]
+          }
+        },
+        "moExtFeatureList_c": {
+          "vtable": "0x4cf35ce0",
+          "slot": "0x4cf35d08",
+          "serialized": {
+            "entry": "0x4c1784f0",
+            "contiguous": true,
+            "size": 1330,
+            "sha256": "2d846240cb81af7be17ad3858f88954ae91b955161a03eefa31c81c92774b358",
+            "extents": [
+              {
+                "start": "0x4c1784f0",
+                "end": "0x4c178a22",
+                "unwind": "0x4d5ad630",
+                "sha256": "2d846240cb81af7be17ad3858f88954ae91b955161a03eefa31c81c92774b358"
+              }
+            ]
+          }
+        }
+      },
+      "helpers": {
+        "ordinary_path_ctor": {
+          "entry": "0x4c28c5d0",
+          "contiguous": true,
+          "size": 160,
+          "sha256": "76670ee45389e94c1756048b8cf80a31d86be7365f4889bd6d6b909ef51a9b86",
+          "extents": [
+            {
+              "start": "0x4c28c5d0",
+              "end": "0x4c28c670",
+              "unwind": "0x4d5cf0b4",
+              "sha256": "76670ee45389e94c1756048b8cf80a31d86be7365f4889bd6d6b909ef51a9b86"
+            }
+          ]
+        },
+        "ordinary_path_alt_ctor": {
+          "entry": "0x4c28c670",
+          "contiguous": true,
+          "size": 147,
+          "sha256": "41d1e22b28ec7f92c95c7c700e23cf30357b662c43ba15838c95b8b4a0712498",
+          "extents": [
+            {
+              "start": "0x4c28c670",
+              "end": "0x4c28c703",
+              "unwind": "0x4d5cf014",
+              "sha256": "41d1e22b28ec7f92c95c7c700e23cf30357b662c43ba15838c95b8b4a0712498"
+            }
+          ]
+        },
+        "standalone_chain_copy": {
+          "entry": "0x4c28c490",
+          "contiguous": true,
+          "size": 307,
+          "sha256": "a48f08fe397d988d5e0cd1362a7a43f11dc3f50e451b1b67caca9b975dba74e7",
+          "extents": [
+            {
+              "start": "0x4c28c490",
+              "end": "0x4c28c5c3",
+              "unwind": "0x4d5cf05c",
+              "sha256": "a48f08fe397d988d5e0cd1362a7a43f11dc3f50e451b1b67caca9b975dba74e7"
+            }
+          ]
+        },
+        "chain_component_stamp": {
+          "entry": "0x4c291ca0",
+          "contiguous": true,
+          "size": 125,
+          "sha256": "b22d69f9cdc51498c95e52133ae9e0d86d749dd629131fda1d1ab6c49f2fe911",
+          "extents": [
+            {
+              "start": "0x4c291ca0",
+              "end": "0x4c291d1d",
+              "unwind": "0x4d3877f0",
+              "sha256": "b22d69f9cdc51498c95e52133ae9e0d86d749dd629131fda1d1ab6c49f2fe911"
+            }
+          ]
+        },
+        "component_chain_ctor": {
+          "entry": "0x4b8277f0",
+          "contiguous": true,
+          "size": 291,
+          "sha256": "751444c844397afff42d413cd3802ed5ae426771c9bd7c06d55997ce9e344ce1",
+          "extents": [
+            {
+              "start": "0x4b8277f0",
+              "end": "0x4b827913",
+              "unwind": "0x4d45a718",
+              "sha256": "751444c844397afff42d413cd3802ed5ae426771c9bd7c06d55997ce9e344ce1"
+            }
+          ]
+        },
+        "chain_manager_acquire": {
+          "entry": "0x4c28f3a0",
+          "contiguous": true,
+          "size": 563,
+          "sha256": "c0d4cea3bdd230b9e587ff794d74ae16dcc737cad4d454a665425b32f21a1db8",
+          "extents": [
+            {
+              "start": "0x4c28f3a0",
+              "end": "0x4c28f5d3",
+              "unwind": "0x4d5d03e0",
+              "sha256": "c0d4cea3bdd230b9e587ff794d74ae16dcc737cad4d454a665425b32f21a1db8"
+            }
+          ]
+        },
+        "chain_context_serialize": {
+          "entry": "0x4c222af0",
+          "contiguous": true,
+          "size": 1739,
+          "sha256": "b2145a5bfe81d93a66ac5f55a0bf000258b62c00a32685f7929d4eced499562c",
+          "extents": [
+            {
+              "start": "0x4c222af0",
+              "end": "0x4c2231bb",
+              "unwind": "0x4d5c1974",
+              "sha256": "b2145a5bfe81d93a66ac5f55a0bf000258b62c00a32685f7929d4eced499562c"
+            }
+          ]
+        },
+        "chain_normalization_predicate": {
+          "entry": "0x4c293430",
+          "contiguous": true,
+          "size": 298,
+          "sha256": "1751f6ecb2e776631580467894700eddd8d8a63c15c6e242e10ccd29ac4220fb",
+          "extents": [
+            {
+              "start": "0x4c293430",
+              "end": "0x4c29344d",
+              "unwind": "0x4d388900",
+              "sha256": "80081648880e9525dcb2ec74bf262a72753dba1ebb6619e2b7119e616207b9c1"
+            },
+            {
+              "start": "0x4c29344d",
+              "end": "0x4c29347e",
+              "unwind": "0x4d5d00e0",
+              "sha256": "b1ad749ff6bbeb14b0cb9e148078c901fa56a862bdb00addc61697a3545c76d0"
+            },
+            {
+              "start": "0x4c29347e",
+              "end": "0x4c29355a",
+              "unwind": "0x4d5d00f8",
+              "sha256": "72f34b6a32f11734469059eef7c83c3bc42911fbf10bc977cf72720b4e574534"
+            }
+          ]
+        },
+        "chain_normalization": null,
+        "chain_feature_list_init": {
+          "entry": "0x4c28f330",
+          "contiguous": true,
+          "size": 100,
+          "sha256": "b5667865bc1842fa90a4b58b789af7df43bf65b5605ffa529c17ff8702f8b251",
+          "extents": [
+            {
+              "start": "0x4c28f330",
+              "end": "0x4c28f394",
+              "unwind": "0x4d5cfe44",
+              "sha256": "b5667865bc1842fa90a4b58b789af7df43bf65b5605ffa529c17ff8702f8b251"
+            }
+          ]
+        },
+        "external_occurrence_entry": {
+          "entry": "0x4bbc0ef0",
+          "contiguous": true,
+          "size": 544,
+          "sha256": "95bfb0266b393b04a72346e945d623f0ffdebb3b9741e9c8c676ec1e19978cbe",
+          "extents": [
+            {
+              "start": "0x4bbc0ef0",
+              "end": "0x4bbc1110",
+              "unwind": "0x4d4da610",
+              "sha256": "95bfb0266b393b04a72346e945d623f0ffdebb3b9741e9c8c676ec1e19978cbe"
+            }
+          ]
+        }
+      },
+      "file_version": "34.5.2.604"
+    },
+    "sldarchiveu.dll": {
+      "sha256": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+      "bytes": 231512,
+      "image_base": "0x319f0000",
+      "exception_table_rva": "0x37000",
+      "exception_table_bytes": 9000,
+      "machine": "0x8664",
+      "classes": {
+        "moReferencedConfiguration_c": {
+          "vtable": "0x31a0fd18",
+          "slot": "0x31a0fd40",
+          "serialized": {
+            "entry": "0x31a081b0",
+            "contiguous": true,
+            "size": 116,
+            "sha256": "4491752d4b541ad6486d435484b49e458ab35613c4dedf85cb04f6ab81c1193e",
+            "extents": [
+              {
+                "start": "0x31a081b0",
+                "end": "0x31a08224",
+                "unwind": "0x31a13a38",
+                "sha256": "4491752d4b541ad6486d435484b49e458ab35613c4dedf85cb04f6ab81c1193e"
+              }
+            ]
+          }
+        }
+      },
+      "helpers": {
+        "configuration_default_ctor": {
+          "entry": "0x319f5c90",
+          "contiguous": true,
+          "size": 57,
+          "sha256": "5dac4b623b23154ecbaf668fc5a1f88c11ff9fc34dfe657368453839863f2dea",
+          "extents": [
+            {
+              "start": "0x319f5c90",
+              "end": "0x319f5cc9",
+              "unwind": "0x31a141c4",
+              "sha256": "5dac4b623b23154ecbaf668fc5a1f88c11ff9fc34dfe657368453839863f2dea"
+            }
+          ]
+        }
+      },
+      "file_version": "34.5.2.604"
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "image_base": "0x3c720000",
+      "exception_table_rva": "0x7e6000",
+      "exception_table_bytes": 222504,
+      "machine": "0x8664",
+      "classes": {},
+      "helpers": {}
+    },
+    "swccu.dll": {
+      "sha256": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c",
+      "bytes": 252504,
+      "image_base": "0x31a30000",
+      "exception_table_rva": "0x3a000",
+      "exception_table_bytes": 11748,
+      "machine": "0x8664",
+      "classes": {},
+      "helpers": {
+        "base_archive_serialize": {
+          "entry": "0x31a3f030",
+          "contiguous": true,
+          "size": 153,
+          "sha256": "d064fda3876f5279a158324ef2252caeee3765c0638ff7c2afb4dbc333b3db77",
+          "extents": [
+            {
+              "start": "0x31a3f030",
+              "end": "0x31a3f0c9",
+              "unwind": "0x31a56cd8",
+              "sha256": "d064fda3876f5279a158324ef2252caeee3765c0638ff7c2afb4dbc333b3db77"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "rea_identity_records": [
+    {
+      "id": "ev_17abda480438c124506e897b8367d0cd21c9978f49f82fa95df3b139f5a1e36b",
+      "operation": "inspect_pe_resources"
+    },
+    {
+      "id": "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec",
+      "operation": "inspect_pe_resources"
+    }
+  ],
+  "native_leaves_and_cells": [
+    {
+      "role": "mode_two_normalization",
+      "module": "sldmodu.dll",
+      "range": [
+        "0x4c2946b0",
+        "0x4c2946b8"
+      ],
+      "sha256": "502e40a2618ae36334ba3acdca9890a2ad66db82c62718cf015115c77635a39c"
+    },
+    {
+      "role": "is_persistent_chain",
+      "module": "sldmodu.dll",
+      "range": [
+        "0x4c0ee630",
+        "0x4c0ee63a"
+      ],
+      "sha256": "27c4ec728f39d9050714cfd537244ace73999f80c9927e4176608d9ab085019f"
+    },
+    {
+      "role": "component_set_owner",
+      "module": "sldmodu.dll",
+      "range": [
+        "0x4b836740",
+        "0x4b836760"
+      ],
+      "sha256": "7137715f836e5be2e66f0f9472c6015845499e2ccf964521eab2e79c1ddd27ca"
+    },
+    {
+      "role": "occurrence_stamp_leaf",
+      "module": "sldmodu.dll",
+      "range": [
+        "0x4b541640",
+        "0x4b541647"
+      ],
+      "sha256": "1aaa0543bdc9ca6a7c7977cff9ceacd2723fe6dc99773674889667d5a798ab12"
+    },
+    {
+      "role": "occurrence_stamp_vtable_cell",
+      "module": "sldmodu.dll",
+      "range": [
+        "0x4cf7bfa8",
+        "0x4cf7bfb0"
+      ],
+      "sha256": "9d5e8801619de9adf12930066c0ddbe300a50005a6ac62f6767d965dd71c3f90"
+    },
+    {
+      "role": "archive_condition_mask",
+      "module": "sldmfcu.dll",
+      "range": [
+        "0x3c7ac130",
+        "0x3c7ac14f"
+      ],
+      "sha256": "ea728873d513548b902ca54e5a252aa1311be923d158ba9154b5c45383ae3818"
+    },
+    {
+      "role": "database_archive_predicate",
+      "module": "swccu.dll",
+      "range": [
+        "0x31a36400",
+        "0x31a3640a"
+      ],
+      "sha256": "f0e5be5599a8ec005a1ee36afb7cd3b77a056322c534c06d7dfdaba1dfe5fd69"
+    }
+  ],
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "schema_sha256": "7990a26fbf4f01a385abe1e480183d6b6405dbc2b6021545724efd8dbb52ff2e",
+  "checkout_schema_manifest_sha256": "7c14006aceb83097bc2921230a615ee29b028fd60598cecd7d267acd44c29adb",
+  "archive_probe_sha256": "160d5864ceda5000dc0fab22e5e8dd5e079e23527c16b8e97f5537012ff8eb66",
+  "archive_roundtrip_receipt_sha256": "a67534f5eb8a4380a12490ae9ebe8686c743d265877b879ca7f35fdcd1e96d8e",
+  "portable_drawing_export_sha256": "0ba95f88c7eefc049c81682bc530e4d7e14a933f918220e000f683c3f8ef448e",
+  "portable_drawing_export_same_bytes": true,
+  "archive_stream_comparisons": 51,
+  "recoded_streams_byte_identical": true,
+  "native_acceptance": false,
+  "writer_output_count": 0,
+  "heldout_payloads_read": false,
+  "disclosed_cases": [
+    {
+      "name": "A17PlaneCoincident",
+      "entry_map_count": 168,
+      "end_map_count": 196,
+      "sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694",
+      "endpoints": [
+        {
+          "ordinal": 0,
+          "owner_slot": 2,
+          "component_slot": 186,
+          "component_span": [
+            2138,
+            2236
+          ],
+          "chain_slot": 188,
+          "chain_span": [
+            2164,
+            2232
+          ],
+          "mode": 0,
+          "lifetime_count": 1467,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 190,
+          "list_span": [
+            2190,
+            2220
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2218,
+            2220
+          ],
+          "link_slot": 11,
+          "occurrence_slot": 8,
+          "occurrence_id": 24,
+          "child_datum_id": 3,
+          "child_datum_bounds_match": true
+        },
+        {
+          "ordinal": 1,
+          "owner_slot": 2,
+          "component_slot": 193,
+          "component_span": [
+            2672,
+            2704
+          ],
+          "chain_slot": 194,
+          "chain_span": [
+            2676,
+            2700
+          ],
+          "mode": 0,
+          "lifetime_count": 134,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 195,
+          "list_span": [
+            2680,
+            2688
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2686,
+            2688
+          ],
+          "link_slot": 18,
+          "occurrence_slot": 16,
+          "occurrence_id": 25,
+          "child_datum_id": 3,
+          "child_datum_bounds_match": true
+        }
+      ],
+      "bytes": 3304,
+      "parent_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "child_sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "reached_provisional_methods": []
+    },
+    {
+      "name": "A18PlaneDistance",
+      "entry_map_count": 168,
+      "end_map_count": 207,
+      "sha256": "69918e4021805c0f8dadb0c5a0a75efd5887420591d459799474cdd7306c7963",
+      "endpoints": [
+        {
+          "ordinal": 0,
+          "owner_slot": 2,
+          "component_slot": 186,
+          "component_span": [
+            2145,
+            2243
+          ],
+          "chain_slot": 188,
+          "chain_span": [
+            2171,
+            2239
+          ],
+          "mode": 0,
+          "lifetime_count": 1456,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 190,
+          "list_span": [
+            2197,
+            2227
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2225,
+            2227
+          ],
+          "link_slot": 11,
+          "occurrence_slot": 8,
+          "occurrence_id": 24,
+          "child_datum_id": 4,
+          "child_datum_bounds_match": true
+        },
+        {
+          "ordinal": 1,
+          "owner_slot": 2,
+          "component_slot": 193,
+          "component_span": [
+            2679,
+            2711
+          ],
+          "chain_slot": 194,
+          "chain_span": [
+            2683,
+            2707
+          ],
+          "mode": 0,
+          "lifetime_count": 134,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 195,
+          "list_span": [
+            2687,
+            2695
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2693,
+            2695
+          ],
+          "link_slot": 18,
+          "occurrence_slot": 16,
+          "occurrence_id": 25,
+          "child_datum_id": 4,
+          "child_datum_bounds_match": true
+        }
+      ],
+      "bytes": 5117,
+      "parent_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "child_sha256": "d91eedc26b1f1289a05b97bc06627e38467ead96d9a1fb4042dc992fec26dc0c",
+      "reached_provisional_methods": []
+    },
+    {
+      "name": "A19PlaneParallel",
+      "entry_map_count": 168,
+      "end_map_count": 196,
+      "sha256": "5ee10ddcd3e5e31e6599cd4f3888f69f8b7f70868d31cfa707d02d1928a8e32e",
+      "endpoints": [
+        {
+          "ordinal": 0,
+          "owner_slot": 2,
+          "component_slot": 186,
+          "component_span": [
+            2140,
+            2238
+          ],
+          "chain_slot": 188,
+          "chain_span": [
+            2166,
+            2234
+          ],
+          "mode": 0,
+          "lifetime_count": 169,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 190,
+          "list_span": [
+            2192,
+            2222
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2220,
+            2222
+          ],
+          "link_slot": 11,
+          "occurrence_slot": 8,
+          "occurrence_id": 24,
+          "child_datum_id": 2,
+          "child_datum_bounds_match": true
+        },
+        {
+          "ordinal": 1,
+          "owner_slot": 2,
+          "component_slot": 193,
+          "component_span": [
+            2602,
+            2634
+          ],
+          "chain_slot": 194,
+          "chain_span": [
+            2606,
+            2630
+          ],
+          "mode": 0,
+          "lifetime_count": 1435,
+          "has_owner_presence_word": false,
+          "configuration": {
+            "f08": "",
+            "f10": -1
+          },
+          "component_stamp": 203,
+          "occurrence_stamp": 102,
+          "list_slot": 195,
+          "list_span": [
+            2610,
+            2618
+          ],
+          "list_count": 1,
+          "link_tag_span": [
+            2616,
+            2618
+          ],
+          "link_slot": 18,
+          "occurrence_slot": 16,
+          "occurrence_id": 25,
+          "child_datum_id": 2,
+          "child_datum_bounds_match": true
+        }
+      ],
+      "bytes": 3234,
+      "parent_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "child_sha256": "377f040bb254a8e8c56db624d8ed5169edabc04e49bf71c4428bd947d7dbab17",
+      "reached_provisional_methods": []
+    }
+  ]
+}

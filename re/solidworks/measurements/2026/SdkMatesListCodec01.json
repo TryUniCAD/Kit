@@ -1,0 +1,893 @@
+{
+  "archive_version": 19000,
+  "cases": [
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 48227,
+      "file_sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "inherited_map_aliases": 167,
+      "map_base": 168,
+      "map_terminal": 196,
+      "mate_classes": [
+        "moMateCoincident"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41737,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 167,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 43,
+        "write": 43
+      },
+      "stream_bytes": 3304,
+      "stream_sha256": "4a2f58c037314e32a62852ab03fc3d18cf83320b357e9d73c8fb5a6d2ec47694",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 167
+    },
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 57875,
+      "file_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+      "inherited_map_aliases": 167,
+      "map_base": 168,
+      "map_terminal": 207,
+      "mate_classes": [
+        "moMateDistanceDim_c"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [
+        {
+          "completed": true,
+          "declared_length": 8,
+          "element_count": 1,
+          "element_type": "f64",
+          "field": "data",
+          "length_rule": "count_times_native_binary64_width",
+          "object_class": "moDisplayDistanceDim_c",
+          "observed_length": 8,
+          "schema": "dm.FUN_4bd03960",
+          "typed_values": [
+            0.06323
+          ]
+        }
+      ],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41748,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 167,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 66,
+        "write": 66
+      },
+      "stream_bytes": 5117,
+      "stream_sha256": "69918e4021805c0f8dadb0c5a0a75efd5887420591d459799474cdd7306c7963",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 167
+    },
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 51399,
+      "file_sha256": "c03b3c9704edb81602deb99b8543de85f55720300a41bd440454dbf419d6ea72",
+      "inherited_map_aliases": 167,
+      "map_base": 168,
+      "map_terminal": 196,
+      "mate_classes": [
+        "moMateParallel"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41752,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 167,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 43,
+        "write": 43
+      },
+      "stream_bytes": 3234,
+      "stream_sha256": "5ee10ddcd3e5e31e6599cd4f3888f69f8b7f70868d31cfa707d02d1928a8e32e",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 167
+    },
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 9162,
+      "file_sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "inherited_map_aliases": 132,
+      "map_base": 133,
+      "map_terminal": 161,
+      "mate_classes": [
+        "moMateCoincident"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41754,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 132,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 43,
+        "write": 43
+      },
+      "stream_bytes": 2776,
+      "stream_sha256": "72b21f11445155387ed750a101f153027709da0bc76b2dd5d3ea9c51fb61bbaf",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 132
+    },
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 9320,
+      "file_sha256": "9ce5fe055427207d77610a5ba1f3dd42411778b4ac3b8a1306eda17f07a6d719",
+      "inherited_map_aliases": 132,
+      "map_base": 133,
+      "map_terminal": 161,
+      "mate_classes": [
+        "moMateParallel"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41764,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 132,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 43,
+        "write": 43
+      },
+      "stream_bytes": 2842,
+      "stream_sha256": "2f6f75fce598116c92a5fd3b51f7a3c1a7416ebbe5598864cfaf8188afd8cd8d",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 132
+    },
+    {
+      "byte_identity": true,
+      "empty_no_allocation": true,
+      "empty_stream_bytes": 6,
+      "endpoint_aliases": [
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 11,
+          "occurrence_slot": 8,
+          "ordinal": 0
+        },
+        {
+          "component_owner_is_model": true,
+          "external_identity_preserved": true,
+          "external_slot": 18,
+          "occurrence_slot": 16,
+          "ordinal": 1
+        }
+      ],
+      "file_bytes": 9560,
+      "file_sha256": "1f596ea028ab6c7c6d964f21b8fcc7038f99c9f3ef5080f4927130328617c198",
+      "inherited_map_aliases": 132,
+      "map_base": 133,
+      "map_terminal": 172,
+      "mate_classes": [
+        "moMateDistanceDim_c"
+      ],
+      "mate_count": 1,
+      "missing_schemas": [],
+      "native_byte_fields": [
+        {
+          "completed": true,
+          "declared_length": 8,
+          "element_count": 1,
+          "element_type": "f64",
+          "field": "data",
+          "length_rule": "count_times_native_binary64_width",
+          "object_class": "moDisplayDistanceDim_c",
+          "observed_length": 8,
+          "schema": "dm.FUN_4bd03960",
+          "typed_values": [
+            0.0
+          ]
+        }
+      ],
+      "negatives": [
+        {
+          "case": "counter_only_context",
+          "error_type": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_version",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "wrong_inherited_counter",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "negative_prefix",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "trailing_byte",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "truncated_graph",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "truncated_prefix",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "null_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "null_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unrelated_write_root",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "unsupported_mate_schema",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_owner_seed",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        },
+        {
+          "case": "missing_actual_external_alias",
+          "error_type": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "nonplane_wrapper_reference",
+          "error_type": "BodyUnsupported",
+          "rejected": true
+        }
+      ],
+      "passed": true,
+      "pid": 41765,
+      "provisional_schemas": [],
+      "readback_inherited_map_aliases": 132,
+      "resolved_objects_unchanged": true,
+      "schema_counts": {
+        "read": 66,
+        "write": 66
+      },
+      "stream_bytes": 4643,
+      "stream_sha256": "4eff181cfb85bc2b475c772f347876157cf29da9393137b9d5a44f9907ec4fce",
+      "typed_readback_identity": true,
+      "usage_completed": true,
+      "write_inherited_map_aliases": 132
+    }
+  ],
+  "cohort_manifest_sha256": "21a55366683f87c326da583ceb56bb973f43b0808b6edc7785dc64fac123ebf1",
+  "container_version": 4,
+  "delivery_pr": 121,
+  "full_family_coverage": false,
+  "generated_process": {
+    "endpoint_aliases": [
+      {
+        "component_owner_is_model": true,
+        "external_identity_preserved": true,
+        "external_slot": 18,
+        "occurrence_slot": 16,
+        "ordinal": 0
+      },
+      {
+        "component_owner_is_model": true,
+        "external_identity_preserved": true,
+        "external_slot": 11,
+        "occurrence_slot": 8,
+        "ordinal": 1
+      }
+    ],
+    "file_sha256": "fbf0247a16cea579d5020365bf13990c06c1be51c6c83a952fe3732147992202",
+    "inherited_map_aliases": 132,
+    "map_base": 133,
+    "map_terminal": 172,
+    "negative_case_count": 14,
+    "passed": true,
+    "stream_sha256": "a4bb60e2f643fad23b24cb75579e17060b012ac2b221f71ced8aa57e2a5ed23a"
+  },
+  "generated_process_sha256": "0173444900bd6e09b726f0effe1c9bdcffc0fd651f1b075f0a78e1ded980c605",
+  "heldout_inputs_read": false,
+  "limitations": [
+    "not a semantic adapter integration",
+    "not a generated native writer trial",
+    "only disclosed inputs",
+    "nonplane and additional mate families remain unsupported"
+  ],
+  "native_acceptance_claim": false,
+  "native_processes_started": 0,
+  "negative_case_count": 84,
+  "owned_source_sha256": {
+    "re/tooling/sw2026/SdkMatesProcess.py": "580848474ae46916e40f8ef7431bac3879d9d9fb3c3a398e2259f43bcb79a2d8",
+    "src/convert/adapters/solidworks/Archive/Mates/MakeMatesCtx.py": "c6b87b2da30a934c4cc66ac56375868e85ca7d3c5fd3baa4c7a01df86db6ecba",
+    "src/convert/adapters/solidworks/Archive/Mates/MateFields.py": "db84f4974afcfaf33f3758f993715f2143ea0aeb6db616a1a0a223e7cb89f0fa",
+    "src/convert/adapters/solidworks/Archive/Mates/MatesGraph.py": "db8721aa98d04f8116f80012d412cd2f8fd01ccde2d09c34cde03f5934982882",
+    "src/convert/adapters/solidworks/Archive/Mates/MatesLayouts.py": "cba029571545a5685a006f5b825105a82d3aba0e59331697cc334106da2ded94",
+    "src/convert/adapters/solidworks/Archive/Mates/MatesSchemas.py": "6108f10826dc39606f0919fda7534a0e65015dcbd610fac218046547884b92b8",
+    "src/convert/adapters/solidworks/Archive/Mates/MatesVirtuals.py": "49b6c2f53abdfcec1854a7360bf056508bd2f1f8e8983f1016f38b79aba921dd",
+    "src/convert/adapters/solidworks/Archive/Mates/PlaneFields.py": "5c281f3559e8be3f1e268dd96222ed4b3d259d2b93c31c0fc6446c7c2dba733e",
+    "src/convert/adapters/solidworks/Archive/Mates/ReadMatesMut.py": "8b3dd39641effc38447d9cc0be955dc8c7194703bf22791f432f1678ab04ae98",
+    "src/convert/adapters/solidworks/Archive/Mates/RequireMates.py": "54e3b18a77e0b7752cc757bf6af75955cf961084a47cce0a722b8f3794fde955",
+    "src/convert/adapters/solidworks/Archive/Mates/WrapperFields.py": "ab8eb143965d5ff559dadbf1cb5c7abea868539bafb7257965f6da631ab144af",
+    "src/convert/adapters/solidworks/Archive/Mates/WriteMatesMut.py": "264758133c64863b0953fb349ff2170e87d6ce575adf16b7d0845947fcc96a21",
+    "tests/Convert/Solidworks/Research/Mates/AssertMatesProbe.py": "08806907786443798c9b4ea2b4a3b13d5bf73045b4bec24a080181f33a53e549",
+    "tests/Convert/Solidworks/Research/Mates/MatesCodecTests.py": "7868520416289551ae6c7838209b740f65f7d818d38295237dadc252268fd95c",
+    "tests/Convert/Solidworks/Research/Mates/RunMatesProbe.py": "af1015e005ba0d88e3db3ab2c9f7ccd0f72ba949b74b82f3d99203187935a7cd"
+  },
+  "passed": true,
+  "prior_linked_proof_sha256": "bf239ea35e00644dda27dbd2129f6aaffea4bd0eba03bcbe362b6979b86e0452",
+  "process_count": 6,
+  "public_dispatch_changed": false,
+  "raw_disclosed_process_sha256": "bcac22fb1bd8634eaf57c4e6e443638c6df6e95dc5d6343fb76ac934e5872b30",
+  "repository_base_revision": "450117b767aa59c5cd8caec6d77519e383de9825",
+  "schema": "solidworks-2026-sdk-mates-linked-process-proof-v1",
+  "scope": "ordinary version-19000 empty and disclosed two-principal-plane coincident parallel positive-distance codec only",
+  "source_manifest_sha256": "ed07ed1d673f4f65104af74d2f9f922cbc48d90da05f81660edf6ee9b7784e4b",
+  "source_python_files": 3458,
+  "task_id": "B04-SW2026-MATESLIST-CODEC",
+  "tool_sha256": "580848474ae46916e40f8ef7431bac3879d9d9fb3c3a398e2259f43bcb79a2d8",
+  "uncommitted_source_bound_by_file_hashes": true,
+  "used_schema_union": [
+    "Dimension_c.Serialize",
+    "ParallelPlaneDistanceDim_c",
+    "dm.FUN_4bd03960",
+    "dm.moDoubleParameter_c.FUN_4c177fe0",
+    "dm.moParameter_c.FUN_4c17a330",
+    "mgMatrix_c.restore",
+    "mgPoint_c.operator>>",
+    "mgPoint_c.restore",
+    "mgVector_c.restore",
+    "mgXform_c.operator>>",
+    "mgXform_c.restore",
+    "moAbsoluteRefPlnData_c",
+    "moAtomFeature_c",
+    "moChainComponent_c",
+    "moCompFeature_c",
+    "moCompRefPlane_c",
+    "moCompRef_c",
+    "moComponent_c",
+    "moConcept_c.SerializeLWData",
+    "moConcept_c.SerializeResolvedData",
+    "moDimHandle_c.FUN_4c82a810",
+    "moDimText_c",
+    "moDisplayDim_c.FUN_4c82c3d0",
+    "moDisplayDistanceDim_c",
+    "moDisplayItem_c.Serialize",
+    "moDisplayObject_c.FUN_4ba4d3c0",
+    "moEntVisProp_c",
+    "moExtFeatureList_c",
+    "moFRData_c",
+    "moFavoriteHandle_c",
+    "moFeatureDimHandle_c",
+    "moFeatureDim_c.FUN_4c833f00",
+    "moFeature_c",
+    "moFeature_c.FUN_4bb2b240",
+    "moFeature_c.SerializeXmlData",
+    "moLengthParameter_c",
+    "moMate",
+    "moMate2Geoms_c",
+    "moMateCoincident",
+    "moMateDim_c",
+    "moMateDistanceDim_c",
+    "moMateNGeoms_c",
+    "moMateParallel",
+    "moMateParent",
+    "moModDimHandle_c.Serialize",
+    "moModelFeature_c",
+    "moNodeList_c.Serialize",
+    "moNodeName_c",
+    "moNode_c",
+    "moNode_c.SerializeLWData",
+    "moNode_c.SerializeNode",
+    "moPlaneRef_w",
+    "moRefGeom_c",
+    "moRefPlane_c",
+    "moRefPlane_c.SerializeXmlData",
+    "moRefPlnData_c.serializePlaneData",
+    "moRefWrapper_c",
+    "moReferenceChain_c",
+    "moReferencedConfiguration_c",
+    "moSurfaceRef_w",
+    "moUnitComponent_c",
+    "moVisProp_c",
+    "rf.suObArray",
+    "rf.suObList",
+    "su_CStringArray",
+    "utLineWidth_c.Serialize.3.0",
+    "utLineWidth_c.Serialize0",
+    "utLineWidth_c.Serialize2"
+  ],
+  "used_schema_union_count": 68,
+  "verification": {
+    "heldout_and_native_qualification": "not measured by this receipt",
+    "local_black_passed": true,
+    "local_policy_steering_passed": true,
+    "local_process_integration_passed": true,
+    "pinned_python": "3.11",
+    "remote_ci": "not measured by this receipt"
+  },
+  "writer_output_count": 0
+}

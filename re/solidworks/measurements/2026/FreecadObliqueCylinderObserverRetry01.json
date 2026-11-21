@@ -1,0 +1,455 @@
+{
+  "schema": "kit.sw2026.oblique-observer-retry-receipt.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "prior_native_failure": {
+    "status": "failed-before-native-mass-save-and-edit-acceptance",
+    "source_author_sha256": "a37ee38c396be766b8de364994d6d21913087b1372b6cf41249fedc1fc5e3c3a",
+    "metadata_sha256": "7b9f4a4b54317d00788568f62debfeb2629f828e37ba2af0c7930201985eccc6",
+    "metadata_progress_sha256": "405911cf036b162fc95c9f60c4f78f53513c02dc710db7cc9cdf7cc303e242c3",
+    "first_failure": {
+      "stage": "GetDirectionReference",
+      "type": "com_error",
+      "error": "com_error(-2147352561, 'Parameter not optional.', None, None)",
+      "pending_capability": false
+    },
+    "author_identity": {
+      "process_id": 2476,
+      "process_creation_filetime": 134395575499453102,
+      "executable": "SLDWORKS.exe",
+      "file_version": "34.5.2.0604",
+      "file_version_words": [34, 5, 2, 604],
+      "expected_version": [34, 5, 2, 604],
+      "version_matches": true,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "pe_machine": "0x8664"
+    },
+    "controls": [
+      {
+        "phase": "before",
+        "sha256": "103ae16f087729edd79d8f6a318357f2930153298edcf140ea313489fa3ba462",
+        "passed": true,
+        "identity": {
+          "process_id": 9008,
+          "process_creation_filetime": 134395575268000538,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "open_errors": 0,
+        "open_warnings": 0,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-6,
+          "area": 0.0028,
+          "com": [0.0, 0.0, 0.005],
+          "mass": 8.000000000000001e-6
+        }
+      },
+      {
+        "phase": "after",
+        "sha256": "74ea676b13ae71fc2f33f5d44df3b321a96323ca054b34491e8870ac896fe38b",
+        "passed": true,
+        "identity": {
+          "process_id": 6552,
+          "process_creation_filetime": 134395576109683375,
+          "executable": "SLDWORKS.exe",
+          "file_version": "34.5.2.0604",
+          "file_version_words": [34, 5, 2, 604],
+          "expected_version": [34, 5, 2, 604],
+          "version_matches": true,
+          "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "bytes": 718936,
+          "pe_machine": "0x8664"
+        },
+        "open_errors": 0,
+        "open_warnings": 0,
+        "whats_wrong": 0,
+        "bodies": 1,
+        "mass": {
+          "volume": 8.000000000000001e-6,
+          "area": 0.0028,
+          "com": [0.0, 0.0, 0.005],
+          "mass": 8.000000000000001e-6
+        }
+      }
+    ],
+    "actual_before_failure": {
+      "axes": {
+        "hinge_a": {
+          "endpoints_m": [
+            [0.0, 0.008808539413696862, 0.0],
+            [0.0, -0.021519327687634125, 0.0]
+          ],
+          "unit": [0.0, -1.0, 0.0]
+        },
+        "hinge_b": {
+          "endpoints_m": [
+            [-0.013802239171358574, 0.0, 0.0],
+            [0.008441059008159932, 0.0, 0.0]
+          ],
+          "unit": [1.0, 0.0, 0.0]
+        },
+        "direction": {
+          "endpoints_m": [
+            [
+              -0.00021689953431352956, -0.0005213517162165623,
+              0.0009823966473657532
+            ],
+            [0.004554890220584124, 0.010948386040547814, -0.020630329594680828]
+          ],
+          "unit": [
+            0.19141832711339932, 0.46010367736252455, -0.8669853690360579
+          ]
+        }
+      },
+      "planes": {
+        "angle_a": {
+          "origin_m": [0.0, 0.0, 0.0],
+          "normal": [0.97648311145298, 0.0, 0.2155939077226142],
+          "transform": [
+            0.0, -1.0, 0.0, 0.2155939077226142, 0.0, -0.97648311145298,
+            0.97648311145298, 0.0, 0.2155939077226142, 0.0, 0.0, 0.0, 1.0, 0.0,
+            0.0, 0.0
+          ],
+          "public_type": 7,
+          "public_type2": 11,
+          "constraints": [
+            {
+              "index": 0,
+              "constraint": 16,
+              "value_si": 0.2173,
+              "has_reference": true
+            },
+            {
+              "index": 1,
+              "constraint": 4,
+              "value_si": 0.0,
+              "has_reference": true
+            }
+          ]
+        },
+        "angle_b": {
+          "origin_m": [0.0, 0.0, 0.0],
+          "normal": [0.0, 0.8833192267056318, 0.4687719528002552],
+          "transform": [
+            1.0, 0.0, 0.0, 0.0, 0.4687719528002552, -0.8833192267056318, -0.0,
+            0.8833192267056318, 0.4687719528002552, 0.0, 0.0, 0.0, 1.0, 0.0,
+            0.0, 0.0
+          ],
+          "public_type": 7,
+          "public_type2": 11,
+          "constraints": [
+            {
+              "index": 0,
+              "constraint": 16,
+              "value_si": 0.4879,
+              "has_reference": true
+            },
+            {
+              "index": 1,
+              "constraint": 4,
+              "value_si": 0.0,
+              "has_reference": true
+            }
+          ]
+        },
+        "limit": {
+          "origin_m": [0.0, 0.0, 0.02371],
+          "normal": [0.0, 0.0, 1.0],
+          "transform": [
+            1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, -0.0, -0.0, 0.02371,
+            1.0, 0.0, 0.0, 0.0
+          ],
+          "public_type": 5,
+          "public_type2": 11,
+          "constraints": [
+            {
+              "index": 0,
+              "constraint": 8,
+              "value_si": 0.02371,
+              "has_reference": true
+            }
+          ]
+        }
+      },
+      "dimension_bindings": {
+        "angle_a": {
+          "name": "D1@TiltPlaneA",
+          "full_name": "D1@TiltPlaneA@Part1.Part",
+          "value_si": 0.2173,
+          "driving": true,
+          "editable": true,
+          "dimension_type": "swAngularDimension",
+          "owned_displays": [
+            {
+              "full_name": "D1@TiltPlaneA@Part1.Part",
+              "value_si": 0.2173,
+              "display_type": 3
+            }
+          ]
+        },
+        "angle_b": {
+          "name": "D1@TiltPlaneB",
+          "full_name": "D1@TiltPlaneB@Part1.Part",
+          "value_si": 0.4879,
+          "driving": true,
+          "editable": true,
+          "dimension_type": "swAngularDimension",
+          "owned_displays": [
+            {
+              "full_name": "D1@TiltPlaneB@Part1.Part",
+              "value_si": 0.4879,
+              "display_type": 3
+            }
+          ]
+        },
+        "limit": {
+          "name": "D1@HeightLimit",
+          "full_name": "D1@HeightLimit@Part1.Part",
+          "value_si": 0.02371,
+          "driving": true,
+          "editable": true,
+          "dimension_type": "swLinearDimension",
+          "owned_displays": [
+            {
+              "full_name": "D1@HeightLimit@Part1.Part",
+              "value_si": 0.02371,
+              "display_type": 2
+            }
+          ]
+        },
+        "radius": {
+          "name": "D1@CylinderSketch",
+          "full_name": "D1@CylinderSketch@Part1.Part",
+          "value_si": 0.00743,
+          "driving": true,
+          "editable": true,
+          "dimension_type": "swRadialDimension",
+          "owned_displays": [
+            {
+              "full_name": "D1@CylinderSketch@Part1.Part",
+              "value_si": 0.00743,
+              "display_type": 5
+            }
+          ]
+        }
+      },
+      "circle": {
+        "radius_m": 0.00743,
+        "center_local_m": [0.0, 0.0, 0.0],
+        "ordinary_circle": true,
+        "entity_binding": {
+          "kind": "arc",
+          "segment_type": 1,
+          "id": [0, 1]
+        }
+      },
+      "parents": {
+        "hinge_a": [
+          {
+            "name": "Right Plane",
+            "type": "RefPlane"
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane"
+          }
+        ],
+        "hinge_b": [
+          {
+            "name": "Top Plane",
+            "type": "RefPlane"
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane"
+          }
+        ],
+        "direction": [
+          {
+            "name": "TiltPlaneB",
+            "type": "RefPlane"
+          },
+          {
+            "name": "TiltPlaneA",
+            "type": "RefPlane"
+          }
+        ],
+        "angle_a": [
+          {
+            "name": "Right Plane",
+            "type": "RefPlane"
+          },
+          {
+            "name": "TiltHingeA",
+            "type": "RefAxis"
+          }
+        ],
+        "angle_b": [
+          {
+            "name": "Top Plane",
+            "type": "RefPlane"
+          },
+          {
+            "name": "TiltHingeB",
+            "type": "RefAxis"
+          }
+        ],
+        "limit": [
+          {
+            "name": "Front Plane",
+            "type": "RefPlane"
+          }
+        ],
+        "boss": [
+          {
+            "name": "CylinderSketch",
+            "type": "ProfileFeature"
+          },
+          {
+            "name": "Front Plane",
+            "type": "RefPlane"
+          },
+          {
+            "name": "HeightLimit",
+            "type": "RefPlane"
+          },
+          {
+            "name": "CylinderDirection",
+            "type": "RefAxis"
+          }
+        ]
+      },
+      "extrusion": {
+        "end_forward": 4,
+        "end_reverse": 0,
+        "both_directions": false,
+        "reverse_direction": false,
+        "thin": false,
+        "draft_forward": false,
+        "draft_reverse": false,
+        "reported_forward_depth_m": 0.0
+      }
+    },
+    "expected_prediction_sha256": "623ef03083a810e67eaa6ae1c7eff99f75efe59455a74549d6577a54fdd64c8b",
+    "body_count_measured": false,
+    "mass_measured": false,
+    "native_save_attempted": false,
+    "native_edits_attempted": false,
+    "source_locked": false,
+    "native_acceptance": false,
+    "kit_writer_output_count": 0
+  },
+  "observer_only_retry": {
+    "schema": "kit.sw2026.oblique-observer-retry-contract.v1",
+    "original_packet_sha256": "423856991be575744880808a71e8e9ea6f107a9aba90f53656cdcb6b425dcc88",
+    "retry_packet_sha256": "1c702425bc77dac5d5d831228650d681be4df9706e865411728be6bdbf6895b4",
+    "recipe_sha256": "ade67ccd808fe01b6e1e0a7c8e6ae2e4ec2322081a75ac9846e225e4dfdb16a3",
+    "neutral_cases_byte_identical": true,
+    "predictions_byte_identical": true,
+    "control_byte_identical": true,
+    "changed_existing_tools": [
+      "AuthorObliqueCylinder.py",
+      "ObliqueCylinderSources.py"
+    ],
+    "new_tools": ["ObliqueCylinderInvoke.py"],
+    "original_metadata_sha256": "7b9f4a4b54317d00788568f62debfeb2629f828e37ba2af0c7930201985eccc6",
+    "metadata_progress_sha256": "405911cf036b162fc95c9f60c4f78f53513c02dc710db7cc9cdf7cc303e242c3",
+    "original_author_failure_sha256": "a37ee38c396be766b8de364994d6d21913087b1372b6cf41249fedc1fc5e3c3a",
+    "host_verify_stdout_sha256": "1a1de964f22f6bb8616997a1a3d2548d4413609515709b05a19f50135d0a7b70",
+    "registered_invoke_plan_sha256": "2419c56c168e3bd4704a68b3c1ddfe33ac040b9b6405e6c50ca163e48411477e",
+    "native_calls_executed": 0,
+    "heldout_reads": 0,
+    "new_native_acceptance": false
+  },
+  "metadata_plan": {
+    "schema": "kit.sw2026.oblique-byref-plan.v1",
+    "metadata_sha256": "7b9f4a4b54317d00788568f62debfeb2629f828e37ba2af0c7930201985eccc6",
+    "tool_sha256": "e53e405220d3457e5ebf64ae4049fb02781afa26065130f96e50da653f8de39b",
+    "bindings": [
+      {
+        "name": "GetDirectionReference",
+        "member_id": 50,
+        "invoke_kind": 1,
+        "return_type": [3, 0],
+        "argument_types": [
+          [16393, 2],
+          [16387, 2],
+          [16393, 2],
+          [16387, 2]
+        ],
+        "required_input_count": 0,
+        "returned_value_count": 5
+      },
+      {
+        "name": "GetEndConditionReference",
+        "member_id": 44,
+        "invoke_kind": 1,
+        "return_type": [9, 0],
+        "argument_types": [
+          [11, 1],
+          [16387, 2]
+        ],
+        "required_input_count": 1,
+        "returned_value_count": 2
+      }
+    ],
+    "native_calls_executed": 0,
+    "native_acceptance": false
+  },
+  "process_verification": {
+    "two_registered_layout_processes_identical": true,
+    "registered_layout_sha256": "2419c56c168e3bd4704a68b3c1ddfe33ac040b9b6405e6c50ca163e48411477e",
+    "wrong_out_flags_exit_code": 1,
+    "wrong_out_flags_output_exists": false,
+    "wrong_out_flags_stderr_sha256": "e8d07760aa451e57b73eda65d0aec5c89742f75fa4e5fad78d82c75817f8f9ee"
+  },
+  "static_source_checks": [
+    {
+      "file": "AuthorObliqueCylinder.py",
+      "sha256": "86d7511303fbe0237f770610bf59a9226cf846fb265847376d3d90a4d24c4f93",
+      "ast_compile": true,
+      "comments": 0,
+      "docstrings": 0
+    },
+    {
+      "file": "ObliqueCylinderApi.py",
+      "sha256": "6f627afbc5f446f000a36d0c5a222c8cdff9676f72c14a02b396acec9fc21ed8",
+      "ast_compile": true,
+      "comments": 0,
+      "docstrings": 0
+    },
+    {
+      "file": "ObliqueCylinderSources.py",
+      "sha256": "21c822719912a1b8f913f111345ce62cb4253feead12e64faea1f94b85e96cb4",
+      "ast_compile": true,
+      "comments": 0,
+      "docstrings": 0
+    },
+    {
+      "file": "ObliqueCylinderPlan.py",
+      "sha256": "6385a0a956604fc70eb2e101e2acd38d9c91cafd1b605565ee2575e25a3461f0",
+      "ast_compile": true,
+      "comments": 0,
+      "docstrings": 0
+    },
+    {
+      "file": "ObliqueCylinderInvoke.py",
+      "sha256": "e53e405220d3457e5ebf64ae4049fb02781afa26065130f96e50da653f8de39b",
+      "ast_compile": true,
+      "comments": 0,
+      "docstrings": 0
+    }
+  ],
+  "vm_calls": 0,
+  "heldout_reads": 0,
+  "writer_outputs": 0,
+  "retry_native_result": "not-run"
+}

@@ -1,0 +1,728 @@
+{
+  "application_usable": false,
+  "cases": [
+    {
+      "all_streams_mathematical_identical": true,
+      "all_streams_prepare_identical": true,
+      "analytic_geometry": {
+        "area_m2": 0.0031320000000000002,
+        "body_count": 1,
+        "com_m": [0.0, 0.0, 0.004125],
+        "volume_m3": 8.019e-6
+      },
+      "boss_dimension_ids": [22, 23, 24, 25, 26],
+      "bytes": 8713,
+      "config_map_counter": 87,
+      "depth_m": 0.00825,
+      "dimension_ids": [19, 20],
+      "feature_count": 19,
+      "malformed": [
+        {
+          "case": "reverse_direction",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "mid_plane",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "through_all",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "inactive_configuration",
+          "diagnostic": "plain boss requires one active unmodified independent configuration",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_value",
+          "diagnostic": "rectangle driving parameters disagree with their authored endpoint distances",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_owner",
+          "diagnostic": "dimensioned rectangle requires unique owned sketch D1 D2 and boss D1 parameters",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_name",
+          "diagnostic": "dimensioned rectangle requires unique owned sketch D1 D2 and boss D1 parameters",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "missing_axis",
+          "diagnostic": "dimensioned rectangle requires four axis relations and two point distance drivers",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "duplicate_axis",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "swapped_axis",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_axis_point",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "swapped_length_owner",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "reversed_distance_endpoints",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "suppressed_relation",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "driven_relation",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "extra_relation_metadata",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_text_side",
+          "diagnostic": "rectangle dimension text must lie outside beside its dimensioned edge",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "text_outside_span",
+          "diagnostic": "rectangle dimension text must lie outside beside its dimensioned edge",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "untyped_routeflag",
+          "diagnostic": "rectangle dimension preferences require explicit booleans",
+          "exception": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "extra_metadata",
+          "diagnostic": "plain boss candidate does not admit unprojected document metadata",
+          "exception": "ValueError",
+          "rejected": true
+        }
+      ],
+      "name": "sdk dimension alpha",
+      "next_id": 27,
+      "raw_receipts": {
+        "build": {
+          "bytes": 97982,
+          "file": "alphaBuild.json",
+          "sha256": "e96c65f9ad2e4e7c38ac721b62cfebc11d4ebe8adca9653f36874e1823bd37bf"
+        },
+        "counterpart": {
+          "bytes": 2266,
+          "file": "alphaCounterpart.json",
+          "sha256": "63de96f05a46fdbd9620ca807dce8a8150365d0a793d90d79f03721d0f82e470"
+        },
+        "prepare": {
+          "bytes": 51371,
+          "file": "alphaPrepare.json",
+          "sha256": "2db4c06e8105e083d41357e6fa49e4e49e66c75443d68580e0677f36e27a8178"
+        },
+        "request": {
+          "bytes": 17770,
+          "file": "alphaRequest.json",
+          "sha256": "64082ecc6da6f30330730fb97480ffaefecb9fbc6ea3ea812c21c3fe79c8e3a3"
+        }
+      },
+      "resolved_map_counter": 224,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "cc397bb629edc2fa41b656b5ce1395e344663ef43bcbd54ea5c706174ee24124",
+      "sketch_dimensions": {
+        "actual_sketch_handles": true,
+        "annotation_ids": [10, 11],
+        "axis_relation_count": 4,
+        "conditional_wire_indices": false,
+        "constraint_reference_counts": true,
+        "constructor_solver_state_only": true,
+        "dimension_ids": [19, 20],
+        "display_count": 2,
+        "lengths_m": [0.054, 0.018000000000000002],
+        "line_reference_counts": [1, 1, 1, 1],
+        "parameter_names": ["D1", "D2"],
+        "point_reference_counts": [1, 2, 1, 0],
+        "value_count": 2
+      },
+      "slot": "alpha",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 22284,
+          "sha256": "c0a1127c592268172f81529f8e5468804f0077441debd9570daa97c119f70982"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 759,
+          "sha256": "f80354cad3a75b5e8a9620f31bd8c0713cfbe30d6178afbe57ae2d4bc2b47428"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17289,
+          "sha256": "4c970c389a875ce9c25019baa15793fed660ecdc5fd7cda6ec1aa4bbd6891005"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 759,
+          "sha256": "b835e73a83069fe9bf2244be1a3d7730f307ac455b67f408f934a3b4493d6362"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1500,
+          "sha256": "866cb789a3ee8e0e24af7ba56b1f898c72422c00e7979d7980f8fec00699fc56"
+        }
+      },
+      "vertices_m": [
+        [-0.027, -0.009000000000000001],
+        [0.027, -0.009000000000000001],
+        [0.027, 0.009000000000000001],
+        [-0.027, 0.009000000000000001]
+      ]
+    },
+    {
+      "all_streams_mathematical_identical": true,
+      "all_streams_prepare_identical": true,
+      "analytic_geometry": {
+        "area_m2": 0.003796,
+        "body_count": 1,
+        "com_m": [0.004124999999999999, -0.00775, 0.00625],
+        "volume_m3": 1.34125e-5
+      },
+      "boss_dimension_ids": [22, 23, 24, 25, 26],
+      "bytes": 8816,
+      "config_map_counter": 87,
+      "depth_m": 0.0125,
+      "dimension_ids": [19, 20],
+      "feature_count": 19,
+      "malformed": [
+        {
+          "case": "reverse_direction",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "mid_plane",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "through_all",
+          "diagnostic": "plain boss requires a single forward blind termination",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "inactive_configuration",
+          "diagnostic": "plain boss requires one active unmodified independent configuration",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_value",
+          "diagnostic": "rectangle driving parameters disagree with their authored endpoint distances",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_owner",
+          "diagnostic": "dimensioned rectangle requires unique owned sketch D1 D2 and boss D1 parameters",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_parameter_name",
+          "diagnostic": "dimensioned rectangle requires unique owned sketch D1 D2 and boss D1 parameters",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "missing_axis",
+          "diagnostic": "dimensioned rectangle requires four axis relations and two point distance drivers",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "duplicate_axis",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "swapped_axis",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_axis_point",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "swapped_length_owner",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "reversed_distance_endpoints",
+          "diagnostic": "rectangle axis and distance relations must bind their exact owned line and endpoint roles",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "suppressed_relation",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "driven_relation",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "extra_relation_metadata",
+          "diagnostic": "rectangle relations must remain active driving unextended design intent",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "wrong_text_side",
+          "diagnostic": "rectangle dimension text must lie outside beside its dimensioned edge",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "text_outside_span",
+          "diagnostic": "rectangle dimension text must lie outside beside its dimensioned edge",
+          "exception": "ValueError",
+          "rejected": true
+        },
+        {
+          "case": "untyped_routeflag",
+          "diagnostic": "rectangle dimension preferences require explicit booleans",
+          "exception": "TypeError",
+          "rejected": true
+        },
+        {
+          "case": "extra_metadata",
+          "diagnostic": "plain boss candidate does not admit unprojected document metadata",
+          "exception": "ValueError",
+          "rejected": true
+        }
+      ],
+      "name": "sdk 寸法 beta translated",
+      "next_id": 27,
+      "raw_receipts": {
+        "build": {
+          "bytes": 98401,
+          "file": "betaBuild.json",
+          "sha256": "957fac8f4d54a96a06c8fa8b9d04148c3d1754df573a761dd7919d1743d413ec"
+        },
+        "counterpart": {
+          "bytes": 2266,
+          "file": "betaCounterpart.json",
+          "sha256": "94cb3c3371039eb44e71700a7d8b5f6367601aebfef3986767c9cf38f8160523"
+        },
+        "prepare": {
+          "bytes": 51370,
+          "file": "betaPrepare.json",
+          "sha256": "c595517712dad46feb91a01d46a2c43a564ede81f2a3d5631ea3f4d2601ac7f2"
+        },
+        "request": {
+          "bytes": 17916,
+          "file": "betaRequest.json",
+          "sha256": "26c199208ff767bc36d1269a7b86d0974fdfaa9d833aabff1ccbf5a1818871d1"
+        }
+      },
+      "resolved_map_counter": 224,
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "sha256": "3a7ee12bd0f046dcd7a4f973f8190ee77106e743ff147b7257b8baf6191ced57",
+      "sketch_dimensions": {
+        "actual_sketch_handles": true,
+        "annotation_ids": [10, 11],
+        "axis_relation_count": 4,
+        "conditional_wire_indices": false,
+        "constraint_reference_counts": true,
+        "constructor_solver_state_only": true,
+        "dimension_ids": [19, 20],
+        "display_count": 2,
+        "lengths_m": [0.037, 0.028999999999999998],
+        "line_reference_counts": [1, 1, 1, 1],
+        "parameter_names": ["D1", "D2"],
+        "point_reference_counts": [1, 2, 1, 0],
+        "value_count": 2
+      },
+      "slot": "beta",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 22440,
+          "sha256": "504cb09709d7d199902ac2e68f4200b002fb03a95e1b829139808ec9265f3986"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 777,
+          "sha256": "3387207724169e0367f7b6b695ef9ac1fa0345a58aa73341496586dc71c09189"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17289,
+          "sha256": "67127435f74f5f29ac4951bd7cd7b7310b1e2d92557710359026ad4d5144ef5e"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 777,
+          "sha256": "8b031b4518c08e932c464d889efb18bb5060371840e818bcbccb9ab538cd452f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1523,
+          "sha256": "d4c77e779abb26d6f7820587d86ffb62e0d9c6b1bdf882f737606f994e63dbdf"
+        }
+      },
+      "vertices_m": [
+        [-0.014375, -0.02225],
+        [0.022625, -0.02225],
+        [0.022625, 0.00675],
+        [-0.014375, 0.00675]
+      ]
+    }
+  ],
+  "delivery_pr": 121,
+  "distinct_logical_streams": 20,
+  "heldout_acceptance": false,
+  "independent_root_integrations": {
+    "authority": "root exact frozen source replay; retained per-case process rows independently rehashed by worker",
+    "passed": true,
+    "tests": [
+      "TestRectDims",
+      "TestBlindPart",
+      "TestPolygonPart",
+      "TestPartBridge",
+      "TestPartHost"
+    ]
+  },
+  "limitations": [
+    "native dimensions and relation preservation on this exact sdk source remain unmeasured",
+    "unanchored origin Front Plane profile only",
+    "no expressions additional constraints configurations or feature families",
+    "prior research native acceptance is not transferred",
+    "raw captured native bytes are not part of this receipt or sdk synthesis"
+  ],
+  "native_acceptance": false,
+  "owner": "/root/flag_ownership",
+  "passed": true,
+  "prior_mate_byte_regression": {
+    "atomic_rejections": 20,
+    "exact_stream_comparisons": 660,
+    "guarded_workers": 122,
+    "heldout_inputs_read": 0,
+    "native_processes_started": 0,
+    "ordered_bundles": 12,
+    "passed": true,
+    "raw_directory": "SdkRectDimOrderedRegression01",
+    "raw_result_sha256": "0a8226b9044048835a661bd3c25f7c1d499d5d121f3fd96d2c20b9b22f11b50a",
+    "source_files": 4788,
+    "source_manifest_sha256": "15b44d19e0277e4c904f89d605ae1b096f8f230016d2df2e30297a349e03de0d",
+    "unchanged_historical_bundles": 12,
+    "unchanged_single_bundles": 18
+  },
+  "public_writer_qualified": false,
+  "raw_process_report": {
+    "file": "SdkRectDimRootVerify01/Proof/RectDimResults.json",
+    "sha256": "9fae9e31ce8176f3bf8f690f1a59c0a757a1fc336e42a0cd989b6f6eec7518d5"
+  },
+  "rejected_complete_requests": 40,
+  "retained_guarded_processes": 6,
+  "schema": "kit.sw2026.sdk-rectangle-dimensions-construction.v1",
+  "scope": "fresh ordinary origin Front Plane rectangle with four unary axis relations two editable point distances and a forward blind boss",
+  "source_closure": {
+    "base_revision": "e638ccee414b5f9f0272112248734b1730631cc2",
+    "file": "SdkRectDimRootVerify01/FrozenSource.json",
+    "file_count": 4788,
+    "sha256": "6a62fb72f8ea56cf0365c67b00609ca1e9c4d43ce48de6fcb323b455068b0025"
+  },
+  "source_files": [
+    {
+      "bytes": 5690,
+      "path": "re/tooling/sw2026/SdkRectDimChecks.py",
+      "sha256": "6c09fa207d08684b884408d0df6fcdcad7fc4b6048a7297089a0dd844556c68e"
+    },
+    {
+      "bytes": 5654,
+      "path": "re/tooling/sw2026/SdkRectDimCounterpart.py",
+      "sha256": "86d00782d355a0d83f9e98c9b45d261ee5e1e849dd63b1b101d05b1251a1e0b9"
+    },
+    {
+      "bytes": 13027,
+      "path": "re/tooling/sw2026/SdkRectDimPrepare.py",
+      "sha256": "94368fb4d907776fcf57c408c5a5f55ba55b53a108c506ea9fb99ffb2225addb"
+    },
+    {
+      "bytes": 5565,
+      "path": "re/tooling/sw2026/SdkRectDimProcess.py",
+      "sha256": "f5de8e589cacc9c11231107c3488f69f48245f7ecea4293fc086b96f913db018"
+    },
+    {
+      "bytes": 4027,
+      "path": "re/tooling/sw2026/SdkRectDimRejects.py",
+      "sha256": "ffe209e39fdb1a6e2453117d237ba892138b8a9d14c2d4b0ff654a140acbd23a"
+    },
+    {
+      "bytes": 664,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/ReadLinearStyle.py",
+      "sha256": "14f884b803477ed9f1b1046fb42969e8399276a941c2187c6a7ba0958caf2985"
+    },
+    {
+      "bytes": 2381,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/ReadModelLinear.py",
+      "sha256": "acf6d88753c27f1d2fb2bde3f3c4c308283bfab4a4ba3b720c0da607bc67a273"
+    },
+    {
+      "bytes": 2491,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py",
+      "sha256": "4dbdad22d6984bbc886ec7fd0f2fad8e563b741ec6eae52c77a53b17cbc434ea"
+    },
+    {
+      "bytes": 3491,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/EmitPartStreams.py",
+      "sha256": "1647f0668b174d08e44ee73b83b76d519fd78d9b22dc8180deb15be789bbc9e3"
+    },
+    {
+      "bytes": 3037,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/FinishBlindMut.py",
+      "sha256": "c85c48fae906a81e90728865b95148bd1333ab4df6c136e76a509c4b9f7285c6"
+    },
+    {
+      "bytes": 2082,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakeBlindPart.py",
+      "sha256": "b4839fa83b0c8217319ac865a62cc2711514f77a400c3947565f13ba084d969c"
+    },
+    {
+      "bytes": 2556,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartKeys.py",
+      "sha256": "b68a2696e467a30c97dc6e77ea6a5ab1b657cfd618f10f0bc7cdb50d7996610f"
+    },
+    {
+      "bytes": 1309,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakePartProfMut.py",
+      "sha256": "7d77599878b6cf08f8dd1b594cad94eb0ffe2051e035d6de81f148882642112a"
+    },
+    {
+      "bytes": 2097,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/MakeRectDimPart.py",
+      "sha256": "354eafbf6a8f9f5707ab2d4797501b330e01f1fe54e8cb68f9f4937586874cde"
+    },
+    {
+      "bytes": 2038,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/CheckRectRules.py",
+      "sha256": "c31dbe0e08c97bc02de2222a82370180f682af7b79ea09518c9e3be513837ad5"
+    },
+    {
+      "bytes": 2685,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ProjectRectDims.py",
+      "sha256": "5e182cb8f56e295e05bc93cd45b7c29b2ef4ee30ca8de17bb27669cf1d18850b"
+    },
+    {
+      "bytes": 1810,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/Part/Neutral/ReadRectParams.py",
+      "sha256": "8e8d56d4cadb770096f73750859d9da3212fa15180d5f10e44c216ed3bef4bec"
+    },
+    {
+      "bytes": 772,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/CheckRectAlloc.py",
+      "sha256": "e84d31006744fc3dc93ec885a0ce85ca93840bd3d2b232b6e1870d950d40b312"
+    },
+    {
+      "bytes": 1844,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/CheckRectRoles.py",
+      "sha256": "a6ec3aed30406074f52cd8846a64dc1192c1b3dbd25ba58c936d230487b274b4"
+    },
+    {
+      "bytes": 549,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/CheckViewArgs.py",
+      "sha256": "6add35bb486ff28df68bbcec4f925532491a822b123e12c2d5ed344fd8c77076"
+    },
+    {
+      "bytes": 387,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/DimBaseFields.py",
+      "sha256": "c720ef214b9de9ed8e0c79392bd3285c3767f29a9630b94a20b514ff4cc2c5c3"
+    },
+    {
+      "bytes": 986,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeAxisDim.py",
+      "sha256": "ea19317459571bfd085cd0032230f8f7710513b3e17f7d0a2f7c176f0b2c053d"
+    },
+    {
+      "bytes": 1100,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakePointRef.py",
+      "sha256": "4112c6663523bc765c3e8531330b467ccaaf1d74a2dafcf4b2105d9aebb47bda"
+    },
+    {
+      "bytes": 3629,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDimsMut.py",
+      "sha256": "9412247b13dd51ee511e56e88b39197636a3b979260c8e6ea8981c406d9d8512"
+    },
+    {
+      "bytes": 2610,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectDisplay.py",
+      "sha256": "e0bc3e0131afb9487bc8e29dcd6defdb92f6bba5d99d7acc434d847463606588"
+    },
+    {
+      "bytes": 937,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectKeys.py",
+      "sha256": "3467bfc04aeae60eb19aa6f52eb5e8f90f35779fbfda0b45442d603d5f34f236"
+    },
+    {
+      "bytes": 2079,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeRectValue.py",
+      "sha256": "97a3e006f3a09551695d8b9aae0f5dbfe45e22bee0af5e0ca3bb1b42de38c1e1"
+    },
+    {
+      "bytes": 1239,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/MakeSketchRef.py",
+      "sha256": "a2eb09644caa735b109c4723e23d9e1c3a31c6c4085516536fc4b335381eb5db"
+    },
+    {
+      "bytes": 2468,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/PublishRectMut.py",
+      "sha256": "0a1a92017be244bca5b7d6bfc92f8449f0f9e3aa7fa920a8c7bcb92ef4cfa7cb"
+    },
+    {
+      "bytes": 594,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadPointPair.py",
+      "sha256": "5935b99240f3559d030596871a638c8bfc6361fe0b7ddaf8a7ecab244b70d499"
+    },
+    {
+      "bytes": 2264,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadRectLengths.py",
+      "sha256": "c9192fb1636882e69cf32a2e42d8583d61da8fbe9819aba36e07cd4ab56c9106"
+    },
+    {
+      "bytes": 1753,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/ReadRectPlace.py",
+      "sha256": "23e4311023fab0fef5e46bbbdb6262c8324e2862ae0006d5a75b8f74671e77b2"
+    },
+    {
+      "bytes": 1466,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/RectDimInput.py",
+      "sha256": "a5db7073710f303639e8031f29ccc44694a6c8f487d94b7d7ee2d64ef73b4d05"
+    },
+    {
+      "bytes": 1638,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/RequireDimRows.py",
+      "sha256": "de390cdcdd95cad952934e2e7bed4268172384308b56d993aab3919b40ff0b08"
+    },
+    {
+      "bytes": 2166,
+      "path": "src/convert/adapters/solidworks/Archive/Construction/SketchDimensions/RequireSketch.py",
+      "sha256": "4b6c8abc08a75f1f535789760e3f903973a19da7e715e17ba1ae7a3e6c7ac416"
+    },
+    {
+      "bytes": 3151,
+      "path": "tests/Convert/Solidworks/Research/Construction/RectDimensions/MakeRectDimDoc.py",
+      "sha256": "2edeb4ff0bc2ab4782f0ca7ce06c50659e2d889f2231df239f269be127840a20"
+    },
+    {
+      "bytes": 1989,
+      "path": "tests/Convert/Solidworks/Research/Construction/RectDimensions/RectDimFlowTests.py",
+      "sha256": "4b67fc551fd6241340b6caa88d74156e708e1262be5bb8c3e110f8d63234303b"
+    },
+    {
+      "bytes": 1584,
+      "path": "tests/Convert/Solidworks/Research/Construction/RectDimensions/RectDimRequest.py",
+      "sha256": "799bb1457612b8f3a8494553d84f42b1116c5caca3bfbf9fcc06e7eecf106a1c"
+    },
+    {
+      "bytes": 1513,
+      "path": "tests/Convert/Solidworks/Research/Construction/RectDimensions/RunRectDimPhase.py",
+      "sha256": "7586db28f3034d99f24cf52b6c31cc53320cbb9794564a451f06d14e18248d6a"
+    }
+  ],
+  "source_manifest_sha256": "fcf6cbd5383328bcbe987c96a1e2cd6ca2b6ad008cd4a2458591f5cb7be576aa",
+  "stream_mathematical_comparisons": 20,
+  "stream_prepare_comparisons": 20,
+  "task_id": "B04-SW2026-BLIND",
+  "vendor_loadable": false,
+  "worker_execution": {
+    "cad": false,
+    "heldout_payload_reads": 0,
+    "static_only": true,
+    "tests": false,
+    "vm": false
+  }
+}

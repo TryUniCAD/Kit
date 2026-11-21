@@ -1,0 +1,35 @@
+{
+  "activity": {
+    "cad_files_opened": 0,
+    "git_mutations": 0,
+    "held_out_inputs_read": 0,
+    "proprietary_code_published": false,
+    "shared_checkout_writes": 0,
+    "vendor_code_executed": false,
+    "vm_calls": 0
+  },
+  "counts": {
+    "complete_functions_or_leaves": 4,
+    "concrete_virtual_cells": 0,
+    "direct_calls": 0,
+    "function_fragments": 4,
+    "import_identities": 2,
+    "instruction_windows": 8,
+    "original_modules": 2
+  },
+  "evidence": "original-PE metadata verification of manually reviewed conditional source rules",
+  "generated_pair_accepted": false,
+  "metadata_helper_sha256": "11e173fb6682ffcfc6bd7a0a58085ad9695fe176b0088ea8b46924a4742672c7",
+  "native_route_executed": false,
+  "record_sha256": "7ed0d4f56fa296bb1aa7a2eb586775d76777bd33b81be6b818ef11548721cd60",
+  "repository_input_observation": [
+    {
+      "matches_observed_source": true,
+      "path": "re/tooling/sw2026/materials/MaterialPe.py"
+    }
+  ],
+  "schema": 1,
+  "source_identity_passed": true,
+  "task_id": "B04-SW2026-DRAWING-EDGE-COM",
+  "verifier_sha256": "8ac15af6346a09c7f8304c01f97395eaa3695157f3dde4718fe5f3dcf12a85ab"
+}

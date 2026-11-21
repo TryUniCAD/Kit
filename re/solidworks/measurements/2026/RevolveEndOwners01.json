@@ -1,0 +1,649 @@
+{
+  "base_revision": "19e2e99aa8269dd0687e7edd332ca16671982190",
+  "cases": [
+    {
+      "angle_owners": {
+        "f18": {
+          "dimension_id": 27,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 12526,
+              "field_span": false,
+              "object_index": 267,
+              "offset": 10689,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 269,
+              "offset": 11272,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 271,
+              "offset": 11405,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 11490,
+              "field_span": false,
+              "object_index": 273,
+              "offset": 11425,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 1.714785990084429
+        },
+        "f20": null
+      },
+      "case": "EndSingle",
+      "end_owner": {
+        "class": "moRevEndSpec_c",
+        "end": 12532,
+        "field_span": false,
+        "object_index": 265,
+        "offset": 10617,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "end_words": {
+        "f08": 1,
+        "f0c": 0,
+        "f10": 0,
+        "f138": 0,
+        "f13c": 0,
+        "f140": 0,
+        "f144": 0,
+        "f38": 0.01,
+        "f40": 0.01
+      },
+      "existing_ordinary_reader": "admitted",
+      "feature": {
+        "class": "moRevolution_c",
+        "end": 12533,
+        "field_span": false,
+        "object_index": 215,
+        "offset": 9098,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "feature_legacy_display_slots": {
+        "f808": false,
+        "f810": false
+      },
+      "feature_words": {
+        "f820": 0,
+        "f824": 0,
+        "f828": 3,
+        "f870": 1,
+        "f8e8": 0
+      },
+      "link_streams_reissued_exactly": {
+        "Contents/Config-0": {
+          "bytes": 25478,
+          "map_counter": 109,
+          "sha256": "5dfd10352ac53839221ac5769348fbb3d8d5a43037dbf74472796532a0871559"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12537,
+          "map_counter": 277,
+          "sha256": "fecf418406fa30d045e0cc0c475277e2d98f28788a49ec38835783d238a8cfd6"
+        }
+      },
+      "nonangle_slots_present": {
+        "f118": false,
+        "f120": false,
+        "f128": false,
+        "f130": false,
+        "f28": false,
+        "f30": false
+      },
+      "selected_axis": {
+        "effective": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "end_mm": [
+          5.7,
+          0.0,
+          -30.099999999999998
+        ],
+        "line_index": 5,
+        "permanent_mark": 1,
+        "raw": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "start_mm": [
+          5.7,
+          0.0,
+          20.1
+        ]
+      },
+      "source_sha256": "627cbf2b12d4456e0fc17e6688c788b0f0eef65719f4e017f1357bc268724806"
+    },
+    {
+      "angle_owners": {
+        "f18": {
+          "dimension_id": 27,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 12526,
+              "field_span": false,
+              "object_index": 267,
+              "offset": 10689,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 269,
+              "offset": 11272,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 271,
+              "offset": 11405,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 11490,
+              "field_span": false,
+              "object_index": 273,
+              "offset": 11425,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 1.714785990084429
+        },
+        "f20": null
+      },
+      "case": "EndMidplane",
+      "end_owner": {
+        "class": "moRevEndSpec_c",
+        "end": 12532,
+        "field_span": false,
+        "object_index": 265,
+        "offset": 10617,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "end_words": {
+        "f08": 0,
+        "f0c": 6,
+        "f10": 0,
+        "f138": 0,
+        "f13c": 0,
+        "f140": 0,
+        "f144": 0,
+        "f38": 0.01,
+        "f40": 0.01
+      },
+      "existing_ordinary_reader": "ordinary revolve requires one active blind angular owner",
+      "feature": {
+        "class": "moRevolution_c",
+        "end": 12533,
+        "field_span": false,
+        "object_index": 215,
+        "offset": 9098,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "feature_legacy_display_slots": {
+        "f808": false,
+        "f810": false
+      },
+      "feature_words": {
+        "f820": 0,
+        "f824": 0,
+        "f828": 3,
+        "f870": 1,
+        "f8e8": 0
+      },
+      "link_streams_reissued_exactly": {
+        "Contents/Config-0": {
+          "bytes": 25478,
+          "map_counter": 109,
+          "sha256": "511da9719a9f2f7237ccae941ff5761a0bf55d8be3b127de7858a0d8a0bc569a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12537,
+          "map_counter": 277,
+          "sha256": "a4e4ea7c43bdb0f8bcfcac36700530b3ff867df5eb14f1a7f1dc0eadf3102785"
+        }
+      },
+      "nonangle_slots_present": {
+        "f118": false,
+        "f120": false,
+        "f128": false,
+        "f130": false,
+        "f28": false,
+        "f30": false
+      },
+      "selected_axis": {
+        "effective": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "end_mm": [
+          5.7,
+          0.0,
+          -30.099999999999998
+        ],
+        "line_index": 5,
+        "permanent_mark": 1,
+        "raw": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "start_mm": [
+          5.7,
+          0.0,
+          20.1
+        ]
+      },
+      "source_sha256": "c1908384a73d6d5a5027bfa865849da9b0f007a3f5fdd84096120ef02675f678"
+    },
+    {
+      "angle_owners": {
+        "f18": {
+          "dimension_id": 27,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 12526,
+              "field_span": false,
+              "object_index": 267,
+              "offset": 10689,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 269,
+              "offset": 11272,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 11699,
+              "field_span": false,
+              "object_index": 271,
+              "offset": 11405,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 11490,
+              "field_span": false,
+              "object_index": 273,
+              "offset": 11425,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 1.714785990084429
+        },
+        "f20": {
+          "dimension_id": 28,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 14256,
+              "field_span": false,
+              "object_index": 277,
+              "offset": 12526,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13451,
+              "field_span": false,
+              "object_index": 278,
+              "offset": 13084,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 13451,
+              "field_span": false,
+              "object_index": 279,
+              "offset": 13193,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 13242,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 13199,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 0.7592182246175333
+        }
+      },
+      "case": "EndTwo",
+      "end_owner": {
+        "class": "moRevEndSpec_c",
+        "end": 14260,
+        "field_span": false,
+        "object_index": 265,
+        "offset": 10617,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "end_words": {
+        "f08": 0,
+        "f0c": 0,
+        "f10": 0,
+        "f138": 0,
+        "f13c": 0,
+        "f140": 0,
+        "f144": 0,
+        "f38": 0.01,
+        "f40": 0.01
+      },
+      "existing_ordinary_reader": "ordinary revolve requires one active blind angular owner",
+      "feature": {
+        "class": "moRevolution_c",
+        "end": 14261,
+        "field_span": false,
+        "object_index": 215,
+        "offset": 9098,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "feature_legacy_display_slots": {
+        "f808": false,
+        "f810": false
+      },
+      "feature_words": {
+        "f820": 0,
+        "f824": 0,
+        "f828": 3,
+        "f870": 1,
+        "f8e8": 0
+      },
+      "link_streams_reissued_exactly": {
+        "Contents/Config-0": {
+          "bytes": 25478,
+          "map_counter": 109,
+          "sha256": "510a46fcd4892762c0e12a19f371fafa349686d6ca7ed4faea31f52daf128a94"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14265,
+          "map_counter": 283,
+          "sha256": "ee8e593f87287d038dd26a2cbd18ad5448b46375c28dcf8bfcda10fcf028ef84"
+        }
+      },
+      "nonangle_slots_present": {
+        "f118": false,
+        "f120": false,
+        "f128": false,
+        "f130": false,
+        "f28": false,
+        "f30": false
+      },
+      "selected_axis": {
+        "effective": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "end_mm": [
+          5.7,
+          0.0,
+          -30.099999999999998
+        ],
+        "line_index": 5,
+        "permanent_mark": 1,
+        "raw": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "start_mm": [
+          5.7,
+          0.0,
+          20.1
+        ]
+      },
+      "source_sha256": "35655a2a861a7a0d2d5c276fec996da8b5bb6c5cd23681d21421a19a5f319df5"
+    },
+    {
+      "angle_owners": {
+        "f18": {
+          "dimension_id": 27,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D1",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 12454,
+              "field_span": false,
+              "object_index": 267,
+              "offset": 10689,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 11627,
+              "field_span": false,
+              "object_index": 269,
+              "offset": 11272,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 11627,
+              "field_span": false,
+              "object_index": 271,
+              "offset": 11405,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 11490,
+              "field_span": false,
+              "object_index": 273,
+              "offset": 11425,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 1.714785990084429
+        },
+        "f20": {
+          "dimension_id": 28,
+          "dimension_mode_words": {
+            "f30": 0,
+            "f54": 0
+          },
+          "name": "D2",
+          "owners": [
+            {
+              "class": "moDisplayAngularDim_c",
+              "end": 14112,
+              "field_span": false,
+              "object_index": 277,
+              "offset": 12454,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moFeatureDimHandle_c",
+              "end": 13307,
+              "field_span": false,
+              "object_index": 278,
+              "offset": 13012,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "AngleDim_c",
+              "end": 13307,
+              "field_span": false,
+              "object_index": 279,
+              "offset": 13121,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            },
+            {
+              "class": "moAngleParameter_c",
+              "end": 13170,
+              "field_span": false,
+              "object_index": 280,
+              "offset": 13127,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          ],
+          "radians": 0.7592182246175333
+        }
+      },
+      "case": "EndTwoReverse",
+      "end_owner": {
+        "class": "moRevEndSpec_c",
+        "end": 14116,
+        "field_span": false,
+        "object_index": 265,
+        "offset": 10617,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "end_words": {
+        "f08": 0,
+        "f0c": 0,
+        "f10": 0,
+        "f138": 0,
+        "f13c": 0,
+        "f140": 0,
+        "f144": 0,
+        "f38": 0.01,
+        "f40": 0.01
+      },
+      "existing_ordinary_reader": "ordinary revolve requires one active blind angular owner",
+      "feature": {
+        "class": "moRevolution_c",
+        "end": 14117,
+        "field_span": false,
+        "object_index": 215,
+        "offset": 9098,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "feature_legacy_display_slots": {
+        "f808": false,
+        "f810": false
+      },
+      "feature_words": {
+        "f820": 0,
+        "f824": 1,
+        "f828": 3,
+        "f870": 1,
+        "f8e8": 0
+      },
+      "link_streams_reissued_exactly": {
+        "Contents/Config-0": {
+          "bytes": 25408,
+          "map_counter": 109,
+          "sha256": "876e4bf4da138536b48539407e7ee292b4c35b6098fb30a6ac1c40ceaa160b18"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14121,
+          "map_counter": 283,
+          "sha256": "9a246413eac7f1bd0591a4a7bd2808d419a47a9e73d60805256ecc75ffc72867"
+        }
+      },
+      "nonangle_slots_present": {
+        "f118": false,
+        "f120": false,
+        "f128": false,
+        "f130": false,
+        "f28": false,
+        "f30": false
+      },
+      "selected_axis": {
+        "effective": [
+          -0.0,
+          -0.0,
+          1.0
+        ],
+        "end_mm": [
+          5.7,
+          0.0,
+          -30.099999999999998
+        ],
+        "line_index": 5,
+        "permanent_mark": 1,
+        "raw": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "start_mm": [
+          5.7,
+          0.0,
+          20.1
+        ]
+      },
+      "source_sha256": "d947b0b56aa975e3668eb541c2e8fb83aa3127e53a25f1ec4f4e0a31fb3b6509"
+    }
+  ],
+  "disclosed_source_names": [
+    "EndSingle",
+    "EndMidplane",
+    "EndTwo",
+    "EndTwoReverse"
+  ],
+  "exact_linked_stream_comparisons": 16,
+  "guarded_fresh_processes": 8,
+  "guarded_worker_output_sha256": "90fbf64b53954319a27f314989af557515653956adede10b3f47bcf79e5f2284",
+  "heldout_sources_read": 0,
+  "historical_constructor_and_previous_release_values_used": false,
+  "identical_repeat_outputs": true,
+  "new_native_processes_by_this_reader_audit": 0,
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "owning_file_sha256": {
+    "re/tooling/sw2026/revolve/EndModes/AuditRevEndOwners.py": "e0489821997bb0a41868a3435686577a169afc65b09468693c91fb6f64e284e3",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Resolved/RevolveFields.py": "ce7c1e74007551235cd158e40d7395638ddce6d3ffbf3832cf1ecce701b9a6bc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevAngle.py": "9e4e76ab643d0672db6edeab32e176c1357a4c9ddd38b54ba97dd1d2136b4b76",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevFrame.py": "b9fa53f3c1708234322dcec96b6bee8afc42efd0fb1db3b745ace9b5a2ed4e46",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Revolves/ReadRevolve.py": "028910bb0e4b16b9ab957616093fdb4acf7a32ec4a9df94f0cf4afc7a08e1bdc"
+  },
+  "qualification": "physical typed decoding and exact read/reissue only",
+  "runtime_external_access_attempts": 0,
+  "schema": "kit.sw2026.ordinary-revolve-end-owner-audit.v1",
+  "scope": "four explicitly disclosed matching Top-plane ordinary boss revolves",
+  "sdk_source_tree": "73c9b51c21a96d6978abbcc6a3d8a285281acc11",
+  "source_hashes_reverified": true
+}

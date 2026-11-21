@@ -1,4 +1,7 @@
 from xml.etree.ElementTree import Element, SubElement
+from convert.adapters.solidworks.Archive.Construction.Metadata.CheckRevKeys import (
+    CheckRevKeys,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature import (
     KeywordFeature,
 )
@@ -38,21 +41,7 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
         raise ValueError(
             "ordinary cut keyword permits no driver or its actual single D1 dimension"
         )
-    if InputValue.KindValue == "Revolve" and (
-        InputValue.TagValue != "Feature"
-        or tuple(
-            (DimValue.NameValue, DimValue.UnitValue)
-            for DimValue in InputValue.DimensionValues
-        )
-        != (("D1", "degree"),)
-    ):
-        raise ValueError(
-            "ordinary revolve keyword requires its single D1 degree driver"
-        )
+    CheckRevKeys(InputValue)
     FeatureValue = SubElement(RootValue, InputValue.TagValue, Attributes)
     for DimValue in InputValue.DimensionValues:
-        if DimValue.UnitValue is not None and InputValue.KindValue != "Revolve":
-            raise ValueError(
-                "keyword degree suffix requires an ordinary revolve feature"
-            )
         MakeKeyDimMut(FeatureValue, DimValue)

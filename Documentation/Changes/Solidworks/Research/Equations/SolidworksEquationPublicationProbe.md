@@ -1,0 +1,5 @@
+# SOLIDWORKS equation publication probe
+
+Adds a narrow source-author retry after the first global Add2 call returned -1 before the observer read manager state. The successor retains the exact original call arguments and records actual count, row text, global/enabled ownership and status immediately and after evaluation. Original geometry, live edit, tree, save/reopen, pristine controls and preference restoration remain mandatory.
+
+The [record](../../../../../re/solidworks/records/EquationAdd2Publication2026.md) and [failure receipt](../../../../../re/solidworks/measurements/2026/EquationAdd2FirstFailure01.json) preserve the failed author and its two healthy controls. Five host process gates pass; no successor native result or writer acceptance is claimed. Use the freezer with an exact base and an unused external root, then let the sole oracle owner run its structured recipe. See the [post-call state gotcha](../../../../Gotchas/Conversion/Solidworks/Oracle/Equations/EquationInsertionNeedsPostCallState.md).

@@ -1,0 +1,183 @@
+{
+  "schema": "kit.sw2026.width-depth-same-locator-native.v1",
+  "writer_revision": "1b70d67b854814cb5066f44028439c43f2b4a632",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "frozen_trial_sha256": "da6021c5bcd50e3da7649c3c8b41d58c3ba7685d61284ca4e3b8dd1dc5478f8b",
+  "frozen_recipe_sha256": "07f3d76572f3c35d6b570caf21eb1c53c9124735b9225bc15a0b0d0f2a6ade93",
+  "frozen_build_sha256": "18cb298e29612de18cba9b19edcfc77f87aed0f5aa4d2ff3ad67590333a13994",
+  "native_result_sha256": "1bc515ac5352d148bb5d53a3a6865a6bf247458691f420e152ccf0785a8edd84",
+  "encoded_locator": "C:\\KitSdkCandidates\\WidthDepthSameLocator02.SLDPRT",
+  "equation_delta_streams": [
+    "Contents/Config-0",
+    "Contents/Config-0-ResolvedFeatures"
+  ],
+  "runtime_input_file_reads": 0,
+  "controls_healthy": true,
+  "native_processes": 6,
+  "candidate_numeric_checks": 170,
+  "control_numeric_checks": 18,
+  "heldout_acceptance": false,
+  "first_packet": {
+    "native_result_sha256": "844067ee283488a69f3a9ad1056b4487e5c5b7387d1521a31f2b38157690964e",
+    "controls_healthy": true,
+    "plain_edit_saved": true,
+    "plain_reopen_open_status": [
+      0,
+      0
+    ],
+    "completed_initial_reopen_numeric_checks": 17,
+    "equal_relation_rows_in_json": 7,
+    "reference_phases_started": 0
+  },
+  "control_receipts": {
+    "ControlBefore": "475588ccc012609e8cd3e19f55f85c00c5dec1803932bc734256d7af6c88cdf9",
+    "ControlAfter": "2c4d409cc7309a932f87a0f9d47f8a2732d84a5b2cd3d833a6aa33d3d6124aa0"
+  },
+  "arms": {
+    "Plain": {
+      "generated_sha256": "3b07ce7717313562b6ac3cc91b0d479d59f4e735d64d393d5848e438592317b9",
+      "saved_sha256": "c56057700a597bf885d8b43fad2660372c3566125a41fa7d307f3000637efc5e",
+      "edit_and_reopen_numeric_checks": 85,
+      "relation_rows_preserved": 7,
+      "record_sha256": {
+        "Edit": "fd0f08f0c69b25a6dd8832f8326f27b22bf8545f2f489cdde752b8af99779e66",
+        "Reopen": "aa0e3b76ac9b96d9ac6fb13947558f74fd3851d0df36fd7dafcb85f6e8dca9c4"
+      },
+      "states": {
+        "edited": {
+          "depth_m": 0.0195625,
+          "width_m": 0.047875,
+          "depth_is_driving": true,
+          "body_count": 1,
+          "equations": [],
+          "mass_properties": {
+            "area": 0.0042165625,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.00978125
+            ],
+            "mass": 1.6272637695312503e-05,
+            "volume": 1.6272637695312503e-05
+          }
+        },
+        "fresh_reopen": {
+          "depth_m": 0.0195625,
+          "width_m": 0.047875,
+          "depth_is_driving": true,
+          "body_count": 1,
+          "equations": [],
+          "mass_properties": {
+            "area": 0.0042165625,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.00978125
+            ],
+            "mass": 1.6272637695312503e-05,
+            "volume": 1.6272637695312503e-05
+          }
+        },
+        "fresh_rebuild": {
+          "depth_m": 0.0195625,
+          "width_m": 0.047875,
+          "depth_is_driving": true,
+          "body_count": 1,
+          "equations": [],
+          "mass_properties": {
+            "area": 0.0042165625,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.00978125
+            ],
+            "mass": 1.6272637695312503e-05,
+            "volume": 1.6272637695312503e-05
+          }
+        }
+      }
+    },
+    "Reference": {
+      "generated_sha256": "214935d57e37c22eee826ccdb20625a3038560b171e4d0e2abf63a83fd1cc9b8",
+      "saved_sha256": "0c381bd6bb08b18e821a938731faca4608218959d9955c2516313550566a48af",
+      "edit_and_reopen_numeric_checks": 85,
+      "relation_rows_preserved": 7,
+      "record_sha256": {
+        "Edit": "aa24e756e262e4c9e78b64e3913926727d4578019b4ffca09ca88e9074537dfc",
+        "Reopen": "7fb0e8a06994d9a465241b2ca360a6b49a520943608ca222fe13f18f63430fc5"
+      },
+      "states": {
+        "edited": {
+          "depth_m": 0.0239375,
+          "width_m": 0.047875,
+          "depth_is_driving": false,
+          "body_count": 1,
+          "equations": [
+            {
+              "disabled": false,
+              "global_variable": false,
+              "text": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2"
+            }
+          ],
+          "mass_properties": {
+            "area": 0.0047875,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.01196875
+            ],
+            "mass": 1.9911885742187508e-05,
+            "volume": 1.9911885742187508e-05
+          }
+        },
+        "fresh_reopen": {
+          "depth_m": 0.0239375,
+          "width_m": 0.047875,
+          "depth_is_driving": false,
+          "body_count": 1,
+          "equations": [
+            {
+              "disabled": false,
+              "global_variable": false,
+              "text": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2"
+            }
+          ],
+          "mass_properties": {
+            "area": 0.0047875,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.01196875
+            ],
+            "mass": 1.9911885742187508e-05,
+            "volume": 1.9911885742187508e-05
+          }
+        },
+        "fresh_rebuild": {
+          "depth_m": 0.0239375,
+          "width_m": 0.047875,
+          "depth_is_driving": false,
+          "body_count": 1,
+          "equations": [
+            {
+              "disabled": false,
+              "global_variable": false,
+              "text": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2"
+            }
+          ],
+          "mass_properties": {
+            "area": 0.0047875,
+            "com": [
+              0.0239375,
+              0.0086875,
+              0.01196875
+            ],
+            "mass": 1.9911885742187508e-05,
+            "volume": 1.9911885742187508e-05
+          }
+        }
+      }
+    }
+  }
+}

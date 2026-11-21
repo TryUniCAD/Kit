@@ -10,8 +10,6 @@ def ReadVirtualMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
         FrameValue.ContextValue, FrameValue.NodeValue, RuleValue
     )
     if RuleValue.ModeValue == "Flag":
-        if type(TargetValue) is not bool:
-            raise BodyUnsupported("native body virtual flag requires a boolean target")
         if TargetValue:
             FrameValue.FieldsReader(FrameValue, RuleValue.BodyValue)
         return

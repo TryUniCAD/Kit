@@ -1,0 +1,194 @@
+{
+  "schema": "kit.sw2026.generated-corner-anchor-native-discovery-receipt.v1",
+  "writer_revision": "d67f52ba639fd4f715a69b69a0d5e160602c4886",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "candidate_sha256": "2327958585cd978733cbc0b099eb48ed93ab473d1738b98e019b819a20f94681",
+  "source_reopen_record_sha256": "c122fca405cedba582a87207176bfa22e9b879908bd5bf40760fdd4e28240b4d",
+  "candidate_bytes": 8289,
+  "source_manifest_sha256": "d676d1f33fe553d1f01b3e602b9862337dcbe2be2962e30ec8b37dbbb33a531f",
+  "writer_receipt_sha256": "aeff2e38090ce1cba0eb0e063bff2adc456abd302e9644084a311860ede6550e",
+  "observer_sha256": "9e0ba9035043fdc0859dd00eab2658136b48f671a4f7669b450d016ae64dda0f",
+  "registered_job_sha256": "0a5e4e3a2e480de74f8a9174e3faba9a91ec147a1216644119774219f1a76478",
+  "guest_result_sha256": "55d8c510f0073cef2d4ae3c39ecbcf6059f0265688df7a9c47efe18189836705",
+  "host_transport_sha256": "7027c8114926c01527763d97ead792dc8f885b3407b515ef63a5b7536456af38",
+  "phases": [
+    {
+      "phase": "ControlBefore",
+      "sha256": "8590f40d233d5aa20fa07badb51e0d9cc8d1c6cc9c72c40ed962b6b7a73b81a0",
+      "process_creation_filetime": 134394239100738595,
+      "passed": true,
+      "numeric_checks": 0
+    },
+    {
+      "phase": "Original",
+      "sha256": "422a744893f4392ae6979c8d12d8806a3e36c0d6b2c869b51ed8322a3104b998",
+      "process_creation_filetime": 134394239344541286,
+      "passed": true,
+      "numeric_checks": 33
+    },
+    {
+      "phase": "WidthEdit",
+      "sha256": "e19e0c18f8c21c67ceeefa115167cdd43d9021f8fe9bfe10ecb1252a838b2ec9",
+      "process_creation_filetime": 134394239599708740,
+      "passed": true,
+      "numeric_checks": 33,
+      "save": {
+        "sha256": "3b2e60141d4d9cf3df713ca73e2ca7fc36cebeeec328ebd601e8088501531948",
+        "bytes": 58432,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "HeightEdit",
+      "sha256": "c0e3fb906276e0a27eb684745ede4a60ca4b3d42dc59449faced7129dc76aedb",
+      "process_creation_filetime": 134394239876846140,
+      "passed": true,
+      "numeric_checks": 33,
+      "save": {
+        "sha256": "f9baf939704fb8c90ae60426b4f2fe6a1830c5fb511a644295da8e0e1bf78cf4",
+        "bytes": 60381,
+        "status": [
+          true,
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "phase": "Reopen",
+      "sha256": "f4dac1cdcbc457bf4a43385fdb7b8392bf16c1b2057a3f2b302b7befda1d5dac",
+      "process_creation_filetime": 134394240125993233,
+      "passed": true,
+      "numeric_checks": 66
+    },
+    {
+      "phase": "ControlAfter",
+      "sha256": "43060889c4b76e6266412ad5f8c92c8f4ef53948cfb894d0ca458d49c3da4676",
+      "process_creation_filetime": 134394240440891820,
+      "passed": true,
+      "numeric_checks": 0
+    }
+  ],
+  "distinct_native_processes": 6,
+  "native_states": [
+    {
+      "phase": "Original",
+      "role": "Original",
+      "tree_rows": 25,
+      "relations": 7,
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.03173,
+        "D2@AnchorSketch": 0.01827,
+        "D1@AnchorBoss": 0.00741
+      },
+      "geometry_checked": true,
+      "volume_m3": 4.295629611000001e-06,
+      "area_m2": 0.0019004142,
+      "center_m": [
+        0.015865,
+        0.009135,
+        0.003705
+      ],
+      "body_count": 1
+    },
+    {
+      "phase": "WidthEdit",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "relations": 7,
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.04231,
+        "D2@AnchorSketch": 0.01827,
+        "D1@AnchorBoss": 0.00741
+      },
+      "geometry_checked": true,
+      "volume_m3": 5.727957417e-06,
+      "area_m2": 0.0024438030000000005,
+      "center_m": [
+        0.021155000000000004,
+        0.009135,
+        0.003705
+      ],
+      "body_count": 1
+    },
+    {
+      "phase": "HeightEdit",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "relations": 7,
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.03173,
+        "D2@AnchorSketch": 0.01193,
+        "D1@AnchorBoss": 0.00741
+      },
+      "geometry_checked": true,
+      "volume_m3": 2.804973249e-06,
+      "area_m2": 0.001404119,
+      "center_m": [
+        0.015865,
+        0.005965,
+        0.003705
+      ],
+      "body_count": 1
+    },
+    {
+      "phase": "Reopen",
+      "role": "WidthEdit",
+      "tree_rows": 25,
+      "relations": 7,
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.04231,
+        "D2@AnchorSketch": 0.01827,
+        "D1@AnchorBoss": 0.00741
+      },
+      "geometry_checked": true,
+      "volume_m3": 5.727957417e-06,
+      "area_m2": 0.0024438030000000005,
+      "center_m": [
+        0.021155000000000004,
+        0.009135,
+        0.003705
+      ],
+      "body_count": 1
+    },
+    {
+      "phase": "Reopen",
+      "role": "HeightEdit",
+      "tree_rows": 25,
+      "relations": 7,
+      "constraint_status": 3,
+      "dimensions_m": {
+        "D1@AnchorSketch": 0.03173,
+        "D2@AnchorSketch": 0.01193,
+        "D1@AnchorBoss": 0.00741
+      },
+      "geometry_checked": true,
+      "volume_m3": 2.804973249e-06,
+      "area_m2": 0.001404119,
+      "center_m": [
+        0.015865,
+        0.005965,
+        0.003705
+      ],
+      "body_count": 1
+    }
+  ],
+  "numeric_comparisons": 165,
+  "controls_healthy": true,
+  "native_constraint_and_tree_parity": true,
+  "driving_edits_and_saved_geometry_pass": true,
+  "immutable_inputs": true,
+  "terminal_phase_records_rehashed": true,
+  "passed": true,
+  "heldout_acceptance": false,
+  "public_writer_qualified": false
+}

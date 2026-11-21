@@ -20,12 +20,14 @@ def BindRuleRefsMut(
     Dimension: NativeDimension | None,
     Dimensions: Sequence[NativeDimension],
 ) -> tuple[list[RuleRef], str]:
-    ResolvedRefs = [RefMap.get(RefValue) for RefValue in RuleValue.references]
-    References = (
-        [RuleRef(Resolved) for Resolved in ResolvedRefs if Resolved is not None]
-        if ResolvedRefs and all(ResolvedRefs)
-        else []
-    )
+    Points = RuleValue.reference_points or ("",) * len(RuleValue.references)
+    References: list[RuleRef] = []
+    for NativeRef, PointName in zip(RuleValue.references, Points, strict=True):
+        Resolved = RefMap.get(NativeRef)
+        if not Resolved:
+            References.clear()
+            break
+        References.append(RuleRef(Resolved, PointName))
     KindValue = RuleValue.kind
     Radial = Dimension is not None and Dimension.kind in {"diameter", "radius"}
     if not References and Radial and Dimension is not None and len(Dimensions) == 1:

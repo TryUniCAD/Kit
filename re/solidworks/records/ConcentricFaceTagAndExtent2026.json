@@ -1,0 +1,867 @@
+{
+  "acceptance": {
+    "application_usable": false,
+    "heldout_writer_qualification": false,
+    "native_fresh_writer_qualification": false,
+    "vendor_loadable": false
+  },
+  "class_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "delivery_pr": 121,
+  "direct_calls": [
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bc1166a",
+      "sha256": "a8f35e7c03b8b45ecc3a5428011c449a7c21e46574c0a4eb02e93877241655b6",
+      "start": "0x4bc11665",
+      "target": "0x4b748310"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bc1294e",
+      "sha256": "d4739ade60693d306f02428bea143b7bec28f32f43841aab3e57819e5a604176",
+      "start": "0x4bc12949",
+      "target": "0x4bc11630"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bc12a94",
+      "sha256": "1ad7f24a73409a7cf21de038d9055a43679154629b8d55d4e1d25a794dd7b58f",
+      "start": "0x4bc12a8f",
+      "target": "0x4bc11630"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bc119ca",
+      "sha256": "2bd8a6a2409453b58fc13944555f5a747454442bc34417e22d61c23099197b2f",
+      "start": "0x4bc119c5",
+      "target": "0x4bc12cc0"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4bba966e",
+      "sha256": "435bda5895e3e509c80a52292ceeb25fc9eb7a8f6be63a77fb14872d30de5d9a",
+      "start": "0x4bba9669",
+      "target": "0x4bba3780"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c3073eb",
+      "sha256": "585a8a9f61b5bb6b81a020a10d8126d0669d149112d031889f7e3f9b79e17334",
+      "start": "0x4c3073e6",
+      "target": "0x4c308370"
+    },
+    {
+      "bound": "complete direct-call instruction",
+      "bytes": 5,
+      "end_exclusive": "0x4c325bd6",
+      "sha256": "73377e2e2ad15625ac1dcea99849801989ce039a07dc85ad4ff9cfd91f214772",
+      "start": "0x4c325bd1",
+      "target": "0x4c313b70"
+    }
+  ],
+  "disclosed_corroboration": {
+    "body_match_plus_32_is_not_a_rule": true,
+    "endpoint_count": 12,
+    "root_cap_order_sha256": "6eded807678ef6549608cec4b331cb00305a52b2d7aaa3f882a8668463fdaf42",
+    "root_face_tag_correlation_sha256": "8b02d46eb0bcdf568980236c488e0bd90b64fedb3a3e5f3ce3d2b1140bbed2d3",
+    "root_reports_independently_rehashed": true,
+    "rows": [
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D01",
+        "last_resolved_face_tag": 735,
+        "ordinal": 0,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D01",
+        "last_resolved_face_tag": 735,
+        "ordinal": 1,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D01",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 0,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D01",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 1,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D02",
+        "last_resolved_face_tag": 735,
+        "ordinal": 0,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D02",
+        "last_resolved_face_tag": 735,
+        "ordinal": 1,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D02",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 0,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D02",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 1,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D03",
+        "last_resolved_face_tag": 735,
+        "ordinal": 0,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D03",
+        "last_resolved_face_tag": 735,
+        "ordinal": 1,
+        "state": "source",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D03",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 0,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      },
+      {
+        "active_axial_root_is_zero": true,
+        "active_second_extent_positive": true,
+        "active_secondary_pair_matches_constructor": true,
+        "case": "D03",
+        "last_resolved_face_tag": 1505,
+        "ordinal": 1,
+        "state": "edited",
+        "support_full_tuple_matches_constructor": true
+      }
+    ],
+    "saved_values_are_evidence_only": true,
+    "source_graph_sha256": "5a28338afa61c3b71daa0059970321e8134b3ace275ebc6f3f36dac0fef8ce4b"
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 228,
+      "end_exclusive": "0x4b7483f4",
+      "module": "sldmodu.dll",
+      "name": "moBEntRef_c empty constructor",
+      "sha256": "bb5173015c86225fe1dcee5fc99b68fde6dd49263e58be93dd4fc183a1d1ef1d",
+      "start": "0x4b748310",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 228,
+          "end_exclusive": "0x4b7483f4",
+          "sha256": "bb5173015c86225fe1dcee5fc99b68fde6dd49263e58be93dd4fc183a1d1ef1d",
+          "start": "0x4b748310",
+          "unwind_rva": "0x22f9338"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1354,
+      "end_exclusive": "0x4bc11b7a",
+      "module": "sldmodu.dll",
+      "name": "moFaceRef_c face/model constructor",
+      "sha256": "f4fe06578f5718023183b48434090563c7beb771d749693842570bd869a32fbf",
+      "start": "0x4bc11630",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1354,
+          "end_exclusive": "0x4bc11b7a",
+          "sha256": "f4fe06578f5718023183b48434090563c7beb771d749693842570bd869a32fbf",
+          "start": "0x4bc11630",
+          "unwind_rva": "0x23a62f8"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 467,
+      "end_exclusive": "0x4bc12ac3",
+      "module": "sldmodu.dll",
+      "name": "moFaceRef_c::get",
+      "sha256": "c0c0833b9eee8f62c9bfd80cf48c5190bb38164a6efff03920b0e2486bb50095",
+      "start": "0x4bc128f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 467,
+          "end_exclusive": "0x4bc12ac3",
+          "sha256": "c0c0833b9eee8f62c9bfd80cf48c5190bb38164a6efff03920b0e2486bb50095",
+          "start": "0x4bc128f0",
+          "unwind_rva": "0x23a5f94"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 382,
+      "end_exclusive": "0x4bc12cbe",
+      "module": "sldmodu.dll",
+      "name": "moFaceRef_c::getFace2",
+      "sha256": "c4b2efd1248596f4480be6b3b96c772717c9056f3a0f3e468c5f0c67dc6fbdbe",
+      "start": "0x4bc12b40",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 382,
+          "end_exclusive": "0x4bc12cbe",
+          "sha256": "c4b2efd1248596f4480be6b3b96c772717c9056f3a0f3e468c5f0c67dc6fbdbe",
+          "start": "0x4bc12b40",
+          "unwind_rva": "0x23a6184"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2653,
+      "end_exclusive": "0x4bc1371d",
+      "module": "sldmodu.dll",
+      "name": "ordinary extended face resolver reached by the constructor",
+      "sha256": "7904ed5c2cf96e9e70c2d6c03f588af24d9946d169e215abdabd211a27c5536a",
+      "start": "0x4bc12cc0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2653,
+          "end_exclusive": "0x4bc1371d",
+          "sha256": "7904ed5c2cf96e9e70c2d6c03f588af24d9946d169e215abdabd211a27c5536a",
+          "start": "0x4bc12cc0",
+          "unwind_rva": "0x23a602c"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 2671,
+      "end_exclusive": "0x4bba41ef",
+      "module": "sldmodu.dll",
+      "name": "moBEntRef_c::Serialize",
+      "sha256": "e5491d90050bf64fd704e55ddf869319cc680b69a3a3559bb7e3d8827ff90c07",
+      "start": "0x4bba3780",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 2671,
+          "end_exclusive": "0x4bba41ef",
+          "sha256": "e5491d90050bf64fd704e55ddf869319cc680b69a3a3559bb7e3d8827ff90c07",
+          "start": "0x4bba3780",
+          "unwind_rva": "0x2395564"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 529,
+      "end_exclusive": "0x4bba9851",
+      "module": "sldmodu.dll",
+      "name": "moFaceRef_c::Serialize",
+      "sha256": "5095ea73d605c6d0c0caa5c020a5a0ea7027ac8414f80f29db0a412100197b4d",
+      "start": "0x4bba9640",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 529,
+          "end_exclusive": "0x4bba9851",
+          "sha256": "5095ea73d605c6d0c0caa5c020a5a0ea7027ac8414f80f29db0a412100197b4d",
+          "start": "0x4bba9640",
+          "unwind_rva": "0x23955bc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 380,
+      "end_exclusive": "0x4c27994c",
+      "module": "sldmodu.dll",
+      "name": "moSurfaceRef_w::Serialize",
+      "sha256": "0c232ded7e8488beeb43b932066ec6bfe0e8480fa73ff073f9023b280081393b",
+      "start": "0x4c2797d0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 380,
+          "end_exclusive": "0x4c27994c",
+          "sha256": "0c232ded7e8488beeb43b932066ec6bfe0e8480fa73ff073f9023b280081393b",
+          "start": "0x4c2797d0",
+          "unwind_rva": "0x2256c40"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 306,
+      "end_exclusive": "0x4c3074f2",
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w owner-taking constructor",
+      "sha256": "37418df91dcf7204d85eaca7c6e53fa1d4fa5fd4f69b61b619a021c02637514c",
+      "start": "0x4c3073c0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 306,
+          "end_exclusive": "0x4c3074f2",
+          "sha256": "37418df91dcf7204d85eaca7c6e53fa1d4fa5fd4f69b61b619a021c02637514c",
+          "start": "0x4c3073c0",
+          "unwind_rva": "0x24a8714"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 228,
+      "end_exclusive": "0x4c325c64",
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w update target",
+      "sha256": "b81892ba98a9dacee5c7c24674bf68d58ac5e309a863ef3923c2728744c8edcb",
+      "start": "0x4c325b80",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 228,
+          "end_exclusive": "0x4c325c64",
+          "sha256": "b81892ba98a9dacee5c7c24674bf68d58ac5e309a863ef3923c2728744c8edcb",
+          "start": "0x4c325b80",
+          "unwind_rva": "0x24a8bf4"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1318,
+      "end_exclusive": "0x4c314096",
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w::getCylinder",
+      "sha256": "62a3cb5bfcbeca7ee065eeae47a91769a2649f9f621440d82bc43f429bd8daed",
+      "start": "0x4c313b70",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1318,
+          "end_exclusive": "0x4c314096",
+          "sha256": "62a3cb5bfcbeca7ee065eeae47a91769a2649f9f621440d82bc43f429bd8daed",
+          "start": "0x4c313b70",
+          "unwind_rva": "0x24a8780"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x4c3297e5",
+      "module": "sldmodu.dll",
+      "name": "moCylinderRef_w virtual+0x3d0 complete tail-jump thunk",
+      "sha256": "d075efa73c5826db497aa3370025c6dad6d079d6c223a2b89d4dd23eb2c730c1",
+      "start": "0x4c3297e0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 3647,
+      "end_exclusive": "0x4c32a82f",
+      "module": "sldmodu.dll",
+      "name": "common cylinder/cone surface extent update; descriptive name",
+      "sha256": "94c97b216d2c7a8c8d143e59bfd93b6c725363f288ee2ca8ad1cfd6ba848de8b",
+      "start": "0x4c3299f0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 3647,
+          "end_exclusive": "0x4c32a82f",
+          "sha256": "94c97b216d2c7a8c8d143e59bfd93b6c725363f288ee2ca8ad1cfd6ba848de8b",
+          "start": "0x4c3299f0",
+          "unwind_rva": "0x24a69b8"
+        }
+      ]
+    }
+  ],
+  "imports": [
+    {
+      "iat": "0x4cd375b0",
+      "module": "sldgcu.dll",
+      "name": "?gc_isGhostingEnabled@@YAHXZ"
+    },
+    {
+      "iat": "0x4cd38420",
+      "module": "sldgcu.dll",
+      "name": "?getCircleData@gcEdge_w@@QEBAHPEANPEAVmgPoint_c@@PEAVmgUnitVector_c@@@Z"
+    },
+    {
+      "iat": "0x4cd384c8",
+      "module": "sldgcu.dll",
+      "name": "?faceType@gcTopEnt_w@@SAHXZ"
+    },
+    {
+      "iat": "0x4cd384d0",
+      "module": "sldgcu.dll",
+      "name": "?identity@gcTopEnt_w@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4cd38570",
+      "module": "sldgcu.dll",
+      "name": "?getEdges@gcFace_w@@QEBAHPEAHPEAPEAPEAVgcEdge_w@@@Z"
+    },
+    {
+      "iat": "0x4cd38670",
+      "module": "sldgcu.dll",
+      "name": "?getBody@gcFace_w@@QEBAPEAVgcBody_w@@XZ"
+    },
+    {
+      "iat": "0x4cd3a5a0",
+      "module": "sldmgu.dll",
+      "name": "??XmgPoint_c@@QEAAAEBV0@AEBVmgXform_c@@@Z"
+    },
+    {
+      "iat": "0x4cd3a5c0",
+      "module": "sldmgu.dll",
+      "name": "??G@YA?AVmgVector_c@@AEBVmgPoint_c@@0@Z"
+    },
+    {
+      "iat": "0x4cd3a610",
+      "module": "sldmgu.dll",
+      "name": "?isNull@mgVector_c@@QEBAHXZ"
+    },
+    {
+      "iat": "0x4cd3a8d0",
+      "module": "sldmgu.dll",
+      "name": "?isSame@mgPoint_c@@QEBAHAEBV1@N@Z"
+    },
+    {
+      "iat": "0x4cd3a8f0",
+      "module": "sldmgu.dll",
+      "name": "?sqlen@mgVector_c@@QEBANXZ"
+    },
+    {
+      "iat": "0x4cd3a9a8",
+      "module": "sldmgu.dll",
+      "name": "??0mgLine_c@@QEAA@AEBVmgPoint_c@@AEBVmgUnitVector_c@@@Z"
+    },
+    {
+      "iat": "0x4cd3a9b8",
+      "module": "sldmgu.dll",
+      "name": "?pointPerp@mgLine_c@@QEBAHAEBVmgPoint_c@@PEAV2@@Z"
+    },
+    {
+      "iat": "0x4cd3aab0",
+      "module": "sldmgu.dll",
+      "name": "?isParallelTo@mgVector_c@@QEBAHAEBV1@@Z"
+    },
+    {
+      "iat": "0x4cd3ab40",
+      "module": "sldmgu.dll",
+      "name": "??XmgUnitVector_c@@QEAAAEBV0@AEBVmgXform_c@@@Z"
+    },
+    {
+      "iat": "0x4cd3aba8",
+      "module": "sldmgu.dll",
+      "name": "?isSameDirection@mgVector_c@@QEBAHAEBV1@@Z"
+    },
+    {
+      "iat": "0x4cd3b528",
+      "module": "sldmgu.dll",
+      "name": "?isOppositeDirection@mgVector_c@@QEBAHAEBV1@@Z"
+    },
+    {
+      "iat": "0x4cd3da10",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@N@Z"
+    },
+    {
+      "iat": "0x4cd3da18",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAN@Z"
+    },
+    {
+      "iat": "0x4cd3da60",
+      "module": "swccu.dll",
+      "name": "??6su_CArchive@@QEAAAEAV0@K@Z"
+    },
+    {
+      "iat": "0x4cd3da68",
+      "module": "swccu.dll",
+      "name": "??5su_CArchive@@QEAAAEAV0@AEAK@Z"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 15,
+      "end_exclusive": "0x4b748369",
+      "name": "constructor-null last-resolved face slot",
+      "sha256": "166158ed9cc493e0d32765287661823739ce9d09e52e5fad0540460df3b45ffc",
+      "start": "0x4b74835a"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 12,
+      "end_exclusive": "0x4bba385e",
+      "name": "unsigned32 archived face-tag store",
+      "sha256": "0ecee3292fffe0665ccd03c468433b54adb5b1513951aa16339f82601981ca9d",
+      "start": "0x4bba3852"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 32,
+      "end_exclusive": "0x4bba3a5a",
+      "name": "version gate and zero-extended archived face-tag read",
+      "sha256": "df83194a1f527944a58df52a402c5e15ed6a045b7ea96d779b9f39ef1fbb80af",
+      "start": "0x4bba3a3a"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 18,
+      "end_exclusive": "0x4bc12bcc",
+      "name": "getFace2 valid-face last-resolved publication",
+      "sha256": "1e3e24f3149186f72958bbe65f0dc92b0331539af409571829fde1048905e153",
+      "start": "0x4bc12bba"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 18,
+      "end_exclusive": "0x4bc12d9f",
+      "name": "extended resolver valid-face last-resolved publication",
+      "sha256": "01c219cc2b019551c7e8f10b7e3253ab196557926264be2472d093c4c4c90e7d",
+      "start": "0x4bc12d8d"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 52,
+      "end_exclusive": "0x4bc136e1",
+      "name": "surface resolution last-resolved face publication",
+      "sha256": "a4d41a7d4db32957c9fd3d73c07677c519affc924314e8060f1841fe57e87cd3",
+      "start": "0x4bc136ad"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 48,
+      "end_exclusive": "0x4c307426",
+      "name": "surface constructor tuple",
+      "sha256": "a651643013fe8ed7ec8beca6bfcbf6efe3d6627efc9644d0da538f70e8c4afaf",
+      "start": "0x4c3073f6"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 12,
+      "end_exclusive": "0x4c325c31",
+      "name": "cylinder update virtual extent callback",
+      "sha256": "7dddab4f0c83af4d35884c17aeadee18923c1c04894b3c45bafadb5c2291764c",
+      "start": "0x4c325c25"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 17,
+      "end_exclusive": "0x4c314019",
+      "name": "getCylinder conditional extent callback",
+      "sha256": "0c951396ddbf15c4897a1a9dd07c7246525d0b4677d7ca977aacc82d7f085dee",
+      "start": "0x4c314008"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 14,
+      "end_exclusive": "0x4c329a83",
+      "name": "ghosting gate",
+      "sha256": "165e553478a99ec562e3f04d0ad5f9e92f31d8334c79cc26099876835c2e91b9",
+      "start": "0x4c329a75"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 28,
+      "end_exclusive": "0x4c329ac2",
+      "name": "detached support component exclusion",
+      "sha256": "8c861307db96048ca8aaf850d20bd2a15839580bd639ee995414f507c66d76af",
+      "start": "0x4c329aa6"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 54,
+      "end_exclusive": "0x4c329d45",
+      "name": "matching circle radius and parallel-axis guards",
+      "sha256": "f9a0fe506954958d29cbda669f665fda9d12db60e7324a82509c4185beca71bf",
+      "start": "0x4c329d0f"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 18,
+      "end_exclusive": "0x4c32a1ec",
+      "name": "retain common secondary tuple",
+      "sha256": "d840c101033f1ae0d4849a0ed774d6d128c015c7eaaea6712e9b9c00bbaa88df",
+      "start": "0x4c32a1da"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 18,
+      "end_exclusive": "0x4c32a254",
+      "name": "skip cone-only handling for cylinder",
+      "sha256": "689a9fa33722a0884958e904d1807477f8cf61e6d005fa10a66e02db0eca9e94",
+      "start": "0x4c32a242"
+    },
+    {
+      "bound": "reviewed instruction-boundary span in listed complete owner",
+      "bytes": 206,
+      "end_exclusive": "0x4c32a718",
+      "name": "signed norm and complete common tuple publication",
+      "sha256": "f1ba86ab173ea64c6f65015a9b9f85cc19d1bf6a76bad00b1f12f747c84bcffd",
+      "start": "0x4c32a64a"
+    }
+  ],
+  "limits": [
+    "native fresh assembly acceptance and heldout qualification remain pending",
+    "actual kernel entity-handle allocation and its exact packed attribute transport are separate native ownership work",
+    "body_match+32 and source735/1505 are corroboration only",
+    "no universal fixed far extent, global-Z selector or captured depth default",
+    "two-rim signed-distance recipe requires proven geometry and updater guards; other edge, cone, fallback, tolerance-boundary and arbitrary-transform cases unqualified",
+    "mathematical model-derived distances are not claimed byte-identical to native floating-point geometry arithmetic",
+    "optional wrapper f108 enabling caller remains the separate unresolved boundary in the prior snapshot record"
+  ],
+  "method": {
+    "cad_or_com": false,
+    "collector_sha256": "16c14505ce7ffd624d095c2f436b112a01135889e921c3f1e9760e8951ea907c",
+    "heldout_access": false,
+    "helper_sha256": "6969b1cd7790860159e098d3aab5efe8644bd7984a06ede661879e8a463542ad",
+    "local_tests": false,
+    "native_calls": false,
+    "owned_hopper_session_opened": false,
+    "schema_or_codec_execution": false,
+    "shared_source_mutation": false,
+    "static_original_pe_only": true,
+    "vendor_bytes_or_listings_in_report": false,
+    "vm": false
+  },
+  "module": {
+    "build": "34.5.2.0604",
+    "bytes": 46536280,
+    "exception_directory_bytes": 988296,
+    "exception_directory_rva": "0x2a6a000",
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "numeric_constants": [
+    {
+      "bound": "one f64 constant used by selected owner",
+      "bytes": 8,
+      "end_exclusive": "0x4cd9a3b8",
+      "name": "circle radius tolerance",
+      "sha256": "e972f4b445c8285197ecdc3f8831870d6eec67c062060c2aca46408dd58aefca",
+      "start": "0x4cd9a3b0",
+      "value": 1e-08
+    },
+    {
+      "bound": "one f64 constant used by selected owner",
+      "bytes": 8,
+      "end_exclusive": "0x4cd9e340",
+      "name": "native point comparison default-tolerance sentinel",
+      "sha256": "e77817b649821c634355a917817c1224a360514b1244fe09e832bac4e8ea4440",
+      "start": "0x4cd9e338",
+      "value": -1.0
+    }
+  ],
+  "owner": "/root/flag_ownership",
+  "rules": {
+    "face_reference_f70": {
+      "initial_state": "null from actual moBEntRef constructor",
+      "input_source": "actual fresh kernel handle/tag ownership or explicit unresolved constructor-null state; never body_match+32 or a repeated saved value",
+      "load": "from version1175; unsigned32 read zero-extended into runtime64 slot",
+      "publication": "actual resolved non-null gcFace_w return value written to +70, independently of its kernel persistent node ID",
+      "runtime_width": "64-bit pointer-like gcFace_w handle slot",
+      "store": "unsigned32 low word, ordinary store always emits it"
+    },
+    "surface_tail": {
+      "constructor": [
+        -1.0,
+        1.0,
+        1.0,
+        -1.0
+      ],
+      "detached_support": "same updater exits before geometry traversal; constructor tuple is preserved on the reached support path",
+      "fields": [
+        "fb0",
+        "fb8",
+        "fc0",
+        "fc8"
+      ],
+      "ordinary_two_rim_path": "actual ordered circular edges; matching radius within1e-8; parallel axis; transform circle center and axis with occurrence placement; project centers to cylinder line; if one displacement is null, write fb0=0 and fb8=signed Euclidean length of the other; cylinder retains prior fc0/fc8",
+      "owner": "moSurfaceRef_w inherited by moCylinderRef_w",
+      "signed_length": "positive norm for actual same-direction displacement, negative norm for opposite; one endpoint must be the actual cylinder root for the simplified recipe",
+      "update_guards": [
+        "actual cylinder or cone wrapper",
+        "gc_isGhostingEnabled returns nonzero",
+        "not detached moCompRefCylinder/moCompRefCone",
+        "actual moCompFace resolves an actual cylindrical/conical face",
+        "two distinct projected axial support points or separate fallback outside the selected two-rim recipe"
+      ],
+      "wire": "four f64 in this order at version>=3875"
+    }
+  },
+  "schema": "concentric-face-tag-and-surface-extents-v1",
+  "tail_jump": {
+    "bound": "complete unconditional direct tail-jump instruction",
+    "bytes": 5,
+    "end_exclusive": "0x4c3297e5",
+    "sha256": "d075efa73c5826db497aa3370025c6dad6d079d6c223a2b89d4dd23eb2c730c1",
+    "start": "0x4c3297e0",
+    "target": "0x4c3299f0"
+  },
+  "task": "B04-SW2026-MATES-CONCENTRIC",
+  "vtables": [
+    {
+      "address": "0x4cf95ed0",
+      "class": "moFaceRef_c",
+      "locator": {
+        "bound": "complete MSVC x64 complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d337b60",
+        "sha256": "a827f03ef310dc52e217d7b25d0c75c590b2d737506b7bdd4aedf8b098b0a680",
+        "start": "0x4d337b48"
+      },
+      "slots": [
+        {
+          "bound": "one original primary table cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cf95f00",
+          "offset": "0x28",
+          "sha256": "26e06856b0a64a837a39eecbfdc25fe9dfdc2a1df54ed53436a055600e0a9b79",
+          "start": "0x4cf95ef8",
+          "target": "0x4bba9640"
+        }
+      ]
+    },
+    {
+      "address": "0x4ce86190",
+      "class": "moBEntRef_c",
+      "locator": {
+        "bound": "complete MSVC x64 complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d314910",
+        "sha256": "16aa20a435ff423986907375446a0404c6c6e12f954f611f277a3fd42e96b335",
+        "start": "0x4d3148f8"
+      },
+      "slots": [
+        {
+          "bound": "one original primary table cell",
+          "bytes": 8,
+          "end_exclusive": "0x4ce861c0",
+          "offset": "0x28",
+          "sha256": "4e21e49a950f75a3c884cb4ac284c0234a0657c53d818a349c3f289caa34ab8f",
+          "start": "0x4ce861b8",
+          "target": "0x4bba3780"
+        }
+      ]
+    },
+    {
+      "address": "0x4d17b530",
+      "class": "moSurfaceRef_w",
+      "locator": {
+        "bound": "complete MSVC x64 complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d35bef0",
+        "sha256": "b229f3e296de401e34f84f7185f9f3f3883aa8de7574f275f1c79983ff637881",
+        "start": "0x4d35bed8"
+      },
+      "slots": [
+        {
+          "bound": "one original primary table cell",
+          "bytes": 8,
+          "end_exclusive": "0x4d17b560",
+          "offset": "0x28",
+          "sha256": "f3699fccde44e6ff627fd996cf251bf4279f308895b15367724da26b0ce7a287",
+          "start": "0x4d17b558",
+          "target": "0x4c2797d0"
+        }
+      ]
+    },
+    {
+      "address": "0x4cd938c0",
+      "class": "moCylinderRef_w",
+      "locator": {
+        "bound": "complete MSVC x64 complete-object locator",
+        "bytes": 24,
+        "end_exclusive": "0x4d2ec6d0",
+        "sha256": "910a8485585fa6a4e67986feca3df1e8cfbafe8cc5e744458c49ae9af66d94ad",
+        "start": "0x4d2ec6b8"
+      },
+      "slots": [
+        {
+          "bound": "one original primary table cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd938f0",
+          "offset": "0x28",
+          "sha256": "21c918b86d7314e2a2724bdc32bbe5ae45e8b857388323b43e01198e190f3ead",
+          "start": "0x4cd938e8",
+          "target": "0x4c26f8f0"
+        },
+        {
+          "bound": "one original primary table cell",
+          "bytes": 8,
+          "end_exclusive": "0x4cd93c98",
+          "offset": "0x3d0",
+          "sha256": "60ffbedfae337884c915667c0647246c60eb58ce678d604cb5689f79df5689d9",
+          "start": "0x4cd93c90",
+          "target": "0x4c3297e0"
+        }
+      ]
+    }
+  ]
+}

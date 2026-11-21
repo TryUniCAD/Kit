@@ -1,0 +1,160 @@
+{
+  "disclosed_prefix_replays": {
+    "DatumHeightShort.SLDPRT": {
+      "axis_id": 41,
+      "compared_prefix_root_count": 22,
+      "linked_prefix_map": [
+        112,
+        381
+      ],
+      "native_root_count": 24,
+      "next_complex_body": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "resolved_prefix_end_exclusive": 19633,
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    "DatumHeightTall.SLDPRT": {
+      "axis_id": 41,
+      "compared_prefix_root_count": 22,
+      "linked_prefix_map": [
+        112,
+        381
+      ],
+      "native_root_count": 24,
+      "next_complex_body": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "resolved_prefix_end_exclusive": 19633,
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    },
+    "DirectionEnvelope.SLDPRT": {
+      "axis_id": 41,
+      "compared_prefix_root_count": 22,
+      "linked_prefix_map": [
+        112,
+        381
+      ],
+      "native_root_count": 24,
+      "next_complex_body": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "resolved_prefix_end_exclusive": 19633,
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    "DirectionEnvelopeSpacing.SLDPRT": {
+      "axis_id": 41,
+      "compared_prefix_root_count": 22,
+      "linked_prefix_map": [
+        112,
+        381
+      ],
+      "native_root_count": 24,
+      "next_complex_body": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "resolved_prefix_end_exclusive": 19875,
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    }
+  },
+  "generative_cases": {
+    "HingeAlpha": {
+      "axis": {
+        "axis_id": 25,
+        "finish_m": [
+          0.0,
+          0.0,
+          -0.0009312499999999998
+        ],
+        "start_m": [
+          0.0,
+          0.0,
+          0.019556249999999997
+        ],
+        "support_ids_in_wire_order": [
+          15,
+          16
+        ]
+      },
+      "completed_model_fragment": true,
+      "config_sha256": "297284b46981f63c59d27f08ba2020e118ac74c86b125e9dbeb2fe86871666cd",
+      "container_written": false,
+      "guarded_runtime_reads": 0,
+      "map_counters": [
+        87,
+        214
+      ],
+      "model_bounds_m": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.15737500000000001,
+          0.094625,
+          0.018625
+        ]
+      ],
+      "native_acceptance": false,
+      "neutral_request_sha256": "cd8377b34b857ac6843d178017df2b4756b498d39f03c7b45eaff65b21ae9ee0",
+      "refusals": {
+        "aliased_selected_component": "actual selected references need distinct component ownership",
+        "crossed_order": "generated axis lost linked actual selection"
+      },
+      "resolved_bytes": 15119,
+      "resolved_sha256": "16291f8f850f9fca6996115abf1a5bdfe15a91832ed68170c93c291e79de092d",
+      "roots": 20
+    },
+    "HingeBeta": {
+      "axis": {
+        "axis_id": 25,
+        "finish_m": [
+          0.0,
+          0.0,
+          -0.0006375
+        ],
+        "start_m": [
+          0.0,
+          0.0,
+          0.0133875
+        ],
+        "support_ids_in_wire_order": [
+          15,
+          16
+        ]
+      },
+      "completed_model_fragment": true,
+      "config_sha256": "1dd7c9d97a977e5d1c6561e76f07339fb8009d6104254348cbe67a1373067d7b",
+      "container_written": false,
+      "guarded_runtime_reads": 0,
+      "map_counters": [
+        87,
+        214
+      ],
+      "model_bounds_m": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.113625,
+          0.081125,
+          0.012750000000000001
+        ]
+      ],
+      "native_acceptance": false,
+      "neutral_request_sha256": "0660737a08dad26c4089e20526cc4ef61341e84bbb4a5ba9bc8b3c92bdb0d957",
+      "refusals": {
+        "aliased_selected_component": "actual selected references need distinct component ownership",
+        "crossed_order": "generated axis lost linked actual selection"
+      },
+      "resolved_bytes": 15117,
+      "resolved_sha256": "07f54ad22cac90d97a043dc87765d2d40a6aad0ce904347f15b7fed8c039c5dc",
+      "roots": 20
+    }
+  },
+  "heldout_inputs_read": 0,
+  "native_calls": 0,
+  "schema": "kit.sw2026.finite-hinge-research-graph.v1",
+  "separate_guarded_processes": 4,
+  "tool_sha256": {
+    "AuditPatternHingeAxisWire.py": "e1bcf5c16d08335d8ef29eb52a9404b62d51636791bbca95637722b97eaccef1",
+    "MakePatternHingeAxis.py": "4178e7ae39eefe60b185a49fb559fb405fd62802ccb6da536cc6b441ad36ec46",
+    "PatternHingeWire.py": "85b7a3342b6258b7db54c01aee5ef62c95f43788ed702a6dee4369982d37c947",
+    "ProvePatternHingeAxis.py": "9038c4fb029beb027e30f7919f718bd1febeb6575203b5a1a65ea1864b0797aa"
+  }
+}

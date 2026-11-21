@@ -1,0 +1,64 @@
+{
+  "exact_native_tested_output": {
+    "bytes": 9157,
+    "equation_parameter_ids": [
+      "sldprt:parameter:18:D1",
+      "sldprt:parameter:21:D1"
+    ],
+    "lengths_mm": [
+      39.125,
+      17.375,
+      19.5625
+    ],
+    "native_expressions_capability": true,
+    "runtime_reads": 0,
+    "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+    "solid_count": 1,
+    "supported": true
+  },
+  "heldout_inputs_read": 0,
+  "isolated_worker_processes": 7,
+  "native_processes_started": 0,
+  "native_result_sha256": "b544ff3d3668f7dc9815bd862b6d1f067174503cd310e4a7cff56ce8d8458ba2",
+  "neutral_input_sha256": "90d9d22d737bd8d313a68d10eef1e3cb730bdae81c973a3656b591d627ad786b",
+  "refusals": {
+    "height_dependency": {
+      "fault": "height_dependency",
+      "runtime_reads": 0,
+      "status": "solidworks.sldprt does not support the destination",
+      "supported": false
+    },
+    "missing_coincidence": {
+      "fault": "missing_coincidence",
+      "runtime_reads": 0,
+      "status": "solidworks.sldprt does not support the destination",
+      "supported": false
+    },
+    "unavailable_configuration": {
+      "fault": "unavailable_configuration",
+      "runtime_reads": 0,
+      "status": "requested write configuration is unavailable",
+      "supported": true
+    },
+    "unmodeled_metadata": {
+      "fault": "unmodeled_metadata",
+      "runtime_reads": 0,
+      "status": "solidworks.sldprt does not support the destination",
+      "supported": false
+    },
+    "wrong_corner": {
+      "fault": "wrong_corner",
+      "runtime_reads": 0,
+      "status": "solidworks.sldprt does not support the destination",
+      "supported": false
+    }
+  },
+  "schema": "kit.sw2026.public-width-depth-writer.v1",
+  "writer_sha256": {
+    "src/convert/adapters/solidworks/Core/Preparation/Equations/PlanEqPart.py": "737db0420fb72fcbf27e37c5a758bb22e37b941c3ebd75f6387fb52a1ae1ddba",
+    "src/convert/adapters/solidworks/Core/Preparation/PlanNativePart.py": "dc8891601484e671dc83d7bc0b562c3d90c67f10e231a58ef35993debb4946ab",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "2cf23e61ba600d57b0558531e71aa72b265be1633d8c6f3214b2f1cc01cd5437",
+    "src/convert/adapters/solidworks/Core/Writing/SldWriteInfo.py": "47f3b0b113df583e95b7447e9494363a7aaec2cd2144e9b052d67dba06f9ee5f",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "0a78f6e4b42ea91a0b67acd6bbfa29bd721e87f26d5d907edae0c66f189580eb"
+  }
+}

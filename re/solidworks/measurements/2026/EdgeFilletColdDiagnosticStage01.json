@@ -1,0 +1,78 @@
+{
+  "bound_packet_files": 17,
+  "bound_trial_files": {
+    "Control.SLDPRT": {
+      "bytes": 62796,
+      "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0"
+    },
+    "Expected.json": {
+      "bytes": 9901,
+      "sha256": "a01f6c282f23639a792db653ce04b9f11d3ad7d056850cd9bdeb32c0acd0e12b"
+    },
+    "Intact.SLDPRT": {
+      "bytes": 62540,
+      "sha256": "0a852f10dae3f46fd914e964e1be74a43dcf623d7630efa5e47d9f3e8904a623"
+    },
+    "OmitPartition.SLDPRT": {
+      "bytes": 55898,
+      "sha256": "8e6eaea310fcfc0538d21d87cea89db275165b958d74ef121d975f135774101c"
+    },
+    "Spec.json": {
+      "bytes": 578,
+      "sha256": "d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb"
+    },
+    "Tool/FilletColdPacket.py": {
+      "bytes": 3327,
+      "sha256": "613e0b2d653e34eb5ae5712b826d57d6600ee9e655707feda37c900e6773b03f"
+    },
+    "Tool/ProbeFilletCold.py": {
+      "bytes": 16734,
+      "sha256": "ad88c378ffd14aa503c325abb69d6c6fe037f03d7660e6af0a3739e390ee2a8c"
+    }
+  },
+  "cold_job_sha256": "45bf3dbb19fee75d5aa9d595be12a2f0beac64b987434aad0009e5bc2af231c0",
+  "comparison": {
+    "file_id": 1449822288,
+    "format_version": 4,
+    "omitted_stream_bytes": 6507,
+    "omitted_stream_sha256": "fc40f8000a3f53c91f3ee8a0aa5cae39903a36f0f09b78d818cb9db32f0217d3",
+    "retained_stream_bytes_and_order_equal": true,
+    "retained_streams_sha256": "da75f9921aa8b3ded40dd041fe3c4fa391c8a20ce0759e611c7a7a17cad9f7a7",
+    "retained_type_ids_and_signatures_equal": true,
+    "stream_counts": {
+      "Intact": 40,
+      "OmitPartition": 39
+    }
+  },
+  "heldout_writer_credit": 0,
+  "host_stage_sha256": "4180c483267fee3c054e2402f0f66e438e735297a73476efad502a09e49c764c",
+  "mutation": {
+    "action": "omit_one_logical_stream",
+    "stream": "Contents/Config-0-Partition"
+  },
+  "native_processes_started": 0,
+  "oracle": {
+    "build": "34.5.2.0604",
+    "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "outcome": "awaiting_oracle_measurement",
+  "schema": "kit.sw2026.edge-fillet-cold-diagnostic-host-stage.v1",
+  "scope": "disclosed native-source diagnostic only",
+  "source_file_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+  "source_job_sha256": "e37e868be9a2b394c296b30c08a586f5dd5cced5309c2f23503f2b8ba0532c01",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797",
+  "source_phase_sha256": "721a5c15e0df77b8467c7a86d4d46439aa50f9a93618292faa37e9da1aa972f5",
+  "tool_revision": "cc9c297d64d10dd44163a11ac9140b8e275cd116",
+  "tool_tree": "0a2e37ce1cf4496100b71793d3cd6b2c385b8f4b",
+  "typed_fc20": {
+    "digest_encoding": "FilletPacket.job_bytes of the typed items list",
+    "field_path": "OwnersValue.FilletValue.FieldsValue[fc20]",
+    "generator_rule_proven": false,
+    "identical_item_array_sha256": "fafee459ba308aa73a1553cd5b5b78d80eb58556a6017cac1294e98be58afa7d",
+    "ordinary_pinned_saves_checked": 4,
+    "tool_source": "src/convert/adapters/solidworks/Core/TypedResolved/Fillets/ReadFilletHist.py",
+    "typed_u32_words_each": 6
+  },
+  "writer_output_count": 0
+}

@@ -1,0 +1,130 @@
+{
+  "schema": "kit.sw2026.generated-blank-rewrite-process.v1",
+  "task_id": "B04-SW2026-DRAWPROPS/generated-blank-rewrite",
+  "owner": "configuration_header",
+  "delivery_pr": 121,
+  "status": "host process proof passed; native rewrite acceptance unmeasured",
+  "scope": "canonical version-19000 seven-stream SDK blank source profile only",
+  "source_manifest_sha256": "80f5dda735c24c24240e6c4e9465669b228ccc6d15e1b5a74d68e7d0fb1abf80",
+  "source_files": 4711,
+  "implementation_delta": 13,
+  "reader_source_manifest_sha256": "2a2de793f43b3cbca7c301fb526686f15c1bca4b7bceb564460fcb005b00dac0",
+  "reader_stageable_manifest_sha256": "65837be3690a966faa1bab0d95b49e72ad25245e3bf166c05fb640a95330c100",
+  "reader_delivery_unchanged": true,
+  "method_sha256": "e13944e311a58a8289b3954be7b4a4d4db916d490d980e174d7dbc4920760f44",
+  "raw_replay_sha256": "a701f865c002a651da2f4b6842a947f7c74717c53f534862a042088eddbd2f87",
+  "fresh_python_processes": 48,
+  "rewrite_workers": 18,
+  "rewrite_publications": 36,
+  "rejection_workers": 26,
+  "fresh_regression_workers": 4,
+  "source_cases": 6,
+  "transports": [
+    "direct",
+    "json"
+  ],
+  "second_strict_read_write_cycles": 18,
+  "fresh_bytes_comparisons": [
+    {
+      "case": "Alpha",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "case": "Beta",
+      "passed": true,
+      "bytes_identical": true
+    }
+  ],
+  "transport_bytes_comparisons": [
+    {
+      "source": "SdkAlpha",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "source": "PublicAlpha",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "source": "Kappa",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "source": "Lambda",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "source": "Mu",
+      "passed": true,
+      "bytes_identical": true
+    },
+    {
+      "source": "Nu",
+      "passed": true,
+      "bytes_identical": true
+    }
+  ],
+  "all_workers_passed": true,
+  "source_and_inputs_immutable": true,
+  "runtime_model_file_reads": 0,
+  "runtime_template_reads": 0,
+  "denied_runtime_accesses": 0,
+  "native_app_launches": 0,
+  "private_slot_reads": 0,
+  "unit_tests": false,
+  "rewritten_native_flags": [
+    false,
+    false
+  ],
+  "fresh_native_flags_unchanged": [
+    true,
+    true
+  ],
+  "static": {
+    "black": true,
+    "ruff_f401_f821": true,
+    "strict_mypy": true,
+    "strict_pyright": true,
+    "new_module_steering": true,
+    "full_steering_pass_claimed": false,
+    "inherited_hook_name_findings": [
+      "CanWriteBlankDrawing",
+      "PrepareBlankDrawing",
+      "EmitBlankDrawingMut"
+    ],
+    "raw_static_sha256": "e33873b156018bd80da4bca508c63b62a01b45dbbf306dcf79469e95c62e7b7c"
+  },
+  "prior_attempts_preserved": [
+    {
+      "name": "RewriteReplay01",
+      "workers": 42,
+      "passed": true,
+      "sha256": "ffe1220098768f8cc7254b9995d6b473d47c23dcd140bd1bb189a9b768aa1504"
+    },
+    {
+      "name": "RewriteReplay02",
+      "workers": 48,
+      "passed": true,
+      "sha256": "dd95fea2d7c6a9d8f463b50936356fd5e6f13fbacca1b10e5c4041b8a64e354d"
+    },
+    {
+      "name": "RewriteReplay03",
+      "workers": 48,
+      "passed": true,
+      "sha256": "84e11d751329082c0773dfb1dd3be18cbdb925b9c7a33011ddc328ab6e8dfd38",
+      "limit": "one formatting-only line still failed final Black; normalized AST is identical in the final source"
+    }
+  ],
+  "oracle_acceptance_claim": false,
+  "original_native_source_credit": false,
+  "remaining": [
+    "native edit/save/reopen for preserved-source rewrite",
+    "native-saved and original authored drawing strict read",
+    "linked view or annotation rewrite",
+    "arbitrary layout or provenance edits"
+  ]
+}

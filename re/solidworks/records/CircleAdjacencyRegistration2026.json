@@ -1,0 +1,286 @@
+{
+  "schema": "kit-sw2026-circle-adjacency-registration/1",
+  "status": "confirmed bounded static rule; no executed fresh-circle acceptance",
+  "target": {
+    "build": "34.5.2.0604",
+    "module": "sldmodu.dll",
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "image_base": "0x4b140000",
+    "architecture": "AMD64"
+  },
+  "functions": [
+    {
+      "role": "endpoint adjacency registrar",
+      "start": "0x4c5f8460",
+      "fragments": [
+        [
+          "0x4c5f8460",
+          "0x4c5f86b4"
+        ]
+      ],
+      "bytes": 596,
+      "sha256": "6f7e0b02c79ffbaef8dd64a195231e05817cb08fc69996a710ebd433f1f49015",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "existing equivalent adjacency predicate",
+      "start": "0x4c5f8060",
+      "fragments": [
+        [
+          "0x4c5f8060",
+          "0x4c5f80d2"
+        ]
+      ],
+      "bytes": 114,
+      "sha256": "21a697028f80aa31c1f621b280d5348ef14de3e29b4bc14889c8bb9d08d1ca68",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "adjacency has an empty slot",
+      "start": "0x4c5fe060",
+      "fragments": [
+        [
+          "0x4c5fe060",
+          "0x4c5fe091"
+        ]
+      ],
+      "bytes": 49,
+      "sha256": "0bb83e0d9fc34fabc096a32e399d95f68914d14a9d662ba9e3a44ba123243187",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "clone into first empty adjacency slot",
+      "start": "0x4c5f7e40",
+      "fragments": [
+        [
+          "0x4c5f7e40",
+          "0x4c5f7ea6"
+        ]
+      ],
+      "bytes": 102,
+      "sha256": "a5aeff7c4fe9261b51cc036ece53400ba6079f2bab96020903cda74f7c8628a7",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "conditional replacement adjacency insertion",
+      "start": "0x4c601b00",
+      "fragments": [
+        [
+          "0x4c601b00",
+          "0x4c601c27"
+        ]
+      ],
+      "bytes": 295,
+      "sha256": "606636b0aa698bb4909ea58ab921ac647b0df66a969af76187bcee690c14d00a",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "handle value equality",
+      "start": "0x4c5bce10",
+      "fragments": [
+        [
+          "0x4c5bce10",
+          "0x4c5bced5"
+        ]
+      ],
+      "bytes": 197,
+      "sha256": "902187ea2991d72170aeddd53e100ca636d089bba51f81edac5b0d1feae8ba36",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "concrete arc handle clone",
+      "start": "0x4c55eb40",
+      "fragments": [
+        [
+          "0x4c55eb40",
+          "0x4c55ebbd"
+        ]
+      ],
+      "bytes": 125,
+      "sha256": "1cfe6a7a3372345b4a8db3a84df086bd02c0bfe6ba7920e574adb61cbf2d25dc",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "opposite endpoint handle",
+      "start": "0x4c5c7020",
+      "fragments": [
+        [
+          "0x4c5c7020",
+          "0x4c5c71c2"
+        ]
+      ],
+      "bytes": 418,
+      "sha256": "3441b0e9be56a79ae824fd27073ae1de8d0796d9211800cf895b269592236665",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "arc permanence",
+      "start": "0x4c5635e0",
+      "fragments": [
+        [
+          "0x4c5635e0",
+          "0x4c563ab2"
+        ]
+      ],
+      "bytes": 1234,
+      "sha256": "89c44843175869ecf8ec6af2261e6e1483c616c98c088389fdbebd03ad4f0be1",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "point use for segment",
+      "start": "0x4c602c10",
+      "fragments": [
+        [
+          "0x4c602c10",
+          "0x4c602d0c"
+        ]
+      ],
+      "bytes": 252,
+      "sha256": "b659d71bebcadfc43236c7f9693e5af6eef6ad54cd95b95227d75fa48381c68c",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "segment adjacency admission",
+      "start": "0x4c5d09b0",
+      "fragments": [
+        [
+          "0x4c5d09b0",
+          "0x4c5d09e7"
+        ],
+        [
+          "0x4c5d09e7",
+          "0x4c5d0a87"
+        ],
+        [
+          "0x4c5d0a87",
+          "0x4c5d0a8f"
+        ]
+      ],
+      "bytes": 223,
+      "sha256": "41391d81e4557e6bfc2bd497d41dc10cda75f8d131142179fc00183512e98eac",
+      "extent_kind": "complete AMD64 exception-directory/chained ownership; end exclusive"
+    },
+    {
+      "role": "arc runtime-class getter leaf",
+      "start": "0x4c581c00",
+      "fragments": [
+        [
+          "0x4c581c00",
+          "0x4c581c08"
+        ]
+      ],
+      "bytes": 8,
+      "sha256": "46caa5569732490992f490a4f41a5d38125b0151a31b0ac6c617ac0117dbc867",
+      "extent_kind": "decoded leaf through final return; end exclusive"
+    },
+    {
+      "role": "direct owner getter leaf",
+      "start": "0x4b285110",
+      "fragments": [
+        [
+          "0x4b285110",
+          "0x4b285115"
+        ]
+      ],
+      "bytes": 5,
+      "sha256": "01b97d2da374096b4359dfb781da44ea9eb61ba0541de9f2d557cfad9adef8d3",
+      "extent_kind": "decoded leaf through final return; end exclusive"
+    }
+  ],
+  "arc_handle_vtable": {
+    "address": "0x4d1c5ae8",
+    "runtime_class": "0x4dafb0e8",
+    "slots": [
+      {
+        "offset": "0x0",
+        "target": "0x4c581c00",
+        "slot_8_bytes_sha256": "222444a17e2abff434169e338e519e3d07b000967492fe6a7c549bdd17d1b57c"
+      },
+      {
+        "offset": "0x128",
+        "target": "0x4c55eb40",
+        "slot_8_bytes_sha256": "3f905dd6e8ce3e349a86bb60b1ba3341cb27df9d6df77c83e40adae06c8befc6"
+      },
+      {
+        "offset": "0x1f0",
+        "target": "0x4c606160",
+        "slot_8_bytes_sha256": "ff641ad4f53e6ad6ba224421647cc63f79bc7277a54f9775e2034d51ba58b117"
+      },
+      {
+        "offset": "0x1f8",
+        "target": "0x4c605fb0",
+        "slot_8_bytes_sha256": "8e6ac9641deac750d516b99c44e1dd80604f5bac19ab79c1385b98573f7dcf47"
+      },
+      {
+        "offset": "0x200",
+        "target": "0x4c5c7020",
+        "slot_8_bytes_sha256": "f432de104c6203f9eba27a733f3174d79efb6419a109067e094fd0410204af00"
+      },
+      {
+        "offset": "0x270",
+        "target": "0x4c5635e0",
+        "slot_8_bytes_sha256": "6c953e9a6dd5b15d9cf610ffafd55841452c0c0e9ccd0ed1a4ad08b5e6325f63"
+      },
+      {
+        "offset": "0x2d8",
+        "target": "0x4c5d0810",
+        "slot_8_bytes_sha256": "2ec0c244667a7907b221c6f1eda73b3ee5033e479ae9db9076e22f2b58317382"
+      }
+    ]
+  },
+  "bounded_prerequisites": [
+    "Ordinary local two-dimensional circle with exact equal start/end point identity",
+    "Valid arc handle with one coherent sketch/index/block identity and successful native registrar admission",
+    "Sketch current-state field +0x128 is nonzero",
+    "Fresh marker has null adjacency slots; no other attached geometry",
+    "Concrete arc cloning succeeds; failure and external/construction branches are excluded"
+  ],
+  "rule": {
+    "point_segment_use_count": "Increment on each useForSegment call; two endpoint roles for the shared circle marker",
+    "equivalent_adjacency": "Match index +0x18, sketch +0x10, block +0x1c and equal runtime class in the concrete arc branch",
+    "first_endpoint_call": "Insert one owned clone into marker h1; the opposite endpoint aliases the same point and already finds that equivalent handle",
+    "second_endpoint_call": "Both adjacency-presence predicates find the retained h1, so no second clone is allocated",
+    "result": {
+      "marker_segment_uses": 2,
+      "marker_centre_uses": 0,
+      "marker_h1": "one owned sgArcHandle clone",
+      "marker_h2": null,
+      "centre_segment_uses": 1,
+      "centre_centre_uses": 1,
+      "centre_h1": null,
+      "centre_h2": null
+    }
+  },
+  "native_sites": {
+    "point_use_before_adjacency": "0x4c602c3c",
+    "role_zero_registration": "0x4c56366b",
+    "role_one_registration": "0x4c56369a",
+    "role_two_registration": "0x4c5636c6",
+    "current_point_equivalent_check": "0x4c5f84d3",
+    "opposite_point_equivalent_check": "0x4c5f8556",
+    "first_free_clone": "0x4c5f84f6",
+    "opposite_clone_only_if_not_present": "0x4c5f8560"
+  },
+  "refuted_hypothesis": "Two endpoint-use increments require two distinct adjacency clones on the same circle marker",
+  "source_corroboration": {
+    "ledger": "CurveDiscoveryFieldCorrelation2026.md",
+    "completed_source_full_circles": 24,
+    "all_observed_marker_h1_present_h2_null": true,
+    "source_correlation_is_not_runtime_execution_of_this_branch": true
+  },
+  "serializer_cleanup": {
+    "function": "0x4c58f910",
+    "bounded_rule": "Native store can replace an adjacency pointer with null when its own actual validity virtual returns false",
+    "cleanup_needed_to_explain_single_circle_adjacency": false,
+    "not_an_observed_trace": true
+  },
+  "limits": {
+    "heldout_native_payloads_read": 0,
+    "new_cad_or_vm_calls": 0,
+    "tests_executed_locally": 0,
+    "schemas_or_products_executed": 0,
+    "native_acceptance": false,
+    "writer_output": false,
+    "full_goal_complete": false
+  }
+}

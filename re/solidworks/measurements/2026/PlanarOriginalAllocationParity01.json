@@ -1,0 +1,177 @@
+{
+  "cases": {
+    "A20": {
+      "child": {
+        "definition_cursor": [
+          10,
+          13
+        ],
+        "live_and_detached_appearance_id_deltas": [
+          3,
+          3,
+          0
+        ],
+        "native_density_unchanged": [
+          1000.0,
+          0
+        ],
+        "renderer_field_paths": [
+          [
+            "f20.f90.f00"
+          ],
+          [
+            "f20.f90.f00"
+          ],
+          []
+        ],
+        "visual_stream_identical": true,
+        "visual_stream_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438"
+      },
+      "parent": {
+        "archive_map_counters": [
+          38,
+          39
+        ],
+        "before": [
+          [
+            25,
+            203,
+            102,
+            0
+          ],
+          [
+            24,
+            203,
+            102,
+            0
+          ]
+        ],
+        "extra_model_name_owner": {
+          "retained_name": "Assem1",
+          "saved_name": "A20HeldoutPlaneCoincidentDistance"
+        },
+        "saved": [
+          [
+            25,
+            101,
+            102,
+            8
+          ],
+          [
+            24,
+            101,
+            102,
+            8
+          ]
+        ],
+        "typed_save_fields_match_generated": true,
+        "unclassified_parent_changes": 0,
+        "visual_stream_hashes": [
+          "bfb7322cd381aabf6d27a1e192ab92c08d70a05df18a320bd5086819c3dfd926",
+          "ece874a2e1439e24ee4193e2fed5bae6d553620277fc9d774afae7dcfdf295b5"
+        ]
+      },
+      "saved_native_hashes": {
+        "child": "c3e28815e2098fc07db7e9510334c4a851461e56d725cf905e048a853d97a044",
+        "parent": "049fb6dc257459233433bf2d3e9494020628e3ab2b1768918046708c1099b3cb"
+      }
+    },
+    "A21": {
+      "child": {
+        "definition_cursor": [
+          11,
+          14
+        ],
+        "live_and_detached_appearance_id_deltas": [
+          3,
+          3,
+          0
+        ],
+        "native_density_unchanged": [
+          1000.0,
+          0
+        ],
+        "renderer_field_paths": [
+          [
+            "f20.f90.f00"
+          ],
+          [
+            "f20.f90.f00"
+          ],
+          []
+        ],
+        "visual_stream_identical": true,
+        "visual_stream_sha256": "1af3b4e9bf7f432c47b620e29200a9700f91b8ee67b161b1025d62f576167438"
+      },
+      "parent": {
+        "archive_map_counters": [
+          44,
+          45
+        ],
+        "before": [
+          [
+            26,
+            203,
+            102,
+            0
+          ],
+          [
+            25,
+            203,
+            102,
+            0
+          ],
+          [
+            24,
+            203,
+            102,
+            0
+          ]
+        ],
+        "extra_model_name_owner": {
+          "retained_name": "Assem1",
+          "saved_name": "A21HeldoutPlaneParallelDistance"
+        },
+        "saved": [
+          [
+            26,
+            101,
+            102,
+            8
+          ],
+          [
+            25,
+            101,
+            102,
+            8
+          ],
+          [
+            24,
+            101,
+            102,
+            8
+          ]
+        ],
+        "typed_save_fields_match_generated": true,
+        "unclassified_parent_changes": 0,
+        "visual_stream_hashes": [
+          "55327f27a7835573592b9c0d1de96980d8ea8346621339abe87f658b6ed2a2e9",
+          "91d0a965a1470a594efe5559081d1ce390a1086ae750c92fcb9374e7581ba7fe"
+        ]
+      },
+      "saved_native_hashes": {
+        "child": "6af9f66aa4af59d0c30757f57e410a4c3b508acbf649c7233943c89c83b07ba1",
+        "parent": "c3901b8ac5533eb4f5c0d079e6973904d42e6159fd91f53fdf095142f41c1b07"
+      }
+    }
+  },
+  "known_generated_read_sha256": "c929e24d886e20ffefa959af57f7c2bb0baf76c6864b02c1878be18571c7bb1f",
+  "native_processes_started": 0,
+  "native_resave_sha256": "d4bd76cdb3a4471f3a0dcabe21a90304032e3e40e25f77cc7d898426e790de98",
+  "new_heldout_credit": 0,
+  "new_writer_outputs": 0,
+  "original_combined_receipt_passed": false,
+  "passed": true,
+  "schema": "kit.sw2026.planar-original-renderer-save-comparison.v1",
+  "worker_count": 2
+}

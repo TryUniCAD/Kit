@@ -1,0 +1,868 @@
+{
+  "authored_boundary_si": {
+    "bounds_m": [
+      [
+        -0.01925,
+        0.002375
+      ],
+      [
+        0.005125,
+        0.03675
+      ],
+      [
+        -0.01225,
+        0.004875
+      ]
+    ]
+  },
+  "build_sha256": "e79467eff0e78eaa14c482025b86b29ad019f5e399e151a97712cb89f1997548",
+  "candidate": {
+    "native_caps": [
+      "brep",
+      "configurations"
+    ],
+    "native_processes_started": 0,
+    "part": {
+      "bytes": 9884,
+      "sha256": "e1a6a5428030ee336a7b03657bcf4d30f28c350497b81ecc3e7243063928f268"
+    },
+    "runtime_input_reads": 0,
+    "strict_geometry": {
+      "area_mm2": 3191.59375,
+      "bound_solid": "sldprt:brep:body:derived:1",
+      "bounds_axis_pairs_mm": [
+        [
+          -19.25,
+          2.375
+        ],
+        [
+          5.125,
+          36.75
+        ],
+        [
+          -12.25,
+          4.875
+        ]
+      ],
+      "centroid_mm": [
+        -8.4375,
+        20.9375,
+        -3.6875
+      ],
+      "closed_incidence_counts": [
+        1,
+        1,
+        6,
+        12,
+        8,
+        24
+      ],
+      "configuration": "Inspection",
+      "design_body": "sldprt:body:1",
+      "feature": "sldprt:feature:18",
+      "signed_plane_normals": [
+        [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        [
+          -0.0,
+          -0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          1.0,
+          -0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "stored_locator": "C:\\KitPublicBox01\\Candidate\\TranslatedBox.SLDPRT",
+      "volume_mm3": 11711.626953125
+    },
+    "writer_epoch": 1795176219
+  },
+  "candidate_numeric_checks": 116,
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "heldout_cases": 0,
+  "job_sha256": "6ff9332f3ac9256bd0dfd6c3ba6155b22277523ab880faa3196b0dd667504a68",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "original_fcstd_conversions": 0,
+  "passed": true,
+  "phases": {
+    "candidate": {
+      "cold": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 103
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.00319159375,
+          "com_m": [
+            -0.008437499999999999,
+            0.020937499999999998,
+            -0.003687500000000001
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_m3": 1.1711626953124999e-05
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "first_failure": null,
+      "input_path": "C:\\KitPublicBox01\\Candidate\\TranslatedBox.SLDPRT",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396498636669827,
+        "process_id": 10288,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "progress_windows": [],
+      "read_only": false,
+      "rebuilt": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 116
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.00319159375,
+          "com_m": [
+            -0.008437499999999999,
+            0.020937499999999998,
+            -0.003687500000000001
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_m3": 1.1711626953124999e-05
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "e6c0f7d3f593144a54530e7189c28435bc0d7b043039ac27fec623f1eec712ce",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "saved_path": "C:\\KitPublicBox01\\NativeSave\\TranslatedBox.SLDPRT",
+      "saved_sha256": "903cccab9c67d46f9ed8d3d27fc9f1ee86033f87c67066d9a6040b2fabf4eba5"
+    },
+    "control_after": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396499293442831,
+        "process_id": 6292,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "c4af998f9171fada5d65c3d01d558fb9fdae66c702509f19f37212bd457b5d30"
+    },
+    "control_before": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396498398943413,
+        "process_id": 4688,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "8d0bc92587c6c72ab7097b7ee7f267d6763356b71eb285cbe2149dd020f60d55"
+    },
+    "fresh_reopen": {
+      "cold": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 116
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.00319159375,
+          "com_m": [
+            -0.008437499999999999,
+            0.020937499999999998,
+            -0.003687500000000001
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_m3": 1.1711626953124999e-05
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "first_failure": null,
+      "input_path": "C:\\KitPublicBox01\\NativeSave\\TranslatedBox.SLDPRT",
+      "numeric_checks": 58,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396498967219223,
+        "process_id": 1256,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "progress_windows": [],
+      "read_only": true,
+      "rebuilt": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 129
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 6,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.00319159375,
+          "com_m": [
+            -0.008437499999999999,
+            0.020937499999999998,
+            -0.003687500000000001
+          ],
+          "edges": 12,
+          "faces": 6,
+          "vertices": 8,
+          "volume_m3": 1.1711626953124999e-05
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "593acce1d4ee2cb05b6555f3e243876676669798114b428e6d1c762843f8265b"
+    }
+  },
+  "schema": "kit.sw2026.rectangular-import-public-native.v1",
+  "writer_revision": "93c0174353bdc7a4cd3dd155b2ba40066ac96483"
+}

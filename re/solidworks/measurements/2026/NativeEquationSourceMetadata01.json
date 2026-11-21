@@ -1,0 +1,696 @@
+{
+  "delivery_pr": 121,
+  "full_fcstd_conversion_qualified": false,
+  "host_process_checks": {
+    "checks": 4,
+    "names": [
+      "exact_host_verify",
+      "bad_job_digest",
+      "host_cannot_seal_hidden",
+      "host_cannot_start_native"
+    ],
+    "passed": true,
+    "sha256": "cf23d291a7a033dc3d1da3fa0e3f71c39ce4011706321d8e9cd5d4b456ab759a"
+  },
+  "native_source_locks_complete": false,
+  "native_writer_qualified": false,
+  "owner": "/root/assembly_occurrence",
+  "packet": {
+    "disclosed_cases": 2,
+    "guest_private_cases": 2,
+    "manifest_sha256": "b998a7aad82b502c9aeac023857a8563f8b4bf03efcbd4c12e72f43d6126c958",
+    "native_processes_executed": 0,
+    "planned_native_processes": 20,
+    "protocol_sha256": "83790d7f1bf268d310f14dfdecbfc269ba804fdcaf02b3df5fadf5f6e93567a2",
+    "recipe_sha256": "1888e13d2cff0c6a3f834046ebf62f436962502f509737dbe5c15df43b472b0f",
+    "sealed_inputs_read": 0,
+    "sealed_intents_generated": 0,
+    "writer_output_count": 0
+  },
+  "populated_equation_wire_qualified": false,
+  "registered_metadata": {
+    "bytes": 14866,
+    "enums": {
+      "swUserPreferenceToggle_e": {
+        "swInputDimValOnCreate": 10
+      }
+    },
+    "interfaces": {
+      "IDimension": {
+        "guid": "{83A33D3A-27C5-11CE-BFD4-00400513BB57}",
+        "members": [
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 2,
+            "names": [
+              "SystemValue"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              5,
+              0,
+              null
+            ],
+            "vtable_offset": 72
+          },
+          {
+            "arguments": [
+              [
+                5,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 2,
+            "names": [
+              "SystemValue"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 80
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 18,
+            "names": [
+              "ReadOnly"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 216
+          },
+          {
+            "arguments": [
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 18,
+            "names": [
+              "ReadOnly"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 224
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 19,
+            "names": [
+              "FullName"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              8,
+              0,
+              null
+            ],
+            "vtable_offset": 232
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 20,
+            "names": [
+              "DrivenState"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 240
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 20,
+            "names": [
+              "DrivenState"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 248
+          },
+          {
+            "arguments": [
+              [
+                5,
+                1,
+                null
+              ],
+              [
+                3,
+                1,
+                null
+              ],
+              [
+                12,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 1,
+            "member_id": 44,
+            "names": [
+              "SetSystemValue3",
+              "NewValue",
+              "WhichConfigurations",
+              "Config_names"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 464
+          }
+        ],
+        "missing_optional": [],
+        "missing_required": []
+      },
+      "IEquationMgr": {
+        "guid": "{02272CE8-FE52-4B94-B120-6D1826FDBE32}",
+        "members": [
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 6,
+            "names": [
+              "Status"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 104
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 2,
+            "member_id": 7,
+            "names": [
+              "Value",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              5,
+              0,
+              null
+            ],
+            "vtable_offset": 112
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 2,
+            "member_id": 8,
+            "names": [
+              "Equation",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              8,
+              0,
+              null
+            ],
+            "vtable_offset": 120
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ],
+              [
+                8,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 8,
+            "names": [
+              "Equation",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 128
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 1,
+            "member_id": 9,
+            "names": [
+              "GetCount"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 136
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ],
+              [
+                8,
+                1,
+                null
+              ],
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 1,
+            "member_id": 11,
+            "names": [
+              "Add2",
+              "Index",
+              "Equation",
+              "Solve"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 160
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 1,
+            "member_id": 12,
+            "names": [
+              "EvaluateAll"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 168
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 13,
+            "names": [
+              "LinkToFile"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 176
+          },
+          {
+            "arguments": [
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 13,
+            "names": [
+              "LinkToFile"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 184
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 14,
+            "names": [
+              "FilePath"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              8,
+              0,
+              null
+            ],
+            "vtable_offset": 192
+          },
+          {
+            "arguments": [
+              [
+                8,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 14,
+            "names": [
+              "FilePath"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 200
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 15,
+            "names": [
+              "AutomaticSolveOrder"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 208
+          },
+          {
+            "arguments": [
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 15,
+            "names": [
+              "AutomaticSolveOrder"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 216
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 2,
+            "member_id": 22,
+            "names": [
+              "GlobalVariable",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 272
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 2,
+            "member_id": 23,
+            "names": [
+              "Disabled",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 280
+          },
+          {
+            "arguments": [
+              [
+                3,
+                1,
+                null
+              ],
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 23,
+            "names": [
+              "Disabled",
+              "Index"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 288
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 2,
+            "member_id": 25,
+            "names": [
+              "AutomaticRebuild"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 304
+          },
+          {
+            "arguments": [
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 4,
+            "member_id": 25,
+            "names": [
+              "AutomaticRebuild"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              24,
+              0,
+              null
+            ],
+            "vtable_offset": 312
+          }
+        ],
+        "missing_optional": [],
+        "missing_required": []
+      },
+      "IModelDoc2": {
+        "guid": "{B90793FB-EF3D-4B80-A5C4-99959CDB6CEB}",
+        "members": [
+          {
+            "arguments": [
+              [
+                8,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 1,
+            "member_id": 65707,
+            "names": [
+              "Parameter",
+              "StringIn"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              9,
+              0,
+              null
+            ],
+            "vtable_offset": 1528
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 1,
+            "member_id": 65861,
+            "names": [
+              "GetUpdateStamp"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              3,
+              0,
+              null
+            ],
+            "vtable_offset": 2752
+          },
+          {
+            "arguments": [
+              [
+                11,
+                1,
+                null
+              ]
+            ],
+            "invoke_kind": 1,
+            "member_id": 66227,
+            "names": [
+              "ForceRebuild3",
+              "TopOnly"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              11,
+              0,
+              null
+            ],
+            "vtable_offset": 5728
+          },
+          {
+            "arguments": [],
+            "invoke_kind": 1,
+            "member_id": 66286,
+            "names": [
+              "GetEquationMgr"
+            ],
+            "optional_arguments": 0,
+            "return_type": [
+              [
+                26,
+                [
+                  29,
+                  50348288
+                ]
+              ],
+              0,
+              null
+            ],
+            "vtable_offset": 6200
+          }
+        ],
+        "missing_optional": [],
+        "missing_required": []
+      }
+    },
+    "libraries": {
+      "sldworks": {
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      },
+      "swconst": {
+        "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+        "lcid": 0,
+        "major": 34,
+        "minor": 0
+      }
+    },
+    "native_processes_started": 0,
+    "preferences_read": 0,
+    "preferences_written": 0,
+    "sha256": "60db6487419215724e9f48f7f17ae1f5aa373e6cb39a868dda02c31658f7f78c"
+  },
+  "schema": "kit.sw2026.equation-source-metadata-receipt.v1",
+  "source_inputs": {
+    "C059-P01": {
+      "relation": "actual spreadsheet alias drives sketch width",
+      "sha256": "73cd885cd4755b274fe1106db3022923352ea45a7a4d9964d48202790a47de61",
+      "source_dependency_projection_complete": false
+    },
+    "C130-P01": {
+      "relation": "actual named sketch width drives pad depth / 2",
+      "sha256": "d1f9225bfdf31d9708fc8fc8f94261edc9479d01d6a09c720ae70c16a5aa2362",
+      "source_dependency_projection_complete": false
+    }
+  },
+  "task_id": "B04-SW2026/equations-source"
+}

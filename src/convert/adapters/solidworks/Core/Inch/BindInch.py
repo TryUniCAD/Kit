@@ -1,4 +1,5 @@
 from __future__ import annotations as Annotations
+from convert.adapters.base.NativeEvidence import KUnresolvedInchDimension as KUnresolvedInchDimension
 
 from dataclasses import replace as Replace
 from typing import Mapping
@@ -10,8 +11,6 @@ from interchange.Features.DistanceParam import KLengthFactors
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
-# unbound display dimensions need a persistent refusal marker at export boundaries
-KUnresolvedInchDimension = "unresolved_inch_dimension"
 
 
 # binary scalars preserve authored lengths when the display number is rounded

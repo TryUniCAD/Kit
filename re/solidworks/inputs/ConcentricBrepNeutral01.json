@@ -1,0 +1,1213 @@
+{
+  "$type": "CadDocument",
+  "assembly": {
+    "$type": "AssemblyData",
+    "attributes": {},
+    "definitions": {
+      "$tuple": [
+        {
+          "$type": "ComponentDefinition",
+          "attributes": {},
+          "body_ids": {
+            "$tuple": []
+          },
+          "bounding_box": null,
+          "configuration_id": "assembly/config",
+          "configuration_name": "AssemblyActive",
+          "document_id": "",
+          "id": "definition/root",
+          "kind": "assembly",
+          "mesh_ids": {
+            "$tuple": []
+          },
+          "name": "ConcentricNeutralBetaAuthored",
+          "provenance": null,
+          "source_format_id": "",
+          "source_path": "",
+          "source_sha256": ""
+        },
+        {
+          "$type": "ComponentDefinition",
+          "attributes": {},
+          "body_ids": {
+            "$tuple": [
+              "body/round"
+            ]
+          },
+          "bounding_box": null,
+          "configuration_id": "config/default",
+          "configuration_name": "Default",
+          "document_id": "document/cylinder",
+          "id": "definition/cylinder",
+          "kind": "part",
+          "mesh_ids": {
+            "$tuple": []
+          },
+          "name": "NeutralCylinderBetaAuthored",
+          "provenance": null,
+          "source_format_id": "",
+          "source_path": "",
+          "source_sha256": ""
+        }
+      ]
+    },
+    "documents": {
+      "$tuple": [
+        {
+          "$type": "ComponentDocument",
+          "document": {
+            "$type": "CadDocument",
+            "assembly": null,
+            "bodies": {
+              "$tuple": [
+                {
+                  "$type": "Body",
+                  "attributes": {},
+                  "final_feature_id": "feature/round",
+                  "id": "body/round",
+                  "material_id": null,
+                  "name": "RoundBoss",
+                  "provenance": null,
+                  "topology": {
+                    "$type": "TopologySummary",
+                    "bounding_box": null,
+                    "edge_count": 0,
+                    "face_count": 0,
+                    "shell_count": 0,
+                    "solid_count": 0,
+                    "surface_area": null,
+                    "valid": null,
+                    "vertex_count": 0,
+                    "volume": null
+                  }
+                }
+              ]
+            },
+            "brep": {
+              "$type": "BrepModel",
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "BrepBody",
+                    "attributes": {},
+                    "design_body_id": "body/round",
+                    "id": "body/round-sweep-body",
+                    "provenance": null,
+                    "region_ids": {
+                      "$tuple": [
+                        "body/round-sweep-region"
+                      ]
+                    },
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    },
+                    "vertex_ids": {
+                      "$tuple": []
+                    },
+                    "wire_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "coedges": {
+                "$tuple": [
+                  {
+                    "$type": "BrepCoedge",
+                    "attributes": {},
+                    "edge_id": "body/round-sweep-orbit-1-edge",
+                    "id": "body/round-sweep-side-0-loop-0-use",
+                    "pcurve_id": "",
+                    "provenance": null,
+                    "reversed": true
+                  },
+                  {
+                    "$type": "BrepCoedge",
+                    "attributes": {},
+                    "edge_id": "body/round-sweep-orbit-1-edge",
+                    "id": "body/round-sweep-side-1-loop-0-use",
+                    "pcurve_id": "",
+                    "provenance": null,
+                    "reversed": false
+                  },
+                  {
+                    "$type": "BrepCoedge",
+                    "attributes": {},
+                    "edge_id": "body/round-sweep-orbit-2-edge",
+                    "id": "body/round-sweep-side-1-loop-1-use",
+                    "pcurve_id": "",
+                    "provenance": null,
+                    "reversed": true
+                  },
+                  {
+                    "$type": "BrepCoedge",
+                    "attributes": {},
+                    "edge_id": "body/round-sweep-orbit-2-edge",
+                    "id": "body/round-sweep-side-2-loop-0-use",
+                    "pcurve_id": "",
+                    "provenance": null,
+                    "reversed": false
+                  }
+                ]
+              },
+              "curves": {
+                "$tuple": [
+                  {
+                    "$type": "CircleCurve",
+                    "attributes": {},
+                    "axis": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 1.0
+                    },
+                    "center": {
+                      "$type": "Vector3",
+                      "x": -9.283,
+                      "y": 6.917,
+                      "z": 0.0
+                    },
+                    "id": "body/round-sweep-orbit-1-curve",
+                    "provenance": null,
+                    "radius": 8.471,
+                    "reference_direction": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    }
+                  },
+                  {
+                    "$type": "CircleCurve",
+                    "attributes": {},
+                    "axis": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 1.0
+                    },
+                    "center": {
+                      "$type": "Vector3",
+                      "x": -9.283,
+                      "y": 6.917,
+                      "z": 14.763
+                    },
+                    "id": "body/round-sweep-orbit-2-curve",
+                    "provenance": null,
+                    "radius": 8.471,
+                    "reference_direction": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    }
+                  }
+                ]
+              },
+              "edges": {
+                "$tuple": [
+                  {
+                    "$type": "BrepEdge",
+                    "attributes": {},
+                    "curve_id": "body/round-sweep-orbit-1-curve",
+                    "degenerate": false,
+                    "end_parameter": 6.283185307179586,
+                    "end_vertex_id": "body/round-sweep-orbit-1-vertex",
+                    "id": "body/round-sweep-orbit-1-edge",
+                    "provenance": null,
+                    "start_parameter": 0.0,
+                    "start_vertex_id": "body/round-sweep-orbit-1-vertex",
+                    "tolerance": 0.0
+                  },
+                  {
+                    "$type": "BrepEdge",
+                    "attributes": {},
+                    "curve_id": "body/round-sweep-orbit-2-curve",
+                    "degenerate": false,
+                    "end_parameter": 6.283185307179586,
+                    "end_vertex_id": "body/round-sweep-orbit-2-vertex",
+                    "id": "body/round-sweep-orbit-2-edge",
+                    "provenance": null,
+                    "start_parameter": 0.0,
+                    "start_vertex_id": "body/round-sweep-orbit-2-vertex",
+                    "tolerance": 0.0
+                  }
+                ]
+              },
+              "face_uses": {
+                "$tuple": [
+                  {
+                    "$type": "BrepFaceUse",
+                    "attributes": {},
+                    "face_id": "body/round-sweep-side-0-face",
+                    "id": "body/round-sweep-side-0-face-use",
+                    "provenance": null,
+                    "reversed": false
+                  },
+                  {
+                    "$type": "BrepFaceUse",
+                    "attributes": {},
+                    "face_id": "caller/lateral/BetaAuthored",
+                    "id": "body/round-sweep-side-1-face-use",
+                    "provenance": null,
+                    "reversed": false
+                  },
+                  {
+                    "$type": "BrepFaceUse",
+                    "attributes": {},
+                    "face_id": "body/round-sweep-side-2-face",
+                    "id": "body/round-sweep-side-2-face-use",
+                    "provenance": null,
+                    "reversed": false
+                  }
+                ]
+              },
+              "faces": {
+                "$tuple": [
+                  {
+                    "$type": "BrepFace",
+                    "attributes": {},
+                    "id": "body/round-sweep-side-0-face",
+                    "loop_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-0-loop-0"
+                      ]
+                    },
+                    "provenance": null,
+                    "same_sense": true,
+                    "surface_id": "body/round-sweep-side-0-surface",
+                    "tolerance": 0.0
+                  },
+                  {
+                    "$type": "BrepFace",
+                    "attributes": {},
+                    "id": "caller/lateral/BetaAuthored",
+                    "loop_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-1-loop-0",
+                        "body/round-sweep-side-1-loop-1"
+                      ]
+                    },
+                    "provenance": null,
+                    "same_sense": true,
+                    "surface_id": "body/round-sweep-side-1-surface",
+                    "tolerance": 0.0
+                  },
+                  {
+                    "$type": "BrepFace",
+                    "attributes": {},
+                    "id": "body/round-sweep-side-2-face",
+                    "loop_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-2-loop-0"
+                      ]
+                    },
+                    "provenance": null,
+                    "same_sense": true,
+                    "surface_id": "body/round-sweep-side-2-surface",
+                    "tolerance": 0.0
+                  }
+                ]
+              },
+              "loops": {
+                "$tuple": [
+                  {
+                    "$type": "BrepLoop",
+                    "attributes": {},
+                    "coedge_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-0-loop-0-use"
+                      ]
+                    },
+                    "id": "body/round-sweep-side-0-loop-0",
+                    "outer": true,
+                    "provenance": null
+                  },
+                  {
+                    "$type": "BrepLoop",
+                    "attributes": {},
+                    "coedge_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-1-loop-0-use"
+                      ]
+                    },
+                    "id": "body/round-sweep-side-1-loop-0",
+                    "outer": true,
+                    "provenance": null
+                  },
+                  {
+                    "$type": "BrepLoop",
+                    "attributes": {},
+                    "coedge_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-1-loop-1-use"
+                      ]
+                    },
+                    "id": "body/round-sweep-side-1-loop-1",
+                    "outer": false,
+                    "provenance": null
+                  },
+                  {
+                    "$type": "BrepLoop",
+                    "attributes": {},
+                    "coedge_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-2-loop-0-use"
+                      ]
+                    },
+                    "id": "body/round-sweep-side-2-loop-0",
+                    "outer": true,
+                    "provenance": null
+                  }
+                ]
+              },
+              "pcurves": {
+                "$tuple": []
+              },
+              "regions": {
+                "$tuple": [
+                  {
+                    "$type": "BrepRegion",
+                    "attributes": {},
+                    "id": "body/round-sweep-region",
+                    "provenance": null,
+                    "shell_use_ids": {
+                      "$tuple": [
+                        "body/round-sweep-shell-use"
+                      ]
+                    },
+                    "solid": true
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "shell_uses": {
+                "$tuple": [
+                  {
+                    "$type": "BrepShellUse",
+                    "attributes": {},
+                    "id": "body/round-sweep-shell-use",
+                    "provenance": null,
+                    "reversed": false,
+                    "shell_id": "body/round-sweep-shell"
+                  }
+                ]
+              },
+              "shells": {
+                "$tuple": [
+                  {
+                    "$type": "BrepShell",
+                    "attributes": {},
+                    "closed": true,
+                    "face_use_ids": {
+                      "$tuple": [
+                        "body/round-sweep-side-0-face-use",
+                        "body/round-sweep-side-1-face-use",
+                        "body/round-sweep-side-2-face-use"
+                      ]
+                    },
+                    "id": "body/round-sweep-shell",
+                    "provenance": null
+                  }
+                ]
+              },
+              "surfaces": {
+                "$tuple": [
+                  {
+                    "$type": "PlaneSurface",
+                    "attributes": {},
+                    "id": "body/round-sweep-side-0-surface",
+                    "normal": {
+                      "$type": "Vector3",
+                      "x": -0.0,
+                      "y": -0.0,
+                      "z": -1.0
+                    },
+                    "origin": {
+                      "$type": "Vector3",
+                      "x": -9.283,
+                      "y": 6.917,
+                      "z": 0.0
+                    },
+                    "provenance": null,
+                    "reference_direction": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    }
+                  },
+                  {
+                    "$type": "CylinderSurface",
+                    "attributes": {},
+                    "axis": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 1.0
+                    },
+                    "id": "body/round-sweep-side-1-surface",
+                    "origin": {
+                      "$type": "Vector3",
+                      "x": -9.283,
+                      "y": 6.917,
+                      "z": 0.0
+                    },
+                    "provenance": null,
+                    "radius": 8.471,
+                    "reference_direction": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    }
+                  },
+                  {
+                    "$type": "PlaneSurface",
+                    "attributes": {},
+                    "id": "body/round-sweep-side-2-surface",
+                    "normal": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 1.0
+                    },
+                    "origin": {
+                      "$type": "Vector3",
+                      "x": -9.283,
+                      "y": 6.917,
+                      "z": 14.763
+                    },
+                    "provenance": null,
+                    "reference_direction": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    }
+                  }
+                ]
+              },
+              "vertices": {
+                "$tuple": [
+                  {
+                    "$type": "BrepVertex",
+                    "attributes": {},
+                    "id": "body/round-sweep-orbit-1-vertex",
+                    "point": {
+                      "$type": "Vector3",
+                      "x": -0.8119999999999994,
+                      "y": 6.917,
+                      "z": 0.0
+                    },
+                    "provenance": null,
+                    "tolerance": 0.0
+                  },
+                  {
+                    "$type": "BrepVertex",
+                    "attributes": {},
+                    "id": "body/round-sweep-orbit-2-vertex",
+                    "point": {
+                      "$type": "Vector3",
+                      "x": -0.8119999999999994,
+                      "y": 6.917,
+                      "z": 14.763
+                    },
+                    "provenance": null,
+                    "tolerance": 0.0
+                  }
+                ]
+              },
+              "wires": {
+                "$tuple": []
+              }
+            },
+            "brep_payloads": {
+              "$tuple": []
+            },
+            "capabilities": {
+              "$frozenset": []
+            },
+            "configurations": {
+              "$tuple": [
+                {
+                  "$type": "Configuration",
+                  "active": true,
+                  "attributes": {},
+                  "id": "config/default",
+                  "name": "Default",
+                  "overrides": {
+                    "$tuple": []
+                  },
+                  "parent_id": null,
+                  "suppressed_feature_ids": {
+                    "$tuple": []
+                  }
+                }
+              ]
+            },
+            "diagnostics": {
+              "$tuple": []
+            },
+            "feature_timeline": {
+              "$tuple": [
+                {
+                  "$type": "FeatureStep",
+                  "attributes": {},
+                  "configuration_states": {
+                    "$tuple": []
+                  },
+                  "definition": {
+                    "$type": "ExtrusionFeature",
+                    "direction": null,
+                    "draft_angle": null,
+                    "end_condition": {
+                      "$enum": "ExtrusionEndCondition",
+                      "value": "blind"
+                    },
+                    "length": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 14.763
+                    },
+                    "offset": null,
+                    "reversed": false,
+                    "second_draft_angle": null,
+                    "second_end_condition": null,
+                    "second_length": null,
+                    "second_offset": null,
+                    "second_up_to_reference": "",
+                    "symmetric": false,
+                    "up_to_reference": ""
+                  },
+                  "id": "feature/round",
+                  "input_feature_ids": {
+                    "$tuple": []
+                  },
+                  "kind": {
+                    "$enum": "FeatureKind",
+                    "value": "extrusion"
+                  },
+                  "name": "RoundBoss",
+                  "operation": {
+                    "$enum": "BooleanOperation",
+                    "value": "create"
+                  },
+                  "order": 0,
+                  "parameter_ids": {
+                    "$tuple": [
+                      "driver/depth"
+                    ]
+                  },
+                  "provenance": null,
+                  "selection_ids": {
+                    "$tuple": []
+                  },
+                  "sketch_id": "sketch/round",
+                  "suppressed": false
+                }
+              ]
+            },
+            "materials": {
+              "$tuple": []
+            },
+            "meshes": {
+              "$tuple": []
+            },
+            "metadata": {
+              "name": "NeutralCylinderBetaAuthored"
+            },
+            "parameters": {
+              "$tuple": [
+                {
+                  "$type": "Parameter",
+                  "attributes": {},
+                  "expression": null,
+                  "id": "driver/depth",
+                  "name": "D1",
+                  "owner_id": "feature/round",
+                  "provenance": null,
+                  "role": {
+                    "$enum": "ParameterRole",
+                    "value": "driving"
+                  },
+                  "value": {
+                    "$type": "ParameterValue",
+                    "kind": {
+                      "$enum": "ValueKind",
+                      "value": "length"
+                    },
+                    "unit": "mm",
+                    "value": 14.763
+                  }
+                },
+                {
+                  "$type": "Parameter",
+                  "attributes": {},
+                  "expression": null,
+                  "id": "driver/radial",
+                  "name": "D1",
+                  "owner_id": "sketch/round",
+                  "provenance": null,
+                  "role": {
+                    "$enum": "ParameterRole",
+                    "value": "driving"
+                  },
+                  "value": {
+                    "$type": "ParameterValue",
+                    "kind": {
+                      "$enum": "ValueKind",
+                      "value": "length"
+                    },
+                    "unit": "mm",
+                    "value": 16.942
+                  }
+                }
+              ]
+            },
+            "schema_version": "1.0",
+            "selections": {
+              "$tuple": []
+            },
+            "sketches": {
+              "$tuple": [
+                {
+                  "$type": "Sketch",
+                  "attributes": {},
+                  "closed_profile_entity_ids": {
+                    "$tuple": [
+                      {
+                        "$tuple": [
+                          "geometry/circle"
+                        ]
+                      }
+                    ]
+                  },
+                  "constraints": {
+                    "$tuple": [
+                      {
+                        "$type": "SketchConstraint",
+                        "attributes": {},
+                        "driving": true,
+                        "id": "rule/center",
+                        "kind": "fixed",
+                        "parameter_id": null,
+                        "provenance": null,
+                        "references": {
+                          "$tuple": [
+                            {
+                              "$type": "ConstraintReference",
+                              "entity_id": "geometry/circle",
+                              "point": "center"
+                            }
+                          ]
+                        },
+                        "suppressed": false
+                      },
+                      {
+                        "$type": "SketchConstraint",
+                        "attributes": {},
+                        "driving": true,
+                        "id": "rule/radial",
+                        "kind": "diameter",
+                        "parameter_id": "driver/radial",
+                        "provenance": null,
+                        "references": {
+                          "$tuple": [
+                            {
+                              "$type": "ConstraintReference",
+                              "entity_id": "geometry/circle",
+                              "point": ""
+                            }
+                          ]
+                        },
+                        "suppressed": false
+                      }
+                    ]
+                  },
+                  "entities": {
+                    "$tuple": [
+                      {
+                        "$type": "SketchEntity",
+                        "attributes": {},
+                        "construction": false,
+                        "fixed": false,
+                        "geometry": {
+                          "$type": "CircleGeometry",
+                          "center": {
+                            "$type": "Vector2",
+                            "x": -9.283,
+                            "y": 6.917
+                          },
+                          "radius": 8.471
+                        },
+                        "id": "geometry/circle",
+                        "kind": {
+                          "$enum": "GeometryKind",
+                          "value": "circle"
+                        },
+                        "provenance": null
+                      }
+                    ]
+                  },
+                  "id": "sketch/round",
+                  "name": "RoundProfile",
+                  "parameter_ids": {
+                    "$tuple": [
+                      "driver/radial"
+                    ]
+                  },
+                  "provenance": null,
+                  "support_plane_id": "datum/support",
+                  "suppressed": false
+                }
+              ]
+            },
+            "source": {
+              "$type": "CadSource",
+              "application_version": "",
+              "attributes": {},
+              "container_version": "",
+              "format_id": "kit-neutral",
+              "path": "<independent-authored-cylinder>",
+              "sha256": "ebd7f4242ef9b98c655e5da6ca8c8c049f00bd2e9ed532f0ded6b9700850f56a"
+            },
+            "support_planes": {
+              "$tuple": [
+                {
+                  "$type": "SupportPlane",
+                  "attributes": {},
+                  "id": "datum/support",
+                  "name": "Front Plane",
+                  "offset_parameter_id": null,
+                  "provenance": null,
+                  "support_selection_id": null,
+                  "transform": {
+                    "$type": "Transform",
+                    "origin": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "x_axis": {
+                      "$type": "Vector3",
+                      "x": 1.0,
+                      "y": 0.0,
+                      "z": 0.0
+                    },
+                    "y_axis": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 1.0,
+                      "z": 0.0
+                    },
+                    "z_axis": {
+                      "$type": "Vector3",
+                      "x": 0.0,
+                      "y": 0.0,
+                      "z": 1.0
+                    }
+                  }
+                }
+              ]
+            },
+            "units": {
+              "$enum": "UnitSystem",
+              "value": "mm"
+            }
+          },
+          "id": "document/cylinder"
+        }
+      ]
+    },
+    "instances": {
+      "$tuple": [
+        {
+          "$type": "ComponentInstance",
+          "attributes": {},
+          "configuration_id": "config/default",
+          "configuration_name": "Default",
+          "definition_id": "definition/cylinder",
+          "exclude_from_bom": false,
+          "fixed": false,
+          "flexible": false,
+          "hidden": false,
+          "id": "occurrence/0",
+          "name": "Cylinder-1",
+          "order": 0,
+          "owner_definition_id": "definition/root",
+          "provenance": null,
+          "reference_number": "",
+          "suppressed": false,
+          "transform": {
+            "$type": "Matrix4",
+            "values": {
+              "$tuple": [
+                0.7380674287089378,
+                -0.6500924041233583,
+                -0.18065529823420398,
+                -23.173,
+                0.4924159202689376,
+                0.7020229723727551,
+                -0.5144806193887359,
+                17.941,
+                0.46128411217456017,
+                0.29076384294137114,
+                0.8382561395500145,
+                8.317,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          }
+        },
+        {
+          "$type": "ComponentInstance",
+          "attributes": {},
+          "configuration_id": "config/default",
+          "configuration_name": "Default",
+          "definition_id": "definition/cylinder",
+          "exclude_from_bom": false,
+          "fixed": true,
+          "flexible": false,
+          "hidden": false,
+          "id": "occurrence/1",
+          "name": "Cylinder-2",
+          "order": 1,
+          "owner_definition_id": "definition/root",
+          "provenance": null,
+          "reference_number": "",
+          "suppressed": false,
+          "transform": {
+            "$type": "Matrix4",
+            "values": {
+              "$tuple": [
+                0.9835454225168878,
+                0.001437033746084615,
+                0.18065529823420398,
+                -35.10547887106694,
+                -0.09325313975993171,
+                -0.852416297473422,
+                0.5144806193887359,
+                -4.381093847665496,
+                0.154732846451525,
+                -0.5228617319480509,
+                -0.8382561395500145,
+                56.129414262290425,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "mate_entities": {
+      "$tuple": [
+        {
+          "$type": "MateEntity",
+          "attributes": {},
+          "frame": null,
+          "id": "endpoint/0",
+          "instance_path": {
+            "$tuple": [
+              "occurrence/0"
+            ]
+          },
+          "kind": {
+            "$enum": "MateEntityKind",
+            "value": "cylinder"
+          },
+          "owner_definition_id": "definition/root",
+          "provenance": null,
+          "radius": 8.471,
+          "selection_id": "",
+          "source_entity_id": "caller/lateral/BetaAuthored"
+        },
+        {
+          "$type": "MateEntity",
+          "attributes": {},
+          "frame": null,
+          "id": "endpoint/1",
+          "instance_path": {
+            "$tuple": [
+              "occurrence/1"
+            ]
+          },
+          "kind": {
+            "$enum": "MateEntityKind",
+            "value": "cylinder"
+          },
+          "owner_definition_id": "definition/root",
+          "provenance": null,
+          "radius": 8.471,
+          "selection_id": "",
+          "source_entity_id": "caller/lateral/BetaAuthored"
+        }
+      ]
+    },
+    "mate_groups": {
+      "$tuple": [
+        {
+          "$type": "MateGroup",
+          "attributes": {},
+          "id": "group/mates",
+          "mate_ids": {
+            "$tuple": [
+              "mate/concentric"
+            ]
+          },
+          "name": "Mates",
+          "order": 0,
+          "owner_definition_id": "definition/root",
+          "parent_group_id": "",
+          "provenance": null
+        }
+      ]
+    },
+    "mates": {
+      "$tuple": [
+        {
+          "$type": "MateConstraint",
+          "alignment": {
+            "$enum": "MateAlignment",
+            "value": "anti_aligned"
+          },
+          "attributes": {
+            "rotation_locked": true
+          },
+          "driving": true,
+          "entity_ids": {
+            "$tuple": [
+              "endpoint/1",
+              "endpoint/0"
+            ]
+          },
+          "id": "mate/concentric",
+          "kind": "concentric",
+          "name": "ConcentricAuthored",
+          "order": 0,
+          "owner_definition_id": "definition/root",
+          "parameter_ids": {
+            "$tuple": []
+          },
+          "provenance": null,
+          "suppressed": false,
+          "value": null
+        }
+      ]
+    },
+    "root_definition_id": "definition/root"
+  },
+  "bodies": {
+    "$tuple": []
+  },
+  "brep": null,
+  "brep_payloads": {
+    "$tuple": []
+  },
+  "capabilities": {
+    "$frozenset": []
+  },
+  "configurations": {
+    "$tuple": [
+      {
+        "$type": "Configuration",
+        "active": true,
+        "attributes": {},
+        "id": "assembly/config",
+        "name": "AssemblyActive",
+        "overrides": {
+          "$tuple": []
+        },
+        "parent_id": null,
+        "suppressed_feature_ids": {
+          "$tuple": []
+        }
+      }
+    ]
+  },
+  "diagnostics": {
+    "$tuple": []
+  },
+  "feature_timeline": {
+    "$tuple": []
+  },
+  "materials": {
+    "$tuple": []
+  },
+  "meshes": {
+    "$tuple": []
+  },
+  "metadata": {
+    "name": "ConcentricNeutralBetaAuthored"
+  },
+  "parameters": {
+    "$tuple": []
+  },
+  "schema_version": "1.0",
+  "selections": {
+    "$tuple": []
+  },
+  "sketches": {
+    "$tuple": []
+  },
+  "source": {
+    "$type": "CadSource",
+    "application_version": "",
+    "attributes": {},
+    "container_version": "",
+    "format_id": "kit-neutral",
+    "path": "<authored-concentric>",
+    "sha256": "717c3aab4873d639daa512faec0df9b71635b36ceb21f7a33f55d679504cfeff"
+  },
+  "support_planes": {
+    "$tuple": [
+      {
+        "$type": "SupportPlane",
+        "attributes": {},
+        "id": "assembly/datum/z",
+        "name": "Front Plane",
+        "offset_parameter_id": null,
+        "provenance": null,
+        "support_selection_id": null,
+        "transform": {
+          "$type": "Transform",
+          "origin": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "$type": "Vector3",
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 1.0
+          }
+        }
+      },
+      {
+        "$type": "SupportPlane",
+        "attributes": {},
+        "id": "assembly/datum/y",
+        "name": "Top Plane",
+        "offset_parameter_id": null,
+        "provenance": null,
+        "support_selection_id": null,
+        "transform": {
+          "$type": "Transform",
+          "origin": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "$type": "Vector3",
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "y_axis": {
+            "$type": "Vector3",
+            "x": -0.0,
+            "y": -0.0,
+            "z": -1.0
+          },
+          "z_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          }
+        }
+      },
+      {
+        "$type": "SupportPlane",
+        "attributes": {},
+        "id": "assembly/datum/x",
+        "name": "Right Plane",
+        "offset_parameter_id": null,
+        "provenance": null,
+        "support_selection_id": null,
+        "transform": {
+          "$type": "Transform",
+          "origin": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 0.0,
+            "z": 0.0
+          },
+          "x_axis": {
+            "$type": "Vector3",
+            "x": -0.0,
+            "y": -0.0,
+            "z": -1.0
+          },
+          "y_axis": {
+            "$type": "Vector3",
+            "x": 0.0,
+            "y": 1.0,
+            "z": 0.0
+          },
+          "z_axis": {
+            "$type": "Vector3",
+            "x": 1.0,
+            "y": 0.0,
+            "z": 0.0
+          }
+        }
+      }
+    ]
+  },
+  "units": {
+    "$enum": "UnitSystem",
+    "value": "mm"
+  }
+}

@@ -1,0 +1,779 @@
+{
+  "baseline": "6d4fa7929ad7426ae088b770c7794d794ab3e57c",
+  "baseline_refusal": {
+    "archive": {
+      "bytes": 8574,
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+    },
+    "refusal": "SLDPRT contains no readable Parasolid payload",
+    "runtime_access_attempts": 0
+  },
+  "guarded_processes": 19,
+  "held_out_cases": 0,
+  "native_launches": 0,
+  "native_receipt_sha256": "d672ec1f8d427844410a7e2d809bfbcf0d130ecaf1df1bb78cefdd1f5f64e187",
+  "phases": {
+    "bore": {
+      "archive": {
+        "bytes": 8595,
+        "sha256": "1534ae8b0dfbc0733c7dca5b6945eb5e614c3a721bc95391341c3b1fa70d4f61"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 664.0,
+          "centre_mm": [
+            5.0,
+            8.0,
+            9.0
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:22",
+          "id": "sldprt:body:22",
+          "solid_count": 1,
+          "volume_mm3": 1120.0
+        },
+        "ThroughFeature": {
+          "area_mm2": 1037.6637061435918,
+          "centre_mm": [
+            21.0,
+            -8.0,
+            6.0
+          ],
+          "faces": 7,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1577.2035526276902
+        }
+      },
+      "body_binding": {
+        "binding": "cold_two_stock_explicit_wrapper",
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "producer_feature_id": 19,
+        "selected_stock_atom_id": 101,
+        "untouched_producer_feature_id": 22,
+        "untouched_stock_atom_id": 102
+      },
+      "brep_ids": [
+        "sldprt:body:22",
+        "sldprt:body:25"
+      ],
+      "cut_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depths": {
+        "sldprt:feature:19": 12.0,
+        "sldprt:feature:22": 10.0
+      },
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.brep_reconstructed",
+          "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:9"
+      ],
+      "payload_count": 0,
+      "picked": [
+        [
+          "feature",
+          "sldprt:feature:19",
+          "body"
+        ]
+      ],
+      "runtime_access_attempts": 0,
+      "selected_id": "sldprt:feature:19",
+      "semantic_sha256": "856661cd42152bce78f980525f1cc91cb4bc3d97f021fa25616f66ea61fa939f",
+      "tree_status": "ordinary_cold_selected_two_stock_profile",
+      "typed_status": "supplemented"
+    },
+    "crossed-atom": {
+      "archive": {
+        "bytes": 8589,
+        "sha256": "5669f76dd2d50aebb279f48fe3634ab541627b7e738d190bc67aa8a6e6f6ad79"
+      },
+      "refusal": "SLDPRT contains no readable Parasolid payload",
+      "runtime_access_attempts": 0
+    },
+    "crossed-datum": {
+      "archive": {
+        "bytes": 8587,
+        "sha256": "ca6464aeb08c6afbc6d121c8f67568a7ac679937fbe6a4e5d2f0c93626bc413c"
+      },
+      "refusal": "SLDPRT contains no readable Parasolid payload",
+      "runtime_access_attempts": 0
+    },
+    "edited": {
+      "archive": {
+        "bytes": 8589,
+        "sha256": "b2792f7a86f38f0cb2ed5421c0b68d44b688126e42fdab229f093d6f9e35e8ff"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 1500.0,
+          "centre_mm": [
+            14.5,
+            8.0,
+            9.0
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:22",
+          "id": "sldprt:body:22",
+          "solid_count": 1,
+          "volume_mm3": 3248.0
+        },
+        "ThroughFeature": {
+          "area_mm2": 868.1693915921742,
+          "centre_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1256.3060357342374
+        }
+      },
+      "body_binding": {
+        "binding": "cold_two_stock_explicit_wrapper",
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "producer_feature_id": 19,
+        "selected_stock_atom_id": 101,
+        "untouched_producer_feature_id": 22,
+        "untouched_stock_atom_id": 102
+      },
+      "brep_ids": [
+        "sldprt:body:22",
+        "sldprt:body:25"
+      ],
+      "cut_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depths": {
+        "sldprt:feature:19": 12.0,
+        "sldprt:feature:22": 29.0
+      },
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.brep_reconstructed",
+          "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:9"
+      ],
+      "payload_count": 0,
+      "picked": [
+        [
+          "feature",
+          "sldprt:feature:19",
+          "body"
+        ]
+      ],
+      "runtime_access_attempts": 0,
+      "selected_id": "sldprt:feature:19",
+      "semantic_sha256": "cde25a96ecc0b286aab9f053e95ae9c69e54e2550048e54482d71b62bee2c2b9",
+      "tree_status": "ordinary_cold_selected_two_stock_profile",
+      "typed_status": "supplemented"
+    },
+    "initial": {
+      "archive": {
+        "bytes": 8574,
+        "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 664.0,
+          "centre_mm": [
+            5.0,
+            8.0,
+            9.0
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:22",
+          "id": "sldprt:body:22",
+          "solid_count": 1,
+          "volume_mm3": 1120.0
+        },
+        "ThroughFeature": {
+          "area_mm2": 868.1693915921742,
+          "centre_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1256.3060357342374
+        }
+      },
+      "body_binding": {
+        "binding": "cold_two_stock_explicit_wrapper",
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "producer_feature_id": 19,
+        "selected_stock_atom_id": 101,
+        "untouched_producer_feature_id": 22,
+        "untouched_stock_atom_id": 102
+      },
+      "brep_ids": [
+        "sldprt:body:22",
+        "sldprt:body:25"
+      ],
+      "cut_direction": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "depths": {
+        "sldprt:feature:19": 12.0,
+        "sldprt:feature:22": 10.0
+      },
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.brep_reconstructed",
+          "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:9"
+      ],
+      "payload_count": 0,
+      "picked": [
+        [
+          "feature",
+          "sldprt:feature:19",
+          "body"
+        ]
+      ],
+      "runtime_access_attempts": 0,
+      "selected_id": "sldprt:feature:19",
+      "semantic_sha256": "c88e952b7efddb78a9a03265db6e05cad48d61a3ca84b62d0c9928965c594397",
+      "tree_status": "ordinary_cold_selected_two_stock_profile",
+      "typed_status": "supplemented"
+    },
+    "no-brep": {
+      "archive": {
+        "bytes": 8574,
+        "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+      },
+      "bodies": {
+        "Body 1": {
+          "area_mm2": null,
+          "centre_mm": null,
+          "faces": 0,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:1",
+          "solid_count": 1,
+          "volume_mm3": null
+        }
+      },
+      "body_binding": null,
+      "brep_ids": [],
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.native_record_unresolved",
+          "typed resolved semantics unavailable: multiple operation histories are outside typed blind topology"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:9"
+      ],
+      "payload_count": 0,
+      "runtime_access_attempts": 0,
+      "semantic_sha256": "e7b653afdbb1d6a307853e23be9887e795733ead7b857486731df4b3cb37c68a",
+      "tree_status": null,
+      "typed_status": "unsupported"
+    },
+    "ordinary": {
+      "archive": {
+        "bytes": 56249,
+        "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+      },
+      "bodies": {
+        "Boss-Extrude1": {
+          "area_mm2": null,
+          "centre_mm": null,
+          "faces": 0,
+          "final_feature_id": "sldprt:feature:34",
+          "id": "sldprt:body:1",
+          "solid_count": 1,
+          "volume_mm3": null
+        }
+      },
+      "body_binding": null,
+      "brep_ids": [
+        "sldprt:body:1"
+      ],
+      "diagnostics": [],
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:6",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:26",
+        "sldprt:feature:34"
+      ],
+      "payload_count": 2,
+      "runtime_access_attempts": 0,
+      "semantic_sha256": "471dfb82f6afc07492397a25b4dcf763d90d705b7d9d90f3a4642a732e4f5c3a",
+      "tree_status": "ordinary_default_profile",
+      "typed_status": "supplemented"
+    },
+    "present-cache": {
+      "archive": {
+        "bytes": 8721,
+        "sha256": "b9f3a04f023051c5e39adeacbb72d93e961752414dc2bda11eaca10a7893a06c"
+      },
+      "refusal": "SLDPRT contains no readable Parasolid payload",
+      "runtime_access_attempts": 0
+    },
+    "raw": {
+      "archive": {
+        "bytes": 8574,
+        "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+      },
+      "refusal": "SLDPRT contains no readable Parasolid payload",
+      "runtime_access_attempts": 0
+    },
+    "realized-result": {
+      "archive": {
+        "bytes": 8592,
+        "sha256": "ab9a18bd75ffcc96d41b6c3919b5b662bf0f8484a49a89abeb02da70f4d8cb22"
+      },
+      "refusal": "SLDPRT contains no readable Parasolid payload",
+      "runtime_access_attempts": 0
+    },
+    "saved": {
+      "archive": {
+        "bytes": 75510,
+        "sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+      },
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": null,
+          "centre_mm": null,
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:40",
+          "id": "sldprt:body:atom:102",
+          "solid_count": 1,
+          "volume_mm3": null
+        },
+        "ThroughFeature": {
+          "area_mm2": null,
+          "centre_mm": null,
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:47",
+          "id": "sldprt:body:atom:103",
+          "solid_count": 1,
+          "volume_mm3": null
+        }
+      },
+      "body_binding": {
+        "binding": "saved_two_stock_atom_alias",
+        "consumed_atom_id": 101,
+        "consumer_feature_id": 47,
+        "feature_scope_code": 1,
+        "producer_feature_id": 32,
+        "result_atom_id": 103,
+        "untouched_atom_id": 102,
+        "untouched_producer_feature_id": 40
+      },
+      "brep_ids": [
+        "sldprt:body:atom:102",
+        "sldprt:body:atom:103"
+      ],
+      "diagnostics": [],
+      "feature_ids": [
+        "sldprt:feature:8",
+        "sldprt:feature:23",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:22",
+        "sldprt:feature:7",
+        "sldprt:feature:1",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:10",
+        "sldprt:feature:9",
+        "sldprt:feature:21",
+        "sldprt:feature:16",
+        "sldprt:feature:11",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:19",
+        "sldprt:feature:26",
+        "sldprt:feature:32",
+        "sldprt:feature:33",
+        "sldprt:feature:40",
+        "sldprt:feature:41",
+        "sldprt:feature:47"
+      ],
+      "payload_count": 2,
+      "runtime_access_attempts": 0,
+      "semantic_sha256": "04b9dfc0a8b3cbe3c29c4146ce71636f7302761b0b3a9a412b7aa82fe64d5ebe",
+      "tree_status": "ordinary_selected_two_stock_profile",
+      "typed_status": "supplemented"
+    },
+    "saved-derivative": {
+      "archive": {
+        "bytes": 76337,
+        "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+      },
+      "bodies": {
+        "Body 1": {
+          "area_mm2": null,
+          "centre_mm": null,
+          "faces": 0,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:1",
+          "solid_count": 1,
+          "volume_mm3": null
+        }
+      },
+      "body_binding": null,
+      "brep_ids": [
+        ""
+      ],
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 26:Ambient, 27:Directional1, 28:Directional2, 29:Directional3, 32:Exploded Views 32, 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.native_record_unresolved",
+          "typed resolved semantics unavailable: multiple operation histories are outside typed blind topology"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:13",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:30",
+        "sldprt:feature:31",
+        "sldprt:feature:-1",
+        "sldprt:feature:9",
+        "sldprt:feature:26",
+        "sldprt:feature:27",
+        "sldprt:feature:28",
+        "sldprt:feature:29",
+        "sldprt:feature:32"
+      ],
+      "payload_count": 2,
+      "runtime_access_attempts": 0,
+      "semantic_sha256": "88d400c0bcd8428103a471eba70adce14da6a5daf12715576be0db5ec0ea092a",
+      "tree_status": null,
+      "typed_status": "unsupported"
+    },
+    "second": {
+      "archive": {
+        "bytes": 8637,
+        "sha256": "4e28595d99295462f656b216facd0fa2800efb10befa2a6508bf5914b4143721"
+      },
+      "bodies": {
+        "AlphaSolid": {
+          "area_mm2": 585.0,
+          "centre_mm": [
+            -4.5,
+            7.0,
+            3.75
+          ],
+          "faces": 6,
+          "final_feature_id": "sldprt:feature:19",
+          "id": "sldprt:body:19",
+          "solid_count": 1,
+          "volume_mm3": 900.0
+        },
+        "RightScopeCut": {
+          "area_mm2": 766.0409526957654,
+          "centre_mm": [
+            4.75,
+            -13.0,
+            8.950193621550921
+          ],
+          "faces": 8,
+          "final_feature_id": "sldprt:feature:25",
+          "id": "sldprt:body:25",
+          "solid_count": 1,
+          "volume_mm3": 1334.8490102884289
+        }
+      },
+      "body_binding": {
+        "binding": "cold_two_stock_explicit_wrapper",
+        "consumer_feature_id": 25,
+        "feature_scope_code": 1,
+        "producer_feature_id": 22,
+        "selected_stock_atom_id": 102,
+        "untouched_producer_feature_id": 19,
+        "untouched_stock_atom_id": 101
+      },
+      "brep_ids": [
+        "sldprt:body:19",
+        "sldprt:body:25"
+      ],
+      "cut_direction": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "depths": {
+        "sldprt:feature:19": 7.5,
+        "sldprt:feature:22": 9.5
+      },
+      "diagnostics": [
+        [
+          "sldprt.native_record_unresolved",
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        [
+          "sldprt.brep_reconstructed",
+          "B-rep reconstructed from two typed rectangular stocks and the selected circular through cut"
+        ]
+      ],
+      "feature_ids": [
+        "sldprt:feature:1",
+        "sldprt:feature:2",
+        "sldprt:feature:3",
+        "sldprt:feature:4",
+        "sldprt:feature:5",
+        "sldprt:feature:6",
+        "sldprt:feature:7",
+        "sldprt:feature:8",
+        "sldprt:feature:10",
+        "sldprt:feature:11",
+        "sldprt:feature:12",
+        "sldprt:feature:13",
+        "sldprt:feature:14",
+        "sldprt:feature:15",
+        "sldprt:feature:16",
+        "sldprt:feature:17",
+        "sldprt:feature:18",
+        "sldprt:feature:19",
+        "sldprt:feature:21",
+        "sldprt:feature:22",
+        "sldprt:feature:24",
+        "sldprt:feature:25",
+        "sldprt:feature:9"
+      ],
+      "payload_count": 0,
+      "picked": [
+        [
+          "feature",
+          "sldprt:feature:22",
+          "body"
+        ]
+      ],
+      "runtime_access_attempts": 0,
+      "selected_id": "sldprt:feature:22",
+      "semantic_sha256": "e8ec6309541f0dc9eb82c7dfd34ad83839140670c5e2fbc94862b5e9a5cdb5a6",
+      "tree_status": "ordinary_cold_selected_two_stock_profile",
+      "typed_status": "supplemented"
+    }
+  },
+  "runtime_access_attempts": 0,
+  "schema": "kit.sw2026.public-cold-stock-reader.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/throughsource/twostockgraph/ProvePublicColdStocks.py": "aa5f2c40a5ead6d0f2653072cc286f89a7cb867ce188ddad073a8b017903d6d1",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "55d5a01044456977fd2ec9e48a57cfa4b8b49bbb663b7239411efe4c167f29ec",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/BindStockDoc.py": "8066ea4bd278aad6d0176d91bebfeec09e449ed1a54ce986f6181153f2f08c09",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/BindStockModel.py": "50edc9948d3271403fda90d737f2c220646beda7a2742158702a13d87d44aaed",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockProfs.py": "a46c2fc686d4d2cb2739fb972da21887d1624f6f57c989215573d37d197b3013",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildColdBox.py": "d7a272a4e114ce1109cd81292d5de11fa43b02e71c69558bc70a717899e8ec20",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildColdCut.py": "f25bce867ac3f7684a51d0644ad5b92a171b279c0148a23ea6cd1709d59f3a9b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildColdGeom.py": "f9c5c94f2db170ed13bcfcca52159774dcb48d39b1db3ee63ae62ce529d7e4a9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/BuildNotchRing.py": "b68d39c61b6171856dd7ba7761e82ad6520b9e5a024dda9bb09edf428d1d650c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/CheckColdDepth.py": "da21b065cf1f8bc4ebc698f3dc8c959364b4087bde2eba639735e021cb2eddc6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/CheckColdState.py": "6a0eec00143c4c9a0600c8d89f734c199cd07081456f2d12c978fcd548ed04fa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/CheckStockGap.py": "e503bec914290298d49ea10b4831f9671b9156be6759b1b3b65db26c836aedad",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ColdBoxCenter.py": "d66b42c9637ae94fb4d9102f9ba005100ac5d70568e5c44cfba6710e0e2493f3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ColdSolid.py": "ccea5743f9ed390082813add3ec53cb6c74354aed82c2ea4c69c2cb9ee698128",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ColdStockBody.py": "361db71da9c5aa16af9cc44dc8328cbfa1b1753e880399779faf9b8cec218c03",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ColdStockOwners.py": "91c14e480917709c3c92ccf6027b07ee60cecef1b1b5b2ed3acc9a62e5db28c8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ColdStockPart.py": "ccaea0aaaf05194d41f69d5dc6da926f25c383fd542efb47dc870a111dce9d80",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/JoinColdGeom.py": "99e411ba62d8c27f75027560784b6596c87ae51f455c62755b2d311f18b9b49e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/MakeColdSolid.py": "ab98511101a352888e7ad5e0c87a4030b41f95e84db5af40590d420c63d10fa3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/NotchSide.py": "bf3ae2da8deaa2ecc0a7cb2d6cceee1605c0087643b271149fc2401b15305bac",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdAtoms.py": "bac5ec3929ed211b0946e50479450fed3a916860c3ae00941376b10be3d3a122",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdDatum.py": "2a72d2722378fb093a09839db71b34407901bfd8ea1db1b3d0bc3c93a3a55ffa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdFrames.py": "100d6524f7b5cc2380805d9025b6d1fda97ab03f0c5a61dd158451943be2a213",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdOwners.py": "d85849f6a65b721076a226d846667855ec62ab5142d0244562ce62c797d01f9d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdPrism.py": "b7088764badbe4037737659127065d92ae8e5547cbf5fc05909ab56fbbd15cab",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadColdSelect.py": "a5ae21f0bc0d4d9f3c60954967790671c6abdce3d433fe6b785fc84667fdcddc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/ReadNotchSide.py": "88b507930a0564d327133e7d70ad9624338abc443c25c943474ee1b94ebec1fa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/TryColdStock.py": "4eaa487bf8d42615f60b9955e3d1e615ba8e492bbbd7d1fa1e99441dd87b3787",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/Cold/WithColdCut.py": "a712ba80a75bff1fc1de3a505a858b3c6b73f64fb796a4f2bec650b53209241f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/IsStockConfig.py": "9e0694cdcf0e7dc76547e85ddedb49157551dd688882f088d3a4816ff2df6dae",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/IsStockModel.py": "df61160aa2052aa713d9260228ec8fac31fb3703f0c928950ba43c459d629778",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/StockOpsMap.py": "ba062830aff4fac5a25acc836acba07e81cb5e61dd3f4c164c66e2d6c60d86cb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/TryStockPart.py": "00991ae6db7183f18e21e4692d328a0caa91ffe998803c7d4b808f0987dfae81",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Display/ReadGeomMessage.py": "63f33ca08f2da5ac727e90713164e24a3b6ab33e0463a1bd7236420269d6556d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadPartShape.py": "9d1a0c8449f58157b3115f1c7a17e5ead2c681a5468d2910104ba84182b53ddc",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckColdRows.py": "a87ced89dddfd6326bb342c393bc899b4c720322e37a318c3e2c708afb158032",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruRows.py": "0816f72ecef438d1f2909c5a6aeb0244e633159458628fc1976ca06cfb536821",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectThruTree.py": "9a8f09d7098e5dbc4957b5b3f477154e0a2326e24cf501d16062c8dee0a023d2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py": "82da8860de37f73ae08ad1789af7f8103df7bf26ab826a742cad4c914cc75efa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ProjectTyped.py": "6cec7784f6a7ca71c0fe480736477059bc29cfcd44b337c686fe7f0fcfebe1ca",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReportTyped.py": "8ae220e9472e691e095843788298851f5ef6ef5deadd4372d957e8b67f2a181a"
+  },
+  "unchanged_against_baseline": [
+    "no-brep",
+    "raw",
+    "saved",
+    "ordinary",
+    "saved-derivative"
+  ]
+}

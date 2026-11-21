@@ -1,0 +1,253 @@
+{
+  "builds": {
+    "CustomMassA/grams": {
+      "archive_preferences": {
+        "density_has_independent_length": true,
+        "density_matches_primary_with_neutral_caches": true,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 1,
+        "system": 3,
+        "volume": [
+          3,
+          3,
+          0
+        ]
+      },
+      "bytes": 8061,
+      "config_stream": {
+        "bytes": 22324,
+        "sha256": "ff4e7b31560266e1001477f67ddbf992ac5bf7c39e6f141a279930afb2cd1f75"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.02913,
+        0.013710000000000002,
+        0.00723
+      ],
+      "passed": true,
+      "request_sha256": "7985642e4a861824f013433807d977559c0f8ed3d6d5725ad7a674c2065b9998",
+      "result_sha256": "a1b42bef94edc39149e5153933de3503d401657c268176fb5bbb9e47a161e714",
+      "runtime_input_reads": 0,
+      "sha256": "6cd1a2c5fa7a3d88b0e8edbf5a5ecfb3b97955ea7deee7e67e0e56816d590615",
+      "target": "C:\\KitCustomMass121\\CustomMassA.SLDPRT"
+    },
+    "CustomMassA/kilograms": {
+      "archive_preferences": {
+        "density_has_independent_length": true,
+        "density_matches_primary_with_neutral_caches": true,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 2,
+        "system": 3,
+        "volume": [
+          3,
+          3,
+          0
+        ]
+      },
+      "bytes": 8060,
+      "config_stream": {
+        "bytes": 22324,
+        "sha256": "4a824a34f6159a0cc2ce0ae0509a381d66ca942d3395b3545b8190cf63c281f4"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.02913,
+        0.013710000000000002,
+        0.00723
+      ],
+      "passed": true,
+      "request_sha256": "2d269d11ca67733d57c2c530c67537cf3d893caa1fc47c08dcd851e0a8842933",
+      "result_sha256": "00bcdbc3bdb663d90dbc78ada7b007839c8c25012c59f6ef385e28498e5d6cc5",
+      "runtime_input_reads": 0,
+      "sha256": "1e0ee00ee204a65016f2af6188ab7ab2b2070bea8bb017b3620b3da4187d43ea",
+      "target": "C:\\KitCustomMass121\\CustomMassA.SLDPRT"
+    },
+    "CustomMassA/preset": {
+      "archive_preferences": {
+        "density_has_independent_length": false,
+        "density_matches_primary_with_neutral_caches": false,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 1,
+        "system": 4,
+        "volume": [
+          3,
+          3,
+          1
+        ]
+      },
+      "bytes": 8050,
+      "config_stream": {
+        "bytes": 22256,
+        "sha256": "3422049d8d29f899204e6940be86e04d13860d822bf1a8d6875d878a6f93914e"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.02913,
+        0.013710000000000002,
+        0.00723
+      ],
+      "passed": true,
+      "request_sha256": "a3d92ffbfe1da6e7513433d3078c6472c219c1db6e52b12e99e333bda79166c7",
+      "result_sha256": "8f8f68fabdbf9bcaa6d0b087251e1597056fcfd03d6d40cdfd566cfe217d2ba7",
+      "runtime_input_reads": 0,
+      "sha256": "6d8f8fb17e9f4c67edf2ea86f114b1b8c7b337332afcc51b87df13b79e64235b",
+      "target": "C:\\KitCustomMass121\\CustomMassA.SLDPRT"
+    },
+    "CustomMassB/grams": {
+      "archive_preferences": {
+        "density_has_independent_length": true,
+        "density_matches_primary_with_neutral_caches": true,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 1,
+        "system": 3,
+        "volume": [
+          3,
+          3,
+          0
+        ]
+      },
+      "bytes": 8063,
+      "config_stream": {
+        "bytes": 22324,
+        "sha256": "0c25c7d17b1735f5501f274bb64317fa1d780b43b17e1544c4fd2c3c94d258fa"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.04281600000000001,
+        0.018407,
+        0.009654
+      ],
+      "passed": true,
+      "request_sha256": "d52473cd8ae82fb07cb5c0f9c5e4bedd815894821a1809e54d3ac45e0c07201d",
+      "result_sha256": "3b527a1429d5cfe16a3071c199d9d91383807fb88b1ccdabdb926c93ed5bc154",
+      "runtime_input_reads": 0,
+      "sha256": "00c0e0eddefd3b25b05fd940f15b9d1ca6b014d46800bbb6b8597c72035aba17",
+      "target": "C:\\KitCustomMass121\\CustomMassB.SLDPRT"
+    },
+    "CustomMassB/kilograms": {
+      "archive_preferences": {
+        "density_has_independent_length": true,
+        "density_matches_primary_with_neutral_caches": true,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 2,
+        "system": 3,
+        "volume": [
+          3,
+          3,
+          0
+        ]
+      },
+      "bytes": 8063,
+      "config_stream": {
+        "bytes": 22324,
+        "sha256": "67c73c270d2108fb99a70f5b065bed7efd5ae1fd3f4e273bb114323fe20be17b"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.04281600000000001,
+        0.018407,
+        0.009654
+      ],
+      "passed": true,
+      "request_sha256": "47f14f66ca2766ea51500e283b4bce3c6933cdda126bd35d21eba8d29ca83f8d",
+      "result_sha256": "be0259196f09ea3de6730188cb0840f1ecc62015a8912171ce1e8b58b571330d",
+      "runtime_input_reads": 0,
+      "sha256": "6573b4dbd5ce329325b2b7fbbac4cb163fc4c11540e9d7fb10bfb51b192aab6d",
+      "target": "C:\\KitCustomMass121\\CustomMassB.SLDPRT"
+    },
+    "CustomMassB/preset": {
+      "archive_preferences": {
+        "density_has_independent_length": false,
+        "density_matches_primary_with_neutral_caches": false,
+        "length": 0,
+        "length_precision": 4,
+        "mass": 1,
+        "system": 4,
+        "volume": [
+          3,
+          3,
+          1
+        ]
+      },
+      "bytes": 8053,
+      "config_stream": {
+        "bytes": 22256,
+        "sha256": "d9e1769b0b973f81e0d0f8692a10fc08515c83dc7796ca4fa62d2893551782ba"
+      },
+      "native_acceptance": false,
+      "numeric_dimensions_m": [
+        0.04281600000000001,
+        0.018407,
+        0.009654
+      ],
+      "passed": true,
+      "request_sha256": "b08b0e53107484f77ff1caec1d3a9ed0af7b5e8f2d2d8c600d9a190f3efb7ec6",
+      "result_sha256": "8a99e1c2f43b8b5d728e9658a956c2b90157e0aabd17a6b3eae28bb36b5f6f9f",
+      "runtime_input_reads": 0,
+      "sha256": "3545fc6106af9fb851600285df4316d38963ec8cc2b88d0c6d5f12743559d18b",
+      "target": "C:\\KitCustomMass121\\CustomMassB.SLDPRT"
+    }
+  },
+  "files_sha256": {
+    "re/tooling/sw2026/units/InspectGeneratedCustomMassUnits.py": "f4bbdef412e1ffdec414ffc5c2849a17c8acd40993741f4e07da82c5bdb4a235",
+    "re/tooling/sw2026/units/SdkCustomMassPartProcess.py": "4451d391781c61cf87e5c74c72e76b332c67f6f05c5d54ef7007cf1f3b9a7c18",
+    "src/convert/adapters/solidworks/Archive/Construction/Units/BindCustomDensityMut.py": "31bf7c6bad2359197f0bed15a7282d556bb57c56c1a2bdc03add9ba0272cd9a5",
+    "src/convert/adapters/solidworks/Archive/Construction/Units/MakeUnitTable.py": "b64220a6287ee6e6dc4fceb80f0ff662c2c2e5109968957cefe4d7cf3ea3ec74",
+    "src/convert/adapters/solidworks/Archive/Construction/Units/UnitInput.py": "00e54b1319e69b2e5975001cc1e1141bc3b5f8047ab72b9ddb3150e6adf4d134",
+    "src/convert/adapters/solidworks/Archive/Construction/Units/UnitVocabulary.py": "9f85685a8b7dfeaa1fcd33f55464fba7346499ff8b61d5c2d51cb65cdfb11dee",
+    "src/convert/adapters/solidworks/Core/Preparation/BindPartIntent.py": "8045771ee3c169c67986172529456817a48ad63f9b9d8f925cf1b826dffe6532"
+  },
+  "first_compare_failure": "compressed container lengths do not measure equal uncompressed layouts",
+  "first_probe_valid_worker_outputs_repeated_exactly": true,
+  "guarded_build_result_sha256": "95cb153f8de704a0c2ef5f09f9d2a5e134c83d48950e8482d13c9c08d1db767e",
+  "guarded_default_presets": 2,
+  "guarded_processes": 12,
+  "heldout_inputs": 0,
+  "independent_shape_cases": 2,
+  "legacy_box_replay_sha256": "08579cba8fe2e2243a3abf1949a77db2a5e670aa048e24f3801e2ba37e28b213",
+  "legacy_guarded_processes": 9,
+  "native_generated_acceptance_pending": true,
+  "native_source_evidence": "DocumentMassUnitsNative01.json",
+  "only_uncompressed_stream_changed_between_mass_choices": "Contents/Config-0",
+  "public_writer_qualified": false,
+  "refusals": {
+    "Reject/missing-mass": {
+      "diagnostic": "ValueError: custom units require millimetres degrees and an explicit gram or kilogram mass",
+      "rejected": true,
+      "request_sha256": "53b086157fe7fac78e3fa7887110b735ced0f1e1aa202fe7f7bc0cd2daa39ad0"
+    },
+    "Reject/neutral-unit-disagreement": {
+      "diagnostic": "ValueError: custom display length must match the actual neutral units",
+      "rejected": true,
+      "request_sha256": "8c878c9eb513966fceb21b1504160744baca2c43a1cdb867682805b1dd923353"
+    },
+    "Reject/preset-override": {
+      "diagnostic": "ValueError: an explicit mass unit requires the custom system",
+      "rejected": true,
+      "request_sha256": "a6f1a454357ddfe0469d9744f13d32a8e1cb03660abe42e62478eba8f0e991af"
+    },
+    "Reject/unknown-mass": {
+      "diagnostic": "ValueError: custom units require millimetres degrees and an explicit gram or kilogram mass",
+      "rejected": true,
+      "request_sha256": "ca657aebe7adc2d099f9fdc0fd670828776d6af7b6b994026a47b3200dd85144"
+    },
+    "Reject/unsupported-custom-angle": {
+      "diagnostic": "ValueError: custom units require millimetres degrees and an explicit gram or kilogram mass",
+      "rejected": true,
+      "request_sha256": "bf8ac09931da3f942aee12f4b7019584a49c2c0709832a6c1ad135d0d18d6270"
+    },
+    "Reject/unsupported-custom-length": {
+      "diagnostic": "ValueError: custom units require millimetres degrees and an explicit gram or kilogram mass",
+      "rejected": true,
+      "request_sha256": "1e3d5cb772fb266bc77b5031bc569fcee39c7db3cca04817147743dfedeeb76b"
+    }
+  },
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.custom-mass-part-construction-receipt.v1",
+  "task": "B04-SW2026-UNITS"
+}

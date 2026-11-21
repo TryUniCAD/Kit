@@ -11,15 +11,25 @@ from convert.adapters.solidworks.Archive.Definition.Fields.ModelDefLayouts impor
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.ModelDefSchemas import (
     KModelDefSchemas,
+    KOrdDefSchemas,
+)
+from convert.adapters.solidworks.Archive.Definition.Fields.OrdDefLayouts import (
+    KOrdDefLayouts,
 )
 
 
 # model definitions have an independent archive base and admit only the proved version
-def ModelDefContext(VersionValue: int, *, Assembly: bool = False) -> BodyContext:
-    if type(CastValue(object, VersionValue)) is not int or VersionValue != 19000:
+def ModelDefContext(
+    VersionValue: int, *, OrdinaryOnly: bool = False, Assembly: bool = False
+) -> BodyContext:
+    if VersionValue != 19000 or (
+        (Assembly or OrdinaryOnly) and type(CastValue(object, VersionValue)) is not int
+    ):
         raise BodyUnsupported(
             "SOLIDWORKS model Definition requires archive version 19000"
         )
     if Assembly:
         return BodyContext(VersionValue, KAsmDefLayouts, {}, KAsmDefSchemas)
+    if OrdinaryOnly:
+        return BodyContext(VersionValue, KOrdDefLayouts, {}, KOrdDefSchemas)
     return BodyContext(VersionValue, KModelDefLayouts, {}, KModelDefSchemas)

@@ -1,0 +1,178 @@
+{
+  "benign_counter_controls": 2,
+  "candidate_manifest_sha256": "cc20da527d4fa9e65c8ae5b073db568a55ad1b3c9672cabdb25b2176b053ccfd",
+  "checks": {
+    "actual_origin_and_sketch_aliases_retained": true,
+    "complete_definition_header_cmgr_config_resolved_before_after": true,
+    "complete_stream_comparisons": 480,
+    "no_additional_model_file_open_stat_lstat_attempts": true,
+    "ordinary_sketch_not_substituted": true,
+    "public_drawing_partial_semantics_unchanged": true,
+    "public_strict_drawing_refusal_unchanged": true,
+    "remaining_unprojected_families_unchanged": true,
+    "source_and_input_hashes_unchanged": true,
+    "strict_public_child_reads_passed": true
+  },
+  "controller_sha256": "0701d5a7f8011dbee8bdb398c50f268c0da44be803e786d64af38142c81009ee",
+  "custody": {
+    "full_sdk_module_copies": 0,
+    "git_mutations": 0,
+    "native_runs": 0,
+    "new_cad_files": 0,
+    "new_heldout_credit": 0,
+    "shared_source_writes": 0,
+    "static_caches": "disabled or private scratch",
+    "still_sealed_inputs_read": 0,
+    "task_owned_hopper_targets_opened": 0
+  },
+  "delivery_pr": 121,
+  "fresh_sdk_processes": 48,
+  "independent_child_payloads": 1,
+  "input_manifest_sha256": "8948bab7a463b36d743a6a45ab09c16c1a88824596f5ca0903c5e8212ae475c5",
+  "integrated_research_replay": {
+    "all_48_worker_receipts_identical": true,
+    "candidate_manifest_sha256": "1dd8b66e1fcb1a2382e602471f937bde6f41c435c48e7775fc639aa325eb6970",
+    "controller_sha256": "97ede7d234f7f018fe3ab1c69a69085b5328498c32b142a5444b1042f434c988",
+    "independent_frozen_replay_sha256": "b5056ae6ba5ad933ba825861c8bdb67d00f2c505d877c57a477cf862d013fd1a",
+    "native_runs": 0,
+    "production_modules_added": 0,
+    "prototype_in_research_tree": true,
+    "recovered_observer_failure_sha256": "ebc955245c4d6a6171fa2da55c3e7aa4c9e2cea36eb7c34fd29f7338a259648e",
+    "result_sha256": "4f90b58c848fc5d111d913ee466d32817b1bf8bcfcb5d9359269857d81782880",
+    "source_manifest_sha256": "19b07f8b3bf681dca27b050ac3d4e09a88975adf0304d543252e579d73781637",
+    "worker_sha256": "729bf99b21bbae38ac400905c7192b69a1fc1bcee6f0e14a1f7aec28abe63ad7"
+  },
+  "limits": [
+    "Internal identity join only; no public adapter or options registration",
+    "Caller supplies independently resolved bytes, declared reference path and trusted expected digest; drawing bytes do not authenticate that digest",
+    "Both diverse drawing views use the same child payload; independent child generalization is not established",
+    "No portable displayed geometry or full original-source semantics are claimed",
+    "Public strict drawing reading and all three existing unprojected families remain unchanged"
+  ],
+  "negative_variants": [
+    "chain_entries",
+    "chain_mode",
+    "chain_owner",
+    "chain_target",
+    "component_transform",
+    "configuration_id",
+    "configuration_name",
+    "creation_epoch",
+    "display_auxflag",
+    "display_folder",
+    "display_view",
+    "duplicate_origin",
+    "manager_alias",
+    "missing_origin",
+    "negative_feature_id",
+    "ordinary_sketch_id",
+    "resolver_hash",
+    "resolver_relative",
+    "resolver_suffix",
+    "resolver_wrong_path",
+    "self_selector",
+    "substituted_payload"
+  ],
+  "negative_workers": 44,
+  "owner": "configuration_header",
+  "passed": true,
+  "positive_cases": [
+    {
+      "case": "H01SheetA",
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "complete_stream_sha256": {
+        "Contents/CMgr": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda",
+        "Contents/Config-0": "136b764841c884dbe45f14f05ca3b9f233eecbbae1aa7eca5e811773cb52b305",
+        "Contents/Config-0-ModelHeader": "a6f46e14e5833f22e84783185a4bf5d26c370426e3fc2b3c28b677742fd444e1",
+        "Contents/Config-0-ResolvedFeatures": "d489af908f35237a806cfca07c0cbd1fb027a311f45ab084614270774aca5362",
+        "Contents/Definition": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2"
+      },
+      "drawing_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "join": {
+        "actual_sketch_index": 134,
+        "can_hide_suppressed": true,
+        "child_self_title_matches_directory": false,
+        "concrete_class": "moOriginProfileFeature_c",
+        "configuration_id": 0,
+        "configuration_name": "authored configuration",
+        "created_at": 2592000,
+        "native_id": 17,
+        "resolver_path_matches": true,
+        "same_actual_origin": true,
+        "same_actual_sketch": true
+      },
+      "public_child_sketch_ids": [
+        "sldprt:sketch:18"
+      ],
+      "public_drawing_sketch_count": 0,
+      "public_partial_sha256": "54614934b8fc68ad2f16303b3423235b18f123378357cf0b0b51558c7d2cd88e",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "worker_report_sha256": "127c7249ddfb2fb546cdd6d93093410dcc1c366973a10d86378a1e24fb76e380"
+    },
+    {
+      "case": "H02SheetB",
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "complete_stream_sha256": {
+        "Contents/CMgr": "13d6b35b80cffe080a42635eb45b5d0d384fb2582d3ee2abeb0cbd9ed0ab8fda",
+        "Contents/Config-0": "136b764841c884dbe45f14f05ca3b9f233eecbbae1aa7eca5e811773cb52b305",
+        "Contents/Config-0-ModelHeader": "a6f46e14e5833f22e84783185a4bf5d26c370426e3fc2b3c28b677742fd444e1",
+        "Contents/Config-0-ResolvedFeatures": "d489af908f35237a806cfca07c0cbd1fb027a311f45ab084614270774aca5362",
+        "Contents/Definition": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f"
+      },
+      "drawing_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "join": {
+        "actual_sketch_index": 134,
+        "can_hide_suppressed": true,
+        "child_self_title_matches_directory": false,
+        "concrete_class": "moOriginProfileFeature_c",
+        "configuration_id": 0,
+        "configuration_name": "authored configuration",
+        "created_at": 2592000,
+        "native_id": 17,
+        "resolver_path_matches": true,
+        "same_actual_origin": true,
+        "same_actual_sketch": true
+      },
+      "public_child_sketch_ids": [
+        "sldprt:sketch:18"
+      ],
+      "public_drawing_sketch_count": 0,
+      "public_partial_sha256": "828a11a4a5536c5b1e25ee32fb63333b2e3da970aae57a6acbf37d433b8e67d9",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ],
+      "worker_report_sha256": "7107e49791d42884b5b5defe4f3b351345d9d5d753ac90783c8a76c9a187e8e9"
+    }
+  ],
+  "positive_source_states": 2,
+  "preserved_prior_proof": {
+    "Code01_result_sha256": "4831d6eb5016dc0772b3891bf7180663c527343bf90c7b7e34b0d96ac4ece059",
+    "later_finite_changes": "Code02 adds typed casts and a validated object path argument; final observer computes the actual self-title difference instead of a fixed description",
+    "passed": true
+  },
+  "preserved_static_setup_failure": {
+    "reason": "absolute include was ignored and included unrelated research scripts; three actual private candidate typing diagnostics were then repaired in Code02",
+    "report_sha256": "d1264ac8c654c80e2fd67e77e94396963804f497f02fa5d0fe734d78977bf863"
+  },
+  "raw_result_sha256": "b5056ae6ba5ad933ba825861c8bdb67d00f2c505d877c57a477cf862d013fd1a",
+  "schema": "kit.sw2026.drawing-explicit-origin-join-measurement.v1",
+  "source_file_count": 4666,
+  "source_manifest_sha256": "19b07f8b3bf681dca27b050ac3d4e09a88975adf0304d543252e579d73781637",
+  "static_checks": {
+    "black": "passed",
+    "repository_steering": "not_run_on_private_overlay",
+    "ruff": "passed",
+    "strict_mypy": "passed",
+    "strict_pyright": "passed"
+  },
+  "static_report_sha256": "bfa06a33fd53095afe262579fdaf6a9b34a8f3a87ee7736d6dea4507018e268f",
+  "status": "private_typed_identity_component_pending_independent_root_replay",
+  "task_id": "PR121-DRAWING-EXPLICIT-ORIGIN-JOIN",
+  "worker_sha256": "06304c50fb9c200fa6433f1f07795f2f90c69a560fe189761bce023efc88b43a"
+}

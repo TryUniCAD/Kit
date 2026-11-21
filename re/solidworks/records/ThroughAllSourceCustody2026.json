@@ -1,0 +1,22 @@
+{
+  "current_perpendicular_hidden_payloads_read": 0,
+  "event": "complete legacy checked-in specification was accidentally read during author-interface inventory",
+  "legacy_native_payloads_read": 0,
+  "legacy_spec_path": "re/tooling/sw2026/EndConditionSpecs.json",
+  "legacy_spec_sha256": "aaa4236ab265bef3ca5211b1cae9b558ad74bf2b4069e2568f51331bf74920a0",
+  "new_through_all_hidden_payloads_read": 0,
+  "older_neutral_cases_exposed": [
+    "H01Forward",
+    "H02Reverse",
+    "H03MidPlane",
+    "H04TwoDirections"
+  ],
+  "older_numeric_design_values_reused": false,
+  "owner": "assembly_occurrence",
+  "qualification_policy": "the four exposed older cases are excluded from blind qualification by this implementing agent; this lane creates a new guest-only sealed cohort before writer work",
+  "recorded_at": "2026-11-18T15:44:39.230966+00:00",
+  "root_informed": true,
+  "schema": "kit.sw2026.through-all-lane-custody.v1",
+  "task": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "writer_changed": false
+}

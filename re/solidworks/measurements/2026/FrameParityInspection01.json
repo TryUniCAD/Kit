@@ -1,0 +1,2807 @@
+{
+  "schema": "kit.sw2026.paired-profile-frame-receipt.v1",
+  "writer_revision": "6fc97ccebb41696c5dbc03e538ba132064af241d",
+  "inspection_source_revision": "7a132ff8748e66787410c8746a92f08f27572a3e",
+  "started_at": 1794880287.0416818,
+  "finished_at": 1794880888.2296307,
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "native_inspection_sha256": "17520a5774989c0025951cb736b8df2dc994fc435426ef92b0f17405b4957e25",
+  "transport_sha256": "27cd12387805b4c54266716a5cf334398e42a2e31a08f3d620a812c94c7d81c1",
+  "tool_manifest_sha256": "239c2811c31a7e68a5df8d2d4d5c46d5c4b4d54576c5502a61f170964cef0319",
+  "inspector_sha256": "3a2404f7e36c6c840a772e5b39a9df02a638a4f0a4838039cdbe06d84fdf42d0",
+  "job_sha256": "cab2b8486a78ee658b648310f1a0b3eddc2e35da52ba802ca6d086a7ead9abd4",
+  "prediction_receipt_sha256": "6aee17e03dba1dad4893e67891418885e272ea1da5b893006a270febeb50bc1f",
+  "writer_freeze_sha256": "7e80a951824e9c8e2b86e645d6326fa6a16c208d4f79a6598262c8192c8913f2",
+  "reference_inspection_sha256": "03dcc2d94e98c268eef93409d521ccf48922a73a7ab28a34f5a645bfdcb4483e",
+  "controls": [
+    {
+      "kind": "control_before",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "oracle_identity": {
+        "process_id": 9544,
+        "process_creation_filetime": 134393538915020653,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      }
+    },
+    {
+      "kind": "control_after",
+      "healthy": true,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "oracle_identity": {
+        "process_id": 2184,
+        "process_creation_filetime": 134393544642606832,
+        "executable": "SLDWORKS.exe",
+        "file_version": "34.5.2.0604",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "pe_machine": "0x8664"
+      }
+    }
+  ],
+  "controls_healthy": true,
+  "immutable_inputs": true,
+  "all_fresh_distinct_processes": 14,
+  "postflight_solidworks_processes": 0,
+  "preflight_license_processes": [
+    {
+      "process": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "process": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "process": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "postflight_license_processes": [
+    {
+      "process": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "process": "lmgrd.exe",
+      "pid": 7936
+    },
+    {
+      "process": "sw_d.exe",
+      "pid": 3088
+    }
+  ],
+  "native_phases": 12,
+  "generated_files": 2,
+  "frame_comparisons": 44,
+  "exact_profile_frame_values": 572,
+  "counts": {
+    "numeric": 840,
+    "poses": 440,
+    "exact_poses": 440,
+    "mass": 50,
+    "exact_mass": 49,
+    "six_digit_mass": 50,
+    "trees": 22,
+    "visible_bodies": 40
+  },
+  "mass_last_bit_differences": [
+    {
+      "case": "F02RightFrame",
+      "phase": "edit-save",
+      "snapshot": "edited_snapshot",
+      "field": "volume",
+      "reference": 1.1861935530467426e-05,
+      "candidate": 1.1861935530467424e-05
+    }
+  ],
+  "cases": [
+    {
+      "name": "F01TopFrame",
+      "reference": [
+        {
+          "phase": "open-save",
+          "source_sha256": "146575f6ce4ae5cf4e0c4d06e21d2f6d0b32d597fa9dfcb7a872ccb60c89c064",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "3eb4ce8ce9dd8118418b139fbf0564bfa04779e6744bfc8fffbfa05e09743592",
+          "saved_bytes": 53898,
+          "saved_factors": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "record_sha256": "8990e194c3056281ada1864258f7e5e87dca1ec82ed9d461d493c13485b044b0",
+          "numeric_check_count": 40,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4820,
+            "process_creation_filetime": 134393539166491625,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "locked source initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 20,
+          "exact_pose_values": 20,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 4.562800557989581e-06,
+              "area": 0.001523302721801205,
+              "com": [
+                0.004139,
+                -0.0086985,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.018274000000000002
+            }
+          }
+        },
+        {
+          "phase": "edit-save",
+          "source_sha256": "3eb4ce8ce9dd8118418b139fbf0564bfa04779e6744bfc8fffbfa05e09743592",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "43360fc602e3175609ff801feeda58114b545c4cfb0cbede2161b62d71d2026c",
+          "saved_bytes": 54262,
+          "saved_factors": [
+            1.083,
+            0.913,
+            1.0
+          ],
+          "record_sha256": "d90fb20af031346983dc0f6db3564a7d1df592c3271d51096b60854edf18d879",
+          "numeric_check_count": 60,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "radial-edit": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "depth-edit": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 8456,
+            "process_creation_filetime": 134393539547706629,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {},
+          "explored_pose_values": 0,
+          "exact_pose_values": 0,
+          "visible_body_scenes": 4,
+          "snapshot": {
+            "mass": {
+              "volume": 4.562800557989581e-06,
+              "area": 0.001523302721801205,
+              "com": [
+                0.004139,
+                -0.0086985,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.018274000000000002
+            }
+          },
+          "edited_snapshot": {
+            "mass": {
+              "volume": 5.35165858365984e-06,
+              "area": 0.0016968881472861628,
+              "com": [
+                0.004139,
+                -0.008698499999999998,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          },
+          "edited_body_snapshot": {
+            "mass": {
+              "volume": 4.886064286881435e-06,
+              "area": 0.0016027846928975593,
+              "com": [
+                0.004139,
+                -0.007941730499999999,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          },
+          "edit": {
+            "name": "D1@CurveSketch",
+            "before": 0.018274000000000002,
+            "after": 0.019790742,
+            "factor": 1.083,
+            "setter_status": 0
+          },
+          "depth_edit": {
+            "name": "D1@CurveBoss",
+            "before": 0.017397,
+            "after": 0.015883461,
+            "factor": 0.913,
+            "setter_status": 0
+          }
+        },
+        {
+          "phase": "edited-fresh",
+          "source_sha256": "43360fc602e3175609ff801feeda58114b545c4cfb0cbede2161b62d71d2026c",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "6f56d28ad2f42d85aef80b96717789316fe7f442ff394a2699d224e2baa2ef3f",
+          "saved_bytes": 54509,
+          "saved_factors": [
+            1.083,
+            0.913,
+            1.0
+          ],
+          "record_sha256": "a44b0d849b0ac4442ffc7d95dd04632e1d30eeb1df9524f0f8e1be65c1b16637",
+          "numeric_check_count": 20,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4332,
+            "process_creation_filetime": 134393540225554160,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {},
+          "explored_pose_values": 0,
+          "exact_pose_values": 0,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 4.886064286881435e-06,
+              "area": 0.0016027846928975593,
+              "com": [
+                0.004139,
+                -0.007941730499999999,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "phase": "open-save",
+          "source_sha256": "960765c5ec7dfe1111487fae5a0ad87292553bbdd5325d7a891d77e6007e6142",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "4b4b1d3ee4fbf0fd4e9407e4dcaed6bb21701c5a76f8d623ec3576da1973791b",
+          "saved_bytes": 49990,
+          "saved_factors": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "record_sha256": "2cfab8bb5640948f64875b6fb534e3e78595e783b52bea9da421e37e907095ca",
+          "numeric_check_count": 80,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4036,
+            "process_creation_filetime": 134393540655912757,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 60,
+          "exact_pose_values": 60,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 4.562800557989581e-06,
+              "area": 0.001523302721801205,
+              "com": [
+                0.004139,
+                -0.0086985,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.018274000000000002
+            }
+          }
+        },
+        {
+          "phase": "edit-save",
+          "source_sha256": "4b4b1d3ee4fbf0fd4e9407e4dcaed6bb21701c5a76f8d623ec3576da1973791b",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "047827b79a8d7b984e5e2215223d909fbcdeae6e72e539b95f4bec109738075d",
+          "saved_bytes": 51520,
+          "saved_factors": [
+            1.083,
+            0.913,
+            1.0
+          ],
+          "record_sha256": "a28caa66984446ac3d10ccf595523f797462f7c5da73dbce21ae0e14a17e5b83",
+          "numeric_check_count": 140,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "radial-edit": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "depth-edit": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 7304,
+            "process_creation_filetime": 134393541052121979,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "edited": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 80,
+          "exact_pose_values": 80,
+          "visible_body_scenes": 4,
+          "snapshot": {
+            "mass": {
+              "volume": 4.562800557989581e-06,
+              "area": 0.001523302721801205,
+              "com": [
+                0.004139,
+                -0.0086985,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.018274000000000002
+            }
+          },
+          "edited_snapshot": {
+            "mass": {
+              "volume": 5.35165858365984e-06,
+              "area": 0.0016968881472861628,
+              "com": [
+                0.004139,
+                -0.008698499999999998,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          },
+          "edited_body_snapshot": {
+            "mass": {
+              "volume": 4.886064286881435e-06,
+              "area": 0.0016027846928975593,
+              "com": [
+                0.004139,
+                -0.007941730499999999,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          },
+          "edit": {
+            "name": "D1@CurveSketch",
+            "before": 0.018274000000000002,
+            "after": 0.019790742,
+            "factor": 1.083,
+            "setter_status": 0
+          },
+          "depth_edit": {
+            "name": "D1@CurveBoss",
+            "before": 0.017397,
+            "after": 0.015883461,
+            "factor": 0.913,
+            "setter_status": 0
+          }
+        },
+        {
+          "phase": "edited-fresh",
+          "source_sha256": "047827b79a8d7b984e5e2215223d909fbcdeae6e72e539b95f4bec109738075d",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "0e482f371f7f39f204cecb6e074754f0cb54c913c9753e0281328e7474d37dd2",
+          "saved_bytes": 51307,
+          "saved_factors": [
+            1.083,
+            0.913,
+            1.0
+          ],
+          "record_sha256": "327a8e1f912e3947cd60df865b0b5ecf9367908630ffe57b6abf3c2e1ea04e12",
+          "numeric_check_count": 80,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                1.0,
+                -0.0,
+                0.0,
+                0.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                1.0,
+                0.0,
+                -0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 9156,
+            "process_creation_filetime": 134393541614737293,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 60,
+          "exact_pose_values": 60,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 4.886064286881435e-06,
+              "area": 0.0016027846928975593,
+              "com": [
+                0.004139,
+                -0.007941730499999999,
+                0.007913
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.019790742
+            }
+          }
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "F02RightFrame",
+      "reference": [
+        {
+          "phase": "open-save",
+          "source_sha256": "b943ff0e320aaacb9be639a7ee0321cd31cb975aa5b36211e297b8fe77a8cfe0",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "52f797a926dfc18970396e9048374d3b815ccb9c6fa27170e32444fd163b93d8",
+          "saved_bytes": 67920,
+          "saved_factors": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "record_sha256": "ae167081b020eb4a9e20baf47111d9b3725afc0fd5e1e5fe6e01b43b614db359",
+          "numeric_check_count": 40,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 3100,
+            "process_creation_filetime": 134393541990798083,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "locked source initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 20,
+          "exact_pose_values": 20,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3744347638718694e-05,
+              "area": 0.0032079216145062296,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008712999999999999
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.011731
+            }
+          }
+        },
+        {
+          "phase": "edit-save",
+          "source_sha256": "52f797a926dfc18970396e9048374d3b815ccb9c6fa27170e32444fd163b93d8",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "4f59b3ccf6c8257d5d16f865e1c0e2c7a747175712f979d9486ca0d209103d16",
+          "saved_bytes": 69770,
+          "saved_factors": [
+            0.929,
+            1.117,
+            1.0
+          ],
+          "record_sha256": "ab807bf398b5cc09a9c74ff36e4c4efd9dac55f83c9d17b3b74e5c63781162f5",
+          "numeric_check_count": 60,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "radial-edit": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "depth-edit": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 4332,
+            "process_creation_filetime": 134393542348481442,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {},
+          "explored_pose_values": 0,
+          "exact_pose_values": 0,
+          "visible_body_scenes": 4,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3744347638718694e-05,
+              "area": 0.0032079216145062296,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008712999999999999
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.011731
+            }
+          },
+          "edited_snapshot": {
+            "mass": {
+              "volume": 1.1861935530467426e-05,
+              "area": 0.002923126470876744,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          },
+          "edited_body_snapshot": {
+            "mass": {
+              "volume": 1.3249781987532113e-05,
+              "area": 0.003177821616711754,
+              "com": [
+                0.017755273499999998,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          },
+          "edit": {
+            "name": "D1@CurveSketch",
+            "before": 0.011731,
+            "after": 0.010898099000000001,
+            "factor": 0.929,
+            "setter_status": 0
+          },
+          "depth_edit": {
+            "name": "D1@CurveBoss",
+            "before": 0.031791,
+            "after": 0.035510546999999996,
+            "factor": 1.117,
+            "setter_status": 0
+          }
+        },
+        {
+          "phase": "edited-fresh",
+          "source_sha256": "4f59b3ccf6c8257d5d16f865e1c0e2c7a747175712f979d9486ca0d209103d16",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "cfb3897b5e38e83dfbe05e984c07c422d181d7c718d3abe8ed607b76daa3c910",
+          "saved_bytes": 69068,
+          "saved_factors": [
+            0.929,
+            1.117,
+            1.0
+          ],
+          "record_sha256": "2d1c3e1795931a308a915a8d7bd715c6e1b042ae399d247f08a9e157b3a9bdd3",
+          "numeric_check_count": 20,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 9640,
+            "process_creation_filetime": 134393542858478368,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {},
+          "explored_pose_values": 0,
+          "exact_pose_values": 0,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3249781987532113e-05,
+              "area": 0.003177821616711754,
+              "com": [
+                0.017755273499999998,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          }
+        }
+      ],
+      "candidate": [
+        {
+          "phase": "open-save",
+          "source_sha256": "305a5b8519e7c7296da69e4932bb098c0e55607a019951f8d6a41a5573fd2811",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "44c794ad4931bfb9aa81e2f6552a4abcbb05c49a3877279e6df933d081f5c896",
+          "saved_bytes": 64684,
+          "saved_factors": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "record_sha256": "673ab9d70abfe13b8fe067a0ffcd112f4c05eae739fef79969e3f93f86050bfa",
+          "numeric_check_count": 80,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 9604,
+            "process_creation_filetime": 134393543211097437,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 60,
+          "exact_pose_values": 60,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3744347638718694e-05,
+              "area": 0.0032079216145062296,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008712999999999999
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.011731
+            }
+          }
+        },
+        {
+          "phase": "edit-save",
+          "source_sha256": "44c794ad4931bfb9aa81e2f6552a4abcbb05c49a3877279e6df933d081f5c896",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "1abd3c05d9c5b4f602b5b25bad54668efeeacc8b0768b4c0e92244f29820bd99",
+          "saved_bytes": 66112,
+          "saved_factors": [
+            0.929,
+            1.117,
+            1.0
+          ],
+          "record_sha256": "9f64cd9cbcaf05a381a0c49c224f4e3637d7fbbe13c72ec96c286c2794bf6995",
+          "numeric_check_count": 140,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "radial-edit": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "depth-edit": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 7624,
+            "process_creation_filetime": 134393543597084328,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "edited": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 80,
+          "exact_pose_values": 80,
+          "visible_body_scenes": 4,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3744347638718694e-05,
+              "area": 0.0032079216145062296,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008712999999999999
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.011731
+            }
+          },
+          "edited_snapshot": {
+            "mass": {
+              "volume": 1.1861935530467424e-05,
+              "area": 0.002923126470876744,
+              "com": [
+                0.0158955,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          },
+          "edited_body_snapshot": {
+            "mass": {
+              "volume": 1.3249781987532113e-05,
+              "area": 0.003177821616711754,
+              "com": [
+                0.017755273499999998,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          },
+          "edit": {
+            "name": "D1@CurveSketch",
+            "before": 0.011731,
+            "after": 0.010898099000000001,
+            "factor": 0.929,
+            "setter_status": 0
+          },
+          "depth_edit": {
+            "name": "D1@CurveBoss",
+            "before": 0.031791,
+            "after": 0.035510546999999996,
+            "factor": 1.117,
+            "setter_status": 0
+          }
+        },
+        {
+          "phase": "edited-fresh",
+          "source_sha256": "1abd3c05d9c5b4f602b5b25bad54668efeeacc8b0768b4c0e92244f29820bd99",
+          "source_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "saved_sha256": "862f7da74dec909d39a2f3483118c63ee4134175654cbad4b10a12e4597372e6",
+          "saved_bytes": 65662,
+          "saved_factors": [
+            0.929,
+            1.117,
+            1.0
+          ],
+          "record_sha256": "099c1325357fecb91c22966e753c28c99cfb345c71daeb66bbed54d6571fa84c",
+          "numeric_check_count": 80,
+          "profile_frame_comparisons": {
+            "initial": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "rebuilt": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            },
+            "saved": {
+              "actual": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              "expected": [
+                -0.0,
+                0.0,
+                1.0,
+                -0.0,
+                1.0,
+                0.0,
+                -1.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "passed": true,
+              "exact_value_count": 13
+            }
+          },
+          "view_setters_called": false,
+          "passed": true,
+          "oracle_identity": {
+            "process_id": 10008,
+            "process_creation_filetime": 134393544157916200,
+            "executable": "SLDWORKS.exe",
+            "file_version": "34.5.2.0604",
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+            "pe_machine": "0x8664"
+          },
+          "tree_comparisons": {
+            "initial": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "rebuilt": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            },
+            "saved": {
+              "passed": true,
+              "actual_count": 25,
+              "expected_count": 25,
+              "fields": [
+                "name",
+                "type",
+                "parent",
+                "suppressed"
+              ],
+              "ordered_tree_equality": true
+            }
+          },
+          "explored_pose_values": 60,
+          "exact_pose_values": 60,
+          "visible_body_scenes": 3,
+          "snapshot": {
+            "mass": {
+              "volume": 1.3249781987532113e-05,
+              "area": 0.003177821616711754,
+              "com": [
+                0.017755273499999998,
+                0.0051790000000000004,
+                0.008713
+              ]
+            },
+            "bodies": 1,
+            "constraint_status": 3,
+            "dimension": {
+              "name": "D1@CurveSketch",
+              "value": 0.010898099000000001
+            }
+          }
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "observational_rung_passed": true,
+  "full_native_acceptance": false,
+  "new_fcstd_parts": 0,
+  "new_assemblies": 0
+}

@@ -1,0 +1,200 @@
+{
+  "schema": "kit.sw2026.drawing-save-storage-gate-map.v1",
+  "scope": "ordinary native drawing SaveAs after event7, pinned SP05.2, disclosed matched blank inputs",
+  "module_sha256": {
+    "doccplu.dll": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+    "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+    "slduiu.dll": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+    "sldappu.dll": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+    "slddrwu.dll": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47"
+  },
+  "native_sources": [
+    {
+      "role": "matched aggregate",
+      "raw_sha256": "708291b345da572147dd227deefbf1324f1596baf5bf636d7958fc5393eed8d0",
+      "host_sha256": "f440e2ca05ba93436118f434bda7fc425f86a0a78943962634e5e5a2cac883b2",
+      "reduced_aggregate": 0,
+      "generated_aggregate": 0
+    },
+    {
+      "role": "matched document return",
+      "raw_sha256": "b8194deeddc4ce24ebdc376fd1040c6d175f79eed23949fd4937ad7e3001df81",
+      "host_sha256": "d8a5e84088d83cd6a3f261e62e06af2719343922c3ee34ede7bac3df3571ff1d",
+      "reduced_eax": 1,
+      "generated_eax": 0,
+      "doccplu_rva": "0x16421",
+      "processes": 7,
+      "controls_healthy": true
+    }
+  ],
+  "rea_evidence_ids": [
+    "ev_fb7a567011325cc2fd03c6dc0d0b3430417e4f35f2724e57f26d581d149fb793",
+    "ev_967a5dadd74a76025b8dd80caf3ef8d56d1777415b898d12e586db24c8c05c63",
+    "ev_be5f6c02cdb9fc1b99cb38e826df1e5012811d4ef1483026410d6acba464c83f",
+    "ev_dd42d6497ea6c9cb3583966dc7ba0bbb2569d9e9c049f8796313b79dbee6b00c",
+    "ev_16a7c558c65dfd9a151f5e367587cb8d71fc7614159e4ae31d926ecbe7df237e"
+  ],
+  "static_gates": [
+    {
+      "module": "doccplu.dll",
+      "rva": "0x16421",
+      "owner": "SolidStorage_c::iDoSave",
+      "value": "signed or unsigned EAX bits from document slot +0x110",
+      "zero": "cleanup path +0x16429",
+      "nonzero": "+0x167ad"
+    },
+    {
+      "module": "sldappu.dll",
+      "va": "0x458e7322",
+      "owner": "uiBaseDoc_c::OnSaveDocument",
+      "value": "presence of selected save storage in R14 from document +0x4a8 holder slot +8",
+      "zero": "default zero return, storage save not called",
+      "nonzero": "storage slot +0x10 at 0x458e7333"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1b810",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "function entry",
+      "evidence": "SolidStorage_c and SolidStorageMFC_c constructors' final vtables both point slot +0x10 to this entry"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1b89a",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "findFileFromEmbeddedName return CString into local +0x78 and embedded-name output into +0xb8",
+      "source": "sldmfcu!0x3c8bfef0"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1bae0",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "getCompoundFile",
+      "qualification": "destination backend and path branches require native observation"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1c1cb",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "raw 32-bit HRESULT immediately after suFileLockBytes Init/Create",
+      "qualification": "structured-storage branch only, no immediate caller test"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1c225",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "raw 32-bit HRESULT from StgCreateDocfileOnILockBytes",
+      "nonzero": "throw helper +0x1d04c",
+      "qualification": "structured-storage branch only"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1c36d",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "raw 32-bit HRESULT from a separate Init/Create branch",
+      "nonzero": "throw helper +0x1d054",
+      "qualification": "selected alternative lock-byte branch only"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1c64e",
+      "alternate_rva": "0x1c669",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "value": "SaveToStorage virtual slot +0x138",
+      "invariant": "EDX=0 at both calls"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1d750",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "function entry before wrapper and version-history preparation"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1d9dc",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "RCX IStorage presence and R8 ZipStorage presence",
+      "invariant": "factory chooses nonnull IStorage, then nonnull ZIP, otherwise backend-free base"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1da03",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "signed raw EAX from suFileStorage::isValid slot +0x98",
+      "zero": "+0x1e930 reaches throw helper with 0x80004005",
+      "nonzero": "writeVersion and SaveDisplayName precede display-data preparation"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1dd1b",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "raw EAX getSaveDisplayListOnly",
+      "owner_field": "uiBaseDoc_c+0x3dc",
+      "nonzero": "skip ordinary properties and third-party block, continue +0x1e173"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1dd2b",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "raw EAX getSaveOnlyQuickViewData",
+      "owner_field": "uiBaseDoc_c+0x3e0",
+      "nonzero": "skip ordinary properties and third-party block, continue +0x1e173"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1df56",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "SaveDocumentProperties call",
+      "invariant": "return value discarded before the following XML calls"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1df83",
+      "alternate_rvas": [
+        "0x1df95",
+        "0x1dfa7"
+      ],
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "saveUiXMLToStorage calls with three typed IDs",
+      "invariant": "return values do not gate the later dispatch, exceptions remain possible"
+    },
+    {
+      "module": "doccplu.dll",
+      "rva": "0x1dfb5",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "value": "third-party save virtual slot +0x148 call"
+    },
+    {
+      "module": "slddrwu.dll",
+      "va": "0x3defcdc1",
+      "owner": "drawing saveDocument slot +0x3080 implementation at 0x3defb790",
+      "value": "raw EAX immediately after shared uiModelDoc_c::saveDocument call",
+      "qualification": "ordinary selected branch only, source vtable at 0x3e1d6b78"
+    },
+    {
+      "module": "slduiu.dll",
+      "va": "0x49725a8c",
+      "owner": "uiModelDoc_c::saveDocument",
+      "value": "raw EAX after helper at 0x496f7200 on populated original-path state +0x2f8",
+      "zero": "+0x49725dfb bypasses base storage dispatch"
+    },
+    {
+      "module": "slduiu.dll",
+      "va": "0x49725c13",
+      "owner": "uiModelDoc_c::saveDocument",
+      "value": "raw EAX immediately after uiBaseDoc_c::OnSaveDocument call"
+    }
+  ],
+  "limits": [
+    "Measured runtime result identifies a zero document result for the generated input, with a zero aggregate on both inputs",
+    "Storage-save entry, backing root validity, HRESULTs, preview flags and the exact failing internal instruction remain unmeasured",
+    "A zero-byte target establishes a physical side effect without identifying its precise native allocation site",
+    "A stop unobserved after an armed bounded wait is retained as coverage evidence, never proof that an instruction was absent",
+    "Underlying model field or path cause is unassigned",
+    "REA owned doccplu Hopper target closed after the bounded task",
+    "Private StorageMatched01 packet has two trailing empty EOF lines. Root preserved it and is preparing a normalized StorageMatched02 with updated digests"
+  ],
+  "native_acceptance": false,
+  "vm_actions": 0,
+  "heldout_inputs_tested": 0
+}

@@ -1,0 +1,620 @@
+{
+  "schema": "kit.sw2026.drawing-user-environment-static-proof.v1",
+  "scope": "ordinary version19000 drawing raw environment and embedded splitter fields only",
+  "modules": [
+    {
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "base": "0x48ea0000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    },
+    {
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "bytes": 16519768,
+      "base": "0x453f0000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    },
+    {
+      "name": "slddrwu.dll",
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+      "bytes": 8949848,
+      "base": "0x3dbc0000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    },
+    {
+      "name": "doccplu.dll",
+      "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+      "bytes": 1052248,
+      "base": "0x180000000",
+      "file_version": [
+        34,
+        5,
+        2,
+        604
+      ]
+    }
+  ],
+  "classes": [
+    {
+      "name": "uiUserModelEnv_c",
+      "vtable": "0x4a65e7b0",
+      "vtable_span": {
+        "start": "0x4a65e7b0",
+        "end": "0x4a65e7e0",
+        "bytes": 48,
+        "sha256": "2b9fb6fee29d8c2250f0be5c16a5cba6cfcc4311b3e9656314f11743ed164235"
+      },
+      "locator_span": {
+        "start": "0x4a910380",
+        "end": "0x4a910398",
+        "bytes": 24,
+        "sha256": "864ca3ca0950362ba006aae4d116aa512161c89dc80bb92e96aaf76f85a2dfb8"
+      },
+      "rtti": [
+        ".?AVuiUserModelEnv_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "runtime_getter": {
+        "start": "0x497d5a80",
+        "end": "0x497d5a88",
+        "bytes": 8,
+        "sha256": "8609fe38910ba05e0098d12fc6b2b7c4bba1bba9cf8905466476f5737f26535c"
+      },
+      "runtime_descriptor": {
+        "start": "0x4aef2390",
+        "end": "0x4aef23c0",
+        "bytes": 48,
+        "sha256": "af98709dfb76d79ad2cb02a0284dcaac52abff250a122f725f3fbbd3e36f5b59"
+      },
+      "schema_word": "0x80000001",
+      "object_size": 464,
+      "serializer_slot": "0x28",
+      "serializer_target": "0x497d5ee0"
+    },
+    {
+      "name": "uiSplitterInfo_c",
+      "vtable": "0x4a65e720",
+      "vtable_span": {
+        "start": "0x4a65e720",
+        "end": "0x4a65e750",
+        "bytes": 48,
+        "sha256": "802e7f2806e2f891e1deadc56f32d89509742a56a9744190d8f45aabce51f323"
+      },
+      "locator_span": {
+        "start": "0x4a9102f8",
+        "end": "0x4a910310",
+        "bytes": 24,
+        "sha256": "759b5906f198ea3ecf16a4a4e075f0ab7f868ae2900547347b06ec29dc2cbb93"
+      },
+      "rtti": [
+        ".?AVuiSplitterInfo_c@@",
+        ".?AVsu_CObject@@",
+        ".?AVCObject@@"
+      ],
+      "runtime_getter": {
+        "start": "0x497d5a70",
+        "end": "0x497d5a78",
+        "bytes": 8,
+        "sha256": "a0a70e8283be0f77780be943d07dab0786f56a56780591f7aff1938ca69e2ada"
+      },
+      "runtime_descriptor": {
+        "start": "0x4aef2360",
+        "end": "0x4aef2390",
+        "bytes": 48,
+        "sha256": "67d88ac42df1421b5fae40835f2ee68bd565dcee82d1cf27dc540bf3a9354b1e"
+      },
+      "schema_word": "0x80000001",
+      "object_size": 208,
+      "serializer_slot": "0x28",
+      "serializer_target": "0x497d5b00"
+    }
+  ],
+  "functions": {
+    "slduiu.dll": {
+      "0x497d5ee0": {
+        "ranges": [
+          {
+            "start": "0x497d5ee0",
+            "end": "0x497d6229",
+            "bytes": 841,
+            "sha256": "617b627aa472a12ed2a23455804c84da65420b8f6e7bf87efc805eae03e7611d"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x497d5ee0",
+            "end": "0x497d6229",
+            "unwind": "0x4aa743e8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x497d5b00": {
+        "ranges": [
+          {
+            "start": "0x497d5b00",
+            "end": "0x497d5ed7",
+            "bytes": 983,
+            "sha256": "dee8484e884bbb8fd19a4dc22095ec5c9df7e35835c0d0b7cfd92057261eebd9"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x497d5b00",
+            "end": "0x497d5ed7",
+            "unwind": "0x4aa7428c"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x497d5740": {
+        "ranges": [
+          {
+            "start": "0x497d5740",
+            "end": "0x497d57aa",
+            "bytes": 106,
+            "sha256": "1aee5988e77104391ddc1946296d95b647a1688e2769780247e4e18b2b132e34"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x497d5740",
+            "end": "0x497d57aa",
+            "unwind": "0x4aa742a4"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x497d5600": {
+        "ranges": [
+          {
+            "start": "0x497d5600",
+            "end": "0x497d5731",
+            "bytes": 305,
+            "sha256": "283f93ac5bdf4367ed13ce996872fd8e1444772a5d1cbad678671c95959ecabf"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x497d5600",
+            "end": "0x497d5731",
+            "unwind": "0x4aa74170"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x496f5680": {
+        "ranges": [
+          {
+            "start": "0x496f5680",
+            "end": "0x496f5eac",
+            "bytes": 2092,
+            "sha256": "82386034628af145501c498f14cb7ab2a7287acf2e2f8ab6afa2edd6f8d2cb34"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x496f5680",
+            "end": "0x496f5eac",
+            "unwind": "0x4aa56f20"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x48ee4c00": {
+        "ranges": [
+          {
+            "start": "0x48ee4c00",
+            "end": "0x48ee4c03",
+            "bytes": 3,
+            "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      }
+    },
+    "sldappu.dll": {
+      "0x458eee50": {
+        "ranges": [
+          {
+            "start": "0x458eee50",
+            "end": "0x458eee71",
+            "bytes": 33,
+            "sha256": "763a86ec6706fe364ffc715eadc3b239ff63a5f5d016ee2f91969d9afb2c1afe"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x458eee50",
+            "end": "0x458eee71",
+            "unwind": "0x4605cb44"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x458eec90": {
+        "ranges": [
+          {
+            "start": "0x458eec90",
+            "end": "0x458eecb1",
+            "bytes": 33,
+            "sha256": "43f329888e4b2dd0f04c9e06f6435b110b8116e94935b58bd1f5fd3496cca8c2"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x458eec90",
+            "end": "0x458eecb1",
+            "unwind": "0x4605cb44"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x458ecdd0": {
+        "ranges": [
+          {
+            "start": "0x458ecdd0",
+            "end": "0x458ecdf1",
+            "bytes": 33,
+            "sha256": "e1cac7b361865fb24f5687215e6f2707a39bd50f676cc1b0e64f4d78e309589c"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x458ecdd0",
+            "end": "0x458ecdf1",
+            "unwind": "0x460b78ec"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x458e42a0": {
+        "ranges": [
+          {
+            "start": "0x458e42a0",
+            "end": "0x458e471e",
+            "bytes": 1150,
+            "sha256": "23b43ad20ced366e70d1d9702418e94196e7b179e6f030d40a4fff57055ff837"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x458e42a0",
+            "end": "0x458e471e",
+            "unwind": "0x460b6bb0"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      },
+      "0x458e6970": {
+        "ranges": [
+          {
+            "start": "0x458e6970",
+            "end": "0x458e6980",
+            "bytes": 16,
+            "sha256": "10167817f03b7478c77d4fc3bcf8c2eb63a364e5a79fe8da79d7e3f3aa4d2e5d"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "0x458ecd00": {
+        "ranges": [
+          {
+            "start": "0x458ecd00",
+            "end": "0x458ecd0d",
+            "bytes": 13,
+            "sha256": "75a331004bcfc5a2a76e15a332459d22b09c170d65652ea5e6ebb1da03349fac"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      },
+      "0x458ecd20": {
+        "ranges": [
+          {
+            "start": "0x458ecd20",
+            "end": "0x458ecd2d",
+            "bytes": 13,
+            "sha256": "a5750896ef54e7ee16849150e7d8c01ea784cc7bf1d0f1e46fafa9f2d4080fd9"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      }
+    },
+    "doccplu.dll": {
+      "0x1800248e0": {
+        "ranges": [
+          {
+            "start": "0x1800248e0",
+            "end": "0x180024b75",
+            "bytes": 661,
+            "sha256": "95a38784857d50d1d5adb19f4669f9ddd36089aafa2b161a2aeae7f4d3f5b495"
+          }
+        ],
+        "unwind_rows": [
+          {
+            "begin": "0x1800248e0",
+            "end": "0x180024b75",
+            "unwind": "0x1800d32e8"
+          }
+        ],
+        "extent_basis": "exact exception-directory entries and complete chained-fragment closure"
+      }
+    },
+    "slddrwu.dll": {
+      "0x3dd588c0": {
+        "ranges": [
+          {
+            "start": "0x3dd588c0",
+            "end": "0x3dd588c6",
+            "bytes": 6,
+            "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67"
+          }
+        ],
+        "unwind_rows": [],
+        "extent_basis": "direct full entry-reachable leaf decoded with LLVM"
+      }
+    }
+  },
+  "archive_import_identities": {
+    "0x4a44b498": {
+      "module": "SLDMFCU.dll",
+      "symbol": "??0moArchiveHelper_c@@QEAA@PEAVsu_CArchive@@@Z"
+    },
+    "0x4a474668": {
+      "module": "swccu.dll",
+      "symbol": "?Serialize@su_CObject@@UEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4a474598": {
+      "module": "swccu.dll",
+      "symbol": "?IsStoring@su_CArchive@@QEBAHXZ"
+    },
+    "0x4a4745a8": {
+      "module": "swccu.dll",
+      "symbol": "??6@YAAEAVsu_CArchive@@AEAV0@AEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x4a4745a0": {
+      "module": "swccu.dll",
+      "symbol": "??5@YAAEAVsu_CArchive@@AEAV0@AEAV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+    },
+    "0x4a474588": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@J@Z"
+    },
+    "0x4a474570": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAJ@Z"
+    },
+    "0x4a474590": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@G@Z"
+    },
+    "0x4a474578": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAG@Z"
+    },
+    "0x4a474580": {
+      "module": "swccu.dll",
+      "symbol": "??6su_CArchive@@QEAAAEAV0@N@Z"
+    },
+    "0x4a474568": {
+      "module": "swccu.dll",
+      "symbol": "??5su_CArchive@@QEAAAEAV0@AEAN@Z"
+    },
+    "0x4a470ae0": {
+      "module": "sldmgu.dll",
+      "symbol": "?restore@mgXform_c@@QEAAXAEAVsu_CArchive@@@Z"
+    },
+    "0x4a470ae8": {
+      "module": "sldmgu.dll",
+      "symbol": "?save@mgXform_c@@QEAAXAEAVsu_CArchive@@@Z"
+    }
+  },
+  "owner_context": {
+    "storage_call": "doccplu!0x180024aa9 obtains uiBaseDoc ModelContext then passes its result as R8 at0x180024ab9 to the helper constructor at0x180024ac4",
+    "accessor": "sldappu!0x458e6970 returns document+0x4d8, or null for null document",
+    "cold_base_context_owner": "uiBaseDoc constructor calls BaseDocModelContext constructor at0x458e46d1 and stores its result to document+0x4d8 at0x458e46db",
+    "base_context_backlink": "0x458ecde9 writes the supplied uiBaseDoc pointer to context+8",
+    "helper_assignment": "0x496f56c2 stores actual R8 SldModelContext pointer at helper+0x38",
+    "environment_selection": "0x497d5efe obtains registered helper,0x497d5f0c obtains helper+0x38, null context falls back to first archive word at0x497d5f15",
+    "selected_context_tables": {
+      "BaseDocModelContext_c": "sldappu!0x45f0a878",
+      "ModelDocModelContext_c": "slduiu!0x4a65d908"
+    },
+    "context_part_and_assembly_slots": [
+      {
+        "slot": "0x80",
+        "model_doc_context_cell": {
+          "start": "0x4a65d988",
+          "end": "0x4a65d990",
+          "bytes": 8,
+          "sha256": "8f3ae1df0c85df86cfce78a81df4a0676f49488d9b542a4db834a9a4408eea28"
+        },
+        "model_doc_context_thunk": {
+          "start": "0x4a31a7ad",
+          "end": "0x4a31a7b3",
+          "bytes": 6,
+          "sha256": "cb468920be70166b500acb57cb681168283e9664fe77d15f99d9bdda2325e868"
+        },
+        "import_module": "sldappu.dll",
+        "import_symbol": "?isPartDoc@BaseDocModelContext_c@@UEBA_NXZ",
+        "base_context_cell": {
+          "start": "0x45f0a8f8",
+          "end": "0x45f0a900",
+          "bytes": 8,
+          "sha256": "32f2879cc64ee937a6fd8d5bb2ec0238473e77a29e7efa509a00a0d5dbae5189"
+        },
+        "implementation": "0x458eee50"
+      },
+      {
+        "slot": "0x88",
+        "model_doc_context_cell": {
+          "start": "0x4a65d990",
+          "end": "0x4a65d998",
+          "bytes": 8,
+          "sha256": "fafc8e0c854c2fe3a4baa4a20b17a6f18fb8f9e420c1f36523952f3821b7c48f"
+        },
+        "model_doc_context_thunk": {
+          "start": "0x4a31a7a7",
+          "end": "0x4a31a7ad",
+          "bytes": 6,
+          "sha256": "8dfad3edb3480fc07cfb0344219de8220964ba5c71633e88ea6007cb65977185"
+        },
+        "import_module": "sldappu.dll",
+        "import_symbol": "?isAssemblyDoc@BaseDocModelContext_c@@UEBA_NXZ",
+        "base_context_cell": {
+          "start": "0x45f0a900",
+          "end": "0x45f0a908",
+          "bytes": 8,
+          "sha256": "fe5e55d22786d7aee38b39776732a8ff71d010c271dcf9a5bcd33d8783fbd8d6"
+        },
+        "implementation": "0x458eec90"
+      }
+    ],
+    "base_state_dispatch": {
+      "is_part": "0x458ecd20 tail dispatches document+0x1250",
+      "is_assembly": "0x458ecd00 tail dispatches document+0x1258"
+    },
+    "actual_drawing_document_slots": [
+      {
+        "slot": "0x1250",
+        "cell": {
+          "start": "0x3e1d7dc8",
+          "end": "0x3e1d7dd0",
+          "bytes": 8,
+          "sha256": "34b2651774b229cfe80a8a70adf5891683e7a75eb86881a4df8f12b2c5d5fb8c"
+        },
+        "thunk": {
+          "start": "0x3e0b0114",
+          "end": "0x3e0b011a",
+          "bytes": 6,
+          "sha256": "c461a7a2a7dfd67f7f881576586661fa4d3e48a41ff126ce0bfa2ad032df1573"
+        },
+        "import_symbol": "?isPartDoc@uiModelDoc_c@@UEBAHXZ",
+        "implementation": "slduiu.dll!0x48ee4c00",
+        "return_value": 0
+      },
+      {
+        "slot": "0x1258",
+        "cell": {
+          "start": "0x3e1d7dd0",
+          "end": "0x3e1d7dd8",
+          "bytes": 8,
+          "sha256": "d4b7bd3b50279f92e7c5df84095c3f6698e93417d279577e09f30392e121ae9c"
+        },
+        "thunk": {
+          "start": "0x3e0b0156",
+          "end": "0x3e0b015c",
+          "bytes": 6,
+          "sha256": "c663b736c12b46a2009e447c6d4dec29f224df3f3ca77c43da4f4c823d516ed1"
+        },
+        "import_symbol": "?isAssemblyDoc@uiModelDoc_c@@UEBAHXZ",
+        "implementation": "slduiu.dll!0x48ee4c00",
+        "return_value": 0
+      }
+    ],
+    "first_splitter_gate": "context.isPartDoc or context.isAssemblyDoc; both are false for the bound ordinary drawing document",
+    "load_sites": [
+      "0x497d6066",
+      "0x497d6076",
+      "0x497d608a"
+    ],
+    "store_sites": [
+      "0x497d5fa8",
+      "0x497d5fb8",
+      "0x497d5fcc"
+    ],
+    "unsupported": [
+      "unknown or substituted model context implementation",
+      "null helper and archive fallback context semantics",
+      "other document kinds in this drawing profile"
+    ],
+    "universal_callback_or_context_preservation_claim": false
+  },
+  "wire_order_at_19000_drawing": [
+    "f08:CString",
+    "f1b0:i32",
+    "f1b4:i32",
+    "fe0:embedded uiSplitterInfo_c.Serialize",
+    "f1b8:i32",
+    "f1bc:i32",
+    "f1c0:i32",
+    "f1c4:i32"
+  ],
+  "drawing_first_splitter_f10_on_wire": false,
+  "environment_read_gates": {
+    "f1b0_f1b4": "version>=0x388",
+    "fe0": "version>=0x515",
+    "f1b8_f1bc": "version>=0x8e6",
+    "f1c0": "version>=0xf56",
+    "f1c4": "version>=0x1ff1"
+  },
+  "environment_store": "all current words and secondary splitter are unconditional after document kind excludes the first splitter",
+  "splitter_wire_order": [
+    "f08 f0c f10 f14 f18 f1c f20 f24:u16",
+    "f08 rows each with f0c columns",
+    "per cell xa:embedded mgXform_c.restore",
+    "per cell xb:embedded mgXform_c.restore",
+    "per cell a:u16",
+    "per cell b:u16",
+    "per cell c:f64",
+    "per cell d:CString"
+  ],
+  "splitter_read_gates": {
+    "b": "version>=0x45d",
+    "c": "version>=0x1b6",
+    "d": "version>=0xbdb"
+  },
+  "raw_vs_runtime": {
+    "header_words": "native zero extends each u16 to its runtime i32 field; codec retains raw u16",
+    "cell_b_fixup": "0x497d5dff through0x497d5e12 changes read0xffff to runtime zero; raw codec retains source word",
+    "legacy_cache": "setting lookup can set runtime splitter+c8 only for version<=0xd48; excluded at19000",
+    "new_defaults_or_cache_policy": false
+  },
+  "sdk_reuse": {
+    "shared_path": "src/convert/adapters/solidworks/Archive/Definition/Fields/DocEnvironmentFields.py",
+    "shared_sha256": "1d828245a3886aca55ff568ff546f71a27089a4c71aa96f07619b0034d5cd430",
+    "shared_layout_changed": false,
+    "drawing_only_operation": "reuse uiUserModelEnv fields excluding the native part and assembly first splitter key f10 under existing ordinary drawing context gate",
+    "secondary_splitter_and_all_cells_unchanged": true
+  },
+  "value_provenance": "all strings scalars transforms grid counts and cells remain source wire inputs; no username viewport or saved presentation values are introduced",
+  "admitted_version": 19000,
+  "database_supported": false,
+  "domain_limits": [
+    "arbitrary native oversized grids and runtime transform allocation are not qualified by the raw codec",
+    "legacy versions are not admitted",
+    "unknown drawing contexts fail closed"
+  ],
+  "native_execution": false,
+  "vm_access": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "stopping_conditions": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "base_revision": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "baseline": {
+    "guarded_processes": 2,
+    "changed_source_sha256": {
+      "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruRows.py": "9a1d075946512f7170454a1ec49357b59b13b239b109efe7e5b0c81d562863f9",
+      "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectThruTree.py": "f7d7087ffd6a4cde752e111b1d0904a3e13ca8b4273e93e849151aeb0023804d",
+      "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py": "f5963995b03fe9ce119f9b8d6c5fc1995397887121e050a2753a8e5ad868f2e8"
+    },
+    "phases": {
+      "original": {
+        "presentation_refusal": null,
+        "public_document_sha256": "0b00ddbf0a6f431d13a027ea34fb4bbd73d7f509273eb4adf2fea9f89e85a9d3",
+        "external_access_attempts": 0
+      },
+      "edited": {
+        "presentation_refusal": "through-all source requires all actual persisted system owners",
+        "public_document_sha256": "abe22b56802c3edb25229b6fab62eea78635123e4bd9f604807b2ad44032221a",
+        "external_access_attempts": 0
+      }
+    }
+  },
+  "disclosed_sha256": {
+    "edited": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452",
+    "original": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3"
+  },
+  "full_edited_sdk_admission": false,
+  "generated_native_files": 0,
+  "guarded_processes": 9,
+  "head": "454513a85e38f0dd03faa1c4ea52d5cff275b052",
+  "heldout_sources_read": 0,
+  "implementation_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/FeatureFields.py": "93aeb94fb1bdfd10e563b36da9b071d1ab05d0163f4cc16a9f2888e8163ba098",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ModelFields.py": "0b2d424b1a0832369704c684d7cc7d6e42691b16e8dffe61db7d782589ca45b8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockFace.py": "9957b78922283f545b2862b2ffcc3fcf06b0a3bb5788da1caf4625922466696b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/MultiStock/CheckStockMode.py": "6187eded0a7ed04df2e21041cb2fac4e42735834292165dcc10d49713a5c9983",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckExtras.py": "9d135cc96e11c1d75d88429548ba63fabcfa33ada2b9c2f695baba85b61daa29",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckThruRows.py": "2616fbeb4728fecafe55250baad957b1b6eb175b5d14c1aec07f106ce191381e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/CheckTreeAlias.py": "edf75792d74c31efb3e259ed7a04cfa594e4270d03abdd73aeee1496c053f2e5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ConfigHelpers.py": "a1baecc36151c5ba74b0b1bdf2cf4f8f404eec90757563c33337a2c044eee7de",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/OwnedRows.py": "b5a29555e661154ded4f58706159d5442ddf1b074b250da541e0597cdd45f3c9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectThruTree.py": "4d247b961ab65dd4c525a41f4644a881e9efeaa6e68fa219e908c7d51b8e95a4",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ProjectTree.py": "03d3359ffb8ab3b4e5517a03a09d4a9c0be9b8dff467376f38bc225517140627",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/RootOrder.py": "d580a0b67c1e930f44790070dc49c0f423de1db6ddd48bee9db716ade9b8c79e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Presentation/ThruTreeReport.py": "221bfc5f3a904042dc35bf0a1c20d4d8db6f501ec26cca1646cf2225fdd06dfb"
+  },
+  "native_processes": 0,
+  "phases": {
+    "copied-exploded": {
+      "external_access_attempts": 0,
+      "refusal": "through-all presentation owner does not alias its archive map"
+    },
+    "edited": {
+      "external_access_attempts": 0,
+      "f1014": 1,
+      "full_stock_refusal": "two stock lineage has an alternate profile or extrusion mode",
+      "helpers": [
+        [
+          "moSheetMetalMaster_c",
+          -1,
+          "f1018",
+          null
+        ],
+        [
+          "moPrtExplViewManager_c",
+          32,
+          "f13f8",
+          123
+        ]
+      ],
+      "member_parent_ids": [
+        [
+          30,
+          13
+        ],
+        [
+          31,
+          13
+        ],
+        [
+          26,
+          9
+        ],
+        [
+          27,
+          9
+        ],
+        [
+          28,
+          9
+        ],
+        [
+          29,
+          9
+        ]
+      ],
+      "public_brep_regions": 2,
+      "public_design_bodies": 1,
+      "public_document_sha256": "abe22b56802c3edb25229b6fab62eea78635123e4bd9f604807b2ad44032221a",
+      "retained_public_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        24,
+        25,
+        30,
+        31,
+        -1,
+        9,
+        26,
+        27,
+        28,
+        29,
+        32
+      ],
+      "root_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        13,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        24,
+        25
+      ]
+    },
+    "indexed-master": {
+      "external_access_attempts": 0,
+      "refusal": "embedded sheet-metal master carries archive map identity"
+    },
+    "missing-master-row": {
+      "external_access_attempts": 0,
+      "refusal": "through-all source has stripped or unaccounted public owners"
+    },
+    "named-master": {
+      "external_access_attempts": 0,
+      "refusal": "authored configuration manager state is not implicit"
+    },
+    "original": {
+      "external_access_attempts": 0,
+      "f1014": 0,
+      "full_stock_refusal": null,
+      "helpers": [
+        [
+          "moPrtExplViewManager_c",
+          19,
+          "f13f8",
+          110
+        ]
+      ],
+      "member_parent_ids": [
+        [
+          17,
+          1
+        ],
+        [
+          18,
+          1
+        ],
+        [
+          12,
+          6
+        ],
+        [
+          13,
+          6
+        ],
+        [
+          14,
+          6
+        ],
+        [
+          15,
+          6
+        ]
+      ],
+      "public_brep_regions": 2,
+      "public_design_bodies": 2,
+      "public_document_sha256": "0b00ddbf0a6f431d13a027ea34fb4bbd73d7f509273eb4adf2fea9f89e85a9d3",
+      "retained_public_ids": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        17,
+        18,
+        10,
+        9,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        6,
+        12,
+        13,
+        14,
+        15,
+        19,
+        26,
+        32,
+        33,
+        40,
+        41,
+        47
+      ],
+      "root_ids": [
+        8,
+        23,
+        24,
+        25,
+        22,
+        7,
+        1,
+        10,
+        9,
+        6,
+        21,
+        16,
+        11,
+        2,
+        3,
+        4,
+        5,
+        26,
+        32,
+        33,
+        40,
+        41,
+        47
+      ]
+    },
+    "populated-exploded": {
+      "external_access_attempts": 0,
+      "refusal": "populated exploded-view state must remain visible"
+    },
+    "populated-master": {
+      "external_access_attempts": 0,
+      "refusal": "populated sheet-metal state must remain visible"
+    },
+    "wrong-selector": {
+      "external_access_attempts": 0,
+      "refusal": "through-all source requires all actual persisted system owners"
+    }
+  },
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.two-stock-saved-presentation.v1",
+  "tool_sha256": "779f10ed1fb1ab2d9051d48df2d2a845de86acde2196efa7e4a12916a8db0e8c",
+  "total_guarded_processes": 11,
+  "public_document_fingerprints_match": true
+}

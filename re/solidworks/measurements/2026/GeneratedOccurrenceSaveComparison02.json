@@ -1,0 +1,450 @@
+{
+  "schema": "kit.sw2026.generated-occurrence-save-comparison.v1",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "purpose": "Compare parent-only and synchronized child-then-parent native saves on identical generated files.",
+  "generator": {
+    "head": "70d7a6ad1d4cf62130b779004e96e72c548a1a8d",
+    "builder_receipt_sha256": "662a6c587b11141f8579c87ed4803aab46736e1903aadc995954b070efdda284",
+    "assembly_sha256": "91297b5d254c404a6b4ab6bd61adeae6a2d8e21d7ceb4613751ac456b3238b3a",
+    "child_sha256": "8cd0302402fe2912654e026733de45fc343dfc210a675df56c9ed9e1b4063675",
+    "assembly_bytes": 6972,
+    "child_bytes": 8149,
+    "denied_runtime_reads": 0,
+    "scope": "Ordinary single resolved occurrence at identity placement, generated polygon-prism child"
+  },
+  "inspector": {
+    "source_revision": "70d7a6ad1d4cf62130b779004e96e72c548a1a8d",
+    "tool_sha256": {
+      "InspectGeneratedAssembly.py": "a3cff42aa127299f46d025d691d49f45f787843b4d70560ce6ba76da2366d831",
+      "AuthorAssemblySources.py": "bcda45dd745e75f5cff9ae4706f5b4767c0d03d3ff2d9699f4832c487c6dea58",
+      "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+      "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+      "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "ProbeAssemblyRebuild.py": "3a7ac17866bb771bd5daa16fe5133652f639c0d402fb6ede58d3411733349cd4",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    }
+  },
+  "controls_healthy": true,
+  "distinct_oracle_processes": 8,
+  "distinct_control_processes": 4,
+  "matching_post_rebuild_trees": true,
+  "matching_geometry": true,
+  "numeric_checks": 84,
+  "geometry_expected": {
+    "volume": 1.4e-06,
+    "area": 0.00082,
+    "com": [
+      0.01,
+      0.005,
+      0.0035
+    ]
+  },
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "solidworks_processes_after": [],
+  "outcome": "One generated single-occurrence pair passed a synchronized native save and clean fresh reopen. The native derivative with only its parent saved opened with warning 32.",
+  "generated_scope_cases_passed": 1,
+  "heldout_acceptance": false,
+  "accepted_production_assemblies": 0,
+  "lanes": {
+    "ParentOnly": {
+      "passed": false,
+      "started_at": 1794894763.990157,
+      "finished_at": 1794894864.846274,
+      "private_report_sha256": "5bf735126fba41953a0d6eed133b20199bc80ab1b7117e132230db705b639151",
+      "private_transport_sha256": "bb289702d768ee96151bcc1e56d756600cb787eec091c50a3614bffa318200d3",
+      "job_sha256": "12d88ebdb0cb64b17ca77cae6debb8ddebdccb6dfb3bbc98b721445ddeba263b",
+      "controls": [
+        {
+          "phase": "control_before",
+          "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+          "healthy": true,
+          "process_creation_filetime": 134393683684091355
+        },
+        {
+          "phase": "control_after",
+          "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+          "healthy": true,
+          "process_creation_filetime": 134393684438637685
+        }
+      ],
+      "phases": [
+        {
+          "phase": "generated",
+          "sha256": "91297b5d254c404a6b4ab6bd61adeae6a2d8e21d7ceb4613751ac456b3238b3a",
+          "opened": true,
+          "errors": 0,
+          "warnings": 0,
+          "rebuild_return": true,
+          "source_immutable": true,
+          "child_immutable": true,
+          "child_sha256": "8cd0302402fe2912654e026733de45fc343dfc210a675df56c9ed9e1b4063675",
+          "state_after_open": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 117
+            }
+          },
+          "state_after_rebuild": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 132
+            }
+          },
+          "record_sha256": "f7e713d0853a3d357e0a1e3ba41f03c7c09d0bae9f9924fb1d1dae86c8559a65",
+          "passed": true,
+          "process_creation_filetime": 134393683934930284,
+          "checks": 21,
+          "body_count": 1,
+          "tree_nodes": 23,
+          "geometry": {
+            "volume": 1.4000000000000001e-06,
+            "area": 0.00082,
+            "com": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "occurrence": {
+            "placement_index": 0,
+            "name": "GeneratedChildModel-1",
+            "path_basename": "GeneratedChildFile.SLDPRT",
+            "configuration": "authored configuration",
+            "fixed": false,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visible_child_bodies": 1
+          },
+          "saved_sha256": "d91b519349a2365c28c56079f5e85b5fe02415509c2c48761ba333922d8301ed",
+          "save_status": [
+            true,
+            0,
+            0
+          ]
+        },
+        {
+          "phase": "fresh-reopen",
+          "sha256": "d91b519349a2365c28c56079f5e85b5fe02415509c2c48761ba333922d8301ed",
+          "opened": true,
+          "errors": 0,
+          "warnings": 32,
+          "rebuild_return": true,
+          "source_immutable": true,
+          "child_immutable": true,
+          "child_sha256": "8cd0302402fe2912654e026733de45fc343dfc210a675df56c9ed9e1b4063675",
+          "state_after_open": {
+            "parent": {
+              "needs_rebuild": 1,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 117
+            }
+          },
+          "state_after_rebuild": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 132
+            }
+          },
+          "record_sha256": "aa20e2dd4b906ef03e7f0c771b3ea298c49be99ab3e75b037fea522036f457b6",
+          "passed": false,
+          "process_creation_filetime": 134393684186870993,
+          "checks": 21,
+          "body_count": 1,
+          "tree_nodes": 23,
+          "geometry": {
+            "volume": 1.4000000000000001e-06,
+            "area": 0.00082,
+            "com": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "occurrence": {
+            "placement_index": 0,
+            "name": "GeneratedChildModel-1",
+            "path_basename": "GeneratedChildFile.SLDPRT",
+            "configuration": "authored configuration",
+            "fixed": false,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visible_child_bodies": 1
+          }
+        }
+      ]
+    },
+    "Synchronized": {
+      "passed": true,
+      "started_at": 1794894887.505771,
+      "finished_at": 1794894992.054101,
+      "private_report_sha256": "c7c726b91548a7506dba3ec825c68af0c44c0290393956a5842549371f97e0ec",
+      "private_transport_sha256": "f9d4d5f1f741ce9fb7adc3d3d1732eb16bb8a7fb4d4e98bf751a18d003f76296",
+      "job_sha256": "e6621cb95e4f1fb37650b9da511851ecf51bc16abf40782ec44120414ef68274",
+      "controls": [
+        {
+          "phase": "control_before",
+          "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+          "healthy": true,
+          "process_creation_filetime": 134393684919306568
+        },
+        {
+          "phase": "control_after",
+          "input_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+          "healthy": true,
+          "process_creation_filetime": 134393685702042744
+        }
+      ],
+      "phases": [
+        {
+          "phase": "generated",
+          "sha256": "91297b5d254c404a6b4ab6bd61adeae6a2d8e21d7ceb4613751ac456b3238b3a",
+          "opened": true,
+          "errors": 0,
+          "warnings": 0,
+          "rebuild_return": true,
+          "source_immutable": true,
+          "child_immutable": false,
+          "child_sha256": "ae5fcb694f3e6bbb30b6c502f98dba1cb8a76f39c5036a13de29f24f3692a009",
+          "state_after_open": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 117
+            }
+          },
+          "state_after_rebuild": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 132
+            }
+          },
+          "record_sha256": "0ef51eadb773994263137f7a16416a6b5b96bfc6a5e0bdaf29443907b51453cd",
+          "passed": true,
+          "process_creation_filetime": 134393685175680491,
+          "checks": 21,
+          "body_count": 1,
+          "tree_nodes": 23,
+          "geometry": {
+            "volume": 1.4000000000000001e-06,
+            "area": 0.00082,
+            "com": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "occurrence": {
+            "placement_index": 0,
+            "name": "GeneratedChildModel-1",
+            "path_basename": "GeneratedChildFile.SLDPRT",
+            "configuration": "authored configuration",
+            "fixed": false,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visible_child_bodies": 1
+          },
+          "saved_sha256": "22e93e060fa35b8b81c1de8bedf29988e534b24edd775c1aaaad7bd5fd6de7de",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "synchronized_child": {
+            "native_sha256": "ae5fcb694f3e6bbb30b6c502f98dba1cb8a76f39c5036a13de29f24f3692a009",
+            "native_bytes": 27488,
+            "path_basename": "GeneratedChildFile.SLDPRT",
+            "original_sha256": "8cd0302402fe2912654e026733de45fc343dfc210a675df56c9ed9e1b4063675",
+            "update_stamp": 132,
+            "save_status": [
+              true,
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "phase": "fresh-reopen",
+          "sha256": "22e93e060fa35b8b81c1de8bedf29988e534b24edd775c1aaaad7bd5fd6de7de",
+          "opened": true,
+          "errors": 0,
+          "warnings": 0,
+          "rebuild_return": true,
+          "source_immutable": true,
+          "child_immutable": true,
+          "child_sha256": "ae5fcb694f3e6bbb30b6c502f98dba1cb8a76f39c5036a13de29f24f3692a009",
+          "state_after_open": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": false,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": false,
+              "whats_wrong": 0,
+              "update_stamp": 132
+            }
+          },
+          "state_after_rebuild": {
+            "parent": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0
+            },
+            "child": {
+              "needs_rebuild": 0,
+              "save_flag": true,
+              "whats_wrong": 0,
+              "update_stamp": 147
+            }
+          },
+          "record_sha256": "1d7380ac52ab3a1e3c6857dc848f6eef343a9727d62b6e7c12ad1e0471499af1",
+          "passed": true,
+          "process_creation_filetime": 134393685438177983,
+          "checks": 21,
+          "body_count": 1,
+          "tree_nodes": 23,
+          "geometry": {
+            "volume": 1.4000000000000001e-06,
+            "area": 0.00082,
+            "com": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "occurrence": {
+            "placement_index": 0,
+            "name": "GeneratedChildModel-1",
+            "path_basename": "GeneratedChildFile.SLDPRT",
+            "configuration": "authored configuration",
+            "fixed": false,
+            "transform": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "visible_child_bodies": 1
+          }
+        }
+      ]
+    }
+  }
+}

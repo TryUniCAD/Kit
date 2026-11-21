@@ -1,0 +1,671 @@
+{
+  "arithmetic_sha256": "39a74b69a3670475a015e23a0e31ade1d34ba6762bfa3283921c0d865f0ef76e",
+  "binding_source_sha256": [
+    "827baa41493ed7fc459dcb5d7b4485a733494cf20fd4fb8d9ecb5aee4a70f566",
+    "a82c6e544fec26fbb4c87f19da31f716df68d77f5169f27f0dddec25508b45d6"
+  ],
+  "cad_files_written": 0,
+  "disclosed_cases": [
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25840,
+        "map_next_slot": 112,
+        "sha256": "3d907c69875881895c1cddf1dcb328a9fa931952e12a9d745c962a02917bed2a"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 4,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "fe0": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "native_file": "D01X.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 28879,
+        "map_next_slot": 427,
+        "sha256": "e502cfbc9bcd027a1536d6f9d72b71d6c5aecae1632a8a059fc6101104418ca8"
+      },
+      "sha256": "3122764dc052fdec3947a2a722935fce9c9d3ff901cc6dba99763d33ed4bc839"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25846,
+        "map_next_slot": 112,
+        "sha256": "a3ba42e64644e62df2888f2e7ff6e2b91f198fea6d383ea5517f26d28018fdae"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 4,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "fe0": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "native_file": "D01XInstances.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 29089,
+        "map_next_slot": 427,
+        "sha256": "b460f235270e9de94ac62274274434f28ed6046999b8e07a2aeecc8bfb383ba1"
+      },
+      "sha256": "bb3c395c2afbcfd3a1e60e9dd95191bc2964b51f31822d8896a908cc9bb0c600"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25846,
+        "map_next_slot": 112,
+        "sha256": "86f88d2fc620496eea28accbbc608123f36e3e6c219e9eed51186f2fc1cc1a3b"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 4,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.0,
+          0.031090000000000007,
+          0.00533
+        ],
+        "fe0": [
+          1.0,
+          0.0,
+          0.0
+        ]
+      },
+      "native_file": "D01XSpacing.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 29089,
+        "map_next_slot": 427,
+        "sha256": "ee62cefcc4dd8f0a270417a8f6e4bd3cbb96206669a9b2f2560708f2cdb62b6c"
+      },
+      "sha256": "071a68b655354be70915ce1d9d89f8ad9852683b046b78768de9452cc0bef403"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 26098,
+        "map_next_slot": 113,
+        "sha256": "99323ed45509bc433e6c649ca08375a21cd1ffefb5304af2492f7b6e69901abc"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 3,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "fe0": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "native_file": "D02Y.SLDPRT",
+      "pattern_polarity_owner_f1298": 1,
+      "resolved": {
+        "bytes": 28879,
+        "map_next_slot": 428,
+        "sha256": "8d90f9bd93ea45d25c334df76aa5ca6bdfa25edb1dbdf62630f4d923e4bcd7a9"
+      },
+      "sha256": "8a07a2d75cde92ddd35d545e5f393efa2162572c441b8569ebe9ad714fad8371"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 26104,
+        "map_next_slot": 113,
+        "sha256": "fa6710128ab29af93213a8df34933b69affb5a91eb86522dfb58d626b459cc49"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 3,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "fe0": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "native_file": "D02YInstances.SLDPRT",
+      "pattern_polarity_owner_f1298": 1,
+      "resolved": {
+        "bytes": 29089,
+        "map_next_slot": 428,
+        "sha256": "96500e6a76d9c4018254c3fddb6d2af3f7501937a10403a2d48f765892fc2a70"
+      },
+      "sha256": "ba0dd5275b7a7c4c176e774633a4516ab950a9ef6f9bd8c89071f58272224df2"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 26104,
+        "map_next_slot": 113,
+        "sha256": "1ca8efc48a357d9960a9aa8b745ecfe3c12c81a0a5c75b5e99be70371feab221"
+      },
+      "datum_class": "moDefaultRefPlnData_c",
+      "datum_id": 3,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0,
+        "fc8": [
+          0.09673999999999999,
+          0.0,
+          0.0054199999999999995
+        ],
+        "fe0": [
+          0.0,
+          1.0,
+          0.0
+        ]
+      },
+      "native_file": "D02YSpacing.SLDPRT",
+      "pattern_polarity_owner_f1298": 1,
+      "resolved": {
+        "bytes": 29089,
+        "map_next_slot": 428,
+        "sha256": "fe291652c8611a12eadc23f275b9157d87c583a8471a1ef3a8f25146e2d609cb"
+      },
+      "sha256": "235331b9426f312b5d45b18c7b0ce49e82635dbe9d68e7cd160eef1f19565f4d"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784"
+      },
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_id": 45,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.004764131938244365,
+          0.004764131938244365,
+          0.006125
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "native_file": "DirectionEnvelope.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305"
+      },
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25942,
+        "map_next_slot": 112,
+        "sha256": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff"
+      },
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_id": 45,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.004764131938244365,
+          0.004764131938244365,
+          0.006125
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "native_file": "DirectionEnvelopeSpacing.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 33860,
+        "map_next_slot": 472,
+        "sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9"
+      },
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a"
+      },
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_id": 45,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.003354337793253686,
+          0.003354337793253686,
+          0.004312500000000001
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "native_file": "DatumHeightShort.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+      },
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    {
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f"
+      },
+      "datum_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+      "datum_id": 45,
+      "exact_binary64": true,
+      "fields": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.00792401536667175,
+          0.00792401536667175,
+          0.010187500000000002
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "native_file": "DatumHeightTall.SLDPRT",
+      "pattern_polarity_owner_f1298": 0,
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+      },
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    }
+  ],
+  "hidden_inputs_read": 0,
+  "native_processes_started": 0,
+  "proof_sha256": "0743cdca95d4e682d264a9c582094da426247d67fde04c8b2c6e5083949812ed",
+  "schema": "kit.sw2026.linear-pattern-plane-direction-rule.v1",
+  "static_native_bindings": {
+    "constants": {
+      "corner_count_divisor": 4.0,
+      "unit_squared_threshold": 1e-17,
+      "vector_division_numerator": 1.0
+    },
+    "endpoint_vtable_slot": {
+      "address": "0x4ce5d118",
+      "resolver_range": [
+        "0x4c316200",
+        "0x4c317c3f"
+      ],
+      "resolver_sha256": "e1a368e4dcb52b7e54df2edaefd4f3ace865a51becec4d244b47c34c219e8f10",
+      "target": "0x4c316200"
+    },
+    "math_probes": {
+      "accumulate_corner": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "bd3983efdd85dc6250bbe782bdacf4c3d7997a089f52701e7333455cd47686d9",
+        "exact_export_alias_count": 3,
+        "exact_exports": [
+          "??YgcMdiPoint_c@@QEAAAEAV0@AEBV0@@Z",
+          "??YmgPoint_c@@QEAAAEBV0@AEBVmgVector_c@@@Z",
+          "??YmgVector_c@@QEAAAEBV0@AEBV0@@Z"
+        ],
+        "iat_address": "0x4cd3a9e0",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31dd5f00",
+        "symbol": "??YmgVector_c@@QEAAAEBV0@AEBV0@@Z",
+        "unwind_entry_found": false
+      },
+      "add_basis_vectors": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "d3ae9b9f350f05aca75caefc2738d6bf1cb13269b947b08559e82aff044cb176",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??H@YA?AVmgVector_c@@AEBV0@0@Z"
+        ],
+        "iat_address": "0x4cd3aba0",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31f1a400",
+        "symbol": "??H@YA?AVmgVector_c@@AEBV0@0@Z",
+        "unwind_entry_found": false
+      },
+      "cross_basis_vectors": {
+        "code_sha256": "1be7c44bb87e1e6db3065c7149cdea507955fac7ba652efa266bfdb193f67a5d",
+        "end_rva_exclusive": "0x14a0c3",
+        "end_va_exclusive": "0x31f1a0c3",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??D@YA?AVmgVector_c@@AEBV0@0@Z"
+        ],
+        "iat_address": "0x4cd3a978",
+        "module": "sldmgu.dll",
+        "start_rva": "0x14a050",
+        "start_va": "0x31f1a050",
+        "symbol": "??D@YA?AVmgVector_c@@AEBV0@0@Z",
+        "unwind_rva": "0x1d0e98"
+      },
+      "divide_vector": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "c2840bb2fe596a50a66c28230b8101c87770c67bf95326132cafa171cc7c600b",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??K@YA?AVmgVector_c@@AEBV0@N@Z"
+        ],
+        "iat_address": "0x4cd3a8e8",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31f1a440",
+        "symbol": "??K@YA?AVmgVector_c@@AEBV0@N@Z",
+        "unwind_entry_found": false
+      },
+      "normal_of_plane": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "bebf640214412d4b061eae2ed877871ee9a23960453459fe38cd2d7c3a4e537b",
+        "exact_export_alias_count": 5,
+        "exact_exports": [
+          "?Radius@mgCircle_c@@QEBAAEBVmgRadius_c@@XZ",
+          "?Radius@mgSphere_c@@QEBAAEBVmgRadius_c@@XZ",
+          "?axis@mgCone_c@@QEBAAEBVmgUnitVector_c@@XZ",
+          "?direction@mgLine_c@@QEBAAEBVmgUnitVector_c@@XZ",
+          "?normal@mgPlane_c@@QEBAAEBVmgUnitVector_c@@XZ"
+        ],
+        "iat_address": "0x4cd3a928",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31de0ce0",
+        "symbol": "?normal@mgPlane_c@@QEBAAEBVmgUnitVector_c@@XZ",
+        "unwind_entry_found": false
+      },
+      "normalize_vector": {
+        "code_sha256": "b2be7a8946ec9e364e9e118cdefbbb367b538348d5ddf290259b8f855f0e7666",
+        "end_rva_exclusive": "0x14c1f5",
+        "end_va_exclusive": "0x31f1c1f5",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?mg_Normalise@@YA?AVmgUnitVector_c@@AEBVmgVector_c@@@Z"
+        ],
+        "iat_address": "0x4cd3aaa0",
+        "module": "sldmgu.dll",
+        "start_rva": "0x14c1d0",
+        "start_va": "0x31f1c1d0",
+        "symbol": "?mg_Normalise@@YA?AVmgUnitVector_c@@AEBVmgVector_c@@@Z",
+        "unwind_rva": "0x18e34c"
+      },
+      "point_plus_vector": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "8e65415bd447772f77a4e41f8be7e9c501875600acd7db117ef134be3691e7bb",
+        "exact_export_alias_count": 2,
+        "exact_exports": [
+          "??H@YA?AVmgPoint_c@@AEBV0@AEBVmgVector_c@@@Z",
+          "??H@YA?AVmgPoint_c@@AEBVmgVector_c@@AEBV0@@Z"
+        ],
+        "iat_address": "0x4cd3a5b0",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31f09390",
+        "symbol": "??H@YA?AVmgPoint_c@@AEBV0@AEBVmgVector_c@@@Z",
+        "unwind_entry_found": false
+      },
+      "point_to_vector": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "ebbdb560b3f2eb8aac7a419f273a7774df5d14679f9b92ebbf8fc8da651a42fa",
+        "exact_export_alias_count": 5,
+        "exact_exports": [
+          "??0gcMdiPoint_c@@QEAA@AEBV0@@Z",
+          "??0mgVector_c@@QEAA@AEBV0@@Z",
+          "??0mgVector_c@@QEAA@AEBVmgPoint_c@@@Z",
+          "??0mgVector_c@@QEAA@QEBN@Z",
+          "??4mgVector_c@@QEAAAEBV0@AEBV0@@Z"
+        ],
+        "iat_address": "0x4cd3a8e0",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31dd39e0",
+        "symbol": "??0mgVector_c@@QEAA@AEBVmgPoint_c@@@Z",
+        "unwind_entry_found": false
+      },
+      "project_span_dot": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "117941c91b480016ad66bdb2689a965c1344c64329a797e1dffa695522463cb2",
+        "exact_export_alias_count": 3,
+        "exact_exports": [
+          "??L@YANAEBVmgPoint_c@@AEBVmgVector_c@@@Z",
+          "??L@YANAEBVmgVector_c@@0@Z",
+          "??L@YANAEBVmgVector_c@@AEBVmgPoint_c@@@Z"
+        ],
+        "iat_address": "0x4cd3a600",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31f093c0",
+        "symbol": "??L@YANAEBVmgVector_c@@0@Z",
+        "unwind_entry_found": false
+      },
+      "root_of_plane": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "44e5c93c49cb27f9a1bed48c78efed3576a3ff021c6ac76c0f0496d3831ac9bb",
+        "exact_export_alias_count": 12,
+        "exact_exports": [
+          "?affine@mgXform_c@@QEBAAEBVmgMatrix_c@@XZ",
+          "?affinePtr@mgXform_c@@QEBAPEBNXZ",
+          "?affineW@mgXform_c@@QEAAAEAVmgMatrix_c@@XZ",
+          "?center@mgCircle_c@@QEBAAEBVmgPoint_c@@XZ",
+          "?center@mgSphere_c@@QEAAAEAVmgPoint_c@@XZ",
+          "?centre@mgCircle_c@@QEBAAEBVmgPoint_c@@XZ",
+          "?rootPoint@mgCone_c@@QEBAAEBVmgPoint_c@@XZ",
+          "?rootPoint@mgLine_c@@QEBAAEBVmgPoint_c@@XZ",
+          "?rootPoint@mgPlane_c@@QEBAAEBVmgPoint_c@@XZ",
+          "?sph@mgDirSphere_c@@QEAAAEAVmgSphere_c@@XZ"
+        ],
+        "iat_address": "0x4cd3a920",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31dd6c40",
+        "symbol": "?rootPoint@mgPlane_c@@QEBAAEBVmgPoint_c@@XZ",
+        "unwind_entry_found": false
+      },
+      "scale_basis_vector": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "c0c9cd1d0e72b9e381956792e12c1da7a8704fb98704a9185578b7fca9546402",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??D@YA?AVmgVector_c@@NAEBV0@@Z"
+        ],
+        "iat_address": "0x4cd3a5f0",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31f1a360",
+        "symbol": "??D@YA?AVmgVector_c@@NAEBV0@@Z",
+        "unwind_entry_found": false
+      },
+      "subtract_points": {
+        "code_sha256": "78d9f88a163f65fd47885dca0c422e68e42c490f90e0c85cd899cea7a5d08e4d",
+        "end_rva_exclusive": "0x13938c",
+        "end_va_exclusive": "0x31f0938c",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??G@YA?AVmgVector_c@@AEBVmgPoint_c@@0@Z"
+        ],
+        "iat_address": "0x4cd3a5c0",
+        "module": "sldmgu.dll",
+        "start_rva": "0x139340",
+        "start_va": "0x31f09340",
+        "symbol": "??G@YA?AVmgVector_c@@AEBVmgPoint_c@@0@Z",
+        "unwind_rva": "0x1cb800"
+      },
+      "unit_vector_constructor": {
+        "code_sha256": "5616176f0e3e9b36283bafe6da1d0a21e35a6a60052e3fb34d27304a52c8d539",
+        "end_rva_exclusive": "0x1491b9",
+        "end_va_exclusive": "0x31f191b9",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??0mgUnitVector_c@@QEAA@NNN@Z"
+        ],
+        "start_rva": "0x149110",
+        "start_va": "0x31f19110",
+        "unwind_rva": "0x1d08cc"
+      },
+      "zero_vector_constructor": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "48578baf1dec639922450117c3e0ab43aa33b2297180e9777c922566cc484436",
+        "exact_export_alias_count": 3,
+        "exact_exports": [
+          "??0gcMdiPoint_c@@QEAA@NNN@Z",
+          "??0mgPoint_c@@QEAA@NNN@Z",
+          "??0mgVector_c@@QEAA@NNN@Z"
+        ],
+        "iat_address": "0x4cd3ab28",
+        "module": "sldmgu.dll",
+        "requested_va": "0x31dd3a00",
+        "symbol": "??0mgVector_c@@QEAA@NNN@Z",
+        "unwind_entry_found": false
+      }
+    },
+    "model_probes": {
+      "compose_ordered_corners": {
+        "code_sha256": "aed5d829ea03d691b6331f25e03ba1038fe999ef9c8f99d9977d00af45d6acbe",
+        "end_rva_exclusive": "0x11ad692",
+        "end_va_exclusive": "0x4c2ed692",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x11acdb0",
+        "start_va": "0x4c2ecdb0",
+        "unwind_rva": "0x249e820"
+      },
+      "get_plane_center": {
+        "code_sha256": "7448ef0bedfea475d8786ee0d09c92f5cba966e2f91cef3fdec0e19fd13852a3",
+        "end_rva_exclusive": "0x11a47b2",
+        "end_va_exclusive": "0x4c2e47b2",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?getCenterPoint@moRefPlnData_c@@QEAAHAEAVmgPoint_c@@@Z"
+        ],
+        "start_rva": "0x11a4600",
+        "start_va": "0x4c2e4600",
+        "unwind_rva": "0x249c800"
+      },
+      "get_plane_corners": {
+        "code_sha256": "c230980fedbc3f5f7ad53aef141455c527319bcb8201093c850673322527efcc",
+        "end_rva_exclusive": "0x11a5881",
+        "end_va_exclusive": "0x4c2e5881",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?getFourCorners@moRefPlnData_c@@QEBAHQEAVmgPoint_c@@@Z"
+        ],
+        "start_rva": "0x11a57c0",
+        "start_va": "0x4c2e57c0",
+        "unwind_rva": "0x249c7b4"
+      },
+      "get_selected_normal": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "da7313c4de71d6e36085fe34c0cc0968075c145761d7cc7c2cab3fd35d8a2767",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?getNormal@moRefPlane_c@@QEBAAEBVmgUnitVector_c@@XZ"
+        ],
+        "requested_va": "0x4c2d5440",
+        "unwind_entry_found": false
+      },
+      "get_selected_plane": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "25f923ee5da5381c32397c4fa818d47d1be09a878eb9166f5b9144d44ab94548",
+        "exact_export_alias_count": 5,
+        "exact_exports": [
+          "?getRefCone@moCompRefCone_c@@QEAAPEAVmoRefCone_c@@XZ",
+          "?getRefCylinder@moCompRefCylinder_c@@QEAAPEAVmoRefCylinder_c@@XZ",
+          "?getRefPlane@moCompRefPlane_c@@QEAAPEAVmoRefPlane_c@@XZ",
+          "?getRefSphere@moCompRefSphere_c@@QEAAPEAVmoRefSphere_c@@XZ",
+          "?getRefTorus@moCompRefTorus_c@@QEAAPEAVmoRefTorus_c@@XZ"
+        ],
+        "requested_va": "0x4b285240",
+        "unwind_entry_found": false
+      },
+      "relative_transform": {
+        "code_sha256": "0d1dca44159c324a517e7f2b71fe92fbc51c8656f484a5ef4ced54631168a3e5",
+        "end_rva_exclusive": "0x11cb05e",
+        "end_va_exclusive": "0x4c30b05e",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?calculateXform@moRefWrapper_c@@QEBAHPEAVmgXform_c@@H@Z"
+        ],
+        "start_rva": "0x11cae30",
+        "start_va": "0x4c30ae30",
+        "unwind_rva": "0x24a55e4"
+      }
+    },
+    "modules": [
+      {
+        "bytes": 46536280,
+        "image_base": "0x4b140000",
+        "machine": "0x8664",
+        "name": "sldmodu.dll",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      {
+        "bytes": 2363992,
+        "image_base": "0x31dd0000",
+        "machine": "0x8664",
+        "name": "sldmgu.dll",
+        "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+      }
+    ]
+  }
+}

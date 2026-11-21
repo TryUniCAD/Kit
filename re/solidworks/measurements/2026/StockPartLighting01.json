@@ -1,0 +1,1018 @@
+{
+  "existing_native_producer_evidence": {
+    "functions": {
+      "ModelCreateDefaultLights01": {
+        "end_exclusive": "0x4c01a036",
+        "sha256": "4d4726fcc4730c1e02a2585dc8b66e7a5a3f7ee4b3c57c708d702df2dd3b054f",
+        "start": "0x4c019c60"
+      },
+      "ModelHasLights01": {
+        "end_exclusive": "0x4c028fb9",
+        "sha256": "35a97898bcbce64e95cd6da73ad1555fcb018ccc55285683f054a1def7544396",
+        "start": "0x4c028f60"
+      }
+    },
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "source_ledger": {
+      "re/solidworks/records/AuthoredAmbientConstruction2026.json": "025c33d2dac792d72e97d469efde93299539ff4aec116f8cad6776e5588f2d7f",
+      "re/solidworks/records/PartEnvironmentDirtyPropagation2026.json": "e79cc366e25bcf27d11cdfc98bd359aa81a345da2cc0d723a4b5aee1930571cc"
+    }
+  },
+  "heldout_reads": 0,
+  "host_tool_sha256": "6b29f143855ef58e3b9992168b05d1e49f9c4ca1aec0a7e4d13aa5a0abceb177",
+  "native_source_build": "34.5.2.0604",
+  "native_source_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "new_native_launches": 0,
+  "only_excluded_serialized_fields": [
+    "f08",
+    "f2a0",
+    "f2a4"
+  ],
+  "other_typed_differences_by_role": {
+    "ambient": {},
+    "directional_first": {},
+    "directional_second": {},
+    "directional_third": {},
+    "environment": {
+      "f29c": {
+        "circle_boss": 139,
+        "full_revolve": 115,
+        "import_solid": 113
+      },
+      "f301": {
+        "circle_boss": 2,
+        "full_revolve": 0,
+        "import_solid": 0
+      }
+    }
+  },
+  "schema": "kit.sw2026.ordinary-part-lighting-census.v1",
+  "source_independent_vendor_default_proven": false,
+  "sources": {
+    "circle_boss": {
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "configuration_title": "modeled default",
+      "disclosed_root_relative_locator": "PartPropertySource01/Inspection/CircularPropertiesAuthor/CircularProperties.SLDPRT",
+      "model_title": "CircularInput",
+      "prior_oracle_receipt": {
+        "re/solidworks/measurements/2026/PartPropertySources01.json": "587ab07636c9331da3881f99dd8932133d75c5b4b7aaf71312863ca52b75981f"
+      },
+      "resolved_sha256": "b3df1adce900411eb752451e1b46c7c347e18a2f72a0610a302f42fb7fa94a4b",
+      "scene": {
+        "ambient": {
+          "class": "moAmbientLight_c",
+          "compared_retained_fields": 53,
+          "creation_filetime": {
+            "f2a0": 2041877801,
+            "f2a4": 31291160
+          },
+          "creation_value": {
+            "FractionTicks": 5781161,
+            "SecondsValue": 1794977489
+          },
+          "persistent_id": 26,
+          "schema": 1,
+          "transmit_map_index": 73,
+          "typed_field_count": 56
+        },
+        "directional_first": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": 2041911875,
+            "f2a4": 31291160
+          },
+          "creation_value": {
+            "FractionTicks": 5815235,
+            "SecondsValue": 1794977489
+          },
+          "persistent_id": 27,
+          "schema": 1,
+          "transmit_map_index": 76,
+          "typed_field_count": 58
+        },
+        "directional_second": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": 2041911875,
+            "f2a4": 31291160
+          },
+          "creation_value": {
+            "FractionTicks": 5815235,
+            "SecondsValue": 1794977489
+          },
+          "persistent_id": 28,
+          "schema": 1,
+          "transmit_map_index": 78,
+          "typed_field_count": 58
+        },
+        "directional_third": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": 2041911875,
+            "f2a4": 31291160
+          },
+          "creation_value": {
+            "FractionTicks": 5815235,
+            "SecondsValue": 1794977489
+          },
+          "persistent_id": 29,
+          "schema": 1,
+          "transmit_map_index": 80,
+          "typed_field_count": 58
+        },
+        "environment": {
+          "class": "moEnvFolder_c",
+          "compared_retained_fields": 36,
+          "creation_filetime": {
+            "f2a0": 599592094,
+            "f2a4": 31291173
+          },
+          "creation_value": {
+            "FractionTicks": 8070302,
+            "SecondsValue": 1794982928
+          },
+          "persistent_id": 9,
+          "schema": 1,
+          "transmit_map_index": 70,
+          "typed_field_count": 39
+        }
+      },
+      "semantic_fields": {
+        "ambient": {
+          "AmbientValue": 0.5,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0,
+          "DirectionValue": null,
+          "EnabledInPv": false,
+          "ExternalName": "Ambient-1",
+          "KeepInScene": false,
+          "KindValue": "ambient",
+          "NameValue": "Ambient",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": null,
+          "SpecularValue": 0,
+          "UseCartesian": true
+        },
+        "directional_first": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.4,
+          "DirectionValue": [
+            0.5417,
+            0.7071,
+            -0.4545
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional1",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_second": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.3971,
+            0.342,
+            0.8517
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional2",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_third": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.8067,
+            -0.1736,
+            -0.5649
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional3",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        }
+      },
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "terminal_feature": "moExtrusion_c"
+    },
+    "full_revolve": {
+      "config_sha256": "d5148de01dba03ef6ed203bf4d44cfb67044a69bb26367621319ef31d3260793",
+      "configuration_title": "Default",
+      "disclosed_root_relative_locator": "GeneratedOrdinaryRevolveNative01/Control/RevolveFull.SLDPRT",
+      "model_title": "Part1",
+      "prior_oracle_receipt": {
+        "re/solidworks/measurements/2026/SdkOrdinaryRevolveNative01.json": "25af072fc6d1122a593c12474c532a35f0b1b3987f519af39bedc3e91f5c27f9"
+      },
+      "resolved_sha256": "bc11aac1af0a62306f3abec9ea05b99de7b5e30f7d1e63eb9dfa4d9d4f76ebb2",
+      "scene": {
+        "ambient": {
+          "class": "moAmbientLight_c",
+          "compared_retained_fields": 53,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 12,
+          "schema": 1,
+          "transmit_map_index": 73,
+          "typed_field_count": 56
+        },
+        "directional_first": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 13,
+          "schema": 1,
+          "transmit_map_index": 76,
+          "typed_field_count": 58
+        },
+        "directional_second": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 14,
+          "schema": 1,
+          "transmit_map_index": 78,
+          "typed_field_count": 58
+        },
+        "directional_third": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 15,
+          "schema": 1,
+          "transmit_map_index": 80,
+          "typed_field_count": 58
+        },
+        "environment": {
+          "class": "moEnvFolder_c",
+          "compared_retained_fields": 36,
+          "creation_filetime": {
+            "f2a0": -457514259,
+            "f2a4": 31290966
+          },
+          "creation_value": {
+            "FractionTicks": 7700973,
+            "SecondsValue": 1794894346
+          },
+          "persistent_id": 6,
+          "schema": 1,
+          "transmit_map_index": 70,
+          "typed_field_count": 39
+        }
+      },
+      "semantic_fields": {
+        "ambient": {
+          "AmbientValue": 0.5,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0,
+          "DirectionValue": null,
+          "EnabledInPv": false,
+          "ExternalName": "Ambient-1",
+          "KeepInScene": false,
+          "KindValue": "ambient",
+          "NameValue": "Ambient",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": null,
+          "SpecularValue": 0,
+          "UseCartesian": true
+        },
+        "directional_first": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.4,
+          "DirectionValue": [
+            0.5417,
+            0.7071,
+            -0.4545
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional1",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_second": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.3971,
+            0.342,
+            0.8517
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional2",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_third": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.8067,
+            -0.1736,
+            -0.5649
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional3",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        }
+      },
+      "source_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "terminal_feature": "moRevolution_c"
+    },
+    "import_solid": {
+      "config_sha256": "4e0da104cd358f2c2797182b62dbdd0d5577fcf61e2d983fa785ccf5c00fddfd",
+      "configuration_title": "Default",
+      "disclosed_root_relative_locator": "ImportedBodySourceDisclosed03/DisclosedImported.SLDPRT",
+      "model_title": "Part1",
+      "prior_oracle_receipt": {
+        "re/solidworks/measurements/2026/ImportedBaseBodySourcesNative01.json": "d2568776891dec3f5671dc89d9696ae3d4d4005fb22f4dedf500347939f6de2a"
+      },
+      "resolved_sha256": "5c038eab2f3862e3b536c5b6e6526db9357e5fa9daa13928901dde93017fab12",
+      "scene": {
+        "ambient": {
+          "class": "moAmbientLight_c",
+          "compared_retained_fields": 53,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 12,
+          "schema": 1,
+          "transmit_map_index": 73,
+          "typed_field_count": 56
+        },
+        "directional_first": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 13,
+          "schema": 1,
+          "transmit_map_index": 76,
+          "typed_field_count": 58
+        },
+        "directional_second": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 14,
+          "schema": 1,
+          "transmit_map_index": 78,
+          "typed_field_count": 58
+        },
+        "directional_third": {
+          "class": "moDirectionLight_c",
+          "compared_retained_fields": 55,
+          "creation_filetime": {
+            "f2a0": -1243017411,
+            "f2a4": 31290117
+          },
+          "creation_value": {
+            "FractionTicks": 4963517,
+            "SecondsValue": 1794529625
+          },
+          "persistent_id": 15,
+          "schema": 1,
+          "transmit_map_index": 80,
+          "typed_field_count": 58
+        },
+        "environment": {
+          "class": "moEnvFolder_c",
+          "compared_retained_fields": 36,
+          "creation_filetime": {
+            "f2a0": 2014540357,
+            "f2a4": 31291510
+          },
+          "creation_value": {
+            "FractionTicks": 6997317,
+            "SecondsValue": 1795127810
+          },
+          "persistent_id": 6,
+          "schema": 1,
+          "transmit_map_index": 70,
+          "typed_field_count": 39
+        }
+      },
+      "semantic_fields": {
+        "ambient": {
+          "AmbientValue": 0.5,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0,
+          "DirectionValue": null,
+          "EnabledInPv": false,
+          "ExternalName": "Ambient-1",
+          "KeepInScene": false,
+          "KindValue": "ambient",
+          "NameValue": "Ambient",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": null,
+          "SpecularValue": 0,
+          "UseCartesian": true
+        },
+        "directional_first": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.4,
+          "DirectionValue": [
+            0.5417,
+            0.7071,
+            -0.4545
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional1",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_second": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.3971,
+            0.342,
+            0.8517
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional2",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        },
+        "directional_third": {
+          "AmbientValue": 0,
+          "ColourValue": 16777215,
+          "DiffuseValue": 0.2,
+          "DirectionValue": [
+            -0.8067,
+            -0.1736,
+            -0.5649
+          ],
+          "EnabledInPv": false,
+          "ExternalName": "Directional-1",
+          "KeepInScene": false,
+          "KindValue": "directional",
+          "NameValue": "Directional3",
+          "PvBrightness": 1,
+          "PvQuality": 16,
+          "PvShadows": true,
+          "ShadowSoftness": 0,
+          "SpecularValue": 0.4,
+          "UseCartesian": true
+        }
+      },
+      "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+      "terminal_feature": "moBaseBody_c"
+    }
+  },
+  "stable_typed_fields_by_role": {
+    "ambient": {
+      "f0c": 0,
+      "f18": {
+        "class": "moNodeName_c",
+        "fields": {
+          "f08": "Ambient"
+        },
+        "schema": 1
+      },
+      "f1e0": 0,
+      "f1f4": 0,
+      "f1f8": "",
+      "f20": "",
+      "f208": 0,
+      "f258": null,
+      "f28": 3221225472,
+      "f28c": 0,
+      "f298": 0,
+      "f29c": 101,
+      "f2a8": 0,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b4": 2026306,
+      "f2b8": 0,
+      "f2bc": 0,
+      "f2c": 0,
+      "f2c8": {
+        "f00": 65535,
+        "f02": 0,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1,
+            "f06": -1
+          }
+        }
+      },
+      "f2ec": 0,
+      "f2f0": null,
+      "f300": 5,
+      "f301": 0,
+      "f30c": -1,
+      "f318": 0,
+      "f344": 1,
+      "f35c": 0,
+      "f36c": 0,
+      "f36c#wire": 0,
+      "f384": 0,
+      "f384#0": 0,
+      "f388": 0,
+      "f390": 0.5,
+      "f398": 0,
+      "f3a0": 0,
+      "f3a8": 16777215,
+      "f428": 1,
+      "f478": 1,
+      "f488": 1,
+      "f490": 16,
+      "f4f0": 1,
+      "f4f8": "Ambient-1",
+      "f500": {
+        "n": 0,
+        "props": []
+      },
+      "f60": {
+        "list": {
+          "items": [],
+          "n": 0
+        },
+        "tail": 0
+      },
+      "f78": null,
+      "f98": 2,
+      "fa8": 0,
+      "has_f1e8": 0,
+      "has_list68": 0,
+      "hidden": 0,
+      "state": 0,
+      "state#wire": 0
+    },
+    "directional_first": {
+      "f0c": 0,
+      "f18": {
+        "class": "moNodeName_c",
+        "fields": {
+          "f08": "Directional1"
+        },
+        "schema": 1
+      },
+      "f1e0": 0,
+      "f1f4": 0,
+      "f1f8": "",
+      "f20": "",
+      "f208": 0,
+      "f258": null,
+      "f28": 3221225472,
+      "f28c": 0,
+      "f298": 0,
+      "f29c": 101,
+      "f2a8": 0,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b4": 2026306,
+      "f2b8": 0,
+      "f2bc": 0,
+      "f2c": 0,
+      "f2c8": {
+        "f00": 65535,
+        "f02": 0,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1,
+            "f06": -1
+          }
+        }
+      },
+      "f2ec": 0,
+      "f2f0": null,
+      "f300": 5,
+      "f301": 0,
+      "f30c": -1,
+      "f318": 0,
+      "f344": 1,
+      "f35c": 0,
+      "f36c": 0,
+      "f36c#wire": 0,
+      "f384": 0,
+      "f384#0": 0,
+      "f388": 0,
+      "f390": 0,
+      "f398": 0.4,
+      "f3a0": 0.4,
+      "f3a8": 16777215,
+      "f3b0": {
+        "x": 0.5417,
+        "y": 0.7071,
+        "z": -0.4545
+      },
+      "f428": 1,
+      "f478": 1,
+      "f488": 1,
+      "f490": 16,
+      "f498": 0,
+      "f4f0": 1,
+      "f4f8": "Directional-1",
+      "f500": {
+        "n": 0,
+        "props": []
+      },
+      "f60": {
+        "list": {
+          "items": [],
+          "n": 0
+        },
+        "tail": 0
+      },
+      "f78": null,
+      "f98": 2,
+      "fa8": 0,
+      "has_f1e8": 0,
+      "has_list68": 0,
+      "hidden": 0,
+      "state": 0,
+      "state#wire": 0
+    },
+    "directional_second": {
+      "f0c": 0,
+      "f18": {
+        "class": "moNodeName_c",
+        "fields": {
+          "f08": "Directional2"
+        },
+        "schema": 1
+      },
+      "f1e0": 0,
+      "f1f4": 0,
+      "f1f8": "",
+      "f20": "",
+      "f208": 0,
+      "f258": null,
+      "f28": 3221225472,
+      "f28c": 0,
+      "f298": 0,
+      "f29c": 101,
+      "f2a8": 0,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b4": 2026306,
+      "f2b8": 0,
+      "f2bc": 0,
+      "f2c": 0,
+      "f2c8": {
+        "f00": 65535,
+        "f02": 0,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1,
+            "f06": -1
+          }
+        }
+      },
+      "f2ec": 0,
+      "f2f0": null,
+      "f300": 5,
+      "f301": 0,
+      "f30c": -1,
+      "f318": 0,
+      "f344": 1,
+      "f35c": 0,
+      "f36c": 0,
+      "f36c#wire": 0,
+      "f384": 0,
+      "f384#0": 0,
+      "f388": 0,
+      "f390": 0,
+      "f398": 0.2,
+      "f3a0": 0.4,
+      "f3a8": 16777215,
+      "f3b0": {
+        "x": -0.3971,
+        "y": 0.342,
+        "z": 0.8517
+      },
+      "f428": 1,
+      "f478": 1,
+      "f488": 1,
+      "f490": 16,
+      "f498": 0,
+      "f4f0": 1,
+      "f4f8": "Directional-1",
+      "f500": {
+        "n": 0,
+        "props": []
+      },
+      "f60": {
+        "list": {
+          "items": [],
+          "n": 0
+        },
+        "tail": 0
+      },
+      "f78": null,
+      "f98": 2,
+      "fa8": 0,
+      "has_f1e8": 0,
+      "has_list68": 0,
+      "hidden": 0,
+      "state": 0,
+      "state#wire": 0
+    },
+    "directional_third": {
+      "f0c": 0,
+      "f18": {
+        "class": "moNodeName_c",
+        "fields": {
+          "f08": "Directional3"
+        },
+        "schema": 1
+      },
+      "f1e0": 0,
+      "f1f4": 0,
+      "f1f8": "",
+      "f20": "",
+      "f208": 0,
+      "f258": null,
+      "f28": 3221225472,
+      "f28c": 0,
+      "f298": 0,
+      "f29c": 101,
+      "f2a8": 0,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b4": 2026306,
+      "f2b8": 0,
+      "f2bc": 0,
+      "f2c": 0,
+      "f2c8": {
+        "f00": 65535,
+        "f02": 0,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1,
+            "f06": -1
+          }
+        }
+      },
+      "f2ec": 0,
+      "f2f0": null,
+      "f300": 5,
+      "f301": 0,
+      "f30c": -1,
+      "f318": 0,
+      "f344": 1,
+      "f35c": 0,
+      "f36c": 0,
+      "f36c#wire": 0,
+      "f384": 0,
+      "f384#0": 0,
+      "f388": 0,
+      "f390": 0,
+      "f398": 0.2,
+      "f3a0": 0.4,
+      "f3a8": 16777215,
+      "f3b0": {
+        "x": -0.8067,
+        "y": -0.1736,
+        "z": -0.5649
+      },
+      "f428": 1,
+      "f478": 1,
+      "f488": 1,
+      "f490": 16,
+      "f498": 0,
+      "f4f0": 1,
+      "f4f8": "Directional-1",
+      "f500": {
+        "n": 0,
+        "props": []
+      },
+      "f60": {
+        "list": {
+          "items": [],
+          "n": 0
+        },
+        "tail": 0
+      },
+      "f78": null,
+      "f98": 2,
+      "fa8": 0,
+      "has_f1e8": 0,
+      "has_list68": 0,
+      "hidden": 0,
+      "state": 0,
+      "state#wire": 0
+    },
+    "environment": {
+      "f0c": 0,
+      "f18": {
+        "class": "moNodeName_c",
+        "fields": {
+          "f08": "Lights and Cameras"
+        },
+        "schema": 1
+      },
+      "f1e0": 0,
+      "f1f4": 0,
+      "f1f8": "",
+      "f20": "",
+      "f208": 0,
+      "f258": null,
+      "f28": 1073741824,
+      "f28c": 0,
+      "f298": 0,
+      "f2a8": 0,
+      "f2ac": 370108,
+      "f2b0": 19000,
+      "f2b4": 2026306,
+      "f2b8": 19000,
+      "f2bc": 2026306,
+      "f2c": 0,
+      "f2c8": {
+        "f00": 65535,
+        "f02": 0,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1,
+            "f06": -1
+          }
+        }
+      },
+      "f2ec": 0,
+      "f2f0": null,
+      "f300": 5,
+      "f30c": -1,
+      "f318": 0,
+      "f344": 1,
+      "f360": 1,
+      "f370": 0,
+      "f60": {
+        "list": {
+          "items": [
+            {
+              "o": {
+                "linked_scene_member": "ambient"
+              }
+            },
+            {
+              "o": {
+                "linked_scene_member": "directional_first"
+              }
+            },
+            {
+              "o": {
+                "linked_scene_member": "directional_second"
+              }
+            },
+            {
+              "o": {
+                "linked_scene_member": "directional_third"
+              }
+            }
+          ],
+          "n": 4
+        },
+        "tail": 0
+      },
+      "f78": null,
+      "f98": 2,
+      "fa8": 0,
+      "has_f1e8": 0,
+      "has_list68": 0,
+      "hidden": 0
+    }
+  },
+  "audited_worktree_revision": "e35c424a66d52f2dbde9982435a0498ef93541d9",
+  "identical_fresh_host_processes": 2,
+  "distinct_model_families": 3,
+  "stable_retained_field_slots": 252,
+  "varying_retained_field_slots": 2,
+  "normalized_typed_cells_per_part": 254,
+  "command": "PYTHONPATH=src:. python3.14 -B re/tooling/sw2026/downstream/lighting/AuditStockPartLights.py DISCLOSED_ROOT",
+  "inference": "Three geometries match the observed stored light profile. The exact loader consumes session Default attributes, and the sample does not distinguish a pristine or localized vendor-owned preference vector."
+}

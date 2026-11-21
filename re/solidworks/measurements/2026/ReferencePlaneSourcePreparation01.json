@@ -1,0 +1,53 @@
+{
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "delivery_pr": 121,
+  "disclosed_cases": 4,
+  "disclosed_scope": [
+    "front offset with repeated source",
+    "reversed top offset",
+    "right offset",
+    "centered fixed circle profile",
+    "blind boss",
+    "driving plane-distance edit",
+    "native original and edited siblings"
+  ],
+  "heldout_inputs_read": 0,
+  "limitations": [
+    "Native interface metadata and source controls remain pending",
+    "Reverse normal and offset convention must be measured on disclosed inputs",
+    "Angle sources and all new writer construction remain outside this first tranche"
+  ],
+  "native_acceptance": false,
+  "native_source_cases_executed": 0,
+  "offline_checks": {
+    "com_displacement_matches_distance_edit": true,
+    "frozen_verifier": true,
+    "host_native_metadata_phase_rejected_before_progress": true,
+    "host_seal_rejected": true,
+    "independent_volume_and_area_unchanged_by_offset_edit": true,
+    "local_links": true,
+    "python_parse": true
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "9aad0b09e29433e61d0be577667fba399ca0d52310835b20b2bccff52c7afd08",
+  "planned_sealed_cases": 2,
+  "schema": "kit.sw2026.offset-plane-source-preparation.v1",
+  "task_id": "B04-SW2026-REFPLANES",
+  "tool_sha256": {
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorNestedAssemblySources.py": "2d35eee4acd518e08e011e24382272629c8c816366ba6102c28c107b62a17570",
+    "AuthorReferencePlaneSources.py": "0796c135b36e538b5b0d31dec93e98243a81057271934ec2b0f820da6e5abf44",
+    "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "NestedAssemblySourcePlan.py": "93358ebcdf9951a3464a051b6e4a6033ae1479f14b4d8870acb1b916c22539d2",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "ReferencePlaneSourcePhase.py": "cb66f6234624db967e1fa52ebff62b2bf3d7486ff39494d602545ce6757b2414",
+    "ReferencePlaneSourcePlan.py": "9d878376609503827881a729f8e96c157c4066699eb9e772db7a33f0a08fd880",
+    "RunSealedNestedSourcePhase.py": "b783cf04f7aa2118b1bc170590cb673eeec0c80d90b4d3914ebf631d4a323ae1",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "writer_output_count": 0
+}

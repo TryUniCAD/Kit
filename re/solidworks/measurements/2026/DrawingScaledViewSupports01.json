@@ -1,0 +1,1263 @@
+{
+  "cases": [
+    {
+      "aliases_exact": true,
+      "cached_2d_dimension_eligible": true,
+      "case": "D00ScaledFront",
+      "definition": {
+        "bytes": 37256,
+        "exact": true,
+        "map_next": 331,
+        "sha256": "bab129f06676bf95a6048e6d8ae8ae4236dd06ba0b6cc154f373c115bf1334f5"
+      },
+      "formula_checks": {
+        "model_display_origin": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_root": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "sheet_display_origin": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_root": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_rotation_state": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        }
+      },
+      "header": {
+        "bytes": 1727,
+        "exact": true,
+        "map_next": 51,
+        "sha256": "ee59a03711ba3af458f68f3d9f313f245a7541e2e36535d7b2bb30e23f6ab323"
+      },
+      "inputs_immutable": true,
+      "model_plane": {
+        "class": "moAbsoluteRefPlnData_c",
+        "display_origin": [
+          -0.0709,
+          0.055,
+          0.0035
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.010000000000000002,
+            -0.005000000000000001,
+            -0.0035000000000000005
+          ]
+        },
+        "rectangle": [
+          0.0809,
+          -0.0809,
+          0.05,
+          -0.05
+        ],
+        "root": [
+          0.009999999999999998,
+          0.004999999999999999,
+          0.0035
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.009999999999999998,
+            -0.004999999999999999,
+            -0.0035
+          ]
+        }
+      },
+      "native_record_sha256": [
+        "f2e648f71b11dccd1084d4fc64db438f16408a7ed4b8404d62d0aae4db6bef13",
+        "efe857007631b9c400b1975754a532a13714d374d16e11bb0c419e0fe069326e"
+      ],
+      "orientation": "*Front",
+      "predictions": {
+        "model_display_origin": [
+          -0.0709,
+          0.055,
+          0.0035
+        ],
+        "model_normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "model_root": [
+          0.01,
+          0.005,
+          0.0035
+        ],
+        "model_rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "model_scale": 1.0,
+        "model_translation": [
+          -0.01,
+          -0.005,
+          -0.0035
+        ],
+        "sheet_root": [
+          0.08143,
+          0.06871,
+          0.0
+        ],
+        "sheet_rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "sheet_scale": 2.6666666666666665,
+        "sheet_translation": [
+          -0.21714666666666668,
+          -0.18322666666666665,
+          -0.0
+        ]
+      },
+      "scale": 0.375,
+      "sheet_plane": {
+        "class": "moDrawingRefPlnData_c",
+        "display_origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 2.6666666666666665,
+          "translation": [
+            -0.21714666666666665,
+            -0.18322666666666665,
+            0.0
+          ]
+        },
+        "rectangle": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "root": [
+          0.08143,
+          0.06871,
+          -0.0
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 2.6666666666666665,
+          "translation": [
+            -0.21714666666666665,
+            -0.18322666666666665,
+            0.0
+          ]
+        }
+      },
+      "source_bytes": 22344,
+      "source_sha256": "0cd65761cefe2f1f7c016686f376021955cbb9d07651b437d164a384dcaa79af",
+      "support_feature_flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "support_ids": [
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "view_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15
+      }
+    },
+    {
+      "aliases_exact": true,
+      "cached_2d_dimension_eligible": true,
+      "case": "D01ScaledTop",
+      "definition": {
+        "bytes": 37616,
+        "exact": true,
+        "map_next": 331,
+        "sha256": "84b61729046c516a3fe6a146310a0f3868fdd13e864de064c29c8134473a35aa"
+      },
+      "formula_checks": {
+        "model_display_origin": {
+          "matched": true,
+          "max_absolute_error": 1.3877787807814457e-17
+        },
+        "model_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_root": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "sheet_display_origin": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 1.3877787807814457e-17
+        },
+        "sheet_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 1.3877787807814457e-17
+        },
+        "sheet_root": {
+          "matched": true,
+          "max_absolute_error": 1.3877787807814457e-17
+        },
+        "sheet_rotation_state": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        }
+      },
+      "header": {
+        "bytes": 1723,
+        "exact": true,
+        "map_next": 51,
+        "sha256": "ae181b67995215fb7c373094c60e4b95dbbc64e937cdaac7a8d443f7d54439cd"
+      },
+      "inputs_immutable": true,
+      "model_plane": {
+        "class": "moAbsoluteRefPlnData_c",
+        "display_origin": [
+          -0.07089999999999999,
+          0.004999999999999822,
+          -0.0465
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          -3.552713678800501e-15
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -3.552713678800501e-15,
+            1.0,
+            0.0,
+            -1.0,
+            -3.552713678800501e-15
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.010000000000000002,
+            0.0035000000000000187,
+            -0.004999999999999988
+          ]
+        },
+        "rectangle": [
+          0.0809,
+          -0.0809,
+          0.05,
+          -0.05
+        ],
+        "root": [
+          0.010000000000000002,
+          0.005,
+          0.003500000000000001
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            -3.552713678800501e-15,
+            1.0,
+            0.0,
+            -1.0,
+            -3.552713678800501e-15
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.010000000000000002,
+            0.0035000000000000187,
+            -0.004999999999999988
+          ]
+        }
+      },
+      "native_record_sha256": [
+        "78b3c8c6056c64440a8ab0f1f95a54edda77ad64a5c2dd3883e3c1b6d4195003",
+        "dbddfcd705257491dbf6cef08f87a21ab4113356c74f0b7e1526a8a73cd37b54"
+      ],
+      "orientation": "*Top",
+      "predictions": {
+        "model_display_origin": [
+          -0.0709,
+          0.004999999999999822,
+          -0.0465
+        ],
+        "model_normal": [
+          0.0,
+          1.0,
+          -3.552713678800501e-15
+        ],
+        "model_root": [
+          0.01,
+          0.005,
+          0.0035
+        ],
+        "model_rotation": [
+          1.0,
+          -0.0,
+          0.0,
+          0.0,
+          -3.552713678800501e-15,
+          1.0,
+          -0.0,
+          -1.0,
+          -3.552713678800501e-15
+        ],
+        "model_scale": 1.0,
+        "model_translation": [
+          -0.01,
+          0.003500000000000018,
+          -0.004999999999999988
+        ],
+        "sheet_root": [
+          0.11361,
+          0.09429,
+          0.0
+        ],
+        "sheet_rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "sheet_scale": 0.8,
+        "sheet_translation": [
+          -0.090888,
+          -0.075432,
+          -0.0
+        ]
+      },
+      "scale": 1.25,
+      "sheet_plane": {
+        "class": "moDrawingRefPlnData_c",
+        "display_origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 0.8,
+          "translation": [
+            -0.09088800000000001,
+            -0.075432,
+            0.0
+          ]
+        },
+        "rectangle": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "root": [
+          0.11361000000000002,
+          0.09429,
+          -0.0
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 0.8,
+          "translation": [
+            -0.09088800000000001,
+            -0.075432,
+            0.0
+          ]
+        }
+      },
+      "source_bytes": 22280,
+      "source_sha256": "71e63bfd28b27d444c54c4d541087584f356ab63e4e81f0fdfec4cc7e3a24941",
+      "support_feature_flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "support_ids": [
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "view_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15
+      }
+    },
+    {
+      "aliases_exact": true,
+      "cached_2d_dimension_eligible": true,
+      "case": "D02ScaledRight",
+      "definition": {
+        "bytes": 37624,
+        "exact": true,
+        "map_next": 331,
+        "sha256": "860acd202bd21876a1d6091aa417edaa6f50990649a23a400699be30d192c9d6"
+      },
+      "formula_checks": {
+        "model_display_origin": {
+          "matched": true,
+          "max_absolute_error": 6.938893903907228e-18
+        },
+        "model_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 8.673617379884035e-19
+        },
+        "model_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 8.673617379884035e-19
+        },
+        "model_root": {
+          "matched": true,
+          "max_absolute_error": 8.673617379884035e-19
+        },
+        "sheet_display_origin": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_root": {
+          "matched": true,
+          "max_absolute_error": 1.3877787807814457e-17
+        },
+        "sheet_rotation_state": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        }
+      },
+      "header": {
+        "bytes": 1727,
+        "exact": true,
+        "map_next": 51,
+        "sha256": "8c02481dd79336e538c2515f110bc475cef42e3c9c7eae565cd86a5decc9501c"
+      },
+      "inputs_immutable": true,
+      "model_plane": {
+        "class": "moAbsoluteRefPlnData_c",
+        "display_origin": [
+          0.010000000000000288,
+          0.05500000000000001,
+          0.0844
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          -3.552713678800501e-15
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            -3.552713678800501e-15,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -1.0,
+            0.0,
+            -3.552713678800501e-15
+          ],
+          "scale": 1.0,
+          "translation": [
+            0.003500000000000036,
+            -0.005000000000000001,
+            -0.009999999999999988
+          ]
+        },
+        "rectangle": [
+          0.0809,
+          -0.0809,
+          0.05,
+          -0.05
+        ],
+        "root": [
+          0.01,
+          0.005000000000000001,
+          0.0035000000000000005
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            -3.552713678800501e-15,
+            0.0,
+            1.0,
+            0.0,
+            1.0,
+            0.0,
+            -1.0,
+            0.0,
+            -3.552713678800501e-15
+          ],
+          "scale": 1.0,
+          "translation": [
+            0.003500000000000036,
+            -0.005000000000000001,
+            -0.009999999999999988
+          ]
+        }
+      },
+      "native_record_sha256": [
+        "d0c84f0c456a367936604af8e8761b870fadc64b4452c97ec0ec571e175a75d5",
+        "08e126e34e704e07883d50091a4049ac5d99986549146ee5315a971eeaf03bc6"
+      ],
+      "orientation": "*Right",
+      "predictions": {
+        "model_display_origin": [
+          0.010000000000000288,
+          0.055,
+          0.0844
+        ],
+        "model_normal": [
+          1.0,
+          0.0,
+          -3.552713678800501e-15
+        ],
+        "model_root": [
+          0.01,
+          0.005,
+          0.0035
+        ],
+        "model_rotation": [
+          -3.552713678800501e-15,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          -1.0,
+          0.0,
+          -3.552713678800501e-15
+        ],
+        "model_scale": 1.0,
+        "model_translation": [
+          0.0035000000000000356,
+          -0.005,
+          -0.009999999999999988
+        ],
+        "sheet_root": [
+          0.14983,
+          0.11713,
+          0.0
+        ],
+        "sheet_rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "sheet_scale": 1.6,
+        "sheet_translation": [
+          -0.239728,
+          -0.187408,
+          -0.0
+        ]
+      },
+      "scale": 0.625,
+      "sheet_plane": {
+        "class": "moDrawingRefPlnData_c",
+        "display_origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.6,
+          "translation": [
+            -0.239728,
+            -0.18740800000000002,
+            0.0
+          ]
+        },
+        "rectangle": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "root": [
+          0.14983,
+          0.11713000000000001,
+          -0.0
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.6,
+          "translation": [
+            -0.239728,
+            -0.18740800000000002,
+            0.0
+          ]
+        }
+      },
+      "source_bytes": 22553,
+      "source_sha256": "e846b69d5d751f19ce6c987c5a46008c0fdab2f979d6575d033fd4e5cdefd94f",
+      "support_feature_flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "support_ids": [
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "view_flags": {
+        "f610": 2456,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15
+      }
+    },
+    {
+      "aliases_exact": true,
+      "cached_2d_dimension_eligible": false,
+      "case": "D03ScaledIsometric",
+      "definition": {
+        "bytes": 40664,
+        "exact": true,
+        "map_next": 396,
+        "sha256": "9b3091c159c1052d57cd7f4f1628e5a0f15eb98b4f1f2098070d421e70e59225"
+      },
+      "formula_checks": {
+        "model_display_origin": {
+          "matched": true,
+          "max_absolute_error": 6.938893903907228e-18
+        },
+        "model_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "model_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "model_root": {
+          "matched": true,
+          "max_absolute_error": 1.734723475976807e-18
+        },
+        "sheet_display_origin": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_normal": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_plane_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_profile_rotation": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_scale": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_profile_translation": {
+          "matched": true,
+          "max_absolute_error": 2.7755575615628914e-17
+        },
+        "sheet_root": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        },
+        "sheet_rotation_state": {
+          "matched": true,
+          "max_absolute_error": 0.0
+        }
+      },
+      "header": {
+        "bytes": 1735,
+        "exact": true,
+        "map_next": 51,
+        "sha256": "9537c34c99ee8b47a62b099b398622526f2e5df7e935d9b1406dff41aab670f1"
+      },
+      "inputs_immutable": true,
+      "model_plane": {
+        "class": "moAbsoluteRefPlnData_c",
+        "display_origin": [
+          -0.06761514139355936,
+          0.0458270405942875,
+          0.04029473580242411
+        ],
+        "normal": [
+          0.5773815451999837,
+          0.5772877120855426,
+          0.5773815451999819
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            0.7071067811865464,
+            -0.4082040559113551,
+            0.5773815451999837,
+            2.7755575615628914e-17,
+            0.8165408118857499,
+            0.5772877120855426,
+            -0.7071067811865488,
+            -0.4082040559113538,
+            0.5773815451999819
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.004596194077712542,
+            0.00142805069537454,
+            -0.010681089420627487
+          ]
+        },
+        "rectangle": [
+          0.0809,
+          -0.0809,
+          0.05,
+          -0.05
+        ],
+        "root": [
+          0.009999999999999998,
+          0.005,
+          0.0035
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 1,
+          "matrix": [
+            0.7071067811865464,
+            -0.4082040559113551,
+            0.5773815451999837,
+            2.7755575615628914e-17,
+            0.8165408118857499,
+            0.5772877120855426,
+            -0.7071067811865488,
+            -0.4082040559113538,
+            0.5773815451999819
+          ],
+          "scale": 1.0,
+          "translation": [
+            -0.004596194077712542,
+            0.00142805069537454,
+            -0.010681089420627487
+          ]
+        }
+      },
+      "native_record_sha256": [
+        "3d01d533890f04f3ea3aee8e4a94c8fe075f0ab54a4ecee172dc20be01498a84",
+        "42451d1d7308e2cd03ab4f84afbd0015a8a3c5c88bf55279761d99a8d55bcc6b"
+      ],
+      "orientation": "*Isometric",
+      "predictions": {
+        "model_display_origin": [
+          -0.06761514139355936,
+          0.045827040594287494,
+          0.04029473580242411
+        ],
+        "model_normal": [
+          0.5773815451999837,
+          0.5772877120855426,
+          0.5773815451999819
+        ],
+        "model_root": [
+          0.01,
+          0.005,
+          0.0035
+        ],
+        "model_rotation": [
+          0.7071067811865464,
+          -0.4082040559113551,
+          0.5773815451999837,
+          2.7755575615628914e-17,
+          0.8165408118857499,
+          0.5772877120855426,
+          -0.7071067811865488,
+          -0.4082040559113538,
+          0.5773815451999819
+        ],
+        "model_scale": 1.0,
+        "model_translation": [
+          -0.0045961940777125435,
+          0.0014280506953745396,
+          -0.010681089420627487
+        ],
+        "sheet_root": [
+          0.19267,
+          0.13253,
+          0.0
+        ],
+        "sheet_rotation": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "sheet_scale": 1.25,
+        "sheet_translation": [
+          -0.2408375,
+          -0.1656625,
+          -0.0
+        ]
+      },
+      "scale": 0.8,
+      "sheet_plane": {
+        "class": "moDrawingRefPlnData_c",
+        "display_origin": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "profile_transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.25,
+          "translation": [
+            -0.2408375,
+            -0.16566250000000002,
+            0.0
+          ]
+        },
+        "rectangle": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "root": [
+          0.19267,
+          0.13253,
+          -0.0
+        ],
+        "transform": {
+          "f78": 0,
+          "has_matrix": 0,
+          "matrix": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ],
+          "scale": 1.25,
+          "translation": [
+            -0.2408375,
+            -0.16566250000000002,
+            0.0
+          ]
+        }
+      },
+      "source_bytes": 24730,
+      "source_sha256": "7cf7f1972b5bd55b39a2b97a7a257b7180f36b56d788eb5a414c510c46405f2f",
+      "support_feature_flags": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "support_ids": [
+        10,
+        12,
+        13,
+        14,
+        15
+      ],
+      "view_flags": {
+        "f610": 2472,
+        "f614": 7406852,
+        "f618": 32768,
+        "f61c": 15
+      }
+    }
+  ],
+  "exact_stream_roundtrips": 8,
+  "formula_check_groups": 76,
+  "heldout_inputs_read": 0,
+  "native_writer_acceptance": false,
+  "projection_fields_sha256": "c18522a47dbc2848d6cc48b62b8172f49e8b8f5acd5314f4f9684839817a1b33",
+  "schema": "kit.sw2026.disclosed-drawing-support-comparison.v1",
+  "scope": "four disclosed ordinary resolved rectangular one-view discovery sources only",
+  "script_sha256": "41ef3ff44ed2583b1afe7a460315bbb30a027f365c70e1439c9f88370724072d",
+  "source_lock_sha256": "99c3e345182c20853445bd7240a881d6fce22d397961779445961d61718a3298",
+  "vendor_runtime_executed": false,
+  "writer_outputs": 0
+}

@@ -1,0 +1,311 @@
+{
+  "cases": [
+    {
+      "bytes": 8168,
+      "case": "Alpha",
+      "checks": {
+        "caller_destinations_unchanged": true,
+        "derived_neutral_units_and_support": true,
+        "exact_configuration_id": true,
+        "exact_direct_candidate": true,
+        "exact_named_configuration": true,
+        "public_save_rejected": true,
+        "staging_path_not_encoded": true
+      },
+      "encoded_final_path": "C:\\KitSdkCandidates\\sdk bridge alpha.SLDPRT",
+      "generated_sha256": "1203710d33e39047fe1a50b90ff150e8066a270fe177cef9b5b062c5e1feb2ce",
+      "negative_case_names": [
+        "wrong_configuration",
+        "assembly_format",
+        "public_enable_knob",
+        "wrong_overwrite_type",
+        "wrong_policy_type",
+        "unnamed_stream",
+        "text_stream",
+        "relative_path",
+        "unmapped_host_path",
+        "drive_relative_path",
+        "assembly_suffix",
+        "different_final_name",
+        "different_model_name",
+        "windows_device",
+        "relative_segment",
+        "source_extensions",
+        "record_provenance",
+        "supplied_topology",
+        "unknown_neutral_version",
+        "nonplain_boss",
+        "missing_recipe"
+      ],
+      "negative_cases": 21,
+      "public_read": {
+        "boss_name": "Boss-Extrude1",
+        "depth_m": 0.012750000000000001,
+        "driving_name": "D1",
+        "driving_owner": true,
+        "entity_count": 4,
+        "profile_name": "Sketch1"
+      },
+      "public_save_rejected": true,
+      "request_sha256": "b9715c05bb13069ba781ebbee34a803ea604499bca5b8090f42f9b52cddcbb81",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "6fc9d8531fd53b9f331ef5be6e6f7c66c834688d5cf0a38e44c6c9faa2180e4f",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "234ebaa6c37c30b055838a5b9874e0f3664fd28ed8f025f2d98ea7e8fca2c32c"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 22128,
+          "sha256": "f1cb5d6b6e3ba89fe4401d6c9f4d76b1154da08af270bd69b96aaabf25fdb4fc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 741,
+          "sha256": "fd8c9b005e9ca21b545f3645053fc1fc0853a62b10724509ce6138e7d8308245"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "f71147b061e3e810a4ed7bc1e70c71b01420af0974bed6f06211d63e097e5c4e"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 741,
+          "sha256": "ffe4daa7bdf2e9daaa457173a782c29dc359eab31d7378a89c53bfd92b4aa86a"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1421,
+          "sha256": "0799a13d8efec1b7edb3822c00c2ee2d4156e2c9088773ac47205d136d31f5b6"
+        }
+      }
+    },
+    {
+      "bytes": 8256,
+      "case": "Beta",
+      "checks": {
+        "caller_destinations_unchanged": true,
+        "derived_neutral_units_and_support": true,
+        "exact_configuration_id": true,
+        "exact_direct_candidate": true,
+        "exact_named_configuration": true,
+        "public_save_rejected": true,
+        "staging_path_not_encoded": true
+      },
+      "encoded_final_path": "C:\\KitSdkCandidates\\sdk \u90e8\u54c1 bridge beta extended.SLDPRT",
+      "generated_sha256": "18c9dd5497720be8fa8367a1837b99a019a988459fa83aac2de30dbb37e73346",
+      "negative_case_names": [
+        "wrong_configuration",
+        "assembly_format",
+        "public_enable_knob",
+        "wrong_overwrite_type",
+        "wrong_policy_type",
+        "unnamed_stream",
+        "text_stream",
+        "relative_path",
+        "unmapped_host_path",
+        "drive_relative_path",
+        "assembly_suffix",
+        "different_final_name",
+        "different_model_name",
+        "windows_device",
+        "relative_segment",
+        "source_extensions",
+        "record_provenance",
+        "supplied_topology",
+        "unknown_neutral_version",
+        "nonplain_boss",
+        "missing_recipe"
+      ],
+      "negative_cases": 21,
+      "public_read": {
+        "boss_name": "Boss-Extrude1",
+        "depth_m": 0.018625,
+        "driving_name": "D1",
+        "driving_owner": true,
+        "entity_count": 4,
+        "profile_name": "Sketch1"
+      },
+      "public_save_rejected": true,
+      "request_sha256": "296168bcf996f5b7941e1032791854d855e4c71b29c805fac7fa3ec3c42f0672",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "95fc0d6b889acc68ffd9c45cb001ecfd64afff35d5de98bcf3c809429146d9e2",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "8f3d3dfe37c2e5134ea041ef9235be762daf74b8167c3dfcb0680044ef497521"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 22700,
+          "sha256": "592f8411d9a81fd2ff1a4c4b59803e3be4a0cfcc1b9548a3fb9e608e7ec2b40d"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 807,
+          "sha256": "a3986474868326b55bfc48008a057a5c02c58136aea7def3efeb464912d9b760"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13867,
+          "sha256": "40346795f2977069196975f89db71b7c31e77ea17c5dbef661e668dc31d6a5db"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 807,
+          "sha256": "1e341d717983293ab5c10392819384ab6ef57b21dd13361254ae41dd46d3c2c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1437,
+          "sha256": "0e9b40e37f157cb5a1dad24bf0875d7a611ad76bfaaf201181a3d19d054ed793"
+        }
+      }
+    }
+  ],
+  "delivery_pr": 121,
+  "independent_frozen_source": {
+    "all_owned_and_part_dependency_hashes_match": true,
+    "base": "62348bee4aa27ca31eec6b77be6262d60f2f2cc0",
+    "manifest_sha256": "06d2c953677debba1c3cd4d6256bb20f417f1ac9501e171098d0e7f0ee4d9260",
+    "source_count": 4595
+  },
+  "limits": {
+    "application_usable_attested": false,
+    "heldout_inputs_read": false,
+    "host_path_mapping_admitted": false,
+    "native_acceptance": false,
+    "normal_adapter_registration_changed": false,
+    "public_writer_enabled": false,
+    "separate_standalone_relocation_receipt": "SdkPartRelocation01.json is not part of this bridge proof or native/heldout admission",
+    "source_of_bytes": "actual neutral document and explicit authored recipe, shared typed SDK constructors and format grammar",
+    "unnamed_stream_admitted": false,
+    "vendor_loadable_attested": false
+  },
+  "proof": {
+    "TestPartBridge": "passed on this exact closure as reported by root",
+    "atomic_rejections": 42,
+    "guarded_workers": 2,
+    "normal_public_reads": 2,
+    "passed": true,
+    "public_save_rejections": 2,
+    "python_version": "not recorded in the raw proof",
+    "relative_path": "SdkBridgeRootVerify02/Proof/BridgeResults.json",
+    "runtime_input_file_reads": 0,
+    "sdk_runtime_research_imports": 0,
+    "sha256": "7b915a7319bf6b68005f263952460f5ca188874826094a1a8c8751c685fe3f21"
+  },
+  "retained_failure": {
+    "causal_fix": "four explicit reached code preloads before the unchanged guard",
+    "model_input_read": false,
+    "normal_sdk_source_changes_for_retry": 0,
+    "passed": false,
+    "reason": "public reader attempted a lazy code import under the strict runtime read guard",
+    "source_count": 4595,
+    "source_manifest_sha256": "c6368b7ecb1d315a49ff2919db5e26ba27a5b8eb10e0033196952d7174f02b59"
+  },
+  "schema": "kit.sw2026.sdk-plain-part-preparation.v1",
+  "source": {
+    "files": [
+      {
+        "bytes": 10700,
+        "path": "re/tooling/sw2026/SdkPartBridgeProcess.py",
+        "sha256": "f0a76f6ac56381fc239f82c05b2a130f74f8236abac6dbde37e6e55efab8e652"
+      },
+      {
+        "bytes": 1724,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/BindPartIntent.py",
+        "sha256": "85c802ba775015ab86ab2108b89169898b1ba3176386cb66c6e1b8fc2c454250"
+      },
+      {
+        "bytes": 1912,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/CheckPartOpts.py",
+        "sha256": "122ef549c53223f8f914356125fd6d4fd771d1d2e82aff30014ea43d33c8ef03"
+      },
+      {
+        "bytes": 1717,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/CheckPlainScope.py",
+        "sha256": "72f86723b1fa4cefb7df9c59389bb5b60a3ae99ced51381b6caa80d1ea4847e9"
+      },
+      {
+        "bytes": 1703,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/FinalPartPath.py",
+        "sha256": "1c26b36998424499adee7671ae55c3d13638a4474f4e97c275d9adfa7b2fcf70"
+      },
+      {
+        "bytes": 2086,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/PreparePart.py",
+        "sha256": "3afe0b4683211426a791232cd5e43338e3e394100c7cb53c44266b45651bdf93"
+      },
+      {
+        "bytes": 1245,
+        "path": "src/convert/adapters/solidworks/Core/Preparation/RequirePartPath.py",
+        "sha256": "2bf981273813a924e4709fc12dc38d29a011edd9406be43019a553f5b945658c"
+      },
+      {
+        "bytes": 1273,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/AssertBridge.py",
+        "sha256": "920b3bd9b01fded83d995ed9fc11250e95a0d8991bdc2cd176750022a638d886"
+      },
+      {
+        "bytes": 703,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/PartBridgeFlowTests.py",
+        "sha256": "bec2cfde4f4fe3a6ade5a5aff61c505cb6f8951ee16764998adda23688e6f3dc"
+      },
+      {
+        "bytes": 1195,
+        "path": "tests/Convert/Solidworks/Research/AdapterBridge/RunBridgePhase.py",
+        "sha256": "64fb378ff7798785eb0da0e31e8c50ad0d7b9b9cdf8ec5cbd5c70944f59af446"
+      }
+    ],
+    "historical_part_source_manifest_sha256": "5ac79c146843c81750bdd3ee64eacd8854951d88b5937de3a390c027553749f8",
+    "owned_executables": 10,
+    "owned_manifest_sha256": "1f96cee914fea98cb3c73be35eb08aa6e7bc75b03069d113a7776cd403c7d266",
+    "part_dependency_bindings_verified": true,
+    "part_dependency_count": 62,
+    "permanent_integration_modules": 3,
+    "research_transport_modules": 1,
+    "sdk_modules": 6
+  },
+  "static_checks": {
+    "ast": "passed10 frozen sources",
+    "black": "26.10.1 passed9",
+    "donors": "no recorded payloads in3956 production files",
+    "links_and_density": "passed owned paths",
+    "mypy": "2.4.1 strict passed9",
+    "pyright": "1.1.414 passed9",
+    "ruff": "0.17.4 passed9",
+    "steering": "passed9",
+    "worker_product_execution": false,
+    "worker_vm_access": false
+  },
+  "task": "B04-SW2026-CONSTRUCTION"
+}

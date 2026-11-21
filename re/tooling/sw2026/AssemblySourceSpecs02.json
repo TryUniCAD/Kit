@@ -1,0 +1,12 @@
+{
+  "schema": "kit.sw2026.ordinary-assembly-specs.v1",
+  "scope": "Second independent ordinary assembly cohort. The first source batch is ineligible. Native parts and detailed held-out observations remain sealed.",
+  "placement_units": "metres and degrees",
+  "cases": [
+    {"name": "A07EmptyAssembly", "split": "discovery", "placements": []},
+    {"name": "A08SingleAssembly", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}]},
+    {"name": "A09RepeatedAssembly", "split": "discovery", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "z", "angle_deg": 90.0, "translation_m": [0.07613, 0.02397, -0.01391]}]},
+    {"name": "A10HeldoutThree", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "x", "angle_deg": -33.719, "translation_m": [0.08171, -0.01531, 0.01937]}, {"axis": "y", "angle_deg": 67.913, "translation_m": [-0.01791, 0.08139, -0.02513]}]},
+    {"name": "A11HeldoutFour", "split": "heldout", "placements": [{"axis": "z", "angle_deg": 0.0, "translation_m": [0.0, 0.0, 0.0]}, {"axis": "y", "angle_deg": -51.971, "translation_m": [0.12139, 0.01631, 0.02537]}, {"axis": "z", "angle_deg": 23.913, "translation_m": [0.03917, 0.08791, -0.05719]}, {"axis": "x", "angle_deg": 81.731, "translation_m": [-0.01437, -0.07313, 0.03291]}]}
+  ]
+}

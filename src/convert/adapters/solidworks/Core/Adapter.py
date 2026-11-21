@@ -23,12 +23,15 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.registry import AdapterRegistry
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
     ArcParabolaGeometry as ArcParabolaGeom,
     AssemblyData as AsmData,
-    Body as BodyValue,
     BooleanOperation as BoolOperation,
     BoundingBox,
     BrepModel,
@@ -113,6 +116,11 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
 )
+from convert.adapters.solidworks.Assembly.Display.DisplayData import DisplayData
+from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
+    WithNestedIndex,
+)
+from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Config.OrdinaryMap import ReadOrdinaryMap
 from convert.adapters.solidworks.Config.RootLayout import KConfigGen
 from convert.adapters.solidworks.Container.Archive import ArchiveError, ContainerMo
@@ -128,10 +136,12 @@ from convert.adapters.solidworks.Container.Format import (
     DISPLAY_LISTS_STREAM as DisplayListsStream,
     FORMAT_ID_BY_SUFFIX as FormatIdBySuffix,
     INFO as InfoValue,
-    KLocalBodyStream,
     KEYWORDS_STREAM as KeywordsStream,
     KIT_DOCUMENT_STREAM as KitDocStream,
     KIT_RESOLVED_STREAM as KitResolvedStream,
+    KDrawingFormatId,
+    KPartSuffix,
+    IsDrawingPath,
     MATES_STREAM_NAME as MatesStreamName,
     MATES_STREAM_SUFFIX as MatesStreamSuffix,
     PLANE_FEATURE_TYPES as PlaneFeatureTypes,
@@ -143,6 +153,39 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc import (
+    BindStockDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockPart import (
+    ColdStockPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns import (
+    StockDesigns,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
+    BindCutStock,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindColdPart import (
+    BindColdPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
+    ColdPatPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc import (
+    WithPatternDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
+    WithRevolveDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.WithSelRevDoc import (
+    WithSelRevDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
+    ColdRevolvePart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.WithThinDoc import (
+    WithThinDoc,
+)
 from convert.adapters.solidworks.Core.EquationLinks import EquationData
 from convert.adapters.solidworks.Core.EquationTarget import (
     KUnresolvedEqTargets,
@@ -160,6 +203,43 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.ConfigurationInfo import WithCmgrInfo
+from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.WithBodyNames import (
+    WithBodyNames,
+)
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
+    TypedProvenance,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import (
+    CircleSketch,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ends.BuildTypedEnd import (
+    BuildTypedEnd,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Equations.BindWidthDepth import (
+    BindWidthDepth,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
+from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
+from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
+from convert.adapters.solidworks.Drawing.Identity.DrawingIdentity import HasDrawingClsid
+from convert.adapters.solidworks.Drawing.ReadDrawing import ReadDrawing
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.ReadGeomParts import (
+    ReadGeomParts,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PartGeometry import (
+    PartGeometry,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPartShape import (
+    ReadPartShape,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.WithColdName import (
+    WithColdName,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
 )
@@ -172,6 +252,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.Native import (
+    KPlaneSupportKind,
+    KRefSupportSource,
     NativeDimension,
     NativeFeature,
     NativeMarker,
@@ -186,10 +268,12 @@ from convert.adapters.solidworks.Core.Native import (
 )
 from convert.adapters.solidworks.Core.Cut.CutDocument import ProjectCutDoc
 from convert.adapters.solidworks.Core.Cut.CutEqProjection import ReadCutArchive
-from convert.adapters.solidworks.Core.Partition.ActivePartition import ReadActivePart
-from convert.adapters.solidworks.Core.Partition.PartTopology import (
-    ActivePartMass,
-    PartTopology,
+from convert.adapters.solidworks.Core.Partition.ActivePartition import (
+    ActivePartition,
+    ReadActivePart,
+)
+from convert.adapters.solidworks.Core.Partition.BuildPartBody import (
+    BuildPartBody,
 )
 from convert.adapters.solidworks.Core.OrdinaryRead import (
     IsEmptyPart,
@@ -202,6 +286,7 @@ from convert.adapters.solidworks.Core.Scope.ScopeDocument import (
     ReadScopeDoc,
 )
 from convert.adapters.solidworks.Core.TwoPad.PadDocument import ProjectPadDoc
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.solidworks.Resolved.ResolvedHead import OpenResolved
 from convert.adapters.solidworks.Resolved.SystemPrefix import ReadSysPrefix
 from interchange.geometry.Models.GeometryTypes import KGeometryTypes
@@ -292,6 +377,29 @@ class SldprtAdapter(PairProtocol):
     def read(self, SourceValue: Source, Options: ReadOptions | None = None) -> CadDoc:
         return ReadAction(self, SourceValue, Options)
 
+    # direct adapter callers use the canonical selection and checked output transaction
+    def write(
+        self,
+        document: CadDoc,
+        destination: KTargetType,
+        options: WriteOptions | None = None,
+    ) -> WriteResult:
+        FormatId = (
+            options.destination_format if isinstance(options, WriteOptions) else None
+        )
+        if FormatId is None:
+            if document.DrawingValue is not None:
+                FormatId = KDrawingFormatId
+            elif document.assembly is not None:
+                FormatId = KAsmFormatId
+            else:
+                FormatId = KFormatId
+        RegistryValue = AdapterRegistry()
+        RegistryValue.RegisterWriter(SldprtWriter())
+        return RegistryValue.WriteDocument(
+            document, destination, FormatId=FormatId, OptionsData=options
+        )
+
 
 # adapter metadata stays isolated so discovery can inspect capabilities without reading documents
 def InfoAction(Instance: SldprtAdapter) -> AdapterInfo:
@@ -315,6 +423,8 @@ def Probe(Instance: SldprtAdapter, Source: Source) -> ProbeResult:
     except (OSError, SldprtFormatError, TypeError, ValueError) as ErrorInfo:
         return ProbeResult(KFormatId, 0.0, str(ErrorInfo))
     Names = Archive.streams
+    if HasDrawingClsid(Archive):
+        return ProbeResult(KDrawingFormatId, 1.0, "native SOLIDWORKS drawing CLSID")
     if KeywordsStream in Names and any(
         (KResolvedConfigStream.fullmatch(NameValue) for NameValue in Names)
     ):
@@ -333,6 +443,12 @@ def ReadAction(
     Settings = Options or ReadOptions()
     DataValue, Label = SourceBytes(Source)
     Archive = SldprtArchive.from_bytes(DataValue, Label)
+    if HasDrawingClsid(Archive):
+        return ReadDrawing(Archive, DataValue, Label, Settings)
+    if IsDrawingPath(Label):
+        raise SldprtFormatError(
+            "SOLIDWORKS .SLDDRW source has no drawing Definition CLSID"
+        )
     Embedded = Archive.get(KitDocStream)
     if Embedded is not None:
         DocValue = EmbeddedDoc(Instance, Archive, DataValue, Label, Embedded, Settings)
@@ -340,7 +456,10 @@ def ReadAction(
         return DocValue
     if Archive.get(ComponentTreeStream) is not None:
         DocValue = RetainSource(
-            AsmDoc(Instance, Archive, DataValue, Label, Settings), DataValue
+            WithCmgrInfo(
+                AsmDoc(Instance, Archive, DataValue, Label, Settings), Archive
+            ),
+            DataValue,
         )
         ValidateSource(Label, True)
         return DocValue
@@ -355,7 +474,13 @@ def ReadNativePart(
     Label: str,
     Settings: ReadOptions,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration)
+    Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
+        Archive, NativePartModel(Archive, Settings.configuration), Settings, KPartBodyId
+    )
+    if StockValue is None and (
+        DerivedValue is None or isinstance(ColdValue, ColdPatPart)
+    ):
+        Model = LegacyPartModel(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -364,86 +489,54 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
-    Candidate = (
-        FindLocalOwner(Model)
-        if Settings.include_brep
-        and not Settings.extract_raw_brep
-        and Model.active_configuration_id == 0
-        and len(ConfigValues) == 1
-        and not PayloadDiags
-        else None
+    Payloads, PayloadDiags, BrepValue, LocalOwner, ActivePart = ReadPartSolid(
+        Archive,
+        Model,
+        Settings,
+        len(ConfigValues),
+        DerivedValue,
+        StockValue.BrepValue if StockValue is not None else None,
     )
-    ActivePart = (
-        ReadActivePart(
-            Payloads,
-            Model.active_configuration_id,
-            TypedBodyId(Model),
-            (Record.name for Record in Archive.records),
-        )
-        if Candidate is None
-        else None
-    )
-    if ActivePart is not None:
-        BrepValue, LocalOwner, LocalDiag = ActivePart.ModelValue, None, None
+    if StockValue is not None:
+        Bodies = StockDesigns(StockValue, TimeValues, Payloads)
+    elif ColdValue is not None:
+        Bodies = ColdValue.BodiesValue
     else:
-        BrepValue, LocalOwner, LocalDiag = TypedBrep(
-            Payloads,
-            LocalOwner=Candidate,
-            GroupData=Archive.get(KLocalBodyStream) if Candidate is not None else None,
-            Strict=Settings.strict,
+        SolidOpIds = frozenset(
+            (
+                FeatureId(Operation.object_id)
+                for Operation in Model.operations
+                if Operation.kind != "surface"
+            )
         )
-    SolidOpIds = frozenset(
-        (
-            FeatureId(Operation.object_id)
-            for Operation in Model.operations
-            if Operation.kind != "surface"
+        FinalFeature = (
+            FeatureId(LocalOwner.object_id)
+            if LocalOwner is not None
+            else FinalBodyId(TimeValues, SolidOpIds)
         )
-    )
-    FinalFeature = (
-        FeatureId(LocalOwner.object_id)
-        if LocalOwner is not None
-        else FinalBodyId(TimeValues, SolidOpIds)
-    )
-    BodyFeature = LocalOwner or SolidBody(Model.features)
-    SavedPart = ActivePart.ModelValue if ActivePart is not None else None
-    Fallback = TopologySummary(
-        solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
-    )
-    if LocalOwner is not None and BrepValue is not None:
-        BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Summary, Measures = ActivePartMass(
-        SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId
-    )
-    Bodies = (
-        BodyValue(
-            id=KPartBodyId,
-            name=BodyFeature.name if BodyFeature is not None else "Body 1",
-            final_feature_id=FinalFeature,
-            topology=Summary,
-            provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
-            attributes=FrozenMapping(
-                {
-                    "native_object_id": (
-                        BodyFeature.object_id if BodyFeature is not None else None
-                    ),
-                    "parasolid_payload_ids": tuple(
-                        (Payload.id for Payload in Payloads)
-                    ),
-                    **(
-                        {"parasolid_active_payload_id": ActivePart.PayloadId}
-                        if ActivePart is not None and ActivePart.ModelValue is not None
-                        else {}
-                    ),
-                    **(
-                        {"solidworks.body_centroid_mm": Measures.Centroid}
-                        if Measures is not None
-                        else {}
-                    ),
-                }
+        BodyFeature = LocalOwner or SolidBody(Model.features)
+        TopologyValue = (
+            DerivedValue.TopologyValue
+            if DerivedValue is not None
+            else TopologySummary(
+                solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
+            )
+        )
+        if LocalOwner is not None and BrepValue is not None:
+            BrepValue, TopologyValue = LinkLocalBody(
+                BrepValue, KPartBodyId, TopologyValue
+            )
+        Bodies = (
+            BuildPartBody(
+                KPartBodyId,
+                BodyFeature,
+                FinalFeature,
+                TopologyValue,
+                ActivePart,
+                Payloads,
+                FeatureA(BodyFeature) if BodyFeature is not None else None,
             ),
-        ),
-    )
+        )
     Diagnostics = (
         tuple(
             (
@@ -456,7 +549,6 @@ def ReadNativePart(
             )
         )
         + PayloadDiags
-        + ((LocalDiag,) if LocalDiag is not None else ())
     )
     DocValue = CadDoc(
         source=CadSource(
@@ -489,6 +581,7 @@ def ReadNativePart(
                 "native_feature_count": len(Model.features),
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
+                "solidworks.typed_resolved_semantics": Model.TypedGraph,
                 "stream_names": tuple((Record.name for Record in Archive.records)),
                 **(
                     {KUnresolvedEqTargets: tuple(UnresolvedTargets)}
@@ -507,7 +600,64 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    if StockValue is None and DerivedValue is None:
+        DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    return FinishPartDoc(
+        BindStockDoc(
+            BindColdPart(DocValue, ColdValue),
+            (
+                StockValue.LineageValue
+                if StockValue is not None
+                else (
+                    ColdValue.OwnersValue
+                    if isinstance(ColdValue, ColdStockPart)
+                    else None
+                )
+            ),
+        ),
+        Archive,
+        Model.active_configuration_id,
+        DerivedValue,
+        DataValue,
+        Label,
+        Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
+        BindSavedOwners=Settings.include_brep
+        and not Settings.extract_raw_brep
+        and not Model.equations
+        and not isinstance(ColdValue, (ColdRevolvePart, ColdPatPart)),
+    )
+
+
+# native metadata and parametric diagnostics must qualify after geometry is selected
+def FinishPartDoc(
+    DocValue: CadDoc,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    DerivedValue: PartGeometry | None,
+    DataValue: bytes,
+    Label: str,
+    GraphValue: ConfigGraph | None = None,
+    *,
+    BindSavedOwners: bool = False,
+) -> CadDoc:
+    DocValue = WithColdName(DocValue, DerivedValue)
+    DocValue = WithBodyNames(DocValue, Archive, ConfigId)
+    DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
+    DocValue = BindCutStock(DocValue)
+    DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
+    DocValue = WithThinDoc(DocValue, Archive, ConfigId, DerivedValue)
+    if BindSavedOwners:
+        DocValue = WithSelRevDoc(DocValue, Archive, ConfigId)
+        DocValue = WithPatternDoc(DocValue, Archive, ConfigId)
+    if (
+        DerivedValue is not None
+        and DerivedValue.EvidenceValue.get("method")
+        == "typed_parametric_ordinary_revolve"
+        and "solidworks.typed_revolve_semantics" not in DocValue.metadata
+    ):
+        raise SldprtFormatError(
+            "reconstructed revolve lacks its complete parametric projection"
+        )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)
@@ -541,7 +691,18 @@ def ProjectPartDoc(
 ) -> CadDoc:
     DocValue = ProjectCutDoc(DocValue, Model.cut_source)
     DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
-    DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
+    TypedLines = {
+        Sketch.object_id for Sketch in Model.sketches if Sketch.TypedLines is not None
+    }
+    if len(Model.operations) != 2 or any(
+        Operation.kind != "join"
+        or Operation.extrusion_end is None
+        or Operation.profile_id not in TypedLines
+        for Operation in Model.operations
+    ):
+        DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
+    if any(Sketch.TypedCircle is not None for Sketch in Model.sketches):
+        return DocValue
     DocValue = ProjectSoloDoc(DocValue, Model, Archive)
     return ProjectRoundDoc(DocValue, Model, Archive, Settings.include_brep)
 
@@ -845,6 +1006,7 @@ def AsmPartFields(Archive: SldprtArchive, Settings: ReadOptions) -> tuple[
         Archive.require(SelectedStream),
         resolved_stream=SelectedStream,
     )
+    Model = WithTypedNative(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
     ParamValues = Parameters(Model)
     ParamIds = {Param.id for Param in ParamValues}
@@ -887,23 +1049,46 @@ def AsmDoc(
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
         Adapter, Native, Index if ResolveComponents else {}, Settings
     )
+    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     Definitions = AsmDefinitions(
         Native,
         DocIds,
         ResolvedPaths,
-        {DocValue.id: DocValue.document for DocValue in Documents},
+        LinkedDocuments,
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
     )
     Instances = AsmInstances(Native)
+    Definitions, Instances = WithNestedIndex(
+        Archive,
+        Native,
+        DocIds,
+        LinkedDocuments,
+        Definitions,
+        Instances,
+        Enabled=ResolveComponents,
+        SourceKey=KSourceBytesKey,
+    )
     MateSourceValues, SourceDiagnostics = MateSources(
         Native, Archive, Label, Index, Settings
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
+    MateEntities, Mates, MateGroups, TypedMates = WithTypedMates(
+        Native,
+        Archive,
+        ResolvedPaths,
+        DocIds,
+        Documents,
+        MateEntities,
+        Mates,
+        MateGroups,
+    )
+    Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
-    PayloadSettings = Replace(Settings, strict=False)
-    BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
+    BrepValues, PayloadDiagnostics = BrepPayloads(
+        Archive, Replace(Settings, strict=False)
+    )
     CompanionPayloads = (
         Companion(Label)
         if Settings.include_brep
@@ -940,7 +1125,6 @@ def AsmDoc(
         + SourceDiagnostics
     )
     PathRecords = Flattened(Native)
-    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     LinkedPartDocuments = tuple(
         (
             DocValue
@@ -992,6 +1176,7 @@ def AsmDoc(
                         for State in Native.display_states
                     )
                 ),
+                **DisplayData(Native.display_owner),
                 "flattened_occurrences": PathRecords,
                 "flattened_occurrence_count": len(PathRecords),
                 "flattened_mate_occurrences": FlatMateValues,
@@ -1046,11 +1231,17 @@ def AsmDoc(
                 "native_feature_count": len(Model.features),
                 "native_name_record_count": len(Model.names),
                 "native_scalar_count": len(Model.scalars),
+                "solidworks.typed_resolved_semantics": Model.TypedGraph,
                 "stream_names": tuple((Record.name for Record in Archive.records)),
                 "assembly_definition_count": len(Definitions),
                 "assembly_instance_count": len(Instances),
                 "assembly_flattened_occurrence_count": len(PathRecords),
                 "assembly_mate_count": len(Mates),
+                **(
+                    {"solidworks.typed_mates_semantics": TypedMates}
+                    if TypedMates is not None
+                    else {}
+                ),
                 "assembly_flattened_mate_count": len(FlatMateValues),
                 "assembly_mesh_count": len(Meshes),
             }
@@ -1308,7 +1499,7 @@ def AsmMeshes(Native: NativeAssembly) -> tuple[tuple[MeshValue, ...], dict[int, 
     return (tuple(Result), MeshIds)
 
 
-# this definition exists because focused behavior needs one stable owner
+# portable definitions need the owned part identity even when the index mirrors the assembly name
 def AsmDefinitions(
     Native: NativeAssembly,
     DocIds: dict[int, str],
@@ -1319,6 +1510,25 @@ def AsmDefinitions(
     ResolveComponents: bool = True,
 ) -> tuple[ComponentDefinition, ...]:
     Result: list[ComponentDefinition] = []
+    RootDefinition = next(
+        Value
+        for Value in Native.definitions
+        if Value.object_id == Native.root_definition_id
+    )
+    MirroredIndex = (
+        Native.application_version == 19000
+        and RootDefinition.document_type == "ASSEMBLY"
+        and len(Native.definitions) == 2
+        and bool(Native.occurrences)
+        and all(
+            Value.owner_definition_id == Native.root_definition_id
+            and Value.definition_id != Native.root_definition_id
+            and not Value.virtual
+            for Value in Native.occurrences
+        )
+        and bool(Native.name)
+        and Native.name == PureWindowsPath(RootDefinition.source_path).stem
+    )
     for Definition in Native.definitions:
         DocId = DocIds.get(Definition.object_id, "")
         DocValue = Documents.get(DocId)
@@ -1337,10 +1547,25 @@ def AsmDefinitions(
                 else ComponentKind.NATIVE
             )
         )
+        NameValue = Definition.name
+        if (
+            MirroredIndex
+            and KindValue == ComponentKind.PART
+            and DocValue is not None
+            and DocValue.source.format_id == KFormatId
+            and SourcePath is not None
+            and NameValue == Native.name
+        ):
+            FileValue = PureWindowsPath(Definition.source_path)
+            if (
+                FileValue.suffix.casefold() == KPartSuffix
+                and SourcePath.name.casefold() == FileValue.name.casefold()
+            ):
+                NameValue = FileValue.stem
         Result.append(
             ComponentDefinition(
                 id=AsmDefinitionId(Definition.object_id),
-                name=Definition.name,
+                name=NameValue,
                 kind=KindValue,
                 document_id=DocId,
                 configuration_name=Definition.configuration_name,
@@ -2176,6 +2401,56 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
     return True
 
 
+# legacy codecs only complete their own unqualified physical roles
+def LegacyPartModel(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
+    ConfigId = Model.active_configuration_id
+    Generation = ContainerMo(Archive.streams)
+    if (
+        ConfigId is None
+        or Generation != KConfigGen
+        or Archive.get(KitResolvedStream) is not None
+    ):
+        return Model
+    Config = f"Contents/Config-{ConfigId}"
+    Stream = f"{Config}-ResolvedFeatures"
+    ConfigData = Archive.get(Config)
+    Resolved = Archive.get(Stream)
+    if ConfigData is None or Resolved is None:
+        return Model
+    ListCount = int.from_bytes(Resolved[4:6], "little")
+    if (
+        ListCount in (18, 19)
+        and not any(Sketch.TypedLines is not None for Sketch in Model.sketches)
+        and not (
+            len(Model.sketches) == 1
+            and (Profiles := Model.sketches[0].profiles)
+            and all(Profile.kind == "circle" for Profile in Profiles)
+        )
+    ):
+        Model = ReadRectSupport(Model, ConfigData, Resolved, Generation)
+    if Model.TypedGraph.get("cut_body_dependency") is None:
+        Model = ReadCutArchive(Model, ConfigData, Resolved, Generation, Config, Stream)
+    CutProfiles = {
+        Operation.profile_id
+        for Operation in Model.operations
+        if Operation.kind == "cut"
+    }
+    DirectCut = any(
+        Sketch.object_id in CutProfiles
+        and Sketch.support_kind == KPlaneSupportKind
+        and Sketch.support_source == KRefSupportSource
+        and Sketch.support_plane is not None
+        for Sketch in Model.sketches
+    )
+    if (
+        Model.cut_source is None
+        and not DirectCut
+        and HasTwoBodyScope(ConfigData, Resolved, Generation)
+    ):
+        Model = Replace(Model, diagnostics=(*Model.diagnostics, KScopeUnresolved))
+    return Model
+
+
 # this definition exists because focused behavior needs one stable owner
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
@@ -2215,34 +2490,20 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         )
     SelectedStream = ResolvedStream(Archive.streams, Lanes[SelectedId])
     ConfigStream = f"Contents/Config-{SelectedId}"
-    Resolved = Archive.require(SelectedStream)
-    ConfigData = Archive.get(ConfigStream) or b""
     Model = DecodeNativeModel(
         Keywords,
-        Resolved,
-        ConfigData,
+        Archive.require(SelectedStream),
+        Archive.get(ConfigStream) or b"",
         configuration_id=SelectedId,
         resolved_stream=SelectedStream,
         configuration_stream=ConfigStream,
+        ModelVersion=ContainerMo(Archive.streams),
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
     )
-    if SelectedStream == KitResolvedStream:
-        return Model
-    Generation = ContainerMo(Archive.streams)
-    Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
-    Decoded = ReadCutArchive(
-        Ordinary, ConfigData, Resolved, Generation, ConfigStream, SelectedStream
-    )
-    if Decoded.cut_source is not None or not HasTwoBodyScope(
-        ConfigData, Resolved, Generation
-    ):
-        return Decoded
-    return Replace(
-        Decoded,
-        diagnostics=(
-            *Decoded.diagnostics,
-            KScopeUnresolved,
-        ),
+    return (
+        Model
+        if SelectedStream == KitResolvedStream
+        else WithTypedNative(Model, Archive)
     )
 
 
@@ -2288,7 +2549,7 @@ def Parameters(
     DimensionIds: dict[tuple[str, str], str] = {}
     AmbiguousDims: set[tuple[str, str]] = set()
     for Feature in Model.features:
-        for Dimension, ParamId in ParamEntries(Feature.object_id, Feature.dimensions):
+        for Dimension, ParamKey in ParamEntries(Feature.object_id, Feature.dimensions):
             NativeValue = (
                 Dimension.native_value
                 if Dimension.native_value is not None
@@ -2300,7 +2561,7 @@ def Parameters(
             )
             Parameters.append(
                 Param(
-                    id=ParamId,
+                    id=ParamKey,
                     name=Dimension.name,
                     value=DimensionParam(Dimension),
                     role=(
@@ -2309,7 +2570,10 @@ def Parameters(
                         else ParamRole.DRIVING
                     ),
                     owner_id=FeatureId(Feature.object_id),
-                    provenance=(
+                    provenance=TypedProvenance(
+                        Dimension.TypedOwner, f"{Feature.object_id}:{Dimension.name}"
+                    )
+                    or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,
@@ -2338,6 +2602,7 @@ def Parameters(
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
+                            "typed_archive_owner": Dimension.TypedOwner,
                             "native_operands": tuple(
                                 (
                                     {
@@ -2356,7 +2621,15 @@ def Parameters(
             if QualifiedName in DimensionIds:
                 AmbiguousDims.add(QualifiedName)
             else:
-                DimensionIds[QualifiedName] = ParamId
+                DimensionIds[QualifiedName] = ParamKey
+    Relation = Model.WidthDepth
+    if Relation is not None:
+        return BindWidthDepth(
+            Parameters,
+            ParamId(Relation.WidthFeature, "D1"),
+            ParamId(Relation.DepthFeature, "D1"),
+            Relation,
+        )
     return ApplyNativeMut(
         Parameters, Model, DimensionIds, frozenset(AmbiguousDims), UnresolvedTargets
     )
@@ -2382,7 +2655,7 @@ def DimensionParam(Dimension: NativeDimension) -> ParamValue:
 
 # this definition exists because focused behavior needs one stable owner
 def ApplyNativeMut(
-    Parameters: list[Parameter],
+    Parameters: list[Param],
     Model: NativeModel,
     DimensionIds: Mapping[tuple[str, str], str],
     AmbiguousDims: frozenset[tuple[str, str]] | None = None,
@@ -2633,7 +2906,7 @@ def ProfileSketch(
                     ProfileEntities[MarkerOffset] = EntityId
         elif Profile.kind == "circle":
             FirstCoord, SecondCoord, Radius = Profile.coordinates
-            EntityId = ProfileId(Sketch.object_id, ProfileIndex)
+            EntityId = CircleProfileId(Sketch.object_id, Profile, ProfileIndex)
             Entities.append(
                 SketchEntity(
                     id=EntityId,
@@ -2754,12 +3027,18 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
                 )
             )
         elif Profile.kind == "circle":
-            ClosedProfiles.append((ProfileId(Sketch.object_id, ProfileIndex),))
+            ClosedProfiles.append(
+                (CircleProfileId(Sketch.object_id, Profile, ProfileIndex),)
+            )
     return tuple(ClosedProfiles)
 
 
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
+    if Sketch.TypedLines is not None:
+        return LineSketch(Sketch, ParamIds)
+    if Sketch.TypedCircle is not None:
+        return CircleSketch(Sketch, ParamIds)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities
@@ -3238,7 +3517,7 @@ def BuildSketchRule(
             ProvenanceA(
                 RuleValue.id,
                 RuleValue.native_offset,
-                8,
+                RuleValue.native_length,
                 "sketch-constraint",
                 Stream=Sketch.native_stream,
             )
@@ -3546,6 +3825,7 @@ def Timeline(
             "native_type": Feature.kind,
             "xml_tag": Feature.xml_tag,
             "native_properties": Feature.properties,
+            "typed_archive_owner": Feature.TypedOwner,
         }
         OperationValue, Selected = TimelineOp(Operation, SelectionIds)
         if Operation is not None:
@@ -3643,12 +3923,20 @@ def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
                     -1
                     if Operation.kind in {"cut", "revolve_cut", "hole"}
                     or IsBossReversed(Operation)
+                    or (
+                        Operation.extrusion_end is not None
+                        and Operation.direction_code == 1
+                    )
                     else 1
                 ),
                 "end_condition": (
-                    "blind"
-                    if Operation.termination_code == 0
-                    else f"native:{Operation.termination_code}"
+                    Operation.extrusion_end.value
+                    if Operation.extrusion_end is not None
+                    else (
+                        "blind"
+                        if Operation.termination_code == 0
+                        else f"native:{Operation.termination_code}"
+                    )
                 ),
             }
         )
@@ -3733,6 +4021,8 @@ def NativeFallback(
 def BuildExtrude(Operation: NativeOperation | None) -> ExtrusionFeature | None:
     if Operation is None or Operation.kind not in {"join", "cut", "surface"}:
         return None
+    if Operation.extrusion_end is not None:
+        return BuildTypedEnd(Operation, Operation.extrusion_end, Operation.length_mm)
     if Operation.length_mm is None:
         if (
             Operation.kind == "cut"
@@ -3943,13 +4233,61 @@ def BrepPayloadA(Index: int, Native: ParasolidPayload) -> BrepPayload:
     )
 
 
+# the native import fallback must own the selected part without changing raw payload extraction
+def ReadPartSolid(
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    ConfigCount: int,
+    DerivedValue: PartGeometry | None = None,
+    StockBrep: BrepModel | None = None,
+) -> tuple[
+    tuple[BrepPayload, ...],
+    tuple[DiagValue, ...],
+    BrepModel | None,
+    NativeFeature | None,
+    ActivePartition | None,
+]:
+    if DerivedValue is not None:
+        return (*ReadGeomParts(DerivedValue), None, None)
+    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    if StockBrep is not None:
+        return Payloads, PayloadDiags, StockBrep, None, None
+    Candidate = (
+        FindLocalOwner(Model, Archive)
+        if Settings.include_brep
+        and not Settings.extract_raw_brep
+        and Model.active_configuration_id == 0
+        and ConfigCount == 1
+        and not PayloadDiags
+        else None
+    )
+    if Candidate is None and Settings.include_brep and not Settings.extract_raw_brep:
+        ActivePart = ReadActivePart(
+            Payloads,
+            Model.active_configuration_id,
+            TypedBodyId(Model),
+            (Record.name for Record in Archive.records),
+        )
+        if ActivePart is not None:
+            return Payloads, PayloadDiags, ActivePart.ModelValue, None, ActivePart
+    BrepValue, LocalOwner, LocalDiag = TypedBrep(
+        Payloads,
+        Archive=Archive,
+        LocalOwner=Candidate,
+        Strict=Settings.strict,
+    )
+    Diagnostics = PayloadDiags + ((LocalDiag,) if LocalDiag is not None else ())
+    return Payloads, Diagnostics, BrepValue, LocalOwner, None
+
+
 # this definition exists because focused behavior needs one stable owner
 def TypedBrep(
     Payloads: Sequence[BrepPayload],
     *,
+    Archive: SldprtArchive,
     Strict: bool,
     LocalOwner: NativeFeature | None = None,
-    GroupData: bytes | None = None,
 ) -> tuple[BrepModel | None, NativeFeature | None, DiagValue | None]:
     Groups: dict[str, list[BrepPayload]] = {}
     for Index, Payload in enumerate(Payloads):
@@ -3971,9 +4309,9 @@ def TypedBrep(
             Models.append(Decoded[0])
         elif len(Decoded) > 1:
             HasAmbiguous = True
-    if Models or HasAmbiguous or LocalOwner is None or GroupData is None:
+    if Models or HasAmbiguous or LocalOwner is None:
         return (Models[0] if len(Models) == 1 else None), None, None
-    return ReadLocalImport(Payloads, GroupData, LocalOwner, Strict=Strict)
+    return ReadLocalImport(Payloads, Archive, LocalOwner, Strict=Strict)
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -3990,12 +4328,21 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
         Plane = PlaneById.get(Sketch.support_plane_id)
         if Plane is None or Operation.length_mm is None:
             continue
-        Length = Operation.length_mm * (-1 if IsBossReversed(Operation) else 1)
-        Direction = (
-            Plane.normal[0] * Length,
-            Plane.normal[1] * Length,
-            Plane.normal[2] * Length,
+        DepthValue = (
+            -Operation.length_mm
+            if IsBossReversed(Operation)
+            or (Operation.extrusion_end is not None and Operation.direction_code == 1)
+            else Operation.length_mm
         )
+        Direction = (
+            Plane.normal[0] * DepthValue,
+            Plane.normal[1] * DepthValue,
+            Plane.normal[2] * DepthValue,
+        )
+        StartFraction = (
+            -0.5 if Operation.extrusion_end == ExtrusionEndCondition.MID_PLANE else 0.0
+        )
+        EndFraction = 1.0 + StartFraction
         for Profile in Sketch.profiles:
             for Local in ProfileExtrema(Profile):
                 BaseValue = (
@@ -4009,14 +4356,16 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
                     + Plane.u_axis[2] * Local[0]
                     + Plane.v_axis[2] * Local[1],
                 )
-                Points.append(BaseValue)
-                Points.append(
-                    (
-                        BaseValue[0] + Direction[0],
-                        BaseValue[1] + Direction[1],
-                        BaseValue[2] + Direction[2],
+                for Fraction in (StartFraction, EndFraction):
+                    Points.append(
+                        BaseValue
+                        if Fraction == 0.0
+                        else (
+                            BaseValue[0] + Direction[0] * Fraction,
+                            BaseValue[1] + Direction[1] * Fraction,
+                            BaseValue[2] + Direction[2] * Fraction,
+                        )
                     )
-                )
     if not Points:
         return None
     return BoundingBox(
@@ -4031,6 +4380,10 @@ def BoundingBoxA(Model: NativeModel) -> BoundingBox | None:
 
 # this definition exists because focused behavior needs one stable owner
 def ProfileExtrema(Profile: NativeProfile) -> tuple[tuple[float, float], ...]:
+    if Profile.kind == "line-loop":
+        return tuple(
+            zip(Profile.coordinates[::2], Profile.coordinates[1::2], strict=True)
+        )
     if Profile.kind == "rectangle":
         XZero, YZero, XOneValue, YOneValue = Profile.coordinates
         return (
@@ -4066,6 +4419,9 @@ def OpProvenance(
 
 # this definition exists because focused behavior needs one stable owner
 def FeatureA(Feature: NativeFeature) -> Provenance:
+    TypedSpan = TypedProvenance(Feature.TypedOwner, str(Feature.object_id))
+    if TypedSpan is not None:
+        return TypedSpan
     return ProvenanceA(
         str(Feature.object_id),
         Feature.native_offset,
@@ -4165,6 +4521,13 @@ def SelectionId(
 ) -> str:
     Producer = f":{ProducerId}" if ProducerId is not None else ""
     return f"sldprt:selection:{NativeId}:{KindValue}{Producer}:{LocalId}"
+
+
+# typed circles retain the same identity in their outline and dimension references
+def CircleProfileId(NativeId: int, Profile: NativeProfile, ProfileIndex: int) -> str:
+    if Profile.EntityMarkerOffset is not None:
+        return MarkerId(NativeId, Profile.EntityMarkerOffset)
+    return ProfileId(NativeId, ProfileIndex)
 
 
 # this definition exists because focused behavior needs one stable owner

@@ -1,0 +1,93 @@
+{
+  "modules_sampled_only_in_newer": {
+    "sldarchiveu.dll": 20,
+    "sldasmu.dll": 131,
+    "sldmfcu.dll": 346,
+    "sldmopartu.dll": 189,
+    "sldvisualstateu.dll": 5
+  },
+  "modules_sampled_only_in_older": {},
+  "newer": {
+    "alternate_entries_by_module": {
+      "sldarchiveu.dll": 5,
+      "sldmfcu.dll": 19
+    },
+    "default_module_for_flat_map": null,
+    "map_name": "SerializeMap2026.json",
+    "primary_classes": 3268,
+    "primary_entries_by_module": {
+      "sldarchiveu.dll": 15,
+      "sldasmu.dll": 131,
+      "sldmfcu.dll": 327,
+      "sldmodu.dll": 2601,
+      "sldmopartu.dll": 189,
+      "sldvisualstateu.dll": 5
+    },
+    "sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4"
+  },
+  "older": {
+    "alternate_entries_by_module": {},
+    "default_module_for_flat_map": "sldmodu.dll",
+    "map_name": "SerializeMap.json",
+    "primary_classes": 2607,
+    "primary_entries_by_module": {
+      "sldmodu.dll": 2607
+    },
+    "sha256": "ebf2a28982e3c26d621432233153340bc4490387b24089b846d46c157ac87eef"
+  },
+  "schema": "kit.solidworks.serialize-map-diff.v1",
+  "shared_modules": {
+    "sldmodu.dll": {
+      "newer_entries": 2601,
+      "newer_only_classes": [
+        "moSkDimHandleLogGroup_c",
+        "sgLogGroupDim",
+        "solvLogGroupG"
+      ],
+      "older_entries": 2607,
+      "older_only_classes": [
+        "CTypedPtrArray<su_CPtrArray,moChainComponent_c*___ptr64>",
+        "CTypedPtrArray<su_CPtrArray,moTbStackHoleFeatRef_w*___ptr64>",
+        "moStackDiameterRelation_c",
+        "moStackRelation_c",
+        "moTbStackComponentData_c",
+        "moTbStackComponent_c",
+        "moTbStackHoleFeatRef_w",
+        "suTypedPtrArray<moChainComponent_c>",
+        "suTypedPtrArray<moTbStackHoleFeatRef_w>"
+      ],
+      "serializer_address_differences": 2598,
+      "serializer_name_spelling_differences": 1733,
+      "shared_classes": 2598,
+      "vtable_slot_count_changes": [
+        {
+          "class": "moAliasMap_c",
+          "newer": 24,
+          "older": 23
+        },
+        {
+          "class": "moAutoExplodeLineData_c",
+          "newer": 17,
+          "older": 26
+        },
+        {
+          "class": "moSensorDiaMapList_c",
+          "newer": 24,
+          "older": 23
+        },
+        {
+          "class": "moSensorMapList_c",
+          "newer": 24,
+          "older": 23
+        },
+        {
+          "class": "suMapStringToOb",
+          "newer": 24,
+          "older": 23
+        }
+      ],
+      "vtable_slot_count_unavailable": []
+    }
+  },
+  "wire_changes_verified_by_comparison": []
+}

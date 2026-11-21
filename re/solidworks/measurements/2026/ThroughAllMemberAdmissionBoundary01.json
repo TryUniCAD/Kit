@@ -1,0 +1,13 @@
+{
+  "exact_disclosed_builds": 3,
+  "heldout_source_reads": 0,
+  "observations": {
+    "D01": "decaef4c2f285a1cf77b19586a9a9019385c664df45322d7fca058908b3abecb",
+    "D02": "f6e98dbcd2cb0106433443793fb853e0270e7dbef397188151db8cc2dd509b91",
+    "D03": "2f7ed867fae0a38f21d26e51500b060663b661fe11c696cf9f17ecc26b010d49",
+    "atomic_capacity_refusal": "5c456fac18706ef873f1619b8bbbb702a83b8f73b3dca9e531050f65487c270d",
+    "unproved_direct_owner": "75cffadbad8e8273e3094313271790de72d7739d2dcee2eb9e17ce277c28c961"
+  },
+  "processes": 5,
+  "runtime_input_reads": 0
+}

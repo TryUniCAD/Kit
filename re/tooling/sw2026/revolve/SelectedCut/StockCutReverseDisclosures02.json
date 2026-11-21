@@ -1,0 +1,35 @@
+{
+  "schema": "kit.sw2026.revolve-family-models.v1",
+  "family": "cut",
+  "split": "discovery",
+  "cases": [
+    {
+      "name": "KitScopeTopReverse",
+      "plane": "top",
+      "axis_x_m": -0.0074,
+      "axis_axial_m": [-0.0911, 0.0983],
+      "axial_m": [-0.0164, 0.0278],
+      "angle_deg": 132.35,
+      "edit_angle_deg": 47.875,
+      "reverse": true,
+      "radius_m": [0.0145, 0.0442],
+      "stock_radii_m": [[0.0098, 0.0207], [0.0363, 0.0521]],
+      "stock_axial_m": [-0.05215, 0.0569],
+      "scope": "outer"
+    },
+    {
+      "name": "KitScopeRightReverse",
+      "plane": "right",
+      "axis_x_m": 0.00985,
+      "axis_axial_m": [-0.109, 0.105],
+      "axial_m": [-0.0239, 0.0351],
+      "angle_deg": 49.225,
+      "edit_angle_deg": 115.625,
+      "reverse": true,
+      "radius_m": [0.01577, 0.04722],
+      "stock_radii_m": [[0.01013, 0.02618], [0.04167, 0.06577]],
+      "stock_axial_m": [-0.04975, 0.06025],
+      "scope": "inner"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "all_runtime_reads": 0,
+  "cases_equal": 8,
+  "guarded_refusals": 6,
+  "independent_research_sha256": "68d5c7e0fdff8635eb4c2468217b9b1f1a2d2e9b5cdfd240f647a68c72536099",
+  "lock_revision": "642b20cc65d14262ecc1e78e478af5ab48ca59b0",
+  "native_files_generated": 0,
+  "prefix_byte_comparisons": 8,
+  "schema": "kit.sw2026.selected-revolve-cut-cold-aggregate.v1",
+  "scoped_reader_integration": "5c2e3836b9aaa470668beaa414befbc83688a5b0",
+  "source_commit": "145bc9f05b199ba975c3eb76d9e9c544b599a484",
+  "source_tree": "970de02d73a822c81b59090b2c2ccc6ac363b4ab"
+}

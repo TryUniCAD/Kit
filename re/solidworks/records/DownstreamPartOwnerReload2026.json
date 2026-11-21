@@ -1,0 +1,472 @@
+{
+  "data_windows": [],
+  "delivery_pr": 121,
+  "execution": {
+    "acceptance": false,
+    "cad_calls": false,
+    "heldout_inputs": false,
+    "native_calls": false,
+    "rea_or_hopper_opened": false,
+    "schema_or_codec_execution": false,
+    "shared_writes": false,
+    "tests": false,
+    "vm_access": false
+  },
+  "functions": [
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 1397,
+      "end_exclusive": "0x4c1b7b75",
+      "module": "sldmodu.dll",
+      "name": "moPart_c named partition load +0x1a58",
+      "sha256": "8b1f0fb8530dc217fd14fdc65cd7a1e62db8b4083fddc3e9b7478891fd212d3e",
+      "start": "0x4c1b7600",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 1397,
+          "end_exclusive": "0x4c1b7b75",
+          "sha256": "8b1f0fb8530dc217fd14fdc65cd7a1e62db8b4083fddc3e9b7478891fd212d3e",
+          "start": "0x4c1b7600",
+          "unwind_rva": "0x2474fc8"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x4b286ea7",
+      "module": "sldmodu.dll",
+      "name": "moPart_c load eligibility +0x1a70",
+      "sha256": "5c72a67b769feda525764c49802367ab42aafc83a03c889c454957d5171215c1",
+      "start": "0x4b286ea0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 7,
+      "end_exclusive": "0x4b286eb7",
+      "module": "sldmodu.dll",
+      "name": "moPart_c alternate load gate +0x1a80",
+      "sha256": "16cbd89cbc27f7fc2ecb19a07eb7d13206ed53b34043f2da3578ac07f681c532",
+      "start": "0x4b286eb0",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 83,
+      "end_exclusive": "0x4c02e053",
+      "module": "sldmodu.dll",
+      "name": "mo_SetBodyModel",
+      "sha256": "cf9f9608976aea5c89991351b47d067f855d34d1780d45473ef48505fa7dd3b1",
+      "start": "0x4c02e000",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 83,
+          "end_exclusive": "0x4c02e053",
+          "sha256": "cf9f9608976aea5c89991351b47d067f855d34d1780d45473ef48505fa7dd3b1",
+          "start": "0x4c02e000",
+          "unwind_rva": "0x2245de4"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 5,
+      "end_exclusive": "0x43a1a875",
+      "module": "sldgcu.dll",
+      "name": "gcAttrib_w::getAllFromBody",
+      "sha256": "b5fd9b159b1b0dcd0275e92c249b458ba9d181a2d9ca166567708780b9a424f1",
+      "start": "0x43a1a870",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 113,
+      "end_exclusive": "0x43e80ed1",
+      "module": "sldgcu.dll",
+      "name": "getAllFromBody actual backend bridge",
+      "sha256": "34dbacb19800a0d137f7416316fa989bfdb6b480d96956fc32c8b884c8f73f76",
+      "start": "0x43e80e60",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 113,
+          "end_exclusive": "0x43e80ed1",
+          "sha256": "34dbacb19800a0d137f7416316fa989bfdb6b480d96956fc32c8b884c8f73f76",
+          "start": "0x43e80e60",
+          "unwind_rva": "0x87a254"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 323,
+      "end_exclusive": "0x330384c3",
+      "module": "sldgciParau.dll",
+      "name": "gciAttrib_w::getAllFromBody",
+      "sha256": "b0b6f0cb47a7b8153e078d40b413312c4a12f081eacfb25fa6d31a68aece193f",
+      "start": "0x33038380",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 323,
+          "end_exclusive": "0x330384c3",
+          "sha256": "b0b6f0cb47a7b8153e078d40b413312c4a12f081eacfb25fa6d31a68aece193f",
+          "start": "0x33038380",
+          "unwind_rva": "0x165700"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 976,
+      "end_exclusive": "0x32fa37b0",
+      "module": "sldgciParau.dll",
+      "name": "explicit owner repair",
+      "sha256": "5166a30037e7c8bc1ab55ae1ffcb16dadd48c7e04b2a9017d0535dedaa581357",
+      "start": "0x32fa33e0",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 976,
+          "end_exclusive": "0x32fa37b0",
+          "sha256": "5166a30037e7c8bc1ab55ae1ffcb16dadd48c7e04b2a9017d0535dedaa581357",
+          "start": "0x32fa33e0",
+          "unwind_rva": "0x154acc"
+        }
+      ]
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 770,
+      "end_exclusive": "0x4c6cdb92",
+      "module": "sldmodu.dll",
+      "name": "actual model owner-mirror resolver +0x10",
+      "sha256": "1a94db7e2ddfeb18919feb8809c7ccc8e1f5e8c99b5d0989a8a51105314be049",
+      "start": "0x4c6cd890",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 770,
+          "end_exclusive": "0x4c6cdb92",
+          "sha256": "1a94db7e2ddfeb18919feb8809c7ccc8e1f5e8c99b5d0989a8a51105314be049",
+          "start": "0x4c6cd890",
+          "unwind_rva": "0x252a49c"
+        }
+      ]
+    },
+    {
+      "bound": "export-entry; complete leaf body through ret or unconditional tail jump",
+      "bytes": 11,
+      "end_exclusive": "0x4bb3705b",
+      "module": "sldmodu.dll",
+      "name": "FR manager indexed external lookup bridge",
+      "sha256": "49621c00c9800bcd0b3e61e44e01a1910add48e223622fd5a1e7a26c190bc06d",
+      "start": "0x4bb37050",
+      "unwind_fragments": []
+    },
+    {
+      "bound": "all contiguous PE chained unwind fragments",
+      "bytes": 35,
+      "end_exclusive": "0x4c020f43",
+      "module": "sldmodu.dll",
+      "name": "moModel_c::getFeatureRefManager",
+      "sha256": "95489d05a51ad17d6c1e2610ca73f10be68a00604980f032f6c4781714247a8d",
+      "start": "0x4c020f20",
+      "unwind_fragments": [
+        {
+          "bound": "PE exception directory and complete chained unwind group",
+          "bytes": 35,
+          "end_exclusive": "0x4c020f43",
+          "sha256": "95489d05a51ad17d6c1e2610ca73f10be68a00604980f032f6c4781714247a8d",
+          "start": "0x4c020f20",
+          "unwind_rva": "0x2245a70"
+        }
+      ]
+    }
+  ],
+  "generated_shape": {
+    "auxiliary_element": {
+      "action": "recreates pointer field0 only when absent; it is never passed as owner mirror",
+      "index": 0
+    },
+    "integer_field3": "(process_face_id, 0)",
+    "owner_loop": {
+      "callsite": "0x32fa36ba",
+      "count_for_two_integer_shape": 1,
+      "exclusive_end": "integer field3 count",
+      "first_index": 1,
+      "selected_mirror": 0
+    },
+    "required_input_shape": "field1 pointer-values node absent, not a one-element array containing null",
+    "selected_owner": "lookup actual external-list index0; equal-to-local candidate canonicalizes; missing lookup falls back to constructed local owner; a non-equivalent found index0 returns that indexed owner",
+    "unconditionally_local": false
+  },
+  "guards": {
+    "body_count": "returned positive count selects body loop",
+    "moPart_slot_1a70": "actual runtime part+0x13c8 nonzero for selected named partition load",
+    "outer_version_minimum": "0xb90",
+    "owner_branch": "actual FACE_ID_2001 or EDGE_PERM definition and positive integer field3 count",
+    "partition_result": "nonnull result installed by0x4c1b7879",
+    "preserve_nonempty_pointer_field1": "refresh0 skips owner replacement when pointer count is positive",
+    "repair_entity": "actual valid body with nonempty attribute array"
+  },
+  "imports": [
+    {
+      "iat": "0x4cd355f8",
+      "module": "sldarchiveu.dll",
+      "name": "?getExtObjFromIndex@moExtObjectList_c@@QEAAPEAVmoExtObject_c@@H@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd36ea0",
+      "module": "sldgcu.dll",
+      "name": "?loadFromStorage@gcPartition_w@@SAPEAV1@PEAVsuFileStorage@@V?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@1HKPEAVmoFiledConcept_c@@PEAV34@HPEAV1@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd374c0",
+      "module": "sldgcu.dll",
+      "name": "?attribAutomation_ad@gcPointerAttrib_w@@2PEAVgcAttribDef_w@@EA",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37578",
+      "module": "sldgcu.dll",
+      "name": "?gc_CleanAttributesOnInput@@YAXPEAVgcBody_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd37ee0",
+      "module": "sldgcu.dll",
+      "name": "?getAllFromBody@gcAttrib_w@@SAHPEAVgcBody_w@@PEAVgcAttribDef_w@@PEAPEAPEAV1@HH@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd38158",
+      "module": "sldgcu.dll",
+      "name": "?destroyAllOnBody@gcAttrib_w@@SAHPEAVgcBody_w@@PEAVgcAttribDef_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x4cd385f0",
+      "module": "sldgcu.dll",
+      "name": "?getBodies@gcPartition_w@@QEAAHPEAPEAPEAVgcBody_w@@@Z",
+      "source_module": "sldmodu.dll"
+    },
+    {
+      "iat": "0x43f5d598",
+      "module": "sldgciParau.dll",
+      "name": "?getAllFromBody@gciAttrib_w@GCP@@SAHPEAVgciBody_w@2@PEAVgciAttribDef_w@2@PEAPEAPEAV12@HH@Z",
+      "source_module": "sldgcu.dll"
+    }
+  ],
+  "instruction_windows": [
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 61,
+      "end_exclusive": "0x4c1b7681",
+      "module": "sldmodu.dll",
+      "name": "outer archive version and actual load eligibility gate",
+      "sha256": "d93fde3605d41b6087b0ca931493876d0d6bc0a364871bb6995c69a0abcf492f",
+      "start": "0x4c1b7644"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 133,
+      "end_exclusive": "0x4c1b788d",
+      "module": "sldmodu.dll",
+      "name": "actual successful partition result and installation",
+      "sha256": "4840da220fa493a151ed71cc3c152f6fec8ca7b7ccab1069b08eb5fcce02fb81",
+      "start": "0x4c1b7808"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 55,
+      "end_exclusive": "0x4c1b7957",
+      "module": "sldmodu.dll",
+      "name": "actual received body cleanup and body model installation",
+      "sha256": "e7366862b3168bf46b72e998a797c69a5da77aa31c2310f2bc8767276d48ff3b",
+      "start": "0x4c1b7920"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 43,
+      "end_exclusive": "0x4c1b7990",
+      "module": "sldmodu.dll",
+      "name": "repair1 refresh0 null-definition query after model installation",
+      "sha256": "083786addeb4d78fb4cc28728600b0f8af0a284f4d9c4580c6bb8cb966dd8e62",
+      "start": "0x4c1b7965"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 72,
+      "end_exclusive": "0x43e80ebc",
+      "module": "sldgcu.dll",
+      "name": "body query preserves explicit repair and refresh arguments",
+      "sha256": "7e57c3b95e123361351315d7d035169adddb501aa4ced6aaf593a4eac1b80a6a",
+      "start": "0x43e80e74"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 37,
+      "end_exclusive": "0x330384ac",
+      "module": "sldgciParau.dll",
+      "name": "body query invokes repair with original body and selected flags",
+      "sha256": "ed7761461673dc17d90beea77fc3452b27131adfb914e7cdb0749421be7c300a",
+      "start": "0x33038487"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 178,
+      "end_exclusive": "0x32fa3641",
+      "module": "sldgciParau.dll",
+      "name": "repair separates primary face id from the owner array",
+      "sha256": "97730c254a126b5de1cbc862b1d9375bdd2855cf37f20702431730c7e3774168",
+      "start": "0x32fa358f"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 132,
+      "end_exclusive": "0x32fa36c5",
+      "module": "sldgciParau.dll",
+      "name": "owner-mirror loop starts at element1 and calls actual model helper",
+      "sha256": "fe28023c1d3d257ea31f9edc4798f149876536b08e6f86c72bfddf5ed7a4d199",
+      "start": "0x32fa3641"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 113,
+      "end_exclusive": "0x32fa3748",
+      "module": "sldgciParau.dll",
+      "name": "owner mirror writeback and actual pointer array installation",
+      "sha256": "2966dc5b1cc568c7b9b0f077cb023beb369d34e686a4ccba4c03a52e1687fc1f",
+      "start": "0x32fa36d7"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 80,
+      "end_exclusive": "0x4c6cdb56",
+      "module": "sldmodu.dll",
+      "name": "nonnegative mirror index lookup and local equality selection",
+      "sha256": "9433011adb974310bde0f9bd384594cb338500665734bd3d6187a244c67442ce",
+      "start": "0x4c6cdb06"
+    },
+    {
+      "bound": "instruction-boundary window within complete parent",
+      "bytes": 60,
+      "end_exclusive": "0x4c6cdb92",
+      "module": "sldmodu.dll",
+      "name": "missing-index local fallback with actual configuration guards",
+      "sha256": "e22e6f5f2c326b4385fa14749251919bbf47962718c4005b12067b1993ae619a",
+      "start": "0x4c6cdb56"
+    }
+  ],
+  "modules": [
+    {
+      "bytes": 46536280,
+      "exception_directory_bytes": 988296,
+      "exception_directory_rva": "0x2a6a000",
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "bytes": 10893912,
+      "exception_directory_bytes": 244812,
+      "exception_directory_rva": "0xa28000",
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldgcu.dll",
+      "preferred_base": "0x43740000",
+      "sha256": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+    },
+    {
+      "bytes": 1875032,
+      "exception_directory_bytes": 44676,
+      "exception_directory_rva": "0x1c0000",
+      "file_version": "34.5.2.604",
+      "machine": "0x8664",
+      "name": "sldgciParau.dll",
+      "preferred_base": "0x32f70000",
+      "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+    }
+  ],
+  "owner": "flag_ownership",
+  "prior_packet": {
+    "delivery_sha256": "14da4045018de9fa59a39a84c91710841dfbcd24f5a30b7edcb1d90214d16d80",
+    "numeric_record_sha256": "67708ee528c15165f8fa3a72d145e6a42886e1c6d4a589028f54177b8ec40e18",
+    "unchanged": true
+  },
+  "remaining": [
+    "Exact generated manager external-list initialization and any intervening local registration before mirror resolution are the next independent proof",
+    "Current kernel pointer-values nontransmission is inherited from GeneratedRectanglePartition2026 and not newly reverified against a locally unavailable kernel image",
+    "Actual runtime invocation, complete native cache acceptance and later lifecycle remain unmeasured"
+  ],
+  "schema": "solidworks-part-owner-reload-source-v1",
+  "task": "B04-SW2026-DOWNSTREAM-RUNTIME-OWNER",
+  "upstream_call": {
+    "actual_export": "gcAttrib_w::getAllFromBody",
+    "arguments": {
+      "body": "the just received body after mo_SetBodyModel(actual part)",
+      "definition": null,
+      "output": "actual attribute array",
+      "refresh": 0,
+      "repair": 1
+    },
+    "backend_bridge": "0x43e80e60",
+    "backend_entry": "0x33038380",
+    "callsite": "0x4c1b797a",
+    "public_entry": "0x43a1a870",
+    "repair_callsite": "0x3303849f",
+    "repair_entry": "0x32fa33e0",
+    "selected_iat": "0x43f5d598"
+  },
+  "vendor_bytes_or_listings_distributed": false,
+  "vtable_cells": [
+    {
+      "cell": "0x4d126d30",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1a58",
+      "table": "0x4d1252d8",
+      "target": "0x4c1b7600"
+    },
+    {
+      "cell": "0x4d126d48",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1a70",
+      "table": "0x4d1252d8",
+      "target": "0x4b286ea0"
+    },
+    {
+      "cell": "0x4d126d58",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1a80",
+      "table": "0x4d1252d8",
+      "target": "0x4b286eb0"
+    },
+    {
+      "cell": "0x4d126310",
+      "class": "moPart_c",
+      "module": "sldmodu.dll",
+      "slot": "0x1038",
+      "table": "0x4d1252d8",
+      "target": "0x4c020f20"
+    },
+    {
+      "cell": "0x4cdcb338",
+      "class": "moEntityIdHelper_c",
+      "module": "sldmodu.dll",
+      "slot": "0x10",
+      "table": "0x4cdcb328",
+      "target": "0x4c6cd890"
+    }
+  ]
+}

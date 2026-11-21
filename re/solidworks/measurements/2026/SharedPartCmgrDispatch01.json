@@ -1,0 +1,189 @@
+{
+  "scope": "Host-only shared ordinary schema-one CMgr codec and single local-ID-zero part configuration",
+  "native_control_build": "SOLIDWORKS 2026 SP05.2 34.5.2.0604",
+  "archive_version": 19000,
+  "container_version": 4,
+  "source_baseline": "b503656075e6934107884e15fd041705bf5c07f0",
+  "production_delta_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/GetVirtualRule.py": "9140fe746f0fb0bfbf99d73248c90bb8cca00cc9d95f916a7508215033a08689",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadVirtualMut.py": "3b7b60c31e486df19ce21a8b7244ef9ea2e475a0a776d6b8a6c2e86acd088d28"
+  },
+  "key_implementation_and_probe_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/ChangeContext.py": "dc6d0dc58398e3e53de45ec3c30a8c19b26c6e02b11eb48ba4f710bc90d53ca0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/BodyVirtuals.py": "c4391fe9a98e3c216b6106ca0dc45269603b5d0bf2189f660adff34b2e4e17b8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ConfigurationFields.py": "5066c1ef798738bc70492deb29a1aeab181755ddd21eba63874379edadcb6ce9",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/FeatureFields.py": "ce84e3fc7a9ee82f9b55be4a92953986632a1185202c6802e26ef9012f547a98",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "0929f02b624ace7682b8cb8d4da934eecfaa458dd1f7074aa5e43ad1871ff2b8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteControlMut.py": "2d959d6ad0f6d7cf33f95b37458375a365d47e9eac87dc0f509afede9ddeee9a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteVirtualMut.py": "774d0534b21a5ce3045760b8b699bd43de94f1ab58a690f913dc02cd25e1baa9",
+    "src/convert/adapters/solidworks/Archive/Cmgr/MakeCmgrContext.py": "66e2f9bef556cbfc72e66b693e2dbc249cae9aac262135e4fb84d4c65e852812",
+    "src/convert/adapters/solidworks/Archive/Cmgr/ReadCmgrMut.py": "13e7a371e53d0f374d9fc94be1e370357e49b91f08c524669c98d9966998705b",
+    "src/convert/adapters/solidworks/Archive/Cmgr/WriteCmgrMut.py": "ec034bbac3bd676413a1da89e9c9fa87e7767eb49edda10911f0e14ddfdc6bc0",
+    "src/convert/adapters/solidworks/Archive/Construction/Configuration/MakeConfigMgr.py": "5b7a4abf49212bd630235216cf448a52b21539286597e4f413e95d86803a98b8",
+    "re/solidworks/measurements/2026/PartCmgrResearch01.json": "280e070e3b2a91ff916d17772f1228bc0067d6498086694f204931b348904e19",
+    "re/tooling/sw2026/cmgr_slice/CheckPartCmgr.py": "74894d46080ccde16f924963f4e67d9feb40165f421b9ba1878be0634780890d",
+    "re/tooling/sw2026/cmgr_slice/PartCmgr.py": "8ae9a56f583a2ea18f34a4e171dad7c76e7aec46e55396fb18c4a9d3fd625170",
+    "re/tooling/sw2026/cmgr_slice/CheckSharedCmgr.py": "9ea8890cd9c3bb9f42e4ca22acf2ec610d6b1d087bfb82fce92ae3b8d489a1c0"
+  },
+  "disclosed_source_git_pin": "dbfbb09cbe8576b275b01487b8e195d6b00e08be",
+  "worker": "python3.14 -I -B re/tooling/sw2026/cmgr_slice/CheckSharedCmgr.py all",
+  "worker_output_sha256": "b87767d1c0c9cc74451ca15cdab729979332d03d1055d487a07dd65e7fe276ce",
+  "map_digest": "SHA-256 of each complete map array encoded as compact JSON with ASCII escapes",
+  "fresh_host_process_count": 10,
+  "identical_repeat_outputs": true,
+  "runtime_external_access_attempts": 0,
+  "disclosed_exact_streams": {
+    "l1": {
+      "source_path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "source_role": "SOLIDWORKS-authored ordinary part",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "CMgr": {
+        "sha256": "599e3fea664a9788e402297ed0997b680efbf72cfc8a714abe6a8a140ef2d541",
+        "bytes": 2159,
+        "map_counter": 19,
+        "config_slot": 4,
+        "f658": 1,
+        "local_id": 0,
+        "name": null,
+        "configuration": "Default",
+        "comment": "",
+        "alternate_name": "",
+        "description": "",
+        "updated_at": 631180800,
+        "layout_count": 31,
+        "context_calls": 26,
+        "virtual_calls": 7,
+        "map_sha256": "1a7091414cb73d255829cbed6fdc142d74bdb1b87570fc2c19415304699284c6"
+      }
+    },
+    "concave": {
+      "source_path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "source_role": "Previously generated ordinary part",
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "CMgr": {
+        "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd",
+        "bytes": 1129,
+        "map_counter": 10,
+        "config_slot": 6,
+        "f658": 1,
+        "local_id": 0,
+        "name": "Configurations",
+        "configuration": "Default",
+        "comment": "",
+        "alternate_name": "",
+        "description": "",
+        "updated_at": 1790000000,
+        "layout_count": 19,
+        "context_calls": 26,
+        "virtual_calls": 7,
+        "map_sha256": "a947d55b93f6455a1dc666917e5e2199692861776d51f4b913947cac74f7461f"
+      }
+    },
+    "rectangular": {
+      "source_path": "re/solidworks/v2026/corpus/local-import-readback/RectangularBare.SLDPRT",
+      "source_role": "Previously generated ordinary part",
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "CMgr": {
+        "sha256": "36a20801154a5ae2964c2c522a4edf62b280a87bf2b113e120fa6401f5d8e4fd",
+        "bytes": 1129,
+        "map_counter": 10,
+        "config_slot": 6,
+        "f658": 1,
+        "local_id": 0,
+        "name": "Configurations",
+        "configuration": "Default",
+        "comment": "",
+        "alternate_name": "",
+        "description": "",
+        "updated_at": 1790000000,
+        "layout_count": 19,
+        "context_calls": 26,
+        "virtual_calls": 7,
+        "map_sha256": "a947d55b93f6455a1dc666917e5e2199692861776d51f4b913947cac74f7461f"
+      }
+    }
+  },
+  "fresh_graphs": {
+    "unnamed": {
+      "sha256": "657f6f8d6df4184d2a5ed15b917e1b285ad69fe06913a93376692563b3fb349d",
+      "bytes": 1185,
+      "map_counter": 9,
+      "config_slot": 4,
+      "f658": 0,
+      "local_id": 0,
+      "name": null,
+      "configuration": "Face inspection Ω",
+      "comment": "Driver λ",
+      "alternate_name": "alternate α",
+      "description": "feature note 🧭",
+      "updated_at": 1795123456,
+      "layout_count": 19,
+      "context_calls": 26,
+      "virtual_calls": 7,
+      "map_sha256": "a12349df1286e0068c27b4fb68358dd13ffb3812b2b049d757ee06ed87b330a1"
+    },
+    "named": {
+      "sha256": "f38e6e26f070858a9ee7d270fb0e16e97ba3413ad043e4dc15cc6f79f154575e",
+      "bytes": 1215,
+      "map_counter": 10,
+      "config_slot": 6,
+      "f658": 0,
+      "local_id": 0,
+      "name": "Panel frame π",
+      "configuration": "Face inspection Ω",
+      "comment": "Driver λ",
+      "alternate_name": "alternate α",
+      "description": "feature note 🧭",
+      "updated_at": 1795123456,
+      "layout_count": 19,
+      "context_calls": 26,
+      "virtual_calls": 7,
+      "map_sha256": "4f2397bbceb374083fa01d0a8bcba9a9e4d6f8839e522bd0096d51cfc393f66c"
+    }
+  },
+  "refusals": [
+    {
+      "case": "version",
+      "diagnostic": "unsupported SOLIDWORKS ordinary body archive version 18900"
+    },
+    {
+      "case": "wrong_root",
+      "diagnostic": "SOLIDWORKS manager stream requires its configuration manager root"
+    },
+    {
+      "case": "wrong_schema",
+      "diagnostic": "unsupported SOLIDWORKS body class moConfigurationMgr_c schema 2"
+    },
+    {
+      "case": "truncated",
+      "diagnostic": "SOLIDWORKS body moConfigurationMgr_c field has8a0 at 1129: truncated SOLIDWORKS archive field at 1129"
+    },
+    {
+      "case": "trailing",
+      "diagnostic": "SOLIDWORKS manager has 1 trailing bytes"
+    },
+    {
+      "case": "write_wrong_virtual:moConfigurationMgr_c",
+      "diagnostic": "native body virtual flag requires a boolean target"
+    },
+    {
+      "case": "write_wrong_virtual:moPartConfiguration_c",
+      "diagnostic": "native body virtual flag requires a boolean target"
+    },
+    {
+      "case": "read_wrong_virtual:moConfigurationMgr_c",
+      "diagnostic": "native body virtual flag requires a boolean target"
+    },
+    {
+      "case": "read_wrong_virtual:moPartConfiguration_c",
+      "diagnostic": "native body virtual flag requires a boolean target"
+    },
+    {
+      "case": "populated_3d_print",
+      "diagnostic": "unsupported SOLIDWORKS body schema mo3DPrintSettings_c.load"
+    }
+  ],
+  "new_native_processes": 0,
+  "heldout_inputs": 0,
+  "conversion_credits": 0
+}

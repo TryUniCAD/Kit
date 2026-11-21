@@ -1,0 +1,467 @@
+{
+  "additional_runtime_file_access_attempts": 0,
+  "cached_ascii_and_utf16_regression_unchanged": true,
+  "f14a_generated_and_native_saved_regression_unchanged": true,
+  "fixture_producer_processes": 30,
+  "geometry_source": "typed_parametric_history",
+  "groups": [
+    {
+      "all_expected_modes_matched": true,
+      "case": "Design1Named",
+      "cold_projection_expected": true,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "Design1Plain",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "Design2Named",
+      "cold_projection_expected": true,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "Design2Plain",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "F14aGenerated",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "F14aNativeSaved",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AsciiCornerBase",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AsciiCornerNamed",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AsciiCenterBase",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AsciiCenterNamed",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeAccentBaseline",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeAccentRenamed",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeAccentReopened",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeBmpBaseline",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeBmpRenamed",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeBmpReopened",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeSupplementaryBaseline",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeSupplementaryRenamed",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnicodeSupplementaryReopened",
+      "cold_projection_expected": false,
+      "negative": false,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "MissingOutput",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "EmptyOutput",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "DuplicateOutput",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ForeignOutput",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "WrongOutputClass",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AlternateInput",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "WrongOutputId",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "MissingOutputId",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "WrongAtomId",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "WrongBase",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "WrongModifier",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AtomTag",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "AtomDisplay",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "DerivedName",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "EmptyName",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "NonAsciiName",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ManagerCounter",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "OldManager",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "EmbeddedBody",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ExtraAtom",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "GhostAtom",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ExtraRoot",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ModelMode",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ReversedEnd",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "DraftEnd",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "ProfileMode",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "SketchState",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "EmptyPresentCache",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "CorruptPresentCache",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    },
+    {
+      "all_expected_modes_matched": true,
+      "case": "UnknownRole",
+      "cold_projection_expected": false,
+      "negative": true,
+      "paired_modes": 5,
+      "passed": true
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "history_only_behavior_unchanged": true,
+  "input_manifest_sha256": "aa68b04553fd586d0866f8b8807e44963cd1355632541cba88a0eb48ce0723ca",
+  "malformed_fixture_groups": 30,
+  "method_tools_manifest_sha256": "2782e9dadd3157e4b7186f9cce7817715019a7239b99d2679a02b7cfdedbf056",
+  "modes": [
+    "default_strict",
+    "repeat",
+    "no_tessellation",
+    "history_only",
+    "lenient"
+  ],
+  "native_disclosed_result_sha256": "1904630cd69b81e200c353023bae8b55c519a7cf45136316befa6cf63107d0ed",
+  "native_kernel_identity": false,
+  "non_ascii_cacheless_name_qualification": false,
+  "original_named_source_qualification": false,
+  "paired_mode_comparisons": 245,
+  "passed": true,
+  "prior_false_trial": {
+    "attempted_processes": 126,
+    "cause": "fd90 manager f80 omitted and ghost row supplied as atom node rather than embedded ghost object",
+    "classification": "fixture_setup_failure_before_public_reader",
+    "completed_processes": 125,
+    "old_false_verdict_preserved": true,
+    "only_failed_group": "GhostAtom",
+    "original_input_changed_for_retry": false,
+    "passed": false,
+    "passed_groups": 48,
+    "public_probe_changed_for_retry": false,
+    "root_process_result_sha256": "34dff88065a4ba5cccbe414b8dd15b77a98977f27ea6ebc066b8125f1b7fb845",
+    "sdk_source_changed_for_retry": false
+  },
+  "public_reader_calls": 490,
+  "public_reader_processes": 98,
+  "public_writer_qualification": false,
+  "python_processes": 128,
+  "qualified_native_input_scope": "two independently generated ASCII cold body names on ordinary rectangular prisms",
+  "root_process_result_sha256": "467ee34b13341c748860e8aaa04c4331d430a2b5180f533e7200605529587e54",
+  "runtime_research_imports": 0,
+  "schema": "kit.sw2026.cacheless-body-reader-process.v1",
+  "source_after": {
+    "baseline": {
+      "files": 4331,
+      "manifest_sha256": "c589bf20ed89c6aca3d77564d392bbc1a9ebbc8be52f9427d0ce180411b22637"
+    },
+    "candidate": {
+      "files": 4340,
+      "manifest_sha256": "71043174b6de572419356ffc457e5f1c327b10a623f604201272948abbc1e4c9"
+    }
+  },
+  "source_before": {
+    "baseline": {
+      "files": 4331,
+      "manifest_sha256": "c589bf20ed89c6aca3d77564d392bbc1a9ebbc8be52f9427d0ce180411b22637"
+    },
+    "candidate": {
+      "files": 4340,
+      "manifest_sha256": "71043174b6de572419356ffc457e5f1c327b10a623f604201272948abbc1e4c9"
+    }
+  },
+  "source_closures_unchanged": true,
+  "source_states": 19,
+  "sources_immutable": true,
+  "strict_corrupt_or_present_cache_reconstruction": false,
+  "unexpected_sdk_module_origins": 0,
+  "unit_tests_run": 0
+}

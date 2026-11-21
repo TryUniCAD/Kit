@@ -1,0 +1,304 @@
+{
+  "generated_native_save_passed": false,
+  "schema": "kit.sw2026.blank-drawing-property-save-brackets-native.v1",
+  "comparison_passed": true,
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "script_revision": "d3cb7a1b4449d5ee9970754dd2914eb0a18bc1b6",
+  "raw_native_result_sha256": "ad6ddbb8b6cdf932faaca590a2515fce02426a935dbf6f1314c655852f4ecae1",
+  "host_transport_result_sha256": "c9834c8e219541abcd5f3e3bfee79f8de06ae0110746942f024bac9d5934ef2a",
+  "transport_exit_code": 0,
+  "packet_sha256": "663eae614bdf68b5864a4523c8947e0279ed425075ede25bfdad4d47891d0fae",
+  "native_processes": 7,
+  "controls_healthy": true,
+  "same_physical_paths": true,
+  "inputs_immutable": true,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 19247,
+      "fresh_reopen_passed": true
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 17840,
+      "fresh_reopen_passed": true,
+      "property_save_trace": {
+        "route": "all_property_stores_returned",
+        "stages": {
+          "outer_property_store_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "property_owner_null": false,
+            "storage_argument_null": false,
+            "summary_owner_null": false,
+            "custom_data_argument": 0,
+            "property_option_argument": 0
+          },
+          "general_property_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true,
+            "property_set_mode_u32": 1,
+            "property_set_mode_bytes": 4,
+            "property_set_dom_null": true
+          },
+          "general_property_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          },
+          "summary_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true
+          },
+          "summary_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          },
+          "solidworks_property_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true,
+            "property_set_mode_u32": 1,
+            "property_set_mode_bytes": 4,
+            "property_set_dom_null": false
+          },
+          "solidworks_property_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          }
+        }
+      },
+      "breakpoint_cleanup": {
+        "mode": "explicit_removed",
+        "before_detach_read_complete": true,
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "explicit_removal_complete": true,
+        "detached_and_restored": true,
+        "qualified": true
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "target_after_save_bytes": 0,
+      "fresh_reopen_passed": false,
+      "property_save_trace": {
+        "route": "solidworks_property_return_unobserved",
+        "stages": {
+          "outer_property_store_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "property_owner_null": false,
+            "storage_argument_null": false,
+            "summary_owner_null": false,
+            "custom_data_argument": 0,
+            "property_option_argument": 0
+          },
+          "general_property_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true,
+            "property_set_mode_u32": 1,
+            "property_set_mode_bytes": 4,
+            "property_set_dom_null": true
+          },
+          "general_property_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          },
+          "summary_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true
+          },
+          "summary_return": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": 1,
+            "eax_hex": "0x00000001"
+          },
+          "solidworks_property_call": {
+            "state": "observed",
+            "wait_exit_reason": "debug_event",
+            "eax_signed": null,
+            "eax_hex": null,
+            "argument_owner_null": false,
+            "matches_expected_owner": true,
+            "matches_expected_storage": true,
+            "property_set_mode_u32": 1,
+            "property_set_mode_bytes": 4,
+            "property_set_dom_null": false
+          },
+          "solidworks_property_return": {
+            "state": "save_returned_with_stop_unobserved",
+            "wait_exit_reason": "save_returned",
+            "eax_signed": null,
+            "eax_hex": null
+          }
+        }
+      },
+      "breakpoint_cleanup": {
+        "mode": "explicit_removed",
+        "before_detach_read_complete": true,
+        "after_detach_read_complete": true,
+        "all_sites_original_after_detach": true,
+        "explicit_removal_complete": true,
+        "detached_and_restored": true,
+        "qualified": true
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "target_after_save_bytes": 19740,
+      "fresh_reopen_passed": true
+    }
+  ],
+  "generated_footprint": {
+    "event_ordinals": [
+      7
+    ],
+    "save_status": [
+      false,
+      1,
+      0
+    ],
+    "target_states": [
+      {
+        "exists": false,
+        "bytes": null
+      },
+      {
+        "exists": false,
+        "bytes": null
+      },
+      {
+        "exists": true,
+        "bytes": 0
+      }
+    ]
+  },
+  "interpretation": "Both general property and summary saves return 1. Both SOLIDWORKS-specific bags enter their saves in XML mode 1 with a present retained DOM and verified owner and storage arguments. Only the native control delivers the SOLIDWORKS bag return stop, with EAX 1. The generated lane returns SaveAs error 1 with that armed stop unobserved.",
+  "module_sha256": {
+    "doccplu.dll": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+    "sldappu.dll": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+    "sldmfcu.dll": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+  },
+  "stops": [
+    {
+      "instruction_rva": 5207727,
+      "module": "sldappu.dll",
+      "name": "outer_property_store_call",
+      "sample": "typed_argument_nullness"
+    },
+    {
+      "instruction_rva": 700955,
+      "module": "sldmfcu.dll",
+      "name": "general_property_call",
+      "sample": "property_set_mode"
+    },
+    {
+      "instruction_rva": 700960,
+      "module": "sldmfcu.dll",
+      "name": "general_property_return",
+      "sample": "signed_eax"
+    },
+    {
+      "instruction_rva": 700991,
+      "module": "sldmfcu.dll",
+      "name": "summary_call",
+      "sample": "typed_argument_nullness"
+    },
+    {
+      "instruction_rva": 700994,
+      "module": "sldmfcu.dll",
+      "name": "summary_return",
+      "sample": "signed_eax"
+    },
+    {
+      "instruction_rva": 701043,
+      "module": "sldmfcu.dll",
+      "name": "solidworks_property_call",
+      "sample": "property_set_mode"
+    },
+    {
+      "instruction_rva": 701048,
+      "module": "sldmfcu.dll",
+      "name": "solidworks_property_return",
+      "sample": "signed_eax"
+    }
+  ],
+  "source_inside_call_receipt_sha256": "ff967d1e52aa384fb67af62cdbc9fa96124935530c22c1ba05f64c7567301c86",
+  "source_inside_call_host_sha256": "9cc1054d363d8f0cbd8fe9c4caea669be8ed74ab7552b19d851f5691a1c6e101",
+  "observer_tool_sha256": {
+    "DrawingSavePropertyBracketsDbgEng.py": "f866d93719a95991d5800ee8fea66929c04ab86266b200f1fd7ad99f5ffa6381",
+    "InspectBlankDrawingSavePropertyBracketsMatched.py": "464709c2ce5d114027ea8fc2db7e40e209ae6a74c66dec123712116fd2c1921d"
+  }
+}

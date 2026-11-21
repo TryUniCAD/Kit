@@ -1,0 +1,286 @@
+{
+  "schema": "kit.sw2026.radial-training-failed-attempt.v1",
+  "scope": "public-circle dispatch hook activation rejected before action or controls",
+  "source_revision": "dfc8071f92e5bce657e25cf102f3855a2025063e",
+  "frozen_sources": {
+    "schema": "kit-sw2026-frozen-oracle-source/1",
+    "guest_probe_executed": false,
+    "vendor_software_copied": false,
+    "heldout_native_payloads_read": false,
+    "acceptance": false,
+    "source_revision": "dfc8071f92e5bce657e25cf102f3855a2025063e",
+    "source_tree": "453c3e91502730d33ea2ec1c77a9a8f12f70d7d2",
+    "frozen_at_utc": "2026-11-16T09:34:53.851910+00:00",
+    "files": [
+      {
+        "path": "re/tooling/tupni/Observe.py",
+        "bytes": 16158,
+        "sha256": "d0e7cbe3feb69d39c34c1eb70dd59e130bd6dd554b1369b157be4725c3bc6596"
+      },
+      {
+        "path": "re/tooling/tupni/Solidworks2026.js",
+        "bytes": 53072,
+        "sha256": "2eadf951dcb6d53b9cadc1924de0f5ff88d9d686bc4e99326ab44b1a55bf94df"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTrainingModules.json",
+        "bytes": 683,
+        "sha256": "99190c0e0f8c7cfaf4d43d4a248f22af24a1549bd0f32aaebc8a514ab84c0dc7"
+      },
+      {
+        "path": "re/tooling/tupni/RadialTraining.json",
+        "bytes": 1234,
+        "sha256": "4c9827d10c27766f3dc9dfe05c9de16f757949def4ce7d8b1bd82e2f39e43f01"
+      },
+      {
+        "path": "re/tooling/tupni/AnnulusTraining.json",
+        "bytes": 831,
+        "sha256": "060fc61251afee7c172f731fb7c6501220f6671d0a5a9e69fb3db940028a9383"
+      },
+      {
+        "path": "re/tooling/tupni/PrepareSolidworks.py",
+        "bytes": 1837,
+        "sha256": "17ffe44c90853f39a91139517acc0c829a4c5f60f349b50bffb9a49e22b10f0b"
+      },
+      {
+        "path": "re/tooling/tupni/AuthorRadialTraining.py",
+        "bytes": 12605,
+        "sha256": "6e9fd00f38fec5996c352d21d83cd04626c5048b9132eaf35f7b9e6181ea94ee"
+      },
+      {
+        "path": "re/tooling/tupni/ExerciseSolidworks.py",
+        "bytes": 1216,
+        "sha256": "3a49580204e57062f533b864371063b99d586b88d59dfa7efa1a35ed311e1093"
+      },
+      {
+        "path": "re/tooling/sw2026/AuthorCurves.py",
+        "bytes": 65987,
+        "sha256": "d04cb45bbc35cf454d6cfe59875f295230f7ff1370ad7970ba798e451b2f8e31"
+      },
+      {
+        "path": "re/tooling/sw2026/Swapp.py",
+        "bytes": 15278,
+        "sha256": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+      },
+      {
+        "path": "re/tooling/sw2026/OracleIdentity.py",
+        "bytes": 4284,
+        "sha256": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
+      },
+      {
+        "path": "re/tooling/sw2026/InspectFresh.py",
+        "bytes": 4187,
+        "sha256": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793"
+      },
+      {
+        "path": "re/tooling/sw2026/CurveSpecs.json",
+        "bytes": 17275,
+        "sha256": "514c6e5d39933b29b904a98400d980b361fc4cb92644e2e626cfec0236f0d7b0"
+      },
+      {
+        "path": "re/solidworks/records/RadialTrainingHooks2026.json",
+        "bytes": 34389,
+        "sha256": "b45744a43f4cda022993cfde98a01bdb2db10edd459e2abeff01c4f2eb7cb3ab"
+      }
+    ]
+  },
+  "raw_trace": {
+    "file": "RadialTrainingTools07/AuthorObservation05.json",
+    "bytes": 15202,
+    "sha256": "a1937df98435d0ed114eb084b57bddac6b9935c3a65703e5189bca3654087d2f"
+  },
+  "raw_host": {
+    "file": "RadialTrainingAuthor05.Host.json",
+    "bytes": 3568,
+    "sha256": "594c6849a1852dea5c33068dd93dcc9c7a98ce56d25937454a5b44252419fb40"
+  },
+  "oracle_identity": {
+    "process_id": 3264,
+    "process_creation_filetime": 134392953027071037,
+    "executable": "SLDWORKS.exe",
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "version_matches": true,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "bytes": 718936,
+    "pe_machine": "0x8664"
+  },
+  "training_qualified": false,
+  "failed_stage": "checked hook activation",
+  "exception": "RPCException('unable to intercept instruction at 00000000456E06DA; please file a bug', 'Error', 'Error: unable to intercept instruction at 00000000456E06DA; please file a bug\\n    at value (/frida/runtime/core.js:374:9)\\n    at attach (/kit-tupni-observation.js:274:32)\\n    at activate (/kit-tupni-observation.js:494:13)\\n    at call (native)\\n    at handleRpcMessage (/frida/runtime/message-dispatcher.js:45:44)\\n    at handleMessage (/frida/runtime/message-dispatcher.js:25:23)')",
+  "mapped_instruction_windows": [
+    {
+      "module": "sldmodu.dll",
+      "rva": 24640528,
+      "bytes": 20,
+      "mapped_address": "0x4c8bfc10",
+      "mapped_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "expected_sha256": "72d867a98b46c6a22685be6edeee299bc4d58a3e258bf69c37f38751395623f2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24755440,
+      "bytes": 14,
+      "mapped_address": "0x4c8dbcf0",
+      "mapped_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "expected_sha256": "e28320c8bf90ce2b388b9fda36bc70744cc2e1655599753640fc9ac61ff5d2f7",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060064,
+      "bytes": 14,
+      "mapped_address": "0x4c8320a0",
+      "mapped_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "expected_sha256": "aba8de1929ccfa4833090de9152b4bc1d5fae7b211f8cafe1ad2c530abd31061",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 24060252,
+      "bytes": 15,
+      "mapped_address": "0x4c83215c",
+      "mapped_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "expected_sha256": "6c2f3fd1903f8af8a051d5e2250d6f481e0d4018c6020e574fb9ba39734cf1b3",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021482,
+      "bytes": 14,
+      "mapped_address": "0x4c54c32a",
+      "mapped_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "expected_sha256": "99d0caa0f2826b83bf28eb677d8c6a5c20c83a5bbbf27b34df1f1c34c98da6d2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21021512,
+      "bytes": 15,
+      "mapped_address": "0x4c54c348",
+      "mapped_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "expected_sha256": "cf21c3ef681a3ec8703616de5ba32dee6411997ed0052c4c4688dd3964aff2e2",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 6654129,
+      "bytes": 18,
+      "mapped_address": "0x4b7988b1",
+      "mapped_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "expected_sha256": "011687bb6f9bf7e775ecec5d16c21637806d50ec2a586aff191e9a7799672b13",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260336,
+      "bytes": 14,
+      "mapped_address": "0x492b01f0",
+      "mapped_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "expected_sha256": "f586f4fe0f414e19d96d990f8821702c9645533fe657981577338be06c78c8e8",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260602,
+      "bytes": 14,
+      "mapped_address": "0x492b02fa",
+      "mapped_sha256": "d4ccf264ef867e8424cabdaf2c9b89634f3680eb27441f07b390f2ac77fa4067",
+      "expected_sha256": "d4ccf264ef867e8424cabdaf2c9b89634f3680eb27441f07b390f2ac77fa4067",
+      "matches": true
+    },
+    {
+      "module": "slduiu.dll",
+      "rva": 4260683,
+      "bytes": 16,
+      "mapped_address": "0x492b034b",
+      "mapped_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "expected_sha256": "7f59e6f466d58aeff4367893cde7bae477d4b7896f3c2137fba9844d6928bd3b",
+      "matches": true
+    },
+    {
+      "module": "sldmodu.dll",
+      "rva": 21106256,
+      "bytes": 15,
+      "mapped_address": "0x4c560e50",
+      "mapped_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "expected_sha256": "7d969c050403f44b92cac982d97ad200df85365fbfc60f884b5752d7a497499e",
+      "matches": true
+    },
+    {
+      "module": "sldappu.dll",
+      "rva": 3081946,
+      "bytes": 18,
+      "mapped_address": "0x456e06da",
+      "mapped_sha256": "93ac4109b6028105ed38c27a132896df3cbd4897e98954a538295e29ba886c3e",
+      "expected_sha256": "93ac4109b6028105ed38c27a132896df3cbd4897e98954a538295e29ba886c3e",
+      "matches": true
+    }
+  ],
+  "all_twelve_mapped_instruction_windows_match": true,
+  "hook_activation_completed": false,
+  "cases_executed": 0,
+  "controls_executed": 0,
+  "native_crash_counted": false,
+  "reported_detach": {
+    "reason": "application-requested",
+    "crash": null
+  },
+  "field_closure_proven": false,
+  "callback_effects_proven": false,
+  "generated_writer_output": false,
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "post_inventory": {
+    "source": {
+      "file": "PublicCircleDispatchPostInventory01.json",
+      "bytes": 525,
+      "sha256": "01074161a777f4a8835a5db11963a57aae002d5def94de0d4ab016c0e00cde02"
+    },
+    "record": {
+      "scope": "read-only inventory after rejected public circle dispatch hook, before any retry",
+      "at_utc": "2026-11-16T09:39:32.548931+00:00",
+      "returncode": 0,
+      "stderr": "",
+      "raw_stdout_sha256": "e1344cbe6edfec989f6c6fbcffcbc7855979b5ebfc9e0d743a9b50303aa4eee7",
+      "row_count": 145,
+      "selected_processes": [
+        {
+          "name": "lmgrd.exe",
+          "pid": 1604
+        },
+        {
+          "name": "lmgrd.exe",
+          "pid": 7936
+        },
+        {
+          "name": "sw_d.exe",
+          "pid": 4276
+        }
+      ],
+      "process_mutations": false
+    }
+  },
+  "transport_returncode": 1,
+  "supervisor_exit_code": 1,
+  "automatic_guest_kill": false,
+  "automatic_vm_reset": false,
+  "automatic_retry": false,
+  "limits": [
+    "No control ran, so this result establishes neither a native document failure nor a native crash",
+    "The complete instruction window did not establish Frida relocator acceptance",
+    "The replacement target-load boundary must receive its own controlled measurement"
+  ]
+}

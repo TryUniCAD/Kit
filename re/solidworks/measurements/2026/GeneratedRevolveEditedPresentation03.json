@@ -1,0 +1,177 @@
+{
+  "schema": "kit.sw2026.generated-revolve-edited-presentation.v1",
+  "source_revision": "fb556fe21601f22a3b4fefea053b0bb3af33eaf4",
+  "generator_revision": "cd0cf5738f074ac9d4fe44490db2bb89cc18dfe6",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "job_sha256": "42d76197e7c15ce3c194a7ef44a7de52f9e17d3f3d31ab121384f58fb2a9fe84",
+  "inspector_sha256": "c3fe6d9afa8bf0cd5427adefd2aee914ee10bc9143e44bd83c81982451297b26",
+  "inspection_sha256": "e5dcb7db62b4926934eb2807a940a37fd90049a15f61b8dc7dbf632e809f1c04",
+  "transport_sha256": "0cd2794a99ae714b2ceef24a554bac4aab2cec5e431eb95a795e2efaa18996b6",
+  "controls_healthy": true,
+  "distinct_processes": 8,
+  "cases": [
+    {
+      "name": "KitRevolveFull",
+      "sha256": "7a9d859b21d02544bc4427d9c9001a172b79c013d0ec7e36abadce87d0f68480",
+      "generated_phase_sha256": "0cb636c40500c237056fd44af654ac84c38d167895cd6e9789fb83ccd027de97",
+      "saved_derivative": {
+        "sha256": "98f54a46e39caec999a49ee70d4b6523f1af7087f6b96c319a8d30f697cee7cb",
+        "bytes": 57680,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "fresh_phase_sha256": "16803b8c6e6cf4c36c3a484b653db2b3d978b2337b6dd7f38be7ded88a09defe",
+      "fresh_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "fresh_angular_value": 3.612831551628262,
+      "fresh_geometry": {
+        "volume": 6.21551540142126e-05,
+        "area": 0.010802654076994402,
+        "com": [
+          -0.00011055458885260589,
+          0.008000000000000002,
+          -0.01295639231380146
+        ],
+        "mass": 6.21551540142126e-05
+      },
+      "fresh_body_count": 1,
+      "fresh_direction_matches": true,
+      "tree_nodes": 20,
+      "tree_differences": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "KitRevolveForward",
+      "sha256": "2a058a4b28e9908d17d94c17c1aa7f210c1cbca8b5c69197e574193030b5d309",
+      "generated_phase_sha256": "bf0990d62bcedf99d81b8732e1640a89a785ea2510fe8b0d65ef85aad797b8c4",
+      "saved_derivative": {
+        "sha256": "0475601d86927b4efe45e906adad1ffc0cdd0bc66d6d361adc1601776fd4d648",
+        "bytes": 48958,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "fresh_phase_sha256": "6daa140dfa1c4915ac3b91c8a447f25e4e834da02ccda89328454b00b37a8a5f",
+      "fresh_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "fresh_angular_value": 1.3089969389957472,
+      "fresh_geometry": {
+        "volume": 9.657779415910621e-06,
+        "area": 0.0027780507298990668,
+        "com": [
+          0.007584193325607712,
+          -0.0009999999999999996,
+          -0.009656191160683503
+        ],
+        "mass": 9.657779415910621e-06
+      },
+      "fresh_body_count": 1,
+      "fresh_direction_matches": true,
+      "tree_nodes": 20,
+      "tree_differences": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        }
+      ]
+    },
+    {
+      "name": "KitRevolveReverse",
+      "sha256": "01287ff5392439b017a46dce4b543ce7204558523981063af5a9bd9b16db62b9",
+      "generated_phase_sha256": "1c260cb5a65e3da04f23774d5f8f07a38bfd612302fdfdb564d7ee06b5bbf7d6",
+      "saved_derivative": {
+        "sha256": "216ed9d232fee15103d1cdda6ab260dbe81231bdf51df983f91bb9de68ab8717",
+        "bytes": 72685,
+        "save_status": [
+          true,
+          0,
+          0
+        ]
+      },
+      "fresh_phase_sha256": "d59bbd4de4fd6b9e8a8d71c4aeacf90ccbfd7e4295a04bf7b721e972b170b453",
+      "fresh_open": {
+        "opened": true,
+        "errors": 0,
+        "warnings": 0
+      },
+      "fresh_angular_value": 1.858775653373961,
+      "fresh_geometry": {
+        "volume": 2.0460473004513867e-05,
+        "area": 0.0047662843570915004,
+        "com": [
+          0.02921444321107444,
+          0.013678798363937882,
+          -0.013500000000000002
+        ],
+        "mass": 2.0460473004513867e-05
+      },
+      "fresh_body_count": 1,
+      "fresh_direction_matches": true,
+      "tree_nodes": 20,
+      "tree_differences": [
+        {
+          "index": 12,
+          "before": {
+            "name": "authored material",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          },
+          "after": {
+            "name": "Material <not specified>",
+            "type": "MaterialFolder",
+            "error": 0,
+            "warning": false,
+            "suppressed": false
+          }
+        }
+      ]
+    }
+  ],
+  "passed": false,
+  "geometry_and_angles_matched": true,
+  "heldout_acceptance": false
+}

@@ -1,0 +1,895 @@
+{
+  "application_usable": false,
+  "complete_source_preparation": false,
+  "counts": {
+    "fresh_process_count": 101,
+    "independent_authored_variants": 6,
+    "independent_seven_fragment_round_trips": 56,
+    "negative_process_count": 63,
+    "old_complete_container_pairs": 2,
+    "old_empty_manager_definition_pairs": 2,
+    "old_member_fragment_pairs": 2,
+    "owner_inventory_stream_round_trips": 8,
+    "source_line_tables_retained": 2
+  },
+  "delivery_pr": 121,
+  "heldout_inputs_read": 0,
+  "independent_integration_replay": {
+    "expected_refusals": 63,
+    "fresh_processes": 101,
+    "independent_native_rule_report_matches": true,
+    "only_output_path_digest_differences": [
+      "D01/RemainingOwners",
+      "D02/RemainingOwners"
+    ],
+    "raw_report_sha256": "17e6d2423d8440bfbdcc7543d440b3d3476e2167c2a8cfd6f6f7450dbc29bdf0",
+    "same_semantic_results": true
+  },
+  "independent_variants": [
+    "Distinct case-sensitive categories sharing one font selector",
+    "Accented, BMP and supplementary-plane UTF16 keys, including long sampled keys",
+    "Independent pattern captions, signed segment periods and thick/thin states",
+    "Reordered insertions and constructed same-bucket collisions",
+    "Empty tables and unmatched local font selector names",
+    "Existing source cameras, empty managers and six owner fragments unchanged"
+  ],
+  "native_acceptance": false,
+  "native_processes": 0,
+  "native_rule_sha256": "714818e7e0615fb74589b3ec148bc69363d33acdf4e3fb8f173272cfad2cae8d",
+  "negative_groups": {
+    "semantic_input": 19,
+    "source_typed_field_ownership": 41,
+    "wire_boundary": 3
+  },
+  "new_complete_native_outputs": 0,
+  "observer_predecessor": {
+    "earlier_source_manifest_sha256": "f19776a5bb32b5b39da06c4275383472f6ac76a2132514a03b72ad6969bfa4f7",
+    "failure_record_sha256": "0aa4b60c401dfda555da298b66ace4dd3f92db2a767c0e82a703f63ff884de9e",
+    "reason": "A construction-only diagnostic was compared to a reparsed graph. The corrected observer requires the two distinct diagnostic states and exact equality of all other fields.",
+    "sdk_changed_for_retry": false
+  },
+  "outcome": "All scoped host process checks pass. Native and original-held-out acceptance remain unmeasured and closed.",
+  "owner": "PR121 root; configuration_header line-presentation tranche",
+  "passed": true,
+  "positive_cases": [
+    {
+      "camera_empty_manager_state_exact": true,
+      "case": "D01",
+      "constructor_and_readback_object_identity_exact": true,
+      "full_source_refusal_unchanged": true,
+      "old_definition_exact": true,
+      "remaining_definition_frontiers": 6,
+      "remaining_manager_frontiers": 29,
+      "seven_fragment_round_trips": true,
+      "six_prior_fragments_exact": true,
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_field_bit_identity": true,
+      "source_font_bindings": 40,
+      "source_patterns": 7,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d"
+    },
+    {
+      "camera_empty_manager_state_exact": true,
+      "case": "D02",
+      "constructor_and_readback_object_identity_exact": true,
+      "full_source_refusal_unchanged": true,
+      "old_definition_exact": true,
+      "remaining_definition_frontiers": 6,
+      "remaining_manager_frontiers": 29,
+      "seven_fragment_round_trips": true,
+      "six_prior_fragments_exact": true,
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_field_bit_identity": true,
+      "source_font_bindings": 40,
+      "source_patterns": 7,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431"
+    },
+    {
+      "case": "independent_1",
+      "category_count": 6,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 2,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    },
+    {
+      "case": "independent_2",
+      "category_count": 6,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 2,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    },
+    {
+      "case": "independent_3",
+      "category_count": 6,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 2,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    },
+    {
+      "case": "independent_4",
+      "category_count": 0,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 0,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    },
+    {
+      "case": "independent_5",
+      "category_count": 1,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 2,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    },
+    {
+      "case": "independent_6",
+      "category_count": 5,
+      "map_order_predicted": true,
+      "new_objects_distinct": true,
+      "pattern_count": 2,
+      "prior_six_fragments_exact": true,
+      "seven_fragment_round_trips": true
+    }
+  ],
+  "process_report_sha256": "237dcbc82edb59634981db1b87543c6c838e44877c535ac6ee0771fcfe6388af",
+  "public_activation": false,
+  "records": [
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BaselineSource",
+      "record_sha256": "d20de6701285fdb59fd9f792bf21f3ade66a6eb28b6c48dbffc05bd8ba0e347c"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/Source",
+      "record_sha256": "304c7c4a29eaf54dd3fc029f63b339a9916719f7edbb4fe14569b8ccd4d41608"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BuildA",
+      "record_sha256": "fad26319b45e89a3334c3cd07d77a2a9a15c0b54a768b7291ec57f1765096e35"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/BuildB",
+      "record_sha256": "fad26319b45e89a3334c3cd07d77a2a9a15c0b54a768b7291ec57f1765096e35"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/Readback",
+      "record_sha256": "ac1639abf62eaeeb1e27195ad66bf69ba5f54a818e6d921b00204e6f1e11cd36"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/RemainingOwners",
+      "record_sha256": "cba1d84946575b70476da617aed04e93dc1d62961da3ce996fe1fc75cfa3c430"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/DefaultBaseline",
+      "record_sha256": "03ba6d9e5e7dbf62411cda11482278c533eb7f0fd3cfd4d0dad1e04379e9d8e2"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D01/DefaultCandidate",
+      "record_sha256": "3a755d7e0210d5c3e3d9f073b509ce7562e7a317cb34532e48ac9fd0bea56927"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BaselineSource",
+      "record_sha256": "f6b0b0d95540ce88f5e3ee087dafc07fc911b5df9e4ed3b3c3bc220ddb470d8b"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/Source",
+      "record_sha256": "f9b1d85bc7e02fdd807bcb4350392a666599d0e49b1e8a3150c5848648a854d7"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BuildA",
+      "record_sha256": "edbb746f324129345374750ce3c908295a0bec8a7028e113f9425faa440fa6b1"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/BuildB",
+      "record_sha256": "edbb746f324129345374750ce3c908295a0bec8a7028e113f9425faa440fa6b1"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/Readback",
+      "record_sha256": "316d1888752ea83885ea18653596a14de95903f12effe12f5751bf1f0316c522"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/RemainingOwners",
+      "record_sha256": "852545863f809d202ba21ce7cee3980f9c9feed5904025872ba010c9c6a97d53"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/DefaultBaseline",
+      "record_sha256": "6c9e4857ede41aad8e87b3e725a6354530bbb8264b504c9eca1aa0f26291fdbd"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "D02/DefaultCandidate",
+      "record_sha256": "e27da7dc9b8ea166e6b0a3d0a4e1b811fb54af7318ce55059ec247aad6f07a8d"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/BuildA",
+      "record_sha256": "e60eda28bf20724ec9135c1f07b6b88a5233e73bb47782a1670b9c560cfa6f85"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/BuildB",
+      "record_sha256": "e60eda28bf20724ec9135c1f07b6b88a5233e73bb47782a1670b9c560cfa6f85"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent1/Readback",
+      "record_sha256": "347ac4846a0c51fbb406e20fbb333cfe94c034a2adb8e6183c214281b589b6dd"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/BuildA",
+      "record_sha256": "98ffddf3e173e826a7eb3df088d21dc5b29f640092a99d1c627a6320a3de0f7e"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/BuildB",
+      "record_sha256": "98ffddf3e173e826a7eb3df088d21dc5b29f640092a99d1c627a6320a3de0f7e"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent2/Readback",
+      "record_sha256": "43614e0a94c48be0fce102c2929fedbda4f13860bada039bad97c123af707c79"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/BuildA",
+      "record_sha256": "44250df95c2a41f2a62d83a29161a9619ebced8a256af57a33a989226ae5f5ff"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/BuildB",
+      "record_sha256": "44250df95c2a41f2a62d83a29161a9619ebced8a256af57a33a989226ae5f5ff"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent3/Readback",
+      "record_sha256": "d0ab1e4e32805135eda738295caa5abb009985996e62ad3e8dfe1e2511840c30"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/BuildA",
+      "record_sha256": "3a755d7e0210d5c3e3d9f073b509ce7562e7a317cb34532e48ac9fd0bea56927"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/BuildB",
+      "record_sha256": "3a755d7e0210d5c3e3d9f073b509ce7562e7a317cb34532e48ac9fd0bea56927"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent4/Readback",
+      "record_sha256": "f44273b8e0dc8498e1aeced9711025a9cf2e9c1aff29c726636ea0b68bf60df7"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/BuildA",
+      "record_sha256": "1d2885ba723d76ce095f5b7d55c97a9805d2140c1399cd84159dd83675fb031f"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/BuildB",
+      "record_sha256": "1d2885ba723d76ce095f5b7d55c97a9805d2140c1399cd84159dd83675fb031f"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent5/Readback",
+      "record_sha256": "da07194eba8e73c4ee430fe011f62a0b552c33cd31aecc72b846d881d5ee2e91"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/BuildA",
+      "record_sha256": "a0394e0a0f70361f264cdefe7a5139a98b8d4f9689580b73fe2741541c707f31"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/BuildB",
+      "record_sha256": "a0394e0a0f70361f264cdefe7a5139a98b8d4f9689580b73fe2741541c707f31"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "Independent6/Readback",
+      "record_sha256": "85e2bb03223c66926baf8a9f8fa49733e99c0189154ea2a05b88caeae5b20f9d"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_wrong_class",
+      "record_sha256": "df2e0ec924e11fdb7805ca082649af555501cc15182e04cf8aa6177c2ea985e0"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_wrong_schema",
+      "record_sha256": "df2e0ec924e11fdb7805ca082649af555501cc15182e04cf8aa6177c2ea985e0"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_unknown_field",
+      "record_sha256": "df2e0ec924e11fdb7805ca082649af555501cc15182e04cf8aa6177c2ea985e0"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_count_mismatch",
+      "record_sha256": "3ce6da2c13775f2024f766864f2f4e201af4774c673d6b6f9203b5ce65672ccc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_boolean_count",
+      "record_sha256": "ac2dd3be429daaae098b4628f761b353a8b539c44c431bf342aed8d2e4c50148"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_missing",
+      "record_sha256": "df2e0ec924e11fdb7805ca082649af555501cc15182e04cf8aa6177c2ea985e0"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_unknown_row",
+      "record_sha256": "891b2e6265ee81ba290a02fd3ce013160b5072c1d7be523bf3618fe9132255a3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_config_wrong_class",
+      "record_sha256": "891b2e6265ee81ba290a02fd3ce013160b5072c1d7be523bf3618fe9132255a3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_config_wrong_schema",
+      "record_sha256": "891b2e6265ee81ba290a02fd3ce013160b5072c1d7be523bf3618fe9132255a3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_config_unknown_field",
+      "record_sha256": "891b2e6265ee81ba290a02fd3ce013160b5072c1d7be523bf3618fe9132255a3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_config_alias",
+      "record_sha256": "3ce6da2c13775f2024f766864f2f4e201af4774c673d6b6f9203b5ce65672ccc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_duplicate_category",
+      "record_sha256": "09537473e850d90882e8d2753e81ca2ec28401a857667bc4dc249eefafdb112b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_star_category",
+      "record_sha256": "7afbe4914acb05034a24a0f89e19da1d1cbdf327b079786a17d533b81da70998"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_nul_category",
+      "record_sha256": "745e2138916c4a02b50ef6045b816e047747aefea97a787367266d9f258430c7"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_custom_width",
+      "record_sha256": "2a40a1f0042b2d78cc378c279d0ceffaf826afa36488abd736bb2d1d04831f51"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_width_unknown_field",
+      "record_sha256": "2a40a1f0042b2d78cc378c279d0ceffaf826afa36488abd736bb2d1d04831f51"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_weight",
+      "record_sha256": "5a81810fe747698ff82e31e7a077766d3cbfcf0b9b737132d219de242096075f"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_weight_boolean",
+      "record_sha256": "7d9a370be66f1fdb1bb3a4155ce10475779e3ebd29e3437f99c73e00d8dee898"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_end_cap",
+      "record_sha256": "098c867d061bc6e149b534c09373ab5d296c03241ecf24bf41b3e0f5278d98f2"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_end_cap_boolean",
+      "record_sha256": "4010866aabf686fb9f138439d8a066ddd16d9a69896c95021601e3097c26e523"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/font_reordered",
+      "record_sha256": "7f81ef8c1b6e6676db5f20e7936bf1dd145e28fea6222412f0302b5947dd359a"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_unknown_field",
+      "record_sha256": "df2e0ec924e11fdb7805ca082649af555501cc15182e04cf8aa6177c2ea985e0"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_count_mismatch",
+      "record_sha256": "3ce6da2c13775f2024f766864f2f4e201af4774c673d6b6f9203b5ce65672ccc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_boolean_count",
+      "record_sha256": "1b35aee8fe2ade98191a19345f4c6725ad0a8d20f2c5371c7ecdb3b3ef289c18"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_missing",
+      "record_sha256": "a6857cbd29ee22bf36911924b38fc5c1b1329a91846b1cce84dd557fe330a1fd"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_unknown_row",
+      "record_sha256": "3ce6da2c13775f2024f766864f2f4e201af4774c673d6b6f9203b5ce65672ccc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_config_alias",
+      "record_sha256": "3ce6da2c13775f2024f766864f2f4e201af4774c673d6b6f9203b5ce65672ccc"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_wrong_class",
+      "record_sha256": "4b16c8b7966a37fbdf33d27061738d497ca55f10a950c2a60afcdd0d6799de26"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_wrong_schema",
+      "record_sha256": "4b16c8b7966a37fbdf33d27061738d497ca55f10a950c2a60afcdd0d6799de26"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_unknown_node_field",
+      "record_sha256": "4b16c8b7966a37fbdf33d27061738d497ca55f10a950c2a60afcdd0d6799de26"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_duplicate_name",
+      "record_sha256": "09537473e850d90882e8d2753e81ca2ec28401a857667bc4dc249eefafdb112b"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_segment_count",
+      "record_sha256": "dfbfe5023d12344f23d603dfb9edcb0d09998eedb05a844e01546e8d62fe5386"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_segment_boolean",
+      "record_sha256": "0a823f841cd47aacaae726d2850dc493ce40c5b83d3dc8dda7bfec11afe0b2eb"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_segment_unknown",
+      "record_sha256": "ca414c54c972f830156bbec8e9684ec4fa5f1b66d8052e6b0228cd8f4ec3a260"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_zero_period",
+      "record_sha256": "d2e32548582592d7ecec04b322a6397bc65110fe7009c8fd87971cb971a0b4b2"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_nonfinite",
+      "record_sha256": "4ba1d7fe3eaeee8a14aa55fa566e49710d3abad02a9fac328a360d9e5cc1a073"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_thick_thin",
+      "record_sha256": "dfbfe5023d12344f23d603dfb9edcb0d09998eedb05a844e01546e8d62fe5386"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/style_thick_boolean",
+      "record_sha256": "7608344eafe502e63e5903a188370bd8a93e45dcdaed0195d32621b337a806c7"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_schema",
+      "record_sha256": "d18df4438102ebd5f7b14568830d24fd89a4e2c4102290412aeacb1700fedf01"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_class",
+      "record_sha256": "d18df4438102ebd5f7b14568830d24fd89a4e2c4102290412aeacb1700fedf01"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "SourceRejects/wrong_version",
+      "record_sha256": "9b0537f617e5d82762c05977ee3c9b6dbcf751ecd50b87d23df31ca4f35f5bd6"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/category_empty",
+      "record_sha256": "230768d6364579ab23146bf43cfa4adc7890c453f47faba8c6423a0ca32db696"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/category_star",
+      "record_sha256": "230768d6364579ab23146bf43cfa4adc7890c453f47faba8c6423a0ca32db696"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/category_nul",
+      "record_sha256": "4b11840f7d3bb2171bb0dd8bd5c1a5381cb52116c7c9c216ef4370a9cd6adfa5"
+    },
+    {
+      "error_type": "UnicodeEncodeError",
+      "exit": 3,
+      "label": "InputRejects/category_surrogate",
+      "record_sha256": "9e9283506d3408fa158911ead9e3415a519194b28b2694f8aef96852c2d1b494"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/category_duplicate",
+      "record_sha256": "aa4120527825763c446dd1c21b62dc6f9be841a837c7992f8fd449b68a4effda"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/font_name_empty",
+      "record_sha256": "230768d6364579ab23146bf43cfa4adc7890c453f47faba8c6423a0ca32db696"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/font_name_nul",
+      "record_sha256": "f0b286e7f7b222cb9565f0eb296603c8fb747301047163f2938f98e6a6676ec3"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/weight_boolean",
+      "record_sha256": "63c2e50909f455eab4db255bdba7eb8e6e8d84052d2859568419932084187f9d"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/weight_unqualified",
+      "record_sha256": "63c2e50909f455eab4db255bdba7eb8e6e8d84052d2859568419932084187f9d"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/endcap_boolean",
+      "record_sha256": "9f1398570b6a42b7a898ef2567a3d7182d0e5de8b43d623478c57445812af933"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/endcap_unqualified",
+      "record_sha256": "9f1398570b6a42b7a898ef2567a3d7182d0e5de8b43d623478c57445812af933"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/pattern_name_empty",
+      "record_sha256": "0b8d116c18248d124694c84fa148fab739c0d44eaddb3185a5fec99685a94b22"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/pattern_caption_empty",
+      "record_sha256": "0b8d116c18248d124694c84fa148fab739c0d44eaddb3185a5fec99685a94b22"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/pattern_duplicate",
+      "record_sha256": "aa4120527825763c446dd1c21b62dc6f9be841a837c7992f8fd449b68a4effda"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/pattern_empty_segments",
+      "record_sha256": "ffa7ba8e5c83e19d135687524b1f6d187f6e0070ff36f761747c1c0c22cbdd20"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "InputRejects/pattern_zero_period",
+      "record_sha256": "a7bf355c300d464e93dd9c3768c6be3d9fba790bc2287cd1082a49922739d443"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/pattern_boolean_segment",
+      "record_sha256": "962fb2f086281fb1a7f5be24e23a4616d15cce4764c0fa7f0a3a0902859f7214"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/pattern_thick_integer",
+      "record_sha256": "3e72fbc16910d4e5773c8b9364102cfbc61df260c6bff737df3f69872f49b0db"
+    },
+    {
+      "error_type": "TypeError",
+      "exit": 3,
+      "label": "InputRejects/wrong_type",
+      "record_sha256": "ccceed96c0932015fbe27b23e8f718a791330cd5dd4b48ff1fcc12c01f9856b1"
+    },
+    {
+      "error_type": "ValueError",
+      "exit": 3,
+      "label": "WireRejects/truncated_definition",
+      "record_sha256": "f52b4ab292fa86b72a3ca8bddc5bcbdc1e251858a3e531c34475125b40559742"
+    },
+    {
+      "error_type": "BodyUnsupported",
+      "exit": 3,
+      "label": "WireRejects/definition_trailer",
+      "record_sha256": "1b143103ee5ab3c7b73328544578c41f9cdf43ba83c55ee2bafa653f1002e7a9"
+    },
+    {
+      "error_type": "BodyUnsupported",
+      "exit": 3,
+      "label": "WireRejects/resolved_map_base",
+      "record_sha256": "1b48b1233cd9c29b534143979256b918e33f03c50fe8bc9b6ca4c12ad03f1a53"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/BaseRoot0",
+      "record_sha256": "92cab56a7b89a5e76ff120910bb9e39e487c42c28e0a0eabc8fc7f90dfac5d16"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/Code010",
+      "record_sha256": "92cab56a7b89a5e76ff120910bb9e39e487c42c28e0a0eabc8fc7f90dfac5d16"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/BaseRoot1",
+      "record_sha256": "f80710096f28b807dc0d082be3ed0d82de5b06f1dedd09d3318a26b3b3601a50"
+    },
+    {
+      "error_type": null,
+      "exit": 0,
+      "label": "FullCompatibility/Code011",
+      "record_sha256": "f80710096f28b807dc0d082be3ed0d82de5b06f1dedd09d3318a26b3b3601a50"
+    }
+  ],
+  "runtime_input_reads_during_construction": 0,
+  "schema": "kit.sw2026.throughall-line-presentation-measurement.v1",
+  "scope": "Internal source-owned ordinary part font/style component only; no complete source or public admission",
+  "source_completeness_acceptance": false,
+  "source_generation_rule": "Read actual source semantic strings, signed catalog segments, preset widths and endcaps; instantiate entirely fresh pattern/font nodes; compute counts/tags and native category map walk from modeled insertions. No saved byte, offset, row program or default table is embedded.",
+  "source_manifest_sha256": "2ef1a1cbc8526b5921a9e9004aee95be86cc2092ccf01d46c265157236088a21",
+  "static_checks": [
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceConfig/MakeThruLines.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Construction/ThroughAll/SourceConfig/MakeThruLines.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/CheckLineInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/CheckLineInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/FontBinding.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/FontBinding.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/FontKeyHash.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/FontKeyHash.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/LinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/LinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/LineTableInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/LineTableInput.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeFontBind.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeFontBind.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLineTables.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLineTables.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/OrderFontBinds.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/OrderFontBinds.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadFontBind.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadFontBind.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLinePattern.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLineTables.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLineTables.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-format/src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/ReadThruLines.py"
+    },
+    {
+      "exit": 0,
+      "name": "black-check/src/convert/adapters/solidworks/Core/Preparation/ThroughAll/SourceConfig/ReadThruLines.py"
+    },
+    {
+      "exit": 0,
+      "name": "ruff"
+    },
+    {
+      "exit": 0,
+      "name": "mypy"
+    },
+    {
+      "exit": 0,
+      "name": "pyright"
+    },
+    {
+      "exit": 0,
+      "name": "steering"
+    },
+    {
+      "exit": 0,
+      "name": "donors"
+    }
+  ],
+  "static_report_sha256": "e4c2c740f8b8b052255e0562e80c1498680415c6de9b6e73d7d84b3707259491",
+  "task_id": "B04-SW2026-EXTRUDE-THROUGHALL",
+  "vendor_loadable": false
+}

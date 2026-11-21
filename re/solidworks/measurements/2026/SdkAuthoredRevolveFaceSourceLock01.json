@@ -1,0 +1,222 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "cut",
+  "split": "discovery",
+  "source_revision": "77a01c2b9681ceb899b0e1f51f50cf1f1a8e8a90",
+  "source_tree": "dab117719323e8ce550ff354ac41a2bfc7ecc630",
+  "job_sha256": "cdb9a7f146dbd9af86e9c02adaa5b8680f0258a8a5bae4334145916179b4671c",
+  "spec_sha256": "21cf79f8997dbdb0218abf8ec57b890c4c95249a9f7979db83e3e848304b8615",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "e9f90e3bffcb30646b30504769e3e27dc7d14b227cd5481aa6052c8c2832b29c",
+    "RevolveFamilyModel.py": "ea896511295d262e9e63748d1aff35b5ec7b9608d2724ea2af91ae30b534d4b5",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795244956.006541,
+  "sources": [
+    {
+      "case": "KitScopeTopDisclosure",
+      "native_sha256": "0a0cb93788ff82d18eeb8ebd15581925253e4caff1834054a51edb53bf0001dc",
+      "native_bytes": 94560,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "8449b9e9756adfa4f7a113e7c2593c07bafceed58bd924e87e1d5bdc145bbd8e",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "0ca0f4d98e298ab74d323fe72630493fefd28dd1e534030d713b40f2383313d9",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "0c28ad48a9d9dde0a9a3c8cd5f4c2968f4a8bab82cae640406bbba078e4888ce",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "KitScopeRightDisclosure",
+      "native_sha256": "ba8eabd8835ed2f1dc635debd837d7673bf4c0373b3c3407a601f6fdaab33bd5",
+      "native_bytes": 78876,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "241dfa6d0c7f9a91affe3ecf29b2a5f4f3074c3653d784d2242a7de238d8260c",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "e14b6a6f5ce4b9cb774efae9c3e9c4f495604c0d9e36da3cac2001c249c1e164",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "dc0b35c185a5e06334173c12337c424fe4c8910f34900ef1e868b21bf3b0cc5b",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "KitScopeTopReverse",
+      "native_sha256": "478335fcf4f49141c1528c225757d75d82c2c4a27b0027b40ae0993368e165eb",
+      "native_bytes": 96852,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "48ae6c56b72a1c8d345a84ad1e621b60f4eaede4211055b5ad9f82cd031d6d19",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "0a0a45bfc217ca22e67fdde0060de10e016102d67299ba852d5678b121cc8efb",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "f4f2b559262281746e379ac0369974fd6c2d135168b4bd6711365c7329087d17",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "KitScopeRightReverse",
+      "native_sha256": "6d5c799a925869ab93ebbc056aa0e4696039c063306e7f55bd5cdf79391fdca1",
+      "native_bytes": 76591,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "a5c21617556885bbe10792ac7b3cdd9723504e2c292c1483c63689b3b0317abe",
+          "passed": true,
+          "open_status": null,
+          "checks": 70,
+          "checks_passed": 70
+        },
+        {
+          "phase": "reopen",
+          "sha256": "29a230b300bd1c5a019de809db6abbf7f1de09c4618db28db5a97bed23dde14e",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 61,
+          "checks_passed": 61
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "91b8ff6c586299291c97ddbaf1bbecc3fa9773ed268a2eb2bcf6452d8832192a",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 30,
+          "checks_passed": 30
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "c332f679ca7373a37c8d1a1ab4e73ef6b45122f1fc9b16a1c47e1d074baf8f81",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "6350986afff40e5d999d0a25e32985f4ea9f89839294ce25d3ba588ba34cd51d",
+    "passed": true
+  },
+  "finished_at": 1795245557.8132956,
+  "fresh_processes": 14,
+  "distinct_processes": 14,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "passed": true
+}

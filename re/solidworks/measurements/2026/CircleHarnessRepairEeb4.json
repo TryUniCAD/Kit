@@ -1,0 +1,187 @@
+{
+  "schema": "kit.sw2026.circle-harness-repair-proof.v1",
+  "source_revision": "eeb4f54c22e27f7a6027c671a73a00a8bb9bdad9",
+  "tested_revision": "eaa7540cf75c8c3bed2d6bb0a60c7965e33f6e18",
+  "tested_tree": "0c6c042c78d9620e726a2f70f649bc13800408a3",
+  "verified_tested_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "eeb4f54c22e27f7a6027c671a73a00a8bb9bdad9"
+  ],
+  "run_id": 43924897684,
+  "job_id": 133501819634,
+  "artifact_id": 14256291105,
+  "artifact_bytes": 22697917,
+  "artifact_sha256": "363d143d6a2b19f5e8ac952877a4b400865c9ffc4c5492be5324db959033ca97",
+  "github_digest_independently_verified": true,
+  "native_format_cases_passed": 196,
+  "unrelated_corpus_cases_skipped": 158,
+  "policy_cases_passed": 171,
+  "compared_generation_source": "af61659cdcf2ab67f95e19c8923cab3deb74e3b3",
+  "tagged_neutral_outputs_identical": [
+    {
+      "name": "ArcNegativeSketch",
+      "sha256": "ab9763eb689f0ca25b7662944f416d68d7709842ce02755bc510dd2e2d691943",
+      "bytes": 6845
+    },
+    {
+      "name": "ArcPositiveSketch",
+      "sha256": "7e4856801beec8b656f9bf4e2c6764c856936055f6424150bc7558f8014127b0",
+      "bytes": 6836
+    },
+    {
+      "name": "CapsuleBossOne",
+      "sha256": "ce6a7dbdd0976e992b733de69990aed86094b30639a20e25d08d41af033838ae",
+      "bytes": 7776
+    },
+    {
+      "name": "CapsuleBossTwo",
+      "sha256": "9bd9c5143bba2670ed1db4ca41ca22b03c0704e33602d067049802e14928adb9",
+      "bytes": 7796
+    },
+    {
+      "name": "CapsuleSketchRotated",
+      "sha256": "eb319e2a0af11f121a1d479371eb686adb6b6ad74421eeaaea4a3cae71464ee5",
+      "bytes": 7015
+    },
+    {
+      "name": "CapsuleSketchSmall",
+      "sha256": "d995afb641f0c003b7bd6f23dc8fd5eb928adf888cd5ad8e9bac81f2f59fd143",
+      "bytes": 6989
+    },
+    {
+      "name": "CircleDiameterBoss",
+      "sha256": "efb0b1363ce774eda7d93abd60334ce69affa953814871010b002c3215e4730a",
+      "bytes": 7985
+    },
+    {
+      "name": "CircleRadiusBoss",
+      "sha256": "e26779b1cbf67954910daad1b5d356fb53c4d7e799da3187afe72caa89ab77f3",
+      "bytes": 7962
+    },
+    {
+      "name": "CircleSketchOne",
+      "sha256": "942d77b09a60cd4a296c19c4cd3f7f4a824233b1d0a3312f102b3371fe5aa9a9",
+      "bytes": 6772
+    },
+    {
+      "name": "CircleSketchTwo",
+      "sha256": "f61a4123b68606cca5498c039b19a7a029984faf0adc7be5c3a788d9b7029579",
+      "bytes": 6783
+    },
+    {
+      "name": "Control_after",
+      "sha256": "534c84aa639e37e15b415c10d7b5f9115ba751d823b0f3fbad4a39c6cec10dc3",
+      "bytes": 7617
+    },
+    {
+      "name": "Control_before",
+      "sha256": "955e110326b0edbcdeeea7badcf217a052b930db8797a583bdaf782bf17444dc",
+      "bytes": 7616
+    },
+    {
+      "name": "DiameterTopBoss",
+      "sha256": "c0e65c2da6425b24f5ac2600b419477b479ece24cae3450d1a0b881436a0a80f",
+      "bytes": 7979
+    },
+    {
+      "name": "DrivingDiameter",
+      "sha256": "c01dd094a943cdd23d698368849565a0c9b03c7c0eb7780e43e813d6ecf742cf",
+      "bytes": 7290
+    },
+    {
+      "name": "DrivingRadius",
+      "sha256": "4e879f3867f4420f6bb8aa2726c57bc0af1e77ec9925e6cbf1dff7bcf020654e",
+      "bytes": 7260
+    },
+    {
+      "name": "DualCircleBoss",
+      "sha256": "bf9ab94db9f50fd10f330cedf964faa54a14638be96717877d127143e918c360",
+      "bytes": 7978
+    },
+    {
+      "name": "DualCircleSketch",
+      "sha256": "349ce60dd2d639b610764602c8ed7316f22f77b63afd64152c6ee7df7ac23f29",
+      "bytes": 6866
+    },
+    {
+      "name": "FixedDiameter",
+      "sha256": "6a4d0d150fddefc47402c0d857558d75bb089a3bbd7dbb0c64d1428f921d010a",
+      "bytes": 7287
+    },
+    {
+      "name": "FixedRadius",
+      "sha256": "90a508290a45a843e8cb69df38db8848ba4d7519251330d1df48004006a1d99e",
+      "bytes": 7273
+    },
+    {
+      "name": "FourCircleSketch",
+      "sha256": "7834ef502050621d893216556b87cb43e172f1ad074171a03e5f6571c853a944",
+      "bytes": 6997
+    },
+    {
+      "name": "H01Forward",
+      "sha256": "d01da999e8cd156f3af62fe21eee8e362bddb5a7aca4c88e6e6775c371e2b842",
+      "bytes": 7967
+    },
+    {
+      "name": "H01TranslatedDiameter",
+      "sha256": "8b06fbed4d59e49f5e6c90aaf7ade8667bb2e77601676076f622773ca59bf27a",
+      "bytes": 7985
+    },
+    {
+      "name": "H02Reverse",
+      "sha256": "6b474e833e07ff8ef62aafa4794ec8d9c0edffc983e399d7f4bb9eb7783e16aa",
+      "bytes": 7967
+    },
+    {
+      "name": "H02ReverseTopCircle",
+      "sha256": "8adcae7ee0ebafa3dda245914ebabb8907c8f0a634c97cf99fca06ba2af8d447",
+      "bytes": 7988
+    },
+    {
+      "name": "H03MidPlane",
+      "sha256": "e8963d3c80b134194a5ce10ae5ca31c3f2339fdfee4881aba2e78240ceea96a0",
+      "bytes": 7986
+    },
+    {
+      "name": "H04TwoDirections",
+      "sha256": "5cded1cd89de1d91d50764cd9b5ed175db747ae0bfd9d43337d1c6e2fc5ebea6",
+      "bytes": 8015
+    },
+    {
+      "name": "H3_scalene",
+      "sha256": "557e111c6cc8cdfc72696d2f1b6f0191ef05c17df0746de3c5bf2db88d1b5bc7",
+      "bytes": 7618
+    },
+    {
+      "name": "H5_irregular",
+      "sha256": "9b5d2555a200c85c364e1facd09790fea8244fe592caa29bdc71ed3afcfac2b2",
+      "bytes": 7688
+    },
+    {
+      "name": "H7_irregular",
+      "sha256": "0a2a5b6f7637cda19b865bd7e057410da9f4baf2b165b7708f8a7d5e4e1c76d2",
+      "bytes": 7783
+    },
+    {
+      "name": "MidPlaneCircleBoss",
+      "sha256": "c4f992c1eddec2990feb473a5fda47422c8bc8ebf2d39b61dd741b8e1bc95075",
+      "bytes": 7998
+    },
+    {
+      "name": "RadiusRightBoss",
+      "sha256": "01e0db31c130c9da2e57cf57feb70de97ba0be6f413fc1e4c47a74fa8d71e3c1",
+      "bytes": 7970
+    },
+    {
+      "name": "ReverseCircleBoss",
+      "sha256": "0342cd600fb4f1d16fd66128d6fd47f2d013e71511a2827337bdf8816917d881",
+      "bytes": 7959
+    }
+  ],
+  "tagged_output_count": 32,
+  "changes": "New harness identifier lengths and explicit consumption/comparison of the base freeze result only; no frozen constructor, grammar, codec or request file changed",
+  "native_acceptance": false,
+  "new_generated_output_count": 0,
+  "heldout_native_payloads_read": false
+}

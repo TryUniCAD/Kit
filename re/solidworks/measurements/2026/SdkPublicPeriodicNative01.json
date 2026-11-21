@@ -1,0 +1,1164 @@
+{
+  "authored_boundary_si": {
+    "axis": [
+      0.6666666666666666,
+      -0.3333333333333333,
+      0.6666666666666666
+    ],
+    "face_center_m": [
+      -0.007125,
+      0.013375,
+      0.024625
+    ],
+    "height_m": 0.0325,
+    "radius_m": 0.0059375
+  },
+  "build_sha256": "c94e63ae58a79963f193f0328ae47160506f273011990a34b351af1e3a5e4a3f",
+  "candidate": {
+    "native_caps": [
+      "brep",
+      "configurations"
+    ],
+    "part": {
+      "bytes": 9039,
+      "sha256": "120d5ef09767aa1180bcfbf3c6818331594d53ab0a5091cebfb625080803361f"
+    },
+    "writer_epoch": 1795171943
+  },
+  "candidate_numeric_checks": 152,
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "heldout_cases": 0,
+  "job_sha256": "295b1e175cb273510d6be4fab1e0b2223f044c1666a4dd42d2645daca29a4687",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "original_fcstd_conversions": 0,
+  "passed": true,
+  "phases": {
+    "candidate": {
+      "cold": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 103
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 3,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.001433965240515497,
+          "cap_rims": [
+            {
+              "center_m": [
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            },
+            {
+              "center_m": [
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            }
+          ],
+          "caps": [
+            {
+              "outward_normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "plane_parameters": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666,
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "rim_station": 0
+            },
+            {
+              "outward_normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "plane_parameters": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666,
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "rim_station": 1
+            }
+          ],
+          "com_m": [
+            0.0037083333333333295,
+            0.007958333333333335,
+            0.03545833333333333
+          ],
+          "edges": 2,
+          "extreme_bounds_m": [
+            [
+              -0.011550551205468334,
+              -0.0030562620177268336,
+              0.020199448794531668
+            ],
+            [
+              0.018967217872134998,
+              0.0189729286843935,
+              0.050717217872135
+            ]
+          ],
+          "faces": 3,
+          "mantle_parameters": [
+            -0.007125,
+            0.013375,
+            0.024625,
+            0.6666666666666666,
+            -0.3333333333333333,
+            0.6666666666666666,
+            0.0059375
+          ],
+          "solids": 1,
+          "vertices": 0,
+          "volume_m3": 3.5994859187736553e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "first_failure": null,
+      "input_path": "C:\\KitPublicPeriodic01\\Candidate\\ObliqueCylinder.SLDPRT",
+      "numeric_checks": 76,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396455892248703,
+        "process_id": 1608,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "progress_windows": [],
+      "read_only": false,
+      "rebuilt": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 116
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 3,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.001433965240515497,
+          "cap_rims": [
+            {
+              "center_m": [
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            },
+            {
+              "center_m": [
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            }
+          ],
+          "caps": [
+            {
+              "outward_normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "plane_parameters": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666,
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "rim_station": 0
+            },
+            {
+              "outward_normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "plane_parameters": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666,
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "rim_station": 1
+            }
+          ],
+          "com_m": [
+            0.0037083333333333295,
+            0.007958333333333335,
+            0.03545833333333333
+          ],
+          "edges": 2,
+          "extreme_bounds_m": [
+            [
+              -0.011550551205468334,
+              -0.0030562620177268336,
+              0.020199448794531668
+            ],
+            [
+              0.018967217872134998,
+              0.0189729286843935,
+              0.050717217872135
+            ]
+          ],
+          "faces": 3,
+          "mantle_parameters": [
+            -0.007125,
+            0.013375,
+            0.024625,
+            0.6666666666666666,
+            -0.3333333333333333,
+            0.6666666666666666,
+            0.0059375
+          ],
+          "solids": 1,
+          "vertices": 0,
+          "volume_m3": 3.5994859187736553e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "512aa416128e961929f61588092131ac2c4759ec4ec50b5f8dc6cbaf1363f645",
+      "save": [
+        true,
+        0,
+        0
+      ],
+      "saved_path": "C:\\KitPublicPeriodic01\\NativeSave\\ObliqueCylinder.SLDPRT",
+      "saved_sha256": "212f9c067b67e5bff1d12080bad1cdbc397c5cb3016fd00cf6cf615c9a4f6a06"
+    },
+    "control_after": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396456512003465,
+        "process_id": 10204,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "da90bd087d9d5720e6e7a676e1f433e86829159d5118b874c3a161faa400d5f5"
+    },
+    "control_before": {
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396455646424199,
+        "process_id": 7948,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "691350ec95087810ff914aeccae99974998f307ef277b32ed20695cab49daf81"
+    },
+    "fresh_reopen": {
+      "cold": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": false,
+          "update_stamp": 116
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 3,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.001433965240515497,
+          "cap_rims": [
+            {
+              "center_m": [
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            },
+            {
+              "center_m": [
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            }
+          ],
+          "caps": [
+            {
+              "outward_normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "plane_parameters": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666,
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "rim_station": 0
+            },
+            {
+              "outward_normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "plane_parameters": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666,
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "rim_station": 1
+            }
+          ],
+          "com_m": [
+            0.0037083333333333295,
+            0.007958333333333335,
+            0.03545833333333333
+          ],
+          "edges": 2,
+          "extreme_bounds_m": [
+            [
+              -0.011550551205468334,
+              -0.0030562620177268336,
+              0.020199448794531668
+            ],
+            [
+              0.018967217872134998,
+              0.0189729286843935,
+              0.050717217872135
+            ]
+          ],
+          "faces": 3,
+          "mantle_parameters": [
+            -0.007125,
+            0.013375,
+            0.024625,
+            0.6666666666666666,
+            -0.3333333333333333,
+            0.6666666666666666,
+            0.0059375
+          ],
+          "solids": 1,
+          "vertices": 0,
+          "volume_m3": 3.5994859187736553e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "controller_diagnostics": [],
+      "dialogs": [],
+      "first_failure": null,
+      "input_path": "C:\\KitPublicPeriodic01\\NativeSave\\ObliqueCylinder.SLDPRT",
+      "numeric_checks": 76,
+      "open": {
+        "error": 0,
+        "returned_document": true,
+        "warning": 0
+      },
+      "oracle_identity": {
+        "bytes": 718936,
+        "executable": "SLDWORKS.exe",
+        "expected_version": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134396456202914471,
+        "process_id": 476,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "progress_windows": [],
+      "read_only": true,
+      "rebuilt": {
+        "application_state": {
+          "needs_rebuild": 0,
+          "save_flag": true,
+          "update_stamp": 129
+        },
+        "configuration": "Inspection",
+        "configurations": [
+          "Inspection"
+        ],
+        "feature": "Imported geometry",
+        "feature_faces": 3,
+        "feature_id": 18,
+        "persistent_reference": "384a000001000000fffeff000000000012000000",
+        "shape": {
+          "area_m2": 0.001433965240515497,
+          "cap_rims": [
+            {
+              "center_m": [
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            },
+            {
+              "center_m": [
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "radius_m": 0.0059375,
+              "trim": [
+                0.0,
+                6.283185307179586
+              ]
+            }
+          ],
+          "caps": [
+            {
+              "outward_normal": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666
+              ],
+              "plane_parameters": [
+                -0.6666666666666666,
+                0.3333333333333333,
+                -0.6666666666666666,
+                -0.007125,
+                0.013375,
+                0.024625
+              ],
+              "rim_station": 0
+            },
+            {
+              "outward_normal": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666
+              ],
+              "plane_parameters": [
+                0.6666666666666666,
+                -0.3333333333333333,
+                0.6666666666666666,
+                0.014541666666666665,
+                0.0025416666666666678,
+                0.04629166666666666
+              ],
+              "rim_station": 1
+            }
+          ],
+          "com_m": [
+            0.0037083333333333295,
+            0.007958333333333335,
+            0.03545833333333333
+          ],
+          "edges": 2,
+          "extreme_bounds_m": [
+            [
+              -0.011550551205468334,
+              -0.0030562620177268336,
+              0.020199448794531668
+            ],
+            [
+              0.018967217872134998,
+              0.0189729286843935,
+              0.050717217872135
+            ]
+          ],
+          "faces": 3,
+          "mantle_parameters": [
+            -0.007125,
+            0.013375,
+            0.024625,
+            0.6666666666666666,
+            -0.3333333333333333,
+            0.6666666666666666,
+            0.0059375
+          ],
+          "solids": 1,
+          "vertices": 0,
+          "volume_m3": 3.5994859187736557e-06
+        },
+        "tree_signature": [
+          [
+            "Comments",
+            "CommentsFolder",
+            null,
+            false
+          ],
+          [
+            "Favorites",
+            "FavoriteFolder",
+            null,
+            false
+          ],
+          [
+            "History",
+            "HistoryFolder",
+            null,
+            false
+          ],
+          [
+            "Selection Sets",
+            "SelectionSetFolder",
+            null,
+            false
+          ],
+          [
+            "Sensors",
+            "SensorFolder",
+            null,
+            false
+          ],
+          [
+            "Design Binder",
+            "DocsFolder",
+            null,
+            false
+          ],
+          [
+            "Annotations",
+            "DetailCabinet",
+            null,
+            false
+          ],
+          [
+            "Notes",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Notes1___EndTag___",
+            "NotesAreaFtrFolder",
+            "Annotations",
+            false
+          ],
+          [
+            "Surface Bodies",
+            "SurfaceBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Solid Bodies",
+            "SolidBodyFolder",
+            null,
+            false
+          ],
+          [
+            "Lights and Cameras",
+            "EnvFolder",
+            null,
+            false
+          ],
+          [
+            "Import ambient",
+            "AmbientLight",
+            "Lights and Cameras",
+            false
+          ],
+          [
+            "Markups",
+            "InkMarkupFolder",
+            null,
+            false
+          ],
+          [
+            "Equations",
+            "EqnFolder",
+            null,
+            false
+          ],
+          [
+            "Material <not specified>",
+            "MaterialFolder",
+            null,
+            false
+          ],
+          [
+            "Front Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Top Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Right Plane",
+            "RefPlane",
+            null,
+            false
+          ],
+          [
+            "Origin",
+            "OriginProfileFeature",
+            null,
+            false
+          ],
+          [
+            "Imported geometry",
+            "BaseBody",
+            null,
+            false
+          ]
+        ]
+      },
+      "record_sha256": "fd61f8809ce9b7a403137f9dc19ddeb64d78383642dbc68d7610649f57eec0fb"
+    }
+  },
+  "schema": "kit.sw2026.periodic-cylinder-public-native.v1",
+  "writer_revision": "8adcfeee894815e45380618aac3fea6eacb6d631"
+}

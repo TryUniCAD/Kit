@@ -1,0 +1,153 @@
+{
+  "codec_revision": "877b49b1e31eecd671bd1107455d8d70e9b93b38",
+  "codec_src_tree": "57261a3d8cbb5e11ba669cf8fe324e2d50f73d66",
+  "construction": {
+    "KitScopeRightReverse": {
+      "active_root_count": 23,
+      "bytes": 8863,
+      "config_counter": 90,
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          101
+        ],
+        "f18": 101,
+        "ff0": null,
+        "producer_id": 19
+      },
+      "sha256": "4d23fcf26a33b846fc98c25e1156969a6f453f8935252b1a18f780d553188a7a",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22462,
+          "sha256": "82cdd7b2c7ee26b87838e00c3f3e77e21d077f1ac91b4b0f176bd7288eaa59f8"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 709,
+          "sha256": "98ce688e688f1fe9b6193f834380a7a9fa81f1e26cd8e600e2144c3cc047616d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "2269bf34fa5055a15d2f7e6c7f5617640531940581fe17aad8a72ec0121e0d66"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 709,
+          "sha256": "bd480c969ae0564d145bdc0795256a2b18abdc0ef3aa30db1caa4282ded3e928"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1748,
+          "sha256": "500f1da54e760264d9dc5e4f418982e891cd2278e8a64c574bf3aa6f77d5e22d"
+        }
+      },
+      "zero_runtime_reads": true
+    },
+    "KitScopeTopReverse": {
+      "active_root_count": 23,
+      "bytes": 8979,
+      "config_counter": 90,
+      "resolved_counter": 269,
+      "resolved_key": "Contents/Config-0-ResolvedFeatures",
+      "selector": {
+        "f100": 0,
+        "f104": 0,
+        "f108": -1,
+        "f110": [
+          102
+        ],
+        "f18": 102,
+        "ff0": null,
+        "producer_id": 22
+      },
+      "sha256": "d6faebf0c1b7bce699cf2793e52ea63c513702ee55ae21674e604adffea87448",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "70474b41881012401a67e8eca956c59b9c797ed2be74ad5ef5b5ce2a0b60f1ee"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "048ca0677537c8e5a629f80663bfdee245e7cec6ddc007a526ec3aec561763b5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22458,
+          "sha256": "b03044368302dfe1e43806f403229f277e2571886ba39a1cd184a7a51614cd7c"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 697,
+          "sha256": "be67c84acae255cf020eec44f633073ec191c8942ee60035cb4b54a9a11dd3bd"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19339,
+          "sha256": "9cb53058f995b13bc410acfac111d672f2cadb32ad8880ed20944d04fd02c04f"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 697,
+          "sha256": "7f713ed4e717c2bae0440e998c3c42b334aa63c220c6bce852ef7570710bfec7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "0c5dbff803ea7852d1af92602a0110bec4e788fdb9ba9678d73cf8f5cd033bc2"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1746,
+          "sha256": "8d00319286ebe1b6697465aa35f0544649be2aed3e3cb6bae01fc01e9593b4fd"
+        }
+      },
+      "zero_runtime_reads": true
+    }
+  },
+  "epoch": 1760612759,
+  "files": {
+    "Candidates/KitScopeRightReverse.SLDPRT": "4d23fcf26a33b846fc98c25e1156969a6f453f8935252b1a18f780d553188a7a",
+    "Candidates/KitScopeTopReverse.SLDPRT": "d6faebf0c1b7bce699cf2793e52ea63c513702ee55ae21674e604adffea87448",
+    "Control/RevolveFull.SLDPRT": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "ModelSpecs.json": "61046d0d105b8d9109dbb18f235aed5ffe75172480ff9fb5dbf789dc7e605920",
+    "Tools/AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "Tools/AuthorRevolveFamilies.py": "e9f90e3bffcb30646b30504769e3e27dc7d14b227cd5481aa6052c8c2832b29c",
+    "Tools/AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "Tools/InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "Tools/OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Tools/RevolveFamilyModel.py": "ea896511295d262e9e63748d1aff35b5ec7b9608d2724ea2af91ae30b534d4b5",
+    "Tools/RunScopedRevolveNative.py": "0293178dbfccb8845390abac0d613db984ec32f1aaaf2b9331e74374c4ee1975",
+    "Tools/RunStockCutSelector.py": "d7e4ae8347e90b2846dfad6bb7ec5bf717d88de991c5bdf19dbabb4eb2fd3669",
+    "Tools/Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "generation_workers": 4,
+  "guest_packet": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\ScopedRevolveReverse03",
+  "guest_workspace": "C:\\KitSdkCandidates\\ScopedRevolveReverse03",
+  "new_heldout_credit": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "runtime_reads": 0,
+  "schema": "kit.sw2026.scoped-revolve-candidate-packet.v1"
+}

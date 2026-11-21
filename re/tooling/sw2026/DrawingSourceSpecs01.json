@@ -1,0 +1,28 @@
+{
+  "schema": "kit.sw2026.drawing-source-specs.v1",
+  "cases": [
+    {
+      "name": "D00EmptySheet",
+      "split": "discovery",
+      "view": null
+    },
+    {
+      "name": "D01FrontView",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Front",
+        "position_m": [0.10341, 0.08763],
+        "scale": 1.0
+      }
+    },
+    {
+      "name": "D02MovedFrontView",
+      "split": "discovery",
+      "view": {
+        "orientation": "*Front",
+        "position_m": [0.12937, 0.11987],
+        "scale": 1.0
+      }
+    }
+  ]
+}

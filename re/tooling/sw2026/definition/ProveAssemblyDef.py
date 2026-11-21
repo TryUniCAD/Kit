@@ -160,8 +160,8 @@ def reject_cases(wire):
         return emitted(job)
 
     return {
-        "part_mode_read": reject(lambda: ReadModelDef(wire, 19000), "ordinary part CLSID"),
-        "part_mode_write": reject(lambda: WriteModelDef(assembly), "uiPartDoc_c schema 1"),
+        "part_mode_read": reject(lambda: ReadModelDef(wire, 19000, OrdinaryOnly=True), "ordinary part CLSID"),
+        "part_mode_write": reject(lambda: WriteModelDef(assembly, OrdinaryOnly=True), "uiPartDoc_c schema 1"),
         "assembly_mode_read": reject(lambda: ReadModelDef(part_wire, 19000, Assembly=True), "ordinary assembly CLSID"),
         "assembly_mode_write": reject(lambda: WriteModelDef(part, Assembly=True), "uiAssemblyDoc_c schema 1"),
         "version": reject(lambda: ReadModelDef(wire, 18900, Assembly=True), "archive version 19000"),

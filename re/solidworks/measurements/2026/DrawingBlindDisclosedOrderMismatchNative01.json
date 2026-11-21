@@ -1,0 +1,2772 @@
+{
+  "case": {
+    "compared_value_count": 950,
+    "mismatch_count": 230,
+    "name": "D01FrontView",
+    "passed": false,
+    "reports": [
+      {
+        "compared_value_count": 164,
+        "mismatches": [
+          {
+            "generated": "Design Binder",
+            "path": "open_edit_save.initial.child_feature_tree[1][0]",
+            "source": "authored favorites"
+          },
+          {
+            "generated": "DocsFolder",
+            "path": "open_edit_save.initial.child_feature_tree[1][1]",
+            "source": "FavoriteFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.initial.child_feature_tree[2][0]",
+            "source": "authored history"
+          },
+          {
+            "generated": "DetailCabinet",
+            "path": "open_edit_save.initial.child_feature_tree[2][1]",
+            "source": "HistoryFolder"
+          },
+          {
+            "generated": "Notes",
+            "path": "open_edit_save.initial.child_feature_tree[3][0]",
+            "source": "authored selection sets"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.initial.child_feature_tree[3][1]",
+            "source": "SelectionSetFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.initial.child_feature_tree[3][2]",
+            "source": null
+          },
+          {
+            "generated": "Notes1___EndTag___",
+            "path": "open_edit_save.initial.child_feature_tree[4][0]",
+            "source": "authored sensors"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.initial.child_feature_tree[4][1]",
+            "source": "SensorFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.initial.child_feature_tree[4][2]",
+            "source": null
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.initial.child_feature_tree[5][0]",
+            "source": "Design Binder"
+          },
+          {
+            "generated": "EnvFolder",
+            "path": "open_edit_save.initial.child_feature_tree[5][1]",
+            "source": "DocsFolder"
+          },
+          {
+            "generated": "Ambient",
+            "path": "open_edit_save.initial.child_feature_tree[6][0]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "AmbientLight",
+            "path": "open_edit_save.initial.child_feature_tree[6][1]",
+            "source": "DetailCabinet"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.initial.child_feature_tree[6][2]",
+            "source": null
+          },
+          {
+            "generated": "Directional1",
+            "path": "open_edit_save.initial.child_feature_tree[7][0]",
+            "source": "Notes"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.initial.child_feature_tree[7][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.initial.child_feature_tree[7][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional2",
+            "path": "open_edit_save.initial.child_feature_tree[8][0]",
+            "source": "Notes1___EndTag___"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.initial.child_feature_tree[8][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.initial.child_feature_tree[8][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional3",
+            "path": "open_edit_save.initial.child_feature_tree[9][0]",
+            "source": "authored surfaces"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.initial.child_feature_tree[9][1]",
+            "source": "SurfaceBodyFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.initial.child_feature_tree[9][2]",
+            "source": null
+          },
+          {
+            "generated": "authored equations",
+            "path": "open_edit_save.initial.child_feature_tree[10][0]",
+            "source": "authored solids"
+          },
+          {
+            "generated": "EqnFolder",
+            "path": "open_edit_save.initial.child_feature_tree[10][1]",
+            "source": "SolidBodyFolder"
+          },
+          {
+            "generated": "authored favorites",
+            "path": "open_edit_save.initial.child_feature_tree[11][0]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "FavoriteFolder",
+            "path": "open_edit_save.initial.child_feature_tree[11][1]",
+            "source": "EnvFolder"
+          },
+          {
+            "generated": "authored history",
+            "path": "open_edit_save.initial.child_feature_tree[12][0]",
+            "source": "Ambient"
+          },
+          {
+            "generated": "HistoryFolder",
+            "path": "open_edit_save.initial.child_feature_tree[12][1]",
+            "source": "AmbientLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.initial.child_feature_tree[12][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "Material <not specified>",
+            "path": "open_edit_save.initial.child_feature_tree[13][0]",
+            "source": "Directional1"
+          },
+          {
+            "generated": "MaterialFolder",
+            "path": "open_edit_save.initial.child_feature_tree[13][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.initial.child_feature_tree[13][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored markups",
+            "path": "open_edit_save.initial.child_feature_tree[14][0]",
+            "source": "Directional2"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.initial.child_feature_tree[14][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.initial.child_feature_tree[14][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored selection sets",
+            "path": "open_edit_save.initial.child_feature_tree[15][0]",
+            "source": "Directional3"
+          },
+          {
+            "generated": "SelectionSetFolder",
+            "path": "open_edit_save.initial.child_feature_tree[15][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.initial.child_feature_tree[15][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored sensors",
+            "path": "open_edit_save.initial.child_feature_tree[16][0]",
+            "source": "authored markups"
+          },
+          {
+            "generated": "SensorFolder",
+            "path": "open_edit_save.initial.child_feature_tree[16][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored solids",
+            "path": "open_edit_save.initial.child_feature_tree[17][0]",
+            "source": "authored equations"
+          },
+          {
+            "generated": "SolidBodyFolder",
+            "path": "open_edit_save.initial.child_feature_tree[17][1]",
+            "source": "EqnFolder"
+          },
+          {
+            "generated": "authored surfaces",
+            "path": "open_edit_save.initial.child_feature_tree[18][0]",
+            "source": "Material <not specified>"
+          },
+          {
+            "generated": "SurfaceBodyFolder",
+            "path": "open_edit_save.initial.child_feature_tree[18][1]",
+            "source": "MaterialFolder"
+          }
+        ],
+        "passed": false
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [
+          {
+            "generated": "Design Binder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[1][0]",
+            "source": "authored favorites"
+          },
+          {
+            "generated": "DocsFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[1][1]",
+            "source": "FavoriteFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.rebuilt.child_feature_tree[2][0]",
+            "source": "authored history"
+          },
+          {
+            "generated": "DetailCabinet",
+            "path": "open_edit_save.rebuilt.child_feature_tree[2][1]",
+            "source": "HistoryFolder"
+          },
+          {
+            "generated": "Notes",
+            "path": "open_edit_save.rebuilt.child_feature_tree[3][0]",
+            "source": "authored selection sets"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[3][1]",
+            "source": "SelectionSetFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.rebuilt.child_feature_tree[3][2]",
+            "source": null
+          },
+          {
+            "generated": "Notes1___EndTag___",
+            "path": "open_edit_save.rebuilt.child_feature_tree[4][0]",
+            "source": "authored sensors"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[4][1]",
+            "source": "SensorFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.rebuilt.child_feature_tree[4][2]",
+            "source": null
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.rebuilt.child_feature_tree[5][0]",
+            "source": "Design Binder"
+          },
+          {
+            "generated": "EnvFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[5][1]",
+            "source": "DocsFolder"
+          },
+          {
+            "generated": "Ambient",
+            "path": "open_edit_save.rebuilt.child_feature_tree[6][0]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "AmbientLight",
+            "path": "open_edit_save.rebuilt.child_feature_tree[6][1]",
+            "source": "DetailCabinet"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.rebuilt.child_feature_tree[6][2]",
+            "source": null
+          },
+          {
+            "generated": "Directional1",
+            "path": "open_edit_save.rebuilt.child_feature_tree[7][0]",
+            "source": "Notes"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.rebuilt.child_feature_tree[7][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.rebuilt.child_feature_tree[7][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional2",
+            "path": "open_edit_save.rebuilt.child_feature_tree[8][0]",
+            "source": "Notes1___EndTag___"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.rebuilt.child_feature_tree[8][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.rebuilt.child_feature_tree[8][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional3",
+            "path": "open_edit_save.rebuilt.child_feature_tree[9][0]",
+            "source": "authored surfaces"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.rebuilt.child_feature_tree[9][1]",
+            "source": "SurfaceBodyFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.rebuilt.child_feature_tree[9][2]",
+            "source": null
+          },
+          {
+            "generated": "authored equations",
+            "path": "open_edit_save.rebuilt.child_feature_tree[10][0]",
+            "source": "authored solids"
+          },
+          {
+            "generated": "EqnFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[10][1]",
+            "source": "SolidBodyFolder"
+          },
+          {
+            "generated": "authored favorites",
+            "path": "open_edit_save.rebuilt.child_feature_tree[11][0]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "FavoriteFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[11][1]",
+            "source": "EnvFolder"
+          },
+          {
+            "generated": "authored history",
+            "path": "open_edit_save.rebuilt.child_feature_tree[12][0]",
+            "source": "Ambient"
+          },
+          {
+            "generated": "HistoryFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[12][1]",
+            "source": "AmbientLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.rebuilt.child_feature_tree[12][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "Material <not specified>",
+            "path": "open_edit_save.rebuilt.child_feature_tree[13][0]",
+            "source": "Directional1"
+          },
+          {
+            "generated": "MaterialFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[13][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.rebuilt.child_feature_tree[13][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored markups",
+            "path": "open_edit_save.rebuilt.child_feature_tree[14][0]",
+            "source": "Directional2"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[14][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.rebuilt.child_feature_tree[14][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored selection sets",
+            "path": "open_edit_save.rebuilt.child_feature_tree[15][0]",
+            "source": "Directional3"
+          },
+          {
+            "generated": "SelectionSetFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[15][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.rebuilt.child_feature_tree[15][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored sensors",
+            "path": "open_edit_save.rebuilt.child_feature_tree[16][0]",
+            "source": "authored markups"
+          },
+          {
+            "generated": "SensorFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[16][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored solids",
+            "path": "open_edit_save.rebuilt.child_feature_tree[17][0]",
+            "source": "authored equations"
+          },
+          {
+            "generated": "SolidBodyFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[17][1]",
+            "source": "EqnFolder"
+          },
+          {
+            "generated": "authored surfaces",
+            "path": "open_edit_save.rebuilt.child_feature_tree[18][0]",
+            "source": "Material <not specified>"
+          },
+          {
+            "generated": "SurfaceBodyFolder",
+            "path": "open_edit_save.rebuilt.child_feature_tree[18][1]",
+            "source": "MaterialFolder"
+          }
+        ],
+        "passed": false
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [
+          {
+            "generated": "Design Binder",
+            "path": "open_edit_save.edited.child_feature_tree[1][0]",
+            "source": "authored favorites"
+          },
+          {
+            "generated": "DocsFolder",
+            "path": "open_edit_save.edited.child_feature_tree[1][1]",
+            "source": "FavoriteFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.edited.child_feature_tree[2][0]",
+            "source": "authored history"
+          },
+          {
+            "generated": "DetailCabinet",
+            "path": "open_edit_save.edited.child_feature_tree[2][1]",
+            "source": "HistoryFolder"
+          },
+          {
+            "generated": "Notes",
+            "path": "open_edit_save.edited.child_feature_tree[3][0]",
+            "source": "authored selection sets"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.edited.child_feature_tree[3][1]",
+            "source": "SelectionSetFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.edited.child_feature_tree[3][2]",
+            "source": null
+          },
+          {
+            "generated": "Notes1___EndTag___",
+            "path": "open_edit_save.edited.child_feature_tree[4][0]",
+            "source": "authored sensors"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.edited.child_feature_tree[4][1]",
+            "source": "SensorFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "open_edit_save.edited.child_feature_tree[4][2]",
+            "source": null
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.edited.child_feature_tree[5][0]",
+            "source": "Design Binder"
+          },
+          {
+            "generated": "EnvFolder",
+            "path": "open_edit_save.edited.child_feature_tree[5][1]",
+            "source": "DocsFolder"
+          },
+          {
+            "generated": "Ambient",
+            "path": "open_edit_save.edited.child_feature_tree[6][0]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "AmbientLight",
+            "path": "open_edit_save.edited.child_feature_tree[6][1]",
+            "source": "DetailCabinet"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.edited.child_feature_tree[6][2]",
+            "source": null
+          },
+          {
+            "generated": "Directional1",
+            "path": "open_edit_save.edited.child_feature_tree[7][0]",
+            "source": "Notes"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.edited.child_feature_tree[7][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.edited.child_feature_tree[7][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional2",
+            "path": "open_edit_save.edited.child_feature_tree[8][0]",
+            "source": "Notes1___EndTag___"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.edited.child_feature_tree[8][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.edited.child_feature_tree[8][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional3",
+            "path": "open_edit_save.edited.child_feature_tree[9][0]",
+            "source": "authored surfaces"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "open_edit_save.edited.child_feature_tree[9][1]",
+            "source": "SurfaceBodyFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "open_edit_save.edited.child_feature_tree[9][2]",
+            "source": null
+          },
+          {
+            "generated": "authored equations",
+            "path": "open_edit_save.edited.child_feature_tree[10][0]",
+            "source": "authored solids"
+          },
+          {
+            "generated": "EqnFolder",
+            "path": "open_edit_save.edited.child_feature_tree[10][1]",
+            "source": "SolidBodyFolder"
+          },
+          {
+            "generated": "authored favorites",
+            "path": "open_edit_save.edited.child_feature_tree[11][0]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "FavoriteFolder",
+            "path": "open_edit_save.edited.child_feature_tree[11][1]",
+            "source": "EnvFolder"
+          },
+          {
+            "generated": "authored history",
+            "path": "open_edit_save.edited.child_feature_tree[12][0]",
+            "source": "Ambient"
+          },
+          {
+            "generated": "HistoryFolder",
+            "path": "open_edit_save.edited.child_feature_tree[12][1]",
+            "source": "AmbientLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.edited.child_feature_tree[12][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "Material <not specified>",
+            "path": "open_edit_save.edited.child_feature_tree[13][0]",
+            "source": "Directional1"
+          },
+          {
+            "generated": "MaterialFolder",
+            "path": "open_edit_save.edited.child_feature_tree[13][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.edited.child_feature_tree[13][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored markups",
+            "path": "open_edit_save.edited.child_feature_tree[14][0]",
+            "source": "Directional2"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "open_edit_save.edited.child_feature_tree[14][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.edited.child_feature_tree[14][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored selection sets",
+            "path": "open_edit_save.edited.child_feature_tree[15][0]",
+            "source": "Directional3"
+          },
+          {
+            "generated": "SelectionSetFolder",
+            "path": "open_edit_save.edited.child_feature_tree[15][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "open_edit_save.edited.child_feature_tree[15][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored sensors",
+            "path": "open_edit_save.edited.child_feature_tree[16][0]",
+            "source": "authored markups"
+          },
+          {
+            "generated": "SensorFolder",
+            "path": "open_edit_save.edited.child_feature_tree[16][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored solids",
+            "path": "open_edit_save.edited.child_feature_tree[17][0]",
+            "source": "authored equations"
+          },
+          {
+            "generated": "SolidBodyFolder",
+            "path": "open_edit_save.edited.child_feature_tree[17][1]",
+            "source": "EqnFolder"
+          },
+          {
+            "generated": "authored surfaces",
+            "path": "open_edit_save.edited.child_feature_tree[18][0]",
+            "source": "Material <not specified>"
+          },
+          {
+            "generated": "SurfaceBodyFolder",
+            "path": "open_edit_save.edited.child_feature_tree[18][1]",
+            "source": "MaterialFolder"
+          }
+        ],
+        "passed": false
+      },
+      {
+        "compared_value_count": 65,
+        "mismatches": [],
+        "passed": true
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [
+          {
+            "generated": "Design Binder",
+            "path": "fresh_reopen.initial.child_feature_tree[1][0]",
+            "source": "authored favorites"
+          },
+          {
+            "generated": "DocsFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[1][1]",
+            "source": "FavoriteFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.initial.child_feature_tree[2][0]",
+            "source": "authored history"
+          },
+          {
+            "generated": "DetailCabinet",
+            "path": "fresh_reopen.initial.child_feature_tree[2][1]",
+            "source": "HistoryFolder"
+          },
+          {
+            "generated": "Notes",
+            "path": "fresh_reopen.initial.child_feature_tree[3][0]",
+            "source": "authored selection sets"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[3][1]",
+            "source": "SelectionSetFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.initial.child_feature_tree[3][2]",
+            "source": null
+          },
+          {
+            "generated": "Notes1___EndTag___",
+            "path": "fresh_reopen.initial.child_feature_tree[4][0]",
+            "source": "authored sensors"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[4][1]",
+            "source": "SensorFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.initial.child_feature_tree[4][2]",
+            "source": null
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.initial.child_feature_tree[5][0]",
+            "source": "Design Binder"
+          },
+          {
+            "generated": "EnvFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[5][1]",
+            "source": "DocsFolder"
+          },
+          {
+            "generated": "Ambient",
+            "path": "fresh_reopen.initial.child_feature_tree[6][0]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "AmbientLight",
+            "path": "fresh_reopen.initial.child_feature_tree[6][1]",
+            "source": "DetailCabinet"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.initial.child_feature_tree[6][2]",
+            "source": null
+          },
+          {
+            "generated": "Directional1",
+            "path": "fresh_reopen.initial.child_feature_tree[7][0]",
+            "source": "Notes"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.initial.child_feature_tree[7][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.initial.child_feature_tree[7][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional2",
+            "path": "fresh_reopen.initial.child_feature_tree[8][0]",
+            "source": "Notes1___EndTag___"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.initial.child_feature_tree[8][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.initial.child_feature_tree[8][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional3",
+            "path": "fresh_reopen.initial.child_feature_tree[9][0]",
+            "source": "authored surfaces"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.initial.child_feature_tree[9][1]",
+            "source": "SurfaceBodyFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.initial.child_feature_tree[9][2]",
+            "source": null
+          },
+          {
+            "generated": "authored equations",
+            "path": "fresh_reopen.initial.child_feature_tree[10][0]",
+            "source": "authored solids"
+          },
+          {
+            "generated": "EqnFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[10][1]",
+            "source": "SolidBodyFolder"
+          },
+          {
+            "generated": "authored favorites",
+            "path": "fresh_reopen.initial.child_feature_tree[11][0]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "FavoriteFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[11][1]",
+            "source": "EnvFolder"
+          },
+          {
+            "generated": "authored history",
+            "path": "fresh_reopen.initial.child_feature_tree[12][0]",
+            "source": "Ambient"
+          },
+          {
+            "generated": "HistoryFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[12][1]",
+            "source": "AmbientLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.initial.child_feature_tree[12][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "Material <not specified>",
+            "path": "fresh_reopen.initial.child_feature_tree[13][0]",
+            "source": "Directional1"
+          },
+          {
+            "generated": "MaterialFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[13][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.initial.child_feature_tree[13][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored markups",
+            "path": "fresh_reopen.initial.child_feature_tree[14][0]",
+            "source": "Directional2"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[14][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.initial.child_feature_tree[14][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored selection sets",
+            "path": "fresh_reopen.initial.child_feature_tree[15][0]",
+            "source": "Directional3"
+          },
+          {
+            "generated": "SelectionSetFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[15][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.initial.child_feature_tree[15][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored sensors",
+            "path": "fresh_reopen.initial.child_feature_tree[16][0]",
+            "source": "authored markups"
+          },
+          {
+            "generated": "SensorFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[16][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored solids",
+            "path": "fresh_reopen.initial.child_feature_tree[17][0]",
+            "source": "authored equations"
+          },
+          {
+            "generated": "SolidBodyFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[17][1]",
+            "source": "EqnFolder"
+          },
+          {
+            "generated": "authored surfaces",
+            "path": "fresh_reopen.initial.child_feature_tree[18][0]",
+            "source": "Material <not specified>"
+          },
+          {
+            "generated": "SurfaceBodyFolder",
+            "path": "fresh_reopen.initial.child_feature_tree[18][1]",
+            "source": "MaterialFolder"
+          }
+        ],
+        "passed": false
+      },
+      {
+        "compared_value_count": 164,
+        "mismatches": [
+          {
+            "generated": "Design Binder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[1][0]",
+            "source": "authored favorites"
+          },
+          {
+            "generated": "DocsFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[1][1]",
+            "source": "FavoriteFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[2][0]",
+            "source": "authored history"
+          },
+          {
+            "generated": "DetailCabinet",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[2][1]",
+            "source": "HistoryFolder"
+          },
+          {
+            "generated": "Notes",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[3][0]",
+            "source": "authored selection sets"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[3][1]",
+            "source": "SelectionSetFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[3][2]",
+            "source": null
+          },
+          {
+            "generated": "Notes1___EndTag___",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[4][0]",
+            "source": "authored sensors"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[4][1]",
+            "source": "SensorFolder"
+          },
+          {
+            "generated": "authored annotations",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[4][2]",
+            "source": null
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[5][0]",
+            "source": "Design Binder"
+          },
+          {
+            "generated": "EnvFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[5][1]",
+            "source": "DocsFolder"
+          },
+          {
+            "generated": "Ambient",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[6][0]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "AmbientLight",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[6][1]",
+            "source": "DetailCabinet"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[6][2]",
+            "source": null
+          },
+          {
+            "generated": "Directional1",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[7][0]",
+            "source": "Notes"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[7][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[7][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional2",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[8][0]",
+            "source": "Notes1___EndTag___"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[8][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[8][2]",
+            "source": "authored annotations"
+          },
+          {
+            "generated": "Directional3",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[9][0]",
+            "source": "authored surfaces"
+          },
+          {
+            "generated": "DirectionLight",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[9][1]",
+            "source": "SurfaceBodyFolder"
+          },
+          {
+            "generated": "authored environment",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[9][2]",
+            "source": null
+          },
+          {
+            "generated": "authored equations",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[10][0]",
+            "source": "authored solids"
+          },
+          {
+            "generated": "EqnFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[10][1]",
+            "source": "SolidBodyFolder"
+          },
+          {
+            "generated": "authored favorites",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[11][0]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "FavoriteFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[11][1]",
+            "source": "EnvFolder"
+          },
+          {
+            "generated": "authored history",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[12][0]",
+            "source": "Ambient"
+          },
+          {
+            "generated": "HistoryFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[12][1]",
+            "source": "AmbientLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.rebuilt.child_feature_tree[12][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "Material <not specified>",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[13][0]",
+            "source": "Directional1"
+          },
+          {
+            "generated": "MaterialFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[13][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.rebuilt.child_feature_tree[13][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored markups",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[14][0]",
+            "source": "Directional2"
+          },
+          {
+            "generated": "NotesAreaFtrFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[14][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.rebuilt.child_feature_tree[14][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored selection sets",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[15][0]",
+            "source": "Directional3"
+          },
+          {
+            "generated": "SelectionSetFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[15][1]",
+            "source": "DirectionLight"
+          },
+          {
+            "generated": null,
+            "path": "fresh_reopen.rebuilt.child_feature_tree[15][2]",
+            "source": "authored environment"
+          },
+          {
+            "generated": "authored sensors",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[16][0]",
+            "source": "authored markups"
+          },
+          {
+            "generated": "SensorFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[16][1]",
+            "source": "NotesAreaFtrFolder"
+          },
+          {
+            "generated": "authored solids",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[17][0]",
+            "source": "authored equations"
+          },
+          {
+            "generated": "SolidBodyFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[17][1]",
+            "source": "EqnFolder"
+          },
+          {
+            "generated": "authored surfaces",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[18][0]",
+            "source": "Material <not specified>"
+          },
+          {
+            "generated": "SurfaceBodyFolder",
+            "path": "fresh_reopen.rebuilt.child_feature_tree[18][1]",
+            "source": "MaterialFolder"
+          }
+        ],
+        "passed": false
+      },
+      {
+        "compared_value_count": 65,
+        "mismatches": [],
+        "passed": true
+      }
+    ],
+    "state": "native_mismatch"
+  },
+  "comparison_contract": {
+    "all_five_native_states_compared": true,
+    "annotation_inventory_compared": true,
+    "child_identity_and_hashes_checked": true,
+    "child_relative_tolerance": 5e-07,
+    "child_volume_area_absolute_tolerance": 1e-15,
+    "numeric_absolute_tolerance": 1e-12,
+    "numeric_relative_tolerance": 1e-09,
+    "ordered_drawing_and_child_trees": true,
+    "path_role_fields": [
+      "reference_name",
+      "resolved_reference_path"
+    ],
+    "volatile_fields": [
+      "child_update_stamp"
+    ]
+  },
+  "complete_cad_acceptance": false,
+  "controls_healthy": true,
+  "distinct_processes": 8,
+  "drawing_layout_heldout_profile_passed": false,
+  "evidence_notes": [
+    "Numeric values are compared under the declared tolerances; string, structure, tree order and identity checks are exact.",
+    "Host guest_state_unknown is retained as transport scope and is not rewritten as native cleanup evidence.",
+    "No hidden source was used in generation or comparison. Complete CAD and production support remain unqualified."
+  ],
+  "expected_processes": 8,
+  "failure_classification": "ordered child system tree only; unchanged 27-row node multiset in all five native states",
+  "heldout_inputs_read": 0,
+  "host_preparation_sha256": "4a4e9ebdb5eac490be9a1ac8afb76209f367e9aef7e688568d06334fa7aa29eb",
+  "host_report_sha256": "5aa50bdf2574d9377069b2280f602f27990c3d114de5a611f337d677f4124cd2",
+  "host_transport": {
+    "automatic_guest_kill": false,
+    "automatic_retry": false,
+    "automatic_vm_reset": false,
+    "current_user": true,
+    "external_inventory_required_before_another_batch": true,
+    "guest_state_unknown": true,
+    "script_sha256": "9faab30994516cc28fdf6a5b64b1771f8fb14156143b6a7d5804c075703ee1fd",
+    "status": "transport_exited",
+    "supervisor_exit_code": 3,
+    "transport_exit_confirmed": true,
+    "transport_returncode": 3
+  },
+  "input_files_immutable": true,
+  "interpretable": true,
+  "lanes": {
+    "ControlAfter": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "f07485aad2c81b293ba0fd3b0228f155eafbec9b0631f494bbe6d45150e82b0e",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 22270,
+          "derivative_sha256": "66066867b8ac3c7ea2ce447cf2f485a321eed831b06e82cd8124b2a6899274d9",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "2574111130a819a249e29136f9fdb0d140666d9b2f074425a2a91099923a16d9",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    "ControlBefore": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "613f5f4227c09950fa996a5af08a33822dfa9da0d6ff4af67ccbc795240fbdc9",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 22122,
+          "derivative_sha256": "d365256e6816c0be9aba80ccf6abde0e2bcb0b74e75555343f850c9804db6f64",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "ae4c46a1dbcf378451bdc277d263d589c52dc621bd51827b85a269c59232967a",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    "D01FrontViewGenerated": {
+      "child_sha256": "aed47795ae43c640e04bec7f7727a8de37e6cc6772ab0a4dabfefecdfb456c65",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "90db0c43cbe4001da4c0c75501c821de09e76c2e431541897d22326f6498a7ee",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "ff678d13941339bd0babdde555acf37a8bb76c4e3de226ff325041e94bf29010",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "ff678d13941339bd0babdde555acf37a8bb76c4e3de226ff325041e94bf29010",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 19999,
+          "derivative_sha256": "5a202b09823f8605bdc85f98a2d8f2b81d44cdb497a71206956771281ce0e2b6",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "d5d4cbb1209d7ae0e741b346a9bee2907ef1bc1fcf95685e3f2ce9a837c026b9",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "ff678d13941339bd0babdde555acf37a8bb76c4e3de226ff325041e94bf29010",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "ff678d13941339bd0babdde555acf37a8bb76c4e3de226ff325041e94bf29010",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "ff678d13941339bd0babdde555acf37a8bb76c4e3de226ff325041e94bf29010",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "7b4351e3df855c20dcdd5aeeca5ab2226006c50c3df161ca7ac8f591da75351a"
+    },
+    "D01FrontViewSource": {
+      "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "passed": true,
+      "phases": {
+        "fresh_reopen": {
+          "controller_diagnostic_count": 0,
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "7ec8ce9fe4ad5221c56df821a2559b6815656f5621d84ba2c4137388de1a32f6",
+          "states": {
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        },
+        "open_edit_save": {
+          "controller_diagnostic_count": 0,
+          "derivative_bytes": 22120,
+          "derivative_sha256": "8d4e9530b2d1a0d82fcc473bfccc2fa38dc4c3ac41e6c9d85cc7522a0b35e1c6",
+          "dialog_count": 0,
+          "input_immutable": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "oracle_file_version": "34.5.2.0604",
+          "oracle_machine": "0x8664",
+          "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+          "passed": true,
+          "private_record_sha256": "b1fd4fc703aa9aa51b2be97644e546800c8514c3c447b589ecaeedad520695d4",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "states": {
+            "edited": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.096141,
+                  0.08089099999999999,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.091823,
+                  0.07657299999999999,
+                  0.120459,
+                  0.095209
+                ],
+                "position_m": [
+                  0.106141,
+                  0.085891
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "initial": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            },
+            "rebuilt": {
+              "annotation_inventory": [
+                {
+                  "annotation_types": [],
+                  "view_name": "Sheet1"
+                },
+                {
+                  "annotation_types": [],
+                  "view_name": "Drawing View1"
+                }
+              ],
+              "child_feature_tree_rows": 27,
+              "child_feature_tree_sha256": "39f7d7922c6b5d7b5bc8d8e299ddd7fd261a7315b6ab30486adfd80edd70c0d3",
+              "sheet": "Sheet1",
+              "sheet_properties": [
+                0.0,
+                13.0,
+                5.0,
+                1.0,
+                0.0,
+                0.2794,
+                0.21589999999999998,
+                1.0
+              ],
+              "view": {
+                "child_area_m2": 0.00082,
+                "child_center_m": [
+                  0.01,
+                  0.005,
+                  0.0035
+                ],
+                "child_volume_m3": 1.4000000000000001e-06,
+                "configuration": "authored configuration",
+                "model_to_view": [
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0,
+                  1.0,
+                  0.09341,
+                  0.08263,
+                  -0.0035,
+                  1.0,
+                  0.0,
+                  0.0,
+                  0.0
+                ],
+                "name": "Drawing View1",
+                "orientation": "*Front",
+                "outline_m": [
+                  0.089092,
+                  0.07831199999999999,
+                  0.117728,
+                  0.096948
+                ],
+                "position_m": [
+                  0.10341,
+                  0.08763
+                ],
+                "scale": 1.0
+              },
+              "whats_wrong": 0
+            }
+          }
+        }
+      },
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    }
+  },
+  "mode": "disclosed",
+  "neutral_binding_sha256": "5c49be32c80e8cb9a8e0c3e076b43453f7f43a71685387b3894c658b1556f727",
+  "packet_sha256": "04c68c53992152bad1de22bcd637adbeddbe9978c2ff45565c4318204614ff35",
+  "paired_semantic_profile_passed": false,
+  "phase_count": 8,
+  "raw_result_sha256": "28cd208446006358793ba2bdb5a70affd19ce157359f9602cd802313d0fef0ab",
+  "runner_sha256": "d03d73ed1cd964142562905c0955e9a528d341f2c62fedb41b446ba2e2eea2fa",
+  "schema": "kit.sw2026.blind-standard-drawing-disclosed-native-receipt.v1",
+  "scope": "disclosed D01 ordinary populated standard-view drawing and independent rectangular child, exact paired layout/history profile",
+  "source_count": 3685,
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "source_specs_sha256": "72d46ec33a13b1d5074e053e4052d31afa82ab575c395affcea8d9c247973b73",
+  "tools_sha256": "be6e5d6f2ca7e1be468d5915c8c45ab2cb65a2e316cc9fe00d7748f08268b349",
+  "writer_delivery_revision": null,
+  "writer_source_manifest_sha256": "c1e8e5788d32e9fbdfdae83b1ec95410835b2ee05c47a2a278dfc2ad88ae1de4"
+}

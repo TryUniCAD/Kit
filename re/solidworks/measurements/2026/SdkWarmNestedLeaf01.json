@@ -1,0 +1,1098 @@
+{
+  "cases": [
+    {
+      "author_record_sha256": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330",
+      "construction": {
+        "binary_files_published": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "default_nested_route_centerline": false,
+        "default_nested_text_xy_m": [
+          [
+            0.0,
+            -0.015
+          ],
+          [
+            0.03,
+            0.0
+          ]
+        ],
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              8.370000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            4.1850000000000005
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            8.370000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 2604.4,
+          "vertex_count": 8,
+          "volume_mm3": 6696.000000000002
+        },
+        "model_name": "SinglePlate",
+        "planar_label_differences": [
+          {
+            "generated": 0.0,
+            "path": "/height/text_m/2",
+            "source": 0.0001
+          }
+        ],
+        "planar_sha256": "c64d1cb139d5c8b8ab7ddf0e0838b5f1dfe0e7f5890967eaeac0f0215ba6086c",
+        "recipe_epoch": 1795300000,
+        "request_sha256": "038307956611920d640e22d1ac16153e42abe1e895d49b63b3c24e1d56508333",
+        "runtime_reads": 0,
+        "spatial_label_differences": [],
+        "spatial_sha256": "1ee97ac245cb5243d22cd7da5471b04bcd751f055467f3ebd453ef3bb928c4ee",
+        "spatial_source_route_centerline": true,
+        "spatial_source_text_xyz_m": [
+          [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ],
+          [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ]
+        ]
+      },
+      "file": "SinglePlate.SLDPRT",
+      "file_sha256": "afa4a7440b791ee90560e6fb0482994286c8de3a0bb66558a3259f00ee8ffa5e",
+      "files_unchanged": true,
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "record": {
+        "configuration": "Default",
+        "creator_id": 34,
+        "dimension_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              6.123233995736766e-17,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              6.123233995736766e-17,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "direction_axis_id": "sldprt:selection:34:axis:26:N_Axis",
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              8.370000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            4.1850000000000005
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            8.370000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 5,
+          "max_native_metric_delta_in_mm_units": 9.094947017729282e-13,
+          "surface_area_mm2": 2604.4,
+          "vertex_count": 8,
+          "volume_mm3": 6696.000000000002
+        },
+        "live_atom_id": 101,
+        "model_name": "SinglePlate",
+        "name_binding": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 4460,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "parameters_owned": [
+          [
+            "D1",
+            "sldprt:sketch:26",
+            40.0
+          ],
+          [
+            "D2",
+            "sldprt:sketch:26",
+            20.0
+          ],
+          [
+            "D1",
+            "sldprt:feature:34",
+            8.370000000000001
+          ]
+        ],
+        "profile_id": 26,
+        "projected_operation": "create",
+        "refusals": {
+          "cold_boss": {
+            "diagnostic": "cache free prism requires its ordinary create boss mode",
+            "error": "ValueError"
+          },
+          "cold_end": {
+            "diagnostic": "cache free prism has unsupported termination options",
+            "error": "ValueError"
+          },
+          "cold_model": {
+            "diagnostic": "cache free prism has unqualified model mode flags",
+            "error": "ValueError"
+          },
+          "detached_manager_atom": {
+            "diagnostic": "warm creator must be the actual sole output base and last modifier",
+            "error": "ValueError"
+          },
+          "different_dimension_endpoints": {
+            "diagnostic": "rectangle axis and distance relations must bind",
+            "error": "ValueError"
+          },
+          "orientation": {
+            "diagnostic": "source face plane does not coincide with its outward box side",
+            "error": "ValueError"
+          },
+          "unprojected_native_input": {
+            "diagnostic": "configuration has unsupported inherited or extended state",
+            "error": "ValueError"
+          }
+        },
+        "saved_owners": {
+          "active_and_previous_marks": [
+            25,
+            3
+          ],
+          "concrete_chooser_faces": 4,
+          "semantic_face_rep_count": 10,
+          "unclassified_saved_end_words": {
+            "f150": 365582768,
+            "f154": 174734640
+          }
+        },
+        "side_state": {
+          "configuration_attributes": [
+            "custom_properties",
+            "native_configuration_id",
+            "native_object_id",
+            "native_properties"
+          ],
+          "retained_payloads": [
+            [
+              "partition",
+              "Contents/Config-0-Partition",
+              6627,
+              "83874dfe4f22c12ad06855e5b2fe2d3af5a5327f8f034128276f7bc2de6eb582"
+            ],
+            [
+              "deltas",
+              "Contents/Config-0-Partition",
+              1120,
+              "833977e60aed30d14459f630d659e0fe4db6c87a11b494af895d4819edfd64f3"
+            ]
+          ],
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "system_rows": 17,
+          "untransferred_metadata": [
+            "adapter",
+            "custom_properties",
+            "document_summary",
+            "file_id",
+            "kit.wrapper_metadata_keys",
+            "native_class_names",
+            "native_feature_count",
+            "native_name_record_count",
+            "native_scalar_count",
+            "solidworks.native_body_names",
+            "solidworks.part_text_properties",
+            "solidworks.typed_configuration_graph",
+            "solidworks.typed_configuration_manager",
+            "solidworks.typed_resolved_semantics",
+            "solidworks_source_bytes",
+            "solidworks_source_format_id",
+            "solidworks_source_semantic_sha256",
+            "solidworks_source_sha256",
+            "source_display_units",
+            "source_display_units_stream",
+            "stream_names"
+          ]
+        },
+        "source_creator_flags": {
+          "f28": 3221225792,
+          "f544": 1,
+          "has_f530": 0,
+          "has_f548": 0
+        },
+        "source_operation": "join"
+      },
+      "source_wire_sha256": "a44a9551b0916b96f0a4d77ed0acc77636c80f07083d7f58a16057a32678216c"
+    },
+    {
+      "author_record_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+      "construction": {
+        "binary_files_published": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "default_nested_route_centerline": false,
+        "default_nested_text_xy_m": [
+          [
+            0.0,
+            -0.015
+          ],
+          [
+            0.03,
+            0.0
+          ]
+        ],
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              11.73
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            5.865
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            11.73
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 3007.6000000000004,
+          "vertex_count": 8,
+          "volume_mm3": 9384.0
+        },
+        "model_name": "RotorPlate",
+        "planar_label_differences": [
+          {
+            "generated": 0.0,
+            "path": "/height/text_m/2",
+            "source": 0.0001
+          }
+        ],
+        "planar_sha256": "722d515e8d78f3a4ed3b04022b5b4ec666ed02241fe5cf7ed6a91e3d23ba89f3",
+        "recipe_epoch": 1795300000,
+        "request_sha256": "e47c5b74714fff82ca8dfa952248d3056bd1d29d898ff58072d26255609a3f03",
+        "runtime_reads": 0,
+        "spatial_label_differences": [],
+        "spatial_sha256": "e3df4c947965b198e6712c7c787f7b2f1df0eb74a6867d5387b5963da03b99e3",
+        "spatial_source_route_centerline": true,
+        "spatial_source_text_xyz_m": [
+          [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ],
+          [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ]
+        ]
+      },
+      "file": "RotorPlate.SLDPRT",
+      "file_sha256": "a45911685ed326a97138f5e53d07de922af0d2ac228df253028d7730e42e6206",
+      "files_unchanged": true,
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "record": {
+        "configuration": "Default",
+        "creator_id": 34,
+        "dimension_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              6.123233995736766e-17,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              6.123233995736766e-17,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "direction_axis_id": "sldprt:selection:34:axis:26:N_Axis",
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              11.73
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            5.865
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            11.73
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 5,
+          "max_native_metric_delta_in_mm_units": 4.547473508864641e-13,
+          "surface_area_mm2": 3007.6000000000004,
+          "vertex_count": 8,
+          "volume_mm3": 9384.0
+        },
+        "live_atom_id": 101,
+        "model_name": "RotorPlate",
+        "name_binding": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 7533,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "parameters_owned": [
+          [
+            "D1",
+            "sldprt:sketch:26",
+            40.0
+          ],
+          [
+            "D2",
+            "sldprt:sketch:26",
+            20.0
+          ],
+          [
+            "D1",
+            "sldprt:feature:34",
+            11.73
+          ]
+        ],
+        "profile_id": 26,
+        "projected_operation": "create",
+        "refusals": {
+          "cold_boss": {
+            "diagnostic": "cache free prism requires its ordinary create boss mode",
+            "error": "ValueError"
+          },
+          "cold_end": {
+            "diagnostic": "cache free prism has unsupported termination options",
+            "error": "ValueError"
+          },
+          "cold_model": {
+            "diagnostic": "cache free prism has unqualified model mode flags",
+            "error": "ValueError"
+          },
+          "detached_manager_atom": {
+            "diagnostic": "warm creator must be the actual sole output base and last modifier",
+            "error": "ValueError"
+          },
+          "different_dimension_endpoints": {
+            "diagnostic": "rectangle axis and distance relations must bind",
+            "error": "ValueError"
+          },
+          "orientation": {
+            "diagnostic": "source face plane does not coincide with its outward box side",
+            "error": "ValueError"
+          },
+          "unprojected_native_input": {
+            "diagnostic": "configuration has unsupported inherited or extended state",
+            "error": "ValueError"
+          }
+        },
+        "saved_owners": {
+          "active_and_previous_marks": [
+            25,
+            3
+          ],
+          "concrete_chooser_faces": 4,
+          "semantic_face_rep_count": 10,
+          "unclassified_saved_end_words": {
+            "f150": 365582768,
+            "f154": 174734640
+          }
+        },
+        "side_state": {
+          "configuration_attributes": [
+            "custom_properties",
+            "native_configuration_id",
+            "native_object_id",
+            "native_properties"
+          ],
+          "retained_payloads": [
+            [
+              "partition",
+              "Contents/Config-0-Partition",
+              6627,
+              "3e20ef650eba4c453d66a7a9e7574496effbe821c368dae201971024b5a31805"
+            ],
+            [
+              "deltas",
+              "Contents/Config-0-Partition",
+              1120,
+              "ab1d2257532a6f02923d0e9b797abb8a3be1925cba681dcb439d9ea0be436a2d"
+            ]
+          ],
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "system_rows": 17,
+          "untransferred_metadata": [
+            "adapter",
+            "custom_properties",
+            "document_summary",
+            "file_id",
+            "kit.wrapper_metadata_keys",
+            "native_class_names",
+            "native_feature_count",
+            "native_name_record_count",
+            "native_scalar_count",
+            "solidworks.native_body_names",
+            "solidworks.part_text_properties",
+            "solidworks.typed_configuration_graph",
+            "solidworks.typed_configuration_manager",
+            "solidworks.typed_resolved_semantics",
+            "solidworks_source_bytes",
+            "solidworks_source_format_id",
+            "solidworks_source_semantic_sha256",
+            "solidworks_source_sha256",
+            "source_display_units",
+            "source_display_units_stream",
+            "stream_names"
+          ]
+        },
+        "source_creator_flags": {
+          "f28": 3221225792,
+          "f544": 1,
+          "has_f530": 0,
+          "has_f548": 0
+        },
+        "source_operation": "join"
+      },
+      "source_wire_sha256": "1fa84dbd4e1e91373caca24cc579afb8a2d909d6d460a1c82a7256c9cd7daa3b"
+    },
+    {
+      "author_record_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+      "construction": {
+        "binary_files_published": 0,
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "default_nested_route_centerline": false,
+        "default_nested_text_xy_m": [
+          [
+            0.0,
+            -0.015
+          ],
+          [
+            0.03,
+            0.0
+          ]
+        ],
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              5.890000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            2.9450000000000003
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            5.890000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 0,
+          "max_native_metric_delta_in_mm_units": null,
+          "surface_area_mm2": 2306.8,
+          "vertex_count": 8,
+          "volume_mm3": 4712.0
+        },
+        "model_name": "TailPlate",
+        "planar_label_differences": [
+          {
+            "generated": 0.0,
+            "path": "/height/text_m/2",
+            "source": 0.0001
+          }
+        ],
+        "planar_sha256": "01d2c119356843ea6f9b46b7b61fe678cbcae8e3cabcc6bc2d4e270751bf7348",
+        "recipe_epoch": 1795300000,
+        "request_sha256": "c7b76430c779b8306af7806966054caf15d54d3d30f895fb035187ddf2e3a457",
+        "runtime_reads": 0,
+        "spatial_label_differences": [],
+        "spatial_sha256": "b4351242566b74c4cdf5d35220a82d883c18a786e35ce7f10a2929a6bb656963",
+        "spatial_source_route_centerline": true,
+        "spatial_source_text_xyz_m": [
+          [
+            3.0616169978683825e-19,
+            -0.015,
+            0.0
+          ],
+          [
+            0.025,
+            3.0616169978683835e-19,
+            0.0001
+          ]
+        ]
+      },
+      "file": "TailPlate.SLDPRT",
+      "file_sha256": "332d072b69598bbdd9de29631046d5e700f1c17b417a598062f3cb48bb4501c9",
+      "files_unchanged": true,
+      "mode": "source",
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "record": {
+        "configuration": "Default",
+        "creator_id": 34,
+        "dimension_display": {
+          "height": {
+            "along_axis": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              1.0,
+              6.123233995736766e-17,
+              0.0
+            ],
+            "away_m": 0.005000000000000001,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D2",
+            "driver_slot": 1,
+            "end_m": [
+              0.02,
+              0.01,
+              0.0
+            ],
+            "metres": 0.02,
+            "profile": "Sketch1",
+            "start_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              0.025,
+              3.0616169978683835e-19,
+              0.0001
+            ],
+            "under_text": 64
+          },
+          "width": {
+            "along_axis": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "along_fraction": 0.5,
+            "away_axis": [
+              6.123233995736766e-17,
+              -1.0,
+              0.0
+            ],
+            "away_m": 0.004999999999999999,
+            "centerline_route": true,
+            "display_class": "moDisplayDistanceDim_c",
+            "driver": "D1",
+            "driver_slot": 0,
+            "end_m": [
+              0.02,
+              -0.01,
+              0.0
+            ],
+            "metres": 0.04,
+            "profile": "Sketch1",
+            "start_m": [
+              -0.02,
+              -0.01,
+              0.0
+            ],
+            "text_m": [
+              3.0616169978683825e-19,
+              -0.015,
+              0.0
+            ],
+            "under_text": 64
+          }
+        },
+        "direction_axis_id": "sldprt:selection:34:axis:26:N_Axis",
+        "geometry": {
+          "bounds_mm": [
+            [
+              -20.0,
+              20.0
+            ],
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              0.0,
+              5.890000000000001
+            ]
+          ],
+          "centre_of_volume_mm": [
+            0.0,
+            0.0,
+            2.9450000000000003
+          ],
+          "coedge_count": 24,
+          "dimensions_mm": [
+            40.0,
+            20.0,
+            5.890000000000001
+          ],
+          "edge_count": 12,
+          "face_count": 6,
+          "inverted_carrier_count": 5,
+          "max_native_metric_delta_in_mm_units": 4.547473508864641e-13,
+          "surface_area_mm2": 2306.8,
+          "vertex_count": 8,
+          "volume_mm3": 4712.0
+        },
+        "live_atom_id": 101,
+        "model_name": "TailPlate",
+        "name_binding": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 7060,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 34,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "parameters_owned": [
+          [
+            "D1",
+            "sldprt:sketch:26",
+            40.0
+          ],
+          [
+            "D2",
+            "sldprt:sketch:26",
+            20.0
+          ],
+          [
+            "D1",
+            "sldprt:feature:34",
+            5.890000000000001
+          ]
+        ],
+        "profile_id": 26,
+        "projected_operation": "create",
+        "refusals": {
+          "cold_boss": {
+            "diagnostic": "cache free prism requires its ordinary create boss mode",
+            "error": "ValueError"
+          },
+          "cold_end": {
+            "diagnostic": "cache free prism has unsupported termination options",
+            "error": "ValueError"
+          },
+          "cold_model": {
+            "diagnostic": "cache free prism has unqualified model mode flags",
+            "error": "ValueError"
+          },
+          "detached_manager_atom": {
+            "diagnostic": "warm creator must be the actual sole output base and last modifier",
+            "error": "ValueError"
+          },
+          "different_dimension_endpoints": {
+            "diagnostic": "rectangle axis and distance relations must bind",
+            "error": "ValueError"
+          },
+          "orientation": {
+            "diagnostic": "source face plane does not coincide with its outward box side",
+            "error": "ValueError"
+          },
+          "unprojected_native_input": {
+            "diagnostic": "configuration has unsupported inherited or extended state",
+            "error": "ValueError"
+          }
+        },
+        "saved_owners": {
+          "active_and_previous_marks": [
+            19,
+            3
+          ],
+          "concrete_chooser_faces": 4,
+          "semantic_face_rep_count": 10,
+          "unclassified_saved_end_words": {
+            "f150": 365582768,
+            "f154": 174734640
+          }
+        },
+        "side_state": {
+          "configuration_attributes": [
+            "custom_properties",
+            "native_configuration_id",
+            "native_object_id",
+            "native_properties"
+          ],
+          "retained_payloads": [
+            [
+              "partition",
+              "Contents/Config-0-Partition",
+              6627,
+              "8c94d7853c6b32274e2f99c5acb9633ea040bb0efe92cae2964084f4c708b7da"
+            ],
+            [
+              "deltas",
+              "Contents/Config-0-Partition",
+              1120,
+              "f8e24424d56262b1f278f79ee7fe9d29e9d8b800b99b5e5f502d49d41ea7fbd2"
+            ]
+          ],
+          "source_attributes": [
+            "file_id",
+            "stream_count"
+          ],
+          "system_rows": 17,
+          "untransferred_metadata": [
+            "adapter",
+            "custom_properties",
+            "document_summary",
+            "file_id",
+            "kit.wrapper_metadata_keys",
+            "native_class_names",
+            "native_feature_count",
+            "native_name_record_count",
+            "native_scalar_count",
+            "solidworks.native_body_names",
+            "solidworks.part_text_properties",
+            "solidworks.typed_configuration_graph",
+            "solidworks.typed_configuration_manager",
+            "solidworks.typed_resolved_semantics",
+            "solidworks_source_bytes",
+            "solidworks_source_format_id",
+            "solidworks_source_semantic_sha256",
+            "solidworks_source_sha256",
+            "source_display_units",
+            "source_display_units_stream",
+            "stream_names"
+          ]
+        },
+        "source_creator_flags": {
+          "f28": 3221225792,
+          "f544": 1,
+          "has_f530": 0,
+          "has_f548": 0
+        },
+        "source_operation": "join"
+      },
+      "source_wire_sha256": "c24dff16809c82335960fda6cafd6ad8d289ab1aea27a78e972fe62f2d88e2d0"
+    }
+  ],
+  "distinct_controls": [
+    {
+      "file": "SdkNestedPlate.SLDPRT",
+      "file_sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39",
+      "files_unchanged": true,
+      "mode": "cold",
+      "record": {
+        "diagnostic": "required stream is missing",
+        "error": "SldprtFormat"
+      },
+      "source_wire_sha256": "b0880596004e15da2f92b930ca36944f5a3ed6cb1dd4b3b9eb4e469593add787"
+    },
+    {
+      "file": "L1_boss.SLDPRT",
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "files_unchanged": true,
+      "mode": "ladder",
+      "record": {
+        "actual_creator_id": 34,
+        "actual_parameter_count": 3,
+        "actual_scope_flags": {
+          "f28": 1073742144,
+          "f544": 1,
+          "has_f530": 0,
+          "has_f548": 0
+        },
+        "rejected": {
+          "diagnostic": "warm creator has a selected, consumed or alternate geometry owner",
+          "error": "ValueError"
+        }
+      },
+      "source_wire_sha256": "f5938fb9b9c495aadfa7af3c58c0e3021734b64015bde3e66ae0cb5ba5134028"
+    },
+    {
+      "file": "ThroughMultiStock.SLDPRT",
+      "file_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+      "files_unchanged": true,
+      "mode": "selected",
+      "record": {
+        "actual_consumed_untouched_result_atom_ids": [
+          101,
+          102,
+          103
+        ],
+        "actual_operations": [
+          [
+            32,
+            "moExtrusion_c"
+          ],
+          [
+            40,
+            "moICE_c"
+          ],
+          [
+            47,
+            "moICE_c"
+          ]
+        ],
+        "actual_selected_wrapper": "moCompSolidBody_c",
+        "rejected": {
+          "diagnostic": "SOLIDWORKS requires the whole ordinary single boss inventory",
+          "error": "ValueError"
+        }
+      },
+      "source_wire_sha256": "25411fb549a085d24eec482755ef8d15ba4ad132f92f696e10a9e6e4ecb8f983"
+    }
+  ],
+  "guarded_fresh_workers": 9,
+  "native_processes_started": 0,
+  "native_reexport_qualified": false,
+  "prior_receipts_sha256": {
+    "DisclosedNestedAssemblyArchiveAudit01.json": "4f116aeb6b8d7234bf980390c2ee74086fbfbc0c76efc38f2cfd84183f12631b",
+    "NestedAssemblyDisclosedReplayNative01.json": "4253a4ec506d58a421c631f8d9d8cb7a6ce7cba624d54f8e82ebc9814a6f2ae5",
+    "SdkNestedNeutralNative01.json": "aa786c6aa4bc7bdae15662c4b4908205b7a0fda7fdb5bb1bb503594a6b0fb967"
+  },
+  "prior_tools_sha256": {
+    "re/tooling/sw2026/SpatialTextMut.py": "c7c1c9536827416b3a5aa5dd2e39c9e1c4b5dcfd735ab340ca5a7253d350f02a",
+    "re/tooling/sw2026/imported_body_source/BuildLocalBodyKernel.py": "e738c2e96719c3e6164efa38f8dfd7d3f6221fea194382db3cba66677036e247",
+    "re/tooling/sw2026/imported_body_source/ProjectDisclosedImport.py": "c6a5b3b9899b0a3e1bd89f9b4784647e97721704d25e579b8c0c3ff4df36b08c",
+    "re/tooling/sw2026/nested_publication/MeasureNestedReadback.py": "b7c3bf3f0018e6d8685bfea44179b047e94e3ae57fa2407f298541e84ea90d2d",
+    "re/tooling/sw2026/planar_registry/PlanarSourceLabels.py": "6244015e672ecc77f41c76b87a33f416edb9498e92d615eeaa6c54136fcfb832",
+    "re/tooling/sw2026/planar_registry/RectanglePresentation.py": "de95d552038dc3069965c8a2c58d3e0810cc1b6cfe3cd1dfc75ea450dcd355f9",
+    "tests/Convert/Solidworks/Research/ConstructionGuard.py": "f31598bb5ee9811819fd5a7040674e5601a23dcd326d21ba8a76c50edff4e6bf"
+  },
+  "private_inputs_opened": 0,
+  "reader_revision": "22f7e7d7649f2e4ea028e9b1dfdf51448868df24",
+  "schema": "kit.sw2026.warm-nested-leaf.v1",
+  "source_tree": "c56041deca7810851b85dca00e27a266eabf5cf2",
+  "tool_sha256": {
+    "MeasureWarmNestedLeaf.py": "234bf42ea19712bc4f2ac978d98442aed4f52356f394cffd4ee1661a3aa94bfd",
+    "WarmLeafBoundary.py": "415a0bbddf0029d235f21b5fe0e5a4cc7f2a053d0b9d5db53a442a3344654df2"
+  }
+}

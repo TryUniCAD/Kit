@@ -1,0 +1,899 @@
+{
+  "schema": "kit.sw2026.generated-coincident-mate-native.v1",
+  "scope": "One generated assembly with two resolved occurrences of a generated rectangular child and one aligned coincident Top Plane mate. The candidate starts in a coincident pose.",
+  "passed": true,
+  "vendor_loadable": true,
+  "application_usable": true,
+  "heldout_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "active_placement_solve_tested": false,
+  "mate_suppression_edit_tested": false,
+  "writer_output_count": 2,
+  "writer_revision": "8db458c1a5d2029143deaa8f011cdb80968660d8",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "raw_native_receipt_sha256": "54663e6cbd2dd6b43535c1372a46550ea1b3e2880096dc38e844cc77fac17eee",
+  "trial_packet_sha256": "0ce57e678580de8888321a6d7a1241be7b82a045e8c4cfe6edf359150df7fb23",
+  "preparer_sha256": "156d3e403aef1ed1087e4b4901a15d27b5f686afb9bf2d528def0a832f2d242d",
+  "observer_sha256": "ea83a2c3f1755966f34eaead10bdd6f7f987d42a4d9a15b8e154618e4cf7f683",
+  "source_lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+  "source_specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+  "structural_receipt_sha256": "dea592c91e1b07e57f370bd584034e5eb5c175f7ee26d832d9bad77f8c376a9d",
+  "authored_prediction_sha256": "091ede6c19cfc09009c8c5addb1d5121d04db69bff07fc7c02c41e99493af335",
+  "oracle_prediction_sha256": "2b076a0defc85b6ce67bea96c51345d9c5b7fcd07bf07a0ebf0ece65c3546922",
+  "generator_report_sha256": "cfa354a9d9dabf4de4425c77de9bdf2c8b09d5fc82572119008490003c4bf67b",
+  "distinct_processes": 4,
+  "controls_healthy": true,
+  "frozen_inputs_unchanged": true,
+  "control_files": {
+    "A17PlaneCoincident.SLDASM": {
+      "sha256": "da4b1d719bcfd65551310c47613f6afd6fbc59c0203de978eee6e9d98c66aee9",
+      "bytes": 48227
+    },
+    "CohortChild.SLDPRT": {
+      "sha256": "9215bb79cb8d2ba2ea94d15860156033596f4a4a117362d4f523dd6a5445e8aa",
+      "bytes": 60059
+    }
+  },
+  "generated_files": {
+    "AlignedPlatePair.SLDASM": {
+      "sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "bytes": 9162
+    },
+    "DatumPlate.SLDPRT": {
+      "sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+      "bytes": 8653
+    }
+  },
+  "a17_brackets": [
+    {
+      "phase": "ControlBefore",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 134,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02,
+            "D1@Boss-Extrude1": 0.01
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 8.000000000000001e-06,
+              "area": 0.0028,
+              "com": [
+                0.0,
+                0.0,
+                0.005
+              ],
+              "mass": 8.000000000000001e-06
+            },
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.04266905034404961,
+                0.0,
+                0.01223179846090388
+              ],
+              "mass": 0.016000000000000004
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 148,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02,
+            "D1@Boss-Extrude1": 0.01
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 8.000000000000001e-06,
+              "area": 0.0028,
+              "com": [
+                0.0,
+                0.0,
+                0.005
+              ],
+              "mass": 8.000000000000001e-06
+            },
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.04266905034404961,
+                0.0,
+                0.01223179846090388
+              ],
+              "mass": 0.016000000000000004
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25
+        }
+      },
+      "read_only_files_unchanged": true,
+      "fixed_occurrence": "CohortChild-1"
+    },
+    {
+      "phase": "ControlAfter",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 134,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02,
+            "D1@Boss-Extrude1": 0.01
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 8.000000000000001e-06,
+              "area": 0.0028,
+              "com": [
+                0.0,
+                0.0,
+                0.005
+              ],
+              "mass": 8.000000000000001e-06
+            },
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.04266905034404961,
+                0.0,
+                0.01223179846090388
+              ],
+              "mass": 0.016000000000000004
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 148,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.04,
+            "D2@Sketch1": 0.02,
+            "D1@Boss-Extrude1": 0.01
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 8.000000000000001e-06,
+              "area": 0.0028,
+              "com": [
+                0.0,
+                0.0,
+                0.005
+              ],
+              "mass": 8.000000000000001e-06
+            },
+            "assembly": {
+              "volume": 1.6000000000000003e-05,
+              "area": 0.0056,
+              "com": [
+                0.04266905034404961,
+                0.0,
+                0.01223179846090388
+              ],
+              "mass": 0.016000000000000004
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 25
+        }
+      },
+      "read_only_files_unchanged": true,
+      "fixed_occurrence": "CohortChild-1"
+    }
+  ],
+  "generated_phases": [
+    {
+      "phase": "GeneratedEdit",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 117,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.0317,
+            "D2@Sketch1": 0.0126,
+            "D1@Boss-Extrude1": 0.0089
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 3.554838e-06,
+              "area": 0.00158738,
+              "com": [
+                0.01585,
+                0.0063,
+                0.00445
+              ],
+              "mass": 3.554838e-06
+            },
+            "assembly": {
+              "volume": 7.109676e-06,
+              "area": 0.00317476,
+              "com": [
+                0.06955,
+                0.0063,
+                0.0106
+              ],
+              "mass": 0.007109676
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 26,
+          "occurrence_transforms_match": true
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 132,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.0317,
+            "D2@Sketch1": 0.0126,
+            "D1@Boss-Extrude1": 0.0089
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 3.554838e-06,
+              "area": 0.00158738,
+              "com": [
+                0.01585,
+                0.0063,
+                0.00445
+              ],
+              "mass": 3.554838e-06
+            },
+            "assembly": {
+              "volume": 7.109676e-06,
+              "area": 0.00317476,
+              "com": [
+                0.06955,
+                0.0063,
+                0.0106
+              ],
+              "mass": 0.007109676
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 26,
+          "occurrence_transforms_match": true
+        },
+        "edited": {
+          "body_count": 2,
+          "child_stamp": 162,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.0317,
+            "D2@Sketch1": 0.0126,
+            "D1@Boss-Extrude1": 0.011125
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 4.4435475e-06,
+              "area": 0.0017845149999999998,
+              "com": [
+                0.01585,
+                0.0063,
+                0.0055625
+              ],
+              "mass": 4.4435475e-06
+            },
+            "assembly": {
+              "volume": 8.887095e-06,
+              "area": 0.0035690299999999995,
+              "com": [
+                0.06955,
+                0.006300000000000001,
+                0.011712499999999999
+              ],
+              "mass": 0.008887095
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 26,
+          "occurrence_transforms_match": true
+        }
+      },
+      "read_only_files_unchanged": true
+    },
+    {
+      "phase": "GeneratedReopen",
+      "open_error": 0,
+      "open_warning": 0,
+      "forced_rebuild_passed": true,
+      "observations": {
+        "initial": {
+          "body_count": 2,
+          "child_stamp": 162,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": false,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.0317,
+            "D2@Sketch1": 0.0126,
+            "D1@Boss-Extrude1": 0.011125
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 4.4435475e-06,
+              "area": 0.0017845149999999998,
+              "com": [
+                0.01585,
+                0.0063,
+                0.0055625
+              ],
+              "mass": 4.4435475e-06
+            },
+            "assembly": {
+              "volume": 8.887095e-06,
+              "area": 0.0035690299999999995,
+              "com": [
+                0.06955,
+                0.006300000000000001,
+                0.011712499999999999
+              ],
+              "mass": 0.008887095
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 26,
+          "occurrence_transforms_match": true
+        },
+        "rebuilt": {
+          "body_count": 2,
+          "child_stamp": 177,
+          "parent_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_state": {
+            "needs_rebuild": 0,
+            "save_flag": true,
+            "whats_wrong": 0
+          },
+          "child_dimensions_m": {
+            "D1@Sketch1": 0.0317,
+            "D2@Sketch1": 0.0126,
+            "D1@Boss-Extrude1": 0.011125
+          },
+          "mass_properties": {
+            "child": {
+              "volume": 4.4435475e-06,
+              "area": 0.0017845149999999998,
+              "com": [
+                0.01585,
+                0.0063,
+                0.0055625
+              ],
+              "mass": 4.4435475e-06
+            },
+            "assembly": {
+              "volume": 8.887095e-06,
+              "area": 0.0035690299999999995,
+              "com": [
+                0.06955,
+                0.006300000000000001,
+                0.011712499999999999
+              ],
+              "mass": 0.008887095
+            }
+          },
+          "parent_tree_rows": 25,
+          "child_tree_rows": 26,
+          "occurrence_transforms_match": true
+        }
+      },
+      "saved_input_matches": true,
+      "read_only_files_unchanged": true
+    }
+  ],
+  "edited_depth_m": 0.011125,
+  "exact_ordered_mate_observed_at_each_phase": {
+    "name": "Coincident1",
+    "feature_type": "MateCoincident",
+    "type": 0,
+    "alignment": 0,
+    "suppressed": false,
+    "endpoints": [
+      {
+        "occurrence": "DatumPlate-1",
+        "datum": "Top Plane",
+        "reference_type": 4,
+        "feature_equality": 0,
+        "specific_plane_equality": 1
+      },
+      {
+        "occurrence": "DatumPlate-2",
+        "datum": "Top Plane",
+        "reference_type": 4,
+        "feature_equality": 0,
+        "specific_plane_equality": 1
+      }
+    ],
+    "checked_in_control_and_generated_snapshots": 9,
+    "entity_plane_residual": {
+      "normal_dot": 1.0,
+      "signed_offset_m": 0.0
+    },
+    "placement_plane_residual": {
+      "normal_dot": 1.0,
+      "signed_offset_m": 0.0
+    }
+  },
+  "generated_occurrences": [
+    {
+      "name": "DatumPlate-1",
+      "fixed": true,
+      "suppressed": false,
+      "configuration": "Default",
+      "child_path_matches": true,
+      "visible_child_bodies": 1,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "name": "DatumPlate-2",
+      "fixed": false,
+      "suppressed": false,
+      "configuration": "Default",
+      "child_path_matches": true,
+      "visible_child_bodies": 1,
+      "transform": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.1074,
+        0.0,
+        0.0123,
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "generated_parent_tree": [
+    [
+      "Comments",
+      "CommentsFolder",
+      null
+    ],
+    [
+      "Favorites",
+      "FavoriteFolder",
+      null
+    ],
+    [
+      "History",
+      "HistoryFolder",
+      null
+    ],
+    [
+      "Selection Sets",
+      "SelectionSetFolder",
+      null
+    ],
+    [
+      "Sensors",
+      "SensorFolder",
+      null
+    ],
+    [
+      "Live Section Planes",
+      "LiveSectionFolder",
+      null
+    ],
+    [
+      "Design Binder",
+      "DocsFolder",
+      null
+    ],
+    [
+      "Annotations",
+      "DetailCabinet",
+      null
+    ],
+    [
+      "Notes",
+      "NotesAreaFtrFolder",
+      "Annotations"
+    ],
+    [
+      "Notes1___EndTag___",
+      "NotesAreaFtrFolder",
+      "Annotations"
+    ],
+    [
+      "Lights and Cameras",
+      "EnvFolder",
+      null
+    ],
+    [
+      "Ambient",
+      "AmbientLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional1",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional2",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional3",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Markups",
+      "InkMarkupFolder",
+      null
+    ],
+    [
+      "Equations",
+      "EqnFolder",
+      null
+    ],
+    [
+      "Front Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Top Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Right Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Origin",
+      "OriginProfileFeature",
+      null
+    ],
+    [
+      "DatumPlate-1",
+      "Reference",
+      null
+    ],
+    [
+      "DatumPlate-2",
+      "Reference",
+      null
+    ],
+    [
+      "Mates",
+      "MateGroup",
+      null
+    ],
+    [
+      "Coincident1",
+      "MateCoincident",
+      "Mates"
+    ]
+  ],
+  "generated_child_tree": [
+    [
+      "authored comments",
+      "CommentsFolder",
+      null
+    ],
+    [
+      "Design Binder",
+      "DocsFolder",
+      null
+    ],
+    [
+      "authored annotations",
+      "DetailCabinet",
+      null
+    ],
+    [
+      "Notes",
+      "NotesAreaFtrFolder",
+      "authored annotations"
+    ],
+    [
+      "Notes1___EndTag___",
+      "NotesAreaFtrFolder",
+      "authored annotations"
+    ],
+    [
+      "authored environment",
+      "EnvFolder",
+      null
+    ],
+    [
+      "Ambient",
+      "AmbientLight",
+      "authored environment"
+    ],
+    [
+      "Directional1",
+      "DirectionLight",
+      "authored environment"
+    ],
+    [
+      "Directional2",
+      "DirectionLight",
+      "authored environment"
+    ],
+    [
+      "Directional3",
+      "DirectionLight",
+      "authored environment"
+    ],
+    [
+      "authored equations",
+      "EqnFolder",
+      null
+    ],
+    [
+      "authored favorites",
+      "FavoriteFolder",
+      null
+    ],
+    [
+      "authored history",
+      "HistoryFolder",
+      null
+    ],
+    [
+      "Material <not specified>",
+      "MaterialFolder",
+      null
+    ],
+    [
+      "authored markups",
+      "NotesAreaFtrFolder",
+      null
+    ],
+    [
+      "authored selection sets",
+      "SelectionSetFolder",
+      null
+    ],
+    [
+      "authored sensors",
+      "SensorFolder",
+      null
+    ],
+    [
+      "authored solids",
+      "SolidBodyFolder",
+      null
+    ],
+    [
+      "authored surfaces",
+      "SurfaceBodyFolder",
+      null
+    ],
+    [
+      "Markups",
+      "InkMarkupFolder",
+      null
+    ],
+    [
+      "Front Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Top Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Right Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Origin",
+      "OriginProfileFeature",
+      null
+    ],
+    [
+      "Sketch1",
+      "ProfileFeature",
+      null
+    ],
+    [
+      "Boss-Extrude1",
+      "Extrusion",
+      null
+    ]
+  ],
+  "synchronized_save": {
+    "child": {
+      "before_sha256": "a7de2d89b272bc19e1f7bf018385398355dd3829280d36fc4ce5117fc04f045e",
+      "before_stamp": 162,
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "after_sha256": "16726198f42f80a3a442ae85c3e21e875bc7420d497458be1396016405fd7c28",
+      "after_stamp": 162,
+      "bytes": 28335
+    },
+    "parent": {
+      "before_sha256": "9e72103c59187edf2a511e38c262fd4e0e3f0d34e97b10f091068d0de8e9ed30",
+      "before_stamp": 105,
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "after_sha256": "29700e9ae8d944314669094c490ffa31039c1df30ac670f1225a14c9cc37db06",
+      "after_stamp": 105,
+      "bytes": 46925
+    },
+    "child_unchanged_by_parent": true,
+    "fresh_reopen_exact_child_stamp": 162
+  },
+  "typed_mate_readback": {
+    "mate_id": 19,
+    "mate_list_reencodes_exactly_in_both_parents": true,
+    "generated": {
+      "f0c": 1,
+      "f3b4": 1,
+      "f3b8": 0,
+      "f2b8": 0,
+      "f2bc": 0,
+      "occurrence_f400": [
+        3,
+        3
+      ],
+      "occurrence_f408": [
+        1,
+        0
+      ],
+      "occurrence_f3e0": [
+        101,
+        101
+      ]
+    },
+    "native_saved": {
+      "f0c": 256,
+      "f3b4": 1,
+      "f3b8": 1,
+      "f2b8": 19000,
+      "f2bc": 2026306,
+      "occurrence_f400": [
+        4,
+        3
+      ],
+      "occurrence_f408": [
+        1,
+        0
+      ],
+      "occurrence_f3e0": [
+        162,
+        162
+      ]
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schema": "kit.sw2026.concentric-stock-child-roughness.v1",
+  "full_typed_audit_sha256": "676c0f3332de3f961605a3a71c57c53eb703862fbdca3946ef035054df876583",
+  "audit_revision": "e58710051d653745ec9ed68da724bdc5ee3e028a",
+  "trial_sha256": "6900ca2e4a76c5d27dd69e6441733d0ca4c49d6825887ee5399058811aaaf3c4",
+  "recipe_sha256": "3dc79b11847616ea4e9a195465979d82bdc53cc0cd5c06343f292193c874bed5",
+  "result_sha256": "2e679029ae772835378119e5c6bded8afc81255be95dd1b896a4c013033cbae8",
+  "native_phase_receipt_sha256": {
+    "AuthorA": "4aa7d686334315d3957bf8f99985b588c5ea3e454299ac8aa40de1dbfb68cc15",
+    "AuthorB": "0f91bd8c5b48af3dfe9cff90d14093aa62aff09cdcc33694d94534474e9b46f0",
+    "ControlAfter": "b8ee16b6aa042b188a1aa7349db4e035914025dfd7980f5254074cb9d74dc6d9",
+    "ControlBefore": "5259fcaac4b9e9ce9333a3e3e9f83cae32154003d80cc5d8202d4e8f6ed7539f",
+    "ReopenA": "7c6d153088b3d3fd9e83541a27ca3d1e25d6dd124721430f1cd2be4b811e6fa8",
+    "ReopenB": "7375508c6fd36d347991539ad346eaffe2d66bd1412620d5f93b6e1aa455ea73"
+  },
+  "native_processes": 6,
+  "native_checks": 176,
+  "stock_rgb": [
+    229,
+    229,
+    229
+  ],
+  "native_primary_color_setters": 0,
+  "populated_definition": {
+    "A": {
+      "bytes": 2365,
+      "manager_allocator_words": [
+        6,
+        0
+      ],
+      "opaque_bytes": 0,
+      "records_in_manager_order": [
+        {
+          "archive_slot": 12,
+          "classic_roughness": 0.3125,
+          "end_exclusive": 1447,
+          "fields": 98,
+          "ids": [
+            4,
+            0
+          ],
+          "internal_version": 1,
+          "object_offset": 679,
+          "packed_primary_color": 15066597,
+          "schema": 1
+        },
+        {
+          "archive_slot": 13,
+          "classic_roughness": 0.3125,
+          "end_exclusive": 2189,
+          "fields": 98,
+          "ids": [
+            4,
+            0
+          ],
+          "internal_version": 1,
+          "object_offset": 1447,
+          "packed_primary_color": 15066597,
+          "schema": 1
+        }
+      ],
+      "same_public_id_distinct_graph_nodes": true,
+      "sha256": "a5fe1db27351ffcd525d081dfefe9a2efdea412df0f1da970fe5b526a00584f0",
+      "terminal_map": 14,
+      "typed_replay": true
+    },
+    "B": {
+      "bytes": 2365,
+      "manager_allocator_words": [
+        6,
+        0
+      ],
+      "opaque_bytes": 0,
+      "records_in_manager_order": [
+        {
+          "archive_slot": 12,
+          "classic_roughness": 0.6875,
+          "end_exclusive": 1447,
+          "fields": 98,
+          "ids": [
+            4,
+            0
+          ],
+          "internal_version": 1,
+          "object_offset": 679,
+          "packed_primary_color": 15066597,
+          "schema": 1
+        },
+        {
+          "archive_slot": 13,
+          "classic_roughness": 0.6875,
+          "end_exclusive": 2189,
+          "fields": 98,
+          "ids": [
+            4,
+            0
+          ],
+          "internal_version": 1,
+          "object_offset": 1447,
+          "packed_primary_color": 15066597,
+          "schema": 1
+        }
+      ],
+      "same_public_id_distinct_graph_nodes": true,
+      "sha256": "9311e05709277acf9d448a77fbf5f53ada7cd70fe17abd78678566a49ea6598a",
+      "terminal_map": 14,
+      "typed_replay": true
+    }
+  },
+  "definition_material_leaf_delta": {
+    "12": {
+      "f140": {
+        "A": 0.3125,
+        "B": 0.6875,
+        "present": [
+          true,
+          true
+        ]
+      }
+    },
+    "13": {
+      "f140": {
+        "A": 0.3125,
+        "B": 0.6875,
+        "present": [
+          true,
+          true
+        ]
+      }
+    }
+  },
+  "paired_appearance_field_delta": {
+    "model": {
+      "f20.f90.f74": {
+        "A": 0.3125,
+        "B": 0.6875,
+        "present": [
+          true,
+          true
+        ]
+      }
+    },
+    "part_self_visual_state": {
+      "f20.f90.f74": {
+        "A": 0.3125,
+        "B": 0.6875,
+        "present": [
+          true,
+          true
+        ]
+      }
+    },
+    "selected_configuration": {
+      "f20.f90.f74": {
+        "A": 0.3125,
+        "B": 0.6875,
+        "present": [
+          true,
+          true
+        ]
+      }
+    }
+  },
+  "native_source_evidence_only": true,
+  "original_sdk_refuses": true,
+  "heldout_credit": 0,
+  "native_assets_emitted": 0,
+  "writer_qualified": false
+}

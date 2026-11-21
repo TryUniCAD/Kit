@@ -1,0 +1,309 @@
+{
+  "full_original_admission": false,
+  "heldout_acceptance": false,
+  "initial_differences_from_independent_generated_ISO_reference": [
+    {
+      "case": "D01",
+      "different_leaf_or_shape_rows": 509,
+      "group": "typed_child"
+    },
+    {
+      "case": "D01",
+      "different_leaf_or_shape_rows": 506,
+      "group": "typed_drawing"
+    },
+    {
+      "case": "D02",
+      "different_leaf_or_shape_rows": 509,
+      "group": "typed_child"
+    },
+    {
+      "case": "D02",
+      "different_leaf_or_shape_rows": 506,
+      "group": "typed_drawing"
+    },
+    {
+      "case": "D03",
+      "different_leaf_or_shape_rows": 509,
+      "group": "typed_child"
+    },
+    {
+      "case": "D03",
+      "different_leaf_or_shape_rows": 506,
+      "group": "typed_drawing"
+    },
+    {
+      "case": "D04",
+      "different_leaf_or_shape_rows": 509,
+      "group": "typed_child"
+    },
+    {
+      "case": "D04",
+      "different_leaf_or_shape_rows": 506,
+      "group": "typed_drawing"
+    }
+  ],
+  "intake_sha256": "a25475ec393ded731ec197a03db54863973841230be0c870b862753d5fa807df",
+  "interpretation": "These are observations of the disclosed source and generated graph, not constructor constants. Explicit style inputs align vocabulary and widths in the controlled candidate comparison; every remaining full typed difference is retained.",
+  "original_writer_unchanged": true,
+  "private_full_style_observation_sha256": "53304cb7bb3e48fbc1f60f3116311565a1033564659bff134b2d30ebcb968f3e",
+  "rows": [
+    {
+      "case": "D01",
+      "child_sha256": "766f0fdb58957721301ea9b9f9a56315d8ab6ff80e119ede10152cf626213054",
+      "drawing_sha256": "056254fe9883d4d21d89a7bdf0cd022e27468eb82dc3ca582b97c436bb878794",
+      "role": "disclosed",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_child_definition_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "D02",
+      "child_sha256": "08071cb3cd3ad816a41f3f67bc0e5575a6cd6d8fcb4443ccfd10f50f62dec58a",
+      "drawing_sha256": "78b8d21336d73fef2b724bc4b1afa91b23305322c2e8cbc4b220f036a81f7d6b",
+      "role": "disclosed",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_child_definition_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "D03",
+      "child_sha256": "cc1d256a76f250347a1cca03c774af1e4b8e0c24aacd4cd4400fd7caea62f2e8",
+      "drawing_sha256": "291be2e3936c8003319cc721cea6d69ef197447b6f10c2cefa1044e6fae64370",
+      "role": "disclosed",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_child_definition_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "D04",
+      "child_sha256": "dca66f67b577bb5e71141ab178d6c7e9de2c73096508ed573cd99fc75dcbaaa7",
+      "drawing_sha256": "bad252733a4d585bea0d11d4e7fcb17ca6f4f8ddd336bec9b0bd3d2638b85992",
+      "role": "disclosed",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_child_definition_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.00254,
+        "root_spacing_m": 0.00635,
+        "standard": 0
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "OriginConstructorAlpha",
+      "child_sha256": "55f4b4be5a308d5592e8120031b2cc3918967cf1fabae8b41a10be5c88e5d9c3",
+      "drawing_sha256": "3712197b18310c873c64601bd0ca6399240fa1fe5a3d39c82627caa310aeae8b",
+      "role": "generated-replay06",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_child_definition_standard": {
+        "class": "moISO_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "OriginConstructorBetaΩ",
+      "child_sha256": "7189a6832077e99601d7d4d6b769d17959fa1c8a35d7658fc480c306ed4b9304",
+      "drawing_sha256": "f316361bea226564d906113910a50a5ff416393b6f70f88582608d418b25fa99",
+      "role": "generated-replay06",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_child_definition_standard": {
+        "class": "moISO_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "OriginCenterGamma",
+      "child_sha256": "030447a1501cefd2f7b28c0dc324c0869872f22c2cd17f0085ada2b56315e882",
+      "drawing_sha256": "8593da8c3b87f537ab7d7463a00f382addb8e964c6447b445b8a7cd1a068caad",
+      "role": "generated-replay06",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_child_definition_standard": {
+        "class": "moISO_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    },
+    {
+      "case": "OriginCenterDeltaΩ",
+      "child_sha256": "f3d81cd6955a6e4f83f64bb0b533627c6593f9120c58aa3c6d3fd51d48c12075",
+      "drawing_sha256": "b52f33629e0e0879d26f36f105f8c27cd6043694c104736b30434d06da73375a",
+      "role": "generated-replay06",
+      "typed_child": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moPart_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_child_definition_standard": {
+        "class": "moISO_c",
+        "field_count": 0,
+        "schema": 1
+      },
+      "typed_drawing": {
+        "constructor_f138": 1,
+        "detail_path": "fae0",
+        "owner_class": "moDrawing_c",
+        "root_mark_size_m": 0.0025,
+        "root_spacing_m": 0.002,
+        "standard": 1
+      },
+      "typed_drawing_standard": {
+        "class": "moANSI_c",
+        "field_count": 0,
+        "schema": 1
+      }
+    }
+  ],
+  "schema": "drawing-ansi-source-owners-v1"
+}

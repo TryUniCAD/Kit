@@ -1,0 +1,518 @@
+{
+  "generated_native_save_passed": false,
+  "schema": "kit.sw2026.blank-drawing-property-section-native.v1",
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "constructor_revision": "029249f8ecaa87910441c7e3d7ffa17683f19534",
+  "packet_sha256": "e0aab1bbdac876403626aa2a35fb41c1569fab326e63f051c00474263ac09301",
+  "raw_native_result_sha256": "3e812322931dbaf696dfb56fc25ca23d22be3e75290bb4b2f30223159b96e784",
+  "host_transport_result_sha256": "d37226b31d7b976bc04117886fe566f16bb6a9634fc1f02c1c869bb97eea96df",
+  "transport_exit_code": 3,
+  "property_section_observer_sha256": "e3fd2a1124bfaa96f43266e5721aaa17a3647f71748019bc3498cebad17a727d",
+  "source_proof_sha256": {
+    "GeneratedRequest.json": "fb9e098382aa68bc8232bc7adebb3a02183fd9244de082086d1b5dd143e94362",
+    "GeneratedConstruction.json": "570a9c637b721e2fd61f1654bd0edfd244439c02afc88e987e21a9592f3f1be1",
+    "PropertySectionConstruction.json": "37aaab3056f77e9687c750b828051a04e9fe9f49ce2a1e33c7beb212cebd86ca"
+  },
+  "observer_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectBlankDrawing.py": "6843ec1c5c36d1ab23d9791143952f809a4f9bda8ae8f1b77526900040038930",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "baseline_generated_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+  "corrected_generated_sha256": "7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26",
+  "changed_streams": [
+    "docProps/ISolidWorksInformation.xml"
+  ],
+  "property_count": 6,
+  "dictionary_count": 6,
+  "generated_ids": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "runtime_writer_input_file_access_attempts": 0,
+  "two_guarded_builds_identical": true,
+  "interpretable": true,
+  "controls_healthy": true,
+  "inputs_immutable": true,
+  "distinct_processes": 9,
+  "cases": [
+    {
+      "name": "ControlBefore",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "passed": true,
+      "open_edit_save": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "edited": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "record_sha256": "4aebbc35abc4b96adf3e54d81a92a393758fca0965c24c9f9d6048719afd1ad4",
+        "source_immutable": true
+      },
+      "fresh_reopen": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "record_sha256": "83e078c07ecac6045651b62ac9f23b10a2b7d02b8cf4b4a029e81d86ac2b8ad6"
+      }
+    },
+    {
+      "name": "Repacked",
+      "kind": "repacked-control",
+      "input_sha256": "7344be42ffa72325dc4883a768cb4656f8d2319b2ee214c23de9f96bd5f4feb5",
+      "passed": true,
+      "open_edit_save": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "edited": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "record_sha256": "447fc32b41a6b4efc93ea261bdbc85309abc366670be3227a0f98c5016b246d7",
+        "source_immutable": true
+      },
+      "fresh_reopen": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "record_sha256": "5e06aaab2c7c29a7ad54af4ab1ccc049095254abc1b8f7e04687221ac5523fee"
+      }
+    },
+    {
+      "name": "ReducedNative",
+      "kind": "native-stream-reduction",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "passed": true,
+      "open_edit_save": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "edited": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "record_sha256": "4d02637d6f6954fae8b302a8d797d3a214116ef17245123bf44bb1ec79566ea0",
+        "source_immutable": true
+      },
+      "fresh_reopen": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "record_sha256": "b0c998e2a7e6994ca95bd940a9d35b0003d8b9b18b526d5791da70aa347f435e"
+      }
+    },
+    {
+      "name": "GeneratedBlank",
+      "kind": "generated",
+      "input_sha256": "7400cf1fa4a71994807ce8e49283e2721e09a5ceaf723e36f6ae807906c94a26",
+      "passed": false,
+      "open_edit_save": {
+        "passed": false,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Development Layout",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            2.0,
+            3.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Development Layout",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            2.0,
+            3.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "edited": {
+          "sheet": "Development Layout",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "save_status": [
+          false,
+          1,
+          0
+        ],
+        "record_sha256": "ac530e3e39f13171d2911414a5b5441a5b157f0be31dc89ad1dd4417869086b8",
+        "source_immutable": true
+      },
+      "fresh_reopen": null
+    },
+    {
+      "name": "ControlAfter",
+      "kind": "locked-control",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "passed": true,
+      "open_edit_save": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            1.0,
+            1.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "edited": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "record_sha256": "75daa5749599ae2a155a8954263665b646817ec2889d02947d66a35c82228400",
+        "source_immutable": true
+      },
+      "fresh_reopen": {
+        "passed": true,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "initial": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "rebuilt": {
+          "sheet": "Sheet1",
+          "sheet_properties": [
+            0.0,
+            13.0,
+            3.0,
+            2.0,
+            0.0,
+            0.2794,
+            0.21589999999999998,
+            1.0
+          ],
+          "whats_wrong": 0,
+          "view": null
+        },
+        "record_sha256": "cd84ad73bda586989e1db04e3d5782dc18cc00f370357d13342a26701b44aa0b"
+      }
+    }
+  ],
+  "post_batch_inventory": {
+    "receipt_sha256": "be802bc9e8bb2a7ccfb35db80245adce5da599c1066b60d219f5bb2676916f8e",
+    "solidworks_absent": true,
+    "guest_python_absent": true,
+    "prior_license_processes_preserved": true
+  },
+  "interpretation": "The source-proven section and name dictionary correction preserves open, rebuild and sheet-scale editing. It remains insufficient for native save. The generated save returns error 1 between healthy controls."
+}

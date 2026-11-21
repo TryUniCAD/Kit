@@ -9,10 +9,13 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GeometryFields im
 from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import (
     KContainerFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.ObListFields import (
-    KObListFields,
-)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Definition.Fields.AppearanceFields import (
+    KAppearanceFields,
+)
+from convert.adapters.solidworks.Archive.Definition.Fields.AssemblyDefTail import (
+    KAssemblyDefTail,
+)
 from convert.adapters.solidworks.Archive.Definition.Fields.DocEnvironmentFields import (
     KDocEnvironmentFields,
 )
@@ -27,26 +30,29 @@ from convert.adapters.solidworks.Archive.Definition.Fields.DocStyleFields import
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocTailFields import (
     KDocTailFields,
+    KPartDefTail,
 )
 from convert.adapters.solidworks.Archive.Definition.Fields.DocTransformFields import (
     KDocTransformFields,
 )
 
-# the ordinary part definition shares counted archive fields and owns its density tail
+# ordinary model definitions compose the shared ui fields with their own concrete tails
 KModelDefLayouts = MappingProxyType(
     {
         **KContainerFields,
         **KGeometryFields,
         **KFontFields,
+        **KAppearanceFields,
         **KDocEnvironmentFields,
         **KDocHelperFields,
         **KDocStyleFields,
         **KDocTransformFields,
-        "suObList": KObListFields,
-        "uiPartDoc_c": (
+        **KAssemblyDefTail,
+        "uiPartDoc_c": (*KDocHeadFields, *KPartDefTail),
+        "uiAssemblyDoc_c": (
             *KDocHeadFields,
             *KDocTailFields,
-            NativeField("Scalar", "f1688", "f64"),
+            NativeField("Base", "uiAssemblyDoc_c.Serialize.own"),
         ),
     }
 )

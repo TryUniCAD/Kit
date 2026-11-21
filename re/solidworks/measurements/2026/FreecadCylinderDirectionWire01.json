@@ -1,0 +1,131 @@
+{
+  "application_usable": false,
+  "call_edge_count": 10,
+  "chained_function_examples": {
+    "end_reference_collector": {
+      "bytes": 420,
+      "fragments": 6,
+      "ordered_fragment_sha256": "21f55a193da52e31996ab8277b95ef6de71975ef0ac4dd670a4b67e1cc66129f"
+    },
+    "end_surface_setter": {
+      "bytes": 96,
+      "fragments": 3,
+      "ordered_fragment_sha256": "ccd6010cda7bf527fe955c60a79ada2a13338a88eed99f0cd20a42613303e1ac"
+    }
+  },
+  "exact_repeat": true,
+  "function_count": 31,
+  "generated_native_files": 0,
+  "heldout_inputs_read": 0,
+  "heldout_qualified": false,
+  "hopper_documents_opened": 0,
+  "independent_static_pin_processes": 2,
+  "knowledge_sha256": "9aede29f31dafc0a89bd4250228993486098200c9bfe94a545924fbbd31659d8",
+  "modules": [
+    {
+      "base": "0x4b140000",
+      "bytes": 46536280,
+      "name": "sldmodu",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    {
+      "base": "0x3c720000",
+      "bytes": 8274520,
+      "name": "sldmfcu",
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735"
+    }
+  ],
+  "native_processes_started": 0,
+  "native_selected_end_enum_mapping": "not found",
+  "negative_processes": [
+    {
+      "expected_refusal": true,
+      "name": "WrongModule",
+      "native_output_created": false,
+      "returncode": 1
+    },
+    {
+      "expected_refusal": true,
+      "name": "WrongVersion",
+      "native_output_created": false,
+      "returncode": 1
+    }
+  ],
+  "negative_raw_sha256": "4972c682eb6071821f819b1e8af069c7ed88cf45977392825baed19017671bcd",
+  "pinned_static_bindings": [
+    "direction f08 uses an i32 nullable-array prefix",
+    "direction numeric f18 bypasses selected geometry",
+    "selected axis and plane use actual reference wrappers",
+    "end surface arrays use independent u8 gates",
+    "distance slots are live display references rather than doubles"
+  ],
+  "production_changes": 0,
+  "raw_pin_sha256": "6a874c48a482ab74dd0ab3a92917aa77e6e196ebc9e96eadd239d6a954afe2a7",
+  "reference_class_schemas": [
+    {
+      "archive_schema": 1,
+      "name": "moDirectionSpec_c",
+      "object_bytes": 48,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 65535,
+      "name": "moRefSpec_c",
+      "object_bytes": 16,
+      "raw_schema": 65535
+    },
+    {
+      "archive_schema": 1,
+      "name": "moPlaneInterAxisData_c",
+      "object_bytes": 144,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moRefAxisData_c",
+      "object_bytes": 128,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moRefAxis_c",
+      "object_bytes": 1800,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moCompRefAxis_c",
+      "object_bytes": 280,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moCompRefPlane_c",
+      "object_bytes": 280,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moLineRef_w",
+      "object_bytes": 256,
+      "raw_schema": 2147483649
+    },
+    {
+      "archive_schema": 1,
+      "name": "moPlaneRef_w",
+      "object_bytes": 512,
+      "raw_schema": 2147483649
+    }
+  ],
+  "runtime_descriptor_count": 9,
+  "schema": "kit.sw2026.cylinder-direction-wire-receipt.v1",
+  "scope": "Static source binding of persistent direction and selected-plane limits only",
+  "semantic_confidence": "partial: exact-build static only, no new non-null native source corpus",
+  "shared_checkout_edits": 0,
+  "source_pin_passed": true,
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "tool_sha256": "8e212ceb466a119e5b8445b814221cde8f81c4632f0bc7ce23d7bf420d9434d7",
+  "unwind_or_leaf_fragment_count": 42,
+  "vendor_loadable": false,
+  "virtual_dispatch_count": 2
+}

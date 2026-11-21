@@ -1,0 +1,140 @@
+{
+  "comparison_valid": true,
+  "distinct_processes": 4,
+  "job_sha256": "45bf3dbb19fee75d5aa9d595be12a2f0beac64b987434aad0009e5bc2af231c0",
+  "mutation": {
+    "action": "omit_one_logical_stream",
+    "stream": "Contents/Config-0-Partition"
+  },
+  "native_writer_or_heldout_credit": 0,
+  "oracle_idle": true,
+  "outcome": "clean_cold_rebuild_and_edit_with_partition_omitted",
+  "packet_unchanged": true,
+  "phases": {
+    "ControlAfter": {
+      "checks": 0,
+      "checks_passed": 0,
+      "cold_bodies": null,
+      "cold_clean": null,
+      "cold_diagnostics": null,
+      "cold_measurement_match": null,
+      "dialogs_observed": false,
+      "failure_stage": null,
+      "failure_type": null,
+      "input_unchanged": null,
+      "native_cleanup_problems": false,
+      "native_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "native_version": "34.5.2.0604",
+      "open_status": null,
+      "passed": true,
+      "process": [
+        7420,
+        134397218690551100
+      ],
+      "radius_edit_verified": false,
+      "raw_receipt_sha256": "24e383400d6118174933c42c852d20238e318613747f642270fcd754b3c5313b",
+      "rebuild_verified": false,
+      "registered_api_sha256": null,
+      "verified_execution": true,
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "ControlBefore": {
+      "checks": 0,
+      "checks_passed": 0,
+      "cold_bodies": null,
+      "cold_clean": null,
+      "cold_diagnostics": null,
+      "cold_measurement_match": null,
+      "dialogs_observed": false,
+      "failure_stage": null,
+      "failure_type": null,
+      "input_unchanged": null,
+      "native_cleanup_problems": false,
+      "native_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "native_version": "34.5.2.0604",
+      "open_status": null,
+      "passed": true,
+      "process": [
+        2420,
+        134397217276541969
+      ],
+      "radius_edit_verified": false,
+      "raw_receipt_sha256": "1ed49d230341a68204f9fc91d4be7993d756fcf25c3dd03bbeef7cf1e8785043",
+      "rebuild_verified": false,
+      "registered_api_sha256": null,
+      "verified_execution": true,
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "Intact": {
+      "checks": 40,
+      "checks_passed": 40,
+      "cold_bodies": 1,
+      "cold_clean": true,
+      "cold_diagnostics": 0,
+      "cold_measurement_match": true,
+      "dialogs_observed": false,
+      "failure_stage": null,
+      "failure_type": null,
+      "input_unchanged": true,
+      "native_cleanup_problems": false,
+      "native_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "native_version": "34.5.2.0604",
+      "open_status": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "passed": true,
+      "process": [
+        10640,
+        134397217519391173
+      ],
+      "radius_edit_verified": true,
+      "raw_receipt_sha256": "b6bde186885e82c4ecfad1a076ebf62e48aff9c33daff225e9986a57861b1cd2",
+      "rebuild_verified": true,
+      "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+      "verified_execution": true,
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    },
+    "OmitPartition": {
+      "checks": 40,
+      "checks_passed": 40,
+      "cold_bodies": 1,
+      "cold_clean": true,
+      "cold_diagnostics": 0,
+      "cold_measurement_match": true,
+      "dialogs_observed": false,
+      "failure_stage": null,
+      "failure_type": null,
+      "input_unchanged": true,
+      "native_cleanup_problems": false,
+      "native_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "native_version": "34.5.2.0604",
+      "open_status": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "passed": true,
+      "process": [
+        3048,
+        134397218095929668
+      ],
+      "radius_edit_verified": true,
+      "raw_receipt_sha256": "8b3ef1570e5843269165d16d9e3b4d9e17e82b2a3392903b1c36b6a80249e3b7",
+      "rebuild_verified": true,
+      "registered_api_sha256": "f8bc14e15ee1607deda2a3a2b76e33d7448ed522232e53268286b4da6a25e6d4",
+      "verified_execution": true,
+      "worker_exit_code": 0,
+      "worker_timed_out": false
+    }
+  },
+  "schema": "kit.sw2026.edge-fillet-cold-diagnostic-result.v1",
+  "source_restored": true,
+  "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+  "supervisor_error_stages": [],
+  "writer_output_count": 0
+}

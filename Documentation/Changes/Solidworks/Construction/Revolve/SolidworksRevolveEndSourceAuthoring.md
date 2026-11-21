@@ -1,0 +1,7 @@
+# SOLIDWORKS 2026 revolve end-mode source authoring
+
+The native research tool authors ordinary rectangular boss revolves using the One Direction, Mid Plane and Two Directions modes. Run the frozen tool bundle with the Windows oracle's Python and pass an external JSON job. The job supplies the source revision, the hashed source specification and control, the exact oracle executable digest, and fresh output and publication locations. [Authoring tool](../../../../../re/tooling/sw2026/AuthorRevolveEnds.py) · [Procedure and measurements](../../../../../re/solidworks/records/RevolveEndSources2026.md)
+
+Each source runs through a fresh open, independent angular edits, a separately saved derivative and a fresh derivative reopen. Discovery publishes detailed records, and a held-out run publishes source hashes and phase attestations. The discovery evidence verifies the active angular drivers and signed volume, area and centre-of-mass geometry. Kit generation and writer qualification require their own measurement.
+
+Four pre-writer locked sources complete their source lifecycles between two healthy controls in fourteen native processes. [Source lock](../../../../../re/solidworks/measurements/2026/RevolveEndHeldoutSourceLock01.json)

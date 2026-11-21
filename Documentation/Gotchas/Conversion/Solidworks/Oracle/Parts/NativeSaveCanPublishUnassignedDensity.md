@@ -1,0 +1,5 @@
+# Native save can publish an unassigned density parameter
+
+The document density preference, selected configuration density sentinel and root material-density object are independently stored. The planar registry control entered SOLIDWORKS with `moPart_c.f1420` null and active `moConfig_c.fc50=-1`. After child-first save the root had an `moMaterial_c.f08` reference to `moDensityParameter_c`, with `f58=1000` and `f68=0`. The configuration sentinel stayed `-1` and there was no assigned configuration or per-atom material. [Exact generated and native-saved control digests](../../../../../../re/solidworks/measurements/2026/SdkPlanarRendererComposition01.json)
+
+Check assignment and native mass separately from the presence of the parameter. The measured combination is a default save-time regeneration in that control. A different configuration density, a material assignment or a different renderer profile needs its own native comparison. [Related density owner and mass checks](DefaultPartDensityHasTwoOwners.md)

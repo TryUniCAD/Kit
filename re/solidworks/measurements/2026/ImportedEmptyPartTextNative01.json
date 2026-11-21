@@ -1,0 +1,100 @@
+{
+  "build_sha256": "fe7b95b9b519677830a5d1aa23ca415847174bd49cf41dda1d76f2717afc5193",
+  "cases": {
+    "Disclosed": {
+      "generated": {
+        "bytes": 11234,
+        "sha256": "492fb8ac874f64929c5438193b6f7c0546a293c35dead29362fd4f7691cb8319"
+      },
+      "generated_stream_count": 15,
+      "native_phase_receipts": {
+        "Generated": "698a344bd0c1b7d074456d64fa72b26e5d9960cb36d955ada216e9699de71264",
+        "Reopen": "feadaa81489fe7375b3517e78dcdb991ffe48f0209e4493c24573957a69f2d0d",
+        "Source": "4ae8d0e684f18030237b68da244310623d85d8323ea6c1d284a218a2ddac3eb6"
+      },
+      "native_saved_sha256": "e25ec89fb87baab28792f5f473b8ba920eab527a24fa1af02c4e9ecb4efac09a",
+      "only_added_streams": [
+        "docProps/Config-0-Properties.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ],
+      "retained_light_values": 64,
+      "runtime_input_reads": 0,
+      "saved_empty_text_scopes": [
+        "configuration",
+        "document",
+        "summary"
+      ],
+      "source_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325"
+    },
+    "OtherShape": {
+      "generated": {
+        "bytes": 11228,
+        "sha256": "743238d1d88b8b1651eebf154f7916829361d1edd8d095f36e42336aae932c3f"
+      },
+      "generated_stream_count": 15,
+      "native_phase_receipts": {
+        "Generated": "4135b1333358b67035900f5f789507bd5df4fea9d89499c6f14c944cd4cbc70e",
+        "Reopen": "69bcecda1217b8f972a5366b3c6f62f7ceab79d03e6adc854f613e24ab673631",
+        "Source": "1d7f9e8fc91ac3691e72f30992608989d33245303c594853e02284b09a3ef194"
+      },
+      "native_saved_sha256": "1d11b2d52a41365fd0afe4997b2066b0f6d3cd3c0743d5b5c751cf193723b960",
+      "only_added_streams": [
+        "docProps/Config-0-Properties.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ],
+      "retained_light_values": 64,
+      "runtime_input_reads": 0,
+      "saved_empty_text_scopes": [
+        "configuration",
+        "document",
+        "summary"
+      ],
+      "source_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d"
+    },
+    "RenamedFeature": {
+      "generated": {
+        "bytes": 11304,
+        "sha256": "04cdc2dfa2ba63d994923529fb05af3e569ddb013d497fd5313edd3eddb71dee"
+      },
+      "generated_stream_count": 15,
+      "native_phase_receipts": {
+        "Generated": "1962e8985b10a1786b5be6895836376a3b01b1dde5b97bc74e13b440039db3b6",
+        "Reopen": "4617f1bb9c2037133612511c8ef92e98f280cc89b505564e8028ca32d1998117",
+        "Source": "767cf603d4f62f2d6f41fea2b887547ae88ef5c9fbb8de0ad09d55d65d32cd47"
+      },
+      "native_saved_sha256": "ae4f326ce48e01b83cff4f8e4cc640a00cccbbf9e3ff626befc1a1fd3749e35c",
+      "only_added_streams": [
+        "docProps/Config-0-Properties.xml",
+        "docProps/core.xml",
+        "docProps/custom.xml"
+      ],
+      "retained_light_values": 64,
+      "runtime_input_reads": 0,
+      "saved_empty_text_scopes": [
+        "configuration",
+        "document",
+        "summary"
+      ],
+      "source_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8"
+    }
+  },
+  "completed_disclosed_lifecycles": 3,
+  "controls_healthy": true,
+  "distinct_native_processes": 11,
+  "full_original_source_conversions": 0,
+  "held_out_lifecycles": 0,
+  "job_sha256": "9f434d3d43af602634d7fb46887764c2dccdae9122315f53f91a88ceddcaf109",
+  "native_candidate_reopen_geometry_checks": 348,
+  "native_control_receipts": {
+    "ControlAfter": "cd33373684b3790230ac0f02d9a9ce063af6b97da56bf0725de50401ecfc79a9",
+    "ControlBefore": "c7a3184a0c1da00cdb925eb60880bd6de529af7c9fade9afc2e66f2ab750df67"
+  },
+  "native_result_sha256": "458568f3813cc50d7ed4ef55a29bf0481551ab58d90f50c892d386f0e74eee7b",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "saved_empty_text_owners": 9,
+  "schema": "kit.sw2026.imported-empty-part-text-native.v1",
+  "writer_revision": "a0c36cb8f525b8d5283b1182dbeb2ea84ffc820f"
+}

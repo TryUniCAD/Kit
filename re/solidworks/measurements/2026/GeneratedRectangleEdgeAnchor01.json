@@ -1,0 +1,99 @@
+{
+  "schema": "kit.sw2026.rectangle-edge-anchor-discovery.v1",
+  "native_path": "C:\\Users\\Public\\Documents\\KitOracle\\RectangleCacheConstruction-816b\\Active\\PartitionProbeChild.SLDPRT",
+  "heldout_acceptance": false,
+  "standalone_native_acceptance": "unmeasured",
+  "previous_freeze_sha256": "b171a3421ab6c1ec62e1ee3952bff11e4f7f0029505d272322c8a5142542e943",
+  "construction_and_readback_file_opens": 0,
+  "variants": {
+    "OriginalAttachment": "8dbf7463a15f14c9905720a47e24863b702d98cdf3d695dfca51e20b8d8deede",
+    "CorrectedAttachment": "81099353af3b39650d93da59aaf1dec4d693197756534d25a3ca2c9e5ab381f9"
+  },
+  "geometry": {
+    "area_mm2": 1334.875,
+    "signed_volume_mm3": 2949.84375,
+    "center_mm": [
+      14.25,
+      -5.5,
+      4.375
+    ],
+    "bounds_mm": [
+      [
+        2.625,
+        -12.75,
+        0
+      ],
+      [
+        25.875,
+        1.75,
+        8.75
+      ]
+    ],
+    "loop_direction": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  },
+  "dimensions_m": {
+    "D1@Sketch1": 0.02325,
+    "D2@Sketch1": 0.0145,
+    "D1@Boss-Extrude1": 0.00875
+  },
+  "unchanged_logical_streams": {
+    "Contents/CMgr": "43834ede6c38558492ed547862a9c44f7962b562921d2f142dc64266ee446c41",
+    "Contents/CMgrHdr2": "2c9d27fdd5e2c45ecb296fa6261a0db812401d8b0a53947e9a21595cb4dbcafe",
+    "Contents/Config-0": "872af3bdbb898bbe065eec6b63acf3a14f791fd613a6ea2c8d429c6f9f46edc4",
+    "Contents/Config-0-ModelHeader": "a2fd5ce03c08257f19a67869d458e4a650fe3e393949d352d3668b642fac7264",
+    "Contents/Config-0-ResolvedFeatures": "62e35ac929bcc78da714b38223e81a8d502c62e6251fc720d00970c1bf1f0199",
+    "Contents/Definition": "257caf0f024e6b755a675ff8c3e29fc06e4cabe6b77478f23b879951a8ca1815",
+    "Header2": "a2fd5ce03c08257f19a67869d458e4a650fe3e393949d352d3668b642fac7264",
+    "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+    "_MO_VERSION_19000/History": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+    "swXmlContents/KeyWords": "d4979576945c01cc14e1a3c7558317838425fb9e6be3eb691332f9856e9f8188"
+  },
+  "partition_stream_sha256": {
+    "OriginalAttachment": "92589106f6fb3e2f960848662c95d9d949885cd39d01e5e6dae29a87298a6935",
+    "CorrectedAttachment": "c543edca5b6a22008e97c7a354b85f964e75fcc9257feeeda22d9b65f2135d05"
+  },
+  "changed_fields": [
+    {
+      "edge_transmit_index": 43,
+      "field": "halfedge",
+      "from": 12,
+      "to": 21
+    },
+    {
+      "edge_transmit_index": 44,
+      "field": "halfedge",
+      "from": 11,
+      "to": 27
+    },
+    {
+      "edge_transmit_index": 45,
+      "field": "halfedge",
+      "from": 10,
+      "to": 33
+    },
+    {
+      "edge_transmit_index": 46,
+      "field": "halfedge",
+      "from": 9,
+      "to": 39
+    },
+    {
+      "edge_transmit_index": 51,
+      "field": "halfedge",
+      "from": 24,
+      "to": 40
+    }
+  ],
+  "active_payload_sha256": {
+    "OriginalAttachment": "7477fdbbbe8f119e0722aa9f33a7b2a276c654ad30435d9b7ad8f8fbf2ab7982",
+    "CorrectedAttachment": "0e55a2b34ab044a4b0355f9de0c863f2266f14d8b5fb59a302118f05fcfe6a32"
+  },
+  "delta_payload_sha256": "669caf278f4a92c3546eb0d8875310360a5678a4ab76ac9fd01db3a4ba6104af"
+}

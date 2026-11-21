@@ -1,0 +1,439 @@
+{
+  "schema": "kit.sw2026.circle-sketch-processes.v1",
+  "scope": "remote guarded process construction only; native single-sketch measurement pending",
+  "source_revision": "814f5f82e0e8ac57a4b45f27193ca68fd17e01ef",
+  "tested_revision": "927b55cb26ef30996270ade05fed48bcaf7836bf",
+  "tested_tree": "59b749f2cb930d59140a81b56ba7e2049e39287c",
+  "verified_tested_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "814f5f82e0e8ac57a4b45f27193ca68fd17e01ef"
+  ],
+  "run": 43846591743,
+  "job": 133228176101,
+  "artifact": {
+    "id": 14215258728,
+    "name": "solidworks-construction-927b55cb26ef30996270ade05fed48bcaf7836bf",
+    "bytes": 20401418,
+    "reported_digest": "sha256:c000ab361ca84b8e16390f088bfa61b06a54addd446cfc90d86eca46f5bf715e",
+    "zip_digest_independently_verified": false
+  },
+  "native_format_process_checks": {
+    "passed": 183,
+    "skipped": 158
+  },
+  "policy_process_checks": {
+    "passed": 171
+  },
+  "cases": [
+    {
+      "name": "CircleSketchOne",
+      "file": "CircleSketchOne.SLDPRT",
+      "bytes": 6772,
+      "sha256": "942d77b09a60cd4a296c19c4cd3f7f4a824233b1d0a3312f102b3371fe5aa9a9",
+      "receipt_bytes": 865729,
+      "receipt_sha256": "f0b853c5731ff9900904b31209631a5353d9108520f2e8ff3499b2f84a432a25",
+      "request": {
+        "document": {
+          "name": "CircleSketchOne",
+          "configuration_name": "authored configuration",
+          "sketch_name": "Sketch1",
+          "extrusion_name": "Boss-Extrude1",
+          "origin_name": "Origin",
+          "plane_axis": "z",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "sketch",
+          "center_m": [
+            -0.004237,
+            0.003551
+          ],
+          "radius_m": 0.006713
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 458,
+          "sha256": "feb1122402feac12a686315a7fb76ca6c67a69f432b285f9f053e1194bc1a90e",
+          "map_base": 1,
+          "map_count": 12,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "map_base": 1,
+          "map_count": 3,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "map_base": 1,
+          "map_count": 5,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 458,
+          "sha256": "3ce7e1861b582f6654eadc20d41e6b00c31af3f8d317c4040061ad71f1f4cf03",
+          "map_base": 1,
+          "map_count": 12,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21136,
+          "sha256": "5a1055b18c390b69c27f95151549ef54510c57c69d6f0713e4700fd0508a790e",
+          "map_base": 3,
+          "map_count": 82,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "0478ab2f963e8e95d39c97d492f42d49de97b843db5134579586755b4ec9b6c9",
+          "map_base": 1,
+          "map_count": 10,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "map_base": 1,
+          "map_count": 7,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6389,
+          "sha256": "a8c8bf6e170fb621bd2e7ed58166c6608e2cb77b6c1873586d881d520231cdd4",
+          "map_base": 82,
+          "map_count": 152,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        }
+      },
+      "topology": {
+        "points": 2,
+        "lines": 0,
+        "arcs": 1,
+        "has_extrusion": false
+      },
+      "module_reads_observed": true,
+      "denied_reads": [],
+      "configuration_progress": true,
+      "vendor_acceptance": "unverified"
+    },
+    {
+      "name": "CircleSketchTwo",
+      "file": "CircleSketchTwo.SLDPRT",
+      "bytes": 6783,
+      "sha256": "f61a4123b68606cca5498c039b19a7a029984faf0adc7be5c3a788d9b7029579",
+      "receipt_bytes": 867269,
+      "receipt_sha256": "7f7cc441738dc99bb6ee3df36ef989b379ec0684e3de06b669b0b56c9e370968",
+      "request": {
+        "document": {
+          "name": "CircleSketchTwo",
+          "configuration_name": "authored configuration",
+          "sketch_name": "Sketch1",
+          "extrusion_name": "Boss-Extrude1",
+          "origin_name": "Origin",
+          "plane_axis": "x",
+          "density_kg_m3": 1.0,
+          "profile_kind": "circle",
+          "feature_kind": "sketch",
+          "center_m": [
+            0.009263,
+            -0.012217
+          ],
+          "radius_m": 0.015137
+        },
+        "provenance": {
+          "author": "Kit research",
+          "company": "authored compatibility experiment",
+          "created_at": 1794700000,
+          "modified_at": 1794700000,
+          "comment": "generated from neutral geometry",
+          "originating_build_code": 2026001,
+          "license_origin": 0
+        },
+        "target": {
+          "date_code": 2026306,
+          "parasolid_version": 370108
+        },
+        "presentation": {
+          "folder_names": {
+            "moCommentsFolder_c": "authored comments",
+            "moFavoriteFolder_c": "authored favorites",
+            "moHistoryFolder_c": "authored history",
+            "moSelectionSetFolder_c": "authored selection sets",
+            "moSensorFolder_c": "authored sensors",
+            "moDocsFolder_c": "authored document binder",
+            "moSurfaceBodyFolder_c": "authored surfaces",
+            "moSolidBodyFolder_c": "authored solids",
+            "moEnvFolder_c": "authored environment",
+            "moNotesAreaFtrFolder_c": "authored markups",
+            "moEqnFolder_c": "authored equations",
+            "moMaterialFolder_c": "authored material"
+          },
+          "cabinet_name": "authored annotations",
+          "plane_names": {
+            "x": "Right Plane",
+            "y": "Top Plane",
+            "z": "Front Plane"
+          },
+          "units": {
+            "length_unit": "mm",
+            "angle_unit": "degree",
+            "unit_system": "mmgs",
+            "decimal_places": 4
+          },
+          "styles": {
+            "standard": 1,
+            "font_name": "Arial",
+            "line_style_name": "authored continuous",
+            "language_id": 1033,
+            "print_widths_m": [
+              0.0001,
+              0.0002,
+              0.0003,
+              0.0004,
+              0.0005,
+              0.0006,
+              0.0007,
+              0.0008
+            ],
+            "exclusion_names": [],
+            "task_labels": [
+              "description",
+              "high",
+              "low",
+              "complete",
+              "reminder"
+            ],
+            "cutlist_expressions": [
+              "item",
+              "description",
+              "stock"
+            ]
+          },
+          "hatch_name": "authored hatch",
+          "drafting_standard": "moISO_c",
+          "journal_name": "authored journal",
+          "tessellation": [
+            20,
+            15,
+            3,
+            false
+          ],
+          "detail_flags": [],
+          "system_preference_7a": false,
+          "design_intent": false,
+          "selected_leader": 0,
+          "cjk_saved": false
+        }
+      },
+      "streams": {
+        "Header2": {
+          "bytes": 458,
+          "sha256": "e4227a5f795307bb20c849f1c34049ee456bf4b96491b5294da42952a4ea658c",
+          "map_base": 1,
+          "map_count": 12,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "map_base": 1,
+          "map_count": 3,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b",
+          "map_base": 1,
+          "map_count": 5,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 458,
+          "sha256": "195e473fc15226bf00de2cf6e0d5494e6a7c73289f7bd2f86e75c95537ae326a",
+          "map_base": 1,
+          "map_count": 12,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0": {
+          "bytes": 21136,
+          "sha256": "21623a73a131f3e7fb7c07b74dc95b034f385265944e066f3d187ede64febdba",
+          "map_base": 3,
+          "map_count": 82,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/CMgr": {
+          "bytes": 1159,
+          "sha256": "0478ab2f963e8e95d39c97d492f42d49de97b843db5134579586755b4ec9b6c9",
+          "map_base": 1,
+          "map_count": 10,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6",
+          "map_base": 1,
+          "map_count": 7,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 6533,
+          "sha256": "789c3f77957985197723b92bd46348f8296ea749760b67566367af8ad2136977",
+          "map_base": 82,
+          "map_count": 152,
+          "passed": true,
+          "tail": 0,
+          "identical": true,
+          "proven_schemas": true
+        }
+      },
+      "topology": {
+        "points": 2,
+        "lines": 0,
+        "arcs": 1,
+        "has_extrusion": false
+      },
+      "module_reads_observed": true,
+      "denied_reads": [],
+      "configuration_progress": true,
+      "vendor_acceptance": "unverified"
+    }
+  ],
+  "native_acceptance": false,
+  "heldout_native_payloads_read": false,
+  "radial_dimension_acceptance": false,
+  "circle_extrusion_acceptance": false,
+  "production_adapter": "read-only",
+  "local_test_execution": false
+}

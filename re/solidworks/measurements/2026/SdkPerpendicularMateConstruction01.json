@@ -1,0 +1,398 @@
+{
+  "cold_reader_qualification": "the unchanged public reader admits native-saved solved state and rejects cold generated perpendicular state",
+  "delivery_pr": 121,
+  "distinct_worker_count": 102,
+  "document_version": 19000,
+  "heldout_inputs_read": 0,
+  "malformed_or_unsupported_rejections": 14,
+  "native_acceptance": false,
+  "native_build": "34.5.2.0604",
+  "native_processes_started": 0,
+  "negative_cases": [
+    {
+      "case": "Nonorthogonal",
+      "diagnostic": "ValueError: perpendicular group endpoints must be orthogonal",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "SameOccurrence",
+      "diagnostic": "ValueError: the measured group profile requires distinct occurrences and the same principal datum axis",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "ExtraOccurrence",
+      "diagnostic": "ValueError: perpendicular groups require exactly two occurrences and one mate",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "ExtraPerpendicular",
+      "diagnostic": "ValueError: perpendicular groups require exactly two occurrences and one mate",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "MixedGroup",
+      "diagnostic": "ValueError: perpendicular groups require exactly two occurrences and one mate",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "ScalarDistance",
+      "diagnostic": "ValueError: planar group intent contains an unsupported or missing endpoint or dimension field",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "ExplicitAlignment",
+      "diagnostic": "ValueError: planar group intent contains an unsupported or missing endpoint or dimension field",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "UnknownAxis",
+      "diagnostic": "ValueError: ordinary mate endpoints require a qualified principal plane",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "UnknownKind",
+      "diagnostic": "ValueError: planar groups require named qualified ordinary mate kinds",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "MissingEndpoint",
+      "diagnostic": "ValueError: each planar mate requires exactly two actual endpoint selections",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "MissingAnchor",
+      "diagnostic": "ValueError: planar groups require one actual fixed occurrence index",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "ScaleOption",
+      "diagnostic": "ValueError: group occurrences include unqualified state",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "Shear",
+      "diagnostic": "ValueError: native frame tangents must be perpendicular",
+      "rejected": true,
+      "writer_output_count": 0
+    },
+    {
+      "case": "WrongChildLength",
+      "diagnostic": "ValueError: rectangle driving parameters disagree with their authored endpoint distances",
+      "rejected": true,
+      "writer_output_count": 0
+    }
+  ],
+  "new_neutral_cases": 4,
+  "new_sdk_paths": 11,
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "positive_cases": [
+    {
+      "assembly": {
+        "bytes": 9987,
+        "sha256": "a1d1210db7f37701f9f6be394c4c88974ea7ec1cdf6a1ca27a12bb85325c1f00",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "case": "G01",
+      "child": {
+        "bytes": 8819,
+        "sha256": "3f4e779191e26e039ff5fe50cf632c4c32024e0a11720f74d4374f2ca71b8534",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "deterministic": true,
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "perpendicular",
+          "mate_id": 19,
+          "name": "Perpendicular1"
+        }
+      ],
+      "prediction_sha256": "fc6728d3abf7958efd1c9450f56d5a4f05016e672408bd1f105b2f6604a280cb",
+      "request_sha256": "4eceee081ee70661be824ac7636958db2e2f2c5a73c864593e507af0e75d4fd8",
+      "round_trips": 44
+    },
+    {
+      "assembly": {
+        "bytes": 10091,
+        "sha256": "2cb6667f099e6395e717898950399f2092caab95bae324cdbb62accdd175583e",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "case": "G02",
+      "child": {
+        "bytes": 8821,
+        "sha256": "47d97972a48544d3f0e20d2a749e871eb7f7e85efe3ad3c16c94b06a33f3ec9b",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "deterministic": true,
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 14,
+              "occurrence": 1,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "perpendicular",
+          "mate_id": 19,
+          "name": "Perpendicular1"
+        }
+      ],
+      "prediction_sha256": "722eff27ad52d256c8c10174317599ba85dcd1b830b2eb6238d7d70d7e3f7b6a",
+      "request_sha256": "7a4392c8f1642d1b1ded710908a8230fe179e49be3bffdfa1baacb3d1a1f8e63",
+      "round_trips": 44
+    },
+    {
+      "assembly": {
+        "bytes": 10034,
+        "sha256": "4fb3b61322b443c1680363d369379bdd9d3ea913c74adf060d3b7033de1ac254",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "case": "G03",
+      "child": {
+        "bytes": 8829,
+        "sha256": "51353ede89db450df5bacc70b0ef027a7b06e93ae073d7a11f83a9bf1d68bef1",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "deterministic": true,
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 16,
+              "occurrence": 0,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "perpendicular",
+          "mate_id": 19,
+          "name": "Perpendicular1"
+        }
+      ],
+      "prediction_sha256": "e01a60c2565c0688cbeed507e97cbc437dc4ddb32137e4dca5135549f5a6684d",
+      "request_sha256": "49cab087ae2b77bedbb4535061d9dd76447e2df273a962b94c26e7575165afa1",
+      "round_trips": 44
+    },
+    {
+      "assembly": {
+        "bytes": 9640,
+        "sha256": "25a608047aa037b1d0fed38e8df09054a5a4c981115183ca6fc51c75016f2559",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/CMgrHdr2",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords",
+          "swXmlContents/COMPINSTANCETREE",
+          "Contents/Config-0",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Config-0-MatesList",
+          "Contents/CMgr"
+        ]
+      },
+      "case": "G04",
+      "child": {
+        "bytes": 8827,
+        "sha256": "3622c41f33764c0a2b44925317b91a55b219cb9e12f5a17bab91c835bf7713c0",
+        "stream_order": [
+          "Header2",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0",
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0-ResolvedFeatures",
+          "Contents/Definition",
+          "_MO_VERSION_19000/Biography",
+          "_MO_VERSION_19000/History",
+          "swXmlContents/KeyWords"
+        ]
+      },
+      "deterministic": true,
+      "endpoints": [
+        {
+          "endpoints": [
+            {
+              "datum_id": 14,
+              "occurrence": 0,
+              "selection": [
+                19,
+                0,
+                0
+              ]
+            },
+            {
+              "datum_id": 15,
+              "occurrence": 1,
+              "selection": [
+                19,
+                1,
+                1
+              ]
+            }
+          ],
+          "kind": "perpendicular",
+          "mate_id": 19,
+          "name": "Perpendicular1"
+        }
+      ],
+      "prediction_sha256": "070b02a9020d14261f7a7910ccc51440f8ea33edf474eb14bc05a6a0df00c541",
+      "request_sha256": "ad20b78907b75c2de4fd0ba679dde93e637ace74640fdaca0578ca2c50040d9e",
+      "round_trips": 44
+    }
+  ],
+  "prewriter_source_lock_sha256": "614c05ee076b728018e2371fa0d992ab59e379afc625eec22aa699dd16729aee",
+  "prior_bundle_families": {
+    "explicit_occurrences": 6,
+    "genuinely_nested": 2,
+    "ordered": 12,
+    "single": 18
+  },
+  "public_writer_qualified": false,
+  "raw_result_sha256": "0744dfc514fb2524147918d7b56da4ee548bd50854d48a78b9b768610f10be0b",
+  "remaining": [
+    "native open/rebuild and application proof",
+    "synchronized edit/save/fresh-reopen proof",
+    "active correction or rejection of an invalid angular request",
+    "blind source/generated semantic comparison on the two pre-writer-locked cases",
+    "public reader cold-state and public writer admission remain separate gated work"
+  ],
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.perpendicular-sdk-construction-public-proof.v1",
+  "scope": "one initially satisfied nondimensional perpendicular between two actual principal datums of two repeated occurrences of one generated dimensioned rectangular child",
+  "sdk_runtime_research_imports": 0,
+  "source_manifest_sha256": "0f660dcb6fef84b12b382fa40e542069d49dab0ec6169151b154b4222f5884fa",
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR",
+  "unchanged_prior_complete_bundles": 38
+}

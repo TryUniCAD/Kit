@@ -1,0 +1,5 @@
+# Compose a selected-stock revolve part from neutral geometry
+
+The internal constructor accepts two independent coaxial annular stocks and one partial cut on their shared principal sketch plane. It binds the cut to its actual earlier body producer and allocates separate profile, D1, body and configuration owners. The cut accepts either sweep direction. A mismatched selection, a cutter outside this geometry, or additional document state is rejected before allocation.
+
+Four fresh processes generated identical bytes for all four disclosed native-tested candidates, including 40 identical logical streams. They rejected a stock pick crossed with its dependency and recorded zero runtime file accesses. The internal composer has no public adapter route. The protected native comparison passed both original-to-generated comparisons, with two original source reads still refusing at the stock wrapper. [Composer evidence](../../../../../re/solidworks/measurements/2026/SdkSelectedRevolveComposer01.json) · [Protected comparison](../../../../../re/solidworks/measurements/2026/SdkScopedRevolveHeldoutRecheck01.json)

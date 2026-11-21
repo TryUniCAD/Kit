@@ -74,8 +74,10 @@ reported four fully resolved, unsuppressed component references, four solid bodi
 `56000.00000000001 mm³`, and a center of mass at
 `(35.0, 45.535714285714285, 5.892857142857144) mm`. Each `Transform2.ArrayData` basis and
 translation matched the four requested placements exactly, including the two nonidentity bases.
-The only load warning was bit 32, the known drawing-sheet/view-only warning emitted for these
-non-drawing oracle opens.
+The only recorded load warning was bit 32. The 2026 warning enumeration and
+[independent native assembly observation](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/AssemblyOpenWarningThirtyTwoNeedsRebuild.md)
+identify it as a rebuild-required diagnostic. The historical run did not satisfy
+the current zero-warning requirement.
 
 The generated `BoxA.sldprt` child opened with no errors or warnings, rebuilt with one solid body,
 and exposed `Sketch1` followed by editable `Boss-Extrude1`. Driving

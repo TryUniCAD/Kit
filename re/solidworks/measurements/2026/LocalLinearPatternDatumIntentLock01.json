@@ -1,0 +1,22 @@
+{
+  "cohort": "heldout",
+  "native_processes_started": 0,
+  "packet_sha256": "163d101c4142e47287286dcb0a074fa4f2506a9d9931783f814a5c70c8eee85a",
+  "private_data_guest_only": true,
+  "private_intent_sha256": "c1db72a4ee1499f3b0b1ac8fd033f8cacd5cddc3a0a60d2c6dafefd2cdd95e63",
+  "schema": "kit.sw2026.linear-pattern-datum-holdout-intent-lock.v1",
+  "sealed_at_unix_ns": 1795247347613836700,
+  "slots": [
+    {
+      "intent_sha256": "e6eec96fb6927619fe39610ec802129cf5ee4da73156f4aa0d321abf0c600647",
+      "slot": "Slot01"
+    },
+    {
+      "intent_sha256": "f21313c37530d3be135afa48bf57b8dd9d4421f463e470390ea936a8d768ce97",
+      "slot": "Slot02"
+    }
+  ],
+  "source_revision": "9d50c93ec00b309c58158ba7a295cf21f5afaf14",
+  "writer_output_count": 0,
+  "writer_source_tree": "144d69996547bb67bf12c7b8b7e48e3c5a8f9de6"
+}

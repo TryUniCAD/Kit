@@ -1,0 +1,124 @@
+{
+  "archive_version": 19000,
+  "heldout_inputs_read": false,
+  "inherited_node_lifecycle": [
+    {
+      "routine_identity": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "7e2bc701560122598bbb25f1440007f99c6d717524d05dc7b82c849d786404fc",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?isSatNotSolved@moNode_c@@UEAAHXZ"
+        ],
+        "requested_va": "0x4b28e090",
+        "unwind_entry_found": false
+      },
+      "slot_bytes": 560,
+      "target": "0x4b28e090"
+    },
+    {
+      "routine_identity": {
+        "entry_sample_bytes": 16,
+        "entry_sample_sha256": "0ab5405119a7c17ebbe6fe142e4dd5cf09be56b4970bfa25737e8f31603d936a",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?setSatNotSolved@moNode_c@@UEAAXH@Z"
+        ],
+        "requested_va": "0x4b30f9f0",
+        "unwind_entry_found": false
+      },
+      "slot_bytes": 568,
+      "target": "0x4b30f9f0"
+    }
+  ],
+  "module": {
+    "bytes": 46536280,
+    "image_base": "0x4b140000",
+    "machine": "0x8664",
+    "name": "sldmodu.dll",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_processes_started": 0,
+  "parallel_primary_table": "0x4cf9fe10",
+  "perpendicular_primary_table": "0x4cfa2278",
+  "schema": "kit.sw2026.perpendicular-mate-reader-bindings.v1",
+  "scope": "exact concrete archive framing only; solver behavior remains separately measured",
+  "script_sha256": "aa94b989fa91af6f1a1356c34cfe925dd2f58735d01fe85373f0a0b2d5db9425",
+  "shared_base": "moMate2Geoms_c",
+  "shared_serialization_entry": "0x4b668a60",
+  "virtuals": [
+    {
+      "parallel_target": "0x4bb2a650",
+      "perpendicular_target": "0x4bb2a650",
+      "routine_identity": {
+        "code_sha256": "fbce0d1866bc82d82a38c23d1b286ac1d7ac03d9f45281fcfadde80961a836ba",
+        "end_rva_exclusive": "0x9eaa58",
+        "end_va_exclusive": "0x4bb2aa58",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?SerializeXmlData@moFeature_c@@UEAAXAEAVsu_CArchive@@AEAUXmlDataKey_c@@@Z"
+        ],
+        "start_rva": "0x9ea650",
+        "start_va": "0x4bb2a650",
+        "unwind_rva": "0x2385be4"
+      },
+      "shared_rule": "moFeature_c.SerializeXmlData",
+      "slot_bytes": 1000
+    },
+    {
+      "parallel_target": "0x4c03e170",
+      "perpendicular_target": "0x4c03e170",
+      "routine_identity": {
+        "code_sha256": "e0eac4f809b5eab8fe7fd26d4173242e301f6c52843d43057ad028efc1455a55",
+        "end_rva_exclusive": "0xefe1ca",
+        "end_va_exclusive": "0x4c03e1ca",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?getIdForXmlDataExtracter@moNode_c@@UEAAHAEAUXmlDataKey_c@@@Z"
+        ],
+        "start_rva": "0xefe170",
+        "start_va": "0x4c03e170",
+        "unwind_rva": "0x22477f0"
+      },
+      "shared_rule": "moNode_c.getIdForXmlDataExtracter",
+      "slot_bytes": 1016
+    },
+    {
+      "parallel_target": "0x4c17a7b0",
+      "perpendicular_target": "0x4c17a7b0",
+      "routine_identity": {
+        "code_sha256": "6cf75e18885003afbc7173c8ee91b6c297f9fdc4a5861c3be4a95423d33f3d4e",
+        "end_rva_exclusive": "0x103a9f1",
+        "end_va_exclusive": "0x4c17a9f1",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?SerializeLWData@moConcept_c@@UEAAXAEAVsu_CArchive@@@Z"
+        ],
+        "start_rva": "0x103a7b0",
+        "start_va": "0x4c17a7b0",
+        "unwind_rva": "0x246d104"
+      },
+      "shared_rule": "moConcept_c.SerializeLWData",
+      "slot_bytes": 1208
+    },
+    {
+      "parallel_target": "0x4c17b570",
+      "perpendicular_target": "0x4c17b570",
+      "routine_identity": {
+        "code_sha256": "32db49fd6836bdc709d7eee7dc5b8d4d1db8f63cc762b4596b02c0ef5f338b4b",
+        "end_rva_exclusive": "0x103b9c9",
+        "end_va_exclusive": "0x4c17b9c9",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?SerializeResolvedData@moConcept_c@@UEAAXAEAVsu_CArchive@@@Z"
+        ],
+        "start_rva": "0x103b570",
+        "start_va": "0x4c17b570",
+        "unwind_rva": "0x246d140"
+      },
+      "shared_rule": "moConcept_c.SerializeResolvedData",
+      "slot_bytes": 1216
+    }
+  ],
+  "writer_output_count": 0
+}

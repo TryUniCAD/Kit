@@ -17,7 +17,7 @@ from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ExternalFields import KExternalFields
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MaterialFields import KMaterialFields
 from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import KContainerFields
-from convert.adapters.solidworks.Archive.Bodies.Layouts.ReferenceFields import KReferenceFields
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ReferenceFields import KFrameOwnerFields
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
@@ -35,7 +35,7 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 MANIFEST = ROOT / "re/solidworks/measurements/2026/ConfigFieldModesSource01.json"
-LAYOUTS = {**KContainerFields, **KExternalFields, **KMaterialFields, **KReferenceFields}
+LAYOUTS = {**KContainerFields, **KExternalFields, **KMaterialFields, **KFrameOwnerFields}
 PART = RuntimeClass("moPart_c", 1)
 
 
@@ -248,10 +248,10 @@ def authored_case():
         refuse("fixed_limit", b"", "implausible SOLIDWORKS body repeat", rules=(repeat(10_000_001),)),
         refuse("fixed_truncated", pack("<i", 4) + b"\0", "truncated SOLIDWORKS archive field", rules=(repeat(2),)),
         refuse("normalization", pack("<i", 4), "unsupported native normalization rule",
-               rules=(NativeField("Normalize", "value", "i32", ModeValue="Equals"),)),
+               rules=(NativeField("Normalize", "value", "i32", ModeValue="Unmapped"),)),
         refuse("signed_width", pack("<I", 4), "requires an i32 word",
                rules=(NativeField("Normalize", "value", "u32", ModeValue="AtLeast"),)),
-        refuse("direct_owner", b"", "unsupported SOLIDWORKS native field path f1018",
+        refuse("direct_owner", b"", "unsupported SOLIDWORKS body schema moSheetMetalMaster_c",
                rules=(NativeField("DirectNode", "f1018", "moSheetMetalMaster_c"),)),
         refuse("component_owner", pack("<H", 2), "unresolved archive object reference 2", schema="moComponent_c"),
     ]

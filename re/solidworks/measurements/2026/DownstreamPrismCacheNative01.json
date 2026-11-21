@@ -1,0 +1,452 @@
+{
+  "application_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "cache_consumption_observed": false,
+  "cases": [
+    {
+      "case": "Prism1Comparison",
+      "edited": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "generated_cache_stream_present": false,
+      "generated_partition_bodies": 1,
+      "generated_partition_nodes": 203,
+      "generated_partition_sha256": "45988342c36bb549260ba2e150033c88ec061eb6865ea4aaa7447f63a076cbf0",
+      "generated_sha256": "b06c4f72a6e851f7d715f7a2fc28b5f54e2042cb72da16f44eed5bb2d7155374",
+      "initial_depth_m": 0.008,
+      "initial_native_state": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "native_saved_cache_stream_present": false,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00197125,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.004
+          ],
+          "mass": 4.693000000000001e-06,
+          "volume": 4.693000000000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "reopened_depth_m": 0.009625,
+      "reopened_native_state": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "reopened_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "reopened_rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      },
+      "saved_sha256": "0a8e1f7db9a6767d5089dbe977833676fee58aade9d31fd631a09ccfad2d5341"
+    },
+    {
+      "case": "Prism1Populated",
+      "edited": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.0023750000000000004,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "generated_cache_stream_present": true,
+      "generated_partition_bodies": 1,
+      "generated_partition_nodes": 203,
+      "generated_partition_sha256": "45988342c36bb549260ba2e150033c88ec061eb6865ea4aaa7447f63a076cbf0",
+      "generated_sha256": "27d11bc5c546268595af808fe7209fbf40abd7c5371759c8685d174ef43ca29a",
+      "initial_depth_m": 0.008,
+      "initial_native_state": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "native_saved_cache_stream_present": false,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00197125,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.004
+          ],
+          "mass": 4.693000000000001e-06,
+          "volume": 4.693000000000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "reopened_depth_m": 0.009625,
+      "reopened_native_state": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.0023750000000000004,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "reopened_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "reopened_rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00213334375,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.0048125
+          ],
+          "mass": 5.646265625000001e-06,
+          "volume": 5.646265625000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      },
+      "saved_sha256": "890a5fd64d17833af7b285e1260a13032d32d62925df6df07769a7a4b6ab4eb8"
+    },
+    {
+      "case": "Prism2Comparison",
+      "edited": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.0060625
+          ],
+          "mass": 6.7960625e-06,
+          "volume": 6.7960625e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "generated_cache_stream_present": false,
+      "generated_partition_bodies": 1,
+      "generated_partition_nodes": 203,
+      "generated_partition_sha256": "9c7fe7eac9ad02bd44eeb3480d12afa6ba09d54e94a6d2e3cbf788b0a32ad5ec",
+      "generated_sha256": "91fcf8d810b2cd9cf3a2b19fd1f65cde81d764a78d47285d2c8da01491d75643",
+      "initial_depth_m": 0.00975,
+      "initial_native_state": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "native_saved_cache_stream_present": false,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00206675,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.004875
+          ],
+          "mass": 5.464875e-06,
+          "volume": 5.464875e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "reopened_depth_m": 0.012125,
+      "reopened_native_state": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.0060625
+          ],
+          "mass": 6.7960625e-06,
+          "volume": 6.7960625e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "reopened_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "reopened_rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.006062500000000001
+          ],
+          "mass": 6.796062499999998e-06,
+          "volume": 6.796062499999998e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      },
+      "saved_sha256": "dd7cb9b6590455bed879a4344ac8a09c1a4916ca25a47634a671ba340f6b1cd0"
+    },
+    {
+      "case": "Prism2Populated",
+      "edited": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.0060625
+          ],
+          "mass": 6.7960625e-06,
+          "volume": 6.7960625e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "generated_cache_stream_present": true,
+      "generated_partition_bodies": 1,
+      "generated_partition_nodes": 203,
+      "generated_partition_sha256": "9c7fe7eac9ad02bd44eeb3480d12afa6ba09d54e94a6d2e3cbf788b0a32ad5ec",
+      "generated_sha256": "37ef849b7371bfc0ad7d33413d2c6760beb5bf07c426b392502d85cf40c52620",
+      "initial_depth_m": 0.00975,
+      "initial_native_state": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "initial_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "native_saved_cache_stream_present": false,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00206675,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.004875
+          ],
+          "mass": 5.464875e-06,
+          "volume": 5.464875e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "reopened_depth_m": 0.012125,
+      "reopened_native_state": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.0060625
+          ],
+          "mass": 6.7960625e-06,
+          "volume": 6.7960625e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": false,
+        "whats_wrong": 0
+      },
+      "reopened_open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "reopened_rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.002297125,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.006062500000000001
+          ],
+          "mass": 6.796062499999998e-06,
+          "volume": 6.796062499999998e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "save": {
+        "errors": 0,
+        "success": true,
+        "warnings": 0
+      },
+      "saved_sha256": "b35cfa8555495bbab3105fd1c68a5fea246a84547d87f829535a8442098c7e76"
+    }
+  ],
+  "clean_initial_generated_open": false,
+  "delivery_pr": 121,
+  "healthy_bracketing_controls": 4,
+  "heldout_files_read": 0,
+  "native_processes": 16,
+  "oracle_version": "34.5.2.0604",
+  "qualified_fcstd_assemblies": 0,
+  "qualified_fcstd_parts": 0,
+  "raw_receipts_sha256": {
+    "EditJob01.json": "e1479d8955f1eb886373322bd64af7902e1c68786dd08c9c8f7aff07ad53ae27",
+    "EditResult01.json": "4c8acad55123d7d8e24fbebcf182f953f56daf086c36c131dfb1f33d6fb3a5ed",
+    "Job.json": "9da4efc46c6a798a138f07964360a571e926542635abd580307a643046fa93c1",
+    "Result.json": "9050f43ef2c4bf0e90933797733b7155b9bd6016cffbfb21abdd9ff6c0427153"
+  },
+  "schema": "kit.sw2026.disclosed-prism-cache-native-diagnostics.v1",
+  "task": "B04-SW2026-DRAWING-DOWNSTREAM-ID",
+  "tool_process_code_sha256": "b36d0f06a117ec980b2723322c22ff9151afafa631db1bb271e3d0ce5dd86357",
+  "verified_edit_save_fresh_open": true
+}

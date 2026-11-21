@@ -1,10 +1,9 @@
+from convert.adapters.base.NativeEvidence import KUnresolvedEqTargets as KUnresolvedEqTargets
 from typing import Mapping
 
 from convert.adapters.solidworks.Core.Native import NativeEquation
 from interchange import frozen_mapping as FrozenMapping
 
-# target resolution failures need a durable interchange key for write policy
-KUnresolvedEqTargets = "solidworks.unresolvedEquationReferences"
 
 
 # equation targets must identify an authored dimension before the expression can drive it

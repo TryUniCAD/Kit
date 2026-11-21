@@ -1,0 +1,2583 @@
+{
+  "candidate_open_errors": 0,
+  "candidate_open_warnings": 0,
+  "candidate_processes": 15,
+  "confidence": "confirmed_for_the_disclosed_ordinary_profile",
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "document_density_preference_kg_m3": 1000.0,
+  "edit_scope": "depth_only_all_width_height_depth_drivers_observed",
+  "effective_unassigned_body_density_kg_m3": 1.0,
+  "heldout_inputs_read": 0,
+  "host_transport_summary_sha256": "8ea304a97e0e11125cb356af86c809ff6657ab6380207ec90f06e8f3f4ca75ad",
+  "measured_candidate_states": 35,
+  "native_partition_generated": false,
+  "native_processes": 17,
+  "native_report_sha256": "2a7c6fa9c30fdd66209c6fb0a703467c6e985b3c87bf04a31d8229fafcc88bf0",
+  "native_tools_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectNamedOutputPort01.py": "640f3b9debf78da1a214971c5fa10f8b46c5eb1651a3e1afd0cc382d13e81ed5",
+    "InspectSdkBlindPart.py": "86a3ef7c8a74b778800f83e6e920ab33f18ddb3363774ac29dad7b43858fbaa5",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PredictNamedOutput01.py": "3c96bf9405bbffb526d4fb017b9cb87a231275a04ed945be806bb79b6a292041",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "native_trial_passed": true,
+  "numeric_checks": 868,
+  "original_source_qualification": false,
+  "phases": {
+    "AccentNamed": {
+      "derivative_bytes": 56341,
+      "derivative_sha256": "a79ed7ca9e0a778c3d2a5d22f22e8536f092e5ca9f7eb10200ab370f5eca58bd",
+      "diagnostics_empty": true,
+      "edit_status": 0,
+      "immutable_bytes": true,
+      "numeric_check_count": 72,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394925707979265,
+        "process_id": 10932,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "f64ed60ac5a7b7aca7087a7ce153cb5f5c98d43820b4a923adddc128c18d684c",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": {
+        "Edited": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortAccent01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.010130000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.010130000000000002,
+          "mass": {
+            "area": 0.0023249742,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.005065000000000001
+            ],
+            "mass": 6.431706171000001e-06,
+            "volume": 6.431706171000001e-06
+          },
+          "native_body_name": "\u00c9bauche \u00c5ube",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortAccent01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00783
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00783,
+          "mass": {
+            "area": 0.0020854062,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.003915
+            ],
+            "mass": 4.971397761e-06,
+            "volume": 4.971397761e-06
+          },
+          "native_body_name": "\u00c9bauche \u00c5ube",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortAccent01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00783
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00783,
+          "mass": {
+            "area": 0.0020854062,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.003915
+            ],
+            "mass": 4.971397761e-06,
+            "volume": 4.971397761e-06
+          },
+          "native_body_name": "\u00c9bauche \u00c5ube",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "AccentPlain": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394925394981072,
+        "process_id": 10144,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "8c5325c4dbea0003bf4226e298126e3712e837e3f9aba20f0bb54e266f9f5798",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortAccent01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00783
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00783,
+          "mass": {
+            "area": 0.0020854062,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.003915
+            ],
+            "mass": 4.971397761e-06,
+            "volume": 4.971397761e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortAccent01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00783
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00783,
+          "mass": {
+            "area": 0.0020854062,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.003915
+            ],
+            "mass": 4.971397761e-06,
+            "volume": 4.971397761e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "AccentReopen": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394926086468557,
+        "process_id": 9572,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "e9876b0b26015acd286662a6cd4c6aa5e76471c1c5ad2be45d8c89c78b27a887",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.010130000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.010130000000000002,
+          "mass": {
+            "area": 0.0023249742,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.005065000000000001
+            ],
+            "mass": 6.431706171000001e-06,
+            "volume": 6.431706171000001e-06
+          },
+          "native_body_name": "\u00c9bauche \u00c5ube",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.010130000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.010130000000000002,
+          "mass": {
+            "area": 0.0023249742,
+            "com": [
+              0.011289999999999998,
+              -0.00571,
+              0.005065000000000001
+            ],
+            "mass": 6.431706171000001e-06,
+            "volume": 6.431706171000001e-06
+          },
+          "native_body_name": "\u00c9bauche \u00c5ube",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "BmpNamed": {
+      "derivative_bytes": 55982,
+      "derivative_sha256": "a48efd0f259aed28a15d1077783cd5eb15386c5b4ebdba1864dac267e86cc53c",
+      "diagnostics_empty": true,
+      "edit_status": 0,
+      "immutable_bytes": true,
+      "numeric_check_count": 72,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394926693953283,
+        "process_id": 8924,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "b537a2c04fd6b1df85c3eae0178a2614bf46e26b5c3e0708cb540b12c20a3cf1",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": {
+        "Edited": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortBmp01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01207
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01207,
+          "mass": {
+            "area": 0.003373315,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.006035
+            ],
+            "mass": 1.1200203211000002e-05,
+            "volume": 1.1200203211000002e-05
+          },
+          "native_body_name": "\u6881_\u0394\u03af\u03c3\u03ba\u03bf\u03c2",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortBmp01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00841
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00841,
+          "mass": {
+            "area": 0.0029131798,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.004205
+            ],
+            "mass": 7.803952693000001e-06,
+            "volume": 7.803952693000001e-06
+          },
+          "native_body_name": "\u6881_\u0394\u03af\u03c3\u03ba\u03bf\u03c2",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortBmp01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00841
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00841,
+          "mass": {
+            "area": 0.0029131798,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.004205
+            ],
+            "mass": 7.803952693000001e-06,
+            "volume": 7.803952693000001e-06
+          },
+          "native_body_name": "\u6881_\u0394\u03af\u03c3\u03ba\u03bf\u03c2",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "BmpPlain": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394926390756860,
+        "process_id": 10008,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "1c8f98811408fa02d88e629b492509fa255d9b9d4fb340f5f32663d08c63617d",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortBmp01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00841
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00841,
+          "mass": {
+            "area": 0.0029131798,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.004205
+            ],
+            "mass": 7.803952693000001e-06,
+            "volume": 7.803952693000001e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortBmp01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00841
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00841,
+          "mass": {
+            "area": 0.0029131798,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.004205
+            ],
+            "mass": 7.803952693000001e-06,
+            "volume": 7.803952693000001e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "BmpReopen": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394927095906949,
+        "process_id": 11080,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "985152a29e237b891e64e326896da7f301096e03594f4ebaa0af6a0f4444378c",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01207
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01207,
+          "mass": {
+            "area": 0.003373315,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.006035
+            ],
+            "mass": 1.1200203211000002e-05,
+            "volume": 1.1200203211000002e-05
+          },
+          "native_body_name": "\u6881_\u0394\u03af\u03c3\u03ba\u03bf\u03c2",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01207
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01207,
+          "mass": {
+            "area": 0.003373315,
+            "com": [
+              -0.008369999999999999,
+              0.00953,
+              0.006035
+            ],
+            "mass": 1.1200203211000002e-05,
+            "volume": 1.1200203211000002e-05
+          },
+          "native_body_name": "\u6881_\u0394\u03af\u03c3\u03ba\u03bf\u03c2",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "ControlAfter": {
+      "bodies": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394930410894749,
+        "process_id": 10848,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "rebuilt": true,
+      "record_sha256": "79d7ce310a3e3761537959c9a142ec3524c7b397810c9fe1d808d2f6d690dcd3",
+      "whats_wrong": 0
+    },
+    "ControlBefore": {
+      "bodies": 1,
+      "mass": {
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06,
+        "volume": 8.000000000000001e-06
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "opened": true,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394925159665791,
+        "process_id": 5884,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "rebuilt": true,
+      "record_sha256": "091137e4b12e7f61f4850099ab009861edbe3ca3befab79ec1ad287fc53976ad",
+      "whats_wrong": 0
+    },
+    "DriversNamed": {
+      "derivative_bytes": 58652,
+      "derivative_sha256": "d50edb4fd21bcba69f2f51c981217c61b755d0de4c2ec4e5023326e36ae5acd0",
+      "diagnostics_empty": true,
+      "edit_status": 0,
+      "immutable_bytes": true,
+      "numeric_check_count": 78,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394928741568414,
+        "process_id": 3280,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "caee1c332e6034f531e6c70ffca16b6a842748d45a63da26ceb0838967cb0376",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": {
+        "Edited": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@SdkNamePortDrivers01.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01319
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01319,
+          "mass": {
+            "area": 0.0038479070000000002,
+            "com": [
+              -0.014229999999999998,
+              -0.00731,
+              0.006595
+            ],
+            "mass": 1.3421309073e-05,
+            "volume": 1.3421309073e-05
+          },
+          "native_body_name": "Named Editable Body",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@SdkNamePortDrivers01.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.009710000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.009710000000000002,
+          "mass": {
+            "area": 0.0033696158000000006,
+            "com": [
+              -0.01423,
+              -0.00731,
+              0.004855000000000001
+            ],
+            "mass": 9.880281357000002e-06,
+            "volume": 9.880281357000002e-06
+          },
+          "native_body_name": "Named Editable Body",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@SdkNamePortDrivers01.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.009710000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.009710000000000002,
+          "mass": {
+            "area": 0.0033696158000000006,
+            "com": [
+              -0.01423,
+              -0.00731,
+              0.004855000000000001
+            ],
+            "mass": 9.880281357000002e-06,
+            "volume": 9.880281357000002e-06
+          },
+          "native_body_name": "Named Editable Body",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "DriversPlain": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 52,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394928435058703,
+        "process_id": 4772,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "d291a795019a61de3cb8519356cf6bd1a039ba1562973a3ee1671f7fb37d9917",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@SdkNamePortDrivers01.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.009710000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.009710000000000002,
+          "mass": {
+            "area": 0.0033696158000000006,
+            "com": [
+              -0.01423,
+              -0.00731,
+              0.004855000000000001
+            ],
+            "mass": 9.880281357000002e-06,
+            "volume": 9.880281357000002e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@SdkNamePortDrivers01.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@SdkNamePortDrivers01.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.009710000000000002
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.009710000000000002,
+          "mass": {
+            "area": 0.0033696158000000006,
+            "com": [
+              -0.01423,
+              -0.00731,
+              0.004855000000000001
+            ],
+            "mass": 9.880281357000002e-06,
+            "volume": 9.880281357000002e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "DriversReopen": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 52,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394929127831825,
+        "process_id": 5308,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "ab571df873b538f25e439c59269fefe14655c7a6759cff4b156db22369f58041",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@Edited.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@Edited.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@Edited.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01319
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01319,
+          "mass": {
+            "area": 0.0038479070000000002,
+            "com": [
+              -0.014229999999999998,
+              -0.00731,
+              0.006595
+            ],
+            "mass": 1.3421309073e-05,
+            "volume": 1.3421309073e-05
+          },
+          "native_body_name": "Named Editable Body",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "ContourWidth@ColdSketch@Edited.Part",
+              "name": "ContourWidth",
+              "reference": "ContourWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.047130000000000005
+            },
+            {
+              "driving": true,
+              "full_name": "ContourHeight@ColdSketch@Edited.Part",
+              "name": "ContourHeight",
+              "reference": "ContourHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.021589999999999998
+            },
+            {
+              "driving": true,
+              "full_name": "SolidDepth@ColdBoss@Edited.Part",
+              "name": "SolidDepth",
+              "reference": "SolidDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01319
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01319,
+          "mass": {
+            "area": 0.0038479070000000002,
+            "com": [
+              -0.014229999999999998,
+              -0.00731,
+              0.006595
+            ],
+            "mass": 1.3421309073e-05,
+            "volume": 1.3421309073e-05
+          },
+          "native_body_name": "Named Editable Body",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "PairNamed": {
+      "derivative_bytes": 56732,
+      "derivative_sha256": "c66c01d62dd44f9791deedf90df3e988fb517d1ca3422aa865802c340e463c9e",
+      "diagnostics_empty": true,
+      "edit_status": 0,
+      "immutable_bytes": true,
+      "numeric_check_count": 72,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394927740153459,
+        "process_id": 6824,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "d2c1ba3d4af2abe54bdf1104457e027a63fcbd2f6cff63f038841f3eed4660af",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": {
+        "Edited": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortPair01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00917
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00917,
+          "mass": {
+            "area": 0.0017779702,
+            "com": [
+              0.006410000000000002,
+              0.01273,
+              0.004585
+            ],
+            "mass": 4.342766197e-06,
+            "volume": 4.342766197e-06
+          },
+          "native_body_name": "\u8ef8_\ud801\udc37_\u03a9",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortPair01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00659
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00659,
+          "mass": {
+            "area": 0.0015442222000000001,
+            "com": [
+              0.00641,
+              0.01273,
+              0.003295
+            ],
+            "mass": 3.1209192190000004e-06,
+            "volume": 3.1209192190000004e-06
+          },
+          "native_body_name": "\u8ef8_\ud801\udc37_\u03a9",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortPair01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00659
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00659,
+          "mass": {
+            "area": 0.0015442222000000001,
+            "com": [
+              0.00641,
+              0.01273,
+              0.003295
+            ],
+            "mass": 3.1209192190000004e-06,
+            "volume": 3.1209192190000004e-06
+          },
+          "native_body_name": "\u8ef8_\ud801\udc37_\u03a9",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "PairPlain": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394927424520831,
+        "process_id": 3128,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "c576f7eaa8af0c7491bff77528c13ea6543bbaee53dc4520f8f40958851e071a",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortPair01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00659
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00659,
+          "mass": {
+            "area": 0.0015442222000000001,
+            "com": [
+              0.00641,
+              0.01273,
+              0.003295
+            ],
+            "mass": 3.1209192190000004e-06,
+            "volume": 3.1209192190000004e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@SdkNamePortPair01.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00659
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00659,
+          "mass": {
+            "area": 0.0015442222000000001,
+            "com": [
+              0.00641,
+              0.01273,
+              0.003295
+            ],
+            "mass": 3.1209192190000004e-06,
+            "volume": 3.1209192190000004e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "PairReopen": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 48,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394928128642358,
+        "process_id": 7132,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "90a5203b1d5d111fd1f29d02be2c482fd7a3ca99ae85ac72e43001ec56c30d3f",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00917
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00917,
+          "mass": {
+            "area": 0.0017779702,
+            "com": [
+              0.006410000000000002,
+              0.01273,
+              0.004585
+            ],
+            "mass": 4.342766197e-06,
+            "volume": 4.342766197e-06
+          },
+          "native_body_name": "\u8ef8_\ud801\udc37_\u03a9",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "D1@ColdBoss@Edited.Part",
+              "name": "D1",
+              "reference": "D1@ColdBoss",
+              "role": "depth",
+              "value_m": 0.00917
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.00917,
+          "mass": {
+            "area": 0.0017779702,
+            "com": [
+              0.006410000000000002,
+              0.01273,
+              0.004585
+            ],
+            "mass": 4.342766197e-06,
+            "volume": 4.342766197e-06
+          },
+          "native_body_name": "\u8ef8_\ud801\udc37_\u03a9",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": false,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 0,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "WideDriversNamed": {
+      "derivative_bytes": 56594,
+      "derivative_sha256": "2844e11a61253ce4dd44d59acd5c63a78c8e60ac3e417b86b2a6cc28da569cec",
+      "diagnostics_empty": true,
+      "edit_status": 0,
+      "immutable_bytes": true,
+      "numeric_check_count": 78,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394929722830362,
+        "process_id": 9060,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "f883c50cecec652d2f07a8e3d6c0bcd737462bcb521127f070f65d9fd3fe2874",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": {
+        "Edited": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@SdkNamePortWideDims01.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01141
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01141,
+          "mass": {
+            "area": 0.004051483,
+            "com": [
+              0.013670000000000002,
+              -0.01019,
+              0.005704999999999999
+            ],
+            "mass": 1.3794846317e-05,
+            "volume": 1.3794846317e-05
+          },
+          "native_body_name": "Pi\u00e8ce_\u6881_\ud801\udc37",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@SdkNamePortWideDims01.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.007370000000000001
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.007370000000000001,
+          "mass": {
+            "area": 0.0034731166,
+            "com": [
+              0.01367,
+              -0.01019,
+              0.0036850000000000003
+            ],
+            "mass": 8.910430969e-06,
+            "volume": 8.910430969e-06
+          },
+          "native_body_name": "Pi\u00e8ce_\u6881_\ud801\udc37",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@SdkNamePortWideDims01.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.007370000000000001
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.007370000000000001,
+          "mass": {
+            "area": 0.0034731166,
+            "com": [
+              0.01367,
+              -0.01019,
+              0.0036850000000000003
+            ],
+            "mass": 8.910430969e-06,
+            "volume": 8.910430969e-06
+          },
+          "native_body_name": "Pi\u00e8ce_\u6881_\ud801\udc37",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "WideDriversPlain": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 52,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394929425897760,
+        "process_id": 260,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "343cd69e8bc65d9cd63bddeb4ffd3fe7d9aa12ad4ffe3e5ac00eb7c6927d499a",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@SdkNamePortWideDims01.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.007370000000000001
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.007370000000000001,
+          "mass": {
+            "area": 0.0034731166,
+            "com": [
+              0.01367,
+              -0.01019,
+              0.0036850000000000003
+            ],
+            "mass": 8.910430969e-06,
+            "volume": 8.910430969e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@SdkNamePortWideDims01.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@SdkNamePortWideDims01.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.007370000000000001
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.007370000000000001,
+          "mass": {
+            "area": 0.0034731166,
+            "com": [
+              0.01367,
+              -0.01019,
+              0.0036850000000000003
+            ],
+            "mass": 8.910430969e-06,
+            "volume": 8.910430969e-06
+          },
+          "native_body_name": "ColdBoss",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    },
+    "WideDriversReopen": {
+      "diagnostics_empty": true,
+      "immutable_bytes": true,
+      "numeric_check_count": 52,
+      "open_errors": 0,
+      "open_warnings": 0,
+      "oracle_identity": {
+        "bytes": 718936,
+        "file_version": "34.5.2.0604",
+        "file_version_words": [
+          34,
+          5,
+          2,
+          604
+        ],
+        "pe_machine": "0x8664",
+        "process_creation_filetime": 134394930108012197,
+        "process_id": 9028,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+        "version_matches": true
+      },
+      "passed": true,
+      "record_sha256": "8bd5b648d4f0d780af8be37c37c6055943fa66ce99bdc4795d19ab4afd807f10",
+      "states": {
+        "Initial": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@Edited.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@Edited.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@Edited.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01141
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01141,
+          "mass": {
+            "area": 0.004051483,
+            "com": [
+              0.013670000000000002,
+              -0.01019,
+              0.005704999999999999
+            ],
+            "mass": 1.3794846317e-05,
+            "volume": 1.3794846317e-05
+          },
+          "native_body_name": "Pi\u00e8ce_\u6881_\ud801\udc37",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        },
+        "Rebuilt": {
+          "actual_drivers": [
+            {
+              "driving": true,
+              "full_name": "SectionWidth@ColdSketch@Edited.Part",
+              "name": "SectionWidth",
+              "reference": "SectionWidth@ColdSketch",
+              "role": "width",
+              "value_m": 0.044270000000000004
+            },
+            {
+              "driving": true,
+              "full_name": "SectionHeight@ColdSketch@Edited.Part",
+              "name": "SectionHeight",
+              "reference": "SectionHeight@ColdSketch",
+              "role": "height",
+              "value_m": 0.027309999999999997
+            },
+            {
+              "driving": true,
+              "full_name": "ExtrusionDepth@ColdBoss@Edited.Part",
+              "name": "ExtrusionDepth",
+              "reference": "ExtrusionDepth@ColdBoss",
+              "role": "depth",
+              "value_m": 0.01141
+            }
+          ],
+          "body_count": 1,
+          "boss_parents": [
+            "ColdSketch",
+            "Front Plane"
+          ],
+          "complete_solid_count": 1,
+          "configuration": "Default",
+          "dimension_driving": true,
+          "dimension_m": 0.01141,
+          "mass": {
+            "area": 0.004051483,
+            "com": [
+              0.013670000000000002,
+              -0.01019,
+              0.005704999999999999
+            ],
+            "mass": 1.3794846317e-05,
+            "volume": 1.3794846317e-05
+          },
+          "native_body_name": "Pi\u00e8ce_\u6881_\ud801\udc37",
+          "native_body_type": 0,
+          "ordinary_closed_line_count": 4,
+          "sketch_has_display_dimensions": true,
+          "sketch_parents": [
+            "Front Plane"
+          ],
+          "sketch_relation_count": 6,
+          "topology": {
+            "edges": 12,
+            "faces": 6,
+            "vertices": 8
+          },
+          "tree_all_clean": true,
+          "tree_rows": 25,
+          "tree_sha256": "e7ca4c324b3cd4fa65004f098c1582a028d540025c1ffa59fb53b2ce5134778d",
+          "whats_wrong": 0
+        }
+      }
+    }
+  },
+  "public_writer_registration_changed": false,
+  "publication_timing": {
+    "basis": "root_operator_attestation_no_retroactive_pre_run_commit_claim",
+    "repository_commit_preceded_run": false,
+    "source_and_protocol_hashes_frozen_before_run": true
+  },
+  "remaining": [
+    "independent_width_and_height_edit_qualification",
+    "source_specific_corner_and_center_anchor_composition",
+    "original_named_part_semantic_and_lifecycle_comparison",
+    "public_writer_registration",
+    "cache_free_unicode_public_read_admission"
+  ],
+  "save_statuses": [
+    [
+      true,
+      0,
+      0
+    ],
+    [
+      true,
+      0,
+      0
+    ],
+    [
+      true,
+      0,
+      0
+    ],
+    [
+      true,
+      0,
+      0
+    ],
+    [
+      true,
+      0,
+      0
+    ]
+  ],
+  "schema": "kit.sw2026.sdk-named-output-native-measurement.v1",
+  "sdk_native_derivative_readback": {
+    "additional_file_accesses": 0,
+    "fresh_processes": 5,
+    "observer_sha256": "4622823ad7665643a12d577b45b6fa21dab06c86a38154cba0c97a48c7380dac",
+    "passed": true,
+    "public_mode_comparisons": 25,
+    "report_sha256": "e50c75cfeefb4c81432657a1e12a30824bc5d99279b4544de86299d8e83936d7",
+    "rows": [
+      {
+        "additional_file_accesses": 0,
+        "case": "Accent",
+        "exit_code": 0,
+        "modes_passed": [
+          "Default",
+          "Repeat",
+          "NoTess",
+          "History",
+          "Lenient"
+        ],
+        "passed": true,
+        "report_sha256": "cec12ef1e636aa175d519532eac9404bcf3bc58cfaaf33962867b9c41c15f493",
+        "research_imports": 0,
+        "source_immutable": true,
+        "source_sha256": "a79ed7ca9e0a778c3d2a5d22f22e8536f092e5ca9f7eb10200ab370f5eca58bd",
+        "unexpected_sdk_module_origins": 0
+      },
+      {
+        "additional_file_accesses": 0,
+        "case": "Bmp",
+        "exit_code": 0,
+        "modes_passed": [
+          "Default",
+          "Repeat",
+          "NoTess",
+          "History",
+          "Lenient"
+        ],
+        "passed": true,
+        "report_sha256": "29d72ffe27d24f5aa5d1d668a6713d974596ce9f7fb604013955a0cfb614c3d7",
+        "research_imports": 0,
+        "source_immutable": true,
+        "source_sha256": "a48efd0f259aed28a15d1077783cd5eb15386c5b4ebdba1864dac267e86cc53c",
+        "unexpected_sdk_module_origins": 0
+      },
+      {
+        "additional_file_accesses": 0,
+        "case": "Pair",
+        "exit_code": 0,
+        "modes_passed": [
+          "Default",
+          "Repeat",
+          "NoTess",
+          "History",
+          "Lenient"
+        ],
+        "passed": true,
+        "report_sha256": "b21f0aff911f14c77e9af1ef43855d5c470448c71e4949a1b5fd062da4c8cfb0",
+        "research_imports": 0,
+        "source_immutable": true,
+        "source_sha256": "c66c01d62dd44f9791deedf90df3e988fb517d1ca3422aa865802c340e463c9e",
+        "unexpected_sdk_module_origins": 0
+      },
+      {
+        "additional_file_accesses": 0,
+        "case": "Drivers",
+        "exit_code": 0,
+        "modes_passed": [
+          "Default",
+          "Repeat",
+          "NoTess",
+          "History",
+          "Lenient"
+        ],
+        "passed": true,
+        "report_sha256": "5f5f07f4b7121077a51678828e4340ef4e4f7ba297ac5d007f7e1e32cc54a419",
+        "research_imports": 0,
+        "source_immutable": true,
+        "source_sha256": "d50edb4fd21bcba69f2f51c981217c61b755d0de4c2ec4e5023326e36ae5acd0",
+        "unexpected_sdk_module_origins": 0
+      },
+      {
+        "additional_file_accesses": 0,
+        "case": "WideDrivers",
+        "exit_code": 0,
+        "modes_passed": [
+          "Default",
+          "Repeat",
+          "NoTess",
+          "History",
+          "Lenient"
+        ],
+        "passed": true,
+        "report_sha256": "37604b4deb8007c209419e1b548d9feeda23dd98348943b0e0a37397b240aa6e",
+        "research_imports": 0,
+        "source_immutable": true,
+        "source_sha256": "2844e11a61253ce4dd44d59acd5c63a78c8e60ac3e417b86b2a6cc28da569cec",
+        "unexpected_sdk_module_origins": 0
+      }
+    ]
+  },
+  "source_inputs_immutable": true,
+  "source_manifest_sha256": "9f82dc175f68a8b9f72595f29f7afae10e01523bb263d9646bcbe38397af13ef",
+  "source_only_process_proof_sha256": "fc6880017dafd45667a1825cab5b24b98e5d2de6aaf32fb8990cf62a4d5600ba",
+  "task_id": "B04-SW2026-NAMED-BODY-WRITE",
+  "trial_sha256": "ce4b4c7c434732775104758686cb83723dcdeb31965f43b4f1fd09a51e9b9e96",
+  "writer_runtime_file_process_network_attempts": 0
+}

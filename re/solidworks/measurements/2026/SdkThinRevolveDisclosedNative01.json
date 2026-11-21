@@ -1,0 +1,548 @@
+{
+  "schema": "kit.sw2026.thin-generated-disclosure-result.v1",
+  "job_sha256": "f00ddbfe7e7a9e6ba0f63c86129946f2bf7d58811d760bb5b1812520864648ea",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "writer_revision": "c34a607e40519fe78eea5b3c86288c545c77c886",
+  "writer_sdk_tree": "9703887934a847918d0d3ebda4183bcd09b692d6",
+  "build_receipt_sha256": "33a91b5797f3e5c8374f962ff9803e7770b248b8e0150633f7ddd5e42e9285f0",
+  "source_lock_sha256": "f851a26cc549433b5a342b2b7801171f56e356b50866b7f84929353966d6fe25",
+  "heldout_writer_acceptance": false,
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "cases": [
+    {
+      "case": "ThinOne",
+      "passed": true,
+      "native_phases": {
+        "source": [
+          {
+            "phase": "reopen",
+            "sha256": "3023b59bfe824f05100ba1d714f4d245eb4c25b5f94b465dc16a4e1a825ce3d0",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "6a3a49a3365c8177f64949570cae17ba3f42b4cdefac4b3b63af5e9eee5b4a6c",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ],
+        "candidate": [
+          {
+            "phase": "reopen",
+            "sha256": "85e254b06d3f2594068dee10da742c5f6398ee4e97d2ff4427a3ef866d6c7f3d",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "eab6c119bb2ed83aab60592431ef2366a78a46603bc6700b267d4f408b97152e",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ]
+      },
+      "comparisons": {
+        "source_to_prior_native": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        },
+        "candidate_to_current_source": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        }
+      },
+      "source_sha256": "d496a17dc86cdc93796b0aab8c22f74ace923eba09cfca71a8cc7a02761be491",
+      "candidate_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7"
+    },
+    {
+      "case": "ThinOpposite",
+      "passed": true,
+      "native_phases": {
+        "source": [
+          {
+            "phase": "reopen",
+            "sha256": "ecf9e387de80cdc61ace9599101e9952901ff665830a00fad63ad36ecb27d1f9",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "d408a35ce6b38dc63366fed071b7ca1398f8179499036ff153d9e2177760a37e",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ],
+        "candidate": [
+          {
+            "phase": "reopen",
+            "sha256": "9c5aa300b02da2d3e7c8286776d108204b59b89451ce69a13a38397bb4470590",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "ad24d04b01532ff74436196f1ddde645a30cd08ee06a7881db87adba5c38cfe9",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ]
+      },
+      "comparisons": {
+        "source_to_prior_native": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        },
+        "candidate_to_current_source": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        }
+      },
+      "source_sha256": "9e8b6ee638898f28be5bee7da0d07214436a5d23dc7f910a3bddd0d6529fa04c",
+      "candidate_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9"
+    },
+    {
+      "case": "ThinMidplane",
+      "passed": true,
+      "native_phases": {
+        "source": [
+          {
+            "phase": "reopen",
+            "sha256": "e588247513bd94d25870085d42563650441a2f6e419e29d4003a90d50fb850f4",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "9a594ade122f34332613a6f5ea5502e6fd0802b4350311374d6b300b6d7519a7",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ],
+        "candidate": [
+          {
+            "phase": "reopen",
+            "sha256": "3cae6648d7f75247c9064ad08d6ac5a99e352f78d9ea366731e1311926066dff",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 71,
+            "checks_passed": 71
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "93e7ca0e9666cbc14269e8b05820af9e514e964db9390bd4ae9b2a61ba19c9ff",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ]
+      },
+      "comparisons": {
+        "source_to_prior_native": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        },
+        "candidate_to_current_source": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 2,
+            "numeric_geometry_checks": 11
+          }
+        }
+      },
+      "source_sha256": "9020b54302c1732b05fa9871844e94e4b446713ec1f12dd29d14deb0c5f4d514",
+      "candidate_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b"
+    },
+    {
+      "case": "ThinUnequal",
+      "passed": true,
+      "native_phases": {
+        "source": [
+          {
+            "phase": "reopen",
+            "sha256": "4c6bdb4c03dc5cbb9e5a5bc364535b23e3b3c8a165cbf4a783e8c1510d5719e8",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 95,
+            "checks_passed": 95
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "adab485fb3ce18fcf8e32fbf5c793312eae0fb619b81076c21de38efcc0ed8e3",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ],
+        "candidate": [
+          {
+            "phase": "reopen",
+            "sha256": "4bfdecb34181db8aa0a221bc0ec0297fbce2f35134fa5d4eda577dbc6c4a04be",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 95,
+            "checks_passed": 95
+          },
+          {
+            "phase": "edited-reopen",
+            "sha256": "0725371b00da231b8ec8e27d73e8eff6d0454fddbde687fa6fcda42357c0e11e",
+            "passed": true,
+            "open_status": {
+              "opened": true,
+              "errors": 0,
+              "warnings": 0
+            },
+            "first_failure": null,
+            "cold_bodies": 1,
+            "checks": 23,
+            "checks_passed": 23
+          }
+        ]
+      },
+      "comparisons": {
+        "source_to_prior_native": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "after-wall1": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          }
+        },
+        "candidate_to_current_source": {
+          "reopened": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "after-angle": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "after-wall1": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "edited": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          },
+          "edited_fresh_reopen": {
+            "tree_rows": 25,
+            "body_name": "ThinBossRevolve",
+            "driver_count": 3,
+            "numeric_geometry_checks": 11
+          }
+        }
+      },
+      "source_sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+      "candidate_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207"
+    }
+  ],
+  "started_at": 1795231851.0734594,
+  "control-before": {
+    "sha256": "67c7d6e1bf8854b325515f2c52cafd44300565749fff5f767ac8696963554d14",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "6028e7bd1a9da40a0159a2e5aee5ce8484cc2e9bdc936970da32bf7012f4132d",
+    "passed": true
+  },
+  "fresh_processes": 18,
+  "distinct_processes": 18,
+  "idle_after": true,
+  "finished_at": 1795232541.2661884,
+  "inputs_unchanged": true,
+  "passed": true
+}

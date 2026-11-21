@@ -1,0 +1,793 @@
+{
+  "baseline": "41a1fa2fa0d303a2cd0c923a8eef7f54670b82fa",
+  "external_access_attempts": 0,
+  "fresh_edited_builds_match": true,
+  "heldout_sources": 0,
+  "implementation_head": "33534c04c0cf1e846ea0754ea4514dc5b5b400b9",
+  "native_files_generated": 0,
+  "native_processes_run": 0,
+  "native_receipt_sha256": "d669f3ff61b7ece7ddc5ab50069ccb4ed7dbbb923abe9931db22806697f61ac4",
+  "phases": {
+    "away-direction": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "through direction does not cover the selected stock"
+      }
+    },
+    "cached-model": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "cold shape refuses cached geometry or native payloads"
+      }
+    },
+    "cached-payload": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "cold shape refuses cached geometry or native payloads"
+      }
+    },
+    "crossed-corner": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "circular notch crosses a corner, touches a wall or cuts multiple stock sides"
+      }
+    },
+    "crossed-result-body": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "final bodies must retain the untouched and cut-result producers"
+      }
+    },
+    "crossed-selection": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "ordinary extrusion requires active unextended features with the admitted dependency order"
+      }
+    },
+    "disclosed-depth-edit": {
+      "external_access_attempts": 0,
+      "result": {
+        "body_order": [
+          "body:untouched",
+          "body:result"
+        ],
+        "combined_brep_sha256": "50ba74d1374490e2481140348bde224fd425b6b084cc8f5b9aecde8ad6325849",
+        "combined_mm": [
+          4504.306035734237,
+          2368.169391592174,
+          [
+            16.312929487359185,
+            3.2902804389511133,
+            8.163263313526532
+          ]
+        ],
+        "cut_result": {
+          "area_mm2": 868.1693915921742,
+          "body_id": "body:result",
+          "bounds_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -3.9999999999999996,
+            12.0
+          ],
+          "brep_body_id": "body:result:brep",
+          "brep_sha256": "e6204e2c4245adf4f8e871a5c3d533f3b49d93ed70c6b169a2ab41f3591b3dcb",
+          "center_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            8,
+            18,
+            12
+          ],
+          "euler": 2,
+          "integral_errors": [
+            2.2737367544323206e-13,
+            0.0,
+            8.65085780787922e-12
+          ],
+          "volume_mm3": 1256.3060357342374
+        },
+        "directions": {
+          "selected_normal": [
+            0,
+            0,
+            1
+          ],
+          "through_world": [
+            0,
+            0,
+            1
+          ],
+          "untouched_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        "result_producer": "cut",
+        "selected_before_cut": {
+          "area_mm2": 912.0,
+          "body_id": "stock:1:historical-stock",
+          "bounds_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -4.0,
+            12.0
+          ],
+          "brep_body_id": "stock:1:historical-stock:brep",
+          "brep_sha256": "b2f7c281e2d67c424caac58dac1be91eb563a4b5771e1b81ca670f96926d68a9",
+          "center_mm": [
+            21.0,
+            -8.0,
+            6.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1728.0
+        },
+        "selected_producer": "stock:1",
+        "selection_id": "cut:selection",
+        "untouched": {
+          "area_mm2": 1500.0,
+          "body_id": "body:untouched",
+          "bounds_mm": [
+            0.0,
+            4.0,
+            2.0,
+            29.0,
+            12.0,
+            16.0
+          ],
+          "brep_body_id": "body:untouched:brep",
+          "brep_sha256": "be888fa22c8e47ba4749a9a596da577a1838a9402265048ac2145fcd8c170e2e",
+          "center_mm": [
+            14.5,
+            8.0,
+            9.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 3248.0
+        },
+        "untouched_cutter_overlap": true,
+        "untouched_producer": "stock:2"
+      }
+    },
+    "disclosed-initial": {
+      "external_access_attempts": 0,
+      "result": {
+        "body_order": [
+          "body:untouched",
+          "body:result"
+        ],
+        "combined_brep_sha256": "476ec9ba6f40f05a7b6ccb99fdc0e0f03c9089653e03c2f4a58b73cff4aa561d",
+        "combined_mm": [
+          2376.3060357342374,
+          1532.1693915921742,
+          [
+            13.45888377569052,
+            -0.9273089940594872,
+            7.413959292058028
+          ]
+        ],
+        "cut_result": {
+          "area_mm2": 868.1693915921742,
+          "body_id": "body:result",
+          "bounds_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -3.9999999999999996,
+            12.0
+          ],
+          "brep_body_id": "body:result:brep",
+          "brep_sha256": "e6204e2c4245adf4f8e871a5c3d533f3b49d93ed70c6b169a2ab41f3591b3dcb",
+          "center_mm": [
+            21.0,
+            -8.886027482188885,
+            6.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            8,
+            18,
+            12
+          ],
+          "euler": 2,
+          "integral_errors": [
+            2.2737367544323206e-13,
+            0.0,
+            8.65085780787922e-12
+          ],
+          "volume_mm3": 1256.3060357342374
+        },
+        "directions": {
+          "selected_normal": [
+            0,
+            0,
+            1
+          ],
+          "through_world": [
+            0,
+            0,
+            1
+          ],
+          "untouched_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        "result_producer": "cut",
+        "selected_before_cut": {
+          "area_mm2": 912.0,
+          "body_id": "stock:1:historical-stock",
+          "bounds_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -4.0,
+            12.0
+          ],
+          "brep_body_id": "stock:1:historical-stock:brep",
+          "brep_sha256": "b2f7c281e2d67c424caac58dac1be91eb563a4b5771e1b81ca670f96926d68a9",
+          "center_mm": [
+            21.0,
+            -8.0,
+            6.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1728.0
+        },
+        "selected_producer": "stock:1",
+        "selection_id": "cut:selection",
+        "untouched": {
+          "area_mm2": 664.0,
+          "body_id": "body:untouched",
+          "bounds_mm": [
+            0.0,
+            4.0,
+            2.0,
+            10.0,
+            12.0,
+            16.0
+          ],
+          "brep_body_id": "body:untouched:brep",
+          "brep_sha256": "628fbfa175d289d0fc8c9393684c7ea830de07b0c261732b1d798aa07084927e",
+          "center_mm": [
+            5.0,
+            8.0,
+            9.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1120.0
+        },
+        "untouched_cutter_overlap": false,
+        "untouched_producer": "stock:2"
+      }
+    },
+    "interior-tunnel": {
+      "external_access_attempts": 0,
+      "result": {
+        "body_order": [
+          "body:untouched",
+          "body:result"
+        ],
+        "combined_brep_sha256": "d96429a4cb7578df6f201aebc9ed0e9d41af413dc5e6cb5d6dabbf7e0f4c4dbc",
+        "combined_mm": [
+          2644.621966742811,
+          1634.0829594999047,
+          [
+            3.123033854119398,
+            7.2928215484304095,
+            -5.159157552002975
+          ]
+        ],
+        "cut_result": {
+          "area_mm2": 956.0829594999047,
+          "body_id": "body:result",
+          "bounds_mm": [
+            -8.0,
+            -9.0,
+            -6.5,
+            12.0,
+            3.0,
+            0.0
+          ],
+          "brep_body_id": "body:result:brep",
+          "brep_sha256": "6c1eaae730ff16ef0ab2979dab7dd5dee120065c1b4e443e84718996213cded4",
+          "center_mm": [
+            2.0,
+            -3.070971079399795,
+            -3.25
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            7,
+            14,
+            10
+          ],
+          "euler": 0,
+          "integral_errors": [
+            0.0,
+            0.0,
+            4.440892098500626e-16
+          ],
+          "volume_mm3": 1456.6219667428109
+        },
+        "directions": {
+          "selected_normal": [
+            0,
+            0,
+            1
+          ],
+          "through_world": [
+            0,
+            0,
+            -1
+          ],
+          "untouched_normal": [
+            1,
+            0,
+            0
+          ]
+        },
+        "result_producer": "cut",
+        "selected_before_cut": {
+          "area_mm2": 896.0,
+          "body_id": "stock:1:historical-stock",
+          "bounds_mm": [
+            -8.0,
+            -9.0,
+            -6.5,
+            12.0,
+            3.0,
+            0.0
+          ],
+          "brep_body_id": "stock:1:historical-stock:brep",
+          "brep_sha256": "6ca0a352f8962032bc0aabc26138fb670622941361cf623360f827599da9c695",
+          "center_mm": [
+            2.0,
+            -3.0,
+            -3.25
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1560.0
+        },
+        "selected_producer": "stock:1",
+        "selection_id": "cut:selection",
+        "untouched": {
+          "area_mm2": 678.0,
+          "body_id": "body:untouched",
+          "bounds_mm": [
+            0.0,
+            14.0,
+            -13.0,
+            9.0,
+            26.0,
+            -2.0
+          ],
+          "brep_body_id": "body:untouched:brep",
+          "brep_sha256": "9d3fc70356399366433b60224a6dd99448ab47b28a60345170425f3aa0dc21c1",
+          "center_mm": [
+            4.5,
+            20.0,
+            -7.5
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1188.0
+        },
+        "untouched_cutter_overlap": false,
+        "untouched_producer": "stock:2"
+      }
+    },
+    "missing-selection": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "cold shape needs exactly two stocks and one explicitly selected cut"
+      }
+    },
+    "overlapping-stocks": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "the two original stocks must have positive separation"
+      }
+    },
+    "right-selected-reversed": {
+      "external_access_attempts": 0,
+      "result": {
+        "body_order": [
+          "body:result",
+          "body:untouched"
+        ],
+        "combined_brep_sha256": "ba7fafbed022d7eb17bf3011d889127d18e24ddeea2d08c581abcd297f954720",
+        "combined_mm": [
+          3191.2646414335472,
+          1756.4162397344708,
+          [
+            7.861678740054407,
+            13.458227213065145,
+            2.948035755573176
+          ]
+        ],
+        "cut_result": {
+          "area_mm2": 958.4162397344708,
+          "body_id": "body:result",
+          "bounds_mm": [
+            14.0,
+            -7.0,
+            -6.0,
+            21.5,
+            11.0,
+            8.0
+          ],
+          "brep_body_id": "body:result:brep",
+          "brep_sha256": "a2d5d5bc2c81b0f80ac042524c87bae0e0341d50a3e8ece6d8d4e84c1cb61606",
+          "center_mm": [
+            17.75,
+            2.107682802599768,
+            1.5973268168721266
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            8,
+            18,
+            12
+          ],
+          "euler": 2,
+          "integral_errors": [
+            5.547917680814862e-11,
+            1.4779288903810084e-11,
+            8.759659664292485e-13
+          ],
+          "volume_mm3": 1706.2646414335472
+        },
+        "directions": {
+          "selected_normal": [
+            -1,
+            0,
+            0
+          ],
+          "through_world": [
+            1,
+            0,
+            0
+          ],
+          "untouched_normal": [
+            0,
+            0,
+            1
+          ]
+        },
+        "result_producer": "cut",
+        "selected_before_cut": {
+          "area_mm2": 984.0,
+          "body_id": "stock:2:historical-stock",
+          "bounds_mm": [
+            14.0,
+            -7.0,
+            -6.0,
+            21.5,
+            11.0,
+            8.0
+          ],
+          "brep_body_id": "stock:2:historical-stock:brep",
+          "brep_sha256": "8e9944c384c0252e887eba00fcedd0c23c921dd0c8ea60c038475780bbf71e96",
+          "center_mm": [
+            17.75,
+            2.0,
+            1.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1890.0
+        },
+        "selected_producer": "stock:2",
+        "selection_id": "cut:selection",
+        "untouched": {
+          "area_mm2": 798.0,
+          "body_id": "body:untouched",
+          "bounds_mm": [
+            -11.0,
+            21.0,
+            0.0,
+            4.0,
+            32.0,
+            9.0
+          ],
+          "brep_body_id": "body:untouched:brep",
+          "brep_sha256": "6242f9f95491fcf56506b0aca3e02b585341767a15eaedf6db3cf10cfe81cae6",
+          "center_mm": [
+            -3.5,
+            26.5,
+            4.5
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1485.0
+        },
+        "untouched_cutter_overlap": false,
+        "untouched_producer": "stock:1"
+      }
+    },
+    "side-tangency": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "circular through cut requires one enclosed hole or one proper exterior side notch"
+      }
+    },
+    "signed-metre": {
+      "external_access_attempts": 0,
+      "result": {
+        "body_order": [
+          "body:untouched",
+          "body:result"
+        ],
+        "combined_brep_sha256": "89ddaba959d19022c19de3f5d1198896bf6ec41ef596b944caaa31a6e34a640b",
+        "combined_mm": [
+          2617.8153901801343,
+          1505.7327644507718,
+          [
+            8.473124970578759,
+            17.40203887702564,
+            22.957839189098763
+          ]
+        ],
+        "cut_result": {
+          "area_mm2": 827.7327644507718,
+          "body_id": "body:result",
+          "bounds_mm": [
+            -4.000000000000002,
+            21.0,
+            20.0,
+            12.0,
+            31.0,
+            30.0
+          ],
+          "brep_body_id": "body:result:brep",
+          "brep_sha256": "7d3c7937d984e2f03beb31b9ee0d157de946167562d8f87756bf5ab8433fe1bf",
+          "center_mm": [
+            3.8809744174047345,
+            26.46028672836172,
+            25.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            8,
+            18,
+            12
+          ],
+          "euler": 2,
+          "integral_errors": [
+            5.6843418860808015e-12,
+            1.1368683772161603e-12,
+            2.0961010704922955e-13
+          ],
+          "volume_mm3": 1429.8153901801343
+        },
+        "directions": {
+          "selected_normal": [
+            0,
+            0,
+            -1
+          ],
+          "through_world": [
+            0,
+            0,
+            -1
+          ],
+          "untouched_normal": [
+            -1,
+            0,
+            0
+          ]
+        },
+        "result_producer": "cut",
+        "selected_before_cut": {
+          "area_mm2": 840.0,
+          "body_id": "stock:1:historical-stock",
+          "bounds_mm": [
+            -4.000000000000002,
+            21.0,
+            20.0,
+            12.0,
+            31.0,
+            30.0
+          ],
+          "brep_body_id": "stock:1:historical-stock:brep",
+          "brep_sha256": "426eac5d44410c39d06c3584b7bd94dfb50ea7c5be71b2e962c2f9200ed4be21",
+          "center_mm": [
+            3.999999999999999,
+            26.0,
+            25.0
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            2.2737367544323206e-13,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1600.0000000000002
+        },
+        "selected_producer": "stock:1",
+        "selection_id": "cut:selection",
+        "untouched": {
+          "area_mm2": 678.0,
+          "body_id": "body:untouched",
+          "bounds_mm": [
+            8.0,
+            2.0,
+            15.0,
+            20.0,
+            11.0,
+            26.0
+          ],
+          "brep_body_id": "body:untouched:brep",
+          "brep_sha256": "af33c768d5ffab053ce014a67b85ceebad5ba4d7efbd10278abb40feb45585cb",
+          "center_mm": [
+            14.0,
+            6.5,
+            20.5
+          ],
+          "counts_solid_shell_face_edge_vertex": [
+            1,
+            1,
+            6,
+            12,
+            8
+          ],
+          "euler": 2,
+          "integral_errors": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "volume_mm3": 1188.0
+        },
+        "untouched_cutter_overlap": false,
+        "untouched_producer": "stock:2"
+      }
+    },
+    "split-driver": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "stock D1 disagrees with its live blind length"
+      }
+    },
+    "unknown-direction": {
+      "external_access_attempts": 0,
+      "result": {
+        "refusal": "through direction does not cover the selected stock"
+      }
+    }
+  },
+  "previous_native_open_and_edit_measures_agree": true,
+  "saved_active_and_rollback_geometry_agrees": true,
+  "saved_comparison_access_attempts": 0,
+  "schema": "kit.sw2026.cold-two-stock-neutral-shape.v1",
+  "selected_comparison_sha256": "748cdbec3fe61d6801f3d606e64fe42ecba95e9a647897be3fe3790570a889f3",
+  "source_read_after_all_generation": true,
+  "tool_sha256": {
+    "BuildTwoStockShape.py": "a1147d66e0edbaaec5aa0461699c6f6d9c3d18d0302efaf5213317384f741a83",
+    "MeasureCap.py": "e4a73771a1c12f5140b1853c6770df2beeabaa366045a9ab9197dd1b796a5807",
+    "ProofModels.py": "0e72d9b5161316671773ee366540eac5c1b308f84144d47c890b9ef38c1e9bbf",
+    "ProveTwoStockShape.py": "188ddcaf5d5ed9e41d61f04016764afb966a35be5efd453d6e90275eb95c7034",
+    "ShapeIntent.py": "7d0741ce00864d0bd8d424edc54a138a71721996e34f0a77746ff5deac082295"
+  },
+  "worker_count": 18,
+  "writer_qualified": false
+}

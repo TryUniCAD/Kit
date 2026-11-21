@@ -1,0 +1,222 @@
+{
+  "guarded_archive_processes": 4,
+  "held_out_cases": 0,
+  "native": {
+    "derivatives": {
+      "Selected": {
+        "bytes": 75598,
+        "name": "SelectedDepthEdited.SLDPRT",
+        "sha256": "ea319dcac01a5fb41bafcc734a6fee17ed9cf4c8cefda44fe36cc437fa95bcef"
+      },
+      "Unchanged": {
+        "bytes": 73100,
+        "name": "RebuiltUnchanged.SLDPRT",
+        "sha256": "5384a4b39c129fc2c9de41a52137796e089bef0651ab093a4e18b22981a08cad"
+      }
+    },
+    "generated_sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+    "held_out_sources_read": 0,
+    "oracle_build": "34.5.2.0604",
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "plan_sha256": "fcc5eab69cfd2c45110b30232b0cb390e7cf797f9791defdecb539505b805526",
+    "records": {
+      "After": {
+        "first_failure": null,
+        "numeric_checks": 14,
+        "passed": true,
+        "sha256": "8d79264ba86ae91cd2b4b2b27629ca0d4e280d3fa92782f840f39dd39df391e7"
+      },
+      "Before": {
+        "first_failure": null,
+        "numeric_checks": 14,
+        "passed": true,
+        "sha256": "6ca9a00d0efb93c62963839124b7ce19ad01acf47fb815dd8bb6fff47f206796"
+      },
+      "Reopen": {
+        "first_failure": null,
+        "numeric_checks": 26,
+        "passed": true,
+        "sha256": "c62f1de2f5fbe21c02ef7e59b148aa96039a8a7de93e30db125af09a06cf2e6b"
+      },
+      "Selected": {
+        "first_failure": null,
+        "numeric_checks": 53,
+        "passed": true,
+        "sha256": "76c282cbdca40110181f1fdffa8f575b8ce94816ba0a90c2d768c4ccc1091cdb"
+      },
+      "Unchanged": {
+        "first_failure": null,
+        "numeric_checks": 26,
+        "passed": true,
+        "sha256": "1f80dfea02690c93a039127588aef821f4bb9d16997125aed6155b150123f1b5"
+      }
+    },
+    "schema": "kit.sw2026.disclosed-two-stock-save-contrast.v1"
+  },
+  "native_summary_sha256": "010be651fe4445610ba51ea769d04c4a324d744ab2af85cee8f1d707bb9e55b4",
+  "phases": {
+    "generated": {
+      "bytes": 8574,
+      "guarded_external_accesses": 0,
+      "owners": {
+        "MovingStock": {
+          "class": "moICE_c",
+          "d1_mm": 10.0,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f810": 0,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 22,
+          "map_index": 208
+        },
+        "SteadyStock": {
+          "class": "moExtrusion_c",
+          "d1_mm": 12.0,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f810": -1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 19,
+          "map_index": 171
+        },
+        "ThroughFeature": {
+          "class": "moICE_c",
+          "d1_mm": null,
+          "f2b8": 0,
+          "f2bc": 0,
+          "f810": 1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 25,
+          "map_index": 227
+        }
+      },
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508"
+    },
+    "native_moving_edit": {
+      "bytes": 76337,
+      "guarded_external_accesses": 0,
+      "owners": {
+        "MovingStock": {
+          "class": "moICE_c",
+          "d1_mm": 29.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 0,
+          "f838_le": "f168e388b5f8e43e",
+          "f838_m": 1e-05,
+          "feature_id": 22,
+          "map_index": 290
+        },
+        "SteadyStock": {
+          "class": "moExtrusion_c",
+          "d1_mm": 12.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": -1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 19,
+          "map_index": 212
+        },
+        "ThroughFeature": {
+          "class": "moICE_c",
+          "d1_mm": null,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 25,
+          "map_index": 341
+        }
+      },
+      "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+    },
+    "native_selected_edit": {
+      "bytes": 75598,
+      "guarded_external_accesses": 0,
+      "owners": {
+        "MovingStock": {
+          "class": "moICE_c",
+          "d1_mm": 10.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 0,
+          "f838_le": "f168e388b5f8e43e",
+          "f838_m": 1e-05,
+          "feature_id": 22,
+          "map_index": 290
+        },
+        "SteadyStock": {
+          "class": "moExtrusion_c",
+          "d1_mm": 18.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": -1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 19,
+          "map_index": 212
+        },
+        "ThroughFeature": {
+          "class": "moICE_c",
+          "d1_mm": null,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 25,
+          "map_index": 341
+        }
+      },
+      "sha256": "ea319dcac01a5fb41bafcc734a6fee17ed9cf4c8cefda44fe36cc437fa95bcef"
+    },
+    "native_unedited": {
+      "bytes": 73100,
+      "guarded_external_accesses": 0,
+      "owners": {
+        "MovingStock": {
+          "class": "moICE_c",
+          "d1_mm": 10.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 0,
+          "f838_le": "f168e388b5f8e43e",
+          "f838_m": 1e-05,
+          "feature_id": 22,
+          "map_index": 290
+        },
+        "SteadyStock": {
+          "class": "moExtrusion_c",
+          "d1_mm": 12.0,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": -1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 19,
+          "map_index": 212
+        },
+        "ThroughFeature": {
+          "class": "moICE_c",
+          "d1_mm": null,
+          "f2b8": 19000,
+          "f2bc": 2026306,
+          "f810": 1,
+          "f838_le": "0000000000000000",
+          "f838_m": 0.0,
+          "feature_id": 25,
+          "map_index": 341
+        }
+      },
+      "sha256": "5384a4b39c129fc2c9de41a52137796e089bef0651ab093a4e18b22981a08cad"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-two-stock-tolerance-observation.v1",
+  "source_revision": "7a3317f65ac2c4f37f2c95b89a01ddf6ffae6a81",
+  "tool_sha256": "9f2f32264cb8b2c5b56a1d4f029111c3a99991152c5311ac0387d70466b1fb74"
+}

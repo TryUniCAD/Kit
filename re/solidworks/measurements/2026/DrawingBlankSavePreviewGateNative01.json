@@ -1,0 +1,132 @@
+{
+  "schema": "kit.sw2026.blank-drawing-preview-native-attempt.v1",
+  "comparison_passed": false,
+  "failure_scope": "explicit breakpoint removal after generated save returned",
+  "native_acceptance": false,
+  "heldout_inputs_tested": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "doccplu_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+  "script_revision": "e7a5c89392da8d0da8a8c6e1e1fbf9374c1f2a63",
+  "packet_sha256": "4cae8865822b4f37f2f7128c9c8ccda41d4ef202b81b6bb56f561ce85ba9d92d",
+  "raw_native_result_sha256": "d9dfcacb95056b49747c230b41975d1fc8b73176ef774920f98cb181280dc6fd",
+  "host_transport_result_sha256": "4459175bced81a4267623159990974a4779387b48bb69a92463861a9b42b44e6",
+  "observer_tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "DrawingSaveAggregateDbgEng.py": "d312a5b604d40ca3c5bccac65c35ce186aea5311bc21949939aa965fa3720c3f",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectBlankDrawingSaveAggregate.py": "b62865a6de7d9fd953655eda473b59f4bb4cd82f84585dfdfb9fba05208f3722",
+    "InspectBlankDrawingSaveAggregateSoftwareReturnMatched.py": "0a7dd67e7982fe3af94730201b8d7d7b518c2ed4ca7066b6d7aa9ebe0b95acc7",
+    "InspectBlankDrawingSaveEventState.py": "f348545e208eb76bffde895523f17b972890d4e46df9512e70672d829c4b6212",
+    "InspectBlankDrawingSaveEvents.py": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectDrawingSaveModes.py": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "DrawingSaveStorageGateDbgEng.py": "15ba6e9cf6d95d426e641ee8ae70c588bfa67b3a9c07f2d40615e00e11f3c4d3",
+    "InspectBlankDrawingSaveAggregateSoftwareStorageMatched.py": "2a7f4e058c449da811e54247652361a42d2d7cb63fe6844ccfb802c895c7fec0",
+    "DrawingSavePreviewGateDbgEng.py": "53dc45e2ec6628b9518d3a31aa9ea50ed1c6add2156a68fb61f92aedd798906c",
+    "InspectBlankDrawingSaveAggregateSoftwarePreviewMatched.py": "1c7cc6f61aaf010bc655aa4fe8ddb07a91c7f3a63822243f5dd79f1a1abb6afb"
+  },
+  "transport_exit_code": 3,
+  "native_processes": 7,
+  "controls_healthy": true,
+  "same_physical_paths": true,
+  "inputs_immutable": true,
+  "lanes": [
+    {
+      "lane": "ControlBefore",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_reopen_passed": true,
+      "trace": null
+    },
+    {
+      "lane": "ReducedNative",
+      "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_reopen_passed": true,
+      "trace": {
+        "listener_aggregate": 0,
+        "display_list_only_eax": 0,
+        "quick_view_only_eax": 0,
+        "third_party_dispatch_rva": "0x1dfb5",
+        "third_party_dispatch_stop_observed": true,
+        "third_party_dispatch_wait_exit_reason": "debug_event",
+        "breakpoint_explicitly_removed": true,
+        "debugger_absent_after_cleanup": true,
+        "cleanup_diagnostics": []
+      }
+    },
+    {
+      "lane": "Generated",
+      "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7
+      ],
+      "save_status": [
+        false,
+        1,
+        0
+      ],
+      "fresh_reopen_passed": false,
+      "trace": {
+        "listener_aggregate": 0,
+        "display_list_only_eax": 0,
+        "quick_view_only_eax": 0,
+        "third_party_dispatch_rva": "0x1dfb5",
+        "third_party_dispatch_stop_observed": false,
+        "third_party_dispatch_wait_exit_reason": "save_returned",
+        "breakpoint_explicitly_removed": false,
+        "debugger_absent_after_cleanup": true,
+        "cleanup_diagnostics": [
+          "cleanup stop OS process id returned HRESULT 0x8000ffff"
+        ]
+      }
+    },
+    {
+      "lane": "ControlAfter",
+      "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "open_errors": 0,
+      "open_warnings": 0,
+      "event_ordinals": [
+        7,
+        9,
+        28
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "fresh_reopen_passed": true,
+      "trace": null
+    }
+  ]
+}

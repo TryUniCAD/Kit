@@ -1,0 +1,433 @@
+{
+  "schema": "kit.sw2026.blank-drawing-ui-omission.v1",
+  "passed": true,
+  "writer_output_count": 0,
+  "native_acceptance": false,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "6e00690bd725d4f945987eaed631d1c5a60d9d05756b63978566f5fb95ddf8ca",
+  "host_transport_sha256": "8e3347d7f4eaceb35c62d60ab1bdc1cf8568943befd6a3f81520277f9caa6449",
+  "native_result_sha256": "fd0adbedd3b0b194bf0babb232b16c7b72872b58654356c13147d0560d02b711",
+  "preparer_sha256": "7e12d95fce7b115ba0284e5459c3fd73e7e19f8cfc433c3c5d87ca0c515808c4",
+  "tool_sha256": {
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "InspectBlankDrawingPair.py": "73a648b712e8324f5368e67a2d302d50f353188706f84dfda7422e9833978930",
+    "InspectBlankDrawingUi.py": "a718b8baf4b6439d36f53c8d919339874d7ce785114e47c1a5cb1faf954c3a55"
+  },
+  "distinct_processes": 14,
+  "controls_healthy": true,
+  "heldout_inputs_tested": 0,
+  "inputs_immutable": true,
+  "cases": [
+    {
+      "name": "ControlBefore",
+      "omitted": [],
+      "native_source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "inputs_before_native_save": null,
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          7,
+          40
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "eae8e2697ab53dddd6dbe71cae6784312e770ff390897737fe04dcd69d277b5a",
+      "saved_bytes": 18843,
+      "saved_stream_count": 29,
+      "saved_definition_map_count": 212,
+      "record_sha256": [
+        "b8c2ff8eadb602c62c701dcb1d518e8155ca0ed2390ca8f02c73f9638d6b2679",
+        "84ad8c4d4f1a546fbdb7601c870d357639ad8572b8abc8c6dfcc0408156e3457"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "ReducedRepack",
+      "omitted": [],
+      "native_source_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+      "inputs_before_native_save": {
+        "before": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "after": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "changed_streams": [],
+        "definition_bytes": 28950,
+        "definition_sha256": "10059e622ae0400df68cd0f882be3e4e40969c04158812507b92956f50ae8fac",
+        "map_next_index": 212
+      },
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          7,
+          40
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "a9ffd129643b26ef5157011ace4d8247411123eddc70b885defc62ae4e91a527",
+      "saved_bytes": 17806,
+      "saved_stream_count": 28,
+      "saved_definition_map_count": 212,
+      "record_sha256": [
+        "093e6a9c7a8f37be37a3c6bbcf5af14a02dd1b06d226871a940c47d955b75d5d",
+        "fdbd81212b545d1f195cbc7014e2d34a20a3ad65b7cea4671929611a95b80ef6"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "ViewportAbsent",
+      "omitted": [
+        "viewport"
+      ],
+      "native_source_sha256": "f8ecfcbf73bf4b15b9e5dccda556af9f8a4cd822240850e49db080645641fcd8",
+      "inputs_before_native_save": {
+        "before": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "after": {
+          "viewport": false,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "changed_streams": [
+          "Contents/Definition"
+        ],
+        "definition_bytes": 28916,
+        "definition_sha256": "8e395f72ab24cb822ba8ae402a131fef5a769cb878777dd0bf6c74cdb27f8b58",
+        "map_next_index": 212
+      },
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          7,
+          40
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "79383e8faeec3fcaf78008103c40de55f7f151369d08a2f764c02f8bc9a43c72",
+      "saved_bytes": 18189,
+      "saved_stream_count": 28,
+      "saved_definition_map_count": 212,
+      "record_sha256": [
+        "a5c1e74abc7deeb806956d11b89eaccd04be608298ddd788c9c4c60cd5014c73",
+        "8ea6f0355b192cf8d669a435c79c35f9b8cb9a8d37018620ebd8b2c89db5282e"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "UiLineTablesEmpty",
+      "omitted": [
+        "line_tables"
+      ],
+      "native_source_sha256": "01fb337fcaf539ed36724f3f4deb8b312b1b7eb6e3c560ee3e9e727ee5fb54d1",
+      "inputs_before_native_save": {
+        "before": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "after": {
+          "viewport": true,
+          "line_tables": [
+            0,
+            0
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "changed_streams": [
+          "Contents/Definition"
+        ],
+        "definition_bytes": 26134,
+        "definition_sha256": "993b72c0d147749da47267c21df48b50e7918d91ac65354eef0d77925a578796",
+        "map_next_index": 163
+      },
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          0,
+          0
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "7e21fdeb862f33062ad66191deaec4b66ae393aeccd04ae1df23c9251798e751",
+      "saved_bytes": 16012,
+      "saved_stream_count": 28,
+      "saved_definition_map_count": 163,
+      "record_sha256": [
+        "cb8c9d847361285958488c05f411df6b801d24a63a00238d64fa8d2ba6f0899e",
+        "bd681cf5bbc79b0d7ed4e919912e2d435ca4c78b2c5d82f407b4ce9921bc2d06"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "UiOwnersEmpty",
+      "omitted": [
+        "environment_and_bom"
+      ],
+      "native_source_sha256": "4104c2cb6aaa568de75f19b5d552fe75de7289ba766f0d81764cd819cc7b62d0",
+      "inputs_before_native_save": {
+        "before": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "after": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            0,
+            false
+          ]
+        },
+        "changed_streams": [
+          "Contents/Definition"
+        ],
+        "definition_bytes": 28686,
+        "definition_sha256": "b6f52c963a4b9c58b64d97c9e58555a2b41ec4130f13d51a424943024f819d3c",
+        "map_next_index": 208
+      },
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          7,
+          40
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "e1255161069219ebfb115fdb75474cbacaface78219d544fc080f50ebdea6951",
+      "saved_bytes": 18455,
+      "saved_stream_count": 28,
+      "saved_definition_map_count": 212,
+      "record_sha256": [
+        "fc6824f53b8d6aaf44ee2199c66dbef7d43913c401a02f0a444bcb78059e888e",
+        "ac0218b72139c4b48b3818ff8ecb14b50929d7ec788e3e3b46165aa5f1dcf480"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "AllThreeEmpty",
+      "omitted": [
+        "viewport",
+        "line_tables",
+        "environment_and_bom"
+      ],
+      "native_source_sha256": "0a21df1fcfce8a6aa5306bfdf844e3afc2ba460f3d03a0d293f65d17c911b483",
+      "inputs_before_native_save": {
+        "before": {
+          "viewport": true,
+          "line_tables": [
+            7,
+            40
+          ],
+          "environment_and_bom": [
+            1,
+            true
+          ]
+        },
+        "after": {
+          "viewport": false,
+          "line_tables": [
+            0,
+            0
+          ],
+          "environment_and_bom": [
+            0,
+            false
+          ]
+        },
+        "changed_streams": [
+          "Contents/Definition"
+        ],
+        "definition_bytes": 25836,
+        "definition_sha256": "5b44366661129a0b2c8c4c77fef37e17ca30d7087bd9b80d0fea00afa02d1ad6",
+        "map_next_index": 159
+      },
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          0,
+          0
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "fa913603b6cbeee6738fcff88bca584a0a45e20702bc6134b36aff6feaf066c7",
+      "saved_bytes": 16663,
+      "saved_stream_count": 28,
+      "saved_definition_map_count": 163,
+      "record_sha256": [
+        "67f5e5cf06257f51c0c55582f05d15eab8463c355e2779d645eeab2dfd26f815",
+        "c7530a7819222c085f8795f6b5f175171e2cd5be0996a7b9b9132c03e0215915"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    },
+    {
+      "name": "ControlAfter",
+      "omitted": [],
+      "native_source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+      "inputs_before_native_save": null,
+      "ui_after_native_save": {
+        "viewport": true,
+        "line_tables": [
+          7,
+          40
+        ],
+        "environment_and_bom": [
+          1,
+          true
+        ]
+      },
+      "saved_sha256": "281d1cff4e9cbfcaab60e88328551762c6f1c75062f42ee60c193a7eb00b6b1d",
+      "saved_bytes": 17923,
+      "saved_stream_count": 29,
+      "saved_definition_map_count": 212,
+      "record_sha256": [
+        "973faafe3d48263949fe240ac253fd3c9c944c110c8079d3838016b5023aefd1",
+        "ad6190e1c3f5df8b46f161eb95d79c20aef67de11e98002709838dc8b26daf77"
+      ],
+      "tree_rows": 10,
+      "open_and_rebuild_passed": true,
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "reopened_scale": [
+        3.0,
+        2.0
+      ]
+    }
+  ]
+}

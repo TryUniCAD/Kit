@@ -1,0 +1,15 @@
+{
+  "archive_has_document_xml": true,
+  "archive_member_count": 89,
+  "bytes": 173572,
+  "disclosed_inventory_alias": "FreeCAD114Resources-40",
+  "disclosed_inventory_sha256_matches": true,
+  "git_blob": "ddcac54e9c74ee967864570b724a35844f706ebc",
+  "historical_installed_copy_available": false,
+  "original_corpus_membership_verified": false,
+  "path": "data/examples/AssemblyExample.FCStd",
+  "repository": "FreeCAD/FreeCAD",
+  "schema": "kit.sw2026.freecad-stock-assembly-comparison.v1",
+  "sha256": "fef362c529aae88cb32905ac7dda5d056832a22aa13cf4089ec9f0da773efcb2",
+  "tags": ["1.1.3", "1.1.4"]
+}

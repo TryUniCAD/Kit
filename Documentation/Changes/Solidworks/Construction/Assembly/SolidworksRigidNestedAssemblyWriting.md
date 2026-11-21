@@ -1,0 +1,7 @@
+# Write rigid nested SOLIDWORKS assembly bundles
+
+The normal SOLIDWORKS writer accepts a complete neutral hierarchy of rigid, floating occurrences, with explicit active configurations and owned rectangular blind-boss parts. Each subassembly and part is generated once and referenced by each of its instances. Leaf parts can carry the ordinary editable blind depth and, for a dimensioned rectangle, driving width and height.
+
+Use `write_document` or `SldprtAdapter().write` with a fresh `.SLDASM` path. On a non-Windows host give the matching Windows `native_destination`. Each dependency is published beside the root through the shared staged transaction. Fixed or flexible occurrences, mate groups inside this profile, unresolved ownership, unsupported leaf features and path conflicts fail closed.
+
+Both independently locked hierarchies opened, rebuilt, retained driving dimensions, propagated depth edits, saved and reopened in eight fresh SOLIDWORKS 2026 SP05.2 processes with passing controls. The two public APIs each reproduced all 11 files from those locked native-tested bundles byte for byte in four guarded SDK processes. Disclosed verification also covered both APIs and five nonmutating refusals. Whole-source native re-export remains open. [Usage](../../../../Reference/Adapters/SolidworksAssemblyWriting.md) · [Locked native receipt](../../../../../re/solidworks/measurements/2026/SdkSealedNeutralNestedNative01.json) · [Locked public route parity](../../../../../re/solidworks/measurements/2026/SdkSealedPublicNestedParity03.json)

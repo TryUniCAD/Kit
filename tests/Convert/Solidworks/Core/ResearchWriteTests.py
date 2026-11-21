@@ -28,3 +28,10 @@ def TestResearch(TmpPath: FilePath) -> None:
     with RaisesError(ValueError, match="unqualified research documents"):
         _ = ConvertFile(ResearchPath, TargetPath, overwrite=True)
     assert TargetPath.read_bytes() == b"existing destination"
+    NativePath = TmpPath / "Target.SLDPRT"
+    _ = NativePath.write_bytes(b"existing native destination")
+    with RaisesError(ValueError, match="unqualified research documents"):
+        _ = WriteDocument(
+            Evidence, NativePath, destination_format="solidworks.sldprt", overwrite=True
+        )
+    assert NativePath.read_bytes() == b"existing native destination"

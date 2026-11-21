@@ -1,0 +1,391 @@
+{
+  "benchmark_conversion_credits": 0,
+  "exact_stream_comparisons": 60,
+  "heldout_sources_read": 0,
+  "native_lifecycle_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "raw_readback_sha256": "f5c8bf584399040e8f5f92e18e55559524bf48b395c86ac01808bad8c756829d",
+  "reader_revision": "b74c248bc20e11cf72d1905b2ef696c267a90a26",
+  "rows": [
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -15.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 63626,
+      "case": "recipe-0.21.2-F14c",
+      "dimensions_mm": {
+        "Height": 15.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26091,
+        19741,
+        4307,
+        1125,
+        1125
+      ],
+      "feature_rows": 19,
+      "sha256": "5a3677d3efbf2c7d5d7c5b23a8d7974cff0704d9efe0bc02c79e4d5460d13ff9",
+      "state": "Height"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          27.000000000000007,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 67000,
+      "case": "recipe-0.21.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 27.000000000000004,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26097,
+        19753,
+        4319,
+        1137,
+        1137
+      ],
+      "feature_rows": 19,
+      "sha256": "aa058f223e453950b92d9834ea1f8f353bb1d42a99b3fd6499eae8d724ec27ed",
+      "state": "Length"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.0,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 65242,
+      "case": "recipe-0.21.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26081,
+        19723,
+        4293,
+        1107,
+        1107
+      ],
+      "feature_rows": 19,
+      "sha256": "c8c57a2e745e5cd5294079c096a07a76957b1c119828221a93123e3716220707",
+      "state": "Original"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          36.9
+        ]
+      ],
+      "bytes": 65783,
+      "case": "recipe-0.21.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 36.9
+      },
+      "exact_stream_bytes": [
+        26093,
+        19745,
+        4309,
+        1129,
+        1129
+      ],
+      "feature_rows": 19,
+      "sha256": "f84236ae3ef0f537d925d1e921e2427b11217e9b3ea2ae1c296d848759c99a3e",
+      "state": "Width"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -15.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 63690,
+      "case": "recipe-1.0.2-F14c",
+      "dimensions_mm": {
+        "Height": 15.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26159,
+        19739,
+        5067,
+        1123,
+        1123
+      ],
+      "feature_rows": 19,
+      "sha256": "d08acd758d55a13bfdac4813c312c93c71d5c8752409a945173b9be1a65a04db",
+      "state": "Height"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          27.000000000000007,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 66933,
+      "case": "recipe-1.0.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 27.000000000000004,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26165,
+        19751,
+        5079,
+        1135,
+        1135
+      ],
+      "feature_rows": 19,
+      "sha256": "6db29b1dd2d3ef7462a295ca43fbbb489fdffab2632c9f5e906856d2b1db2503",
+      "state": "Length"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.0,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 66280,
+      "case": "recipe-1.0.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26149,
+        19721,
+        5053,
+        1105,
+        1105
+      ],
+      "feature_rows": 19,
+      "sha256": "5433e623254c2743e5204884a2851e11fbab71f003d57eafa63ec22958200829",
+      "state": "Original"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          36.9
+        ]
+      ],
+      "bytes": 66554,
+      "case": "recipe-1.0.2-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 36.9
+      },
+      "exact_stream_bytes": [
+        26161,
+        19743,
+        5069,
+        1127,
+        1127
+      ],
+      "feature_rows": 19,
+      "sha256": "f176cd0c3d8e624016c602d800a925567e095cc1e22dcd15284e316a0ee9001a",
+      "state": "Width"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -15.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 63432,
+      "case": "recipe-1.1.4-F14c",
+      "dimensions_mm": {
+        "Height": 15.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26159,
+        19739,
+        5473,
+        1123,
+        1123
+      ],
+      "feature_rows": 19,
+      "sha256": "c0898c6fe84a2dd0388d9cd0c3b5d775fb6db9f8ef51ab4c342d5325197ec4ef",
+      "state": "Height"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          27.000000000000007,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 66884,
+      "case": "recipe-1.1.4-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 27.000000000000004,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26165,
+        19751,
+        5485,
+        1135,
+        1135
+      ],
+      "feature_rows": 19,
+      "sha256": "23d3663391d41954fd901cff55a3df36ef2f7ca992485fb36ad95bda8de5da47",
+      "state": "Length"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.0,
+          0.0,
+          30.0
+        ]
+      ],
+      "bytes": 65493,
+      "case": "recipe-1.1.4-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 30.0
+      },
+      "exact_stream_bytes": [
+        26149,
+        19721,
+        5459,
+        1105,
+        1105
+      ],
+      "feature_rows": 19,
+      "sha256": "a44292fbf588dcd2a19bb0c2ab7f67a646784d3a9f3f6822e15ea806b3e2b41a",
+      "state": "Original"
+    },
+    {
+      "bounds_mm": [
+        [
+          0.0,
+          -10.0,
+          0.0
+        ],
+        [
+          20.000000000000004,
+          0.0,
+          36.9
+        ]
+      ],
+      "bytes": 66478,
+      "case": "recipe-1.1.4-F14c",
+      "dimensions_mm": {
+        "Height": 10.0,
+        "Length": 20.0,
+        "Width": 36.9
+      },
+      "exact_stream_bytes": [
+        26161,
+        19743,
+        5475,
+        1127,
+        1127
+      ],
+      "feature_rows": 19,
+      "sha256": "719da49e18b69f8de334ffc41790eec3f8b186a4e98bb98cf3eb91c37b2ad63b",
+      "state": "Width"
+    }
+  ],
+  "schema": "kit.sw2026.attached-top-box-native-saves-readback.v1",
+  "stream_order": [
+    "Contents/Config-0",
+    "Contents/Config-0-ResolvedFeatures",
+    "Contents/CMgr",
+    "Contents/Config-0-ModelHeader",
+    "Header2"
+  ],
+  "strict_sdk_reads": 12
+}

@@ -1,0 +1,201 @@
+{
+  "build_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "build_version": "34.5.2.0604",
+  "cases": {
+    "H01": {
+      "lock_record_sha256": "b12c8a3418ff71ac569aabd92ad02598f740dd66b9e4ac3b779c4b36b1a4bea2",
+      "phases": {
+        "after": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394777691323697,
+            "process_id": 2516,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "ad9100f694cca00be20b7c8a874f418ae265222fe2902beaf1d3dd2645967c03"
+        },
+        "author": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394775475212119,
+            "process_id": 5928,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "4f9c28f5bffb1c68c20299f3be86a89b0676c6a8821eda422e9651d00e089f3c"
+        },
+        "before": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394775223089063,
+            "process_id": 9592,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "ea62b0dfd589f4eac49b593dc8e32b9f2d55d922c442dcd18e1b25005ca611c9"
+        },
+        "reopen-depth": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394777438138370,
+            "process_id": 7692,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "de899dc59c6b44d0c3836389df36146d077bd088fc6d1cd1530d962075f0db45"
+        },
+        "reopen-height": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394777184713092,
+            "process_id": 4232,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "06e2503187e6d00605ac8c7015e6735fc26af7f4e4a5dad14aefab73d6f7d78a"
+        },
+        "reopen-source": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394776659316679,
+            "process_id": 10936,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "0dad1b2140cd5e69541db6c759caa7fa108d6d1a6e412762f0bd08a23a58b8af"
+        },
+        "reopen-width": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394776921298685,
+            "process_id": 2144,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "d17c44850f495fb2a46980236f36c30592f863c660c2264913bd5cab8a2d510a"
+        }
+      },
+      "source_manifest_sha256": "eacc0a9c144eeb5491f1080ca25f502e04118ac9b7c2897512fce4289c131ea6"
+    },
+    "H02": {
+      "lock_record_sha256": "96472136c8de129759af6e064d6df5d988822a9edf1e1053386f2572741a09cd",
+      "phases": {
+        "after": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394782396839447,
+            "process_id": 8092,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "8c31c0f178fb84a4bc89413c6d1c8a5429d8345eafb020b00bb4bbd281134e74"
+        },
+        "author": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394778915722444,
+            "process_id": 8260,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "f90f80f7389e4014c99758e4bc433745cce8885fdef1827cdb83c7595966ac92"
+        },
+        "before": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394778673988906,
+            "process_id": 5408,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "a3b34f85d3ab256460a593562d8d0bed9dd39eedcbf1f33f6503565b04608fb7"
+        },
+        "reopen-depth": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394782124141226,
+            "process_id": 5524,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "0534ca11b85ae08c44025fbf666e24016bce607df0ebc61adbbe119541abe675"
+        },
+        "reopen-height": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394781861325881,
+            "process_id": 10448,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "0fea623ee12a791c7c07fc304e8982fdefd92e8440b34f73e2718557b28595b6"
+        },
+        "reopen-source": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394781326349592,
+            "process_id": 3020,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "08a837363927bc12032b8e67ce391f5fbdd5387d4973c2e26e74b788bacb1097"
+        },
+        "reopen-width": {
+          "identity": {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394781597769445,
+            "process_id": 5160,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          "passed": true,
+          "record_sha256": "df8c2c6071647a74f6e33bd8e4aa30c5330dd881e2b5f481e9daf14d00d3be79"
+        }
+      },
+      "source_manifest_sha256": "5e6f82356aa5fa5af303701f6da46b486055159d680f1284eabec140c0453b23"
+    }
+  },
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "delivery_pr": 121,
+  "fresh_native_processes": 14,
+  "heldout_writer_passes": 0,
+  "packet_sha256": "bb042d12b3605421dbc1dd2f01c23f2b3d5ff19b1dd35edb28b1f0530e6a5831",
+  "prewriter_repo_head": "9c8d1b05aea3a288d16200fafe68be150dda5bfe",
+  "schema": "kit.sw2026.named-part-source-lock.v1",
+  "seal_record_sha256": "9ef20baa75f1ca93490cee2421dc477eab6b3bbb388cc4acb4151f4e310eda7e",
+  "sealed_specifications_exposed": false,
+  "sealed_specifications_sha256": "cc12641ac37b3ad3ca08b7f0535aed52c80d23806395b377c2c27f9f8ad0ac9f",
+  "tool_sha256": {
+    "AssemblyMateEvidence.py": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "AuthorAssemblySources.py": "6caeac4479b9a637424727c66631adc0a4ea180f87b821218924c3f8b6c0bea4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorNamedPartSources.py": "663f41f8e102d7693abcef567926298ee0e77359c040645aad37db779083fb96",
+    "AuthorPartDriverNames.py": "0e5482b3f0313527e1a72c16748ebaf7d3711ebcf83e7cb988e8f1f74d9a6370",
+    "AuthorPerpendicularMateSources.py": "486dc43392981d2bcaa094266daa9ebfc250018af7ac5e4c4fc641ff41f5f35f",
+    "AuthorRectangleAnchors.py": "2e7e4faa8290d01574bf2db6e14ce3499b3c58578ffd1db462a9536161d264c6",
+    "InspectCircleSketch.py": "deffc8fb5522b0d75b082345b14ed2e92528bac184997af011f186a43e02d6e4",
+    "InspectCornerPointOwners.py": "0d0b4c4d8ea92cb4cf6e0d8242d192b5f4c4608a653cc2abd41ab5e4ac0e74cd",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectSdkBlindPart.py": "86a3ef7c8a74b778800f83e6e920ab33f18ddb3363774ac29dad7b43858fbaa5",
+    "InspectSdkCornerOwners.py": "9e1682011fac4664b72e6c1c828a84bc2a0836210da1c3cc0935f6f56d8cda40",
+    "ObserveAssemblyLoad.py": "99262334a240e6caedc6129118ae09fae1fd767a0012cd03ab4f86ada543c1bf",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "PerpendicularApiMetadata.py": "425cf27d81227ecbf97c6efcc3da1de83fc8952856f38f3f7c08eb5a249bcf70",
+    "PerpendicularMateEvidence.py": "d07cb7026088daa024ebe3c933236f658a28f4d0d4446f0cc60c58018c07f042",
+    "PerpendicularSourcePlan.py": "882d4e455f1515356f3b5351cbd66786bf984347a15f54d96fe448ee4d3a861a",
+    "PositionPerpendicularChild.py": "8b6d48b9f1c59004a8798f7709f3a2effd7533b3bd2eb5a552e3a5996a4d40e1",
+    "PreparePerpendicularMateSources.py": "5bdfb0014cf4855fc69be65d09030e83d6c56859edb57ab573fdf4fb832983e3",
+    "SdkCornerOwnerGraph.py": "04f4d4914ef4917a010fcba8527f21aff9f8a7e33adeb12c7e090c33a28232b2",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "transport_recovery": {
+    "case": "H02",
+    "first_error": "PrlJob_GetResult: Invalid argument. An invalid argument was passed.",
+    "first_native_progress_record": false,
+    "first_report_sha256": "951f2493d355c564674c7a9801795bc99cedd7095cc9c04ac366560c4ea52e78",
+    "license_services_healthy": true,
+    "phase": "reopen-source",
+    "retry_report_sha256": "2dcdc6adc72e5ff2051477c42a7fcb05c76839ba569a97b906325a307361e1ab"
+  },
+  "writer_outputs": 0
+}

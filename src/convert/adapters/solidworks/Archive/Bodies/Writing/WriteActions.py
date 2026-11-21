@@ -6,11 +6,20 @@ from convert.adapters.solidworks.Archive.Bodies.WriteFrame import WriteFrame
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteArrayMut import (
     WriteArrayMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBooleanMut import (
+    WriteBooleanMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBoundsMut import (
     WriteBoundsMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
     WriteBranchMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBytesMut import (
+    WriteBytesMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteControlMut import (
+    WriteControlMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteDirectMut import (
     WriteDirectMut,
@@ -24,23 +33,38 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteLengthMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteMassMut import (
     WriteMassMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNestedMut import (
+    WriteNestedMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
     WriteNormalMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteOwnedMut import (
+    WriteOwnedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
+    WritePackedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
+    WritePresentMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteRepeatMut import (
+    WriteRepeatMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSectionMut import (
     WriteSectionMut,
 )
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteVirtualMut import (
-    WriteVirtualMut,
-)
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNestedMut import (
-    WriteNestedMut,
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValidateMut import (
+    WriteValidMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValueMut import (
     WriteValueMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteVirtualMut import (
+    WriteVirtualMut,
+)
 
-# both archive directions share field ownership without document specific fallback logic
+# both archive directions extend through the same explicit field vocabulary without document programs
 KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] = (
     MappingProxyType(
         {
@@ -50,16 +74,24 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Base": WriteNestedMut,
             "Embed": WriteNestedMut,
             "Array": WriteArrayMut,
+            "Boolean": WriteBooleanMut,
+            "Present": WritePresentMut,
             "Branch": WriteBranchMut,
-            "Length": WriteLengthMut,
-            "Repeat": WriteArrayMut,
-            "Normalize": WriteNormalMut,
+            "Context": WriteControlMut,
+            "Mask": WriteControlMut,
             "Virtual": WriteVirtualMut,
+            "Validate": WriteValidMut,
             "Section": WriteSectionMut,
             "Direct": WriteDirectMut,
+            "Bytes": WriteBytesMut,
+            "Length": WriteLengthMut,
+            "Repeat": WriteRepeatMut,
+            "Normalize": WriteNormalMut,
             "GhostCount": WriteGhostMut,
             "MassCaches": WriteMassMut,
             "BBoxCache": WriteBoundsMut,
+            "DirectNode": WriteOwnedMut,
+            "Packed": WritePackedMut,
         }
     )
 )

@@ -1,0 +1,76 @@
+{
+  "schema": "kit.sw2026.angular-plane-author-protocol.v1",
+  "task_id": "B04-SW2026-FREECAD-CYLINDER",
+  "status": "proposed-disclosed-source-protocol-not-executed",
+  "application": {
+    "progid": "SldWorks.Application.34",
+    "build": "34.5.2.0604"
+  },
+  "units": { "length": "metres", "angle": "radians" },
+  "disclosed_numeric_cases": [
+    {
+      "id": "AngularPlaneA",
+      "angle_rad": 0.2173,
+      "edit_angle_rad": 0.3497,
+      "flip": false,
+      "analytic_base_normal": [1.0, 0.0, 0.0],
+      "analytic_hinge_unit": [0.0, 1.0, 0.0],
+      "selection_append_order": [
+        {
+          "mark": 0,
+          "kind": "plane",
+          "identity": "actual-right-support-plane"
+        },
+        { "mark": 1, "kind": "line", "identity": "authored-positive-y-hinge" }
+      ]
+    },
+    {
+      "id": "AngularPlaneB",
+      "angle_rad": 0.4879,
+      "edit_angle_rad": 0.2981,
+      "flip": true,
+      "analytic_base_normal": [0.0, 1.0, 0.0],
+      "analytic_hinge_unit": [-1.0, 0.0, 0.0],
+      "selection_append_order": [
+        { "mark": 1, "kind": "line", "identity": "authored-negative-x-hinge" },
+        { "mark": 0, "kind": "plane", "identity": "actual-top-support-plane" }
+      ]
+    }
+  ],
+  "source_author_steps": [
+    "Verify registered major-34 method signatures before a CAD launch; bind IFeatureManager.InsertRefPlane's six ordered scalar arguments and IPartDoc.FeatureByName ownership",
+    "Start a fresh native process and a separately bracketed known-good source control; preserve the oracle owner's process and license custody",
+    "Use an actual selected principal support plane and a real construction line or reference axis lying in that plane; retain its exact feature/entity identity and authored direction",
+    "Clear selections; select the actual plane with mark 0 and the actual hinge line with mark 1, regardless of append order; independently read those marks and the selected actual objects before invocation",
+    "Call InsertRefPlane(angle-bit 16 with optional flip-bit 256, positive angle in radians, coincident-bit 4, 0.0, 0, 0.0); request one plane",
+    "Capture the resulting actual plane feature and its real definition; do not select a concrete archive class by its public API type alone",
+    "Verify the two actual selected references, indexed constraints and AngleOrDistance values; retain the actual plane transform and the selected line frame and direction",
+    "Traverse only the plane feature's bounded display-dimension list and bind its actual angular dimension and parameter; verify owner names, swAngularDimension metadata, driving/editable state and radians",
+    "Edit that actual angular parameter to the case's independent edit_angle_rad; rebuild, compare the plane frame to independently calculated geometry, then save and close",
+    "Fresh reopen the immutable original and edited sibling in separate processes; rebind actual plane/ref/dimension owners and repeat readback, native errors/warnings and tree checks",
+    "Run a fresh trailing control and lock all artifact hashes only after all relevant controls pass; no writer code or held-out design access is authorized by this protocol"
+  ],
+  "selected_end_followup": {
+    "ordinary_selected_limit_plane": "actual generated height-offset plane",
+    "direction_selection_mark": 16,
+    "profile_selection_mark": 0,
+    "end_reference_selection_mark": 1,
+    "source_backed_plane_end_argument": 4,
+    "type10": "separate unqualified enum-translation experiment only; do not substitute 10 for native type4 or declare equivalence from the public enum name",
+    "persistent_direction": "actual selected line/axis reference owner, not a literal calculated vector",
+    "distance_display": "record actual active/inactive display owners and full lifecycle; do not retain a blind-distance driver by default"
+  },
+  "unmeasured": [
+    "actual registered angular-dimension enum/member ownership in a new guest preflight",
+    "first-angle and second-angle sign relative to exact principal plane and hinge frames",
+    "zero-angle, obtuse-angle, multiple-plane and negative raw-angle source cases",
+    "actual concrete versus compatibility wire class after native publication",
+    "helper points, selection coordinates, display placement/style and header allocation",
+    "selected end public enum10 translation or rejection on the actual author operation",
+    "combined oblique cylinder geometry and five-driver edit/save/reopen acceptance",
+    "new independent guest-sealed source and generated held-out evaluation"
+  ],
+  "heldout_sources_read": 0,
+  "writer_outputs": 0,
+  "native_launches": 0
+}

@@ -1,0 +1,95 @@
+{
+  "build_sha256": "a7b42f39a95c44422d919d2b8c0ffcc100894fe537fa422eaf11b6c24d4bf6ee",
+  "cases": {
+    "ConcaveBare": {
+      "cold_and_rebuilt_geometry": true,
+      "cold_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 103
+      },
+      "generated_sha256": "98e63ae10bf88ceabfb35cf418b322c42987204de1dabdcbe9235ecbf4ebbb54",
+      "numeric_checks": 82,
+      "open_error": 0,
+      "open_warning": 32,
+      "rebuilt_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 116
+      },
+      "record_sha256": "ab73cf5dc4146ac8308f8036b2ee01b716591677e590dcd30be88b2fa26df8ed"
+    },
+    "ConcaveOwned": {
+      "cold_and_rebuilt_geometry": true,
+      "cold_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 103
+      },
+      "generated_sha256": "9f78d8297e58d47f8a632905116052f8d0a4655ffd7853438803103f53a7c7fb",
+      "numeric_checks": 82,
+      "open_error": 0,
+      "open_warning": 32,
+      "rebuilt_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 116
+      },
+      "record_sha256": "3f6143348000f93b851968f8f85c5b0dbaba29597b8ee642cc45a569ee3d12cb"
+    },
+    "RectangularBare": {
+      "cold_and_rebuilt_geometry": true,
+      "cold_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 103
+      },
+      "generated_sha256": "f348205f2b115f76cb0ec27316ab511ef7943e8b16cb0be2d20c754bf512cf4c",
+      "numeric_checks": 58,
+      "open_error": 0,
+      "open_warning": 32,
+      "rebuilt_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 116
+      },
+      "record_sha256": "2367c7911f755d4348285f1062be23c0153878fd450acfdb9d38cbde331918d7"
+    },
+    "RectangularOwned": {
+      "cold_and_rebuilt_geometry": true,
+      "cold_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 103
+      },
+      "generated_sha256": "38891856f84fe72a48994228dc7fe2ef469214469ba3886e71724a797c74a78d",
+      "numeric_checks": 58,
+      "open_error": 0,
+      "open_warning": 32,
+      "rebuilt_application_state": {
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "update_stamp": 116
+      },
+      "record_sha256": "eb93cfe8456ee4a592a2795feb55f9538b78acffcc6903a82495516226cc0240"
+    }
+  },
+  "clean_lifecycles": 0,
+  "control_record_sha256": {
+    "ControlAfter": "75479853455ea84f27f6707398fa69ccfeef027f1adcf2f98395db5b74cd7a26",
+    "ControlBefore": "34a37e729df4957959a5e9c9a0cae1e10c872072b771690a7e3edfa19b16ce1a",
+    "ImportedControl": "7298c4c1dab97caa0b73ca730e976309f3931c8e97682dda0add065d3f6edce5"
+  },
+  "healthy_controls": true,
+  "heldout_cases": 0,
+  "job_sha256": "26290f5185b3e63e4640d49cc17debbeae602fbdaeb613f87b9b7ac1abecea89",
+  "native_processes": 7,
+  "native_result_sha256": "51347e1a69e277ab599e79dfaf75a633895192b40796e0bee0646858260a0213",
+  "numeric_checks": 280,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "public_writer_qualified": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.generated-local-import-no-authored-light.v1",
+  "writer_revision": "35f3d11f21b597a7c6343529950162dcaea0a691"
+}

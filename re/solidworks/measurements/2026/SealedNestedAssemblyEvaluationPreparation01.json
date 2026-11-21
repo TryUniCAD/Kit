@@ -1,0 +1,88 @@
+{
+  "code_manifest_sha256": "67d68817da9ac9f14bb2c1e37a3015210846804888b2cd6c5744ce09dbaf1df7",
+  "disclosed_native_preconditions": {
+    "both_qualified": true,
+    "first_result_sha256": "539cb901df420671788475640ad5f097d673c48027a2754bea1e01396e908158",
+    "repeated_result_sha256": "eded243a834ae840c9e77b9effcfe5cb2a4c95318c299c67debbcd77e2dd6501"
+  },
+  "disclosed_source_only_process_checks": [
+    {
+      "byte_identity": true,
+      "case": "N01NestedSingle",
+      "fresh_processes": 2,
+      "object_stream_round_trips_each": 28,
+      "runtime_file_read_attempts": 0,
+      "source_semantics_match": true,
+      "stdin_request_sha256": "0e79d5710106cf4401930d5b725e7bb07acb3b7a0979c19afa4995489eeea4ec"
+    },
+    {
+      "byte_identity": true,
+      "case": "N02MixedRepeated",
+      "fresh_processes": 2,
+      "object_stream_round_trips_each": 36,
+      "runtime_file_read_attempts": 0,
+      "source_semantics_match": true,
+      "stdin_request_sha256": "b5fd5e086dd9c0debd60719021172858ee11fd17336a0bf66a0e172817800103"
+    }
+  ],
+  "evaluation_tool_sha256": {
+    "FreezeSealedNestedEvaluation.py": "1254558d4f0afbdfe6424e372ea67c224f1a264e3299fa3da7a4b729bd329c45",
+    "InspectSealedNestedAssembly.py": "97a3676b269145c697c898af0e1aa7ac60fab0cad0f3c5b3b4d58df6f51f06f2",
+    "RunSealedNestedEvaluation.py": "66b73cd43571314bcf282a16e13f911871bb4d474ee3f53cffb78df4abb2462c",
+    "SealedNestedAssemblyPlan.py": "46189e5303593c507d8cec8150ca969cf6cdb81b1719ed3664cf591d70be2029",
+    "SealedNestedEvaluationState.py": "fb40aa3735e7a3fecb2aaa16c82db8dd1f33f51ce686b7d99b00c7672071c39f"
+  },
+  "final_schema_sha256": {
+    "re/tooling/sw2026/serial/defs/ConfigPart.py": "68953a7c45010a44a02136a8e3d48979a8cbb385c01a5d46773aa62ff6bc26b2",
+    "re/tooling/sw2026/serial/defs/MfcMaps.py": "99ab160b15521ee724426216b4a7917e77733500de84e78571ec3c559abcc3f6",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "c607a62dca5d9d7a40c2df91cc1ddf059f39305cbafddeba56c017d0f51a9614"
+  },
+  "frozen_environment_probe": {
+    "fresh_processes": 1,
+    "object_stream_round_trips": 28,
+    "runtime_file_read_attempts": 0
+  },
+  "frozen_python_dependency_files": 3385,
+  "heldout_inputs_read": 0,
+  "heldout_native_cases_executed": 0,
+  "host_boundaries": {
+    "no_progress_directory_created": true,
+    "run_refused": true,
+    "sealed_path_access_guard_passed_during_freeze": true,
+    "summarize_refused": true
+  },
+  "host_heldout_payloads_read": 0,
+  "limitations": [
+    "Guest-private custody joins and complete sealed native execution remain unmeasured",
+    "Family qualification does not claim complete source-file conversion",
+    "Public adapter writing remains unqualified"
+  ],
+  "native_acceptance": false,
+  "packet_sha256": "d124111f9b21546ce75c3e7b48b62160f572b429351d60884201104c162a2f14",
+  "prepared": true,
+  "privacy": {
+    "api_logs": "guest_private_fixed_drive",
+    "console_and_failure_details": "guest_private_fixed_drive",
+    "native_payloads": "guest_private_fixed_drive",
+    "neutral_requests": "guest_private_fixed_drive",
+    "predictions": "guest_private_fixed_drive",
+    "public_progress": "slot_phase_time_identity_and_hashes_only"
+  },
+  "schema": "kit.sw2026.sealed-nested-writer-preparation.v1",
+  "source_lock_sha256": "01d38c3a89af115cf41134701888fb987513e86506f6559401ee323d9bcdc202",
+  "source_phase_packet_sha256": "24278b6cace1ca57aedb1f90db5cbad394001f5e4521d3618fbf9356f3879dec",
+  "writer_revision": "aa245b58e0dc9857f07e68aafa9727925ec52386",
+  "writer_tool_sha256": {
+    "NestedAssemblyBundleProcess.py": "c2cdcbdb42990a21453a4d2e1753ced794ae5f591c05aa28d71dd05ecbeeaad0",
+    "PredictNestedAssembly.py": "7a5733db05c2344cca2705878f7ace04118ee1a75316a02c3cb2043866c67b54",
+    "builders/Assembly.py": "e9f962dff15f97e3e5f7e79dc6b44bd0bc54fb7badb6e06ffc86fb2a75acc4ef",
+    "builders/AssemblyDocument.py": "7488cc2594456976451bb5e1b81a049d052033a339027f5922a957cdcbefd536",
+    "builders/AssemblyMetadata.py": "583b7761943284dbeb9b655bd740a65856892132c614f046c6a113bdf58299fb",
+    "builders/AssemblyOccurrences.py": "4daf8beb31a85aa3f00fbd1092239e369797a22acc7611cac5c210850640988f",
+    "builders/AssemblyTargetState.py": "c6f40ce995779fd4451e25bd2a3801119c151fd45df6a18b145f247ab2d4dfe1",
+    "builders/ConfigurationHeader.py": "87197b7d9b108135d006cdd5053c7af60ae02ddd0d9c1661ca3cb292bc7e9906",
+    "builders/NestedAssembly.py": "a81270bf9cfbfb014d2dfad9b2bb4cf1ad5f2508d2ea0cf74d52b2b8d610acb3",
+    "builders/NestedAssemblyMetadata.py": "4c0c32570006b8a6b66610d0bb4cfa7cfc3ed62d60536c854dbc81e8be35d767",
+    "builders/Part.py": "b82c0dd08099e7c53f33dca6eb9a3f2dfbfaf6d8c156b41f80976f1afbcd1a3f"
+  }
+}

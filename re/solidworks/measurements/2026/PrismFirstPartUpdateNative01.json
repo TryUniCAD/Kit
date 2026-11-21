@@ -1,0 +1,130 @@
+{
+  "healthy_native_controls": 4,
+  "heldout_inputs_read": 0,
+  "measured_processes": 6,
+  "native_writer_acceptance_added": false,
+  "observed_inserted_type": "moAmbientLight_c",
+  "observed_owner": "moEnvFolder_c",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "probe_sha256": "27724a4c65aeb58bdee3b495c0fadf6988102e41b305e3f477323287ac34ab0e",
+  "raw_phases": {
+    "DirtyStore02": {
+      "after": {
+        "bodies_before_rebuild": 1,
+        "debugger_used": false,
+        "hit": null,
+        "open_warning": 0,
+        "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+        "process_birth_filetime": 134395624303772283,
+        "raw_sha256": "1622baab70c6d9d1e11cf638343e49b6011fcd96f3df8ee47353a0be73e94e30"
+      },
+      "before": {
+        "bodies_before_rebuild": 1,
+        "debugger_used": false,
+        "hit": null,
+        "open_warning": 0,
+        "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+        "process_birth_filetime": 134395623787686979,
+        "raw_sha256": "13a172d590d8f4f2681ac8c34527fe91b240a4287600b9123285c673023d570f"
+      },
+      "generated": {
+        "bodies_before_rebuild": 0,
+        "debugger_used": true,
+        "hit": {
+          "caller": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 10557157
+          },
+          "computed_node_flags": 1,
+          "feature_id": 9,
+          "feature_receiver_present": true,
+          "feature_table_is_extrusion": false,
+          "notifier_present": true,
+          "old_node_flags": 0,
+          "requested_state": 11,
+          "site": "part_first_dirty_store",
+          "source_address": "0x4c03ee0e",
+          "thread": 0,
+          "upstream_caller": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 13001604
+          }
+        },
+        "open_warning": 32,
+        "part_sha256": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03",
+        "process_birth_filetime": 134395624014379760,
+        "raw_sha256": "8f67d69fab10efade2954f2859d57c81f22950d3bf11033ac83842300b847daf"
+      }
+    },
+    "EnvironmentInsertion01": {
+      "after": {
+        "bodies_before_rebuild": 1,
+        "debugger_used": false,
+        "hit": null,
+        "open_warning": 0,
+        "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+        "process_birth_filetime": 134395627100168986,
+        "raw_sha256": "be12caffcc5b905a3b332add3b68a67f3528554f09133a1cc866a50c0c4212db"
+      },
+      "before": {
+        "bodies_before_rebuild": 1,
+        "debugger_used": false,
+        "hit": null,
+        "open_warning": 0,
+        "part_sha256": "e414d0ef8c54d5e3c5fae02d6e896962422d4a7b74d466b8d903d426aecba0ae",
+        "process_birth_filetime": 134395626592908012,
+        "raw_sha256": "a1ecf79060e0f0c1468f0ff6ef89650695a42703f94e8ff26bf12b6357faddca"
+      },
+      "generated": {
+        "bodies_before_rebuild": 0,
+        "debugger_used": true,
+        "hit": {
+          "added_member_feature_id": 27,
+          "added_member_vtable": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 29771216
+          },
+          "caller": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 10557157
+          },
+          "computed_node_flags": 1,
+          "feature_id": 9,
+          "feature_receiver_present": true,
+          "feature_table_is_extrusion": false,
+          "insertion_caller": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 3487250
+          },
+          "insertion_registers_name": 0,
+          "insertion_requests_update": 1,
+          "notifier_present": true,
+          "old_node_flags": 0,
+          "requested_state": 11,
+          "site": "part_first_dirty_store",
+          "source_address": "0x4c03ee0e",
+          "thread": 0,
+          "upstream_caller": {
+            "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+            "module": "sldmodu",
+            "return_rva": 13001604
+          }
+        },
+        "open_warning": 32,
+        "part_sha256": "3c6e2216c9ecaff27c8a5897b87653cffa5681df71940c9b7104d27a9eaddd03",
+        "process_birth_filetime": 134395626822333341,
+        "raw_sha256": "b830931e6b268d6e220864401d032738bf3dca2c6dbd5fdcfd0e08f6541139ff"
+      }
+    }
+  },
+  "same_process_as_part_update_gate": false,
+  "schema": "kit.sw2026.prism-first-part-update.v1",
+  "source_module_preferred_base": "0x4b140000",
+  "unobserved_initial_dirty_probe_transport_exit": 255
+}

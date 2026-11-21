@@ -1,0 +1,426 @@
+{
+  "cases": {
+    "CylinderReverseY": {
+      "atom_id": 101,
+      "atom_tag": 316,
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "design_body": "sldprt:body:1",
+      "feature": "sldprt:feature:26",
+      "kernel": {
+        "bytes": 3525,
+        "sha256": "81b3209741cffe06e5332b552d82743554eb9ce3415688b82e3c32f78cda623f"
+      },
+      "kernel_design_body": "",
+      "measured": {
+        "area_mm2": 1248.7830798019427,
+        "bounds_mm": [
+          [
+            5.5,
+            4.0,
+            -24.5
+          ],
+          [
+            20.5,
+            23.0,
+            -9.5
+          ]
+        ],
+        "centroid_mm": [
+          13.0,
+          13.5,
+          -17.0
+        ],
+        "volume_mm3": 3357.577148524091
+      },
+      "ordinary_geometry": true,
+      "part": {
+        "bytes": 48380,
+        "sha256": "91a3a675d932d0f14c886446885980d484beb66a4f821d5ecfe9908e41182179"
+      },
+      "sdk_info": [],
+      "selected_mark": 7,
+      "summary_solids": 0
+    },
+    "CylinderZ": {
+      "atom_id": 101,
+      "atom_tag": 316,
+      "counts": {
+        "bodies": 1,
+        "coedges": 4,
+        "curves": 2,
+        "edges": 2,
+        "faces": 3,
+        "loops": 4,
+        "regions": 1,
+        "shells": 1,
+        "surfaces": 3,
+        "vertices": 2
+      },
+      "design_body": "sldprt:body:1",
+      "feature": "sldprt:feature:26",
+      "kernel": {
+        "bytes": 3525,
+        "sha256": "d6e924671f7e65f9d985f9043cb0c03ac5ecd258eae08d732c0b038f3363e09d"
+      },
+      "kernel_design_body": "",
+      "measured": {
+        "area_mm2": 3242.1236185046664,
+        "bounds_mm": [
+          [
+            -20.0,
+            7.0,
+            4.0
+          ],
+          [
+            4.0,
+            31.0,
+            35.0
+          ]
+        ],
+        "centroid_mm": [
+          -8.0,
+          19.0,
+          19.5
+        ],
+        "volume_mm3": 14024.069605624836
+      },
+      "ordinary_geometry": true,
+      "part": {
+        "bytes": 68119,
+        "sha256": "ef72c75f230331903726a4e48ca61682736289dba78261d654071f2fe2a54166"
+      },
+      "sdk_info": [],
+      "selected_mark": 7,
+      "summary_solids": 0
+    },
+    "ReverseY": {
+      "generated": {
+        "atom_id": 101,
+        "atom_tag": 0,
+        "counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "regions": 1,
+          "shells": 1,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "design_body": "sldprt:body:1",
+        "feature": "sldprt:feature:18",
+        "kernel": {
+          "bytes": 1414,
+          "sha256": "85c47d7beb3b2c4a9e01d98341197e62f345601fcc4e813afb976cccc2b79852"
+        },
+        "kernel_design_body": "sldprt:body:1",
+        "measured": {
+          "area_mm2": 839.0997628197488,
+          "bounds_mm": [
+            [
+              -15.75,
+              4.25,
+              -9.5
+            ],
+            [
+              -6.5,
+              28.5,
+              -0.25
+            ]
+          ],
+          "centroid_mm": [
+            -11.125,
+            16.375,
+            -4.875
+          ],
+          "volume_mm3": 1629.6152861255837
+        },
+        "ordinary_geometry": false,
+        "part": {
+          "bytes": 8992,
+          "sha256": "ff0054be16d0b08d888ea6299f209f59cdc286b894cdb48c0a83203b38b6272d"
+        },
+        "sdk_info": [
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        "selected_mark": 3,
+        "summary_solids": 1
+      },
+      "native_saved": {
+        "atom_id": 101,
+        "atom_tag": 264,
+        "counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "regions": 1,
+          "shells": 1,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "design_body": "sldprt:body:1",
+        "feature": "sldprt:feature:18",
+        "kernel": {
+          "bytes": 3183,
+          "sha256": "c618d06eaee8324626695e915ba5001f45c85bcea6e2ceddb72f7d01d1e47ea8"
+        },
+        "kernel_design_body": "",
+        "measured": {
+          "area_mm2": 839.0997628197488,
+          "bounds_mm": [
+            [
+              -15.75,
+              4.25,
+              -9.5
+            ],
+            [
+              -6.5,
+              28.5,
+              -0.25
+            ]
+          ],
+          "centroid_mm": [
+            -11.125,
+            16.375,
+            -4.875
+          ],
+          "volume_mm3": 1629.6152861255837
+        },
+        "ordinary_geometry": true,
+        "part": {
+          "bytes": 38493,
+          "sha256": "fb01c160201734d2075ceae5eeca1e6ffe3573d8fef876dba5c13bcaef963518"
+        },
+        "sdk_info": [
+          "native name records unavailable for 22:Exploded Views 22, 9:Lights and Cameras"
+        ],
+        "selected_mark": 5,
+        "summary_solids": 0
+      },
+      "planar_control": {
+        "changed": [
+          "Config-0-FeatureBodies/LocalBodies"
+        ],
+        "part": {
+          "bytes": 9894,
+          "sha256": "6dadac71dbd4ea1e229454074e272b2abd390d41cde1cd3b33b0e1acbcea8898"
+        },
+        "reader_solid_count": 1
+      }
+    },
+    "TranslatedZ": {
+      "generated": {
+        "atom_id": 101,
+        "atom_tag": 0,
+        "counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "regions": 1,
+          "shells": 1,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "design_body": "sldprt:body:1",
+        "feature": "sldprt:feature:18",
+        "kernel": {
+          "bytes": 1414,
+          "sha256": "20f764878d7ef568f01a9df61b276522f71a16aa7b13e2a2e121fd6ebf410b44"
+        },
+        "kernel_design_body": "sldprt:body:1",
+        "measured": {
+          "area_mm2": 1012.5745821601602,
+          "bounds_mm": [
+            [
+              9.5,
+              -15.25,
+              3.375
+            ],
+            [
+              23.0,
+              -1.75,
+              20.5
+            ]
+          ],
+          "centroid_mm": [
+            16.25,
+            -8.5,
+            11.9375
+          ],
+          "volume_mm3": 2451.252211656042
+        },
+        "ordinary_geometry": false,
+        "part": {
+          "bytes": 8995,
+          "sha256": "ffb0d3f587387500ebd774c18272cfb5abff377b278ba42c54b63df9b4e4bda1"
+        },
+        "sdk_info": [
+          "native name records unavailable for 9:Lights and Cameras"
+        ],
+        "selected_mark": 3,
+        "summary_solids": 1
+      },
+      "native_saved": {
+        "atom_id": 101,
+        "atom_tag": 264,
+        "counts": {
+          "bodies": 1,
+          "coedges": 4,
+          "curves": 2,
+          "edges": 2,
+          "faces": 3,
+          "loops": 4,
+          "regions": 1,
+          "shells": 1,
+          "surfaces": 3,
+          "vertices": 2
+        },
+        "design_body": "sldprt:body:1",
+        "feature": "sldprt:feature:18",
+        "kernel": {
+          "bytes": 3183,
+          "sha256": "2e3fa08adb7c8d6d445715761263ccdf8098899bd31c2fac85233d864df8a7b5"
+        },
+        "kernel_design_body": "",
+        "measured": {
+          "area_mm2": 1012.5745821601602,
+          "bounds_mm": [
+            [
+              9.5,
+              -15.25,
+              3.375
+            ],
+            [
+              23.0,
+              -1.75,
+              20.5
+            ]
+          ],
+          "centroid_mm": [
+            16.25,
+            -8.5,
+            11.9375
+          ],
+          "volume_mm3": 2451.252211656042
+        },
+        "ordinary_geometry": true,
+        "part": {
+          "bytes": 53148,
+          "sha256": "97f5b52ae475c588a23b79eaa686d9313e74ff48a612ecd9403f934f8f692223"
+        },
+        "sdk_info": [
+          "native name records unavailable for 22:Exploded Views 22, 9:Lights and Cameras"
+        ],
+        "selected_mark": 5,
+        "summary_solids": 0
+      },
+      "planar_control": {
+        "changed": [
+          "Config-0-FeatureBodies/LocalBodies"
+        ],
+        "part": {
+          "bytes": 9901,
+          "sha256": "2cc75b837b835cf620369e4e7b247202077549a9c6e94a158c79a4f60159e948"
+        },
+        "reader_solid_count": 1
+      }
+    }
+  },
+  "fresh_generated_inputs_exact": 2,
+  "heldout_inputs": 0,
+  "native_processes_started": 0,
+  "native_result_sha256": "4464d8cf76c12a228e95cf0ba47697f3e9b8a2eb218dc13118e64ed9ea09cfd0",
+  "ordinary_native_marked_controls": 4,
+  "owning_sources_sha256": {
+    "re/tooling/sw2026/imported_body_source/BuildLocalCylinder.py": "96152534166c77fa59cc927cba925db5a1432900e512ce62bb6f91d331ec96bf",
+    "re/tooling/sw2026/imported_body_source/BuildLocalCylinderPart.py": "e908fdc2f999ed43cf1da7b3b749dfb38ad39a21c2b4e0265ea23fed86e7aa96",
+    "re/tooling/sw2026/imported_body_source/VerifyBareImportPackage.py": "de1e410b9f7d5b8dffea73bfffa184fcfbc09a8ad23d41ee94e63dc27be8b921",
+    "src/convert/Geometry/Parasolid.py": "0dbe22a69f954fabc945f46931757e99179d1f562487f7b534da3cc6e796e2d9",
+    "src/convert/adapters/solidworks/Archive/Partition/CheckXmtMarks.py": "03c80d760cb3fec4ff5281d5bbb84b44ff1ca88d7c39ea7f4047f3bb05861987",
+    "src/convert/adapters/solidworks/Archive/Partition/ReadXmtHistory.py": "b6b77bc814630e3037a7a36b5f0f87e2dfe090a422d070eead265a3b1d4d735d",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "0aae64f9490c1a7abd5043bbc11a8a19d8efbcfe0e4d442303f76c0cc12d9bd8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/BodyNames/Local/ReadLocalOwner.py": "786035adff500cdaad972006235c6fb7a277fca7dd726f90be3dfc98a90652da",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/AddCylGeomMut.py": "11d39fce6fd48a8a81d0b5c2ada1f32c8c13e701d047a1b592a60657b93dcfe1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylBrep.py": "b89f2a821f5bae2b2b70a99749cadc8118dfee9b5fdb232a67ff1771c8ba7a5d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylFrame.py": "63706cf2acdf52c984ce30b28a9a8d20898750f5dbe0937c2e26538ea7302516",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylGraph.py": "bfe656143c3b9602b49d5c8604ffdb76460d4d9d63723edcf03812d454c78af8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylOwner.py": "a4a210fb9d7f6252252f31fb4a9b5f12d10970068bd114c604e3befe180154f6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylRims.py": "6738609d469d4f79631dd5b82790fecf6c94cdd3b3df23d91c013fc7020625a0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/CheckCylRing.py": "379d5d7e382a85dcd9ee851cb13808074a3cbaf58bb676e20b2d33599bca9c49",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/Cylinder/ReadLocalCyl.py": "f0acd4b9fe03fb40ab36d04ce6065245809e4f2404ba0d84d2ca40db779635be",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadLocalBodyBrep.py": "cbcd38d1eaf0e5c62f2e4c38c9a0c32b0b19209e57c5931efea14c02986e6b81",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadLocalBodyNodes.py": "ac9dda58a2b29463c73a92f976b2b0b8fc7bc37ce5955da24971573223c7b261",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadLocalImport.py": "b9cac4ea4403f13413896becb311f899aa0a5cc1f5ce8609551766b9e2ce2e1d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/LocalBody/ReadLocalPayload.py": "be2b3f6e5deb552766de55459879e81c228062336e113ee2c1ef9168a51e39ab",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "2edd9ddd16c07f4830f0337e71f2a69a3445ae4285d561b48b5b1a77dffb6cc2"
+  },
+  "proof": {
+    "bytes": 24644,
+    "sha256": "1e821d1b1d24554687fa772e9edd0638bc622d4e06afd05ff2f09def0e0ffc0e"
+  },
+  "refusals": {
+    "crossed_fin": {
+      "diagnostic": "SLDPRT local geometry rejected: local body has inconsistent fin ownership",
+      "raw_payloads": 3
+    },
+    "extra_resident_loop": {
+      "diagnostic": "SLDPRT local geometry rejected: local cylinder has an unqualified resident node inventory",
+      "raw_payloads": 3
+    },
+    "foreign_vertex": {
+      "diagnostic": "SLDPRT local geometry rejected: local cylinder has unqualified bare ownership or identities",
+      "raw_payloads": 3
+    },
+    "marked_atom_on_bare_boundary": {
+      "diagnostic": "SLDPRT local geometry rejected: local cylinder has a foreign feature or marked atom",
+      "raw_payloads": 3
+    },
+    "missing_history": {
+      "diagnostic": "SLDPRT local geometry rejected: local body rollback history is missing",
+      "raw_payloads": 1
+    },
+    "physical_span": "local cylinder has a foreign feature or marked atom",
+    "unequal_rim_radius": {
+      "diagnostic": "SLDPRT local geometry rejected: local cylinder has inconsistent radius or signed frame",
+      "raw_payloads": 3
+    },
+    "wrong_activation": {
+      "diagnostic": "SLDPRT local geometry rejected: local cylinder activation does not own the rollback predecessor",
+      "raw_payloads": 3
+    },
+    "wrong_atom_identifier": {
+      "diagnostic": "SLDPRT local geometry rejected: local body atom identities disagree",
+      "raw_payloads": 3
+    },
+    "wrong_group": {
+      "diagnostic": "SLDPRT local geometry rejected: local body storage key differs from its resolved import",
+      "raw_payloads": 3
+    },
+    "wrong_selected_mark": {
+      "diagnostic": "SLDPRT local geometry rejected: native feature does not own the stored local group and mark",
+      "raw_payloads": 3
+    }
+  },
+  "runtime_reader_reads": 0,
+  "same_locator_planar_controls": 2,
+  "schema": "kit.sw2026.local-cylinder-strict-readback.v1"
+}

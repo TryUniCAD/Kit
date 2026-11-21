@@ -1,0 +1,95 @@
+{
+  "comparisons": {
+    "0.21.2": {
+      "constructions": {
+        "original": {
+          "cache_compared": true,
+          "candidate_bytes": 10189,
+          "candidate_sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+          "exact_streams": 12
+        },
+        "without_shape_cache": {
+          "cache_compared": false,
+          "candidate_bytes": 10189,
+          "candidate_sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+          "exact_streams": 12
+        }
+      },
+      "public_writer": {
+        "published_bytes": 0,
+        "refusal": "AdapterNotFoundError",
+        "unsupported_capabilities": [
+          "brep",
+          "native_payloads",
+          "provenance",
+          "roundtrip_metadata"
+        ]
+      },
+      "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb"
+    },
+    "1.0.2": {
+      "constructions": {
+        "original": {
+          "cache_compared": true,
+          "candidate_bytes": 10443,
+          "candidate_sha256": "72fe069852718df65ad889bfd749cd0bd291b83d238487527f6bb317d7038a65",
+          "exact_streams": 12
+        },
+        "without_shape_cache": {
+          "cache_compared": false,
+          "candidate_bytes": 10443,
+          "candidate_sha256": "72fe069852718df65ad889bfd749cd0bd291b83d238487527f6bb317d7038a65",
+          "exact_streams": 12
+        }
+      },
+      "public_writer": {
+        "published_bytes": 0,
+        "refusal": "AdapterNotFoundError",
+        "unsupported_capabilities": [
+          "brep",
+          "native_payloads",
+          "provenance",
+          "roundtrip_metadata"
+        ]
+      },
+      "source_sha256": "40a68d097af87a4ca192fe8d0caa227e236547cc1a5e8b95ddba1037eb8dca70"
+    },
+    "1.1.4": {
+      "constructions": {
+        "original": {
+          "cache_compared": true,
+          "candidate_bytes": 10557,
+          "candidate_sha256": "7025721f7ee5da668b0ae59753b439c1cfc820871b668e7861f7463f2d479293",
+          "exact_streams": 12
+        },
+        "without_shape_cache": {
+          "cache_compared": false,
+          "candidate_bytes": 10557,
+          "candidate_sha256": "7025721f7ee5da668b0ae59753b439c1cfc820871b668e7861f7463f2d479293",
+          "exact_streams": 12
+        }
+      },
+      "public_writer": {
+        "published_bytes": 0,
+        "refusal": "AdapterNotFoundError",
+        "unsupported_capabilities": [
+          "brep",
+          "native_payloads",
+          "provenance",
+          "roundtrip_metadata"
+        ]
+      },
+      "source_sha256": "dba4b4257d5b44c03051121c52d9ffb84e73fe17deae499256d807a129cd8852"
+    }
+  },
+  "exact_part_comparisons": 6,
+  "exact_stream_comparisons": 72,
+  "heldout_candidates_measured": 0,
+  "native_baseline_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "native_baseline_writer_revision": "46f2463dfae91263143b24fb98531e610d929f63",
+  "new_native_runs": 0,
+  "public_writer_qualified": false,
+  "retained_artifacts": 0,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.attached-box-shared-construction.v1"
+}

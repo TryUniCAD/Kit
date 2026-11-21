@@ -1,0 +1,108 @@
+{
+  "authentic_different_design_rejected": true,
+  "code_source_files": 5844,
+  "complete_source_closure_verified_on_host": true,
+  "delivery_pr": 121,
+  "disclosed_cases": [
+    {
+      "case": "D01",
+      "child_sha256": "e73d16f478f35a9be3df38e04ff2cb2b582f61dc51365cca0851dbbb45216904",
+      "deterministic_complete_bundles": true,
+      "independent_typed_graph_equal": true,
+      "parent_sha256": "7c6cecd315247c15e06e658f413f8838b14a79b1da7a78117d767387cf60047b",
+      "prediction_sha256": "97d39fef60b47e72bdadf1e63ce17d874d5f96f5109203eb011189a653a4d2fd",
+      "request_sha256": "8cfe111f2f7ea852cd5da1c7516ebe258d3e25d21e525401d353bd99943672a8",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0
+    },
+    {
+      "case": "D03",
+      "child_sha256": "584473e0e778791e7db082b0f2ed9be0cc1568ec2c855cf8b9990c2d7c45dd02",
+      "deterministic_complete_bundles": true,
+      "independent_typed_graph_equal": true,
+      "parent_sha256": "04cd35aeb51a98db355dc92fcbdd0681ca8d1d2f203b98c9a88a9baaf714f793",
+      "prediction_sha256": "c4df5691b53a3437ed78fd402c1401fdfdaa96ac6dc6381e56b6d3a30fc1012b",
+      "request_sha256": "5eced373ea0f7910e67642f592a3f77caa5f0e97acfe579235efd30c57962cb4",
+      "runtime_input_file_reads": 0,
+      "sdk_runtime_research_imports": 0
+    }
+  ],
+  "disclosed_translation_processes": 12,
+  "disclosed_translation_proof_sha256": "87b8d69ead4a38bae4ec6bb9fbb0f00165e8f9760b8d928bc8f217316ee0551c",
+  "executable_tools": 39,
+  "guest_disclosed_expected_files": {
+    "assembly": {
+      "bytes": 9984,
+      "sha256": "fd1e7cfc6dfdff11f6f917d9ff8490df351b02ac33841f71f0e1e4fee112bfe8"
+    },
+    "child": {
+      "bytes": 8812,
+      "sha256": "64bda2665fc1f1792f6ddd1e28a1f70f50769c6a40ab4abc7d8be4a095e2b12f"
+    }
+  },
+  "guest_math_probe_sha256": "24ee3820115ac71f24257c7f220bcc19edcf40fcd0ad3acab507e8d4b5e17836",
+  "guest_runtime_frozen_before_hidden_input": true,
+  "guest_runtime_record_sha256": "08d858846adbfb75db4a81f8f49d27f9b83ff8db6df2c02ed754438e0b463ec1",
+  "guest_runtime_two_process_replay_passed": true,
+  "heldout_source_released_to_guest": true,
+  "host_disclosed_expected_files": {
+    "assembly": {
+      "bytes": 9987,
+      "sha256": "a1d1210db7f37701f9f6be394c4c88974ea7ec1cdf6a1ca27a12bb85325c1f00"
+    },
+    "child": {
+      "bytes": 8819,
+      "sha256": "3f4e779191e26e039ff5fe50cf632c4c32024e0a11720f74d4374f2ca71b8534"
+    }
+  },
+  "host_guard_process_count": 2,
+  "host_guard_proof_sha256": "177eef4ff8ed16333478272563c6cc60c029ad0f882f9996f5df340289c0b851",
+  "host_heldout_payloads_read": 0,
+  "host_math_probe_sha256": "275bddaf3fa70f8a8e9531c6fc93a06fe0839e9cf0f1878c7e3cde91b7163b7f",
+  "independent_authentic_control_comparison_passed": true,
+  "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+  "native_heldout_acceptance": true,
+  "native_heldout_receipt_sha256": "d334810a806eb68ffbd62f7686366f498980d10cf5f842a86af4962dbc40f5bc",
+  "native_observers_and_comparator_source_fingerprints": {
+    "ComparePerpendicularNative.py": "0633a4f4a108522bf5f62bf52bbebe4110ee146b150aff43bb0855fd153a157c",
+    "EvaluatePerpendicularSlot.py": "724666840b3389f5e9810800ffea0bf9652aa6673cde71fbd5c281158014f4cf",
+    "PreparePerpendicularSlot.py": "1e363fe056f14c90f1ccee284011a5c7024f36f80ec5fe9c4d8ca66c140c86df",
+    "TranslatePerpendicularCase.py": "ca663e3532be6e3c200ca2fe51bc0243918218981bbd51fa0997d15fd6ce2682",
+    "VerifyPerpendicularFreeze.py": "13182a3bc4ec084af049d3ca38a50d58a1646bbed35a4639efc00b1d9d9a0b8c"
+  },
+  "native_plan": [
+    "healthy disclosed control before",
+    "fresh exact locked source original",
+    "fresh exact locked edited source",
+    "generated initial/rebuild/live rotation/depth/edit/synchronized child-first save",
+    "fresh generated saved pair reopen/rebuild",
+    "independent healthy disclosed control after"
+  ],
+  "normal_source_and_saved_sdk_audits_required": 3,
+  "opaque_guest_build_workers": 6,
+  "opaque_guest_neutral_slots_prepared": 2,
+  "opaque_guest_source_only_builds": 2,
+  "owner": "assembly_occurrence",
+  "paired_comparisons_required": 6,
+  "prior_preexecution_receipt_sha256": "0bd5fa7bc80482790dabbef7be99ee9224f472193bb0451402e15228bce62db1",
+  "public_perpendicular_writer_qualified": false,
+  "recipe_sha256": "e2130aa9bae673e99052902d333437c1e6245f57a4fc9c4e3a04f23d9169aa7a",
+  "reverse_source_selection_closed": true,
+  "root_owned_native_process_count": 12,
+  "runtime_classification_sha256": "c2095d14e35c455f9a0571139f50beef5c6e5d6fc375e685476a4c6c657987c7",
+  "runtime_sha256": "39b354c60a31785ac033c36361c5d3445daa3763b8065d2d1d3922716ec7540c",
+  "schema": "kit.sw2026.perpendicular-blind-method-freeze-public-receipt.v1",
+  "scope_limits": [
+    "one initially satisfied perpendicular between two direct repeated ordinary dimensioned rectangle occurrences",
+    "forward source selection order only",
+    "no source/native observations in generation",
+    "no invalid-angle correction claim",
+    "no public registry activation",
+    "no hidden or paired native result inferred from preparation"
+  ],
+  "source_only_generation_boundary": "requests and independent predictions lock before source native observations; SDK generation imports frozen code and consumes stdin only",
+  "synthetic_host_sealed_slot_rejected": true,
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR",
+  "translation_freeze_sha256": "1bd6567368e31f010932078cc3ff486f91efe752ccd96ce57d485ac89c861821",
+  "writer_source_manifest_sha256": "0f660dcb6fef84b12b382fa40e542069d49dab0ec6169151b154b4222f5884fa"
+}

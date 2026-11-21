@@ -1,0 +1,137 @@
+{
+  "control": "external-inputs/NativeControl.SLDPRT",
+  "generator": {
+    "id": 14177624347,
+    "run": 43756383239,
+    "job": 132941286371,
+    "synthetic": "2179cb75a8501f83d78eacbdeb67f533a94246cc",
+    "parents": [
+      "e04e7b78699d3f567409937007b00b567620078a",
+      "b23e72c609caca0d0ca4acf871e9680a325f0548"
+    ],
+    "github_digest": "sha256:bb4cb2ddd8a0728e915f0748e2057012e737699f5517aad0e3c202591cf50448",
+    "digest_authority": "github metadata; zip not independently rehashed",
+    "head": "b23e72c609caca0d0ca4acf871e9680a325f0548"
+  },
+  "cases": [
+    {
+      "name": "H3_scalene",
+      "source": "external-inputs/H3_scalene.SLDPRT",
+      "destination": "external-edited/H3_scalene_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.01625,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 9.932000000000002e-6,
+          "area": 0.003166276360558158,
+          "com": [0.006666666666666669, 0.007000000000000002, 0.0065]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.2414999999999999e-5,
+          "area": 0.003575845450697697,
+          "com": [0.006666666666666669, 0.007000000000000001, 0.008125]
+        }
+      },
+      "neutral_input": {
+        "name": "H3_scalene",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.013, -0.007],
+          [0.029, -0.003],
+          [0.004, 0.031]
+        ],
+        "depth_m": 0.013,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "051437f311217cc7eac0eb49a5a84b2d8acdc2507dbfc0c542e60393fc7d7cda"
+    },
+    {
+      "name": "H5_irregular",
+      "source": "external-inputs/H5_irregular.SLDPRT",
+      "destination": "external-edited/H5_irregular_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.00875,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 1.31635e-5,
+          "area": 0.004932190747600379,
+          "com": [0.005411149516972432, 0.003352565806966232, 0.0035]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 1.6454375e-5,
+          "area": 0.0052249884345004745,
+          "com": [0.005411149516972436, 0.0033525658069662326, 0.004375]
+        }
+      },
+      "neutral_input": {
+        "name": "H5_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.023, -0.008],
+          [0.007, -0.021],
+          [0.036, -0.004],
+          [0.019, 0.028],
+          [-0.017, 0.019]
+        ],
+        "depth_m": 0.007,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "f92409497c861c9d88c6933a3bc35bba8fcce1928cda6a4608499e82a09eb734"
+    },
+    {
+      "name": "H7_irregular",
+      "source": "external-inputs/H7_irregular.SLDPRT",
+      "destination": "external-edited/H7_irregular_depth.SLDPRT",
+      "parameter": "D1@Boss-Extrude1",
+      "value_m": 0.02125,
+      "expected": {
+        "before": {
+          "bodies": 1,
+          "volume": 5.3796500000000006e-5,
+          "area": 0.009896349327158964,
+          "com": [
+            0.001440669932058777, 0.006562595460051613, 0.008499999999999999
+          ]
+        },
+        "after": {
+          "bodies": 1,
+          "volume": 6.7245625e-5,
+          "area": 0.010788186658948703,
+          "com": [0.0014406699320587764, 0.006562595460051614, 0.010625]
+        }
+      },
+      "neutral_input": {
+        "name": "H7_irregular",
+        "configuration_name": "authored configuration",
+        "sketch_name": "Sketch1",
+        "extrusion_name": "Boss-Extrude1",
+        "origin_name": "Origin",
+        "plane_axis": "z",
+        "vertices_m": [
+          [-0.031, -0.006],
+          [-0.008, -0.025],
+          [0.02, -0.019],
+          [0.039, 0.007],
+          [0.021, 0.037],
+          [-0.013, 0.032],
+          [-0.036, 0.014]
+        ],
+        "depth_m": 0.017,
+        "density_kg_m3": 1.0
+      },
+      "heldout_native_source_sha256": "62602b7f17fc75ec6e51ae13c8a6bb7fd162c6a8b669da37eea99e2935535604"
+    }
+  ]
+}

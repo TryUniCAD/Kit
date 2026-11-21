@@ -1,0 +1,15 @@
+{
+  "candidate_native_processes": 0,
+  "expected_top_right_pair": true,
+  "explicit_single_stock_count": 2,
+  "forward_count": 1,
+  "freeze_sha256": "3a5ebd120f3baea7e8553bf47c22ee7605405fc057c09691a81e26d61f52bfcb",
+  "generation_count": 0,
+  "native_acceptance": false,
+  "prior_constructor_scope": "forward partial revolve cut",
+  "published_private_geometry": false,
+  "schema": "kit.sw2026.selected-revolve-heldout-profile-refusal.v1",
+  "slot_count": 2,
+  "source_lock_sha256": "67c1aeca25817846925f18e5b6b7b9319bdba216835e685988961e0db8832f68",
+  "stage": "prepare scope admission"
+}

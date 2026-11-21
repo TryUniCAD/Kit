@@ -1,0 +1,519 @@
+{
+  "binary_outputs_created": 0,
+  "cases": [
+    {
+      "author_intent_sha256": "9b4b1f3da116761ff27781fedaabc64e89c88bd385868085f4f5204c9686d330",
+      "authority": "native_disclosed",
+      "canonical_datum_owners": {
+        "origin_id": 6,
+        "principal_plane_ids": [
+          3,
+          4,
+          5
+        ]
+      },
+      "case": "N01NestedSingle",
+      "empty_mates": {
+        "RiseModule.SLDASM": {
+          "linked_map_base": 164,
+          "linked_payload_sha256": "92b7043b6164971b77143b14c5428efcb7369e590af49779f8e2705244f1beea",
+          "native_id": 11,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 5295,
+            "field_span": false,
+            "object_index": 162,
+            "offset": 5101,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        "SingleFrame.SLDASM": {
+          "linked_map_base": 164,
+          "linked_payload_sha256": "92b7043b6164971b77143b14c5428efcb7369e590af49779f8e2705244f1beea",
+          "native_id": 11,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 5295,
+            "field_span": false,
+            "object_index": 162,
+            "offset": 5101,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      },
+      "files_unchanged": true,
+      "guard_denials": 0,
+      "hierarchy": {
+        "definitions": 3,
+        "direct_links": 2,
+        "expanded_depth_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "expanded_occurrences": 2,
+        "maximum_local_matrix_delta": 5.551115123125783e-17,
+        "maximum_native_world_matrix_delta": 3.552713678800501e-15
+      },
+      "index_only_manager": 1,
+      "native_only_public_rows": 24,
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "native_state_sha256": "a900985873195dd20b6d6aa5a099816e5f4c25b0616d1632cb26cbef7d8f5c06",
+      "other_retained_domains": {
+        "assembly_display_state_count": 1,
+        "original_source_metadata": true,
+        "retained_mate_payload_count": 2,
+        "visual_states_bytes": 1299
+      },
+      "owner_binding_sha256": "6acb1e8cb75372d488043993e7b249089befb1030875f83fe5767b583b2d51c3",
+      "owners": {
+        "cabinet_member": [
+          17,
+          18
+        ],
+        "environment_member": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "exploded_manager": [
+          1
+        ],
+        "occurrence_alias": [
+          24
+        ],
+        "resolved_root": [
+          9,
+          21,
+          22,
+          23,
+          20,
+          10,
+          8,
+          2,
+          7,
+          19,
+          16,
+          3,
+          4,
+          5,
+          6,
+          11
+        ]
+      },
+      "refusals": {
+        "detached_map_alias": {
+          "diagnostic": "through-all presentation owner does not alias its archive map",
+          "error": "ValueError"
+        },
+        "duplicate_public_id": {
+          "diagnostic": "normal feature identities differ from the actual keyword index",
+          "error": "ValueError"
+        },
+        "wrong_member_parent": {
+          "diagnostic": "typed root/member hierarchy differs from the native feature observer",
+          "error": "ValueError"
+        }
+      },
+      "root_file": "SingleFrame.SLDASM",
+      "root_file_sha256": "57a12e043333c2d8ca841b9471ed01b46026a52e6717e12504c5ac73d8094f22",
+      "runtime_only_roles": [],
+      "stored_empty_notes": true,
+      "stored_light_intent_sha256": "77dbd7ba01fad0125d9302009b0015a20aca80909155567a91952c55c203ff94",
+      "unmatched_public_owners": 0,
+      "unmatched_visible_rows": 0,
+      "verified_file_count": 3,
+      "visible_native_rows": 23
+    },
+    {
+      "author_intent_sha256": "66306b78ae69ef6160d54f5f4fc76b0a41bfa9b976145cdad1b4727215de0b1f",
+      "authority": "native_disclosed",
+      "canonical_datum_owners": {
+        "origin_id": 6,
+        "principal_plane_ids": [
+          3,
+          4,
+          5
+        ]
+      },
+      "case": "N02MixedRepeated",
+      "empty_mates": {
+        "IndexModule.SLDASM": {
+          "linked_map_base": 168,
+          "linked_payload_sha256": "1b7daa4fb6499933b149b4b632b31520a936381c8425be8abca83716decd6a32",
+          "native_id": 11,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 5295,
+            "field_span": false,
+            "object_index": 166,
+            "offset": 5101,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        "MixedFrame.SLDASM": {
+          "linked_map_base": 173,
+          "linked_payload_sha256": "3e7ec66fa4054c9c0d736ac9e773bd4090bcb4e7f9a203103b8016a81c1ec6cc",
+          "native_id": 11,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 5295,
+            "field_span": false,
+            "object_index": 171,
+            "offset": 5101,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      },
+      "files_unchanged": true,
+      "guard_denials": 0,
+      "hierarchy": {
+        "definitions": 4,
+        "direct_links": 5,
+        "expanded_depth_counts": {
+          "0": 3,
+          "1": 4
+        },
+        "expanded_occurrences": 7,
+        "maximum_local_matrix_delta": 5.551115123125783e-17,
+        "maximum_native_world_matrix_delta": 2.842170943040401e-14
+      },
+      "index_only_manager": 1,
+      "native_only_public_rows": 26,
+      "native_result_sha256": "ca4ab515e936a605a98c8fbd093659577c485529d6b0c916dd08683f7ef19ca8",
+      "native_state_sha256": "42a7a03f7aed68841e40b243bcae19cc5ea2ab04e28ba08ee4b0df0690952125",
+      "other_retained_domains": {
+        "assembly_display_state_count": 1,
+        "original_source_metadata": true,
+        "retained_mate_payload_count": 2,
+        "visual_states_bytes": 1741
+      },
+      "owner_binding_sha256": "932b691923ee1eff9f04c1c86976a1b09f338d2e983239e45dd82dbd8b3952d0",
+      "owners": {
+        "cabinet_member": [
+          17,
+          18
+        ],
+        "environment_member": [
+          12,
+          13,
+          14,
+          15
+        ],
+        "exploded_manager": [
+          1
+        ],
+        "occurrence_alias": [
+          24,
+          25,
+          26
+        ],
+        "resolved_root": [
+          9,
+          21,
+          22,
+          23,
+          20,
+          10,
+          8,
+          2,
+          7,
+          19,
+          16,
+          3,
+          4,
+          5,
+          6,
+          11
+        ]
+      },
+      "refusals": {
+        "detached_map_alias": {
+          "diagnostic": "through-all presentation owner does not alias its archive map",
+          "error": "ValueError"
+        },
+        "duplicate_public_id": {
+          "diagnostic": "normal feature identities differ from the actual keyword index",
+          "error": "ValueError"
+        },
+        "wrong_member_parent": {
+          "diagnostic": "typed root/member hierarchy differs from the native feature observer",
+          "error": "ValueError"
+        }
+      },
+      "root_file": "MixedFrame.SLDASM",
+      "root_file_sha256": "f97c64d22168b832e425dbb657ba564ff93da97a4d4a633918bb5816a6c88c65",
+      "runtime_only_roles": [],
+      "stored_empty_notes": true,
+      "stored_light_intent_sha256": "77dbd7ba01fad0125d9302009b0015a20aca80909155567a91952c55c203ff94",
+      "unmatched_public_owners": 0,
+      "unmatched_visible_rows": 0,
+      "verified_file_count": 4,
+      "visible_native_rows": 25
+    },
+    {
+      "author_intent_sha256": "8afa7d0ebb29ab538788df53e847468217e0d3e7f5f575f8f8c622f02dd126b3",
+      "authority": "generated",
+      "canonical_datum_owners": {
+        "origin_id": 15,
+        "principal_plane_ids": [
+          12,
+          13,
+          14
+        ]
+      },
+      "case": "SdkNestedNeutralNative03",
+      "empty_mates": {
+        "SdkFrame.SLDASM": {
+          "linked_map_base": 129,
+          "linked_payload_sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb",
+          "native_id": 16,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 4839,
+            "field_span": false,
+            "object_index": 127,
+            "offset": 4645,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        "SdkModule.SLDASM": {
+          "linked_map_base": 129,
+          "linked_payload_sha256": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb",
+          "native_id": 16,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 4839,
+            "field_span": false,
+            "object_index": 127,
+            "offset": 4645,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      },
+      "files_unchanged": true,
+      "guard_denials": 0,
+      "hierarchy": {
+        "definitions": 3,
+        "direct_links": 2,
+        "expanded_depth_counts": {
+          "0": 1,
+          "1": 1
+        },
+        "expanded_occurrences": 2,
+        "maximum_local_matrix_delta": 0.0,
+        "maximum_native_world_matrix_delta": 7.105427357601002e-15
+      },
+      "index_only_manager": null,
+      "native_only_public_rows": 17,
+      "native_result_sha256": "bcc4e421981553c488cf4638e50342ae74c65544f60cee265493fd464eb016e8",
+      "native_state_sha256": "4a453a417f876ed57bc85ed161473157b4aa90ff4812d92bbcb711f03fbf878f",
+      "other_retained_domains": {
+        "assembly_display_state_count": 0,
+        "original_source_metadata": true,
+        "retained_mate_payload_count": 2,
+        "visual_states_bytes": 0
+      },
+      "owner_binding_sha256": "d346ba215b6407256a94e0af5343705d19f955f6e7a996b63debb01d4d302344",
+      "owners": {
+        "cabinet_member": [],
+        "environment_member": [],
+        "exploded_manager": [],
+        "occurrence_alias": [
+          17
+        ],
+        "resolved_root": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          11,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "refusals": {
+        "detached_map_alias": {
+          "diagnostic": "through-all presentation owner does not alias its archive map",
+          "error": "ValueError"
+        },
+        "duplicate_public_id": {
+          "diagnostic": "normal feature identities differ from the actual keyword index",
+          "error": "ValueError"
+        },
+        "wrong_member_parent": {
+          "diagnostic": "typed root/member hierarchy differs from the native feature observer",
+          "error": "ValueError"
+        }
+      },
+      "root_file": "SdkFrame.SLDASM",
+      "root_file_sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39",
+      "runtime_only_roles": [
+        "light.ambient",
+        "light.directional.1",
+        "light.directional.2",
+        "light.directional.3",
+        "notes.head",
+        "notes.end"
+      ],
+      "stored_empty_notes": false,
+      "stored_light_intent_sha256": null,
+      "unmatched_public_owners": 0,
+      "unmatched_visible_rows": 0,
+      "verified_file_count": 3,
+      "visible_native_rows": 23
+    },
+    {
+      "author_intent_sha256": "a06ccc7b93b23c599857508f2a48fcaa9c554056329fc62e5259687b01394a58",
+      "authority": "generated",
+      "canonical_datum_owners": {
+        "origin_id": 15,
+        "principal_plane_ids": [
+          12,
+          13,
+          14
+        ]
+      },
+      "case": "SdkRepeatedNeutralNative03",
+      "empty_mates": {
+        "SdkFrame.SLDASM": {
+          "linked_map_base": 138,
+          "linked_payload_sha256": "e2d03b127d64eb09ce26fbb841bad9960407d05676461515b26fcd9f3fc0cd07",
+          "native_id": 16,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 4839,
+            "field_span": false,
+            "object_index": 136,
+            "offset": 4645,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        },
+        "SdkModule.SLDASM": {
+          "linked_map_base": 133,
+          "linked_payload_sha256": "a539923cc9592b1ad23e790f82b9a15dc8c85ea216b89a5e1e9998fb3e030979",
+          "native_id": 16,
+          "span": {
+            "class": "moMateGroup_c",
+            "end": 4839,
+            "field_span": false,
+            "object_index": 131,
+            "offset": 4645,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        }
+      },
+      "files_unchanged": true,
+      "guard_denials": 0,
+      "hierarchy": {
+        "definitions": 4,
+        "direct_links": 5,
+        "expanded_depth_counts": {
+          "0": 3,
+          "1": 4
+        },
+        "expanded_occurrences": 7,
+        "maximum_local_matrix_delta": 5.551115123125783e-17,
+        "maximum_native_world_matrix_delta": 1.4210854715202004e-14
+      },
+      "index_only_manager": null,
+      "native_only_public_rows": 19,
+      "native_result_sha256": "9dfda9928f350c7b4a4e4a8b4455dff1712ab30c34fbb403b75671b080b4d0a1",
+      "native_state_sha256": "983bad670f13ce9ee2fa1244b25664e692f4baf8e58183376fe86e667a8b5946",
+      "other_retained_domains": {
+        "assembly_display_state_count": 0,
+        "original_source_metadata": true,
+        "retained_mate_payload_count": 2,
+        "visual_states_bytes": 0
+      },
+      "owner_binding_sha256": "aae8ee577c3e6455d87e529dd6d981e57cccbd55b243f28b5ed299697b336041",
+      "owners": {
+        "cabinet_member": [],
+        "environment_member": [],
+        "exploded_manager": [],
+        "occurrence_alias": [
+          17,
+          18,
+          19
+        ],
+        "resolved_root": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          11,
+          8,
+          9,
+          10,
+          12,
+          13,
+          14,
+          15,
+          16
+        ]
+      },
+      "refusals": {
+        "detached_map_alias": {
+          "diagnostic": "through-all presentation owner does not alias its archive map",
+          "error": "ValueError"
+        },
+        "duplicate_public_id": {
+          "diagnostic": "normal feature identities differ from the actual keyword index",
+          "error": "ValueError"
+        },
+        "wrong_member_parent": {
+          "diagnostic": "typed root/member hierarchy differs from the native feature observer",
+          "error": "ValueError"
+        }
+      },
+      "root_file": "SdkFrame.SLDASM",
+      "root_file_sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10",
+      "runtime_only_roles": [
+        "light.ambient",
+        "light.directional.1",
+        "light.directional.2",
+        "light.directional.3",
+        "notes.head",
+        "notes.end"
+      ],
+      "stored_empty_notes": false,
+      "stored_light_intent_sha256": null,
+      "unmatched_public_owners": 0,
+      "unmatched_visible_rows": 0,
+      "verified_file_count": 4,
+      "visible_native_rows": 25
+    }
+  ],
+  "fresh_guarded_processes": 4,
+  "native_processes_started": 0,
+  "native_reexport_qualified": false,
+  "prior_receipts_sha256": {
+    "DisclosedNestedAssemblyArchiveAudit01.json": "4f116aeb6b8d7234bf980390c2ee74086fbfbc0c76efc38f2cfd84183f12631b",
+    "NestedAssemblyDisclosedReplayNative01.json": "4253a4ec506d58a421c631f8d9d8cb7a6ce7cba624d54f8e82ebc9814a6f2ae5",
+    "SdkNestedNeutralNative01.json": "aa786c6aa4bc7bdae15662c4b4908205b7a0fda7fdb5bb1bb503594a6b0fb967"
+  },
+  "prior_tools_sha256": {
+    "re/tooling/sw2026/nested_publication/MeasureNestedReadback.py": "b7c3bf3f0018e6d8685bfea44179b047e94e3ae57fa2407f298541e84ea90d2d",
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentExploded.py": "9e1d5a177c687b323b7c041dbc0ecc0d90407384e71ae61c3c00e7503d4e7af5",
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentLights.py": "8acca95952c6792f817e3a8c220eaab51a89140592c72fa2ba5fd14ae35af039",
+    "re/tooling/sw2026/para/concentric/ProveConcentricParentNotes.py": "35615f8c33431a4953d2d1b4d0b4536739385128835869e42f6059fd5f798807",
+    "re/tooling/sw2026/planar_registry/PlanarRootProjection.py": "6a1698da7545a5222ebfaafd098fcf307256667e2ec2b41f681d364ac61db5b2"
+  },
+  "private_inputs_opened": 0,
+  "reader_revision": "42878d802e4d53ba1dd92528a67fa8122880cff0",
+  "schema": "kit.sw2026.nested-tree-owners.v1",
+  "source_tree": "8ec147cb733526d1b281923bf3350e15f91c77e3",
+  "tool_sha256": "1356ec9ce7093ee91bd102d1246718b978d47814cc7916be3c65b19562f0419b"
+}

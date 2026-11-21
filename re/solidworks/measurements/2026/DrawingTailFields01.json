@@ -1,0 +1,51 @@
+{
+  "disclosed": [
+    {
+      "block_guid_version": 4,
+      "component_property_count": 0,
+      "drawing_flags": 257,
+      "empty_block_map": true,
+      "layer_count": 0,
+      "layer_mask_words": 0,
+      "name": "D00EmptySheet",
+      "source_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    },
+    {
+      "block_guid_version": 4,
+      "component_property_count": 1,
+      "drawing_flags": 257,
+      "empty_block_map": true,
+      "layer_count": 0,
+      "layer_mask_words": 0,
+      "name": "D01FrontView",
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525"
+    },
+    {
+      "block_guid_version": 4,
+      "component_property_count": 1,
+      "drawing_flags": 257,
+      "empty_block_map": true,
+      "layer_count": 0,
+      "layer_mask_words": 0,
+      "name": "D02MovedFrontView",
+      "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47"
+    }
+  ],
+  "generated_subgraph": [
+    {
+      "auto_dim_text_link": false,
+      "bytes": 322,
+      "map_next_index": 11,
+      "sha256": "7c684afa2f05f33c1e1f544bb3abc00ff9a3b4e689379448a7f1d6d710e2bbe8"
+    },
+    {
+      "auto_dim_text_link": true,
+      "bytes": 322,
+      "map_next_index": 11,
+      "sha256": "32d4c5f2ab176597d541cab02024116b722aa56f32a7240b615b57a9dec4fc91"
+    }
+  ],
+  "native_acceptance": false,
+  "schema": "kit.sw2026.drawing-tail-fields.v1",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7"
+}

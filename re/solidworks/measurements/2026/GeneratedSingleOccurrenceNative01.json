@@ -1,0 +1,216 @@
+{
+  "schema": "kit.sw2026.generated-assembly-first-inspection.v1",
+  "scope": "generated single unsuppressed, unfixed part occurrence with identity placement and one selected configuration",
+  "oracle": {
+    "file_version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "application": "SldWorks.Application.34",
+    "vm_architecture": "Windows 11 ARM64, x64 emulation"
+  },
+  "generator": {
+    "head": "5a9ec7b5ada121dbc437b5258a1cf216000b5eae",
+    "builder_receipt_sha256": "ef686a836b350401f90af4cd3f398947c5a5d8a3eac1484e0e116ee91143f1f6",
+    "assembly_sha256": "e07690425577b1b5b6942cb15b5eb44fcea02a78e9dba2a009b2437534d67da4",
+    "child_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+    "assembly_bytes": 6932,
+    "child_bytes": 8122,
+    "denied_runtime_reads": 0,
+    "scope": "Ordinary single resolved occurrence at identity placement, generated polygon-prism child",
+    "test": "tests/Convert/Solidworks/Research/Assembly/OccurrenceBundleTests.py",
+    "stream_hashes": {
+      "Contents/CMgr": "622c90e0e3012f3b584686b46bf67b4785f75b6cce6a788818299718b96bb509",
+      "Contents/Config-0": "574bae7f44e33ffc68b2cce4758bb452b9eda7bcfb3ad272add16801d25066a3",
+      "Contents/Config-0-MatesList": "e1d131531841a908f0352901dd090e7448edb2e39d3ae222b75db442165135cb",
+      "Contents/Config-0-ModelHeader": "7587c005f42ac685ce302a9e24df45a2270d2e5d7ab79131cbb62a32ffc9bce3",
+      "Contents/Config-0-ResolvedFeatures": "9e29848bb7787c98609a22f80cf299d5b2285b9d86e2dee0b6df4e6ade9283cc",
+      "Contents/Definition": "3b41dbc3066c07ec6fd70136e8f0755cdf7ba439f99aa6e4808b150757f51c49",
+      "Header2": "de4546683c176a68eec7e44d960f697cef00c9a22b320bc5eb3671f38a8a01d9",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+    },
+    "directory_direct_slots": [
+      4
+    ]
+  },
+  "inspector": {
+    "source_revision": "d50482c41873400bc8b67d61addbd3f689b095a2",
+    "tool_sha256": {
+      "InspectGeneratedAssembly.py": "b2287d271dd57daa919431154cf02c4be6ea7d118f631ed2b76be3e302f422d8",
+      "AuthorAssemblySources.py": "8cfc1281e3bca2e4c92aec64bfb32ac2367f8d3402b27e54445e00db2a545a15",
+      "AuthorCurves.py": "2270a8c30ce795a806e4045ff7bbeff1636890731774831d7d24cd7b0b1dfcde",
+      "InspectCircleSketch.py": "976ce5f86f6d739c49231d388bf8be45780baa1fcd3432b1f9dd4b1efde0abdf",
+      "InspectFresh.py": "7e0ea000033c9b4443049544afc26cf330039c1fe7d8f5216f270c0bdc4b8793",
+      "ObserveAssemblyLoad.py": "925502c08d8176493094813fddf89ae621e46166f2a50396f2462eaef2ddf660",
+      "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+      "Swapp.py": "491de15dd2e9ffd9361f86c5f0542a2333ce722e3f2cac65c46d6dc2ad9d7c5c"
+    },
+    "job_sha256": "d568cfc9b9cffc41d277a7e1a4f354c613c1738ec9a7d5021a392853411baf09",
+    "inspector_sha256": "b2287d271dd57daa919431154cf02c4be6ea7d118f631ed2b76be3e302f422d8",
+    "private_inspection_sha256": "e87298a847888d4057d0cdcfb03d2a4f2d55629f11eb0ad684cf9c705b980c58",
+    "private_transport_sha256": "e6a2ba5ec716194e2fa1678c12b5d35bb7574cd40012f138c0fd4bd992a206e1"
+  },
+  "controls": [
+    {
+      "phase": "control_before",
+      "healthy": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "process_creation_filetime": 134393677348982289
+    },
+    {
+      "phase": "control_after",
+      "healthy": true,
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "process_creation_filetime": 134393678120839824
+    }
+  ],
+  "controls_healthy": true,
+  "distinct_oracle_processes": 4,
+  "started_at": 1794894130.4146345,
+  "finished_at": 1794894232.6564567,
+  "solidworks_processes_after": [],
+  "same_license_processes": [
+    {
+      "name": "lmgrd.exe",
+      "pid": 1604
+    },
+    {
+      "name": "sw_d.exe",
+      "pid": 3088
+    },
+    {
+      "name": "lmgrd.exe",
+      "pid": 7936
+    }
+  ],
+  "geometry_expected": {
+    "volume": 1.4e-06,
+    "area": 0.00082,
+    "com": [
+      0.01,
+      0.005,
+      0.0035
+    ]
+  },
+  "phases": [
+    {
+      "phase": "generated",
+      "sha256": "e07690425577b1b5b6942cb15b5eb44fcea02a78e9dba2a009b2437534d67da4",
+      "opened": true,
+      "errors": 0,
+      "warnings": 0,
+      "passed": true,
+      "components_after_open": 1,
+      "rebuild_return": true,
+      "source_immutable": true,
+      "child_immutable": true,
+      "record_sha256": "60f80a6a9af6bdcc7021d99e91f018a77cdcc4240a795c8b3040be56b756091d",
+      "process_creation_filetime": 134393677606595931,
+      "checks": 21,
+      "rebuild_feature_errors_or_warnings": 0,
+      "resolved_occurrences": [
+        {
+          "placement_index": 0,
+          "name": "GeneratedChildModel-1",
+          "path_basename": "GeneratedChildFile.SLDPRT",
+          "configuration": "authored configuration",
+          "fixed": false,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ],
+      "body_count": 1,
+      "tree_nodes": 23,
+      "geometry": {
+        "volume": 1.4000000000000001e-06,
+        "area": 0.00082,
+        "com": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      },
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "saved_sha256": "71168869267ecb7d6d4ac89c8e56bd847363cbe6e696dcd150cb914f3379063b"
+    },
+    {
+      "phase": "fresh-reopen",
+      "sha256": "71168869267ecb7d6d4ac89c8e56bd847363cbe6e696dcd150cb914f3379063b",
+      "opened": true,
+      "errors": 0,
+      "warnings": 32,
+      "passed": false,
+      "components_after_open": 1,
+      "rebuild_return": true,
+      "source_immutable": true,
+      "child_immutable": true,
+      "record_sha256": "0ff17ac027c0bfa3b4d214925a1abcbf1575de1e6654cb69741cfb8fc13f3082",
+      "process_creation_filetime": 134393677866058522,
+      "checks": 21,
+      "rebuild_feature_errors_or_warnings": 0,
+      "resolved_occurrences": [
+        {
+          "placement_index": 0,
+          "name": "GeneratedChildModel-1",
+          "path_basename": "GeneratedChildFile.SLDPRT",
+          "configuration": "authored configuration",
+          "fixed": false,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ],
+      "body_count": 1,
+      "tree_nodes": 23,
+      "geometry": {
+        "volume": 1.4000000000000001e-06,
+        "area": 0.00082,
+        "com": [
+          0.01,
+          0.005,
+          0.0035
+        ]
+      }
+    }
+  ],
+  "post_rebuild_trees_identical": true,
+  "passed": false,
+  "heldout_acceptance": false,
+  "accepted_production_assemblies": 0
+}

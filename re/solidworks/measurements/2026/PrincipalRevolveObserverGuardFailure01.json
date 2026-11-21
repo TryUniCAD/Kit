@@ -1,0 +1,41 @@
+{
+  "cases": {
+    "PrincipalRevolveHeldoutRight": {
+      "class": "ValueError",
+      "failure_sha256": "6c32b00a8258b820de8d6aef360b284738973d80ffd5746a5bd7cde55669180c",
+      "passed": false,
+      "reason": "guarded SDK worker failed: AttributeError: module 'os' has no attribute 'O_ACCMODE'"
+    },
+    "PrincipalRevolveHeldoutTop": {
+      "class": "ValueError",
+      "failure_sha256": "6c32b00a8258b820de8d6aef360b284738973d80ffd5746a5bd7cde55669180c",
+      "passed": false,
+      "reason": "guarded SDK worker failed: AttributeError: module 'os' has no attribute 'O_ACCMODE'"
+    }
+  },
+  "complete_original_source_conversion": false,
+  "controls": {
+    "ControlAfter": {
+      "native_receipt_sha256": "4395e9dcde474321e4acb5e7925218c69fd9712144909e6030b297bb0ddf4137",
+      "oracle_process": 134396925901868086,
+      "passed": true
+    },
+    "ControlBefore": {
+      "native_receipt_sha256": "b69ae4657871865ef0d0496cea05a571ed02c0348750bbea27a8d0024cece66c",
+      "oracle_process": 134396925545252499,
+      "passed": true
+    }
+  },
+  "controls_healthy": true,
+  "distinct_observed_processes": 2,
+  "freeze_sha256": "9b8c814e29c4862eb99ea51699dde0bbb6d308c5ce20ce0ebdcbcb52bac5630c",
+  "generation_sha256": "30b127f6bd04746e79019180099f62e55b87499e635b25182e0b04533a0bb0d2",
+  "heldout_rule_credit": 0,
+  "method_revision": "698e06e0bc8d52a4e2ca93da31e4281e62c6e9ed",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "passed": false,
+  "schema": "kit.sw2026.principal-revolve-heldout-evaluation.v1",
+  "source_tree": "c1967f83c511b6ffc699684335e132704851a1fb",
+  "writer_revision": "b503656075e6934107884e15fd041705bf5c07f0"
+}

@@ -1,0 +1,299 @@
+{
+  "document_version": 19000,
+  "native_build": "34.5.2.0604",
+  "modules": {
+    "sldasmu.dll": {
+      "preferred_base": "0x3f570000",
+      "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390"
+    },
+    "sldmodu.dll": {
+      "preferred_base": "0x4b140000",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    }
+  },
+  "function_extents": {
+    "sldasmu.dll": {
+      "api_make_new_mate": {
+        "entry": "0x3f988ef0",
+        "sha256": "19b588fb8483db29618acdef98c6be2e06ebbfa54d2c24caa2242eb70aa812f3",
+        "extents": [
+          {
+            "start": "0x3f988ef0",
+            "end": "0x3f9895ae",
+            "unwind": "0x3fdd8128",
+            "sha256": "19b588fb8483db29618acdef98c6be2e06ebbfa54d2c24caa2242eb70aa812f3"
+          }
+        ]
+      },
+      "command_factory": {
+        "entry": "0x3f989a10",
+        "sha256": "cf691530aaae8810df530b557579c4a5970606ba09b6d7aa8ebcb5848ef60a42",
+        "extents": [
+          {
+            "start": "0x3f989a10",
+            "end": "0x3f98ab2c",
+            "unwind": "0x3fdddf08",
+            "sha256": "cf691530aaae8810df530b557579c4a5970606ba09b6d7aa8ebcb5848ef60a42"
+          }
+        ]
+      },
+      "common_command_constructor": {
+        "entry": "0x3f7f5550",
+        "sha256": "dc414407cac972940cf4ad1d35460c3a7a17394290bd09cd62e5e28fbc8b7772",
+        "extents": [
+          {
+            "start": "0x3f7f5550",
+            "end": "0x3f7f568c",
+            "unwind": "0x3fdaa148",
+            "sha256": "dc414407cac972940cf4ad1d35460c3a7a17394290bd09cd62e5e28fbc8b7772"
+          }
+        ]
+      },
+      "common_command_runner": {
+        "entry": "0x3f8267f0",
+        "sha256": "669ce092d61447d649cc41dc448c7529dee37ee7a216b0dd575f02f2952561b2",
+        "extents": [
+          {
+            "start": "0x3f8267f0",
+            "end": "0x3f826e76",
+            "unwind": "0x3fdaa1d0",
+            "sha256": "669ce092d61447d649cc41dc448c7529dee37ee7a216b0dd575f02f2952561b2"
+          }
+        ]
+      },
+      "coincident_create": {
+        "entry": "0x3f8159b0",
+        "sha256": "d2151f99d5e4bac1d2da098dfc6819ee9fdbdd5730d3c7d9a21b3425ad91fb91",
+        "extents": [
+          {
+            "start": "0x3f8159b0",
+            "end": "0x3f815a18",
+            "unwind": "0x3fd5fbb0",
+            "sha256": "d2151f99d5e4bac1d2da098dfc6819ee9fdbdd5730d3c7d9a21b3425ad91fb91"
+          }
+        ]
+      },
+      "parallel_create": {
+        "entry": "0x3f815e00",
+        "sha256": "1ea6d4dacfe2e4eb507c3087692080dc07cd048919467fe3f6dee914cd89275e",
+        "extents": [
+          {
+            "start": "0x3f815e00",
+            "end": "0x3f815e44",
+            "unwind": "0x3fd5fbb0",
+            "sha256": "1ea6d4dacfe2e4eb507c3087692080dc07cd048919467fe3f6dee914cd89275e"
+          }
+        ]
+      },
+      "distance_create": {
+        "entry": "0x3f815b00",
+        "sha256": "8263f0fc0a2518d93fed2c700c587180b73a7db8cf342e1fec8eeff4e9fe3a93",
+        "extents": [
+          {
+            "start": "0x3f815b00",
+            "end": "0x3f815bd1",
+            "unwind": "0x3fd65ba4",
+            "sha256": "8263f0fc0a2518d93fed2c700c587180b73a7db8cf342e1fec8eeff4e9fe3a93"
+          }
+        ]
+      },
+      "dialog_options_constructor": {
+        "entry": "0x3f975520",
+        "sha256": "cd0080431a7fcb38897f37e3137a16c65746c060d7bd2d6de698c726e905fb52",
+        "extents": [
+          {
+            "start": "0x3f975520",
+            "end": "0x3f975810",
+            "unwind": "0x3fdd7960",
+            "sha256": "cd0080431a7fcb38897f37e3137a16c65746c060d7bd2d6de698c726e905fb52"
+          }
+        ]
+      },
+      "distance_validator_constructor": {
+        "entry": "0x3f93eb10",
+        "sha256": "3b419e3dee198b0290453ef53ad2c3b79ac6e4d7141bcd3a120a3b401861a0b4",
+        "extents": [
+          {
+            "start": "0x3f93eb10",
+            "end": "0x3f93ec07",
+            "unwind": "0x3fdd1bf8",
+            "sha256": "3b419e3dee198b0290453ef53ad2c3b79ac6e4d7141bcd3a120a3b401861a0b4"
+          }
+        ]
+      },
+      "distance_validator_override_query": {
+        "entry": "0x3f949790",
+        "sha256": "d5bccea7907991af9ec8b936114b3cc168874895cd3aaf975db0c325eb3d94b8",
+        "extents": [
+          {
+            "start": "0x3f949790",
+            "end": "0x3f9497c2",
+            "unwind": "0x3fd59e90",
+            "sha256": "d5bccea7907991af9ec8b936114b3cc168874895cd3aaf975db0c325eb3d94b8"
+          }
+        ]
+      },
+      "distance_validator_type_gate": {
+        "entry": "0x3f9497d0",
+        "sha256": "2e1b7ae4d5f1442cfb6c2236608adc600fc7dc5b0563174ac075eb01e3f56b8a",
+        "extents": [
+          {
+            "start": "0x3f9497d0",
+            "end": "0x3f9497e0",
+            "unwind": "0x3fd59ce8",
+            "sha256": "7801914d5b7d54585a1e46305e02cf9720159713cab6234869056b3859d08251"
+          },
+          {
+            "start": "0x3f9497e0",
+            "end": "0x3f949825",
+            "unwind": "0x3fdd12a8",
+            "sha256": "8814af12c62804dd2a503e5013e906f33335953c52873129f04e1997e87cf346"
+          },
+          {
+            "start": "0x3f949825",
+            "end": "0x3f949844",
+            "unwind": "0x3fdd12c0",
+            "sha256": "e90896c2a17d08a3b24eeb7f55e10a9187f94b8aefa04b427bf670697ffc8451"
+          }
+        ]
+      }
+    },
+    "sldmodu.dll": {
+      "distance_factory": {
+        "entry": "0x4bc421b0",
+        "sha256": "ca1220abba3f87e02beb5bcc78e2e810fc94a4de45ae1dc26ad0aea1b386fe94",
+        "extents": [
+          {
+            "start": "0x4bc421b0",
+            "end": "0x4bc42280",
+            "unwind": "0x4d4ee6f0",
+            "sha256": "ca1220abba3f87e02beb5bcc78e2e810fc94a4de45ae1dc26ad0aea1b386fe94"
+          }
+        ]
+      },
+      "distance_arc_selection_setter": {
+        "entry": "0x4bc7c700",
+        "sha256": "10174599fb19e21557eea32384270c1d24d5f11407439722c951e2ca888bbc56",
+        "extents": [
+          {
+            "start": "0x4bc7c700",
+            "end": "0x4bc7c77f",
+            "unwind": "0x4d3877f0",
+            "sha256": "10174599fb19e21557eea32384270c1d24d5f11407439722c951e2ca888bbc56"
+          }
+        ]
+      }
+    }
+  },
+  "native_alignment_setter": {
+    "start": "0x4b2cfe10",
+    "end": "0x4b2cfe17",
+    "sha256": "6e734b465278c73fe2f5a8beaf48945f4250fc73ce4f93bf06713278bae6b38a"
+  },
+  "concrete_ui_tables": [
+    {
+      "class": ".?AVuiAssemblyMateCoincidentCmd_c@@",
+      "vtable": "0x3fc7fec0",
+      "rtti_locator": "0x3fd45238",
+      "slots": {
+        "0xb8": "0x3f8267f0",
+        "0x988": "0x3f8159b0"
+      }
+    },
+    {
+      "class": ".?AVuiAssemblyMateParallelCmd_c@@",
+      "vtable": "0x3fc7eb10",
+      "rtti_locator": "0x3fd450e8",
+      "slots": {
+        "0xb8": "0x3f8267f0",
+        "0x988": "0x3f815e00"
+      }
+    },
+    {
+      "class": ".?AVuiAssemblyMateDistanceCmd_c@@",
+      "vtable": "0x3fc82ff8",
+      "rtti_locator": "0x3fd45580",
+      "slots": {
+        "0xb8": "0x3f8267f0",
+        "0x988": "0x3f815b00"
+      }
+    },
+    {
+      "class": ".?AVasmuiDistanceMateValidator@@",
+      "vtable": "0x3fccdbb8",
+      "rtti_locator": "0x3fd4def8",
+      "slots": {
+        "0x98": "0x3f949790"
+      }
+    }
+  ],
+  "concrete_model_tables": [
+    {
+      "class": ".?AVmoMateCoincident@@",
+      "vtable": "0x4cfa46e0",
+      "rtti_locator": "0x4d338348",
+      "slots": {
+        "0x21f0": "0x4b2cfe10"
+      }
+    },
+    {
+      "class": ".?AVmoMateParallel@@",
+      "vtable": "0x4cf9fe10",
+      "rtti_locator": "0x4d338af0",
+      "slots": {
+        "0x21f0": "0x4b2cfe10"
+      }
+    },
+    {
+      "class": ".?AVmoMateDistanceDim_c@@",
+      "vtable": "0x4cfafd18",
+      "rtti_locator": "0x4d339040",
+      "slots": {
+        "0x21f0": "0x4b2cfe10"
+      }
+    }
+  ],
+  "command_factory_switch_cases": {
+    "0": "0x3f989ab1",
+    "3": "0x3f989bb5",
+    "5": "0x3f989cb1"
+  },
+  "imports": {
+    "0x3fbe8e98": [
+      "SLDMODU.dll",
+      "?createMate@moMateDistanceDim_c@@SAPEAV1@PEAVmoAssembly_c@@PEAPEAVmoRefWrapper_c@@NPEAPEAVmoMateEntityHelpData_c@@W4amArcDistType_e@@3@Z"
+    ],
+    "0x3fbea690": [
+      "SLDMODU.dll",
+      "?createMate@moMate@@SAPEAVmoMate2Geoms_c@@PEAVmoAssembly_c@@PEAUCRuntimeClass@@PEAPEAVmoRefWrapper_c@@PEAPEAVmoMateEntityHelpData_c@@H@Z"
+    ]
+  },
+  "source_comparison": {
+    "author_path": "re/tooling/sw2026/AssemblyMateEvidence.py",
+    "author_sha256": "5c04a6032d5e874bcd15fc2f12fc46b138328436a1280f1deae250444a6a85a1",
+    "specs_path": "re/tooling/sw2026/AssemblyMateSourceSpecs01.json",
+    "specs_sha256": "642066a5493d58c09e68e5965b315c741c56be75541e53d17f66077a5d0909d8",
+    "lock_path": "re/solidworks/v2026/heldout/AssemblyPlanarMateSourceLock01.json",
+    "lock_sha256": "8f79ed2aa8559b7186f414330b495ce50c4fa3612f69d421bbd7bc83037ca417",
+    "source_revision": "d40009302a9b554bac7bd07c61045d251845e502",
+    "scope": [
+      "A17PlaneCoincident",
+      "A18PlaneDistance",
+      "A19PlaneParallel"
+    ],
+    "disclosed_alignment": [
+      1,
+      1,
+      1
+    ],
+    "disclosed_a18_parent_sha256": "7215af0b188510ba86c226a49726acf468b04408badef15ada6b7cfcbbed917b",
+    "disclosed_a18_distance": {
+      "metres": 0.06323,
+      "f4dc": 3,
+      "f4e0": 3
+    }
+  },
+  "native_acceptance": false,
+  "native_execution": false,
+  "heldout_payloads_read": false
+}

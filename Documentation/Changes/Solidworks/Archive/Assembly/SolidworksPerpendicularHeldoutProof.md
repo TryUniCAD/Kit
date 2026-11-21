@@ -1,0 +1,7 @@
+# Ordinary perpendicular held-out native proof
+
+PR #121 records two passing pre-writer-locked native perpendicular evaluations under the unchanged frozen constructor, neutral translator, predictor and comparator. Both cases pass real open/rebuild, valid floating reorientation and child-depth edits, synchronized child-first saves, and fresh reopen/rebuild with exact source/generated ordered trees, owners, references, poses, geometry and paired mass.
+
+The [native record](../../../../../re/solidworks/records/PerpendicularMateHeldoutNative2026.md) and [sanitized receipt](../../../../../re/solidworks/measurements/2026/SdkPerpendicularHeldoutNative01.json) bind twelve fresh native phases, four healthy controls, 484 numeric checks, twelve strict paired comparisons and six admitted ordinary SDK source/saved audits. Neutral requests/predictions were locked before source observation, generation read no runtime files or CAD, and all original inputs remained immutable. Hidden payloads and values remain guest-private.
+
+Coverage is the internal ordinary one-mate/two-occurrence principal-plane profile. Public writer admission, broader groups/references, reverse source-selection normalization, cold-original public reading and invalid-angle correction remain unfinished. The [method guide](../../../../Reference/Research/Solidworks/PerpendicularMateEvaluation.md) describes the source/runtime custody and release gates.

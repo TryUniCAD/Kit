@@ -23,6 +23,7 @@ from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.TypeRegistry import KTypeRegistry
@@ -86,6 +87,7 @@ def CheckRegistry() -> None:
             DistanceExtrude,
             PlaneExtrude,
             PlaneRevolve,
+            ThinRevolve,
         )
     )
     assert set(KTypeRegistry.values()) == ExpectedValues

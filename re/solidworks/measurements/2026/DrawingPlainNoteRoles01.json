@@ -1,0 +1,92 @@
+{
+  "heldout_files_read": 0,
+  "locations_from_generic_text": true,
+  "native_sessions_started": 0,
+  "normal_drawing_admission": false,
+  "passed": true,
+  "records": [
+    {
+      "case": "Disclosed01",
+      "definition_sha256": "811a56f2e202281c30cb1dfaf0b78acde3da80cc6dcbcbd1cd49332c4cecd173",
+      "input_sha256": "ba31c08e6e1a915509bd8d7db8962577fe0e4bcfccf6468ce4fa92ad5b4800ad",
+      "point_m": [
+        0.0671,
+        0.0926,
+        0.0
+      ],
+      "semantic_checks": {
+        "arrow_direction_matches_normalized_delta": true,
+        "character_code_units": 16,
+        "inherits_default_character_format": true,
+        "note_persistent_id": -1,
+        "point_differs_from_attachment": true,
+        "text_roles_agree": true
+      },
+      "stage": "original",
+      "text_sha256": "07645b4b7b67403032961596c1684702b6d491b0dea2c79b4be06743eff49412"
+    },
+    {
+      "case": "Disclosed01",
+      "definition_sha256": "9a0013038b96178e9528d7a71f64ed2fdce218c3a5b53a002fb938a1bed7468f",
+      "input_sha256": "8739b677a5b4ab018054987821b1ba721ec73e0c5094fa44ee3d05de92c0d15d",
+      "point_m": [
+        0.0772,
+        0.10430000000000002,
+        1.5407439555097887e-33
+      ],
+      "semantic_checks": {
+        "arrow_direction_matches_normalized_delta": true,
+        "character_code_units": 24,
+        "inherits_default_character_format": true,
+        "note_persistent_id": -1,
+        "point_differs_from_attachment": true,
+        "text_roles_agree": true
+      },
+      "stage": "edited",
+      "text_sha256": "c71396dfe499953e12675648ad07e91857b2fe1f4074b006e35c18ca2a1afc91"
+    },
+    {
+      "case": "Disclosed02",
+      "definition_sha256": "1471abf3f32fc003e6903aa8f195c6d4754bd397e73cb6a23ba308b8f2791131",
+      "input_sha256": "db1730ee52d57acca0fa6c334a18ab09d0424931797ea79b3ba798badfb41575",
+      "point_m": [
+        0.1364,
+        0.1123,
+        0.0
+      ],
+      "semantic_checks": {
+        "arrow_direction_matches_normalized_delta": true,
+        "character_code_units": 15,
+        "inherits_default_character_format": true,
+        "note_persistent_id": -1,
+        "point_differs_from_attachment": true,
+        "text_roles_agree": true
+      },
+      "stage": "original",
+      "text_sha256": "5bdfdde5b5e303f7373e09a27bea81f030a2d68b909370b7a962d9c6fa1b0b8b"
+    },
+    {
+      "case": "Disclosed02",
+      "definition_sha256": "77ec2f6127c7424d2658356174a347f5e20edaa1c80a188e9476ccb79dbf1104",
+      "input_sha256": "32987b7a8a0fb75517a59ac2559099d229dcac8f78c74e29a1e385023d1628d6",
+      "point_m": [
+        0.1487,
+        0.0952,
+        -1.5407439555097887e-33
+      ],
+      "semantic_checks": {
+        "arrow_direction_matches_normalized_delta": true,
+        "character_code_units": 24,
+        "inherits_default_character_format": true,
+        "note_persistent_id": -1,
+        "point_differs_from_attachment": true,
+        "text_roles_agree": true
+      },
+      "stage": "edited",
+      "text_sha256": "1fbd91fe0f9becf120d37993f123a63c6ad552937a43dbd190485a158d163b8e"
+    }
+  ],
+  "schema": "kit.sw2026.disclosed-plain-note-projection.v1",
+  "source_lock_sha256": "ec77426e3a5e4c9f8e95252121bea1c1c2330e496d6d9db07b6286e9e07b5c5b",
+  "writer_output_count": 0
+}

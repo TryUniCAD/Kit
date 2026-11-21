@@ -1,0 +1,9 @@
+# SOLIDWORKS scaled drawing construction
+
+The research drawing bundle generator now constructs one scaled Front, Top, Right or Isometric view of an XY-aligned rectangular child. Its stdin request uses the existing drawing, part and view objects. The view supplies its orientation, sheet position, positive explicit scale and support names. The bundle process emits the generated drawing and part with their stream hashes and SDK readback.
+
+The writer uses the named rotation from the generated child model and computes the placement, extent and border from its geometry. The sheet sketch uses inverse scale. The model sketch uses the canonical plane at unit scale and computes the plane's displayed origin from its basis. The view's 2D-dimension eligibility follows the native orthogonality rule.
+
+Four disclosed native sources verify the support relationships, 76 mathematical comparisons and eight exact stream round trips. Two independent guarded builds for each of four new requests emitted identical drawing and part pairs with zero runtime input-file access attempts. The earlier unit Front pair retained its exact file hashes. All four named views passed native edit, save and fresh reopen with both pristine brackets. Held-out qualification remains open. [Guarded build receipt](../../../../../../re/solidworks/measurements/2026/DrawingScaledViewBuild01.json) [Native result](../../../../../../re/solidworks/measurements/2026/DrawingScaledViewNative01.json) [Support source and measurements](../../../../../../re/solidworks/records/DrawingScaledSupports2026.md)
+
+Run [DrawingFrontBundleProcess.py](../../../../../../re/tooling/sw2026/DrawingFrontBundleProcess.py) with the neutral request on stdin. This research path still covers one unformatted sheet and one rectangular child. [Support frame gotcha](../../../../../Gotchas/Conversion/Solidworks/Archive/Drawings/DrawingViewSketchesUseDifferentFrames.md)

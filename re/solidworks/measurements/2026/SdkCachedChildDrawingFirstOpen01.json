@@ -1,0 +1,137 @@
+{
+  "candidate_open_errors": 0,
+  "candidate_open_warnings": 0,
+  "candidate_saved_body_exposed_before_rebuild": true,
+  "candidate_saved_or_reopened": false,
+  "changed_observer": "InspectSdkCachedDrawing.py",
+  "child_editable_dimension": [
+    "D1@Boss-Extrude1"
+  ],
+  "child_parents": {
+    "Boss-Extrude1": [
+      "Sketch1",
+      "Front Plane"
+    ],
+    "Sketch1": [
+      "Front Plane"
+    ]
+  },
+  "child_position_and_mass": {
+    "child_area_m2": 0.0023803,
+    "child_center_m": [
+      0.0,
+      -2.569325143582197e-19,
+      0.004900000000000001
+    ],
+    "child_volume_m3": 6.438894000000002e-06,
+    "outline_m": [
+      0.099232,
+      0.073932,
+      0.144168,
+      0.10066800000000001
+    ],
+    "position_m": [
+      0.1217,
+      0.0873
+    ]
+  },
+  "controls_healthy": true,
+  "dependency_and_candidate_hashes_unchanged": true,
+  "distinct_processes": 5,
+  "failure_attributed_to_expected_tree_scope": true,
+  "first_failure": {
+    "error": "EvidenceFailure('front drawing tree differs from the pristine control')",
+    "pending_capability": false,
+    "stage": "GetNextFeature",
+    "type": "EvidenceFailure"
+  },
+  "heldout_inputs_read": 0,
+  "initial_equal_byte_trial_sha256": "efe4383034c6ac0746584bc6268999c8eead4230565bedfb507dfcfe20484f2d",
+  "native_acceptance": false,
+  "native_candidate_tree": [
+    [
+      "CachedChildDrawing comments",
+      "CommentsFolder",
+      null
+    ],
+    [
+      "CachedChildDrawing blocks",
+      "BlockFolder",
+      null
+    ],
+    [
+      "Design Binder",
+      "DocsFolder",
+      null
+    ],
+    [
+      "CachedChildDrawing annotations",
+      "DetailCabinet",
+      null
+    ],
+    [
+      "CachedChildDrawing ink",
+      "InkMarkupFolder",
+      null
+    ],
+    [
+      "CachedChildDrawing review",
+      "MarkupCommentFolder",
+      null
+    ],
+    [
+      "CachedChildDrawing paper",
+      "DrSheet",
+      null
+    ],
+    [
+      "CachedChildDrawing datum",
+      "RefPlane",
+      "CachedChildDrawing paper"
+    ],
+    [
+      "CachedChildDrawing profile",
+      "ProfileFeature",
+      "CachedChildDrawing paper"
+    ],
+    [
+      "CachedChildDrawing details",
+      "DetailFolder",
+      "CachedChildDrawing paper"
+    ],
+    [
+      "CachedChildDrawing model view",
+      "AbsoluteView",
+      "CachedChildDrawing paper"
+    ],
+    [
+      "CachedChildDrawing view detail",
+      "DetailFolder",
+      "CachedChildDrawing model view"
+    ],
+    [
+      "CachedChildDrawing paper plane",
+      "RefPlane",
+      "CachedChildDrawing model view"
+    ],
+    [
+      "CachedChildDrawing paper sketch",
+      "ProfileFeature",
+      "CachedChildDrawing model view"
+    ],
+    [
+      "CachedChildDrawing model plane",
+      "RefPlane",
+      "CachedChildDrawing model view"
+    ],
+    [
+      "CachedChildDrawing model sketch",
+      "ProfileFeature",
+      "CachedChildDrawing model view"
+    ]
+  ],
+  "observed_cache_consumer": false,
+  "raw_result_sha256": "8330eff841a25abfafbaa4a5952cc2b61e25c630f9872fce1aec56294c8d506f",
+  "retry_comparator_trial_sha256": "b0cbc2dbaa65d6c20a2b2015ffe6ec03ed593e699b4e9c88f8a88a14e1fc4bdc",
+  "schema": "kit.sw2026.sdk-cached-child-drawing-first-open.v1"
+}

@@ -1,0 +1,74 @@
+{
+  "guarded_processes": 4,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "paired_outputs_byte_identical": true,
+  "passed": true,
+  "primary": {
+    "container_bytes": 6616,
+    "container_sha256": "95cbab771dd691a2efb433345dd3cc9230632450b3f995cec15f13950a73040d",
+    "definition_length": 27744,
+    "intent_sha256": "d129c1c5e5da960bb59ccd5696b5e7da8fa6756788686f07c7799a538e2b8f0b",
+    "logical_streams": {
+      "Contents/Definition": "ea2fcc65572e1272f0e6a5bddb0f91f49c132082dc08e74720e99e24e76200dc",
+      "Header2": "048e984b8f37aceecedf45456ecb90a2d909415bfd122f2155aaa3f0f6de0a2f",
+      "ModelStamps": "dc9ca227dd0475899f5bb7d1d6e9b2346c5be57575eee9c5fba65463f559e519",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "355fad4f122b702610fcc79410601323fc4c29bc73fd82ee92bf0681397d7931",
+      "docProps/ISolidWorksInformation.xml": "afc83e60c98f7ee32611e5bf1e438d263fcfe06da5b615170d892b9fdd2dfa2d",
+      "swXmlContents/KeyWords": "930553fd59a0e55d4a1f8bba4e8d743aa7ad9e2ba360cb9e2da735dbe5f3c47c"
+    },
+    "map_counter": 175,
+    "native_qualified": false,
+    "output_operations": [
+      "output_write"
+    ],
+    "passed": true,
+    "runtime_input_reads": 0,
+    "schema": "kit.sw2026.fresh-note-host-worker.v1",
+    "sdk_partial_note_visible": true,
+    "theoretical_anchor": true
+  },
+  "program_sha256": {
+    "BlankRewriteGuard.py": "e5b7147ccef4fd148b90fb0aec50900f5a73cf6f9f8c3894bd90caffadedceb7",
+    "BuildNoteArchive.py": "b543e70e3728e6a68dd825e3b9352f2e06178e5d4d9f5590f70ddf71d1fa8a0b",
+    "FreezeGeneratedNote01.py": "9c00c1232ad98af920591a62e2adf8906ccfde19784bee5e299ba0b58ea4349b",
+    "GuardFreshNoteBuild.py": "eeadb508bd291e2e9ff0affef8f8cdbab89feee2a3a039440857e687853f7880",
+    "NoteConstruction.py": "5dd9e72fbafb87d4f47994268dadca3cbc4b99c7d602cd990adf5141b13800f6"
+  },
+  "raw_reports_sha256": {
+    "PrimaryA.json": "153cbe441bc0ee6970e581ba91c22074b3d61e5f287a1dbbc8bba8d5a23c65d6",
+    "PrimaryB.json": "153cbe441bc0ee6970e581ba91c22074b3d61e5f287a1dbbc8bba8d5a23c65d6",
+    "VariantA.json": "bd59ee97df6b1ea5520ccaffef70322adbca80a80af5c4d9a5250b46ecd2f6cd",
+    "VariantB.json": "bd59ee97df6b1ea5520ccaffef70322adbca80a80af5c4d9a5250b46ecd2f6cd"
+  },
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.fresh-plain-note-origin-host.v1",
+  "source_dependent_definition_and_map_lengths": true,
+  "source_module_identification_rea": "ev_039080813e4811f6d7a52ae823dbdf1176dd0afe9d09200735f51c1fda4481ea",
+  "variant": {
+    "container_bytes": 6514,
+    "container_sha256": "d618daf2caa9a1c7fd54c18cce70e88f46001be8ce69b044bf8781e704002f4a",
+    "definition_length": 27324,
+    "intent_sha256": "f9806a7cb6d4432e45ab2ebf8c646327502ff8c49d02fd1262ff6ed3ad058c76",
+    "logical_streams": {
+      "Contents/Definition": "a4b1ee131671e506c4486515fe5b9f7a73c8c268d1b5d88d47704ee73205c18d",
+      "Header2": "048e984b8f37aceecedf45456ecb90a2d909415bfd122f2155aaa3f0f6de0a2f",
+      "ModelStamps": "dc9ca227dd0475899f5bb7d1d6e9b2346c5be57575eee9c5fba65463f559e519",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "355fad4f122b702610fcc79410601323fc4c29bc73fd82ee92bf0681397d7931",
+      "docProps/ISolidWorksInformation.xml": "afc83e60c98f7ee32611e5bf1e438d263fcfe06da5b615170d892b9fdd2dfa2d",
+      "swXmlContents/KeyWords": "930553fd59a0e55d4a1f8bba4e8d743aa7ad9e2ba360cb9e2da735dbe5f3c47c"
+    },
+    "map_counter": 165,
+    "native_qualified": false,
+    "output_operations": [
+      "output_write"
+    ],
+    "passed": true,
+    "runtime_input_reads": 0,
+    "schema": "kit.sw2026.fresh-note-host-worker.v1",
+    "sdk_partial_note_visible": true,
+    "theoretical_anchor": true
+  }
+}

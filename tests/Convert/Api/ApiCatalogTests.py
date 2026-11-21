@@ -6,6 +6,7 @@ import pytest as Pytest
 from convert import available_adapters as GetAdapters
 from convert.adapters import AdapterInfo, AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
+from convert.adapters.registry.RegistryErrors import NotFoundError
 from interchange import Capability
 from tests.Convert.Api.ApiTestHelpers import GetPackNames, ListFormatPacks
 from tests.Convert.Api.CatalogAliases import AssertAliases
@@ -14,10 +15,6 @@ from tests.Convert.Api.CatalogAliases import AssertAliases
 KLegacyFormats = frozenset(
     {"catia.v5", "freecad.fcstd", "interchange.json", "solidworks.sldprt"}
 )
-
-
-# the read only formats cases must remain explicit so format translation exercises the intended compatibility boundary
-KReadOnlyFormats = frozenset({"solidworks.sldprt"})
 
 
 # deterministic introspection prevents import order from changing the public format catalog
@@ -38,8 +35,8 @@ def CheckDiscovery() -> None:
     assert ReaderIds == tuple(sorted(set(ReaderIds)))
     assert WriterIds == tuple(sorted(set(WriterIds)))
     assert FirstIds == SecondIds == tuple(sorted(set(ReaderIds) | set(WriterIds)))
-    assert KLegacyFormats - KReadOnlyFormats <= set(ReaderIds) & set(WriterIds)
-    assert KReadOnlyFormats <= set(ReaderIds) - set(WriterIds)
+    assert KLegacyFormats <= set(ReaderIds) & set(WriterIds)
+    AssertSwWriter(FirstRegistry)
     assert "fusion.f3d" in ReaderIds
     for FormatId in ("f3d", "fusion.f3d"):
         assert FirstRegistry.reader(FormatId).info.format_id == "fusion.f3d"
@@ -57,6 +54,19 @@ def CheckDiscovery() -> None:
     AssertCaps((*ReaderValues, *WriterValues))
 
 
+# both writer extensions must share the canonical registration while the drawing alias remains read only
+def AssertSwWriter(RegistryData: AdapterRegistry) -> None:
+    PartWriter = RegistryData.writer("solidworks.sldprt")
+    assert PartWriter.info.extensions == (".sldprt", ".sldasm")
+    assert PartWriter.info.part_extensions == (".sldprt",)
+    assert PartWriter.info.assembly_extensions == (".sldasm",)
+    assert RegistryData.writer("solidworks.sldasm") is PartWriter
+    for FormatId in ("solidworks.sldasm", "solidworks.slddrw"):
+        assert RegistryData.reader(FormatId).info.format_id == "solidworks.sldprt"
+    with Pytest.raises(NotFoundError):
+        _ = RegistryData.writer("solidworks.slddrw")
+
+
 # the registry advertises capabilities consistently across discovered adapter families
 def AssertCaps(
     Adapters: tuple[CadReaderAdapter | CadWriterAdapter, ...],
@@ -65,6 +75,10 @@ def AssertCaps(
         AdapterData.info.capabilities == frozenset(Capability)
         for AdapterData in Adapters
         if AdapterData.info.format_id in KLegacyFormats
+        and (
+            AdapterData.info.format_id != "solidworks.sldprt"
+            or isinstance(AdapterData, CadReaderAdapter)
+        )
     )
 
 

@@ -1,0 +1,156 @@
+{
+  "build": "34.5.2.0604",
+  "build_sha256": "103912a8dd5d983866d5d66c848f08d954372d0ebef9d9c53a5781fa9fffc9c5",
+  "controls": {
+    "after": {
+      "passed": true,
+      "record_sha256": "f20508026d405159c58e81084366212b23525093c8c3618fbf9cd57ad75ba8b2"
+    },
+    "before": {
+      "passed": true,
+      "record_sha256": "b87d4873d66220777eb21873d1851bc967349645efbf84e4fa874a7e080ede0a"
+    }
+  },
+  "distinct_processes": 4,
+  "heldout_cases": 0,
+  "native_tool_sha256": "4586919bb798d1e49ef2d6d14f927af0f014901246797a15b1bd241df9033cf8",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "2228f783fe1847fc390284b7fa72bb96968e948f7e5895e553242dff66b39bcb",
+  "passed": false,
+  "phases": {
+    "ColdRaisedPatternA-edit": {
+      "cold_geometry": {
+        "body_count": 1,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.147,
+          0.11,
+          0.01375
+        ],
+        "face_count": 21,
+        "feature_diagnostics": [],
+        "mass": {
+          "area": 0.036638000000000004,
+          "com": [
+            0.07334482888439008,
+            0.05459284090549129,
+            0.003416585433783595
+          ],
+          "mass": 0.00010771499999999997,
+          "volume": 0.00010771499999999997
+        },
+        "rebuild_diagnostics": 0
+      },
+      "expected_dependency_owners": [
+        "Model raised seed",
+        "ColdRaisedPatternA direction"
+      ],
+      "extra_dependency_owner": "Model plate",
+      "first_failure": {
+        "error": "EvidenceFailure('pattern dependency owners differ')",
+        "pending_capability": false,
+        "stage": "Name",
+        "type": "EvidenceFailure"
+      },
+      "numeric_checks": 33,
+      "observed_dependency_owners": [
+        "Model plate",
+        "Model raised seed",
+        "ColdRaisedPatternA direction"
+      ],
+      "open": {
+        "error": 0,
+        "opened": true,
+        "warning": 0
+      },
+      "passed": false,
+      "process_creation_filetime": 134397312275665812,
+      "rebuilt_geometry": {
+        "body_count": 1,
+        "feature_diagnostics": [],
+        "mass": {
+          "area": 0.036638000000000004,
+          "com": [
+            0.07334482888439008,
+            0.05459284090549129,
+            0.003416585433783595
+          ],
+          "mass": 0.00010771499999999997,
+          "volume": 0.00010771499999999997
+        },
+        "rebuild_diagnostics": 0
+      },
+      "record_sha256": "46a549c03ec55ed0b59fba00b91d67cfa2c3e733c7b30ad04736065cced937a9"
+    },
+    "ColdRaisedPatternB-edit": {
+      "cold_geometry": {
+        "body_count": 1,
+        "bounds_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.128,
+          0.122,
+          0.01625
+        ],
+        "face_count": 26,
+        "feature_diagnostics": [],
+        "mass": {
+          "area": 0.036275,
+          "com": [
+            0.06238429108342493,
+            0.06110394572810076,
+            0.0033112028245622397
+          ],
+          "mass": 8.3836e-05,
+          "volume": 8.3836e-05
+        },
+        "rebuild_diagnostics": 0
+      },
+      "expected_dependency_owners": [
+        "Raised extrusion",
+        "ColdRaisedPatternB direction"
+      ],
+      "extra_dependency_owner": "Base extrusion",
+      "first_failure": {
+        "error": "EvidenceFailure('pattern dependency owners differ')",
+        "pending_capability": false,
+        "stage": "Name",
+        "type": "EvidenceFailure"
+      },
+      "numeric_checks": 33,
+      "observed_dependency_owners": [
+        "Base extrusion",
+        "Raised extrusion",
+        "ColdRaisedPatternB direction"
+      ],
+      "open": {
+        "error": 0,
+        "opened": true,
+        "warning": 0
+      },
+      "passed": false,
+      "process_creation_filetime": 134397312648767898,
+      "rebuilt_geometry": {
+        "body_count": 1,
+        "feature_diagnostics": [],
+        "mass": {
+          "area": 0.036275,
+          "com": [
+            0.06238429108342493,
+            0.06110394572810076,
+            0.0033112028245622406
+          ],
+          "mass": 8.383600000000002e-05,
+          "volume": 8.383600000000002e-05
+        },
+        "rebuild_diagnostics": 0
+      },
+      "record_sha256": "dd93d142b958402c4c585363e4bc0eee4409e4eb1842002b1f286119ee5c3062"
+    }
+  },
+  "raw_native_result_sha256": "b20cc4286fb26d034b17bf241ea4289e4327031dbadf7fc7cfc1a8c8a3010a41",
+  "schema": "kit.sw2026.generated-raised-pattern-native-result.v1"
+}

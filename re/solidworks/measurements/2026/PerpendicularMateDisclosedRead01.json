@@ -1,0 +1,643 @@
+{
+  "archive_version": 19000,
+  "baseline_python_files": 4238,
+  "baseline_sdk_revision": "f35eb89a6ba16443f9e987009a7b10b45b114a0b",
+  "cases": [
+    {
+      "byte_identity": true,
+      "case": "Source",
+      "codec_negative_count": 14,
+      "empty_no_allocation": true,
+      "file_bytes": 48142,
+      "file_sha256": "54303798c1386b050dd80544c0394f85fd2c56e6bd306d70f8d1d188b5aed5ef",
+      "grammar_completed": true,
+      "inherited_map_aliases": 167,
+      "inherited_nodes_unchanged": true,
+      "map_base": 168,
+      "map_terminal": 196,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "provisional_schemas": [],
+      "public": {
+        "actual_child_drivers_equal": true,
+        "alignment": "unknown",
+        "child_driver_count": 3,
+        "entity_count": 2,
+        "instance_count": 2,
+        "internal_alignment": 0,
+        "kind": "perpendicular",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_count": 1,
+        "mate_name": "Perpendicular1",
+        "native_api_alignment_observed": 2,
+        "native_occurrence_poses_equal": true,
+        "ordered_native_endpoints_equal": true,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "status": "admitted",
+        "writer_qualified": false
+      },
+      "stream_bytes": 3085,
+      "stream_sha256": "ffc2c67234252fd2974965cf08eeef92841746c4c3ebc6edb2365fd8b8c4691d",
+      "typed_owners": {
+        "auxiliary_help_count": 0,
+        "internal_alignment": 0,
+        "mate_id": 26,
+        "node_flags": 256,
+        "ordered_owners": [
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 1,
+            "occurrence_id": 24,
+            "occurrence_solve_word": 4,
+            "order": 0,
+            "principal_kind": 3,
+            "resolved_datum": {
+              "f00": 2,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 166,
+              "f0c": 0,
+              "f50": 2,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 0,
+              "f7c": 0
+            },
+            "selected_key": 0,
+            "selected_original_datum_id": 2,
+            "selected_wrapper": {
+              "f08": 105,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          },
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 0,
+            "occurrence_id": 25,
+            "occurrence_solve_word": 3,
+            "order": 1,
+            "principal_kind": 2,
+            "resolved_datum": {
+              "f00": 3,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 166,
+              "f0c": 0,
+              "f50": 1,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 1,
+              "f7c": 1
+            },
+            "selected_key": 1,
+            "selected_original_datum_id": 3,
+            "selected_wrapper": {
+              "f08": 105,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          }
+        ],
+        "parent_update_stamp": 105,
+        "solved_state": 1
+      },
+      "typed_readback_identity": true
+    },
+    {
+      "byte_identity": true,
+      "case": "Edited",
+      "codec_negative_count": 14,
+      "empty_no_allocation": true,
+      "file_bytes": 48639,
+      "file_sha256": "0005da6fc1eaa1421fd264b17e455015b332912092698fdf54f4437960c391af",
+      "grammar_completed": true,
+      "inherited_map_aliases": 167,
+      "inherited_nodes_unchanged": true,
+      "map_base": 168,
+      "map_terminal": 196,
+      "missing_schemas": [],
+      "native_byte_fields": [],
+      "provisional_schemas": [],
+      "public": {
+        "actual_child_drivers_equal": true,
+        "alignment": "unknown",
+        "child_driver_count": 3,
+        "entity_count": 2,
+        "instance_count": 2,
+        "internal_alignment": 0,
+        "kind": "perpendicular",
+        "map_base": 168,
+        "map_terminal": 196,
+        "mate_count": 1,
+        "mate_name": "Perpendicular1",
+        "native_api_alignment_observed": 2,
+        "native_occurrence_poses_equal": true,
+        "ordered_native_endpoints_equal": true,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "status": "admitted",
+        "writer_qualified": false
+      },
+      "stream_bytes": 3421,
+      "stream_sha256": "f36b2bbbcd7327bb0361aca375b6cf349f983b19ce76c898021e2f390f7ab884",
+      "typed_owners": {
+        "auxiliary_help_count": 0,
+        "internal_alignment": 0,
+        "mate_id": 26,
+        "node_flags": 256,
+        "ordered_owners": [
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 1,
+            "occurrence_id": 24,
+            "occurrence_solve_word": 4,
+            "order": 0,
+            "principal_kind": 3,
+            "resolved_datum": {
+              "f00": 2,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 194,
+              "f0c": 0,
+              "f50": 2,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 0,
+              "f7c": 0
+            },
+            "selected_key": 0,
+            "selected_original_datum_id": 2,
+            "selected_wrapper": {
+              "f08": 106,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          },
+          {
+            "actual_model_owner_alias": true,
+            "actual_occurrence_backlink_alias": true,
+            "detached_datum": {
+              "f00": -1,
+              "f08": 2592000
+            },
+            "detached_inline_plane_id": -1,
+            "occurrence_fixed_word": 0,
+            "occurrence_id": 25,
+            "occurrence_solve_word": 3,
+            "order": 1,
+            "principal_kind": 2,
+            "resolved_datum": {
+              "f00": 3,
+              "f08": 1794529625
+            },
+            "resolved_wrapper": {
+              "f08": 194,
+              "f0c": 0,
+              "f50": 1,
+              "f68": 1,
+              "f70": 19000,
+              "f74": 26,
+              "f78": 1,
+              "f7c": 1
+            },
+            "selected_key": 1,
+            "selected_original_datum_id": 3,
+            "selected_wrapper": {
+              "f08": 106,
+              "f0c": 0,
+              "f50": 0,
+              "f68": 1,
+              "f70": 19000,
+              "f74": -12345,
+              "f78": -12345,
+              "f7c": -12345
+            }
+          }
+        ],
+        "parent_update_stamp": 106,
+        "solved_state": 1
+      },
+      "typed_readback_identity": true
+    }
+  ],
+  "changed_sdk_files": {
+    "src/convert/adapters/solidworks/Archive/Mates/MateFields.py": {
+      "after": "55259ca873e6e849143365fbb6f1abf5c3de4683b3968f4d822d8d50ecd2fc61",
+      "before": "db84f4974afcfaf33f3758f993715f2143ea0aeb6db616a1a0a223e7cb89f0fa"
+    },
+    "src/convert/adapters/solidworks/Archive/Mates/MatesSchemas.py": {
+      "after": "298683d53356c0ec9f2a115e355d0005bae5e3f85655c260f52848967e98d5ab",
+      "before": "6108f10826dc39606f0919fda7534a0e65015dcbd610fac218046547884b92b8"
+    },
+    "src/convert/adapters/solidworks/Archive/Mates/MatesVirtuals.py": {
+      "after": "91cd455ee51b5efafb80230ee9f487f7e5da160a8e367ec6914083fbe000cb6d",
+      "before": "49b6c2f53abdfcec1854a7360bf056508bd2f1f8e8983f1016f38b79aba921dd"
+    },
+    "src/convert/adapters/solidworks/Archive/Mates/RequireMates.py": {
+      "after": "21741c29cb1bc35d6857aab8162f17bbb9f1e01caec49908a4e1c72964118710",
+      "before": "54e3b18a77e0b7752cc757bf6af75955cf961084a47cce0a722b8f3794fde955"
+    },
+    "src/convert/adapters/solidworks/Assembly/PlanarMates/ReadPlanarMate.py": {
+      "after": "1b6129f688cb21ef4bc6dcb8beef08e5cf9eb0c64834999baae7e83b8ccf2fc1",
+      "before": "6797ad57af440ce9c8fe99722f73342d3a477c8f83a6f51befe7d865a42b835b"
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckMateMode.py": {
+      "after": "f5024421b01c9b419dac048fee7e359e766e89b818e4eeaf52cb483d9f620807",
+      "before": "79ec497f93257e25c63cff23e0db6bfa9f9e9aaebf53aa62054b4fc7ae98fd2f"
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckPerpDatum.py": {
+      "after": "462f840ca15417c8d1b80f8e50c05429e77a4814fd71d81397002e0238ebc035",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckPerpEpoch.py": {
+      "after": "b08a72c332eafb5deb8b0bd0c1e8893a9ff6343c97d75ee8be97692da89081bc",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckPerpMate.py": {
+      "after": "ac7059913066295eab8e657b399aea2b9fe8e1244ba4e252deea528dd9c93144",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckPerpRefs.py": {
+      "after": "5f86fac23126ccc0f3755a47910aa571d5f14d61797149ead8e23f648585f6c1",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckPerpSelect.py": {
+      "after": "81392b4edf6f60cdeef360c5883a227ffa922290898e01dfbea97488f2831fa0",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/CheckSelectGeom.py": {
+      "after": "b3c64b37560f901f757cd98b303feb09b846c1936e6b0d1b7a86b3c233343e0c",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/MakeMateRule.py": {
+      "after": "0a22a02e67cc4d37ab991b8ba6c3f520fda49085b6652706615f641211eb42de",
+      "before": "6b63b0919aa42b615982130b0251b73e8545be8f8497a25804ec5acaf4046b4b"
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateAlign.py": {
+      "after": "a661623cc7adb9963472056b80d5595b6d9a16e7d27e05ac90ec66d8264d015b",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateScope.py": {
+      "after": "42e370fedf87752d77a7ba4f95558ddd8a02f7e36f9c12b194a987d4d3a731c4",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateState.py": {
+      "after": "e578c40775a8c1785c4843a8eba0688d918f44d870de993bc756c5d895b0073e",
+      "before": null
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMate.py": {
+      "after": "1bba359997b2295b5260bc0c9fa8d76dbd4b73c4e49f0fb6e719298cc1beb8c6",
+      "before": "e25bca96b108d4b6e4227197295b86245f3cceca54ffdfe96f9ca7f365ed4d1b"
+    },
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py": {
+      "after": "7852c14e94d09fb7ef5e5ab254e6a8f6c0dcec4f13f7bfb45f7600e1106598e4",
+      "before": "7eaadbed090473e20cb95a05c134291bb8638f2eb027efc6bda2264ac9339d62"
+    }
+  },
+  "container_version": 4,
+  "current_python_files": 4247,
+  "delivery_pr": 121,
+  "diagnostic_negative_count": 26,
+  "diagnostic_output_count": 27,
+  "diagnostic_results": [
+    {
+      "case": "InternalAligned",
+      "diagnostic": "typed mate alignment or node update word is outside the qualified profile",
+      "diagnostic_file_sha256": "84b9136066f54237bda5bf39b32b1e6e4ff6fa5b4fae268313028407ade45176",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "Unsolved",
+      "diagnostic": "perpendicular mate is outside the solved repeated part profile",
+      "diagnostic_file_sha256": "ea4775381b022c95b894d166758917a2b2831e03747d7a777b6cf27b4202ecf3",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "UnqualifiedNodeFlag",
+      "diagnostic": "perpendicular mate is outside the solved repeated part profile",
+      "diagnostic_file_sha256": "e237f8b0d497ca15085bdf439a589a1e0dcb9f54a24eb13719deda03a599df75",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "AuxiliaryText",
+      "diagnostic": "perpendicular mate is outside the solved repeated part profile",
+      "diagnostic_file_sha256": "7669601596a9552300b798c6a7de4442466afeb90a74d9594e0326530a6a3dc5",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedOrder",
+      "diagnostic": "perpendicular detached selection order is unsupported",
+      "diagnostic_file_sha256": "049833dc88b7e25d1cd6283235b6ce6c7d0fde9ab7f9c1c63503a3021fd3dcc3",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedOwner",
+      "diagnostic": "perpendicular detached selection ownership is inconsistent",
+      "diagnostic_file_sha256": "d8308624ef8bb910af1f2082e928588f52bb9c16787e4cf6e109213c90da1fd3",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedOriginalDatum",
+      "diagnostic": "perpendicular detached selection ownership is inconsistent",
+      "diagnostic_file_sha256": "c10e8b029c669dba530a4440e56b914db4d6ea4aa78ef0f04fe933626f894cf9",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedAllocatedId",
+      "diagnostic": "perpendicular detached plane has an allocated identity",
+      "diagnostic_file_sha256": "9718572c94e91ea58256bb8f606ba1f972579e04197f99339e548780f82fb22a",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedAbsoluteGeometry",
+      "diagnostic": "perpendicular detached selection geometry differs",
+      "diagnostic_file_sha256": "41b2c3b79676962243e0ea74699eb39142c48cf78ee56abe439b12987b9c49d8",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedSentinel",
+      "diagnostic": "perpendicular detached selection ownership is inconsistent",
+      "diagnostic_file_sha256": "102333ba5df01c3aefd9e6373afe3dd568fd6eaccac3f318234849f01f1f607e",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedParentStamp",
+      "diagnostic": "perpendicular detached parent epoch or configuration differs",
+      "diagnostic_file_sha256": "d891b88122afe569a33a8e8f4376d68dc1b3c71a33ebc30588c20aefeabb3c3a",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DetachedCreationEpoch",
+      "diagnostic": "perpendicular detached selection ownership is inconsistent",
+      "diagnostic_file_sha256": "5ba067db3ef0da6e6dde5c11f6fa9846bffbc231eaaebc5641f562658f31ec29",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongDatumCreationEpoch",
+      "diagnostic": "perpendicular child datum creation epoch or principal kind differs",
+      "diagnostic_file_sha256": "9a15e50701cb85d35ca15dd53ca1b0182a916e209c0f23eaf34980b33906c135",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongPrincipalKind",
+      "diagnostic": "perpendicular child datum creation epoch or principal kind differs",
+      "diagnostic_file_sha256": "8a8670306e9ae47e57427720c83acf35fabb672369b0625190199075689e010a",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "ResolvedOwner",
+      "diagnostic": "planar mate reference chain belongs to a different assembly",
+      "diagnostic_file_sha256": "2d9feccea8baf87a048cace820e2a8c86e5b823823383012debd7dd0ee8538a4",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "ResolvedMateId",
+      "diagnostic": "the resolved plane wrapper has inconsistent ownership",
+      "diagnostic_file_sha256": "808381ea3d1b72b4b532da89ea0e6aefecae2a52db93d19fbc1efe6a1f365174",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DuplicateWrapperId",
+      "diagnostic": "typed plane wrapper identities collide across mates",
+      "diagnostic_file_sha256": "cf8e60b75cb015a2c26074f5aeed1246eeb2f933c86185d415a890494dd22671",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "StaleChildStamp",
+      "diagnostic": "mate wrapper child update is stale",
+      "diagnostic_file_sha256": "5ec2c46cd8590c01ed4b29fe74fa418252f3d861ba9cb3a74899b4486c087e82",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongChildConfiguration",
+      "diagnostic": "mate wrapper child configuration differs",
+      "diagnostic_file_sha256": "36ad64bb89ae07983536998c44b92de03b74532d2f7b2a62826fe15a3107edfc",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongChildDatum",
+      "diagnostic": "planar mate graph expected concrete moRefPlane_c",
+      "diagnostic_file_sha256": "0fb85c2d542901238e39252f6b708d10ca7e56cbcdb2f6ca7982a7094147252d",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "ResolvedPlaneGeometry",
+      "diagnostic": "typed mate wrapper plane disagrees with its actual child and occurrence",
+      "diagnostic_file_sha256": "c853579cf2e1258bc7ac051dcecff1526cc46e74ef490c465cf021e5b6b66480",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "NonorthogonalGeometry",
+      "diagnostic": "typed mate wrapper plane disagrees with its actual child and occurrence",
+      "diagnostic_file_sha256": "cfcd531d60301f5974b47d1bd481c15f8a0d9291448238c2829e0cd3b2b97b10",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "DuplicateMate",
+      "diagnostic_file_sha256": "433de2ea47b650dd72b637d8fb748f1908fefa6c2aeb5d7805bb62693f0f2a0e",
+      "error": "convert.adapters.solidworks.Container.SldprtFormat.SldprtFormat: mate count mismatch in Contents/Config-0-MatesList: expected 2, decoded 1",
+      "exit_code": 1,
+      "status": "format_error"
+    },
+    {
+      "case": "TrailingMateByte",
+      "diagnostic": "mate list has 1 trailing bytes",
+      "diagnostic_file_sha256": "44e4c4ce0c7df94f80022698b2219354eebfe2d2936d6d2e9aa6b82534778a7c",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "WrongMapPrefix",
+      "diagnostic": "mate list prefix differs from its actual resolved snapshot",
+      "diagnostic_file_sha256": "f9621201a50f0ae4d883c120ea2d4fdd64f92f4b077a59ea875e76dbcad11361",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "TruncatedMate",
+      "diagnostic": "SOLIDWORKS body moMatePerpendicular field moMate2Geoms_c at 3081: SOLIDWORKS body moMatePerpendicular/moMate2Geoms_c field moMate2Geoms_c/moMateNGeoms_c at 3081: SOLIDWORKS body moMatePerpendicular/moMate2Geoms_c/moMateNGeoms_c field moMate2Geoms_c/moMateNGeoms_c/f490 at 3081: archive string has no complete length byte",
+      "diagnostic_file_sha256": "0b846ca3aa8f9668d5e8e58eea119d758485515a6bf704b998848d24dd0bf7c2",
+      "full_selected_mate_graph": false,
+      "status": "unsupported"
+    },
+    {
+      "case": "RepackedControl",
+      "diagnostic": null,
+      "diagnostic_file_sha256": "1d8635c5b76fa3b2b6aaa46977456c36f6009282058e8dcdf91f80e57c6d2d13",
+      "full_selected_mate_graph": true,
+      "status": "admitted"
+    }
+  ],
+  "disclosed_custody": {
+    "artifacts": {
+      "Native/Edited/PerpendicularDatum.SLDPRT": "3fc915e7bb9210d542c1d19564b73abadcb0aed336511ed094549c10db6fb40d",
+      "Native/Edited/PerpendicularFrontTop.SLDASM": "0005da6fc1eaa1421fd264b17e455015b332912092698fdf54f4437960c391af",
+      "Native/Source/PerpendicularDatum.SLDPRT": "14c79efaae814f6d4802fba9ebeafaf463685ab1754b1469d9313b60384d36f8",
+      "Native/Source/PerpendicularFrontTop.SLDASM": "54303798c1386b050dd80544c0394f85fd2c56e6bd306d70f8d1d188b5aed5ef",
+      "SavedAuthor.json": "0d0783ba55f61d192e30b317a54def4784a0941ed4e6e63561e6f9e92bf9fbcd"
+    },
+    "disclosed_only": true,
+    "native_process_creation_identities": [
+      [
+        148,
+        134394721996087354
+      ],
+      [
+        3136,
+        134394723561835795
+      ],
+      [
+        1248,
+        134394725678150120
+      ],
+      [
+        4732,
+        134394727753190628
+      ],
+      [
+        10560,
+        134394729012026397
+      ]
+    ],
+    "phases": [
+      {
+        "phase": "before",
+        "record_sha256": "7db0a2ab5843dc9fe783d94be75f8163afac9ca0ff4fbbaf23aa97875802c5a3"
+      },
+      {
+        "phase": "author",
+        "record_sha256": "de6b9d76aa80edcfa3b6dc62a8cc170f73ad02f700c4836678e39bd8cfff9c16"
+      },
+      {
+        "phase": "reopen-source",
+        "record_sha256": "91f2056b7621941a19414bbea8197ccd2558969574d0717b51d1ebab948f5b45"
+      },
+      {
+        "phase": "reopen-edited",
+        "record_sha256": "ca53dd376e2f7215d7661db028e5249b6f41180a09c67f8fbbd5dd13a00330df"
+      },
+      {
+        "phase": "after",
+        "record_sha256": "17d29c93f7ea9dbac8d859631e6441de6a688719c00b2a6a6a04a9657d403671"
+      },
+      {
+        "phase": "lock",
+        "record_sha256": "790993adaca4d876db3e3574d7bded68e3474ca937b57f1101283933a073f584"
+      }
+    ],
+    "source_packet_sha256": "9fdfff4ee0fc960dbb70ec3058d4ac6652ba5413caf7171aa119d5b4500b4a41"
+  },
+  "exact_child_and_deferred_comparisons": 4,
+  "exact_legacy_public_comparisons": 18,
+  "full_family_coverage": false,
+  "heldout_inputs_read": false,
+  "limitations": [
+    "one disclosed design and its edited sibling are discovery evidence rather than independent heldouts",
+    "other perpendicular source cases and sealed sources were not read",
+    "no generated perpendicular writer or native generated acceptance",
+    "ordinary direct repeated part principal planes and one solved perpendicular only",
+    "rigid status words are retained observations rather than cold constructor values",
+    "normal public reads use include_brep=false and include_tessellation=false",
+    "strict typed rejection preserves the already valid legacy inventory with an unsupported diagnostic",
+    "no invalid angular start correction or deterministic free degree solver proof"
+  ],
+  "local_python_launch_count": 80,
+  "native_bindings_sha256": "524a785ee5fbe20cb43ef2181de743874714c088bd7df097f1139cedb5595b9e",
+  "native_generated_perpendicular_acceptance": false,
+  "native_processes_started_by_reader_proof": 0,
+  "ordinary_linked_codec_regressions": 6,
+  "owner": "assembly_occurrence",
+  "passed": true,
+  "private_sdk_overlay_only": true,
+  "public_registration_changed": false,
+  "publisher_sha256": "73b4d52b7e1b5c9aac8cd2bc7119098f07f53316547717031fba0e09e70baea2",
+  "quality": {
+    "black": true,
+    "mypy_strict": true,
+    "pyright_existing_unknown_settings": 3,
+    "pyright_source_diagnostics": 0,
+    "ruff": true,
+    "steering": true
+  },
+  "raw_process_receipt_sha256": "8727d29c62ce4e092a6ba924ef561ef6edae60a584855e48b6d95ce5eb594d63",
+  "repacked_reader_control_passed": true,
+  "schema": "kit.sw2026.perpendicular-disclosed-reader-receipt.v1",
+  "scope": "private guarded source reader overlay for the disclosed D01 source and edited pair",
+  "source_inputs_unchanged": true,
+  "source_manifest_sha256": "2cc14a36c08b397ceca2e45c529fa11ae513fa69d48d38a6456868d4a06abdda",
+  "source_native_processes": 5,
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR",
+  "tool_sha256": {
+    "AuditPerpendicularReader.py": "49220d9616f31b7a1f9a3eb5842370d80db09addee3458a617f6be683a1670d8",
+    "CheckPerpendicularReader.py": "7cc15015380f67e33409657b812aec7c86f4908ff28481087dcb08f298c415fe",
+    "CollectDrawingViewSupportEvidence.py": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+    "CollectPerpendicularEvidence.py": "3e77d0308073401ef6093dbb2fbfb16903e717c14430da8a7e7a49c9edebb396",
+    "CollectPerpendicularReadEvidence.py": "aa94b989fa91af6f1a1356c34cfe925dd2f58735d01fe85373f0a0b2d5db9425",
+    "PreparePerpendicularReadFaults.py": "cf17603e1130fbbfd1bce606ecdfb36654f9e6bbdcdc3b37e426fdbdd2eb568e",
+    "PublicMateReadProcess.py": "a3ff7367d55c30ad3d6ffbdcc61d0c9243afde155469ab7c669b1b7abbfe5dfc",
+    "SdkMatesProcess.py": "580848474ae46916e40f8ef7431bac3879d9d9fb3c3a398e2259f43bcb79a2d8"
+  },
+  "writer_output_count": 0
+}

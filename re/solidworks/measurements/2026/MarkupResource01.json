@@ -1,0 +1,18 @@
+{
+  "schema": "kit.sw2026.markup-resource.v1",
+  "module_sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111",
+  "resource_evidence_id": "ev_7e513ce8b9f9419b73636aa095412620b818d9fdf3a0acd86c84e94338ce4190",
+  "string_id": 32623,
+  "block_id": 2039,
+  "index_within_block": 15,
+  "language": 1033,
+  "payload_file_offset": 2965976,
+  "payload_bytes": 3432,
+  "payload_sha256": "466dbb6f564764768d36fd9b87e1d6af06d94e2ed5cc78b0b6238f869f55b1f7",
+  "consumed_payload_bytes": 3432,
+  "selected_text": "Markups",
+  "format_rule": "Sixteen length-prefixed UTF16LE entries; block is string_id // 16 + 1 and index is string_id % 16",
+  "vendor_binary_or_payload_redistributed": false,
+  "native_code_executed": false,
+  "native_acceptance": false
+}

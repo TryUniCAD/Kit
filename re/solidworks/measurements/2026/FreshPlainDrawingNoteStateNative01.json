@@ -1,0 +1,68 @@
+{
+  "candidate_after_rebuild": {
+    "annotation_count": 1,
+    "attachments": 0,
+    "dangling": false,
+    "expected_position": [
+      0.0937,
+      0.1029,
+      0.0
+    ],
+    "expected_text": "Visual inspection \u03a9 763",
+    "name": "",
+    "name_nonempty": false,
+    "passed": false,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_matches": false,
+    "text": "Visual inspection \u03a9 763",
+    "text_matches": true
+  },
+  "candidate_before_rebuild": {
+    "annotation_count": 1,
+    "attachments": 0,
+    "dangling": false,
+    "expected_position": [
+      0.0937,
+      0.1029,
+      0.0
+    ],
+    "expected_text": "Visual inspection \u03a9 763",
+    "name": "",
+    "name_nonempty": false,
+    "passed": false,
+    "position": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "position_matches": false,
+    "text": "Visual inspection \u03a9 763",
+    "text_matches": true
+  },
+  "candidate_sha256": "95cbab771dd691a2efb433345dd3cc9230632450b3f995cec15f13950a73040d",
+  "controls_healthy": true,
+  "diagnostic_completed": true,
+  "file_saves": 0,
+  "fresh_processes": 4,
+  "generated_open": [
+    0,
+    0
+  ],
+  "native_acceptance": false,
+  "parameter_edits": 0,
+  "raw_result_sha256": "82ee562bea717a6997bdf81fe19dabe7eac291d9cb0eccae7451a70995202505",
+  "schema": "kit.sw2026.fresh-plain-note-state-normalized.v1",
+  "sheet_and_view_state_unchanged": true,
+  "source_commit": "1f84222e2cc0a9d383aae0d5d8ae8b0445fd7072",
+  "source_immutable": true,
+  "trial_sha256": "de27e66217d66ac4a4bf8c04f90515593c8607959048c3c2d973c5a363989cc9",
+  "typed_definition_text_position": [
+    0.0937,
+    0.1029,
+    0.0
+  ]
+}

@@ -1,0 +1,1692 @@
+{
+  "active_angular_correction_proven": false,
+  "controls_healthy": true,
+  "delivery_pr": 121,
+  "distinct_native_process_count": 4,
+  "generated_files": {
+    "NeutralPerpPair.SLDASM": {
+      "bytes": 9987,
+      "sha256": "a1d1210db7f37701f9f6be394c4c88974ea7ec1cdf6a1ca27a12bb85325c1f00"
+    },
+    "NeutralPerpPrism.SLDPRT": {
+      "bytes": 8819,
+      "sha256": "3f4e779191e26e039ff5fe50cf632c4c32024e0a11720f74d4374f2ca71b8534"
+    }
+  },
+  "heldout_acceptance": false,
+  "heldout_inputs_read": 0,
+  "measurements": {
+    "control-after/initial": {
+      "assembly_child_mass_ratio": 2000.0000000000005,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.0091,
+        "D1@Sketch1": 0.0379,
+        "D2@Sketch1": 0.0167
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0045191599999999995,
+          "com": [
+            0.06185,
+            0.00905,
+            0.018
+          ],
+          "mass": 0.011519326,
+          "volume": 1.1519326e-05
+        },
+        "child": {
+          "area": 0.0022595799999999997,
+          "com": [
+            -5.55729659446593e-19,
+            -1.6064611765042037e-19,
+            0.00455
+          ],
+          "mass": 5.759662999999999e-06,
+          "volume": 5.759662999999999e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 26,
+        "normal_dot": 0.0,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-1",
+            "occurrence_native_id": 24,
+            "plane": "Front Plane",
+            "plane_native_id": 2,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-2",
+            "occurrence_native_id": 25,
+            "plane": "Top Plane",
+            "plane_native_id": 3,
+            "point": [
+              0.1237,
+              0.0181,
+              0.0269
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "PerpendicularDatum-1",
+          "native_id": 24,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "PerpendicularDatum-2",
+          "native_id": 25,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1237,
+            0.0181,
+            0.0269,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "control-after/rebuilt": {
+      "assembly_child_mass_ratio": 2000.0000000000007,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.0091,
+        "D1@Sketch1": 0.0379,
+        "D2@Sketch1": 0.0167
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0045191599999999995,
+          "com": [
+            0.06185,
+            0.00905,
+            0.018
+          ],
+          "mass": 0.011519326000000002,
+          "volume": 1.1519326000000001e-05
+        },
+        "child": {
+          "area": 0.0022595799999999997,
+          "com": [
+            -5.55729659446593e-19,
+            -1.6064611765042037e-19,
+            0.00455
+          ],
+          "mass": 5.759662999999999e-06,
+          "volume": 5.759662999999999e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 26,
+        "normal_dot": 0.0,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-1",
+            "occurrence_native_id": 24,
+            "plane": "Front Plane",
+            "plane_native_id": 2,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-2",
+            "occurrence_native_id": 25,
+            "plane": "Top Plane",
+            "plane_native_id": 3,
+            "point": [
+              0.1237,
+              0.0181,
+              0.0269
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "PerpendicularDatum-1",
+          "native_id": 24,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "PerpendicularDatum-2",
+          "native_id": 25,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1237,
+            0.0181,
+            0.0269,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "control-before/initial": {
+      "assembly_child_mass_ratio": 2000.0000000000005,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.0091,
+        "D1@Sketch1": 0.0379,
+        "D2@Sketch1": 0.0167
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0045191599999999995,
+          "com": [
+            0.06185,
+            0.00905,
+            0.018
+          ],
+          "mass": 0.011519326,
+          "volume": 1.1519326e-05
+        },
+        "child": {
+          "area": 0.0022595799999999997,
+          "com": [
+            -5.55729659446593e-19,
+            -1.6064611765042037e-19,
+            0.00455
+          ],
+          "mass": 5.759662999999999e-06,
+          "volume": 5.759662999999999e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 26,
+        "normal_dot": 0.0,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-1",
+            "occurrence_native_id": 24,
+            "plane": "Front Plane",
+            "plane_native_id": 2,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-2",
+            "occurrence_native_id": 25,
+            "plane": "Top Plane",
+            "plane_native_id": 3,
+            "point": [
+              0.1237,
+              0.0181,
+              0.0269
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "PerpendicularDatum-1",
+          "native_id": 24,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "PerpendicularDatum-2",
+          "native_id": 25,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1237,
+            0.0181,
+            0.0269,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "control-before/rebuilt": {
+      "assembly_child_mass_ratio": 2000.0000000000007,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.0091,
+        "D1@Sketch1": 0.0379,
+        "D2@Sketch1": 0.0167
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0045191599999999995,
+          "com": [
+            0.06185,
+            0.00905,
+            0.018
+          ],
+          "mass": 0.011519326000000002,
+          "volume": 1.1519326000000001e-05
+        },
+        "child": {
+          "area": 0.0022595799999999997,
+          "com": [
+            -5.55729659446593e-19,
+            -1.6064611765042037e-19,
+            0.00455
+          ],
+          "mass": 5.759662999999999e-06,
+          "volume": 5.759662999999999e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 26,
+        "normal_dot": 0.0,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-1",
+            "occurrence_native_id": 24,
+            "plane": "Front Plane",
+            "plane_native_id": 2,
+            "point": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "PerpendicularDatum-2",
+            "occurrence_native_id": 25,
+            "plane": "Top Plane",
+            "plane_native_id": 3,
+            "point": [
+              0.1237,
+              0.0181,
+              0.0269
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "PerpendicularDatum-1",
+          "native_id": 24,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "PerpendicularDatum-2",
+          "native_id": 25,
+          "transform": [
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.0,
+            0.0,
+            0.0,
+            1.0,
+            0.1237,
+            0.0181,
+            0.0269,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "generated/edited": {
+      "assembly_child_mass_ratio": 1999.9999999999998,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01591,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0071791547999999995,
+          "com": [
+            0.0741099420321763,
+            0.005909598617297053,
+            0.0016547378614644708
+          ],
+          "mass": 0.025752667406,
+          "volume": 2.5752667406e-05
+        },
+        "child": {
+          "area": 0.0035895773999999997,
+          "com": [
+            0.0,
+            0.0,
+            0.007955
+          ],
+          "mass": 1.2876333703000002e-05,
+          "volume": 1.2876333703000002e-05
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": -8.326672684688674e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.49147495636473615,
+              0.8335173922843938,
+              -0.25239081604865266
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.40194777665596004,
+            -0.49147495636473615,
+            0.8335173922843938,
+            -0.25239081604865266,
+            -0.4744347415875193,
+            -0.01322176838241218,
+            0.8801913773808657,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "generated/initial": {
+      "assembly_child_mass_ratio": 1999.9999999999998,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01037,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 999.9999999999999,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0058065644,
+          "com": [
+            0.0757684103668935,
+            0.005477120257041491,
+            -0.0007643225716209111
+          ],
+          "mass": 0.016785365242,
+          "volume": 1.6785365242e-05
+        },
+        "child": {
+          "area": 0.0029032822,
+          "com": [
+            0.0,
+            0.0,
+            0.005185
+          ],
+          "mass": 8.392682621e-06,
+          "volume": 8.392682621e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": 1.3877787807814457e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.656350834994305,
+              0.7304471637587235,
+              0.18881345915774947
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "generated/rebuilt": {
+      "assembly_child_mass_ratio": 1999.9999999999998,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01037,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 999.9999999999999,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0058065644,
+          "com": [
+            0.0757684103668935,
+            0.005477120257041491,
+            -0.0007643225716209111
+          ],
+          "mass": 0.016785365242,
+          "volume": 1.6785365242e-05
+        },
+        "child": {
+          "area": 0.0029032822,
+          "com": [
+            0.0,
+            0.0,
+            0.005185
+          ],
+          "mass": 8.392682621e-06,
+          "volume": 8.392682621e-06
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": 1.3877787807814457e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.656350834994305,
+              0.7304471637587235,
+              0.18881345915774947
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "generated/saved": {
+      "assembly_child_mass_ratio": 1999.9999999999998,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01591,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0071791547999999995,
+          "com": [
+            0.0741099420321763,
+            0.005909598617297053,
+            0.0016547378614644708
+          ],
+          "mass": 0.025752667406,
+          "volume": 2.5752667406e-05
+        },
+        "child": {
+          "area": 0.0035895773999999997,
+          "com": [
+            0.0,
+            0.0,
+            0.007955
+          ],
+          "mass": 1.2876333703000002e-05,
+          "volume": 1.2876333703000002e-05
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": -8.326672684688674e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.49147495636473615,
+              0.8335173922843938,
+              -0.25239081604865266
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.40194777665596004,
+            -0.49147495636473615,
+            0.8335173922843938,
+            -0.25239081604865266,
+            -0.4744347415875193,
+            -0.01322176838241218,
+            0.8801913773808657,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "reopen/initial": {
+      "assembly_child_mass_ratio": 1999.9999999999998,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01591,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0071791547999999995,
+          "com": [
+            0.0741099420321763,
+            0.005909598617297053,
+            0.0016547378614644708
+          ],
+          "mass": 0.025752667406,
+          "volume": 2.5752667406e-05
+        },
+        "child": {
+          "area": 0.0035895773999999997,
+          "com": [
+            0.0,
+            0.0,
+            0.007955
+          ],
+          "mass": 1.2876333703000002e-05,
+          "volume": 1.2876333703000002e-05
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": -8.326672684688674e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.49147495636473615,
+              0.8335173922843938,
+              -0.25239081604865266
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.40194777665596004,
+            -0.49147495636473615,
+            0.8335173922843938,
+            -0.25239081604865266,
+            -0.4744347415875193,
+            -0.01322176838241218,
+            0.8801913773808657,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    },
+    "reopen/rebuilt": {
+      "assembly_child_mass_ratio": 2000.0,
+      "body_count": 2,
+      "dimensions_m": {
+        "D1@Boss-Extrude1": 0.01591,
+        "D1@Sketch1": 0.04321,
+        "D2@Sketch1": 0.01873
+      },
+      "effective_density": {
+        "assembly": 1000.0,
+        "child": 1.0
+      },
+      "mass": {
+        "assembly": {
+          "area": 0.0071791547999999995,
+          "com": [
+            0.0741099420321763,
+            0.005909598617297053,
+            0.0016547378614644708
+          ],
+          "mass": 0.025752667406,
+          "volume": 2.5752667406e-05
+        },
+        "child": {
+          "area": 0.0035895773999999997,
+          "com": [
+            2.0589813731592446e-19,
+            0.0,
+            0.007955
+          ],
+          "mass": 1.2876333703e-05,
+          "volume": 1.2876333703e-05
+        }
+      },
+      "mate": {
+        "alignment_observed": 2,
+        "name": "Perpendicular1",
+        "native_feature_id": 19,
+        "normal_dot": -8.326672684688674e-17,
+        "ordered_endpoints": [
+          {
+            "normal": [
+              0.7303177686740647,
+              0.5523349903819836,
+              0.4019477766559601
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-1",
+            "occurrence_native_id": 17,
+            "plane": "Right Plane",
+            "plane_native_id": 16,
+            "point": [
+              0.00413,
+              -0.00829,
+              0.00641
+            ],
+            "reference_type": 4
+          },
+          {
+            "normal": [
+              -0.49147495636473615,
+              0.8335173922843938,
+              -0.25239081604865266
+            ],
+            "object_comparison": {
+              "expected_feature": 0,
+              "expected_specific": 1,
+              "repeated_reference": 1,
+              "repeated_specific": 1,
+              "specific_equality_is_diagnostic": true
+            },
+            "occurrence": "NeutralPerpPrism-2",
+            "occurrence_native_id": 18,
+            "plane": "Top Plane",
+            "plane_native_id": 15,
+            "point": [
+              0.14937,
+              0.02341,
+              -0.01723
+            ],
+            "reference_type": 4
+          }
+        ],
+        "type": 2
+      },
+      "native_child_tree_rows": 25,
+      "native_tree_rows": 25,
+      "occurrences": [
+        {
+          "configuration": "Default",
+          "fixed": true,
+          "name": "NeutralPerpPrism-1",
+          "native_id": 17,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.4019477766559601,
+            -0.6563508349943051,
+            0.7304471637587236,
+            0.18881345915774952,
+            -0.18931333328958622,
+            -0.40171258301996304,
+            0.8959840749043564,
+            0.00413,
+            -0.00829,
+            0.00641,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        },
+        {
+          "configuration": "Default",
+          "fixed": false,
+          "name": "NeutralPerpPrism-2",
+          "native_id": 18,
+          "transform": [
+            0.7303177686740647,
+            0.5523349903819836,
+            0.40194777665596004,
+            -0.49147495636473615,
+            0.8335173922843938,
+            -0.25239081604865266,
+            -0.4744347415875193,
+            -0.01322176838241218,
+            0.8801913773808657,
+            0.14937,
+            0.02341,
+            -0.01723,
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "visible_child_bodies": 1
+        }
+      ]
+    }
+  },
+  "native_generated_self_lifecycle": true,
+  "native_input_and_source_control_hashes_unchanged": true,
+  "native_result_sha256": "e709d1cadabb2d010d3f4470d4d27c1e834da85841dcd8e0441f43ff8d64e28d",
+  "native_saved_state": {
+    "auxiliary_help_count": 0,
+    "internal_alignment": 0,
+    "mate_id": 19,
+    "node_flags": 256,
+    "ordered_owners": [
+      {
+        "actual_model_owner_alias": true,
+        "actual_occurrence_backlink_alias": true,
+        "detached_datum": {
+          "f00": -1,
+          "f08": 2592000
+        },
+        "detached_inline_plane_id": -1,
+        "occurrence_fixed_word": 1,
+        "occurrence_id": 17,
+        "occurrence_solve_word": 4,
+        "order": 0,
+        "principal_kind": 1,
+        "resolved_datum": {
+          "f00": 16,
+          "f08": 2592000
+        },
+        "resolved_wrapper": {
+          "f08": 158,
+          "f0c": 0,
+          "f50": 2,
+          "f68": 1,
+          "f70": 19000,
+          "f74": 19,
+          "f78": 0,
+          "f7c": 0
+        },
+        "selected_key": 0,
+        "selected_original_datum_id": 16,
+        "selected_wrapper": {
+          "f08": 105,
+          "f0c": 0,
+          "f50": 0,
+          "f68": 1,
+          "f70": 19000,
+          "f74": -12345,
+          "f78": -12345,
+          "f7c": -12345
+        }
+      },
+      {
+        "actual_model_owner_alias": true,
+        "actual_occurrence_backlink_alias": true,
+        "detached_datum": {
+          "f00": -1,
+          "f08": 2592000
+        },
+        "detached_inline_plane_id": -1,
+        "occurrence_fixed_word": 0,
+        "occurrence_id": 18,
+        "occurrence_solve_word": 3,
+        "order": 1,
+        "principal_kind": 2,
+        "resolved_datum": {
+          "f00": 15,
+          "f08": 2592000
+        },
+        "resolved_wrapper": {
+          "f08": 158,
+          "f0c": 0,
+          "f50": 1,
+          "f68": 1,
+          "f70": 19000,
+          "f74": 19,
+          "f78": 1,
+          "f7c": 1
+        },
+        "selected_key": 1,
+        "selected_original_datum_id": 15,
+        "selected_wrapper": {
+          "f08": 105,
+          "f0c": 0,
+          "f50": 0,
+          "f68": 1,
+          "f70": 19000,
+          "f74": -12345,
+          "f78": -12345,
+          "f7c": -12345
+        }
+      }
+    ],
+    "parent_update_stamp": 105,
+    "solved_state": 1
+  },
+  "numeric_checks": 190,
+  "observer_sha256": "943db8da0c9fc58d2857b1c23b08391d29bd8b1bf8e2cef6a648f01830ab6e07",
+  "owner": "assembly_occurrence",
+  "packet_sha256": "652c2ab4b79e087bf99727cc04b05ca4bae12e132a33db2d73f9173d8cc73127",
+  "paired_mass_parity_proven": false,
+  "paired_source_generated_semantics_proven": false,
+  "passed": true,
+  "phase_results": {
+    "control-after": {
+      "cleanup_error_count": 0,
+      "dialog_count": 0,
+      "identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394797499309368,
+        "process_id": 10164,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "inputs_unchanged": true,
+      "numeric_checks": 26,
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "sha256": "e3742149af205d600f2725b19d4662fa673c61c260cfd95ecbdff8697f46b748"
+    },
+    "control-before": {
+      "cleanup_error_count": 0,
+      "dialog_count": 0,
+      "identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394795875304902,
+        "process_id": 5040,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "inputs_unchanged": true,
+      "numeric_checks": 26,
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "sha256": "65393d9ea99d11bd57205ce28da33aeadf57825914bfe40b3b63b8076c79d717"
+    },
+    "generated": {
+      "cleanup_error_count": 0,
+      "dialog_count": 0,
+      "identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394796258069222,
+        "process_id": 7716,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "inputs_unchanged": true,
+      "numeric_checks": 92,
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "sha256": "53e7f534f0aa92aa9f08a4f095fccc4de0077e6b0a7e7527ed18b3d81e091f5d"
+    },
+    "reopen": {
+      "cleanup_error_count": 0,
+      "dialog_count": 0,
+      "identity": {
+        "file_version": "34.5.2.0604",
+        "process_creation_filetime": 134394797096909618,
+        "process_id": 2692,
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "inputs_unchanged": true,
+      "numeric_checks": 46,
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "sha256": "26318d3eba82a1294f5907ceb3e7090308e02a436c695920f7ab7386f8831ed6"
+    }
+  },
+  "prewriter_source_lock_sha256": "614c05ee076b728018e2371fa0d992ab59e379afc625eec22aa699dd16729aee",
+  "process_proof_sha256": "0744dfc514fb2524147918d7b56da4ee548bd50854d48a78b9b768610f10be0b",
+  "public_writer_qualified": false,
+  "recipe_sha256": "057beafa881f2f14e199a11fa0fd6f6543241917d6dc08a87d763a4ba2d67eed",
+  "saved_files": {
+    "child": {
+      "bytes": 27610,
+      "sha256": "ad69b008ab729357c690553e5195078219a7005e83754c7db478f4327da72ba2",
+      "status": [
+        true,
+        0,
+        0
+      ],
+      "update_stamp": 158
+    },
+    "parent": {
+      "bytes": 41354,
+      "sha256": "264eee216856aa72d355bad3bb2598adf6023755c6cadded275472016b88c45a",
+      "status": [
+        true,
+        0,
+        0
+      ]
+    }
+  },
+  "saved_public_reader_status": "admitted",
+  "saved_sdk_readback_sha256": "4f074e12b0f8f3428c2f7a796515ec42e2a9b417523f7f0a1d8ba2d0373c4e12",
+  "schema": "kit.sw2026.generated-perpendicular-disclosed-native-receipt.v1",
+  "scope": "G01 disclosed independently generated ordinary perpendicular self-lifecycle, no paired equivalence or sealed coverage",
+  "scope_limits": [
+    "authored Environment folder name differs from native control default Lights and Cameras",
+    "native controls and generated design have independent dimensions",
+    "valid pose edit does not establish invalid-angle solver correction",
+    "unchanged reader still rejects cold originals before native save",
+    "first transport255 occurred before guest progress and no native result is inferred from it"
+  ],
+  "source_manifest_sha256": "0f660dcb6fef84b12b382fa40e542069d49dab0ec6169151b154b4222f5884fa",
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR"
+}

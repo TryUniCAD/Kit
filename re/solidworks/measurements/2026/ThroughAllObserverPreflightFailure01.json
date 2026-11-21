@@ -1,0 +1,41 @@
+{
+  "candidate_sha256": "5cefc9124919cb2d75a141610fa40a23c328d41297eba6aefe4bcb9f185a3115",
+  "generated_candidate_opened": false,
+  "generated_case_sha256": "5d17d262f011202a14e8ddfbb56ac255ff3d01e75a1a9c5f895c151ea0e65e02",
+  "native_controls_measured": 0,
+  "native_generated_acceptance": false,
+  "native_processes_started": 0,
+  "observer_failure": "Windows path rendering was used as a POSIX-keyed manifest lookup before native launch; original summary also required a result member absent from partial records",
+  "original_evidence_preserved": true,
+  "phases": [
+    {
+      "api_calls": 0,
+      "native_identity_present": false,
+      "numeric_checks": 0,
+      "phase": "ControlBefore",
+      "record_sha256": "758a81b1c1a0ea846c31e008effa1f434dc10e5db3856c25d6802e9ae6d1afa4",
+      "result_present": false,
+      "stage": "starting"
+    },
+    {
+      "api_calls": 0,
+      "native_identity_present": false,
+      "numeric_checks": 0,
+      "phase": "ControlAfter",
+      "record_sha256": "25d075dff17b1e3068aeb3b007d21a48c5095565b7b530cca298f5d00e2e4b46",
+      "result_present": false,
+      "stage": "starting"
+    }
+  ],
+  "preserved_unchanged_measurement_functions": {
+    "api_metadata": "5ce78500c9938a1b68d46ad7eda0aa0ac06beae5bb85eadf0355cf302cfe9271",
+    "native_case": "1dcb3e5139025a27d0c934ec1d66296e57f5888fba4fa0251f4267c7273f660b",
+    "snapshot": "01f7698a91c57e5a873dc59edfce6f7380e9cc1db9c332eb511a48e96753aec4",
+    "ui_tree": "b27d38f4574c5ec567c606a617ef560b9ed66b536b44acfc2f4f0e838de4b5aa"
+  },
+  "previous_observer_sha256": "b291485f66e5e789196d0ab82d08a75aa6f0dbd063161243c886ab0f56ec7bd2",
+  "previous_packet_sha256": "e4933c6d20d4ca4aa597512a850197b05dc2b15677d21de6cbdb2b755941a839",
+  "registered_metadata_sha256": "9d5509a9ac17bf54f30bfaa8abc6565a1bc7a2c52cf9823627bda8f88ae75f33",
+  "schema": "kit.sw2026.through-all-native-observer-prelaunch-failure.v1",
+  "writer_source_manifest_sha256": "7ff3eacf713c39e109c09bb786f521c9f97df3413c1224a5e7278438d4a4639e"
+}

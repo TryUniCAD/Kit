@@ -1,0 +1,191 @@
+{
+  "alpha": {
+    "edited_save_completed": false,
+    "evaluate_all_ungraded": -1,
+    "initial_body_count": 1,
+    "initial_dimension_owners": {
+      "D1@Boss-Extrude1": {
+        "driven_state": 1,
+        "full_name": "D1@Boss-Extrude1@EquationDepthAlpha.Part",
+        "read_only": false,
+        "system_value_m": 0.0195625
+      },
+      "D1@Sketch1": {
+        "driven_state": 2,
+        "full_name": "D1@Sketch1@EquationDepthAlpha.Part",
+        "read_only": false,
+        "system_value_m": 0.039125
+      },
+      "D2@Sketch1": {
+        "driven_state": 2,
+        "full_name": "D2@Sketch1@EquationDepthAlpha.Part",
+        "read_only": false,
+        "system_value_m": 0.017375
+      }
+    },
+    "initial_equation_text": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2",
+    "initial_mass_properties": {
+      "area": 0.0035701562500000004,
+      "com": [
+        0.0195625,
+        0.0086875,
+        0.00978125
+      ],
+      "mass": 1.3298526367187503e-05,
+      "volume": 1.3298526367187503e-05
+    },
+    "initial_rebuild_passed": true,
+    "initial_update_stamp": 130,
+    "initial_tree_rows": 25,
+    "numeric_checks_before_edit": 9,
+    "open_status": [
+      0,
+      0
+    ],
+    "oracle_file_version": "34.5.2.0604",
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "owned_oracle_stopped_after_build_and_birth_verification": true,
+    "owned_oracle_survived_failure": true,
+    "post_edit_rebuild_error_hresult": -2147023179,
+    "requested_width_mm": 47.875,
+    "set_system_value_status": 0,
+    "snapshot_sha256": "2440834a496995fc22a1d06e5c4f24178790b6e1a12465217b1b5ac7de6ede1c"
+  },
+  "beta_native_open_started": false,
+  "build_and_observer_commit": "245258a0a",
+  "candidates": {
+    "Alpha": {
+      "bytes": 9276,
+      "config_map_final": 163,
+      "expression": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2",
+      "request_sha256": "bd5ddb99de56fef9bdbc082504e7f83af743ce7e6e696395a262a3b67d14104c",
+      "resolved_map_final": 256,
+      "runtime_input_file_reads": 0,
+      "sha256": "d8a637e790561e7c47d277fc45e4f81dec1610b7bb1edd7165ab6c00b0a29838",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "5b9fb146777923f85982969b5718328a9d91d04a1268e9f16485443c54052d79"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "de6474cfec1a53e413a455cda27b13ad82475646f7f7dc9964000133849a95c8"
+        },
+        "Contents/Config-0": {
+          "bytes": 28763,
+          "sha256": "3aafffb4a2ab7985655bf58fa3a8550a6c1ed2bd4921125f8c21d0668ef7e7a0"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 753,
+          "sha256": "4bed5b2fb56552d7823a4aa1144acf43fb2fcd99643787d6eea47d61dd57d05a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12247,
+          "sha256": "3910f6c4f93ed481b20fefb2955a365146dad6b1d03afde7ef91c5a2e4990202"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 753,
+          "sha256": "7570964269589d24dd0068118af1815fa57a73ff1dd6806e64d42a8ca86bdba7"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "e73a526fdff38d6e558e331c59305c7a8187d756ab7311b726af43a0d3c74e63"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1510,
+          "sha256": "edce34a71827d33376ca845ca9dce875cf718bc527954a2d375670fb57d14544"
+        }
+      }
+    },
+    "Beta": {
+      "bytes": 9248,
+      "config_map_final": 163,
+      "expression": "\"D1@Boss-Extrude1\" = \"D1@Sketch1\" / 2",
+      "request_sha256": "3b17a8c1088782a848325ae985c427744585168a90018977506039f7a19c4cf3",
+      "resolved_map_final": 256,
+      "runtime_input_file_reads": 0,
+      "sha256": "b50d176e897ebc5d468f593554ba4e885571c9f0716437b6319485e105317629",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "053fd3cf9bf90a3d36a29b13b3248043ba5ce79075d152b91322e221893e9329"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "3eae06266abb16b4148deaeb0d8fabddbcc1c0105c8754c52d36c873b69d7d7d"
+        },
+        "Contents/Config-0": {
+          "bytes": 28711,
+          "sha256": "780d150953c3dbcc106c2bbc07304157e78a3c37f5b768482824a065ff822b4a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 747,
+          "sha256": "d758fc2f4b12acef336f9edca2dc251676a95ccbb5f57dee86167225bafb0d1b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 12247,
+          "sha256": "e0e5ca51298296576a652776e19e38efe2924436aaef80d038b607ae060fbd7c"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 747,
+          "sha256": "4eaf877faa61d8f62704bb5adcccc7a10c25a411e29d18904a9ac5f9989ab3b5"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 169,
+          "sha256": "5a407501dff0adc994563b3404ea21d3c9cc52ea91e72761bdd7bd68391cf0fc"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1510,
+          "sha256": "3df58be98e897f38e0f1a259e84794197f6ce35f350f214da3f903fbbf4fad3c"
+        }
+      }
+    }
+  },
+  "first_control": {
+    "numeric_checks": 9,
+    "open_status": [
+      0,
+      0
+    ],
+    "passed": true,
+    "result_sha256": "47ca914d77f7cb2cb0e86748694e5103bf48815c960505b78fd4e29b67fc7a8d"
+  },
+  "guarded_runtime_input_file_reads": 0,
+  "heldout_cases_opened": 0,
+  "interrupted_batch_trailing_control_started": false,
+  "job_sha256": "8116017bee491b87e3ed2e7fa1bb2a6e8e893be1f991924e71c3a932dfe1ba56",
+  "passed": false,
+  "plain_read_only_controls_sha256": "068886ae65444118e6f1e6331c8529853570d85f60e88d7cef69a7532dd15af1",
+  "failed_preparation_processes": 2,
+  "production_equation_writer_qualified": false,
+  "raw_summary_sha256": "d1b4b1f7a2f524820b101c4e4c90893f40284fef5fae04ffa6b0a5a019ab045f",
+  "recovered_trailing_control": {
+    "job_sha256": "f2a92fe495f4c80595bcb5fe709b340acbb4f706daa6f533edce82b7a081f66c",
+    "numeric_checks": 9,
+    "open_status": [
+      0,
+      0
+    ],
+    "passed": true,
+    "result_sha256": "8b845ad563635ba5542549e8784dcbdd37f2fa08eeb3d464f7bdda1c2d154b4a"
+  },
+  "recovery_observer_commit": "35aba0b78",
+  "schema": "kit.sw2026.width-depth-local-reference-native.v1",
+  "successful_build_processes": 4
+}

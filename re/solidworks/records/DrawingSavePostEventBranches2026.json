@@ -1,0 +1,408 @@
+{
+  "schema": "kit.sw2026.blank-drawing-post-event-branch-map.v1",
+  "scope": "Disclosed blank SLDDRW, SaveAs3 after clean ForceRebuild3, original SOLIDWORKS 2026 SP05.2",
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_com_progid": "SldWorks.Application.34",
+  "native_acceptance": false,
+  "writer_output_count": 0,
+  "heldout_inputs_tested": 0,
+  "generated_runtime_branch": null,
+  "writer_archive_fields_resolved": [],
+  "modules": {
+    "sldworks.exe": {
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "bytes": 718936,
+      "machine": "AMD64",
+      "preferred_image_base": "0x140000000"
+    },
+    "doccplu.dll": {
+      "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+      "bytes": 1052248,
+      "machine": "AMD64",
+      "preferred_image_base": "0x180000000"
+    },
+    "slddrwu.dll": {
+      "sha256": "61c8481374431866f97416ce5109329f9c38e7e85b56a9f95d41bdf3122cdc47",
+      "bytes": 8949848,
+      "machine": "AMD64",
+      "preferred_image_base": "0x3dbc0000"
+    },
+    "slduiu.dll": {
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7",
+      "bytes": 36036696,
+      "machine": "AMD64",
+      "preferred_image_base": "0x48ea0000"
+    },
+    "sldappu.dll": {
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf",
+      "bytes": 16519768,
+      "machine": "AMD64",
+      "preferred_image_base": "0x453f0000"
+    },
+    "sldmfcu.dll": {
+      "sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "bytes": 8274520,
+      "machine": "AMD64",
+      "preferred_image_base": "0x3c720000"
+    }
+  },
+  "evidence": {
+    "receipt_path": "re/solidworks/measurements/2026/DrawingBlankSaveEventsNative01.json",
+    "receipt_sha256": "8e3a3820db4f91906dc1518873306ce7369bb5cab061b39b5323955a557a7507",
+    "raw_native_result_sha256": "117283c94661f34d5eb1b3f6ec788b8770fa9fb085a5508a6d9d93a2600eefa7",
+    "packet_sha256": "f9a4ec47df3eceb0733ca702166925c104eb349518db48b7604c3dae4974941f",
+    "executed_event_observer_sha256": "5bffba7fb3fad79b605fb5ec2a95100ae850dcd8514fe299fc08b11aeb7f801c",
+    "corrected_event_observer_sha256": "74ea5b7fa16cc8289e501305731f67d2de9fbe6d9b67ae9ef673032274d809e6",
+    "corrected_offline_evaluation_sha256": "dfe6b0caa48d004a39bfc382c83dcb29e9b582d31170b211d99c57adf4262972",
+    "event_preparer_sha256": "58712c5b5a3698e13ab212eecada39e7352614f48eb931975b186c248ccbad41",
+    "save_mode_observer_sha256": "a0108df8e4485189129121ae233062c47b86fc5326c5ebcb31beed4b63413f6d",
+    "oracle_transport_sha256": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba",
+    "distinct_processes": 7,
+    "controls_healthy": true,
+    "same_physical_paths": true,
+    "inputs_immutable": true,
+    "observed_in_all_lanes": {
+      "open_errors": 0,
+      "open_warnings": 0,
+      "rebuild_problems": 0
+    },
+    "lanes": [
+      {
+        "name": "ControlBefore",
+        "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+        "open_and_save_record_sha256": "e77ef25cc7f78cbc5f6d54520549af0680237c57d1dff5e6f6630e509ac02cc2",
+        "fresh_reopen_record_sha256": "40eccbd1f8df617148803301b06550b6dffbe1b6391d53cf0fda0a695846ee13",
+        "event_ordinals_by_save_return": [
+          7,
+          9,
+          28
+        ],
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "target_bytes": 18130,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "tree_rows": 10
+      },
+      {
+        "name": "ReducedNative",
+        "input_sha256": "3f46a89565adcc7bdf2ed0d8d84c02a085ed47a2ce0d6b1d7b1e235b14e94214",
+        "open_and_save_record_sha256": "eb891be15eaa89e276ca945a0cee2c4a75c23f3872e9b5d26c1ea949f48985de",
+        "fresh_reopen_record_sha256": "cd6378428d2f922d218fd5158b333b6f7dacf18100a32d8f1c6475e29d3087a5",
+        "event_ordinals_by_save_return": [
+          7,
+          9,
+          28
+        ],
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "target_bytes": 18429,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "tree_rows": 10
+      },
+      {
+        "name": "Generated",
+        "input_sha256": "ab2b76a87f11344b9172a23ce88985ec8fa4aa98518d1d21597d6dfb1e2c6eeb",
+        "open_and_save_record_sha256": "7c9dceb1d1cf9d50a5cb26fc432e628939320e5adc1638a10cd795646eda7c2b",
+        "fresh_reopen_record_sha256": null,
+        "event_ordinals_by_save_return": [
+          7
+        ],
+        "save_status": [
+          false,
+          1,
+          0
+        ],
+        "target_bytes": 0,
+        "rebuilt_scale": [
+          2.0,
+          3.0
+        ],
+        "tree_rows": 10
+      },
+      {
+        "name": "ControlAfter",
+        "input_sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b",
+        "open_and_save_record_sha256": "f371de31380af501560b0449efdb1dd542c10b7da78c71856ae4deefee3307ef",
+        "fresh_reopen_record_sha256": "f462adc559a36242c68d2aea4a775e854eaa0162f84f69fb50f096627dd02f79",
+        "event_ordinals_by_save_return": [
+          7,
+          9,
+          28
+        ],
+        "save_status": [
+          true,
+          0,
+          0
+        ],
+        "target_bytes": 18173,
+        "rebuilt_scale": [
+          1.0,
+          1.0
+        ],
+        "tree_rows": 10
+      }
+    ]
+  },
+  "function_extents": [
+    {
+      "module": "doccplu.dll",
+      "owner": "SolidStorage_c::iDoSave",
+      "begin_va": "0x180012680",
+      "end_va_exclusive": "0x180018397"
+    },
+    {
+      "module": "doccplu.dll",
+      "owner": "SolidStorageBase_c::saveDoc",
+      "begin_va": "0x18001b810",
+      "end_va_exclusive": "0x18001d0b9"
+    },
+    {
+      "module": "doccplu.dll",
+      "owner": "SolidStorage_c::SaveToStorage",
+      "begin_va": "0x18001d750",
+      "end_va_exclusive": "0x18001e987"
+    },
+    {
+      "module": "doccplu.dll",
+      "owner": "SolidStorage_c::Save3rdPartyData",
+      "begin_va": "0x18001f0a0",
+      "end_va_exclusive": "0x18001f50c"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "drawing DoSave override",
+      "begin_va": "0x3ded4af0",
+      "end_va_exclusive": "0x3ded561d"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "auDrawingDoc_c::FileSaveAsNotify",
+      "begin_va": "0x3ddad2c0",
+      "end_va_exclusive": "0x3ddad322"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "drawing document slot +0x3080",
+      "begin_va": "0x3defb790",
+      "end_va_exclusive": "0x3defe086"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "drawing sheet format slot +0x2e80",
+      "begin_va": "0x3de715c0",
+      "end_va_exclusive": "0x3de716d1"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "auDrawingDoc_c::AutoSaveToStorageNotify",
+      "begin_va": "0x3dda6980",
+      "end_va_exclusive": "0x3dda69cf"
+    },
+    {
+      "module": "slddrwu.dll",
+      "owner": "auDrawingDoc_c::AutoSaveToStorageStoreNotify",
+      "begin_va": "0x3dda69d0",
+      "end_va_exclusive": "0x3dda6a1f"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "auModelDoc_c::iFireEventV",
+      "begin_va": "0x492b01f0",
+      "end_va_exclusive": "0x492b04f6"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "uiModelDoc_c::OnSaveDocument",
+      "begin_va": "0x496fd620",
+      "end_va_exclusive": "0x496fdf89"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "uiModelDoc_c::saveDocument",
+      "begin_va": "0x497257a0",
+      "end_va_exclusive": "0x49725e64"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "original path check and reopen helper",
+      "begin_va": "0x496f7200",
+      "end_va_exclusive": "0x496f74a8"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "autoSaveSetter constructor",
+      "begin_va": "0x496f55f0",
+      "end_va_exclusive": "0x496f564a"
+    },
+    {
+      "module": "slduiu.dll",
+      "owner": "autoSaveSetter destructor",
+      "begin_va": "0x496f6450",
+      "end_va_exclusive": "0x496f6472"
+    },
+    {
+      "module": "sldappu.dll",
+      "owner": "uiBaseDoc_c::OnSaveDocument",
+      "begin_va": "0x458e71f0",
+      "end_va_exclusive": "0x458e73db"
+    },
+    {
+      "module": "sldmfcu.dll",
+      "owner": "suFileStorage::createStorage(IStorage*, SldModelContext_c*, ZipStorage*)",
+      "begin_va": "0x3c8b57a0",
+      "end_va_exclusive": "0x3c8b58ad"
+    }
+  ],
+  "edges": {
+    "early_event": {
+      "doccplu_dispatch_va": "0x1800158bc",
+      "drawing_vtable_va": "0x3e1d6b78",
+      "drawing_slot_offset": "0x29e8",
+      "drawing_wrapper_va": "0x3ded6100",
+      "drawing_automation_owner_offset": "0x1778",
+      "event7_emit_va": "0x3ddad303",
+      "automation_vtable_va": "0x3e18f788",
+      "automation_fire_event_slot_offset": "0x298",
+      "slduiu_accumulate_nonzero_listener_va": "0x492b03d7",
+      "doccplu_aggregate_store_va": "0x1800158d5",
+      "doccplu_aggregate_stack_offset": "0x1b0",
+      "doccplu_reject_nonzero_branch_va": "0x18001596e",
+      "doccplu_zero_return_value_va": "0x18001836a",
+      "generated_veto_status": "unmeasured"
+    },
+    "native_drawing_dispatch": {
+      "template_only_extension_comparisons": [
+        "prtdot",
+        "asmdot",
+        "drwdot",
+        "lytdot"
+      ],
+      "doccplu_ordinary_continuation_va": "0x180015c89",
+      "doccplu_document_slot_offset": "0x110",
+      "doccplu_call_on_save_document_va": "0x18001641f",
+      "doccplu_document_return_test_va": "0x180016421",
+      "slduiu_sheet_format_only_extension": "slddrt",
+      "slduiu_sheet_format_only_call_va": "0x496fdc8a",
+      "slduiu_drawing_native_slot_offset": "0x3080",
+      "slduiu_drawing_native_call_va": "0x496fdce0",
+      "slddrwu_native_fallback_call_va": "0x3defcdbb",
+      "slduiu_call_base_va": "0x49725c0d"
+    },
+    "storage_setup": {
+      "original_file_path_owner": "uiBaseDoc_c",
+      "original_file_path_offset": "0x2f8",
+      "sldappu_original_file_path_accessor_va": "0x456eed20",
+      "slduiu_optional_original_path_check_va": "0x49725a87",
+      "original_path_check_rule": "A differing live path and differing original path return success immediately. A path match can require reopening the original.",
+      "sldappu_resolved_storage_test_va": "0x458e7322",
+      "sldappu_call_save_doc_va": "0x458e7333",
+      "doccplu_call_save_to_storage_vas": [
+        "0x18001c64e",
+        "0x18001c669"
+      ],
+      "doccplu_pre_storage_open_or_creation_error_vas": [
+        "0x18001d04c",
+        "0x18001d054",
+        "0x18001d05b",
+        "0x18001d062"
+      ],
+      "doccplu_wrap_storage_va": "0x18001d9dc",
+      "doccplu_call_storage_is_valid_va": "0x18001d9fd",
+      "doccplu_storage_invalid_branch_va": "0x18001da05",
+      "doccplu_raise_storage_error_va": "0x18001e930",
+      "sldmfcu_structured_and_zip_root_test_va": "0x3c763c70",
+      "sldmfcu_structured_and_zip_root_offset": "0x80",
+      "sldmfcu_backend_free_is_valid_va": "0x3c7509d0",
+      "generated_runtime_pointer_status": "unmeasured"
+    },
+    "third_party_dispatch": {
+      "runtime_owner": "uiBaseDoc_c",
+      "display_list_only_offset": "0x3dc",
+      "quick_view_data_only_offset": "0x3e0",
+      "autosave_offset": "0x3d0",
+      "sldappu_get_display_list_only_va": "0x456e7fc0",
+      "sldappu_get_save_only_quick_view_data_va": "0x456ea340",
+      "doccplu_preview_branch_vas": [
+        "0x18001dd1d",
+        "0x18001dd2d"
+      ],
+      "doccplu_preview_join_va": "0x18001e173",
+      "doccplu_save_document_properties_call_va": "0x18001df56",
+      "doccplu_save_third_party_data_call_va": "0x18001dfb5",
+      "doccplu_current_vs_final_version_gate_vas": [
+        "0x18001f0d7",
+        "0x18001f0ea"
+      ],
+      "sldmfcu_current_version_constructor_va": "0x3c7522c0",
+      "sldmfcu_get_final_version_va": "0x3c752390",
+      "default_current_and_final_version": 19000,
+      "doccplu_substorage_failure_skips_first_only_va": "0x18001f2eb",
+      "doccplu_autosave_branch_vas": [
+        "0x18001f444",
+        "0x18001f490"
+      ],
+      "slduiu_autosave_state_write_va": "0x496f5619",
+      "slduiu_autosave_state_restore_va": "0x496f645a",
+      "ordinary_event_ordinals": [
+        9,
+        28
+      ],
+      "autosave_event_ordinals": [
+        11,
+        48
+      ],
+      "executed_observer_event_ordinals": [
+        6,
+        7,
+        9,
+        28
+      ],
+      "generated_runtime_mode_status": "unmeasured"
+    }
+  },
+  "next_observation": {
+    "com_calls_remain_authoritative": true,
+    "com_only_trial": "Repeat the original four matched lanes. Add autosave event subscriptions if present on the pinned source interface. Observe target existence and extent before save, at event 7 and after return. Calibrate an explicit veto on one disposable native control only if useful.",
+    "compatibility_of_installed_debugger_with_current_oracle": "unverified",
+    "historical_debugger_receipt_path": "re/solidworks/archive/Windbg.md",
+    "documented_debugger_alias": "cdbX64.exe",
+    "passive_breakpoints": [
+      {
+        "module": "doccplu.dll",
+        "rva": "0x15966",
+        "observe": "aggregate at stack +0x1b0 before the veto branch",
+        "debugger_expression": "dwo(@rsp+0x1b0)"
+      },
+      {
+        "module": "doccplu.dll",
+        "rva": "0x16421",
+        "observe": "OnSaveDocument result in EAX",
+        "debugger_expression": "@eax"
+      },
+      {
+        "module": "doccplu.dll",
+        "rva": "0x1da03",
+        "observe": "destination storage validity result in EAX",
+        "debugger_expression": "@eax"
+      },
+      {
+        "module": "doccplu.dll",
+        "rva": "0x1dfb5",
+        "observe": "Save3rdPartyData dispatch and autosave mode at UI document +0x3d0",
+        "debugger_expression": "dwo(poi(@r15)+0x3d0)"
+      }
+    ]
+  }
+}

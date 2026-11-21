@@ -1,0 +1,701 @@
+{
+  "heldout_inputs_read": 0,
+  "native_runs": 0,
+  "passed": true,
+  "passes": 16,
+  "runs": {
+    "direct_face_regression": {
+      "1": {
+        "result": {
+          "atom": 101,
+          "body_sha256": "9a4c540b8b1573fc3c5e08d20ac4f8c7cfa8f9f475fe1893ccdee4e1e972ec5b",
+          "map_counter": 90,
+          "native_runs": 0,
+          "part_sha256": "cbbee2698d21471819426e6c76d3331603cbabd98360474c0be50829db403aa0",
+          "passed": true,
+          "preserved_part_streams": 11,
+          "refused": 2,
+          "representations": 30,
+          "rows": 6,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary mode-0 face constructor wrappers, before row validation",
+          "variant": 1
+        },
+        "runs": 2,
+        "stdout_sha256": "a7fb06c9431ba2458a1df4fea17d4082ec97f0b9f265d6693910daa6adbd6cf8"
+      },
+      "2": {
+        "result": {
+          "atom": 101,
+          "body_sha256": "2bfc38c055bb10157f610407fd237f42e73e519d529539057081eefa5a235213",
+          "map_counter": 90,
+          "native_runs": 0,
+          "part_sha256": "509972adbe606ff47e0499783ea3b2c00ea47136fecfe5ec4bd091224d94d9a0",
+          "passed": true,
+          "preserved_part_streams": 11,
+          "refused": 2,
+          "representations": 30,
+          "rows": 6,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary mode-0 face constructor wrappers, before row validation",
+          "variant": 2
+        },
+        "runs": 2,
+        "stdout_sha256": "dfc7d01405b663005b6384089cf4435181129bdc8c829ad06b282f9d58613077"
+      }
+    },
+    "edge_constructors": {
+      "1": {
+        "result": {
+          "anti_or_original_collision_refusals": 2,
+          "atom": 101,
+          "body_sha256": "26b3ca06fc968ebaef271114e02d2110529efffb8218ed23ec906cf7e22b1743",
+          "collector_backed_edge_slots": 48,
+          "container_sha256": "7c68eb3e4aae1127bd27fe62913fa263e94530f7adb2d82d01df6da1305df51b",
+          "edge_keys": [
+            [
+              7,
+              865497005,
+              20657001
+            ],
+            [
+              8,
+              28892027,
+              860129938
+            ],
+            [
+              9,
+              539373702,
+              408598338
+            ],
+            [
+              10,
+              340859896,
+              609980103
+            ],
+            [
+              11,
+              836163733,
+              257454113
+            ],
+            [
+              12,
+              37545489,
+              58940307
+            ],
+            [
+              13,
+              586013898,
+              569421982
+            ],
+            [
+              14,
+              425486826,
+              732817013
+            ],
+            [
+              15,
+              504709542,
+              228395568
+            ],
+            [
+              16,
+              726328816,
+              591848623
+            ],
+            [
+              17,
+              933792656,
+              799312463
+            ],
+            [
+              18,
+              141256487,
+              6776294
+            ]
+          ],
+          "edge_roles": [
+            [
+              7,
+              17,
+              [
+                3,
+                1,
+                6,
+                4
+              ]
+            ],
+            [
+              8,
+              18,
+              [
+                4,
+                1,
+                3,
+                5
+              ]
+            ],
+            [
+              9,
+              19,
+              [
+                5,
+                1,
+                4,
+                6
+              ]
+            ],
+            [
+              10,
+              20,
+              [
+                6,
+                1,
+                5,
+                3
+              ]
+            ],
+            [
+              11,
+              21,
+              [
+                2,
+                3,
+                6,
+                4
+              ]
+            ],
+            [
+              12,
+              22,
+              [
+                2,
+                4,
+                3,
+                5
+              ]
+            ],
+            [
+              13,
+              23,
+              [
+                2,
+                5,
+                4,
+                6
+              ]
+            ],
+            [
+              14,
+              24,
+              [
+                2,
+                6,
+                5,
+                3
+              ]
+            ],
+            [
+              15,
+              25,
+              [
+                6,
+                3,
+                1,
+                2
+              ]
+            ],
+            [
+              16,
+              26,
+              [
+                3,
+                4,
+                1,
+                2
+              ]
+            ],
+            [
+              17,
+              27,
+              [
+                4,
+                5,
+                1,
+                2
+              ]
+            ],
+            [
+              18,
+              28,
+              [
+                5,
+                6,
+                1,
+                2
+              ]
+            ]
+          ],
+          "face_lookup_rows": 6,
+          "map_counter": 92,
+          "native_runs": 0,
+          "passed": true,
+          "preserved_part_streams": 11,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary prism mode-one edge rows after no-collision insertion, before the late pass",
+          "variant": 1
+        },
+        "runs": 2,
+        "stdout_sha256": "acb96cfdaf92935726d49107b78688e4b7001c17f90b11d7e46f96987aa8e2b2"
+      },
+      "2": {
+        "result": {
+          "anti_or_original_collision_refusals": 2,
+          "atom": 101,
+          "body_sha256": "634c3b722043d1283c064b01d0cd7fa6b0193249e523db992b4176823b89e3ea",
+          "collector_backed_edge_slots": 48,
+          "container_sha256": "12c5c87f745e2f19eb4d23fde34c30d095277674571333bcf073f5e68ffd69ab",
+          "edge_keys": [
+            [
+              7,
+              865497005,
+              20657001
+            ],
+            [
+              8,
+              28892027,
+              860129938
+            ],
+            [
+              9,
+              539373702,
+              408598338
+            ],
+            [
+              10,
+              340859896,
+              609980103
+            ],
+            [
+              11,
+              836163733,
+              257454113
+            ],
+            [
+              12,
+              37545489,
+              58940307
+            ],
+            [
+              13,
+              586013898,
+              569421982
+            ],
+            [
+              14,
+              425486826,
+              732817013
+            ],
+            [
+              15,
+              504709542,
+              228395568
+            ],
+            [
+              16,
+              726328816,
+              591848623
+            ],
+            [
+              17,
+              933792656,
+              799312463
+            ],
+            [
+              18,
+              141256487,
+              6776294
+            ]
+          ],
+          "edge_roles": [
+            [
+              7,
+              17,
+              [
+                3,
+                1,
+                6,
+                4
+              ]
+            ],
+            [
+              8,
+              18,
+              [
+                4,
+                1,
+                3,
+                5
+              ]
+            ],
+            [
+              9,
+              19,
+              [
+                5,
+                1,
+                4,
+                6
+              ]
+            ],
+            [
+              10,
+              20,
+              [
+                6,
+                1,
+                5,
+                3
+              ]
+            ],
+            [
+              11,
+              21,
+              [
+                2,
+                3,
+                6,
+                4
+              ]
+            ],
+            [
+              12,
+              22,
+              [
+                2,
+                4,
+                3,
+                5
+              ]
+            ],
+            [
+              13,
+              23,
+              [
+                2,
+                5,
+                4,
+                6
+              ]
+            ],
+            [
+              14,
+              24,
+              [
+                2,
+                6,
+                5,
+                3
+              ]
+            ],
+            [
+              15,
+              25,
+              [
+                6,
+                3,
+                1,
+                2
+              ]
+            ],
+            [
+              16,
+              26,
+              [
+                3,
+                4,
+                1,
+                2
+              ]
+            ],
+            [
+              17,
+              27,
+              [
+                4,
+                5,
+                1,
+                2
+              ]
+            ],
+            [
+              18,
+              28,
+              [
+                5,
+                6,
+                1,
+                2
+              ]
+            ]
+          ],
+          "face_lookup_rows": 6,
+          "map_counter": 92,
+          "native_runs": 0,
+          "passed": true,
+          "preserved_part_streams": 11,
+          "runtime_io_attempts": 0,
+          "scope": "ordinary prism mode-one edge rows after no-collision insertion, before the late pass",
+          "variant": 2
+        },
+        "runs": 2,
+        "stdout_sha256": "dad2f67ecfe7d2d1809189718dfa88e47aa739291f6f2809d5aad0de5c390c2b"
+      }
+    },
+    "face_aliases": {
+      "1": {
+        "result": {
+          "atom": 101,
+          "body_sha256": "e2c1097b453473784cfa340d59c4b55e257bb820732b5826c7435ccbf56af5f5",
+          "collector_backed_slots": 30,
+          "collector_members": 6,
+          "collision_refusals": 2,
+          "keys": [
+            [
+              1,
+              518822468,
+              71146249
+            ],
+            [
+              2,
+              645077736,
+              92753946
+            ],
+            [
+              3,
+              353738221,
+              433309997
+            ],
+            [
+              4,
+              118761492,
+              822564310
+            ],
+            [
+              5,
+              974730811,
+              302764653
+            ],
+            [
+              6,
+              483613477,
+              938954220
+            ]
+          ],
+          "map_counter": 47,
+          "native_runs": 0,
+          "part_sha256": "5d6c9ababdb1269c5d4133d413c010fac00a35e0c0596ccb6c72cc81304d9d12",
+          "passed": true,
+          "preserved_part_streams": 11,
+          "rows": 6,
+          "runtime_io_attempts": 0,
+          "scope": "generated prism collector and face rows in the scoped no-collision path",
+          "surface_slots": 30,
+          "variant": 1
+        },
+        "runs": 2,
+        "stdout_sha256": "2a1c2b65a3077e52529b1235659dbc2bc3f003f371de4450e90a23deba0dff1a"
+      },
+      "2": {
+        "result": {
+          "atom": 101,
+          "body_sha256": "67654e1ed9186d73bc2dca8795c72988b84ade8526d91a3716d69fe3a8f6006f",
+          "collector_backed_slots": 30,
+          "collector_members": 6,
+          "collision_refusals": 2,
+          "keys": [
+            [
+              1,
+              518822468,
+              71146249
+            ],
+            [
+              2,
+              645077736,
+              92753946
+            ],
+            [
+              3,
+              353738221,
+              433309997
+            ],
+            [
+              4,
+              118761492,
+              822564310
+            ],
+            [
+              5,
+              974730811,
+              302764653
+            ],
+            [
+              6,
+              483613477,
+              938954220
+            ]
+          ],
+          "map_counter": 47,
+          "native_runs": 0,
+          "part_sha256": "6e7c7e565a84f688f7caa17f8ca5a5fb5999c7221bcdaf4b3e6ea6553b577501",
+          "passed": true,
+          "preserved_part_streams": 11,
+          "rows": 6,
+          "runtime_io_attempts": 0,
+          "scope": "generated prism collector and face rows in the scoped no-collision path",
+          "surface_slots": 30,
+          "variant": 2
+        },
+        "runs": 2,
+        "stdout_sha256": "14633e4f3f7553143e97222fda373962d83e004d24af3169fd50b90f6955fce3"
+      }
+    },
+    "face_registration": {
+      "1": {
+        "result": {
+          "allocation_filetime": 134626708430833710,
+          "cache_filetime": 134644916313864305,
+          "cache_sha256": "3272141f8f29bd723b24dec4dd409d16f165998650ebd0e4cfafa4a5a13eb4fb",
+          "container_sha256": "ba94c4405a23b635973ccdabbbe20c7b9d5c273a995c20ba72534496a06a61f7",
+          "face_identity_rows": [
+            [
+              1,
+              0,
+              101,
+              5,
+              31349462,
+              2276669553
+            ],
+            [
+              2,
+              1,
+              101,
+              7,
+              31349462,
+              2276669553
+            ],
+            [
+              3,
+              2,
+              101,
+              9,
+              31349462,
+              2276669553
+            ],
+            [
+              4,
+              3,
+              101,
+              11,
+              31349462,
+              2276669553
+            ],
+            [
+              5,
+              4,
+              101,
+              13,
+              31349462,
+              2276669553
+            ],
+            [
+              6,
+              5,
+              101,
+              15,
+              31349462,
+              2276669553
+            ]
+          ],
+          "map_counter": 54,
+          "native_runs": 0,
+          "passed": true,
+          "runtime_io_attempts": 0,
+          "scope": "generated face lookup table and separate cache clock",
+          "variant": 1
+        },
+        "runs": 2,
+        "stdout_sha256": "8e9186425fb4281c3057cc94fffd84b065595914d2cae606a6661e05bf673afc"
+      },
+      "2": {
+        "result": {
+          "allocation_filetime": 134626710861667420,
+          "cache_filetime": 134644916623864305,
+          "cache_sha256": "37a7755fc0069f9f6bd4a9fa7fd502410ea007e5b7f98e7479e59f52f973fb0a",
+          "container_sha256": "ef1fc0ac176756d59ce605b15dbcce1586ed7d0eb00a39a7dad8532587944177",
+          "face_identity_rows": [
+            [
+              1,
+              0,
+              101,
+              5,
+              31349462,
+              2586669553
+            ],
+            [
+              2,
+              1,
+              101,
+              7,
+              31349462,
+              2586669553
+            ],
+            [
+              3,
+              2,
+              101,
+              9,
+              31349462,
+              2586669553
+            ],
+            [
+              4,
+              3,
+              101,
+              11,
+              31349462,
+              2586669553
+            ],
+            [
+              5,
+              4,
+              101,
+              13,
+              31349462,
+              2586669553
+            ],
+            [
+              6,
+              5,
+              101,
+              15,
+              31349462,
+              2586669553
+            ]
+          ],
+          "map_counter": 54,
+          "native_runs": 0,
+          "passed": true,
+          "runtime_io_attempts": 0,
+          "scope": "generated face lookup table and separate cache clock",
+          "variant": 2
+        },
+        "runs": 2,
+        "stdout_sha256": "e8fe894ffeb1dc8fb1559bff5f7229b24b19fe5f4e534a95079897d09b0b7c87"
+      }
+    }
+  },
+  "runtime_io_attempts": 0,
+  "schema": "kit.sw2026.downstream-prism-reference-replay.v1",
+  "source_derived_runtime_bytes": true
+}

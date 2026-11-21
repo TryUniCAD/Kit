@@ -1,0 +1,95 @@
+{
+  "actual_default_registry_builds": 4,
+  "actual_guest_primary_build_probe_completed": false,
+  "additional_unseen_design_credit": 0,
+  "cad_runtime_modules_observed": 0,
+  "canonical_request_prediction_tree_lock_before_source_access": true,
+  "code_source_count": 6000,
+  "combined_neutral_spec_sha256": "c86195e3ebd547b562d847218ee55ada42acb86e31b67ef451c02a67cf80b0e4",
+  "delivery_pr": 121,
+  "disclosed_cases": [
+    "D01",
+    "D03"
+  ],
+  "disclosed_process_count": 10,
+  "disclosed_process_proof_sha256": "e373cd9e1100e31ee72e59d12a4501018777377c24da935f8f7351db72c99ff4",
+  "executable_tool_count": 51,
+  "full_linked_graph_readbacks": 2,
+  "guest_windows_discovery_and_pinned_replays_completed": false,
+  "hidden_payloads_read_by_implementing_agent": 0,
+  "host_complete_files_match_disclosed_native_trial": true,
+  "host_identity_argument_failure": {
+    "retained_receipt_sha256": "9a541688bb002101bf68f7b2df2bd0ddc47834db5f21c476e3fd336bf370d60d",
+    "scope": "caller typo rejected before SDK workers; corrected without source changes; not counted as a passing test"
+  },
+  "host_runtime_discovery_sha256": "e2e8ee4837e6fef3eb02c35a38da4c6eab9d27339e75c3577ef8d93bf4407d83",
+  "host_runtime_identity_sha256": "e6bc60879a63bbe43409d72f8fd73411b4c85097f4f31e2e3e6d94e6169f25a4",
+  "host_runtime_typed_comparison_sha256": "20db6cdb7b5cd41669dd7f56aa2a6fcb20923e554feb5cb491edd896060d8e36",
+  "host_two_replay_stream_round_trips": 44,
+  "host_two_replay_worker_count": 2,
+  "host_two_replays_sha256": "bf0a5155ba9ecbea8fc28b414bb3478bfc48afe7537e386521bbd19cfad8572b",
+  "limits": [
+    "Host replay does not prove actual Windows runtime identity or the guest fixed-drive probe",
+    "The actual native registry self-lifecycle is a separate disclosed receipt",
+    "No new case values are created from previous H outcomes",
+    "The original cases already qualified the internal route; this new method adds no unseen-design count",
+    "No global public qualification or registry activation is granted by this source-only freeze"
+  ],
+  "method_sha256": "5083d1cbee90ffc531d6c646d917449c402c0b8bc57dc599433d0f5ec27c2c35",
+  "native_observer_and_paired_comparator_unchanged": true,
+  "native_phase_count_per_slot": 6,
+  "native_processes_started_by_agent": 0,
+  "native_source_locks": {
+    "Slot01": {
+      "case_id": "H01",
+      "source_lock_sha256": "6538c86b5fa05b7f3f7b7c605cbdad10a565820432959562e591f86d41beed7b"
+    },
+    "Slot02": {
+      "case_id": "H02",
+      "source_lock_sha256": "bcc0ad312a740ddfa56f2dade91ab6d7a209d7a2121bf555db82bcc2f732b416"
+    }
+  },
+  "new_profile_stream_round_trips": 88,
+  "normal_registry_output_native_flags_remain_false": true,
+  "normal_registry_primary_guest_destination_then_same_identity_replica": true,
+  "original_pre_writer_sources_reused": true,
+  "owner": "assembly_occurrence",
+  "preconditions_before_hidden_release": [
+    "Root independently reviews the full source/tool/input hashes",
+    "Guest performs disclosed discovery without CAD or H access",
+    "Host explains every differing field within the predeclared runtime arithmetic owner set",
+    "Root commits a separate exact guest file identity",
+    "Two fresh exact disclosed guest replays pass",
+    "The complete actual guest primary-destination build, second reproduction and typed linked readback pass",
+    "Root publishes a method/runtime/slot-specific release record"
+  ],
+  "previous_internal_method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+  "protocol_tool_hashes": {
+    "CheckPublicPerpGuest.py": "43fbb281c413475a9c5dd4ba160e4a88ad0e46397e8b360738712d0ba13482e1",
+    "CheckPublicPerpMethod.py": "22583a501a1dd39471c38005e1733266f6898950ae5b6575d8c9ddee2dfdffb3",
+    "ComparePublicPerpRuntime.py": "6d7bc2d3cc6dc9b56df9eccca9499b3675432ed46a03f17ad731deb33e00bd88",
+    "EvaluatePublicPerpSlot.py": "6439917cf6790b5c7e84675d3717ca6f5da6991af7449add07f921afb3eb0da5",
+    "FreezePublicPerpMethod.py": "3c327666cfd099414eca113e3d1e98f1056ca7a12b38361bc67e5c67ef5919b8",
+    "GuardPublicPerpBuild.py": "75b90514422bb2b175151f75b3b6a2b21ca105612a611ad72c482b97bc9c5dbe",
+    "TranslatePublicPerpCase.py": "460358a6429c627681f381db926a008f236d09bf630e07884d9718cc2f90564f",
+    "VerifyPublicPerpFreeze.py": "b87ebc06b4b9f3eeca71ee738afe534c5e32d92334fbfd138e3e6d66e1451410"
+  },
+  "public_writer_qualified": false,
+  "recipe_sha256": "f157e3d12e97794fd4f9143b6b3e2dae5083875f9bc4ed3faa1b55c7b6405385",
+  "reverse_source_selection_rejected": true,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.public-perpendicular-blind-method-freeze.v1",
+  "sdk_research_imports_observed": 0,
+  "sdk_source_manifest_sha256": "68f3acd0d0a65f25783dd31def611c63b8651163497bed9c8abb129f2bbf26c1",
+  "source_guards": "only forward native selection order; three actual child driving lengths; no unconsumed input metadata, parameters or references",
+  "source_only_profile": "two direct rigid occurrences sharing one owned dimensioned centered rectangular blind boss; one fixed anchor; one ordinary unknown-alignment principal-plane perpendicular",
+  "strict_pair_comparisons_per_slot": 6,
+  "strict_sdk_pair_audits_per_slot": 3,
+  "superseded_pre_execution_methods": {
+    "01": "b681bd3cd8649f9bcc097ffe46f9efc51327ca81a3b77a7ada4186ffa74798c8",
+    "02": "70e14f024b58f1df355a13529598a4a37d52f4ce4d1bef3197e4edeb86762c05"
+  },
+  "synthetic_host_slot_rejected": true,
+  "synthetic_negative_uses_only_disclosed_D01_values": true,
+  "task": "B04-SW2026-MATES-PERPENDICULAR/public"
+}

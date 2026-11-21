@@ -1,0 +1,316 @@
+{
+  "build_proof_sha256": "682e721b4b04c085fb39499af20ac677c55c04bf277a0d1b4872c348bdf67bd2",
+  "disclosed_native_lifecycle_passed": true,
+  "distinct_native_processes": 6,
+  "full_source_semantics_parity_claimed": false,
+  "generated_sha256": "64ce7aa78ea6efc2bea775682755a18eb909e5cad2403ec8cd259b51b15fc4a5",
+  "guarded_builds": 2,
+  "healthy_control_lifecycles": 2,
+  "heldout_inputs_read": 0,
+  "identical_generated_bytes": true,
+  "neutral_intent_sha256": "f66166b8f37298cb127b1e76a40e266424223fcc04340efbc561bab77c8e9a0e",
+  "normal_routes": [
+    "extension",
+    "solidworks.slddrw"
+  ],
+  "oracle_build": "34.5.2.0604",
+  "phases": [
+    {
+      "derivative_sha256": "dffaf96545eb5bfd42c51511d5105aba9b45cb650b819790620e8aa18a55fe41",
+      "edited": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "initial": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395632417480100,
+      "rebuilt": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "f4f5301ab2976272d7d9bd2a57c438c113f3158c1ba0d49226cced200167f6db",
+      "role": "ControlBefore/OpenEditSave",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "tree_rows": 10
+    },
+    {
+      "initial": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395632707584092,
+      "rebuilt": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "43965cd6b2a4a2ebbe592163aa1139aaf0ac4f9239a148909cdcc8318db28644",
+      "role": "ControlBefore/FreshReopen",
+      "tree_rows": 10
+    },
+    {
+      "derivative_sha256": "e1e09c8254bf674365c7ca72de35e5d9f069f63cf1fcf22a29d6e9fa09a88b1c",
+      "edited": {
+        "sheet": "Verification paper",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "initial": {
+        "sheet": "Verification paper",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          9.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395632947321815,
+      "rebuilt": {
+        "sheet": "Verification paper",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          13.0,
+          9.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "d2419f48d06ff0c62f9d4400e5761548b1afbcc6d5639d8a14c6fabc9ab80f9f",
+      "role": "Generated/OpenEditSave",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "tree_rows": 10
+    },
+    {
+      "initial": {
+        "sheet": "Verification paper",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395633174847674,
+      "rebuilt": {
+        "sheet": "Verification paper",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "df7dd98ded097eec2e16fd39aa36527f4139f52320f5e64d9b69fe170d6692ba",
+      "role": "Generated/FreshReopen",
+      "tree_rows": 10
+    },
+    {
+      "derivative_sha256": "9f39ab296a6b0f53d22d16a50d19042f0afe2b9e8dcb938c9671c426d4fbd543",
+      "edited": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "initial": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395633400317213,
+      "rebuilt": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          1.0,
+          1.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "aaedc4bcee80f2cdbb14b8bf4f21218ffc8d881b4f85a66221787eb1cc03daf2",
+      "role": "ControlAfter/OpenEditSave",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "tree_rows": 10
+    },
+    {
+      "initial": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "open_errors": 0,
+      "open_warnings": 0,
+      "process_birth_filetime": 134395633631067631,
+      "rebuilt": {
+        "sheet": "Sheet1",
+        "sheet_properties": [
+          0.0,
+          13.0,
+          3.0,
+          2.0,
+          0.0,
+          0.2794,
+          0.21589999999999998,
+          1.0
+        ],
+        "view": null,
+        "whats_wrong": 0
+      },
+      "record_sha256": "33297d631c668200386f138bf09c4ea7e18cd35304dabcacc94359f50bb299d5",
+      "role": "ControlAfter/FreshReopen",
+      "tree_rows": 10
+    }
+  ],
+  "raw_result_sha256": "0059b7324b9ecddc89ba452d174d37b12e26e089a5aad5ee5942160c5ff9d6ee",
+  "runtime_reads_each": 0,
+  "schema": "kit.sw2026.sdk-public-blank-disclosed.v1",
+  "source_manifest_entries": 4686,
+  "trial_sha256": "c22769042c1768867eb9226b964797741aa263211ca69bd6dc9b51e9a23b8e04",
+  "writer_source_manifest_sha256": "94d99320d2c1c85c7abfce09079d986abf211e5829ef514ca6d078a5a16a270f"
+}

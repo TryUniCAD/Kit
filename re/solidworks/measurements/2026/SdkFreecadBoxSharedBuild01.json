@@ -1,0 +1,96 @@
+{
+  "builds": [
+    {
+      "bytes": 9971,
+      "case": "initial-1",
+      "generated_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+      "request_sha256": "26a4c08a8625ad04a1f0d49d293c027616c7310ed4b3a596789c2fbbf175225d",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": true,
+      "stdout_sha256": "1cf2820721c4d5eb604309696711fa57281b5f4f49a15143acfd6e73ad3c5e41"
+    },
+    {
+      "bytes": 9971,
+      "case": "initial-2",
+      "generated_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+      "request_sha256": "26a4c08a8625ad04a1f0d49d293c027616c7310ed4b3a596789c2fbbf175225d",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": true,
+      "stdout_sha256": "1cf2820721c4d5eb604309696711fa57281b5f4f49a15143acfd6e73ad3c5e41"
+    },
+    {
+      "bytes": 9971,
+      "case": "initial-no-cache",
+      "generated_sha256": "44bd9e4259a3e5703a39ecb6d92fe9450b67eb699fc57f44ad48aae9b15c1bcc",
+      "request_sha256": "fa480fc16b08934f321648329ebd53c664fc0540c99407992b3a29e56613b83e",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": false,
+      "stdout_sha256": "3bc284c821f229e6eb67a7a9ab4d7197c885507ee445e0d4a4092c7c3d9b439a"
+    },
+    {
+      "bytes": 10072,
+      "case": "source-labels-1",
+      "generated_sha256": "bdc403f12027c23936409a7a7343f3def1b0c277a3094aca65d957e14c44093d",
+      "request_sha256": "d2c33dce1c767d0ff7fec707e1093366199f7f27681a4eab996a9068fb53f596",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": true,
+      "stdout_sha256": "b4167afb982a47754609574850ed21777269e01e29c827d7aa51c0002bb48a49"
+    },
+    {
+      "bytes": 10072,
+      "case": "source-labels-2",
+      "generated_sha256": "bdc403f12027c23936409a7a7343f3def1b0c277a3094aca65d957e14c44093d",
+      "request_sha256": "d2c33dce1c767d0ff7fec707e1093366199f7f27681a4eab996a9068fb53f596",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": true,
+      "stdout_sha256": "b4167afb982a47754609574850ed21777269e01e29c827d7aa51c0002bb48a49"
+    },
+    {
+      "bytes": 10072,
+      "case": "source-labels-no-cache",
+      "generated_sha256": "bdc403f12027c23936409a7a7343f3def1b0c277a3094aca65d957e14c44093d",
+      "request_sha256": "3971f1000eda8c2718bfbf4d25f62d8e156ab56d9b405c75c5684e729ac0d96d",
+      "runtime_input_file_reads": 0,
+      "source_cache_present": false,
+      "stdout_sha256": "8bab3286c3a647763da6e3a47cd3521a49ce1af7d86f2d76c8e59cf9c45d2c40"
+    }
+  ],
+  "complete_corpus_conversions": 0,
+  "files_sha256": {
+    "re/tooling/sw2026/ProjectFreecadBox.py": "b94f45bf15b2f87e0cfcd85544f274e3331d0542ceabc5178c2a0f25eeb160c3",
+    "re/tooling/sw2026/SdkFreecadBoxProcess.py": "3d2ec1c082d1fccc4a563ae76f09d606336863e2b0d491c8a5ed86541bfff918",
+    "re/tooling/sw2026/VerifySdkFreecadBoxShared.py": "d84f3f2bdb559d27c9032e1c76a2847f46322edb4f792b59166c9aea337e69ec",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/LowerBoxModel.py": "48d1ed44ae90b878c55f932c7c6842b21c1445e4beae321f56e77016d5e98fb1",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/MakeBoxProfile.py": "7974e7266af854e0334b1aa897b83bb30da8cfc6c7fead476f53099ea99b8971",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/MakeOriginBoxPart.py": "501ecd143476df8681cfd5f1a857f5e7777fdef083ee9b56ef28c5d2f9e946ed"
+  },
+  "guarded_processes": 9,
+  "heldout_inputs_read": 0,
+  "manifest_sha256": "0c44d49067de45ea4780acc3f62091adbc60592db6d415e30811b4a19d6ea187",
+  "measured_native_lifecycle_reference": "SdkFreecadBoxSourceNames01.json",
+  "passed": true,
+  "proof_sha256": "08579cba8fe2e2243a3abf1949a77db2a5e670aa048e24f3801e2ba37e28b213",
+  "public_writer_qualified": false,
+  "rejections": [
+    {
+      "case": "foreign-target",
+      "rejection": "ValueError: native self filename must match the actual modeled part name",
+      "request_sha256": "1fcbb570db74fd93d8a9adae0ba222e3f4211710b833b18ab7d85929ebd1e4ed"
+    },
+    {
+      "case": "disagreeing-driver",
+      "rejection": "ValueError: FreeCAD box does not carry three positive independent source dimensions",
+      "request_sha256": "e2cdfe973671fc90496c74a18b649bc78591cae26183e38c452a313fc783c1ec"
+    },
+    {
+      "case": "unmapped-configuration",
+      "rejection": "ValueError: FreeCAD box lost actual body, material or configuration ownership",
+      "request_sha256": "ae8de26ddf088b10585cc3a129eaebf06b957757d4d2ec104af53c87d3bb249c"
+    }
+  ],
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.freecad-box-shared-build-receipt.v1",
+  "source_cache_removed_in_two_processes": true,
+  "source_sha256": "2f0e5e20da3e8f6d2073a7c8dd654b0c5035ed142c2e0392a14de832cd82eb5d",
+  "task": "B04-SW2026-FCSTD-BOX"
+}

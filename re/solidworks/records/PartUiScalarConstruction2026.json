@@ -1,0 +1,557 @@
+{
+  "bounded_ranges": [
+    {
+      "bytes": 7,
+      "end_exclusive": "0x456fa897",
+      "module": "sldappu.dll",
+      "operand_facts": [
+        "0x170(",
+        "retq"
+      ],
+      "role": "quality_named_getter",
+      "semantic_export_prefix": "?hlrDisplayQuality@uiBaseView_c@@",
+      "sha256": "dcd95cfe8f557e556347d742331cfd6fc2a3c800ea28a3edd29f99134be043d0",
+      "start": "0x456fa890"
+    },
+    {
+      "bytes": 39,
+      "end_exclusive": "0x459a1297",
+      "module": "sldappu.dll",
+      "operand_facts": [
+        "0x228(",
+        "0x170(",
+        "0x174(",
+        "0xffff"
+      ],
+      "role": "quality_named_setter",
+      "semantic_export_prefix": "?setHlrDisplayQuality@uiBaseView_c@@",
+      "sha256": "d5fa6a5e3a9dfdcb3ffb3787abe57b1d02cb2da02b8a405b99568dc1db820f58",
+      "start": "0x459a1270"
+    },
+    {
+      "bytes": 40,
+      "end_exclusive": "0x4970143e",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x493b5c80",
+        "0x148(",
+        "0xacc(",
+        "0x170(",
+        "0xad0("
+      ],
+      "role": "quality_and_display_capture",
+      "semantic_export_prefix": null,
+      "sha256": "2f799afe697df753892fa9c99fad685c0d4b99e726b2c8ed78d893b816af34b3",
+      "start": "0x49701416"
+    },
+    {
+      "bytes": 32,
+      "end_exclusive": "0x4970148e",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xad0(",
+        "0xad4(",
+        "0x4a474590",
+        "0x4a4740e8"
+      ],
+      "role": "quality_grid_store",
+      "semantic_export_prefix": null,
+      "sha256": "2bc35168b17de3a9787696bc7c3644464ad1e13a1e043877fc499475de59b406",
+      "start": "0x4970146e"
+    },
+    {
+      "bytes": 10,
+      "end_exclusive": "0x49748c46",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x3, 0xad4("
+      ],
+      "role": "constructor_grid_mask",
+      "semantic_export_prefix": null,
+      "sha256": "4dd53ce2c4ec943e2801d06b7cfad8751f671f7b644f222e3544ef527f269c69",
+      "start": "0x49748c3c"
+    },
+    {
+      "bytes": 33,
+      "end_exclusive": "0x497872d1",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xad4(",
+        "0x1, %eax"
+      ],
+      "role": "grid_getter",
+      "semantic_export_prefix": "?getDisplayGrid@uiModelDoc_c@@",
+      "sha256": "a14c8634d79f339cdc679ba9034009f682272da9d04f5f05549308ea7cbca2a1",
+      "start": "0x497872b0"
+    },
+    {
+      "bytes": 31,
+      "end_exclusive": "0x497b929f",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xad4(",
+        "0x1,",
+        "-0x2"
+      ],
+      "role": "grid_setter",
+      "semantic_export_prefix": "?setDisplayGrid@uiModelDoc_c@@",
+      "sha256": "88068387c5255c228b51d8183e3d81b1a7679ceb0df87745a3474f6f93cc48b6",
+      "start": "0x497b9280"
+    },
+    {
+      "bytes": 192,
+      "end_exclusive": "0x49787040",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x12c8(",
+        "0xb00(",
+        "0xb04(",
+        "0xb08(",
+        "0x8c8("
+      ],
+      "role": "default_context_getter",
+      "semantic_export_prefix": "?getDefaultContextMode@uiModelDoc_c@@",
+      "sha256": "35696ae2d372da5e31e7071db05b7ccd6142c570e4fbd618c43cf10addcbba58",
+      "start": "0x49786f80"
+    },
+    {
+      "bytes": 210,
+      "end_exclusive": "0x497b9132",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x12c8(",
+        "0xb00(",
+        "0xb04(",
+        "0xb08(",
+        "0x8d0("
+      ],
+      "role": "default_context_setter",
+      "semantic_export_prefix": "?setDefaultContextMode@uiModelDoc_c@@",
+      "sha256": "ba9b408af5c41951a45a7b50cf1e4fd1187b7ec4ac26f731f9a3ebd122e427a3",
+      "start": "0x497b9060"
+    },
+    {
+      "bytes": 67,
+      "end_exclusive": "0x4970191a",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xb00(",
+        "0xb04(",
+        "0x2ed0(",
+        "0x4a474590"
+      ],
+      "role": "context_before_store_confirmation",
+      "semantic_export_prefix": null,
+      "sha256": "cee0470832790e72b5b5a3324a129e830e155f3915ff15554bb99cb89d426c06",
+      "start": "0x497018d7"
+    },
+    {
+      "bytes": 74,
+      "end_exclusive": "0x497033da",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xb00(",
+        "0xb04(",
+        "0x2ed0(",
+        "0x4a474578"
+      ],
+      "role": "context_after_load_confirmation",
+      "semantic_export_prefix": null,
+      "sha256": "6bbaabc79d194ebc0b76271286546af0d7786ceb7e82d55b815a0b2d28dc60d1",
+      "start": "0x49703390"
+    },
+    {
+      "bytes": 19,
+      "end_exclusive": "0x3338bce3",
+      "module": "sldprtu.dll",
+      "operand_facts": [
+        "0x1, (%rdx)",
+        "0x0, (%r8)"
+      ],
+      "role": "part_context_confirmation",
+      "semantic_export_prefix": "?iConfirmDocContextModes@uiPartDoc_c@@",
+      "sha256": "133d5d0eda6e236422b7c5dac6336ca4e667c0e02928d38f0638891dcf912e8a",
+      "start": "0x3338bcd0"
+    },
+    {
+      "bytes": 20,
+      "end_exclusive": "0x333749a0",
+      "module": "sldprtu.dll",
+      "operand_facts": [
+        "0x3346f4d0",
+        "0x3349e068",
+        "(%rdi)"
+      ],
+      "role": "part_constructor_primary",
+      "semantic_export_prefix": null,
+      "sha256": "fbda4cce934a55bbc3adb6c1bb3f89bafde5c10f9f327907667e7f5a9c235843",
+      "start": "0x3337498c"
+    },
+    {
+      "bytes": 309,
+      "end_exclusive": "0x497017a0",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0xaf8(",
+        "0x49781340",
+        "0x698(",
+        "0x3d0(",
+        "0x497d5740",
+        "0x497d62f0",
+        "0x4a471648",
+        "0x497d5950"
+      ],
+      "role": "environment_store_capture_and_count",
+      "semantic_export_prefix": null,
+      "sha256": "5dd3b5bf674069dd8158889c07ac005bcb4251ef1577adfe4be1b85313acf6e3",
+      "start": "0x4970166b"
+    },
+    {
+      "bytes": 114,
+      "end_exclusive": "0x49702a52",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x4a474578",
+        "0x49702bcc",
+        "0xaf8(",
+        "0x497d58d0"
+      ],
+      "role": "environment_read_count_and_objects",
+      "semantic_export_prefix": null,
+      "sha256": "4eaeb9c364ee2e5a3f14d47a176bbe7c73f87759d74b6af5dd4306da715a848d",
+      "start": "0x497029e0"
+    },
+    {
+      "bytes": 82,
+      "end_exclusive": "0x49702bb6",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x49781340",
+        "0x497d6bc0",
+        "0x8(%rax)"
+      ],
+      "role": "environment_load_null_duplicate_filter",
+      "semantic_export_prefix": null,
+      "sha256": "213fe86ba69db4c77d9e30c12e4d88c0e397f06e4436f849ff55d1d011e75582",
+      "start": "0x49702b64"
+    },
+    {
+      "bytes": 4,
+      "end_exclusive": "0x31deec54",
+      "module": "sldmgu.dll",
+      "operand_facts": [
+        "-0x10(%rcx)",
+        "retq"
+      ],
+      "role": "dynamic_array_count",
+      "semantic_export_prefix": "amDynamicArrayCount",
+      "sha256": "31f71d7bede065b6f512432eee8b2df89131143559901f2becc28be30804e926",
+      "start": "0x31deec50"
+    },
+    {
+      "bytes": 40,
+      "end_exclusive": "0x497c3296",
+      "module": "slduiu.dll",
+      "operand_facts": [
+        "0x88(%rsp)",
+        "0x80(%rsp)",
+        "0x4a4679f0"
+      ],
+      "role": "toolbar_group_dispatch",
+      "semantic_export_prefix": null,
+      "sha256": "93749a01af6badba938c09fa9cd9855d07597eaf7bb65c5e9a04107c1c555ddd",
+      "start": "0x497c326e"
+    }
+  ],
+  "command_group_vocabulary": {
+    "38283": {
+      "block_id": 2393,
+      "code_page": 0,
+      "language_id": 1033,
+      "payload_bytes": 950,
+      "payload_rva": 3433288,
+      "payload_sha256": "f408eee0419c2004bc2d72bce5ec163b357ac8b0d8f60087c569ce6e2857f242",
+      "slot": 11,
+      "value": "Drawing commands\nDrawings"
+    },
+    "38284": {
+      "block_id": 2393,
+      "code_page": 0,
+      "language_id": 1033,
+      "payload_bytes": 950,
+      "payload_rva": 3433288,
+      "payload_sha256": "f408eee0419c2004bc2d72bce5ec163b357ac8b0d8f60087c569ce6e2857f242",
+      "slot": 12,
+      "value": "Feature commands\nFeatures"
+    }
+  },
+  "complete_functions": {
+    "environment_constructor": {
+      "code_sha256": "1aee5988e77104391ddc1946296d95b647a1688e2769780247e4e18b2b132e34",
+      "end_rva_exclusive": "0x9357aa",
+      "end_va_exclusive": "0x497d57aa",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "??0uiUserModelEnv_c@@QEAA@XZ"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x935740",
+      "start_va": "0x497d5740",
+      "unwind_rva": "0x1bd42a4"
+    },
+    "environment_serializer": {
+      "code_sha256": "617b627aa472a12ed2a23455804c84da65420b8f6e7bf87efc805eae03e7611d",
+      "end_rva_exclusive": "0x936229",
+      "end_va_exclusive": "0x497d6229",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "module": "slduiu.dll",
+      "start_rva": "0x935ee0",
+      "start_va": "0x497d5ee0",
+      "unwind_rva": "0x1bd43e8"
+    },
+    "find_user_environment": {
+      "code_sha256": "bfeb0dfacb964e472d9fc0d4b0fc5ad619f67d02e379ec1ddfa5e84edb994f40",
+      "end_rva_exclusive": "0x8e1481",
+      "end_va_exclusive": "0x49781481",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?findUserModelEnvData@uiModelDoc_c@@QEBAPEAVuiUserModelEnv_c@@PEB_WH@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x8e1340",
+      "start_va": "0x49781340",
+      "unwind_rva": "0x1bc73d0"
+    },
+    "get_default_context": {
+      "code_sha256": "35696ae2d372da5e31e7071db05b7ccd6142c570e4fbd618c43cf10addcbba58",
+      "end_rva_exclusive": "0x8e7040",
+      "end_va_exclusive": "0x49787040",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?getDefaultContextMode@uiModelDoc_c@@UEAAXAEAW4swContextType_e@@AEAH1@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x8e6f80",
+      "start_va": "0x49786f80",
+      "unwind_rva": "0x1b8157c"
+    },
+    "is_editing_self": {
+      "code_sha256": "5eccc910a3d2c0c7655dbbdc60ec0fd247e171dab361ed316425c6dca2b47507",
+      "end_rva_exclusive": "0x90493a",
+      "end_va_exclusive": "0x497a493a",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?isEditingSelf@uiModelDoc_c@@UEAAHXZ"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x9047f0",
+      "start_va": "0x497a47f0",
+      "unwind_rva": "0x1ab4c08"
+    },
+    "model_ui_serializer": {
+      "code_sha256": "005891cd89400858a8a72b7dcdb21fad4b68e430a71ce5bbb19d798fcad28c5e",
+      "end_rva_exclusive": "0x864a43",
+      "end_va_exclusive": "0x49704a43",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?Serialize@uiModelDoc_c@@UEAAXAEAVsu_CArchive@@@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x8611e0",
+      "start_va": "0x497011e0",
+      "unwind_rva": "0x1bbc7d4"
+    },
+    "set_default_context": {
+      "code_sha256": "ba9b408af5c41951a45a7b50cf1e4fd1187b7ec4ac26f731f9a3ebd122e427a3",
+      "end_rva_exclusive": "0x919132",
+      "end_va_exclusive": "0x497b9132",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setDefaultContextMode@uiModelDoc_c@@UEAAXW4swContextType_e@@HH@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x919060",
+      "start_va": "0x497b9060",
+      "unwind_rva": "0x1ac9c0c"
+    },
+    "splitter_constructor": {
+      "code_sha256": "283f93ac5bdf4367ed13ce996872fd8e1444772a5d1cbad678671c95959ecabf",
+      "end_rva_exclusive": "0x935731",
+      "end_va_exclusive": "0x497d5731",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "module": "slduiu.dll",
+      "start_rva": "0x935600",
+      "start_va": "0x497d5600",
+      "unwind_rva": "0x1bd4170"
+    },
+    "splitter_serializer": {
+      "code_sha256": "dee8484e884bbb8fd19a4dc22095ec5c9df7e35835c0d0b7cfd92057261eebd9",
+      "end_rva_exclusive": "0x935ed7",
+      "end_va_exclusive": "0x497d5ed7",
+      "exact_export_alias_count": 0,
+      "exact_exports": [],
+      "module": "slduiu.dll",
+      "start_rva": "0x935b00",
+      "start_va": "0x497d5b00",
+      "unwind_rva": "0x1bd428c"
+    },
+    "toolbar_manager_set_context": {
+      "code_sha256": "c277387dac05c587858c31863bfd19e4e81517272357624fabb6d7708163b4a1",
+      "end_rva_exclusive": "0x79291c",
+      "end_va_exclusive": "0x45b8291c",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?setContextToolbarMode@uiToolBarManager_c@@QEAAHHW4swContextType_e@@HHH@Z"
+      ],
+      "module": "sldappu.dll",
+      "start_rva": "0x792730",
+      "start_va": "0x45b82730",
+      "unwind_rva": "0xd1f17c"
+    },
+    "update_context_toolbar": {
+      "code_sha256": "99652000084e95d1dd68c6fb3d83e6b5a730646cfff37f8656b8882c54e77f6f",
+      "end_rva_exclusive": "0x9232a3",
+      "end_va_exclusive": "0x497c32a3",
+      "exact_export_alias_count": 1,
+      "exact_exports": [
+        "?updateContextToolbar@uiModelDoc_c@@UEAAXW4swContextType_e@@HH@Z"
+      ],
+      "module": "slduiu.dll",
+      "start_rva": "0x9230b0",
+      "start_va": "0x497c30b0",
+      "unwind_rva": "0x1bc45b8"
+    }
+  },
+  "complete_source_preparation": false,
+  "environment_construction": false,
+  "heldout_inputs_read": 0,
+  "imports": {
+    "0x4a446000": {
+      "module": "ADVAPI32.dll",
+      "symbol": "GetUserNameW"
+    },
+    "0x4a45fab0": {
+      "module": "USER32.dll",
+      "symbol": "GetClientRect"
+    },
+    "0x4a465610": {
+      "module": "sldappu.dll",
+      "symbol": "?Document@ModelContext_c@@QEBAPEAVuiBaseDoc_c@@H@Z"
+    },
+    "0x4a465618": {
+      "module": "sldappu.dll",
+      "symbol": "??0ModelContext_c@@QEAA@PEBVmoFiledConcept_c@@@Z"
+    },
+    "0x4a4679f0": {
+      "module": "sldappu.dll",
+      "symbol": "?setContextToolbarMode@uiToolBarManager_c@@QEAAHHW4swContextType_e@@HHH@Z"
+    },
+    "0x4a471648": {
+      "module": "sldmgu.dll",
+      "symbol": "amDynamicArrayCount"
+    },
+    "0x4a471650": {
+      "module": "sldmgu.dll",
+      "symbol": "suDynArrayAlloc"
+    }
+  },
+  "modules": [
+    {
+      "base": "0x48ea0000",
+      "bytes": 36036696,
+      "machine": "0x8664",
+      "name": "slduiu.dll",
+      "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+    },
+    {
+      "base": "0x453f0000",
+      "bytes": 16519768,
+      "machine": "0x8664",
+      "name": "sldappu.dll",
+      "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+    },
+    {
+      "base": "0x332a0000",
+      "bytes": 3340888,
+      "machine": "0x8664",
+      "name": "sldprtu.dll",
+      "sha256": "54c079c8bbbe13582d062787c07a13f91d91f2d7972715e5d647bb8a1802d494"
+    },
+    {
+      "base": "0x31dd0000",
+      "bytes": 2363992,
+      "machine": "0x8664",
+      "name": "sldmgu.dll",
+      "sha256": "99b6382da64df9fd37ca04720c210eaadc6750feb8cdeae6dd1289865da56e7c"
+    },
+    {
+      "base": "0x404e0000",
+      "bytes": 4461656,
+      "machine": "0x8664",
+      "name": "sldresu.dll",
+      "sha256": "531cf5d1c913f60f707652f0ecae600313d0970f7e649dcadec64983c484e111"
+    }
+  ],
+  "native_acceptance": false,
+  "native_processes": 0,
+  "part_primary": {
+    "address": "0x3349e068",
+    "constructor": "0x33374980",
+    "rtti": ".?AVuiPartDoc_c@@",
+    "virtual_bindings": {
+      "confirm_context": {
+        "cell": "0x334a0f38",
+        "slot": "0x2ed0",
+        "target": "0x3338bcd0"
+      },
+      "is_editing_self": {
+        "cell": "0x3349f330",
+        "import_cell": "0x33473e98",
+        "imported": {
+          "module": "slduiu.dll",
+          "symbol": "?isEditingSelf@uiModelDoc_c@@UEAAHXZ"
+        },
+        "slot": "0x12c8",
+        "target": "0x33436935"
+      },
+      "is_opened_hidden": {
+        "cell": "0x3349e700",
+        "import_cell": "0x3346e150",
+        "imported": {
+          "module": "sldappu.dll",
+          "symbol": "?isOpenedHidden@uiBaseDoc_c@@UEBAHXZ"
+        },
+        "slot": "0x698",
+        "target": "0x33432717"
+      }
+    }
+  },
+  "persistent_analysis_target_opened": false,
+  "public_activation": false,
+  "rules": {
+    "command_group": "Typed features selection uses exact resourceID38284 from the unrelated installed Feature commands vocabulary and the named toolbar context owner. Zero is the explicit cleared/unspecified group, independently written by the part validator. Drawing group38283 and other groups remain outside this component.",
+    "environment_bound": "These plain part environments have both f10 and fe0 splitters. The drawing context omits f10 through its separate context predicates. Count/class audit does not construct or declare the actual window/splitter geometry disposable. Two source window frontiers remain open.",
+    "fad0": "Persisted u16 of active Brep view uiBaseView+0x170, named hlrDisplayQualityType; ordinary source component only admits codes0/1 with facc3. Setter caches old quality at+174, is disabled by a nonzero+228 lock, and maps sentinel65535 to0. Other domains and live lock state are not generated.",
+    "fad4": "UI constructor stores3. Named document getter reads bit0 after actual-sketch callback, setter changes bit0 only. The source component derives2|int(DisplayGrid) and refuses all other bits. This reuses the existing drawing toggle owner; it does not transfer drawing-specific annotation-mask merges.",
+    "fb00_fb04": "Native default-context type and command group occupy UI runtime+b00/+b04; third flags argument+b08 has no adjacent wire field. Named getter/setter return/store these only in isEditingSelf context, otherwise delegate through edit-target ModelContext.Document. Current serialize copies the first two to locals, invokes virtual+2ed0, and emits low u16 words. Current load zero-extends words then invokes the same validator. The actual part validator makes type1 and group0 whenever the supplied type is not1; type1 preserves group.",
+    "nenv": "Not a Boolean presence word. Store creates an empty array wrapper if missing, then searches current-user environment. When actual isOpenedHidden is false and document+3d0 equals0, it creates a new environment plus captures settings or updates the existing entry. It then emits zero for null buffer or low u16 of amDynamicArrayCount(buffer), followed by that many typed objects. The helper reads signed32 count at buffer-16. Current read consumes the declared u16 loop. Nulls and duplicate environment names can be filtered before live insertion, with additional path-dependent compatibility handling; raw typed readback does not execute these UI changes."
+  },
+  "schema": "kit.sw2026.part-ui-scalar-and-environment-count-rules.v1",
+  "source_component_fields": [
+    "fad0",
+    "fad4",
+    "fb00",
+    "fb04"
+  ],
+  "tools": {
+    "collector_sha256": "515ea78e1cbcaca2a69d4fb35c1cb3fcdd5f1cb5a0b00199140f438cff94b357",
+    "dependencies": {
+      "re/tooling/sw2026/CollectDrawingViewSupportEvidence.py": "55edce424c2359f7b126f8cfa72516ae6b7924b404e3bef2b67a5746c3398b8d",
+      "re/tooling/sw2026/freecad_cylinder/NativeNamePe.py": "e07df1c6b1b16fa3958f1db4adac95b16ebc30888340b33238e4a9703d8a89c7"
+    },
+    "llvm_sha256": "83b32f39e5475ee168927eb1509c82978e08e0100ec8c6fafeca588d9960773c"
+  },
+  "vendor_bytes_or_listing_in_delivery": false
+}

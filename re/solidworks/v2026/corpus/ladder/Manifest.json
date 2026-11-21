@@ -1,0 +1,1110 @@
+{
+  "provenance": "Kit-authored SOLIDWORKS 2026 SP05.2 controls; metadata redacted at equal encoded width; container rebuilt from the same source",
+  "acceptance": "Research parser fixtures only; not generated writer output or held-out vendor acceptance",
+  "records": [
+    {
+      "name": "C1a_control.SLDPRT",
+      "source_sha256": "5c23b4e2fbf3cf29c800c3b59ec4a8682068262298ac5d30f165d2500be131d3",
+      "sha256": "da3d7292dd7a7e0bfa8f4dc528a1aabf28dfc03be06ebc6759c2f44925207d21",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "C1a_control",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "C1b_control.SLDPRT",
+      "source_sha256": "3319994b6c64646cbc7f2009f2b8790c8e6e30f784912e3bbbbb5678ff7077c7",
+      "sha256": "fb41e09ab45b3119548f0e08e39ee6eef359cd523bb1bffd551292cec55dbccb",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "C1b_control",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "E0_empty.SLDPRT",
+      "source_sha256": "2a3979f046254d6f680874bd8da27b9a9915f22d77381a6680d7fb2b553f535f",
+      "sha256": "eaf294476c1e998edcbf6183d77f50768f74fd509f030300c9ce7375dd7c1afb",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "E0_empty",
+        "ops": []
+      },
+      "source_bodies": 0,
+      "source_mass": {
+        "volume": 0.0,
+        "area": 0.0,
+        "com": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "mass": 0.0
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "L1_boss.SLDPRT",
+      "source_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "L1_boss",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "L2_boss.SLDPRT",
+      "source_sha256": "b754d6adc0f534e2cdc08df1e4d931e0508dfe75f7a957ed02eb3405833a6b90",
+      "sha256": "eaa3292009a2faf4fe2e9b07997ba3cf207bc06fcc89867310a9ee0377f1e533",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "L2_boss",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch2",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  -5,
+                  -12,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  -5,
+                  -12,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  1,
+                  -18,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  1,
+                  -18,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  -15.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  -7,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch2",
+            "depth": 5
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "L3_boss.SLDPRT",
+      "source_sha256": "4fdc02e3bd717f70b82ce3c938342e9e53a0589948ecbcf388dc77c0a1865279",
+      "sha256": "b35942e076fc0d29433ab4e695462b7570d2588b321abb650734a79b65cd04ce",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "L3_boss",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch2",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  -5,
+                  -12,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  -5,
+                  -12,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  1,
+                  -18,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  1,
+                  -18,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  -15.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  -7,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch2",
+            "depth": 5
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch3",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -9,
+                  -5,
+                  -3,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -3,
+                  -5,
+                  -3,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -3,
+                  1,
+                  -9,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -9,
+                  1,
+                  -9,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  -6.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  2,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch3",
+            "depth": 6
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "L4_boss.SLDPRT",
+      "source_sha256": "51476e2660c71adbe3d901b62c4a5f5d6d4ffead3f74a18448cdf349b1c9a7d1",
+      "sha256": "906f3d92df24ef8c04dc1ca36859d4d4c575fdf25115a75945218dcb3f8dc9a0",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "L4_boss",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  0.0,
+                  -15
+                ],
+                "value": 40
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  25,
+                  0.0
+                ],
+                "value": 20
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch2",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  -5,
+                  -12,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  -5,
+                  -12,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -12,
+                  1,
+                  -18,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -18,
+                  1,
+                  -18,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  -15.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  -7,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch2",
+            "depth": 5
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch3",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -9,
+                  -5,
+                  -3,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -3,
+                  -5,
+                  -3,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -3,
+                  1,
+                  -9,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -9,
+                  1,
+                  -9,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  -6.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  2,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch3",
+            "depth": 6
+          },
+          {
+            "op": "sketch",
+            "name": "Sketch4",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  0,
+                  -5,
+                  6,
+                  -5
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  6,
+                  -5,
+                  6,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  6,
+                  1,
+                  0,
+                  1
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  0,
+                  1,
+                  0,
+                  -5
+                ]
+              }
+            ],
+            "dims": [
+              {
+                "ents": [
+                  0
+                ],
+                "at": [
+                  3.0,
+                  -10
+                ],
+                "value": 6
+              },
+              {
+                "ents": [
+                  1
+                ],
+                "at": [
+                  11,
+                  -2.0
+                ],
+                "value": 6
+              }
+            ]
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch4",
+            "depth": 7
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    },
+    {
+      "name": "P0_plain.SLDPRT",
+      "source_sha256": "0a3d426f40d45cf4c9386fdebd07c0533b334504d9146212b7e34b76e7e61025",
+      "sha256": "2d11caf833f3e604006ed6920c62d4ca4c592a0a2059743ff1364548522d3cf8",
+      "revision": "34.5.2",
+      "spec": {
+        "name": "P0_plain",
+        "ops": [
+          {
+            "op": "sketch",
+            "name": "Sketch1",
+            "plane": "front",
+            "entities": [
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  -10,
+                  20,
+                  -10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  -10,
+                  20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  20,
+                  10,
+                  -20,
+                  10
+                ]
+              },
+              {
+                "t": "line",
+                "p": [
+                  -20,
+                  10,
+                  -20,
+                  -10
+                ]
+              }
+            ],
+            "dims": []
+          },
+          {
+            "op": "extrude",
+            "sketch": "Sketch1",
+            "depth": 10
+          }
+        ]
+      },
+      "source_bodies": 1,
+      "source_mass": {
+        "volume": 8.000000000000001e-06,
+        "area": 0.0028,
+        "com": [
+          0.0,
+          0.0,
+          0.005
+        ],
+        "mass": 8.000000000000001e-06
+      },
+      "source_save": [
+        true,
+        0,
+        0
+      ]
+    }
+  ]
+}

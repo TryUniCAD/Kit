@@ -1,0 +1,561 @@
+{
+  "archive_version": 19000,
+  "boundaries": {
+    "deleted_history": "only the proven unreferenced first retired local line row",
+    "full_fcstd_source_admitted": false,
+    "full_linked_graph_semantics": false,
+    "new_vm_execution": false,
+    "one_isolated_external_origin_point_only": true,
+    "ordinary_same_part_front_frame_only": true,
+    "public_writer_added": false,
+    "sealed_inputs_opened": 0,
+    "two_point_distance_drivers_only": true,
+    "unsupported_graphs": "retain legacy projection without typed loop or origin claims",
+    "zero_or_one_complete_active_boundary_region_only": true
+  },
+  "exact_config_resolved_streams": 14,
+  "executable_manifest_sha256": "0e2b1233007979e83fa44fda29e1ebcb5ffbf5b2ffd147fd519ca0e57f2c67e3",
+  "executable_paths": 41,
+  "guarded_build_processes_in_recipes": 26,
+  "integration_cohorts": [
+    {
+      "guarded_build_processes_in_recipe": 6,
+      "method": "TestOriginRead",
+      "module": "tests.Convert.Solidworks.Research.Resolved.Origin.OriginReadTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 12,
+      "returncode": 0,
+      "seconds": 20.56,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    },
+    {
+      "guarded_build_processes_in_recipe": 2,
+      "method": "TestOriginScope",
+      "module": "tests.Convert.Solidworks.Research.Resolved.Origin.OriginScopeTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 15,
+      "returncode": 0,
+      "seconds": 19.394,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    },
+    {
+      "guarded_build_processes_in_recipe": 6,
+      "method": "TestRectDrivers",
+      "module": "tests.Convert.Solidworks.Research.Resolved.LineDimensions.RectDriveReadTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 9,
+      "returncode": 0,
+      "seconds": 16.559,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    },
+    {
+      "guarded_build_processes_in_recipe": 2,
+      "method": "TestRectScope",
+      "module": "tests.Convert.Solidworks.Research.Resolved.LineDimensions.RectDriveScopeTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 7,
+      "returncode": 0,
+      "seconds": 11.769,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    },
+    {
+      "guarded_build_processes_in_recipe": 6,
+      "method": "TestLineRead",
+      "module": "tests.Convert.Solidworks.Research.Resolved.Lines.LineReadTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 3,
+      "returncode": 0,
+      "seconds": 9.036,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "77d5017e60d23bb8522f529d7da3916e30f819fb3ae77c781907ee58a7b17781"
+    },
+    {
+      "guarded_build_processes_in_recipe": 2,
+      "method": "TestLineIds",
+      "module": "tests.Convert.Solidworks.Research.Resolved.Lines.LineIdentityTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 2,
+      "returncode": 0,
+      "seconds": 4.955,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    },
+    {
+      "guarded_build_processes_in_recipe": 2,
+      "method": "TestLineScope",
+      "module": "tests.Convert.Solidworks.Research.Resolved.Lines.LineScopeTests",
+      "passed": true,
+      "public_read_processes_in_recipe": 6,
+      "returncode": 0,
+      "seconds": 8.995,
+      "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stdout_sha256": "c06b6e1e53b03cfba18ad685a121e20b1d7dc506071adf3c9fe450e94402e790"
+    }
+  ],
+  "native_codec_processes": 7,
+  "native_codec_replay_sha256": "54d9451d9da706f2ceaeeb98bca1f3ab918830ae5899310abfeee45e56cc0779",
+  "native_codec_rows": [
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 87,
+      "input_sha256": "4a11a1d135dace17b34d854f2f57b501f74e3ba8ba778f4de6a318891de4428e",
+      "label": "GeneratedOriginal",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 236,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 22232,
+          "sha256": "397411ba6fb2393861500c2b514fdd687f5e5826c31e4bc9e63fa412812b67e3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17865,
+          "sha256": "f51c450e06428d8862d784ef5b983ce212441bb521ddecae56852c2687d18722"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 110,
+      "input_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+      "label": "DisclosedCornerOriginal",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 300,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25696,
+          "sha256": "ad2073e158632348185666303b9a23d54c9b39cfd4da4b76ee707e7162954623"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15079,
+          "sha256": "300db6fd4d1bc705639ba4398035678970ec1741dc8b8c9b5eeea85128839a27"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 110,
+      "input_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+      "label": "DisclosedCornerWidthEdit",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 300,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25710,
+          "sha256": "0304fdf29f8ae954f8c7bd269d8b098878c0427d6a3e41d5882c3f1137850ad6"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15329,
+          "sha256": "1bfdbb3411161a02ccf5df35591d0e5ce9fdc5b2aa4382fe1d0be922517d593c"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 110,
+      "input_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+      "label": "DisclosedCornerHeightEdit",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 300,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 25712,
+          "sha256": "df1945ef4636dc5612fd58e1cf65a54847e21f8d0675a249f8d566c07f58fff2"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15333,
+          "sha256": "236393a123618e735833a961010f7a0130e6f613f1fd929783c2e19ac15d024c"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 122,
+      "input_sha256": "5704179dfc6058eec3d439bedaf1958f7e7d3e2651bed0d5ec90ded0f0bac5dd",
+      "label": "GeneratedSavedWidthEdit",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 318,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26067,
+          "sha256": "7da5f2dec598a3e54d49ad65ec2aecec59bd0cbb6e6e026e068ae75b0cfd51e3"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19619,
+          "sha256": "bb7fbe42c0bae7d6387465f86080afe89f180144fb6acdaf4769fec137db66ac"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 122,
+      "input_sha256": "21e04b00abeab8128d1f00222a6e8275a3c6e70a19c3054e6f65acfff7fa7e91",
+      "label": "GeneratedSavedHeightEdit",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 318,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26067,
+          "sha256": "61aecadb4062d66fcba3044bbd82f571985f15c4c99288ecd5380d53d8402080"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19619,
+          "sha256": "6e662fdfd894edc378482e764e6a46614694d961ebc40e625c6d96ef44e03fc2"
+        }
+      }
+    },
+    {
+      "byte_identity": {
+        "Contents/Config-0": true,
+        "Contents/Config-0-ResolvedFeatures": true
+      },
+      "config_map_counter": 122,
+      "input_sha256": "06a481245002d4bbb17c10431de865a4787447003bf62e52d0e2ec72c780d4c1",
+      "label": "GeneratedSavedDepthEdit",
+      "native_acceptance": false,
+      "passed": true,
+      "public_writer_qualified": false,
+      "resolved_map_counter": 318,
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/Config-0": {
+          "bytes": 26067,
+          "sha256": "3e944977272884603c8eca146208acb10cde76b9f3f2500dad18cebc23b89d35"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 19619,
+          "sha256": "c566aaa9c0612a848c9086fda15cc9f8f36ec078dc210cedccac434e0d9bb61d"
+        }
+      }
+    }
+  ],
+  "native_inputs_manifest_sha256": "8c37cfba73bce8c4542dd712104f80ec0143f562175c8936cdd2a68b401f0cb6",
+  "native_public_read_processes": 7,
+  "native_reads": [
+    {
+      "dimensions_mm": [
+        20,
+        30,
+        10
+      ],
+      "document_sha256": "94e806f028c30491db8fd6798c1281d994245ca86357b1516e4072fe17fc6ba6",
+      "entities": 5,
+      "file_sha256": "4a11a1d135dace17b34d854f2f57b501f74e3ba8ba778f4de6a318891de4428e",
+      "input_immutable": true,
+      "label": "GeneratedOriginal",
+      "line_permanent_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "passed": true,
+      "regions": 0,
+      "relations": 7,
+      "retired_line_rows": 0,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        31.73,
+        18.27,
+        7.41
+      ],
+      "document_sha256": "8e01f7d7a7216894ca10a88ce72dc4ed4479b832c1b77bd1e5483209be1bae5c",
+      "entities": 5,
+      "file_sha256": "7dc2a38554ccdbdd0ec56cf9bdf22d67f789a2922760c2d3cdc82a8d442ffefe",
+      "input_immutable": true,
+      "label": "DisclosedCornerOriginal",
+      "line_permanent_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "passed": true,
+      "regions": 1,
+      "relations": 7,
+      "retired_line_rows": 1,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        42.31,
+        18.27,
+        7.41
+      ],
+      "document_sha256": "53a54394baf2cce67e8cb23cc40167165e63c94bf5c401655bedea0c641f8e31",
+      "entities": 5,
+      "file_sha256": "48c16a740ae9dcd42639b007d3924c0e0158f499527fbb11168716e7eae5b381",
+      "input_immutable": true,
+      "label": "DisclosedCornerWidthEdit",
+      "line_permanent_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "passed": true,
+      "regions": 1,
+      "relations": 7,
+      "retired_line_rows": 1,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        31.73,
+        11.93,
+        7.41
+      ],
+      "document_sha256": "d97512eab3391d27328e1411c5d432583fcb2b11e9ee18ed701d8faff30b707d",
+      "entities": 5,
+      "file_sha256": "fa3d44ebd5cca6e8a4783542adb8ddaffe2c8f055d2f6cbcf73ee4e490fa8162",
+      "input_immutable": true,
+      "label": "DisclosedCornerHeightEdit",
+      "line_permanent_ids": [
+        1,
+        4,
+        3,
+        2
+      ],
+      "passed": true,
+      "regions": 1,
+      "relations": 7,
+      "retired_line_rows": 1,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        26.125,
+        30,
+        10
+      ],
+      "document_sha256": "135561e645791ab359b4179c24b1ed4391ba786318aa3e12ad471183a336ebb3",
+      "entities": 5,
+      "file_sha256": "5704179dfc6058eec3d439bedaf1958f7e7d3e2651bed0d5ec90ded0f0bac5dd",
+      "input_immutable": true,
+      "label": "GeneratedSavedWidthEdit",
+      "line_permanent_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "passed": true,
+      "regions": 0,
+      "relations": 7,
+      "retired_line_rows": 0,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        20,
+        18.875,
+        10
+      ],
+      "document_sha256": "7365b5fd8d0ab2663669a8ce0fe10d77e7671b56d08fea53af3876fdab12376e",
+      "entities": 5,
+      "file_sha256": "21e04b00abeab8128d1f00222a6e8275a3c6e70a19c3054e6f65acfff7fa7e91",
+      "input_immutable": true,
+      "label": "GeneratedSavedHeightEdit",
+      "line_permanent_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "passed": true,
+      "regions": 0,
+      "relations": 7,
+      "retired_line_rows": 0,
+      "typed_origin_coincidence": true
+    },
+    {
+      "dimensions_mm": [
+        20,
+        30,
+        15.625
+      ],
+      "document_sha256": "7700da6b4408ad9a583f71d76026ec162483ff0f42447907fdbce22d7a200c28",
+      "entities": 5,
+      "file_sha256": "06a481245002d4bbb17c10431de865a4787447003bf62e52d0e2ec72c780d4c1",
+      "input_immutable": true,
+      "label": "GeneratedSavedDepthEdit",
+      "line_permanent_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "passed": true,
+      "regions": 0,
+      "relations": 7,
+      "retired_line_rows": 0,
+      "typed_origin_coincidence": true
+    }
+  ],
+  "native_source_proof": {
+    "claims": {
+      "boundary_cache": "typed suObList of actual sgLineHandle owners, not a second independent geometric contour",
+      "deletion": "virtual entity lookup, missing entity or entity +0x54 bit0 set is deleted, test at 0x4c5cdd82",
+      "same_boundaries": "count and actual handle index plus concrete type, with deletion excluded"
+    },
+    "machine": "0x8664",
+    "module": "sldmodu.dll",
+    "module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "preferred_base": "0x4b140000",
+    "raw_vendor_bytes_published": false,
+    "routines": {
+      "entity_deleted_predicate": {
+        "code_sha256": "c3643c1a0771047c1df36bb539822baeccd465eba4c2e0c971fb459287709a66",
+        "end_rva_exclusive": "0x148dd99",
+        "end_va_exclusive": "0x4c5cdd99",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?isDeleted@sgEntHandle@@QEBAHXZ"
+        ],
+        "start_rva": "0x148dd70",
+        "start_va": "0x4c5cdd70",
+        "unwind_rva": "0x2245a70"
+      },
+      "region_append_boundary": {
+        "code_sha256": "cfc2e7b0d2a6d6e99827708c0a6fc3457097ae539fafa242583bb472bb85186d",
+        "end_rva_exclusive": "0x818041",
+        "end_va_exclusive": "0x4b958041",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?addToBoundarySegments@moSketchRegion_c@@QEAAXPEAVsgEntHandle@@H@Z"
+        ],
+        "start_rva": "0x818000",
+        "start_va": "0x4b958000",
+        "unwind_rva": "0x2245de4"
+      },
+      "region_constructor": {
+        "code_sha256": "3ca35542717d1a32c6130c187b43d0d1b6dd5bd811b2dab39bdda458fdbbfb48",
+        "end_rva_exclusive": "0x8178e3",
+        "end_va_exclusive": "0x4b9578e3",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "??0moSketchRegion_c@@QEAA@PEAVsgSketch@@H@Z"
+        ],
+        "start_rva": "0x817860",
+        "start_va": "0x4b957860",
+        "unwind_rva": "0x2346e4c"
+      },
+      "region_same_boundaries": {
+        "code_sha256": "237ea8e58d58b38f88494a362d0015a50c571c206de1539c2d02fd144865f636",
+        "end_rva_exclusive": "0x8188d8",
+        "end_va_exclusive": "0x4b9588d8",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?hasSameBoundaryEntities@moSketchRegion_c@@QEAAHAEAV?$suDynamicArray@VsgEntHandle@@@@@Z"
+        ],
+        "start_rva": "0x8187f0",
+        "start_va": "0x4b9587f0",
+        "unwind_rva": "0x2346fbc"
+      },
+      "region_serialize": {
+        "code_sha256": "acad1a9f019aa2058e380e78bddc0685985f9b6749df72630a893894c65aee48",
+        "end_rva_exclusive": "0x817b9a",
+        "end_va_exclusive": "0x4b957b9a",
+        "exact_export_alias_count": 0,
+        "exact_exports": [],
+        "start_rva": "0x817a70",
+        "start_va": "0x4b957a70",
+        "unwind_rva": "0x2346f84"
+      }
+    }
+  },
+  "passed": true,
+  "predecessor_guard_extension": {
+    "additional_serialized_rejections": [
+      "origin-suppressed",
+      "origin-drive-mode"
+    ],
+    "all_seven_qualified_native_document_json_unchanged": true,
+    "change": "existing CheckDimBase now also guards actual source origin fixed relation, plus ordinary null-parameter/default operand mode checks",
+    "prior_process_result_sha256": "92c06088dcf1ce9858cdc341983644176e7f76b5b1a3c31ae9bfd0332f52dcdc",
+    "prior_public_receipt_sha256": "61fd3059c6199e8b986012b6172a329681cfe89f88eb0efd3f619ab2c97159e0",
+    "prior_source_manifest_sha256": "3a15ef2d3336c0b648a484217c4bd4f3118f13c4b4695c28d0bc2fd4dbf67e5d"
+  },
+  "prior_native_observer_result_sha256": "a230f247f6d5db4c423303ef52d4cbe1ee0450cbd40eb92ebcfb9770ce3919c6",
+  "process_replay_sha256": "543354cdca65a9e3849fb027804ba368aa1f7569e3801f22fe5eb7269f8df0c9",
+  "public_read_processes_in_recipes": 54,
+  "qualified_projection": {
+    "actual_reference_chain": true,
+    "contour_lines": 4,
+    "creation_log_freshness_validated": false,
+    "driving_point_distances": 2,
+    "fixed_external_construction_points": 1,
+    "horizontal_vertical_relations": 4,
+    "inactive_source_origin_relation_rejected": true,
+    "native_sparse_line_slots_preserved": true,
+    "origin_coincidences": 1,
+    "retired_row_and_region_metadata_retained": true
+  },
+  "references": [
+    "re/solidworks/records/SdkOriginCoincidenceRead2026.md",
+    "re/solidworks/measurements/2026/SdkRectangleCornerNative01.json",
+    "re/solidworks/measurements/2026/RectangleAnchorSource01.json",
+    "re/tooling/sw2026/ReplayOriginRead.py"
+  ],
+  "schema": "kit.sw2026.sdk-origin-coincidence-public-read.v1",
+  "source_manifest_sha256": "1598ac3d3f6631194d7a96c2b975513a7f3a6755d6f8de68fcab419aa09161fc",
+  "source_paths": 5813,
+  "static_checks": {
+    "black": "26.10.1 pass",
+    "donor_scan": {
+      "recorded_payloads": 0,
+      "src_files": 4161
+    },
+    "files": 64,
+    "mypy": "2.4.1 strict pass",
+    "pyright": "1.1.414 strict 0 errors 0 warnings 0 informations",
+    "pyright_existing_unrecognized_configuration": [
+      "reportImplicitAbstractClass",
+      "reportIncompleteStubValue",
+      "reportUnsafeMultipleInheritance"
+    ],
+    "ruff": "0.17.4 pass",
+    "steering": "pass"
+  }
+}

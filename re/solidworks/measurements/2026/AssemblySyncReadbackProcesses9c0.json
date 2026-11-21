@@ -1,0 +1,312 @@
+{
+  "schema": "kit.sw2026.synchronized-assembly-readback-receipt.v1",
+  "evaluation_revision": "9c077f433a6c886c175374bf98cd411f16f4974a",
+  "tested_merge": "b17aa1826bcb8d3f508cb3e456a1162ed185c4bf",
+  "tested_tree": "c8485d4340ca849057945280e90faa8aa1be3d7b",
+  "verified_merge_parents": [
+    "1d294381340a36ce8e4d9e288e73d995da12fcd7",
+    "9c077f433a6c886c175374bf98cd411f16f4974a"
+  ],
+  "run_id": 44002562905,
+  "job_id": 133770072156,
+  "native_format_passed": 208,
+  "native_format_skipped": 158,
+  "policy_passed": 171,
+  "artifact": {
+    "id": 14293415764,
+    "bytes": 24769759,
+    "sha256": "4de12d66ad31905bacd762ae1babda534f3c53cedd9c66044d1ad5d7b3284bfd"
+  },
+  "report": {
+    "name": "SourceParser/Assembly/Synchronized.json",
+    "bytes": 4663237,
+    "sha256": "b5c842586593a256e42f8c7598195f837608a18ba256ff9f704b0b411fb43419"
+  },
+  "stream_comparisons": 35,
+  "exact_reference_child_stamp_comparisons": 9,
+  "discovered_reference_count": 3,
+  "writer_output_count": 0,
+  "heldout_payloads_read": false,
+  "full_native_acceptance": false,
+  "records": [
+    {
+      "name": "A12SyncedEmpty",
+      "files": [
+        {
+          "file": "A12SyncedEmpty.SLDASM",
+          "sha256": "b7d6e406c87dcfd6f4d6cc49c4c1723268afa77af205e017e10bd3039bbb10e2",
+          "comparisons": 7,
+          "all_byte_identity": true,
+          "proven_streams": [
+            "Contents/CMgr",
+            "Contents/Config-0-ModelHeader",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History"
+          ]
+        }
+      ],
+      "source_reopen_warnings": 0,
+      "child": null,
+      "parent": {
+        "assembly_owned_fields": {
+          "f1560": 0,
+          "f1570": 0,
+          "f1a18": null,
+          "f1a20": null,
+          "f1a28": 1,
+          "f1674": -1
+        },
+        "header_scalar_fields": {
+          "f40": 103,
+          "f48": 1794881598,
+          "fc4": 0
+        },
+        "reference_update_fields": [],
+        "resolved_graph": {
+          "sha256": "b9493f32807b996445dce26fb2da2b62945107bb515412c3bdd072e9e2a7d782",
+          "node_count": 907,
+          "reference_count": 1104,
+          "map_base": 91,
+          "map_count": 152,
+          "unresolved_references": 0
+        }
+      },
+      "reference_checks": []
+    },
+    {
+      "name": "A13SyncedSingle",
+      "files": [
+        {
+          "file": "A13SyncedSingle.SLDASM",
+          "sha256": "f59cf871945519da5bc2a921239c90b5134902c26f271778b2396575be0fe523",
+          "comparisons": 7,
+          "all_byte_identity": true,
+          "proven_streams": [
+            "Contents/Config-0-ModelHeader",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History"
+          ]
+        },
+        {
+          "file": "A13SyncedSingleChild.SLDPRT",
+          "sha256": "c3f3df69e5c7008424555fe3179c04fe255c5357048097f9526d825aa109513d",
+          "comparisons": 7,
+          "all_byte_identity": true,
+          "proven_streams": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History"
+          ]
+        }
+      ],
+      "source_reopen_warnings": 0,
+      "child": {
+        "f40": 134,
+        "f48": 1794881658,
+        "f1300": 104
+      },
+      "parent": {
+        "assembly_owned_fields": {
+          "f1560": 1,
+          "f1570": 0,
+          "f1a18": {
+            "b0": 0.0,
+            "b1": 0.0,
+            "b2": 0.005,
+            "b3": 0.02,
+            "b4": 0.01,
+            "b5": 0.01,
+            "b6": -0.02,
+            "b7": -0.01,
+            "b8": 0.0,
+            "b9": 0.0229128784747792
+          },
+          "f1a20": {
+            "b0": 0.0,
+            "b1": 0.0,
+            "b2": 0.005,
+            "b3": 0.02,
+            "b4": 0.01,
+            "b5": 0.01,
+            "b6": -0.02,
+            "b7": -0.01,
+            "b8": 0.0,
+            "b9": 0.0229128784747792
+          },
+          "f1a28": 1,
+          "f1674": -1
+        },
+        "header_scalar_fields": {
+          "f40": 104,
+          "f48": 1794881658,
+          "fc4": 1
+        },
+        "reference_update_fields": [
+          {
+            "class": "moReference_c",
+            "stream": "Contents/Config-0",
+            "archive_index": 8,
+            "fields": {
+              "f3e0": 134,
+              "f3e8": 1794881658,
+              "f3f0": 102,
+              "f3f4": 104,
+              "f3f8": 101,
+              "f400": 3,
+              "f408": 0,
+              "f4d8": 0
+            }
+          }
+        ],
+        "resolved_graph": {
+          "sha256": "b04ca01356b7e5fab1a60e6f14ea28157b3a1eb95b6a7d240ed879fa5c9a91dc",
+          "node_count": 936,
+          "reference_count": 1153,
+          "map_base": 103,
+          "map_count": 164,
+          "unresolved_references": 1
+        }
+      },
+      "reference_checks": [
+        {
+          "archive_index": 8,
+          "update_matches_child": true,
+          "time_matches_child": true,
+          "geometry_matches_child": true
+        }
+      ]
+    },
+    {
+      "name": "A14SyncedRepeat",
+      "files": [
+        {
+          "file": "A14SyncedRepeat.SLDASM",
+          "sha256": "5af3e5a51c5a31a6057a5e849a90875f56b401a0cf2794993fab9f9af03b4c37",
+          "comparisons": 7,
+          "all_byte_identity": true,
+          "proven_streams": [
+            "Contents/Config-0-ModelHeader",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History"
+          ]
+        },
+        {
+          "file": "A14SyncedRepeatChild.SLDPRT",
+          "sha256": "4599c81a7369e099c47602db7a7b5df18b93810b528ef5dd0bd69e212a060c1c",
+          "comparisons": 7,
+          "all_byte_identity": true,
+          "proven_streams": [
+            "Contents/CMgr",
+            "Contents/Config-0",
+            "Contents/Config-0-ModelHeader",
+            "Contents/Config-0-ResolvedFeatures",
+            "Contents/Definition",
+            "_MO_VERSION_19000/Biography",
+            "_MO_VERSION_19000/History"
+          ]
+        }
+      ],
+      "source_reopen_warnings": 0,
+      "child": {
+        "f40": 134,
+        "f48": 1794881713,
+        "f1300": 104
+      },
+      "parent": {
+        "assembly_owned_fields": {
+          "f1560": 2,
+          "f1570": 0,
+          "f1a18": {
+            "b0": 0.042496736590399126,
+            "b1": -0.022065,
+            "b2": 0.011955829833825916,
+            "b3": 0.09613663867060733,
+            "b4": 0.01,
+            "b5": 0.03945942661211065,
+            "b6": -0.02,
+            "b7": -0.054130000000000005,
+            "b8": -0.0016361072768069918,
+            "b9": 0.07129903780274106
+          },
+          "f1a20": {
+            "b0": 0.042496736590399126,
+            "b1": -0.022065,
+            "b2": 0.011955829833825916,
+            "b3": 0.09613663867060733,
+            "b4": 0.01,
+            "b5": 0.03945942661211065,
+            "b6": -0.02,
+            "b7": -0.054130000000000005,
+            "b8": -0.0016361072768069918,
+            "b9": 0.07129903780274106
+          },
+          "f1a28": 1,
+          "f1674": -1
+        },
+        "header_scalar_fields": {
+          "f40": 104,
+          "f48": 1794881713,
+          "fc4": 2
+        },
+        "reference_update_fields": [
+          {
+            "class": "moReference_c",
+            "stream": "Contents/Config-0",
+            "archive_index": 8,
+            "fields": {
+              "f3e0": 134,
+              "f3e8": 1794881713,
+              "f3f0": 102,
+              "f3f4": 104,
+              "f3f8": 101,
+              "f400": 3,
+              "f408": 0,
+              "f4d8": 0
+            }
+          },
+          {
+            "class": "moReference_c",
+            "stream": "Contents/Config-0",
+            "archive_index": 16,
+            "fields": {
+              "f3e0": 134,
+              "f3e8": 1794881713,
+              "f3f0": 102,
+              "f3f4": 104,
+              "f3f8": 101,
+              "f400": 3,
+              "f408": 0,
+              "f4d8": 0
+            }
+          }
+        ],
+        "resolved_graph": {
+          "sha256": "46f7142a6aad1e12d6d10dadf8fe857ad0274c987aa8b839d697e43e424890b9",
+          "node_count": 953,
+          "reference_count": 1182,
+          "map_base": 107,
+          "map_count": 168,
+          "unresolved_references": 2
+        }
+      },
+      "reference_checks": [
+        {
+          "archive_index": 8,
+          "update_matches_child": true,
+          "time_matches_child": true,
+          "geometry_matches_child": true
+        },
+        {
+          "archive_index": 16,
+          "update_matches_child": true,
+          "time_matches_child": true,
+          "geometry_matches_child": true
+        }
+      ]
+    }
+  ]
+}

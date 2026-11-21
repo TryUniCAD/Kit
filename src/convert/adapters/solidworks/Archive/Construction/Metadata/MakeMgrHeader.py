@@ -25,7 +25,7 @@ def MakeMgrHeader(ManagerValue: ArchiveNode, SavedAt: int) -> ArchiveNode:
     return ArchiveNode(
         KManagerClass,
         {
-            "f08": {"items": ({"o": MakeMgrEntry(ConfigValue, OwnerValue)},)},
+            "f08": {"n": 1, "items": [{"o": MakeMgrEntry(ConfigValue, OwnerValue)}]},
             "f60": SavedAt,
             "f68": FieldInt(ManagerValue.FieldsValue, "f75c"),
         },

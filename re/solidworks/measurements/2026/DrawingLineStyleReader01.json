@@ -1,0 +1,94 @@
+{
+  "schema": "kit.sw2026.drawing-line-style-reader-custody.v1",
+  "task": "PR121 ordinary drawing line-style schema linkage",
+  "owner": "flag_ownership",
+  "delivery_pr": 121,
+  "status": "independent43-worker prior pass; both actual originals fail closed at next concrete line font",
+  "candidate_manifest_sha256": "830a722139855deecd701fdd8ad33a0ea228128e2fc241c1def7552729349699",
+  "source_files": 4350,
+  "sdk_deltas": [
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontLayouts.py",
+    "src/convert/adapters/solidworks/Drawing/Definition/Linked/FrontSchemas.py"
+  ],
+  "native_proof_sha256": "41e6295fd87eebed7ed1a0512313dce007dbdd5323844c5385e95330a0328a5e",
+  "immediate_parent_manifest_sha256": "f1e24e7038dce9449a96288829f4432349215e44b535b50721aa93bc80f3b0a3",
+  "concrete_class_added": "moLineStyle_c schema1",
+  "field_layouts_changed": [],
+  "actual_prior_rejections": {
+    "raw_sha256": "f92c7900427452f76f4e090ca6230a4add8418a7ef4a97a2ab96da733290da11",
+    "both_failed": true,
+    "next_boundary": "moLineStyle_c schema1",
+    "completed_edge_bodies": 8
+  },
+  "new_prior_replay": {
+    "status": "passed",
+    "passed": true,
+    "workers": 43,
+    "source_immutable": true,
+    "report_name": "SdkDrawingLineStylePrior01.json",
+    "raw_sha256": "e1f16d98f305b812f2683033edd333a01a1fc5f0556f47433bdbda98d2f9b5b8",
+    "source_manifest_sha256": "830a722139855deecd701fdd8ad33a0ea228128e2fc241c1def7552729349699"
+  },
+  "new_original_probe": {
+    "status": "both fail closed at next schema",
+    "raw_sha256": "5a00651358a00a467873d9e0b87f320b3202163df8ce39123daafda353a0b6b9",
+    "source_immutable": true,
+    "full_stream_parity": false,
+    "completed_edge_bodies": 8,
+    "next_boundary": "uiLFConfig_c schema1",
+    "cases": [
+      {
+        "case": "H01SheetA",
+        "input_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37612,
+        "stream_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class uiLFConfig_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      },
+      {
+        "case": "H02SheetB",
+        "input_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+        "stream": "Contents/Definition",
+        "stream_bytes": 37608,
+        "stream_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+        "codec_round_trip_passed": false,
+        "typed_stream_complete": false,
+        "next_boundary": {
+          "type": "BodyUnsupported",
+          "message": "unsupported SOLIDWORKS body class uiLFConfig_c schema 1",
+          "cursor_not_exposed_by_reader": true
+        },
+        "input_unchanged": true
+      }
+    ]
+  },
+  "static_checks": {
+    "ast": true,
+    "black": "26.10.1 passed",
+    "ruff": "0.17.4 passed",
+    "mypy": "2.4.1 strict passed",
+    "pyright": "1.1.414 strict passed; three inherited unrecognized options retained",
+    "steering": true,
+    "donor_scan": "no recorded payloads in2files"
+  },
+  "worker_product_execution": false,
+  "worker_test_suite_execution": false,
+  "native_execution": false,
+  "vm_access": false,
+  "repo_or_git_mutations": false,
+  "display_defaults_inferred": false,
+  "fresh_constructor_added": false,
+  "saved_defaults_added": false,
+  "original_writer_changed": false,
+  "original_heldout_verdict_changed": false,
+  "public_strict_drawing_admission": false,
+  "native_acceptance": false,
+  "heldout_acceptance": false
+}

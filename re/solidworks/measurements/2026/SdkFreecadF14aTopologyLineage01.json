@@ -1,0 +1,3073 @@
+{
+  "cases": {
+    "Freecad102": {
+      "entity_rows": [
+        {
+          "actual_incident_faces": [
+            "**0"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              52,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "**0"
+            ],
+            "kernel_node_id": 48,
+            "normalized_transmit_index": 117,
+            "primary_face_identity": [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            "sdk_entity_id": "sldprt:brep:face:118",
+            "unchanged_stamp": [
+              225444038
+            ],
+            "wire_transmit_index": 118
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-0",
+          "kind": "face",
+          "role": "**0",
+          "source_body": {
+            "indexed_name": "Face5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:30",
+            "ordinal": 5,
+            "tshape_reference": 5
+          },
+          "source_primitive": {
+            "indexed_name": "Face5",
+            "neutral_entity_id": "freecad:primitive:shape:face:30",
+            "ordinal": 5,
+            "tshape_reference": 5
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              51,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "**1"
+            ],
+            "kernel_node_id": 1,
+            "normalized_transmit_index": 89,
+            "primary_face_identity": [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            "sdk_entity_id": "sldprt:brep:face:90",
+            "unchanged_stamp": [
+              219807942
+            ],
+            "wire_transmit_index": 90
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-1",
+          "kind": "face",
+          "role": "**1",
+          "source_body": {
+            "indexed_name": "Face6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:32",
+            "ordinal": 6,
+            "tshape_reference": 3
+          },
+          "source_primitive": {
+            "indexed_name": "Face6",
+            "neutral_entity_id": "freecad:primitive:shape:face:32",
+            "ordinal": 6,
+            "tshape_reference": 3
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              54,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "*0*"
+            ],
+            "kernel_node_id": 88,
+            "normalized_transmit_index": 100,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            "sdk_entity_id": "sldprt:brep:face:101",
+            "unchanged_stamp": [
+              226885830
+            ],
+            "wire_transmit_index": 101
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-2",
+          "kind": "face",
+          "role": "*0*",
+          "source_body": {
+            "indexed_name": "Face3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:24",
+            "ordinal": 3,
+            "tshape_reference": 11
+          },
+          "source_primitive": {
+            "indexed_name": "Face3",
+            "neutral_entity_id": "freecad:primitive:shape:face:24",
+            "ordinal": 3,
+            "tshape_reference": 11
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              56,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "*1*"
+            ],
+            "kernel_node_id": 84,
+            "normalized_transmit_index": 114,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            "sdk_entity_id": "sldprt:brep:face:115",
+            "unchanged_stamp": [
+              226361542
+            ],
+            "wire_transmit_index": 115
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-4",
+          "kind": "face",
+          "role": "*1*",
+          "source_body": {
+            "indexed_name": "Face4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:28",
+            "ordinal": 4,
+            "tshape_reference": 7
+          },
+          "source_primitive": {
+            "indexed_name": "Face4",
+            "neutral_entity_id": "freecad:primitive:shape:face:28",
+            "ordinal": 4,
+            "tshape_reference": 7
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              53,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "0**"
+            ],
+            "kernel_node_id": 90,
+            "normalized_transmit_index": 43,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ],
+            "sdk_entity_id": "sldprt:brep:face:44",
+            "unchanged_stamp": [
+              227147974
+            ],
+            "wire_transmit_index": 44
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-5",
+          "kind": "face",
+          "role": "0**",
+          "source_body": {
+            "indexed_name": "Face1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:10",
+            "ordinal": 1,
+            "tshape_reference": 25
+          },
+          "source_primitive": {
+            "indexed_name": "Face1",
+            "neutral_entity_id": "freecad:primitive:shape:face:10",
+            "ordinal": 1,
+            "tshape_reference": 25
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              55,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              -2120100901,
+              31291313,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "1**"
+            ],
+            "kernel_node_id": 86,
+            "normalized_transmit_index": 99,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ],
+            "sdk_entity_id": "sldprt:brep:face:100",
+            "unchanged_stamp": [
+              226623686
+            ],
+            "wire_transmit_index": 100
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-3",
+          "kind": "face",
+          "role": "1**",
+          "source_body": {
+            "indexed_name": "Face2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:20",
+            "ordinal": 2,
+            "tshape_reference": 15
+          },
+          "source_primitive": {
+            "indexed_name": "Face2",
+            "neutral_entity_id": "freecad:primitive:shape:face:20",
+            "ordinal": 2,
+            "tshape_reference": 15
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*"
+            ],
+            "kernel_node_id": 58,
+            "normalized_transmit_index": 98,
+            "sdk_entity_id": "sldprt:brep:edge:99",
+            "wire_transmit_index": 99
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-0",
+          "kind": "edge",
+          "role": "*00",
+          "source_body": {
+            "indexed_name": "Edge9",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:21",
+            "ordinal": 9,
+            "tshape_reference": 14
+          },
+          "source_primitive": {
+            "indexed_name": "Edge9",
+            "neutral_entity_id": "freecad:primitive:shape:edge:21",
+            "ordinal": 9,
+            "tshape_reference": 14
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*"
+            ],
+            "kernel_node_id": 9,
+            "normalized_transmit_index": 90,
+            "sdk_entity_id": "sldprt:brep:edge:91",
+            "wire_transmit_index": 91
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-4",
+          "kind": "edge",
+          "role": "*01",
+          "source_body": {
+            "indexed_name": "Edge10",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:22",
+            "ordinal": 10,
+            "tshape_reference": 13
+          },
+          "source_primitive": {
+            "indexed_name": "Edge10",
+            "neutral_entity_id": "freecad:primitive:shape:edge:22",
+            "ordinal": 10,
+            "tshape_reference": 13
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*"
+            ],
+            "kernel_node_id": 50,
+            "normalized_transmit_index": 85,
+            "sdk_entity_id": "sldprt:brep:edge:86",
+            "wire_transmit_index": 86
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-2",
+          "kind": "edge",
+          "role": "*10",
+          "source_body": {
+            "indexed_name": "Edge11",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:25",
+            "ordinal": 11,
+            "tshape_reference": 10
+          },
+          "source_primitive": {
+            "indexed_name": "Edge11",
+            "neutral_entity_id": "freecad:primitive:shape:edge:25",
+            "ordinal": 11,
+            "tshape_reference": 10
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*"
+            ],
+            "kernel_node_id": 17,
+            "normalized_transmit_index": 56,
+            "sdk_entity_id": "sldprt:brep:edge:57",
+            "wire_transmit_index": 57
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-6",
+          "kind": "edge",
+          "role": "*11",
+          "source_body": {
+            "indexed_name": "Edge12",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:26",
+            "ordinal": 12,
+            "tshape_reference": 9
+          },
+          "source_primitive": {
+            "indexed_name": "Edge12",
+            "neutral_entity_id": "freecad:primitive:shape:edge:26",
+            "ordinal": 12,
+            "tshape_reference": 9
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "0**"
+            ],
+            "kernel_node_id": 62,
+            "normalized_transmit_index": 106,
+            "sdk_entity_id": "sldprt:brep:edge:107",
+            "wire_transmit_index": 107
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-3",
+          "kind": "edge",
+          "role": "0*0",
+          "source_body": {
+            "indexed_name": "Edge4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:8",
+            "ordinal": 4,
+            "tshape_reference": 27
+          },
+          "source_primitive": {
+            "indexed_name": "Edge4",
+            "neutral_entity_id": "freecad:primitive:shape:edge:8",
+            "ordinal": 4,
+            "tshape_reference": 27
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "0**"
+            ],
+            "kernel_node_id": 5,
+            "normalized_transmit_index": 94,
+            "sdk_entity_id": "sldprt:brep:edge:95",
+            "wire_transmit_index": 95
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-7",
+          "kind": "edge",
+          "role": "0*1",
+          "source_body": {
+            "indexed_name": "Edge2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:5",
+            "ordinal": 2,
+            "tshape_reference": 30
+          },
+          "source_primitive": {
+            "indexed_name": "Edge2",
+            "neutral_entity_id": "freecad:primitive:shape:edge:5",
+            "ordinal": 2,
+            "tshape_reference": 30
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 82,
+            "normalized_transmit_index": 11,
+            "sdk_entity_id": "sldprt:brep:edge:12",
+            "wire_transmit_index": 12
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-8",
+          "kind": "edge",
+          "role": "00*",
+          "source_body": {
+            "indexed_name": "Edge1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:3",
+            "ordinal": 1,
+            "tshape_reference": 32
+          },
+          "source_primitive": {
+            "indexed_name": "Edge1",
+            "neutral_entity_id": "freecad:primitive:shape:edge:3",
+            "ordinal": 1,
+            "tshape_reference": 32
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 79,
+            "normalized_transmit_index": 105,
+            "sdk_entity_id": "sldprt:brep:edge:106",
+            "wire_transmit_index": 106
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-11",
+          "kind": "edge",
+          "role": "01*",
+          "source_body": {
+            "indexed_name": "Edge3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:7",
+            "ordinal": 3,
+            "tshape_reference": 28
+          },
+          "source_primitive": {
+            "indexed_name": "Edge3",
+            "neutral_entity_id": "freecad:primitive:shape:edge:7",
+            "ordinal": 3,
+            "tshape_reference": 28
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "1**"
+            ],
+            "kernel_node_id": 54,
+            "normalized_transmit_index": 77,
+            "sdk_entity_id": "sldprt:brep:edge:78",
+            "wire_transmit_index": 78
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-1",
+          "kind": "edge",
+          "role": "1*0",
+          "source_body": {
+            "indexed_name": "Edge8",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:18",
+            "ordinal": 8,
+            "tshape_reference": 17
+          },
+          "source_primitive": {
+            "indexed_name": "Edge8",
+            "neutral_entity_id": "freecad:primitive:shape:edge:18",
+            "ordinal": 8,
+            "tshape_reference": 17
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "1**"
+            ],
+            "kernel_node_id": 13,
+            "normalized_transmit_index": 95,
+            "sdk_entity_id": "sldprt:brep:edge:96",
+            "wire_transmit_index": 96
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-5",
+          "kind": "edge",
+          "role": "1*1",
+          "source_body": {
+            "indexed_name": "Edge6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:15",
+            "ordinal": 6,
+            "tshape_reference": 20
+          },
+          "source_primitive": {
+            "indexed_name": "Edge6",
+            "neutral_entity_id": "freecad:primitive:shape:edge:15",
+            "ordinal": 6,
+            "tshape_reference": 20
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 81,
+            "normalized_transmit_index": 51,
+            "sdk_entity_id": "sldprt:brep:edge:52",
+            "wire_transmit_index": 52
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-9",
+          "kind": "edge",
+          "role": "10*",
+          "source_body": {
+            "indexed_name": "Edge5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:13",
+            "ordinal": 5,
+            "tshape_reference": 22
+          },
+          "source_primitive": {
+            "indexed_name": "Edge5",
+            "neutral_entity_id": "freecad:primitive:shape:edge:13",
+            "ordinal": 5,
+            "tshape_reference": 22
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 80,
+            "normalized_transmit_index": 97,
+            "sdk_entity_id": "sldprt:brep:edge:98",
+            "wire_transmit_index": 98
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-10",
+          "kind": "edge",
+          "role": "11*",
+          "source_body": {
+            "indexed_name": "Edge7",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:17",
+            "ordinal": 7,
+            "tshape_reference": 18
+          },
+          "source_primitive": {
+            "indexed_name": "Edge7",
+            "neutral_entity_id": "freecad:primitive:shape:edge:17",
+            "ordinal": 7,
+            "tshape_reference": 18
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 69,
+            "normalized_transmit_index": 63,
+            "sdk_entity_id": "sldprt:brep:vertex:64",
+            "wire_transmit_index": 64
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-0",
+          "kind": "vertex",
+          "role": "000",
+          "source_body": {
+            "indexed_name": "Vertex2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:2",
+            "ordinal": 2,
+            "tshape_reference": 33
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex2",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:2",
+            "ordinal": 2,
+            "tshape_reference": 33
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 21,
+            "normalized_transmit_index": 76,
+            "sdk_entity_id": "sldprt:brep:vertex:77",
+            "wire_transmit_index": 77
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-4",
+          "kind": "vertex",
+          "role": "001",
+          "source_body": {
+            "indexed_name": "Vertex1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:1",
+            "ordinal": 1,
+            "tshape_reference": 34
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex1",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:1",
+            "ordinal": 1,
+            "tshape_reference": 34
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 66,
+            "normalized_transmit_index": 50,
+            "sdk_entity_id": "sldprt:brep:vertex:51",
+            "wire_transmit_index": 51
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-3",
+          "kind": "vertex",
+          "role": "010",
+          "source_body": {
+            "indexed_name": "Vertex4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:6",
+            "ordinal": 4,
+            "tshape_reference": 29
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex4",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:6",
+            "ordinal": 4,
+            "tshape_reference": 29
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 30,
+            "normalized_transmit_index": 12,
+            "sdk_entity_id": "sldprt:brep:vertex:13",
+            "wire_transmit_index": 13
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-7",
+          "kind": "vertex",
+          "role": "011",
+          "source_body": {
+            "indexed_name": "Vertex3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:4",
+            "ordinal": 3,
+            "tshape_reference": 31
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex3",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:4",
+            "ordinal": 3,
+            "tshape_reference": 31
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 68,
+            "normalized_transmit_index": 66,
+            "sdk_entity_id": "sldprt:brep:vertex:67",
+            "wire_transmit_index": 67
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-1",
+          "kind": "vertex",
+          "role": "100",
+          "source_body": {
+            "indexed_name": "Vertex6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:12",
+            "ordinal": 6,
+            "tshape_reference": 23
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex6",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:12",
+            "ordinal": 6,
+            "tshape_reference": 23
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 24,
+            "normalized_transmit_index": 62,
+            "sdk_entity_id": "sldprt:brep:vertex:63",
+            "wire_transmit_index": 63
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-5",
+          "kind": "vertex",
+          "role": "101",
+          "source_body": {
+            "indexed_name": "Vertex5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:11",
+            "ordinal": 5,
+            "tshape_reference": 24
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex5",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:11",
+            "ordinal": 5,
+            "tshape_reference": 24
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 67,
+            "normalized_transmit_index": 67,
+            "sdk_entity_id": "sldprt:brep:vertex:68",
+            "wire_transmit_index": 68
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-2",
+          "kind": "vertex",
+          "role": "110",
+          "source_body": {
+            "indexed_name": "Vertex8",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:16",
+            "ordinal": 8,
+            "tshape_reference": 19
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex8",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:16",
+            "ordinal": 8,
+            "tshape_reference": 19
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 27,
+            "normalized_transmit_index": 52,
+            "sdk_entity_id": "sldprt:brep:vertex:53",
+            "wire_transmit_index": 53
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-6",
+          "kind": "vertex",
+          "role": "111",
+          "source_body": {
+            "indexed_name": "Vertex7",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:14",
+            "ordinal": 7,
+            "tshape_reference": 21
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex7",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:14",
+            "ordinal": 7,
+            "tshape_reference": 21
+          }
+        }
+      ],
+      "generated_native_boundary_identities_present": false,
+      "generated_sha256": "13608463d0c389e53f4a78ccd7d8768e34080f497d81ac34a1fc35bc1b97b95f",
+      "native_lifecycle": {
+        "exact_native_save_is_the_fresh_reopen_input": true,
+        "native_persistent_api_calls": 0,
+        "observed_edited_dimensions_mm": [
+          20.0,
+          30.0,
+          15.87
+        ],
+        "original_native_phase_hashes": [
+          "fb85a8a75313be6a9845419552cc1d60d368065e398e6bda27d26d6678b7b9ac",
+          "f5bfecfd7250ff87ba0fddda7ce5acd5eaad5dc610a5e1ad7a1d3b2a1201073f"
+        ],
+        "prior_state_counts": [
+          7,
+          2
+        ]
+      },
+      "part_after_edit": {
+        "archive_body_tags": [
+          3352,
+          3352
+        ],
+        "body_atom_id": 101,
+        "boss_id": 21,
+        "boss_mark": 16,
+        "configuration_mark": 2,
+        "feature_reference_time": 2592000,
+        "has_producer_creation_event": false,
+        "profile_id": 18,
+        "side_markers": {
+          "*0*": {
+            "creation_marker": 1,
+            "permanent_marker": 1,
+            "sketch_entity_id": "sldprt:sketch:18:line:1"
+          },
+          "*1*": {
+            "creation_marker": 3,
+            "permanent_marker": 3,
+            "sketch_entity_id": "sldprt:sketch:18:line:3"
+          },
+          "0**": {
+            "creation_marker": 4,
+            "permanent_marker": 4,
+            "sketch_entity_id": "sldprt:sketch:18:line:4"
+          },
+          "1**": {
+            "creation_marker": 2,
+            "permanent_marker": 2,
+            "sketch_entity_id": "sldprt:sketch:18:line:2"
+          }
+        }
+      },
+      "part_before_edit": {
+        "archive_body_tags": [
+          0,
+          0
+        ],
+        "body_atom_id": 101,
+        "boss_id": 21,
+        "boss_mark": null,
+        "configuration_mark": null,
+        "feature_reference_time": 2592000,
+        "has_producer_creation_event": false,
+        "profile_id": 18,
+        "side_markers": {
+          "*0*": {
+            "creation_marker": 1,
+            "permanent_marker": 1,
+            "sketch_entity_id": "sldprt:sketch:18:line:1"
+          },
+          "*1*": {
+            "creation_marker": 3,
+            "permanent_marker": 3,
+            "sketch_entity_id": "sldprt:sketch:18:line:3"
+          },
+          "0**": {
+            "creation_marker": 4,
+            "permanent_marker": 4,
+            "sketch_entity_id": "sldprt:sketch:18:line:4"
+          },
+          "1**": {
+            "creation_marker": 2,
+            "permanent_marker": 2,
+            "sketch_entity_id": "sldprt:sketch:18:line:2"
+          }
+        }
+      },
+      "persistent_reference_admission": "refused_missing_baseline_and_live_persistent_resolution",
+      "portable_entity_counts": {
+        "edge": 12,
+        "face": 6,
+        "vertex": 8
+      },
+      "saved_kernel": {
+        "active_mark": 16,
+        "active_node_count": 181,
+        "active_sha256": "9a02a5b958e5897ec93c0502b23fde212135cef52f7a3fcded3c44ec8faf3d86",
+        "actual_axis_coordinates_mm": [
+          [
+            0.0,
+            20.0
+          ],
+          [
+            0.0,
+            29.999999999999993,
+            30.0
+          ],
+          [
+            0.0,
+            15.87
+          ]
+        ],
+        "body_atom_id": 101,
+        "body_match_tag": 3352,
+        "history_sha256": "274082989dc2aefe144a409c81d683ca55d92b0897b1745b690a8128742b051f",
+        "maximum_off_axis_carrier_component": 3.469446951953614e-16,
+        "partition_sha256": "f33322ff3586fc2f95689f210c65bc946ce3b01f39d8fcd2fa37ee0d3941ce93",
+        "prior_mark": 2,
+        "producer_id": 21,
+        "replayed_full_partition_bytes": true,
+        "rollback_contains_previous_edited_solid": false,
+        "rollback_deleted_records": 152
+      },
+      "saved_sha256": "a808bf2485896295c9b96172bd151a1744d768ee1bd200a8193a018b7e485bda",
+      "source": {
+        "body_shape_sha256": "ac2ba5374aba9bb57f4852cb5bbbddc7aee051d105e2a4b6b5ad7a176ef4c39d",
+        "body_xml_id": 2272,
+        "original_sha256": "2690f8a7f26e9096c917f0e2d4b9d311985a52dc1153546471064525ba8f68df",
+        "primitive_shape_sha256": "91fb563e42f334271e92c9358a9006218ff4d2bfa13cbf82542dea977c5be0bf",
+        "primitive_xml_id": 2280,
+        "source_element_map_sha256": "b500a5ff8a5ab524939e702559cfc8e802aaf9de72f0d5666ecb35cec49108b9",
+        "source_uuid": "31824936-8b4e-4f8d-aba7-cd515e96497a"
+      }
+    },
+    "Freecad114": {
+      "entity_rows": [
+        {
+          "actual_incident_faces": [
+            "**0"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              52,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "**0"
+            ],
+            "kernel_node_id": 48,
+            "normalized_transmit_index": 117,
+            "primary_face_identity": [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            "sdk_entity_id": "sldprt:brep:face:118",
+            "unchanged_stamp": [
+              225444038
+            ],
+            "wire_transmit_index": 118
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-0",
+          "kind": "face",
+          "role": "**0",
+          "source_body": {
+            "indexed_name": "Face5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:30",
+            "ordinal": 5,
+            "tshape_reference": 5
+          },
+          "source_primitive": {
+            "indexed_name": "Face5",
+            "neutral_entity_id": "freecad:primitive:shape:face:30",
+            "ordinal": 5,
+            "tshape_reference": 5
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              51,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "**1"
+            ],
+            "kernel_node_id": 1,
+            "normalized_transmit_index": 89,
+            "primary_face_identity": [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            "sdk_entity_id": "sldprt:brep:face:90",
+            "unchanged_stamp": [
+              219807942
+            ],
+            "wire_transmit_index": 90
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-1",
+          "kind": "face",
+          "role": "**1",
+          "source_body": {
+            "indexed_name": "Face6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:32",
+            "ordinal": 6,
+            "tshape_reference": 3
+          },
+          "source_primitive": {
+            "indexed_name": "Face6",
+            "neutral_entity_id": "freecad:primitive:shape:face:32",
+            "ordinal": 6,
+            "tshape_reference": 3
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              54,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "*0*"
+            ],
+            "kernel_node_id": 88,
+            "normalized_transmit_index": 100,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            "sdk_entity_id": "sldprt:brep:face:101",
+            "unchanged_stamp": [
+              226885830
+            ],
+            "wire_transmit_index": 101
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-2",
+          "kind": "face",
+          "role": "*0*",
+          "source_body": {
+            "indexed_name": "Face3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:24",
+            "ordinal": 3,
+            "tshape_reference": 11
+          },
+          "source_primitive": {
+            "indexed_name": "Face3",
+            "neutral_entity_id": "freecad:primitive:shape:face:24",
+            "ordinal": 3,
+            "tshape_reference": 11
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              56,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "*1*"
+            ],
+            "kernel_node_id": 84,
+            "normalized_transmit_index": 114,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            "sdk_entity_id": "sldprt:brep:face:115",
+            "unchanged_stamp": [
+              226361542
+            ],
+            "wire_transmit_index": 115
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-4",
+          "kind": "face",
+          "role": "*1*",
+          "source_body": {
+            "indexed_name": "Face4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:28",
+            "ordinal": 4,
+            "tshape_reference": 7
+          },
+          "source_primitive": {
+            "indexed_name": "Face4",
+            "neutral_entity_id": "freecad:primitive:shape:face:28",
+            "ordinal": 4,
+            "tshape_reference": 7
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              53,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "0**"
+            ],
+            "kernel_node_id": 90,
+            "normalized_transmit_index": 43,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ],
+            "sdk_entity_id": "sldprt:brep:face:44",
+            "unchanged_stamp": [
+              227147974
+            ],
+            "wire_transmit_index": 44
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-5",
+          "kind": "face",
+          "role": "0**",
+          "source_body": {
+            "indexed_name": "Face1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:10",
+            "ordinal": 1,
+            "tshape_reference": 25
+          },
+          "source_primitive": {
+            "indexed_name": "Face1",
+            "neutral_entity_id": "freecad:primitive:shape:face:10",
+            "ordinal": 1,
+            "tshape_reference": 25
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [
+              "DOWNSTREAM_FACE_ID",
+              "FACE_ID_2001",
+              "SWEntUnchanged"
+            ],
+            "auxiliary_face_identity": [
+              55,
+              0
+            ],
+            "downstream_face_identity": [
+              0,
+              689403336,
+              31291314,
+              0,
+              0,
+              0
+            ],
+            "incident_face_roles": [
+              "1**"
+            ],
+            "kernel_node_id": 86,
+            "normalized_transmit_index": 99,
+            "primary_face_identity": [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ],
+            "sdk_entity_id": "sldprt:brep:face:100",
+            "unchanged_stamp": [
+              226623686
+            ],
+            "wire_transmit_index": 100
+          },
+          "generated_sdk_entity_id": "sldprt:body:1-prism-face-3",
+          "kind": "face",
+          "role": "1**",
+          "source_body": {
+            "indexed_name": "Face2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:face:20",
+            "ordinal": 2,
+            "tshape_reference": 15
+          },
+          "source_primitive": {
+            "indexed_name": "Face2",
+            "neutral_entity_id": "freecad:primitive:shape:face:20",
+            "ordinal": 2,
+            "tshape_reference": 15
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*"
+            ],
+            "kernel_node_id": 58,
+            "normalized_transmit_index": 98,
+            "sdk_entity_id": "sldprt:brep:edge:99",
+            "wire_transmit_index": 99
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-0",
+          "kind": "edge",
+          "role": "*00",
+          "source_body": {
+            "indexed_name": "Edge9",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:21",
+            "ordinal": 9,
+            "tshape_reference": 14
+          },
+          "source_primitive": {
+            "indexed_name": "Edge9",
+            "neutral_entity_id": "freecad:primitive:shape:edge:21",
+            "ordinal": 9,
+            "tshape_reference": 14
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*"
+            ],
+            "kernel_node_id": 9,
+            "normalized_transmit_index": 90,
+            "sdk_entity_id": "sldprt:brep:edge:91",
+            "wire_transmit_index": 91
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-4",
+          "kind": "edge",
+          "role": "*01",
+          "source_body": {
+            "indexed_name": "Edge10",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:22",
+            "ordinal": 10,
+            "tshape_reference": 13
+          },
+          "source_primitive": {
+            "indexed_name": "Edge10",
+            "neutral_entity_id": "freecad:primitive:shape:edge:22",
+            "ordinal": 10,
+            "tshape_reference": 13
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*"
+            ],
+            "kernel_node_id": 50,
+            "normalized_transmit_index": 85,
+            "sdk_entity_id": "sldprt:brep:edge:86",
+            "wire_transmit_index": 86
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-2",
+          "kind": "edge",
+          "role": "*10",
+          "source_body": {
+            "indexed_name": "Edge11",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:25",
+            "ordinal": 11,
+            "tshape_reference": 10
+          },
+          "source_primitive": {
+            "indexed_name": "Edge11",
+            "neutral_entity_id": "freecad:primitive:shape:edge:25",
+            "ordinal": 11,
+            "tshape_reference": 10
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*"
+            ],
+            "kernel_node_id": 17,
+            "normalized_transmit_index": 56,
+            "sdk_entity_id": "sldprt:brep:edge:57",
+            "wire_transmit_index": 57
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-6",
+          "kind": "edge",
+          "role": "*11",
+          "source_body": {
+            "indexed_name": "Edge12",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:26",
+            "ordinal": 12,
+            "tshape_reference": 9
+          },
+          "source_primitive": {
+            "indexed_name": "Edge12",
+            "neutral_entity_id": "freecad:primitive:shape:edge:26",
+            "ordinal": 12,
+            "tshape_reference": 9
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "0**"
+            ],
+            "kernel_node_id": 62,
+            "normalized_transmit_index": 106,
+            "sdk_entity_id": "sldprt:brep:edge:107",
+            "wire_transmit_index": 107
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-3",
+          "kind": "edge",
+          "role": "0*0",
+          "source_body": {
+            "indexed_name": "Edge4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:8",
+            "ordinal": 4,
+            "tshape_reference": 27
+          },
+          "source_primitive": {
+            "indexed_name": "Edge4",
+            "neutral_entity_id": "freecad:primitive:shape:edge:8",
+            "ordinal": 4,
+            "tshape_reference": 27
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "0**"
+            ],
+            "kernel_node_id": 5,
+            "normalized_transmit_index": 94,
+            "sdk_entity_id": "sldprt:brep:edge:95",
+            "wire_transmit_index": 95
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-7",
+          "kind": "edge",
+          "role": "0*1",
+          "source_body": {
+            "indexed_name": "Edge2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:5",
+            "ordinal": 2,
+            "tshape_reference": 30
+          },
+          "source_primitive": {
+            "indexed_name": "Edge2",
+            "neutral_entity_id": "freecad:primitive:shape:edge:5",
+            "ordinal": 2,
+            "tshape_reference": 30
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 82,
+            "normalized_transmit_index": 11,
+            "sdk_entity_id": "sldprt:brep:edge:12",
+            "wire_transmit_index": 12
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-8",
+          "kind": "edge",
+          "role": "00*",
+          "source_body": {
+            "indexed_name": "Edge1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:3",
+            "ordinal": 1,
+            "tshape_reference": 32
+          },
+          "source_primitive": {
+            "indexed_name": "Edge1",
+            "neutral_entity_id": "freecad:primitive:shape:edge:3",
+            "ordinal": 1,
+            "tshape_reference": 32
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 79,
+            "normalized_transmit_index": 105,
+            "sdk_entity_id": "sldprt:brep:edge:106",
+            "wire_transmit_index": 106
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-11",
+          "kind": "edge",
+          "role": "01*",
+          "source_body": {
+            "indexed_name": "Edge3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:7",
+            "ordinal": 3,
+            "tshape_reference": 28
+          },
+          "source_primitive": {
+            "indexed_name": "Edge3",
+            "neutral_entity_id": "freecad:primitive:shape:edge:7",
+            "ordinal": 3,
+            "tshape_reference": 28
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "1**"
+            ],
+            "kernel_node_id": 54,
+            "normalized_transmit_index": 77,
+            "sdk_entity_id": "sldprt:brep:edge:78",
+            "wire_transmit_index": 78
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-1",
+          "kind": "edge",
+          "role": "1*0",
+          "source_body": {
+            "indexed_name": "Edge8",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:18",
+            "ordinal": 8,
+            "tshape_reference": 17
+          },
+          "source_primitive": {
+            "indexed_name": "Edge8",
+            "neutral_entity_id": "freecad:primitive:shape:edge:18",
+            "ordinal": 8,
+            "tshape_reference": 17
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "1**"
+            ],
+            "kernel_node_id": 13,
+            "normalized_transmit_index": 95,
+            "sdk_entity_id": "sldprt:brep:edge:96",
+            "wire_transmit_index": 96
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-5",
+          "kind": "edge",
+          "role": "1*1",
+          "source_body": {
+            "indexed_name": "Edge6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:15",
+            "ordinal": 6,
+            "tshape_reference": 20
+          },
+          "source_primitive": {
+            "indexed_name": "Edge6",
+            "neutral_entity_id": "freecad:primitive:shape:edge:15",
+            "ordinal": 6,
+            "tshape_reference": 20
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 81,
+            "normalized_transmit_index": 51,
+            "sdk_entity_id": "sldprt:brep:edge:52",
+            "wire_transmit_index": 52
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-9",
+          "kind": "edge",
+          "role": "10*",
+          "source_body": {
+            "indexed_name": "Edge5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:13",
+            "ordinal": 5,
+            "tshape_reference": 22
+          },
+          "source_primitive": {
+            "indexed_name": "Edge5",
+            "neutral_entity_id": "freecad:primitive:shape:edge:13",
+            "ordinal": 5,
+            "tshape_reference": 22
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 80,
+            "normalized_transmit_index": 97,
+            "sdk_entity_id": "sldprt:brep:edge:98",
+            "wire_transmit_index": 98
+          },
+          "derived_incident_face_keys": [
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-edge-10",
+          "kind": "edge",
+          "role": "11*",
+          "source_body": {
+            "indexed_name": "Edge7",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:edge:17",
+            "ordinal": 7,
+            "tshape_reference": 18
+          },
+          "source_primitive": {
+            "indexed_name": "Edge7",
+            "neutral_entity_id": "freecad:primitive:shape:edge:17",
+            "ordinal": 7,
+            "tshape_reference": 18
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 69,
+            "normalized_transmit_index": 63,
+            "sdk_entity_id": "sldprt:brep:vertex:64",
+            "wire_transmit_index": 64
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-0",
+          "kind": "vertex",
+          "role": "000",
+          "source_body": {
+            "indexed_name": "Vertex2",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:2",
+            "ordinal": 2,
+            "tshape_reference": 33
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex2",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:2",
+            "ordinal": 2,
+            "tshape_reference": 33
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*",
+              "0**"
+            ],
+            "kernel_node_id": 21,
+            "normalized_transmit_index": 76,
+            "sdk_entity_id": "sldprt:brep:vertex:77",
+            "wire_transmit_index": 77
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-4",
+          "kind": "vertex",
+          "role": "001",
+          "source_body": {
+            "indexed_name": "Vertex1",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:1",
+            "ordinal": 1,
+            "tshape_reference": 34
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex1",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:1",
+            "ordinal": 1,
+            "tshape_reference": 34
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 66,
+            "normalized_transmit_index": 50,
+            "sdk_entity_id": "sldprt:brep:vertex:51",
+            "wire_transmit_index": 51
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-3",
+          "kind": "vertex",
+          "role": "010",
+          "source_body": {
+            "indexed_name": "Vertex4",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:6",
+            "ordinal": 4,
+            "tshape_reference": 29
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex4",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:6",
+            "ordinal": 4,
+            "tshape_reference": 29
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*",
+            "0**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*",
+              "0**"
+            ],
+            "kernel_node_id": 30,
+            "normalized_transmit_index": 12,
+            "sdk_entity_id": "sldprt:brep:vertex:13",
+            "wire_transmit_index": 13
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              4
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-7",
+          "kind": "vertex",
+          "role": "011",
+          "source_body": {
+            "indexed_name": "Vertex3",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:4",
+            "ordinal": 3,
+            "tshape_reference": 31
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex3",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:4",
+            "ordinal": 3,
+            "tshape_reference": 31
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 68,
+            "normalized_transmit_index": 66,
+            "sdk_entity_id": "sldprt:brep:vertex:67",
+            "wire_transmit_index": 67
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-1",
+          "kind": "vertex",
+          "role": "100",
+          "source_body": {
+            "indexed_name": "Vertex6",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:12",
+            "ordinal": 6,
+            "tshape_reference": 23
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex6",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:12",
+            "ordinal": 6,
+            "tshape_reference": 23
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*0*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*0*",
+              "1**"
+            ],
+            "kernel_node_id": 24,
+            "normalized_transmit_index": 62,
+            "sdk_entity_id": "sldprt:brep:vertex:63",
+            "wire_transmit_index": 63
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              1
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-5",
+          "kind": "vertex",
+          "role": "101",
+          "source_body": {
+            "indexed_name": "Vertex5",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:11",
+            "ordinal": 5,
+            "tshape_reference": 24
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex5",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:11",
+            "ordinal": 5,
+            "tshape_reference": 24
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**0",
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**0",
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 67,
+            "normalized_transmit_index": 67,
+            "sdk_entity_id": "sldprt:brep:vertex:68",
+            "wire_transmit_index": 68
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              0,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-2",
+          "kind": "vertex",
+          "role": "110",
+          "source_body": {
+            "indexed_name": "Vertex8",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:16",
+            "ordinal": 8,
+            "tshape_reference": 19
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex8",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:16",
+            "ordinal": 8,
+            "tshape_reference": 19
+          }
+        },
+        {
+          "actual_incident_faces": [
+            "**1",
+            "*1*",
+            "1**"
+          ],
+          "actual_saved_wire": {
+            "attribute_names": [],
+            "incident_face_roles": [
+              "**1",
+              "*1*",
+              "1**"
+            ],
+            "kernel_node_id": 27,
+            "normalized_transmit_index": 52,
+            "sdk_entity_id": "sldprt:brep:vertex:53",
+            "wire_transmit_index": 53
+          },
+          "derived_incident_face_keys": [
+            [
+              40,
+              21,
+              2592000,
+              0,
+              1,
+              0
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              3
+            ],
+            [
+              74,
+              21,
+              2592000,
+              0,
+              2
+            ]
+          ],
+          "generated_sdk_entity_id": "sldprt:body:1-prism-vertex-6",
+          "kind": "vertex",
+          "role": "111",
+          "source_body": {
+            "indexed_name": "Vertex7",
+            "neutral_entity_id": "freecad:occ:9f0529dc4037ba793b30:vertex:14",
+            "ordinal": 7,
+            "tshape_reference": 21
+          },
+          "source_primitive": {
+            "indexed_name": "Vertex7",
+            "neutral_entity_id": "freecad:primitive:shape:vertex:14",
+            "ordinal": 7,
+            "tshape_reference": 21
+          }
+        }
+      ],
+      "generated_native_boundary_identities_present": false,
+      "generated_sha256": "51f6e11f730f85035c840bc03925a7b7b452db15b5fa00bddfb3683163c36b1d",
+      "native_lifecycle": {
+        "exact_native_save_is_the_fresh_reopen_input": true,
+        "native_persistent_api_calls": 0,
+        "observed_edited_dimensions_mm": [
+          20.0,
+          30.0,
+          16.19
+        ],
+        "original_native_phase_hashes": [
+          "9b8cdd086e20cb66af0d891ece6c233929fcdd0d372eb0ea2aa9ff044065252e",
+          "86443315c2dbfa7631a8cb74b3009a53105eefd691d069c82a2a3aa7c10615c0"
+        ],
+        "prior_state_counts": [
+          7,
+          2
+        ]
+      },
+      "part_after_edit": {
+        "archive_body_tags": [
+          3352,
+          3352
+        ],
+        "body_atom_id": 101,
+        "boss_id": 21,
+        "boss_mark": 16,
+        "configuration_mark": 2,
+        "feature_reference_time": 2592000,
+        "has_producer_creation_event": false,
+        "profile_id": 18,
+        "side_markers": {
+          "*0*": {
+            "creation_marker": 1,
+            "permanent_marker": 1,
+            "sketch_entity_id": "sldprt:sketch:18:line:1"
+          },
+          "*1*": {
+            "creation_marker": 3,
+            "permanent_marker": 3,
+            "sketch_entity_id": "sldprt:sketch:18:line:3"
+          },
+          "0**": {
+            "creation_marker": 4,
+            "permanent_marker": 4,
+            "sketch_entity_id": "sldprt:sketch:18:line:4"
+          },
+          "1**": {
+            "creation_marker": 2,
+            "permanent_marker": 2,
+            "sketch_entity_id": "sldprt:sketch:18:line:2"
+          }
+        }
+      },
+      "part_before_edit": {
+        "archive_body_tags": [
+          0,
+          0
+        ],
+        "body_atom_id": 101,
+        "boss_id": 21,
+        "boss_mark": null,
+        "configuration_mark": null,
+        "feature_reference_time": 2592000,
+        "has_producer_creation_event": false,
+        "profile_id": 18,
+        "side_markers": {
+          "*0*": {
+            "creation_marker": 1,
+            "permanent_marker": 1,
+            "sketch_entity_id": "sldprt:sketch:18:line:1"
+          },
+          "*1*": {
+            "creation_marker": 3,
+            "permanent_marker": 3,
+            "sketch_entity_id": "sldprt:sketch:18:line:3"
+          },
+          "0**": {
+            "creation_marker": 4,
+            "permanent_marker": 4,
+            "sketch_entity_id": "sldprt:sketch:18:line:4"
+          },
+          "1**": {
+            "creation_marker": 2,
+            "permanent_marker": 2,
+            "sketch_entity_id": "sldprt:sketch:18:line:2"
+          }
+        }
+      },
+      "persistent_reference_admission": "refused_missing_baseline_and_live_persistent_resolution",
+      "portable_entity_counts": {
+        "edge": 12,
+        "face": 6,
+        "vertex": 8
+      },
+      "saved_kernel": {
+        "active_mark": 16,
+        "active_node_count": 181,
+        "active_sha256": "d07703935291cf97b161372b3c392fdd55840663fbc215298b00cd8b7118e7bd",
+        "actual_axis_coordinates_mm": [
+          [
+            0.0,
+            20.0
+          ],
+          [
+            0.0,
+            29.999999999999993,
+            30.0
+          ],
+          [
+            0.0,
+            16.19
+          ]
+        ],
+        "body_atom_id": 101,
+        "body_match_tag": 3352,
+        "history_sha256": "274082989dc2aefe144a409c81d683ca55d92b0897b1745b690a8128742b051f",
+        "maximum_off_axis_carrier_component": 3.469446951953614e-16,
+        "partition_sha256": "d6b274858e19a3c54a4bc387fcb4370249ec508bdeb95f06dee562b555d30821",
+        "prior_mark": 2,
+        "producer_id": 21,
+        "replayed_full_partition_bytes": true,
+        "rollback_contains_previous_edited_solid": false,
+        "rollback_deleted_records": 152
+      },
+      "saved_sha256": "9004b65f48e742cd52a79e526c45c84ba0403a75f32d617645be7946f115c4aa",
+      "source": {
+        "body_shape_sha256": "ac2ba5374aba9bb57f4852cb5bbbddc7aee051d105e2a4b6b5ad7a176ef4c39d",
+        "body_xml_id": 4912,
+        "original_sha256": "c79cd3693db356fdf0d81f367ce56dc57f15b74b3bd5833811f8170bb30377b8",
+        "primitive_shape_sha256": "91fb563e42f334271e92c9358a9006218ff4d2bfa13cbf82542dea977c5be0bf",
+        "primitive_xml_id": 4921,
+        "source_element_map_sha256": "94bd618a1edcc5492f0dd0322b8acda56e98c7bb271903c8543731171e3be3e2",
+        "source_uuid": "bbc9715e-f42e-42b4-81ef-ffea92d4f154"
+      }
+    }
+  },
+  "independent_processes": 4,
+  "native_processes_started": 0,
+  "native_reference_persistence_qualified": false,
+  "oracle_build_from_prior_receipt": "34.5.2.0604",
+  "prior_receipts_sha256": {
+    "SdkFreecadBoxReleaseNative01": "e87ae3d9520edcffd262b1dc2457b2bd4e5a70fe4ff34c1a1271079d5628b856",
+    "SdkFreecadF14aIntactSource01": "89820d391925543775ea2ba05e56197ee0827a7ece06cd2451347985f540f9a4"
+  },
+  "protected_inputs_read": 0,
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.freecad-f14a-topology-lineage.v1",
+  "sdk_revision": "a1b26105b401a75edd32930847a96da45394a811",
+  "tool_dependencies_sha256": {
+    "re/tooling/sw2026/VerifyFreecadF14aIntact.py": "9f73969bd176cc19ea10d942de0f334d303b3342b90b7fbbc6d5079d83514f20",
+    "re/tooling/sw2026/builders/EmptyPartition.py": "a8f020d32df566123856ab532d89ba5b1cf5c748dbb22412d249bda363a963c3",
+    "re/tooling/sw2026/para/Partition.py": "26117abf2342c0b5b720d7acb3d450c24d3d40d9c73514e35c1b0f2ceefed89d",
+    "re/tooling/sw2026/para/Schema.py": "c68cf9c1f10fbf45c4d88a4add7c26602b5924b3d540190936134685d1f0219d"
+  },
+  "writer_outputs": 0
+}

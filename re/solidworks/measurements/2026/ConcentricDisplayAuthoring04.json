@@ -1,0 +1,1190 @@
+{
+  "archives": {
+    "after": {
+      "cmgr_bytes": 3540,
+      "linked_files": {
+        "binary_occurrence_reference_words": {
+          "f3e0": [
+            162,
+            162
+          ],
+          "f3e8": [
+            1795148134,
+            1795148134
+          ],
+          "f3f0": [
+            102,
+            102
+          ],
+          "f3f4": [
+            106,
+            106
+          ],
+          "f3f8": [
+            101,
+            101
+          ],
+          "hidden": [
+            0,
+            0
+          ]
+        },
+        "child_configuration": [
+          0,
+          "Default"
+        ],
+        "child_file_header_path_class": "UNC",
+        "child_file_header_path_sha256": "9596f1bb0f4f1305f4051b52a938778f835515536be844c33aff59adf15bc75d",
+        "child_file_signature": [
+          2,
+          1795044299
+        ],
+        "child_path_class": "Z:",
+        "child_path_sha256": "87840c22e0a0caa0b89e3bbb129d5f6173929e1ba7384e4bfbd0aa2047553617",
+        "child_reference_stamp": 162,
+        "child_xml_file": 6,
+        "child_xml_model": 5,
+        "parent_path_sha256": "dc32d3dbc3f146e7114cfd62ce199f2848eea0f2e6f24188e3062b3e003be13c",
+        "parent_xml_file": 3,
+        "parent_xml_model": 2,
+        "root_stamp": 114,
+        "shared_child_directory": true
+      },
+      "native_bytes": 48352,
+      "parent_stamps": {
+        "body_stamp": 101,
+        "creation_seconds": 1795044311,
+        "save_seconds": 1795148134,
+        "update_stamp": 114
+      },
+      "visual": {
+        "aliases": [
+          {
+            "class": "visStateVisualPropertiesAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 19,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                25,
+                2
+              ],
+              [
+                "occurrence",
+                25,
+                3
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                2
+              ],
+              [
+                "occurrence",
+                24,
+                3
+              ],
+              [
+                "plane",
+                5,
+                1
+              ],
+              [
+                "plane",
+                5,
+                2
+              ],
+              [
+                "plane",
+                5,
+                3
+              ],
+              [
+                "plane",
+                4,
+                1
+              ],
+              [
+                "plane",
+                4,
+                2
+              ],
+              [
+                "plane",
+                4,
+                3
+              ],
+              [
+                "plane",
+                3,
+                1
+              ],
+              [
+                "plane",
+                3,
+                2
+              ],
+              [
+                "plane",
+                3,
+                3
+              ]
+            ],
+            "wire_bytes": 47
+          },
+          {
+            "class": "visStateVisualStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 21,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                25,
+                3
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                2
+              ]
+            ],
+            "wire_bytes": 56
+          },
+          {
+            "class": "visStateDisplayStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 23,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                25,
+                2
+              ],
+              [
+                "occurrence",
+                25,
+                3
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                2
+              ],
+              [
+                "occurrence",
+                24,
+                3
+              ]
+            ],
+            "wire_bytes": 99
+          },
+          {
+            "class": "visStateVisualStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 24,
+            "users": [
+              [
+                "occurrence",
+                25,
+                2
+              ],
+              [
+                "occurrence",
+                24,
+                3
+              ]
+            ],
+            "wire_bytes": 22
+          },
+          {
+            "class": "visStateVisualStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 35,
+            "users": [
+              [
+                "plane",
+                5,
+                1
+              ],
+              [
+                "plane",
+                5,
+                2
+              ],
+              [
+                "plane",
+                5,
+                3
+              ],
+              [
+                "plane",
+                4,
+                1
+              ],
+              [
+                "plane",
+                4,
+                2
+              ],
+              [
+                "plane",
+                4,
+                3
+              ],
+              [
+                "plane",
+                3,
+                1
+              ],
+              [
+                "plane",
+                3,
+                2
+              ],
+              [
+                "plane",
+                3,
+                3
+              ]
+            ],
+            "wire_bytes": 22
+          }
+        ],
+        "byte_identity": true,
+        "bytes": 1593,
+        "class_counts": {
+          "moCStringHandle_c": 5,
+          "moCompFeature_c": 3,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2,
+          "moUnitComponent_c": 3,
+          "visStateDisplayStateAttribute_c": 1,
+          "visStateKeyData_c": 1,
+          "visStateVisualPropertiesAttribute_c": 1,
+          "visStateVisualStateAttribute_c": 3
+        },
+        "configuration_association": [
+          {
+            "key": 0,
+            "one": 1,
+            "value": 1
+          }
+        ],
+        "map_counter": 40,
+        "occurrence_attributes": {
+          "24": {
+            "1": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "2": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "3": [
+              0,
+              6,
+              0,
+              1
+            ]
+          },
+          "25": {
+            "1": [
+              1,
+              6,
+              0,
+              1
+            ],
+            "2": [
+              0,
+              6,
+              0,
+              1
+            ],
+            "3": [
+              1,
+              6,
+              0,
+              1
+            ]
+          }
+        },
+        "occurrence_order": [
+          25,
+          24
+        ],
+        "opaque_bytes": 0,
+        "parent_file_handle_aliases": {
+          "24": {
+            "context_word": 101,
+            "external_title": {
+              "archive_slot": 13,
+              "codepoints": 24,
+              "sha256": "0b36a690c7715f2d5c2d8035d43270fdc328fe89b46a84847b7ffcbb4f5bd4f0",
+              "span_bytes": 54,
+              "value": "ConcentricD01AlignedFree"
+            },
+            "historical_context_title": {
+              "archive_slot": 17,
+              "codepoints": 6,
+              "sha256": "e7e2b9f1911ed6fbadd3dd9d3a1e98f16a8bce3290d3178fe89f6c1bfb2d1973",
+              "span_bytes": 18,
+              "value": "Assem1"
+            },
+            "shared_empty_path": {
+              "archive_slot": 12,
+              "codepoints": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "span_bytes": 27,
+              "value": ""
+            }
+          },
+          "25": {
+            "context_word": 101,
+            "external_title": {
+              "archive_slot": 13,
+              "codepoints": 24,
+              "sha256": "0b36a690c7715f2d5c2d8035d43270fdc328fe89b46a84847b7ffcbb4f5bd4f0",
+              "span_bytes": 54,
+              "value": "ConcentricD01AlignedFree"
+            },
+            "historical_context_title": {
+              "archive_slot": 17,
+              "codepoints": 6,
+              "sha256": "e7e2b9f1911ed6fbadd3dd9d3a1e98f16a8bce3290d3178fe89f6c1bfb2d1973",
+              "span_bytes": 18,
+              "value": "Assem1"
+            },
+            "shared_empty_path": {
+              "archive_slot": 12,
+              "codepoints": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "span_bytes": 27,
+              "value": ""
+            }
+          }
+        },
+        "plane_attributes": {
+          "3": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "2": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "3": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Front Plane"
+          },
+          "4": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "2": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "3": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Top Plane"
+          },
+          "5": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "2": [
+                0,
+                6,
+                1,
+                0
+              ],
+              "3": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Right Plane"
+          }
+        },
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "0ffadf4a1b705a69a8bdc94086015732794a13e6eb4b990f5388f6432ed7782f",
+        "states": [
+          {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 1,
+            "name": "Display State-1"
+          },
+          {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 2,
+            "name": "VisibilityFirstOnly"
+          },
+          {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 3,
+            "name": "VisibilitySecondOnly"
+          }
+        ],
+        "typed_bytes": 1593
+      },
+      "xml": {
+        "actual_xml_object_count": 11,
+        "byte_identity": true,
+        "bytes": 2801,
+        "configuration": [
+          1,
+          0,
+          "Default"
+        ],
+        "occurrences": [
+          {
+            "feature_id": 24,
+            "name": "ConcentricD01Child-1",
+            "swDisplayMode": 6,
+            "swEdgesInShadedMode": "NO",
+            "swHidden": "NO",
+            "swHlrDisplayQuality": 1,
+            "xml_id": 4
+          },
+          {
+            "feature_id": 25,
+            "name": "ConcentricD01Child-2",
+            "swDisplayMode": 6,
+            "swEdgesInShadedMode": "NO",
+            "swHidden": "NO",
+            "swHlrDisplayQuality": 1,
+            "xml_id": 7
+          }
+        ],
+        "opaque_bytes": 0,
+        "root_model_id": 2,
+        "sha256": "faccfeb35372c0affde19b7b8b177eb40eeab3d09f5786e54c4bb8c9bd1b29cd",
+        "state": {
+          "id": 9,
+          "list_id": 8,
+          "members": [
+            [
+              24,
+              "Yes"
+            ],
+            [
+              25,
+              "Yes"
+            ]
+          ],
+          "name": "Display State-1"
+        },
+        "states": {
+          "Display State-1": {
+            "show_tokens": [
+              "Yes",
+              "Yes"
+            ],
+            "visibility": [
+              1,
+              1
+            ],
+            "xml_id": 9
+          },
+          "VisibilityFirstOnly": {
+            "show_tokens": [
+              "Yes",
+              "No"
+            ],
+            "visibility": [
+              1,
+              0
+            ],
+            "xml_id": 10
+          },
+          "VisibilitySecondOnly": {
+            "show_tokens": [
+              "No",
+              "Yes"
+            ],
+            "visibility": [
+              0,
+              1
+            ],
+            "xml_id": 11
+          }
+        },
+        "typed_bytes": 2801,
+        "xml_object_count": 9
+      }
+    },
+    "before": {
+      "cmgr_bytes": 3310,
+      "linked_files": {
+        "binary_occurrence_reference_words": {
+          "f3e0": [
+            148,
+            148
+          ],
+          "f3e8": [
+            1795148121,
+            1795148121
+          ],
+          "f3f0": [
+            102,
+            102
+          ],
+          "f3f4": [
+            105,
+            105
+          ],
+          "f3f8": [
+            101,
+            101
+          ],
+          "hidden": [
+            0,
+            0
+          ]
+        },
+        "child_configuration": [
+          0,
+          "Default"
+        ],
+        "child_file_header_path_class": "UNC",
+        "child_file_header_path_sha256": "9596f1bb0f4f1305f4051b52a938778f835515536be844c33aff59adf15bc75d",
+        "child_file_signature": [
+          2,
+          1795044299
+        ],
+        "child_path_class": "Z:",
+        "child_path_sha256": "87840c22e0a0caa0b89e3bbb129d5f6173929e1ba7384e4bfbd0aa2047553617",
+        "child_reference_stamp": 148,
+        "child_xml_file": 6,
+        "child_xml_model": 5,
+        "parent_path_sha256": "dc32d3dbc3f146e7114cfd62ce199f2848eea0f2e6f24188e3062b3e003be13c",
+        "parent_xml_file": 3,
+        "parent_xml_model": 2,
+        "root_stamp": 106,
+        "shared_child_directory": true
+      },
+      "native_bytes": 48461,
+      "parent_stamps": {
+        "body_stamp": 101,
+        "creation_seconds": 1795044311,
+        "save_seconds": 1795148121,
+        "update_stamp": 106
+      },
+      "visual": {
+        "aliases": [
+          {
+            "class": "visStateVisualPropertiesAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 19,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ],
+              [
+                "plane",
+                5,
+                1
+              ],
+              [
+                "plane",
+                4,
+                1
+              ],
+              [
+                "plane",
+                3,
+                1
+              ]
+            ],
+            "wire_bytes": 47
+          },
+          {
+            "class": "visStateVisualStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 21,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ]
+            ],
+            "wire_bytes": 56
+          },
+          {
+            "class": "visStateDisplayStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 23,
+            "users": [
+              [
+                "occurrence",
+                25,
+                1
+              ],
+              [
+                "occurrence",
+                24,
+                1
+              ]
+            ],
+            "wire_bytes": 99
+          },
+          {
+            "class": "visStateVisualStateAttribute_c",
+            "inner_owner_id": 1,
+            "slot": 34,
+            "users": [
+              [
+                "plane",
+                5,
+                1
+              ],
+              [
+                "plane",
+                4,
+                1
+              ],
+              [
+                "plane",
+                3,
+                1
+              ]
+            ],
+            "wire_bytes": 22
+          }
+        ],
+        "byte_identity": true,
+        "bytes": 1327,
+        "class_counts": {
+          "moCStringHandle_c": 5,
+          "moCompFeature_c": 3,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2,
+          "moUnitComponent_c": 3,
+          "visStateDisplayStateAttribute_c": 1,
+          "visStateKeyData_c": 1,
+          "visStateVisualPropertiesAttribute_c": 1,
+          "visStateVisualStateAttribute_c": 2
+        },
+        "configuration_association": [
+          {
+            "key": 0,
+            "one": 1,
+            "value": 1
+          }
+        ],
+        "map_counter": 39,
+        "occurrence_attributes": {
+          "24": {
+            "1": [
+              1,
+              6,
+              0,
+              1
+            ]
+          },
+          "25": {
+            "1": [
+              1,
+              6,
+              0,
+              1
+            ]
+          }
+        },
+        "occurrence_order": [
+          25,
+          24
+        ],
+        "opaque_bytes": 0,
+        "parent_file_handle_aliases": {
+          "24": {
+            "context_word": 101,
+            "external_title": {
+              "archive_slot": 13,
+              "codepoints": 24,
+              "sha256": "0b36a690c7715f2d5c2d8035d43270fdc328fe89b46a84847b7ffcbb4f5bd4f0",
+              "span_bytes": 54,
+              "value": "ConcentricD01AlignedFree"
+            },
+            "historical_context_title": {
+              "archive_slot": 17,
+              "codepoints": 6,
+              "sha256": "e7e2b9f1911ed6fbadd3dd9d3a1e98f16a8bce3290d3178fe89f6c1bfb2d1973",
+              "span_bytes": 18,
+              "value": "Assem1"
+            },
+            "shared_empty_path": {
+              "archive_slot": 12,
+              "codepoints": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "span_bytes": 27,
+              "value": ""
+            }
+          },
+          "25": {
+            "context_word": 101,
+            "external_title": {
+              "archive_slot": 13,
+              "codepoints": 24,
+              "sha256": "0b36a690c7715f2d5c2d8035d43270fdc328fe89b46a84847b7ffcbb4f5bd4f0",
+              "span_bytes": 54,
+              "value": "ConcentricD01AlignedFree"
+            },
+            "historical_context_title": {
+              "archive_slot": 17,
+              "codepoints": 6,
+              "sha256": "e7e2b9f1911ed6fbadd3dd9d3a1e98f16a8bce3290d3178fe89f6c1bfb2d1973",
+              "span_bytes": 18,
+              "value": "Assem1"
+            },
+            "shared_empty_path": {
+              "archive_slot": 12,
+              "codepoints": 0,
+              "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "span_bytes": 27,
+              "value": ""
+            }
+          }
+        },
+        "plane_attributes": {
+          "3": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Front Plane"
+          },
+          "4": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Top Plane"
+          },
+          "5": {
+            "attributes": {
+              "1": [
+                0,
+                6,
+                1,
+                0
+              ]
+            },
+            "name": "Right Plane"
+          }
+        },
+        "provisional_schemas": [
+          "moDisplayedEntityTracker_c.Serialize",
+          "moExtFeature_c",
+          "moExtObjectInterface_c.FUN_4c179410"
+        ],
+        "sha256": "1c635fae0367fa3b53c2827c0b06984d194029b4869181cb41411871a96ec9b3",
+        "states": [
+          {
+            "f384": 0,
+            "f38c": 0,
+            "f394": 0,
+            "id": 1,
+            "name": "Display State-1"
+          }
+        ],
+        "typed_bytes": 1327
+      },
+      "xml": {
+        "actual_xml_object_count": 9,
+        "byte_identity": true,
+        "bytes": 2623,
+        "configuration": [
+          1,
+          0,
+          "Default"
+        ],
+        "occurrences": [
+          {
+            "feature_id": 24,
+            "name": "ConcentricD01Child-1",
+            "swDisplayMode": 6,
+            "swEdgesInShadedMode": "NO",
+            "swHidden": "NO",
+            "swHlrDisplayQuality": 1,
+            "xml_id": 4
+          },
+          {
+            "feature_id": 25,
+            "name": "ConcentricD01Child-2",
+            "swDisplayMode": 6,
+            "swEdgesInShadedMode": "NO",
+            "swHidden": "NO",
+            "swHlrDisplayQuality": 1,
+            "xml_id": 7
+          }
+        ],
+        "opaque_bytes": 0,
+        "root_model_id": 2,
+        "sha256": "7d7a2ad8e99ec0b3220020bb77a0618291b929142bfd606c32e0364b23386b71",
+        "state": {
+          "id": 9,
+          "list_id": 8,
+          "members": [
+            [
+              24,
+              "Yes"
+            ],
+            [
+              25,
+              "Yes"
+            ]
+          ],
+          "name": "Display State-1"
+        },
+        "states": {
+          "Display State-1": {
+            "show_tokens": [
+              "Yes",
+              "Yes"
+            ],
+            "visibility": [
+              1,
+              1
+            ],
+            "xml_id": 9
+          }
+        },
+        "typed_bytes": 2623,
+        "xml_object_count": 9
+      }
+    }
+  },
+  "audit_passed": true,
+  "cache_omission_qualified": false,
+  "cad_outputs_written": 0,
+  "changed_stream_sizes": {
+    "Contents/3DExperienceExchange2": [
+      12288,
+      12288
+    ],
+    "Contents/3DExperienceExchange_ConfigHeader": [
+      12288,
+      12288
+    ],
+    "Contents/CMgr": [
+      3310,
+      3540
+    ],
+    "Contents/CMgrHdr2": [
+      137,
+      137
+    ],
+    "Contents/Config-0": [
+      25796,
+      25796
+    ],
+    "Contents/Config-0-LWDATA": [
+      1437,
+      1437
+    ],
+    "Contents/Config-0-MatesList": [
+      3762,
+      3762
+    ],
+    "Contents/Config-0-ModelHeader": [
+      2863,
+      2863
+    ],
+    "Contents/Config-0-ResolvedFeatures": [
+      5295,
+      5295
+    ],
+    "Contents/DisplayLists": [
+      9925,
+      9925
+    ],
+    "FaceTessellations/000-000-002": [
+      9914,
+      0
+    ],
+    "FaceTessellations/000-000-003": [
+      0,
+      9914
+    ],
+    "FaceTessellations/Directory": [
+      334,
+      334
+    ],
+    "Header2": [
+      2863,
+      2863
+    ],
+    "ModelStamps": [
+      12,
+      12
+    ],
+    "Preview": [
+      44740,
+      44736
+    ],
+    "PreviewPNG": [
+      10695,
+      10690
+    ],
+    "SwDocContentMgr/SwDocContentMgrInfo": [
+      2036,
+      2036
+    ],
+    "ThirdPtyStore/VisualStates": [
+      1327,
+      1593
+    ],
+    "_DL_VERSION_19000/DLUpdateStamp": [
+      6,
+      6
+    ],
+    "_MO_VERSION_19000/Biography": [
+      2377,
+      2377
+    ],
+    "docProps/ISolidWorksInformation.xml": [
+      10828,
+      10828
+    ],
+    "docProps/core.xml": [
+      522,
+      522
+    ],
+    "swXmlContents/COMPINSTANCETREE": [
+      2623,
+      2801
+    ]
+  },
+  "child_file_stamps": {
+    "body_stamp": 107,
+    "creation_seconds": 1795044299,
+    "save_seconds": 1795044315,
+    "update_stamp": 134
+  },
+  "child_reference_stamps": [
+    148,
+    162
+  ],
+  "child_stamp_discrepancies": [
+    14,
+    28
+  ],
+  "cmgr_delta": {
+    "bytes_added": 230,
+    "field_changes": {
+      "moConfigurationMgr_c/f1f8": [
+        0,
+        115
+      ],
+      "moConfigurationMgr_c/f360/moConfiguration_c/f860": [
+        106,
+        114
+      ],
+      "moConfigurationMgr_c/f360/moConfiguration_c/fce0/moAssyMassPropsCache_c/f08/0/cache/f18": [
+        109,
+        111
+      ]
+    }
+  },
+  "evidence_sha256": {
+    "after": "cb64a55e4cc1da4ebc1f1c0b0a9d22db286c13a082ffd16dea273360fa2a3c72",
+    "author": "8f550dd1a668f917d3186955f5cd242cb8cf0a08f0ffd97c98e9e527617af1ed",
+    "before": "281b0adf91dbd0942658baa5ac1d6a285f7370df35cf9199c7651ec56d6f33ba",
+    "child": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+    "control_after": "7ff33914f82a5ab817271b33b0c317e601ba29648853d3fb8458e12306303d0e",
+    "control_before": "d123ae97f9765921ddd6478158958d44c999f730c76972d918c5834f6cc8108d",
+    "observe": "e3b0725fceaad92df876ac1d03da32627be0fa300a3dae7201b03015b0afb877",
+    "preflight": "e80c5a76a31c645e9b9103e5167a1ea8b0bfbe1056d587a6f2e47f8c601d3319",
+    "summary": "de275b71e12453fcd4a3454a49806ac50865634d2cbbe6662071ff0c6f4de19f",
+    "trial": "eace2beb513a3f02ba7a053a6622a1d793f12f55f288e9cc9a675c9b41daa048"
+  },
+  "heldout_inputs_read": 0,
+  "native_observations": {
+    "author_child_locator": "UNC",
+    "author_named_visibility": {
+      "Display State-1": [
+        1,
+        1
+      ],
+      "VisibilityFirstOnly": [
+        1,
+        0
+      ],
+      "VisibilitySecondOnly": [
+        0,
+        1
+      ]
+    },
+    "author_open_status": [
+      0,
+      0
+    ],
+    "author_save_status": [
+      true,
+      0,
+      0
+    ],
+    "bracket_open_status": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    "clean_lifecycle_passed": false,
+    "cold_open_status": [
+      0,
+      32
+    ],
+    "cold_returned_document": true,
+    "cold_visibility_queried": false,
+    "link_display_states_to_configurations": false,
+    "native_processes": 4,
+    "numeric_checks_per_phase": {
+      "author": 28,
+      "control_after": 14,
+      "control_before": 14,
+      "observe": 0
+    },
+    "observer_child_locator": "Z:",
+    "oracle_build": "34.5.2.0604",
+    "pinned_job_preparation_head": "475aef7d3fb18ae81670ef66662d8bc1dd686f72",
+    "preflight": true,
+    "same_owned_child_suffix": true
+  },
+  "native_processes_started_by_audit": 0,
+  "precedence_measured": false,
+  "reader_sources_sha256": {
+    "re/tooling/sw2026/para/concentric/AuditConcentricDisplayAuthoring.py": "3a56ec15756bda01f1ec15cad630954e60bbbbbbcdf9e89f2ddde1dbaf915346",
+    "re/tooling/sw2026/para/concentric/AuditConcentricDisplayState.py": "7db91e8840e11e7863a46b638a44a1a947a5d7ad296c2e7f66bd5a76a3ac27dd",
+    "re/tooling/sw2026/serial/defs/Visual.py": "a85f58634768af0f7b0f21445b3d14fb94c39899019249121271751a762df001",
+    "re/tooling/sw2026/serial/defs/VisualRefs.py": "c607a62dca5d9d7a40c2df91cc1ddf059f39305cbafddeba56c017d0f51a9614"
+  },
+  "schema": "kit.sw2026.concentric-display-authoring-audit.v1",
+  "visual_delta": {
+    "added_object_classes": {
+      "visStateVisualStateAttribute_c": 1
+    },
+    "byte_exact_after_pruning": true,
+    "bytes_added": 266,
+    "component_map_entries_bytes": 56,
+    "file_handle_alias_byte_growth": 0,
+    "map_counter_delta": 1,
+    "new_shared_hidden_attribute_body_bytes": 20,
+    "plane_map_entries_bytes": 72,
+    "states_table_bytes": 118
+  },
+  "xml_delta": {
+    "added_leaf_bytes": {
+      "VisibilityFirstOnly": 88,
+      "VisibilitySecondOnly": 89
+    },
+    "bytes_added": 178,
+    "exact_after_reverting_leaves_count_stamps": true,
+    "object_count_byte_growth": 1
+  }
+}

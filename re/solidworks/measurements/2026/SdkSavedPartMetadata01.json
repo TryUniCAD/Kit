@@ -1,0 +1,349 @@
+{
+  "schema": "kit.sw2026.saved-part-metadata.v1",
+  "archive_version": 19000,
+  "source_closure": {
+    "base": "777878bb7ca76f4ebc17dee1a0f17a335dcb5deb",
+    "files": 4418,
+    "sha256": "d547b7a10df51550e158890b32ac3ef317f9fdcd2cd611a667247a6835feaa39"
+  },
+  "observed_streams": {
+    "CircleDiameterBoss-edited-fresh-reopen.SLDPRT": {
+      "file_sha256": "d4375a1e2ee594077e3450f0d436cf056f87a4a352fcd5b0e98e93eb0a16d49c",
+      "configuration": {
+        "bytes": 24971,
+        "sha256": "7075e44dbbadc1dbc46a42cf579b2bb7a5a3d3be20207b4f971444976391be2f",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2641,
+        "sha256": "db1f67257c1177e16ddc09b66b1f12586728dd2daa4c7417aca87b301bb3681e",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        0,
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CircleDiameterBoss-fresh-reopen.SLDPRT": {
+      "file_sha256": "0e71a264d4182386dae17f494d78db397c84622675bcf35a629f59ac512de7a8",
+      "configuration": {
+        "bytes": 24971,
+        "sha256": "ba015675a14040d62c9f766e41b3d2cc64332ea58983aa71eca587e01d69151e",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2635,
+        "sha256": "101600c1a76dbe020731be02ff2be39d2f903009038c2c4fda2afb44c3e665d4",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1,
+        0
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CircleDiameterBoss-open-save.SLDPRT": {
+      "file_sha256": "553dc621b49512d22b2aab565bbdb0c0247a2be6f8c02bc32ebcf4a41db2fb55",
+      "configuration": {
+        "bytes": 24953,
+        "sha256": "2f6f73f5c7883e7a0bf2ef4ec993d9a38bf485d33ccba3ef8ca8da6fb332fe7d",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2561,
+        "sha256": "48a452aa12aa9835eb199d3641a8ae48e9a71afdce0cdb60d9d652fb5ef185c3",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CircleRadiusBoss-edited-fresh-reopen.SLDPRT": {
+      "file_sha256": "ec3fb50e8e68ee40df50128e425f3f73df8b532379bc51917eb918b023c63172",
+      "configuration": {
+        "bytes": 24967,
+        "sha256": "68508d9d4dc6f1222c6a01f64d0c07baf1ad4ebd654d91fc3c6b0a8c71c81d2b",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2625,
+        "sha256": "b94e6121cebbd2e1bf78e276c04845a75ccaa69aff49f81f81914c025ea5dfc2",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        0,
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CircleRadiusBoss-fresh-reopen.SLDPRT": {
+      "file_sha256": "8437bd6f8ef0ee25910bcad6cc5fac58d482d2f29f1c796c39966fe2ceb0d95e",
+      "configuration": {
+        "bytes": 24967,
+        "sha256": "7630df45bedaed80c917294ee54ee91bf501d2c1e55c69f4dc2912a4deef8a8e",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2619,
+        "sha256": "fde17248730f9a302d627435eb00203bf3b0276bff41a116a79031bd901c5a23",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1,
+        0
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CircleRadiusBoss-open-save.SLDPRT": {
+      "file_sha256": "2be24e233fb210e575c411ed7665d715036844859a86833bd025317c05edfee0",
+      "configuration": {
+        "bytes": 24949,
+        "sha256": "0108db9a716df98148a4d55f6a50cbf5ae184847132ab7d065e5329676194952",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2549,
+        "sha256": "0b0905a46976c11c2600c791b1b88ccad6f9999d4d503489d0ed7cc5bc14a6c1",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P03FrontFolders-edit-save.SLDPRT": {
+      "file_sha256": "c8de640769ce42e54eaba4d26f01ff7c994f00f3682799559139c4378a768c14",
+      "configuration": {
+        "bytes": 24973,
+        "sha256": "2320ed1bc2a306533c0e5b306c07cfe734051a1f0ad6618c079e92ba0f88b678",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2647,
+        "sha256": "bface5816e64d4fa43df6330cddaa703fc802a9988838a18378278025ff3e67d",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1,
+        0
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P03FrontFolders-edited-fresh.SLDPRT": {
+      "file_sha256": "faf4f9f1de4e6cdb7bd8e458e0def7603cd6c1fe9d0f7195ca3bfea765ad1260",
+      "configuration": {
+        "bytes": 24973,
+        "sha256": "aa45c07bb027cd2de3f3c27e05c5a75b19d6f8012d4a02318c98db8066f26735",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2647,
+        "sha256": "aa19700e1f1ccabad1eac1b9df110f444eabf59f48a0d02a415e60e940c22cfc",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        0,
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P03FrontFolders-open-save.SLDPRT": {
+      "file_sha256": "54d5eec9303e2a85b234bc1b41b6518a180a86c5d95d2601c3899b0459048fe5",
+      "configuration": {
+        "bytes": 24943,
+        "sha256": "cb13fc30aebb60bbf26a739ae54c91dc0191330d1c10892bfa72acbb675756ea",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2543,
+        "sha256": "afc1a0142695b046a05516322dd27189fb1cce129a5da1311d8051b12023be2b",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P04RightFolders-edit-save.SLDPRT": {
+      "file_sha256": "63ef29a1c59d8641f78348dc63f916ce9fae84709a141eec910c2baf6c0d3f7f",
+      "configuration": {
+        "bytes": 24973,
+        "sha256": "901a6ce536c99c9bd8fb82cc8b8f0189072ebd9c079a1efc1c1c112302def92c",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2647,
+        "sha256": "113c5f838becc2c214237280434b0ac1aa38ffc6ffa7fca7770f7c7d82688781",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1,
+        0
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P04RightFolders-edited-fresh.SLDPRT": {
+      "file_sha256": "b108c14b0f478d9fdcb795b838e9b55c37a3fbafe68b68cf2081f5b72d31620d",
+      "configuration": {
+        "bytes": 24973,
+        "sha256": "3cac5e36b8bbebfa1350db2ebf344523e3d5291de6596ea7e66893084d5e908c",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2647,
+        "sha256": "f14718189e26dfeeaad27c27ad723e16e5cb657cfdd92aff391aacafefd97227",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        0,
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "P04RightFolders-open-save.SLDPRT": {
+      "file_sha256": "9de5ac4bd09b5dd57c3898afe2240cfd8433fc9872086872e6ff77e1f3134570",
+      "configuration": {
+        "bytes": 24943,
+        "sha256": "cd2614f57952793eba5a247860abe6531a84ab9ed1772e0aeb7c3a52dbe20ef6",
+        "map_terminal": 121
+      },
+      "manager": {
+        "bytes": 2543,
+        "sha256": "436a6eab7fa1d339018405b4a80ea631b254f753cb141dcd61febab5be48240a",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "CohortChild.SLDPRT": {
+      "file_sha256": "026b8d4a5b1a35608e18fac751ff5eefeba178d9c351655bddffae1077d82d2d",
+      "configuration": {
+        "bytes": 24873,
+        "sha256": "ed78cb188cfd26e915e574cf74ac96fc0c7b38efa791940bc63ad9cbd9c56b28",
+        "map_terminal": 120
+      },
+      "manager": {
+        "bytes": 2453,
+        "sha256": "f080a237eb5b372fd05b7600f75b272055807c25ac302756a6ec9a537bad88ce",
+        "map_terminal": 22
+      },
+      "direct_empty_sheet_metal_master": true,
+      "mass_cache_rows_per_slot": [
+        1,
+        0
+      ],
+      "tagged_empty_property_list_map_slots": [
+        20
+      ]
+    },
+    "A21CombinedOrthogonal.SLDASM": {
+      "file_sha256": "46054894984df204cab8b7f9055d2993d799c7aacae489dbd343416377375495",
+      "configuration": {
+        "bytes": 24226,
+        "sha256": "165b3c7ecc30f3073c96b2fce2a998382a3e7e06dcf5ec2ef2b9a9fe087857c7",
+        "map_terminal": 106
+      },
+      "manager": {
+        "bytes": 2897,
+        "sha256": "ec736193b19c7cb328c672294ddccaf9507cd9c6581010e53c14a4822954e469",
+        "map_terminal": 43
+      },
+      "direct_empty_sheet_metal_master": false,
+      "mass_cache_rows_per_slot": [],
+      "tagged_empty_property_list_map_slots": []
+    }
+  },
+  "exact_config_and_manager_comparisons": 28,
+  "saved_combined_assembly": {
+    "linked_exact_streams": {
+      "CohortChild.SLDPRT": {
+        "resolved_bytes": 19105,
+        "resolved_sha256": "068531fc466b2221c22ab959a642bbc37496e4eb1abb0ff2f663f6b4107c392b",
+        "map_terminal": 304
+      },
+      "A21CombinedOrthogonal.SLDASM": {
+        "resolved_bytes": 5295,
+        "resolved_sha256": "07dcc7a2afa962fddb9417a4b8e1a081ec8bf7f69737b636b251c6c092759868",
+        "map_terminal": 167,
+        "mates_list": {
+          "bytes": 8071,
+          "sha256": "b61808a3600c5a74b7c3c5f88f9affdcfd12811a1d652a1e6853d890a19790b5",
+          "map_terminal": 225
+        }
+      }
+    },
+    "public_typed_admitted": true,
+    "actual_plane_links": {
+      "sldasm:mate:2:0:0:entity:0": {
+        "path": [
+          "sldasm:instance:4"
+        ],
+        "source_entity_id": "sldprt:plane:16"
+      },
+      "sldasm:mate:2:0:0:entity:1": {
+        "path": [
+          "sldasm:instance:7"
+        ],
+        "source_entity_id": "sldprt:plane:16"
+      },
+      "sldasm:mate:2:0:1:entity:0": {
+        "path": [
+          "sldasm:instance:4"
+        ],
+        "source_entity_id": "sldprt:plane:15"
+      },
+      "sldasm:mate:2:0:1:entity:1": {
+        "path": [
+          "sldasm:instance:7"
+        ],
+        "source_entity_id": "sldprt:plane:15"
+      }
+    },
+    "distance_mm": 88.625
+  },
+  "direct_master_gets_own_map_slot": false,
+  "additional_native_runs": 0,
+  "heldout_inputs_read": 0,
+  "public_writer_enabled": false,
+  "passed": true
+}

@@ -1,0 +1,315 @@
+{
+  "schema": "kit.sw2026.blank-drawing-comparison-protocol.v1",
+  "delivery_pr": 121,
+  "owner": "configuration_header",
+  "task": "B04-SW2026-DRAWPROPS/blank-public-qualification",
+  "status": "source-only method; final public writer binding and blind evaluation not executed",
+  "comparator": {
+    "repo_path": "re/tooling/sw2026/blank_eval/BlankDrawingComparison01.py",
+    "sha256": "38db51428485c1c0b7075cedfe44f76b99f0bf36d0a8c5300141cbb299cacfa7"
+  },
+  "source_lock": {
+    "repo_path": "re/solidworks/measurements/2026/BlankDrawingBlindSourceLock01.json",
+    "sha256": "5c76de6b79b24044748defa6016dcde7cca928d5391e81a39df59de8e5fe31f1",
+    "internal_constructor_predates_lock": true,
+    "public_implementation_follows_lock": true,
+    "private_slots_read_by_this_lane": 0,
+    "slots": {
+      "Slot01": {
+        "intent_sha256": "a59297068e3602776d6448d81349a23e7a28c819cf57381d22443ec5f39447c3",
+        "source_sha256": "34e612f69ab4834b91a16fe99a6d828c6eccf97b98f5614f0ef2ae2096af4c6f",
+        "edited_sha256": "49ac279d38cfc02c12cc7927ba28fa481b14933c6796fecfe2185c453224e503",
+        "lock_public_receipt_sha256": "3c97ba038d5b3b66bcad424c59ebb54c2bc0be33f8e1f154fefd7ac281bc0be0"
+      },
+      "Slot02": {
+        "intent_sha256": "c0c1bfd175130f006eae5506f38d4fc681b33728a60456bf51bb7700bc845c11",
+        "source_sha256": "c2d1b053a719c7eecc6e49cdbeef4ac49c9aab81fb1ccd715d5c307d4866def6",
+        "edited_sha256": "cd1b12f078e72754e62785d208b3da19181f784fe4d70dfc67857ab7efaf1056",
+        "lock_public_receipt_sha256": "99d24ec2e12835de522661dee5852e7bc21475132d17121ed5e47c57feba60e5"
+      }
+    }
+  },
+  "disclosed_authorities": [
+    {
+      "kind": "D00 plus SDK native lifecycle terminal result",
+      "external_receipt_locator": "SdkBlankNative02/Inspection/Result.json",
+      "sha256": "718262635c447ea846e8c59c4d6cc246003918f320c41d73ec54a72527bf387c"
+    },
+    {
+      "kind": "SDK lifecycle exact trial",
+      "external_receipt_locator": "SdkBlankNative02/Trial.json",
+      "sha256": "5f48aa57d38b0b013b03658524f1489110ae1dfbc2d004fdb8835142056de203"
+    },
+    {
+      "kind": "disclosed pristine D00 input",
+      "sha256": "227f12b5834f73e31d1cb64db9e615418852bfba6c30d6c2700be6e26cc4932b"
+    }
+  ],
+  "current_source_pins": [
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawRoot.py",
+      "sha256": "d4f8ced9eaf0331fc52e9fd5c07feebdb24c6caf80e0403f8315cef89557761a"
+    },
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawCabinet.py",
+      "sha256": "e007664c504a98ee1525b696149438d67d409da01c7b68701d0bf59d29c8639e"
+    },
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Model/MakeDrawFolder.py",
+      "sha256": "978a751d9f590b54803a76ae81a5db1d19d2e820abea6e278e72887146417694"
+    },
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Model/DrawFolders.py",
+      "sha256": "ded98981a21aaeac59b438b325690872a7000c751aeb9384202d66a598c5a79e"
+    },
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Sheet/MakeBlankSheet.py",
+      "sha256": "bc53391d1bfccf9a1d50989a8eb31a62272bc64c96034be6e73203a9374d7dc9"
+    },
+    {
+      "repo_path": "src/convert/adapters/solidworks/Drawing/Construction/Sheet/SheetNames.py",
+      "sha256": "0ef7c8901ed38bde5074c7ab79bf02804fb2e376e33b7707b2425bcecaf90c64"
+    },
+    {
+      "repo_path": "re/tooling/sw2026/InspectDrawingCache.py",
+      "sha256": "ce7eb33d3f15c88a447fb6da46544f78fa66174ead4fcb0a49cd5bf0e3363c4c"
+    },
+    {
+      "repo_path": "re/tooling/sw2026/AuthorDrawingSources.py",
+      "sha256": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083"
+    },
+    {
+      "repo_path": "re/tooling/sw2026/AuthorCurves.py",
+      "sha256": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2"
+    },
+    {
+      "repo_path": "re/tooling/sw2026/blank_sources/BlankDrawingPrivate.py",
+      "sha256": "07888696be57d7af42676aeee9e85ab44449c7c0170d63797d837e6c090bbcb9"
+    },
+    {
+      "repo_path": "re/tooling/sw2026/blank_sources/BlankDrawingSourceSlots.py",
+      "sha256": "746102fd93d7d665f042c58abf2e1f2006ad0efa583a3cd6c61ffea4a3223821"
+    }
+  ],
+  "owner_order": {
+    "root": "moDrawing.f60",
+    "sheet": "moDrSheet.f60",
+    "rows_columns": [
+      "caption",
+      "native_api_type",
+      "archive_class",
+      "parent"
+    ],
+    "rows": [
+      [
+        "Comments",
+        "CommentsFolder",
+        "moCommentsFolder_c",
+        null
+      ],
+      [
+        "Blocks",
+        "BlockFolder",
+        "moBlockFolder_c",
+        null
+      ],
+      [
+        "Design Binder",
+        "DocsFolder",
+        "moDocsFolder_c",
+        null
+      ],
+      [
+        "Annotations",
+        "DetailCabinet",
+        "moDetailCabinet_c",
+        null
+      ],
+      [
+        "Markups",
+        "InkMarkupFolder",
+        "moInkMarkupFolder_c",
+        null
+      ],
+      [
+        "eDrawings Markups",
+        "MarkupCommentFolder",
+        "moMarkupCommentFolder_c",
+        null
+      ],
+      [
+        "$authored_sheet_name",
+        "DrSheet",
+        "moDrSheet",
+        null
+      ],
+      [
+        "Plane1",
+        "RefPlane",
+        "moRefPlane_c",
+        "$authored_sheet_name"
+      ],
+      [
+        "Sketch1",
+        "ProfileFeature",
+        "moProfileFeature_c",
+        "$authored_sheet_name"
+      ],
+      [
+        "Detail Folder1",
+        "DetailFolder",
+        "moDetailFolder_c",
+        "$authored_sheet_name"
+      ]
+    ]
+  },
+  "sheet_prediction": {
+    "properties_order": [
+      0,
+      13,
+      "$numerator",
+      "$denominator",
+      0,
+      "11*0.0254",
+      "8.5*0.0254",
+      1
+    ],
+    "discrete_comparison": "exact",
+    "width_height_absolute_tolerance_m": 1e-12,
+    "width_height_relative_tolerance": 0,
+    "views": 0,
+    "warnings": 0
+  },
+  "ordered_access_gates": [
+    "freeze and independently verify complete writer, registry, mapper, explicit options, epoch, runtime guard and observer source closure",
+    "exclusively write and hash MethodBinding.json before any private intent read",
+    "root releases neutral intent in guest; predict validates all preceding hashes before reading the exact locked intent",
+    "execute and retain two independent normal public write routes per slot at matching actual target path, source closure, explicit options and epoch",
+    "freeze both slot predictions and all four generated output copies in one GenerationFreeze.json; no native source payload or detailed observation read yet",
+    "root attaches locked native source payloads and observations only after generation digest is fixed",
+    "measure twelve serial fresh processes with complete pristine control brackets and source/generated live scale edits/save/fresh reopen",
+    "hash observation descriptors and compare; retain every failure and unsupported original owner"
+  ],
+  "contracts": {
+    "descriptor": {
+      "path": "absolute ordinary existing file",
+      "sha256": "exact SHA-256"
+    },
+    "MethodBinding.json": {
+      "schema": "kit.sw2026.blank-drawing-method-binding.v1",
+      "comparator_sha256": "exact comparator source SHA-256",
+      "source_lock": "descriptor of original public lock",
+      "writer_epoch": "explicit int",
+      "private_intent_reads_before_binding": 0,
+      "native_payload_reads_before_generation": 0,
+      "artifacts": {
+        "writer_manifest": "descriptor",
+        "writer_verification": "descriptor",
+        "neutral_mapper": "descriptor",
+        "explicit_options": "descriptor",
+        "runtime_guard": "descriptor",
+        "native_observer_manifest": "descriptor"
+      }
+    },
+    "writer_verification": {
+      "passed": true,
+      "all_manifest_entries_verified": true,
+      "writer_manifest_sha256": "exact bound manifest SHA-256",
+      "limitation": "root independently verifies complete closure; this comparator pins that report, not a second recursive source verifier"
+    },
+    "GenerationFreeze.json": {
+      "schema": "kit.sw2026.blank-drawing-generation-freeze.v1",
+      "method_binding_sha256": "exact binding hash",
+      "native_payload_reads": 0,
+      "all_outputs_frozen_before_native_attach": true,
+      "slots": "ordered object Slot01 then Slot02, each with intent_sha256, prediction descriptor and builds array"
+    },
+    "build_record": {
+      "route": "extension or solidworks.slddrw, exactly in that order",
+      "target_path": "same actual nonempty target path for both builds of a slot",
+      "writer_epoch": "bound epoch",
+      "explicit_options_sha256": "bound options hash",
+      "writer_manifest_sha256": "bound source manifest hash",
+      "data_file_reads": 0,
+      "native_template_reads": 0,
+      "cad_runtime_calls": 0,
+      "dropped": [],
+      "atomic_write_verified": true,
+      "no_overwrite_verified": true,
+      "output": "descriptor of immutable independent generated copy"
+    },
+    "Observations.json": {
+      "schema": "kit.sw2026.blank-drawing-native-observations.v1",
+      "generation_sha256": "exact full generation freeze SHA-256",
+      "inputs_immutable": true,
+      "phases": "ordered list of twelve phase descriptors"
+    },
+    "phase_descriptor": {
+      "name": "exact phase name below",
+      "input_sha256": "actual input hash, tied to frozen observer request",
+      "record": "descriptor of untouched InspectDrawingCache.phase Record.json"
+    }
+  },
+  "native_phase_order": [
+    "ControlBefore/OpenEditSave",
+    "ControlBefore/FreshReopen",
+    "Slot01/Source/OpenEditSave",
+    "Slot01/Source/FreshReopen",
+    "Slot01/Generated/OpenEditSave",
+    "Slot01/Generated/FreshReopen",
+    "Slot02/Source/OpenEditSave",
+    "Slot02/Source/FreshReopen",
+    "Slot02/Generated/OpenEditSave",
+    "Slot02/Generated/FreshReopen",
+    "ControlAfter/OpenEditSave",
+    "ControlAfter/FreshReopen"
+  ],
+  "native_gates": {
+    "oracle_build": "34.5.2.0604",
+    "oracle_exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "distinct_process_births": 12,
+    "full_healthy_control_lifecycles": 2,
+    "open_error_warning": [
+      0,
+      0
+    ],
+    "edited_save_status": [
+      true,
+      0,
+      0
+    ],
+    "cleanup": "no failed calls, no cleanup errors, no dialogs or controller diagnostics",
+    "stock_control_edit_scale": [
+      3,
+      2
+    ],
+    "independent_slot_edit_scale": "original sealed edit target, never source-fitted",
+    "sheet_snapshot_visits": 30,
+    "ordered_tree_row_visits": 120
+  },
+  "acceptance_boundary": {
+    "sheet_lifecycle_qualification_only": true,
+    "full_source_semantics_qualified": false,
+    "public_writer_acceptance_claim": false,
+    "remaining_original_owners": [
+      "template settings",
+      "drafting styles and fonts",
+      "units",
+      "summary and custom properties",
+      "history/provenance",
+      "external references and unsupported drawing content"
+    ],
+    "runtime_audit": "actual root-run guarded build is required; positive JSON flags are not an independently implemented audit",
+    "native_input_binding": "root frozen observer request must bind phase input_sha256 to the exact file passed to InspectDrawingCache.phase"
+  },
+  "local_execution": {
+    "writer_builds": 0,
+    "product_tests": 0,
+    "integration_tests": 0,
+    "private_intent_reads": 0,
+    "native_source_payload_reads": 0,
+    "new_COM_processes": 0,
+    "native_comparisons": 0,
+    "static_checks": "see separate HostVerification01.json"
+  }
+}

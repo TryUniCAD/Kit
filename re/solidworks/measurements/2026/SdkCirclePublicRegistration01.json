@@ -1,0 +1,92 @@
+{
+  "cad_runtime_calls": 0,
+  "carrier_caps": [],
+  "construction_input_file_reads": 0,
+  "delivery_pr": 121,
+  "dropped_caps": [],
+  "final_focused_process_calls": 1,
+  "formal_replay_sha256": "362fa83c4fce0e5fb2688a182b33e7c882fe65f17b78a6906965fc9505c6134f",
+  "fresh_explicit_public_circle_geometry_reads": 10,
+  "frozen_candidate_identity": {
+    "H01TranslatedDiameter": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+    "H02ReverseTopCircle": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+    "IndependentReverseTopRadius": "70d908184324185c2f12cdf9d27f93f34534decfbc2f2e4b5d47a2bff0cf1cba",
+    "IndependentTranslatedDiameter": "07b5985f11012057bd62e1de90e2c27103245ee4a93c523d3724a5f21f986e17"
+  },
+  "full_process_calls": 84,
+  "full_process_result_sha256": "eaa1ea7f6d4d5702a17c69207310d4e39bc207bee748bfa517ae60fd14aed0a4",
+  "git_mutations": false,
+  "limitations": [
+    "no further circle support driver or termination profiles",
+    "source properties provenance expressions material topology payload and other unmodeled data fail closed",
+    "assembly and drawing destination writers remain unavailable",
+    "existing public reader ownership representation is retained"
+  ],
+  "native_qualification": {
+    "fresh_vendor_processes": 14,
+    "path": "SdkOriginalCircleNative01.json",
+    "recorded_numeric_checks": 400,
+    "root_reported_config_resolved_roundtrips": 32,
+    "root_reported_sdk_reads": 16,
+    "sha256": "a14c4ff431f4e75b129025072d8be8f752df2694467b8c743b0ce861b0401da5",
+    "source": "root-owned original/source and generated paired trial"
+  },
+  "native_scope": [
+    "front canonical positive z support fixed centre diameter forward blind",
+    "top canonical positive y support fixed centre radius reversed blind"
+  ],
+  "original_native_payload_or_raw_observation_access": false,
+  "owner": "configuration_header",
+  "polygon_before_after_cases": 2,
+  "polygon_byte_parity": [
+    {
+      "actual_registry_writes": 6,
+      "after_sha256": "a6ea833508ba54d8674721be06d5adba3254af76920a28d730540ad302822b01",
+      "before_sha256": "a6ea833508ba54d8674721be06d5adba3254af76920a28d730540ad302822b01",
+      "byte_exact": true,
+      "name": "public registration skew",
+      "passed": true,
+      "typed_streams_unchanged": 10
+    },
+    {
+      "actual_registry_writes": 6,
+      "after_sha256": "13514674495a795d084bc763df760727d1a9dec560048154a95228b8519391fc",
+      "before_sha256": "13514674495a795d084bc763df760727d1a9dec560048154a95228b8519391fc",
+      "byte_exact": true,
+      "name": "public registration step",
+      "passed": true,
+      "typed_streams_unchanged": 10
+    }
+  ],
+  "positive_circle_settings_cases": 10,
+  "private_registered_writer_native_caps": [
+    "body_structure",
+    "configurations",
+    "editable_sketches",
+    "parameters",
+    "parametric_history",
+    "support_planes"
+  ],
+  "private_runtime_registration_exercised": true,
+  "process_plan_sha256": "6533f08b0ae1990e244cbab0db8cfc42bb744493f97ac9f8363a01b15e54d937",
+  "product_research_imports": 0,
+  "public_registry_rejected_model_cases": 27,
+  "retained_initial_failures": [
+    "SmokeH01.json",
+    "SmokeH01Retry02.json",
+    "SmokeH01Retry03.json",
+    "Proof01/Failure.json"
+  ],
+  "schema": "kit.sw2026.circle-public-writer-registration-evidence.v1",
+  "shared_checkout_edited": false,
+  "source_binding_sha256": "67d368372c9d56891960ceb9692a9e9e7c73871c1c2fecd66f23bc55a3700ac9",
+  "source_file_count": 5753,
+  "source_manifest_sha256": "6c1ee19a9dfe4334cd2229fd3abe39b9cd65cdd060c5b10c46847b8b75333118",
+  "static_checks_sha256": "4ed53e1d373b468e3ef3bb6c779ad8940bd37d563780fb846c26c5c3af2047df",
+  "status": "private integration overlay ready for root review and exact-source replay",
+  "strict_rejections": 39,
+  "successful_registry_writes_final_formal_replay": 8,
+  "successful_registry_writes_full_run": 76,
+  "typed_stream_roundtrips": 100,
+  "writer_model_file_reads": 0
+}

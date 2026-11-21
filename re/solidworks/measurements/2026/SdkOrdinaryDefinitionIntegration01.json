@@ -1,0 +1,319 @@
+{
+  "accepted_upstream_queue_run": 44845499360,
+  "accepted_upstream_receipt_sha256": "12ffb0f2b69543367634e8dda7028cc0b951016816e755452eb0e04c63a6d891",
+  "authored": {
+    "ordinary": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        0,
+        0
+      ],
+      "drafting_standard": "moISO_c",
+      "font_count": 0,
+      "journal": {
+        "schema": 0,
+        "sha256": "43b7c75d56f02a885fd7ea66592af16ad33f3ddb82f31b786136d4b96821b3e2",
+        "units": 7
+      },
+      "line_style_count": 0,
+      "next_map_index": 7,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": null,
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "size": 459,
+      "splitter_grids": [],
+      "tessellation": [
+        26,
+        4,
+        25,
+        1
+      ],
+      "typed_wire_equal": true
+    },
+    "presentation": {
+      "density_kg_m3": 3167.25,
+      "display_words": [
+        -2147483615,
+        -2080374784
+      ],
+      "drafting_standard": "moDIN_c",
+      "font_count": 0,
+      "journal": {
+        "schema": 0,
+        "sha256": "d99865c0fe2821f5e79e162b38d9f3d215e49d05bd969506aaa1c5d94c8fe768",
+        "units": 295
+      },
+      "line_style_count": 0,
+      "next_map_index": 7,
+      "preference_7a": 1,
+      "renderer_empty_wrapper": null,
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "9f48c5c0334b2e1656cdd42e12d5720f1669f40d935ea4aba43a357fd865c8a8",
+      "size": 1037,
+      "splitter_grids": [],
+      "tessellation": [
+        36,
+        4,
+        32,
+        0
+      ],
+      "typed_wire_equal": true
+    }
+  },
+  "baseline": "6b323773d9c9f51acb4ba4071b616bdbd0b67961",
+  "canonical_tags": {
+    "canonical_wide": {
+      "next_map_index": 32772,
+      "object_index": 32767,
+      "tag_width": 6,
+      "typed_wire_equal": true
+    },
+    "guarded_processes": 5,
+    "low_index_authored": {
+      "sha256": "8b59633cf5bc46760c964e9ed6e250467adaf38a20e95be63f154a9584127b61",
+      "size": 544
+    },
+    "noncanonical_widths": {
+      "ClassRef": "SOLIDWORKS body uiPartDoc_c field f878 at 187: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles at 187: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles/o at 187: SOLIDWORKS archive tag uses a noncanonical width",
+      "ObjectRef": "SOLIDWORKS body uiPartDoc_c field f878 at 185: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles at 185: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles/o at 185: SOLIDWORKS archive tag uses a noncanonical width"
+    },
+    "redeclared_class": {
+      "canonical_class_slot": 3,
+      "canonical_replays": true,
+      "class_name": "moLineStyle_c",
+      "diagnostic": "SOLIDWORKS body uiPartDoc_c field f878 at 206: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles at 206: SOLIDWORKS body uiPartDoc_c/apLineStyleMgr_c.Load field f878/styles/o at 206: SOLIDWORKS archive repeats a canonical class declaration"
+    },
+    "wide_index_authored": {
+      "sha256": "05668f4a1c6c8e7d19159cc016164153999443dafb5d9ecf1c537f25e61e2d2d",
+      "size": 1147222
+    }
+  },
+  "complete_part_outputs": 0,
+  "deterministic_fresh_repeat": true,
+  "exact_context_comparisons": {
+    "aggregate": {
+      "layouts": 42,
+      "schemas": 16,
+      "sha256": "3a280338101583cbe121396049a7250a2f9bfba5dbec4dcde9bc0333058f49d7"
+    },
+    "ordinary": {
+      "layouts": 34,
+      "schemas": 14,
+      "sha256": "1f0924137553c77b3308b85a3e921c0d73eeccf76d98a2eaf8c19e91653a573b"
+    }
+  },
+  "exact_unchanged_reference_results": [
+    "authored",
+    "saved",
+    "refusals",
+    "guarded_external_access_attempts",
+    "guarded_processes",
+    "private_input_reads"
+  ],
+  "guarded_external_access_attempts": 0,
+  "guarded_processes": 8,
+  "historical_author_source": "81aff00e947ef3bb39fb479c265782d7ca7a0581",
+  "integration_parents": [
+    "6b323773d9c9f51acb4ba4071b616bdbd0b67961",
+    "e4f665ee05b9d469a3cda0f7939ba2314757ab8b"
+  ],
+  "native_open_runs": 0,
+  "native_sources_read_after_author_and_refusals": true,
+  "private_input_reads": 0,
+  "refusals": {
+    "read_assembly": "SOLIDWORKS part Definition requires the ordinary part CLSID",
+    "read_old_version": "SOLIDWORKS model Definition requires archive version 19000",
+    "read_tail": "SOLIDWORKS model Definition has an unconsumed tail",
+    "write_assembly": "SOLIDWORKS part Definition requires uiPartDoc_c schema 1",
+    "write_future_version": "SOLIDWORKS model Definition requires archive version 19000",
+    "write_invalid_display_bits": "SOLIDWORKS display flags require bit positions below 64",
+    "write_model_data_scene": "SOLIDWORKS part Definition has an alternate scene or OLE owner",
+    "write_renderer_inactive": "SOLIDWORKS part Definition has an inactive renderer owner",
+    "write_renderer_marker": "SOLIDWORKS part Definition has an alternate renderer marker",
+    "write_renderer_objects": "SOLIDWORKS part Definition has renderer objects",
+    "write_root_schema": "SOLIDWORKS part Definition requires uiPartDoc_c schema 1",
+    "write_unknown_density": "SOLIDWORKS part density must be positive"
+  },
+  "saved": {
+    "D19Annulus": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        1067879674,
+        1610617865
+      ],
+      "drafting_standard": "moANSI_c",
+      "file_sha256": "2a9846fa9ddc882ef3b848dfc311a7859d102ab9fa7687769cdba88a7b510439",
+      "font_count": 40,
+      "journal": {
+        "schema": 0,
+        "sha256": "eeccd369bb4f14770b37f6c15a4590bd8d598130f5ef57496d70c01cd555a960",
+        "units": 18
+      },
+      "line_style_count": 7,
+      "next_map_index": 60,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": [
+        6,
+        0,
+        0
+      ],
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "b01c48a44afe1f63f9d7d08f548d3aac96860a4c69fd7365c7eeeaa85beb3aff",
+      "size": 3816,
+      "source_path": "re/solidworks/v2026/corpus/curves-discovery/D19Annulus.SLDPRT",
+      "source_revision": "81aff00e947ef3bb39fb479c265782d7ca7a0581",
+      "splitter_grids": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "tessellation": [
+        80,
+        6,
+        50,
+        1
+      ],
+      "typed_wire_equal": true
+    },
+    "L1": {
+      "density_kg_m3": 1000.0,
+      "display_words": [
+        1067879674,
+        1610617865
+      ],
+      "drafting_standard": "moANSI_c",
+      "file_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "font_count": 40,
+      "journal": {
+        "schema": 0,
+        "sha256": "eeccd369bb4f14770b37f6c15a4590bd8d598130f5ef57496d70c01cd555a960",
+        "units": 18
+      },
+      "line_style_count": 7,
+      "next_map_index": 60,
+      "preference_7a": 0,
+      "renderer_empty_wrapper": [
+        6,
+        0,
+        0
+      ],
+      "root": [
+        "uiPartDoc_c",
+        1
+      ],
+      "sha256": "14d9b75edf4586f8e1db2b166e855e29a03d4c88256e26d24351edb5c43d8a87",
+      "size": 3816,
+      "source_path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "source_revision": "16493de95602b732a569923ec89cfee13a87d45d",
+      "splitter_grids": [
+        [
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            1
+          ]
+        ]
+      ],
+      "tessellation": [
+        80,
+        6,
+        50,
+        1
+      ],
+      "typed_wire_equal": true
+    }
+  },
+  "schema": "kit.sw2026.ordinary-definition-integration.v1",
+  "tag_reader_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Reading/GraphReader.py": "d12e3a4b9b52daca159a09bf906620360342d47791e660b0b45f8d79e4f66a9e",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadGraphNode.py": "443a1570dfd9e2a09033d9a1fe44b548063f6f413f90f8c63578bd113a0150b8",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadNodeTagMut.py": "61a1f66b7851e86232e3b28503572a0468aa00dac8f634f114dad762dc6ca469",
+    "src/convert/adapters/solidworks/Archive/Reading/ReadTypeDescMut.py": "494157c280aefbb42337d5a9230d5c674b8b14bee17fb91b249337b96d5b30a5"
+  },
+  "tool_sha256": {
+    "re/tooling/sw2026/definition/ProveOrdinaryPartDef.py": "43f221a28f6cf58b4686bac54cac822d24b3b00fb77fb6a081d4426d4d996ea0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/ContainerFields.py": "f9c9230c4247b400d3e458940fc419f263cd870f420fb5760c6b76fa388b2521",
+    "src/convert/adapters/solidworks/Archive/Construction/Geometry/IdentityXform.py": "5828cbc26dd182dacad0affd36b3572ea2233639c03cf936800e9621a9343719",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefRender.py": "059dddc0220647e2fa94ac1bc515021c6cd67ef240bccb1d31042b4b67132ca4",
+    "src/convert/adapters/solidworks/Archive/Definition/CheckDefScope.py": "1b4b173944f58de4238c93b5bf1bed5c1874a5a3559dce81f04b9963b0f26f2e",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/DefDisplayWords.py": "6c8adbb8982edf59915f4439c863cd6856d095985155aa9d1e74028fba85cb84",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeAssemblyDef.py": "f33c1f3a2973154eac9ac757c2bcff4a0bba7386f6b6611c1cb5270830c28d21",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDefHead.py": "76dd52874016229b873a022a30d8f35ff9f671218114745b324914cb7cb88b50",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDefTail.py": "5c6d748256baf63fc33d0879472323fc5e3b624379ed95ad594ef5655151b8a0",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeDocOptions.py": "17ec6484b021c38a62916f6384059697a00f335cd0ccfc439669dcb51e6586b1",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeNotebook.py": "0ccc4bb461121eb3d1c6e32db0226ae623176c822403d00c785af05b55cb4dc2",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeOrdPartDef.py": "fe18e65e187491513babdd4629d20a3d140c8779ea51eec52136b982f22f1c75",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakePartDef.py": "4a26b088807184500b3060d3c26312d4d79a52d4d11f34cc2a8984eef3e32f97",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/MakeSavePartSettings.py": "50d615637e5ae15edefeef1983547aa511b0894c516bd18bee18d5b42f6ed865",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/ModelDefSettings.py": "6bdc31adcde13b501d92455aedf773387fbae5239a094a70cfbd783629c88e30",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/ReadSavePartValue.py": "06e80ff1d2be0c1428194be0acdef1876c69316730ebf84afe02f1d8f417f671",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/RequireDefNumber.py": "8e3000a27a8a9642e6ec936b1a28ac630dd3456b5310dbe4bb652c245737cfb2",
+    "src/convert/adapters/solidworks/Archive/Definition/Construction/SavePartSlots.py": "68cd400963c7a02e50265de6c6cccee17904a302d107be0a9f615391eb26323d",
+    "src/convert/adapters/solidworks/Archive/Definition/DefinitionWire.py": "810eb14631b6961a0ce265dc23cdcfeb6697c182d70eb2c3b332597a1b5f5d6f",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/EmptyMgrInput.py": "dcf9bd281d891a9c79c02fa7ebacf634f9aa761097bbeda0d77b23d9b7341f7c",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/MakeAppearMgr.py": "327f1aa0132ba47dacc31e6fd5a49d0f5cb55dc2d4dc47cec79d33d95b5b7129",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/MakeBomMgr.py": "e817076597b8f2697cb878c827240a494decc37acb2f8f4090c31b9ad70141dd",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/MakeEmptyMgrs.py": "c93abeae6a33b4b92fbd7768e4d99293c1fac1f56761821c9457fa7e54323822",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/NeedEmptyBom.py": "7dc59a1f3fa06548f96f3fe016f7d67fe866e20f1b49a11b0c58a86dc6ae3f66",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/ReadEmptyAppr.py": "d2c89b64d52e526d3e9b17dc732e4e9138afb275112c517de9afdf403ccfd51f",
+    "src/convert/adapters/solidworks/Archive/Definition/EmptyManagers/ReadEmptyMgrs.py": "a55fd0aa64b59e511127f640b23c7f56733433071fe593388d8ae2dccbda0192",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/AppearanceFields.py": "7255a8c1a531980d59c6afebd27b76da088eb2ff71aa3a67daac7a8987304d15",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/AssemblyDefTail.py": "86ee47224ad412419b9e15b837698db20063a8a675b478db28e9b37d28f90718",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DefPrefixFields.py": "cca978b8faefed5516b551d62d270cd50c638815bff192d5d11333744e748b7f",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocEnvironmentFields.py": "7de55f897917fc04d2e3a135e902f791134084d40fe791917843589f1497e15a",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHeadFields.py": "997650c6a1b67c286fe866aaebcc04cc90900a2a6b22bc177e30a3fc3bf6679e",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocHelperFields.py": "0f3157be65fc1770301eac0d4eed0b75c1cd95cf61520a3454c1feccc39c932d",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocStyleFields.py": "ca34220edd97dbe7f7a7647e79a06ebecb214b6000137f0381d9a1514cdbaae4",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocTailFields.py": "e14cc98ff22e15d8efd73da54bebe50235b924031941e0cf8f303fc054799b25",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/DocTransformFields.py": "ba026fa2ead46dbc3462a06cdb93435c8c6da6779a89a0c25250a46acefe8c39",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ModelDefLayouts.py": "225134accb92e44e695a56ec4d6d57031211752d51ebd15fa2440ad76cc148cb",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ModelDefSchemas.py": "155f7c2038a9d28f206f70a58f7d9438d654f2f0a1f80e0c16c22c566526985d",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/OrdDefLayouts.py": "aad15d8cb50c61080226f8842e9d8aa5c73bf576770526854b2fe0b4243316c2",
+    "src/convert/adapters/solidworks/Archive/Definition/Fields/ScalarFields.py": "ca6be763424c41e6d69865f92854d2cad1646046d113a81bf14b48aa5ea1e3d4",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/CheckLineInput.py": "f76548a927f6fe1753c81b7c00b897f72bba0dd1bc7e5bd5c9e86893cf4705c5",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/FontBinding.py": "6f26bc534b95996691a4d4d3a45d10ac0378da039e43986e895aa17f95482b5d",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/FontKeyHash.py": "2754857c4dd27944527a20e1dedcc789cfafcd42709f9ec33d1009d3f762a083",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/LinePattern.py": "dac9fed782182bd5c4da0a5550aef150dc36a847682c2f4855872def34a08472",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/LineTableInput.py": "a38e386fc0b34c65011621edc69235e0c5828ed4704cb611cecf9a5ab382caf0",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeFontBind.py": "28e1a23803195441ceb25c8cd0e4f0491700be972e776e2b3ba79c150af8ce16",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLinePattern.py": "1f311fecb17e9e78fae3d1da878a00fe60cc3a0080d21dd5395af47ac4c9953b",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/MakeLineTables.py": "2f64ca86f45fc5439158e16063fe2d72b6caa56b97a08af1a5b5690e0963b826",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/OrderFontBinds.py": "5638dae0f5ec740e57ea26062c3f7688c3bb051f4e7170241dd7fcf1cbef28d0",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadFontBind.py": "65cbac531bb54ba35848b29deae43f73bc26f4ed79b7669e3baef3084af23173",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLinePattern.py": "9de361a601e4a734d66e3afcc4d7038a90d15b5f0e3da1eb31a8e1dafe9c7dbd",
+    "src/convert/adapters/solidworks/Archive/Definition/LineTables/ReadLineTables.py": "2d50d791783fda5718944895a825185ecee27f11e4f91a231dc02ee5b694819f",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefClsid.py": "51b4c4fa65a82eff2a1de400cafda00771cda152685b39d30e71a579779e404a",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefContext.py": "3550b66387f27ec6a30780bf937e5f962b3d76b9639bc894aef56ce9d269081e",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefGraph.py": "1ca4e6b1138c4d6bcaaaa2b5a0f6e989535c7174a9afef94d0c6fbc2795b45d4",
+    "src/convert/adapters/solidworks/Archive/Definition/ModelDefRead.py": "357fe048b462254c66fa882b62cb4b5155f1be1dba739bef9dd4b397d45b2929",
+    "src/convert/adapters/solidworks/Archive/Definition/PartUi/CountPartEnvs.py": "9913d7e2c0ef379341d4b03f8a0ff17ad76365a69ce6da075235e315c7f0391e",
+    "src/convert/adapters/solidworks/Archive/Definition/PartUi/MakePartUi.py": "c2d4c199baddb17abd0e300c7eb7775ace31db691e16c11d6e4d8a7ccde323b2",
+    "src/convert/adapters/solidworks/Archive/Definition/PartUi/PartUiInput.py": "28010d8d6be6275cbcda89fc9e1ffe03785944b960fc911aef010900a62298f9",
+    "src/convert/adapters/solidworks/Archive/Definition/PartUi/ReadPartUi.py": "1ece0cf93b49cbbd622489768d17d1700334d4b3eab3b36c9f86c69dac3b4c7c",
+    "src/convert/adapters/solidworks/Archive/Definition/PartUi/RequirePartUi.py": "c0c161325f898f2de8f8e7f970dd131d46d2f8825458feec268bd204476631b1",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadModelDef.py": "975a2c6b84d4ea37ed8e42843e99e9df8594c48235e7fb5a8dc69be657e67f37",
+    "src/convert/adapters/solidworks/Archive/Definition/ReadOrdinaryDef.py": "ed576075badabdd9475995313194e5eebdcbb5749a70027eea445b42a50b4088",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteModelDef.py": "12e3a6de0f837304f29f5531df7be087ba3d4480f9766773a4a27915b91a8264",
+    "src/convert/adapters/solidworks/Archive/Definition/WriteOrdDef.py": "65e06de17ed3a48ee14dfa3b6c8f1cdf8dd97abce604c12a71b63aee47e5551c"
+  }
+}

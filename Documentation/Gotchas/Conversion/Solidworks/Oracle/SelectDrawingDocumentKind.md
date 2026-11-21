@@ -1,0 +1,5 @@
+# Select the drawing document kind in the oracle
+
+`Swapp.template` selects the part preference for `part` and selects the assembly preference for every other value. `Swapp.open` infers assembly from `.sldasm` and otherwise uses part. Passing `drawing` to `template` therefore selects an assembly template, and opening `.SLDDRW` without a document type requests a part.
+
+Pass a hash-pinned `.DRWDOT` path to `NewDocument` and explicitly pass `doctype=3` when calling `Swapp.open` on a drawing. `IDrawingDoc.GetFirstView` returns the sheet sentinel, so call `IView.GetNextView` to find the first model view. The drawing source lock uses the registered type library to read back view and sheet geometry. [Oracle wrapper](../../../../../re/tooling/sw2026/Swapp.py), [Drawing source lock](../../../../../re/tooling/sw2026/AuthorDrawingSources.py), [GetFirstView](https://help.solidworks.com/2024/English/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IDrawingDoc~GetFirstView.html)

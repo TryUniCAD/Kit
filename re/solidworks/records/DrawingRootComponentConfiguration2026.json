@@ -1,0 +1,206 @@
+{
+  "api_metadata_sha256": "bd66c956040c0547d1f0b7f5bd35e80681e9910542ccf0e9a61dcd79d34daa24",
+  "complete_ui_owners": [
+    {
+      "bytes": 87,
+      "end_exclusive": "0x491218b7",
+      "file_offset": 2624608,
+      "name": "config_dispatch",
+      "sha256": "c865ef55cb608b1d68210a398681d4519a08e848c6c87bc1140d2a9e239f6680",
+      "start": "0x49121860"
+    },
+    {
+      "bytes": 299,
+      "end_exclusive": "0x4910be8b",
+      "file_offset": 2535776,
+      "name": "config_implementation",
+      "sha256": "7011aa36dbcf21e9607ffd229bcb62570279bab2cf71876bd02c90b7b8012f65",
+      "start": "0x4910bd60"
+    },
+    {
+      "bytes": 87,
+      "end_exclusive": "0x491168b7",
+      "file_offset": 2579552,
+      "name": "root_dispatch",
+      "sha256": "7499323e11f0440bc11421cb2b24e9a23da35bb504b0ef665322806728fea57f",
+      "start": "0x49116860"
+    },
+    {
+      "bytes": 277,
+      "end_exclusive": "0x49120a95",
+      "file_offset": 2620800,
+      "name": "root_implementation",
+      "sha256": "5f3ddd9091cdb77d564082e9957d4fd3d8db0681cf03f6d6f44540a6fcd45b54",
+      "start": "0x49120980"
+    },
+    {
+      "bytes": 152,
+      "end_exclusive": "0x4910b588",
+      "file_offset": 2533616,
+      "name": "parent_dispatch",
+      "sha256": "a330b3f6abdca3668863d1c3de533be33f032160211d31645bd2bf77592242bf",
+      "start": "0x4910b4f0"
+    },
+    {
+      "bytes": 87,
+      "end_exclusive": "0x4910a677",
+      "file_offset": 2529824,
+      "name": "model_dispatch",
+      "sha256": "3430875f3399cf730371e9370936f3d292b7f58d06296f33959a7187813ca27f",
+      "start": "0x4910a620"
+    }
+  ],
+  "dispatch_rtti": {
+    "complete_object_locator": "0x4a8e9678",
+    "name": ".?AVXDispatch2@auComponent_c@@",
+    "table": "0x4a52e0a8",
+    "type_descriptor": "0x4af0c298"
+  },
+  "heldout_inputs_read": 0,
+  "import_bindings": {
+    "0x4a45c758": {
+      "module": "SLDMODU.dll",
+      "name": "?getReferencedConfiguration@moConfigObject_c@@QEAAPEAVmoBaseConfiguration_c@@XZ"
+    },
+    "0x4a460c68": {
+      "module": "mfc140u.dll",
+      "name": "#2396"
+    },
+    "0x4a460d68": {
+      "module": "mfc140u.dll",
+      "name": "#296"
+    }
+  },
+  "modules": {
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "slduiu.dll": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+  },
+  "proprietary_code_or_bytes_included": false,
+  "schema": "kit.sw2026.drawing-root-component-source.v1",
+  "source_rules": [
+    {
+      "confidence": "confirmed-source",
+      "owner": "IComponent2.ReferencedConfiguration",
+      "rule": "The concrete getter constructs an empty CString, requests configuration owner through virtual+0x188, and converts the unchanged empty string to BSTR when that owner is null.",
+      "sites": [
+        "0x4910bd72",
+        "0x4910bdab",
+        "0x4910bdba",
+        "0x4910bdc6",
+        "0x4910be64"
+      ]
+    },
+    {
+      "confidence": "confirmed-source",
+      "owner": "moUnitComponent_c",
+      "rule": "The actual configuration-owner virtual returns null and its actual root virtual returns true. This does not replace the view configuration or the resolved child active configuration."
+    }
+  ],
+  "status": "source-rule-and-negative-observation; retry-not-run",
+  "ui_table_bindings": [
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4a52e1e8",
+        "file_offset": 23644640,
+        "name": "ReferencedConfiguration.get",
+        "sha256": "dbe4f77a3bc1189924aa45328c30ebb17ed5c00925cedfd93ef4b4c478125eea",
+        "start": "0x4a52e1e0"
+      },
+      "member": "ReferencedConfiguration.get",
+      "offset": "0x138",
+      "target": "0x49121860"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4a52e348",
+        "file_offset": 23644992,
+        "name": "GetParent",
+        "sha256": "5964ead41ee8d3f8eeabdbf77d100bdfdf84da30825651b86167de9f19bf3a81",
+        "start": "0x4a52e340"
+      },
+      "member": "GetParent",
+      "offset": "0x298",
+      "target": "0x4910b4f0"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4a52e4f8",
+        "file_offset": 23645424,
+        "name": "IsRoot",
+        "sha256": "05fb8299c3a641e0d5a672331ab127dd63c52c9f7840982d60769bd188b2dc79",
+        "start": "0x4a52e4f0"
+      },
+      "member": "IsRoot",
+      "offset": "0x448",
+      "target": "0x49116860"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4a52e500",
+        "file_offset": 23645432,
+        "name": "GetModelDoc2",
+        "sha256": "d60a839d02bb4eebc2d5dcbc9420c9720c06403f876151d7b3d2d56bb36ee662",
+        "start": "0x4a52e4f8"
+      },
+      "member": "GetModelDoc2",
+      "offset": "0x450",
+      "target": "0x4910a620"
+    }
+  ],
+  "unit_component_bindings": [
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce9c660",
+        "file_offset": 30781528,
+        "name": "configuration_owner_table_cell",
+        "sha256": "a59aceb5265b51bf702f7fd297fad36fcb272da5718d1ed779ceb8cd64b340a1",
+        "start": "0x4ce9c658"
+      },
+      "complete_leaf": {
+        "bytes": 3,
+        "end_exclusive": "0x4b27cbe3",
+        "file_offset": 1294304,
+        "name": "configuration_owner",
+        "sha256": "4bc724f3b1d0caf4fe369c18cba3102e6c4ea057f63fe1587e3973134a7f755e",
+        "start": "0x4b27cbe0"
+      },
+      "member": "configuration_owner",
+      "offset": "0x188",
+      "value": "returns null"
+    },
+    {
+      "cell": {
+        "bytes": 8,
+        "end_exclusive": "0x4ce9c738",
+        "file_offset": 30781744,
+        "name": "is_root_table_cell",
+        "sha256": "1521539b06ba82c3b9851ed134209715059e8f1f3c5568b9542ad8e7b93f4a66",
+        "start": "0x4ce9c730"
+      },
+      "complete_leaf": {
+        "bytes": 6,
+        "end_exclusive": "0x4b27e156",
+        "file_offset": 1299792,
+        "name": "is_root",
+        "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+        "start": "0x4b27e150"
+      },
+      "member": "is_root",
+      "offset": "0x260",
+      "value": "returns true"
+    }
+  ],
+  "unit_component_table": "0x4ce9c4d0",
+  "unresolved": [
+    "The runtime class of the two recorded visible components was not observed by the failed trial. The retry requires the exact root/model/configuration predicates to establish the intended scope.",
+    "No edge selection, note attachment, persistent-reference, derivative save or fresh reopen was reached by the failed trial.",
+    "No generated downstream cache consumption has been qualified."
+  ],
+  "vm_calls_by_this_tool": 0,
+  "wrapper_sha256": "d8982a8caef31e4c62ed49b70d3747f701fee0622bbaec7a550d6e874327e959"
+}

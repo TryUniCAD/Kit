@@ -1,0 +1,63 @@
+{
+  "actual_chain": [
+    "view.f630 -> actual detail folder",
+    "folder.f8f8 -> actual display",
+    "display.f48 -> actual moCompProfile_c",
+    "wrapper.f58 -> actual moChainComponent_c",
+    "chain.f20 -> moReferenceChain_c",
+    "reference_chain.f08 -> one actual moExtFeatureList_c entry",
+    "external.f50 is actual view.f5d8",
+    "view.f5d8.f3b0 -> actual child directory entry",
+    "view.f5d8.f3c0 -> selected configuration name and local ID",
+    "wrapper.ff0 -> positive actual child feature ID and creation epoch"
+  ],
+  "authority_records": [
+    "re/solidworks/records/DrawingOriginProfileLinkage2026.md",
+    "re/solidworks/records/DrawingReferenceChainArchive2026.md",
+    "re/solidworks/records/DrawingComponentProfileArchive2026.md",
+    "re/solidworks/records/DrawingOriginPortableProjection2026.md"
+  ],
+  "confidence": {
+    "current_typed_join": "host process confirmed on two views, one independent child payload",
+    "field_owners": "confirmed by existing pinned native/getter and disclosed lifecycle proof",
+    "full_original_semantics": "unfinished",
+    "public_projection": "not_enabled"
+  },
+  "historic_zip_reconciliation": {
+    "blank_prefix_receipt_sha256": "f6f24d4fb4583172bdb3d58f6042063b3849cfc2b3316c0e500557f8274b31ae",
+    "bracket_receipt_sha256": "873a4174ba1a9316a8d4ab6dc1fa577e2a42cba01831c6ce7e119d0558269def",
+    "front_prefix_receipt_sha256": "d95964e6c1ff4cea99dba4fc685089861dfd8723c6e98a7f4962c6d363f9e58e",
+    "status": "historic save failure repaired by independently generated vt binding; exact historic internal exception instruction was not observed"
+  },
+  "lookup": "Exactly one actual moOriginProfileFeature_c in the explicitly decoded child Resolved roots; actual pd_f80 sgSketch and DatumTime from the same child header",
+  "measurement": "re/solidworks/measurements/2026/DrawingExplicitOriginJoinProcess01.json",
+  "measurement_sha256": "ca8ecf7a8d1c46d836a14393ab734746d68df5ef5fbd1e9feb56100984c06353",
+  "native_getters": {
+    "chain_model_getter": "0x4b82e340",
+    "component_feature_lookup": "0x4b818420",
+    "display_component_dispatch": "0x4be75480",
+    "display_get_profile": "0x4be754d0",
+    "frdata_positive_id_and_birth_check": "0x4bb352d0"
+  },
+  "native_module": {
+    "bytes": 46536280,
+    "name": "sldmodu.dll",
+    "preferred_base": "0x4b140000",
+    "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "version": "34.5.2.604"
+  },
+  "new_native_analysis": "none; existing exact native owner/getter proof is reused",
+  "new_rea_metadata_check": {
+    "evidence_id": "ev_a39e2665aa6918f60de1a4191ad6a509895069548646a4985bb02c0cde85d09f",
+    "identity_receipt_sha256": "5cfd60d40be040a1cc6b36c1eca46407e10dd228bea048ad294f11a6e7866363",
+    "scope": "target-free complete PE resource inventory and original-module hash; no session opened"
+  },
+  "reference_chain_word_domains": {
+    "f20": "retained acquisition count, not a feature ID or an empty-chain condition",
+    "f24": "ordinary chain selector zero for this bounded profile",
+    "f30_on_moChainComponent_c": "retained runtime handle word, not used as a child feature ID"
+  },
+  "replay_tool": "re/tooling/sw2026/drawing_origins/RunOriginReplay01.py",
+  "schema": "kit.sw2026.drawing-explicit-origin-join-evidence.v1",
+  "task_id": "PR121-DRAWING-EXPLICIT-ORIGIN-JOIN"
+}

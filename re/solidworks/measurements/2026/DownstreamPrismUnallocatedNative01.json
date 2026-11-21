@@ -1,0 +1,103 @@
+{
+  "cases": [
+    {
+      "allocated_downstream_ids": false,
+      "cache_stream_present": false,
+      "generated_sha256": "ad58dadd614a8826c211d52bc7ebd93341f96fd46738341fe772e015d9d77dda",
+      "initial_live": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "local_face_tracking_rows": 6,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "partition_nodes": 177,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00197125,
+          "com": [
+            0.017812500000000002,
+            0.002375,
+            0.004
+          ],
+          "mass": 4.693000000000001e-06,
+          "volume": 4.693000000000001e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "variant": "Prism1Unannotated"
+    },
+    {
+      "allocated_downstream_ids": false,
+      "cache_stream_present": false,
+      "generated_sha256": "61bd3e79bca4ddc619daf2861ebca09e6c37a1232a21d57c20ce6cac885cf7f6",
+      "initial_live": {
+        "bodies": 0,
+        "mass": {
+          "area": 0.0,
+          "com": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "mass": 0.0,
+          "volume": 0.0
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "local_face_tracking_rows": 6,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 32
+      },
+      "partition_nodes": 177,
+      "rebuilt": {
+        "bodies": 1,
+        "mass": {
+          "area": 0.00206675,
+          "com": [
+            0.019500000000000003,
+            0.002375,
+            0.004875
+          ],
+          "mass": 5.464875e-06,
+          "volume": 5.464875e-06
+        },
+        "needs_rebuild": 0,
+        "save_flag": true,
+        "whats_wrong": 0
+      },
+      "variant": "Prism2Unannotated"
+    }
+  ],
+  "clean_initial_generated_open": false,
+  "delivery_pr": 121,
+  "healthy_controls": 2,
+  "heldout_reads": 0,
+  "native_processes": 4,
+  "oracle_build": "34.5.2.0604",
+  "probe_sha256": "545133c4fac4a1d4886cc4c4b315afa0a1d4f0a12be261ea7c29287d5129c1c1",
+  "raw_receipt_sha256": "cc24cdd228d9fffd5d8547b546e6596827397565bc446ce0be3498d626ddfbfe",
+  "schema": "kit.sw2026.disclosed-unallocated-prism-native-diagnostics.v1"
+}

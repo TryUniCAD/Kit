@@ -1,0 +1,401 @@
+{
+  "cad_files_written": 0,
+  "disclosed_cases": [
+    {
+      "borders_m": [
+        0.0012862500000000003,
+        -0.013536250000000001,
+        0.014148750000000002,
+        -0.0006737500000000001
+      ],
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "5d30c8d33d52227be16c58d77a818f11f9ff911ce035501d2187f5a353e10784"
+      },
+      "datum": {
+        "archive_object": 381,
+        "data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "id": 45,
+        "name": "EnvelopeDirection"
+      },
+      "direction": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.004764131938244365,
+          0.004764131938244365,
+          0.006125
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "exact_binary64": true,
+      "hinge": {
+        "archive_object": 370,
+        "id": 41,
+        "line_object": 395,
+        "name": "EnvelopeHinge",
+        "signed_endpoint_order_m": [
+          [
+            0.0,
+            0.0,
+            0.0128625
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0006125000000000002
+          ]
+        ],
+        "top_right_ids": [
+          3,
+          4
+        ]
+      },
+      "native_file": "DirectionEnvelope.SLDPRT",
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "efa18907195d12c806cae22703fe0bac06c63c45c7ff78029c2980b0020f9305"
+      },
+      "sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    {
+      "borders_m": [
+        0.0012862500000000003,
+        -0.013536250000000001,
+        0.014148750000000002,
+        -0.0006737500000000001
+      ],
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25942,
+        "map_next_slot": 112,
+        "sha256": "534bc50076ed18e0b83576c7c84a0e7b0be839192f63056db7775208cb7942ff"
+      },
+      "datum": {
+        "archive_object": 381,
+        "data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "id": 45,
+        "name": "EnvelopeDirection"
+      },
+      "direction": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.004764131938244365,
+          0.004764131938244365,
+          0.006125
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "exact_binary64": true,
+      "hinge": {
+        "archive_object": 370,
+        "id": 41,
+        "line_object": 395,
+        "name": "EnvelopeHinge",
+        "signed_endpoint_order_m": [
+          [
+            0.0,
+            0.0,
+            0.0128625
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0006125000000000002
+          ]
+        ],
+        "top_right_ids": [
+          3,
+          4
+        ]
+      },
+      "native_file": "DirectionEnvelopeSpacing.SLDPRT",
+      "resolved": {
+        "bytes": 33860,
+        "map_next_slot": 472,
+        "sha256": "35f0b8b0f64140dcc6bb9809df06942f9fccaeefc1cd7186fee2abbf3f6aead9"
+      },
+      "sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    },
+    {
+      "borders_m": [
+        0.0009056250000000004,
+        -0.009530625000000003,
+        0.009961875000000004,
+        -0.0004743750000000002
+      ],
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "f45d5630bb46aa044651a1878b171946e1b32d63a606ff30404d9fa62cb9397a"
+      },
+      "datum": {
+        "archive_object": 381,
+        "data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "id": 45,
+        "name": "EnvelopeDirection"
+      },
+      "direction": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.003354337793253686,
+          0.003354337793253686,
+          0.004312500000000001
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "exact_binary64": true,
+      "hinge": {
+        "archive_object": 370,
+        "id": 41,
+        "line_object": 395,
+        "name": "EnvelopeHinge",
+        "signed_endpoint_order_m": [
+          [
+            0.0,
+            0.0,
+            0.009056250000000002
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0004312500000000002
+          ]
+        ],
+        "top_right_ids": [
+          3,
+          4
+        ]
+      },
+      "native_file": "DatumHeightShort.SLDPRT",
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "4ff5fe3425e7285ef78b37b70dff4f61865ee08a14ccc20bebec4f5358a72a8f"
+      },
+      "sha256": "b13b5278fcbb0aa15ffca0a78d71695a464f5e66de9002cac93fd1cc21441c2b"
+    },
+    {
+      "borders_m": [
+        0.0021393750000000007,
+        -0.022514375000000003,
+        0.023533125000000002,
+        -0.001120625
+      ],
+      "both_streams_and_linked_maps_equal": true,
+      "config": {
+        "bytes": 25918,
+        "map_next_slot": 112,
+        "sha256": "53e09fbb2ed19258d3a0c24d44ef3fd919997c476baf7c0ecffb51574e1ef09f"
+      },
+      "datum": {
+        "archive_object": 381,
+        "data_class": "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+        "id": 45,
+        "name": "EnvelopeDirection"
+      },
+      "direction": {
+        "f68": 1,
+        "fb0": 0.0,
+        "fb8": 1.0000000000000002,
+        "fc8": [
+          0.00792401536667175,
+          0.00792401536667175,
+          0.010187500000000002
+        ],
+        "fe0": [
+          0.7071067811865476,
+          -0.7071067811865476,
+          0.0
+        ]
+      },
+      "exact_binary64": true,
+      "hinge": {
+        "archive_object": 370,
+        "id": 41,
+        "line_object": 395,
+        "name": "EnvelopeHinge",
+        "signed_endpoint_order_m": [
+          [
+            0.0,
+            0.0,
+            0.021393750000000003
+          ],
+          [
+            0.0,
+            0.0,
+            -0.0010187500000000006
+          ]
+        ],
+        "top_right_ids": [
+          3,
+          4
+        ]
+      },
+      "native_file": "DatumHeightTall.SLDPRT",
+      "resolved": {
+        "bytes": 33618,
+        "map_next_slot": 472,
+        "sha256": "4b2ec640073205b6d3cd2aea4813368ea710131596460d3447fbbeb649a35dd9"
+      },
+      "sha256": "1cf8c6fa97ff801d7c8b353dd58d2608742054a707cbf740ba61e0d6d7f376bb"
+    }
+  ],
+  "exact_border_binary64_words": 16,
+  "exact_direction_fields": 20,
+  "exact_linked_stream_replays": 8,
+  "held_out_inputs_read": 0,
+  "native_processes_started": 0,
+  "proof_sha256": "33abf1c4331353ac7de17d2f1632a8540fd844d199fdfaba51c3bcd6251373f7",
+  "schema": "kit.sw2026.linear-pattern-datum-borders.v1",
+  "source_receipt_sha256": [
+    "827baa41493ed7fc459dcb5d7b4485a733494cf20fd4fb8d9ecb5aee4a70f566",
+    "a82c6e544fec26fbb4c87f19da31f716df68d77f5169f27f0dddec25508b45d6"
+  ],
+  "static_native_bindings": {
+    "constants": {
+      "edge_fraction": {
+        "binary64": 0.05,
+        "va": "0x4cddca68"
+      },
+      "minimum_span_m": {
+        "binary64": 1e-07,
+        "va": "0x4cdd64f0"
+      }
+    },
+    "imports": {
+      "include_endpoint": {
+        "iat_va": "0x4cd3aa80",
+        "module": "sldmgu.dll",
+        "symbol": "??_5mgBBox_c@@QEAAAEAV0@AEBVmgPoint_c@@@Z"
+      },
+      "transform_extents": {
+        "iat_va": "0x4cd3aa78",
+        "module": "sldmgu.dll",
+        "symbol": "??XmgBBox_c@@QEAAAEAV0@AEBVmgXform_c@@@Z"
+      }
+    },
+    "module": {
+      "bytes": 46536280,
+      "image_base": "0x4b140000",
+      "machine": "0x8664",
+      "name": "sldmodu.dll",
+      "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+    },
+    "ranges": {
+      "axis_updated_points": {
+        "end_va_exclusive": "0x4c27e894",
+        "sha256": "31d395f247314119cd141f8926ecabc38d9610a75fe25aee1c58a6812a737bce",
+        "start_va": "0x4c27e830"
+      },
+      "build_borders": {
+        "end_va_exclusive": "0x4b8e3655",
+        "sha256": "233143482f3b38480619e97f03ff1d96e91bbbb24eb08b00e962f1d6d1422a56",
+        "start_va": "0x4b8e3430"
+      },
+      "check_borders": {
+        "end_va_exclusive": "0x4c2eb65f",
+        "sha256": "118bed4a7be955a6a4f4822eae314e83189853d3fdb329116520e8347de5a74c",
+        "start_va": "0x4c2eb520"
+      },
+      "expand_borders": {
+        "end_va_exclusive": "0x4c2dbe59",
+        "sha256": "bd92371068e679a628975661da7e5037d7b60555a3fcfbcb8126b660e3be78d7",
+        "start_va": "0x4c2dbdd0"
+      },
+      "extract_borders": {
+        "end_va_exclusive": "0x4c2e3727",
+        "sha256": "6db1b7a3be08d2b08c299129893e8c44230c8d69e0c6ad3a86ae0267edae531f",
+        "start_va": "0x4c2e3690"
+      },
+      "geometry_extents": {
+        "end_va_exclusive": "0x4b8ebd96",
+        "sha256": "28389034cf9e9b9440d245d49ad9748bb9e747bd8b26992b6349fb61d04d1f90",
+        "start_va": "0x4b8eb7b0"
+      },
+      "reference_axis_endpoints": {
+        "end_va_exclusive": "0x4c316975",
+        "sha256": "e2586339856ca9ae197b497417cdd079a4314815bcafc1e876c7e95840565dba",
+        "start_va": "0x4c316875"
+      },
+      "straight_line_extents": {
+        "end_va_exclusive": "0x4b8ebaa6",
+        "sha256": "af72c60efcab460c4ade2608ed9f89676d0e71419a9e75f2218de4f464646b5a",
+        "start_va": "0x4b8eb94a"
+      },
+      "true_leaf": {
+        "end_va_exclusive": "0x4b27e156",
+        "sha256": "2db31f4e09597946e56e859813bfdad7046d457c32332c3a882654d1e3ffdf67",
+        "start_va": "0x4b27e150"
+      }
+    },
+    "slots": {
+      "adjust_normal": {
+        "slot": "0x1d0",
+        "target_va": "0x4b8eaf20",
+        "vtable_va": "0x4ced1c20"
+      },
+      "build_borders": {
+        "slot": "0x180",
+        "target_va": "0x4b8e3430",
+        "vtable_va": "0x4ced1c20"
+      },
+      "check_borders": {
+        "slot": "0x198",
+        "target_va": "0x4c2eb520",
+        "vtable_va": "0x4ced1c20"
+      },
+      "expand_borders": {
+        "slot": "0x1a0",
+        "target_va": "0x4b27e150",
+        "vtable_va": "0x4ced1c20"
+      },
+      "geometry_extents": {
+        "slot": "0x178",
+        "target_va": "0x4b8eb7b0",
+        "vtable_va": "0x4ced1c20"
+      },
+      "get_line_endpoints": {
+        "slot": "0x3f8",
+        "target_va": "0x4c316200",
+        "vtable_va": "0x4ce5cd20"
+      },
+      "is_straight_line": {
+        "slot": "0xe0",
+        "target_va": "0x4b27e150",
+        "vtable_va": "0x4ce5cd20"
+      },
+      "point_alternative": {
+        "slot": "0x190",
+        "target_va": "0x4b8e7b70",
+        "vtable_va": "0x4ced1c20"
+      },
+      "update_dimension_adornment": {
+        "slot": "0x240",
+        "target_va": "0x4b8ef0c0",
+        "vtable_va": "0x4ced1c20"
+      }
+    }
+  }
+}

@@ -1,0 +1,312 @@
+{
+  "active_invalid_angle_correction_proven": false,
+  "actual_guest_disclosed_replay_processes": 2,
+  "all_inputs_unchanged": true,
+  "all_native_statuses_zero_errors_warnings": true,
+  "all_paired_mass_and_independent_geometry_equal": true,
+  "all_paired_ordered_trees_and_semantic_owners_equal": true,
+  "broader_mixed_or_reference_variants_qualified": false,
+  "delivery_pr": 121,
+  "healthy_control_processes": 4,
+  "hidden_design_values_published": false,
+  "host_heldout_payloads_read": 0,
+  "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+  "native_execution_owner": "root only",
+  "native_process_count": 12,
+  "new_opaque_cases_qualified": 2,
+  "normal_public_registry_equivalence_proven": false,
+  "normal_source_edited_and_saved_sdk_audits": 6,
+  "numeric_checks": 484,
+  "owner": "assembly_occurrence",
+  "paired_source_generated_comparisons": 12,
+  "passed": true,
+  "prewriter_source_lock_sha256": "614c05ee076b728018e2371fa0d992ab59e379afc625eec22aa699dd16729aee",
+  "public_perpendicular_writer_qualified": false,
+  "recipe_sha256": "e2130aa9bae673e99052902d333437c1e6245f57a4fc9c4e3a04f23d9169aa7a",
+  "runtime_record_sha256": "08d858846adbfb75db4a81f8f49d27f9b83ff8db6df2c02ed754438e0b463ec1",
+  "runtime_sha256": "39b354c60a31785ac033c36361c5d3445daa3763b8065d2d1d3922716ec7540c",
+  "schema": "kit.sw2026.perpendicular-sealed-native-public-receipt.v1",
+  "scope": "internal ordinary single nondimensional perpendicular between two repeated resolved ordinary dimensioned rectangular part occurrences, canonical principal datums, one fixed anchor and initially satisfied rigid placements",
+  "slots": [
+    {
+      "build": {
+        "build_lock_sha256": "2eddbf719a36128a1c7a0c0d90815ce9f8ddea31dbfd15b3ca0b10be1f1df0a7",
+        "generated_files": {
+          "child": {
+            "bytes": 8921,
+            "sha256": "8072bfa39eea4abd6f2d284bc2a8c4f5a2fb0f925c901657ba8f75e6053a7c38"
+          },
+          "parent": {
+            "bytes": 10244,
+            "sha256": "dd381bca990864fc7272e5b5e41508e7d8429c28c1813fffe85c61eb6ed1029b"
+          }
+        },
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_processes_started": 0,
+        "passed": true,
+        "phase": null,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "slot": "Slot01",
+        "worker_count": 3
+      },
+      "native": {
+        "active_invalid_angle_correction_proven": false,
+        "all_paired_comparisons_passed": true,
+        "build_lock_sha256": "2eddbf719a36128a1c7a0c0d90815ce9f8ddea31dbfd15b3ca0b10be1f1df0a7",
+        "child_drivers": 3,
+        "controls_healthy": true,
+        "identities": [
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394825262923476,
+            "process_id": 2604,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394825813795324,
+            "process_id": 4072,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394826312344545,
+            "process_id": 4216,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394826802969622,
+            "process_id": 9432,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394827735932854,
+            "process_id": 4472,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394828249302473,
+            "process_id": 8640,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          }
+        ],
+        "immutable_inputs_unchanged": true,
+        "independent_geometry_and_poses_equal": true,
+        "measured_paired_mass_equal": true,
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_process_count": 6,
+        "numeric_checks": 242,
+        "ordered_native_trees_and_semantic_owners_equal": true,
+        "paired_comparison_count": 6,
+        "passed": true,
+        "phase": null,
+        "phase_hashes": {
+          "control-after": "a515c480f94cb4a6884980fcf407ef12440c0a2e184ff4695ece6ca4b4ba20db",
+          "control-before": "05a7ffd37155a63afdc2a4a59d2d846a23a601fde04c90e1b281b4cca3beec02",
+          "generated": "fa9dcc162f1337ae0e26fb838415358e7497700159ca142ccca41056ffffc3ef",
+          "reopen": "950461b360b95fd2c90107dc1cbeb98315eccae78e692535f86bc030c17f70d7",
+          "source": "d40bd35c0da0ced5d977c5e612efe48052eeeb6ae8cd78016eb1da4d249365a1",
+          "source-edited": "adaeb2513f93069805e9ad9395b382041feb634a69fef1bc711ec6fb312907c8"
+        },
+        "preparation_lock_sha256": "72320a88db0dbd1288e1338314f921df5561e60c6f523b4f5674e1f9ce6d31cb",
+        "public_perpendicular_writer_qualified": false,
+        "runtime_input_file_reads_during_generation": 0,
+        "schema": "kit.sw2026.perpendicular-sealed-native-evaluation.v1",
+        "sdk_runtime_research_imports": 0,
+        "slot": "Slot01",
+        "strict_public_saved_and_source_readbacks": [
+          {
+            "audit_sha256": "4f0976a13c211b2dfcede0522519396144e78d861cdca381f883d9b7bd342b88",
+            "child_drivers": 3,
+            "child_sha256": "fdc9008b6a54e2270f527fd89464e701a2d2014193f8a541ffdac0e916e0570b",
+            "parent_sha256": "f212ee64bfab9ced4ca2d505ccf5307670c3ebe4848f8f41035fcf46ee9af1fb",
+            "public_status": "admitted",
+            "state": "source"
+          },
+          {
+            "audit_sha256": "5428cec5061e3cff747f56a65b832eef94871b9edfef39d2d6f16d3efca58239",
+            "child_drivers": 3,
+            "child_sha256": "32e20ee0ae96da3b821df8c79083dabd2c9fbaf12b6a40c4cd3b53fac7d78549",
+            "parent_sha256": "499ed7be6daa8d646c54fa98f9c961fd7e46722165276c77a113fecc620d4115",
+            "public_status": "admitted",
+            "state": "edited"
+          },
+          {
+            "audit_sha256": "656a8aa3ffe9ddc02be3e5b2c162fb739e3c87499a9b640d637fc4974837bab9",
+            "child_drivers": 3,
+            "child_sha256": "b2167710bcc44664e903094fd45ee46502e199247b6b9caefc39b4738f68eaff",
+            "parent_sha256": "b95cea60f045c2a0928b9402918937826de3a3bedabe7883f3be4d05fc3b9ef6",
+            "public_status": "admitted",
+            "state": "generated-saved"
+          }
+        ]
+      },
+      "opaque_neutral_preparation_sha256": "9eaaaaa5493009370a0569c72cec4bc8912b45c7a73e566d35131d1309043b33",
+      "preparation": {
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_acceptance": false,
+        "native_processes_started": 0,
+        "native_source_files_opened": 0,
+        "native_source_observations_opened": 0,
+        "passed": true,
+        "prediction_sha256": "5df8d5c8d34a32afc31d085aec2cbb84f3b7211cb7dad2f9b7829baa9842f809",
+        "preparation_lock_sha256": "72320a88db0dbd1288e1338314f921df5561e60c6f523b4f5674e1f9ce6d31cb",
+        "request_sha256": "8a110962c74a9cf94ec21a1fecc4c2b9329697d3f8d5176fbbbae34d1b7e6c5b",
+        "runtime_sha256": "39b354c60a31785ac033c36361c5d3445daa3763b8065d2d1d3922716ec7540c",
+        "selected_neutral_sha256": "1bcd789f52dd6be0f62b8bc798ef7649dbf7a98f8dd3dcd13a269b4889da2085",
+        "slot": "Slot01",
+        "writer_output_count": 0
+      },
+      "public_result_sha256": "3dfb086106d6663b966a5e6129ebbb2ab597010ad06e7fddb9677f8b59fd6215",
+      "slot": "Slot01",
+      "source_only_build_sha256": "1bd6722c4d0b2321974342463cfd2f0989ed13d51ad3bf29c69bd9bec6de764b"
+    },
+    {
+      "build": {
+        "build_lock_sha256": "10c277d084b18e65a88d1823aa5a56bdeb1b0e091c0823b11f19de1f08df453f",
+        "generated_files": {
+          "child": {
+            "bytes": 8919,
+            "sha256": "f0e3ef7329acb6d2cd74ad6c749fea53e8d437c5e69181ac6a40f9817880a0f9"
+          },
+          "parent": {
+            "bytes": 10197,
+            "sha256": "848d7922c565b681d16faf55e1e051b4741e1003cc71db110671f0b558545849"
+          }
+        },
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_processes_started": 0,
+        "passed": true,
+        "phase": null,
+        "runtime_input_file_reads": 0,
+        "sdk_runtime_research_imports": 0,
+        "slot": "Slot02",
+        "worker_count": 3
+      },
+      "native": {
+        "active_invalid_angle_correction_proven": false,
+        "all_paired_comparisons_passed": true,
+        "build_lock_sha256": "10c277d084b18e65a88d1823aa5a56bdeb1b0e091c0823b11f19de1f08df453f",
+        "child_drivers": 3,
+        "controls_healthy": true,
+        "identities": [
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394829134266650,
+            "process_id": 6672,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394829623821187,
+            "process_id": 11048,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394830126971705,
+            "process_id": 8260,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394830634094867,
+            "process_id": 6288,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394831570534702,
+            "process_id": 10312,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          },
+          {
+            "file_version": "34.5.2.0604",
+            "process_creation_filetime": 134394832066213625,
+            "process_id": 2176,
+            "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+          }
+        ],
+        "immutable_inputs_unchanged": true,
+        "independent_geometry_and_poses_equal": true,
+        "measured_paired_mass_equal": true,
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_process_count": 6,
+        "numeric_checks": 242,
+        "ordered_native_trees_and_semantic_owners_equal": true,
+        "paired_comparison_count": 6,
+        "passed": true,
+        "phase": null,
+        "phase_hashes": {
+          "control-after": "8db6e6ac59a000204c52c887c4f2c9c7b1876851952d1521b574d32128a333ff",
+          "control-before": "fa43639d5418da99f79c8acc068ece6af4d6a525593d6c1fc693ceec24118930",
+          "generated": "06d7efa80cb7031b26209ee779167d2c7e4d1e8f7554e7e46b7a678af712c07c",
+          "reopen": "84be86186fd812cff914013e4fcde8df1870dea1612f229ee46f94df63fd0ef0",
+          "source": "aaaf2026de688d3fa6d2c199e1b7ae32b3875c5526fce54f6df8e539b5d4f305",
+          "source-edited": "75495e731961a87c3b6a11ae141e819a552c7a4116a96ea8878662e379841728"
+        },
+        "preparation_lock_sha256": "279ef97f1daf771f9e6e70ae4d0d0a1d3b7061874275f00bec80b013459dd7c9",
+        "public_perpendicular_writer_qualified": false,
+        "runtime_input_file_reads_during_generation": 0,
+        "schema": "kit.sw2026.perpendicular-sealed-native-evaluation.v1",
+        "sdk_runtime_research_imports": 0,
+        "slot": "Slot02",
+        "strict_public_saved_and_source_readbacks": [
+          {
+            "audit_sha256": "356dcf083065664e732307f6a4643cdfcf241c9f2290d9bda14903d75e3da587",
+            "child_drivers": 3,
+            "child_sha256": "110ce92ed5b6638bda0b27388918a5f03cae691ca406487beb117eee4d793655",
+            "parent_sha256": "b0fcf46aa61ec77e9811264a7e41500443ebf12d73d6e9f0864bfb376265cd6e",
+            "public_status": "admitted",
+            "state": "source"
+          },
+          {
+            "audit_sha256": "15b2f629a5cd1adddfeba1d79bb523f3389c071cdc6b41a3069411f43a55bef3",
+            "child_drivers": 3,
+            "child_sha256": "cd121748e14bbbce0621366407f80426088f69096323c1650b77eff3705044fd",
+            "parent_sha256": "98151d7f3a1f03a57b48d782055d7d2a6527adb9b2fc355cf65149ecb037241d",
+            "public_status": "admitted",
+            "state": "edited"
+          },
+          {
+            "audit_sha256": "58270b150a4dd5b6a2cde26a9d657cf44d38d585cb87d15f8bc63722d3a4e5c1",
+            "child_drivers": 3,
+            "child_sha256": "5762cdd50d11ec08470b27c39f85630787b845f997f5f746afb0cd8a69cde608",
+            "parent_sha256": "65d3a1744612998a84403caaabc976ad60c1945dbdb4ee24707f1ea6eec8a9fa",
+            "public_status": "admitted",
+            "state": "generated-saved"
+          }
+        ]
+      },
+      "opaque_neutral_preparation_sha256": "eb11506c1b51628fb6a1d7441f488093ae9e31c29f0cba37872ebacdd24ea553",
+      "preparation": {
+        "method_sha256": "dc644609ac4e3fa11000b10948ee2171e0c7a859b446ebbeb04f8cfebc4ad44f",
+        "native_acceptance": false,
+        "native_processes_started": 0,
+        "native_source_files_opened": 0,
+        "native_source_observations_opened": 0,
+        "passed": true,
+        "prediction_sha256": "8db13f75b9ccf933e13ec17c4f587b405b2ad4c317da61aa08e94a2bf3068948",
+        "preparation_lock_sha256": "279ef97f1daf771f9e6e70ae4d0d0a1d3b7061874275f00bec80b013459dd7c9",
+        "request_sha256": "b4373510bff6359c5cd0e6a83a6c1e749fe6f442eeb4d64fd877de6152f7aca0",
+        "runtime_sha256": "39b354c60a31785ac033c36361c5d3445daa3763b8065d2d1d3922716ec7540c",
+        "selected_neutral_sha256": "62fade0acd79c2447ecfdc89c0e57264baa59cf1bd19993ec1907d0493038bf8",
+        "slot": "Slot02",
+        "writer_output_count": 0
+      },
+      "public_result_sha256": "8aba33c13319e36bf2ecf5f416024ce21d86a2ac80ecfbd0786708881393f6d0",
+      "slot": "Slot02",
+      "source_only_build_sha256": "4e72680fa7dd5e9a32dc6c4afe1cea4489075e59474cf329b516772855b5bef6"
+    }
+  ],
+  "synchronized_child_first_save_and_fresh_reopen_passed": true,
+  "task_id": "B04-SW2026-MATES-PERPENDICULAR",
+  "three_real_child_drivers_in_each_case": true,
+  "valid_live_reorientation_and_depth_edit_preserved": true,
+  "writer_source_adjusted_after_hidden_exposure": false,
+  "writer_source_manifest_sha256": "0f660dcb6fef84b12b382fa40e542069d49dab0ec6169151b154b4222f5884fa"
+}

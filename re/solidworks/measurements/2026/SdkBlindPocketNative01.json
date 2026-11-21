@@ -1,0 +1,238 @@
+{
+  "candidate_scope": "three disclosed SDK blind-pocket output pairs",
+  "cases": [
+    {
+      "candidate_sha256": "845baefabee7a690d594a095e1bb5a45e70614b2ee25b29b55d007400f898f64",
+      "case": "SdkPocketA",
+      "controls_healthy": true,
+      "exact_saved_sdk_streams": {
+        "Contents/Config-0": {
+          "bytes": 26151,
+          "exact_round_trip": true,
+          "map_counter": 123,
+          "sha256": "3f4dbcfaf17e21e44a68ff490f1c9790dc698c6301caef4e210dd28f6393ee3a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 21812,
+          "exact_round_trip": true,
+          "map_counter": 354,
+          "sha256": "45e327b68643e7f654eada5d927bb0fb754ccb6113134d756aeb9f28a88cc6f7"
+        }
+      },
+      "fresh_processes": 4,
+      "job_sha256": "2b3b7b33e11c7ae2e0c2eb0ac08ae5faee4cdb2acd48edb130db37c93d9b9ed8",
+      "native_result_sha256": "5f7b0eb9b5de90711f8b1797c43f53fbc66f2e68795b948bb2c8f76ab973c3fb",
+      "phases": [
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": 0,
+          "mass_properties": {
+            "area": 0.006129780518424864,
+            "com": [
+              -6.017775215668304e-05,
+              4.513331411751227e-05,
+              0.00910380662247028
+            ],
+            "mass": 2.7504214548410386e-05,
+            "volume": 2.7504214548410386e-05
+          },
+          "numeric_checks": 84,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit",
+          "phase_sha256": "5e29cb400c97680a7038f716e0cbab0030e44ca670139e108d56aa91608da10e",
+          "radial_driver_edit_and_restore": true
+        },
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": null,
+          "mass_properties": {
+            "area": 0.006221263696497399,
+            "com": [
+              -9.834656993995086e-05,
+              7.375992745496314e-05,
+              0.009137685197915931
+            ],
+            "mass": 2.724806164980729e-05,
+            "volume": 2.724806164980729e-05
+          },
+          "numeric_checks": 22,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "phase_sha256": "294140b60bc6e6e27bcb208c5dff9e80583ec323e1cc33b3c7d65f61e2332197",
+          "radial_driver_edit_and_restore": false
+        }
+      ],
+      "radial_mode": "radius",
+      "saved_sha256": "43887b7055e0668a83b862c97dae572fb2eddea6d2febac13308c6ae09a38018",
+      "sdk_edit_archive_sha256": "9edcd83975f4d54a67f6dcd59d73020b147a6858a33ce68f3c61b80e657538eb",
+      "tree_identical": true
+    },
+    {
+      "candidate_sha256": "1e1ef032581521f029c09b923bd24cc70c5ca079d4fa946d45bd0944f14efcb5",
+      "case": "SdkPocketWideBeta",
+      "controls_healthy": true,
+      "exact_saved_sdk_streams": {
+        "Contents/Config-0": {
+          "bytes": 26151,
+          "exact_round_trip": true,
+          "map_counter": 123,
+          "sha256": "9e75241c5e51c7c6433ba7dde251f5e77dae89aa9ca1ad4fc85517235baac218"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 21844,
+          "exact_round_trip": true,
+          "map_counter": 354,
+          "sha256": "071190296cf5bc10c1f287666f0d65ded3543173bec12bbc4611503f01eece66"
+        }
+      },
+      "fresh_processes": 4,
+      "job_sha256": "90d53fcdabecb6059805b9558d07cb4b8d22739ee081e802419eb5f12bbcfef5",
+      "native_result_sha256": "453ba1d4119c6c7f5702fbae0fba943f5faf4c7f037f9d9d4f533dd76f21a1c6",
+      "phases": [
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": 0,
+          "mass_properties": {
+            "area": 0.006636054509102146,
+            "com": [
+              2.417515453572202e-05,
+              -4.835030907144408e-06,
+              0.0058662318894739844
+            ],
+            "mass": 2.4186015334526358e-05,
+            "volume": 2.4186015334526358e-05
+          },
+          "numeric_checks": 84,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit",
+          "phase_sha256": "6c185e084711fd22c6b781732bf0ce393042bd2f8d73be4fb92c5022dbd7cd89",
+          "radial_driver_edit_and_restore": true
+        },
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": null,
+          "mass_properties": {
+            "area": 0.006700142999235378,
+            "com": [
+              5.596004730743716e-05,
+              -1.1192009461487434e-05,
+              0.0058755817359119715
+            ],
+            "mass": 2.4077064901299866e-05,
+            "volume": 2.4077064901299866e-05
+          },
+          "numeric_checks": 22,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "phase_sha256": "70c739aa14a60567e7bc2695e35f482d7070d10d2d24f6a12beb7da616f71ae9",
+          "radial_driver_edit_and_restore": false
+        }
+      ],
+      "radial_mode": "diameter",
+      "saved_sha256": "e8ab65c3e5c6930c21456f511abf378f48ccb9d742f7b71d0330dce13536adf4",
+      "sdk_edit_archive_sha256": "d48bf19dd1375f7be1dd68f4d671f04a7ef694007240949ff3392bf4a3c8e848",
+      "tree_identical": true
+    },
+    {
+      "candidate_sha256": "c47b5350093a8ef1442a39aca1ae75ef1950f87ba72550828131fd3b97430e11",
+      "case": "SdkPocketFree",
+      "controls_healthy": true,
+      "exact_saved_sdk_streams": {
+        "Contents/Config-0": {
+          "bytes": 26151,
+          "exact_round_trip": true,
+          "map_counter": 123,
+          "sha256": "b7a979fdb4bd06eb20838b917023f252965202b09402bcd27974349a47bb549b"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 20025,
+          "exact_round_trip": true,
+          "map_counter": 341,
+          "sha256": "76d0c0418450dce5e1bc7095d5b32d07b57ab3675d792ce2e1fd7f1875e1d761"
+        }
+      },
+      "fresh_processes": 4,
+      "job_sha256": "733aa1290fa585bb30c1cc4a648dde1673f55ecf30fbfa35d44783589cee39eb",
+      "native_result_sha256": "0d4cf10e693ed67e9eb99770cc4abb72878a915d3ee58bd240b8b48301488460",
+      "phases": [
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": 0,
+          "mass_properties": {
+            "area": 0.007623312027085858,
+            "com": [
+              -4.467727198615077e-05,
+              -2.53573705867342e-05,
+              0.007181696713233417
+            ],
+            "mass": 3.323887034447399e-05,
+            "volume": 3.323887034447399e-05
+          },
+          "numeric_checks": 42,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "edit",
+          "phase_sha256": "8717091ff9f5d65f0f6e71459373b737d4f975b185f4f22d76e7ea0bad9603fe",
+          "radial_driver_edit_and_restore": false
+        },
+        {
+          "actual_boss_parent": true,
+          "cut_depth_edit_status": null,
+          "mass_properties": {
+            "area": 0.0077289323720995465,
+            "com": [
+              -9.349070590553489e-05,
+              -5.306229254097924e-05,
+              0.007190428413364556
+            ],
+            "mass": 3.302234863719593e-05,
+            "volume": 3.302234863719593e-05
+          },
+          "numeric_checks": 21,
+          "one_solid_on_initial_open": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "phase": "reopen",
+          "phase_sha256": "dc246ee9b418a53ab3b289a1077429edbf414553ea44db36403a5f72add91f95",
+          "radial_driver_edit_and_restore": false
+        }
+      ],
+      "radial_mode": null,
+      "saved_sha256": "3c41b6997b74c62be49fe885eb90b7167a8e3551f6b50d6137b35f25369f22ed",
+      "sdk_edit_archive_sha256": "6c202db2f20ecd960f5859519cae553b3895390664d729702982ba2b91e18c22",
+      "tree_identical": true
+    }
+  ],
+  "distinct_native_processes": 12,
+  "healthy_controls": 6,
+  "heldout_cases_read": 0,
+  "measured_tool_sha256": {
+    "AuthorBlindCutSources.py": "cf401ffa7d1029fcdc4ed1f684352b37de3f304cb1552cba077e57660fe9cd87",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectBlindPocketEdit.py": "5b7f0b1e62474f6217cdcea18b7e838ab6d5b5439e504b1897d872d72189feea",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "numeric_checks": 275,
+  "oracle_build": "34.5.2.0604",
+  "oracle_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "92d25e5d14cd9368bae1aba3c7ece1c241bd694b735316784d5c94539346d7cb",
+  "per_phase_result_path": "result.passed",
+  "prior_queue_launches": 0,
+  "public_writer_qualified": false,
+  "root_batch_result_sha256": "118ace3221b3608538190624ecf5fc5d97aa57bbdc7c11e32bf200d6b4870ef2",
+  "schema": "kit.sw2026.sdk-blind-pocket-native-discovery.v1",
+  "sdk_saved_exact_stream_checks": 6,
+  "sdk_writer_revision": "c106a74bdb3ebd76e7f4565fe3a1c8ce3fb2b919",
+  "source_cases_read": 0
+}

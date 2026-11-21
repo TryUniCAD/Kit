@@ -1,0 +1,225 @@
+{
+  "schema": "kit.sw2026.revolve-family-source-lock.v1",
+  "family": "thin",
+  "split": "discovery",
+  "source_revision": "fd18c4b0bc1e8a4a375b8ce96445d87252ed0bc1",
+  "source_tree": "2f3e868d96bc4de45202690fbbf9b1a36d687bf0",
+  "job_sha256": "c0f8ee3c9fbde53749145235b6e0ca7b3f6f9f96f6b19eb79bebe7b2d1ade83b",
+  "spec_sha256": "dc2fe59f7401905e84f325468384d2f60b78b9f8408204c5b0995c6d8590154d",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "tool_sha256": {
+    "AuthorRevolveFamilies.py": "5303aa3adcb2621ab8abe17a1a5e61180be8c9869a682ee2afbaff1c939c91f6",
+    "RevolveFamilyModel.py": "feb79fe618ac3205ae15ea6d211e59f75279f76aec2d0dea984a48242d2cfa44",
+    "AuthorRevolveSources.py": "de877902261c61846611a329a9c61a7203694018a357549044c904025c39b8c4",
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_build": "34.5.2.0604",
+  "registered_swconst": {
+    "swEndCondBlind": 0,
+    "swRevolveTypeOneDirection": 0,
+    "swThinWallOneDirection": 0,
+    "swThinWallOppDirection": 1,
+    "swThinWallMidPlane": 2,
+    "swThinWallTwoDirection": 3,
+    "swSelSKETCHES": 9,
+    "swSelSKETCHSEGS": 10,
+    "swSelEXTSKETCHSEGS": 24,
+    "swSelSOLIDBODIES": 76,
+    "swAngularDimension": 3,
+    "swLinearDimension": 2,
+    "swHorLinearDimension": 11,
+    "swVertLinearDimension": 12,
+    "swDimensionDriving": 2,
+    "swSetValue_InThisConfiguration": 1,
+    "swSolidBody": 0,
+    "swObjectSame": 1
+  },
+  "started_at": 1795228192.2043648,
+  "sources": [
+    {
+      "case": "ThinOne",
+      "native_sha256": "d496a17dc86cdc93796b0aab8c22f74ace923eba09cfca71a8cc7a02761be491",
+      "native_bytes": 50037,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "fcef3d31dee4b3af7dcf25fba6baccd0c97883eaa9ee1af879b86dad699847ea",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "3fe0579e8258c14b92b6714355f0e69e8807dd25120a1ae7927f0299231ecfb2",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "3ef09f8f2044ad589eea16abbc951b77137616b3dd78032d696439337cddc436",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinOpposite",
+      "native_sha256": "9e8b6ee638898f28be5bee7da0d07214436a5d23dc7f910a3bddd0d6529fa04c",
+      "native_bytes": 49793,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "65f87a1acaed3270bea20db4b049358d6ff61ff74d551c1bd19e4da3d2cc740d",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "86fc74a171f974cbb699820979e304d487cb0a0626bfbe61cb5913a93c855a20",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "0274f973e588f648692e95869a622646cee64b06e06a2187861ca277f59d7561",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinMidplane",
+      "native_sha256": "9020b54302c1732b05fa9871844e94e4b446713ec1f12dd29d14deb0c5f4d514",
+      "native_bytes": 50024,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "fd74d282c85a9a40f8256442692ded43667e5dc3719277e43a4a74c19a0c2862",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "503aa05ea63b48d6af0f1a1a4f1e28b100f6204212e9853ce4b91582d2ccdb1e",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 71,
+          "checks_passed": 71
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "a01b84d416aacae7caef88dc63433bbf0cce6fc00b7b0eb2b9376f195dcb7644",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    },
+    {
+      "case": "ThinUnequal",
+      "native_sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+      "native_bytes": 51538,
+      "phases": [
+        {
+          "phase": "author",
+          "sha256": "e0220526043aa1338137813c42665c50525a03de5e1b80e5cb90d4606c484c45",
+          "passed": true,
+          "open_status": null,
+          "checks": 29,
+          "checks_passed": 29
+        },
+        {
+          "phase": "reopen",
+          "sha256": "cb0ff3cfbba5cf9f32277d71ea2d657dc9d9dcb027b510925bb26b34b9dd6339",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 95,
+          "checks_passed": 95
+        },
+        {
+          "phase": "edited-reopen",
+          "sha256": "d295f4d89e797d183bec2aa21f608423c985ae556663c9d4c9a16ab124fa69de",
+          "passed": true,
+          "open_status": {
+            "opened": true,
+            "errors": 0,
+            "warnings": 0
+          },
+          "checks": 23,
+          "checks_passed": 23
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "writer_output_count": 0,
+  "heldout_writer_acceptance": false,
+  "control-before": {
+    "sha256": "0ed1031aab3ec5f89bb838f84d9e026361fa046b38a68292419f9d9a4e0c5fa2",
+    "passed": true
+  },
+  "control-after": {
+    "sha256": "c204855cf0522e1589a360e5a22d6862a83d85a18841bb225d6ab9a2d3caf4c4",
+    "passed": true
+  },
+  "finished_at": 1795228657.3289378,
+  "fresh_processes": 14,
+  "distinct_processes": 14,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "tools_unchanged": true,
+  "wall_side_consistent": true,
+  "measured_first_wall_signs": [
+    1
+  ],
+  "passed": true
+}

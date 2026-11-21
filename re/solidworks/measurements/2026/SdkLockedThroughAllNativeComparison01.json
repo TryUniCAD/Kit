@@ -1,0 +1,37 @@
+{
+  "candidate_lifecycle_passed": true,
+  "candidate_sha256": "b18107a18a650e59d77b54e48b715172fdf7a68b2f6f70b280e800bd738a823a",
+  "comparison_sha256": "59caec43d721956f0e14a494ed77f1bebd8bdf0965c18229b8143ff4c46c74e5",
+  "complete_source_conversion": false,
+  "continuous_automatic_selection_qualified": false,
+  "controls_healthy": true,
+  "distinct_native_processes": 4,
+  "freeze_sha256": "495c6ecaa18cb1c4166de6d2d407faac165661ad8ac685f662bf82da7bbd9959",
+  "generation_sha256": "eb9ae5adcd26f1bdaa8281dd70c635623ece064e5eba00052b38f89e76903bd0",
+  "heldout_credit": 0,
+  "independent_prediction_sha256": "43a32aeec27dea990f934b477f395610d43e086c2f43372301b2e1771214b664",
+  "method_sha256": "f23ad2e0dcd89d699606243b82636a90c0a0eae3aca281bf1bc6a7a6e6c74469",
+  "native_com": "SldWorks.Application.34",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "owner_comparisons": {
+    "candidate_snapshots_checked": 6,
+    "cut_owner_differences": [],
+    "stock_owner_differences_in_each_snapshot": ["/depth_reverse_m"],
+    "values_disclosed": 0
+  },
+  "phase_receipt_sha256": {
+    "ControlAfter": "a3c00b67e3ed72a06acf9720d7dd619af26d2d033f693b13ce79b12561d22bb4",
+    "ControlBefore": "4c0e147f1bc87ee33ebe3f82f98a1bdab02d4db7f69c7fbcdd681b6d9701a063",
+    "Generated": "3cebee49927b6aaef7292b7bdd34e46930f3b37060e1f5b0f379b5333c82094c",
+    "Reopen": "6f954d1257fdbe2c7171df11b63d5126ef676e4403a658fdf4ff2f8145cbd4b0"
+  },
+  "public_writer_qualified": false,
+  "runtime_external_attempts": 0,
+  "schema": "kit.sw2026.locked-throughall-selected-stock-comparison.receipt.v1",
+  "scoped_comparison_passed": false,
+  "source_files_read_during_generation": 0,
+  "source_lock_sha256": "3efe141cd31cc06e8b7545db590548dd1ba511960261e8b78cf72523d5d5ba79",
+  "source_slot": "H01",
+  "writer_revision": "6803987defeb0e69e39542b05eaa3618aefb46ff"
+}

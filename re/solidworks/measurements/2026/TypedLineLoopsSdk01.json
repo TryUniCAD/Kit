@@ -1,0 +1,174 @@
+{
+  "broad_geometry_coverage": false,
+  "disclosed_native_input_reads": [
+    {
+      "actual_handle_adjacency": true,
+      "closed_loops": 1,
+      "exact_endpoints_and_bounds": true,
+      "inputs_unchanged": true,
+      "label": "Skew-initial",
+      "lines": 3,
+      "neutral_spec_sha256": "28bfdf7c5ba72aaee59835e9ae4697ebf2974de4104d63bad85b05ecf7ce7e9e",
+      "passed": true,
+      "resolved_roundtrip_equal": true,
+      "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2"
+    },
+    {
+      "actual_handle_adjacency": true,
+      "closed_loops": 1,
+      "exact_endpoints_and_bounds": true,
+      "inputs_unchanged": true,
+      "label": "Skew-edited",
+      "lines": 3,
+      "neutral_spec_sha256": "28bfdf7c5ba72aaee59835e9ae4697ebf2974de4104d63bad85b05ecf7ce7e9e",
+      "passed": true,
+      "resolved_roundtrip_equal": true,
+      "sha256": "7cbc61613416c5080af5549f97be8cccd9b6855b4e5e0ba08b2008643082f7ec"
+    },
+    {
+      "actual_handle_adjacency": true,
+      "closed_loops": 1,
+      "exact_endpoints_and_bounds": true,
+      "inputs_unchanged": true,
+      "label": "Step-initial",
+      "lines": 6,
+      "neutral_spec_sha256": "0843665906900d2e1098e614b5fb8b1b999d3df53e129b6cc4e0b978f35c23f9",
+      "passed": true,
+      "resolved_roundtrip_equal": true,
+      "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+    },
+    {
+      "actual_handle_adjacency": true,
+      "closed_loops": 1,
+      "exact_endpoints_and_bounds": true,
+      "inputs_unchanged": true,
+      "label": "Step-edited",
+      "lines": 6,
+      "neutral_spec_sha256": "0843665906900d2e1098e614b5fb8b1b999d3df53e129b6cc4e0b978f35c23f9",
+      "passed": true,
+      "resolved_roundtrip_equal": true,
+      "sha256": "0d4086ee2194b8d2f3fc1a0cff3d651b2e40fe4b494ff8399cb4e6cc72db287d"
+    }
+  ],
+  "held_out_inputs_read": 0,
+  "native_lifecycle_context": {
+    "new_native_run": false,
+    "result_sha256": "8ca7b13b7bd69f916655539fa08d1df4d836c6c551f218b745e538b84b9bfc0c",
+    "source": "SdkDefaultPartNative03"
+  },
+  "new_native_execution": false,
+  "passed": true,
+  "phases": [
+    {
+      "elapsed_seconds": 7.95069787511602,
+      "name": "fresh-neutral-line-loops",
+      "passed": true,
+      "processes": 9
+    },
+    {
+      "elapsed_seconds": 5.3926853749435395,
+      "name": "admission-and-extended-fields",
+      "passed": true,
+      "processes": 8
+    },
+    {
+      "elapsed_seconds": 3.2434323329944164,
+      "name": "native-identity-namespaces",
+      "passed": true,
+      "processes": 4
+    },
+    {
+      "elapsed_seconds": 2.720470249885693,
+      "name": "prior-typed-blind-graph",
+      "passed": true,
+      "processes": 4
+    },
+    {
+      "elapsed_seconds": 3.0045492919161916,
+      "name": "default-system-tree",
+      "passed": true,
+      "processes": 4
+    },
+    {
+      "elapsed_seconds": 2.8489691249560565,
+      "name": "custom-system-tree",
+      "passed": true,
+      "processes": 4
+    },
+    {
+      "elapsed_seconds": 1.6999067501164973,
+      "name": "custom-folder-order",
+      "passed": true,
+      "processes": 2
+    },
+    {
+      "elapsed_seconds": 0.7070500829722732,
+      "name": "older-18000-tree",
+      "passed": true,
+      "processes": 1
+    },
+    {
+      "elapsed_seconds": 0.031277375062927604,
+      "name": "disclosed-dimensioned-rectangle",
+      "passed": true,
+      "processes": 0
+    },
+    {
+      "elapsed_seconds": 0.04468862502835691,
+      "name": "disclosed-annulus",
+      "passed": true,
+      "processes": 0
+    },
+    {
+      "elapsed_seconds": 0.5810337499715388,
+      "name": "older-mixed-circle-and-rectangles",
+      "passed": true,
+      "processes": 0
+    },
+    {
+      "elapsed_seconds": 0.07790050003677607,
+      "name": "saved-radius-and-diameter",
+      "passed": true,
+      "processes": 0
+    }
+  ],
+  "previous_process_freeze": {
+    "first_steering_passed": false,
+    "passed": true,
+    "processes": 40,
+    "repair": "mechanical naming and declaration decomposition only",
+    "report_sha256": "e2a912b3e514f907a77a6bf8e92fd135b5ce44424b2e3b2b83eef90026178643",
+    "source_manifest_sha256": "7a91d5e63e5eb9c2334ce2f208287c3ab9a677ba7472aa021594697bfb40673e"
+  },
+  "processes": 40,
+  "public_writer_qualification_changed": false,
+  "raw_source_process_report_sha256": "50cf15cc1d7f8195705d3d1d119d03853b02aafa1676f54afb6f356ed9d1a2f9",
+  "runner_sha256": "791c7cafee37071d7d4d4aff262ea258b40b1d0875a864c87d60b9b2e4c3a24c",
+  "schema": "kit.solidworks.typed-line-loops.sdk.v1",
+  "scope": {
+    "additional_point_roles": false,
+    "arbitrary_mixed_sketches": false,
+    "archive_version": 19000,
+    "multiple_loops": false,
+    "one_ordinary_unconstrained_line_ring": true,
+    "profile_schema": 1,
+    "public_schema_changed": false,
+    "sketch_class": "sgSketch",
+    "writer_registration_changed": false
+  },
+  "source_files": 5524,
+  "source_manifest_sha256": "b16876095d37788814f5bdc8f736d5a1f17f408b0d8651de0f576e8fd1ac61b8",
+  "static_checks": {
+    "black_focused_files": true,
+    "donor_findings": 0,
+    "donor_scan_src_files": 4046,
+    "pyright_errors": 0,
+    "pyright_existing_config_notices": 3,
+    "pyright_warnings": 0,
+    "ruff_focused_files": true,
+    "steering_files": 32,
+    "steering_violations": 0,
+    "strict_mypy_errors": 0,
+    "strict_mypy_files": 30
+  }
+}

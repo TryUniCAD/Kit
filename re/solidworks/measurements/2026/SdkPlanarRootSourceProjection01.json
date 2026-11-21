@@ -1,0 +1,876 @@
+{
+  "base_revision": "19e2e99aa8269dd0687e7edd332ca16671982190",
+  "cases": {
+    "A20": {
+      "generated_artifacts": {
+        "child": {
+          "bytes": 8489,
+          "sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab"
+        },
+        "parent": {
+          "bytes": 10423,
+          "sha256": "cbc9f7375bd32fb00746a2d0e72dec781312bcc8f504f3c58eed729c4ffba7c3"
+        }
+      },
+      "generated_comparison": {
+        "changed_parent_streams": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-MatesList",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2",
+          "swXmlContents/COMPINSTANCETREE",
+          "swXmlContents/KeyWords"
+        ],
+        "exact_keyword_row_order": false,
+        "exact_owner_order_in_resolved_and_child_lists": true,
+        "fresh_member_clocks": {
+          "lights": [
+            {
+              "FractionTicks": 1,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 2,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 3,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 4,
+              "SecondsValue": 1794001931
+            }
+          ],
+          "notes": [
+            {
+              "FractionTicks": 5,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 6,
+              "SecondsValue": 1794001931
+            }
+          ]
+        },
+        "identical_child": true,
+        "identical_parent_stream_set": true,
+        "keyword_rows_mapped": 25,
+        "owned_xyz_and_centerline_labels": true,
+        "source_visual_states_emitted": false
+      },
+      "generated_keyword_id_order": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        2,
+        20,
+        21,
+        22,
+        23,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        24,
+        25,
+        15
+      ],
+      "native_keyword_id_order": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        2,
+        20,
+        21,
+        22,
+        23,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        24,
+        25,
+        6
+      ],
+      "neutral_request_sha256": "7a35348ba9940c87f587058df5415f52179519276ac129969fcdef12c5240b04",
+      "original_wire_round_trip": {
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "private_custody_sha256": "d48d760d43f178231456b5614cc3ea13322c0f17fbcbaa5578b2f6b10c48fc94",
+        "source_child_wire_sha256": "acc72159b3eb76b4d73798aa7655c2685f6eb6a68d339a48242f6bde8d53f6e3",
+        "source_wire_sha256": "528c96f58b066f9c7fe31f45941ac74b3cf8f69082bbfa1a68738c409f55fec2"
+      },
+      "owned_group_projection": {
+        "members": [
+          {
+            "class": "moMateCoincident",
+            "name": "Coincident1",
+            "ordered_endpoints": [
+              [
+                0,
+                "Top Plane"
+              ],
+              [
+                1,
+                "Top Plane"
+              ]
+            ],
+            "projected_rule": "mate/0",
+            "source_native_id": 26,
+            "source_rule": "sldasm:mate:2:0:0"
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "name": "Distance1",
+            "ordered_endpoints": [
+              [
+                0,
+                "Right Plane"
+              ],
+              [
+                1,
+                "Right Plane"
+              ]
+            ],
+            "projected_rule": "mate/1",
+            "source_native_id": 28,
+            "source_rule": "sldasm:mate:2:0:1"
+          }
+        ],
+        "projected_group": "group/mates",
+        "source_group": "sldasm:definition:2:mate-group:11"
+      },
+      "root_payload": {
+        "length": 7831,
+        "sha256": "c62ba59c014a3079379f5855631d15ec3b3a85a0febd9dcb35318ab1a8bda9a7",
+        "typed_count": 2
+      },
+      "source_clock_evidence": {
+        "lights": [
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          }
+        ],
+        "notes": [
+          {
+            "FractionTicks": 6974223,
+            "SecondsValue": 1794907806
+          },
+          {
+            "FractionTicks": 6974223,
+            "SecondsValue": 1794907806
+          }
+        ]
+      },
+      "source_configuration": "Default",
+      "source_configuration_reference": "Assem1",
+      "source_diagnostics": [
+        {
+          "code": "sldasm.native_record_unresolved",
+          "message": "native name records unavailable for 1:Exploded Views 1, 7:Lights and Cameras, 24:CohortChild-1, 25:CohortChild-2",
+          "severity": "info"
+        }
+      ],
+      "source_guards": {
+        "binary_name_vs_self_name": "ValueError('assembly self filename must match its actual authored name and assembly kind')",
+        "crossed_native_membership": "ValueError('the ordinary source group differs from its actual ordered typed members')",
+        "research_status": "ValueError('research source status is outside the strict source projection')",
+        "unsupported_writer_field": "a planar source system request has unsupported members or an unowned event",
+        "whole_source": "ValueError('assembly root contains unprojected model content')"
+      },
+      "source_locks": {
+        "author": "46d29bdc6b1478935d7c53f74cab10f2d95e6483f0db81545ef0aa318b9b4db8",
+        "child": "31121fe7780b2e60840a68bf6c4eb01362b275533879dae44333a1c5d36ab115",
+        "parent": "cc3b4267b0353b4f8b7a855d456dfe04aaa725b9f59873462aa1399843cb75bd"
+      },
+      "source_member_counts": {
+        "cabinet_member": 2,
+        "environment_member": 4,
+        "exploded_manager": 1,
+        "occurrence_alias": 2,
+        "resolved_root": 16
+      },
+      "source_root_file_stem": "A20HeldoutPlaneCoincidentDistance",
+      "source_root_model_name": "Assem1",
+      "source_to_target_keyword_owner_ids": [
+        [
+          1,
+          23
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          15,
+          20
+        ],
+        [
+          16,
+          10
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          20,
+          5
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          23,
+          4
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          14
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          6,
+          15
+        ]
+      ],
+      "strict_source_root_order": [
+        9,
+        21,
+        22,
+        23,
+        20,
+        10,
+        8,
+        2,
+        17,
+        18,
+        19,
+        16,
+        3,
+        4,
+        5,
+        6,
+        11,
+        12,
+        13,
+        14,
+        15,
+        1,
+        7,
+        24,
+        25
+      ],
+      "unconsumed_root_owners": {
+        "display_states": [
+          {
+            "name": "Display State-1",
+            "visibility": "Yes,Yes,"
+          }
+        ],
+        "native_model_and_configuration_reference": "Assem1",
+        "root_and_child_appearance_binding": "unrepresented",
+        "source_assembly_attribute_names": [
+          "application_version",
+          "configurations",
+          "display_states",
+          "flattened_mate_occurrence_count",
+          "flattened_mate_occurrences",
+          "flattened_occurrence_count",
+          "flattened_occurrences",
+          "linked_assembly_document_count",
+          "linked_document_count",
+          "linked_feature_count",
+          "linked_part_document_count",
+          "linked_sketch_count",
+          "native_definition_count",
+          "native_file_count",
+          "native_instance_count",
+          "typed_display_states"
+        ],
+        "source_configuration_properties_bytes": 699,
+        "source_member_and_document_provenance": true,
+        "source_wrapper_metadata_names": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "typed_display_owner_present": true,
+        "visual_states": {
+          "bytes": 1247,
+          "sha256": "bfb7322cd381aabf6d27a1e192ab92c08d70a05df18a320bd5086819c3dfd926",
+          "stream": "ThirdPtyStore/VisualStates"
+        }
+      }
+    },
+    "A21": {
+      "generated_artifacts": {
+        "child": {
+          "bytes": 8489,
+          "sha256": "9721260fed3d01ea3d57a946f7857440e477566da6d80b39c7315462c948dcab"
+        },
+        "parent": {
+          "bytes": 10833,
+          "sha256": "18ae07b9ac8da369f87501020eeea9acf258f8c97e6d3980d26faa484233a155"
+        }
+      },
+      "generated_comparison": {
+        "changed_parent_streams": [
+          "Contents/CMgr",
+          "Contents/Config-0",
+          "Contents/Config-0-MatesList",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2",
+          "swXmlContents/COMPINSTANCETREE",
+          "swXmlContents/KeyWords"
+        ],
+        "exact_keyword_row_order": false,
+        "exact_owner_order_in_resolved_and_child_lists": true,
+        "fresh_member_clocks": {
+          "lights": [
+            {
+              "FractionTicks": 1,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 2,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 3,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 4,
+              "SecondsValue": 1794001931
+            }
+          ],
+          "notes": [
+            {
+              "FractionTicks": 5,
+              "SecondsValue": 1794001931
+            },
+            {
+              "FractionTicks": 6,
+              "SecondsValue": 1794001931
+            }
+          ]
+        },
+        "identical_child": true,
+        "identical_parent_stream_set": true,
+        "keyword_rows_mapped": 26,
+        "owned_xyz_and_centerline_labels": true,
+        "source_visual_states_emitted": false
+      },
+      "generated_keyword_id_order": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        14,
+        16,
+        17,
+        18,
+        19,
+        2,
+        20,
+        21,
+        22,
+        23,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        24,
+        25,
+        26,
+        15
+      ],
+      "native_keyword_id_order": [
+        1,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        2,
+        20,
+        21,
+        22,
+        23,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        24,
+        25,
+        26,
+        6
+      ],
+      "neutral_request_sha256": "27447ff0a5419cbb6be997f3115f7eb8ebbe8978c5cd8a4adfcde516b5bb2c40",
+      "original_wire_round_trip": {
+        "complete_source_child_wire_restored_exactly": true,
+        "complete_source_wire_restored_exactly": true,
+        "private_custody_sha256": "27542ec9912836da88112bb31045fbf8375de625e83c68829dfd37d6c84e1a50",
+        "source_child_wire_sha256": "91c0f3f52ffa41fcf1b5ac0c9e0a5a6a4decf18cb42ea84767841f23af416d9c",
+        "source_wire_sha256": "4aee7a016e3b7fb818ce0d6215d8f57a068c38ccd7651e6789a27e423a252f4f"
+      },
+      "owned_group_projection": {
+        "members": [
+          {
+            "class": "moMateParallel",
+            "name": "Parallel1",
+            "ordered_endpoints": [
+              [
+                0,
+                "Top Plane"
+              ],
+              [
+                1,
+                "Top Plane"
+              ]
+            ],
+            "projected_rule": "mate/0",
+            "source_native_id": 27,
+            "source_rule": "sldasm:mate:2:0:0"
+          },
+          {
+            "class": "moMateDistanceDim_c",
+            "name": "Distance1",
+            "ordered_endpoints": [
+              [
+                0,
+                "Right Plane"
+              ],
+              [
+                2,
+                "Right Plane"
+              ]
+            ],
+            "projected_rule": "mate/1",
+            "source_native_id": 29,
+            "source_rule": "sldasm:mate:2:0:1"
+          }
+        ],
+        "projected_group": "group/mates",
+        "source_group": "sldasm:definition:2:mate-group:11"
+      },
+      "root_payload": {
+        "length": 8279,
+        "sha256": "c75e355208919c0340214063a79c5932596bc3231402e4fee7cad10e7a8ffb41",
+        "typed_count": 2
+      },
+      "source_clock_evidence": {
+        "lights": [
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          },
+          {
+            "FractionTicks": 5046049,
+            "SecondsValue": 1794529626
+          }
+        ],
+        "notes": [
+          {
+            "FractionTicks": 5046092,
+            "SecondsValue": 1794907881
+          },
+          {
+            "FractionTicks": 5046092,
+            "SecondsValue": 1794907881
+          }
+        ]
+      },
+      "source_configuration": "Default",
+      "source_configuration_reference": "Assem1",
+      "source_diagnostics": [
+        {
+          "code": "sldasm.native_record_unresolved",
+          "message": "native name records unavailable for 1:Exploded Views 1, 7:Lights and Cameras, 24:CohortChild-1, 25:CohortChild-2, 26:CohortChild-3",
+          "severity": "info"
+        }
+      ],
+      "source_guards": {
+        "binary_name_vs_self_name": "ValueError('assembly self filename must match its actual authored name and assembly kind')",
+        "crossed_native_membership": "ValueError('the ordinary source group differs from its actual ordered typed members')",
+        "research_status": "ValueError('research source status is outside the strict source projection')",
+        "unsupported_writer_field": "a planar source system request has unsupported members or an unowned event",
+        "whole_source": "ValueError('assembly root contains unprojected model content')"
+      },
+      "source_locks": {
+        "author": "e8fae71fbd9403e2d4fcd9952606fda9876cdd551ce161f6afe029a104af643c",
+        "child": "e4bb77277f3ce27cde3892311724d1faac71ceb998fc74f765a084f8b16a51ff",
+        "parent": "476e37c3de6358bd687120a485b036f04cd4d488300f1287b794f2151803dff0"
+      },
+      "source_member_counts": {
+        "cabinet_member": 2,
+        "environment_member": 4,
+        "exploded_manager": 1,
+        "occurrence_alias": 3,
+        "resolved_root": 16
+      },
+      "source_root_file_stem": "A21HeldoutPlaneParallelDistance",
+      "source_root_model_name": "Assem1",
+      "source_to_target_keyword_owner_ids": [
+        [
+          1,
+          23
+        ],
+        [
+          10,
+          6
+        ],
+        [
+          11,
+          16
+        ],
+        [
+          12,
+          17
+        ],
+        [
+          13,
+          18
+        ],
+        [
+          14,
+          19
+        ],
+        [
+          15,
+          20
+        ],
+        [
+          16,
+          10
+        ],
+        [
+          17,
+          21
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          20,
+          5
+        ],
+        [
+          21,
+          2
+        ],
+        [
+          22,
+          3
+        ],
+        [
+          23,
+          4
+        ],
+        [
+          3,
+          12
+        ],
+        [
+          4,
+          13
+        ],
+        [
+          5,
+          14
+        ],
+        [
+          7,
+          8
+        ],
+        [
+          8,
+          7
+        ],
+        [
+          9,
+          1
+        ],
+        [
+          24,
+          24
+        ],
+        [
+          25,
+          25
+        ],
+        [
+          26,
+          26
+        ],
+        [
+          6,
+          15
+        ]
+      ],
+      "strict_source_root_order": [
+        9,
+        21,
+        22,
+        23,
+        20,
+        10,
+        8,
+        2,
+        17,
+        18,
+        19,
+        16,
+        3,
+        4,
+        5,
+        6,
+        11,
+        12,
+        13,
+        14,
+        15,
+        1,
+        7,
+        24,
+        25,
+        26
+      ],
+      "unconsumed_root_owners": {
+        "display_states": [
+          {
+            "name": "Display State-1",
+            "visibility": "Yes,Yes,Yes,"
+          }
+        ],
+        "native_model_and_configuration_reference": "Assem1",
+        "root_and_child_appearance_binding": "unrepresented",
+        "source_assembly_attribute_names": [
+          "application_version",
+          "configurations",
+          "display_states",
+          "flattened_mate_occurrence_count",
+          "flattened_mate_occurrences",
+          "flattened_occurrence_count",
+          "flattened_occurrences",
+          "linked_assembly_document_count",
+          "linked_document_count",
+          "linked_feature_count",
+          "linked_part_document_count",
+          "linked_sketch_count",
+          "native_definition_count",
+          "native_file_count",
+          "native_instance_count"
+        ],
+        "source_configuration_properties_bytes": 699,
+        "source_member_and_document_provenance": true,
+        "source_wrapper_metadata_names": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "typed_display_owner_present": false,
+        "visual_states": {
+          "bytes": 1439,
+          "sha256": "55327f27a7835573592b9c0d1de96980d8ea8346621339abe87f658b6ed2a2e9",
+          "stream": "ThirdPtyStore/VisualStates"
+        }
+      }
+    }
+  },
+  "guarded_refusal_processes": 2,
+  "new_heldout_credit": 0,
+  "new_native_runs": 0,
+  "owner": "assembly_frontier",
+  "passed": true,
+  "pr": 121,
+  "prior_group_receipt_sha256": "9c876ad6f44156344334890b560cd839102c3db88dfe4441b0e446c7f089d063",
+  "prior_labels_receipt_sha256": "d7af26b1562ee516f24b1476ef95a0142ff5d22f685106cfa33e72bb96ed6d94",
+  "prior_source_receipt_sha256": "fb68f130ad521ca7473c6f3f239a71a276ccb2318c75586b1eb63de930965f55",
+  "program_source_manifest": {
+    "OriginPortableWire.py": "473e33b58269800c8e020800101045c4678835b73a0b662d3511ca7d027afc25",
+    "ReadSdkOrderedNative.py": "3b808a43e62c691197b386bd8e46f2631553ae746352d6748e9e7ba8906df46d",
+    "para/concentric/ProveConcentricParentExploded.py": "9e1d5a177c687b323b7c041dbc0ecc0d90407384e71ae61c3c00e7503d4e7af5",
+    "para/concentric/ProveConcentricParentLights.py": "8acca95952c6792f817e3a8c220eaab51a89140592c72fa2ba5fd14ae35af039",
+    "para/concentric/ProveConcentricParentNotes.py": "35615f8c33431a4953d2d1b4d0b4536739385128835869e42f6059fd5f798807",
+    "planar_registry/PlanarPriorAdmission.py": "68f4c5298b23e04fff7e49bd9b9bbefede375c4c74e23988a66b3810a493db32",
+    "planar_registry/PlanarRootProjection.py": "6a1698da7545a5222ebfaafd098fcf307256667e2ec2b41f681d364ac61db5b2",
+    "planar_registry/PlanarSourceLabels.py": "6244015e672ecc77f41c76b87a33f416edb9498e92d615eeaa6c54136fcfb832",
+    "planar_registry/ProvePlanarMateGroup.py": "651315f9a84b9532e2bb693fbb695d268dc6ff2fc9cfd0573e27c1f9a664c9ad",
+    "planar_registry/ProvePlanarRootProjection.py": "06d8ff3119ae6393ba644e074fcc4474b0a27c28799f0f28df25be9847f0aafa",
+    "planar_registry/ProveSketchLabelIntent.py": "7da9bdaad09b15af3329d64c97239e7d9788776aebcd41dc7f4d6a29e9f273c2",
+    "planar_registry/SketchLabelIntent.py": "292aca3bbe14917a948dc0447db74eab1f1035c95a2f8f48ceb6dd7c20486d33"
+  },
+  "published_cad_files": 0,
+  "runtime_input_reads": 0,
+  "schema": "kit.sw2026.planar-source-root-owners.v1",
+  "sdk_tree": "73c9b51c21a96d6978abbcc6a3d8a285281acc11",
+  "source_system_and_ordered_mates_projected": true,
+  "successful_processes": 8,
+  "task": "B04-SW2026-MATES-PLANAR/source-root-projection",
+  "whole_source_admission": false
+}

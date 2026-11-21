@@ -1,0 +1,65 @@
+{
+  "actual_vm_started": false,
+  "cases": [
+    {
+      "case": "Default",
+      "changes": 11,
+      "exit": 0,
+      "files": [
+        "phases/Record.json"
+      ],
+      "status": "transport_exited",
+      "supervisor_report_sha256": "f1a4ec1cb64b6d143f736fb3f19b524469447a1d515cad00f33d7f0ceb6cfaed"
+    },
+    {
+      "case": "Alternate",
+      "changes": 11,
+      "exit": 0,
+      "files": [
+        "Inspection.json"
+      ],
+      "status": "transport_exited",
+      "supervisor_report_sha256": "db2129010002951f4e766cdc879bdb1e66b8ae746f6d275db31997596955f812"
+    },
+    {
+      "case": "Mixed",
+      "changes": 22,
+      "exit": 0,
+      "files": [
+        "Inspection.json",
+        "phases/Record.json"
+      ],
+      "status": "transport_exited",
+      "supervisor_report_sha256": "141d039a396977b4e5df4f26961c943af89f251837ef9749543b0d2f8612ffc0"
+    },
+    {
+      "case": "Unknown",
+      "changes": 0,
+      "exit": 124,
+      "files": [],
+      "status": "host_deadline",
+      "supervisor_report_sha256": "f938a8dcbc5bfc350150d5076947bcc1e54d558fd3237d297e5debe98e348c61"
+    },
+    {
+      "case": "Unchanged",
+      "changes": 1,
+      "exit": 124,
+      "files": [
+        "Inspection.json"
+      ],
+      "status": "host_deadline",
+      "supervisor_report_sha256": "0e68cf38a2310b5a3135ddbe673d243f569835877a5a15e8e2404cd96696671d"
+    },
+    {
+      "case": "Path",
+      "exit": 2,
+      "prelaunch_rejected": true
+    }
+  ],
+  "exact_case_count": 6,
+  "guest_fixture_sha256": "f01ef7a020f4f837d107b267795b1398ba74b3d7f63241ca176231147757e22b",
+  "native_acceptance": false,
+  "passed": true,
+  "schema": "kit.sw2026.oracle-explicit-progress-process.v1",
+  "supervisor_source_sha256": "98a53a4f877d1e415c4b6ee4c9c66adadd2af3f061721eeeb203ac681480d8f1"
+}

@@ -1,0 +1,313 @@
+{
+  "schema": "kit.sw2026.local-import-bound-topology.v1",
+  "full_replay_sha256": "b43adc9b2058e2785d809c915a05a746f25d72974aa69a1d190ddddb55e4b8e7",
+  "observer_sha256": "5699604df90b33f54c90ded7e32439c38bf85467da85da7d422bfc484546d81a",
+  "new_binder_sha256": "d51bb6093882486cd8f7c556321a2568834d1ed73551f197370cccf8af13deac",
+  "baseline_revision": "c0b962453fd467d8a807aff3629351536a018dc2",
+  "baseline_binder_sha256": "ba8ffceae24b5d50a5474405c3c8dcf294445b87ea3f397299db1d1516cf772f",
+  "native_packet_result_sha256": "767e3f65aa98d85a1aa8ac2ce4eaf416a70e4b2d369662a9c2f5e243700a6249",
+  "cases": {
+    "Disclosed": {
+      "source_topology": {
+        "body_proof": {
+          "atom_body_tag": 536,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 26,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete",
+          "storage_key": "Imported1"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3062,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 3050,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "13f1ef12ab727323a826ead989087079f44e9b24a4326aa9b65be61c9d81f325",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      },
+      "saved_topology": {
+        "body_proof": {
+          "atom_body_tag": 264,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 18,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete",
+          "storage_key": "Imported1"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3060,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 2809,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "ecc025221661595b3b633d4247b615e11dc2d40b098d5faec8a34af78c46c822",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      }
+    },
+    "OtherShape": {
+      "source_topology": {
+        "body_proof": {
+          "atom_body_tag": 536,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 26,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete",
+          "storage_key": "Imported1"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3062,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 3050,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "8c77ddcd2451466781ae153b7724808f4e9bbf102ebd14aab6cd6b9274870f1d",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      },
+      "saved_topology": {
+        "body_proof": {
+          "atom_body_tag": 264,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 18,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete",
+          "storage_key": "Imported1"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3062,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 2812,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "93698380af47e17fb74a94a3e6ca3a3c5acfec92a76a2113fc164caa53229ea9",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      }
+    },
+    "RenamedFeature": {
+      "source_topology": {
+        "body_proof": {
+          "atom_body_tag": 536,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 26,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "agreeing_archive_and_implicit_utf16",
+          "status": "complete",
+          "storage_key": "Transfer Δ17"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3062,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 3061,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "660277a250a8c719705d6332cfc1f3713ccc5082d07de2ad5c3006279c1f20e8",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      },
+      "saved_topology": {
+        "body_proof": {
+          "atom_body_tag": 264,
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_transmit_index": 1,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 18,
+          "local_body_stream": "Config-0-FeatureBodies/LocalBodies",
+          "name_owner": "implicit_kernel_and_key",
+          "profile": "current_single_local_solid_names",
+          "qualified_encoding": "agreeing_archive_and_implicit_utf16",
+          "status": "complete",
+          "storage_key": "Transfer Δ17"
+        },
+        "body_provenance": {
+          "native_id": "Config-0-FeatureBodies/LocalBodies:body:1",
+          "spans": [
+            {
+              "length": 100,
+              "offset": 3070,
+              "record_kind": "typed-native-body-atom",
+              "stream": "Contents/Config-0"
+            },
+            {
+              "length": 2821,
+              "offset": 0,
+              "record_kind": "native-local-body",
+              "stream": "Config-0-FeatureBodies/LocalBodies"
+            }
+          ]
+        },
+        "design_body_id": "sldprt:body:1",
+        "file_sha256": "18df3b40ed1afebb8620b665d028d7f94e7f500c5194063468f18daf9e43fd54",
+        "only_topology_counts_and_derived_digest_changed": true,
+        "previous_solid_count": 0,
+        "runtime_reads": 0,
+        "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+        "topology": {
+          "edge_count": 12,
+          "face_count": 6,
+          "shell_count": 1,
+          "solid_count": 1,
+          "vertex_count": 8
+        }
+      }
+    }
+  },
+  "missing_body_owner_control": {
+    "changed_stream": "Contents/Config-0-ResolvedFeatures",
+    "control_sha256": "66777e3ae7c4d0ab53bd12ae84c89eb8883c7cf04b7fb187c85e9e7fc0aaed90",
+    "design_body_id": "sldprt:body:1",
+    "ordinary_document_unchanged": true,
+    "reason": "local body atom identities disagree",
+    "rollback_mark": 5,
+    "runtime_reads": 0,
+    "selected_stream": "Config-0-FeatureBodies/LocalBodies",
+    "solid_count": 0,
+    "storage_key": "Imported1"
+  },
+  "native_processes_started": 0,
+  "heldout_cases": 0
+}

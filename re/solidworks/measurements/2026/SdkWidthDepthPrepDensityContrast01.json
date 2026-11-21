@@ -1,0 +1,50 @@
+{
+  "schema": "kit.sw2026.default-equation-preparation-density-contrast.v1",
+  "writer_revision": "14cfac5c7a9d4dbe88a1e3cc98bbf4506dbb8bc3",
+  "trial_sha256": "5e5e2d9d43be5c591aa2be33eeea42281f608adcec1589396ddb34270c5c18ad",
+  "full_native_result_sha256": "650a0f8dea4f7c46ba443c0d543a89ed92745058668d2fbe31a9a25867658707",
+  "plain_input_sha256": "d46db51b14df4238de618bd87339ef892cdec6cb2a85c04a29ed819314f33c5b",
+  "oracle_identity": {
+    "bytes": 718936,
+    "executable": "SLDWORKS.exe",
+    "expected_version": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "file_version": "34.5.2.0604",
+    "file_version_words": [
+      34,
+      5,
+      2,
+      604
+    ],
+    "pe_machine": "0x8664",
+    "process_creation_filetime": 134396378764415913,
+    "process_id": 5356,
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "version_matches": true
+  },
+  "distinct_native_processes": 3,
+  "controls_healthy": true,
+  "plain_open_errors": 0,
+  "plain_open_warnings": 0,
+  "checks_before_mismatch": 14,
+  "initial_geometry_and_mass_si": {
+    "area": 0.0035701562500000004,
+    "com": [
+      0.0195625,
+      0.0086875,
+      0.00978125
+    ],
+    "mass": 1.3298526367187503e-05,
+    "volume": 1.3298526367187503e-05
+  },
+  "observed_effective_density_kg_m3": 1.0,
+  "incorrect_prediction_density_kg_m3": 1000.0,
+  "failure": "EvidenceFailure('native rectangle mass: 1.3298526367187503e-05 differs from 0.0132985263671875')",
+  "reference_native_phases": 0,
+  "summary_transport_first_exit": 255,
+  "summary_recovered_without_application_launch": true
+}

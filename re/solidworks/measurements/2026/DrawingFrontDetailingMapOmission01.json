@@ -1,0 +1,841 @@
+{
+  "schema": "kit.sw2026.drawing-detailing-map-omission.v1",
+  "passed": true,
+  "native_acceptance": false,
+  "writer_output_count": 0,
+  "heldout_inputs_tested": 0,
+  "control_processes_healthy": true,
+  "inputs_immutable": true,
+  "distinct_processes": 16,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "packet_sha256": "43fa9bf7eceb4f8be41e9c6a8f13d5ea4731abc30f8b6eb104b6653cc63a96c0",
+  "source_lock_sha256": "60dc068659185e981419d7a09006dd8358fb46896150fad8dcc8cb8414d4f1a7",
+  "tool_manifest_sha256": "cd9de5af9f0a66dacad1e532a9b6650089489c1a701f9d0685eb9ceb648cac08",
+  "preparer_sha256": "9dc43306ad3912de784a4e4519dbc3747bd93d971d6b8a2b8891d9ddddb5b924",
+  "native_results_sha256": "05320518547ab7d2f02d9470bd1831ac4adc9ba921f9fb23c8319afebe9ac184",
+  "host_transport_sha256": "29912b6dac630bb1d2c774e73c60c778285713802b54aaa77a3d8886a8640eca",
+  "tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorDrawingSources.py": "82fe07dcdd97798ef9674f3cfb8fa503ea7428dec8f374316b70c7d632024083",
+    "DrawingCacheCases.py": "7d8d0028a26f4a8d713c555776f86a5c8e61323bdf64518f3866547e914a6895",
+    "InspectDrawingCache.py": "7837a9cac09961bed2a8f5c95286eb74020105b460e120d699ae9fa0fe5477cc",
+    "InspectFrontDrawingMap.py": "fd43794f78ddbb2e98562fcd55e9cace592927e5ff5b14bf378d5caa243fa3dd",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "cases": [
+    {
+      "name": "D01FrontView",
+      "part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "definition_bytes": [
+        37250,
+        34708
+      ],
+      "definition_map": [
+        331,
+        275
+      ],
+      "cases": [
+        {
+          "lane": "ControlBefore",
+          "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "716268702e7dfa52bf0585d06ffd85f0ffee59e2db07834a50d3308664df96c2",
+          "saved_bytes": 22279,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "e0a0b7e8b2a2dbb99309dfa2b98ecdf27cdc6fa01a577eb913baa4c06a7ede42",
+            "59c89f92f340f922681f2a00e6e85ccc2c60fbc0d3c8e89ead84c433b9501d5d"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "Repacked",
+          "source_sha256": "e88de3f5e36161d2794e29d3376d196541e63960ab8bf63503ef2ba0d7d968b8",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "db842ffc0dfcc1d44e6823bb08f962956c6689c24ec80a67b5f88f51d4c08e0b",
+          "saved_bytes": 21840,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "81fa45f54d3e3ea1ba1be78003e7345abeb5660f08d483e8b93e686f2046d248",
+            "63b1b59549c6abd88de0218e79973119bf4de6ede57384b1b741f445b1ee0a45"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "OmitDetailingEdgeMap",
+          "source_sha256": "72a7e70f15fd4fb6fc24a50dad9ce693efa7a6a95b5641d1003ed4b539a7e781",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "13ef568d13711c46cc0882cd3ef187ddb4d7b27f146f11dfd56ed4d1eb21add7",
+          "saved_bytes": 22403,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 0,
+          "tree_rows": 16,
+          "record_sha256": [
+            "f3b32f5fcc2aa897b45f13a5f926a835df2c8e8226346a73cac1db055a620c34",
+            "7ee4b2efaeb24f6914789aff1bc4c4f604482fdc28101dcd73efe7bec810b472"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "ControlAfter",
+          "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "e1d5cfe10a1cd411ee89f247e454f78734fa00d0683c45268b8ff22c6a0db5ee",
+          "saved_bytes": 22157,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "d31c0854a6d2642b354a156116a1e0d55e85f041c6e566f54f1cff169994728c",
+            "c44dead919bfe49bde3837d8bd6e1a79471c9140c45e56f7cd02cd59b62996ba"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.106141,
+              0.085891
+            ],
+            "outline_m": [
+              0.091823,
+              0.07657299999999999,
+              0.120459,
+              0.095209
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.096141,
+              0.08089099999999999,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "D02MovedFrontView",
+      "part_sha256": "4f752c0093f04a3a383b68bfaeaad8b0fc05285d064989d818c3dc92d990a1ce",
+      "definition_bytes": [
+        37260,
+        34718
+      ],
+      "definition_map": [
+        331,
+        275
+      ],
+      "cases": [
+        {
+          "lane": "ControlBefore",
+          "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "472a14aaa9f90a811e26cf9fe45a592ded3a32eb266a0d4ed73af70032836437",
+          "saved_bytes": 22402,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "a8892e9395185c92f56c21594abfad8c145f89b15f57cfa6bea7981310186f97",
+            "66169ef6314689693cd39bcb8957b29d56374b5fc70978117fd642c5afd169b9"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "Repacked",
+          "source_sha256": "c9395fbd9eb667d062eacfbd7f9d758c2455aaf6a89b03d7dd06e12c79ebe9bd",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "c2332238bd80aba933cc94f9d2ba60b331d573b3a5c137cc6b0a2366d049333b",
+          "saved_bytes": 21945,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "a51f15205f9b89cf71e8f707277710fc440099639fadc43dbfd8aed85cab5e5e",
+            "a0ca645c3302f2549ee1ce5f3a8a4bbcc743f1471f60237a53a47184bd3d0ec8"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "OmitDetailingEdgeMap",
+          "source_sha256": "c3eac881b829f2e188fcf87f8f86e6915955990a0739246eb57522ff58e2053b",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "432a05ef452f00bd8d22252121b759f442b20b645ebceabf6f37c60826acdabb",
+          "saved_bytes": 22230,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 0,
+          "tree_rows": 16,
+          "record_sha256": [
+            "9964dc08c662414f9a456ea7de92151f17f8ecb3c9b7bb0f627ef6a80f39e253",
+            "defa2c7301cc5a0c3087da7c5544d8e05d2add493d02be790b3d7b4e027fae0e"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        },
+        {
+          "lane": "ControlAfter",
+          "source_sha256": "308c2e35691f6c22f54b91e28b6667ff94592dacd9955d53d6563da5f6dbea47",
+          "save_status": [
+            true,
+            0,
+            0
+          ],
+          "saved_sha256": "19db32cb13e994173b4f8634926e657e2321094fdaadb2fe9067ff6a1fa9ee71",
+          "saved_bytes": 23393,
+          "definition_map_next_index": 275,
+          "saved_detailing_sections": 1,
+          "tree_rows": 16,
+          "record_sha256": [
+            "4617e76148255e58181694aef9986d845c52098d23b956d5f802472f35ef0292",
+            "529f24d77ba625082c894d803b10db9db29ae58f8208d6637c9c14e051dcdc10"
+          ],
+          "edited": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          },
+          "fresh_reopen": {
+            "configuration": "authored configuration",
+            "orientation": "*Front",
+            "position_m": [
+              0.13210100000000002,
+              0.118131
+            ],
+            "outline_m": [
+              0.11778300000000003,
+              0.108813,
+              0.14641900000000002,
+              0.127449
+            ],
+            "model_to_view": [
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.0,
+              0.0,
+              0.0,
+              1.0,
+              0.12210100000000003,
+              0.113131,
+              -0.0035,
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "scale": 1.0,
+            "child_volume_m3": 1.4000000000000001e-06,
+            "child_area_m2": 0.00082,
+            "child_center_m": [
+              0.01,
+              0.005,
+              0.0035
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

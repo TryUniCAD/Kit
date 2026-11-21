@@ -1,0 +1,168 @@
+{
+  "schema": "kit.sw2026.radial-visibility-store-isolation.v1",
+  "disclosed_only": true,
+  "heldout_cases": 0,
+  "native_source_appearance_qualified": false,
+  "cases": {
+    "store-only": {
+      "variant_passed": true,
+      "controls_healthy": true,
+      "oracle_version": "34.5.2.0604",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "writer_revision": "3f5c5cca62a86569694d1fd9550a04f3217363b7",
+      "recipe_sha256": "48a9d41d0cb176db8999d2b91d8fa392b37f2bbeb70043971cc8f4edd5d6e2e4",
+      "trial_sha256": "ac2696da314b7e2d4939fd75664270acecfe0274a479eafb9c2c6d5440aaed4b",
+      "build_sha256": "7a9c99520725edf8ce2d9fe0dd19e4ccd2e0604cff1aef66212a118296ddb940",
+      "native_summary_sha256": "11f45d064babbd34bc910c1d2ebc3c228e605ce572d9f9775d3a4b2ea6aef37e",
+      "baseline_sha256": "31096319f1bcf8e949662e406a74ccb7e5bda27643c63352ddff27d5920c045f",
+      "generated_sha256": {
+        "child": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+        "parent": "55d998baba269aba1513fc599ffd08e7aaa44f0577ac5fd8da673f8eb4f9488d"
+      },
+      "native_processes": 5,
+      "numeric_checks": 168,
+      "actual_ids": [
+        17,
+        18
+      ],
+      "affected_stream": {
+        "after": 1819,
+        "baseline_sha256": null,
+        "before": 0,
+        "variant_sha256": "3556fa8cf4543aea6f57108b5e1c5c33eb423e70e73ce373dfa6d445ffb5d163"
+      },
+      "unchanged_parent_stream_digests": 12,
+      "phases": {
+        "Baseline": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "f671a6b705c70c14cc61bb40ced834fad53263a8d83fa321006b284f78bac989"
+        },
+        "ControlAfter": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "2a40082caa5cd766edd6b35a7f0e25cc3d880c95b823be142330927ed5a9026f"
+        },
+        "ControlBefore": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "7a72f55213aefc5641aef1902d15185f28bbbdabe24c51d0c3dc175b07438fea"
+        },
+        "Generated": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 56,
+          "record_sha256": "1f0a75c69b1435c7cfe3ec6f2d871a40c3db78d3f34069868180f7c67ab3d436"
+        },
+        "Reopen": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "dfc46561d1e15486eae8579039469224a460360c5b1b25e140f34bbe60a980c9"
+        }
+      },
+      "output_construction_runtime_reads": 0,
+      "native_display_names_at_initial_open": [
+        "Display State-1",
+        "Left occurrence only",
+        "Right occurrence only"
+      ],
+      "native_display_names_at_fresh_reopen": [
+        "Display State-1",
+        "Left occurrence only",
+        "Right occurrence only"
+      ],
+      "saved_parent_sha256": "80374108f4600e4a99b8fd5b297f48514fccca3d2b61606428a634223291f28b",
+      "saved_child_sha256": "ade88a9c5831a2a4e707a7c484ecb8a77a91b389839065080b53cb7920d26fd9",
+      "saved_xml_named_state_visibility_vectors": [
+        "Yes,Yes,",
+        "Yes,No,",
+        "No,Yes,"
+      ],
+      "candidate_numeric_checks": 84
+    },
+    "xml-only": {
+      "variant_passed": false,
+      "controls_healthy": true,
+      "oracle_version": "34.5.2.0604",
+      "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "writer_revision": "3f5c5cca62a86569694d1fd9550a04f3217363b7",
+      "recipe_sha256": "44e1b32384d6e5eb07af8462022a6b31f5b85f15478c1b8ba2483bd5b26563d4",
+      "trial_sha256": "6498925182fd41190b0b945e9f93371dc314607a44502f5160538959bccde277",
+      "build_sha256": "b31628526c6d8e489073f8fedc0d95113920cf09e3d7f04d581ae05690d16c37",
+      "native_summary_sha256": "0fa994fa11bb2c54973426fa98d4a1fed60596c32a2a8cd7083e5b67027f2695",
+      "baseline_sha256": "2b37f173c5b7b86c72cbaa552c2597a3f96b7fade4ede3c2e130b49f6f4d8472",
+      "generated_sha256": {
+        "child": "7e69505ff7d1a9c90392b3f2cf70015a4d1c716975c6ef0dba27d717faeedbba",
+        "parent": "05441ca66984523bc2dec13d99d1e540e1f27102afd05e5d676f770e389b47bb"
+      },
+      "native_processes": 4,
+      "numeric_checks": 98,
+      "actual_ids": [
+        17,
+        18
+      ],
+      "affected_stream": {
+        "after": 2699,
+        "baseline_sha256": "5db70c9359afbd32a108924b12edbcd3ae03a4bd0f635b6e8b343a059076daef",
+        "before": 2346,
+        "variant_sha256": "807957e32f7f22687cbeb20b730984216b41efd697d63b2371aa198f79224b86"
+      },
+      "unchanged_parent_stream_digests": 11,
+      "phases": {
+        "Baseline": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "50e3f8d6c19e497ef6c8da7e589b7d5f349460d92bb9aec03bc7d8f3f6fbfc4a"
+        },
+        "ControlAfter": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "afc812831c4405ec4dfdfd608b24201bb0cc7027f48f5145133cf7c1eae4dfbe"
+        },
+        "ControlBefore": {
+          "passed": true,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 28,
+          "record_sha256": "2a28579d9e6037e5268e0c8109c8756d9ba7000cb52e3dec2389609358f83cee"
+        },
+        "Generated": {
+          "passed": false,
+          "open_errors": 0,
+          "open_warnings": 0,
+          "numeric_checks": 14,
+          "record_sha256": "43a2a9f467dc2d6d80a69de23f31ef2be64a7209cd60c8c53b574f4132c593d1"
+        }
+      },
+      "output_construction_runtime_reads": 0,
+      "first_native_failure": "GetDisplayStatesCount",
+      "candidate_numeric_checks": 14,
+      "native_display_inventory": {
+        "GetDisplayStates": [
+          "Display State-1"
+        ],
+        "GetDisplayStatesCount": 1
+      }
+    }
+  },
+  "earlier_transport_interruption": {
+    "phase": "Baseline",
+    "host_exit": 255,
+    "native_candidate_phases": 0,
+    "native_summary_sha256": "9703fccf8eb6029452a670d92efcd4e5e689953f3cd6e9e4ea69acd8a65d1470",
+    "healthy_controls": true
+  }
+}

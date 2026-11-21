@@ -1,0 +1,133 @@
+{
+  "complete_source_gate_closed": true,
+  "environment_body_constructor_qualified": false,
+  "environment_count_is_presence": false,
+  "environment_count_is_unconditional_one": false,
+  "environment_count_predicts_loaded_array_without_filters": false,
+  "heldout_inputs_read": 0,
+  "native_processes": 0,
+  "remaining_cmgr_frontiers": 29,
+  "remaining_definition_frontiers": [
+    "faf8",
+    "nenv"
+  ],
+  "schema": "kit.sw2026.throughall-ui-scalar-owner-frontier.v1",
+  "source_fields_accounted": [
+    "fad0",
+    "fad4",
+    "fb00",
+    "fb04"
+  ],
+  "sources": [
+    {
+      "case": "D01",
+      "generated_environment_count": 0,
+      "owner_inventory_sha256": "251ed2b3503c81f7844f99431a2e9039b5c7889e03eb408cc5d78df079489b37",
+      "remaining_owner_counts": [
+        {
+          "changed_frontier_paths": 2,
+          "owner_counts": {
+            "Definition/faf8": 1,
+            "Definition/nenv": 1
+          },
+          "stream": "Definition"
+        },
+        {
+          "changed_frontier_paths": 29,
+          "owner_counts": {
+            "CMgr/ext": 1,
+            "CMgr/f2a0": 1,
+            "CMgr/f2a4": 1,
+            "CMgr/f301": 1,
+            "CMgr/f360/f2a0": 1,
+            "CMgr/f360/f2a4": 1,
+            "CMgr/f360/f2c": 1,
+            "CMgr/f360/f301": 1,
+            "CMgr/f360/f450": 1,
+            "CMgr/f360/f460": 1,
+            "CMgr/f360/f4c4": 1,
+            "CMgr/f360/f4c8": 1,
+            "CMgr/f360/f6f8": 1,
+            "CMgr/f360/f78": 1,
+            "CMgr/f360/f85c": 1,
+            "CMgr/f360/f860": 1,
+            "CMgr/f360/fb00": 1,
+            "CMgr/f360/fb98": 1,
+            "CMgr/f360/fce8": 1,
+            "CMgr/f360/n450": 1,
+            "CMgr/f360/n460": 1,
+            "CMgr/f360/nb00": 1,
+            "CMgr/f360/nb98": 1,
+            "CMgr/f360/nce8": 1,
+            "CMgr/f5b8": 1,
+            "CMgr/f658": 1,
+            "CMgr/f6d0": 1,
+            "CMgr/n5b8": 1,
+            "CMgr/n_ext": 1
+          },
+          "stream": "CMgr"
+        }
+      ],
+      "source_document_sha256": "220b058dad01a550543ef8b7961761cc77efa3aca16f68ef54388c258e031af8",
+      "source_environment_count": 1,
+      "source_four_scalar_fields_exact": true,
+      "source_sha256": "ced6b5c0e3ab5593c40ee776f50c68972c63b2599e49598be01d4786bffaa63d",
+      "source_window_refusal_retained": true
+    },
+    {
+      "case": "D02",
+      "generated_environment_count": 0,
+      "owner_inventory_sha256": "c296afbf4896ddceb930ac6ab66160bfd1aefe3ea36574c548af3b0f5d62734b",
+      "remaining_owner_counts": [
+        {
+          "changed_frontier_paths": 2,
+          "owner_counts": {
+            "Definition/faf8": 1,
+            "Definition/nenv": 1
+          },
+          "stream": "Definition"
+        },
+        {
+          "changed_frontier_paths": 29,
+          "owner_counts": {
+            "CMgr/ext": 1,
+            "CMgr/f2a0": 1,
+            "CMgr/f2a4": 1,
+            "CMgr/f301": 1,
+            "CMgr/f360/f2a0": 1,
+            "CMgr/f360/f2a4": 1,
+            "CMgr/f360/f2c": 1,
+            "CMgr/f360/f301": 1,
+            "CMgr/f360/f450": 1,
+            "CMgr/f360/f460": 1,
+            "CMgr/f360/f4c4": 1,
+            "CMgr/f360/f4c8": 1,
+            "CMgr/f360/f6f8": 1,
+            "CMgr/f360/f78": 1,
+            "CMgr/f360/f85c": 1,
+            "CMgr/f360/f860": 1,
+            "CMgr/f360/fb00": 1,
+            "CMgr/f360/fb98": 1,
+            "CMgr/f360/fce8": 1,
+            "CMgr/f360/n450": 1,
+            "CMgr/f360/n460": 1,
+            "CMgr/f360/nb00": 1,
+            "CMgr/f360/nb98": 1,
+            "CMgr/f360/nce8": 1,
+            "CMgr/f5b8": 1,
+            "CMgr/f658": 1,
+            "CMgr/f6d0": 1,
+            "CMgr/n5b8": 1,
+            "CMgr/n_ext": 1
+          },
+          "stream": "CMgr"
+        }
+      ],
+      "source_document_sha256": "d7cc49de60ad656ef131d5a501f39cd4f6ed97e2b40f99603f3982a1208749a4",
+      "source_environment_count": 1,
+      "source_four_scalar_fields_exact": true,
+      "source_sha256": "e342763ba76cd09fc21a4f777127d0ff442b3c4b637acefecf1a974fbaf52431",
+      "source_window_refusal_retained": true
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+# SOLIDWORKS saved two-stock geometry
+
+The internal SOLIDWORKS saved-cache reader can group decoded geometry for a linked Config-0 history with two blind stock producers and one selected through-all cut. It verifies both native solid identities and binds the untouched stock and cut result to distinct B-rep bodies using their actual face and surface carrier ownership. The result retains each atom, name and producing feature for later timeline projection.
+
+Use `ReadStockCache` with the ordinary native archive. The supported internal path is limited to the witnessed active partition. Public timeline binding and strict rollback decoding remain separate prerequisites. Nine isolated host processes reported zero guarded external accesses across the disclosed source, reciprocal body-order contrast and seven refusals. [Technical record](../../../../../re/solidworks/records/ThroughAllMultiStockCache2026.md) · [Separate delta boundary](../../../../../re/solidworks/records/ThroughAllMultiStockCache2026.md#separate-history-boundary) · [Process receipt](../../../../../re/solidworks/measurements/2026/ThroughAllMultiStockCache01.json)

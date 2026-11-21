@@ -1,0 +1,9 @@
+# Explicit physical-material source oracle
+
+PR #121 task `B04-SW2026-NAMED-MATERIAL` adds a native source-authoring runner and measurement helper for two independently dimensioned anchored rectangular parts. It is research tooling, with no public material writer or adapter change.
+
+The [source protocol](../../../../re/solidworks/records/AssignedMaterialSourceProtocol2026.md) binds the exact model-free catalog/API observations, two distinct actual installed database materials, independent analytic geometry and a predeclared density-unit hypothesis. The source trial requires a pure appearance contrast, material swap, actual boss-depth edit, separate saves, fresh reopens, immutable inputs and two healthy control brackets across ten fresh processes. Setter completion alone does not count as assignment.
+
+The new [author](../../../../re/tooling/sw2026/materials/AuthorAssignedMaterials.py) and [facts helper](../../../../re/tooling/sw2026/materials/MaterialSourceFacts.py) reuse the existing exact oracle/rectangle/control tools. Root must publish the exact sources and verify the private packet before executing the run. Host AST/compile, checksum verification and the public `verify` action passed; native model source creation is still pending. A separate [catalog receipt](../../../../re/solidworks/measurements/2026/AssignedMaterialCatalogMetadataNative01.json) records the completed one-process model-free metadata query without implying material assignment.
+
+The hidden-original lock protocol remains mandatory before any material writer code. The two disclosed recipes earn no held-out credit. Body overrides, multibody precedence, external-database absence, full material field construction and public registration remain open. See the [catalog observation gotcha](../../../Gotchas/Conversion/Solidworks/Materials/MaterialDensityCatalogValuesNeedNativeUnitChecks.md).

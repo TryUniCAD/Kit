@@ -1,0 +1,280 @@
+{
+  "schema": "kit.sw2026.linear-pattern-source-lock.v1",
+  "task_id": "B04-SW2026-LOCAL-LINEAR-PATTERN",
+  "source_revision": "d00e45fbc24b8da87c02999c914aa45dbfaa2f62",
+  "cohort": "heldout",
+  "packet_sha256": "913426870bc64edb320e6a1508521c81da677a2ef4feef80b715c7859856c1bc",
+  "job_sha256": "85207004856cfc97e74c693e5104f6245a51615ae30a0c0b63bde65b838ab7d1",
+  "specs_sha256": "5b941419613c8ace4bce3e199af7c222b327d7829c01302f677d68ebdc50c7bf",
+  "qualified_disclosed_lock_sha256": "8239fc92779aadd6a0116ad2df9e7969568394a301e1ed11aa44fc3875ac0426",
+  "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "installed_libraries": [
+    {
+      "name": "sldworks.tlb",
+      "sha256": "e71e9834f3ca4de85a321b9147c6805b34808e36a8b48149ab6a14bb41a7d6f4",
+      "library_identity": {
+        "name": "SldWorks",
+        "guid": "{83A33D31-27C5-11CE-BFD4-00400513BB57}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    },
+    {
+      "name": "swconst.tlb",
+      "sha256": "f918998d27bf3a0d58b6de082c5a520edc852303bd772cb18458126fe9fddf38",
+      "library_identity": {
+        "name": "SwConst",
+        "guid": "{4687F359-55D0-4CD3-B6CF-2EB42C11F989}",
+        "locale_id": 0,
+        "system_kind": 3,
+        "major_version": 34,
+        "minor_version": 0,
+        "flags": 8
+      },
+      "registered_library_identity_matches": true
+    }
+  ],
+  "started_at": 1795237424.7082973,
+  "cases": [
+    {
+      "name": "H01",
+      "split": "heldout",
+      "phases": [
+        {
+          "phase": "author",
+          "record_sha256": "4a3fab966bbcdf8a85100cd0c55edb065de4dd1ba39769b6f32bf8d21605d34c",
+          "passed": true,
+          "native_sha256": "f4b187e317d779cedae03c637ed5852c5c4423d3ed0d92f4f58f02b7ccc9dcd7",
+          "native_bytes": 69281,
+          "exports": [
+            {
+              "name": "H01.x_t",
+              "sha256": "4877ea392e0b2c7acf0e3ab296021a135ec5f18b4180a1466a45f4af9f74e80e",
+              "bytes": 30770
+            },
+            {
+              "name": "H01.step",
+              "sha256": "d21fb97926fee13d3ebe548c54e7f5d829e8800ff6b527988a6bec854b9b2d4f",
+              "bytes": 64598
+            }
+          ]
+        },
+        {
+          "phase": "pristine-reopen",
+          "record_sha256": "03cbb7cd1c29d834e4601df42eb55b2166797a80b57eef36ffbcc792c9d55666",
+          "passed": true,
+          "native_sha256": "f4b187e317d779cedae03c637ed5852c5c4423d3ed0d92f4f58f02b7ccc9dcd7",
+          "native_bytes": 69281,
+          "exports": []
+        },
+        {
+          "phase": "spacing-edit",
+          "record_sha256": "415c6b0dc95c58b371b784534878f324a5c5fa18d684a61e08c6a43909e76e78",
+          "passed": true,
+          "native_sha256": "9a3c09639e28ea908312ef2691f100757289e7896a0737b28c6f580c49502220",
+          "native_bytes": 70391,
+          "exports": [
+            {
+              "name": "H01Spacing.x_t",
+              "sha256": "933fc2c9ddbc16873f4645be00442ef68dfd166470297acdadfb19b9d1840c21",
+              "bytes": 30754
+            },
+            {
+              "name": "H01Spacing.step",
+              "sha256": "c971eb23d75b34e111a18b3227e00153724b26f4f167242885f9822952c9c62c",
+              "bytes": 64635
+            }
+          ]
+        },
+        {
+          "phase": "spacing-reopen",
+          "record_sha256": "d4166129f924a77ae10dfbccdc74c72beeb88f67dcad5044aa9d2d4257d7541d",
+          "passed": true,
+          "native_sha256": "9a3c09639e28ea908312ef2691f100757289e7896a0737b28c6f580c49502220",
+          "native_bytes": 70391,
+          "exports": []
+        },
+        {
+          "phase": "instances-edit",
+          "record_sha256": "cb9538b6ce4bf87079f53a10005862e7350739771c4506ebee14c3bdb66c06e6",
+          "passed": true,
+          "native_sha256": "576b2c9f4c9b497ea5e572878a7c47ab6c77e2acf8314714b6c3b19563db594a",
+          "native_bytes": 73172,
+          "exports": [
+            {
+              "name": "H01Instances.x_t",
+              "sha256": "c1906fbb882da1cd4e6ba5f57395e12e3fda3accd608b8b750d4fd4eefa4f590",
+              "bytes": 35524
+            },
+            {
+              "name": "H01Instances.step",
+              "sha256": "4d07168f4179cf9e609d4ddc3db6dee1bbc7ab94b10facd021d1d450bc60cfb6",
+              "bytes": 74573
+            }
+          ]
+        },
+        {
+          "phase": "instances-reopen",
+          "record_sha256": "80ca37e3fbb866a909798ce3247b607f0865ef6bc9ff7446ec92a9774e97ceae",
+          "passed": true,
+          "native_sha256": "576b2c9f4c9b497ea5e572878a7c47ab6c77e2acf8314714b6c3b19563db594a",
+          "native_bytes": 73172,
+          "exports": []
+        }
+      ],
+      "native_sources": [
+        {
+          "name": "H01.SLDPRT",
+          "sha256": "f4b187e317d779cedae03c637ed5852c5c4423d3ed0d92f4f58f02b7ccc9dcd7",
+          "bytes": 69281
+        },
+        {
+          "name": "H01Spacing.SLDPRT",
+          "sha256": "9a3c09639e28ea908312ef2691f100757289e7896a0737b28c6f580c49502220",
+          "bytes": 70391
+        },
+        {
+          "name": "H01Instances.SLDPRT",
+          "sha256": "576b2c9f4c9b497ea5e572878a7c47ab6c77e2acf8314714b6c3b19563db594a",
+          "bytes": 73172
+        }
+      ],
+      "passed": true
+    },
+    {
+      "name": "H02",
+      "split": "heldout",
+      "phases": [
+        {
+          "phase": "author",
+          "record_sha256": "83c7cea1ff8c7653f37e5fc73bc7da37428de317ae1fd2e0456ee99510ffb6d1",
+          "passed": true,
+          "native_sha256": "edcd9e40e94a74dfd89f42aefc9b937dd8f1204bff03ff0572a7b520dd6bed1c",
+          "native_bytes": 70047,
+          "exports": [
+            {
+              "name": "H02.x_t",
+              "sha256": "0ba220f68302a9cfa8816a2e6b8b141ebda0de8e5709d95b04e0ed462edd22e1",
+              "bytes": 30773
+            },
+            {
+              "name": "H02.step",
+              "sha256": "9bbf99ef911426bd8d41af0277c93ec262c5fff614f2d951a46c788ff070cfc7",
+              "bytes": 64601
+            }
+          ]
+        },
+        {
+          "phase": "pristine-reopen",
+          "record_sha256": "4f3066b796aa1ea41f7dc489aff082b04fbde45e7e34a02539a6f7e088196872",
+          "passed": true,
+          "native_sha256": "edcd9e40e94a74dfd89f42aefc9b937dd8f1204bff03ff0572a7b520dd6bed1c",
+          "native_bytes": 70047,
+          "exports": []
+        },
+        {
+          "phase": "spacing-edit",
+          "record_sha256": "55ff5fee3bcb945eb8682ff5f181191ce4b72ffad58fe1f4bb5c4d59f208fa12",
+          "passed": true,
+          "native_sha256": "93d586c04a4c5cf784741088a0548f8dedac1c744cceea93a63e366b7b288831",
+          "native_bytes": 70296,
+          "exports": [
+            {
+              "name": "H02Spacing.x_t",
+              "sha256": "71e33f3ba8be3eef85a1e74dd609029e80e08d32af3ec3c0a8d077c54109f5e5",
+              "bytes": 30757
+            },
+            {
+              "name": "H02Spacing.step",
+              "sha256": "c98f142793b1d00d1e80e09434b49e3da522a274f72a8a63c7ba23be29563279",
+              "bytes": 64636
+            }
+          ]
+        },
+        {
+          "phase": "spacing-reopen",
+          "record_sha256": "56891ae95844a3975ee772c50f2df0e1b4d4b43ba06ff0d847b1597d87b63aec",
+          "passed": true,
+          "native_sha256": "93d586c04a4c5cf784741088a0548f8dedac1c744cceea93a63e366b7b288831",
+          "native_bytes": 70296,
+          "exports": []
+        },
+        {
+          "phase": "instances-edit",
+          "record_sha256": "aef09263b525f249d7239221c37fbb8db8808fe33343ec239e18ab94311e9500",
+          "passed": true,
+          "native_sha256": "aecbf3494959235a327a934b6f2601f6a2c5a2fc4c08f2e9cf97101f1490c092",
+          "native_bytes": 74243,
+          "exports": [
+            {
+              "name": "H02Instances.x_t",
+              "sha256": "4c54c830d5a0334536ea680435730c38d3962f20e5e17a1680348d2e42657136",
+              "bytes": 35414
+            },
+            {
+              "name": "H02Instances.step",
+              "sha256": "c64e1f58b366e98b4b05d80b75519b0ff853d3d2124b0da3d2f40209d689a87b",
+              "bytes": 74572
+            }
+          ]
+        },
+        {
+          "phase": "instances-reopen",
+          "record_sha256": "19068184041168c461763eab379452c85609f316e7d5ced9004c2d0a48ba69f2",
+          "passed": true,
+          "native_sha256": "aecbf3494959235a327a934b6f2601f6a2c5a2fc4c08f2e9cf97101f1490c092",
+          "native_bytes": 74243,
+          "exports": []
+        }
+      ],
+      "native_sources": [
+        {
+          "name": "H02.SLDPRT",
+          "sha256": "edcd9e40e94a74dfd89f42aefc9b937dd8f1204bff03ff0572a7b520dd6bed1c",
+          "bytes": 70047
+        },
+        {
+          "name": "H02Spacing.SLDPRT",
+          "sha256": "93d586c04a4c5cf784741088a0548f8dedac1c744cceea93a63e366b7b288831",
+          "bytes": 70296
+        },
+        {
+          "name": "H02Instances.SLDPRT",
+          "sha256": "aecbf3494959235a327a934b6f2601f6a2c5a2fc4c08f2e9cf97101f1490c092",
+          "bytes": 74243
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "controls": {
+    "before": {
+      "passed": true,
+      "record_sha256": "804489359f721a287ca045e3e3dc514eb8eef52d77deb0898fc8cd30d67974ff"
+    },
+    "after": {
+      "passed": true,
+      "record_sha256": "a6f7b0cfc8bb661eed36a5d45e856c0a3fd20be2a0125cce2a355c1cf03ba53a"
+    }
+  },
+  "writer_output_count": 0,
+  "source_writer_implemented": false,
+  "heldout_raw_remains_guest_private": true,
+  "native_acceptance": false,
+  "heldout_acceptance": false,
+  "passed": true,
+  "application_pids_before": [],
+  "packet_unchanged": true,
+  "inputs_unchanged": true,
+  "control_unchanged": true,
+  "completed_native_phases": 14,
+  "distinct_processes": 14,
+  "expected_native_phases": 14,
+  "application_pids_after": [],
+  "finished_at": 1795238110.048962
+}

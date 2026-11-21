@@ -15,6 +15,7 @@ from convert.adapters.solidworks.Archive.Definition.Fields.DefPrefixFields impor
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefClsid import (
     KAsmDefClass,
+    KModelDefClsids,
     KPartDefClass,
 )
 from convert.adapters.solidworks.Archive.Definition.ModelDefContext import (
@@ -23,22 +24,31 @@ from convert.adapters.solidworks.Archive.Definition.ModelDefContext import (
 from convert.adapters.solidworks.Archive.Definition.ModelDefGraph import ModelDefGraph
 from convert.adapters.solidworks.Archive.Definition.DefinitionWire import DefinitionWire
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
-from convert.adapters.solidworks.Container.Definition import KAsmClsid, KPartClsid
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 
 
 # each native definition derives the root identity and every wire byte from modeled fields
 def WriteModelDef(
-    GraphValue: ModelDefGraph, *, Assembly: bool = False
+    GraphValue: ModelDefGraph, *, OrdinaryOnly: bool = False, Assembly: bool = False
 ) -> DefinitionWire:
     DocumentValue = GraphValue.DocumentValue
-    ClassValue = KAsmDefClass if Assembly else KPartDefClass
-    if DocumentValue.ClassValue != ClassValue:
+    ClassValue = DocumentValue.ClassValue
+    ExpectedClass = KAsmDefClass if Assembly else KPartDefClass
+    if (Assembly or OrdinaryOnly) and ClassValue != ExpectedClass:
         KindValue = "assembly" if Assembly else "part"
         raise BodyUnsupported(
-            f"SOLIDWORKS {KindValue} Definition requires {ClassValue.NameValue} schema 1"
+            f"SOLIDWORKS {KindValue} Definition requires {ExpectedClass.NameValue} schema 1"
         )
-    ContextValue = ModelDefContext(GraphValue.VersionValue, Assembly=Assembly)
-    CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
+    if not isinstance(ClassValue, RuntimeClass):
+        raise BodyUnsupported("SOLIDWORKS model Definition requires a concrete class")
+    ClsidValue = KModelDefClsids.get(ClassValue)
+    if ClsidValue is None:
+        raise BodyUnsupported("unsupported SOLIDWORKS model Definition class")
+    ContextValue = ModelDefContext(
+        GraphValue.VersionValue, OrdinaryOnly=OrdinaryOnly, Assembly=Assembly
+    )
+    if Assembly or OrdinaryOnly:
+        CheckDefScope(DocumentValue.FieldsValue, Assembly=Assembly)
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
     FrameValue = WriteFrame(
         WriterValue,
@@ -48,7 +58,7 @@ def WriteModelDef(
         WriteFieldsMut,
     )
     WriteFieldsMut(FrameValue, KDefPrefixFields)
-    WriterValue.OutputValue.extend(KAsmClsid if Assembly else KPartClsid)
+    WriterValue.OutputValue.extend(ClsidValue)
     WriteBodyMut(WriterValue, DocumentValue)
     ContextValue.UsageValue.IsComplete = True
     return DefinitionWire(

@@ -1,0 +1,7 @@
+# Part saved-body count and update-state source ownership
+
+The ordinary 2026 part loader can accept a kernel partition and later invalidate the model when its saved expected count exceeds the completed returned-count total. This addition records the exact signed CMgr count owner, current serializer recomputation and load mirror, the comparison's registers and the immediate native flag setters.
+
+Use the [source record](../../../../../re/solidworks/records/PartBodyAdmissionState2026.md) to distinguish configuration `f6f8` from runtime previous count `+0x6fc`, runtime update caches from serialized flags, and null atom construction from actual body publication. The [numeric record](../../../../../re/solidworks/records/PartBodyAdmissionState2026.json) and [static receipt](../../../../../re/solidworks/measurements/2026/PartBodyAdmissionStateSource01.json) bind complete original function groups and selected instruction/data ranges. The [setter gotcha](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/UpdateErrorZeroDoesNotClearFlag.md) records that a zero update-error argument performs no write.
+
+Verification is stateless original-file hashing and metadata replay only. Existing disclosed count differences are correlation evidence and do not establish the cause of warning32. No writer, SDK admission, tests, native execution, VM action or held-out qualification is included. Actual cold-load operands and failed atom publication remain open under the parent PR #121 task.

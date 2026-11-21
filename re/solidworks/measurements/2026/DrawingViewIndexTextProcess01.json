@@ -1,0 +1,227 @@
+{
+  "actual_drawing_archive_states": 6,
+  "base_revision": "bebafa8760397e8711d03df88231c0bdca5ae38f",
+  "base_source_sha256": "03969f0bad9bf1d36e55a23725ad1d7af1b5f1ce657edbf866ad0bb4d1dbcc78",
+  "candidate_source_sha256": "e3ad40cbda5ca34d5f55015b0dc57f6c0af12c60bef70d2032cb96625c9462bb",
+  "checks": {
+    "decoded_index_accepted_after_fix": 6,
+    "decoded_index_reproduced_before_fix": 6,
+    "definition_bytes_identical_all_workers": true,
+    "existing_profile_unknown_flag_still_rejected": 4,
+    "malformed_variants_rejected_by_baseline_and_candidate": 11,
+    "map_counters_unchanged_all_workers": true,
+    "public_partial_semantics_unchanged": 6,
+    "public_strict_refusal_unchanged": 6,
+    "source_and_input_custody_passed": true,
+    "unexpected_additional_model_file_open_stat_lstat_attempts": 0,
+    "wrapped_constructor_index_unchanged": 6
+  },
+  "custody": {
+    "full_sdk_module_copies": 0,
+    "git_mutations": 0,
+    "later_static_tool_exception": "The first successful mypy command wrote its default ignored .mypy_cache in the shared checkout. No source or index file was changed. The cache was not deleted. A second successful run used an explicit private scratch cache. The raw replay shared_checkout_mutations field predates this static event and refers to the process/source proof, not an attestation of zero later non-source writes.",
+    "native_listing_files_published": 0,
+    "process_proof_source_and_input_hashes_unchanged": true,
+    "sdk_source_writes": 0
+  },
+  "delivery_pr": 121,
+  "fresh_sdk_processes": 56,
+  "independent_original_child_designs": 1,
+  "integrated_replay": {
+    "actual_source_drawings": 6,
+    "candidate_imported_from_integrated_source": true,
+    "earlier_observer_output_location_error_sha256": "e8bf5041311edf57e366fe672062b5e69f12437198a81f04011852097d744620",
+    "fresh_processes": 56,
+    "negative_processes": 44,
+    "negative_variants": 11,
+    "passed": true,
+    "prior_receipt_sha256": "e78ee10f335495d672d62d9fa3bbe9dbf7e957819933aaf7629c8e8b6d7967d4",
+    "report_sha256": "bffe46ce039c571ad018d04ab947c1b3c242896188b56e9e5cad9e972e5af779",
+    "runtime_unexpected_file_attempts": 0,
+    "source_and_input_custody_passed": true,
+    "source_manifest_sha256": "cb7b742387e16c905e0e0f03e8354ea500a3a37fdc3e303c3dee655c044efb21"
+  },
+  "limits": [
+    "ReadViewIndex helper representation handling only; no new public semantic projection",
+    "Strict public drawing reading remains refused",
+    "Existing detailing-edge, occurrence-colour and profile-display diagnostics remain unchanged",
+    "The already-proved origin-profile join and constructor admission are unchanged",
+    "No witnessed title-versus-basename disagreement in these six archives; that guard is unchanged",
+    "No native execution, writer qualification or original full-semantics acceptance is established"
+  ],
+  "native_runs": 0,
+  "negative_processes": 44,
+  "negative_source_archives": 2,
+  "negative_variants": [
+    "config_bool",
+    "config_empty",
+    "config_id_bool",
+    "config_id_negative",
+    "config_nul",
+    "config_separator",
+    "config_wrapped_empty",
+    "file_kind",
+    "path_relative",
+    "path_suffix",
+    "title_mismatch"
+  ],
+  "new_cad_files": 0,
+  "new_heldout_credit": 0,
+  "owner": "configuration_header",
+  "passed": true,
+  "patch_sha256": "2943965239a180c19b03393d1307e36ee91d6f98203891915b54c543eccb7f76",
+  "positive_cases": [
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "a9f7cc0d7900d78cf326e656027997335acaccd0f6f942247599a86fcd637a9d",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "0c80b3d75f9c9130fe1f340001aa4bedd83bb3615aa8b8285c3fc17eabe4c1e3",
+      "case": "H01SheetA",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "f3f6a00cdb39c81eb00384ed8b680b89a8bc6a965cf83e08a6b0ebdac8868ca2",
+      "disclosed_locator": "SdkDrawingOriginalGeometryTrial01/Originals/H01SheetA/H01SheetA.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        1
+      ],
+      "public_partial_sha256": "54614934b8fc68ad2f16303b3423235b18f123378357cf0b0b51558c7d2cd88e",
+      "source_sha256": "8fca05f17d7a331da70daf83a189be6dacc6f2cfc946d452b0c246a8ddab0b6b",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ]
+    },
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "0cd9f6b954b39d08862b424f6997e99feffc9d27158a8afc09ecec1a5b2da4dd",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "d0431ba7aa03b0282431b40bd6cd01c2a828d49b8bd6a7206dade374f765e035",
+      "case": "H02SheetB",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "2d10ff1e4e2558a8af0910176c551e1236c4f98d94601539718867d82036646f",
+      "disclosed_locator": "SdkDrawingOriginalGeometryTrial01/Originals/H02SheetB/H02SheetB.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        1
+      ],
+      "public_partial_sha256": "828a11a4a5536c5b1e25ee32fb63333b2e3da970aae57a6acbf37d433b8e67d9",
+      "source_sha256": "b21216652ce759bc6e4912b0116eeb7bd78de4ba456f19f83449e56010663b77",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ]
+    },
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "0e3ee8659fcb295a9ab0ef8a246529433f2794c504aa76aecbcd917e5dad737a",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "33cfb120791783ff4fc80bb3b0beb2aa33ab8832fefd43a4ef3eef04933a2296",
+      "case": "NativeFront",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "c36e8b4eb1f3b54d6dae2d38d0d4b6d7e9fe1e58613a328a411146a9a2d75fbc",
+      "disclosed_locator": "SdkLinkedNative01/Control/D01FrontView.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        1
+      ],
+      "public_partial_sha256": "8c5fa50c1e7d639a271b54842a9f30acbd62dc63e1f44588dc2c4560b0190bfa",
+      "source_sha256": "2fd1d31f7f957def7fd2c73b3b88295aecb56c41d29dc208445b711c3d50c525",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ]
+    },
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "5e853a28ad9b9a1693ff545388602607e806657ee3980cf2062ab4ca1cbeb873",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "6adaf026dfe52ff2bc9392e7096908e85614602aa987f48995b0ccfec4d5ac3c",
+      "case": "GeneratedFront",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "29cb5d23bd6269a57bf237f48b9d0ea71630af5864c6f89ad860d1b47304d178",
+      "disclosed_locator": "SdkLinkedNative01/Generated/LinkedFrontAlpha.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        0
+      ],
+      "public_partial_sha256": "a0897d7f1158a89ca795d222222255b28095c04dfb80ede375d1832668f643b9",
+      "source_sha256": "306c6a7aaced9957780bda65a5dc87a47f3de4f50d0fe008d8461dd53c6b4dee",
+      "unprojected": []
+    },
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "83c1d1301a76569b5145d59481cbc1176bde185c3d185436ca87a21a35cd8cdf",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "873f36bba0c7a1ab917e4e49a16bce168da0af0f42e127a638f364c8f519112d",
+      "case": "SavedGeneratedFront",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "fdd2754d39ff50d48a850ef382c2fddefd19fcd4e7c930b595a1f61cb6b3f6c5",
+      "disclosed_locator": "SdkLinkedNative01/Inspection/Generated/OpenEditSave/EditedDrawing.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        0
+      ],
+      "public_partial_sha256": "4dbfeca47cc789ece9b2fe4d5a35af74f0aa66e1e0c531a57782bc4c84ed9864",
+      "source_sha256": "1c6953d1e4c8f321012689ff1700978c6b8d69417bede3ed1bdd9ca47459a767",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours"
+      ]
+    },
+    {
+      "baseline_index_rejected": true,
+      "baseline_report_sha256": "2ba938c64b3c99f45fb40cac90ace7e5342b0c607c9542874a6e3948e33412a5",
+      "candidate_index_matches_wrapped_constructor": true,
+      "candidate_report_sha256": "1e7e9872da97f68fae78e15aa886f136a1d267a7554234ec4babf82b36ac473c",
+      "case": "SavedNativeFront",
+      "decoded_configuration_type": "str",
+      "definition_sha256": "d7689e44ea0d0ca3ea17082b3bd03b10f63110b82051bbc44be90830c3fa9a7e",
+      "disclosed_locator": "SdkLinkedNative01/Inspection/ControlBefore/OpenEditSave/EditedDrawing.SLDDRW",
+      "passed": true,
+      "profile_counts": [
+        0,
+        1
+      ],
+      "public_partial_sha256": "84652dde6ff3f3a82e6eedb3fb9b4cbe3b8dccd539902e45c631e82c95220f25",
+      "source_sha256": "77713dfab03b4166994cc8e4c79f43e08088c797459ec86e556f60d28b239633",
+      "unprojected": [
+        "drawing.detailing_edges",
+        "drawing.occurrence_colours",
+        "drawing.profile_displays"
+      ]
+    }
+  ],
+  "positive_processes": 12,
+  "raw_input_manifest_sha256": "3952b6d51052a49ea9020c4adca250f38692c12c248065ec3d1917794b695ae9",
+  "raw_result_sha256": "db307ec615b1f0329a78311e5e93db67d63141135e267701a0278c7a2c6258ec",
+  "raw_source_manifest_sha256": "a9c50724207bf654b97d2056c6010bae150586d7fe16d30dcad1c630fb9b5b9f",
+  "schema": "kit.sw2026.drawing-view-index-text-process.v1",
+  "source_manifest_file_count": 4666,
+  "static": {
+    "black": "passed exact proposed source via stdin",
+    "first_successful_mypy_report_sha256": "5ce8dbfe699179ecdb593a326cbcd8ef07aec4fd5314c1a4e16eff3a74d052e6",
+    "initial_report_sha256": "50a30fc4295fe3d9d3e69776fe21134f0f41f5d2f4ec0a80ad063c480091e128",
+    "mypy": "passed exact proposed source with private strict config and explicit scratch cache",
+    "mypy_initial_invocation": "failed before target checking because repository files and command text were both selected",
+    "pyright": "not_run_on_private_in_memory_module",
+    "ruff": "passed exact proposed source via stdin",
+    "scratch_cache_mypy_report_sha256": "d56f4a9e8584691b67a5210fcc995896f8861e590c7763a5d3dd9154ff99df24",
+    "steering": "not_run_on_private_in_memory_module"
+  },
+  "status": "private_host_process_proof_passed_pending_root_integration",
+  "still_sealed_inputs_read": 0,
+  "target": "src/convert/adapters/solidworks/Drawing/Construction/Indexes/ReadViewIndex.py",
+  "task_id": "PR121-DRAWING-VIEW-INDEX-TEXT",
+  "tools": {
+    "controller_sha256": "94afc463c4ca2961d0da7b0ec809237c742a5973a65430674ed7f2a47a232b79",
+    "worker_sha256": "8a2eec6ab88a28fdfde4b608c52dcb99311551992a69c2c7b7c1183c9da5564a"
+  }
+}

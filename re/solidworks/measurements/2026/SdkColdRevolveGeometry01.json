@@ -1,0 +1,137 @@
+{
+  "case_count": 4,
+  "cases": [
+    {
+      "area_mm2": 10706.547763434015,
+      "bounds_mm": [
+        [
+          -27.75,
+          -8.625,
+          -24.625
+        ],
+        [
+          21.5,
+          27.375,
+          24.625
+        ]
+      ],
+      "cached_control_sha256": "963dce1db82760fc1941d9ce6b41410ee5b1b4b3c563594900cb30b12a635e6e",
+      "case": "SdkRevolveFullAlpha",
+      "faces": 4,
+      "input_sha256": "595ad175aee435ddba6d750e3c996eb766cb64c698e8007de81407cb51ff5380",
+      "live_angle_radians": 6.283185307179586,
+      "native_direction_reversed": false,
+      "revolved_feature": "sldprt:feature:19",
+      "source_and_bytes_equal": true,
+      "volume_mm3": 62429.72921213637
+    },
+    {
+      "area_mm2": 3840.741714975807,
+      "bounds_mm": [
+        [
+          -9.40874814161216,
+          -13.375,
+          -19.625
+        ],
+        [
+          22.5,
+          22.625,
+          0.0
+        ]
+      ],
+      "cached_control_sha256": "36667ae4b8ad9d0853af4b43a5d7386dd146b00e424bfe3760b9a7aab1c4a62b",
+      "case": "SdkRevolveForwardBeta",
+      "faces": 6,
+      "input_sha256": "7469c8705d1a3addf6c3cb3da4abf6b21780e6dabd27309a3de114415c237c08",
+      "live_angle_radians": 2.2471114119426994,
+      "native_direction_reversed": false,
+      "revolved_feature": "sldprt:feature:19",
+      "source_and_bytes_equal": true,
+      "volume_mm3": 14182.08189862336
+    },
+    {
+      "area_mm2": 3840.741714975807,
+      "bounds_mm": [
+        [
+          -9.40874814161216,
+          -13.375,
+          0.0
+        ],
+        [
+          22.5,
+          22.625,
+          19.625
+        ]
+      ],
+      "cached_control_sha256": "451a54e66ed9f97cbf5bfc752cb59306f4fb7eb3f2be5fcbec70d3a33b3d699d",
+      "case": "SdkRevolveReverseBeta",
+      "faces": 6,
+      "input_sha256": "70073391433ef4114e018fcf7c8954bb7dc017b1fd63e3da63bb794d32fccef9",
+      "live_angle_radians": 2.2471114119426994,
+      "native_direction_reversed": true,
+      "revolved_feature": "sldprt:feature:19",
+      "source_and_bytes_equal": true,
+      "volume_mm3": 14182.08189862336
+    },
+    {
+      "area_mm2": 12814.486165755066,
+      "bounds_mm": [
+        [
+          -38.5,
+          -24.125,
+          -29.3007964186861
+        ],
+        [
+          23.25,
+          16.875,
+          30.875
+        ]
+      ],
+      "cached_control_sha256": "50cebaee7eb8dfd8c3f903af7db0e7bd78098935561fddcbc0ccaaaf370dbe57",
+      "case": "SdkRevolvePartialGamma",
+      "faces": 6,
+      "input_sha256": "8d7e8bcdcacf89a242cab9f6efa662490fad952fa503444b57faa2a5c2b90e84",
+      "live_angle_radians": 4.391684730330732,
+      "native_direction_reversed": true,
+      "revolved_feature": "sldprt:feature:19",
+      "source_and_bytes_equal": true,
+      "volume_mm3": 77481.67025633816
+    }
+  ],
+  "geometry_reads": 8,
+  "heldout_inputs_read": 0,
+  "method_sha256": "b92643510aa907da5a8c7e8e4c4f908dea200cdc8477806bf21c7e48eadd4ba8",
+  "native_cache_controls": 4,
+  "passed": true,
+  "physical_faults_rejected": [
+    {
+      "artifact_sha256": "4d9edc0b027903051dc1d3b1142b81f9dccd9e7d63fa6d0a9f1f31c42c20654d",
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "fault": "unexpected-stream"
+    },
+    {
+      "artifact_sha256": "55bf510713bd0b85f759c1796fb5ecdbed790f975b8ed3a8bcf501b1989ffe7d",
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "fault": "axis-removed"
+    },
+    {
+      "artifact_sha256": "fadc53d9842ba7b303c2a50001dd9f95fe1fa303eb5489f7f5f49bdae41ed930",
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "fault": "alternate-direction"
+    },
+    {
+      "artifact_sha256": "f979564cb9ab8a5933a7e9eca639ffef1c780213664ed6a94bce2b7e1bd69ef8",
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "fault": "selected-body-flag"
+    },
+    {
+      "artifact_sha256": "0e8664e0d43dc83f20f95089e683c54d592b43aa9312798a81f428c03f419b59",
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "fault": "invalid-angle"
+    }
+  ],
+  "root_native_lifecycle_sha256": "25af072fc6d1122a593c12474c532a35f0b1b3987f519af39bedc3e91f5c27f9",
+  "schema": "kit.sw2026.public-cache-free-revolve-geometry.v1",
+  "semantic_only_reads": 4,
+  "signed_sweep_pair": true
+}

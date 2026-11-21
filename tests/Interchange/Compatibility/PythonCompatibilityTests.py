@@ -9,6 +9,7 @@ from types import FunctionType as FuncType
 from typing import Protocol, cast as TypeCast, runtime_checkable, TypeVar
 
 import interchange as InterchangeApi
+from interchange.document.Models.Drawing.DrawingNote import DrawingNote
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
@@ -16,6 +17,7 @@ from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.serialization import KTypeRegistry
 from interchange.serialization import from_data as FromData
 from interchange.serialization import to_data as ToData
@@ -257,12 +259,15 @@ def CheckRegistry() -> None:
             BoundDatum,
             BoundScale,
             DistanceExtrude,
+            DrawingNote,
             PlaneExtrude,
             PlaneRevolve,
+            ThinRevolve,
         )
     )
+    assert KTypeRegistry["PlaneIntersectionAxis"] is InterchangeApi.PlaneAxis
     assert KTypeRegistry["ScopedExtrusionFeature"] is ScopedExtrude
     assert set(KTypeRegistry.values()) == IntendedTypes | {ScopedExtrude}
-    assert set(KTypeRegistry) == {ClassType.__name__ for ClassType in IntendedTypes} | {
-        "ScopedExtrusionFeature"
-    }
+    assert set(KTypeRegistry) == {
+        ClassType.__name__ for ClassType in IntendedTypes - {InterchangeApi.PlaneAxis}
+    } | {"PlaneIntersectionAxis", "ScopedExtrusionFeature"}

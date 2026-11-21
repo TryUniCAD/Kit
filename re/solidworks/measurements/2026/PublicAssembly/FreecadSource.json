@@ -1,0 +1,403 @@
+{
+  "authority": "native-freecad-source-observation",
+  "version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "source": "900a_GA3DtechProject_v1.0.FCStd",
+  "source_sha256": "053bdb3235269a95735cb2746b4588b1c8007a3330edce406cf1c2868b77da7d",
+  "recomputed": false,
+  "saved": false,
+  "objects": [
+    {
+      "name": "b_CF_902a_FramewZaxis_A1_001_",
+      "label": "CF_902a_FramewZaxis_A1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 2636857.7316347593,
+      "area_mm2": 2341768.9312374466,
+      "center_mm": [
+        144.31813721514976,
+        -226.32863555822428,
+        59.75499150664981
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./buffer/CF_902a_FramewZaxis_A.step"
+    },
+    {
+      "name": "b_CF_902a_FramewZaxis_B1_001_",
+      "label": "CF_902a_FramewZaxis_B1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 0,
+      "volume_mm3": 0,
+      "area_mm2": 75870.07652667348,
+      "center_mm": null,
+      "valid": true,
+      "visible": true,
+      "source_file": "./buffer/CF_902a_FramewZaxis_B.step"
+    },
+    {
+      "name": "planeCoincident_001",
+      "label": "planeCoincident_001__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_001_mirror",
+      "label": "planeCoincident_001__CF_902a_FramewZaxis_B1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_002",
+      "label": "planeCoincident_002__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_002_mirror",
+      "label": "planeCoincident_002__CF_902a_FramewZaxis_B1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_003",
+      "label": "planeCoincident_003__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_003_mirror",
+      "label": "planeCoincident_003__CF_902a_FramewZaxis_B1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "b_CF_902a_FramewZaxis_C1_001_",
+      "label": "CF_902a_FramewZaxis_C1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 0,
+      "volume_mm3": 0,
+      "area_mm2": 47449.02395920673,
+      "center_mm": null,
+      "valid": true,
+      "visible": true,
+      "source_file": "./buffer/CF_902a_FramewZaxis_C.step"
+    },
+    {
+      "name": "planeCoincident_004",
+      "label": "planeCoincident_004__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_004_mirror",
+      "label": "planeCoincident_004__CF_902a_FramewZaxis_C1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_005",
+      "label": "planeCoincident_005__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_005_mirror",
+      "label": "planeCoincident_005__CF_902a_FramewZaxis_C1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_006",
+      "label": "planeCoincident_006__CF_902a_FramewZaxis_B1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_006_mirror",
+      "label": "planeCoincident_006__CF_902a_FramewZaxis_C1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "b_CF_902a_FramewZaxis_D1_001_",
+      "label": "CF_902a_FramewZaxis_D1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 85102.17842890993,
+      "area_mm2": 27540.471223387736,
+      "center_mm": [
+        11.885645686818293,
+        -353.5452011959758,
+        136.4637763996137
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./buffer/CF_902a_FramewZaxis_D.step"
+    },
+    {
+      "name": "planeCoincident_007",
+      "label": "planeCoincident_007__CF_902a_FramewZaxis_B1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_007_mirror",
+      "label": "planeCoincident_007__CF_902a_FramewZaxis_D1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "axisCoincident_001",
+      "label": "axisCoincident_001__CF_902a_FramewZaxis_C1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "axisCoincident_001_mirror",
+      "label": "axisCoincident_001__CF_902a_FramewZaxis_D1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "b_CF_901a_XAxis1_001_",
+      "label": "CF_901a_XAxis1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 877843.6557801977,
+      "area_mm2": 387412.67897177604,
+      "center_mm": [
+        -53.33418383621496,
+        -195.48807121813013,
+        114.57979469179946
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./buffer/CF_901a_XAxis.step"
+    },
+    {
+      "name": "planeCoincident_008",
+      "label": "planeCoincident_008__CF_901a_XAxis1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_008_mirror",
+      "label": "planeCoincident_008__CF_902a_FramewZaxis_D1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_009",
+      "label": "planeCoincident_009__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_009_mirror",
+      "label": "planeCoincident_009__CF_901a_XAxis1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "axisCoincident_002",
+      "label": "axisCoincident_002__CF_902a_FramewZaxis_A1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "axisCoincident_002_mirror",
+      "label": "axisCoincident_002__CF_901a_XAxis1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "b_CF_901a_Yspear_001_",
+      "label": "CF_901a_Yspear_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 1131451.641503958,
+      "area_mm2": 456530.09617331106,
+      "center_mm": [
+        -5.165065048211062,
+        -182.00418322545636,
+        117.90204303283849
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./Yspear/CF_901a_Yspear.FCStd"
+    },
+    {
+      "name": "planeCoincident_010",
+      "label": "planeCoincident_010__CF_901a_XAxis1_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "planeCoincident_010_mirror",
+      "label": "planeCoincident_010__CF_901a_Yspear_001",
+      "type": "App::FeaturePython",
+      "status": [
+        "Up-to-date"
+      ]
+    },
+    {
+      "name": "b_CF_902a_CoreXY_001_",
+      "label": "CF_902a_CoreXY_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 1692199.6308266337,
+      "area_mm2": 478973.6408396086,
+      "center_mm": [
+        -81.1962391479005,
+        -180.29923950330695,
+        114.62865996103099
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./Yspear/CF_902a_CoreXY.FCStd"
+    },
+    {
+      "name": "b_910a_ElectroDrawer1_001_",
+      "label": "910a_ElectroDrawer1_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 659463.6128363829,
+      "area_mm2": 658439.5945323188,
+      "center_mm": [
+        198.8464627249324,
+        -190.78500228787047,
+        -129.9590208936884
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./buffer/910a_ElectroDrawer.step"
+    },
+    {
+      "name": "b_CF_920a_45Deg_001_",
+      "label": "CF_920a_45Deg_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 0,
+      "volume_mm3": 0,
+      "area_mm2": 1410371.1138822036,
+      "center_mm": null,
+      "valid": true,
+      "visible": true,
+      "source_file": "./ThreadMill45DegInfinite/CF_920a_45Deg.FCStd"
+    },
+    {
+      "name": "b_CF_950a_Plateau_001_",
+      "label": "CF_950a_Plateau_001",
+      "type": "Part::FeaturePython",
+      "status": [
+        "Touched"
+      ],
+      "solids": 1,
+      "volume_mm3": 636925.1962166234,
+      "area_mm2": 330859.44047363504,
+      "center_mm": [
+        189.06484183630738,
+        -196.00555607503708,
+        5.74688574871651
+      ],
+      "valid": false,
+      "visible": true,
+      "source_file": "./Frame/CF_950a_Plateau.FCStd"
+    }
+  ],
+  "view_windows": [
+    "900a_GA3DtechProject_v1.0 : 1[*]",
+    "Start"
+  ],
+  "active_view_title": "900a_GA3DtechProject_v1.0 : 1[*]",
+  "capture_api": "QScreen.grabWindow(native-window-id)",
+  "native_window_id": 48492900352,
+  "screenshot_sha256": "c337fdcaf5de2fbe10a8f87626a28602e00f3c69ee3526048cdb6c99f1cd63fe",
+  "source_sha256_after": "053bdb3235269a95735cb2746b4588b1c8007a3330edce406cf1c2868b77da7d",
+  "source_url": "https://github.com/GA3Dtech/GA3D-basicbot-2023/blob/41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec/900a_GA3DtechProject_v1.0.FCStd",
+  "publisher": "Alain David Geiser / GA3D.tech",
+  "publisher_revision": "41b36c5fe9050f0e5a23e95d7ae8d9aa6d298bec",
+  "source_license": "CERN-OHL-W-2.0",
+  "acceptance": "source observation only; target conversion and native acceptance pending"
+}

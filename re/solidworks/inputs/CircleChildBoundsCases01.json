@@ -1,0 +1,74 @@
+{
+  "circles": [
+    {
+      "axis": "z",
+      "case": "C01",
+      "center_mm": [3.461, -6.917],
+      "depth_mm": 18.427,
+      "driver": "diameter",
+      "name": "CircleBoundsAlpha",
+      "native_destination": "C:\\KitCircleBounds\\CircleBoundsAlpha.SLDPRT",
+      "plane": "Front Plane",
+      "radius_mm": 4.783,
+      "reversed": false,
+      "written_at": 1805310101
+    },
+    {
+      "axis": "z",
+      "case": "C02",
+      "center_mm": [-11.287, 7.467],
+      "depth_mm": 12.793,
+      "driver": "diameter",
+      "name": "CircleBoundsBeta",
+      "native_destination": "C:\\KitCircleBounds\\CircleBoundsBeta.SLDPRT",
+      "plane": "Front Plane",
+      "radius_mm": 9.413,
+      "reversed": false,
+      "written_at": 1805310101
+    }
+  ],
+  "rectangles": [
+    {
+      "spec": {
+        "axis": "z",
+        "case": "R01",
+        "center_mm": [3.461, -6.917],
+        "depth_mm": 13.279,
+        "driver": "diameter",
+        "name": "RectBoundsAlpha",
+        "native_destination": "C:\\KitCircleBounds\\RectBoundsAlpha.SLDPRT",
+        "plane": "Front Plane",
+        "radius_mm": 4.783,
+        "reversed": false,
+        "written_at": 1805310101
+      },
+      "vertices_mm": [
+        [-17.83, 2.719],
+        [31.47, 2.719],
+        [31.47, 21.91],
+        [-17.83, 21.91]
+      ]
+    },
+    {
+      "spec": {
+        "axis": "z",
+        "case": "R02",
+        "center_mm": [3.461, -6.917],
+        "depth_mm": 27.193,
+        "driver": "diameter",
+        "name": "RectBoundsBeta",
+        "native_destination": "C:\\KitCircleBounds\\RectBoundsBeta.SLDPRT",
+        "plane": "Front Plane",
+        "radius_mm": 4.783,
+        "reversed": false,
+        "written_at": 1805310101
+      },
+      "vertices_mm": [
+        [8.913, -39.217],
+        [22.471, -39.217],
+        [22.471, -2.817],
+        [8.913, -2.817]
+      ]
+    }
+  ]
+}

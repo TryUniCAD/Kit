@@ -1,0 +1,666 @@
+{
+  "changed_sdk_file_sha256": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "90cbec8492fde619e5a9fd087fe0efd16fab72191721da850d0e07e9548c8e1a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/BuildPocketGeom.py": "419fe21f66e3dcd6513a2e6c600f6f42eef1183c65d52a8cf210633ec2a02950",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/BuildPocketShell.py": "3bd8a37ec67c214168f8607c90e2408abc68267afc6315cb2199a8e334a925c6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/CheckPublicPocket.py": "392987aa642dcc848f0e891216ccb726502682a3269db0d7a240e25d34b1e6d6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Cuts/ReadPocketGeom.py": "e6ad0b8183c3c0d24cda60360d36ae84b51ba69f556471ebeb146dbe3f6e08b6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPublicGeom.py": "611085931f4249c9c03311d5f173054dd23a75bb30c7eb3a6be2b58d5d92460d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPublicPlanes.py": "8c9c956281900b8345a0ad57458f088874830e1f9faf94c157c537352cf9edd0",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "516f245a80ae047e6b26771c60c3ea483efbb17e92abdc3912653c6fab0c6da5"
+  },
+  "checked_default_options": true,
+  "delivery_pr": 121,
+  "derived_cold_reads": 6,
+  "distinct_processes": 18,
+  "heldout_payloads_read": 0,
+  "native_brep_cache_written": false,
+  "native_geometry_view_counts": [
+    1,
+    8,
+    14,
+    10
+  ],
+  "native_numeric_comparison_scope": [
+    "volume",
+    "surface_area",
+    "centre_of_mass"
+  ],
+  "native_saved_reads": 12,
+  "owner": "/root",
+  "passed": true,
+  "prototype_sha256": "7e09b12c41da85af2482a387dd8b79f38e5ef73bf8854d479f74a380fcb5f3b7",
+  "public_pocket_writer_qualified": false,
+  "raw_process_result_sha256": "e73a14192b009a4a68ef3eed1d89a514e20488018b46e31266d0a3cf0fea71de",
+  "reader_process_result_sha256": "a48fc59e8f98551607e2e2937c954a43a1bfbdf158a8683e5d0a8890a35250d7",
+  "rows": [
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 16.75,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutDeep-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55526,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "d5a8b5c1667c1012157a214657993e659d34f2074914bc864397ac229b9e5909",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "42bf34b8338699340e3016e21014c35c22001b58982b78f95bad5d8d21b3352c"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 16.75,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutDeep-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55529,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "d5a8b5c1667c1012157a214657993e659d34f2074914bc864397ac229b9e5909",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "21db605e30528cbaa819e2339d304be52ddcb31f322d843587037b6206ad7860"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 9.5,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutMiddle-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55528,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "04b911f1dc34fdb2b77b68881aaa439d5b2cced41321115ea662d3a0de1fd01b",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "bd28e9379d2525084dc6a812384adf40bd4e03c4bddee1cd0e0d87ecb40aedce"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 9.5,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutMiddle-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55527,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "04b911f1dc34fdb2b77b68881aaa439d5b2cced41321115ea662d3a0de1fd01b",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "e9501a8c282eed6bdb324375081dabd0d2c64efcda8125d4ebc571259241a63b"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 4.25,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutShallow-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55534,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "6885a63fb2beb156f6bc9dfe202d464041451ccb65293c94a7d669961c1b58da"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 40,
+          "feature_scope_code": 1,
+          "producer_feature_id": 32,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 28.0,
+        "cut_depth_mm": 4.25,
+        "cut_parent_count": 2,
+        "feature_count": 28,
+        "radial_mode": null
+      },
+      "label": "BlindCutShallow-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55535,
+      "radius_mm": 6.000000000000002,
+      "source_sha256": "b0b6aa24c320b2c13ca986daf91a6fca916a54a02a9a21746ce2ced8523e54d2",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "baddef1adc7821db8bb7f1cbea03a43907b520b170cabfbfc058a84be217eb11"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.006129780518424863,
+      "boundary_source": "typed_history",
+      "com_m": [
+        -6.017775215668302e-05,
+        4.5133314117512264e-05,
+        0.009103806622470281
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 18.000000000000004,
+        "cut_depth_mm": 4.2,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": "radius"
+      },
+      "label": "SdkPocketACold-path",
+      "mode": "path",
+      "native_observer_sha256": "5f7b0eb9b5de90711f8b1797c43f53fbc66f2e68795b948bb2c8f76ab973c3fb",
+      "passed": true,
+      "process_id": 55536,
+      "radius_mm": 5.6000000000000005,
+      "source_sha256": "845baefabee7a690d594a095e1bb5a45e70614b2ee25b29b55d007400f898f64",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 2.7504214548410392e-05,
+      "worker_sha256": "d875d4fd487aaabe1ac256393f588781af18aaf8e0e7c09d09842f3a6008de79"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.006129780518424863,
+      "boundary_source": "typed_history",
+      "com_m": [
+        -6.017775215668302e-05,
+        4.5133314117512264e-05,
+        0.009103806622470281
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 18.000000000000004,
+        "cut_depth_mm": 4.2,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": "radius"
+      },
+      "label": "SdkPocketACold-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": "5f7b0eb9b5de90711f8b1797c43f53fbc66f2e68795b948bb2c8f76ab973c3fb",
+      "passed": true,
+      "process_id": 55537,
+      "radius_mm": 5.6000000000000005,
+      "source_sha256": "845baefabee7a690d594a095e1bb5a45e70614b2ee25b29b55d007400f898f64",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 2.7504214548410392e-05,
+      "worker_sha256": "068151303b1cf71e4f9b29c91af3edb4ba360b751b27154aaf812226ddebc59e"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 18.000000000000004,
+        "cut_depth_mm": 6.8,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": "radius"
+      },
+      "label": "SdkPocketASaved-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55550,
+      "radius_mm": 5.6000000000000005,
+      "source_sha256": "43887b7055e0668a83b862c97dae572fb2eddea6d2febac13308c6ae09a38018",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "570ee353523272b98c9dd39843c470fa4f2fb6b8cb95ee3b1396294224caa749"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 18.000000000000004,
+        "cut_depth_mm": 6.8,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": "radius"
+      },
+      "label": "SdkPocketASaved-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55551,
+      "radius_mm": 5.6000000000000005,
+      "source_sha256": "43887b7055e0668a83b862c97dae572fb2eddea6d2febac13308c6ae09a38018",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "a1dbfea212bdf209a743ce4b4ddf772886bdab347ec6df340c2614fc6fb426f9"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.007623312027085858,
+      "boundary_source": "typed_history",
+      "com_m": [
+        -4.4677271986150764e-05,
+        -2.5357370586734217e-05,
+        0.007181696713233419
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 26,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 14.3,
+        "cut_depth_mm": 3.8,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": null
+      },
+      "label": "SdkPocketFreeCold-path",
+      "mode": "path",
+      "native_observer_sha256": "0d4cf10e693ed67e9eb99770cc4abb72878a915d3ee58bd240b8b48301488460",
+      "passed": true,
+      "process_id": 55553,
+      "radius_mm": 4.1,
+      "source_sha256": "c47b5350093a8ef1442a39aca1ae75ef1950f87ba72550828131fd3b97430e11",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 3.323887034447399e-05,
+      "worker_sha256": "5f4e3726d0a28c6ac9ccf993a93c5e1c989ee1416000de00dc1e792b3d5b9287"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.007623312027085858,
+      "boundary_source": "typed_history",
+      "com_m": [
+        -4.4677271986150764e-05,
+        -2.5357370586734217e-05,
+        0.007181696713233419
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 26,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 14.3,
+        "cut_depth_mm": 3.8,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": null
+      },
+      "label": "SdkPocketFreeCold-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": "0d4cf10e693ed67e9eb99770cc4abb72878a915d3ee58bd240b8b48301488460",
+      "passed": true,
+      "process_id": 55554,
+      "radius_mm": 4.1,
+      "source_sha256": "c47b5350093a8ef1442a39aca1ae75ef1950f87ba72550828131fd3b97430e11",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 3.323887034447399e-05,
+      "worker_sha256": "1eee90e3f36aa3dcce8658eb98bdf136db09994f52fc9b336f8fd1560f27484b"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 26,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 14.3,
+        "cut_depth_mm": 7.9,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": null
+      },
+      "label": "SdkPocketFreeSaved-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55563,
+      "radius_mm": 4.1,
+      "source_sha256": "3c41b6997b74c62be49fe885eb90b7167a8e3551f6b50d6137b35f25369f22ed",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "fcdf8f879e591e597dea5bdf474d717cca13485a404f042737cf6da965d35fd1"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 26,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 14.3,
+        "cut_depth_mm": 7.9,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": null
+      },
+      "label": "SdkPocketFreeSaved-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55564,
+      "radius_mm": 4.1,
+      "source_sha256": "3c41b6997b74c62be49fe885eb90b7167a8e3551f6b50d6137b35f25369f22ed",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "11f953ee9f065e522a16649f21b7f8f1d06dd18a5033d0fc9ec80b6e647ad363"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.006636054509102144,
+      "boundary_source": "typed_history",
+      "com_m": [
+        2.417515453572204e-05,
+        -4.835030907144408e-06,
+        0.005866231889473985
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 11.700000000000001,
+        "cut_depth_mm": 2.3,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": "diameter"
+      },
+      "label": "SdkPocketWideBetaCold-path",
+      "mode": "path",
+      "native_observer_sha256": "453ba1d4119c6c7f5702fbae0fba943f5faf4c7f037f9d9d4f533dd76f21a1c6",
+      "passed": true,
+      "process_id": 55565,
+      "radius_mm": 3.4,
+      "source_sha256": "1e1ef032581521f029c09b923bd24cc70c5ca079d4fa946d45bd0944f14efcb5",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 2.418601533452636e-05,
+      "worker_sha256": "30281cbcefc9bdb314ed4938d941badbf32e67d494286ebd13f18577eeed66f7"
+    },
+    {
+      "annular_inlet": true,
+      "area_m2": 0.006636054509102144,
+      "boundary_source": "typed_history",
+      "com_m": [
+        2.417515453572204e-05,
+        -4.835030907144408e-06,
+        0.005866231889473985
+      ],
+      "cut_history": {
+        "body_link": {
+          "binding": "cold_all_bodies_intersection",
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19
+        },
+        "boss_depth_mm": 11.700000000000001,
+        "cut_depth_mm": 2.3,
+        "cut_parent_count": 2,
+        "feature_count": 21,
+        "radial_mode": "diameter"
+      },
+      "label": "SdkPocketWideBetaCold-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": "453ba1d4119c6c7f5702fbae0fba943f5faf4c7f037f9d9d4f533dd76f21a1c6",
+      "passed": true,
+      "process_id": 55567,
+      "radius_mm": 3.4,
+      "source_sha256": "1e1ef032581521f029c09b923bd24cc70c5ca079d4fa946d45bd0944f14efcb5",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "volume_m3": 2.418601533452636e-05,
+      "worker_sha256": "e57815d6adb016b8e587a1c9f59328c6f272506a9a89838c31974feeb0121e02"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 11.700000000000001,
+        "cut_depth_mm": 5.3,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": "diameter"
+      },
+      "label": "SdkPocketWideBetaSaved-path",
+      "mode": "path",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55575,
+      "radius_mm": 3.4,
+      "source_sha256": "e8ab65c3e5c6930c21456f511abf378f48ccb9d742f7b71d0330dce13536adf4",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "5bc3dce92688fa0216ff19059d4c9e12b0acfa80a2ef00d5b16581e727f47090"
+    },
+    {
+      "annular_inlet": true,
+      "boundary_source": "native_partition",
+      "cut_history": {
+        "body_link": {
+          "binding": "saved_configuration_atom_alias",
+          "consumed_atom_id": 101,
+          "consumer_feature_id": 27,
+          "feature_scope_code": 0,
+          "producer_feature_id": 19,
+          "result_atom_id": 102
+        },
+        "boss_depth_mm": 11.700000000000001,
+        "cut_depth_mm": 5.3,
+        "cut_parent_count": 2,
+        "feature_count": 29,
+        "radial_mode": "diameter"
+      },
+      "label": "SdkPocketWideBetaSaved-bytes",
+      "mode": "bytes",
+      "native_observer_sha256": null,
+      "passed": true,
+      "process_id": 55577,
+      "radius_mm": 3.4,
+      "source_sha256": "e8ab65c3e5c6930c21456f511abf378f48ccb9d742f7b71d0330dce13536adf4",
+      "topology": [
+        1,
+        8,
+        14,
+        10
+      ],
+      "worker_sha256": "07e404ed8b78cb59d9d89ec257d002f04a3213eb1c806161d252fdae7156b79b"
+    }
+  ],
+  "schema": "kit.sw2026.pocket-public-brep-receipt.v1",
+  "task": "B04-SW2026-CUT",
+  "unchanged_source_inputs": true,
+  "worker_sha256": "06e482218ff66f936d49b08a3b157ec5e85ae4c58bf0288e8bf0736d4942f524"
+}

@@ -1,0 +1,639 @@
+{
+  "schema": "kit.sw2026.curve-source-admission-publication.v1",
+  "status": "strict_discovery_source_and_retained_field_graph_admission_passed_no_writer_acceptance",
+  "scope": "Oracle-authored discovery/control source parser and complete retained decoded graph compatibility only; not Kit-generated CAD, semantic construction rules, held-out writer validation or native acceptance.",
+  "created_at": "2026-11-16T05:15:22.985922+00:00",
+  "source_revision": "cf26e9f113b17f4503b66f7268941d256f6706be",
+  "native_source_build": "34.5.2.0604",
+  "effective_document_version": 19000,
+  "remote_run": {
+    "id": 43806765968,
+    "attempt": 1,
+    "event": "pull_request",
+    "status": "completed",
+    "conclusion": "success",
+    "job_id": 133099223531,
+    "job_conclusion": "success",
+    "url": "https://github.com/TryUniCAD/Kit/actions/runs/43806765968/job/133099223531",
+    "policy_suite_passed": 171,
+    "codec_and_process_suite_passed": 181,
+    "fixture_tests_skipped": 158,
+    "discovery_archive_or_field_process_cases_skipped": 0,
+    "decoded_job_log": {
+      "scope": "UTF-8 re-encoding of connector-decoded content, not a raw GitHub log archive",
+      "bytes": 58859,
+      "sha256": "25427ad5e42036e23036c02d34a39079c5ec552a545be2ad52eb923930a6c0dd"
+    }
+  },
+  "ci_snapshot": {
+    "successful_checks": 33,
+    "conditional_skips": 26,
+    "failed_checks": 0,
+    "pending_checks": 0,
+    "ci_agg_run_id": 43806764100,
+    "ci_agg_job_id": 133099219671,
+    "ci_agg_conclusion": "success",
+    "scope": "Current PR CI only; not review readiness, successful merge-group acceptance, native acceptance or goal completion."
+  },
+  "synthetic_candidate": {
+    "sha": "49ed8baadb3e4dd8e09146aa4c9fce72a21b4a92",
+    "tree": "4b323e21ac3ad7d9e532233ce81cdd712801fc28",
+    "parents_ordered": [
+      "870e87eaed9efd065d700b15ccaad72fa50ff10a",
+      "cf26e9f113b17f4503b66f7268941d256f6706be"
+    ],
+    "evidence": "GitHub git-commit metadata and actual workflow checkout log agree",
+    "live_main_at_inspection": "870e87eaed9efd065d700b15ccaad72fa50ff10a",
+    "stale_pr_base_metadata": "249cf7dcde6197c41fafb052eda8afb210bcf49e",
+    "stale_pr_base_metadata_used_as_synthetic_parent": false
+  },
+  "retained_artifact": {
+    "id": 14198658366,
+    "url": "https://github.com/TryUniCAD/Kit/actions/runs/43806765968/artifacts/14198658366",
+    "bytes": 19323117,
+    "github_declared_sha256": "b4a3ea362906a421d486c7e31a76a3b417e15ce50f020fe0dce8b6cf769f0bbf",
+    "actual_downloaded_zip_sha256": "b4a3ea362906a421d486c7e31a76a3b417e15ce50f020fe0dce8b6cf769f0bbf",
+    "uploader_reported_sha256": "b4a3ea362906a421d486c7e31a76a3b417e15ce50f020fe0dce8b6cf769f0bbf",
+    "actual_zip_hash_matches_declared_and_uploader_hashes": true,
+    "all_members": 75,
+    "curve_json_and_log_members_extracted": 65,
+    "native_payload_members_opened_or_extracted": 0
+  },
+  "prepared_source_chain": {
+    "files": 26,
+    "discovery": 24,
+    "controls": 2,
+    "manifest_sha256": "83fdec0c415f6b2152d8df6bb12deba1b24313e8580597452505b139ec59a42e",
+    "source_evidence_sha256": "1626654b6a28a2d250c60146c5d715cffb2c0b58d8c633854b366db87dc3987c",
+    "privacy_ledger_sha256": "386ccad9eedb0b747f264490c9ef10f4e42debec006a14efeecaf096d8141e7c",
+    "portable_lock_sha256": "7773c393e60696c12a7a7202d294762dc5a7e35c25d1ea364201f59a8ee04c24",
+    "published_source_lock_proof_sha256": "d07954ef184cf5a6164e3fc5f68be72cb2db3938d8030be88d3241033ede7392",
+    "original_lock": {
+      "sha256": "21da3f3e8a6e2a6fe732f69c377a9539bc26a3ee1111795319b4a95d0124ad25",
+      "source_revision": "4ed467bc94a9e7da00bc9782a603a525250242cd",
+      "owner_verification_sha256": "0b9e314b871ec27ef1e0e21a60504d5cc107de632127f33267ce53c68d301403",
+      "heldout_native_payloads_included": 0
+    },
+    "heldout_native_payloads_read": 0,
+    "prepared_native_files_opened_by_publication_worker": 0,
+    "prepared_file_bytes_total_as_reported": 1571839,
+    "case_membership": [
+      {
+        "name": "D01CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D02CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D03CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D04CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D05CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D06CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D07CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D08CircleRadius",
+        "split": "discovery"
+      },
+      {
+        "name": "D09Arc17Ccw",
+        "split": "discovery"
+      },
+      {
+        "name": "D10Arc17Cw",
+        "split": "discovery"
+      },
+      {
+        "name": "D11Arc90Ccw",
+        "split": "discovery"
+      },
+      {
+        "name": "D12Arc90Cw",
+        "split": "discovery"
+      },
+      {
+        "name": "D13Arc180Ccw",
+        "split": "discovery"
+      },
+      {
+        "name": "D14Arc180Cw",
+        "split": "discovery"
+      },
+      {
+        "name": "D15Arc270Ccw",
+        "split": "discovery"
+      },
+      {
+        "name": "D16Arc270Cw",
+        "split": "discovery"
+      },
+      {
+        "name": "D17TopCircle",
+        "split": "discovery"
+      },
+      {
+        "name": "D18RightCircle",
+        "split": "discovery"
+      },
+      {
+        "name": "D19Annulus",
+        "split": "discovery"
+      },
+      {
+        "name": "D20TwoCircles",
+        "split": "discovery"
+      },
+      {
+        "name": "D21EightCircles",
+        "split": "discovery"
+      },
+      {
+        "name": "D22ConstructionArc",
+        "split": "discovery"
+      },
+      {
+        "name": "D23TangentCapsule",
+        "split": "discovery"
+      },
+      {
+        "name": "D24NearFullArc",
+        "split": "discovery"
+      },
+      {
+        "name": "ControlCircle",
+        "split": "control"
+      },
+      {
+        "name": "ControlRectangle",
+        "split": "control"
+      }
+    ],
+    "all_26_original_source_and_sidecar_hashes_match_portable_lock": true,
+    "all_26_prepared_and_234_selected_stream_hashes_match_manifest": true,
+    "source_evidence_false_archive_verification_flag_is_preparation_time_only": true
+  },
+  "archive_admission": {
+    "primary_files": 26,
+    "primary_selected_streams": 208,
+    "linked_files": 26,
+    "linked_resolved_streams": 26,
+    "strict_byte_identity_streams": 234,
+    "zero_tail_streams": 234,
+    "linked_seed_hash_length_and_map_handoff_checks": 26,
+    "completed_phase_snapshots": 494,
+    "load_and_store_summaries_reconstructed_from_actual_phases": true,
+    "used_provisional_schemas": [],
+    "missing_schemas": [],
+    "unused_registry_provisional_definitions": 74,
+    "unused_registry_entries_are_not_admitted_coverage": true,
+    "raw_operation_occurrences": 526,
+    "raw_observed_byte_occurrences": 6080,
+    "reports": [
+      {
+        "report": "SourceParser/Curve/PrimaryStreams.json",
+        "bytes": 20444130,
+        "sha256": "2c69ec1c11232328df95e27f0f8893a73f1513454c67d23f7bbcdb5159897509",
+        "files": 26,
+        "streams": 208,
+        "strict_byte_identities": 208,
+        "tail_zero": 208,
+        "used_provisional_schemas": [],
+        "missing_schemas": [],
+        "actual_stream_phase_completion_verified": true,
+        "aggregate_summary_reconstructed": true,
+        "unused_registry_provisional_count": 74
+      },
+      {
+        "report": "SourceParser/Curve/LinkedConfig.json",
+        "bytes": 14621944,
+        "sha256": "27ff209155f4cc38fac90ad3a0dd6b9cc1cd1a99dd53006f68b36109e86418e7",
+        "files": 26,
+        "streams": 26,
+        "strict_byte_identities": 26,
+        "tail_zero": 26,
+        "used_provisional_schemas": [],
+        "missing_schemas": [],
+        "actual_stream_phase_completion_verified": true,
+        "aggregate_summary_reconstructed": true,
+        "unused_registry_provisional_count": 74
+      }
+    ]
+  },
+  "field_inventory_admission": {
+    "files_per_process": 26,
+    "positive_process_modes": 9,
+    "retained_graphs": 234,
+    "linked_graphs": 26,
+    "completed_load_phase_snapshots_including_seeds": 260,
+    "node_occurrences": 98764,
+    "typed_value_occurrences": 1072207,
+    "decoded_negative_zero_occurrences": 540,
+    "nonfinite_float_occurrences": 0,
+    "large_integer_occurrences_above_javascript_exact_precision": 0,
+    "unresolved_reference_occurrences": 164,
+    "unresolved_reference_scope": "All 164 occur in explicit standalone resolved-feature inventories; linked resolved inventories contain zero unresolved references. These are retained external references, not invented targets.",
+    "value_kind_occurrences": {
+      "reference": 118194,
+      "str": 541676,
+      "int": 294231,
+      "float": 102436,
+      "bytes": 302,
+      "null": 15204,
+      "external-object-reference": 164
+    },
+    "checked_invariants": [
+      "Exact 26-case discovery/control membership and prepared file hashes",
+      "Selected-stream and auxiliary loader-source lengths and hashes",
+      "Complete schema usage with no used provisional or missing schemas",
+      "Linked seed hash, zero tail, map-base handoff and retained map identities",
+      "Unique retained object/container identities and complete reachability",
+      "Complete declared object field and list/tuple/dictionary lengths",
+      "Owner/path context, object origin and bounded captured positions",
+      "Exact integer/decimal and decoded Python binary64/hex/finite witnesses",
+      "Byte fields expose only length/hash metadata",
+      "Reference and explicit unresolved counts match all occurrences",
+      "All nine remote checked-count reports independently agree"
+    ],
+    "raw_payloads_emitted": false,
+    "values_truncated": false,
+    "field_classification": "unclassified; no native width, domain, authored/derived rule or writer default inferred",
+    "negative_processes": [
+      {
+        "report": "SourceParser/Curve/Fields/Failures/EmptyPattern.json",
+        "sha256": "61d55c7b3bade2f8f0c46084d844a85d85bc33fef97fefe6793e59f39464cc67",
+        "expected_exit": 1,
+        "files": 0,
+        "structured_failure": true,
+        "no_false_graph": true
+      },
+      {
+        "report": "SourceParser/Curve/Fields/Failures/MissingStream.json",
+        "sha256": "05ff5c2072bd889ea6907c63581e52305f4e076a6ec16d20187b643bcd970791",
+        "expected_exit": 1,
+        "files": 26,
+        "structured_failure": true,
+        "no_false_graph": true
+      },
+      {
+        "report": "SourceParser/Curve/Fields/Failures/TruncatedFixture.json",
+        "sha256": "513a651eec58156ee1ef9b32b1c2c4ad206b27e4546a2f73e26452936b313489",
+        "expected_exit": 1,
+        "files": 1,
+        "structured_failure": true,
+        "no_false_graph": true
+      }
+    ],
+    "reports": [
+      {
+        "report": "SourceParser/Curve/Fields/LinkedConfig0ResolvedFeatures.json",
+        "bytes": 337984279,
+        "sha256": "1f93991f73bf6c2393432608bf67912cf3ec8b9152a23f205d241416cc5fe3fb",
+        "files": 26,
+        "linked": true,
+        "stream": "Contents/Config-0-ResolvedFeatures",
+        "graphs": 26,
+        "nodes": 39710,
+        "typed_values": 471050
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryBiography.json",
+        "bytes": 4896380,
+        "sha256": "62163af65ddd757a63c2f550b504d561b84ee7e2e34aa161c0013381126baa1a",
+        "files": 26,
+        "linked": false,
+        "stream": "_MO_VERSION_19000/Biography",
+        "graphs": 26,
+        "nodes": 364,
+        "typed_values": 7540
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryCMgr.json",
+        "bytes": 20107437,
+        "sha256": "2119d3c168f3c82ee930dccd5784d4ad697af6fe5f8258e42f26a734d1480537",
+        "files": 26,
+        "linked": false,
+        "stream": "Contents/CMgr",
+        "graphs": 26,
+        "nodes": 3250,
+        "typed_values": 30690
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryConfig0.json",
+        "bytes": 183221921,
+        "sha256": "206da1efdf7f0c2433b14c88615b8f875cb61a342cd930e8312eba493feab345",
+        "files": 26,
+        "linked": false,
+        "stream": "Contents/Config-0",
+        "graphs": 26,
+        "nodes": 16502,
+        "typed_values": 266493
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryConfig0ModelHeader.json",
+        "bytes": 22483035,
+        "sha256": "0278a32dc8f39f7d4810c8e58699403140e9b5c07cd239187ad2d672f9f34723",
+        "files": 26,
+        "linked": false,
+        "stream": "Contents/Config-0-ModelHeader",
+        "graphs": 26,
+        "nodes": 4446,
+        "typed_values": 27586
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryConfig0ResolvedFeatures.json",
+        "bytes": 153261208,
+        "sha256": "df6d81b47bd30cc752581ea4065fe8407c9f3aa342157af8889c3198be24192f",
+        "files": 26,
+        "linked": false,
+        "stream": "Contents/Config-0-ResolvedFeatures",
+        "graphs": 26,
+        "nodes": 23442,
+        "typed_values": 202626
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryDefinition.json",
+        "bytes": 26824816,
+        "sha256": "062c65f5348b690e7467115708534d0cf692ae5376c7503a4c4eecb78576eaf9",
+        "files": 26,
+        "linked": false,
+        "stream": "Contents/Definition",
+        "graphs": 26,
+        "nodes": 6240,
+        "typed_values": 37024
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryHeader2.json",
+        "bytes": 21693103,
+        "sha256": "317a385086db39625abf1774c6a34696c449003fccf1fd886a8b2cda9d0f3abc",
+        "files": 26,
+        "linked": false,
+        "stream": "Header2",
+        "graphs": 26,
+        "nodes": 4446,
+        "typed_values": 27586
+      },
+      {
+        "report": "SourceParser/Curve/Fields/PrimaryHistory.json",
+        "bytes": 1121562,
+        "sha256": "f8db34fcb7e2b9baaefd53e95ab8c2d0f040217c3f9761821c3bf8a4a6fda428",
+        "files": 26,
+        "linked": false,
+        "stream": "_MO_VERSION_19000/History",
+        "graphs": 26,
+        "nodes": 364,
+        "typed_values": 1612
+      }
+    ],
+    "counting_scope": "Node, value, phase and raw-operation counts are occurrences across separate retained reports, including repeated loads and linked seed graphs; they are not unique native object or field counts"
+  },
+  "implementation_binding": {
+    "source_files": 50,
+    "all_reported_hashes_match_committed_source_revision": true,
+    "all_50_source_files_equal_b291_in_full_bytes": true,
+    "canonical_implementation_list_sha256": "c9181f409827b157446979e37e1ae4697331b74707a40154953e335726c43db5",
+    "implementation_list_location": "Each retained successful inventory report: /implementation",
+    "verification_process_sources": [
+      {
+        "file": "tests/convert/solidworks/research/Curve/AssertSummary.py",
+        "sha256": "3443ea690301e0c45010166e0f5778f430338e495e5367f22a3e4d26643ae1a2"
+      },
+      {
+        "file": "tests/convert/solidworks/research/Curve/AssertSnapshot.py",
+        "sha256": "d5b6095c6a48e89f5f3eb4f9a723a64b183bcd27cfc86f3139d396a1330dd8a3"
+      },
+      {
+        "file": "tests/convert/solidworks/research/Curve/AssertFile.py",
+        "sha256": "57dc75da43451e438f1402b20b02593dc0c1eebf95516801eb9868dbfc326779"
+      },
+      {
+        "file": "tests/convert/solidworks/research/Curve/Fields/PrepareFailure.py",
+        "sha256": "7742283ee010161fdfde3d673012e33e2b8975d907bc37f4dc367c00959ac4e0"
+      },
+      {
+        "file": "tests/convert/solidworks/research/Curve/SaveReceipt.py",
+        "sha256": "ab07b15b6afc343c367f42d6a8283199885357d3320a45b3b8bc0ea51dee09a6"
+      }
+    ],
+    "production_adapter_or_archive_core_schema_or_roundtrip_behavior_changed_for_contract_repair": false
+  },
+  "historical_b291": {
+    "source_revision": "b291c4da06406d61059b6a0095d3bbb825ef7ef1",
+    "run_id": 43805235770,
+    "job_id": 133094377267,
+    "run_conclusion": "failure",
+    "native_suite_failed": 2,
+    "native_suite_passed": 179,
+    "native_suite_skipped": 158,
+    "failure": "Archive assertions expected completed on aggregate usage summaries; actual completed snapshots existed only on per-stream phases. The historical failure is not retroactively marked passing.",
+    "posthoc_strict_streams": 234,
+    "posthoc_retained_graphs": 234,
+    "current_repair_scope": "Reconstruct aggregate used-name unions and raw-operation counts from completed stream/dependency phases while retaining strict snapshot checks. Negative fixture/receipt writes execute unconditionally before pure assertions.",
+    "successful_source_reports_full_byte_equal": 11,
+    "all_selected_metadata_members_full_byte_equal": 64,
+    "selected_metadata_members_compared": 65,
+    "sole_changed_negative_report": {
+      "report": "SourceParser/Curve/Fields/Failures/TruncatedFixture.json",
+      "json_pointer": "/files/0/path",
+      "old_head": "b291c4da06406d61059b6a0095d3bbb825ef7ef1",
+      "old_value_utf8_bytes": 43,
+      "old_value_sha256": "f967656517531f0ed86eabb16eeec3c0cdad5fe4249e4c99b5aee4e0dad17aff",
+      "current_value_utf8_bytes": 43,
+      "current_value_sha256": "132c1d98d2972fe58b965d29ab2c559e307c4b0541c6028ff7a9459b1592a2a9",
+      "replacement": "<TEMPORARY_NATIVE_FIXTURE>",
+      "all_other_json_values_equal": true
+    },
+    "no_runtime_schema_or_count_rule_change_inferred_from_assertion_repair": true
+  },
+  "source_report_fingerprints": [
+    {
+      "path": "SourceParser/Curve/Fields/LinkedConfig0ResolvedFeatures.json",
+      "bytes": 337984279,
+      "sha256": "1f93991f73bf6c2393432608bf67912cf3ec8b9152a23f205d241416cc5fe3fb",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryBiography.json",
+      "bytes": 4896380,
+      "sha256": "62163af65ddd757a63c2f550b504d561b84ee7e2e34aa161c0013381126baa1a",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryCMgr.json",
+      "bytes": 20107437,
+      "sha256": "2119d3c168f3c82ee930dccd5784d4ad697af6fe5f8258e42f26a734d1480537",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0.json",
+      "bytes": 183221921,
+      "sha256": "206da1efdf7f0c2433b14c88615b8f875cb61a342cd930e8312eba493feab345",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0ModelHeader.json",
+      "bytes": 22483035,
+      "sha256": "0278a32dc8f39f7d4810c8e58699403140e9b5c07cd239187ad2d672f9f34723",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0ResolvedFeatures.json",
+      "bytes": 153261208,
+      "sha256": "df6d81b47bd30cc752581ea4065fe8407c9f3aa342157af8889c3198be24192f",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryDefinition.json",
+      "bytes": 26824816,
+      "sha256": "062c65f5348b690e7467115708534d0cf692ae5376c7503a4c4eecb78576eaf9",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryHeader2.json",
+      "bytes": 21693103,
+      "sha256": "317a385086db39625abf1774c6a34696c449003fccf1fd886a8b2cda9d0f3abc",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryHistory.json",
+      "bytes": 1121562,
+      "sha256": "f8db34fcb7e2b9baaefd53e95ab8c2d0f040217c3f9761821c3bf8a4a6fda428",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/LinkedConfig.json",
+      "bytes": 14621944,
+      "sha256": "27ff209155f4cc38fac90ad3a0dd6b9cc1cd1a99dd53006f68b36109e86418e7",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/PrimaryStreams.json",
+      "bytes": 20444130,
+      "sha256": "2c69ec1c11232328df95e27f0f8893a73f1513454c67d23f7bbcdb5159897509",
+      "b291_full_byte_equal": true
+    }
+  ],
+  "remote_checked_count_report_fingerprints": [
+    {
+      "path": "SourceParser/Curve/Fields/LinkedConfig0ResolvedFeatures.checked.json",
+      "bytes": 4359,
+      "sha256": "926e1df8cc62da900325bd641936021e9f2abda3c1226a48cde53c3c34310a5e",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryBiography.checked.json",
+      "bytes": 2739,
+      "sha256": "b6c1b3c3edcc5342ca2f1c37728ecc116f9fbbb5e85f3be4da1fd1281139e5a8",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryCMgr.checked.json",
+      "bytes": 3739,
+      "sha256": "7df1a9141c161ae4cb64afbe13b40e196bed57b28e1f9645fa589350a2ceb3fd",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0.checked.json",
+      "bytes": 4289,
+      "sha256": "9df93e05d0ce3a962b5b5e64ba42e296088738a1ba553f9f9c45faf618c71972",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0ModelHeader.checked.json",
+      "bytes": 3703,
+      "sha256": "44e43e250a54a13a1a6909be9c8cc516d8f9d688fa2b1c3970a480b0b0fe1955",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryConfig0ResolvedFeatures.checked.json",
+      "bytes": 5310,
+      "sha256": "2bb992535eedb6eb6c4438cd9b9c311ce180a269c51da3854b9a61562d435a68",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryDefinition.checked.json",
+      "bytes": 4187,
+      "sha256": "769ac89aa101b050549f01bcabfce2a040bc43e5fa4f4ed4ae905a248d48bfb4",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryHeader2.checked.json",
+      "bytes": 3681,
+      "sha256": "080245a26c11b3f43c5c2bdbbd203d3205bd82ca177833968287403d99f81754",
+      "b291_full_byte_equal": true
+    },
+    {
+      "path": "SourceParser/Curve/Fields/PrimaryHistory.checked.json",
+      "bytes": 2685,
+      "sha256": "320cef7551a3cd6efda3680ee1491e5259add6a7976b4c0fc68a5753b6ebd0a0",
+      "b291_full_byte_equal": true
+    }
+  ],
+  "publication": {
+    "operator_paths_or_argv_embedded": false,
+    "private_native_payloads_or_vendor_software_embedded": false,
+    "raw_source_report_field_values_embedded": false,
+    "method": "Publish relative artifact names, exact hashes and counts; omit report path/argv values. Hash-bind and replace the one temporary-path difference with a common label.",
+    "redaction_ledger": [
+      {
+        "report": "SourceParser/Curve/Fields/Failures/TruncatedFixture.json",
+        "json_pointer": "/files/0/path",
+        "old_head": "b291c4da06406d61059b6a0095d3bbb825ef7ef1",
+        "old_value_utf8_bytes": 43,
+        "old_value_sha256": "f967656517531f0ed86eabb16eeec3c0cdad5fe4249e4c99b5aee4e0dad17aff",
+        "current_value_utf8_bytes": 43,
+        "current_value_sha256": "132c1d98d2972fe58b965d29ab2c559e307c4b0541c6028ff7a9459b1592a2a9",
+        "replacement": "<TEMPORARY_NATIVE_FIXTURE>",
+        "all_other_json_values_equal": true
+      }
+    ],
+    "integer_policy": "Source JSON and field metadata were parsed with exact Python integers; numeric/decimal and binary64 witnesses were checked without a JavaScript numeric intermediary. Published counts and IDs are exact integers.",
+    "raw_reports_rewritten": false,
+    "source_manifests_modified": false,
+    "heldout_native_payloads_read": 0,
+    "private_binary_captures_read": 0,
+    "vm_cad_or_licensing_access": false,
+    "schemas_codecs_products_or_tests_executed_locally": false,
+    "only_independent_json_hash_and_source_metadata_audits_executed": true
+  },
+  "limits": {
+    "source_parser_compatibility_only": true,
+    "observations_are_not_construction_rules": true,
+    "all_count_domain_or_version_branches_exercised": false,
+    "all_unreached_schemas_proven": false,
+    "heldout_native_payloads_remain_sealed": true,
+    "writer_output": false,
+    "native_acceptance_inherited": false,
+    "native_writer_acceptance": false,
+    "production_solidworks_writer": false,
+    "full_goal_complete": false
+  },
+  "references": {
+    "mfc_owner_record": "../../records/MfcCountArchive2026.md",
+    "mfc_change": "../../../../Documentation/Changes/Solidworks/Model/SolidworksMfcCountArchiveOwner.md",
+    "curve_change": "../../../../Documentation/Changes/Solidworks/Model/SolidworksCurveDiscoveryCorpus.md",
+    "inventory_change": "../../../../Documentation/Changes/Solidworks/Model/SolidworksCurveFieldInventory.md",
+    "cad_criteria": "../../../../Documentation/Reference/Operations/CadSuccessCriteria.md",
+    "instruction_book": "../../../Playbook/README.md",
+    "correlation": "../../../Playbook/CorpusCorrelation.md",
+    "research_artifact_policy": "../../../../Documentation/Reference/Research/ResearchArtifacts.md"
+  },
+  "stopping_conditions_quoted": [
+    "The first is success under every criterion on this page.",
+    "The second is the end of the available context."
+  ]
+}
