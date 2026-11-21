@@ -103,3 +103,15 @@ scratch directory. The preflight binds both native-tested disclosed manifests,
 the exact retry packet and audit helper, and the Python executable and version.
 Run the protected replay with that same interpreter. Scratch output, the
 Windows preflight receipt and the separate retry result use fresh destinations.
+
+The retry packet SHA-256 is
+`7092c012aac0eb6ef2c721b9901a3fa3f32129aa4f6b3a8043b7a65529a6fbd2`.
+Its source manifest SHA-256 is
+`71f02b4e6ba3cc4671af95010d035ff64c2ee0cabebda3cc6e41605bfa8c6ffc`.
+A host Python 3.12 probe removed only the unavailable constant. The four old
+disclosed workers reproduced the same attribute error. All four repaired
+workers matched fourteen complete file hashes across the two routes and
+returned full native transfer with zero runtime input reads. The ordinary
+host preflight also passed. The guest preflight and protected replay retain
+their own independent receipts.
+[Portable mask behavior](../../../Documentation/Gotchas/Conversion/Registry/WindowsAuditsNeedPortableAccessMask.md)
