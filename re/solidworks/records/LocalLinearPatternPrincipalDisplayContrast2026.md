@@ -1,6 +1,6 @@
 # Model-generated principal display contrast for the angled pattern hinge
 
-Task `B04-SW2026-LOCAL-LINEAR-PATTERN`, PR #121. This is the smallest complete native candidate pair before publishing a generated reference axis. It isolates the default Top and Right presentation that provides the finite hinge limits, using one independently authored Front-origin plate and the exact shared SDK part stream emitter. The writer reads only the neutral request in four guarded processes. The open, edit, save and reopen observations still require the licensed oracle. [Finite hinge source and arithmetic](LocalLinearPatternFiniteHinge2026.md)
+Task `B04-SW2026-LOCAL-LINEAR-PATTERN`, PR #121. This is the smallest complete native candidate pair before publishing a generated reference axis. It isolates the default Top and Right presentation that provides the finite hinge limits, using one independently authored Front-origin plate and the exact shared SDK part stream emitter. The writer reads only the neutral request in four guarded processes. Both complete standalone candidates passed the independently bracketed native open, rebuild, edit, save and fresh-reopen comparisons on 2026 SP05.2. [Finite hinge source and arithmetic](LocalLinearPatternFiniteHinge2026.md) · [Bound native result](../measurements/2026/LocalLinearPatternPrincipalDisplayNative01.json)
 
 ## Composed owners
 
@@ -18,6 +18,16 @@ The ordinary strict geometry reader still rejects placed principal displays in i
 
 The first numbered stage `PatternDatumDisplay01` had a missing `AuthorRectangleAnchors.py` import in its independently frozen observer closure. Its manifest `5fdd5e708dc29f577545ba1b65c32c39bc12366ac58e3a930cfda53f67ebcb82` is preserved with zero native launches. The second numbered packet completes that closure and requires a fresh host `--verify` process before it emits a dispatch recipe. Both generated parts and their common encoded Windows destination remain identical across the two revisions.
 
+## Native result
+
+`PatternDatumDisplay02` manifest `823829cf644ed55b08278bbfec785a99330e098bee119f8bcfd120b8428449dd` produced terminal receipt `041ba50b5f4508e1c4b9b5c92f82bc670b4c5079137ebc4dc7d31bf50272898f`. Six distinct processes passed with healthy controls. The two candidate edit processes and two clean reopens preserved one solid, the complete 25-row tree and 220 numeric checks. Both edits changed D1 from 18.625 mm to 24.375 mm. The volume changed from `0.000277356224609375` to `0.00036298297851562506` m³.
+
+Both arms expose the same binary64 display diagonals at each corresponding stage, across 20 individual observations and ten direct paired comparisons. The largest distance from an independently predicted corner is `2.797157557069881e-17` m. Before the first explicit rebuild the two planes have a shared Z interval of `[-0.0009312499999999998, 0.019556249999999997]` m in both arms. The edited and reopened Z interval is `[-0.001218750000000001, 0.025593750000000002]` m. The already-sized values are tolerated. The initial unsized input reaches the same values by the first getter even though all its display roots and borders are zero on disk.
+
+The host audit binds both edited native derivative hashes. The separate Config-0 and ResolvedFeatures pairs replay exactly at map counters `122 → 284`. Both saves retain all predicted Top/Right display roots, borders and name locations bit-for-bit. Exact saved presentation uses the typed neutral plan's metre conversion for X and Y and the independently specified edit distance for Z. The complete native saved files and stream digests remain distinct.
+
+The first query follows native Open and can itself access presentation. This experiment cannot distinguish implicit Open/rebuild refresh from refresh by the first getter. It measures neither a dependent hinge nor an angled plane on those inputs. [Host audit tool](../../tooling/sw2026/linear_pattern/AuditPatternDatumDisplayContrast.py) · [First getter observation limit](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Patterns/FirstDatumBoundsQueryCanSeeRegeneration.md)
+
 ## Reproduction
 
 ```sh
@@ -29,3 +39,9 @@ python3.14 -I -B re/tooling/sw2026/linear_pattern/PreparePatternDatumDisplayCont
 ```
 
 The new `Recipe.json` records the exact `prlctl exec` argument vector. `--verify` on the same pinned command verifies files without launching the oracle. The private pre-writer lock contributes its public hash-only receipt. Neither protected source nor private plan is a packet dependency.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/linear_pattern/AuditPatternDatumDisplayContrast.py \
+  --trial /absolute/share/Oracle121Takeover/PatternDatumDisplay02 \
+  --output "$(mktemp -d)/PrincipalDatumDisplayEvidence.json"
+```
