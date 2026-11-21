@@ -11,7 +11,7 @@ sys.path[:0] = [str(HERE.parent), str(HERE.parents[2])]
 
 from RevolveFamilyModel import STOCK_NAMES, edited_case, validate_specs
 from RunStockCutSelector import (
-    CONTROL_SHA, ORACLE_SHA, checked, encode, observe_factory, publish, require,
+    CONTROL_SHA, LOCK_SHA, ORACLE_SHA, checked, encode, observe_factory, publish, require,
     TOOLS as SELECTOR_TOOLS,
 )
 
@@ -21,10 +21,26 @@ TOOLS = (HERE.name, *SELECTOR_TOOLS)
 PREFIX = PureWindowsPath(r"C:\KitSdkCandidates")
 CONTROL = "Control/RevolveFull.SLDPRT"
 MODEL = "ModelSpecs.json"
+LOCK = "SourceLock.json"
 
 
 def path_for(case, suffix=""):
     return case["name"] + suffix + ".SLDPRT"
+
+
+def source_lock(raw):
+    lock = json.loads(raw)
+    require(lock["schema"] == "kit.sw2026.revolve-family-source-lock.v1"
+            and lock["family"] == "cut" and lock["split"] == "heldout"
+            and lock["oracle_sha256"] == ORACLE_SHA and lock["oracle_build"] == "34.5.2.0604"
+            and lock["passed"] and lock["idle_after"] and lock["inputs_unchanged"]
+            and lock["control-before"]["passed"] and lock["control-after"]["passed"]
+            and lock["distinct_processes"] == 8 and lock["writer_output_count"] == 0
+            and not lock["heldout_writer_acceptance"]
+            and [row["case"] for row in lock["sources"]] == ["Slot01", "Slot02"]
+            and all(row["passed"] for row in lock["sources"]),
+            "native source lock does not establish two independent intact lifecycles")
+    return lock
 
 
 def verify(path, pin):
@@ -44,11 +60,22 @@ def verify(path, pin):
                 and HERE == (root / "Tools" / HERE.name).resolve(),
                 "guest packet and runner location differ from frozen transport")
     files = data["files"]
-    cases = validate_specs(json.loads(checked(root / MODEL, files[MODEL])))
+    model = checked(root / MODEL, files[MODEL])
+    cases = validate_specs(json.loads(model))
+    cohort = data.get("cohort", "discovery")
     expected = {CONTROL, MODEL, *(f"Tools/{name}" for name in TOOLS),
                 *(f"Candidates/{path_for(case)}" for case in cases)}
+    if cohort == "heldout":
+        expected.add(LOCK)
+        lock = source_lock(checked(root / LOCK, LOCK_SHA))
+        require(locator.drive.casefold() == "c:" and locator.is_relative_to(PREFIX)
+                and data["original_native_files_read_by_generation"] == 0
+                and files[LOCK] == LOCK_SHA and files[MODEL] == lock["spec_sha256"]
+                and {case["plane"] for case in cases} == {"top", "right"},
+                "held-out candidate must use the unchanged private source specification")
     require(set(files) == expected and files[CONTROL] == CONTROL_SHA
-            and all(case["split"] == "discovery" and case["family"] == "cut"
+            and cohort in ("discovery", "heldout")
+            and all(case["split"] == cohort and case["family"] == "cut"
                     and not case["reverse"] and case["scope"] in ("inner", "outer")
                     for case in cases)
             and set(data["construction"]) == {case["name"] for case in cases},

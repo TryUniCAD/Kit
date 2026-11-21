@@ -63,3 +63,16 @@ python3.14 -I -B re/tooling/sw2026/revolve/SelectedCut/FreezeScopedRevolveNative
 From macOS, invoke the staged `Tools/RunScopedRevolveNative.py` using the designated guest Python and `prlctl exec --current-user "Windows 11"`. Supply `verify` and then `run`, the guest path to `Packet.json` and the reported `--pin`. Generation, source custody and oracle measurements stay distinct.
 
 The exact `ScopedRevolveFrontier02` batch passes both principal-frame cases and both healthy controls in six fresh SOLIDWORKS 34.5.2.0604 processes. Both files opened with two solids before an explicit rebuild and zero errors or warnings. All 182 phase checks passed through the cut D1 edit, native save and separate reopen. Each case retained all 29 ordered feature rows, the three owned D1 angles and the original selected stock. The Top case kept atoms 102 and 103. The Right case kept atoms 101 and 103. The strict reader subsequently joined both saved solids in each file and reproduced four linked streams with zero external runtime reads. The earlier four face-backed Front reads and eight rejection checks still pass. [Frozen packet](../measurements/2026/SdkScopedRevolvePrincipalPacket01.json) · [Exact native outcome](../measurements/2026/SdkScopedRevolvePrincipalNative01.json) · [Strict saved projection](../measurements/2026/SdkScopedRevolvePrincipalRead01.json)
+
+## Held-out evaluation
+
+The two previously authored cases were locked on the guest before the model-only constructor in `8953acb4be7f72230ea71de1935f3392df0378e9`. The guest-local source specification, original archives and derivative remain separate from the command and source closure. Freeze binds the complete SDK source tree, the exact constructor, the previously recorded custody and the successful signed disclosed result without access to the private files. [Source lock](../measurements/2026/RevolveCutHeldoutSourceLock01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/revolve/SelectedCut/EvaluateHeldoutStockCuts.py \
+  freeze /absolute/host/share/ScopedRevolveHeldoutEval01
+```
+
+The root oracle owner runs the staged `EvaluateHeldoutStockCuts.py` via the pinned Windows interpreter from macOS. Use the same guest packet path and `--freeze-pin` for `verify`, `prepare`, `native` and `compare`. Before accessing the private specification, `prepare` requires the guest SDK to reproduce both prior disclosed candidate hashes. Supply the published `--candidate-pin` for `native` and `compare`. The terminal native digest becomes `--native-pin` for `compare`.
+
+The native comparison admits only immutable pre-writer source states with verified controls and exact archive hashes. It compares the three corresponding original, edited and reopened snapshots. The strict offline reads re-emit both linked streams for the original, original edit and generated edit. Scalar comparisons round to six significant figures with explicit absolute fallback of 1e-16 m³ for volume, 1e-14 m² for area and 1e-12 m for numerical centre components at or near zero. Complete feature trees, actual selections, body names and topology remain exact. Reports use opaque source slots. Public writer admission requires a separate parity audit.
