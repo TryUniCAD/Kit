@@ -24,7 +24,7 @@ env:
   AuditSha: ${{ inputs.audit_sha || github.sha }}
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}-{1}', inputs.audit_sha, github.sha) || github.event.merge_group.head_sha || github.ref }}
+  group: ${{ github.workflow }}-${{ github.event_name == 'workflow_dispatch' && format('audit-{0}-{1}-{2}', inputs.audit_sha, github.sha, inputs.feature_session) || github.event.merge_group.head_sha || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
 
 jobs:
@@ -223,6 +223,9 @@ jobs:
       - name: Synchronize the source environment
         working-directory: Source
         run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+      - name: Hydrate sealed original corpus history
+        working-directory: Source
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch
       - name: Decode the pinned native feature corpus
         working-directory: Source
         run: |

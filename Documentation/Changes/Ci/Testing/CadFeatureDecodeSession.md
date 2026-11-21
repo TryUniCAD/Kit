@@ -2,6 +2,7 @@
 
 Manual source audits accept `feature_session=true` to run the existing native readers on all 714 pinned Fusion files and 58 SOLIDWORKS parts.
 The source revision is immutable and separate from the reporting harness revision.
+The job hydrates the sealed corpus history before reading the manifest's pinned native blobs.
 
 ```sh
 gh workflow run MergeQueue.yml --ref WORKFLOW_BRANCH -f audit_sha=FULL_SOURCE_SHA -f feature_session=true
@@ -19,3 +20,4 @@ The optional session is skipped on PR and merge-group events.
 
 Local verification is limited to formatting, whitespace, and repository policy.
 Actual feature decoding runs remotely; its source SHA, run URL, and measured outcomes are recorded in the PR after execution.
+The initial remote invocation stopped before decoding because the source checkout lacked the sealed manifest revision; adding the existing `CaptureHistory.py fetch` boundary repairs that setup requirement.
