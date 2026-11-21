@@ -12,6 +12,16 @@ The August 11 audit counted resolved FCStd paths from the repository root. Its d
 - The original PR #121 head and two historical audit snapshots contain zero tracked FCStd files. Nine modern verification controls appear on accepted main. Two earlier snapshots retain the same two AdditiveBox release controls. Eleven distinct Git blobs account for those cases, with no assembly or link classes in their respective `Document.xml` object tables. The AdditiveBox bytes match disclosed aliases `CADMPEG-19` and `CADMPEG-27`. The nine newer files are separate verification controls. [Control provenance](../../FreeCad/Verification/Provenance.md) · [Path and hash rows](../measurements/2026/FcstdCorpusAvailability01.json)
 - The alternative inventory contains 171 resolved paths representing 162 content identities. The SDK read two assembly documents. The writer census attempted two assembly destinations and 169 part destinations, with zero generated files and zero accepted conversions at its pinned revision. The 1.1.4 `AssemblyExample.FCStd` comparator has a disclosed hash and no verified match to the original 1.1.3 file. These sources lack authenticated membership in the requested benchmark. [Alternate inventory](../measurements/2026/DisclosedFcstdSourceInventory01.json) · [Neutral read](../measurements/2026/NeutralCorpusRead01.json) · [Writer census](../measurements/2026/PublicFcstdWriterCensus01.json)
 
+The upstream stock `AssemblyExample.FCStd` has the same Git blob
+under the FreeCAD 1.1.3 and 1.1.4 tags. Fetching that blob and hashing
+its 173,572 bytes reproduces the exact SHA-256 of the already disclosed
+`FreeCAD114Resources-40` comparator. This pins the upstream reference
+for the missing stock example. The historical installed path and its
+per-file audit hash remain unavailable.
+[FreeCAD 1.1.3](https://github.com/FreeCAD/FreeCAD/blob/1.1.3/data/examples/AssemblyExample.FCStd) ·
+[FreeCAD 1.1.4](https://github.com/FreeCAD/FreeCAD/blob/1.1.4/data/examples/AssemblyExample.FCStd) ·
+[Exact comparison](../measurements/2026/FreecadAssemblyExampleBlobs01.json)
+
 ## Reproduce the availability receipt
 
 Run the research tool from a checkout containing the pinned Git objects. Substitute the physical Mac checkout's `re/` path and a new scratch destination. The receipt records Git-relative historical paths, hashes and counts. Any new physical candidate paths appear as hashes of their relative names. The audit starts no CAD process and performs no writing or conversion of CAD files.

@@ -981,6 +981,12 @@ AdditiveBox blobs in Git. None establishes membership in the historical
 roster. All five documented assembly paths are absent from the inspected
 Mac checkout.
 
+The upstream FreeCAD 1.1.3 and 1.1.4 stock assembly examples resolve to
+one identical content hash. This matches the disclosed comparator,
+providing a pinned reference for that stock design while the original
+installed file and its per-path audit record remain unavailable.
+[Version comparison](measurements/2026/FreecadAssemblyExampleBlobs01.json)
+
 The original recursive result was:
 
 | measurement              | count |
