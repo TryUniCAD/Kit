@@ -5,6 +5,7 @@ from sys import argv as ArgValues
 from typing import NoReturn
 
 from convert.adapters.base.UsabilityError import UsabilityError
+from convert.adapters.freecad.Errors.AdapterError import FreeCadAdapterA
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
@@ -40,6 +41,7 @@ def MainEntry(ResearchRunner: Callable[[CliOptions], NoReturn] | None = None) ->
         ValueError,
         TypeError,
         NotImplementedError,
+        FreeCadAdapterA,
         RegistryError,
         UsabilityError,
     ) as Error:

@@ -38,6 +38,7 @@ class Calibration:
     def __init__(self):
         self.interrupted = False
         self.output = None
+        self.supervision_error = None
 
     def interrupt(self, number, frame):
         self.interrupted = True
@@ -187,11 +188,15 @@ class Calibration:
         identity, forced = None, []
         started, offset, pending = time.monotonic(), 0, b""
         stop_at = None
+        stage = "start_supervisor"
 
         def observe():
-            nonlocal samples, group_samples, minimum_memory, peak_groups
+            nonlocal samples, group_samples, minimum_memory, peak_groups, stage
+            stage = "sample_host_resources"
             host = host_resources()
+            stage = "sample_worker_memory"
             current_groups = sample_workers(process, directory)
+            stage = "record_resource_sample"
             if current_groups is not None:
                 group_samples += 1
                 peak_groups = max(peak_groups, current_groups)
@@ -222,8 +227,10 @@ class Calibration:
                 logs["stderr"].writer,
                 manifest["pool"],
             )
+            stage = "close_supervisor_log_writers"
             for capture in logs.values():
                 capture.close_writer()
+            stage = "record_supervisor_owner"
             owner = {"pid": process.pid, "process_start": identity}
             if sys.platform == "win32":
                 owner["job_object"] = process.job_name
@@ -231,10 +238,13 @@ class Calibration:
                 directory / "SupervisorProcess.json",
                 owner,
             )
+            stage = "poll_supervisor"
             while process.poll() is None:
-                for capture in logs.values():
+                for name, capture in logs.items():
+                    stage = f"drain_supervisor_{name}"
                     capture.drain()
                 host = observe()
+                stage = "check_trial_limits"
                 if (
                     host["available_memory_bytes"]
                     < manifest["reserved_memory_mib"] * 1048576
@@ -244,11 +254,13 @@ class Calibration:
                     reason = reason or "interrupted"
                 if time.monotonic() - started >= manifest["max_seconds"]:
                     reason = reason or "trial_timeout"
+                stage = "read_supervisor_stdout"
                 with (directory / "stdout.log").open("rb") as source:
                     source.seek(offset)
                     content = source.read(262144)
                     offset += len(content)
                 pending += content
+                stage = "inspect_supervisor_events"
                 while b"\n" in pending:
                     line, pending = pending.split(b"\n", 1)
                     event = json.loads(line)
@@ -274,12 +286,16 @@ class Calibration:
                 ):
                     reason = reason or "supervisor_log_truncated_or_invalid"
                 if reason is not None and stop_at is None:
+                    stage = "request_supervisor_stop"
                     process.terminate()
                     stop_at = time.monotonic()
                 if stop_at is not None and time.monotonic() - stop_at > 10:
+                    stage = "force_supervisor_stop"
                     forced = force_stop(process, identity)
                     break
+                stage = "wait_for_next_sample"
                 time.sleep(0.1)
+                stage = "poll_supervisor"
             if (
                 sys.platform == "win32"
                 and process.returncode == 0
@@ -288,6 +304,15 @@ class Calibration:
             ):
                 observe()
         except (OSError, ValueError, KeyError, TypeError) as error:
+            if self.supervision_error is None:
+                detail = {"stage": stage, "error_type": type(error).__name__}
+                for name in ("errno", "winerror"):
+                    number = getattr(error, name, None)
+                    if type(number) is not int:
+                        number = getattr(error.__cause__, name, None)
+                    if type(number) is int:
+                        detail[name] = number
+                self.supervision_error = detail
             reason = (
                 reason or f"measurement_or_supervision_error:{type(error).__name__}"
             )
@@ -405,6 +430,7 @@ class Calibration:
         *,
         compare_grouped=False,
     ):
+        self.supervision_error = None
         if max_concurrency not in (DEFAULT_MAX_CONCURRENCY, STEPS[-1]):
             raise ValueError("calibration maximum concurrency must be 8 or 16")
         steps = tuple(step for step in STEPS if step <= max_concurrency)
@@ -556,6 +582,8 @@ class Calibration:
                     "reserved_memory_mib": manifest["reserved_memory_mib"],
                 }
             )
+            if self.supervision_error is not None:
+                trial["supervision_error"] = self.supervision_error
             write_private(directory / "Trial.json", trial)
             trials.append(trial)
             summary.append(
@@ -656,6 +684,8 @@ def main():
             "cleanup_verified": False,
             "native_acceptance": "not_established",
         }
+        if calibration.supervision_error is not None:
+            failure["supervision_error"] = calibration.supervision_error
         if calibration.output is not None:
             write_private(calibration.output / "Calibration.json", failure)
         print(canonical(failure), file=sys.stderr)

@@ -13,6 +13,7 @@ from pathlib import Path
 import sqlite3
 import subprocess
 import sys
+from tempfile import TemporaryDirectory
 
 sys.path[:0] = [
     str(Path(__file__).resolve().parents[1]),
@@ -21,11 +22,16 @@ sys.path[:0] = [
 
 from CodexAdvice.AdviceOptions import add_options, read_options
 from Corpus import git
-from InferenceGrid.CatalogueBatch import KMaxBatchWorkers, RunCatalogueBatch
+from InferenceGrid.CatalogueBatch import (
+    KMaxBatchWorkers,
+    ResumeCatalogue,
+    RunCatalogueBatch,
+)
+from InferenceGrid.CatalogueRuntime import PauseCatalogue
 from InferenceGrid.FeatureCatalogue import ReadCatalogue
 from InferenceGrid.FeatureFusionCatalogue import ReadFusionCatalogue
 from Records import bounded, canonical, label
-from Supervisor import bound_memory_reserve
+from Supervisor import Busy, bound_memory_reserve
 
 
 # a single invocation owns catalogue planning and execution through its private controller
@@ -34,7 +40,18 @@ def MainRun():
         description="Run every mapped feature in one or both CAD catalogues",
         allow_abbrev=False,
     )
+    Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
+    Parser.add_argument("--control", type=Path, action="append", default=[], help="Local SOLIDWORKS control part or raw binary comparison stream in auto mode (repeatable)")
     Parser.add_argument("--directory", required=True, type=Path)
+    Mode = Parser.add_mutually_exclusive_group()
+    Mode.add_argument(
+        "--pause",
+        action="store_true",
+        help="Let active jobs finish and stop taking new jobs",
+    )
+    Mode.add_argument(
+        "--resume", action="store_true", help="Continue a prepared catalogue directory"
+    )
     Parser.add_argument("--solidworks-catalogue", type=Path)
     Parser.add_argument("--solidworks-sha256")
     Parser.add_argument("--fusion-catalogue", type=Path)
@@ -42,10 +59,12 @@ def MainRun():
         "--catalogue", type=Path, help="Catalogue path for the kit run format"
     )
     Parser.add_argument(
-        "--batch-format", choices=("fusion", "solidworks"), help=SUPPRESS
+        "--batch-format", choices=("fusion", "solidworks", "auto"), help=SUPPRESS
     )
     Parser.add_argument("--fusion-sha256")
-    Parser.add_argument("--max-seconds", type=int, default=1200)
+    Parser.add_argument(
+        "--max-seconds", type=int, help="Run time limit (new run default: 1200)"
+    )
     Parser.add_argument(
         "--workers",
         type=int,
@@ -69,42 +88,38 @@ def MainRun():
     add_options(Parser)
     Args = Parser.parse_args()
     try:
-        Reserve = (
-            None
-            if Args.reserved_memory_mib is None
-            else bound_memory_reserve(Args.reserved_memory_mib)
-        )
-        Advice = read_options(Args)
-        if Advice is not None and os.name != "posix":
-            raise ValueError("decoder advice requires macOS or Linux")
-        Catalogues = ReadRunInputs(Args)
-        Native = ReadNativeOptions(Args)
-        if Args.native_ready and Native is None:
-            raise ValueError("--native-ready requires the native worker configuration")
         SourceRoot = Path(__file__).resolve().parents[3]
-        Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
-        Outcome = RunCatalogueBatch(
-            Args.directory.resolve(),
-            SourceRoot,
-            Revision,
-            Catalogues,
-            bounded(Args.max_seconds, 1, 86400),
-            Native,
-            Advice,
-            Reserve=Reserve,
-            Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
-            NativeReady=Args.native_ready,
-        )
+        Directory = Args.directory.resolve()
+        if Args.pause or Args.resume:
+            CheckSavedArgs(Args)
+            if Args.pause:
+                sys.stdout.buffer.write(
+                    (
+                        canonical(
+                            PauseCatalogue(Directory, SourceRoot, Args.batch_format)
+                        )
+                        + "\n"
+                    ).encode("utf-8")
+                )
+                return 0
+            Outcome = ResumeCatalogue(
+                Directory,
+                SourceRoot,
+                Args.batch_format,
+                Args.max_seconds,
+                Args.native_ready,
+            )
+        else:
+            Outcome = StartNewRun(Args, SourceRoot)
         Output = canonical(
-            {
-                **Outcome,
-                "result": str(Args.directory.resolve() / "CatalogueResult.json"),
-            }
+            {**Outcome, "result": str(Directory / "CatalogueResult.json")}
         )
         sys.stdout.buffer.write((Output + "\n").encode("utf-8"))
-        return {"completed": 0, "coverage_incomplete": 2, "failed": 1}[
+        return {"completed": 0, "coverage_incomplete": 2, "paused": 0, "failed": 1}[
             Outcome["status"]
         ]
+    except Busy:
+        Parser.exit(1, "catalogue run is already active\n")
     except (
         OSError,
         ValueError,
@@ -115,6 +130,75 @@ def MainRun():
         subprocess.SubprocessError,
     ) as Error:
         Parser.exit(1, f"catalogue run refused: {Error}\n")
+
+
+# saved runs use the original inputs and runtime settings without making new claims
+def CheckSavedArgs(Args):
+    if any(
+        value is not None
+        for value in (
+            Args.catalogue,
+            Args.solidworks_catalogue,
+            Args.solidworks_sha256,
+            Args.fusion_catalogue,
+            Args.fusion_sha256,
+            Args.workers,
+            Args.reserved_memory_mib,
+            Args.native_config,
+            Args.native_kind,
+            Args.native_resource,
+            Args.advisor,
+            Args.auth,
+            Args.model,
+            Args.advice_calls,
+        )
+    ) or Args.input is not None or Args.control or (Args.pause and (Args.native_ready or Args.max_seconds is not None)):
+        raise ValueError(
+            "use the saved run directory without new input or worker options"
+        )
+
+
+# new batches turn explicit input options into a reusable prepared run
+def StartNewRun(Args, SourceRoot):
+    Reserve = (
+        None
+        if Args.reserved_memory_mib is None
+        else bound_memory_reserve(Args.reserved_memory_mib)
+    )
+    Advice = read_options(Args)
+    if Advice is not None and os.name != "posix":
+        raise ValueError("decoder advice requires macOS or Linux")
+    FileAudit = None
+    if Args.batch_format == "auto" and not Args.input:
+        raise ValueError("kit run auto requires --input")
+    if Args.control and (not Args.input or (Args.batch_format != "auto" and (Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"))):
+        raise ValueError("--control requires a SOLIDWORKS part --input")
+    if Args.input:
+        from InferenceGrid.FileScope import file_scope
+        if not Args.batch_format or any((Args.catalogue, Args.solidworks_catalogue, Args.fusion_catalogue, Args.fusion_sha256, Args.solidworks_sha256)):
+            raise ValueError("use --input with one kit run format and no catalogue options")
+        with TemporaryDirectory() as Scratch:
+            Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), SourceRoot, Args.control)
+    else:
+        Catalogues = ReadRunInputs(Args)
+    Native = ReadNativeOptions(Args)
+    if Args.native_ready and Native is None:
+        raise ValueError("--native-ready requires the native worker configuration")
+    Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
+    return RunCatalogueBatch(
+        Args.directory.resolve(),
+        SourceRoot,
+        Revision,
+        Catalogues,
+        bounded(1200 if Args.max_seconds is None else Args.max_seconds, 1, 86400),
+        Native,
+        Advice,
+        Reserve=Reserve,
+        Workers=KMaxBatchWorkers if Args.workers is None else Args.workers,
+        NativeReady=Args.native_ready,
+        FileScope=FileAudit,
+        FileInput=Args.input,
+    )
 
 
 # both input formats retain their own source identities and optional pins

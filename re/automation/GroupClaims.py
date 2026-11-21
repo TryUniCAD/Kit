@@ -49,12 +49,25 @@ def renew_group(ledger, claims):
     return {"members": results, "stale": any(item["stale"] for item in results)}
 
 
+# legacy byte limits retain the established claim size while catalogue groups can be smaller
+def group_limits(value):
+    if not isinstance(value, dict):
+        return bounded(value, 1, 268435456), 20
+    if set(value) != {"limit_bytes", "max_members"}:
+        raise ValueError("bounded group policy requires byte and member limits")
+    return bounded(value["limit_bytes"], 1, 268435456), bounded(
+        value["max_members"], 2, 20
+    )
+
+
 def claim_group(ledger, worker, pool, entries):
     worker, pool = label(worker), label(pool)
     if not isinstance(entries, dict) or not entries or len(entries) > 256:
         raise ValueError("group registry must contain 1–256 kinds")
-    limits = {label(kind): bounded(limit, 1, 268435456) for kind, limit in entries.items()}
-    if not ledger.db.execute("SELECT 1 FROM pool_kinds WHERE pool=? LIMIT 1", (pool,)).fetchone():
+    limits = {label(kind): group_limits(limit) for kind, limit in entries.items()}
+    if not ledger.db.execute(
+        "SELECT 1 FROM pool_kinds WHERE pool=? LIMIT 1", (pool,)
+    ).fetchone():
         raise ValueError("pool has no registered job kinds")
     group_extension(ledger)
     ledger.refresh()
@@ -78,31 +91,41 @@ def claim_group(ledger, worker, pool, entries):
             identity = key
         if key != identity or solo or not spec["inputs"]:
             continue
+        byte_limit, member_limit = limits[spec["kind"]]
         ledger.verify_job(row)
         snapshot = json.loads(row["snapshot"])
-        objects = {digest(spec), *(item["sha256"] for item in snapshot["inputs"].values())}
+        objects = {
+            digest(spec),
+            *(item["sha256"] for item in snapshot["inputs"].values()),
+        }
         for dependency in snapshot["dependencies"].values():
             objects.update(dependency.values())
             result = read_record(ledger.objects.path(dependency["result"]))
-            objects.update(item["sha256"] for item in result.get("output_artifacts", {}).values())
+            objects.update(
+                item["sha256"] for item in result.get("output_artifacts", {}).values()
+            )
         footprint = sum(ledger.verify_object(value) for value in objects)
-        if footprint >= limits[spec["kind"]]:
+        if footprint >= byte_limit:
             if not selected:
                 return []
             continue
-        if total + footprint >= limits[spec["kind"]]:
+        if total + footprint >= byte_limit:
             continue
         resources = ledger.db.execute(
             "SELECT r.resource,a.capacity,(SELECT COUNT(*) FROM job_resources held JOIN jobs owner ON owner.id=held.job_id WHERE held.resource=r.resource AND owner.state='running') AS held "
-            "FROM job_resources r JOIN resources a ON a.name=r.resource WHERE r.job_id=?", (row["id"],)
+            "FROM job_resources r JOIN resources a ON a.name=r.resource WHERE r.job_id=?",
+            (row["id"],),
         ).fetchall()
-        if any(item["held"] + reserved.get(item["resource"], 0) >= item["capacity"] for item in resources):
+        if any(
+            item["held"] + reserved.get(item["resource"], 0) >= item["capacity"]
+            for item in resources
+        ):
             continue
         for item in resources:
             reserved[item["resource"]] = reserved.get(item["resource"], 0) + 1
         selected.append((row, spec))
         total += footprint
-        if len(selected) >= min(20, maximum - running):
+        if len(selected) >= min(member_limit, maximum - running):
             break
     if len(selected) < 2:
         return []

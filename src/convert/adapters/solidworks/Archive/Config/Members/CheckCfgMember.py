@@ -1,22 +1,11 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Config.Members.CfgMemberTypes import (
-    KExplViewClass,
-    KRelMgrClass,
     KRequiredMembers,
-    KSketchBlockClass,
-    KThreadMgrClass,
-    KViewClass,
 )
-from convert.adapters.solidworks.Archive.Config.Members.CheckCfgOwner import (
-    CheckCfgOwner,
+from convert.adapters.solidworks.Archive.Config.Members.MemberChecks import (
+    KMemberChecks,
+    KNodeChecks,
 )
-from convert.adapters.solidworks.Archive.Config.Members.CheckRelMember import (
-    CheckRelMember,
-)
-from convert.adapters.solidworks.Archive.Config.Members.CheckThreadMap import (
-    CheckThreadMap,
-)
-from convert.adapters.solidworks.Archive.Config.Members.CheckCfgView import CheckCfgView
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.ObjectIndex import ObjectIndex
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -43,11 +32,9 @@ def CheckCfgMember(
         raise BodyUnsupported(
             "SOLIDWORKS configuration member requires a new root object"
         )
-    if MemberClass == KRelMgrClass:
-        CheckRelMember(RootValue)
-    elif MemberClass in (KSketchBlockClass, KExplViewClass):
-        CheckCfgOwner(RootValue)
-    elif MemberClass == KThreadMgrClass:
-        CheckThreadMap(RootValue)
-    elif MemberClass == KViewClass:
-        CheckCfgView(RootValue)
+    CheckNode = KNodeChecks.get(MemberClass)
+    if CheckNode is not None:
+        CheckNode(RootValue)
+    CheckOwned = KMemberChecks.get(MemberClass)
+    if CheckOwned is not None:
+        CheckOwned(RootValue, MapValue)

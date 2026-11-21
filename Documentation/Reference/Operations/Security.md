@@ -59,6 +59,9 @@ Do not suppress a finding merely to make a status green.
 
 ## Development dependencies
 
+The development lock requires wcmatch 11.2 or later for multi-star filename matching denial of service.
+See the [wcmatch repair](../../Changes/Dependencies/WcmatchStarMatching.md) for the override and verification limits.
+
 The development lock requires asteval 1.0.9 or later for the native memory sandbox escape.
 See the [asteval memory repair](../../Changes/Dependencies/AstevalNativeMemory.md) for the override and verification limits.
 
