@@ -6,7 +6,7 @@ from typing import cast as CastValue
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
 
-# registry and direct publication must preserve the complete modeled archive and reject invalid footprints before staging
+# ordinary preparation preserves typed pattern geometry while unsupported publication leaves every destination unchanged
 def TestPatWrite() -> None:
     Script = (
         KRepoRoot
@@ -30,7 +30,17 @@ def TestPatWrite() -> None:
     assert (First["count"], First["faces"], First["reversed"]) == (3, 21, False)
     assert (Second["count"], Second["faces"], Second["reversed"]) == (4, 26, True)
     for Evidence in Cases.values():
-        assert Evidence["publication_routes"] == 4 and Evidence["logical_streams"] == 10
+        assert Evidence["prepared_routes"] == Evidence["missing_receipt_refusals"] == 4
+        assert Evidence["publication_routes"] == 0 and Evidence["logical_streams"] == 10
+        assert Evidence["intended_capabilities"] == [
+            "body_structure",
+            "configurations",
+            "editable_sketches",
+            "parameters",
+            "parametric_history",
+            "selections",
+            "support_planes",
+        ]
         assert (
             Evidence["runtime_input_file_reads"] == 0
             and Evidence["strict_path_and_stream"] is True

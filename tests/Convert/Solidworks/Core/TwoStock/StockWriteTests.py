@@ -7,7 +7,7 @@ from typing import cast as CastValue
 from pytest import mark as TestMark
 
 
-# real writer entry points must preserve the complete prepared bytes and leave refused destinations intact
+# ordinary preparation must preserve selected stock ownership while public refusals leave destinations intact
 @TestMark.parametrize("RequestRole", ("disclosed", "independent", "refusals"))
 def TestStockWrite(RequestRole: str) -> None:
     RootValue = FilePath(__file__).resolve().parents[5]
@@ -31,6 +31,7 @@ def TestStockWrite(RequestRole: str) -> None:
         assert ReportValue["prior_destinations_preserved"] is True
         assert ReportValue["no_staging_remains"] is True
     else:
-        assert ReportValue["qualified_routes"] == 4
-        Transfers = CastValue(list[str], ReportValue["native_transfers"])
-        assert len(Transfers) == 7 and "selections" in Transfers
+        assert ReportValue["qualified_routes"] == 0
+        assert ReportValue["prepared_routes"] == ReportValue["missing_receipt_refusals"] == 4
+        RequiredCaps = CastValue(list[str], ReportValue["intended_capabilities"])
+        assert len(RequiredCaps) == 7 and "selections" in RequiredCaps

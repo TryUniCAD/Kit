@@ -10,6 +10,7 @@ from subprocess import check_output, run
 import sys
 from tarfile import open as open_tar
 from tempfile import TemporaryDirectory
+from zlib import ZLIB_RUNTIME_VERSION
 
 
 HERE = Path(__file__).resolve()
@@ -43,73 +44,92 @@ SOURCES = (
 )
 
 
+def check_disclosed(pinned, historical_hash):
+    evidence_path = ROOT / "re/solidworks/measurements/2026/SdkTwoStockPreparation01.json"
+    raw = evidence_path.read_bytes()
+    require(sha256(raw).hexdigest() == "0b792fb7b3a0d8c16e742cb90198093a4962361ff96645af1eed2aacacaafe63",
+            "wrong disclosed preparation evidence")
+    recorded = json.loads(raw)["results"]["disclosed"]
+    require(pinned["streams"] == recorded["streams"] and recorded["sha256"] == historical_hash,
+            "disclosed model changed an exact measured logical stream")
+    exact = pinned["sha256"] == historical_hash and pinned["bytes"] == recorded["bytes"]
+    require(exact or "zlib-ng" in ZLIB_RUNTIME_VERSION,
+            "disclosed model no longer reproduces the frozen native-tested archive")
+    return exact
+
+
 def publication(folder, profile):
-    from convert import write_document
+    from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
     from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import PrepareStockPart
     from convert.api.ApiContext import GetRegistry
     from ProveSdkStockWriter import (
         authored, check_independent, fingerprint, HISTORICAL_HASH, read_generated, STAMP,
     )
+    from RequirePartReceipt import measure_refusals
     from VerifySdkCircleEndRegistration import OutputGuard
 
     document = authored(profile)
     filename = document.metadata["name"] + ".SLDPRT"
     normal = folder / "registered" / filename
     direct = folder / "direct" / filename
-    direct.parent.mkdir()
+    locator = rf"C:\KitSdkCandidates\{filename}"
     policy = {"require_native_transfers": True}
     options = WriteOptions(values={**policy, "final_destination": str(normal)})
     adapter = GetRegistry().GetWriter(FORMAT)
     audit = OutputGuard(folder, filename)
     sys.addaudithook(audit.audit)
     with audit.active("memory"):
-        prepared = PrepareStockPart(document, BytesIO(), STAMP, options)
+        unmodified = BytesIO()
+        prepared = PrepareStockPart(document, unmodified, STAMP, options)
         witness = PrepareStockPart(document, BytesIO(), STAMP, WriteOptions(
-            values={"final_destination": rf"C:\KitSdkCandidates\{filename}"},
+            values={"final_destination": locator},
         ))
+        config, = document.configurations
         require(
             adapter.supports(document, normal)
-            and adapter.supports(document, BytesIO())
+            and adapter.supports(document, unmodified)
             and adapter.ProveThroughEnd(document, normal) == document.feature_timeline[-1].id,
             "the registered part writer did not authenticate the actual cut",
         )
-        direct_stream, normal_stream = BytesIO(), BytesIO()
-        base_result = adapter.write(document, direct_stream, options)
-        stream_result = write_document(
-            document, normal_stream, destination_format=FORMAT, allow_carrier=False,
-            values=options.values,
+        candidates = (
+            PrepareNative(document, normal, STAMP, WriteOptions(configuration=config.id, values=policy)),
+            PrepareNative(document, direct, STAMP, replace(options, configuration=config.name)),
+            *(PrepareNative(document, unmodified, STAMP, replace(options, configuration=identifier))
+              for identifier in (config.id, config.name)),
         )
-        archived = SldprtArchive.from_bytes(normal_stream.getvalue())
-        restored = read_generated(normal_stream.getvalue(), document)
-    with audit.active("path"):
-        file_result = adapter.write(document, direct, options)
-        stage_result = write_document(document, normal, allow_carrier=False, values=policy)
-    raw = normal.read_bytes()
-    require(
-        raw == direct.read_bytes() == direct_stream.getvalue() == normal_stream.getvalue() == prepared.BytesValue
-        and archived.streams == prepared.StreamsValue and len(archived.streams) == 10
-        and tuple(normal.parent.iterdir()) == (normal,),
-        "a public target changed prepared bytes or left staging state",
-    )
+        raw = prepared.BytesValue
+        archived = SldprtArchive.from_bytes(raw)
+        restored = read_generated(raw, document)
+        require(
+            all(candidate.BytesValue == raw for candidate in candidates)
+            and archived.streams == prepared.StreamsValue and len(archived.streams) == 10
+            and not normal.parent.exists() and not direct.parent.exists()
+            and not unmodified.getvalue() and unmodified.tell() == 0,
+            "ordinary pure preparation changed the archive or touched the caller targets",
+        )
     if os.name != "nt":
         require(raw == witness.BytesValue, "standalone host path changed the frozen locator")
     pinned = fingerprint(witness.StreamsValue, witness.BytesValue)
+    exact_disclosed = None
     if profile == "disclosed":
-        require(pinned["sha256"] == HISTORICAL_HASH and pinned["bytes"] == 8574,
-                "disclosed model no longer reproduces the frozen native-tested archive")
+        exact_disclosed = check_disclosed(pinned, HISTORICAL_HASH)
     else:
         check_independent(restored["bodies"])
-    for result, target in ((base_result, None), (file_result, direct)):
-        policy_result(result, raw, True, target)
-    transfers = policy_result(stream_result, raw, True, None, NATIVE_CAPS)
-    require(policy_result(stage_result, raw, True, normal, NATIVE_CAPS) == transfers,
-            "staged and streamed native capabilities diverged")
+    capabilities = sorted(value.value for value in GetDocumentCaps(document))
+    require(capabilities == list(NATIVE_CAPS), "the neutral cut lost its selected-scope capabilities")
+    normal.parent.mkdir()
+    with audit.active("path"):
+        require(normal.write_bytes(raw) == len(raw), "short internal research artifact")
+    missing_receipt = measure_refusals(document, normal, str(normal), adapter, audit)
     return {
         "artifact": fingerprint(archived.streams, raw), "frozen_locator_artifact": pinned,
-        "native_transfers": transfers, "qualified_routes": 4, "strict_readback": restored,
-        "guarded_output_events": dict(audit.events), "runtime_input_file_reads": len(audit.denied),
+        "intended_capabilities": capabilities, "qualified_routes": 0, "prepared_routes": 4,
+        "historical_native_digest_matches": exact_disclosed, "strict_readback": restored,
+        "missing_receipt_refusals": missing_receipt, "guarded_output_events": dict(audit.events),
+        "runtime_input_file_reads": len(audit.denied),
     }
 
 
@@ -142,7 +162,9 @@ def denial(folder):
     from convert import write_document
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.api.ApiContext import GetRegistry
-    from ProveSdkStockWriter import PART, authored
+    from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+    from ProveSdkStockWriter import PART, STAMP, authored
+    from RequirePartReceipt import must_need_receipt
     from VerifySdkCircleEndRegistration import OutputGuard, refuses
 
     document = authored("disclosed")
@@ -183,14 +205,18 @@ def denial(folder):
         require(DIAGNOSTIC in reason, "the JSON writer acquired SOLIDWORKS admission")
         blocked["cross-format"] = reason
     fresh = folder / "invalid-configuration" / filename
+    unavailable = WriteOptions(configuration="Unavailable", values=policy, overwrite=True)
+    with audit.active("memory"):
+        for target in (existing, fresh):
+            reason = refuses(lambda: PrepareNative(document, target, STAMP, unavailable), (ValueError,))
+            require("requested two-stock write configuration is unavailable" in reason,
+                    "the internal preparation failed at an unexpected guard")
     with audit.active("path"):
         for target in (existing, fresh):
-            reason = refuses(lambda: write_document(
+            must_need_receipt(lambda: write_document(
                 document, target, destination_format=FORMAT, overwrite=True,
                 allow_carrier=False, configuration="Unavailable", values=policy,
-            ), (ValueError,))
-            require("requested two-stock write configuration is unavailable" in reason,
-                    "the staged transfer failed at an unexpected guard")
+            ))
     require(
         existing.read_bytes() == stream.getvalue() == sentinel
         and tuple(existing.parent.iterdir()) == (existing,)
@@ -246,7 +272,7 @@ def prove():
             controls[mode] = launch(mode, sdk)
             require(controls[mode] == old, "a prior native writer path changed: " + mode)
     return {
-        "schema": "kit.sw2026.qualified-two-stock-registration.v1",
+        "schema": "kit.sw2026.two-stock-preparation-gate.v1",
         "frozen_constructor_revision": FROZEN,
         "frozen_constructor_source_tree": "93f0ef018a2e403a5cf98ba2d832a2db16b362fa",
         "source_sha256": {

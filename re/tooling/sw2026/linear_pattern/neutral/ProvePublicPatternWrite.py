@@ -21,8 +21,6 @@ DEFAULTS = ROOT / "re/solidworks/measurements/2026/SharedLinearPatternDefaults01
 DEFAULTS_SHA = "ef52c12bc4a22a0de666b043ad586871a0bdfa03e877ac62e591b40dfbaa2df7"
 BASE = "e393f3080141976513fe0f397d7766b97879a63c"
 FORMAT = "solidworks.sldprt"
-NATIVE = frozenset(("body_structure", "configurations", "editable_sketches",
-                    "parameters", "parametric_history", "selections", "support_planes"))
 POLICY = {"allow_carrier": False, "require_native_transfers": True}
 PRODUCTION = ROOT / "src/convert/adapters/solidworks/Core"
 CHANGED = ("Preparation/Patterns/IsPatPart.py", "Preparation/Patterns/PatCandidate.py",
@@ -49,18 +47,6 @@ def locked(path, pin):
     data = path.read_bytes()
     require(digest(data) == pin, "incorrect public fixture authority: " + path.name)
     return json.loads(data)
-
-
-def check_result(result, data, path):
-    from convert.adapters.base.TransferContract import TransferMode
-
-    require(result.path == path and result.adapter == FORMAT and result.bytes_written == len(data)
-            and result.application_usable and result.vendor_loadable
-            and not result.dropped and not result.requirements and not result.carrier_capabilities
-            and result.roundtrip_safe and len(result.transfers) == len(NATIVE)
-            and all(item.mode is TransferMode.KNative for item in result.transfers)
-            and {item.value for item in result.native_capabilities} == NATIVE,
-            "ordinary write result lost a measured native capability or changed publication metadata")
 
 
 def compile_expected(document, target):
@@ -137,55 +123,60 @@ def strict_geometry(source, expected, *, format_id=None):
             "strict geometry did not survive portable JSON")
 
 
-def positive(folder, document, target, writer, adapter, audit):
-    from convert import open_document, write_document
+def positive(folder, document, target, writer, audit):
+    from convert import open_document
+    from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
     from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 
     config, = document.configurations
     name = PureWindowsPath(target.PathName).name
     path = folder / "body" / name
+    staged = folder / "staged" / name
     logical = str(path) if PureWindowsPath(str(path)).drive else rf"C:\KitSdkCandidates\{name}"
     stream_values = {**POLICY, "final_destination": target.PathName}
-    registered, adapted = BytesIO(), BytesIO()
+    unmodified = BytesIO()
     with audit.active("memory"):
         expected_path, file_bytes = compile_expected(document, SelfFileInput(logical, target.SavedAt))
         expected_stream, stream_bytes = compile_expected(document, target)
-        require(writer.supports(document, path) and writer.supports(document, BytesIO())
+        require(writer.supports(document, path) and writer.supports(document, unmodified)
                 and not writer.supports(document, path.with_name("Renamed.SLDPRT")),
                 "selection changed the model or target contract")
-        public_stream = write_document(document, registered, destination_format=FORMAT,
-                                       configuration=config.id, allow_carrier=False, values=stream_values)
-        direct_stream = adapter.write(document, adapted, WriteOptions(configuration=config.name, values=stream_values))
+        streams = tuple(PrepareNative(
+            document, unmodified, target.SavedAt, WriteOptions(configuration=config_value, values=stream_values),
+        ) for config_value in (config.id, config.name))
+        paths = (
+            PrepareNative(document, path, target.SavedAt, WriteOptions(configuration=config.name, values=POLICY)),
+            PrepareNative(document, staged, target.SavedAt, WriteOptions(configuration=config.id,
+                          values={**POLICY, "final_destination": str(path)})),
+        )
         archive = SldprtArchive.from_bytes(stream_bytes)
-        require(registered.getvalue() == adapted.getvalue() == stream_bytes
-                and archive.streams == expected_stream
-                and len(expected_stream) == 10, "public stream changed the canonical archive")
-        check_result(public_stream, stream_bytes, None)
-        check_result(direct_stream, stream_bytes, None)
+        require(all(candidate.BytesValue == stream_bytes for candidate in streams)
+                and all(candidate.BytesValue == file_bytes for candidate in paths)
+                and archive.streams == expected_stream and len(expected_stream) == 10
+                and SldprtArchive.from_bytes(file_bytes).streams == expected_path
+                and unmodified.getvalue() == b"" and unmodified.tell() == 0
+                and not path.exists() and not staged.parent.exists(),
+                "ordinary pure preparation changed the independent archive or touched the target")
         body, topology = read_typed(archive, document)
         metadata = open_document(BytesIO(stream_bytes), source_format=FORMAT, strict=True, include_brep=False)
         require(metadata.brep is None and metadata.configurations[0].name == config.name,
                 "ordinary metadata reader lost the active configuration")
         strict_geometry(BytesIO(stream_bytes), topology, format_id=FORMAT)
+    path.parent.mkdir()
     with audit.active("path"):
-        public_path = write_document(document, path, configuration=config.name, allow_carrier=False, values=POLICY)
-    require(path.read_bytes() == file_bytes and SldprtArchive.from_bytes(file_bytes).streams == expected_path
-            and tuple(path.parent.iterdir()) == (path,), "public staging changed the canonical archive or retained a stage")
-    path.unlink()
-    with audit.active("path"):
-        direct_path = adapter.write(document, path, WriteOptions(configuration=config.id, values=POLICY))
+        require(path.write_bytes(file_bytes) == len(file_bytes), "short internal research artifact")
     require(path.read_bytes() == file_bytes and tuple(path.parent.iterdir()) == (path,),
-            "direct adapter changed the final locator or retained a stage")
+            "internal artifact differs from the complete prepared archive")
     strict_geometry(path, topology)
-    check_result(public_path, file_bytes, path)
-    check_result(direct_path, file_bytes, path)
     source = document.feature_timeline[-1].definition
     return {"configuration": config.name, "count": source.instance_count, "pitch_m": source.spacing.value,
             "reversed": source.reversed, "faces": topology.face_count, "logical_streams": len(expected_stream),
             "stream_bytes": len(stream_bytes), "stream_sha256": digest(stream_bytes), "same_locator_file_sha256": digest(file_bytes),
-            "native_transfers": sorted(NATIVE), "strict_path_and_stream": True, "publication_routes": 4}, path, body
+            "intended_capabilities": sorted(value.value for value in GetDocumentCaps(document)),
+            "strict_path_and_stream": True, "prepared_routes": 4, "publication_routes": 0}, path, body
 
 
 def negative(folder, document, target, writer, adapter, audit, path, brep):
@@ -223,21 +214,20 @@ def negative(folder, document, target, writer, adapter, audit, path, brep):
             checked_refusal(NotFoundError, "does not support the destination",
                             lambda: adapter.write(candidate, payload, options))
         checked_refusal(ValueError, "requested pattern write configuration is unavailable",
-                        lambda: write_document(document, payload, destination_format=FORMAT, configuration="Other",
-                                               allow_carrier=False, values=policy))
+                        lambda: PrepareNative(document, payload, target.SavedAt,
+                                               WriteOptions(configuration="Other", values=policy)))
         checked_refusal(ValueError, "unnamed native streams require an explicit final destination",
-                        lambda: adapter.write(document, payload, WriteOptions(values=POLICY)))
+                        lambda: PrepareNative(document, payload, target.SavedAt, WriteOptions(values=POLICY)))
         checked_refusal(ValueError, "unsupported plain part preparation options",
-                        lambda: adapter.write(document, payload, WriteOptions(values={**policy, "invented": True})))
+                        lambda: PrepareNative(document, payload, target.SavedAt,
+                                               WriteOptions(values={**policy, "invented": True})))
         wrong = {**policy, "final_destination": rf"D:\KitSdkCandidates\{path.name}"}
         checked_refusal(ValueError, "exact authored native basename and event",
-                        lambda: adapter.write(document, payload, WriteOptions(values=wrong)))
-    with audit.active("path"):
+                        lambda: PrepareNative(document, payload, target.SavedAt, WriteOptions(values=wrong)))
         for location in (path, config_target):
             checked_refusal(ValueError, "requested pattern write configuration is unavailable",
-                            lambda: write_document(document, location, destination_format=FORMAT,
-                                                   configuration="Other", overwrite=True, allow_carrier=False,
-                                                   values=POLICY))
+                            lambda: PrepareNative(document, location, target.SavedAt,
+                                                   WriteOptions(configuration="Other", overwrite=True, values=POLICY)))
     require(not other.parent.exists() and not config_target.parent.exists()
             and path.read_bytes() == prior and tuple(path.parent.iterdir()) == (path,)
             and payload.getvalue() == b"caller data" and payload.tell() == 2,
@@ -252,6 +242,7 @@ def worker(folder):
     from convert.api.ApiContext import GetRegistry
     from interchange import CadDocument, PlaneAxis
     from VerifySdkCircleEndRegistration import OutputGuard
+    from RequirePartReceipt import measure_refusals
 
     job = json.load(sys.stdin)
     document = CadDocument.from_json(encode(job["document"]).decode())
@@ -268,13 +259,13 @@ def worker(folder):
                    "interchange.document.Validation.DocumentFeatureValidate",
                    "interchange.document.Validation.DocumentReferenceValidate"):
         import_module(module)
-    import_module("convert.adapters.solidworks.Core.Writing.EmitNativeMut").ReadTime = lambda: target.SavedAt
     writer = GetRegistry().GetWriter(FORMAT)
     adapter = SldprtAdapter()
     audit = OutputGuard(folder, PureWindowsPath(target.PathName).name)
     sys.addaudithook(audit.audit)
-    visible, path, body = positive(folder, document, target, writer, adapter, audit)
+    visible, path, body = positive(folder, document, target, writer, audit)
     visible["refusals"] = negative(folder, document, target, writer, adapter, audit, path, body)
+    visible["missing_receipt_refusals"] = measure_refusals(document, path, target.PathName, adapter, audit)
     require(not audit.denied and not any(name in ("Swapp", "pythoncom", "FreeCAD", "adsk")
                 or name.startswith("win32com") for name in sys.modules),
             "normal publication attempted a CAD process or runtime input read")
@@ -329,7 +320,7 @@ def measure(exact_host, compare_base):
             results[name] = row
     require(len(results) == 2 and len({row["stream_sha256"] for row in results.values()}) == 2,
             "expected two independent portable part controls")
-    return {"schema": "kit.sw2026.public-oblique-pattern-write.v2", "base_revision": BASE,
+    return {"schema": "kit.sw2026.oblique-pattern-preparation-gate.v1", "base_revision": BASE,
             "disclosed_neutral_manifest_sha256": FIXTURE_SHA, "historical_host_defaults_sha256": DEFAULTS_SHA,
             "historical_host_digest_required": exact_host, "guarded_worker_processes": len(results),
             "source_sha256": {str((PRODUCTION / path).relative_to(ROOT)): digest((PRODUCTION / path).read_bytes())
