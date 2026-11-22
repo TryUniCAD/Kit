@@ -7,7 +7,8 @@ from interchange.document.Models.DocumentWalk import WalkDocuments
 
 # invalid mat writes input must fail here so format boundaries expose consistent document behavior
 def CheckMatWrites(Document: CadDocument, Adapter: CadWriterAdapter) -> None:
-    CheckMatState(Document)
+    if Adapter.info.format_id != "interchange.json":
+        CheckMatState(Document)
     if not any(Value.materials for Value in WalkDocuments(Document)):
         return
     if not isinstance(Adapter, MaterialWriter) or Adapter.TypedMaterials is not True:

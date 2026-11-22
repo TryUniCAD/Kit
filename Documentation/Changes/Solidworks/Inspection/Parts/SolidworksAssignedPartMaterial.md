@@ -20,7 +20,9 @@ assignments before touching the destination.
 Fourteen guarded reads across seven previously measured SOLIDWORKS 2026
 SP05.2 saves preserve the linked assignment in both modes. The shared
 queue case covers the independently authored assigned part, an
-unassigned control, an invalid material claim and twelve write refusals.
+unassigned control, an invalid material claim and eight native write
+refusals. Eligible interchange JSON writes retain the partial typed
+material state.
 
 [Adapter guide](../../../../Reference/Adapters/Solidworks.md) ·
 [Archive ownership and proof](../../../../../re/solidworks/records/SdkAssignedPartRead2026.md)

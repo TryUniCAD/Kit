@@ -23,5 +23,6 @@ def TestNamedMat() -> None:
     assert LoadJson(Outcome.stdout) == {
         "assignment": {"design": Assignment, "geometry": Assignment},
         "invalid_assignment": {"design": Rejection, "geometry": Rejection},
-        "writes_refused": 12,
+        "writes_refused": 8,
+        "json_material_states_preserved": 8,
     }

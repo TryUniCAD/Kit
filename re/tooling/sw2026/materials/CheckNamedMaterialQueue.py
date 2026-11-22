@@ -1,3 +1,4 @@
+from dataclasses import replace
 from hashlib import sha256
 from io import BytesIO
 from json import dumps
@@ -5,11 +6,13 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(ROOT / "src"))
+sys.path[:0] = [str(ROOT / "src"), str(ROOT)]
 from convert import open_document, write_document
+from convert.adapters.json.Adapter import JsonAdapter
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange import CadDocument
+from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
 
 
 def checked_source(path, digest):
@@ -20,14 +23,13 @@ def checked_source(path, digest):
 
 
 def refuse_writes(document):
-    for route in ("native", "interchange", "direct"):
+    for route in ("registry", "direct"):
         sink = BytesIO(b"original")
         try:
             if route == "direct":
                 SldprtWriter().write(document, sink)
             else:
-                kind = "solidworks.sldprt" if route == "native" else "interchange.json"
-                write_document(document, sink, destination_format=kind)
+                write_document(document, sink, destination_format="solidworks.sldprt")
         except ValueError as error:
             if str(error) != "unresolved material assignments cannot be exported":
                 raise
@@ -35,7 +37,31 @@ def refuse_writes(document):
             raise ValueError(f"{route} accepted unresolved material")
         if sink.tell() != 0 or sink.getvalue() != b"original":
             raise ValueError(f"{route} touched the destination")
-    return 3
+    return 2
+
+
+def preserve_json(document):
+    neutral = MakePlainDoc("MaterialInspection", ((0.0, 0.0), (20.0, 0.0), (20.0, 10.0), (0.0, 10.0)), 5.0)
+    observed = document.materials
+    body, = neutral.bodies
+    neutral = replace(
+        neutral,
+        materials=observed,
+        bodies=(replace(body, material_id=observed[0].id if observed else None),),
+        diagnostics=tuple(row for row in document.diagnostics if row.code.startswith("sldprt.material_")),
+    )
+    for route in ("registry", "direct"):
+        sink = BytesIO()
+        if route == "registry":
+            write_document(neutral, sink, destination_format="interchange.json")
+        else:
+            JsonAdapter().write(neutral, sink)
+        recovered = CadDocument.from_json(sink.getvalue().decode("utf-8"))
+        if (recovered.materials != neutral.materials
+                or recovered.bodies[0].material_id != neutral.bodies[0].material_id
+                or recovered.diagnostics != neutral.diagnostics):
+            raise ValueError(f"{route} lost unresolved material evidence")
+    return 2
 
 
 def check():
@@ -53,7 +79,8 @@ def check():
         raise ValueError("unassigned part acquired a material stream")
     contrast = BuildSldprt(dict(archive.streams) | {name: b"unsupported material evidence"},
                            FormatVersion=archive.format_version)
-    results = {"assignment": {}, "invalid_assignment": {}, "writes_refused": 0}
+    results = {"assignment": {}, "invalid_assignment": {},
+               "writes_refused": 0, "json_material_states_preserved": 0}
     for mode, include_brep in (("design", False), ("geometry", True)):
         options = dict(source_format="solidworks.sldprt", strict=True, include_brep=include_brep)
         control = open_document(BytesIO(data), **options)
@@ -86,6 +113,7 @@ def check():
         results["assignment"][mode] = record
         results["invalid_assignment"][mode] = outcome.message
         results["writes_refused"] += refuse_writes(reopened) + refuse_writes(rejected)
+        results["json_material_states_preserved"] += preserve_json(reopened) + preserve_json(rejected)
     return results
 
 

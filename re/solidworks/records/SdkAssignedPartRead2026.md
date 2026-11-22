@@ -68,8 +68,11 @@ Its immutable SHA-256 is
 `04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583`.
 It checks the actual material link, native owners, density and neutral
 JSON model round trip in both read modes. An unassigned control and an
-invalid material claim measure the two additional read cases. Twelve
-registry and direct calls preserve their caller's sink on refusal.
+invalid material claim measure the two additional read cases. Eight
+registry and direct native calls preserve their caller's sink on refusal.
+The same portable material states pass eight registry and direct JSON
+calls using an authored neutral model. Saved native documents still
+undergo the existing feature-history check independently of material.
 
 The typed reader source tree is `63af2e5e288a28834086415edf43eae3f195e91e`.
 macOS Python 3.13 and 3.14 workers reproduce receipt SHA-256
