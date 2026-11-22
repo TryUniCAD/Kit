@@ -108,10 +108,11 @@ passes two complete disclosed native assembly lifecycles, including the
 tilted anti-aligned mate with rotation locked. The saved archive retains the
 ordered signed axes and rim ranges. These add zero FCStd benchmark cases.
 
-The [shared concentric parent constructor](records/SdkConcentricParentModel2026.md)
-reproduces both native-tested parent and child pairs from the actual child
-partition owners. Public assembly publication still requires generated child
-attachment, neutral endpoint admission and an exact bundle receipt.
+The [shared concentric assembly preparation](measurements/2026/AggregateConcentricPreparation01.json)
+builds the parent and child of both previous native-tested pairs from neutral
+geometry, occurrences, selected faces and authored scene settings. All 47
+streams match. Strict child reads retain both D1 owners. Public concentric
+publication and held-out generated acceptance remain open.
 
 The [aggregate offset-plane verification](records/AggregateOffsetDatumDelivery2026.md)
 reproduces the two original held-out parts and the disclosed Front, reversed

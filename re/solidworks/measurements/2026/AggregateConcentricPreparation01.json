@@ -1,0 +1,543 @@
+{
+  "cases": [
+    {
+      "case": "persistence",
+      "explicit_alternate_epoch": null,
+      "files": {
+        "child": {
+          "bytes": 10839,
+          "sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10760,
+          "sha256": "929c8e4260b62d8c16fd1a7369a46bebc9d0bcec104b36b8fbddfd3fb5b75bdd",
+          "streams": 12
+        }
+      },
+      "mate_readback": {
+        "active_intervals": [
+          [
+            0,
+            0.022819
+          ],
+          [
+            0,
+            0.022819
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "8d05122dfc0cc0607df2ae364ad7389ab6561621c8df1b08cced110b0aeee4b8",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 4018,
+        "mate_sha256": "99a50b5a4580b22c5b4a35349f894eaf024ffb3eb17620b4687a3559bd0b292c",
+        "occurrence_names": [
+          "NeutralCylinderAlphaDerived-1",
+          "NeutralCylinderAlphaDerived-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            -0.18065529823420398,
+            -0.5144806193887359,
+            0.8382561395500145
+          ],
+          [
+            -0.18065529823420404,
+            -0.5144806193887359,
+            0.8382561395500145
+          ]
+        ],
+        "world_origins": [
+          [
+            -0.015460606420462484,
+            0.014658111018034136,
+            0.007964246252471139
+          ],
+          [
+            -0.025165228386305687,
+            -0.012979273374909369,
+            0.052994527812958374
+          ]
+        ]
+      },
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "b95d6e806fdb7f167a46cd3ebbbfbf669a0bd1ac7696ec6287ba72b01376d785",
+      "neutral_preparation_exact": true,
+      "ordinary_circle_control": {
+        "changed_streams": [
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ],
+        "plain_sha256": "13f97d3420a80a3accaa24b744a4190e090e7b732e2ec73143873cb3a4ca3a61"
+      },
+      "part_readback": {
+        "active_nodes": 72,
+        "child_owner": {
+          "ArcMarker": 1,
+          "AxisValue": [
+            0,
+            0,
+            1
+          ],
+          "BodyAtom": 101,
+          "CapSelectors": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "CreatedAt": 2592000,
+          "FaceNodeId": 5,
+          "FaceTag": 6,
+          "FeatureId": 20,
+          "OriginValue": [
+            0.003913,
+            -0.0074210000000000005,
+            0
+          ],
+          "RadiusValue": 0.005137,
+          "RimCentres": [
+            [
+              0.003913,
+              -0.0074210000000000005,
+              0
+            ],
+            [
+              0.003913,
+              -0.0074210000000000005,
+              0.022819
+            ]
+          ]
+        },
+        "hidden_pointer_allocations": 11,
+        "linked_streams": 5,
+        "physical_removals": 53,
+        "retained_marks": [
+          4,
+          2,
+          1
+        ],
+        "scene_count": 1,
+        "typed_public_read": {
+          "design_only_body_name": "Body 1",
+          "full_body_name": "RoundBoss",
+          "live_d1_mm": [
+            10.274,
+            22.819
+          ],
+          "live_d1_owner_ids": [
+            "sldprt:feature:18",
+            "sldprt:feature:20"
+          ],
+          "strict_modes": 2,
+          "topology": [
+            1,
+            3,
+            2,
+            2
+          ]
+        }
+      },
+      "protected_reads": 0,
+      "refusals": {
+        "crossed_light_owner": "concentric attachment requires unique owned scene names",
+        "crossed_side_tag": "concentric face tag differs from its minted kernel owner",
+        "empty_scene": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "foreign_driver_value": "radial driving length disagrees with the actual circle",
+        "stale_light_epoch": "concentric child light times must follow the modeled generation event",
+        "unrepresented_source_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_output_kind": "native self path extension differs from its actual model kind",
+        "wrong_support_or_direction": "circle preparation is not qualified for this support driver or end profile"
+      },
+      "repeat_pairs": 2,
+      "trial_sha256": "9b7e52d198a7e2a70902b3794fff1987451bc6a599ca1d557493eddc75a580c9",
+      "variation": {
+        "bytes": 10881,
+        "config_bytes": 22844,
+        "readback": {
+          "active_nodes": 72,
+          "child_owner": {
+            "ArcMarker": 1,
+            "AxisValue": [
+              0,
+              0,
+              1
+            ],
+            "BodyAtom": 101,
+            "CapSelectors": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "CreatedAt": 2592000,
+            "FaceNodeId": 5,
+            "FaceTag": 6,
+            "FeatureId": 20,
+            "OriginValue": [
+              0.003913,
+              -0.0074210000000000005,
+              0
+            ],
+            "RadiusValue": 0.005294,
+            "RimCentres": [
+              [
+                0.003913,
+                -0.0074210000000000005,
+                0
+              ],
+              [
+                0.003913,
+                -0.0074210000000000005,
+                0.023936
+              ]
+            ]
+          },
+          "hidden_pointer_allocations": 11,
+          "linked_streams": 5,
+          "physical_removals": 53,
+          "retained_marks": [
+            4,
+            2,
+            1
+          ],
+          "scene_count": 1,
+          "typed_public_read": {
+            "design_only_body_name": "Body 1",
+            "full_body_name": "RoundBoss",
+            "live_d1_mm": [
+              10.588000000000001,
+              23.936
+            ],
+            "live_d1_owner_ids": [
+              "sldprt:feature:18",
+              "sldprt:feature:20"
+            ],
+            "strict_modes": 2,
+            "topology": [
+              1,
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        "sha256": "660d05c3f343b393bfba6cdcd908b8daf0bb8da0b129dfb62b797d38aef65d19"
+      },
+      "writer_input_reads": 0
+    },
+    {
+      "case": "store",
+      "explicit_alternate_epoch": null,
+      "files": {
+        "child": {
+          "bytes": 10962,
+          "sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 11098,
+          "sha256": "55d998baba269aba1513fc599ffd08e7aaa44f0577ac5fd8da673f8eb4f9488d",
+          "streams": 13
+        }
+      },
+      "mate_readback": {
+        "active_intervals": [
+          [
+            0,
+            0.031369999999999995
+          ],
+          [
+            0,
+            0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "b877a05784e23ae16c49e5ee74d01cc31ba62a87a24b21780c1327934c352970",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "maps": [
+          133,
+          186
+        ],
+        "mate_bytes": 3764,
+        "mate_sha256": "072407bc7c060fbb76e4b897a451fcdeb4121fd6521c43e77240bc19c00d9a87",
+        "occurrence_names": [
+          "DisclosedRadialSceneProbe-1",
+          "DisclosedRadialSceneProbe-2"
+        ],
+        "occurrences": [
+          17,
+          18
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            1
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.2558
+          ]
+        ]
+      },
+      "native_exact_pair": true,
+      "native_launches": 0,
+      "native_receipt_sha256": "d128bf6b61c69b3525743c596ee2d20a02f7b5d4b41c4d28ab088c0bc8300009",
+      "neutral_preparation_exact": true,
+      "ordinary_circle_control": {
+        "changed_streams": [
+          "Contents/CMgr",
+          "Contents/CMgrHdr2",
+          "Contents/Config-0",
+          "Contents/Config-0-ModelHeader",
+          "Contents/Config-0-Partition",
+          "Contents/Config-0-ResolvedFeatures",
+          "Header2"
+        ],
+        "plain_sha256": "9fa44619b9707c2fff2e1adacfb40501c5c35385fa9791c7d88f6d1fb2163744"
+      },
+      "part_readback": {
+        "active_nodes": 72,
+        "child_owner": {
+          "ArcMarker": 1,
+          "AxisValue": [
+            0,
+            0,
+            1
+          ],
+          "BodyAtom": 101,
+          "CapSelectors": [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "CreatedAt": 2592000,
+          "FaceNodeId": 5,
+          "FaceTag": 6,
+          "FeatureId": 20,
+          "OriginValue": [
+            0.00263,
+            -0.00417,
+            0
+          ],
+          "RadiusValue": 0.00719,
+          "RimCentres": [
+            [
+              0.00263,
+              -0.00417,
+              0
+            ],
+            [
+              0.00263,
+              -0.00417,
+              0.03137
+            ]
+          ]
+        },
+        "hidden_pointer_allocations": 11,
+        "linked_streams": 5,
+        "physical_removals": 53,
+        "retained_marks": [
+          4,
+          2,
+          1
+        ],
+        "scene_count": 4,
+        "typed_public_read": {
+          "design_only_body_name": "Solid Bodies",
+          "full_body_name": "CurveBoss",
+          "live_d1_mm": [
+            7.19,
+            31.37
+          ],
+          "live_d1_owner_ids": [
+            "sldprt:feature:18",
+            "sldprt:feature:20"
+          ],
+          "strict_modes": 2,
+          "topology": [
+            1,
+            3,
+            2,
+            2
+          ]
+        }
+      },
+      "protected_reads": 0,
+      "refusals": {
+        "crossed_light_owner": "concentric attachment requires unique owned scene names",
+        "crossed_side_tag": "concentric face tag differs from its minted kernel owner",
+        "empty_scene": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "foreign_driver_value": "radial driving length disagrees with the actual circle",
+        "reversed_scene_order": "concentric attachment requires the measured ambient or ordered four-light scene",
+        "stale_light_epoch": "concentric child light times must follow the modeled generation event",
+        "unrepresented_source_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_output_kind": "native self path extension differs from its actual model kind",
+        "wrong_support_or_direction": "circle preparation is not qualified for this support driver or end profile"
+      },
+      "repeat_pairs": 2,
+      "trial_sha256": "ac2696da314b7e2d4939fd75664270acecfe0274a479eafb9c2c6d5440aaed4b",
+      "variation": {
+        "bytes": 11023,
+        "config_bytes": 23757,
+        "readback": {
+          "active_nodes": 72,
+          "child_owner": {
+            "ArcMarker": 1,
+            "AxisValue": [
+              0,
+              0,
+              1
+            ],
+            "BodyAtom": 101,
+            "CapSelectors": [
+              [
+                1,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "CreatedAt": 2592000,
+            "FaceNodeId": 5,
+            "FaceTag": 6,
+            "FeatureId": 20,
+            "OriginValue": [
+              0.00263,
+              -0.00417,
+              0
+            ],
+            "RadiusValue": 0.007504,
+            "RimCentres": [
+              [
+                0.00263,
+                -0.00417,
+                0
+              ],
+              [
+                0.00263,
+                -0.00417,
+                0.032487
+              ]
+            ]
+          },
+          "hidden_pointer_allocations": 11,
+          "linked_streams": 5,
+          "physical_removals": 53,
+          "retained_marks": [
+            4,
+            2,
+            1
+          ],
+          "scene_count": 4,
+          "typed_public_read": {
+            "design_only_body_name": "Solid Bodies",
+            "full_body_name": "CurveBoss",
+            "live_d1_mm": [
+              7.5040000000000004,
+              32.487
+            ],
+            "live_d1_owner_ids": [
+              "sldprt:feature:18",
+              "sldprt:feature:20"
+            ],
+            "strict_modes": 2,
+            "topology": [
+              1,
+              3,
+              2,
+              2
+            ]
+          }
+        },
+        "sha256": "15b16bca2510527428ca182543c12af3dd698c8df1badca7e9c3819e75f61c69"
+      },
+      "writer_input_reads": 0
+    }
+  ],
+  "logical_streams_matched": 47,
+  "native_acceptance_scope": "exact reproduction of two earlier disclosed native-tested pairs",
+  "native_oracle_build": "34.5.2.0604",
+  "new_held_out_cases": 0,
+  "new_native_processes": 0,
+  "proof_sha256": "dfaf8ccf2ff1b5a3218df28b2d84ecb9175095c4e7fbbb8d6c515377dbc68c61",
+  "public_concentric_publication_qualified": false,
+  "schema": "kit.sw2026.aggregate.concentric.preparation.v1",
+  "source_revision": "d5e39e2a7f07529e9fed3a688f3ecb1d60b8e977",
+  "src_tree": "8d627ff1e9c8c8e5d4dcee5bb948bfa2b34824f6",
+  "strict_child_projections": 4,
+  "writer_input_reads": 0
+}

@@ -19,3 +19,13 @@ internal parent constructions and their actual wrapper and fixed-owner
 fields passed. This is an internal planning boundary. Public writer
 qualification remains open.
 [Implementation and proof](../../../../../../re/solidworks/records/SdkConcentricMatePlanning2026.md)
+
+The aggregate `PrepCylAsm` entry combines the typed neutral mate, actual
+generated child and sibling file locators. When the assembly root has no
+declared support planes, it constructs the standard principal system.
+Use the caller's explicit ordered child lights and optional display states.
+Two complete parent and child pairs reproduce the earlier native-tested
+bytes across 47 streams with zero runtime input reads. The files are
+available through the internal preparation API. Public mate publication
+still needs original held-out native acceptance.
+[Aggregate preparation receipt](../../../../../../re/solidworks/measurements/2026/AggregateConcentricPreparation01.json)
