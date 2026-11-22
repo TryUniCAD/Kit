@@ -88,6 +88,13 @@ during construction and stream publication. Existing native evidence
 authorizes the exact archive. There are zero additional native lifecycles
 or held-out cases and no new Windows filesystem observation.
 
+The guarded report reproduced byte for byte after integration with the
+rectangular publication branch at `c577ee5653672ef38fda05e9005d32e34b584201`.
+That run used source tree `07ea80a456f3c5ffa77d19f2d6dc145e0a65096d` and
+verifier SHA-256
+`5f616de5f31bc4f2f849b2aab605f2e846baa3ff8d5ec2185f06e3179783f81a`.
+On macOS the registry refuses the filesystem target during writer selection.
+
 ```sh
 python3 -I -B re/tooling/sw2026/imported_body_source/VerifyMeasuredConcave.py
 ```
