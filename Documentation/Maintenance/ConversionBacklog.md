@@ -549,3 +549,12 @@ The inspected register names that missing evidence before A06 can qualify its gr
 Check that register again before running or claiming anything.
 The next independent available task is B01, followed by B10/B11 work that can use already qualified examples.
 No new research implementation, application run, user evaluation or conversion qualification is claimed by this planning change.
+
+## Native feature ladder evidence follow-up
+
+Task `A08h-Ladders2026` is a scoped evidence publication under the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladders2026-native-campaign-evidence).
+Codex owns packaging on `feat/deterministic-campaign-20261122`; delivery PR is [#263](https://github.com/TryUniCAD/Kit/pull/263).
+Dependencies are merged PRs #158 and #207 and the licensed native workers.
+The exit requires a verified corpus manifest, sanitized records, explicit failure outcomes, and current-head publication readiness.
+The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
+Native recovery and semantic qualification remain blocked as recorded in that package.

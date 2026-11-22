@@ -435,3 +435,8 @@ For example, an expected value for the first circle sketch entity can be express
 When the baseline fails a measurement, Codex receives the selected modules, the reviewed rule and the finding. The default is GPT-6.2-Sol at medium reasoning effort. Keep proprietary contents out of the written rule. Supply `--candidate replacements.json` (or `--codec-candidate` during a catalogue run) to qualify a mapping from each selected path to its complete proposed source without a model call.
 
 Qualification runs each case through the public CLI in a network-isolated container. Writer cases reopen the generated file with the reader from the pinned base. The resulting Git patch includes codec changes, a replayable regression, the pinned cases and a change entry. Review the patch for generalization and donor data. Native application reopen, editing and losslessness still require the format's acceptance controls.
+
+## Recorded native feature ladders
+
+The [2026 feature ladder package](../../re/FeatureLadders2026/README.md) retains native inputs, strict outcomes, and typed-native inspection reports.
+Its manifest includes failed and blocked cases. These research outcomes do not qualify conversion or complete semantic recovery.
