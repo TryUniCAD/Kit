@@ -142,6 +142,11 @@ occurs in the existing measured native part. The normal SDK and CLI
 still refuse. Source archive attribution and selectable geometry have
 separate evidence. The recorded roster and conversion counts stay open.
 
+The [three-axis research candidate](records/AttachedBoxAxisCandidate2026.md)
+emits the actual named and signed datum roots beside the editable box.
+Its host archive and history checks pass. Native and corpus credit
+remain unchanged pending the new controlled lifecycle.
+
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
 healthy controls. This verifies kernel geometry for those disclosed

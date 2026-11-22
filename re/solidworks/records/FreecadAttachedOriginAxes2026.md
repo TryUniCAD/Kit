@@ -89,6 +89,10 @@ selectable axes, model visibility and all prior editable body semantics,
 followed by a closed public transfer report.
 [Process evidence](../measurements/2026/AttachedBoxAxes01.json)
 
+The [following model-only candidate](AttachedBoxAxisCandidate2026.md)
+adds all three typed axis roots using the shared serializer. Its exact
+new bytes await the native lifecycle and placement and visibility checks.
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyAttachedBoxAxes.py \
   /path/to/recipe-0.21.2-F14c.FCStd /path/to/measured/F14c.SLDPRT \

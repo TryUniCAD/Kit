@@ -1,0 +1,546 @@
+{
+  "axis_endpoint_refit_after_edit_unqualified": true,
+  "benchmark_conversion_credits": 0,
+  "candidate": {
+    "bytes": 10707,
+    "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "addd8067179375e3da59c7dad93b6074052b7e7aeb3fe5047746ae13611e21a5"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 953,
+        "sha256": "912e0842cb91d3643169f294ed61582609bcf3f38f429f447143e16947473486"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 21389,
+        "sha256": "124373c6523ee2e26b3fb0dd94643e38ad6d970fc5484406fc258c12e5eaec30"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 953,
+        "sha256": "74fba4ab46794b39c421b44f394085184e1b13f54ef3b753c12af6e1f82c42d0"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1638,
+        "sha256": "a7e2ac3f3c206aa1587c339c7dea07ee280caf732699a14d2c8ef976cc4ae721"
+      }
+    }
+  },
+  "changed_streams": [
+    "Contents/CMgr",
+    "Contents/Config-0-ModelHeader",
+    "Contents/Config-0-ResolvedFeatures",
+    "Header2",
+    "swXmlContents/KeyWords"
+  ],
+  "creation_epoch": 1793214309,
+  "exact_guest_locator": "C:\\KitAttachedBoxAxes01\\F14c.SLDPRT",
+  "expected": {
+    "area_m2": 0.0021999999999999997,
+    "axis_intervals_m": [
+      [
+        -0.001,
+        0.021
+      ],
+      [
+        -0.0105,
+        0.0005
+      ],
+      [
+        -0.0015,
+        0.0315
+      ]
+    ],
+    "body_box_m": [
+      [
+        0.0,
+        -0.01,
+        0.0
+      ],
+      [
+        0.02,
+        0.0,
+        0.03
+      ]
+    ],
+    "body_count": 1,
+    "com_m": [
+      0.01,
+      -0.005,
+      0.015
+    ],
+    "dimensions_m": [
+      0.02,
+      0.03,
+      0.01
+    ],
+    "topology": [
+      8,
+      12,
+      6
+    ],
+    "volume_m3": 5.999999999999999e-06
+  },
+  "file": "F14c.SLDPRT",
+  "fresh_guarded_workers": 2,
+  "guarded_refusals": [
+    "unsupported axis name, carrier, order or model visibility",
+    "unsupported axis name, carrier, order or model visibility"
+  ],
+  "native_acceptance": false,
+  "native_processes_started": 0,
+  "native_viewport_visibility_unqualified": true,
+  "oracle": {
+    "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "release": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "passed": true,
+  "preparation_base": "51e7b54148a8fd8ad21f88506bf68222c6f9479a",
+  "prior_locator_plain": {
+    "bytes": 10189,
+    "sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 629,
+        "sha256": "a6326740ff92f4e961780db5188582c1dceea1b209acf36291d6a84c3ceab330"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17987,
+        "sha256": "583fc198011a2e44fd736f6a5f8bff25a7e471f15a277c43b28992254bf0715f"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 629,
+        "sha256": "c9705f78e9fd9b87158c44c34277e00ade5df57840d3795609b1dad4c05e77dc"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1503,
+        "sha256": "393e431d53a7919e72764f78f39cade1029965c85929dee3d474edb4a27903b3"
+      }
+    }
+  },
+  "prior_native_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "prospective_axes_after_edit": {
+    "Height": {
+      "area_m2": 0.0027,
+      "axis_intervals_m": [
+        [
+          -0.001,
+          0.021
+        ],
+        [
+          -0.01575,
+          0.00075
+        ],
+        [
+          -0.0015,
+          0.0315
+        ]
+      ],
+      "body_box_m": [
+        [
+          0.0,
+          -0.015,
+          0.0
+        ],
+        [
+          0.02,
+          0.0,
+          0.03
+        ]
+      ],
+      "body_count": 1,
+      "com_m": [
+        0.01,
+        -0.0075,
+        0.015
+      ],
+      "dimensions_m": [
+        0.02,
+        0.03,
+        0.015
+      ],
+      "topology": [
+        8,
+        12,
+        6
+      ],
+      "volume_m3": 8.999999999999999e-06
+    },
+    "Length": {
+      "area_m2": 0.0027600000000000003,
+      "axis_intervals_m": [
+        [
+          -0.0013500000000000003,
+          0.028350000000000004
+        ],
+        [
+          -0.0105,
+          0.0005
+        ],
+        [
+          -0.0015,
+          0.0315
+        ]
+      ],
+      "body_box_m": [
+        [
+          0.0,
+          -0.01,
+          0.0
+        ],
+        [
+          0.027000000000000003,
+          0.0,
+          0.03
+        ]
+      ],
+      "body_count": 1,
+      "com_m": [
+        0.013500000000000002,
+        -0.005,
+        0.015
+      ],
+      "dimensions_m": [
+        0.027000000000000003,
+        0.03,
+        0.01
+      ],
+      "topology": [
+        8,
+        12,
+        6
+      ],
+      "volume_m3": 8.1e-06
+    },
+    "Width": {
+      "area_m2": 0.002614,
+      "axis_intervals_m": [
+        [
+          -0.001,
+          0.021
+        ],
+        [
+          -0.0105,
+          0.0005
+        ],
+        [
+          -0.0018449999999999999,
+          0.038744999999999995
+        ]
+      ],
+      "body_box_m": [
+        [
+          0.0,
+          -0.01,
+          0.0
+        ],
+        [
+          0.02,
+          0.0,
+          0.036899999999999995
+        ]
+      ],
+      "body_count": 1,
+      "com_m": [
+        0.01,
+        -0.005,
+        0.018449999999999998
+      ],
+      "dimensions_m": [
+        0.02,
+        0.036899999999999995,
+        0.01
+      ],
+      "topology": [
+        8,
+        12,
+        6
+      ],
+      "volume_m3": 7.38e-06
+    }
+  },
+  "runtime_input_file_reads": 0,
+  "same_locator_plain": {
+    "bytes": 10148,
+    "sha256": "e64b44770ac7cd390f99427da5e9d57930f017b20545c8c5ba7f1bdbf11fcbd8",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 575,
+        "sha256": "ab6b2b5a3d134dc694feb94115f13537ae4ae44639397380c4cd8a4113135d18"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17987,
+        "sha256": "583fc198011a2e44fd736f6a5f8bff25a7e471f15a277c43b28992254bf0715f"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 575,
+        "sha256": "ac6b3840d6989781bbae36c6ed185668d207eb1f150755d2b3e6dbcba2b9e98b"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1503,
+        "sha256": "393e431d53a7919e72764f78f39cade1029965c85929dee3d474edb4a27903b3"
+      }
+    }
+  },
+  "schema": "kit.sw2026.attached-box-xyz-candidate.v1",
+  "source_owner_receipt_sha256": "87975399948bb31e746afc6cb6c7578b8c120201f4bb84509807ccdf0390f195",
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "source_text": {
+    "file": {
+      "FreeCAD Attachment Map Mode": "5",
+      "FreeCAD Attachment Support Id": "freecad:plane:XZ_Plane",
+      "FreeCAD Body Label": "Body",
+      "FreeCAD CreationDate": "2026-10-28T19:05:09Z",
+      "FreeCAD Feature Id": "freecad:feature:AdditiveBox",
+      "FreeCAD Height Parameter": "freecad:parameter:AdditiveBox:Height",
+      "FreeCAD LastModifiedDate": "2026-10-28T19:05:09Z",
+      "FreeCAD Length Parameter": "freecad:parameter:AdditiveBox:Length",
+      "FreeCAD License": "CC0-1.0",
+      "FreeCAD LicenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "FreeCAD Show Hidden": "false",
+      "FreeCAD Source Schema": "4",
+      "FreeCAD Source Version": "0.21R33771 (Git)",
+      "FreeCAD Uid": "0cf8f695-e2b5-44f5-83cc-7cd070edf859",
+      "FreeCAD Width Parameter": "freecad:parameter:AdditiveBox:Width"
+    },
+    "summary": {
+      "comments": "CC0-1.0; CAD Fixture Recipes v1.23; generated with FreeCAD 0.21.2",
+      "title": "F14c"
+    }
+  },
+  "strict_public_read": {
+    "default": {
+      "diagnostic": "SLDPRT contains no readable Parasolid payload",
+      "status": "refused"
+    },
+    "history_only": {
+      "axis_labels": [
+        "X-axis",
+        "Y-axis",
+        "Z-axis"
+      ],
+      "bodies": 1,
+      "status": "read"
+    }
+  },
+  "tools_sha256": {
+    "MakeAttachedAxes.py": "6b1388c19a084d8d6442e81ade6beef415a2fb4c76dfd96ae39a326ab2d36f4f",
+    "MakeAttachedAxisPart.py": "12d7c76d075e26b4f44646475a7a03d33dfdbfc928572bc887e0aeccd61db529",
+    "PrepareAttachedAxisTrial.py": "8c41556dd00c534e350bc7960c4354a0ae83f6c4cb60e8255a71fd27e5c2b48b",
+    "VerifyAttachedBoxAxes.py": "e27c0ab2d8383100b9a5766413e41f57dd955317baa902f35dee7ac20b498bfe",
+    "VerifyIntactAttachedPlan.py": "33e4cf72b5479540b41377becb03d78324b6efd3722893098f147adb10cef8c1",
+    "VerifyOriginalFcstdAttachedBox.py": "01ae6f1560941a2c08188e07485cce4f5fd5dd68292d7438814ca08e9fa2fd5c"
+  },
+  "wire": {
+    "axes": [
+      {
+        "anchor_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "direction": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "end_m": [
+          0.020999999999999998,
+          0.0,
+          0.0
+        ],
+        "id": 27,
+        "matrix_flags": [
+          1,
+          0
+        ],
+        "name": "X-axis",
+        "parents": [
+          "Top Plane",
+          "Front Plane"
+        ],
+        "signed_lengths_m": [
+          0.0009999999999999992,
+          0.020999999999999998
+        ],
+        "start_m": [
+          -0.0009999999999999992,
+          0.0,
+          0.0
+        ]
+      },
+      {
+        "anchor_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "direction": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "end_m": [
+          0.0,
+          0.0004999999999999996,
+          0.0
+        ],
+        "id": 28,
+        "matrix_flags": [
+          0,
+          1
+        ],
+        "name": "Y-axis",
+        "parents": [
+          "Front Plane",
+          "Right Plane"
+        ],
+        "signed_lengths_m": [
+          0.010499999999999999,
+          0.0004999999999999996
+        ],
+        "start_m": [
+          0.0,
+          -0.010499999999999999,
+          0.0
+        ]
+      },
+      {
+        "anchor_m": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "direction": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "end_m": [
+          0.0,
+          0.0,
+          0.0315
+        ],
+        "id": 29,
+        "matrix_flags": [
+          1,
+          1
+        ],
+        "name": "Z-axis",
+        "parents": [
+          "Right Plane",
+          "Top Plane"
+        ],
+        "signed_lengths_m": [
+          0.0015000000000000013,
+          0.0315
+        ],
+        "start_m": [
+          0.0,
+          0.0,
+          -0.0015000000000000013
+        ]
+      }
+    ],
+    "configuration_map": 90,
+    "header_frontier": 30,
+    "reciprocal_streams": 2,
+    "resolved_map": 269,
+    "roots": 22,
+    "stock_body_name": "Body"
+  }
+}
