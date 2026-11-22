@@ -35,6 +35,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinGeom i
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ReadColdOutput import (
     ReadColdOutput,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.IsNullRect import (
+    IsNullRect,
+)
 
 
 # unsupported no cache documents must retain the existing strict payload error while proven ordinary prisms gain computed neutral geometry
@@ -73,14 +76,17 @@ def ReadNoCache(
             return ReadAxisGeom(
                 Archive, LinkValue, ManagerValue, ModelValue, ColdValue, BodyId
             )
-        Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
+        NullRect = ColdValue is None and IsNullRect(Archive, ModelValue, LinkValue)
+        Features = CheckPrismScope(
+            LinkValue, ManagerValue, ModelValue, ColdValue, NullRect=NullRect
+        )
         return BuildPrismGeom(
             ReadPrismPlan(
                 LinkValue,
                 Features,
                 ColdValue,
-                AllowFirstScope=RelationValue is None,
-                AllowPolygon=RelationValue is None,
+                AllowFirstScope=RelationValue is None and not NullRect,
+                AllowPolygon=RelationValue is None and not NullRect,
             ),
             BodyId,
             ColdValue,

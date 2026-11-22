@@ -42,7 +42,9 @@ def EmitAsmMut(
         "requested assembly configuration is unavailable",
     )
     CheckFreshAsm(FinalPath, ModelValue.ChildValue.name)
-    Candidate = PrepareAssembly(DocumentValue, NativePath, int(ReadTime()))
+    Candidate = PrepareAssembly(
+        DocumentValue, NativePath, int(ReadTime()), PublicProfile=True
+    )
     IsPerpendicular = any(
         MateValue.kind == MateKind.KPerpendicular
         for MateValue in ModelValue.GraphValue.mates

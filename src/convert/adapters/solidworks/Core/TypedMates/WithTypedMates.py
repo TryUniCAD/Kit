@@ -7,9 +7,21 @@ from convert.adapters.solidworks.Container.Container import (
     SldprtFormatError,
 )
 from convert.adapters.solidworks.Core.TypedMates.CanReadMates import CanReadMates
+from convert.adapters.solidworks.Core.TypedMates.Cold.CheckColdShape import (
+    CheckColdShape,
+)
+from convert.adapters.solidworks.Core.TypedMates.Cold.IsColdMateSet import (
+    IsColdMateSet,
+)
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.ReadPublicMates import ReadPublicMates
-from interchange import ComponentDocument, MateConstraint, MateEntity, MateGroup
+from interchange import (
+    ComponentDocument,
+    MateConstraint,
+    MateEntity,
+    MateGroup,
+    Parameter,
+)
 
 
 # unqualified typed profiles must leave the established reader and its validation behavior available
@@ -22,10 +34,15 @@ def WithTypedMates(
     Entities: tuple[MateEntity, ...],
     RulesValue: tuple[MateConstraint, ...],
     GroupsValue: tuple[MateGroup, ...],
+    *,
+    Strict: bool,
+    ResolveComponents: bool,
+    SourceKey: str,
 ) -> tuple[
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
     tuple[MateGroup, ...],
+    tuple[Parameter, ...],
     Mapping[str, object] | None,
 ]:
     DocumentMap = {Value.id: Value.document for Value in Documents}
@@ -38,20 +55,45 @@ def WithTypedMates(
             for Identity, Value in DocumentIds.items()
             if Value in DocumentMap
         },
+        SourceKey,
     )
-    if not CanReadMates(EnvValue):
-        return Entities, RulesValue, GroupsValue, None
+    ColdValue = IsColdMateSet(NativeValue, Archive)
     try:
-        return ReadPublicMates(EnvValue, Entities, RulesValue, GroupsValue)
+        if ColdValue:
+            CheckColdShape(NativeValue)
+            if not ResolveComponents:
+                return (
+                    (),
+                    (),
+                    (),
+                    (),
+                    {
+                        "status": "deferred",
+                        "full_selected_mate_graph": False,
+                        "public_writer_qualified": False,
+                    },
+                )
+        if not CanReadMates(EnvValue):
+            if ColdValue:
+                raise ValueError(
+                    "cold planar mate graph requires its actual linked part"
+                )
+            return Entities, RulesValue, GroupsValue, (), None
+        return ReadPublicMates(
+            EnvValue, Entities, RulesValue, GroupsValue, ColdRequired=ColdValue
+        )
     except (OSError, ValueError, TypeError, KeyError) as ErrorInfo:
-        if any(not Value.entity_ids for Value in RulesValue):
+        if (ColdValue and Strict) or (
+            not ColdValue and any(not Value.entity_ids for Value in RulesValue)
+        ):
             raise SldprtFormatError(
                 f"typed planar mate graph rejected: {ErrorInfo}"
             ) from ErrorInfo
         return (
-            Entities,
-            RulesValue,
-            GroupsValue,
+            () if ColdValue else Entities,
+            () if ColdValue else RulesValue,
+            () if ColdValue else GroupsValue,
+            (),
             {
                 "status": "unsupported",
                 "diagnostic": str(ErrorInfo),

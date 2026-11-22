@@ -3,6 +3,10 @@ from collections.abc import Mapping
 from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
+from convert.adapters.solidworks.Core.TypedMates.Cold.BindColdMates import BindColdMates
+from convert.adapters.solidworks.Core.TypedMates.Cold.IsColdMateSet import (
+    KColdMateScope,
+)
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
 from convert.adapters.solidworks.Core.TypedMates.CheckPerpEpoch import CheckPerpEpoch
@@ -18,7 +22,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 from convert.adapters.solidworks.Core.TypedMates.Cylinders.ReadPublicCyl import (
     ReadPublicCyl,
 )
-from interchange import MateConstraint, MateEntity, MateGroup
+from interchange import MateConstraint, MateEntity, MateGroup, Parameter
 
 
 # public typed mates require the complete linked stream and independently loaded child configurations
@@ -27,10 +31,13 @@ def ReadPublicMates(
     LegacyEntities: tuple[MateEntity, ...],
     LegacyRules: tuple[MateConstraint, ...],
     LegacyGroups: tuple[MateGroup, ...],
+    *,
+    ColdRequired: bool = False,
 ) -> tuple[
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
     tuple[MateGroup, ...],
+    tuple[Parameter, ...],
     Mapping[str, object],
 ]:
     LinkValue = ReadNativeLink(EnvValue.ArchiveValue, 0)
@@ -44,9 +51,10 @@ def ReadPublicMates(
     ):
         raise ValueError("typed mate stream bytes or complete inventory differ")
     if GraphValue.RootsValue[0].ClassValue.NameValue == "moMateConcentric":
-        return ReadPublicCyl(
+        Entities, Rules, Groups, Report = ReadPublicCyl(
             EnvValue, LinkValue, GraphValue, LegacyEntities, LegacyRules, LegacyGroups
         )
+        return Entities, Rules, Groups, (), Report
     Native = EnvValue.NativeValue
     Items = {Value.feature_id: Value for Value in Native.occurrences}
     if len(Items) != len(Native.occurrences):
@@ -55,7 +63,7 @@ def ReadPublicMates(
         LinkValue.ConfigValue.RootValue,
         Items,
         {Value.object_id: Value for Value in Native.definitions},
-        ReadMateKids(EnvValue),
+        ReadMateKids(EnvValue, ColdRequired=ColdRequired),
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
     CheckMateWraps(GraphValue.RootsValue)
@@ -68,11 +76,20 @@ def ReadPublicMates(
     GroupValue = ReadMateGroup(
         LinkValue, GraphValue, Rules, LegacyRules[0].owner_definition_id
     )
-    ScopeValue = ReadMateScope(GraphValue.RootsValue, len(Items))
+    ScopeValue = (
+        KColdMateScope
+        if ColdRequired
+        else ReadMateScope(GraphValue.RootsValue, len(Items))
+    )
+    FlagsValue = ReadFixedFlags(Context)
+    Parameters: tuple[Parameter, ...] = ()
+    if ColdRequired:
+        Rules, Parameters = BindColdMates(GraphValue.RootsValue, Rules, FlagsValue)
     return (
         Entities,
         Rules,
         (GroupValue,),
+        Parameters,
         {
             "status": "admitted",
             "scope": ScopeValue,
@@ -81,7 +98,7 @@ def ReadPublicMates(
             "map_base": GraphValue.MapBase,
             "map_terminal": GraphValue.MapValue.CounterValue,
             "typed_occurrence_and_child_datum_identity": True,
-            "occurrence_fixed_flags": ReadFixedFlags(Context),
+            "occurrence_fixed_flags": FlagsValue,
             "full_selected_mate_graph": True,
             "public_writer_qualified": False,
             "grammar_coverage": dict(GraphValue.ReportValue),

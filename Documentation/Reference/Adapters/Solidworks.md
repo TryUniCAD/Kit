@@ -197,6 +197,13 @@ An internal planar construction option accepts an explicit stock colour resource
 
 A disclosed three-component group with six ordered mates passes a native driving edit, synchronized save and fresh reopen. The normal SDK reads all twelve datum endpoints and all three child drivers from the generated and saved states. The 26 scoped parent and child streams round-trip exactly. [Native explicit group verification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksExplicitPlanarGroupNative.md)
 
+The cold version-19000 parallel, distance and coincident assembly reader follows
+both occurrences to their actual shared part. It reads all six datum selections,
+the fixed occurrence and the live driving D1. Full reads derive the child solid.
+Use `include_brep=False` for the same mate graph without child B-rep, or set
+`resolve_components=False` to defer the linked mates. This scope is read-only.
+[Cold rotated mate reading](../../Changes/Solidworks/Reading/Assembly/SolidworksColdRotatedMateRead.md)
+
 Both pre-writer locked assemblies also pass the internal SDK comparison for
 one aligned coincident or parallel mate paired with a positive driving
 distance. The two or three direct occurrences of one dimensioned child

@@ -51,6 +51,7 @@ def CheckPrismScope(
     ColdValue: ColdOutput | None = None,
     *,
     AxesValue: PrismAxes | None = None,
+    NullRect: bool = False,
 ) -> Mapping[int, ArchiveNode]:
     RelationValue = ModelValue.WidthDepth
     CheckGeometry(LinkValue, ManagerValue, ModelValue, RelationValue=RelationValue)
@@ -79,7 +80,9 @@ def CheckPrismScope(
         CheckPrismRoots(Features, NodesValue)
     else:
         CheckPrismRoots(*CheckAxisMap(LinkValue, Features, NodesValue, AxesValue))
-    CheckPrismRoot(LinkValue.ConfigValue.RootValue, int(ColdAtom is not None))
+    CheckPrismRoot(
+        LinkValue.ConfigValue.RootValue, int(ColdAtom is not None), NullRect=NullRect
+    )
     CheckPrismMgr(ManagerValue)
     if RelationValue is None:
         CheckPrismRels(LinkValue.ConfigValue.RootValue)

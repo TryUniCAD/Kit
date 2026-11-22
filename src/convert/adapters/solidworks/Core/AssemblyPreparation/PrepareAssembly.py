@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart impor
 from convert.adapters.solidworks.Core.AssemblyPreparation.Children.SketchLabelIn import (
     KSketchLabels,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.Mates.CheckWriteMates import (
+    CheckWriteMates,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.PlanAsmWrite import (
     PlanAsmWrite,
 )
@@ -23,8 +26,11 @@ def PrepareAssembly(
     WrittenAt: int,
     *,
     SketchLabels: KSketchLabels | None = None,
+    PublicProfile: bool = False,
 ) -> OrderedAsm:
     PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt, SketchLabels=SketchLabels)
+    if PublicProfile:
+        CheckWriteMates(PlanValue.Occurrences, PlanValue.MatesValue)
     ChildValue = MakeRectDimPart(
         PlanValue.ChildDocument, PlanValue.ChildRecipe, PlanValue.ChildDimensions
     )

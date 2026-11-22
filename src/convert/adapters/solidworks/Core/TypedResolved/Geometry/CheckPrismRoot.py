@@ -19,7 +19,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # constructor neutral model collections exclude hidden bodies transforms shrinkwrap and shape modifiers before geometry is reconstructed
 def CheckPrismRoot(
-    RootValue: ArchiveNode, ColdAtomCount: int = 0, *, HasAnnotations: bool = False
+    RootValue: ArchiveNode,
+    ColdAtomCount: int = 0,
+    *,
+    HasAnnotations: bool = False,
+    NullRect: bool = False,
 ) -> None:
     Fields = RequireNative(RootValue, "moPart_c").FieldsValue
     if Fields.get("f2c") != 0x100 or any(
@@ -49,9 +53,15 @@ def CheckPrismRoot(
         "fa50",
         "f9d8",
     ):
-        if not (HasAnnotations and FieldName == "fa48") and not IsLineState(
-            Fields.get(FieldName)
+        if HasAnnotations and FieldName == "fa48":
+            continue
+        if (
+            NullRect
+            and FieldName in ("f9d8", "fa48", "fa50")
+            and Fields[FieldName] is None
         ):
+            continue
+        if not IsLineState(Fields.get(FieldName)):
             raise ValueError("cache free prism has populated model owners")
     AtomsValue = NativeRecord(Fields.get("fd88"))
     GhostValue = NativeRecord(Fields.get("fd90"))

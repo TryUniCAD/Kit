@@ -1,0 +1,245 @@
+{
+  "baseline_workers": 1,
+  "cold": {
+    "deferred_modes": 1,
+    "exact_input_files": {
+      "A22CombinedRotated.SLDASM": {
+        "bytes": 10351,
+        "sha256": "9d429e4688b655b09a7fa5374b8fc933fabc8ae7002812a6deecc892c68f2ac4"
+      },
+      "CohortChild.SLDPRT": {
+        "bytes": 8643,
+        "sha256": "a97ee087a20dcfaf0e0e25e6bc8fa29bf421b447f113022ee98824eff77d4b78"
+      }
+    },
+    "fixed_flags": [
+      true,
+      false
+    ],
+    "linked_child_construction_data_reads": 0,
+    "malformed": {
+      "MissingLinkedPart": "requires its actual linked part",
+      "UnexpectedOptions": "unsupported auxiliary options",
+      "UnknownChildRole": "requires an ordinary cold child archive"
+    },
+    "mate_driver_mm": 63.5,
+    "owned_datum_endpoints": 6,
+    "public_writer_qualified": false,
+    "relative_linked_reads": 1,
+    "scope": "cold_parallel_distance_coincident",
+    "strict_modes": 2
+  },
+  "controls": {
+    "ConcentricSaved": {
+      "design": {
+        "file_opens": {
+          "ConcentricD01AlignedFree.SLDASM": 1,
+          "ConcentricD01Child.SLDPRT": 2,
+          "RootLayout.json": 1
+        },
+        "owned_picks": 2,
+        "parameters": 0,
+        "scope": "ordinary_concentric_single_mate_two_direct_part_occurrences",
+        "sha256": "03bd62da68e448e21a3d7ee987e638e92fd8fb830bbccb75f64cb4637c3c6316",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "ConcentricD01AlignedFree.SLDASM": 1,
+          "ConcentricD01Child.SLDPRT": 2,
+          "RootLayout.json": 1
+        },
+        "owned_picks": 2,
+        "parameters": 0,
+        "scope": "ordinary_concentric_single_mate_two_direct_part_occurrences",
+        "sha256": "bf832f88b8417b40b6e9e80348a8ca1bf078f284c176bb3e86236a65f15a5059",
+        "status": "admitted"
+      }
+    },
+    "PerpendicularGenerated": {
+      "design": {
+        "file_opens": {
+          "NeutralPerpPair.SLDASM": 1,
+          "NeutralPerpPrism.SLDPRT": 2
+        },
+        "refusal": "typed planar mate graph rejected: perpendicular mate is outside the solved repeated part profile"
+      },
+      "full": {
+        "file_opens": {
+          "NeutralPerpPair.SLDASM": 1,
+          "NeutralPerpPrism.SLDPRT": 2
+        },
+        "refusal": "typed planar mate graph rejected: perpendicular mate is outside the solved repeated part profile"
+      }
+    },
+    "PerpendicularSaved": {
+      "design": {
+        "file_opens": {
+          "NeutralPerpPair.SLDASM": 1,
+          "NeutralPerpPrism.SLDPRT": 2
+        },
+        "owned_picks": 2,
+        "parameters": 0,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "sha256": "44ae8f5011008755a56cd2a001f35c119ffde1c546184c1c7428d5b244ff62c6",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "NeutralPerpPair.SLDASM": 1,
+          "NeutralPerpPrism.SLDPRT": 2
+        },
+        "owned_picks": 2,
+        "parameters": 0,
+        "scope": "ordinary_perpendicular_single_mate_two_direct_part_occurrences",
+        "sha256": "a7cb98e4e8c27cca3bd3f22e4490898e13fd5f09a7812af574839b0655075c72",
+        "status": "admitted"
+      }
+    },
+    "PlanarGenerated": {
+      "design": {
+        "file_opens": {
+          "PublicDatumPrism.SLDPRT": 2,
+          "PublicPlanarPair2.SLDASM": 1
+        },
+        "owned_picks": 4,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "ea8b6b8330ed40d9eee6dbea5a434b852231200a39c62b7e7c0cd04e8deca552",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "PublicDatumPrism.SLDPRT": 2,
+          "PublicPlanarPair2.SLDASM": 1
+        },
+        "owned_picks": 4,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "6d5d887437904a7faab8811e3f705c68d9cfeaa3188fb5c0cd7bc5b551579a58",
+        "status": "admitted"
+      }
+    },
+    "PlanarSaved": {
+      "design": {
+        "file_opens": {
+          "PublicDatumPrism.SLDPRT": 2,
+          "PublicPlanarPair2.SLDASM": 1
+        },
+        "owned_picks": 4,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "c75a628b200a5d9b5d946836a44a11db156026f600f54f2437e8618693686ee3",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "PublicDatumPrism.SLDPRT": 2,
+          "PublicPlanarPair2.SLDASM": 1
+        },
+        "owned_picks": 4,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "a14e6271cfe0835f4f2ee51a229eaa9ff84d2e434145e31bf4cdf6b246df888c",
+        "status": "admitted"
+      }
+    },
+    "edited": {
+      "design": {
+        "file_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 2
+        },
+        "owned_picks": 6,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "b1a5eefd491a8b0ea63c1b17b890ec541b7f563b134936ba07ee948e8d16ee80",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 2
+        },
+        "owned_picks": 6,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "a40244960c1b90c516df4e5579d12e500834322050d3f924705bbccbdad0fb30",
+        "status": "admitted"
+      }
+    },
+    "original": {
+      "design": {
+        "file_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 2
+        },
+        "owned_picks": 6,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "3b9720f3ec72186c54bf7956376275e8414a7b51cdb444cde2e2da4da2a8d921",
+        "status": "admitted"
+      },
+      "full": {
+        "file_opens": {
+          "A22CombinedRotated.SLDASM": 1,
+          "CohortChild.SLDPRT": 2
+        },
+        "owned_picks": 6,
+        "parameters": 0,
+        "scope": "ordinary_aligned_mates_direct_part_occurrences",
+        "sha256": "5279a7d6c4a60d17dfb610b9d6feee979e9b81a5fb268f2bcd829b62200fff2e",
+        "status": "admitted"
+      }
+    }
+  },
+  "current_workers": 2,
+  "guarded_generated_files": [
+    {
+      "bytes": 10351,
+      "sha256": "9d429e4688b655b09a7fa5374b8fc933fabc8ae7002812a6deecc892c68f2ac4"
+    },
+    {
+      "bytes": 8643,
+      "sha256": "a97ee087a20dcfaf0e0e25e6bc8fa29bf421b447f113022ee98824eff77d4b78"
+    }
+  ],
+  "method_sha256": "57a196208961c7eb5ccdfdcf0c384120eecab749a39291fe4b59407f3d0e5290",
+  "native_processes_started": 0,
+  "native_receipt_sha256": "dd062a6526c9fb74aad7e8425fa9c8f585ca9929c27d2ed1836271392ed02aff",
+  "prior_reader": "0bcfe89aa42771224ea01eb4663c1ed11fc7fad7",
+  "protected_inputs_read": 0,
+  "schema": "kit.sw2026.aggregate-cold-rotated-mates.v1",
+  "source_sha256": {
+    "src/convert/adapters/solidworks/Container/ColdStreamRoles.py": "94f983a74e66f0c68bf755c4feba13d6aa3eb3dd8f41ab21598e8f586335db84",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "a8c0a8bb54d32c182079fabbcf24bb6b5d731f598cef70376c0d416f7de74b40",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Mates/CheckWriteMates.py": "864297514e6ac93a037548f8ce8bf39776fa556a538c7b5b759a5b25bc53b0cf",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/PrepareAssembly.py": "323d264b4ae583fb314e1ba99c1dd46ca51a67e7ec5020f9349996784051b8f5",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/CheckAsmShape.py": "9f5189721fb79743c1851363032e346495f02cbf7d837411c6b338a23b651d35",
+    "src/convert/adapters/solidworks/Core/AssemblyWriting/EmitAsmMut.py": "4545cf4fe4a6bd851188fb5b9e34e4207f001d2975ca15c125145d52dbde1089",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/BindColdMates.py": "dc90802911c60a9bcb2d773529a4813349637aae62a0c0ec1a2b54ae6f10821f",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/CheckColdShape.py": "2d9aa31b782af83f9cf2cd37020d7e549315fbfab9e6d3a8dbdf1a0bdf7b648f",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/IsColdMateSet.py": "401f0d07dc938c772913160d87d3e502dfa72accfca6ef25feadb3dbb4089742",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/ReadMateDim.py": "1d74e730b07716f668da772c21768a43999d6b1052c26f31298ce5c4af1e9996",
+    "src/convert/adapters/solidworks/Core/TypedMates/Cold/ReadMateDriver.py": "0c5e7dc158966738c1a7dac8c05474e7f8063037c51df96e701f19b742e29928",
+    "src/convert/adapters/solidworks/Core/TypedMates/PublicMateEnv.py": "8fa790ce058d99b77cda2b9199d59546f111f22333e3706557e25a536e2814b9",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateChild.py": "736ad512fed4e13b55528434e800868e0bd7c29d8a1a28be93c258b3c33484fb",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateIds.py": "25a4a66c5d3fc49a121b7f6b6a7e93c94339b353b74a1570312af7207f94110f",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadMateKids.py": "2b02e41c101217b08c47c92412d52b43077e2dc9cae0f5b39b9662f1c987467c",
+    "src/convert/adapters/solidworks/Core/TypedMates/ReadPublicMates.py": "75c1f00e36edae4f179e069dc0f83c563cb1faf9abc65a5e73373ca3101aa80d",
+    "src/convert/adapters/solidworks/Core/TypedMates/WithTypedMates.py": "180a97d5c4e58fbc8f0df1745a95208b32a640942fa1c6449553b4387b333f70",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismRoot.py": "03965348a45ca565ede6227b0fb7ad4ebe30b7d378182a5bba33172f6599ff1e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismScope.py": "22c821dbb2711d1456af5ef042f8f9d7994c58d5bbc8669a544511a45566b521",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/IsNullRect.py": "fd627f2844bb9ff0d69d54fcdcc2e08aaeca1ca70b5ae1fbb65113b96639ac73",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "1ebd5fe33993c4cd7a7ab6a6588f5aa4ca4fdb29f36b9395d564fc3a7cc99b1d"
+  },
+  "tool_sha256": {
+    "BuildHistoricalRotated.py": "2fa1e6955f85da36363aa382c39b50f3467558586b99642aff0ef19830a67bc1",
+    "MakeQueueRotated.py": "799aadd5f45a957fffc2363baeb4e485a8c2aba4d816f043d32a43e369930e54",
+    "ProbeColdRotatedSuite.py": "42781cb6ceaad17561c79e520826409c580bd8759a7b20ab8ec30d4282ec0fa4",
+    "ProjectRotatedModel.py": "b73dcc77331d8b56c50f490141bd68bf9e7cc3050cb11aef6fcbe74615bf568d",
+    "ProveColdRotatedRead.py": "57a196208961c7eb5ccdfdcf0c384120eecab749a39291fe4b59407f3d0e5290",
+    "RotatedReadAudit.py": "8a3b3b39cc1506cb2d2179659b7e6897b74053b1f7ea83035bc9c9d12a6a032c",
+    "VerifyRotatedMates.py": "3586eaf10de11dc260535fdca016d9eed245b4d6ceb5c1ff7c5fef29c5dc4f2d"
+  }
+}

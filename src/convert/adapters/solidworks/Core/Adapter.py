@@ -1197,7 +1197,7 @@ def AsmDoc(
         Native, Archive, Label, Index, Settings
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
-    MateEntities, Mates, MateGroups, TypedMates = WithTypedMates(
+    MateEntities, Mates, MateGroups, MateParams, TypedMates = WithTypedMates(
         Native,
         Archive,
         ResolvedPaths,
@@ -1206,6 +1206,9 @@ def AsmDoc(
         MateEntities,
         Mates,
         MateGroups,
+        Strict=Settings.strict,
+        ResolveComponents=ResolveComponents,
+        SourceKey=KSourceBytesKey,
     )
     Instances = WithTypedFixed(Instances, TypedMates)
     FlatMateValues = FlattenedMates(Native, Mates)
@@ -1334,7 +1337,7 @@ def AsmDoc(
             ),
         ),
         configurations=ConfigValues,
-        parameters=ParamValues,
+        parameters=(*ParamValues, *MateParams),
         support_planes=PlaneValues,
         sketches=SketchValues,
         selections=SelectValues,

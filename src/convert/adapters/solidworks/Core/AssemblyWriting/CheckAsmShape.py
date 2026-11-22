@@ -21,6 +21,9 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel imp
 from convert.adapters.solidworks.Core.AssemblyPreparation.Placements.ReadAsmPlace import (
     ReadAsmPlace,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.Mates.CheckWriteMates import (
+    CheckWriteMates,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -41,6 +44,7 @@ def CheckAsmShape(DocumentValue: CadDocument) -> str:
         )
     Placements = tuple(ReadAsmPlace(Value) for Value in ModelValue.Occurrences)
     MateValues = ReadAsmRules(DocumentValue, ModelValue, PlaneValues)
+    CheckWriteMates(Placements, MateValues)
     CheckPerpGroup(Placements, MateValues)
     for MateValue in MateValues:
         CheckGroupGeom(Placements, MateValue)
