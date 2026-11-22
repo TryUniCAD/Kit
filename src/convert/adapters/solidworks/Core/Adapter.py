@@ -179,7 +179,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfDoc import 
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfModel import BindChmfModel
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import BuildChmfGeom
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import ChmfPartRead
-from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import TryColdChmf
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
+    KChmfRejected,
+    TryColdChmf,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -464,9 +467,15 @@ def ReadNativePart(
         tuple(
             (
                 DiagValue(
-                    code="sldprt.native_record_unresolved",
+                    code=(
+                        "sldprt.chamfer_history_unresolved"
+                        if Message == KChmfRejected
+                        else "sldprt.native_record_unresolved"
+                    ),
                     message=Message,
-                    severity=Severity.INFO,
+                    severity=(
+                        Severity.KWarning if Message == KChmfRejected else Severity.INFO
+                    ),
                 )
                 for Message in Model.diagnostics
             )
@@ -536,7 +545,7 @@ def ReadBoundPart(
     Archive: SldprtArchive, Settings: ReadOptions, ModelValue: NativeModel | None
 ) -> tuple[NativeModel, ChmfPartRead | None]:
     if ModelValue is not None:
-        ChamferValue = TryColdChmf(Archive, ModelValue, Settings)
+        ModelValue, ChamferValue = TryColdChmf(Archive, ModelValue, Settings)
         return (
             BindChmfModel(ModelValue, ChamferValue) if ChamferValue is not None else ModelValue,
             ChamferValue,
@@ -544,9 +553,11 @@ def ReadBoundPart(
     Model, ConfigData, Resolved, ConfigStream, ResolvedName = DecodePartBase(
         Archive, Settings.configuration
     )
-    ChamferValue = TryColdChmf(Archive, Model, Settings)
+    Model, ChamferValue = TryColdChmf(Archive, Model, Settings)
     if ChamferValue is not None:
         return BindChmfModel(Model, ChamferValue), ChamferValue
+    if KChmfRejected in Model.diagnostics:
+        return Model, None
     return RefinePartModel(
         Archive, Model, ConfigData, Resolved, ConfigStream, ResolvedName
     ), None
@@ -3612,6 +3623,7 @@ def Timeline(
         Feature.object_id: Order for Order, Feature in enumerate(Model.features)
     }
     SelectionIds = {Selection.id for Selection in Selections}
+    ChamferUnresolved = KChmfRejected in Model.diagnostics
     PrincipalPlaneIds = {Plane.object_id for Plane in Model.planes if Plane.principal}
     PreviousOperation: int | None = None
     Result: list[FeatureStep] = []
@@ -3672,7 +3684,15 @@ def Timeline(
                 ),
                 parameter_ids=ParamIds,
                 operation=OperationValue,
-                definition=BuildFeature(Feature, Operation, SketchById, PlaneById),
+                definition=(
+                    NativeFallback(Feature, Operation)
+                    if ChamferUnresolved
+                    and (
+                        Feature.class_name == "moChamfer_c"
+                        or (Operation is not None and Operation.kind == "chamfer")
+                    )
+                    else BuildFeature(Feature, Operation, SketchById, PlaneById)
+                ),
                 selection_ids=Selected,
                 provenance=OpProvenance(Feature, Operation),
                 attributes=FrozenMapping(Attributes),

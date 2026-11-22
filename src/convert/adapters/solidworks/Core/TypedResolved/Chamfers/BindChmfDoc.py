@@ -1,6 +1,9 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
+from convert.adapters.solidworks.Core.Native import (
+    DIRECTION_AXIS_ROLE as DirectionAxisRole,
+)
 
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfDriver import (
     ChmfDriver,
@@ -169,18 +172,35 @@ def BindChmfDoc(Document: CadDocument, PartValue: ChmfPartRead) -> CadDocument:
         Topology = ReplaceValue(
             Topology, surface_area=2.0 * AreaValue + Perimeter * PlanValue.DepthValue
         )
+    StockId = NativeNodeId(Owners.StockValue)
+    OwnedPicks = frozenset(
+        KeyValue
+        for FeatStep in Document.feature_timeline
+        for KeyValue in FeatStep.selection_ids
+    )
+    PicksValue = tuple(
+        Value
+        for Value in Document.selections
+        if Owners.ModeWord not in (2, 18)
+        or Value.id in OwnedPicks
+        or Value.query.get("topology_role") != DirectionAxisRole
+        or Value.query.get("native_owner_id") != StockId
+    )
     return ReplaceValue(
         Document,
         parameters=tuple(
             ParamValues.get(Value.id, Value) for Value in Document.parameters
         ),
-        selections=(*Document.selections, *Picks),
+        selections=(*PicksValue, *Picks),
         feature_timeline=tuple(
             Updated.get(Value.id, Value) for Value in Document.feature_timeline
         ),
         bodies=(
             ReplaceValue(
-                BodyValue, name=StockValue.name, provenance=StockValue.provenance, topology=Topology
+                BodyValue,
+                name=StockValue.name,
+                provenance=StockValue.provenance,
+                topology=Topology,
             ),
         ),
     )

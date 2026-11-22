@@ -1,6 +1,10 @@
+from dataclasses import replace as ReplaceValue
+
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
+from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import (
     ChmfPrism,
@@ -37,9 +41,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNo
 
 
 # the complete cold part uses exact owned archive support and never falls back to inferred shape data
-def ReadColdChmf(
-    Archive: SldprtArchive, ModelValue: NativeModel
-) -> ChmfPartRead:
+def ReadColdChmf(Archive: SldprtArchive, ModelValue: NativeModel) -> ChmfPartRead:
     if not IsCacheAbsent(Archive):
         raise ValueError("cold chamfer cannot own a saved body cache")
     LinkValue = ReadNativeLink(Archive, 0, ReadChamfers=True)
@@ -81,24 +83,48 @@ def ReadColdChmf(
     return PartValue
 
 
-# exact cold chamfers opt into the typed link only after their ordinary source profile is witnessed
+# ordinary inspection reports unresolved current chamfer history without assigning it a portable definition
+KChmfRejected = "SOLIDWORKS 2026 chamfer history requires the verified cold stock, selected edge and live drivers"
+
+
+# raw extraction keeps its original payload lane while strict semantic reads reject unqualified current chamfers
 def TryColdChmf(
     Archive: SldprtArchive,
     ModelValue: NativeModel,
     Settings: ReadOptions,
-) -> ChmfPartRead | None:
+) -> tuple[NativeModel, ChmfPartRead | None]:
     if (
         Settings.extract_raw_brep
-        or ModelValue.active_configuration_id != 0
-        or tuple(
-            (Value.configuration_id, Value.name) for Value in ModelValue.configurations
+        or Archive.format_version != 4
+        or not (
+            any(Value.kind == "chamfer" for Value in ModelValue.operations)
+            or any(Value.class_name == "moChamfer_c" for Value in ModelValue.features)
         )
-        != ((0, "Default"),)
-        or tuple(Value.kind for Value in ModelValue.operations) != ("join", "chamfer")
-        or len(ModelValue.sketches) != 1
+        or ContainerMo(Archive.streams) != 19000
     ):
-        return None
+        return ModelValue, None
     try:
-        return ReadColdChmf(Archive, ModelValue)
-    except (ValueError, TypeError, KeyError, OverflowError):
-        return None
+        if (
+            ModelValue.active_configuration_id != 0
+            or tuple(
+                (Value.configuration_id, Value.name)
+                for Value in ModelValue.configurations
+            )
+            != ((0, "Default"),)
+            or tuple(Value.kind for Value in ModelValue.operations)
+            != ("join", "chamfer")
+            or len(ModelValue.sketches) != 1
+        ):
+            raise ValueError(
+                "chamfer lacks its ordinary active configuration and preceding stock"
+            )
+        return ModelValue, ReadColdChmf(Archive, ModelValue)
+    except (ValueError, TypeError, KeyError, OverflowError) as ErrorInfo:
+        if Settings.strict:
+            raise SldprtFormat(KChmfRejected) from ErrorInfo
+        return (
+            ReplaceValue(
+                ModelValue, diagnostics=(*ModelValue.diagnostics, KChmfRejected)
+            ),
+            None,
+        )

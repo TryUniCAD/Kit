@@ -355,9 +355,20 @@ Authenticate the native report before using it. Both
 digest and native lifecycle check before publishing.
 
 Strict cold inspection recovers the two native edit modes, their actual
-owners, and a one-body analytic solid. The two disclosed neutral requests
-and the exact evidence are described in the
-[measured distance chamfer entry](../../Changes/Solidworks/Construction/SolidworksMeasuredDistanceChamfers.md).
+owners, both physical selections, and a one-body analytic solid. The
+complete strict readback can be republished at its same measured identity.
+Before writing, Kit regenerates the archive from the typed model, compares
+the complete readback to that regenerated archive, and checks the exact
+measurement. Both writer entry points report the actual native capability
+transfers.
+
+A current SOLIDWORKS chamfer with an unqualified saved or alternate
+history is refused in strict mode, including `include_brep=False`.
+Permissive inspection reports `sldprt.chamfer_history_unresolved` and
+retains the native-only feature record. Raw Parasolid extraction follows
+its separate payload path. The
+[measured distance chamfer entry](../../Changes/Solidworks/Construction/SolidworksMeasuredDistanceChamfers.md)
+links the two disclosed inputs and verification.
 
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.

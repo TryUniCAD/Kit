@@ -14,9 +14,16 @@ the complete bytes match the measured lifecycle and leaves refused output
 streams untouched.
 
 Strict inspection of the supported cold archive recovers the editable
-drivers, actual predecessor and selections, and the analytic chamfer solid.
-The publication scope is original neutral input. A geometry-only or saved
-chamfer has a different source contract.
+drivers, actual predecessor, two physical selections and analytic solid.
+Both writers can regenerate a complete strict cold readback when the
+model, original measured locator and receipt still agree. The regenerated
+archive must reproduce the complete observed document before publication.
+Both entry points report the same native capability transfers.
+
+Strict inspection refuses unqualified SOLIDWORKS 2026 chamfer history,
+including saved states requested without geometry. Permissive inspection
+keeps an unresolved-history warning and a native-only feature record.
+Raw Parasolid extraction remains available for readable saved payloads.
 
 The [release proof](../../../../re/solidworks/records/ChamferDistanceMain2026.md)
 links the native measurements and the guarded main-line read and write

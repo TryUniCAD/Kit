@@ -1,6 +1,8 @@
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
+from convert.adapters.base.WritePolicy import GetCapValue, GetDocumentCaps
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
@@ -42,6 +44,10 @@ def EmitPairMut(
         Settings,
     )
     Evidence = VerifyPairMeas(Receipt, Candidate, WrittenAt)
+    Transfers = tuple(
+        CapTransfer(CapValue, TransferMode.KNative)
+        for CapValue in sorted(GetDocumentCaps(DocumentValue), key=GetCapValue)
+    )
     return PublishMeasMut(
-        TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence
+        TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence, Transfers
     )

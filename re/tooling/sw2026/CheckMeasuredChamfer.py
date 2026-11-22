@@ -80,7 +80,8 @@ def verify_read(document, expected):
     drivers = tuple(params[key] for key in finish.parameter_ids)
     demand([[p.name, p.value.value, p.attributes["persistent_dimension_id"], p.id] for p in drivers]
            == expected["drivers"] and all(p.owner_id == finish.id and p.value.unit == "mm" for p in drivers)
-           and len(finish.selection_ids) == 2,
+           and len(finish.selection_ids) == len(document.selections) == 2
+           and tuple(value.id for value in document.selections) == finish.selection_ids,
            "cold read lost the live dimension names, values, persistent owners or physical picks")
     body, = document.bodies
     demand(body.final_feature_id == finish.id and body.name == stock.name,
@@ -107,6 +108,7 @@ def worker(request):
     audit = WriterAudit(ROOT / "src", HERE.parent / "ChamferUnused.SLDPRT")
     sys.addaudithook(audit.observe)
     from convert import open_document, write_document
+    from convert.adapters.solidworks.Container.Container import BuildSldprt
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import PrepChmfPart
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
@@ -136,6 +138,12 @@ def worker(request):
     demand(semantic.brep is None and semantic.feature_timeline == reading.feature_timeline
            and semantic.parameters == reading.parameters and semantic.selections == reading.selections,
            "geometry-free strict read changes the actual portable edit semantics")
+    readback_routes = check_public(reading, values, writer, write_document, WriteOptions, raw, case, exact)
+    assert_edited_readback_refuses(reading, values, writer, write_document, WriteOptions)
+    malformed = BuildSldprt(dict(prepared.StreamsValue) | {
+        "Contents/Config-0-Partition": b"unknown cache carrier",
+    }, FormatVersion=4)
+    check_unresolved_read(malformed, open_document)
     edited, changed_value = edited_intent(doc, case["mode_word"] == 18)
     variant = PrepChmfPart(edited, BytesIO(), spec["epoch"], WriteOptions(values={
         "final_destination": spec["locator"]}))
@@ -153,6 +161,11 @@ def worker(request):
     return {"archive_sha256": digest(raw), "expected_native_sha256": case["archive_sha256"],
             "bytes": len(raw), "mode_word": case["mode_word"], "deflate": ZLIB_RUNTIME_VERSION,
             "native_acceptance_routes": accepted_routes, "codec_refused": not exact,
+            "readback_native_acceptance_routes": readback_routes,
+            "exact_native_transfer_evidence": exact,
+            "owned_selection_count": len(reading.selections),
+            "altered_readback_refused": True,
+            "unsupported_history_read_guarded": True,
             "qualified_logical_streams": len(prepared.StreamsValue),
             "strict_geometry": measured, "semantic_read_matches": True,
             "edited_private_sha256": digest(variant.BytesValue), "edited_private_driver_mm": changed_value,
@@ -174,13 +187,46 @@ def check_public(doc, values, writer, write_document, WriteOptions, raw, case, e
             reject(route, ValueError, "no unique exact native measurement")
         demand(registry.getvalue() == direct.getvalue() == b"", "alternate codec emitted unmeasured output")
         return 0
+    from convert.adapters.base.WritePolicy import GetDocumentCaps
+
     results = (registry_write(), direct_write())
+    demand(results[0].transfers == results[1].transfers
+           and {value.CapabilityData for value in results[1].transfers} == GetDocumentCaps(doc)
+           and all(value.mode.value == "native" for value in results[1].transfers),
+           "configured SDK routes disagree on explicit native capability transfer")
     demand(registry.getvalue() == direct.getvalue() == raw
            and all(value.vendor_loadable and value.application_usable and not value.dropped
                    and value.bytes_written == len(raw)
                    and value.metadata[OPTION]["generated_sha256"] == case["archive_sha256"]
                    for value in results), "public publication differs from the exact native measurement")
     return len(results)
+
+
+def assert_edited_readback_refuses(document, values, writer, write_document, WriteOptions):
+    body, = document.bodies
+    modified = (
+        replace(document, metadata=dict(document.metadata) | {"extra_authored_state": "non-default"}),
+        replace(document, bodies=(replace(body, topology=replace(
+            body.topology, volume=body.topology.volume + 1.0)),)),
+    )
+    for source in modified:
+        registry, direct = BytesIO(), BytesIO()
+        message = "cold readback differs from its regenerated part"
+        reject(lambda: write_document(source, registry, destination_format=FORMAT,
+                                      allow_carrier=True, values=values), ValueError, message)
+        reject(lambda: writer.write(source, direct, WriteOptions(values=values)), ValueError, message)
+        demand(registry.getvalue() == direct.getvalue() == b"",
+               "unverified source semantics reached either destination")
+
+
+def check_unresolved_read(payload, open_document):
+    reject(lambda: open_document(payload, source_format=FORMAT, include_brep=False),
+           ValueError, "chamfer history requires the verified cold stock")
+    observed = open_document(payload, source_format=FORMAT, strict=False, include_brep=False)
+    demand(observed.brep is None and any(
+        value.code == "sldprt.chamfer_history_unresolved" and value.severity.value == "warning"
+        for value in observed.diagnostics
+    ), "permissive inspection hid an unsupported chamfer history")
 
 
 def check_refusals(doc, edited, spec, values, writer, write_document, WriteOptions):

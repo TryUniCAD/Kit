@@ -6,6 +6,9 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Chamfers.ChmfReadInput import (
+    ChmfReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
     PlanChmfPart,
@@ -40,7 +43,7 @@ class SldprtWriter(PairProtocol):
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
             if IsDistChmf(DocValue):
-                NameValue = PlanChmfPart(DocValue).StockValue.NameValue
+                NameValue = ChmfPartName(DocValue, PathValue)
             else:
                 NameValue = PlainPartName(DocValue, PathValue)
         except (IndexError, TypeError, ValueError):
@@ -68,6 +71,18 @@ class SldprtWriter(PairProtocol):
 # the existing ordinary route retains its source readback projection and destination name
 def PlainPartName(DocValue: CadDocument, PathValue: FilePath | None) -> str:
     if IsColdRead(DocValue):
-        NameValue = PathValue.stem if PathValue is not None else DocValue.sketches[0].name
+        NameValue = (
+            PathValue.stem if PathValue is not None else DocValue.sketches[0].name
+        )
         DocValue = ColdReadInput(DocValue, NameValue)
     return PlanPartWrite(DocValue).NameValue
+
+
+# the measured modifier uses its real portable shape and the eventual destination basename for exact readback
+def ChmfPartName(DocValue: CadDocument, PathValue: FilePath | None) -> str:
+    if IsColdRead(DocValue):
+        NameValue = (
+            PathValue.stem if PathValue is not None else DocValue.sketches[0].name
+        )
+        DocValue = ChmfReadInput(DocValue, NameValue)
+    return PlanChmfPart(DocValue).StockValue.NameValue

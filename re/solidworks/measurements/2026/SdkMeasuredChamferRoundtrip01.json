@@ -1,0 +1,161 @@
+{
+  "code_sha256": {
+    "re/tooling/sw2026/CheckMeasuredChamfer.py": "46d93b7a721a08b726663e71d49de05a3c8e0b2020a3ffa55f0231f021dbfc6d",
+    "re/tooling/sw2026/CheckWarmChmfBoundary.py": "51475857571a68062a088cb4e28365eb141b52688b1182898201ffdca4496f36",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "ed29ae725c18d0625a0b1c9ec7fe3959662b728965f9ec797fcf3e3c195c3b8a",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/ChmfReadInput.py": "addd935da1b9fa0c1a2cf9cb0a2745ae4f800a550fdfda2b6a12fcdd5524a22a",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/PrepChmfPart.py": "5a27bab5c45288f611bde64e7fcfc567114c1f1635128b4667c4d5969582c691",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfDoc.py": "1d7749a204051096ba5bd5cd6e07b79ba55a617cc1db93c7a88ec7fdde8afe10",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/TryColdChmf.py": "7a25d9fcb01892c0ac4890c2c832a6617f6684a06236cee9c4ad647202382678",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/EmitPairMut.py": "d42dbe9bdf203555a66141e088188aaef43b70f531c0cda5ea936401b9e33db1",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "57a38dda15a75b59d2d989d9f3d574b7dd4aaad96e5ca1501daac1339f1acf31",
+    "tests/Convert/Solidworks/ChamferWriting/DistanceChamferTests.py": "a5cebc411f6033654d967996d0dd6e6a7535824533222fa284dbe9e255f0e06b"
+  },
+  "cold_cases": {
+    "equal": {
+      "altered_readback_refused": true,
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "bytes": 8990,
+      "codec_refused": false,
+      "deflate": "1.2.12",
+      "edited_private_driver_mm": 5.625,
+      "edited_private_sha256": "10e951004a833e19f55e851230bea1a5cad69739268683c3f92b30042cbee799",
+      "exact_native_transfer_evidence": true,
+      "expected_native_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "mode_word": 18,
+      "native_acceptance_routes": 2,
+      "native_processes_started": 0,
+      "owned_selection_count": 2,
+      "qualified_logical_streams": 10,
+      "readback_native_acceptance_routes": 2,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "wrong_locator"
+      ],
+      "runtime_reads": 0,
+      "semantic_read_matches": true,
+      "strict_geometry": {
+        "area_mm2": 10013.564833435667,
+        "centroid_mm": [
+          11.125425038639875,
+          -8.209891808346214,
+          9.375
+        ],
+        "drivers": [
+          "D1"
+        ],
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55443.603515625
+      },
+      "unsupported_history_read_guarded": true
+    },
+    "two_distances": {
+      "altered_readback_refused": true,
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "bytes": 9174,
+      "codec_refused": false,
+      "deflate": "1.2.12",
+      "edited_private_driver_mm": 9.125,
+      "edited_private_sha256": "7a689a4a909c6106b4fc9b9cb316732f52e84722505636202aab2c002650b9d7",
+      "exact_native_transfer_evidence": true,
+      "expected_native_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "mode_word": 2,
+      "native_acceptance_routes": 2,
+      "native_processes_started": 0,
+      "owned_selection_count": 2,
+      "qualified_logical_streams": 10,
+      "readback_native_acceptance_routes": 2,
+      "refusals": [
+        "missing_receipt",
+        "changed_model",
+        "wrong_locator"
+      ],
+      "runtime_reads": 0,
+      "semantic_read_matches": true,
+      "strict_geometry": {
+        "area_mm2": 9983.306694781071,
+        "centroid_mm": [
+          11.043444938169543,
+          -8.271261754676036,
+          9.375
+        ],
+        "drivers": [
+          "D1",
+          "D3"
+        ],
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55283.642578125
+      },
+      "unsupported_history_read_guarded": true
+    }
+  },
+  "fresh_workers": 8,
+  "generated_pair_sha256": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+  "native_processes_started": 0,
+  "native_result_sha256": "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9",
+  "no_saved_source_inputs_for_construction": true,
+  "plain_control_hashes": {
+    "Skew": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+    "Step": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+  },
+  "plain_control_receipt_sha256": "68f36d69f9b44ed9f3fa887d417db7ae860fdc352a9f31d03f48477deed03e89",
+  "protected_inputs_read": 0,
+  "review_base": "018f2eb83bdfab4dfdea7507433e0f3e02ea2c0f",
+  "saved_inspection_controls": {
+    "EqualEdited": {
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "3851e8e4c492c6d939f4c79a81985505485449af7a1fa5d155965718c75d2a88",
+        "d60b5614dbb1ba1515ec0a15c665394283ed91d64fef8c9cefb6f816e92f2c14"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+      "strict_semantic_refusals": 2
+    },
+    "EqualOriginal": {
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+        "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+      "strict_semantic_refusals": 2
+    },
+    "UnequalEdited": {
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "6e83c09b529879ed19d34def9eef966079d20f5fa72fdb63106354dd3f1e8acc",
+        "17091c1a7ddd70abd4a6ae772b581b6876039060d84267abe4bf8ddb110a4746"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+      "strict_semantic_refusals": 2
+    },
+    "UnequalOriginal": {
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "a49f99d2fbd37644a37a3ba5fa51e35aa95a35e2fd0527d910af30312f81f912",
+        "54d0b8bb12d3a3882bbd1aa2cd034f74da3cb54be3091c82251c8b1576f2ed41"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+      "strict_semantic_refusals": 2
+    }
+  },
+  "saved_raw_payload_digests_exact_on_review_base": true,
+  "schema": "kit.sw2026.measured-chamfer-roundtrip.v1"
+}

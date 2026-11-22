@@ -87,7 +87,33 @@ pins the four successful guarded runs to source commit
 
 The preceding measured Skew and Step writer checks retain the exact
 pre-existing digests through the registry stream, direct stream and
-registry file path. This delivery scope starts from original neutral
-inputs and leaves native-source regeneration and warm SDK readback to
-separate verification. The two raw vendor output archives stay outside
+registry file path. The two raw vendor output archives stay outside
 the repository.
+
+## Complete cold readback publication
+
+Each measured cold case retains exactly its owned edge and distance-face
+selections. The legacy forward boss-axis pick had no owning timeline
+reference and is absent from these typed distance projections. The two
+stream writers regenerate the exact same bytes from each complete strict
+SDK readback as from the original neutral model. Direct and registry
+results agree on the native transfer for every present capability.
+Regenerated readback comparisons include the entire typed document.
+Changed body volume or added model metadata each refuses both writers
+before destination writes, even with the original matching measurement.
+
+The two authored cold models also supply an unsupported cache-carrier
+contrast to the fresh process integration check. Four independently
+pinned native-saved controls verify the same public strict refusal with
+and without geometry and the permissive diagnostic and native-only
+history. Raw extraction retains both physical payloads for each of those
+controls. These checks describe the bounded main reader. The separate
+aggregate warm-owner implementation is available at
+`a6409718da5686c72695342535270dd8b210c736`.
+[Review verification](../measurements/2026/SdkMeasuredChamferRoundtrip01.json)
+· [Disclosed saved archive authority](../measurements/2026/ChamferDistancePairArchive01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckWarmChmfBoundary.py \
+  --folder /absolute/path/to/DisclosedWarmSources01
+```

@@ -22,12 +22,19 @@ def RunChamfFlow(SlotValue: int) -> None:
     ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
     if ReportValue["archive_sha256"] == ReportValue["expected_native_sha256"]:
         assert ReportValue["native_acceptance_routes"] == 2
+        assert ReportValue["readback_native_acceptance_routes"] == 2
+        assert ReportValue["exact_native_transfer_evidence"] is True
         assert ReportValue["codec_refused"] is False
     else:
         assert "zlib-ng" in DeflateRuntime
         assert ReportValue["native_acceptance_routes"] == 0
+        assert ReportValue["readback_native_acceptance_routes"] == 0
+        assert ReportValue["exact_native_transfer_evidence"] is False
         assert ReportValue["codec_refused"] is True
     assert ReportValue["qualified_logical_streams"] == 10
+    assert ReportValue["owned_selection_count"] == 2
+    assert ReportValue["altered_readback_refused"] is True
+    assert ReportValue["unsupported_history_read_guarded"] is True
     assert ReportValue["semantic_read_matches"] is True
     assert ReportValue["runtime_reads"] == 0
 
