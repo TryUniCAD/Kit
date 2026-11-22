@@ -70,6 +70,8 @@ def TestNineOffset(TmpPath: FilePath) -> None:
         Value for Value in Reopened.assembly.instances if Value.name == "QueuePlate-1"
     )
     assert PlateValue.transform.values[3] == 9.0
+    PhysicalValue = PlateValue.attributes.get("typed_placement_m")
+    assert isinstance(PhysicalValue, tuple) and PhysicalValue[12] == 0.009
 
 
 # a physical placement word must invert to the actual authored translation
