@@ -102,11 +102,32 @@ candidates must be opened at their respective exact locators under
 `C:\KitEdgeFilletModelCold01\Candidates`. The supplied predictions and
 files contain no reference output from a saved fillet.
 
-The remaining hypothesis is a fresh `moEdgeRef_c.f70=0` with its four
-positive signed supports. The native initial resolver can seek the live
-edge from incidence before storing its derived kernel tag. A passing
-host replay checks the linkage and byte grammar. Only the licensed,
-controlled bracket can establish actual native binding, clean rebuild,
-the editable radius, and save and reopen. This research path has zero
-native candidate acceptance and zero held-out credit.
+## First native candidate bracket
+
+The [native terminal](../measurements/2026/EdgeFilletModelNative01.json)
+binds the two guarded candidates and the exact guest manifest
+`203c0dc47c49b58de5ca38b790a67368868524af21510bb4dad27122399a0892`.
+The macOS host copied the frozen transport through `prlctl exec`. The guest
+verified all 18 files before opening SOLIDWORKS. Four independently identified
+`SldWorks.Application.34` processes ran on build `34.5.2.0604`.
+Both controls passed and both generated inputs stayed immutable.
+
+Both files opened with one solid, zero open errors and warnings, and zero
+document diagnostics. The initial volume, surface area and centre of mass
+matched the independent predictions. The axial case also rebuilt, completed
+45 quantitative checks, edited D1 from 4.37 mm to 6.11 mm and saved the edited
+part with a clean native status. Its SOLIDWORKS process crashed during
+document closure. The transverse process crashed during rollback edge
+inspection. Neither edited save reached fresh native reopen.
+
+The [Windows application events](../measurements/2026/EdgeFilletModelNativeEvents01.json)
+match both exact process IDs and creation times from the native terminal.
+Both report the heap corruption exception `c0000374`. The native trial
+therefore qualifies zero fillet outputs and establishes zero held-out credit.
+The evidence establishes the actual failing native lifetimes. The archive
+ownership responsible for the failure remains under investigation.
+
+[Native runner](../../tooling/sw2026/edge_fillet_source/RunModelFillet.py) ·
+[Packet generation](../../tooling/sw2026/edge_fillet_source/StageModelFillet.py) ·
+[Windows event inspection](../../tooling/sw2026/edge_fillet_source/InspectModelFilletCrashes.ps1) ·
 [Construction boundary](EdgeFilletConstructionBoundary2026.md)

@@ -1,0 +1,34 @@
+{
+  "events": [
+    {
+      "application_build": "34.5.2.604",
+      "case": "EdgeFilletAxial",
+      "event": 1000,
+      "exception_code": "c0000374",
+      "faulting_offset": "0000000000256b98",
+      "module": "ntdll.dll",
+      "process": [
+        5396,
+        134398175785218628
+      ],
+      "record": 2961,
+      "time_utc": "2026-11-22T10:40:33.6459192Z"
+    },
+    {
+      "application_build": "34.5.2.604",
+      "case": "EdgeFilletTransverse",
+      "event": 1000,
+      "exception_code": "c0000374",
+      "faulting_offset": "0000000000256b98",
+      "module": "ntdll.dll",
+      "process": [
+        4944,
+        134398176420629259
+      ],
+      "record": 2963,
+      "time_utc": "2026-11-22T10:41:06.7778198Z"
+    }
+  ],
+  "native_result_sha256": "ed4b234a0e8b922d5a3a379277525665e701cbfa5fc69067838f1e7894e2eb79",
+  "schema": "kit.sw2026.edge-fillet-model-events.v1"
+}
