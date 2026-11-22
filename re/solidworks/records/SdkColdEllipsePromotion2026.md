@@ -106,6 +106,30 @@ observations remain in [the archive record](EllipseBlindBossArchive2026.md).
 They do not qualify that warm configuration, cache or B-rep in this reader.
 The dry run adds zero native launches and zero new held-out credit.
 
+## Strict and permissive histories
+
+The [second review proof](../measurements/2026/SdkEllipseReview02.json)
+retains exact publication through direct and registry calls after either
+strict SDK read mode and neutral JSON restoration. The design-only document
+preserves nine actual native transfers. The complete geometry read preserves
+ten. The same read options must reproduce the entire incoming neutral state
+before the original native measurement can qualify the regenerated archive.
+
+Two generated contrasts add a second real triangular sketch and matching
+resolved and KeyWords roots. Both strict SDK read modes refuse the additional
+history before heuristic extraction. Explicit permissive reads retain both
+sketches and report the unsupported typed ellipse scope. All four unchanged
+disclosed native saves preserve their 26 available history rows in the same
+permissive mode with an explicit diagnostic. Their full warm projection
+remains outside the verified typed profile.
+
+Reopened volume, area and centroid now use the reopened observation's own
+depth. The edited and reopened observations must also agree within the
+previous save/reopen tolerance. A contrast that raises reported reopened
+depth by 0.45 ppm while lowering its volume by 0.45 ppm satisfies the older
+cross-state comparison yet fails the reopened geometric check. Both writer
+routes preserve an empty recipient in that case.
+
 ## Reproduce
 
 Run from this checkout with the disclosed `EllipseColdPrototype02` folder and
