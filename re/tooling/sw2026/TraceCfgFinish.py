@@ -46,7 +46,7 @@ def guard_runtime():
     return events
 
 
-def capture(reader, body, data, version, header, linked_header):
+def capture(reader, body, data, version, header, linked_header, replay=None):
     expected = wanted()
     records = {}
     run = body.ReadSchemaMut
@@ -62,7 +62,7 @@ def capture(reader, body, data, version, header, linked_header):
         tape = frame.ReaderValue.Cursor
         maps = frame.ReaderValue.MapValue
         start, base, before = tape.GetOffset(), maps.BaseValue, maps.Snapshot()
-        run(frame, layout)
+        result = run(frame, layout)
         end, after = tape.GetOffset(), maps.Snapshot()
         source.require(role not in records and base == maps.BaseValue == 4 and before == after
                        and all(old is current for old, current in
@@ -87,6 +87,9 @@ def capture(reader, body, data, version, header, linked_header):
             "map_entries": len(before.EntriesValue),
             "map_identity_preserved": True,
         }
+        if replay is not None and role in ROLES:
+            replay(role, records, frame.NodeValue, maps)
+        return result
 
     body.ReadSchemaMut = instrument
     try:

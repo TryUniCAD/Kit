@@ -1,4 +1,5 @@
 from argparse import ArgumentParser
+from importlib import import_module
 import json
 from pathlib import Path
 from struct import pack
@@ -8,7 +9,8 @@ HERE = Path(__file__).resolve()
 sys.path[:0] = [str(HERE.parents[3] / "src"), str(HERE.parent)]
 
 from CfgFinishWire import authored
-from TraceCfgFinish import FINISH, REVISION, ROLES, field_digest, guard_runtime, source
+from FinishSdkPin import pinned_config
+from TraceCfgFinish import FINISH, REVISION, ROLES, capture, field_digest, guard_runtime, source, wanted
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
@@ -24,8 +26,8 @@ from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefN
 from convert.adapters.solidworks.Archive.Maps.AddEntryMut import AddEntryMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.BindNodesMut import BindNodesMut
-from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -72,9 +74,10 @@ def exact_role(role, rows, config, part, maps):
     fields = ReadCfgFinish(config[first:last], 19000, part, maps)
     check_map(maps, before)
     finished = []
-    for path, interval in rows.items():
+    for path in wanted():
         if path[:len(role)] != role:
             continue
+        interval = rows[path]
         require(first <= interval["interval"][0] < interval["interval"][1] <= last,
                 "finish child lies outside its parent")
         contained = fields
@@ -85,6 +88,65 @@ def exact_role(role, rows, config, part, maps):
     return finished
 
 
+def map_checkpoint(role, maps):
+    slots = list(maps.EntryMap)
+    require(slots == list(range(1, maps.CounterValue)) and maps.BaseValue == 4,
+            "native finish checkpoint has an incomplete or reordered map")
+    rows = []
+    for slot, cell in maps.EntryMap.items():
+        item = cell.EntryValue
+        if isinstance(item, (RuntimeClass, ExternalClass)):
+            require(maps.ClassLookup.get(item) == slot, "native class inverse lookup differs from its slot")
+            kind, descriptor, index = "class", item, None
+        else:
+            require(isinstance(item, ArchiveNode) and maps.ObjectLookup.get(id(item)) == slot,
+                    "native object inverse lookup differs from its slot")
+            kind, descriptor, index = "object", item.ClassValue, item.IndexValue
+        definition = descriptor.SchemaValue if isinstance(descriptor, RuntimeClass) else descriptor.IndexValue
+        rows.append([slot, kind, descriptor.NameValue, type(descriptor).__name__, definition, index])
+    classes, objects = len(maps.ClassLookup), len(maps.ObjectLookup)
+    require(classes + objects == len(slots) and classes > 0 and objects > 0, "native finish map lost mixed membership")
+    return {"role": role, "base": maps.BaseValue, "counter": maps.CounterValue,
+            "slots": slots, "classes": classes, "objects": objects, "slot_sha256": field_digest(rows)}
+
+
+def trace_live_case(case, data):
+    with pinned_config():
+        reader = import_module(source.ARCHIVE + "Config.ReadConfigMut").ReadConfigMut
+        header_reader = import_module(source.ARCHIVE + "Header.ReadNativeHeader").ReadHeaderGraph
+        body = import_module(source.ARCHIVE + "Bodies.ReadBodyMut")
+        external = guard_runtime()
+        archive = SldprtArchive.from_bytes(data)
+        config = archive.require("Contents/Config-0")
+        header_bytes = archive.require("Contents/Config-0-ModelHeader")
+        require(archive.format_version == 4 and ContainerMo(archive.streams) == 19000
+                and digest(config) == case["config_sha256"] and digest(header_bytes) == case["header_sha256"],
+                "native archive stream proof differs")
+        seed = ReadPartStart(archive)
+        (seed_alias,) = HeaderRefNodes(seed.HeaderValue, 19000)
+        header = header_reader(header_bytes, 19000)
+        (linked_header,) = HeaderRefNodes(header, 19000)
+        prefix = [entry.IndexValue for entry in seed.MapValue.EntriesValue]
+        require(prefix == [1, 2, 3] and seed.BaseValue == 4 and seed_alias.ClassValue == linked_header.ClassValue,
+                "current SDK did not recover the native part and header prefix")
+
+        checkpoints, checks = [], []
+
+        def replay(role, rows, part, maps):
+            require(part.ClassValue == seed.RootValue.ClassValue and part.IndexValue == seed.RootValue.IndexValue
+                    and maps.EntryMap[3].EntryValue is linked_header, "finish helper received a foreign native prefix")
+            checkpoints.append(map_checkpoint(role, maps))
+            checks.extend(exact_role(role, rows, config, part, maps))
+
+        native_rows, terminal = capture(reader, body, config, 19000, header, linked_header, replay)
+        require(native_rows == case["rows"] and terminal == case["config_next_slot"],
+                "live physical boundaries differ from the pinned receipt")
+        require([row["role"] for row in checkpoints] == list(ROLES) and not external,
+                "bounded native verification missed a checkpoint or used external data")
+        return {"runtime_external_accesses": len(external), "prefix_anchors": prefix,
+                "native_checkpoints": checkpoints, "exact_intervals": checks}
+
+
 def native_case(name):
     trace = json.loads(RECEIPT.read_bytes())
     require(trace["trace_revision"] == REVISION, "finish source trace pin changed")
@@ -93,28 +155,7 @@ def native_case(name):
     data = (source.ROOT / path).read_bytes()
     require(case["path"] == path and digest(data) == expected == case["file_sha256"],
             "tracked original changed")
-    external = guard_runtime()
-    archive = SldprtArchive.from_bytes(data)
-    config = archive.require("Contents/Config-0")
-    header = archive.require("Contents/Config-0-ModelHeader")
-    require(archive.format_version == 4 and ContainerMo(archive.streams) == 19000
-            and digest(config) == case["config_sha256"] and digest(header) == case["header_sha256"],
-            "native archive stream proof differs")
-    seed = ReadPartStart(archive)
-    rows = {tuple(row["role"]): row for row in case["rows"]}
-    counters = {row["map_counter"] for row in rows.values()}
-    (counter,) = counters
-    maps = ArchiveMaps(counter, MapSnapshot(counter, seed.MapValue.EntriesValue))
-    maps.BaseValue = seed.BaseValue
-    (header_alias,) = HeaderRefNodes(seed.HeaderValue, 19000)
-    require(maps.EntryMap[3].EntryValue is header_alias and maps.BaseValue == 4
-            and all(row["map_identity_preserved"] and row["map_entries"] == counter - 1
-                    for row in rows.values()), "real header role or physical traversal proof differs")
-    checks = [row for role in ROLES for row in exact_role(role, rows, config, seed.RootValue, maps)]
-    require(not external, "bounded native verification used external data")
-    return {"case": name, "runtime_external_accesses": len(external), "native_source": expected,
-            "map_anchors": list(maps.EntryMap), "map_base": maps.BaseValue, "map_counter": maps.CounterValue,
-            "exact_intervals": checks}
+    return {"case": name, "native_source": expected, "trace_revision": REVISION} | trace_live_case(case, data)
 
 
 def authored_root():

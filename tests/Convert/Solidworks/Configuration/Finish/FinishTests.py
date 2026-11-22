@@ -1,13 +1,6 @@
-from json import loads as LoadJson
-from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as PythonExec
 from typing import cast as CastValue
 
-# the bounded helper must run in a fresh guarded process for each document
-KFinishProbe = (
-    FilePath(__file__).resolve().parents[5] / "re/tooling/sw2026/CheckCfgFinish.py"
-)
+from tests.Convert.Solidworks.Configuration.Finish.RunFinishCase import RunFinishCase
 
 # the three roles use the same layout at distinct observed positions
 KFinishCases = (
@@ -27,31 +20,41 @@ KFinishCases = (
     ),
 )
 
-
-# process diagnostics must remain visible when a scoped archive replay fails
-def RunFinishCase(CaseName: str) -> dict[str, object]:
-    Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KFinishProbe), CaseName),
-        capture_output=True,
-        text=True,
-        encoding="utf-8",
-        timeout=60,
-        check=False,
-    )
-    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    Result = CastValue(dict[str, object], LoadJson(Outcome.stdout))
-    assert Result["case"] == CaseName
-    assert Result["runtime_external_accesses"] == 0
-    return Result
+# complete map signatures distinguish both real class and object inventories
+KFinishMaps = {
+    "ladder": (
+        29,
+        39,
+        "c0b2bbf640914d05b5ce0d8ac50e9ed02294632b2b4b6f7c040d1349b30b2e89",
+    ),
+    "concave": (
+        26,
+        27,
+        "e86051175a467ba05274ee1c3a8245f60ffbfa94f73a7ca598ab2924bfd7ff2d",
+    ),
+}
 
 
 # real bounded helpers must preserve both fonts and every field at the native positions
 def TestFinishParts() -> None:
     for CaseName, CounterValue, Bounds, FieldsHash, WireHash in KFinishCases:
         Result = RunFinishCase(CaseName)
-        assert Result["map_anchors"] == [1, 2, 3]
-        assert Result["map_base"] == 4
-        assert Result["map_counter"] == CounterValue
+        assert Result["prefix_anchors"] == [1, 2, 3]
+        assert Result["trace_revision"] == "fe592b8e7a4922dccf8298541453baf41d60b001"
+        Checkpoints = CastValue(list[dict[str, object]], Result["native_checkpoints"])
+        assert [RowValue["role"] for RowValue in Checkpoints] == [
+            ["f2e8"],
+            ["f730", "f260"],
+            ["f730", "f268"],
+        ]
+        assert all(
+            RowValue["slots"] == list(range(1, CounterValue))
+            and RowValue["base"] == 4
+            and RowValue["counter"] == CounterValue
+            and (RowValue["classes"], RowValue["objects"], RowValue["slot_sha256"])
+            == KFinishMaps[CaseName]
+            for RowValue in Checkpoints
+        )
         Records = CastValue(list[dict[str, object]], Result["exact_intervals"])
         assert [RowValue["layout"] for RowValue in Records] == [
             "moSFDataHelper_c",

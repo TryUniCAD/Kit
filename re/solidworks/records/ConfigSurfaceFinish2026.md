@@ -60,17 +60,23 @@ sources because each of their two font bodies differs in length by
 typed field digests for both cases.
 [Physical receipt](../measurements/2026/ConfigFinishPhysical01.json)
 
-The bounded reader on the scoped branch recovers actual part/header
-anchors 1–3 via `ReadPartStart` and uses the traced checkpoint counter.
-The physical trace establishes complete native membership. The guarded
-replay checks all typed fields and re-emits 24 exact body and
-sub-body intervals through the shared field emitter.
+The replay first recovers actual part/header anchors 1–3 with
+`ReadPartStart`. The pinned full loader then passes its live map and
+actual part to the current bounded decoder at each of the three finish
+roles. The six shared map and object type files must match the pin
+byte for byte. Each guarded read and emission checks the original
+entry identities, slot order, counter, base and both inverse lookups.
+L1 preserves 29 class entries and 39 object entries. Concave preserves
+26 class entries and 27 object entries. The bounded reader and shared
+field emitter reproduce all 24 field and wire digests from the initial
+three-anchor replay.
 The independent 372-byte case encodes distinct ANSI and UTF-16 font
 owners, signed fields and varied text. It preserves every slot and
 inverse lookup in its separately authored 68-entry map after read
 and write. Wrong version or part identity, truncated and trailing
 data, and noncanonical text length all refuse.
-[Guarded replay](../measurements/2026/ConfigFinishReplay01.json) ·
+[Full native-map replay](../measurements/2026/ConfigFinishNativeMap01.json) ·
+[Initial replay](../measurements/2026/ConfigFinishReplay01.json) ·
 [Queue process coverage](../../../tests/Convert/Solidworks/Configuration/Finish/FinishTests.py)
 
 ```sh
@@ -80,12 +86,18 @@ python3.14 -I -B re/tooling/sw2026/CheckCfgFinish.py concave
 python3.14 -I -B re/tooling/sw2026/CheckCfgFinish.py wire
 ```
 
-The trace requires the pinned aggregate Git object. The two saved-part
-replays preload the tracked originals and physical receipt before the
-guard. All cases used zero runtime external accesses and zero CAD
-launches. This is wire-compatibility evidence for the disclosed cases
-and independent authored layout. Native feature acceptance and
-held-out conversion retain their own evidence requirements.
+The trace and both native replay processes require the exact aggregate Git
+object. The queue's full-history checkout can resolve the pin through
+the source branch. The replay uses the research lineage hydrator for
+missing blobs from the selected source paths in blobless checkouts.
+This preparation ends before the archive guard begins. The generic
+research CLI does not expose an in-memory Config-0 map checkpoint.
+The pinned trace supplies that checkpoint while the queue evaluates the
+current bounded codec. All cases used zero guarded external accesses and
+zero CAD launches. The main dispatch and public configuration admission
+remain separate from this research loader.
+[Pinned source](https://github.com/TryUniCAD/Kit/tree/fe592b8e7a4922dccf8298541453baf41d60b001/src/convert/adapters/solidworks/Archive) ·
+[History hydration](../../automation/CaptureHistory.py)
 
 ## Shared composition
 
@@ -96,10 +108,14 @@ in both the initial preparation and the accepted base. The finish layout
 imports that declaration directly.
 [PR #226](https://github.com/TryUniCAD/Kit/pull/226)
 
-The physical trace and all three guarded replay processes reproduced the
-committed receipts byte for byte on this base. Their SHA-256 digests are
+Before the full-map follow-up, the physical trace and all three guarded
+processes reproduced their receipts byte for byte on this base. Their SHA-256 digests are
 `61d54b4964e32ece97cf65c99bb073224ab7fa6c1cc408a310bc1b868971d731`
 and `ce08a6dcb41e2322ff4439957a9f3fd828e76e746f592e71f4f0be1e9fbed37e`.
+The full-map worker preserves the original physical receipt, authored
+worker output and all 24 scoped wire and field digests. Its additional
+checkpoint receipt has SHA-256
+`e5b5fedb0fd269d2ccbe8a88a0974f93903555873825000f3f60f15fb0e596bd`.
 
 The open note boundary starts at `moDetailDefs_c.f4d8`.
 The disclosed note helper cases have zero `n248` attachment rows.
