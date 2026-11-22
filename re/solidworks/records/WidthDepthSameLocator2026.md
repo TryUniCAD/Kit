@@ -133,3 +133,66 @@ The normal SDK write produces the exact tested equation bytes
 with zero runtime file reads.
 [Native preparation result](../measurements/2026/SdkWidthDepthPreparationNative01.json)
 · [Normal writer proof](../measurements/2026/SdkPublicWidthDepthWriter01.json)
+
+## Exact publication on the aggregate writer
+
+Aggregate base `8dfc985b7f6d2dfbe4f6671a19a201da064bb58c`
+regenerates the original disclosed case from neutral intent. The
+[measured gate in PR #258](https://github.com/TryUniCAD/Kit/tree/79bf7020cfe7747bd2a5f4814437e6b50476e12e/src/convert/adapters/solidworks/Core/Writing/Measured)
+supplies the exact receipt and archive checks. On the aggregate, the
+existing plain receipt route rejected the valid equation report at both
+public entry points. The shared cold replay projected just one D1.
+The scoped port restores the equation-specific receipt and the typed
+projection of its two sketch drivers, origin datum, coincidence and
+dependent depth. Whole-document strict comparison still guards every
+retained field of the full cold read.
+
+The original terminal report is
+`b544ff3d3668f7dc9815bd862b6d1f067174503cd310e4a7cff56ce8d8458ba2`.
+Its released measured report file is
+`f40bc2433d54bcb8c3ae5165b3a3965ebae4876c71cf52293ad4a045af85b420`.
+The original six distinct SOLIDWORKS 2026 SP05.2 lifetimes contain 188
+numeric checks and both healthy controls. The reference and plain
+comparison use the same encoded self locator. Editing the native
+reference width from 39.125 to 47.875 mm drives its boss depth from
+19.5625 to 23.9375 mm. The edit and saved derivative remain bound by the
+original report.
+
+In two fresh host processes, CPython 3.12.14 with classic zlib 1.2.12
+rebuilds the same 9,157-byte archive with SHA-256
+`5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6`.
+All ten stream hashes agree. Config-0 and ResolvedFeatures end at map
+counters 163 and 256. Direct and registry stream publication work for
+authored input, its ordinary interchange JSON roundtrip and strict full
+native reread. The inferred path stages and publishes the same file.
+Every writer reports native expression transfer, both measured usability
+flags and empty dropped capabilities. Guarded preparation and publication
+make zero input-file reads. A 20.01 mm neutral width contrast, changed
+owner, tampered receipt, changed locator or epoch, and other unsupported
+states refuse before modifying their destinations.
+
+Both strict read modes keep the two driving lengths, actual derived depth,
+sketch constraints and feature definitions. The full cold body validates
+the extrusion as a first creator. The design-only view still shows the
+native boss join flag and stays outside cold republication. Vendor-saved
+geometry is handled as a separate read profile.
+
+The independent Skew and Step plain controls reproduce their unchanged
+standalone archive digests through both writer routes. The respective
+SHA-256 values are
+`3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2` and
+`ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47`.
+[Plain-part evidence](MeasuredPartPublication2026.md)
+
+The earlier [independently locked family evaluation](WidthDepthLockedEvaluation2026.md)
+passed one scoped case on writer `1b70d67b854814cb5066f44028439c43f2b4a632`.
+This port adds no native launches, held-out runs or new public artifacts
+outside the one disclosed measured archive.
+
+```sh
+python3.12 -I -B re/tooling/sw2026/equations/ProveSdkWidthDepthWrite.py \
+  --packet /path/to/disclosed/WidthDepthSameLocator04
+```
+
+[Aggregate process receipt](../measurements/2026/SdkPublicWidthDepthMeasured02.json)
+· [Scoped change](../../../Documentation/Changes/Solidworks/Construction/SolidworksWidthDepthMeasurementGate.md)

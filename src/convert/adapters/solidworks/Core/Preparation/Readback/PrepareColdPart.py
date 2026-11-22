@@ -6,6 +6,12 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
     PartCandidate,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
+    HasEqIntent,
+)
+from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
+    PrepareEqPart,
+)
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
@@ -30,9 +36,16 @@ def PrepareColdPart(
     if not isinstance(FinalValue, (str, FilePath)):
         raise ValueError("unnamed native streams require an explicit final destination")
     InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
-    PlanValue = PlanPartWrite(InputValue)
-    Candidate = RunPartPrep(
-        InputValue, TargetValue, PlanValue, MakePartRecipe(PlanValue, WrittenAt), Settings
-    )
+    if HasEqIntent(InputValue):
+        Candidate = PrepareEqPart(InputValue, TargetValue, WrittenAt, Settings)
+    else:
+        PlanValue = PlanPartWrite(InputValue)
+        Candidate = RunPartPrep(
+            InputValue,
+            TargetValue,
+            PlanValue,
+            MakePartRecipe(PlanValue, WrittenAt),
+            Settings,
+        )
     CheckColdRead(DocumentValue, Candidate.BytesValue)
     return Candidate

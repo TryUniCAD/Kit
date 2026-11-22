@@ -8,9 +8,13 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandida
     ImportCandidate,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
+    HasEqIntent,
+)
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Measured.EmitEqMut import EmitEqMut
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
     MatchPartMeas,
 )
@@ -59,6 +63,8 @@ def EmitNativeMut(
             return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
         if IsEllipsePart(DocumentValue):
             return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+    if HasEqIntent(DocumentValue):
+        return EmitEqMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (

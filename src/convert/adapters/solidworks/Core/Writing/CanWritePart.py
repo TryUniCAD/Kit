@@ -10,6 +10,10 @@ from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
+    HasEqIntent,
+)
+from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
 from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
     PlanImportPart,
 )
@@ -31,7 +35,7 @@ from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# cold eligibility projects exactly the plain profile before output staging
+# cold eligibility must prove the supported sketch and drivers before output staging
 def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     PathValue = (
         FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
@@ -39,7 +43,12 @@ def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     NameValue = (
         PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
     )
-    PlanValue = PlanPartWrite(ColdReadInput(DocumentValue, NameValue))
+    InputValue = ColdReadInput(DocumentValue, NameValue)
+    PlanValue = (
+        PlanEqPart(InputValue)[1]
+        if HasEqIntent(InputValue)
+        else PlanPartWrite(InputValue)
+    )
     return IsPartTarget(PlanValue.NameValue, TargetValue) and (
         PathValue is None or not PathValue.is_dir()
     )
