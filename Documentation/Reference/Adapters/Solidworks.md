@@ -681,8 +681,8 @@ Raw Parasolid extraction requires a saved Parasolid payload.
 Model-only preparation also covers each scoped profile below. Public
 standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
-sweep and distance chamfer have dedicated proof schemas. Other entries in
-the list identify preserved preparation and native research coverage.
+sweep, distance chamfer and selected two-stock through cuts have dedicated proof
+schemas. Other entries identify preserved preparation and native research coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
 - One unrestrained full ellipse on the canonical Front Plane with a forward blind boss, one driving depth D1 and a Default configuration. Public output requires an exact offline measurement receipt and the measured native locator. [Measured ellipse publication](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipsePublication.md)
@@ -712,6 +712,23 @@ CI now rejects any recorded field program in `src`.
 The generative writers derive each emitted structure from known format rules.
 The container, archive, configuration manager, definition and resolved-feature codecs provide the shared construction model.
 Do not present a carrier or a mode label as a completed translation.
+
+### Publishing measured selected two-stock cuts
+
+For the scoped Front stock selected by the through cut, the writer accepts
+the corrected native receipt for the two generated files that passed the
+held-out comparison. Set
+`values["solidworks_native_measurement"]` to a dictionary with `written_at`
+equal to `1765500071` and `receipt` equal to the parsed report.
+[Corrected native receipt](../../../re/solidworks/measurements/2026/TwoStockWriterHoldoutNative02.json)
+
+For binary output, set `values["final_destination"]` to the applicable
+`C:\KitSdkCandidates\TwoStockWriterEvaluation02\TwoStockHoldoutA.SLDPRT`
+or `C:\KitSdkCandidates\TwoStockWriterEvaluation02\TwoStockHoldoutB.SLDPRT`.
+Filesystem output must use that actual native path on Windows. Kit verifies
+the full regenerated size and digest before writing. The disclosed report
+and alternate models remain useful for preparation and reader checks.
+[Measured publication](../../Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksHeldoutSelectedStockPublication.md)
 
 ### Preparing a geometry-only imported solid
 

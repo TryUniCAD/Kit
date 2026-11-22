@@ -6,6 +6,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import ImportCandidate
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
@@ -22,6 +23,9 @@ from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
 from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
+from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
+    WriteStocksMut,
+)
 from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
@@ -41,6 +45,8 @@ def EmitNativeMut(
 ) -> WriteResult:
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
+        if IsStockChain(DocumentValue):
+            return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
         if IsSweepPart(DocumentValue):
             return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
         if IsDistChmf(DocumentValue):
