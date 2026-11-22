@@ -1,43 +1,9 @@
+from convert.adapters.registry.NativeHistory import CheckHistory
 from convert.adapters.registry.NativeReadOnly import CheckReadOnly
-from convert.adapters.registry.NativeEnds import EndFindings
-from convert.adapters.registry.NativeAssembly import AssemblyIssues
-from convert.adapters.registry.NativeFeatures import FeatureFindings
-from convert.adapters.registry.NativeSketch import SketchFindings
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.document.Models.DocumentWalk import WalkDocuments
-from interchange.Features.FeatureKinds import NativeFeature
 
 
-# shared conversion boundaries must reject incomplete native history even after source relabeling
+# direct writers require both native history qualification and inspection export restrictions
 def CheckNative(Document: CadDocument) -> None:
+    CheckHistory(Document)
     CheckReadOnly(Document)
-    Findings = sorted(
-        {
-            f"{PartValue.source.path}: {StepValue.id} ({Definition.format_id}:{Definition.type_id})"
-            for PartValue in WalkDocuments(Document)
-            for StepValue in PartValue.feature_timeline
-            for Definition in (StepValue.definition,)
-            if isinstance(Definition, NativeFeature)
-        }
-    )
-    if Findings:
-        raise ValueError(
-            "native-only feature definitions cannot be exported: " + "; ".join(Findings)
-        )
-    Findings = sorted(
-        {
-            Finding
-            for PartValue in WalkDocuments(Document)
-            for Finding in (
-                *SketchFindings(PartValue),
-                *EndFindings(PartValue),
-                *FeatureFindings(PartValue),
-                *AssemblyIssues(PartValue),
-            )
-        }
-    )
-    if Findings:
-        raise ValueError(
-            "native or unresolved required semantics cannot be exported: "
-            + "; ".join(Findings)
-        )

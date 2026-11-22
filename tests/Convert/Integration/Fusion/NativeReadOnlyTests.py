@@ -28,7 +28,9 @@ def CheckReadExport(SourceName: str, Validated: bool, Nested: bool) -> None:
         Document = NestReadOnly(Document)
         assert "fusion.read_only" not in Document.metadata
     Unsupported = BytesIO()
-    with Pytest.raises(AdapterNotFoundError):
+    with Pytest.raises(
+        AdapterNotFoundError, match="fusion.f3d does not support the destination"
+    ):
         _ = WriteDocument(Document, Unsupported, DestFormat="fusion.f3d")
     assert Unsupported.getvalue() == b""
     with TemporaryDirectory() as WorkName:
