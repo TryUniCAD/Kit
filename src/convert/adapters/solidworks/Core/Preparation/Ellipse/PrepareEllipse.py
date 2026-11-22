@@ -7,7 +7,18 @@ from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import
     EllipsePart,
 )
 from convert.adapters.solidworks.Archive.Construction.Ellipse.MakeEllipsePart import (
+    BuildEllipPart,
     MakeEllipsePart,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import (
+    CheckPartInput,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import IsColdEllip
+from convert.adapters.solidworks.Core.Preparation.Ellipse.ReadColdEllip import (
+    ReadColdEllip,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
@@ -24,7 +35,12 @@ def PrepareEllipse(
     OptionsValue: WriteOptions | None = None,
 ) -> EllipsePart:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue = PlanEllipse(DocumentValue)
+    IsReadback = IsColdEllip(DocumentValue)
+    InputValue, PlanValue = (
+        ReadColdEllip(DocumentValue)
+        if IsReadback
+        else (DocumentValue, PlanEllipse(DocumentValue))
+    )
     (ConfigValue,) = DocumentValue.configurations
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested ellipse write configuration is unavailable")
@@ -34,6 +50,10 @@ def PrepareEllipse(
     OutputValue = FinalPartPath(
         TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
     )
-    return MakeEllipsePart(
-        DocumentValue, ReplaceValue(RecipeValue, OutputValue=OutputValue)
-    )
+    RecipeValue = ReplaceValue(RecipeValue, OutputValue=OutputValue)
+    if not IsReadback:
+        return MakeEllipsePart(InputValue, RecipeValue)
+    CheckPartInput(InputValue, RecipeValue, PlanValue)
+    Result = BuildEllipPart(PlanValue, RecipeValue)
+    CheckColdRead(DocumentValue, Result.BytesValue, IsEllipse=True)
+    return Result

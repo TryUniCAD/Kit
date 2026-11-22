@@ -26,6 +26,13 @@ KEllipseCases = (
         (17.625, 11.25),
         21.625,
     ),
+    (
+        "EllipseTranslated",
+        (70.0, 70.0),
+        (0.838670567945424, 0.5446390350150271),
+        (40.0, 30.0),
+        15.0,
+    ),
 )
 
 # hosted integration consumes disclosed measurements and independent clear stream evidence

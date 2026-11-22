@@ -26,7 +26,7 @@ from tests.Convert.Solidworks.EllipseWriting.MakeEllipseDoc import (
 
 
 # canonical cold readback must preserve the actual sketch live dimension and body associations
-def CheckEllipRead(Payload: bytes, DepthValue: float) -> None:
+def AssertEllipRead(Payload: bytes, DepthValue: float) -> CadDocument:
     Model = OpenDocument(Payload, source_format=KPartFormatId)
     (Sketch,) = Model.sketches
     (Entity,) = Sketch.entities
@@ -40,10 +40,11 @@ def CheckEllipRead(Payload: bytes, DepthValue: float) -> None:
     assert Parameter.owner_id == BodyValue.final_feature_id
     assert Model.brep is not None and len(Model.brep.faces) == 3
     assert not Model.brep.validate(frozenset((BodyValue.id,)))
+    return Model
 
 
 # both writer entry points must preserve the caller sink when its complete payload has no matching measurement
-def CheckEllipWrite(
+def AssertEllipOut(
     Document: CadDocument, Options: Mapping[str, object], Payload: bytes, Measured: bool
 ) -> None:
     Direct, Standard = BytesIO(), BytesIO()
@@ -100,5 +101,26 @@ def TestEllipCase(SlotValue: int) -> None:
     Measured = CalcSha(Payload).hexdigest() == CaseValue["archive_sha256"]
     if "zlib-ng" not in DeflateRuntime:
         assert Measured
-    CheckEllipWrite(Document, Settings, Payload, Measured)
-    CheckEllipRead(Payload, CastValue(float, Document.parameters[0].value.value))
+    AssertEllipOut(Document, Settings, Payload, Measured)
+    Reopened = AssertEllipRead(
+        Payload, CastValue(float, Document.parameters[0].value.value)
+    )
+    AssertEllipOut(
+        CadDocument.from_json(Reopened.to_json()), Settings, Payload, Measured
+    )
+
+
+# translated sketch stations must remain orthogonal within their binary64 construction error
+def TestOffsetEllip() -> None:
+    Document = MakeEllipseDoc(2)
+    _, CaseValue, _ = ReadEllipseCase(0)
+    Clock = CastValue(int, CaseValue["written_at"])
+    Settings = WriteOptions(
+        values={"final_destination": r"C:\KitSdkCandidates\EllipseTranslated.SLDPRT"}
+    )
+    Candidate = PrepareEllipse(Document, BytesIO(), Clock, Settings)
+    _ = AssertEllipRead(Candidate.BytesValue, 15.0)
+    Target = BytesIO()
+    with RaisesError(ValueError, match="offline native measurement"):
+        _ = SldprtWriter().write(Document, Target, Settings)
+    assert Target.tell() == 0 and Target.getvalue() == b""

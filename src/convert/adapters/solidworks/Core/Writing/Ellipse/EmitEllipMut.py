@@ -1,9 +1,11 @@
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import IsColdEllip
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import (
     PrepareEllipse,
 )
@@ -50,6 +52,14 @@ def EmitEllipMut(
         KPartFormatId,
         len(Payload),
         metadata=Evidence,
+        transfers=(
+            tuple(
+                CapTransfer(Value, TransferMode.KNative)
+                for Value in sorted(DocumentValue.capabilities)
+            )
+            if IsColdEllip(DocumentValue)
+            else ()
+        ),
         vendor_loadable=True,
         application_usable=True,
     )

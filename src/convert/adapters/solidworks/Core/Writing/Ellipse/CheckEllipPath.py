@@ -9,7 +9,7 @@ def CheckEllipPath(OutputPath: FilePath, Settings: WriteOptions) -> None:
     if not isinstance(FinalValue, (str, FilePath)):
         raise ValueError("measured ellipse needs its actual final filesystem locator")
     FinalPath = FilePath(FinalValue).expanduser()
-    if not FinalPath.is_absolute():
+    if not FinalPath.drive or not FinalPath.is_absolute():
         raise ValueError("measured ellipse needs its actual final filesystem locator")
     FinalPath = FinalPath.resolve()
     StageParent = OutputPath.parent

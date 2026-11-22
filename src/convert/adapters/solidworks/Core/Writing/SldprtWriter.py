@@ -6,6 +6,10 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import IsColdEllip
+from convert.adapters.solidworks.Core.Preparation.Ellipse.ReadColdEllip import (
+    ReadColdEllip,
+)
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
@@ -39,18 +43,11 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
-            if IsColdRead(DocValue):
-                NameValue = (
-                    PathValue.stem
-                    if PathValue is not None
-                    else DocValue.sketches[0].name
-                )
-                DocValue = ColdReadInput(DocValue, NameValue)
-            NameValue = (
-                PlanEllipse(DocValue).NameValue
-                if IsEllipsePart(DocValue)
-                else PlanPartWrite(DocValue).NameValue
-            )
+            if IsColdEllip(DocValue):
+                _, PlanValue = ReadColdEllip(DocValue)
+                NameValue = PlanValue.NameValue
+            else:
+                NameValue = ReadPartName(DocValue, PathValue)
         except (IndexError, TypeError, ValueError):
             return False
         if PathValue is not None:
@@ -71,3 +68,17 @@ class SldprtWriter(PairProtocol):
         if IsEllipsePart(document):
             return EmitEllipMut(document, destination, options)
         return EmitNativeMut(document, destination, options)
+
+
+# both ordinary and authored conic selection reuse their normal model qualification
+def ReadPartName(DocumentValue: CadDocument, PathValue: FilePath | None) -> str:
+    if IsColdRead(DocumentValue):
+        NameValue = (
+            PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
+        )
+        return PlanPartWrite(ColdReadInput(DocumentValue, NameValue)).NameValue
+    return (
+        PlanEllipse(DocumentValue).NameValue
+        if IsEllipsePart(DocumentValue)
+        else PlanPartWrite(DocumentValue).NameValue
+    )

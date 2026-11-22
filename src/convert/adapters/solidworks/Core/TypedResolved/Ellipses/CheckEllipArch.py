@@ -27,7 +27,7 @@ def CheckEllipArch(
     LinkValue: NativeLink,
     OwnerValue: ExtrudeOwner,
     PointsValue: tuple[Mapping[str, object], ...],
-) -> None:
+) -> EllipsePlan:
     HeaderFields = LinkValue.ConfigValue.HeaderValue.FieldsValue
     TimeValue = FieldInt(HeaderFields, "f70")
     SelfValue = GetFileRef(HeaderFields.get("f38"))
@@ -53,3 +53,4 @@ def CheckEllipArch(
         or Archive.streams != Expected.StreamsValue
     ):
         raise ValueError("SOLIDWORKS cold ellipse contains unprojected archive state")
+    return PlanValue

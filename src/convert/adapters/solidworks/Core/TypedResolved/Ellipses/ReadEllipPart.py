@@ -2,6 +2,7 @@ from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Ellipses.CheckEllipArch import (
     CheckEllipArch,
@@ -61,9 +62,16 @@ def ReadEllipPart(Archive: SldprtArchive, ModelValue: NativeModel) -> EllipPartR
     SegmentId, PointsValue = ReadEllipRows(SketchValue)
     Handle, PointIds = ReadEllipHandle(PointsValue)
     Geometry = ProjectEllip(PointsValue, RequireScalar(Driver.native_value))
-    CheckEllipArch(Archive, LinkValue, BossValue, PointsValue)
+    PlanValue = CheckEllipArch(Archive, LinkValue, BossValue, PointsValue)
     return EllipPartRead(
-        LinkValue, BossValue, SketchValue, Handle, Geometry, SegmentId, PointIds
+        LinkValue,
+        BossValue,
+        SketchValue,
+        Handle,
+        Geometry,
+        SegmentId,
+        PointIds,
+        PlanValue,
     )
 
 
@@ -73,19 +81,33 @@ def TryEllipPart(
 ) -> EllipPartRead | None:
     if (
         Settings.extract_raw_brep
-        or KPartitionStream in Archive.streams
+        or Archive.format_version != 4
+        or len(ModelValue.sketches) != 1
+        or tuple(Value.kind for Value in ModelValue.operations) != ("join",)
+    ):
+        return None
+    (SketchValue,) = ModelValue.sketches
+    if not any(
+        Value.name == "sgEllipseHandle"
+        and SketchValue.native_offset <= Value.offset < SketchValue.native_end
+        for Value in ModelValue.classes
+    ):
+        return None
+    if (
+        KPartitionStream in Archive.streams
         or len(Archive.records) != 10
         or ModelValue.equations
         or tuple(
             (Value.configuration_id, Value.name) for Value in ModelValue.configurations
         )
         != ((0, "Default"),)
-        or len(ModelValue.sketches) != 1
-        or tuple(Value.kind for Value in ModelValue.operations) != ("join",)
-        or not any(Value.name == "sgEllipseHandle" for Value in ModelValue.classes)
     ):
-        return None
+        raise SldprtFormat(
+            "SOLIDWORKS full ellipse is outside the verified cold archive profile"
+        )
     try:
         return ReadEllipPart(Archive, ModelValue)
-    except (ValueError, TypeError, KeyError, OverflowError):
-        return None
+    except (ValueError, TypeError, KeyError, OverflowError) as ErrorInfo:
+        raise SldprtFormat(
+            "SOLIDWORKS full ellipse lacks its verified cold owners"
+        ) from ErrorInfo

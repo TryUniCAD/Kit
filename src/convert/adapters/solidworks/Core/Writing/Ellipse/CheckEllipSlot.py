@@ -1,5 +1,8 @@
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Core.Writing.Ellipse.CheckEllipEdits import (
     CheckEllipEdits,
 )
@@ -10,7 +13,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMe
 def CheckEllipSlot(
     Phases: tuple[dict[str, object], ...],
     CaseValue: dict[str, object],
-    DepthValue: float,
+    PlanValue: EllipsePlan,
 ) -> tuple[str, str]:
     SlotId = CaseValue["slot"]
     Matches = tuple(
@@ -35,7 +38,7 @@ def CheckEllipSlot(
         raise ValueError(
             "ellipse measurement does not bind the exact native edit and saved reopen"
         )
-    CheckEllipEdits(CaseValue, DepthValue)
+    CheckEllipEdits(CaseValue, PlanValue)
     return ReadMeasSha(EditPhase["receipt_sha256"]), ReadMeasSha(
         Reopen["receipt_sha256"]
     )

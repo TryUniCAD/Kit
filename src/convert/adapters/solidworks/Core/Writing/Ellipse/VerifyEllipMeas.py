@@ -26,9 +26,7 @@ def VerifyEllipMeas(
 ) -> Mapping[str, object]:
     Phases = CheckEllipBatch(Receipt)
     CaseValue = MatchEllipCase(Receipt, Candidate, WrittenAt)
-    EditHash, ReopenHash = CheckEllipSlot(
-        Phases, CaseValue, Candidate.PlanValue.DepthValue
-    )
+    EditHash, ReopenHash = CheckEllipSlot(Phases, CaseValue, Candidate.PlanValue)
     return FreezeMapping(
         {
             KPartMeasureOpt: FreezeMapping(

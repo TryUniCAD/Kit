@@ -2,6 +2,7 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.TypedResolved.Ellipses.EllipPartRead import (
     EllipPartRead,
+    KEllipseStations,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
@@ -53,8 +54,10 @@ def BindEllipDoc(Document: CadDocument, PartValue: EllipPartRead) -> CadDocument
             NativeNodeSpan(PartValue.LinkValue, PartValue.SketchValue), EntityId
         ),
     )
+    PlanValue = PartValue.PlanValue
     return ReplaceValue(
         Document,
+        metadata=FreezeMapping({**Document.metadata, "name": PlanValue.NameValue}),
         sketches=(
             ReplaceValue(
                 Sketch,
@@ -67,6 +70,11 @@ def BindEllipDoc(Document: CadDocument, PartValue: EllipPartRead) -> CadDocument
                         "native_profile_count": 1,
                         "ellipse_entity_id": PartValue.SegmentId,
                         "ellipse_point_ids": PartValue.PointIds,
+                        KEllipseStations: (
+                            PlanValue.CenterValue,
+                            PlanValue.MajorValue,
+                            PlanValue.MinorValue,
+                        ),
                     }
                 ),
             ),

@@ -1,6 +1,12 @@
 from math import isclose as IsClose
 from typing import cast as CastValue
 
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
+from convert.adapters.solidworks.Core.Writing.Ellipse.CheckEllipMass import (
+    CheckEllipMass,
+)
 from convert.adapters.solidworks.Core.Writing.Ellipse.CheckEllipState import (
     CheckEllipState,
 )
@@ -8,7 +14,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadM
 
 
 # complete open edit save and reopen evidence must preserve the edited depth and measured solid
-def CheckEllipEdits(CaseValue: dict[str, object], DepthValue: float) -> None:
+def CheckEllipEdits(CaseValue: dict[str, object], PlanValue: EllipsePlan) -> None:
     States = ReadMeasRows(CaseValue.get("states"), 3)
     SaveStatus = CaseValue.get("save_status")
     Loader = CaseValue.get("opens")
@@ -27,7 +33,7 @@ def CheckEllipEdits(CaseValue: dict[str, object], DepthValue: float) -> None:
     ):
         raise ValueError("ellipse measurement lacks clean native edit save or reopen")
     Initial, Edited, Reopened = (CheckEllipState(StateValue) for StateValue in States)
-    if not IsClose(Initial[0], DepthValue, rel_tol=1e-14):
+    if not IsClose(Initial[0], PlanValue.DepthValue, rel_tol=1e-14):
         raise ValueError(
             "ellipse measurement does not match the generated driving depth"
         )
@@ -42,3 +48,6 @@ def CheckEllipEdits(CaseValue: dict[str, object], DepthValue: float) -> None:
         raise ValueError(
             "ellipse measurement does not preserve the edited depth and body"
         )
+    CheckEllipMass(PlanValue, Initial, PlanValue.DepthValue)
+    for StateValue in (Edited, Reopened):
+        CheckEllipMass(PlanValue, StateValue, Edited[0])

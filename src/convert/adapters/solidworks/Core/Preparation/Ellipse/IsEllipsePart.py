@@ -1,3 +1,4 @@
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsColdEllip import IsColdEllip
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.Enums.EnumGeometry import GeometryKind
@@ -6,7 +7,7 @@ from interchange.Enums.EnumGeometry import GeometryKind
 # a full ellipse in a single extrusion requires its own checked profile constructor
 def IsEllipsePart(DocumentValue: CadDocument) -> bool:
     Timeline = DocumentValue.feature_timeline
-    return (
+    return IsColdEllip(DocumentValue) or (
         len(Timeline) == 1
         and Timeline[0].kind == FeatureKind.KExtrusion
         and any(

@@ -6,7 +6,7 @@ from hashlib import sha256
 from importlib import import_module
 from io import BytesIO
 import json
-from math import dist
+from math import cos, dist, radians, sin
 from pathlib import Path
 import subprocess
 import sys
@@ -27,7 +27,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
+from convert.adapters.solidworks.Core.Adapter import DecodePartModel, SldprtAdapter
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import PrepareEllipse
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
@@ -127,6 +127,15 @@ def write_refusals(emit, document, values, slot):
         "unbound_receipt_locator": (document, values | {OPTION: wrong_path}, "generated scope or locator"),
         "unmeasured_geometry": (changed, values, "no unique exact native measurement"),
     }
+    for field in ("volume_m3", "area_m2", "com_m"):
+        wrong = deepcopy(envelope)
+        cases = wrong["receipt"]["cases"]
+        cases[slot]["states"][0][field] = cases[1 - slot]["states"][0][field]
+        variants["foreign_initial_" + field] = document, values | {OPTION: wrong}, "disagrees with the generated swept solid"
+    edited_pair = deepcopy(envelope)
+    for record in edited_pair["receipt"]["cases"][slot]["states"][1:]:
+        record["area_m2"] *= 1.125
+    variants["consistent_wrong_edits"] = document, values | {OPTION: edited_pair}, "disagrees with the generated swept solid"
     for model, opts, why in variants.values():
         sink = BytesIO()
         reject(lambda: emit(model, sink, opts), why)
@@ -157,11 +166,47 @@ def read_refusals(raw):
         changed_streams = dict(archive.streams)
         changed_streams[link.StreamName] = changed
         contrast = BuildSldprt(changed_streams, FormatVersion=4)
-        reject(lambda: open_document(contrast, source_format=FORMAT), "no readable Parasolid payload", SldprtFormat)
-        partial = open_document(contrast, source_format=FORMAT, include_brep=False)
-        require(not any(type(entity.geometry) is EllipseGeometry for row in partial.sketches for entity in row.entities),
-                "out-of-profile source gained a typed ellipse")
-    return 4
+        for included in (True, False):
+            reject(lambda: open_document(contrast, source_format=FORMAT, include_brep=included),
+                   "full ellipse lacks its verified cold owners", SldprtFormat)
+    return 7
+
+
+def verify_roundtrip(document, raw, scope, entrypoints):
+    restored = CadDocument.from_json(document.to_json())
+    for emit in entrypoints:
+        for model in (document, restored):
+            sink = BytesIO()
+            outcome = emit(model, sink, scope)
+            require(sink.getvalue() == raw and outcome.native_capabilities == model.capabilities
+                    and not outcome.dropped and outcome.vendor_loadable and outcome.application_usable,
+                    "reopened conic lost exact bytes or semantic transfers")
+        for source, meta in ((document.source, document.metadata | {"unowned_attribute": "keep"}),
+                             (replace(document.source, sha256="3" * 64), document.metadata)):
+            sink = BytesIO()
+            changed = replace(document, source=source, metadata=meta)
+            reject(lambda: emit(changed, sink, scope), "differs from its regenerated part")
+            require(not sink.getvalue() and sink.tell() == 0, "changed readback reached the recipient")
+    return {"exact_routes": len(entrypoints) * 2, "native_transfers": len(document.capabilities),
+            "altered_source_refusals": len(entrypoints) * 2}
+
+
+def verify_translated(scope, entrypoints):
+    name = "EllipseTranslated"
+    angle = radians(33)
+    alternate = {"name": name, "center_mm": [70, 70], "radii_mm": [40, 30],
+                 "angle_deg": 33, "depth_mm": 15.0, "edited_depth_mm": 19.0}
+    model = make_document({key: alternate[key] for key in ("name", "center_mm", "radii_mm", "depth_mm")}
+                          | {"major_xy": [cos(angle), sin(angle)]})
+    options = scope | {"final_destination": rf"C:\KitSdkCandidates\{name}.SLDPRT"}
+    candidate = PrepareEllipse(model, BytesIO(), scope[OPTION]["written_at"], WriteOptions(values=options))
+    document = open_document(candidate.BytesValue, source_format=FORMAT)
+    check_semantics(document, alternate, True)
+    for emit in entrypoints:
+        sink = BytesIO()
+        reject(lambda: emit(model, sink, options), "no unique exact native measurement")
+        require(not sink.getvalue() and sink.tell() == 0, "unmeasured translated output was published")
+    return {"sha256": digest(candidate.BytesValue), "strict_read": True, "publication_refusals": len(entrypoints)}
 
 
 def worker(request):
@@ -173,7 +218,7 @@ def worker(request):
         target.write_bytes(b"existing target")
         if sys.platform != "win32":
             reject(lambda: write_document(model, target, overwrite=True, values=scope, allow_carrier=False),
-                   "no unique exact native measurement")
+                   "actual final filesystem locator")
             reject(lambda: SldprtWriter().write(model, target, WriteOptions(overwrite=True, values=scope)),
                    "actual final filesystem locator")
             require(target.read_bytes() == b"existing target" and tuple(target.parent.iterdir()) == (target,),
@@ -202,6 +247,8 @@ def worker(request):
             require(full.sketches == design.sketches and full.parameters == design.parameters
                     and full.feature_timeline == design.feature_timeline, "geometry option changed editable history")
             geometric, observed = check_measures(full, request["case"], request["cold_native"])
+            roundtrips = verify_roundtrip(full, raw, scope, entrypoints)
+            translated = verify_translated(scope, entrypoints)
             require(not audit.denied and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
                     "preparation, publication or typed readback escaped the offline guard")
         finally:
@@ -212,7 +259,8 @@ def worker(request):
             "scope": ["direct", "registry", "strict_readback"], "depth_mm": full.parameters[0].value.value,
             "write_refusals": refusals + (2 if sys.platform != "win32" else 0), "read_refusals": read_refusals(raw),
             "filesystem_reads_after_import": len(audit.denied), "trim_surface_evaluations": geometric,
-            "native_measure_comparisons": observed}
+            "native_measure_comparisons": observed, "cold_readback_to_write": roundtrips,
+            "unmeasured_translated_contrast": translated}
 
 
 def cold_summary(phase):
@@ -221,7 +269,29 @@ def cold_summary(phase):
                            "seams_m": [cap["trim"]["seam_points_m"][0] for cap in sorted(body["caps"], key=lambda cap: cap["station"])]}
 
 
-def supervise(folder, output):
+def saved_refusals(folder):
+    source = ROOT / "re/solidworks/measurements/2026/EllipseBlindBossArchive01.json"
+    evidence = load_pin(source, "fd68df149a85579b40779e829d885698ef6e3dc695c6131570c43597b34de5d4")
+    findings = []
+    for row in evidence["cases"]:
+        raw = (folder / (row["case"] + ".SLDPRT")).read_bytes()
+        require(digest(raw) == row["sha256"], "disclosed native saved archive differs")
+        archive = SldprtArchive.from_bytes(raw)
+        model, _, _ = DecodePartModel(archive, None)
+        (sketch,) = model.sketches
+        (handle,) = (item for item in model.classes if item.name == "sgEllipseHandle")
+        require(sketch.native_offset <= handle.offset < sketch.native_end, "saved ellipse marker lost its active profile")
+        reject(lambda: ReadNativeLink(archive, 0, ReadEllipses=True), "moLinkedAtomIdNode_c schema 1")
+        for included in (True, False):
+            reject(lambda: open_document(raw, source_format=FORMAT, include_brep=included),
+                   "full ellipse is outside the verified cold archive profile", SldprtFormat)
+        findings.append({"case": row["case"], "sha256": row["sha256"], "streams": len(archive.records),
+                         "first_scoped_owner": "moLinkedAtomIdNode_c schema 1", "profile_handle_offset": handle.offset,
+                         "explicit_public_refusals": 2})
+    return findings
+
+
+def supervise(folder, output, saved_sources):
     receipt, requests = normalize(folder)
     reference = load_pin(ROOT / "re/solidworks/measurements/2026/SdkColdEllipseReceipt01.json", RECEIPT_SHA)
     require(receipt == reference, "exact normalized disclosure differs")
@@ -258,7 +328,8 @@ def supervise(folder, output):
               "method_sha256": {path.name: digest(path.read_bytes()) for path in
                                 (HERE, *(HERE.with_name(name + ".py") for name in
                                          ("ColdEllipseModel", "EllipseMeasuredReceipt", "EllipseModel", "VerifyEllipseBoundary")))},
-              "guarded_workers": len(result), "results": result}
+              "guarded_workers": len(result), "results": result,
+              "native_saved_contrasts": saved_refusals(saved_sources) if saved_sources is not None else []}
     with output.open("x", encoding="utf-8", newline="\n") as stream:
         stream.write(json.dumps(report, indent=2, sort_keys=True) + "\n")
     print(digest(output.read_bytes()))
@@ -269,9 +340,10 @@ if __name__ == "__main__":
     parser.add_argument("--worker", action="store_true")
     parser.add_argument("--disclosed", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--warm-disclosed", type=Path)
     args = parser.parse_args()
     if args.worker:
         print(json.dumps(worker(json.load(sys.stdin)), sort_keys=True))
     else:
         require(args.disclosed is not None and args.output is not None, "use the disclosed packet and a fresh output")
-        supervise(args.disclosed, args.output)
+        supervise(args.disclosed, args.output, args.warm_disclosed)
