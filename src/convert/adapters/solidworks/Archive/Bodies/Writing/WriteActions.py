@@ -27,6 +27,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteMassMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
     WriteNormalMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
+    WritePresentMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSectionMut import (
     WriteSectionMut,
 )
@@ -50,6 +53,7 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Base": WriteNestedMut,
             "Embed": WriteNestedMut,
             "Array": WriteArrayMut,
+            "Present": WritePresentMut,
             "Branch": WriteBranchMut,
             "Length": WriteLengthMut,
             "Repeat": WriteArrayMut,
