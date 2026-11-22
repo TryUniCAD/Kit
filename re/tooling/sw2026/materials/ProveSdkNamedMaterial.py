@@ -79,12 +79,15 @@ def check_refusals(archive, read, typed):
 def preserved_digest(document):
     from convert.adapters.solidworks.Core.Adapter import KSourceSemanticShaTwoFive
     from interchange.Core.Common import FreezeMapping
+    from interchange.Enums.EnumDocument import Capability
 
     without = replace(
         document,
-        bodies=tuple(replace(body, attributes=FreezeMapping({
+        bodies=tuple(replace(body, material_id=None, attributes=FreezeMapping({
             key: item for key, item in body.attributes.items() if key != MAT_ATTRIBUTE
         })) for body in document.bodies),
+        materials=(),
+        capabilities=document.capabilities - {Capability.KMaterials},
         diagnostics=tuple(item for item in document.diagnostics if item.code not in (DOMAINS, UNRESOLVED)),
         metadata=FreezeMapping({key: item for key, item in document.metadata.items()
                                 if key != KSourceSemanticShaTwoFive}),
@@ -147,7 +150,11 @@ def worker(source, baseline, control, contrasts):
                     "unassigned or baseline document spuriously gained material")
         else:
             require(assignment is not None and all(
-                not document.materials and document.bodies[0].material_id is None
+                len(document.materials) == 1
+                and document.materials[0].ColorValue is None
+                and document.materials[0].id == document.bodies[0].material_id
+                and document.materials[0].name == assignment["name"]
+                and document.materials[0].Density == assignment["density_kg_m3"]
                 and len([item for item in document.diagnostics if item.code == DOMAINS]) == 1
                 and all(item.code != UNRESOLVED for item in document.diagnostics)
                 for document in documents.values()), "physical record did not preserve unresolved appearance")
@@ -170,12 +177,16 @@ def worker(source, baseline, control, contrasts):
     require(events["external"] == 0, "a denied read was intercepted")
     if not baseline and not control:
         reopened = CadDocument.from_json(design.to_json())
-        require(reopened.bodies[0].attributes[MAT_ATTRIBUTE] == assignment, "neutral JSON lost physical record")
+        require(reopened.bodies[0].attributes[MAT_ATTRIBUTE] == assignment
+                and reopened.bodies[0].material_id == design.bodies[0].material_id
+                and reopened.materials == design.materials, "neutral JSON lost physical record")
         sink = BytesIO()
         try:
             write_document(design, sink, destination_format="solidworks.sldprt")
         except (NotFoundError, ValueError) as error:
-            declines["material_write"] = type(error).__name__
+            require(str(error) == "unresolved material assignments cannot be exported",
+                    "publication stopped before the unresolved material check")
+            declines["material_write"] = str(error)
         else:
             raise ValueError("observed material became authorized native output")
         require(sink.getvalue() == b"", "unsupported writer touched its destination")

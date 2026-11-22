@@ -5,7 +5,7 @@ from sys import executable as PythonExec
 from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import KMeasureRoot
 
 
-# a material stream cannot assign an unowned density to an ordinary saved solid
+# the saved part can assign its proved physical material while both partial and invalid material writes refuse
 def TestNamedMat() -> None:
     ScriptPath = KMeasureRoot / "re/tooling/sw2026/materials/CheckNamedMaterialQueue.py"
     Outcome = RunProcess(
@@ -16,7 +16,12 @@ def TestNamedMat() -> None:
         check=False,
     )
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    Expected = (
+    Rejection = (
         "SOLIDWORKS assigned material density is absent, overridden or inconsistent"
     )
-    assert LoadJson(Outcome.stdout) == {"design": Expected, "geometry": Expected}
+    Assignment = ["sldprt:material:258", 2700.0, None, "sldprt:material:258"]
+    assert LoadJson(Outcome.stdout) == {
+        "assignment": {"design": Assignment, "geometry": Assignment},
+        "invalid_assignment": {"design": Rejection, "geometry": Rejection},
+        "writes_refused": 12,
+    }

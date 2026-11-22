@@ -526,7 +526,10 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     DocValue = WithPartMat(
-        ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings), Archive
+        ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings),
+        Archive,
+        Payloads,
+        ActivePart,
     )
     DocValue.assert_valid()
     ValidateSource(Label, False)

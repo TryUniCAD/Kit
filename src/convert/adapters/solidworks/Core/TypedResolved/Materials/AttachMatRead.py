@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Materials.NamedMatRead impor
 )
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.materials.MaterialRecord import MaterialRecord
 
 # the body attribute names the verified native physical assignment and owner evidence
 KPartMaterial = "solidworks.assigned_part_material"
@@ -24,6 +25,7 @@ def AttachMatRead(
     if (
         not ConfigValue.active
         or ConfigValue.name != MaterialValue.CfgName
+        or DocumentValue.materials
         or BodyValue.material_id is not None
         or BodyValue.topology.solid_count != 1
         or not any(
@@ -47,10 +49,17 @@ def AttachMatRead(
             "native_feature_id": MaterialValue.FeatureId,
         }
     )
+    RecordValue = MaterialRecord(
+        f"sldprt:material:{MaterialValue.NativeId}",
+        MaterialValue.MaterialName,
+        MaterialValue.DensityValue,
+        None,
+    )
     BodyValue = ReplaceValue(
         BodyValue,
+        material_id=RecordValue.id,
         attributes=FreezeMapping(
             dict(BodyValue.attributes) | {KPartMaterial: Assignment}
         ),
     )
-    return ReplaceValue(DocumentValue, bodies=(BodyValue,))
+    return ReplaceValue(DocumentValue, bodies=(BodyValue,), materials=(RecordValue,))
