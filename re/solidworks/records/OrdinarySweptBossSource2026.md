@@ -30,17 +30,23 @@ Packet 02 got through 135 checks in the first author phase, including both drivi
 
 Packet 03 reached 171 checks, including the actual bound Standard sweep options, rollback sketch identities, independent driving dimensions and the expected one-sided direction. After releasing rollback, the named parent list contained both sketches and their Right and Front support planes. The native observer originally expected two parents. The next packet verifies both actual support relationships from each sketch's reference entity, then matches all four typed parents against their real feature objects. Both controls passed and the original lifecycle stopped before any part was saved. [Packet 03 failure](../measurements/2026/OrdinarySweptBossSourceFailure03.json)
 
+### Body weight and geometry authorities
+
+Packet 04 verified all four typed parents and reached the geometric mass-property checks. The native solid volume matched the analytic volume within 4.3e-22 m³, and the area matched within 2.2e-19 m². Both of those values and the two cap areas passed. The legacy document-level mass equaled its volume numerically, corresponding to an effective density of 1 kg/m³ despite the separately observed document density preference of 1031.7 kg/m³. That stopped the author before save. Both controls passed.
+
+The next packet retains that legacy result as a diagnostic. Its physics gate uses the selected body with `IMassProperty2`, the same explicit registered higher-accuracy SI settings and identity checks used for the elliptical solid. The selected body must be the actual sole solid, have no mass or centre-of-mass overrides, and pass the independent volume, area, density-weighted mass and centre-of-mass expectations. The material preference and the reported mass retain separate checks. [Packet 04 failure](../measurements/2026/OrdinarySweptBossSourceFailure04.json) · [Shared selected-body observer](../../tooling/sw2026/SelectedBodyMass.py)
+
 ### Reproduce the corrected disclosed capture
 
-Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact 19-file Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
+Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
 
 ```sh
 python3.14 -B re/tooling/sw2026/sweep_source/SweepPacket.py \
   --revision EXACT_COMMITTED_METHOD \
   --control /Users/odin/Documents/UniCAD/Oracle121Takeover/EdgeFilletSource03/Packet/Control.SLDPRT \
-  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource04/Packet \
-  --guest-packet 'C:\KitSweepBossSource04\Packet' \
-  --guest-capture 'C:\KitSweepBossSource04\Capture' \
+  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource05/Packet \
+  --guest-packet 'C:\KitSweepBossSource05\Packet' \
+  --guest-capture 'C:\KitSweepBossSource05\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -48,8 +54,8 @@ The oracle owner transfers the verified packet and runs it from the new guest di
 
 ```sh
 sweep_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource04\Packet'
-sweep_guest='C:\KitSweepBossSource04\Packet'
+sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource05\Packet'
+sweep_guest='C:\KitSweepBossSource05\Packet'
 sweep_pin=EXACT_SOURCE_JOB_SHA256
 prlctl exec 'Windows 11' --current-user "$sweep_python" -E -B \
   "$sweep_share\Tool\RunSweepSources.py" --job "$sweep_share\SourceJob.json" --pin "$sweep_pin" --stage-guest

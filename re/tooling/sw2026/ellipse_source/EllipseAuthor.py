@@ -6,6 +6,7 @@ from AuthorCurves import digest
 from ChamferModel import compare_six
 from FilletApi import CONSTS_LIB, MODEL_LIB, load
 from FilletAuthor import FilletAuthor
+from SelectedBodyMass import selected_body_mass
 
 from EllipseModel import require
 
@@ -259,43 +260,6 @@ class EllipseAuthor(FilletAuthor):
         return {"station": i, "params": params, "normal": normal, "edge_reference": self.reference(edge),
                 "trim": trim, "area_from_rim_m2": area, "approximate_native_area_m2": approximate}
 
-    def mass_properties(self, body):
-        self.get(self.model, "ClearSelection2", True)
-        try:
-            require(bool(self.get(body, "Select2", False, Swapp.nothing())),
-                    "native exact solid selection for mass properties failed")
-            selection = self.get(self.model, "SelectionManager")
-            require(int(self.get(selection, "GetSelectedObjectCount2", -1)) == 1,
-                    "native mass measurement requires one selected object")
-            selected = self.typed(self.get(selection, "GetSelectedObject6", 1, -1), "Body2")
-            require(int(self.get(selected, "GetType")) == self.constants["swSolidBody"] and self.same(selected, body),
-                    "native mass selection is not the same actual solid")
-            extension = self.get(self.model, "Extension")
-            mass = self.typed(self.get(extension, "CreateMassProperty2"), "MassProperty2")
-            accuracy = self.constants["swMassPropertyAccuracyLevel_Higher"]
-            self.set(mass, "AccuracyLevel", accuracy)
-            self.set(mass, "UseSystemUnits", True)
-            options = self.typed(self.get(mass, "GetOverrideOptions"), "MassPropertyOverrideOptions")
-            require(not self.get(options, "OverrideMass") and not self.get(options, "OverrideCenterOfMass"),
-                    "native mass properties have a manual override")
-            targets = self.get(mass, "SelectedItems") or ()
-            require(len(targets) == 1 and self.same(targets[0], body),
-                    "mass properties do not refer to the actual sole solid")
-            require(bool(self.get(mass, "Recalculate")), "native higher-accuracy mass recalculation failed")
-            require(int(self.get(mass, "AccuracyLevel")) == accuracy and bool(self.get(mass, "UseSystemUnits")),
-                    "native mass measurement did not retain higher-accuracy SI settings")
-            values = {"volume": float(self.get(mass, "Volume")), "area": float(self.get(mass, "SurfaceArea")),
-                      "com": [float(value) for value in self.get(mass, "CenterOfMass")],
-                      "mass": float(self.get(mass, "Mass")), "accuracy_level": accuracy, "selected_solid": True,
-                      "use_system_units": True, "manual_overrides": False}
-            self.rec.data["last_high_accuracy_mass"] = values
-            self.rec.flush()
-            require(all(math.isfinite(values[key]) and values[key] > 0 for key in ("volume", "area", "mass"))
-                    and len(values["com"]) == 3, "native selected body measurements are incomplete")
-            return values
-        finally:
-            self.get(self.model, "ClearSelection2", True)
-
     def body_metric(self, label, actual, expected, near_zero):
         error, tolerance, passed = compare_six(actual, expected, near_zero)
         self.rec.data["checks"].append({"name": label, "actual": actual, "expected": expected,
@@ -315,7 +279,7 @@ class EllipseAuthor(FilletAuthor):
                 "actual single solid faces do not all belong to this boss")
         planar = [bool(self.get(self.get(face, "GetSurface"), "IsPlane")) for face in faces]
         require(sum(planar) == 2, "elliptic extrusion must have two planar cap faces")
-        mass = self.mass_properties(body)
+        mass = selected_body_mass(self, body)
         self.body_metric("ellipse boss volume", mass["volume"], expected["volume_m3"], 1e-21)
         self.body_metric("ellipse boss total area", mass["area"], expected["area_m2"], 1e-16)
         for axis, (actual, predicted) in enumerate(zip(mass["com"], expected["com_m"], strict=True)):

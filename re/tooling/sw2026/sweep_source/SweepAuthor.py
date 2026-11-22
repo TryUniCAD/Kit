@@ -2,6 +2,7 @@ from pathlib import Path
 
 from AuthorCurves import digest
 from ChamferModel import compare_six
+from SelectedBodyMass import selected_body_mass
 from SweepApi import options
 from SweepModel import PATH, SECTION, SWEEP, require
 from SweepSketches import SPEC, ZERO, SweepSketches
@@ -179,14 +180,16 @@ class SweepAuthor(SweepSketches):
     def measure_body(self, plan, label):
         body = self.solid()
         topology = self.body_topology(body, plan, label)
-        measured = self.rec.call("actual native SI mass properties", self.sw.mass, self.model)
-        require(measured is not None and "error" not in measured, "native solid has no measurable mass")
+        legacy = self.rec.call("legacy native SI mass properties", self.sw.mass, self.model)
+        self.rec.data["last_legacy_mass_measurement"] = legacy
+        measured = selected_body_mass(self, body)
         for key, epsilon in (("volume", 1e-21), ("area", 1e-16), ("mass", 1e-17)):
             self.close_six(f"{label} {key}", measured[key], plan[key], epsilon)
         require(len(measured["com"]) == 3, "native centre of mass does not have three coordinates")
         for axis, (a, b) in enumerate(zip(measured["com"], plan["com"], strict=True)):
             self.close_six(f"{label} COM xyz[{axis}]", a, b, 1e-10)
-        return {"native": measured, "topology": topology, "bounds_m": self.measure_bounds(body, plan, label)}
+        return {"native": measured, "legacy_observation": legacy,
+                "topology": topology, "bounds_m": self.measure_bounds(body, plan, label)}
 
     def diagnostics(self):
         return int(self.get(self.extension, "GetWhatsWrongCount"))

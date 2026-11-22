@@ -1,0 +1,72 @@
+{
+  "api_sha256": "ec7fb1e2f0ce2721df4c3fc78d201bb0cab2153a3c4661ebf09e09ae3511b5d9",
+  "cohort": "disclosed",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "controls": {
+    "after": {
+      "artifact_bytes": null,
+      "artifact_sha256": null,
+      "checks": 0,
+      "checks_passed": 0,
+      "job_sha256": "3176df5f295245bc647abcc40142a43bb77e9f3cdb0cb9a73e950cd4eab9fdaa",
+      "passed": true,
+      "phase": "control-after",
+      "receipt_sha256": "bb3b64c3b32f017db736c21c87706913eb5bb28dc50329d6133b29f72ddec86c",
+      "slot": null,
+      "source_sha256": null,
+      "timed_out": false,
+      "worker_exit_code": 0
+    },
+    "before": {
+      "artifact_bytes": null,
+      "artifact_sha256": null,
+      "checks": 0,
+      "checks_passed": 0,
+      "job_sha256": "3176df5f295245bc647abcc40142a43bb77e9f3cdb0cb9a73e950cd4eab9fdaa",
+      "passed": true,
+      "phase": "control-before",
+      "receipt_sha256": "bd98e482ad7f417ed17b1bebcd697956694f79746410fa5761871d4779a617f8",
+      "slot": null,
+      "source_sha256": null,
+      "timed_out": false,
+      "worker_exit_code": 0
+    }
+  },
+  "distinct_processes": 3,
+  "fresh_processes": 3,
+  "heldout_writer_acceptance": false,
+  "idle_after": true,
+  "inputs_unchanged": true,
+  "job_sha256": "3176df5f295245bc647abcc40142a43bb77e9f3cdb0cb9a73e950cd4eab9fdaa",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "prediction_sha256": "c4c2370dcb37ef68a201354e28135fc0913b62d3265b518e0cecf70705c045d4",
+  "schema": "kit.sw2026.standard-sweep-source-lock.v1",
+  "source_revision": "e2361e6f617dce4f07b8fa7cfdf7f9ac0d0e1ac3",
+  "source_tree": "f0c52fdbba298b9e7006209d2c05792875891af9",
+  "sources": [
+    {
+      "passed": false,
+      "phases": [
+        {
+          "artifact_bytes": null,
+          "artifact_sha256": null,
+          "checks": 177,
+          "checks_passed": 176,
+          "job_sha256": "3176df5f295245bc647abcc40142a43bb77e9f3cdb0cb9a73e950cd4eab9fdaa",
+          "passed": false,
+          "phase": "author",
+          "receipt_sha256": "2c98891fbd9f552b8a2da319f88f33d98a6469e4b9ead854ae5a05e6c45519b5",
+          "slot": 0,
+          "source_sha256": null,
+          "timed_out": false,
+          "worker_exit_code": 1
+        }
+      ],
+      "slot": 0
+    }
+  ],
+  "spec_sha256": "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023",
+  "writer_output_count": 0
+}

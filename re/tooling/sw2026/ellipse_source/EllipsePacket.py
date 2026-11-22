@@ -18,7 +18,7 @@ TOOLS_ROOT = "re/tooling/sw2026"
 FAMILY = f"{TOOLS_ROOT}/ellipse_source"
 TOOLS = {
     FAMILY: ("EllipseModel.py", "EllipsePacket.py", "EllipseAuthor.py", "RunEllipseSources.py"),
-    TOOLS_ROOT: ("AuthorCurves.py", "AuthorBlindCutSources.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"),
+    TOOLS_ROOT: ("AuthorCurves.py", "AuthorBlindCutSources.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py", "SelectedBodyMass.py"),
     f"{TOOLS_ROOT}/edge_fillet_source": ("FilletApi.py", "FilletAuthor.py", "FilletModel.py"),
     f"{TOOLS_ROOT}/edge_chamfer_source": ("ChamferModel.py",),
 }

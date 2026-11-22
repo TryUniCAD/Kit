@@ -23,7 +23,7 @@ TOOLS = {
     f"{RESEARCH}/edge_fillet_source": ("FilletApi.py", "FilletAuthor.py", "FilletModel.py", "FilletPacket.py",
                                        "FilletSourcePhase.py"),
     f"{RESEARCH}/edge_chamfer_source": ("ChamferModel.py",),
-    RESEARCH: ("AuthorCurves.py", "AuthorBlindCutSources.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"),
+    RESEARCH: ("AuthorCurves.py", "AuthorBlindCutSources.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py", "SelectedBodyMass.py"),
 }
 TOOL_FILES = {f"Tool/{name}" for names in TOOLS.values() for name in names}
 FILES = TOOL_FILES | {"Control.SLDPRT", "Spec.json", "Predictions.json"}
