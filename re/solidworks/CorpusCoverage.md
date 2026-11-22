@@ -24,6 +24,14 @@ not current capability.
 
 ## Generative 2026 research
 
+The original independent chamfer and full-ellipse pairs pass cold
+open, clean rebuild, driving edits and fresh reopen. The chamfer
+pair passes 230 paired comparisons. The ellipse pair passes 128.
+Each batch retains its original pre-writer locks and both bracket
+controls. These native-authored studies add zero benchmark conversions.
+[Chamfer evidence](measurements/2026/EdgeChamferSealedNative03.json)
+· [Ellipse evidence](measurements/2026/EllipseColdSealedNative01.json)
+
 Four disclosed [principal-plane boss revolves](measurements/2026/SdkPrincipalRevolveNative01.json)
 match their native source shapes and reported feature trees through
 open, live D1 edit, save and fresh reopen. Both controls pass

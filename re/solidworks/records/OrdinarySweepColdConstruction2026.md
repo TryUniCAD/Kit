@@ -43,7 +43,11 @@ prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Py
 prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe' -E -B 'C:\KitSweepCold01\Packet\Tool\RunSweepCold.py' --job 'C:\KitSweepCold01\Packet\SweepJob.json' --pin "$PIN"
 ```
 
-No native cold, rebuild, edit, reopen, held-out or public writer acceptance is established in this record. The [deterministic CLI](../../../Documentation/Tasks/ResearchCommandLine.md) accepts committed input fixtures; this detector binds independently acquired external disclosed saves and guides the established archive tooling. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) [Generative corpus](../../Playbook/GenerativeCorpus.md) [Writer model](../../Playbook/WriterModel.md)
+The native protocol binds independently acquired external disclosed saves.
+[Deterministic research commands](../../../Documentation/Tasks/ResearchCommandLine.md)
+· [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+· [Generative corpus](../../Playbook/GenerativeCorpus.md)
+· [Writer model](../../Playbook/WriterModel.md)
 
 ## First native discriminator and physical density
 
@@ -51,10 +55,24 @@ Job `0b731785080b3c530d579cee233619f19bf9bbd72e955eca0880c30ae2268a29` returned 
 
 The [sanitized exact failure and correction receipt](../measurements/2026/OrdinarySweepDensityRepair01.json) authenticates the two before/after controls, both candidate-open phase receipts and the six disclosed native saves. Every disclosed state has `moPart_c.f1420 → moMaterial_c.f08 → moDensityParameter_c.f58=1031.7`, with `f68=0`. The actual active configuration keeps `fc50=-1` and the custom density table empty. The [shared physical density constructor](../../../src/convert/adapters/solidworks/Archive/Construction/Part/Materials/MakePartDensity.py) now attaches the exact authored density to that owner. [Definition and physical density gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Materials/PartDefinitionDensityNeedsPhysicalOwner.md)
 
-Both corrected model-only files are reproduced at the original logical locators for comparison with the frozen first job. The newly added parameter and material occupy two class and two object slots. Both linked map counters increase by four, from 97 and 221 to 101 and 225. Only the typed Config-0 stream and the index-dependent ResolvedFeatures stream change. The other nine streams remain byte-identical. The no-access auditor observes zero runtime calls and the same typed graph round-trips exactly. A pending native retry uses a separate fresh packet and locator and keeps the first failed receipt intact.
+Both corrected model-only files are reproduced at the original logical locators for comparison with the frozen first job. The newly added parameter and material occupy two class and two object slots. Both linked map counters increase by four, from 97 and 221 to 101 and 225. Only the typed Config-0 stream and the index-dependent ResolvedFeatures stream change. The other nine streams remain byte-identical. The no-access auditor observes zero runtime calls and the same typed graph round-trips exactly. The retry uses a separate fresh packet and locator and retains the first failed receipt.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/sweep_source/AuditSweepDensity.py \
   --packet /bound/first/Packet --prior-result /bound/first/DisclosedRecords \
   --disclosed /bound/native/DisclosedNative
 ```
+
+## Corrected native lifecycle
+
+Job `b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055`
+passed with 12 distinct SP05.2 processes and two healthy controls.
+Each generated sweep cold opened with the actual solid and passed
+the section diameter edit and the independent path radius edit.
+Both saved derivatives reopened in their own fresh processes.
+Each slot passed all 84 paired numeric checks against the
+independent disclosed source, including density, mass, area, volume
+and centre of mass. The ordered feature tree and actual driver
+ownership survived both edits. The frozen inputs remained unchanged.
+This disclosed batch earns zero held-out credit.
+[Exact native result](../measurements/2026/OrdinarySweepColdNativeDisclosed02.json)
