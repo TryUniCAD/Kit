@@ -20,7 +20,10 @@ from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.Enums.EnumValues import ParameterRole
 from interchange.document.Models.DocumentModel import CadDocument
-from tests.Convert.Solidworks.EllipseWriting.MakeExtraEllip import MakeExtraEllip
+from tests.Convert.Solidworks.EllipseWriting.MakeExtraEllip import (
+    CheckExtraIds,
+    MakeExtraEllip,
+)
 from tests.Convert.Solidworks.EllipseWriting.MakeEllipseDoc import (
     MakeEllipseDoc,
     ReadEllipseCase,
@@ -138,7 +141,10 @@ def TestEllipExtra() -> None:
     Clock = CastValue(int, CaseValue["written_at"])
     Settings = WriteOptions(values={"final_destination": CaseValue["locator"]})
     Candidate = PrepareEllipse(Document, BytesIO(), Clock, Settings)
-    Payload = MakeExtraEllip(Candidate)
+    StartValue = Candidate.ConfigValue.HeaderValue.FieldsValue["f08"]
+    Payload, NextValue = MakeExtraEllip(Candidate)
+    assert isinstance(StartValue, int) and NextValue > StartValue
+    CheckExtraIds(Payload, NextValue)
     Diagnostic = "full ellipse is outside the verified cold archive profile"
     for Geometry in (False, True):
         with RaisesError(SldprtFormat, match=Diagnostic):

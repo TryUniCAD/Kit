@@ -33,7 +33,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     RequireNode,
 )
 from convert.adapters.solidworks.Container.Cmgr import KConfigManagerStream
-from convert.adapters.solidworks.Container.Container import BuildSldprt
+from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.Format import (
     KConfigStream,
     KResolvedFeaturesStream,
@@ -42,7 +42,7 @@ from convert.adapters.solidworks.Container.Format import (
 
 
 # a second real profile tests strict history ownership without using a saved part
-def MakeExtraEllip(Candidate: EllipsePart) -> bytes:
+def MakeExtraEllip(Candidate: EllipsePart) -> tuple[bytes, int]:
     ConfigValue, GraphValue = Candidate.ConfigValue, Candidate.ResolvedValue
     StreamValues = Candidate.StreamsValue
     VersionValue = ConfigValue.VersionValue
@@ -95,7 +95,7 @@ def MakeExtraEllip(Candidate: EllipsePart) -> bytes:
             },
         ),
     )
-    return BuildSldprt(
+    Payload = BuildSldprt(
         dict(StreamValues)
         | {
             "Header2": WriteHeadGraph(TopHeader, VersionValue),
@@ -107,3 +107,15 @@ def MakeExtraEllip(Candidate: EllipsePart) -> bytes:
         },
         FormatVersion=4,
     )
+    return Payload, Allocator.NextValue
+
+
+# the serialized headers and active configuration must include the actual extra profile allocations
+def CheckExtraIds(Payload: bytes, NextValue: int) -> None:
+    Archive = SldprtArchive.from_bytes(Payload)
+    for StreamName in ("Header2", KConfigStream + "-ModelHeader"):
+        HeaderValue = ReadHeaderGraph(Archive.require(StreamName), 19000)
+        assert FieldInt(HeaderValue.FieldsValue, "f08") == NextValue
+    ManagerValue = ReadCmgrMut(Archive.require(KConfigManagerStream), 19000).RootValue
+    ConfigValue = RequireNode(ManagerValue.FieldsValue["f360"], "moPartConfiguration_c")
+    assert FieldInt(ConfigValue.FieldsValue, "f85c") == NextValue - 1
