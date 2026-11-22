@@ -67,9 +67,13 @@ After a passing bracket, export only the two disclosed `NativeSaved`
 files and the sanitized `Result.json` as separate immutable artifacts.
 The reader checks the exact native result and source digests before
 examining the actual active partition. It links the unique boss output
-atom to the native body and joins the header epoch to every stock face
-identity. The recorded COM endpoints identify the physical edge. The
-reciprocal fin carries the signed order and owning face roles.
+atom to the actual Config-0 manager entry. The complete closed active
+body must carry the same `ATOM_ID_2001` and
+`LAST_BODY_MODIFYING_FEATURE_ID`. Its implicit name must agree with the
+boss, and its eight vertices must agree with the native measurement.
+The header creation event must agree with all six `FACE_ID_2001`
+identities. The measured endpoint set chooses one physical edge. The
+reciprocal positive fin supplies its signed order and owning face roles.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/edge_fillet_source/InspectFilletStock.py \
@@ -91,4 +95,48 @@ X −20 mm, Y −10 mm. The guarded inspector bound creator 34 and atom
 101 to the active partition. Positive fin 46 traversed Z 10 to 0 mm
 with roles side 1, side 4, end 1 and end 0. Moving one endpoint off the
 box rejected the selection. Both workers reported zero external accesses.
-The two new native derivatives are pending the oracle owner's run.
+
+## Native and linked outcomes
+
+The [native bracket](../measurements/2026/EdgeFilletStockNative01.json)
+passed on SOLIDWORKS 2026 SP05.2 build `34.5.2.0604`. Both controls and
+both candidates ran in four distinct processes, with an idle oracle
+afterward. Each candidate passed 24 numeric checks, retained clean
+6-face, 12-edge, 8-vertex stock before and after explicit rebuild, and
+saved to a distinct native derivative. Both original candidates retained
+their frozen SHA-256 values. The raw sanitized result SHA-256 is
+`129cf2155048db1188144dd2dd81d2fe860f5ed42bf810561c7770b39a111298`.
+
+The [initial offline refusal](../measurements/2026/EdgeFilletStockFinRefusal01.json)
+preserves both `BODY_MATCH` lookup failures. Each derivative has an
+actual native atom and last modifier on its one closed partition body.
+Each `moExtrusion_c.f528` aliases the real Config-0 atom. The body
+attribute values agree with this object's `f140` and the extrusion's
+`f08` and with the atom's `f12c` and `f130` creator references. The
+archive cache words remain separately observed. Both atoms retain
+`f180 = f1b0 = 1008` and neither active body has a `BODY_MATCH`
+attribute. The recovered body retains the actual `Boss-Extrude1`
+implicit name. The [saved-stock ownership gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/Owners/NativeStockSavesCanOmitBodyMatch.md)
+records the boundary.
+
+The [linked typed repeat](../measurements/2026/EdgeFilletStockFinRead01.json)
+recovered the following from the exact native-saved bodies in two fresh
+workers with zero external accesses. The marked `L1_boss.SLDPRT`
+control still checks its actual `BODY_MATCH = 1656`. Separate guarded controls
+rejected altered observed endpoints, another box's vertices, a
+different typed physical atom or modifier value on the unmarked stock,
+and a conflicting typed stamp on the marked stock. The scalar contrasts
+changed only the in-memory typed projection of the pinned inputs.
+
+| Stock | Physical edge node ID | Positive fin slot | Actual signed order | Typed stock roles |
+| --- | ---: | ---: | --- | --- |
+| Axial | 81 | 68 | Z 22.8 mm to 0 mm | Side 2, side 1, end 1, end 0 |
+| Transverse | 17 | 48 | X 13.15 mm to −29.75 mm | End 1, side 3, side 2, side 4 |
+
+Both physical edge node IDs, endpoint directions and role orders match
+the two prior native-author fillet predecessors and their edited
+derivatives. Against the purely modeled prism, the axial result is
+reciprocal and the transverse result agrees. This isolates the signed
+native stock wire and leaves the general direction-selection rule, live
+fillet handle initialization, result keepers and `fc20` unresolved.
+The bracket generated zero fillets and read zero held-out sources.

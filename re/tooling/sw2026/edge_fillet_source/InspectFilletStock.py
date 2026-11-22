@@ -27,7 +27,9 @@ from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.CheckBodyTags import CheckBodyTags
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyAttrs import ReadBodyAttrs
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyOwner import ReadBodyOwner
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyScalar import ReadBodyScalar
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadBodyTree import ReadBodyTree
+from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadKernelName import ReadKernelName
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadMgrAtom import ReadMgrAtom
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadOutputAtom import ReadOutputAtom
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.PickWarmEdge import ReadWarmPick, ReadWarmPoint
@@ -54,6 +56,31 @@ def good_points(points, count):
     )
 
 
+def link_stock_body(nodes, body, atom, boss):
+    CheckXmtAttrs(nodes, body)
+    attributes = ReadBodyAttrs(nodes, body)
+    producer = NativeNodeId(boss)
+    fields = atom.FieldsValue
+    require({"ATOM_ID_2001", "LAST_BODY_MODIFYING_FEATURE_ID", "SWIMPLICITBODYNAME_ID_U"} <= attributes.keys(),
+            "saved stock lacks physical atom, modifier or implicit name ownership")
+    kernel_atom = ReadBodyScalar(nodes, attributes, "ATOM_ID_2001", 1)
+    kernel_modifier = ReadBodyScalar(nodes, attributes, "LAST_BODY_MODIFYING_FEATURE_ID", 1)
+    require(kernel_atom > 0 and kernel_atom == fields.get("f140")
+            and kernel_modifier == fields.get("f12c") == fields.get("f130") == producer,
+            "saved stock kernel atom or modifier differs from the actual creator output")
+    name, explicit = ReadKernelName(nodes, attributes)
+    require(name == ReadNativeName(boss) and explicit is None and fields.get("f18") is None
+            and fields.get("f18c") == 1, "saved stock implicit name differs from the actual creator")
+    body_match = None
+    if "BODY_MATCH" in attributes:
+        CheckBodyTags(atom, producer, nodes, attributes)
+        body_match = ReadBodyScalar(nodes, attributes, "BODY_MATCH", 0)
+    return {"kernel_atom_id": kernel_atom, "kernel_modifier_id": kernel_modifier,
+            "archive_creator_id": fields["f12c"], "archive_modifier_id": fields["f130"],
+            "kernel_body_match": body_match, "archive_body_match_words": [fields["f180"], fields["f1b0"]],
+            "implicit_body_name": name}
+
+
 def inspect_stock(raw, edge_points, vertices):
     archive = SldprtArchive.from_bytes(raw)
     link = ReadNativeLink(archive, 0)
@@ -78,8 +105,7 @@ def inspect_stock(raw, edge_points, vertices):
     CheckXmtGraph(nodes)
     tree = ReadBodyTree(nodes)
     body = nodes[tree.BodyIndex]
-    CheckXmtAttrs(nodes, body)
-    CheckBodyTags(atom, producer, nodes, ReadBodyAttrs(nodes, body))
+    body_link = link_stock_body(nodes, body, atom, boss)
     expected_vertices = tuple(ReadWarmPoint(nodes, slot) for slot in tree.VertexIds)
     require(points_equal(expected_vertices, vertices), "saved stock vertices differ from the native probe")
     header = ReadHeaderGraph(archive.require("Header2"), 19000)
@@ -101,7 +127,7 @@ def inspect_stock(raw, edge_points, vertices):
             "body_slot": tree.BodyIndex, "atom_id": atom.FieldsValue["f140"], "creator_id": producer,
             "creator_epoch": epoch, "edge_slot": edge, "edge_node_id": nodes[edge].Integer("node_id"),
             "positive_fin_slot": fins[0].IndexValue, "positive_fin_endpoints_m": endpoints,
-            "face_slots": faces, "ordered_roles": [roles[slot] for slot in faces]}
+            "body_link": body_link, "face_slots": faces, "ordered_roles": [roles[slot] for slot in faces]}
 
 
 def worker():
@@ -165,8 +191,9 @@ def supervise(args):
         found[name] = loads(child.stdout)
         require(found[name]["archive_sha256"] == row["native_save_sha256"], "saved stock changed in transport")
     passed = all("refused" not in row for row in found.values())
-    receipt = {"schema": "kit.sw2026.edge-fillet-stock-fin.v1", "stock_job_sha256": args.job_sha256,
+    receipt = {"schema": "kit.sw2026.edge-fillet-stock-fin.v2", "stock_job_sha256": args.job_sha256,
                "native_result_sha256": args.result_sha256, "sdk_tree": sdk, "physical_fins": found,
+               "inspector_sha256": sha(HERE.read_bytes()),
                "new_native_processes": 0, "fillet_writer_output_count": 0, "passed": passed}
     raw = job_bytes(receipt)
     write_new(args.report, raw)

@@ -1,0 +1,142 @@
+{
+  "fillet_writer_output_count": 0,
+  "inspector_sha256": "46cc70ba2d093ac914d6cf263f672ac39a49eb3a43aa68c92309909d23c5f6d4",
+  "native_result_sha256": "129cf2155048db1188144dd2dd81d2fe860f5ed42bf810561c7770b39a111298",
+  "new_native_processes": 0,
+  "passed": true,
+  "physical_fins": {
+    "EdgeFilletAxial": {
+      "active_sha256": "d2f138eebaaeceba08764cf29e45348091f09dfe75bce9ee7eb164a7e54cc2cd",
+      "archive_sha256": "7d1599a24406898f7906ef52da4baf2ae83484048cdd621a3bc6ca3fe0f2e737",
+      "atom_id": 101,
+      "body_link": {
+        "archive_body_match_words": [
+          1008,
+          1008
+        ],
+        "archive_creator_id": 19,
+        "archive_modifier_id": 19,
+        "implicit_body_name": "Boss-Extrude1",
+        "kernel_atom_id": 101,
+        "kernel_body_match": null,
+        "kernel_modifier_id": 19
+      },
+      "body_slot": 2,
+      "creator_epoch": 2592000,
+      "creator_id": 19,
+      "edge_node_id": 81,
+      "edge_slot": 50,
+      "face_slots": [
+        96,
+        93,
+        86,
+        115
+      ],
+      "guarded_external_accesses": 0,
+      "ordered_roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          1,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "partition_sha256": "984ea4749e9cc6ae6a32bb093b234470b7cfb8f586d6b798534424542cc11e18",
+      "positive_fin_endpoints_m": [
+        [
+          0.0419,
+          -0.0251,
+          0.0228
+        ],
+        [
+          0.0419,
+          -0.0251,
+          0.0
+        ]
+      ],
+      "positive_fin_slot": 68
+    },
+    "EdgeFilletTransverse": {
+      "active_sha256": "34f695be53cadd06f01b83029652970347cf529a1c3459ad95bd3baf701622c9",
+      "archive_sha256": "c8696aabf30b342f084fe9b792b7f11e9dd4ac64b1d484dae4bc2bf67ef19136",
+      "atom_id": 101,
+      "body_link": {
+        "archive_body_match_words": [
+          1008,
+          1008
+        ],
+        "archive_creator_id": 19,
+        "archive_modifier_id": 19,
+        "implicit_body_name": "Boss-Extrude1",
+        "kernel_atom_id": 101,
+        "kernel_body_match": null,
+        "kernel_modifier_id": 19
+      },
+      "body_slot": 2,
+      "creator_epoch": 2592000,
+      "creator_id": 19,
+      "edge_node_id": 17,
+      "edge_slot": 54,
+      "face_slots": [
+        86,
+        109,
+        96,
+        39
+      ],
+      "guarded_external_accesses": 0,
+      "ordered_roles": [
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          4,
+          null
+        ]
+      ],
+      "partition_sha256": "13d6d33d65935c2782ee6be6c56fd0ad011ede40dade50658fd2fd0aab069e95",
+      "positive_fin_endpoints_m": [
+        [
+          0.013149999999999998,
+          0.02645,
+          0.0286
+        ],
+        [
+          -0.029750000000000002,
+          0.02645,
+          0.0286
+        ]
+      ],
+      "positive_fin_slot": 48
+    }
+  },
+  "schema": "kit.sw2026.edge-fillet-stock-fin.v2",
+  "sdk_tree": "ebf512f3abe79f5b4b6dcd79564f0a7a377ec8ed",
+  "stock_job_sha256": "7d7d00df163c36608311a0f343545f6bf2a3014d4287f1eec9868298d76e343c"
+}

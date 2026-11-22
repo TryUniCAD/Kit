@@ -1,0 +1,21 @@
+{
+  "fillet_writer_output_count": 0,
+  "native_result_sha256": "129cf2155048db1188144dd2dd81d2fe860f5ed42bf810561c7770b39a111298",
+  "new_native_processes": 0,
+  "passed": false,
+  "physical_fins": {
+    "EdgeFilletAxial": {
+      "archive_sha256": "7d1599a24406898f7906ef52da4baf2ae83484048cdd621a3bc6ca3fe0f2e737",
+      "guarded_external_accesses": 0,
+      "refused": "'BODY_MATCH'"
+    },
+    "EdgeFilletTransverse": {
+      "archive_sha256": "c8696aabf30b342f084fe9b792b7f11e9dd4ac64b1d484dae4bc2bf67ef19136",
+      "guarded_external_accesses": 0,
+      "refused": "'BODY_MATCH'"
+    }
+  },
+  "schema": "kit.sw2026.edge-fillet-stock-fin.v1",
+  "sdk_tree": "ebf512f3abe79f5b4b6dcd79564f0a7a377ec8ed",
+  "stock_job_sha256": "7d7d00df163c36608311a0f343545f6bf2a3014d4287f1eec9868298d76e343c"
+}

@@ -107,6 +107,8 @@ saved-stream handle experiment was neither staged nor run here.
 
 ### Stock-only native bracket
 
+The [executed stock bracket](EdgeFilletStockAcquisition2026.md#native-and-linked-outcomes) passed for both ordinary stocks and recovered the two physically owned positive fins.
+
 Use the two pinned [disclosed intents](../../tooling/sw2026/edge_fillet_source/DisclosedFilletInputs.json), SHA-256 `d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb`. Each request uses `Sketch1` on `Front Plane`, an ordinary four-line loop, one `Boss-Extrude1` with forward blind D1, and active `Default`. The stock construction uses the geometry columns below. The edge columns select what to observe after loading.
 
 | Stock | XY center (mm) | XY spans (mm) | D1 (mm) | Stock edge (mm) |
