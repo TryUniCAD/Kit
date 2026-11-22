@@ -7,7 +7,9 @@ map entries and stream contents from the typed graph.
 
 Four disclosed process probes reproduce the complete streams byte for
 byte. They check map identity, section boundaries and truncation and
-ownership refusals. The complete reader is an internal prerequisite for
+ownership refusals. A separate guarded process covers exact presence
+bytes, signed empty repeats and inline sheet-metal ownership without
+new CAD fixtures. The complete reader is an internal prerequisite for
 literal part property validation and the scoped native part composer.
 Public transfer, assembly profiles and fresh native acceptance each use
 separate evidence.
