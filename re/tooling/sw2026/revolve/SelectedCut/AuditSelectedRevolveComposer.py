@@ -14,10 +14,10 @@ from BuildStockCutSelector import case_document, guard_runtime, inspect, require
 from RevolveFamilyModel import validate_specs
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevolvePart import (
-    MakeSelectedRevolvePart,
+    MakeSelRevPart,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.ProjectSelectedRevolve import (
-    ProjectSelectedRevolve,
+    ProjectSelRev,
 )
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from interchange.geometry.Models.Selection import SelectPathElem
@@ -44,15 +44,15 @@ def worker(request):
     blocked = guard_runtime()
     case, locator, epoch = request["case"], request["locator"], request["epoch"]
     document = case_document(case, locator, epoch)
-    plan = ProjectSelectedRevolve(document)
+    plan = ProjectSelRev(document)
     inputs = replace(MakePartRecipe(plan.OperationsValue[0], epoch), OutputValue=SelfFileInput(locator, epoch))
-    part = MakeSelectedRevolvePart(document, inputs)
+    part = MakeSelRevPart(document, inputs)
     other = document.feature_timeline[1 - plan.SelectedIndex].id
     cut = document.feature_timeline[2]
     bad_selection = tuple(replace(pick, path=(SelectPathElem("feature", other, "body"),))
                           if pick.id == cut.selection_ids[1] else pick for pick in document.selections)
     try:
-        MakeSelectedRevolvePart(replace(document, selections=bad_selection), inputs)
+        MakeSelRevPart(replace(document, selections=bad_selection), inputs)
     except ValueError as error:
         require(str(error) == "selected revolve body reference differs from its dependency", str(error))
     else:

@@ -22,7 +22,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KeywordsStream
 from convert.adapters.solidworks.Core.Native import ParseXml
-from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import PlanPublicRevolve
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import PlanRevolve
 from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
@@ -114,10 +114,10 @@ def worker(request):
     named = PrepareRevolve(document, output, epoch, WriteOptions(values={"final_destination": destination}))
     assert path.BytesValue == named.BytesValue and not output.getvalue()
     if case["mode"] == "single":
-        assert PlanPublicRevolve(document) is not None
+        assert PlanRevolve(document) is not None
     else:
         try:
-            PlanPublicRevolve(document)
+            PlanRevolve(document)
         except ValueError as error:
             assert str(error) == "public native revolve end mode requires native acceptance"
         else:

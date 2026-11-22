@@ -5,32 +5,32 @@ from interchange.Records.RecordTopology import TopologyCounts
 
 
 # the native scope requires the same earlier stock in the dependency selection path and final body history
-def ReadSelectedStock(DocumentValue: CadDocument) -> int:
-    First, Second, Cut = DocumentValue.feature_timeline
+def ReadStockIndex(DocumentValue: CadDocument) -> int:
+    First, Second, CutStep = DocumentValue.feature_timeline
     Stocks = (First.id, Second.id)
     if (
-        (First.operation, Second.operation, Cut.operation)
+        (First.operation, Second.operation, CutStep.operation)
         != (BooleanOp.KCreate, BooleanOp.KCreate, BooleanOp.KCutOperation)
-        or (First.order, Second.order, Cut.order) != (0, 1, 2)
+        or (First.order, Second.order, CutStep.order) != (0, 1, 2)
         or First.input_feature_ids
         or Second.input_feature_ids
-        or len(Cut.input_feature_ids) != 1
-        or Cut.input_feature_ids[0] not in Stocks
-        or len(Cut.selection_ids) != 2
+        or len(CutStep.input_feature_ids) != 1
+        or CutStep.input_feature_ids[0] not in Stocks
+        or len(CutStep.selection_ids) != 2
     ):
         raise ValueError("selected revolve cut needs one actual prior stock")
-    StockId = Cut.input_feature_ids[0]
+    StockId = CutStep.input_feature_ids[0]
     Chosen = Stocks.index(StockId)
     Picks = {Value.id: Value for Value in DocumentValue.selections}
-    Pick = Picks.get(Cut.selection_ids[1])
+    StockPick = Picks.get(CutStep.selection_ids[1])
     if (
-        Pick is None
-        or Pick.name != "Selected historical stock"
-        or Pick.path != (SelectPathElem("feature", StockId, "body"),)
-        or Pick.query
-        or Pick.point is not None
-        or Pick.provenance is not None
-        or Pick.attributes
+        StockPick is None
+        or StockPick.name != "Selected historical stock"
+        or StockPick.path != (SelectPathElem("feature", StockId, "body"),)
+        or StockPick.query
+        or StockPick.point is not None
+        or StockPick.provenance is not None
+        or StockPick.attributes
     ):
         raise ValueError("selected revolve body reference differs from its dependency")
     Untouched, Result = DocumentValue.bodies
@@ -43,8 +43,8 @@ def ReadSelectedStock(DocumentValue: CadDocument) -> int:
     ) != (
         Stock.id,
         Stock.name,
-        Cut.id,
-        Cut.name,
+        CutStep.id,
+        CutStep.name,
     ) or any(
         Value.topology != TopologyCounts()
         or Value.provenance is not None

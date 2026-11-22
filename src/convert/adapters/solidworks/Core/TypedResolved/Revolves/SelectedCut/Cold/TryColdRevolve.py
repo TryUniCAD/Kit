@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.IsCacheAbsent impor
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.BuildColdRevolve import (
-    BuildColdRevolve,
+    BuildColdRev,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
     ColdRevolvePart,
@@ -35,6 +35,6 @@ def TryColdRevolve(
     try:
         LinkValue = ReadNativeLink(Archive, 0)
         Manager = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
-        return BuildColdRevolve(ReadColdRevolve(LinkValue, Manager, Model))
+        return BuildColdRev(ReadColdRevolve(LinkValue, Manager, Model))
     except (ValueError, TypeError, KeyError, OverflowError):
         return None

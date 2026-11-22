@@ -13,44 +13,46 @@ def ReadSweepWall(Model: BrepModel, Radius: float) -> tuple[BrepFace, CylinderSu
         for Surface in Model.surfaces
         if isinstance(Surface, CylinderSurface) and Surface.radius == Radius
     }
-    (Face,) = tuple(Face for Face in Model.faces if Face.surface_id in Walls)
-    return Face, Walls[Face.surface_id]
+    (FaceValue,) = tuple(
+        FaceValue for FaceValue in Model.faces if FaceValue.surface_id in Walls
+    )
+    return FaceValue, Walls[FaceValue.surface_id]
 
 
 # the cutter surface coinciding with the stock wall becomes an inner loop and the remaining tool faces bound the cavity
 def OpenSweepWall(
     BodyId: str, Stock: BrepModel, Sector: BrepModel, Radius: float
 ) -> BrepModel:
-    Wall, StockSurface = ReadSweepWall(Stock, Radius)
+    StockWall, StockSurface = ReadSweepWall(Stock, Radius)
     Patch, SectorSurface = ReadSweepWall(Sector, Radius)
     if (
         StockSurface.axis != SectorSurface.axis
         or StockSurface.reference_direction != SectorSurface.reference_direction
-        or Wall.same_sense != Patch.same_sense
+        or StockWall.same_sense != Patch.same_sense
         or len(Patch.loop_ids) != 1
     ):
         raise ValueError("cut sector does not open the stock wall")
     (OpeningId,) = Patch.loop_ids
     StockFaces = tuple(
         (
-            ReplaceValue(Face, loop_ids=(*Face.loop_ids, OpeningId))
-            if Face is Wall
-            else Face
+            ReplaceValue(FaceValue, loop_ids=(*FaceValue.loop_ids, OpeningId))
+            if FaceValue is StockWall
+            else FaceValue
         )
-        for Face in Stock.faces
+        for FaceValue in Stock.faces
     )
     CavityFaces = tuple(
-        ReplaceValue(Face, same_sense=not Face.same_sense)
-        for Face in Sector.faces
-        if Face is not Patch
+        ReplaceValue(FaceValue, same_sense=not FaceValue.same_sense)
+        for FaceValue in Sector.faces
+        if FaceValue is not Patch
     )
     CavityLoops = tuple(
         ReplaceValue(
-            Loop,
-            coedge_ids=tuple(reversed(Loop.coedge_ids)),
-            outer=Loop.id != OpeningId,
+            LoopValue,
+            coedge_ids=tuple(reversed(LoopValue.coedge_ids)),
+            outer=LoopValue.id != OpeningId,
         )
-        for Loop in Sector.loops
+        for LoopValue in Sector.loops
     )
     CavityCoedges = tuple(
         ReplaceValue(Coedge, reversed=not Coedge.reversed) for Coedge in Sector.coedges

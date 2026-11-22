@@ -11,7 +11,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # the registry must apply the native measured revolve boundary before selecting or writing a destination
-def PlanPublicRevolve(DocumentValue: CadDocument) -> RevolvePlan | None:
+def PlanRevolve(DocumentValue: CadDocument) -> RevolvePlan | None:
     if len(DocumentValue.feature_timeline) != 1 or not isinstance(
         DocumentValue.feature_timeline[0].definition, AngularRevolve
     ):

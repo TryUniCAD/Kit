@@ -27,7 +27,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
 
 
 # standard feature rows preserve the allocated system names classes and identifiers
-def MakeRevSystemRows(
+def MakeSysRevRows(
     FeatureValues: tuple[ArchiveNode, ...],
 ) -> tuple[KeywordFeature, ...]:
     return tuple(
@@ -62,7 +62,7 @@ def MakeRevKeys(
     )
     if KeyRowsValue is None:
         ProfileValue, FeatureValue = FeatureValues[-2:]
-        KeyRowsValue = MakeRevSystemRows(FeatureValues[:-2]) + MakeRevKeyRows(
+        KeyRowsValue = MakeSysRevRows(FeatureValues[:-2]) + MakeRevKeyRows(
             ProfileValue, FeatureValue, PlanValue
         )
     return MakeKeywords(

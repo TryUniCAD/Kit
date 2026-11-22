@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import
 
 # the cold selector identifies a real earlier stock without claiming an atom for the unbuilt result
 @Dataclass(frozen=True, slots=True)
-class ColdRevolveOwners:
+class ColdRevOwners:
     LinkValue: NativeLink
     StockValues: tuple[RevolveOwner, RevolveOwner]
     CutValue: RevolveOwner

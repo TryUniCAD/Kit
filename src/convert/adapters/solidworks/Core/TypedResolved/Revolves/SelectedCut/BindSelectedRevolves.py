@@ -14,20 +14,20 @@ from interchange.Enums.EnumFeatures import BooleanOp
 
 
 # both saved and cold projections bind the live angular drivers and the historical body with the same selection semantics
-def BindSelectedRevolves(
+def BindSelRevCut(
     Document: CadDocument,
     LinkValue: NativeLink,
     Stocks: tuple[RevolveOwner, RevolveOwner],
-    Cut: RevolveOwner,
+    Cutter: RevolveOwner,
     SelectedIndex: int,
 ) -> CadDocument:
     First, Second = Stocks
     StockKey = f"sldprt:feature:{NativeNodeId(Stocks[SelectedIndex].NodeValue)}"
-    CutKey = f"sldprt:feature:{NativeNodeId(Cut.NodeValue)}"
+    CutKey = f"sldprt:feature:{NativeNodeId(Cutter.NodeValue)}"
     Result = BindRevDoc(Document, LinkValue, First, BooleanOp.KCreate, CheckFront=True)
     Result = BindRevDoc(Result, LinkValue, Second, BooleanOp.KCreate, CheckFront=True)
     Result = BindRevDoc(
-        Result, LinkValue, Cut, BooleanOp.KCutOperation, StockKey, CheckFront=True
+        Result, LinkValue, Cutter, BooleanOp.KCutOperation, StockKey, CheckFront=True
     )
     Steps = {Value.id: Value for Value in Result.feature_timeline}
     return BindCutPick(Result, Steps[StockKey], Steps[CutKey])

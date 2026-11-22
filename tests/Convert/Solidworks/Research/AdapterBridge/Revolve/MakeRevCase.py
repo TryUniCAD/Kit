@@ -32,7 +32,7 @@ def MakeRevCase(PartName: str, ModeValue: str, IsSquare: bool = False) -> CadDoc
         LineGeometry(PlaneVector(-16, -24), PlaneVector(-16, 23)),
         construction=True,
     )
-    Axis = Selection(
+    AxisValue = Selection(
         "selection/axis",
         "Selected axis line",
         (
@@ -62,16 +62,16 @@ def MakeRevCase(PartName: str, ModeValue: str, IsSquare: bool = False) -> CadDoc
     TwoSides = ModeValue == "two_sided"
     Parameters = tuple(
         Parameter(
-            f"parameter/{Name}",
-            Name,
+            f"parameter/{DriverName}",
+            DriverName,
             ParameterValue(Angle, ValueKind.KAngle, "rad"),
             ParameterRole.KDriving,
             owner_id=Feature.id,
         )
-        for Name, Angle in (("D1", 1.25), ("D2", 0.875))[: 1 + int(TwoSides)]
+        for DriverName, Angle in (("D1", 1.25), ("D2", 0.875))[: 1 + int(TwoSides)]
     )
     Definition = AngularRevolve(
-        Axis.id,
+        AxisValue.id,
         Parameters[0].id,
         SpaceVector(-16, 0, 24),
         SpaceVector(0, 0, -1),
@@ -95,7 +95,7 @@ def MakeRevCase(PartName: str, ModeValue: str, IsSquare: bool = False) -> CadDoc
         sketches=(
             Replace(Sketch, entities=(*Sketch.entities, AxisLine), constraints=Rules),
         ),
-        selections=(Axis,),
+        selections=(AxisValue,),
         parameters=Parameters,
         feature_timeline=(
             Replace(
@@ -103,7 +103,7 @@ def MakeRevCase(PartName: str, ModeValue: str, IsSquare: bool = False) -> CadDoc
                 kind=FeatureKind.KRevolution,
                 definition=Definition,
                 parameter_ids=tuple(Driver.id for Driver in Parameters),
-                selection_ids=(Axis.id,),
+                selection_ids=(AxisValue.id,),
             ),
         ),
     )

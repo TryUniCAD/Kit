@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
 
 # the selected operation must retain both independent stock plans and its actual consumed producer
 @Dataclass(frozen=True, slots=True)
-class SelectedRevolvePlan:
+class SelectedRevPlan:
     OperationsValue: tuple[RevolvePlan, RevolvePlan, RevolvePlan]
     SelectedIndex: int
 

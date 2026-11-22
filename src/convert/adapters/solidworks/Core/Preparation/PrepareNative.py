@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart 
     RevolvePart,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevolvePart import (
-    MakeSelectedRevolvePart,
+    MakeSelRevPart,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
@@ -36,10 +36,10 @@ from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import (
 )
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
-    PlanPublicRevolve,
+    PlanRevolve,
 )
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanSelectedRevolve import (
-    PlanSelectedRevolve,
+    PlanSelRevolve,
 )
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     PlanThinPart,
@@ -80,7 +80,7 @@ def PrepareNative(
     if IsStockChain(DocumentValue):
         return PrepareStockPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
-    SelectedValue = PlanSelectedRevolve(DocumentValue)
+    SelectedValue = PlanSelRevolve(DocumentValue)
     if SelectedValue is not None:
         Recipe = RevPrepInput(
             DocumentValue,
@@ -89,8 +89,8 @@ def PrepareNative(
             SettingsValue,
             PlanValue=SelectedValue.OperationsValue[0],
         )
-        return MakeSelectedRevolvePart(DocumentValue, Recipe)
-    if PlanPublicRevolve(DocumentValue) is not None:
+        return MakeSelRevPart(DocumentValue, Recipe)
+    if PlanRevolve(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, SettingsValue)
     TopValue = PlanTopCorner(DocumentValue)
     if TopValue is not None:

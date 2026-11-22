@@ -8,13 +8,13 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
     RevolvePlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.CheckSelectedRevolveBands import (
-    CheckSelectedRevolveBands,
+    CheckCutBands,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.ReadSelectedStock import (
-    ReadSelectedStock,
+    ReadStockIndex,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.SelectedRevolvePlan import (
-    SelectedRevolvePlan,
+    SelectedRevPlan,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp
@@ -25,7 +25,7 @@ from interchange.geometry.Models.Sketch import Sketch
 
 
 # each stock and the cut reuse the signed ordinary profile rules with only their own neutral owners
-def ProjectSelectedOperation(
+def ProjectRevOp(
     DocumentValue: CadDocument, Feature: FeatureStep, SketchValue: Sketch
 ) -> RevolvePlan:
     Definition = Feature.definition
@@ -33,47 +33,45 @@ def ProjectSelectedOperation(
         type(Definition) is not AngularRevolve
         or Feature.provenance is not None
         or SketchValue.provenance is not None
-        or any(
-            Value.provenance is not None
-            for Value in (*SketchValue.entities, *SketchValue.constraints)
-        )
+        or any(Entity.provenance is not None for Entity in SketchValue.entities)
+        or any(Relation.provenance is not None for Relation in SketchValue.constraints)
     ):
         raise ValueError("selected revolve operation has an unsupported source owner")
     Params = {Value.id: Value for Value in DocumentValue.parameters}
     Picks = {Value.id: Value for Value in DocumentValue.selections}
     Parameter = Params.get(Definition.AlongParameterId)
-    Axis = Picks.get(Definition.AxisSelectionId)
+    AxisPick = Picks.get(Definition.AxisSelectionId)
     if (
         Parameter is None
-        or Axis is None
+        or AxisPick is None
         or Definition.SideMode != "one_sided"
         or Feature.parameter_ids != (Parameter.id,)
-        or Feature.selection_ids[:1] != (Axis.id,)
+        or Feature.selection_ids[:1] != (AxisPick.id,)
         or len(Feature.selection_ids)
         != (2 if Feature.operation is BooleanOp.KCutOperation else 1)
-        or Axis.name != "Selected local construction axis"
-        or Axis.provenance is not None
+        or AxisPick.name != "Selected local construction axis"
+        or AxisPick.provenance is not None
         or Parameter.provenance is not None
     ):
         raise ValueError("selected revolve operation lacks its actual D1 or axis")
     Untouched, Result = DocumentValue.bodies
-    Body = Result if Feature.operation is BooleanOp.KCutOperation else Untouched
-    if Body.final_feature_id != Feature.id:
-        Body = DesignBody(Result.id, Feature.name, Feature.id)
+    BodyValue = Result if Feature.operation is BooleanOp.KCutOperation else Untouched
+    if BodyValue.final_feature_id != Feature.id:
+        BodyValue = DesignBody(Result.id, Feature.name, Feature.id)
     return ProjectRevolve(
         ReplaceValue(
             DocumentValue,
             parameters=(Parameter,),
             sketches=(SketchValue,),
-            selections=(Axis,),
-            bodies=(Body,),
+            selections=(AxisPick,),
+            bodies=(BodyValue,),
             feature_timeline=(
                 ReplaceValue(
                     Feature,
                     order=0,
                     operation=BooleanOp.KCreate,
                     input_feature_ids=(),
-                    selection_ids=(Axis.id,),
+                    selection_ids=(AxisPick.id,),
                 ),
             ),
         )
@@ -81,7 +79,7 @@ def ProjectSelectedOperation(
 
 
 # the complete ownership plan must reject extra neutral state before any native field can be allocated
-def ProjectSelectedRevolve(DocumentValue: CadDocument) -> SelectedRevolvePlan:
+def ProjectSelRev(DocumentValue: CadDocument) -> SelectedRevPlan:
     if type(CastValue(object, DocumentValue)) is not CadDocument:
         raise TypeError("selected revolve requires a neutral document")
     DocumentValue.assert_valid()
@@ -115,14 +113,14 @@ def ProjectSelectedRevolve(DocumentValue: CadDocument) -> SelectedRevolvePlan:
         raise ValueError("selected revolve requires two stocks and one complete cut")
     if DocumentValue.support_planes[0].provenance is not None:
         raise ValueError("selected revolve support has an unsupported source owner")
-    Chosen = ReadSelectedStock(DocumentValue)
-    First, Second, Cut = tuple(
-        ProjectSelectedOperation(DocumentValue, Feature, SketchValue)
+    Chosen = ReadStockIndex(DocumentValue)
+    First, Second, Cutter = tuple(
+        ProjectRevOp(DocumentValue, Feature, SketchValue)
         for Feature, SketchValue in zip(
             DocumentValue.feature_timeline, DocumentValue.sketches, strict=True
         )
     )
-    Plans = (First, Second, Cut)
+    Plans = (First, Second, Cutter)
     if (
         len({Value.ParameterId for Value in Plans}) != 3
         or len({Value.SelectionId for Value in Plans}) != 3
@@ -131,5 +129,5 @@ def ProjectSelectedRevolve(DocumentValue: CadDocument) -> SelectedRevolvePlan:
         in {Value.SelectionId for Value in Plans}
     ):
         raise ValueError("selected revolve repeats an actual driver or selection owner")
-    CheckSelectedRevolveBands(*Plans)
-    return SelectedRevolvePlan(Plans, Chosen)
+    CheckCutBands(*Plans)
+    return SelectedRevPlan(Plans, Chosen)

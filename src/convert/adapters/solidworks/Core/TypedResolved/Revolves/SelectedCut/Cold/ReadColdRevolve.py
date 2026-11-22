@@ -45,7 +45,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.CheckRe
     CheckRevBands,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolveOwners import (
-    ColdRevolveOwners,
+    ColdRevOwners,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ReadColdRevPick import (
     ReadColdRevPick,
@@ -64,15 +64,15 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.ReadRev
 # cold revolve graphs need actual stock atoms and a selected reference but no realized result or saved chooser
 def ReadColdRevolve(
     LinkValue: NativeLink, Manager: CmgrGraph, Model: NativeModel
-) -> ColdRevolveOwners:
+) -> ColdRevOwners:
     CheckGeometry(LinkValue, Manager, Model)
     Features = ReadRevCutTree(LinkValue)
-    First, Second, Cut = ReadRevCutOps(LinkValue, Features)
-    Operations = (First, Second, Cut)
+    First, Second, Cutter = ReadRevCutOps(LinkValue, Features)
+    Operations = (First, Second, Cutter)
     if (
         LinkValue.ResolvedValue.ExtraFields is not None
         or ReadPrincAxis(First.FrameValue.SupportValue) not in ("x", "y")
-        or Cut.AngleValue.RadiansValue >= HalfTurn
+        or Cutter.AngleValue.RadiansValue >= HalfTurn
         or Model.TypedGraph.get("status") != "supplemented"
         or len(Model.features) != len(Features)
         or {Value.object_id for Value in Model.features} != set(Features)
@@ -81,8 +81,12 @@ def ReadColdRevolve(
             for Value in Model.operations
         )
         != tuple(
-            (Kind, NativeNodeId(Value.NodeValue), NativeNodeId(Value.ProfileValue))
-            for Kind, Value in zip(
+            (
+                OperationKind,
+                NativeNodeId(Value.NodeValue),
+                NativeNodeId(Value.ProfileValue),
+            )
+            for OperationKind, Value in zip(
                 ("revolve_join", "revolve_join", "revolve_cut"), Operations, strict=True
             )
         )
@@ -91,32 +95,34 @@ def ReadColdRevolve(
         != {NativeNodeId(Value.ProfileValue) for Value in Operations}
     ):
         raise ValueError("cold revolve requires its three supported linked operations")
-    CheckRevBands(ReadRevBand(First), ReadRevBand(Second), ReadRevBand(Cut))
+    CheckRevBands(ReadRevBand(First), ReadRevBand(Second), ReadRevBand(Cutter))
     CheckPrismMgr(Manager)
-    Root = LinkValue.ConfigValue.RootValue
-    CheckPrismRoot(Root, 2)
-    CheckPrismRels(Root)
+    RootNode = LinkValue.ConfigValue.RootValue
+    CheckPrismRoot(RootNode, 2)
+    CheckPrismRels(RootNode)
     CheckPlanes(Model, Features)
     StockNodes = (First.NodeValue, Second.NodeValue)
-    CheckColdBodyState((*StockNodes, Cut.NodeValue))
+    CheckColdBodyState((*StockNodes, Cutter.NodeValue))
     Atoms, AtomIds = ReadColdAtoms(LinkValue, StockNodes)
-    Selected, Wrapper = ReadColdRevPick(LinkValue, StockNodes, Cut.NodeValue, AtomIds)
+    Selected, Wrapper = ReadColdRevPick(
+        LinkValue, StockNodes, Cutter.NodeValue, AtomIds
+    )
     Nodes = PrismNodes(
         LinkValue,
         Manager,
         AllowedClasses=KRevolveGeomClasses
         | {"moAtom_c", "moCompSolidBody_c", "moRevCut_c"},
     )
-    CheckRevAngles(Nodes, First.EndValue, Second.EndValue, Cut.EndValue)
+    CheckRevAngles(Nodes, First.EndValue, Second.EndValue, Cutter.EndValue)
     if tuple(
-        Node for Node in Nodes if Node.ClassValue.NameValue == "moCompSolidBody_c"
+        GraphNode
+        for GraphNode in Nodes
+        if GraphNode.ClassValue.NameValue == "moCompSolidBody_c"
     ) != (Wrapper,):
         raise ValueError("cold revolve contains a detached stock selector")
-    Ends = tuple(
+    EndNodes = tuple(
         RequireNative(Value.NodeValue.FieldsValue.get("f8d8"), "moRevEndSpec_c")
         for Value in Operations
     )
-    CheckTreeAlias(LinkValue, (Root, *Atoms, *Ends))
-    return ColdRevolveOwners(
-        LinkValue, (First, Second), Cut, AtomIds, Selected, Wrapper
-    )
+    CheckTreeAlias(LinkValue, (RootNode, *Atoms, *EndNodes))
+    return ColdRevOwners(LinkValue, (First, Second), Cutter, AtomIds, Selected, Wrapper)

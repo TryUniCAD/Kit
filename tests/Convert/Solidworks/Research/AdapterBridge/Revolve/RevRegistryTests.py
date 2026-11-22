@@ -7,6 +7,9 @@ from convert import write_document as WriteDoc
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.CheckRevDrivers import (
+    CheckRevDrivers,
+)
 from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.MakeRevCase import (
     MakeRevCase,
 )
@@ -41,23 +44,7 @@ def TestRevRegistry(TmpPath: FilePath) -> None:
         assert not Written.dropped and not Named.dropped
         Parsed = OpenDoc(Target, strict=True)
         assert len(Parsed.bodies) == 1 and len(Parsed.sketches[0].constraints) == 4
-        (Feature,) = Parsed.feature_timeline
-        Definition = Feature.definition
-        assert isinstance(Definition, AngularRevolve)
-        assert Definition.SideMode == ModeValue
-        Drivers = {Driver.id: Driver for Driver in Parsed.parameters}
-        Along = Drivers[Definition.AlongParameterId]
-        assert Along.name == "D1" and Along.value.value == 1.25
-        assert Along.owner_id == Feature.id
-        Against = Definition.AgainstParameterId
-        if TwoSides:
-            assert Against is not None and Against != Along.id
-            assert (
-                Drivers[Against].name == "D2" and Drivers[Against].value.value == 0.875
-            )
-            assert Drivers[Against].owner_id == Feature.id
-        else:
-            assert Against is None
+        CheckRevDrivers(Parsed, ModeValue, TwoSides)
         Archive = SldprtArchive.from_bytes(Bytes)
         Sizes.append(len(Archive.require(KResolvedFeaturesStream)))
     assert Sizes[1] > Sizes[0]
@@ -81,8 +68,10 @@ def TestSqRegistry(TmpPath: FilePath) -> None:
         and Definition.AgainstParameterId is None
     )
     assert len(Sketch.constraints) == 5
-    (EqualRule,) = (Rule for Rule in Sketch.constraints if Rule.kind == "equal")
-    assert tuple(Ref.entity_id for Ref in EqualRule.references) == (
+    (EqualRule,) = (
+        Relation for Relation in Sketch.constraints if Relation.kind == "equal"
+    )
+    assert tuple(Reference.entity_id for Reference in EqualRule.references) == (
         Sketch.entities[3].id,
         Sketch.entities[0].id,
     )

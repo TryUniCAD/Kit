@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart im
     ColdPatPart,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.BindColdRevolveDoc import (
-    BindColdRevolveDoc,
+    BindColdRevDoc,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.Cold.ColdRevolvePart import (
     ColdRevolvePart,
@@ -25,7 +25,7 @@ def BindColdPart(
     ColdValue: ColdStockPart | ColdRevolvePart | ColdPatPart | None,
 ) -> CadDocument:
     if isinstance(ColdValue, ColdRevolvePart):
-        return BindColdRevolveDoc(Document, ColdValue.OwnersValue)
+        return BindColdRevDoc(Document, ColdValue.OwnersValue)
     if isinstance(ColdValue, ColdPatPart):
         OwnerValue = ColdValue.OwnerValue
         LinkValue = ColdValue.LinkValue

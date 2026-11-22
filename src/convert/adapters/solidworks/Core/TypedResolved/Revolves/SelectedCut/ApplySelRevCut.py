@@ -7,7 +7,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.BindSelectedRevolves import (
-    BindSelectedRevolves,
+    BindSelRevCut,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.SelectedCut.RevCutCache import (
     RevCutCache,
@@ -29,7 +29,7 @@ def ApplySelRevCut(
     CutValue = Lineage.CutValue
     StockId = NativeNodeId(Lineage.SelectedValue.NodeValue)
     CutId = NativeNodeId(CutValue.NodeValue)
-    Result = BindSelectedRevolves(
+    Result = BindSelRevCut(
         DocumentValue,
         LinkValue,
         Lineage.StockValues,

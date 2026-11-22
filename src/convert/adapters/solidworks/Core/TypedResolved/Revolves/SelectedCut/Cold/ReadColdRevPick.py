@@ -23,10 +23,10 @@ def ReadColdRevPick(
         CutNode.FieldsValue.get("f544") != 1
         or CutNode.FieldsValue.get("has_f548") != 1
         or any(
-            Node.FieldsValue.get("f544") != 1
-            or Node.FieldsValue.get("has_f548") != 0
-            or Node.FieldsValue.get("f548") is not None
-            for Node in StockNodes
+            StockNode.FieldsValue.get("f544") != 1
+            or StockNode.FieldsValue.get("has_f548") != 0
+            or StockNode.FieldsValue.get("f548") is not None
+            for StockNode in StockNodes
         )
     ):
         raise ValueError("cold revolve requires one actual earlier stock selector")

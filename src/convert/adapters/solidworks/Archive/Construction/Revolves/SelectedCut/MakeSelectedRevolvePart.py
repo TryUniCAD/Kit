@@ -37,10 +37,10 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart 
     RevolvePart,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevRows import (
-    MakeSelectedRevRows,
+    MakeSelRevRows,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.ProjectSelectedRevolve import (
-    ProjectSelectedRevolve,
+    ProjectSelRev,
 )
 from convert.adapters.solidworks.Archive.Construction.Revolves.Sketch.MakeRevProfMut import (
     MakeRevProfMut,
@@ -57,35 +57,35 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # each stock allocates its active profile feature and live body before any downstream consumer
-def MakeSelectedStock(
+def MakeRevStock(
     System: PartSystem,
     InputValue: PartBuildInput,
-    Plan: RevolvePlan,
+    PlanValue: RevolvePlan,
     Allocator: PersistentIds,
     *,
     IsFirst: bool,
 ) -> tuple[ArchiveNode, ArchiveNode, ArchiveNode]:
-    Profile, Axis = MakeRevProfMut(System, InputValue, Plan, Allocator)
+    Profile, AxisOwner = MakeRevProfMut(System, InputValue, PlanValue, Allocator)
     Feature, _, _, _ = MakeRevFeatMut(
-        System, Profile, Axis, InputValue, Plan, Allocator
+        System, Profile, AxisOwner, InputValue, PlanValue, Allocator
     )
     Feature.FieldsValue.update(f870=int(IsFirst), f544=1)
     Manager = CastValue(dict[str, object], System.RootValue.FieldsValue["fd88"])
-    Atom = BindStockMut(Manager, Feature, AppendMember=True)
-    return Profile.ProfileValue, Feature, Atom
+    AtomNode = BindStockMut(Manager, Feature, AppendMember=True)
+    return Profile.ProfileValue, Feature, AtomNode
 
 
 # the complete selected stock part allocates two body atoms and the cut from the same neutral ownership graph
-def MakeSelectedRevolvePart(
+def MakeSelRevPart(
     DocumentValue: CadDocument, InputValue: PartBuildInput
 ) -> RevolvePart:
-    Plan = ProjectSelectedRevolve(DocumentValue)
-    First, Second, Cut = Plan.OperationsValue
+    PlanValue = ProjectSelRev(DocumentValue)
+    First, Second, Cutter = PlanValue.OperationsValue
     ExtraNames = (
         Second.SketchName,
         Second.FeatureName,
-        Cut.SketchName,
-        Cut.FeatureName,
+        Cutter.SketchName,
+        Cutter.FeatureName,
     )
     CheckPartInput(DocumentValue, InputValue, First, ExtraNames)
     if (
@@ -97,20 +97,20 @@ def MakeSelectedRevolvePart(
         )
     Allocator = PersistentIds()
     System = MakePartBaseMut(InputValue, First, Allocator)
-    FirstProfile, FirstFeature, FirstAtom = MakeSelectedStock(
+    FirstProfile, FirstFeature, FirstAtom = MakeRevStock(
         System, InputValue, First, Allocator, IsFirst=True
     )
-    SecondProfile, SecondFeature, SecondAtom = MakeSelectedStock(
+    SecondProfile, SecondFeature, SecondAtom = MakeRevStock(
         System, InputValue, Second, Allocator, IsFirst=False
     )
-    Profile, Axis = MakeRevProfMut(System, InputValue, Cut, Allocator)
-    Feature, Reference, End, Angle = MakeRevFeatMut(
-        System, Profile, Axis, InputValue, Cut, Allocator, IsCut=True
+    Profile, AxisOwner = MakeRevProfMut(System, InputValue, Cutter, Allocator)
+    Feature, Reference, EndNode, Angle = MakeRevFeatMut(
+        System, Profile, AxisOwner, InputValue, Cutter, Allocator, IsCut=True
     )
-    Stock, Atom = ((FirstFeature, FirstAtom), (SecondFeature, SecondAtom))[
-        Plan.SelectedIndex
+    Stock, AtomNode = ((FirstFeature, FirstAtom), (SecondFeature, SecondAtom))[
+        PlanValue.SelectedIndex
     ]
-    Wrapper = MakeBodyRef(System.RootValue, Stock, Atom)
+    Wrapper = MakeBodyRef(System.RootValue, Stock, AtomNode)
     Wrapper.FieldsValue["f108"] = -1
     Feature.FieldsValue.update(
         f544=1, has_f548=1, f548={"n": 1, "items": [{"o": Wrapper}]}
@@ -129,18 +129,18 @@ def MakeSelectedRevolvePart(
         Profile.ProfileValue,
         Feature,
     )
-    KeyRows = MakeSelectedRevRows(
-        System.FeatureValues, Profiles, Features, Plan.OperationsValue
+    KeyRows = MakeSelRevRows(
+        System.FeatureValues, Profiles, Features, PlanValue.OperationsValue
     )
     Streams, Config, Resolved = EmitRevStreams(
-        System, Roots, Headers, Definition, InputValue, Cut, KeyRowsValue=KeyRows
+        System, Roots, Headers, Definition, InputValue, Cutter, KeyRowsValue=KeyRows
     )
     return RevolvePart(
         System,
         Profile,
         Feature,
         Reference,
-        End,
+        EndNode,
         Angle,
         Headers,
         Definition,
@@ -148,6 +148,6 @@ def MakeSelectedRevolvePart(
         Resolved,
         Streams,
         BuildSldprt(Streams, FormatVersion=4),
-        Cut,
+        Cutter,
         InputValue,
     )
