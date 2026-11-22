@@ -23,6 +23,7 @@ def ReadParameters(
     AllowTaper: bool = False,
     Rectangle: RectSketchProof | None = None,
     Reverse: bool = False,
+    PlainReverse: bool = False,
 ) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
@@ -91,8 +92,8 @@ def ReadParameters(
             NodeValue,
             Catalog,
             Owners.get(NodeValue.Identity),
-            Reverse and NodeValue == Along and Rectangle is not None,
-            Reverse and NodeValue == Along and Rectangle is None,
+            Reverse and NodeValue == Along and not PlainReverse,
+            PlainReverse and NodeValue == Along,
         )
         for NodeValue in Nodes
     )

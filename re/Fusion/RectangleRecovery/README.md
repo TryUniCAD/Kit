@@ -73,3 +73,5 @@ Decimal controls use 16.2 × 23.7 × 6.3 mm dimensions. The pre-review reader re
 The scoped repair passes all 13 existing native edited-prism controls in `DraftCompatibility.json`, including four drafted prisms. The shared recovery process includes those four drafted controls alongside eight holdouts and fourteen refusals.
 
 The final declaration-size policy repair relocates the same literal-only guard into parameter projection. Its separate shared recovery process checks all eight holdouts, fourteen refusal cases and four drafted compatibility controls. The full corpus receipt remains explicitly bound to the earlier revision above.
+
+Plain reverse literal admission is explicitly selected only by rectangular projection. Circular spans retain their established reverse contract. `SpanCompatibilityEvidence.json` records the shared recovery process plus all sixteen existing native circular-span CLI controls, including numerical native geometry comparisons.

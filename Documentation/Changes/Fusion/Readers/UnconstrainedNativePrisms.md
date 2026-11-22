@@ -29,3 +29,5 @@ The [launcher gotcha](../../../Gotchas/Research/Supervisor/Runtime/ShadowedKitLa
 The repair selected the existing Python 3.14 installation explicitly. No process-fence implementation was weakened.
 
 Decimal controls use 16.2 × 23.7 × 6.3 mm dimensions. The pre-review reader rejected reverse XY and positive YZ after centimeter to millimeter round trips. Native bounds and curve tags now compare original Point3D endpoints, preserving exact geometry disagreement checks. Named reverse distance references remain outside this bounded literal path.
+
+Plain reverse admission is scoped to rectangular projection. Sixteen existing circular-span controls retain their previous grammar and pass native volume, area, bounding-box and parameter-role CLI comparisons.

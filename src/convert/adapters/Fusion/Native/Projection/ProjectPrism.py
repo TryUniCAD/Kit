@@ -77,7 +77,13 @@ def ProjectPrism(
     CheckScopes(Graph, Context, Model.Asset.AssetId)
     FrameValue = ReadDatumFrame(Graph, Context) if YzDatum else KTransformIdentity
     Shape = ReadRectangle(Graph, Context, Rectangle)
-    Parameters = ReadParameters(Graph, Context, Rectangle=Rectangle, Reverse=Reverse)
+    Parameters = ReadParameters(
+        Graph,
+        Context,
+        Rectangle=Rectangle,
+        Reverse=Reverse,
+        PlainReverse=Reverse and Rectangle is None,
+    )
     CheckRegion(Graph, Context, Shape.LineNodes, Model.Asset.AssetId)
     CheckPrismBody(Graph, Context, Model, Shape, FrameValue, Reverse, YzDatum)
     Material = ReadMaterial(Graph, Context, Model)
