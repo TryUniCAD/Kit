@@ -1,3 +1,4 @@
+from os import name as OsName
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
@@ -12,7 +13,11 @@ from interchange.document.Models.DocumentModel import CadDocument
 def CanImportBox(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     if isinstance(TargetValue, (str, FilePath)):
         PathValue = FilePath(TargetValue)
-        if PathValue.suffix.casefold() != KPartSuffix or PathValue.is_dir():
+        if (
+            OsName != "nt"
+            or PathValue.suffix.casefold() != KPartSuffix
+            or PathValue.is_dir()
+        ):
             return False
         NameValue = PathValue.stem
     elif IsBinaryTarget(TargetValue):

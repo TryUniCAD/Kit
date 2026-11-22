@@ -255,9 +255,12 @@ def path_refusals(document, options):
         require(original == b"preserve existing destination" and len(list(target.parent.iterdir())) == 1,
                 "a wrong asserted physical locator modified its destination")
         untouched = target.parent / "missing" / target.name
+        windows = sys.platform == "win32"
+        require(writer.supports(document, untouched) is windows,
+                "registry path eligibility differs from its actual platform")
         refuse(lambda: write_document(document, untouched, destination_format=FORMAT, values=options),
-               ValueError, "actual measured Windows destination" if sys.platform != "win32"
-               else "no exact native measurement")
+               ValueError if windows else NotFoundError,
+               "actual measured Windows destination" if windows else "does not support the destination")
         require(not untouched.parent.exists(), "refused path left its stage or directory")
     return {"direct": result, "registry_untouched": True}
 
