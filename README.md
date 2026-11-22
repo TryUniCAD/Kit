@@ -36,7 +36,7 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
-The SOLIDWORKS part writer uses exact native measurements for the published profiles. These include Front-plane line-loop and full-ellipse bosses, Standard sweeps, distance chamfers, selected-stock through cuts, contained oblique linear patterns and one width-driven blind boss. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing) · [Exact part receipt](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+The SOLIDWORKS part writer uses exact native measurements for the published profiles. These include Front-plane line-loop and full-ellipse bosses, Standard sweeps, distance chamfers, selected-stock through cuts, contained oblique linear patterns, a width-driven blind boss, and measured principal, end-mode and thin revolutions. The separate rectangular and concave import profiles report the loss of editable history. [SOLIDWORKS writer scope](Documentation/Reference/Adapters/Solidworks.md#writing) · [Exact part receipt](Documentation/Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 
 The SOLIDWORKS assembly writer supports bounded principal-plane mate groups, one initially satisfied perpendicular between two occurrences of one owned rectangular part, and rigid nested hierarchies with owned rectangular blind-boss parts. [Assembly writer scope](Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
 

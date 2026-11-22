@@ -3,11 +3,12 @@
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
 The generative writer publishes the measured scopes listed in the
 [SOLIDWORKS adapter guide](../../Documentation/Reference/Adapters/Solidworks.md#writing).
-The development branch also contains model-only preparation for
-fixed-centre circular bosses, dimension equations, selected-stock
-through cuts, principal-plane revolves and standalone geometry-only
-fallbacks. The linked native-authored experiments measure those
-scoped constructions independently of the FCStd benchmark.
+Published scopes include exact selected-stock cuts, one width-driven
+boss, measured principal, end-mode and thin revolves, and measured
+standalone geometry-only imports. The linked native-authored
+experiments qualify those bounded constructions independently of the
+FCStd benchmark. Model-only preparation covers additional cases,
+including fixed-centre circular bosses.
 The historical FCStd audit below used the retired stream-replay writer.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
