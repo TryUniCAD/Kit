@@ -30,7 +30,7 @@ from interchange.geometry.Models.VectorSpace import SpaceVector
 def ChmfCutRing(
     EdgeValue: ChmfEdgeRead,
     DistanceMm: float,
-    AngleRad: float,
+    OtherMm: float,
 ) -> tuple[LineGeometry, ...]:
     Along = EdgeValue.EdgeAxis
     AxisU, AxisV = (Along + 1) % 3, (Along + 2) % 3
@@ -38,7 +38,7 @@ def ChmfCutRing(
     Lower, Upper = CoordsChmf(Bounds.minimum), CoordsChmf(Bounds.maximum)
     Primary = EdgeValue.DistanceAxis
     Other = AxisV if Primary == AxisU else AxisU
-    LegValues = {Primary: DistanceMm, Other: DistanceMm * Tangent(AngleRad)}
+    LegValues = {Primary: DistanceMm, Other: OtherMm}
     if any(
         not 0.0 < LegValues[AxisIndex] < Upper[AxisIndex] - Lower[AxisIndex]
         for AxisIndex in (AxisU, AxisV)
@@ -98,11 +98,16 @@ def ChmfPrism(
         AxisV,
         AxisZ,
     )
+    DistanceMm = Owners.Distance.ValueSi * 1000.0
+    AngleValue, SecondValue = Owners.AngleValue, Owners.SecondValue
+    OtherMm = DistanceMm
+    if AngleValue is not None:
+        OtherMm = DistanceMm * Tangent(AngleValue.ValueSi)
+    elif SecondValue is not None:
+        OtherMm = SecondValue.ValueSi * 1000.0
     return PrismPlan(
         FrameValue,
-        ChmfCutRing(
-            EdgeValue, Owners.Distance.ValueSi * 1000.0, Owners.AngleValue.ValueSi
-        ),
+        ChmfCutRing(EdgeValue, DistanceMm, OtherMm),
         Upper[Along] - Lower[Along],
         {
             "method": "typed_parametric_ordinary_chamfer",

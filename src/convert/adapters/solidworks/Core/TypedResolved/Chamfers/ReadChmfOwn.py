@@ -13,8 +13,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.CheckChmfMode impor
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfOwners import (
     ChmfOwners,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfDim import (
-    ReadChmfDim,
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfDrives import (
+    ReadChmfDrives,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfPick import (
     ReadChmfPick,
@@ -55,12 +55,18 @@ def ReadChmfMarks(
 
 
 # only the actual single preceding stock and its inherited modified atom authorize selected chamfer ownership
-def ReadChmfOwn(LinkValue: NativeLink, *, ColdValue: bool = False) -> ChmfOwners:
+def ReadChmfOwn(
+    LinkValue: NativeLink, *, ColdValue: bool = False, AllowDistancePair: bool = False
+) -> ChmfOwners:
     RootsValue = LinkValue.ResolvedValue.RootsValue
     if len(RootsValue) < 2:
         raise ValueError("ordinary chamfer lacks actual stock and rollback owners")
     Feature = RequireNative(RootsValue[-1], "Chamfer_c")
-    CheckChmfMode(Feature)
+    Fields = Feature.FieldsValue
+    ModeWord = Fields.get("f8c0") if ColdValue and AllowDistancePair else 1
+    if type(ModeWord) is not int:
+        raise ValueError("unsupported ordinary SOLIDWORKS chamfer mode or selector")
+    CheckChmfMode(Feature, ModeWord)
     StockValue = ReadBodyOwner(LinkValue, None)
     AtomValue = ReadMgrAtom(LinkValue)
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
@@ -96,15 +102,7 @@ def ReadChmfOwn(LinkValue: NativeLink, *, ColdValue: bool = False) -> ChmfOwners
             "ordinary chamfer lacks inherited activation or atom ownership"
         )
     Selected, Detached = ReadChmfPick(LinkValue, Feature, AtomId, ColdValue=ColdValue)
-    Distance = ReadChmfDim(LinkValue, Feature.FieldsValue.get("f810"), False)
-    AngleValue = ReadChmfDim(LinkValue, Feature.FieldsValue.get("f818"), True)
-    if (
-        Distance.DimensionNode.FieldsValue["f50"]
-        == AngleValue.DimensionNode.FieldsValue["f50"]
-    ):
-        raise ValueError(
-            "ordinary chamfer drivers reuse a persistent dimension identity"
-        )
+    Distance, AngleValue, SecondValue = ReadChmfDrives(LinkValue, Feature, ModeWord)
     return ChmfOwners(
         StockValue,
         Feature,
@@ -114,4 +112,6 @@ def ReadChmfOwn(LinkValue: NativeLink, *, ColdValue: bool = False) -> ChmfOwners
         Distance,
         AngleValue,
         Controllers,
+        ModeWord,
+        SecondValue,
     )

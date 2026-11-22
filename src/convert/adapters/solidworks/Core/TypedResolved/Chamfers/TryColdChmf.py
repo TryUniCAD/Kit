@@ -37,20 +37,31 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNo
 
 
 # the complete cold part uses exact owned archive support and never falls back to inferred shape data
-def ReadColdChmf(Archive: SldprtArchive, ModelValue: NativeModel) -> ChmfPartRead:
+def ReadColdChmf(
+    Archive: SldprtArchive, ModelValue: NativeModel, *, AllowDistancePair: bool = False
+) -> ChmfPartRead:
+    if not IsCacheAbsent(Archive):
+        raise ValueError("cold chamfer cannot own a saved body cache")
     LinkValue = ReadNativeLink(Archive, 0, ReadChamfers=True)
-    Owners = ReadChmfOwn(LinkValue, ColdValue=True)
+    Owners = ReadChmfOwn(LinkValue, ColdValue=True, AllowDistancePair=AllowDistancePair)
     CheckChmfCold(LinkValue, Owners)
     Roots, Nodes = ReadChmfRoots(LinkValue, ModelValue, Owners.FeatureValue)
     StockValue, PrismValue, LoopValue = ReadChmfStock(
         LinkValue, Owners.StockValue, Nodes
     )
     StockOp, ChmfOp = ModelValue.operations
+    Feature = next(
+        (Value for Value in ModelValue.features if Value.object_id == ChmfOp.object_id),
+        None,
+    )
     if (
         StockOp.object_id != NativeNodeId(Owners.StockValue)
         or ChmfOp.object_id != NativeNodeId(Owners.FeatureValue)
         or StockOp.profile_id != NativeNodeId(StockValue.ProfileValue)
         or ChmfOp.dependencies != (StockOp.object_id,)
+        or Feature is None
+        or tuple(Value.name for Value in Feature.dimensions)
+        != tuple(Driver.NameValue for Driver in Owners.DriversValue)
     ):
         raise ValueError(
             "cold chamfer differs from its actual preceding public stock and operation"
@@ -75,6 +86,8 @@ def TryColdChmf(
     Archive: SldprtArchive,
     ModelValue: NativeModel,
     Settings: ReadOptions,
+    *,
+    AllowDistancePair: bool = False,
 ) -> ChmfPartRead | None:
     if (
         Settings.extract_raw_brep
@@ -85,10 +98,9 @@ def TryColdChmf(
         != ((0, "Default"),)
         or tuple(Value.kind for Value in ModelValue.operations) != ("join", "chamfer")
         or len(ModelValue.sketches) != 1
-        or not IsCacheAbsent(Archive)
     ):
         return None
     try:
-        return ReadColdChmf(Archive, ModelValue)
+        return ReadColdChmf(Archive, ModelValue, AllowDistancePair=AllowDistancePair)
     except (ValueError, TypeError, KeyError, OverflowError):
         return None

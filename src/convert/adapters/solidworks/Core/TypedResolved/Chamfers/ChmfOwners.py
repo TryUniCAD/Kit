@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfDriver import (
 )
 
 
-# a local chamfer retains its two driver chains and ordered references before any physical interpretation
+# a local chamfer retains the active slot chains and ordered references before any physical interpretation
 @DataClass(frozen=True, slots=True)
 class ChmfOwners:
     StockValue: ArchiveNode
@@ -15,5 +15,13 @@ class ChmfOwners:
     SelectedRef: ArchiveNode
     DetachedRef: ArchiveNode
     Distance: ChmfDriver
-    AngleValue: ChmfDriver
+    AngleValue: ChmfDriver | None
     Controllers: tuple[ArchiveNode, ...]
+    ModeWord: int = 1
+    SecondValue: ChmfDriver | None = None
+
+    # parameter projection and map checks must follow the actual feature slot order
+    @property
+    def DriversValue(self) -> tuple[ChmfDriver, ...]:
+        Secondary = self.AngleValue or self.SecondValue
+        return (self.Distance,) if Secondary is None else (self.Distance, Secondary)

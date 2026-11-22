@@ -7,7 +7,8 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 def CheckChmfMode(NodeValue: ArchiveNode, ModeWord: int = 1) -> None:
     FieldsValue = RequireNative(NodeValue, "Chamfer_c").FieldsValue
     if (
-        ModeWord not in (1, 2, 18)
+        type(FieldsValue.get("f8c0")) is not int
+        or ModeWord not in (1, 2, 18)
         or any(
             FieldsValue.get(FieldName) != Expected
             for FieldName, Expected in (

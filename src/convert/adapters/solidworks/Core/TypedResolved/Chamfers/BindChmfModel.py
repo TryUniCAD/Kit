@@ -59,5 +59,12 @@ def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeMod
             for Message in ModelValue.diagnostics
             if Message != f"typed resolved semantics unavailable: {PriorDiagnostic}"
         ),
-        TypedGraph={**Evidence, "status": "supplemented_cold_signed_chamfer"},
+        TypedGraph={
+            **Evidence,
+            "status": (
+                "supplemented_cold_signed_chamfer"
+                if PartValue.OwnersValue.ModeWord == 1
+                else "supplemented_cold_distance_chamfer"
+            ),
+        },
     )

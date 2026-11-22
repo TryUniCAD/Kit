@@ -19,7 +19,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # the stored chamfer display value must agree with the separately owned positive editable parameter
 def ReadChmfDim(
-    LinkValue: NativeLink, DisplayNode: object, IsAngle: bool
+    LinkValue: NativeLink,
+    DisplayNode: object,
+    IsAngle: bool,
+    *,
+    Secondary: bool = False,
 ) -> ChmfDriver:
     Display = RequireNative(DisplayNode)
     Dimension, Parameter, ValueSi = ReadPrismParam(Display, IsAngle)
@@ -27,10 +31,12 @@ def ReadChmfDim(
     Handle = RequireNative(HandleRow["o"], "moFeatureDimHandle_c")
     DimId = Dimension.FieldsValue.get("f50")
     NameValue = ReadNativeName(Parameter)
+    ExpectedName = "D3" if Secondary else "D2" if IsAngle else "D1"
     if (
         type(DimId) is not int
         or DimId <= 0
-        or NameValue != ("D2" if IsAngle else "D1")
+        or NameValue != ExpectedName
+        or (Secondary and IsAngle)
         or Parameter.FieldsValue.get("f20") != ""
         or Dimension.FieldsValue.get("f30") != 0
         or (IsAngle and Dimension.FieldsValue.get("ff8") != 1)

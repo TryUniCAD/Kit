@@ -22,26 +22,24 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # each typed dimension chain is disjoint and belongs to the actual feature slots in archive order
 def CheckChmfDrives(Owners: ChmfOwners) -> None:
-    Drivers = (Owners.Distance, Owners.AngleValue)
+    Drivers = Owners.DriversValue
     Nodes = tuple(NodeValue for Driver in Drivers for NodeValue in ChmfDimNodes(Driver))
     IdsValue = tuple(Driver.DimensionNode.FieldsValue.get("f50") for Driver in Drivers)
     OwnerId = NativeNodeId(Owners.FeatureValue)
-    FirstId, OtherId = IdsValue
     if (
-        len(set(Nodes)) != 8
-        or type(FirstId) is not int
-        or type(OtherId) is not int
-        or not 0 < FirstId < OtherId < OwnerId
-        or any(
-            NodeValue.IndexValue is None
-            or Owners.FeatureValue.IndexValue is None
-            or NodeValue.IndexValue <= Owners.FeatureValue.IndexValue
-            for NodeValue in Nodes
-        )
+        IdsValue != tuple(range(OwnerId - len(Drivers), OwnerId))
+        or OwnerId <= len(Drivers)
+        or any(type(Value) is not int for Value in IdsValue)
     ):
-        raise ValueError(
-            "chamfer has alternate dimension order or shared driver ownership"
-        )
+        raise ValueError("chamfer has alternate persistent dimension order")
+    PriorIndex = Owners.FeatureValue.IndexValue
+    for NodeValue in Nodes:
+        IndexValue = NodeValue.IndexValue
+        if PriorIndex is None or IndexValue is None or IndexValue <= PriorIndex:
+            raise ValueError(
+                "chamfer has alternate dimension order or shared driver ownership"
+            )
+        PriorIndex = IndexValue
 
 
 # the bound editing chain contains the actual archived display handle value and parameter
@@ -91,7 +89,7 @@ def CheckChmfWrap(LinkValue: NativeLink, Feature: ArchiveNode) -> None:
     CheckTreeAlias(LinkValue, Parts)
 
 
-# fresh signed mode admits only empty optional modifier state outside the linked stock atom
+# fresh chamfers admit only empty optional modifier state outside the linked stock atom
 def CheckChmfCold(LinkValue: NativeLink, Owners: ChmfOwners) -> None:
     Fields = Owners.FeatureValue.FieldsValue
     if (

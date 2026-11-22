@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfDriver import (
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import (
     ChmfPartRead,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfDef import (
+    ReadChmfDef,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRows import (
     EdgeChmfRows,
 )
@@ -20,7 +23,7 @@ from interchange.Core.Common import FreezeMapping
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureExtrude import ExtrudeFeature
-from interchange.Features.FeatureKinds import ChamferFeature, NativeFeature
+from interchange.Features.FeatureKinds import NativeFeature
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Records.RecordParameter import Parameter, ParameterValue
 from interchange.document.Models.DocumentModel import CadDocument
@@ -124,7 +127,7 @@ def ReadChmfSteps(
     return StockValue, StepValue
 
 
-# the portable history joins both live drivers and both selected roles without replacing unrelated rows
+# the portable history joins the actual active drives and both selected roles to their original feature
 def BindChmfDoc(Document: CadDocument, PartValue: ChmfPartRead) -> CadDocument:
     StockValue, StepValue = ReadChmfSteps(Document, PartValue)
     Owners, LinkValue = PartValue.OwnersValue, PartValue.LinkValue
@@ -132,30 +135,31 @@ def BindChmfDoc(Document: CadDocument, PartValue: ChmfPartRead) -> CadDocument:
     Params = tuple(
         Value for Value in Document.parameters if Value.owner_id == StepValue.id
     )
+    Drivers = Owners.DriversValue
     if (
         BodyValue.final_feature_id != StepValue.id
-        or len(Params) != 2
+        or len(Params) != len(Drivers)
         or tuple(Value.id for Value in Params) != StepValue.parameter_ids
     ):
         raise ValueError(
             "cold chamfer does not own the actual neutral result body and independent drivers"
         )
-    Distance = BindChmfParam(Params[0], Owners.Distance, LinkValue, False)
-    AngleValue = BindChmfParam(Params[1], Owners.AngleValue, LinkValue, True)
+    Bound = tuple(
+        BindChmfParam(Param, Driver, LinkValue, Driver is Owners.AngleValue)
+        for Param, Driver in zip(Params, Drivers, strict=True)
+    )
     Picks = MakeChmfPicks(PartValue, StockValue, StepValue)
     IdsValue = tuple(Value.id for Value in Picks)
     if set(IdsValue).intersection(Value.id for Value in Document.selections):
         raise ValueError("chamfer selections repeat an existing neutral owner")
-    Definition = ChamferFeature(
-        Distance.value, "distance_angle", angle=AngleValue.value
-    )
+    Definition = ReadChmfDef(Owners.ModeWord, Bound)
     Updated = {
         StepValue.id: ReplaceValue(
             StepValue, definition=Definition, selection_ids=IdsValue
         ),
         StockValue.id: ReplaceValue(StockValue, operation=BooleanOp.KCreate),
     }
-    ParamValues = {Distance.id: Distance, AngleValue.id: AngleValue}
+    ParamValues = {Value.id: Value for Value in Bound}
     return ReplaceValue(
         Document,
         parameters=tuple(
