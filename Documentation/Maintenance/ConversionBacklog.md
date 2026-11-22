@@ -377,6 +377,17 @@ cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigAtomManager.md)
 
+### B04-SW2026-CONFIG-FINISH-HELPER
+
+The PR #121 takeover team owns the bounded surface-finish reader
+on `codex/solidworks-config-finish-delivery`. It uses
+the accepted character format and ordinary part/ModelHeader map.
+It reuses the annotation helper declaration from accepted PR #226.
+Exit requires the guarded part replays, authored wire and map contrast,
+current-revision review, and applicable CI.
+[Dependency PR #226](https://github.com/TryUniCAD/Kit/pull/226) ·
+[Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigFinishHelpers.md)
+
 ### B04-SW2026-CONFIG-FONT-FIELDS
 
 The PR #121 takeover team owns this bounded reader on

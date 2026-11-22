@@ -177,6 +177,11 @@ their own numeric suffixes and shared characters and widths. An active
 layer reference requires separate ownership evidence and is refused.
 [Configuration label scope](../../Changes/Solidworks/Archive/SolidworksConfigLabelFields.md)
 
+The bounded surface-finish helper preserves both embedded fonts and
+its separate annotation leader fields against the ordinary linked
+part archive. The same field layout serves the two weld-side copies.
+[Configuration finish helper](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFinishHelpers.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated

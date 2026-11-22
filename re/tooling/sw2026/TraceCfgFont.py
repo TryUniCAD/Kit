@@ -34,10 +34,11 @@ LABEL_WIDTH = "utLineWidth_c.Serialize0"
 
 
 class PinnedSdk(MetaPathFinder, Loader):
-    def __init__(self):
+    def __init__(self, source=None):
         self.modules = {}
         self.packages = set()
-        source = check_output(("git", "archive", REVISION, "src"), cwd=ROOT)
+        if source is None:
+            source = check_output(("git", "archive", REVISION, "src"), cwd=ROOT)
         with open_tar(fileobj=BytesIO(source), mode="r:") as archive:
             for entry in archive:
                 path = entry.name.removeprefix("src/")
