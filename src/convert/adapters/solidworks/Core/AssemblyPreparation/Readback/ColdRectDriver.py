@@ -21,7 +21,7 @@ def ColdRectDriver(Driver: Parameter, OwnerId: str, SketchId: str) -> Parameter:
         or Display.hex() not in ((Native * 1000.0).hex(), (Native / 0.001).hex())
     ):
         raise ValueError("reopened rectangle lacks its exact sketch distance driver")
-    Value = ReplaceValue(Driver.value, value=ExactMm(Native, Native * 1000.0))
+    Value = ReplaceValue(Driver.value, value=ExactMm(Native, Native / 0.001))
     return ReplaceValue(
         Driver,
         owner_id=SketchId,
