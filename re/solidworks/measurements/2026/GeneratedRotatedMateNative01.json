@@ -1,0 +1,130 @@
+{
+  "schema": "kit.sw2026.generated-rotated-mates-native.v1",
+  "scope": "disclosed A22 rotated direct occurrences with ordered parallel distance and coincident mates",
+  "oracle": {
+    "version": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "com": "SldWorks.Application.34",
+    "transport": "Parallels prlctl exec --current-user"
+  },
+  "source": {
+    "packet_sha256": "0cffc404e3aaeeee0132db82782b7f788253acb3955e69ec2db38a41a8a3ce19",
+    "native_result_sha256": "810e3a81d7b16ac97d74fba895c7cb68f39b4437aaca73db04a1c6d38759cb0a",
+    "native_parent_sha256": "fac5708432e569e787dfc00aa87fe08e5ef2d6830ec88f2d69525f8030d9fd1f",
+    "native_child_sha256": "b46e1e0f066db55730ce765cb2547b97ad1416e1ea0ceaa588bb8e819f727321",
+    "control_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+    "healthy_distinct_processes": 4
+  },
+  "generation": {
+    "child_sha256": "a97ee087a20dcfaf0e0e25e6bc8fa29bf421b447f113022ee98824eff77d4b78",
+    "guarded_builds": 2,
+    "guarded_report_sha256": "3450949b8dc540e9e6af77010503e3e70770577a7b3d8c59fd2d1ba018b08585",
+    "parent_sha256": "9d429e4688b655b09a7fa5374b8fc933fabc8ae7002812a6deecc892c68f2ac4",
+    "request_sha256": "750196aec8bb560a6a75daf2d67d729817cc8692f4f579668b28ecd25db582a3",
+    "runtime_file_reads": 0,
+    "source_manifest_sha256": "fa4e496edb5c5a1171a25c570ba2492c3a40519dac32fd5c75dd3c28d436dc17",
+    "writer_revision": "b5b20a0552d853906a6d5a45add5a93d2aa99cc5",
+    "source_file_count": 4476,
+    "paired_packet_sha256": "d4a3ba8c7f60c9549147c5c635255829b0febad87899c273a86efba392084906"
+  },
+  "native": {
+    "result_sha256": "3f815f4bfb275697b8cd641d33b1e4294701da57078b281ed15bcfec296a4355",
+    "host_sha256": "9406588807e15f1a2ce189129697ddb0ca6bc2ec19947f54e5adb67c0849cc5b",
+    "transport_exit_code": 0,
+    "phases": [
+      {
+        "role": "ControlBefore",
+        "passed": true,
+        "record_sha256": "b3d7105ef2b727082bc47e50489d04e719d9b1d0cacbff0372348e56a6a0bf90",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394356806564307,
+        "body_count": 2
+      },
+      {
+        "role": "Generated",
+        "passed": true,
+        "record_sha256": "cc347a248d1570c5a19c21d11db0a42aaadc60fcc641ed889e747753a9bd63a5",
+        "numeric_checks": 111,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394357214204896,
+        "body_count": 2
+      },
+      {
+        "role": "Reopen",
+        "passed": true,
+        "record_sha256": "02fb180507553d7618312375c542ddf089699b94d67b3a6919e1eeb97f4ffb3a",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394357906427951,
+        "body_count": 2
+      },
+      {
+        "role": "ControlAfter",
+        "passed": true,
+        "record_sha256": "4ffdf59cb43d38f3d69514be8608e6bd8158ed18930f5d7772e1c24c829cc48b",
+        "numeric_checks": 74,
+        "open_errors": 0,
+        "open_warnings": 0,
+        "process_creation_filetime": 134394358463218672,
+        "body_count": 2
+      }
+    ],
+    "numeric_checks": 333,
+    "ordered_mates": [
+      "parallel",
+      "distance",
+      "coincident"
+    ],
+    "comparisons": {
+      "tree": true,
+      "child_tree": true,
+      "occurrences": true,
+      "mates": true
+    },
+    "parent_feature_rows": 27,
+    "child_feature_rows": 25,
+    "rotation_deg": 30.0,
+    "original_length_m": 0.0635,
+    "edited_length_m": 0.091125,
+    "original_com_m": [
+      -0.015874999999999997,
+      0.02749630657015593,
+      0.014125000000000002
+    ],
+    "edited_com_m": [
+      -0.022781249999999992,
+      0.039458282459928495,
+      0.014125000000000002
+    ],
+    "parent_save_status": [
+      true,
+      0,
+      0
+    ],
+    "child_save_status": [
+      true,
+      0,
+      0
+    ],
+    "saved_parent_sha256": "f255f3795d76036d1fa1113858f3f989bff4cdfc035223824637fccbcb218f98",
+    "saved_child_sha256": "48eb9c9367a59a542b6c0a63d7b4360ed5d80df725669c589ac9c79e8b8f264f",
+    "saved_child_stamp": 144,
+    "reopen_child_stamp": 144,
+    "rebuild_child_stamp": 158,
+    "controls_healthy": true,
+    "passed": true
+  },
+  "public_reader": {
+    "typed_mates": 3,
+    "typed_plane_entities": 6,
+    "edited_distance_mm": 91.125,
+    "public_writer_enabled": false
+  },
+  "heldout_inputs_read": 0,
+  "qualified_production_corpus_outputs": 0,
+  "passed": true
+}

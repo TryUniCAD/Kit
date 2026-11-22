@@ -308,6 +308,17 @@ and queue evidence. Complete section bodies, broader context and public
 configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
 
+### B04-SW2026-ROTATED-PLANAR
+
+The PR #121 takeover owns the separate rotated planar group tranche from
+the measured two-mate writer. The guarded research composer reproduces
+both exact A22 native-tested files. Ordinary publication still requires
+the complete authored chronology and presentation or a new native
+measurement for the current canonical constructor. Exit requires both
+strict scoped readback and exact full-bundle public acceptance on its
+delivery revision. Warm typed history and broad held-out coverage remain
+open. [Boundary and native evidence](../../re/solidworks/records/RotatedMateAssemblyBoundary2026.md)
+
 ### B04-SW2026-RIGID-NESTED
 
 The PR #121 takeover owns the scoped SDK writer on

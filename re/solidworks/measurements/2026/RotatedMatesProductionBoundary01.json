@@ -1,0 +1,360 @@
+{
+  "explicit": {
+    "assembly": {
+      "bytes": 10526,
+      "sha256": "2840b5f5b4f122fd40a03221edb12e622dbf431908574ffeb18228b22517d18b",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2436,
+          "sha256": "11392d343ad66bb2c6d38135137133712ed74eafd805ecdc27ae69d7f07f3eda"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5f654e0812d95b0187a37f90d906250b2f9cb2fd51f8e4514ae4baa3c523616a"
+        },
+        "Contents/Config-0": {
+          "bytes": 21585,
+          "sha256": "7bbf0977ed9bf235770199a84b8d74d548e18287d5a59f3e7a37fdd609324e24"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 10681,
+          "sha256": "a0fbed98ebcc763680e857e1beefd7a8ae60e9e0789544a5c401dc11bf60ca80"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1475,
+          "sha256": "02712d5d71ce9a0e0fc9cf6cf4577b7288b3e9e2acde0af7a7e96797d614f3b1"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "bytes": 565,
+          "sha256": "7f77471778914b9f8093578e157245c71b50af9b92e4afc7ef389f34987bee9c"
+        },
+        "Header2": {
+          "bytes": 1475,
+          "sha256": "57ce60910434bb62f7b3cb9e5bdc802f0ca7ee985edfaee8e96f1699cba8a762"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2303,
+          "sha256": "00739ed573c8b7e99ac0142faad2f4364d82ed2dcc86274f6efb68674b4c2239"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1140,
+          "sha256": "f1c8d6c43a61b0f9ae061ccab7145846d83b8f28ceaa6cd311f356411787933e"
+        }
+      }
+    },
+    "child": {
+      "bytes": 8657,
+      "sha256": "6192fdcd5857126d1baa2b5bc273a794f0b82e9979cdae32f50c95c51f0854c7",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+        },
+        "Contents/Config-0": {
+          "bytes": 21142,
+          "sha256": "932c29a1d0563f6a5e1357993616dc4672e5fe8b5ba6ece64e1dea0d7d65a5fb"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 791,
+          "sha256": "01acb5a6350c259fc0bab5cc4edcf59f5f26f49959d7d78182af298eaff8f168"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17289,
+          "sha256": "3cda66b5adb701de8836d66ff75c6ec35a8948a8b5a82713d8f07b72d3da25e0"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 791,
+          "sha256": "dfd1dd409a7f1ad5935ee13a7d849f1ea251130942d73d1b57b40f68c1db8beb"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1489,
+          "sha256": "83165ebaf376151fd3ed5fac6b38a16a929a138b08be4cb59aee2dc71704dccf"
+        }
+      }
+    }
+  },
+  "guarded_processes": 2,
+  "heldout_inputs_read": 0,
+  "historical": {
+    "assembly": {
+      "bytes": 10351,
+      "sha256": "9d429e4688b655b09a7fa5374b8fc933fabc8ae7002812a6deecc892c68f2ac4",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2436,
+          "sha256": "11392d343ad66bb2c6d38135137133712ed74eafd805ecdc27ae69d7f07f3eda"
+        },
+        "Contents/Config-0": {
+          "bytes": 21585,
+          "sha256": "7bbf0977ed9bf235770199a84b8d74d548e18287d5a59f3e7a37fdd609324e24"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 10681,
+          "sha256": "3bf697c2293b9adff82e5f17a7dbbf7ad48a2c799e23155b3bbc6cfa9d5ccead"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1475,
+          "sha256": "f13607b38571e00a9939acafdaaba76cdcc047073b4ef43dc5ddb0160c687c50"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "2cadd283dd707f67aca58bef799ff64d2a3436181412056fd7ae1aafa1c59f72"
+        },
+        "Contents/Definition": {
+          "bytes": 565,
+          "sha256": "7f77471778914b9f8093578e157245c71b50af9b92e4afc7ef389f34987bee9c"
+        },
+        "Header2": {
+          "bytes": 1475,
+          "sha256": "9a1ce98bcbe061c923c2f16cca4f7d58e70bb6d5d7bfd9025d45574db8633271"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2303,
+          "sha256": "00739ed573c8b7e99ac0142faad2f4364d82ed2dcc86274f6efb68674b4c2239"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1140,
+          "sha256": "f1c8d6c43a61b0f9ae061ccab7145846d83b8f28ceaa6cd311f356411787933e"
+        }
+      }
+    },
+    "child": {
+      "bytes": 8643,
+      "sha256": "a97ee087a20dcfaf0e0e25e6bc8fa29bf421b447f113022ee98824eff77d4b78",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "bb4192ed168d22ce2fb2f85ec030ebbfcdd6a6074e302351c69402d58a69ef02"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+        },
+        "Contents/Config-0": {
+          "bytes": 21124,
+          "sha256": "ae69f2eff9264011fb4afe15552353c2278af5fa56b1249528143ca32130c30f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 791,
+          "sha256": "01acb5a6350c259fc0bab5cc4edcf59f5f26f49959d7d78182af298eaff8f168"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17301,
+          "sha256": "a5119a9e90665c1b2f7d2f7121418521caa0787f0e95609f362724ddacb731fa"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 791,
+          "sha256": "dfd1dd409a7f1ad5935ee13a7d849f1ea251130942d73d1b57b40f68c1db8beb"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1449,
+          "sha256": "b5270aaffc06e8cb6a46c51cc300cff6bdb7cae4b87fac6e5e30249b3dc5170d"
+        }
+      }
+    }
+  },
+  "input_reads": 0,
+  "native_processes_started": 0,
+  "ordinary": {
+    "assembly": {
+      "bytes": 10524,
+      "sha256": "afa8e5c96efe11a4ccc3e041ea97af2c778cf5a5b06a94cbf718768eb9c31df4",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2436,
+          "sha256": "0971f23853b57919608813faba07a3eddba14d97ad6be9f578e0a85825afc721"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "5f654e0812d95b0187a37f90d906250b2f9cb2fd51f8e4514ae4baa3c523616a"
+        },
+        "Contents/Config-0": {
+          "bytes": 22679,
+          "sha256": "480b4783282b36d922d711d5bc00e151ff5ea3773f1f4988bfa4d0832b5468d9"
+        },
+        "Contents/Config-0-MatesList": {
+          "bytes": 10681,
+          "sha256": "8a01e121181c32b14ab219280ea23820e221ecfe96eec541f8299e95fa3ec272"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 1487,
+          "sha256": "cba7b8a8cca89c5592ac03cd2f0e82b1b347c6a14c349529eee3dc79cc333ffa"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 4839,
+          "sha256": "bef105ef58ad1448742e0fef9f8dcdb1ef7d737a90c3a43236659e10b5780b15"
+        },
+        "Contents/Definition": {
+          "bytes": 543,
+          "sha256": "523ef420cbb8bde5b4be4b4ae674e65f6f43a0b5872042c3601ab1dbf75c82a1"
+        },
+        "Header2": {
+          "bytes": 1487,
+          "sha256": "ec06f954994e29a75442238b244b62892d38f89cf4725df25ab659f1c00d1a1d"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "9a3937af150b4e6b4593ad0fab0f096d8a451f7b95cf52f78a24b95f5f20cf3b"
+        },
+        "swXmlContents/COMPINSTANCETREE": {
+          "bytes": 2303,
+          "sha256": "7f7e5e2a648a235455a0f52623586abb1ebb507195c31b6914a42cae6735814c"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1140,
+          "sha256": "b7af0f6c77126c132566c5969540f4338302a9275f963a74dfec76f3a490d551"
+        }
+      }
+    },
+    "child": {
+      "bytes": 8607,
+      "sha256": "75e379ac0deb988e3be5ffffa66e813b7c53b94d622893043fd89ff8a55b6ef9",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "3a81079a40b9046408349c1b9f3adb7e8b9a1639537bb953b020da79ede006ad"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "84b85ee9b318eb5473c0517e87a24d97329c8a240735af408922bf855ab585e1"
+        },
+        "Contents/Config-0": {
+          "bytes": 22256,
+          "sha256": "5b8d4cc95fd7a0b4c1a9960bca6a81cb78394b30696597b17f48fab41c5a4939"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 731,
+          "sha256": "7499877922117eec01308a437375326e990992eec777438cd1aacd78b5838371"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17289,
+          "sha256": "c719d7ebb6cdec13a7789ab538781971d87af197e00b64a7077e317df5dc4aa8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 731,
+          "sha256": "4b91d1d9300bf1c3b1b2fc6c02b968ef1d04cf7b6190adb3ac7b21c2682af792"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "9a3937af150b4e6b4593ad0fab0f096d8a451f7b95cf52f78a24b95f5f20cf3b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1489,
+          "sha256": "609ecb014799c6db0b8c7621b76d3cdb02e5e6579334860681f31351bcead5d0"
+        }
+      }
+    }
+  },
+  "preexisting_native_lifetimes": 4,
+  "preexisting_native_numeric_checks": 333,
+  "production_base": "b0081634f08ca5c3e57ff4fa910e843401a8ca8e",
+  "public_writer_qualified": false,
+  "publication_refusals": [
+    "ordinary_registry_scope",
+    "direct_writer_receipt"
+  ],
+  "report": {
+    "baseline_reader_refusal": "has no entities",
+    "child_dimensions_mm": [
+      40.0,
+      20.0,
+      10.0
+    ],
+    "distance_mm": 63.5,
+    "driver_native_id": "20",
+    "map_base": 133,
+    "map_terminal": 218,
+    "mate_order": [
+      "parallel",
+      "distance",
+      "coincident"
+    ],
+    "owned_endpoint_count": 6,
+    "typed_reader_rejected_unqualified_parallel_options": true
+  },
+  "schema": "kit.sw2026.rotated-mates-main-boundary.v1",
+  "scripts_sha256": {
+    "BuildHistoricalRotated.py": "48056c9829092455b073dd9aecc9dc5048c20c1f771d0afc39644fc977947ac6",
+    "ProjectRotatedModel.py": "b73dcc77331d8b56c50f490141bd68bf9e7cc3050cb11aef6fcbe74615bf568d",
+    "VerifyRotatedMates.py": "9f582c404eb0c185a9bb10204a7857bf73000deb0f8c78b3cad460ba845cea5e"
+  },
+  "source_native_receipt_sha256": "dd062a6526c9fb74aad7e8425fa9c8f585ca9929c27d2ed1836271392ed02aff",
+  "typed_recipe_remaining_stream_differences": {
+    "assembly": [
+      "Contents/CMgrHdr2",
+      "Contents/Config-0-MatesList",
+      "Contents/Config-0-ModelHeader",
+      "Header2"
+    ],
+    "child": [
+      "Contents/Config-0",
+      "Contents/Config-0-ResolvedFeatures",
+      "swXmlContents/KeyWords"
+    ]
+  },
+  "warm_reader_first_refusals": {
+    "native_edited_child": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+    "native_edited_parent": "unsupported SOLIDWORKS body class moAssemblyTimings_c schema 1",
+    "native_original_parent": "unsupported SOLIDWORKS body class moAssemblyTimings_c schema 1"
+  }
+}

@@ -363,6 +363,12 @@ CI now rejects any recorded field program in `src`.
 The current part writer derives its streams from format rules using the
 typed container, configuration, definition and resolved-feature codecs.
 
+A disclosed rotated group with parallel, distance and coincident mates
+has a separate exact research reproduction. Publication would require
+that historical authored metadata contract or a new native measurement
+of the current canonical bundle.
+[Rotated mate research](../../../re/solidworks/records/RotatedMateAssemblyBoundary2026.md)
+
 ## Geometry cache boundary
 
 The partition stream can contain geometry derived from feature history.
