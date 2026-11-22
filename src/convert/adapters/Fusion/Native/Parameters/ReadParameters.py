@@ -91,7 +91,7 @@ def ReadParameters(
             NodeValue,
             Catalog,
             Owners.get(NodeValue.Identity),
-            Reverse and NodeValue == Along,
+            Reverse and NodeValue == Along and Rectangle is not None,
         )
         for NodeValue in Nodes
     )

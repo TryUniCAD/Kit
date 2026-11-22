@@ -558,3 +558,11 @@ Dependencies are merged PRs #158 and #207 and the licensed native workers.
 The exit requires a verified corpus manifest, sanitized records, explicit failure outcomes, and current-head publication readiness.
 The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
 Native recovery and semantic qualification remain blocked as recorded in that package.
+
+## Bounded Fusion rectangle reader follow-up
+
+Task `A05-RectangleRecovery` is active under the [automation register](../Reference/Research/AutomationSteps.md#a05-rectanglerecovery-bounded-reader-qualification).
+Codex owns the bounded unconstrained reverse-XY and positive-YZ reader work on `fix/native-rectangle-qualification-20261122`.
+Delivery PR is pending creation. Dependencies are merged PR #263, the strict reader, and independent licensed controls.
+The exit requires numerical source comparison, public SDK and CLI replay, retained refusal coverage, shared-suite integration, and current-head CI and review.
+Native writing and full conversion acceptance remain open. SOLIDWORKS host recovery is separate.

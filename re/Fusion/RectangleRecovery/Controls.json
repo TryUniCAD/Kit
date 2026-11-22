@@ -1,0 +1,74 @@
+{
+  "source_revision": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+  "capture": "licensed native API; new inputs authored after the candidate rule was recorded",
+  "qualification": "bounded reader evidence only; no native target conversion acceptance",
+  "artifacts": [
+    {
+      "file": "Controls/Unconstrained/control-after.f3d",
+      "sha256": "ab9821bbbaaea61365b852f2e5b8e4b7eb1b372fb2c57c5b2190e40390bcb87c",
+      "size_bytes": 66746
+    },
+    {
+      "file": "Controls/Unconstrained/control-before.f3d",
+      "sha256": "bd94ae33e87d3c2ec967b8e629ca99d7290bc26aeb5c64a293d5bf634f437aa4",
+      "size_bytes": 66546
+    },
+    {
+      "file": "Controls/Unconstrained/reverse-xy.f3d",
+      "sha256": "06411d6e1d167a148c51cb6d31588dd8d2ccdce45feba9c3bd8ac81250d79ff7",
+      "size_bytes": 66682
+    },
+    {
+      "file": "Controls/Unconstrained/datum-yz.f3d",
+      "sha256": "3c391508646124ca5a44080b93e43c4de11516951a2c477a8e935c9c98a5ccd6",
+      "size_bytes": 68638
+    },
+    {
+      "file": "UnconstrainedNative.json",
+      "sha256": "1b469309ef62b588100858f4bdbf1742529c54580955f4a927a31fd576fc9d0d",
+      "original_sha256": "b415bd01e3efc65db62acdb5786a3091cce2a04b965f6619785e364b00f8d6c9",
+      "size_bytes": 2278
+    },
+    {
+      "file": "Controls/Constrained/control-after.f3d",
+      "sha256": "bfcc42b4a315e420dd101c70927003687f634c7d66eb7b62c3df25e8977bfd0e",
+      "size_bytes": 67601
+    },
+    {
+      "file": "Controls/Constrained/control-before.f3d",
+      "sha256": "6289de9cfb7b800d46e55e855c786fda6fac6b6c7ac3e5c3c1861d8fb2148896",
+      "size_bytes": 67603
+    },
+    {
+      "file": "Controls/Constrained/forward-xz.f3d",
+      "sha256": "4ed029d6eb4b0d5cd7c093b7439c9025a9168b239d4cbafd694374bdc7e80ba5",
+      "size_bytes": 70171
+    },
+    {
+      "file": "Controls/Constrained/reverse-yz.f3d",
+      "sha256": "a6acafeba0bc04730368f4115a66f851c4b8250472692a936a05a34fb1270c9a",
+      "size_bytes": 65374
+    },
+    {
+      "file": "Controls/Constrained/reverse-xz.f3d",
+      "sha256": "9d4e6650b8e6d4d078035f4e57fc6dc0acdc93ef4c5b177c9c964fce29216108",
+      "size_bytes": 70184
+    },
+    {
+      "file": "Controls/Constrained/forward-yz.f3d",
+      "sha256": "b5227a46ebc22f12ac431751599a8c629a06eb636ee3dba733ce5344671c847f",
+      "size_bytes": 65366
+    },
+    {
+      "file": "Controls/Constrained/reverse-xy.f3d",
+      "sha256": "eb512f8fccce60040e561b0406ad3a31c7b5321035bdf4bdcdb5d39660981f09",
+      "size_bytes": 67461
+    },
+    {
+      "file": "ConstrainedNative.json",
+      "sha256": "ce09f3a50727d62d71bcd22a267f9e912a370589ccc17e0c88b08711cf4001d4",
+      "original_sha256": "09892324db4d4a4cf7c72e2bbf5365c5fee060c8a0a85cefb2bf013f95f9aac3",
+      "size_bytes": 39976
+    }
+  ]
+}

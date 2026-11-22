@@ -440,3 +440,10 @@ Qualification runs each case through the public CLI in a network-isolated contai
 
 The [2026 feature ladder package](../../re/FeatureLadders2026/README.md) retains native inputs, strict outcomes, and typed-native inspection reports.
 Its manifest includes failed and blocked cases. These research outcomes do not qualify conversion or complete semantic recovery.
+
+## Verify the selected launcher
+
+Another installation can shadow the executable installed with Python 3.14.
+Resolve `kit` before resuming a durable native campaign and inspect its entry-point interpreter.
+Use the verified installation's absolute path if necessary.
+The [shadowed launcher gotcha](../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records the observed supervisor failure and safe repair.
