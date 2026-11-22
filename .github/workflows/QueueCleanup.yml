@@ -37,4 +37,4 @@ jobs:
         with:
           script: |
             const { CleanRuns } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Queue/CleanRuns.cjs`);
-            await CleanRuns({ Github: github, Context: context, Core: core });
+            await CleanRuns({ Github: github, Context: context, Logger: core });

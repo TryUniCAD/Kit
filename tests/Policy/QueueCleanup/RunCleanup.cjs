@@ -42,9 +42,9 @@ const Github = {
       throw new Error("Queue unavailable");
     if (Fixture.CaseName === "queue-null")
       return { repository: { mergeQueue: null } };
-    const More = Fixture.CaseName === "queue-page" && !Variables.cursor;
+    const HasNext = Fixture.CaseName === "queue-page" && !Variables.cursor;
     const Active =
-      ["queue-active", "queue-page"].includes(Fixture.CaseName) && !More;
+      ["queue-active", "queue-page"].includes(Fixture.CaseName) && !HasNext;
     return {
       repository: {
         mergeQueue: {
@@ -57,7 +57,10 @@ const Github = {
                   : Active
                     ? [{ headCommit: { oid: Fixture.Current.head_sha } }]
                     : [],
-            pageInfo: { hasNextPage: More, endCursor: More ? "next" : null },
+            pageInfo: {
+              hasNextPage: HasNext,
+              endCursor: HasNext ? "next" : null,
+            },
           },
         },
       },
@@ -121,7 +124,7 @@ CleanRuns({
     repo: { owner: "Example", repo: "Kit" },
     payload: { repository: { id: 1 } },
   },
-  Core: { info: () => {} },
+  Logger: { info: () => {} },
 })
   .then(() => process.stdout.write(JSON.stringify(Fixture)))
   .catch((ErrorInfo) => {
