@@ -2676,4 +2676,4 @@ They are the next research candidates, not supported Kit behavior.
 
 ## Circular distance extents
 
-The strict circular reader preserves negative, symmetric and two-sided distances through live parameter roles. See [circular extent reads](../../Changes/Fusion/FusionCircularExtentReads.md) and [allocated operation IDs](../../Gotchas/Conversion/Fusion/Geometry/FusionAllocatedOperations.md) for the measured profile and limits.
+The strict circular reader preserves negative, symmetric and two-sided distances through live parameter roles. See [circular extent reads](../../Changes/Fusion/Extents/FusionCircularExtentReads.md) and [allocated operation IDs](../../Gotchas/Conversion/Fusion/Geometry/FusionAllocatedOperations.md) for the measured profile and limits.

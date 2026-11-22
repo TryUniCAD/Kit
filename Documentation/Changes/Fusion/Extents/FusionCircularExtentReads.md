@@ -12,10 +12,10 @@ Use `kit decode FILE.f3d --output OUTPUT.json`. No CAD runtime participates in d
 
 ## Evidence
 
-`re/Fusion/Reconstruction/CircularSpans/Manifest.json` records original and held-out API-authored samples with measured bounds, volume and area. Both sets have healthy before/after controls. The original reversed, symmetric and two-sided cases decoded successfully through the public CLI. The held-out cases use changed positions, radii and depths. Thirteen recorded archives include both symmetric measurement conventions. Eleven original, held-out and per-side cases decoded through the CLI during the research run. CLI integration coverage compares geometry measurements, complete timeline length and live extent parameter roles against the recorded native observations. Remote CI and review remain pending.
+`re/Fusion/Reconstruction/CircularSpans/Manifest.json` records original and held-out API-authored samples with measured bounds, volume and area. Both sets have healthy before/after controls. The original reversed, symmetric and two-sided cases decoded successfully through the public CLI. The held-out cases use changed positions, radii and depths. Thirteen recorded archives include both symmetric measurement conventions. All thirteen committed cases decoded strictly through the pinned research CLI with zero rejected inputs, reader errors or partial fallbacks. CLI integration coverage compares geometry measurements, complete timeline length and live extent parameter roles against the recorded native observations. Remote CI and review remain pending.
 
 ## Limits
 
 This adds strict reading for the stated circular extent profile. The new span projections carry the read-only marker. This does not qualify arbitrary multi-feature histories, taper on both sides, arbitrary planes, conversion, or native output acceptance. The separate multi-feature decoding work remains unfinished.
 
-See [recorded format findings](../../../re/Fusion/Reconstruction/CircularSpans/Findings.md).
+See [recorded format findings](../../../../re/Fusion/Reconstruction/CircularSpans/Findings.md).

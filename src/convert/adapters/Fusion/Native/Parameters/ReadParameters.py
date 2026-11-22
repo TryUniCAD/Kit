@@ -34,7 +34,7 @@ def ReadParameters(
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
     Taper = CheckBinding(Graph, Context.Taper, Context)
-    ExtentBindings = (Context.Along, Context.Taper)
+    ExtentBindings: tuple[NativeNode, ...] = (Context.Along, Context.Taper)
     if Context.Extrude.Fields["rAgainstDistance"] is not None:
         ExtentBindings += (
             ResolveField(

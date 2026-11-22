@@ -28,7 +28,7 @@
       "Config contains unrecognized setting \"reportUnsafeMultipleInheritance\"."
     ]
   },
-  "repository_policy": "steering compliance passed for 24 python files",
+  "repository_policy": "initial reader check passed for 24 python files; CI repair check passed for 4 changed python files; remote CI remains authoritative",
   "sdk_file_sha256": {
     "src/convert/adapters/Fusion/Native/Circular/Spans/CheckBodyTag.py": "61cc6c4aa770b142996556b6ae8e46120974b522842e6b070f8696f7a8c44b9e",
     "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanCap.py": "91596665aae4f46671b07c38a926546cc7f0a4a4f3cbf436b349e6297a8c1fea",
@@ -53,5 +53,203 @@
     "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "3cafcd0ab15219815d241af11b367efab3e2fdf01e36a0089d8217eb14ccffb2",
     "src/convert/adapters/Fusion/Native/Policy/CheckExtrusion.py": "93e462fa375575c457a860f204057e4936d631456e21a69a32b91d025b4becb0",
     "src/convert/adapters/Fusion/Native/Projection/ProjectRectangle.py": "215b8e59be4364e5da1162e9a9fb3998b26d4fb8b67af7d1f0677749ebd43ef2"
-  }
+  },
+  "pinned_cli_run": {
+    "allow_partial": false,
+    "assets": [
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "65c6dab7acd509c98af8e60e2b0ccfefcf156c1192786b4808eaf5b51b3d3d6f",
+        "fingerprint": "6facbb926ce1dc2c6a5fd84666ca8a84b3b3f5819fac686078ad55c471c0beed",
+        "neutral_sha256": "b036ea491a0a186f5a0100294aa722ba1873742646c61ae6aa9a7c5ab0fc4f07",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 64924,
+          "records": 85,
+          "unresolved": 1
+        },
+        "directory": "b5bf58e821b5a7d6fa9b737e568b1dc19652f83c069cd7814827ce68a7e8738c",
+        "fingerprint": "bb1427954d78ac310cc9daeb7ed657b60c143392c0e73ffd4482036328082349",
+        "neutral_sha256": "ac1bc239db44026e0c5f413d2e841b5732737f0066aecb6c7c385c4db8b11d19",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 65487,
+          "records": 91,
+          "unresolved": 1
+        },
+        "directory": "8033bf69e97774d96822935751c6d62af548c78338d4f46b6a6cab07bb810b65",
+        "fingerprint": "11816b9ffb11c826c99d84568bb2a8965cfee693382391322586acacd31e1388",
+        "neutral_sha256": "96681dabecf9ea497c831650905f9011b54f03362597653809a33d1c264a44cd",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 64946,
+          "records": 85,
+          "unresolved": 1
+        },
+        "directory": "9c21f6b7c456f5c2075404be6230da26d9a5271d8c3fce22b1a0a9bf91006e06",
+        "fingerprint": "3d2a929c32a03f765aed0d45256ef643cfda70909b99e3edb62b49fd96d3755f",
+        "neutral_sha256": "0cd1043ed17483f1d161c4ab57b9e8f14c70e784377b935e7352ae685320b3cd",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "a2f4b95d3b53fab7802baab0df9e348f038fe2a4b8c635a8b9352698b8600f27",
+        "fingerprint": "a5ae621a3829c47164850f9b16731a5a3d6417ccd4a5d252449c3707a0d11143",
+        "neutral_sha256": "b603285cb6528ddb278a217551b8149d483842d21da1642d332f920f1fe60e00",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "5a692626fef08c053f50e0520c8484a8d70273d61b90b573b3d38b8ccb89f1aa",
+        "fingerprint": "b5711302a8ba1019707fc5aa6e0db5b72bd5b81ab43abed51907e0826b045697",
+        "neutral_sha256": "3f12c17a944975f1da20e8f347b3ab74b6e272ba036f22d33b5e62488a7998ee",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 64924,
+          "records": 85,
+          "unresolved": 1
+        },
+        "directory": "19cdb1bbe800d463032467166649b14fd4513500b04724ed8fd383fe0eb7e212",
+        "fingerprint": "d20f8f653bc5c4c930ceba89f7388e5413d128a72f35a2acc97a1eb2d5471fb4",
+        "neutral_sha256": "997ed0519a8af73d819127daf99567748732464066a0fcc6c56370f12d314f7a",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 65487,
+          "records": 91,
+          "unresolved": 1
+        },
+        "directory": "7afc309651ac5b99aa6b5feceaa1375bc5e6b6fac6ce986f88fdc1e9885ea312",
+        "fingerprint": "b53450741271b3de6755e7a44454f998f9bab0fc3a53bd8bbeec3ae458e65a84",
+        "neutral_sha256": "7909c1221c91ec3ef53c6418f09ae85e71db331e0a9499c876d9a7bbb84cbc01",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 64946,
+          "records": 85,
+          "unresolved": 1
+        },
+        "directory": "8efdf07b4360ceb389b8afbcf48251e01e605926b326be9308cd5e4f873f1655",
+        "fingerprint": "759fc035915858ea9ae9dafbf08823854fa01ac4256fdf8d32cd30ac9cf110ad",
+        "neutral_sha256": "f3c26272e22e521327323c7a0525f68bef724c88706e7c96ecc722a7b38341e6",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "efa85a730969008c59fa3cf4e15e9b5a5dd3bd920fa698cce059e379527c16f9",
+        "fingerprint": "6cfdd8a60bd34026f442850c60be94d93c2c6715fd6e4ad7dc78b57d11dbd19d",
+        "neutral_sha256": "88c504f4bbadf8c737d985bf1371007b559d9509558812ced3ccd071f267181d",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "c945676b732ec7f4fc6154f7802f2e996817bc78b9598cc0db9f345fbac2e897",
+        "fingerprint": "f560949dd2f6e4992e4a7bc8c7733de9fad237f4fae8fcb49c312470f56fc4c6",
+        "neutral_sha256": "8150bd6000b2677b855ba2ce7c61ec2431af19b4b3ead7864ac9ac1c4d3d32d9",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 64924,
+          "records": 85,
+          "unresolved": 1
+        },
+        "directory": "9b27bdbbf9ccb1b1215abe346ae18770fc58e6878fea059f5cca58ced1bd960a",
+        "fingerprint": "3b414ec8534d8a83ae12560841e9c2097aa6a8ef41effc6ea8ec17b72ec6cf2b",
+        "neutral_sha256": "1cb30a186a926b66a203b5dbbb6d3b6d6827c8e8950108bcbe01ad904c436ee2",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+        "reader_mode": "strict"
+      },
+      {
+        "counts": {
+          "fields": 66778,
+          "records": 197,
+          "unresolved": 1
+        },
+        "directory": "3eef50705bd17dacad0a2bc70f68e3d9551a5646b8c2a5d15a60cd3c634380a2",
+        "fingerprint": "421684f51bb29f5be646687f5282781af2127fa328b8ed2f7eba22af00c9c920",
+        "neutral_sha256": "2ed45a18cfa566a0bcda85c28ff71f22a3479ae5b5aea0bbe8bfe6cf50972bd1",
+        "outcome": "decoded",
+        "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+        "reader_mode": "strict"
+      }
+    ],
+    "corpus_revision": "1e4296f405f1bbc9425a6d824a3b6cad96735d72",
+    "counts": {
+      "assets": 13,
+      "decoded": 13,
+      "partial": 0,
+      "reader_error": 0,
+      "rejected": 0,
+      "strict": 13
+    },
+    "manifest_sha256": "d35fcead5855f690dd17866c5d483c4cb8012777e86de93723b6f83490d76b15",
+    "native_acceptance": "not_established",
+    "portable_complete": false,
+    "python": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+    "receipt_version": 1,
+    "sdk_revision": "1e4296f405f1bbc9425a6d824a3b6cad96735d72",
+    "sdk_sources_sha256": "08e28679c11376480babbb43aa839af367c1b242da4b75d39fb43b67e30f7c29",
+    "semantic_qualification": "unverified",
+    "tool_sources": {
+      "Corpus.py": "3d278f90800d6f510f20a0827b4178885fa52bf9775210cf973082f044894c57",
+      "Evidence.py": "cb76b9cc8c821cb9f93089410c7cbfd15926d8bef0111b8427dac5850926fd29",
+      "FusionReader.py": "9f7f0d5a8941cba25a43f80a3059dbeb7099da0324fb220122cd617ee7c0dc5d",
+      "ReaderEvidence.py": "0f8afa3d9a1787d8a338575f9d94e19e6603c37b3b74d46a5ecc19c68c5a4eb7"
+    }
+  },
+  "sdk_file_sha256_evidence_revision": "1e4296f405f1bbc9425a6d824a3b6cad96735d72"
 }
