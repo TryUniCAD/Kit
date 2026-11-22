@@ -668,6 +668,13 @@ rectangle and forward blind boss whose depth is the local width divided by
 two. Use the exact locator and epoch from that measurement.
 [Width-to-depth publication](../../Changes/Solidworks/Construction/Equations/SolidworksWidthDepthMeasurementGate.md)
 
+The measured Top-plane rectangular revolves use the same option with
+the original generation, native result and inspection job as UTF-8 text.
+The exact output digest qualifies Single Direction, Mid Plane, and
+Two Directions in either rotation sense. Mid Plane retains one total
+D1. Two Directions retains separate D1 and D2 values.
+[Measured revolve end publication](../../Changes/Solidworks/Construction/Revolve/SolidworksMeasuredRevolveEndPort.md)
+
 A strict cold readback of a measured ordinary part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with

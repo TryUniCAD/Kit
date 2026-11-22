@@ -43,6 +43,15 @@ from convert.adapters.solidworks.Core.Writing.Patterns.EmitPatMut import EmitPat
 from convert.adapters.solidworks.Core.Writing.Measured.Thin.EmitThinMut import (
     EmitThinMut,
 )
+from convert.adapters.solidworks.Core.Writing.RevolveEnds.EmitRevEndMut import (
+    EmitRevEndMut,
+)
+from convert.adapters.solidworks.Core.Writing.RevolveEnds.HasOrdRevEnd import (
+    HasOrdRevEnd,
+)
+from convert.adapters.solidworks.Core.Writing.RevolveEnds.HasRevEndMeas import (
+    HasRevEndMeas,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -54,6 +63,8 @@ def EmitFreshMut(
 ) -> WriteResult | None:
     if HasThinWrite(DocumentValue):
         return EmitThinMut(DocumentValue, TargetValue, OptionsValue)
+    if HasOrdRevEnd(DocumentValue) and HasRevEndMeas(OptionsValue):
+        return EmitRevEndMut(DocumentValue, TargetValue, OptionsValue)
     if HasPrincRev(DocumentValue):
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     if IsStockChain(DocumentValue):

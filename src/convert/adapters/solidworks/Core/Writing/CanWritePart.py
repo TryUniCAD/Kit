@@ -86,7 +86,7 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             return IsPartTarget(EllipseValue.NameValue, TargetValue)
         if DocumentValue.brep is not None:
             return CanImportPart(DocumentValue, TargetValue)
-        PlanValue = PlanNativePart(DocumentValue)
+        PlanValue = PlanNativePart(DocumentValue, AllowMeasuredMid=True)
     except (IndexError, TypeError, ValueError):
         return False
     return IsPartTarget(PlanValue.NameValue, TargetValue)

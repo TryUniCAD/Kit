@@ -34,7 +34,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # registry selection must identify the actual native part profile before any destination is staged
 def PlanNativePart(
-    DocumentValue: CadDocument,
+    DocumentValue: CadDocument, *, AllowMeasuredMid: bool = False
 ) -> KPartPlan | TwoStockPlan | RevolvePlan | SelectedRevPlan:
     ThinValue = PlanThinPart(DocumentValue)
     if ThinValue is not None:
@@ -46,7 +46,7 @@ def PlanNativePart(
     SelectedValue = PlanSelRevolve(DocumentValue)
     if SelectedValue is not None:
         return SelectedValue
-    RevolveValue = PlanRevolve(DocumentValue)
+    RevolveValue = PlanRevolve(DocumentValue, AllowMeasuredMid=AllowMeasuredMid)
     if RevolveValue is not None:
         return RevolveValue
     TopValue = PlanTopCorner(DocumentValue)
