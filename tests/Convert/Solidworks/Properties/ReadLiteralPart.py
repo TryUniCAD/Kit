@@ -49,9 +49,11 @@ def ReadLiteralPart(SourcePath: FilePath) -> dict[str, object]:
 
 
 if __name__ == "__main__":
-    CorpusPath = FilePath(__file__).resolve().parents[4] / "re/solidworks/v2026/corpus"
     print(
         DumpJson(
-            ReadLiteralPart(CorpusPath / "part-properties/CircularProperties.SLDPRT")
+            ReadLiteralPart(
+                FilePath(__file__).resolve().parents[4]
+                / "re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT"
+            )
         )
     )
