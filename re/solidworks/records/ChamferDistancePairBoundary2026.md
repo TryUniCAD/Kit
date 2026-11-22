@@ -52,4 +52,14 @@ definition reports type 2, equality enabled, one selected edge and no
 secondary input. Its only live display driver is `D1`. Editing that value
 changed both setbacks from 4.875 mm to 6.125 mm and kept the same edge
 owner through a fresh reopen. The unequal call still returned no feature.
-The next unequal-only probe also supplies its second setback in `OtherDist`.
+
+The [unequal-only probe](../measurements/2026/ChamferDistanceSourceProbe03.json)
+also supplied its second setback in `OtherDist`. The native insertion accepted
+that call. The feature had type 2 with equality disabled and two live linear
+drivers, `D1` at 4.875 mm and `D3` at 8.375 mm. Editing `D3` to 9.625 mm
+preserved `D1`, the selected edge and the 26-row feature tree. All three source
+phases and both controls passed in five fresh process lifetimes.
+
+The next source packet draws two independent stock and distance cases only on
+the Windows guest. It requires both disclosed result hashes before it can
+produce the held-out packet. Only phase status and hashes leave the guest.
