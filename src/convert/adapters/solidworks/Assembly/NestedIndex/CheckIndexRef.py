@@ -5,9 +5,11 @@ from convert.adapters.solidworks.Archive.Construction.Geometry.ReadRigidXform im
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.Assembly import NativeAsmItem
-from convert.adapters.solidworks.Assembly.NestedIndex.IndexModel import IndexModel
+from convert.adapters.solidworks.Assembly.NestedIndex.IndexModel import (
+    IndexFileKey,
+    IndexModel,
+)
 from convert.adapters.solidworks.Assembly.NestedIndex.IndexConflict import IndexConflict
-from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     FieldText,
@@ -31,7 +33,7 @@ def CheckIndexRef(
         Feature.FieldsValue.get("f50") is not Reference
         or FieldInt(Feature.FieldsValue, "f44") != ItemValue.feature_id
         or ReadNodeName(Reference) != f"{ItemValue.name}-{ItemValue.reference_number}"
-        or ReadFileKey(TargetFile) != Target.KeyValue
+        or IndexFileKey(TargetFile) != Target.KeyValue
         or FieldInt(Selection, "f10") != ItemValue.configuration_id
         or FieldText(Selection, "f08") != ItemValue.configuration_name
     ):
