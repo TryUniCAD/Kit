@@ -509,7 +509,9 @@ def SelectPartShape(
     PartGeometry | None,
     ChmfPartRead | EllipPartRead | ShellPartRead | None,
 ]:
-    NativeValue = NativePartModel(Archive, Settings.configuration)
+    NativeValue = NativePartModel(
+        Archive, Settings.configuration, StrictRefs=Settings.strict
+    )
     if Settings.extract_raw_brep:
         return NativeValue, None, None, None, None
     ChmfValue = TryColdChmf(Archive, NativeValue, Settings)
@@ -1113,6 +1115,7 @@ def AsmPartFields(Archive: SldprtArchive, Settings: ReadOptions) -> tuple[
         Archive.require(KeywordsStream),
         Archive.require(SelectedStream),
         resolved_stream=SelectedStream,
+        StrictRefs=Settings.strict,
     )
     Model = WithTypedNative(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
@@ -2563,7 +2566,9 @@ def LegacyPartModel(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+def NativePartModel(
+    Archive: SldprtArchive, Requested: str | None, *, StrictRefs: bool = True
+) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2579,6 +2584,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         Archive.require(InitialStream),
         configuration_id=InitialId,
         resolved_stream=InitialStream,
+        StrictRefs=StrictRefs,
     )
     SelectedId = InitialId
     if Requested is not None:
@@ -2610,6 +2616,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_stream=ConfigStream,
         ModelVersion=ContainerMo(Archive.streams),
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
+        StrictRefs=StrictRefs,
     )
     return (
         Model

@@ -6,6 +6,7 @@ import subprocess
 import sys
 from base64 import b64decode
 from collections import Counter
+from dataclasses import replace
 from hashlib import sha256
 from itertools import product
 from pathlib import Path, PureWindowsPath
@@ -15,7 +16,8 @@ for directory in (ROOT, ROOT / "src"):
     sys.path.insert(0, str(directory))
 
 from convert import open_document
-from convert.adapters.solidworks.Container.Container import SldprtArchive, SldprtFormatError
+from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive, SldprtFormatError
+from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Adapter import NativePartModel
 from interchange.brep.Curves.BrepCurves import LineCurve
 from interchange.brep.Surfaces.BrepSurfaces import PlaneSurface
@@ -61,12 +63,12 @@ def minus(a, b):
     return tuple(x-y for x, y in zip(a, b, strict=True))
 
 
-def polyhedron(model, dimensions):
+def polyhedron(model, dimensions, body_id):
     left, bottom, right, top, depth = dimensions
     corners = tuple(product((left, right), (bottom, top), (0.0, depth)))
     counts = dict(curves=12, surfaces=6, vertices=8, edges=12, coedges=24, loops=6, faces=6,
                   face_uses=6, shells=1, shell_uses=1, regions=1, bodies=1)
-    require(model is not None and not model.validate(), "decoded Parasolid topology did not validate")
+    require(model is not None and not model.validate(frozenset((body_id,))), "decoded prism topology did not validate")
     require(all(len(getattr(model, name)) == count for name, count in counts.items()), "prism count differs")
     require(model.regions[0].solid and model.shells[0].closed and not (model.pcurves or model.wires), "prism is not a closed solid")
     vertices = {vertex.id: vector(vertex.point) for vertex in model.vertices}
@@ -198,6 +200,55 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2, allow_nan=False) + "\n", encoding="utf-8")
 
 
+def check_present_empty_cache(child_path):
+    archive = SldprtArchive.open(child_path)
+    require(KPartitionStream not in archive.streams, "the cold control already has a partition")
+    streams = archive.streams | {KPartitionStream: b""}
+    contrast = BuildSldprt(streams, FileId=archive.file_id, FormatVersion=archive.format_version)
+    require(SldprtArchive.from_bytes(contrast).streams == streams, "the present empty partition changed another stream")
+    try:
+        open_document(contrast, source_format="solidworks.sldprt")
+    except SldprtFormatError as error:
+        require(str(error) == "SLDPRT contains no readable Parasolid payload", str(error))
+        return str(error)
+    raise ValueError("a present empty partition unexpectedly qualified as an absent cache")
+
+
+def cold_geometry(parent_path, child_path, baseline, expected, dimensions, expected_sha):
+    parent = open_document(parent_path)
+    standalone = open_document(child_path)
+    require(not parent.validate() and parent.assembly is not None, "cold assembly did not validate")
+    linked, = parent.assembly.documents
+    child = linked.document
+    require(child.source.sha256 == standalone.source.sha256 == expected_sha,
+            "cold assembly and standalone reads did not use the same generated child")
+    require(child.brep is not None and child.brep == standalone.brep
+            and not child.brep_payloads and not standalone.brep_payloads,
+            "cold child did not expose reconstructed geometry without a kernel payload")
+    body, = child.bodies
+    require(len(child.brep.bodies) == 1 and child.brep.bodies[0].design_body_id == body.id,
+            "cold geometry did not retain its actual design body")
+    notice, = (entry for entry in child.diagnostics if entry.code == "sldprt.brep_reconstructed")
+    require(notice.attributes["method"] == "typed_parametric_rectangular_prism"
+            and notice.attributes["native_kernel_identity"] is False,
+            "cold geometry lost its exact reconstruction method")
+    observed = polyhedron(child.brep, dimensions, body.id)
+    feature_id = f"sldprt:feature:{expected['extrusion_id']}"
+    step, = (value for value in child.feature_timeline if value.id == feature_id)
+    predecessor, = (value for value in baseline.feature_timeline if value.id == feature_id)
+    require(str(step.operation) == "create" and str(predecessor.operation) == "join",
+            "the first cold boss did not retain its independently bound create operation")
+    compatible = tuple(replace(value, operation=predecessor.operation) if value is step else value
+                       for value in child.feature_timeline)
+    require(compatible == baseline.feature_timeline and child.sketches == baseline.sketches
+            and child.parameters == baseline.parameters and body.final_feature_id == feature_id,
+            "cold reconstruction changed the independent sketch or editable history")
+    require(body.topology.valid is True and close(body.topology.volume, observed["volume_mm3"])
+            and close(body.topology.surface_area, observed["area_mm2"]),
+            "cold summary does not match its independent geometry")
+    return observed
+
+
 def inspect_case(stage, guest, case, dimensions, repeat):
     request = neutral(case, dimensions, repeat, guest)
     run = subprocess.run((sys.executable, "-B", str(WORKER)), input=json.dumps(request), capture_output=True, text=True, check=False)
@@ -217,15 +268,14 @@ def inspect_case(stage, guest, case, dimensions, repeat):
         files[name] = paths
     for artifact in (parent, result["child_baseline"], result["child_with_partition"]):
         del artifact["base64"]
-    source_parent, _ = files["WithoutPartition"]
-    try:
-        open_document(source_parent)
-    except SldprtFormatError as error:
-        require(str(error) == "SLDPRT contains no readable Parasolid payload", str(error))
-        result["without_partition_default_error"] = str(error)
-    else:
-        raise ValueError("geometry-less control unexpectedly passed the default SDK opening")
+    source_parent, cold_path = files["WithoutPartition"]
     baseline = open_document(source_parent, include_brep=False)
+    require(baseline.assembly is not None, "design-only assembly geometry control failed")
+    baseline_child = baseline.assembly.documents[0].document
+    result["reconstructed_brep"] = cold_geometry(
+        source_parent, cold_path, baseline_child, result["geometry"], dimensions, result["child_baseline"]["sha256"]
+    )
+    result["present_empty_partition_error"] = check_present_empty_cache(cold_path)
     parent_path, child_path = files["WithPartition"]
     sdk = open_document(parent_path)
     child_alone = open_document(child_path)
@@ -243,8 +293,8 @@ def inspect_case(stage, guest, case, dimensions, repeat):
     require(child.brep == child_alone.brep and child.source.sha256 == result["child_with_partition"]["sha256"]
             and len(child.brep_payloads) == 1 and child.brep_payloads[0].sha256 == result["partition"]["decoded_sha256"],
             "linked child read did not use the generated partition")
-    result["measured_brep"] = polyhedron(child.brep, dimensions)
-    result["history"] = read_history(child, baseline.assembly.documents[0].document, result["geometry"], dimensions, child_path)
+    result["measured_brep"] = polyhedron(child.brep, dimensions, child.bodies[0].id)
+    result["history"] = read_history(child, baseline_child, result["geometry"], dimensions, child_path)
     result["sdk_document_valid"] = True
     result["native_oracle_run"] = False
     result["guest_active_path"] = str(guest)
@@ -252,6 +302,8 @@ def inspect_case(stage, guest, case, dimensions, repeat):
     write_json(folder / "Receipt.json", result)
     return {"name": case, "receipt_sha256": sha256((folder / "Receipt.json").read_bytes()).hexdigest(),
             "neutral_sha256": sha256((folder / "Neutral.json").read_bytes()).hexdigest(),
+            "sdk_strict_cacheless_geometry": True,
+            "present_empty_partition_error": result["present_empty_partition_error"],
             "sdk_strict_sketch_semantics": result["history"]["strict_sketch_semantics"],
             "sdk_strict_summary_bounds": result["history"]["strict_summary_bounds"]}
 
@@ -262,5 +314,5 @@ if __name__ == "__main__":
     stage.mkdir(mode=0o700, exist_ok=False)
     guest = PureWindowsPath("C:/Users/Public/Documents/KitOracle") / stage.name / "Active"
     cases = [inspect_case(stage, guest / case, case, dimensions, repeat) for case, dimensions, repeat in CASES]
-    write_json(stage / "Index.json", {"schema": "kit.sw2026.generated-assembly-partition-probe.v1", "cases": cases})
+    write_json(stage / "Index.json", {"schema": "kit.sw2026.generated-assembly-partition-probe.v2", "cases": cases})
     print(stage / "Index.json")

@@ -81,9 +81,16 @@ def TestSwPlaneRef() -> None:
     Streams = Archive.streams
     assert (Support.stream, Support.length) == (KFeatureStream, 4)
     Streams[Support.stream] = PatchSwInt(Streams[Support.stream], Support.offset, 4, 2)
-    (After,) = ReadSwFixture(RebuildPart(Original, Archive, Streams)).sketches
+    Updated = ReadSwFixture(RebuildPart(Original, Archive, Streams))
+    (After,) = Updated.sketches
     assert After.id == Before.id and After.provenance is not None
-    assert After.attributes["support_plane_source"] != "typed-archive-reference"
+    assert After.attributes["support_plane_source"] == "unresolved"
+    assert After.attributes["unframed_support_plane_native_id"] == 2
+    assert any(
+        Value.code == "sldprt.native_record_unresolved"
+        and "sketch supports fall back to decoded planes" in Value.message
+        for Value in Updated.diagnostics
+    )
     assert all(
         Value.record_kind != "sketch-support-reference"
         for Value in After.provenance.spans

@@ -27,6 +27,12 @@ Run `python re/tooling/sw2026/AssemblyPartitionProbe.py <unused external directo
 
 The two novel rectangles and the disclosed L1 dimensions are discovery inputs. The tested writer base was `3c17262762ed465e4a29125dee46dfd38b696528` with tree `495a774e45ca6507d6208c9fb8bc93fa2331773a`, plus these two research scripts. `Index.json` SHA-256 `2ba14f2f3fd8185c2011bd9243566185fe3f309a9d8835be67581c3e3426b1eb` binds every neutral request and probe receipt. `SourceInventory.json` SHA-256 `c9c461db8a2c02eb7b3807aea53afbb4f717de0835581513102f498f82f07a54` binds the source imports, harnesses and Python version. The encoder digest is `539d7a62018e956df488b4cc49271bf4f8073ef521c702181d7979dd463a7353`. These artifacts are in the external `GeneratedPrismPartition-6c31` stage. The [repository receipt](../measurements/2026/GeneratedPrismPartitionSdk01.json) preserves the SDK results and artifact hashes. A15 and A16 remain sealed.
 
+The current probe uses schema `kit.sw2026.generated-assembly-partition-probe.v2`.
+The SDK now reconstructs the three proven cache-free children from their
+actual typed histories. Both geometry routes check topology and measures.
+A present empty partition keeps the original strict refusal. The frozen
+first receipt records its earlier missing-cache behavior. [Reader repair evidence](AggregateReaderRepairs2026.md)
+
 ## Native intervention
 
 Copy `L1Single/WithoutPartition` and `L1Single/WithPartition` one at a time into the exact encoded location `C:\Users\Public\Documents\KitOracle\GeneratedPrismPartition-6c31\Active\L1Single`. The two parent files share SHA-256 `75a62061ffee94dce7aa32607ee7aa39d73e1fcb044777d7317964bcc2daec7e`. The corresponding children hash to `2f9a7bc4ac421f5d18a60bd7c9fc38c9a73453173a5624ad7dadb1778120a331` and `024faf5e879743a6ad002a1bc4b9d748647b5d0044446a69c9c56f102ed5dd7e`.

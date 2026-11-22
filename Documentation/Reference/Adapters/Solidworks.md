@@ -580,6 +580,8 @@ See [feature resolution](SolidworksFeatures.md) for the observed grammar.
 
 For an ordinary SOLIDWORKS 2026 sketch, the reader matches the complete principal-plane handle inside its resolved-feature span. The model's actual persistent ID, axis kind and basis establish the sketch's support. Use `open_document(path, include_brep=False)` to inspect those history relationships without requesting cached body geometry. [Principal-plane reference change](../../Changes/Solidworks/SolidworksPrincipalPlaneReferences.md)
 
+Strict reading rejects a stored principal-plane frame that disagrees with its reference. Set `strict=False` to keep an inspectable sketch with an unresolved attachment and the rejected plane ID. [Conflicting plane inspection](../../Changes/Solidworks/Reading/Parts/SolidworksPlaneFrameInspection.md)
+
 For an ordinary dimensioned rectangle, the reader verifies the owned straight line ring and empty arc array. The sketch retains separate driving width and height, and the topology summary follows the actual profile bounds. [Rectangle sketch ownership](../../Changes/Solidworks/Inspection/Sketches/SolidworksRectangleSketchOwnership.md)
 
 For the generated SOLIDWORKS 2026 blind-pocket discovery part, the reader recognizes the principal plane and origin class roles. Each sketch resolves through its native plane handle. The SDK recovers the closed rectangle from its confirmed point and line arrays. The blind depth and the cut's references to the boss and circular sketch remain available with B-rep excluded. [Blind-pocket sketch readback](../../Changes/Solidworks/Inspection/Sketches/SolidworksPocketSketchReadback.md)

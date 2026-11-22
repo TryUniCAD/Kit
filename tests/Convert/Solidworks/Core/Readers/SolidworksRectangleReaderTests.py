@@ -160,6 +160,12 @@ def TestPrismOpen(TmpPath: FilePath) -> None:
     )
     Cases = Index["cases"]
     assert len(Cases) == 3
+    assert all(CaseRow["sdk_strict_cacheless_geometry"] is True for CaseRow in Cases)
+    assert all(
+        CaseRow["present_empty_partition_error"]
+        == "SLDPRT contains no readable Parasolid payload"
+        for CaseRow in Cases
+    )
     assert all(CaseRow["sdk_strict_sketch_semantics"] is True for CaseRow in Cases)
     assert all(CaseRow["sdk_strict_summary_bounds"] is True for CaseRow in Cases)
 

@@ -50,6 +50,9 @@ from convert.Geometry.Opencascade import decode_ascii_brep as DecodeAsciiBrep
 from convert.adapters.base import ParseUntrusted
 from convert.adapters.base.SafeParsing import CheckXmlDoctype
 from convert.adapters.solidworks.Container.Container import SldprtFormatError
+from convert.adapters.solidworks.Core.NativeRecords.PlaneFrameError import (
+    PlaneFrameError,
+)
 from convert.adapters.solidworks.Container.PlaneBasis import IsOrthonormal, MatrixAxes
 from convert.adapters.solidworks.Container.Format import (
     ASSEMBLY_SUFFIX as AsmSuffix,
@@ -288,6 +291,7 @@ class DecodeState:
     LatestOperation: NativeOperation | None
     LatestPlaneId: int
     LatestUnframed: int | None
+    StrictRefs: bool
 
 
 # plane state handling preserves the latest framed support context
@@ -303,23 +307,33 @@ def ApplyPlaneMut(StateData: DecodeState, Feature: NativeFeature) -> None:
 def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
-    RefValue = SketchPlaneRef(
-        StateData.Resolved,
-        StateData.Classes,
-        SketchStart,
-        SketchEnd,
-        StateData.PlaneById if Feature.native_end is not None else None,
-    )
-    Support, SupportSource, UnframedSupport = SupportPlaneRef(
-        StateData.Resolved,
-        SketchStart,
-        SketchEnd,
-        RefValue,
-        StateData.LatestPlaneId,
-        StateData.LatestUnframed,
-        StateData.PlaneById,
-        StateData.UnframedPlaneIds,
-    )
+    UnframedSupport: int | None
+    try:
+        RefValue = SketchPlaneRef(
+            StateData.Resolved,
+            StateData.Classes,
+            SketchStart,
+            SketchEnd,
+            StateData.PlaneById if Feature.native_end is not None else None,
+        )
+    except PlaneFrameError as ErrorValue:
+        if StateData.StrictRefs:
+            raise
+        RefValue = None
+        Support = StateData.LatestPlaneId
+        SupportSource = KUnresolvedSupportSource
+        UnframedSupport = ErrorValue.PlaneId
+    else:
+        Support, SupportSource, UnframedSupport = SupportPlaneRef(
+            StateData.Resolved,
+            SketchStart,
+            SketchEnd,
+            RefValue,
+            StateData.LatestPlaneId,
+            StateData.LatestUnframed,
+            StateData.PlaneById,
+            StateData.UnframedPlaneIds,
+        )
     StateData.LatestSketch = DecodeSketch(
         StateData.Resolved,
         Feature,
@@ -1627,6 +1641,7 @@ def CreateState(
     RecordById: dict[int, NativeName],
     NativeFeatures: list[NativeFeature],
     FeatureIndexes: dict[int, int],
+    StrictRefs: bool,
 ) -> tuple[
     DecodeState,
     list[NativeFeature],
@@ -1677,6 +1692,7 @@ def CreateState(
         None,
         LatestPlaneId,
         None,
+        StrictRefs,
     )
     return (StateData, Author, Planes, UnframedPlanes)
 
@@ -1768,6 +1784,7 @@ def DecodeNative(
     ConfigStream: str = "",
     ModelVersion: int | None = None,
     Display: LinearDisplay | None = None,
+    StrictRefs: bool = True,
     **LegacyValues: object,
 ) -> NativeModel:
     ConfigData, ConfigId, ResolvedStream, ConfigStream = DecodeOptions(
@@ -1790,6 +1807,7 @@ def DecodeNative(
         RecordById,
         NativeFeatures,
         FeatureIndexes,
+        StrictRefs,
     )
     DecodeTreeMut(StateData, Author)
     if ModelVersion == 19000 and ResolvedStream != KitResolvedStream:
@@ -2788,7 +2806,7 @@ def ReadPlaneHandle(
         or (Frame.u_axis, Frame.v_axis, Frame.normal)
         != (Plane.u_axis, Plane.v_axis, Plane.normal)
     ):
-        raise SldprtFormatError("SOLIDWORKS principal plane reference frame disagrees")
+        raise PlaneFrameError(PlaneId)
     return Frame
 
 

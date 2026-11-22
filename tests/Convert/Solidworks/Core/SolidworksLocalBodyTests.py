@@ -38,6 +38,7 @@ from interchange.Enums.EnumDocument import Severity
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Api.ApiTestPaths import KRootPath
+from tests.Convert.Solidworks.Core.AssertLocalIds import AssertLocalIds
 
 # both positive containers are the exact disclosed inputs to the native probe
 KLocalParts = KRootPath / "re/solidworks/v2026/corpus/local-import-readback"
@@ -122,7 +123,10 @@ def ShellMeasures(
 
 # public import ownership must agree with both the native feature and solid summary
 def AssertBodyOwner(
-    Document: CadDocument, ModelValue: BrepModel, Counts: tuple[int, int, int]
+    Document: CadDocument,
+    ModelValue: BrepModel,
+    Counts: tuple[int, int, int],
+    SourceBytes: bytes,
 ) -> None:
     (OwnerValue,) = (
         StepValue
@@ -137,11 +141,9 @@ def AssertBodyOwner(
     (BodyValue,) = Document.bodies
     assert BodyValue.final_feature_id == OwnerValue.id
     assert BodyValue.attributes["native_object_id"] == 18
-    assert (
-        BodyValue.provenance is not None
-        and BodyValue.provenance == OwnerValue.provenance
-    )
-    assert ModelValue.bodies[0].design_body_id == BodyValue.id
+    (KernelBody,) = ModelValue.bodies
+    assert KernelBody.design_body_id == BodyValue.id
+    AssertLocalIds(OwnerValue, BodyValue, KernelBody, SourceBytes)
     Summary = BodyValue.topology
     assert (Summary.solid_count, Summary.shell_count) == (1, 1)
     assert (Summary.face_count, Summary.edge_count, Summary.vertex_count) == Counts
@@ -156,8 +158,9 @@ def AssertLocalRead(
     AreaValue: float,
     Centroid: tuple[float, float, float],
 ) -> None:
+    SourceBytes = ReadFixture(CaseName, CaseDigest)
     Document = OpenDocument(
-        ReadFixture(CaseName, CaseDigest),
+        SourceBytes,
         source_format="solidworks.sldprt",
         strict=True,
         include_brep=True,
@@ -186,7 +189,7 @@ def AssertLocalRead(
         len(ModelValue.edges),
         len(ModelValue.vertices),
     ) == Counts
-    AssertBodyOwner(Document, ModelValue, Counts)
+    AssertBodyOwner(Document, ModelValue, Counts, SourceBytes)
     ActualVolume, ActualArea, ActualCenter = ShellMeasures(ModelValue)
     assert IsClose(ActualVolume, Volume, rel_tol=2e-7)
     assert IsClose(ActualArea, AreaValue, rel_tol=2e-7)
