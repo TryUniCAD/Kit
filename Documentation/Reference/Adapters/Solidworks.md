@@ -662,11 +662,14 @@ Use the ordinary part path or named binary stream writer. An explicit Windows
 self locator uses the local C drive and the authored document basename. Kit
 generates the default chamfer display view and its model-relative witnesses.
 Equal-distance and separate distance-pair modes, multiple edges, additional
-feature history and custom presentation are outside this profile. Strict SDK
-geometry reading of the cold result still requires a chamfer-specific cache-free
-projection. The signed positive and reciprocal candidates match their
-native-tested bytes and both source-locked lifecycle comparisons passed.
-[Chamfer writing](../../Changes/Solidworks/Writing/Parts/SolidworksSignedChamferWriting.md)
+feature history and custom presentation are outside this profile. The same
+cache-free profile reads as a typed chamfer with both editable drivers and
+ordered physical selections. A default strict read reconstructs the seven-face
+solid from the live values and signed selected edge. Pass `include_brep=False`
+to return the same history and selections without a solid boundary. Existing
+native cache handling still applies when a file has stored geometry.
+[Chamfer writing](../../Changes/Solidworks/Writing/Parts/SolidworksSignedChamferWriting.md) ·
+[Chamfer readback](../../Changes/Solidworks/Reading/Parts/SolidworksSignedChamferReadback.md)
 
 ### Writing standalone blank drawings
 

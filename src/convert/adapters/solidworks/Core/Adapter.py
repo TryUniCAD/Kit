@@ -153,8 +153,26 @@ from convert.adapters.solidworks.Container.Format import (
 from convert.adapters.solidworks.Core.FeatureKindByNative import KFeatureKindByNative
 from convert.adapters.solidworks.Core.AxisSketchId import AxisSketchId
 from convert.adapters.solidworks.Core.BuildRevolve import BuildRevolve as BuildRevolve
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfDoc import (
+    BindChmfDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfModel import (
+    BindChmfModel,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import (
+    BuildChmfGeom,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import (
+    ChmfPartRead,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
+    TryColdChmf,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc import (
     BindStockDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cache.StockCacheGeom import (
+    StockCacheGeom,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ColdStockPart import (
     ColdStockPart,
@@ -466,6 +484,33 @@ def ReadAction(
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 
+# chamfer geometry and semantics must come from the same proof before invoking generic cache and legacy paths
+def SelectPartShape(
+    Archive: SldprtArchive, Settings: ReadOptions,
+) -> tuple[
+    NativeModel,
+    StockCacheGeom | None,
+    ColdStockPart | ColdRevolvePart | ColdPatPart | None,
+    PartGeometry | None,
+    ChmfPartRead | None,
+]:
+    NativeValue = NativePartModel(Archive, Settings.configuration)
+    ChmfValue = TryColdChmf(Archive, NativeValue, Settings)
+    if ChmfValue is not None:
+        Geometry = (
+            BuildChmfGeom(ChmfValue, KPartBodyId) if Settings.include_brep else None
+        )
+        return BindChmfModel(NativeValue, ChmfValue), None, None, Geometry, ChmfValue
+    Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
+        Archive, NativeValue, Settings, KPartBodyId
+    )
+    if StockValue is None and (
+        DerivedValue is None or isinstance(ColdValue, ColdPatPart)
+    ):
+        Model = LegacyPartModel(Model, Archive)
+    return Model, StockValue, ColdValue, DerivedValue, None
+
+
 # native part reconstruction stays separate because assembly and embedded documents bypass this model path
 def ReadNativePart(
     Instance: SldprtAdapter,
@@ -474,13 +519,9 @@ def ReadNativePart(
     Label: str,
     Settings: ReadOptions,
 ) -> CadDoc:
-    Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
-        Archive, NativePartModel(Archive, Settings.configuration), Settings, KPartBodyId
+    Model, StockValue, ColdValue, DerivedValue, ChmfValue = SelectPartShape(
+        Archive, Settings
     )
-    if StockValue is None and (
-        DerivedValue is None or isinstance(ColdValue, ColdPatPart)
-    ):
-        Model = LegacyPartModel(Model, Archive)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -600,7 +641,9 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    if StockValue is None and DerivedValue is None:
+    if ChmfValue is not None:
+        DocValue = BindChmfDoc(DocValue, ChmfValue)
+    elif StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     return FinishPartDoc(
         BindStockDoc(

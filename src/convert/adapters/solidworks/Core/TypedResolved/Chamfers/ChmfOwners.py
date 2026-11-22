@@ -16,4 +16,4 @@ class ChmfOwners:
     DetachedRef: ArchiveNode
     Distance: ChmfDriver
     AngleValue: ChmfDriver
-    Controllers: tuple[ArchiveNode, ArchiveNode, ArchiveNode]
+    Controllers: tuple[ArchiveNode, ...]

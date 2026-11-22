@@ -10,7 +10,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # the primary component edge must alias the keeper while the extra edge keeps its separate identity
 def ReadChmfPick(
-    LinkValue: NativeLink, FeatureValue: ArchiveNode, AtomId: int
+    LinkValue: NativeLink,
+    FeatureValue: ArchiveNode,
+    AtomId: int,
+    *,
+    ColdValue: bool = False,
 ) -> tuple[ArchiveNode, ArchiveNode]:
     Fields = FeatureValue.FieldsValue
     Selected = RequireNative(Fields.get("f888"), "suObList")
@@ -29,7 +33,7 @@ def ReadChmfPick(
         or References[0] is References[1]
         or KeeperRow.get("o") is not References[0]
         or type(PrimaryKey) is not int
-        or PrimaryKey <= 0
+        or (PrimaryKey != 0 if ColdValue else PrimaryKey <= 0)
         or References[1].FieldsValue.get("f70") != 0
         or any(
             NodeValue.FieldsValue.get("f18") != AtomId

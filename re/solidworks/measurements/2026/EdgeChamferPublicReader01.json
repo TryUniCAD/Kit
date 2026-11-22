@@ -1,0 +1,79 @@
+{
+  "fresh_guarded_processes": 2,
+  "heldout_credit": 0,
+  "method_sha256": "17b3eb8d0d587816b3e62b3d479a673c3b20d9ab7b270a538f3e64fec759bca7",
+  "native_runs": 0,
+  "reader_paths": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "52c2e802a2356101184ed7b205c57f901d7e585137f050a9b740ae0e898ad9e6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfDoc.py": "2628e5d5fd018fd184b426493ad6e988c8d390492c1fe31e0ffc63f999f58d90",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BindChmfModel.py": "ef94b42693a3f7911658c3488db5e2a21c8bc039080b7ca8e1533a1a47ebb3fa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/BuildChmfGeom.py": "f7c4dbe2837157c4ea4cb00952faeee94184a2f91ef5a7965389c8be0c6926cd",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfCold.py": "315757c6df10d5b7868dee9b9def0c278bdaf5cf8fc62fb3b57d35d15b107ff9",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfMode.py": "e8137256ce915579cc4a41c0228d1e15e2b4a6e032985da6334d2a563b56bfe2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/CheckChmfView.py": "fbf7fc31f18ea097ee42374c50fd0e1739e6b17a7c3e0166427d58a16795c17b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfDriver.py": "e6f9066a7b620f3bd9b3810886e47c9f761c2857e49d54b20de394bfead9baf1",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfOwners.py": "2f1bd8f761e46f9e662e16ca974cd96836d4e188c58089449f301716ad831a94",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ChmfPartRead.py": "8289fc90531254bf03104054f4a986cb10f886d976573400481a33f0109a5f3e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/JoinChmfEdge.py": "e1439263f1bb6d4a71626342574fefd456dc6ba48e1af371629c88e3e0cebd56",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfDim.py": "7a5a22dec30c68d541335035dfb97f3aad4004219224e85a95d8ac63a3adf82e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfOwn.py": "8da25cecec18a7191c394e1c49925d9618e07295b2140e243b9f295952d69025",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfPick.py": "be416194331cba6bf3f5a1f21dbaf009d000c28c8adf676cb3dce926b75688df",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRoots.py": "b567f908e58be2984d1843967274842023912f3af93b63b22ef2a159c71091ec",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfRows.py": "abf824d019d0503b67dae254abef6db0b5ee9d74305038e1a9a92607addde694",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/ReadChmfStock.py": "e70cf2bbab150ff50a529eeaab76f37cfe646295c9da480bbbe9aa908ed20092",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/TryColdChmf.py": "e70f64b479f6867f0736880b678b5d7047e3601bcc9982e5027285cf7bc1b9a6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Display/ReadGeomMessage.py": "8a5f77b9beea035bb7b0080c205bf592c1ab7b09217143cadd78a50cd52aa2b7"
+  },
+  "results": [
+    {
+      "archive_sha256": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+      "body_name": "ChamferStockBoss",
+      "case": "ChamferComplementAxialC",
+      "coordinates_match": true,
+      "edges": 15,
+      "faces": 7,
+      "independent_drivers": 2,
+      "ordered_picks": 2,
+      "ordered_root_rows": 20,
+      "public_source_modes": 2,
+      "refusals": [
+        "unsupported_mode",
+        "crossed_order",
+        "different_event",
+        "changed_live_driver",
+        "changed_label"
+      ],
+      "runtime_accesses": 0,
+      "six_significant_figure_checks": 12,
+      "solids": 1,
+      "typed_saved_control_sha256": "8c02615d96eb306626eae24f3e9803d76fb6a701fa61c4106e33d2720fc1f86e",
+      "vertices": 10
+    },
+    {
+      "archive_sha256": "77d7292d2ccb45807479612f8f55e6f934e65a855d34213ffe4ed199193281ad",
+      "body_name": "ChamferStockBoss",
+      "case": "ChamferPrincipalTopD",
+      "coordinates_match": true,
+      "edges": 15,
+      "faces": 7,
+      "independent_drivers": 2,
+      "ordered_picks": 2,
+      "ordered_root_rows": 20,
+      "public_source_modes": 2,
+      "refusals": [
+        "unsupported_mode",
+        "crossed_order",
+        "different_event",
+        "changed_live_driver",
+        "changed_label"
+      ],
+      "runtime_accesses": 0,
+      "six_significant_figure_checks": 12,
+      "solids": 1,
+      "typed_saved_control_sha256": "3dde6b2c0c6595dd661ea5fad981a3b3b44074c32934a6115cca1842c7f5f032",
+      "vertices": 10
+    }
+  ],
+  "saved_control_lock": "2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8",
+  "trial_sha256": "8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49"
+}

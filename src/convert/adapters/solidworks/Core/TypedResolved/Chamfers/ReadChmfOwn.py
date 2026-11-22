@@ -19,6 +19,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfDim import 
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfPick import (
     ReadChmfPick,
 )
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias import (
@@ -27,8 +28,34 @@ from convert.adapters.solidworks.Core.TypedResolved.Presentation.CheckTreeAlias 
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
 
 
+# only saved chamfers may bind physical activation marks to the actual three owners
+def ReadChmfMarks(
+    RootValue: ArchiveNode,
+    StockValue: ArchiveNode,
+    Feature: ArchiveNode,
+    ColdValue: bool,
+) -> tuple[ArchiveNode, ...]:
+    if ColdValue:
+        if (
+            "fe38" not in RootValue.FieldsValue
+            or RootValue.FieldsValue["fe38"] is not None
+            or any(
+                NodeValue.FieldsValue.get("has_f3d0") != 0
+                or "f3d0" in NodeValue.FieldsValue
+                for NodeValue in (StockValue, Feature)
+            )
+        ):
+            raise ValueError("fresh chamfer contains saved rollback ownership")
+        return ()
+    return (
+        RequireNative(RootValue.FieldsValue.get("fe38"), "moPMarkRecord_c"),
+        RequireNative(StockValue.FieldsValue.get("f3d0"), "moPMarkRecord_c"),
+        RequireNative(Feature.FieldsValue.get("f3d0"), "moPMarkRecord_c"),
+    )
+
+
 # only the actual single preceding stock and its inherited modified atom authorize selected chamfer ownership
-def ReadChmfOwn(LinkValue: NativeLink) -> ChmfOwners:
+def ReadChmfOwn(LinkValue: NativeLink, *, ColdValue: bool = False) -> ChmfOwners:
     RootsValue = LinkValue.ResolvedValue.RootsValue
     if len(RootsValue) < 2:
         raise ValueError("ordinary chamfer lacks actual stock and rollback owners")
@@ -37,11 +64,7 @@ def ReadChmfOwn(LinkValue: NativeLink) -> ChmfOwners:
     StockValue = ReadBodyOwner(LinkValue, None)
     AtomValue = ReadMgrAtom(LinkValue)
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
-    Controllers = (
-        RequireNative(RootValue.FieldsValue.get("fe38"), "moPMarkRecord_c"),
-        RequireNative(StockValue.FieldsValue.get("f3d0"), "moPMarkRecord_c"),
-        RequireNative(Feature.FieldsValue.get("f3d0"), "moPMarkRecord_c"),
-    )
+    Controllers = ReadChmfMarks(RootValue, StockValue, Feature, ColdValue)
     AtomFields = AtomValue.FieldsValue
     AtomId = AtomFields.get("f140")
     if (
@@ -64,14 +87,15 @@ def ReadChmfOwn(LinkValue: NativeLink) -> ChmfOwners:
     ):
         raise ValueError("ordinary chamfer lacks actual stock and rollback owners")
     CheckTreeAlias(LinkValue, (StockValue, Feature, AtomValue, *Controllers))
-    if not {AtomValue, Controllers[0]} <= {
+    Inherited = {AtomValue} if ColdValue else {AtomValue, Controllers[0]}
+    if not Inherited <= {
         EntryValue.EntryValue
         for EntryValue in LinkValue.ConfigValue.MapValue.EntriesValue
     }:
         raise ValueError(
             "ordinary chamfer lacks inherited activation or atom ownership"
         )
-    Selected, Detached = ReadChmfPick(LinkValue, Feature, AtomId)
+    Selected, Detached = ReadChmfPick(LinkValue, Feature, AtomId, ColdValue=ColdValue)
     Distance = ReadChmfDim(LinkValue, Feature.FieldsValue.get("f810"), False)
     AngleValue = ReadChmfDim(LinkValue, Feature.FieldsValue.get("f818"), True)
     if (
