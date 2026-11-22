@@ -836,7 +836,13 @@ class QueueClient:
         response_path = self.directory / f"{operation}.done"
         while time.time() < deadline:
             if response_path.exists():
-                response = record(response_path)
+                try:
+                    response = record(response_path)
+                except BlockingIOError as error:
+                    if getattr(error, "winerror", None) != 32:
+                        raise
+                    time.sleep(0.05)
+                    continue
                 require(
                     response.get("version") == 1
                     and response.get("request_sha256") == request_hash

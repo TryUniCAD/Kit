@@ -7,8 +7,6 @@ Production conversion runs without requiring CAD software.
 
 [Wiki](https://github.com/TryUniCAD/Kit/wiki)
 
-[![Greptile: The War on Bugs](https://www.greptile.com/badge.svg)](https://www.greptile.com/?utm_source=oss_badge&utm_medium=readme&utm_campaign=greptile_for_open_source)
-
 ## Start here
 
 1. Read the [installation guide](Documentation/Tasks/Install.md).
@@ -41,8 +39,14 @@ The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAda
 
 ## Command line
 
-Use a release containing the CLI, or install from a source checkout with `uv tool install .`.
-Supply a real input file and an unused destination before running:
+Open the Kit repository directory, then install the CLI from that directory:
+
+```sh
+cd Kit
+uv tool install .
+```
+
+Supply a real `model.f3d` input file and an unused destination before running:
 
 ```sh
 kit formats
@@ -98,11 +102,15 @@ Add a [change entry](Documentation/Changes/Index.md) for each repository additio
 Record each new discovery as a separate [gotcha](Documentation/Gotchas/README.md).
 Run tests only in remote CI.
 
+Core contributors: Odin Glynn-Martin, Stephen Harcourt, and James Harcourt.
+
 ## Star history
 
 [![Kit star history](https://api.star-history.com/svg?repos=TryUniCAD/Kit&type=Date)](https://www.star-history.com/#TryUniCAD/Kit&Date)
 
 ## Distribution
+
+Use the SDK in your Python project.
 
 Use Python 3.11 or later.
 Activate your project's virtual environment and install Kit from PyPI.
@@ -118,6 +126,6 @@ See [release publishing](Documentation/Changes/CommitReleases.md) for the releas
 ## License
 
 Kit uses the [MIT License](LICENSE).
-Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt.
+Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt.
 Third-party materials retain their own licenses.
 See the [research artifact policy](Documentation/Reference/Research/ResearchArtifacts.md).

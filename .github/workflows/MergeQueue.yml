@@ -906,7 +906,7 @@ jobs:
         run: uv sync --frozen --all-groups --all-extras --python 3.11
 
       - name: Run Bandit SAST
-        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,Parashell,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
+        run: uv run bandit -q -r src Cli tools .github/scripts -x .venv,examples,modules,re,tests -s B101,B105,B314,B404,B405,B603,B607
 
   semgrep:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -936,7 +936,7 @@ jobs:
         run: uv run python -m tools.Security.SemgrepPaths
 
       - name: Run Semgrep SAST
-        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=Parashell --exclude=modules --exclude=re
+        run: uv run semgrep scan --config=p/default --error --metrics=off --timeout=30 --exclude=.venv --exclude=examples --exclude=modules --exclude=re
 
   pip-audit:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -1145,7 +1145,7 @@ jobs:
       - name: Run dlint insecure-pattern scan
         run: >-
           uv run flake8 --select=DUO
-          --exclude=.venv,examples,Parashell,modules,re,tests
+          --exclude=.venv,examples,modules,re,tests
           src Cli tools .github/scripts
 
   gitleaks:
@@ -1183,6 +1183,47 @@ jobs:
             | "${RUNNER_TEMP}/gitleaks" stdin \
               --config .github/config/Gitleaks.toml --redact --exit-code 23; then
             echo "::error::The history exception unexpectedly accepted an unrelated source"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+
+      - name: Verify public checksum classification stays narrow
+        env:
+          HarnessSha: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          FixturePath=$(mktemp -d "${RUNNER_TEMP}/GitleaksChecksum.XXXXXX")
+          ConfigPath=$(mktemp "${RUNNER_TEMP}/GitleaksPolicy.XXXXXX")
+          ScannerPath="${RUNNER_TEMP}/gitleaks"
+          git show "${HarnessSha}:.github/config/Gitleaks.toml" > "${ConfigPath}"
+          mkdir -p "${FixturePath}/.github/workflows"
+          git show "${HarnessSha}:.github/workflows/SteeringSync.yml" \
+            | grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
+              > "${FixturePath}/.github/workflows/SteeringSync.yml"
+          (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          )
+          cp "${FixturePath}/.github/workflows/SteeringSync.yml" "${FixturePath}/Other.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted another file"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+          rm -- "${FixturePath}/Other.yml"
+          sed 's/5034005417c0910a/6034005417c0910a/' \
+            "${FixturePath}/.github/workflows/SteeringSync.yml" > "${FixturePath}/Changed.yml"
+          mv -- "${FixturePath}/Changed.yml" "${FixturePath}/.github/workflows/SteeringSync.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted an unknown value"
             exit 1
           else
             test "$?" -eq 23
@@ -1360,7 +1401,7 @@ jobs:
         run: >-
           "${RUNNER_TEMP}/trivy" fs
           --scanners vuln,misconfig,secret
-          --skip-dirs .venv,examples,Parashell,modules,re
+          --skip-dirs .venv,examples,modules,re
           --ignorefile .github/config/TrivyIgnore.txt
           --exit-code 1 .
 
@@ -1398,7 +1439,6 @@ jobs:
           cat > "${RUNNER_TEMP}/TrufflehogExcludes" <<'EOF'
           (^|/)\.venv/
           (^|/)examples/
-          (^|/)Parashell/
           (^|/)modules/
           (^|/)re/
           EOF

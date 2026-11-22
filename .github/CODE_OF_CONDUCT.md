@@ -19,11 +19,9 @@ representing this project.
 
 ## Enforcement
 
-Instances of unacceptable behavior may be reported to Parashell at
-odin.glynn@parashell.cloud. All complaints will be reviewed and investigated
-and will result in a response deemed necessary and appropriate to the
-circumstances. Parashell is obligated to maintain confidentiality with
-regard to the reporter of an incident.
+Report unacceptable behavior to the Kit repository maintainers.
+For public repository incidents, include a link to the relevant issue or pull request.
+Do not publish private information in a report.
+Maintainers must keep private reports confidential and respond appropriately.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for how to reach Parashell about this
-project.
+See [contribution guidance](CONTRIBUTING.md) for repository participation.

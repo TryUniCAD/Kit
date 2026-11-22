@@ -492,7 +492,7 @@ This is B07 expansion work within PR #94's broad plan, not a completed or active
 
 The NX, CATIA and Creo implementation PRs closed without merging on 2026-11-16.
 Their work on containers, retained payloads and bounded geometry remains research evidence for scoped A16 child claims. Each claimed route requires independent native acceptance after A13 and A15. [NX #115](https://github.com/TryUniCAD/Kit/pull/115), [CATIA #116](https://github.com/TryUniCAD/Kit/pull/116), [Creo #117](https://github.com/TryUniCAD/Kit/pull/117)
-Rhino, standalone AutoCAD and Parashell have no matching implementation PR in the inspected inventory.
+Rhino and standalone AutoCAD have no matching implementation PR in the inspected inventory.
 They still belong to the broader A16 expansion scope and require explicit child claims.
 
 ### Drawings and assemblies
