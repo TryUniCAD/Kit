@@ -14,6 +14,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 )
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Capability
 from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import MeasurePlainDoc
 from tests.Convert.Solidworks.PlainWriting.MeasuredStreamTests import SendMeasured
 
@@ -63,6 +64,10 @@ def TestColdRound(RoleName: str) -> None:
     assert (
         Driver.name == "D1" and Driver.owner_id == Document.bodies[0].final_feature_id
     )
+    (AxisSelection,) = Document.selections
+    (AxisPath,) = AxisSelection.path
+    assert AxisPath.subelement == "N_Axis"
+    assert AxisPath.entity_id == Document.sketches[0].name
     assert Document.brep is not None and Document.sketches[0].closed_profile_entity_ids
     for IsDirect in (False, True):
         Target = BytesIO()
@@ -71,6 +76,7 @@ def TestColdRound(RoleName: str) -> None:
         assert (
             not Outcome.dropped and Outcome.native_capabilities == Document.capabilities
         )
+        assert Capability.SELECTIONS in Outcome.native_capabilities
         assert Target.getvalue() == RawValue
         assert OpenDocument(Target.getvalue(), strict=True) == Document
 

@@ -55,8 +55,12 @@ def worker(job, folder):
     import_module("interchange.document.Models.DocumentProvenance")
     document = CadDocument.from_json(job["document"])
     driver, = document.parameters
+    selection, = document.selections
+    axis, = selection.path
     require(document.brep is not None and driver.owner_id == document.bodies[0].final_feature_id
             and driver.name == "D1" and document.sketches[0].closed_profile_entity_ids
+            and driver.value.value == job["authored_depth_mm"]
+            and axis.subelement == "N_Axis" and axis.entity_id == document.sketches[0].name
             and driver.attributes["typed_archive_owner"]["value_field"] == "f58",
             "strict input lacks its editable typed owner or cold solid")
     options = {"final_destination": native, OPTION: job["evidence"], "require_native_transfers": True}
@@ -101,13 +105,15 @@ def worker(job, folder):
     require(document == open_document(payload) and not audit.denied and audit.target_opens == 1,
             "strict readback or no-input-read boundary changed")
     return {"role": job["role"], "sha256": digest, "bytes": len(payload), "native_transfers": len(document.capabilities),
-            "editor_depth_mm": driver.value.value, "point_count": len(document.sketches[0].entities),
+            "editor_depth_mm": driver.value.value, "authored_depth_mm": job["authored_depth_mm"],
+            "native_direction": axis.subelement, "point_count": len(document.sketches[0].entities),
             "refusals_both_routes": rejected, "other_destination_refused": True, "normal_routes": 3,
             "runtime_input_reads": len(audit.denied), "staged_file_writes": audit.target_opens}
 
 
 def supervise(native, output):
     from convert import open_document
+    from interchange.document.Models.DocumentModel import CadDocument
 
     receipt = read_pinned(ROOT / RECEIPT, RECEIPT_SHA)
     written_at = check_custody(native, receipt)
@@ -119,7 +125,9 @@ def supervise(native, output):
         require(request["written_at"] == written_at, "measured event differs")
         raw = (native / role / PureWindowsPath(locator).name).read_bytes()
         require(sha256(raw).hexdigest() == row["candidate_sha256"], "disclosed file differs")
+        authored = CadDocument.from_json(json.dumps(request["document"]))
         job = {"role": role, "locator": locator, "output_sha256": row["candidate_sha256"],
+               "authored_depth_mm": authored.parameters[0].value.value,
                "evidence": {"written_at": written_at, "receipt": receipt},
                "document": open_document(raw).to_json(indent=None)}
         with TemporaryDirectory(prefix="KitColdPartWrite-") as folder:
