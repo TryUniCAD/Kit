@@ -24,8 +24,18 @@ from tests.Policy.Shards.WriteReports import WriteReports
     ),
 )
 @TestMark.parametrize("NativePattern", ("", "^tests/Native/"))
-def CheckShardGate(TmpPath: FilePath, Outcome: str, NativePattern: str) -> None:
-    WriteReports(TmpPath, Outcome)
+@TestMark.parametrize("PlatformKind", ("generic", "windows"))
+def CheckShardGate(
+    TmpPath: FilePath, Outcome: str, NativePattern: str, PlatformKind: str
+) -> None:
+    ReportPrefix = (
+        "PlatformReport-windows-2025" if PlatformKind == "windows" else "Platform"
+    )
+    NativePrefix = (
+        "tests/Research/Windows/" if PlatformKind == "windows" else "tests/Native/"
+    )
+    NativePattern = NativePattern.replace("tests/Native/", NativePrefix)
+    WriteReports(TmpPath, Outcome, ReportPrefix, NativePrefix)
     Result = RunProcess(
         (
             "bash",
@@ -34,7 +44,7 @@ def CheckShardGate(TmpPath: FilePath, Outcome: str, NativePattern: str) -> None:
                 / ".github/scripts/VerifyShardReports.sh"
             ),
             str(TmpPath),
-            "Platform",
+            ReportPrefix,
             "2" if Outcome in ("rerun", "latest-failed") else "1",
             NativePattern,
         ),
