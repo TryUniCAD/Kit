@@ -22,6 +22,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import 
 from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart import (
     MakeRectDimPart,
 )
+from convert.adapters.solidworks.Container.Format import KAsmSuffix
 from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadRectDisplay import (
     ReadRectDisplay,
 )
@@ -47,7 +48,7 @@ def PrepNestedAsm(
     ParentPath = CheckNativePath(NativePath)
     RequireAsm(
         ParentPath.stem == PlanValue.RootValue.name
-        and ParentPath.suffix.casefold() == ".sldasm",
+        and ParentPath.suffix.casefold() == KAsmSuffix,
         "nested assembly destination must retain the modeled root basename",
     )
     DefaultRecipe = MakePartRecipe(

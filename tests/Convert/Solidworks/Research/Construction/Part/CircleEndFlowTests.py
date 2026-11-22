@@ -40,11 +40,11 @@ def TestCircleEnds(TmpPath: FilePath) -> None:
         )
         BuildValue = RunCirclePhase(Request, "build")
         Prepared = RunCirclePhase({**Request, "build": BuildValue}, "prepare")
-        CheckCircleFlow(BuildValue, Prepared, ModeValue, IsReversed)
+        AssertCircFlow(BuildValue, Prepared, ModeValue, IsReversed)
 
 
 # the tested stream set and actual parameter ownership must agree with each authored termination
-def CheckCircleFlow(
+def AssertCircFlow(
     BuildValue: dict[str, object],
     Prepared: dict[str, object],
     ModeValue: str,

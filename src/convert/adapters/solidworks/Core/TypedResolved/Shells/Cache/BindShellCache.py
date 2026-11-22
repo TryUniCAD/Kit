@@ -1,6 +1,7 @@
 from dataclasses import replace as ReplaceValue
 from collections.abc import Sequence
 
+from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Partition.ActivePartition import ActivePartition
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.ShellCache import (
     ShellCache,
@@ -26,8 +27,7 @@ def BindShellCache(
         (Payload,) = tuple(
             Value
             for Value in Payloads
-            if Value.source_stream == "Contents/Config-0-Partition"
-            and Value.kind == "partition"
+            if Value.source_stream == KPartitionStream and Value.kind == "partition"
         )
         if Payload.sha256 != CacheValue.DigestValue:
             raise ValueError(

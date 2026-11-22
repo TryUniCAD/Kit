@@ -113,6 +113,7 @@ KPythonCompatTopNames = (
     "RevolutionFeature",
     "ScaleFeature",
     "ShellFeature",
+    "SweepFeature",
     "TopologySummary",
     "MaterialRecord",
     "Mesh",

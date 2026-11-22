@@ -12,7 +12,7 @@ from tests.Convert.Solidworks.Research.Construction.Nesting.MakeNestedCase impor
 
 
 # each public nested route must stage the complete owned hierarchy in a guarded process
-def CheckNestWrite(
+def RunNestWrite(
     Request: dict[str, object], Folder: FilePath, Route: str, ModeValue: str
 ) -> dict[str, object]:
     Folder.mkdir()
@@ -36,8 +36,8 @@ def CheckNestWrite(
 # both actual public adapters must transfer the same native bundle and refuse an unsupported placement without publishing
 def TestNestWrite(TmpPath: FilePath) -> None:
     Request = MakeNestedCase(True, r"C:\KitSdkNested")
-    Registry = CheckNestWrite(Request, TmpPath / "registry", "registry", "fresh")
-    Adapter = CheckNestWrite(Request, TmpPath / "adapter", "adapter", "fresh")
+    Registry = RunNestWrite(Request, TmpPath / "registry", "registry", "fresh")
+    Adapter = RunNestWrite(Request, TmpPath / "adapter", "adapter", "fresh")
     assert Registry == Adapter
     assert Adapter["vendor_loadable"] is Adapter["application_usable"] is True
     Files = CastValue(dict[str, object], Adapter["files"])
@@ -63,6 +63,6 @@ def TestNestWrite(TmpPath: FilePath) -> None:
     assert tuple(
         Value.order for Value in Assembly.GetChildren(Definitions["SdkModule"].id)
     ) == (0, 1)
-    Failure = CheckNestWrite(Request, TmpPath / "fixed", "adapter", "fixed")
+    Failure = RunNestWrite(Request, TmpPath / "fixed", "adapter", "fixed")
     assert Failure["refused"] == "AdapterNotFoundError"
     assert Failure["output_unchanged"] is True

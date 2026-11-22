@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
+from convert.adapters.solidworks.Container.Format import KPartSuffix
 from interchange.geometry.Models.GeometryCurves import ArcGeometry, CircleGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
@@ -25,7 +26,7 @@ def CheckSweepInput(
     ):
         raise ValueError("sweep requires an explicit native part identity")
     StemValue, Extension = SplitExt(BaseName(OutputValue.PathName))
-    if StemValue != NameValue or Extension.casefold() != ".sldprt":
+    if StemValue != NameValue or Extension.casefold() != KPartSuffix:
         raise ValueError("sweep part name must match its native part locator")
     if type(SectionValue) is not CircleGeometry or type(PathValue) is not ArcGeometry:
         raise ValueError("sweep requires one exact circle and one exact arc")

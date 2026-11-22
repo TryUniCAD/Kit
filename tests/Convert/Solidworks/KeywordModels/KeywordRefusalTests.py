@@ -89,7 +89,7 @@ def TestKeyRejects() -> None:
     AngularRejects = tuple(
         (
             [KPlainFeature, {**KAngularFeature, "dimensions": DimensionValues}],
-            b"ordinary revolve keyword requires its single D1 degree driver",
+            b"ordinary revolve keywords require active D1 and optional D2 degree drivers",
         )
         for DimensionValues in KAngularDimensions
     ) + (
@@ -102,7 +102,7 @@ def TestKeyRejects() -> None:
                     "dimensions": [{"name": "D1", "value": 47.25, "unit": "degree"}],
                 },
             ],
-            b"ordinary revolve keyword requires its single D1 degree driver",
+            b"ordinary revolve keywords require active D1 and optional D2 degree drivers",
         ),
     )
     for FeatureValues, Diagnostic in (*KShapeRejects, *KValueRejects, *AngularRejects):

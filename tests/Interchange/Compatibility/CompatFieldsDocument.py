@@ -34,7 +34,7 @@ KCompatFieldsDocument = (
     ),
     (
         "interchange.document.DrawingSheet",
-        ("id", "name", "width", "height", "scale_ratio", "views"),
+        ("id", "name", "width", "height", "scale_ratio", "views", "notes"),
     ),
     (
         "interchange.document.DrawingView",

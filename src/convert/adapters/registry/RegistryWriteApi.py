@@ -150,13 +150,13 @@ class WriteApi(WriteLookup):
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckMatWrites(DocumentData, AdapterData)
         CheckResearch(DocumentData)
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
         BoxProofValue = CheckPubNative(DocumentData, AdapterData, TargetData)
+        CheckMatWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
