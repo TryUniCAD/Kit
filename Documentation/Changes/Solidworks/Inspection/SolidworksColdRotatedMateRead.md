@@ -12,3 +12,9 @@ and defers the typed mate graph. The three-mate inspection scope is
 separate from the measured two-mate writer. Saved warm assemblies continue
 through their existing reader path.
 [Process verification](../../../../re/solidworks/measurements/2026/ColdRotatedMateRead01.json)
+
+The complete suite builds a second assembly and its linked part from a fresh
+neutral recipe in an isolated process. It checks the full and design-only
+readers, relative companion resolution, the deferred route, and strict refusal
+of a separately generated group with a different ordered mate layout.
+[Complete-suite case](../../../../tests/Convert/Solidworks/PlanarWriting/ColdRotatedMateTests.py)
