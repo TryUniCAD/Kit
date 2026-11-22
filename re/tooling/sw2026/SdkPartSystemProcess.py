@@ -21,6 +21,8 @@ from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Construction.Configuration.ConfigSpec import ConfigSpec
 from convert.adapters.solidworks.Archive.Construction.Configuration.ManagerInput import ManagerInput
+from convert.adapters.solidworks.Archive.Construction.Files.MakeSelfFile import MakeSelfFile
+from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Header.HeaderInput import HeaderInput
 from convert.adapters.solidworks.Archive.Construction.Header.MakePartHeader import MakePartHeader
 from convert.adapters.solidworks.Archive.Construction.Model.PartRootInput import PartRootInput
@@ -145,8 +147,13 @@ def main():
     provenance = REQUEST["provenance"]
     header_input = HeaderInput(provenance["author"], provenance["company"], provenance["comment"],
                                provenance["created_at"], provenance["modified_at"], provenance["updated_at"])
+    output = SelfFileInput(rf"C:\KitConstruction\{REQUEST['name']}.SLDPRT", provenance["modified_at"])
     model_header = MakePartHeader(graph.RootValue, header_input, allocator, True)
     top_header = MakePartHeader(graph.RootValue, header_input, allocator, False)
+    config = ArchiveNode.RequireNode(graph.ManagerValue.FieldsValue["f360"])
+    self_file = MakeSelfFile(graph.RootValue, model_header, config, output)
+    model_header.FieldsValue["f38"] = self_file
+    top_header.FieldsValue["f38"] = self_file
     configuration_bytes, configuration = WriteConfigMut(graph.RootValue, 19000, model_header)
     manager_usage = BodyUsage()
     manager_bytes = WriteCmgrMut(graph.ManagerValue, 19000, UsageValue=manager_usage)

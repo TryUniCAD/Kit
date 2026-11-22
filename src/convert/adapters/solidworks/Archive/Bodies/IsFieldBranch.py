@@ -8,15 +8,14 @@ from convert.adapters.solidworks.Archive.Bodies.ReadScopeValue import ReadScopeV
 # field guards must use current modeled counts and the exact native enum or mask comparison
 def IsFieldBranch(ScopeValue: FieldScope, RuleValue: NativeField) -> bool:
     Value = ReadScopeValue(ScopeValue, RuleValue.NameValue)
-    match RuleValue.ModeValue:
-        case "Nonzero":
-            return Value != 0
-        case "Equals":
-            return Value == RuleValue.MaskValue
-        case "NotEquals":
-            return Value != RuleValue.MaskValue
-        case "Greater":
-            return CastValue(int, Value) > RuleValue.MaskValue
-        case "BitsEqual":
-            return CastValue(int, Value) & RuleValue.MaskValue == RuleValue.CompareValue
+    if RuleValue.ModeValue == "Nonzero":
+        return Value != 0
+    if RuleValue.ModeValue == "Equals":
+        return Value == RuleValue.MaskValue
+    if RuleValue.ModeValue == "NotEquals":
+        return Value != RuleValue.MaskValue
+    if RuleValue.ModeValue == "Greater":
+        return CastValue(int, Value) > RuleValue.MaskValue
+    if RuleValue.ModeValue == "BitsEqual":
+        return CastValue(int, Value) & RuleValue.MaskValue == RuleValue.CompareValue
     raise ValueError(f"unsupported native field guard {RuleValue.ModeValue}")

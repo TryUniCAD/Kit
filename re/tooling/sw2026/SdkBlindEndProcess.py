@@ -72,7 +72,9 @@ def malformed(inputs, refs, dimensions):
 
 
 def main():
-    constructed = construct_part(registry=REGISTRY, **REQUEST)
+    output = {"path_name": rf"C:\KitConstruction\{REQUEST['document']['name']}.SLDPRT",
+              "saved_at": REQUEST["provenance"]["modified_at"]}
+    constructed = construct_part(registry=REGISTRY, **REQUEST, output=output)
     extrusion = constructed.extrusion
     require(extrusion is not None and constructed.revolution is None and constructed.blind_pocket is None,
             "SDK blind construction proof requires a single fresh boss")

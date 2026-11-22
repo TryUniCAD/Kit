@@ -1,5 +1,7 @@
 from pathlib import Path as FilePath
 
+from pytest import raises as RaisesError
+
 from tests.Convert.Solidworks.Research.Construction.RectangleAnchors.CornerRequest import (
     CornerRequest,
 )
@@ -17,13 +19,17 @@ def TestOriginScope(TmpPath: FilePath) -> None:
     SourcePath = RunOriginBuild(
         CornerRequest("origin rejection", 28.375, 17.625, 8.125), TmpPath / "source"
     )
+    with RaisesError(
+        ValueError, match="component owner differs from its enclosing part"
+    ):
+        _ = MutateOrigin(SourcePath, "foreign-owner")
+    assert not SourcePath.with_stem("foreign-owner").exists()
     for ModeValue in (
         "external-index",
         "local-index",
         "point-kind",
         "reference-count",
         "missing-origin",
-        "foreign-owner",
         "point-mark",
         "selected-index",
         "reference-mode",

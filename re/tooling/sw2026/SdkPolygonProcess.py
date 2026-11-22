@@ -77,7 +77,9 @@ def malformed(inputs, profile):
 
 
 def main():
-    constructed = construct_part(registry=REGISTRY, **REQUEST)
+    output = {"path_name": rf"C:\KitConstruction\{REQUEST['document']['name']}.SLDPRT",
+              "saved_at": REQUEST["provenance"]["modified_at"]}
+    constructed = construct_part(registry=REGISTRY, **REQUEST, output=output)
     require(constructed.extrusion is not None and constructed.revolution is None and constructed.blind_pocket is None,
             "SDK polygon construction proof requires a single fresh polygon boss")
     profile = constructed.profile.profile

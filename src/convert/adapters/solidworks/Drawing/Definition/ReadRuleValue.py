@@ -6,33 +6,39 @@ from convert.adapters.solidworks.Drawing.Definition.ClauseTypes import KRuleShap
 
 # value operations are limited to those present in the pinned drawing grammar
 def ReadRuleValue(Operator: str, Operands: KRuleShape) -> object:
-    match Operator, Operands:
-        case "Eq", (LeftValue, RightValue):
-            return LeftValue == RightValue
-        case "NotEq", (LeftValue, RightValue):
-            return LeftValue != RightValue
-        case "Not", (Operand,):
-            return not Operand
-        case "int", (Operand,):
-            return int(bool(Operand))
-        case "empty_map", ():
-            return {}
-        case "lookup_or", (Owner, str(FieldName), DefaultValue) if isinstance(
-            Owner, Mapping
+    if Operator == "sequence":
+        return Operands
+    if Operator == "empty_map" and not Operands:
+        return {}
+    SizeValue = len(Operands)
+    if SizeValue == 1 and Operator in ("Not", "int"):
+        TruthValue = bool(Operands[0])
+        return not TruthValue if Operator == "Not" else int(TruthValue)
+    if SizeValue == 2:
+        LeftValue, RightValue = Operands[0], Operands[1]
+        if Operator in ("Eq", "NotEq"):
+            return (
+                LeftValue == RightValue if Operator == "Eq" else LeftValue != RightValue
+            )
+        if (
+            Operator == "lookup"
+            and isinstance(LeftValue, Mapping)
+            and isinstance(RightValue, str)
         ):
+            return CastValue(Mapping[object, object], LeftValue)[RightValue]
+        if Operator == "In":
+            return LeftValue in CastValue(KRuleShape, RightValue)
+        if isinstance(LeftValue, int) and isinstance(RightValue, int):
+            if Operator == "BitAnd":
+                return LeftValue & RightValue
+            if Operator == "max":
+                return max(LeftValue, RightValue)
+            if Operator == "GtE":
+                return LeftValue >= RightValue
+    if SizeValue == 3 and Operator == "lookup_or":
+        Owner, FieldName, DefaultValue = Operands[0], Operands[1], Operands[2]
+        if isinstance(Owner, Mapping) and isinstance(FieldName, str):
             return CastValue(Mapping[object, object], Owner).get(
                 FieldName, DefaultValue
             )
-        case "lookup", (Owner, str(FieldName)) if isinstance(Owner, Mapping):
-            return CastValue(Mapping[object, object], Owner)[FieldName]
-        case "sequence", _:
-            return Operands
-        case "In", (Operand, SequenceValue):
-            return Operand in CastValue(KRuleShape, SequenceValue)
-        case "BitAnd", (int(LeftValue), int(RightValue)):
-            return LeftValue & RightValue
-        case "max", (int(LeftValue), int(RightValue)):
-            return max(LeftValue, RightValue)
-        case "GtE", (int(LeftValue), int(RightValue)):
-            return LeftValue >= RightValue
     raise ValueError(f"unsupported SOLIDWORKS drawing expression {Operator}")

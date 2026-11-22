@@ -251,7 +251,7 @@ def authored_case():
                rules=(NativeField("Normalize", "value", "i32", ModeValue="Unmapped"),)),
         refuse("signed_width", pack("<I", 4), "requires an i32 word",
                rules=(NativeField("Normalize", "value", "u32", ModeValue="AtLeast"),)),
-        refuse("direct_owner", b"", "unsupported SOLIDWORKS body schema moSheetMetalMaster_c",
+        refuse("direct_owner", b"", "unsupported SOLIDWORKS native field path f1018 without its enclosing part",
                rules=(NativeField("DirectNode", "f1018", "moSheetMetalMaster_c"),)),
         refuse("component_owner", pack("<H", 2), "unresolved archive object reference 2", schema="moComponent_c"),
     ]

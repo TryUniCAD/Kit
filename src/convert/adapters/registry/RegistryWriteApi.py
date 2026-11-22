@@ -8,6 +8,7 @@ from interchange import CadDocument
 
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Drawing.CheckDrawWrites import CheckDrawWrites
+from convert.adapters.base.Materials.CheckMatState import CheckMatState
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.Staging.PathStaging import WritePathStaged
@@ -31,10 +32,17 @@ if TYPE_CHECKING:
     from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxProof import BoxProof
 
 
-# selected native history and drawing ownership must qualify before publication
+# source state and selected native ownership must qualify before publication
 def CheckPubNative(
     DocumentValue: CadDocument, WriterValue: CadWriterAdapter, TargetValue: KTargetType
 ) -> BoxProof | None:
+    if WriterValue.info.format_id != "interchange.json":
+        CheckMatState(DocumentValue)
+    CheckResearch(DocumentValue)
+    CheckInchWrite(DocumentValue)
+    CheckEquations(DocumentValue)
+    CheckSupports(DocumentValue)
+    CheckSourceText(DocumentValue)
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
@@ -150,11 +158,6 @@ class WriteApi(WriteLookup):
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckResearch(DocumentData)
-        CheckInchWrite(DocumentData)
-        CheckEquations(DocumentData)
-        CheckSupports(DocumentData)
-        CheckSourceText(DocumentData)
         BoxProofValue = CheckPubNative(DocumentData, AdapterData, TargetData)
         CheckMatWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()

@@ -33,23 +33,22 @@ def IsBranchTaken(
         "BitsEqual",
     ):
         return IsFieldBranch(ScopeValue, RuleValue)
-    match RuleValue.ModeValue:
-        case "Condition":
-            return bool(FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
-        case "Context":
-            return bool(FlagsValue.get(RuleValue.NameValue, 0))
-        case "NotContext":
-            return not FlagsValue.get(RuleValue.NameValue, 0)
-        case "NotCondition":
-            return not (FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
-        case "ConditionsClear":
-            return FlagsValue.get("conditions", 0) == 0
-        case "PeNoise":
-            return bool(
-                FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0)
-            ) or bool(FlagsValue.get("pe_file", 0))
-        case "Class":
-            return NodeValue.ClassValue.NameValue == RuleValue.NameValue
-        case "NotClass":
-            return NodeValue.ClassValue.NameValue != RuleValue.NameValue
+    if RuleValue.ModeValue == "Condition":
+        return bool(FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
+    if RuleValue.ModeValue == "Context":
+        return bool(FlagsValue.get(RuleValue.NameValue, 0))
+    if RuleValue.ModeValue == "NotContext":
+        return not FlagsValue.get(RuleValue.NameValue, 0)
+    if RuleValue.ModeValue == "NotCondition":
+        return not (FlagsValue.get("conditions", 0) & RuleValue.MaskValue)
+    if RuleValue.ModeValue == "ConditionsClear":
+        return FlagsValue.get("conditions", 0) == 0
+    if RuleValue.ModeValue == "PeNoise":
+        return bool(
+            FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0)
+        ) or bool(FlagsValue.get("pe_file", 0))
+    if RuleValue.ModeValue == "Class":
+        return NodeValue.ClassValue.NameValue == RuleValue.NameValue
+    if RuleValue.ModeValue == "NotClass":
+        return NodeValue.ClassValue.NameValue != RuleValue.NameValue
     raise BodyUnsupported(f"unsupported native branch rule {RuleValue.ModeValue}")

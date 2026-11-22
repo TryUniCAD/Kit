@@ -12,35 +12,39 @@ def ReadRuleExpr(
     if not isinstance(Expression, tuple):
         return Expression
     ExprShape = CastValue(KRuleShape, Expression)
-    match ExprShape:
-        case ("field", str(FieldName), *DefaultValue):
-            IsBound, Bound = Scope.FindField(FieldName)
-            if IsBound:
-                return Bound
-            if DefaultValue:
-                return ReadRuleExpr(DefaultValue[0], Scope, WireValue)
-            raise ValueError(f"missing SOLIDWORKS drawing field {FieldName}")
-        case ("conditions",):
+    if not ExprShape or not isinstance(ExprShape[0], str):
+        raise ValueError("invalid SOLIDWORKS drawing expression shape")
+    Operator, ExprCount = ExprShape[0], len(ExprShape)
+    if Operator == "field" and ExprCount > 1 and isinstance(ExprShape[1], str):
+        FieldName = ExprShape[1]
+        IsBound, Bound = Scope.FindField(FieldName)
+        if IsBound:
+            return Bound
+        if ExprCount > 2:
+            return ReadRuleExpr(ExprShape[2], Scope, WireValue)
+        raise ValueError(f"missing SOLIDWORKS drawing field {FieldName}")
+    if ExprCount == 1:
+        if Operator == "conditions":
             return Scope.Context.Conditions
-        case ("class_name",):
+        if Operator == "class_name":
             return Scope.OwnerName
-        case ("wire",):
+        if Operator == "wire":
             return WireValue
-        case ("select", Condition, TrueValue, FalseValue):
-            Chosen = (
-                TrueValue if ReadRuleExpr(Condition, Scope, WireValue) else FalseValue
-            )
-            return ReadRuleExpr(Chosen, Scope, WireValue)
-        case ("And" | "Or" as JoinType, LeftExpr, RightExpr):
-            LeftValue = ReadRuleExpr(LeftExpr, Scope, WireValue)
-            return (
-                ReadRuleExpr(RightExpr, Scope, WireValue)
-                if bool(LeftValue) == (JoinType == "And")
-                else LeftValue
-            )
-        case (str(Operator), *Expressions):
-            Operands = tuple(
-                ReadRuleExpr(Operand, Scope, WireValue) for Operand in Expressions
-            )
-            return ReadRuleValue(Operator, Operands)
-    raise ValueError("invalid SOLIDWORKS drawing expression shape")
+    if Operator == "select" and ExprCount == 4:
+        Chosen = (
+            ExprShape[2]
+            if ReadRuleExpr(ExprShape[1], Scope, WireValue)
+            else ExprShape[3]
+        )
+        return ReadRuleExpr(Chosen, Scope, WireValue)
+    if Operator in ("And", "Or") and ExprCount == 3:
+        LeftValue = ReadRuleExpr(ExprShape[1], Scope, WireValue)
+        return (
+            ReadRuleExpr(ExprShape[2], Scope, WireValue)
+            if bool(LeftValue) == (Operator == "And")
+            else LeftValue
+        )
+    Operands = tuple(
+        ReadRuleExpr(Operand, Scope, WireValue) for Operand in ExprShape[1:]
+    )
+    return ReadRuleValue(Operator, Operands)

@@ -43,11 +43,15 @@ def main():
     for name, data in buffers.items():
         require(len(data) == built["streams"][name]["bytes"] and sha256(data).hexdigest() == built["streams"][name]["sha256"], "generated stream custody differs")
     model_header = ReadHeaderGraph(buffers["Contents/Config-0-ModelHeader"], 19000)
+    source_name = REQUEST["request"]["name"]
+    self_file = require_node(model_header.FieldsValue["f38"], "moExtObject_c").FieldsValue
+    require(self_file["refcfg"]["f08"].TextValue == source_name + " configuration"
+            and self_file["refcfg"]["f10"] == 0, "root preparation lost its authored header configuration")
     configuration = ReadConfigMut(buffers["Contents/Config-0"], 19000, model_header)
     part = require_node(configuration.RootValue, "moPart_c")
     fields = part.FieldsValue
     require(fields["f08"] == built["root_id"] and model_header.FieldsValue["f08"] == built["next_id"], "prepared model or header persistent identity differs")
-    require(fields["f18"].FieldsValue["f08"] == REQUEST["request"]["name"], "prepared model name differs from authored input")
+    require(fields["f18"].FieldsValue["f08"] == source_name, "prepared model name differs from authored input")
     require(fields["f1418"].FieldsValue["f08"] == REQUEST["request"]["hatch_name"], "prepared hatch name differs from authored input")
     component = require_node(fields["f990"], "moUnitComponent_c")
     require(component.FieldsValue["owner"] is part and component.FieldsValue["has_ext"] == 0, "prepared self component lost the actual model cycle")

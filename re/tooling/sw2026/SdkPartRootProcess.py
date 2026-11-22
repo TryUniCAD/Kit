@@ -22,12 +22,18 @@ from builders.Styles import detail_definitions
 from builders.Units import unit_table_profile
 from builders.Views import standard_views
 from builders.Visual import model_visual_properties
+from convert.adapters.solidworks.Archive.Construction.Configuration.ConfigSpec import ConfigSpec
+from convert.adapters.solidworks.Archive.Construction.Configuration.MakePartConfig import MakePartConfig
+from convert.adapters.solidworks.Archive.Construction.Files.MakeSelfFile import MakeSelfFile
+from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import SelfFileInput
 from convert.adapters.solidworks.Archive.Construction.Model.MakePartRootMut import MakePartRootMut
 from convert.adapters.solidworks.Archive.Construction.Model.PartRootInput import PartRootInput
 from convert.adapters.solidworks.Archive.Construction.Model.PartRootRefs import PartRootRefs
+from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import FeatureTarget
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
+from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 
@@ -89,8 +95,13 @@ def main():
                                           "stamps": ({"status": 0, "user_index": 0, "company_index": 0, "timestamp": provenance["created_at"], "comment": provenance["comment"]},)},),
                           created_at=provenance["created_at"], modified_at=provenance["created_at"], updated_at=provenance["created_at"],
                           model_present=True, component_count=0, update_stamp=101, body_stamp=101, license_flags=0, license_type=0)
-    header_bytes = generated_header_bytes(model_header, 19000)
-    wire_header = ReadHeaderGraph(header_bytes, 19000)
+    wire_header = ReadHeaderGraph(generated_header_bytes(model_header, 19000), 19000)
+    created_at = provenance["created_at"]
+    config = MakePartConfig(ConfigSpec(inputs.NameValue + " configuration", "", created_at),
+                            part, 0, FeatureTarget(2026306, 370108))
+    output = SelfFileInput(rf"C:\KitConstruction\{inputs.NameValue}.SLDPRT", created_at)
+    wire_header.FieldsValue["f38"] = MakeSelfFile(part, wire_header, config, output)
+    header_bytes = WriteHeadGraph(wire_header, 19000)
     config_bytes, configuration = WriteConfigMut(part, 19000, wire_header)
     next_id = allocator.NextValue
     invalid = malformed(inputs, refs, allocator)

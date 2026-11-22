@@ -149,7 +149,7 @@ def author_refusals():
                 ("flag_underflow", -9, (), "signed four bit integer"),
                 ("flag_overflow", 8, (), "signed four bit integer"),
                 ("boolean_flag", True, (), "signed four bit integer"),
-                ("populated_ghost", 1, ({},), "unqualified populated SOLIDWORKS ghost rows"),
+                ("missing_ghost_object", 1, ({},), "field Section/fd90/objects/o"),
             )
         ],
     ]
