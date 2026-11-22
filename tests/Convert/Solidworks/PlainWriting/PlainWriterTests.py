@@ -47,13 +47,13 @@ def TestPlainWriter() -> None:
             "parametric_history",
             "support_planes",
         ]
-        CheckPlainRead(ReportValue, SideCount, DepthValue, VolumeValue)
+        AssertPlainRead(ReportValue, SideCount, DepthValue, VolumeValue)
         Sizes.append(CastValue(int, ReportValue["resolved_stream_bytes"]))
     assert 0 < Sizes[0] < Sizes[1]
 
 
 # exact public readback must bind the recovered depth and solid to their typed feature
-def CheckPlainRead(
+def AssertPlainRead(
     ReportValue: dict[str, object],
     SideCount: int,
     DepthValue: float,

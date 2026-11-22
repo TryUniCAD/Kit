@@ -28,9 +28,7 @@ def MakeAnnoStyle(
         "f38": MakeLineWidth(CategoryValue=0, WidthValue=-1),
         "f50": MakeCharFormat(FontName=FontName, HeightValue=0.0035, PointHeight=0),
     }
-    if KindValue == "base":
-        pass
-    elif KindValue == "cloud":
+    if KindValue == "cloud":
         FieldsValue["f58"] = 0.00508
     elif KindValue == "weld":
         FieldsValue.update(
@@ -97,6 +95,6 @@ def MakeAnnoStyle(
                 "f80": 1,
             }
         )
-    else:
+    elif KindValue != "base":
         raise ValueError(f"unsupported annotation style {KindValue!r}")
     return FieldsValue
