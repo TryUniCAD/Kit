@@ -64,3 +64,17 @@ prlctl exec 'Windows 11' --current-user "$chamfer_python" -E -B \
 ```
 
 The third result requires ten distinct native processes with both controls and all source comparisons passing. Guest-local private phase output remains at `C:\KitGeneratedChamferHeldout03`. The share receives the redacted custody and result only. The evaluator includes no product registration and pending or incomplete native evaluation carries zero held-out credit.
+
+The third trial passed on build `34.5.2.0604` with freeze SHA-256
+`2ac394a1fa587b1acbe1f841238e05ba7f8140682790f4793ac0baff79597456`.
+The original source lock stayed intact. The custody preflight verified
+both sources, six prior source phases and eight distinct prior
+processes without launching SOLIDWORKS. Both bracket controls and all
+ten fresh processes passed. Each generated part retained two editable
+drivers and passed 115 comparisons across open, edit, and fresh reopen.
+Two independent writer processes per slot agreed on all bytes and made
+zero runtime external accesses. Each part has ten generated streams.
+Both linked typed streams replay exactly in each part. This adds two
+held-out chamfer lifecycles for the measured scope.
+[Custody test result](../measurements/2026/EdgeChamferSealedCustody03.json)
+· [Native evaluation result](../measurements/2026/EdgeChamferSealedNative03.json)
