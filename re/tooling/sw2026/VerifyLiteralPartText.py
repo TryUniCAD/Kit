@@ -51,7 +51,7 @@ DIRECTORY = "Contents/CMgrHdr2"
 STATUS = "solidworks.part_text_properties"
 DIAGNOSTIC = "solidworks.part_text_properties_unavailable"
 SEMANTIC_HASH = "solidworks_source_semantic_sha256"
-HOOK = "convert.adapters.solidworks.Core.Adapter.WithPartProps"
+HOOK = "convert.adapters.solidworks.Core.Reading.ReadAdapter.WithPartProps"
 
 
 def require(condition, message):

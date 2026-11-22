@@ -5,11 +5,11 @@ from dataclasses import replace as ReplaceValue
 from interchange import CadDocument
 from interchange import Capability
 from interchange import frozen_mapping as FreezeMapping
-from interchange import infer_capabilities as InferCaps
 
 from convert.adapters.base.AdapterInfo import AdapterInfo
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.GetDocumentCaps import GetDocumentCaps as GetDocumentCaps
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.adapters.base.TransferContract import CapTransfer
@@ -32,20 +32,6 @@ def GetFormatKeys(InfoData: AdapterInfo) -> frozenset[str]:
         GetFormatKey(ValueText)
         for ValueText in (InfoData.FormatId, *InfoData.AliasNames)
     )
-
-
-# inferred document capabilities ensure writers account for semantics beyond declared flags
-def GetDocumentCaps(DocumentData: CadDocument) -> frozenset[Capability]:
-    RoundtripCap = next(
-        CapabilityData
-        for CapabilityData in Capability
-        if CapabilityData.value == "roundtrip_metadata"
-    )
-    InferredCaps = InferCaps(
-        DocumentData,
-        roundtrip_metadata=(RoundtripCap in DocumentData.capabilities),
-    )
-    return DocumentData.capabilities | InferredCaps
 
 
 # explicit transfer validation ensures writers report every source capability exactly once

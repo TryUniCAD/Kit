@@ -1,4 +1,4 @@
-from convert.adapters.base.WritePolicy import GetDocumentCaps
+from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
 from convert.adapters.freecad.Native import ArchiveMembers, LoadNative
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.registry.NativeWrite import CheckNative

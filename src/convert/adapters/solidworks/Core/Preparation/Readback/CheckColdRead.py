@@ -1,17 +1,19 @@
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Core.Reading.ReadAdapter import (
+    ReadNativePart,
+    SldprtReader,
+)
 from interchange.document.Behavior.DocumentIo import ToJson
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # comparison covers every derived and retained field without making it an input to generation
 def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
-    from convert.adapters.solidworks.Core.Adapter import ReadNativePart, SldprtAdapter
-
     SourceName = Document.source.path
     Archive = SldprtArchive.from_bytes(Payload, SourceName)
     Expected = ReadNativePart(
-        SldprtAdapter(),
+        SldprtReader(),
         Archive,
         Payload,
         SourceName,
