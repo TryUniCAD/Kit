@@ -1,17 +1,17 @@
+from convert.adapters.Fusion.Native.Cuts.ClipCornerAxis import ClipCornerAxis
+from convert.adapters.Fusion.Native.Rectangle.ReadRectBounds import ReadRectBounds
 from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
 # clipping the authored rectangles derives a simple corner boundary without fixture coordinates
 def CutOutline(Stock: RectGeometry, ToolCut: RectGeometry) -> tuple[PlaneVector, ...]:
-    StartX, StartY = Stock.BasePoint[:2]
-    FinishX, FinishY = StartX + Stock.Width, StartY + Stock.Depth
-    LowerX, LowerY = max(StartX, ToolCut.BasePoint[0]), max(
-        StartY, ToolCut.BasePoint[1]
+    StartX, FinishX, StartY, FinishY = ReadRectBounds(Stock.Lines, Scoped=True)
+    ToolLowerX, ToolUpperX, ToolLowerY, ToolUpperY = ReadRectBounds(
+        ToolCut.Lines, Scoped=True
     )
-    HighX, HighY = min(FinishX, ToolCut.BasePoint[0] + ToolCut.Width), min(
-        FinishY, ToolCut.BasePoint[1] + ToolCut.Depth
-    )
+    LowerX, HighX = ClipCornerAxis(StartX, FinishX, ToolLowerX, ToolUpperX)
+    LowerY, HighY = ClipCornerAxis(StartY, FinishY, ToolLowerY, ToolUpperY)
     if (
         not (0 < HighX - LowerX < Stock.Width and 0 < HighY - LowerY < Stock.Depth)
         or ((LowerX == StartX) == (HighX == FinishX))

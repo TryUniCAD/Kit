@@ -1,3 +1,4 @@
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
@@ -13,6 +14,7 @@ KCreatorTypes = (DistanceExtrude, PlaneExtrude, AngularRevolve, PlaneRevolve)
 # typed definitions need an authoritative feature kind association to prevent mislabeled history
 KDefinitionKinds: dict[type[object], FeatureKind] = {
     DistanceExtrude: FeatureKind.KExtrusion,
+    DistanceCut: FeatureKind.KExtrusion,
     PlaneExtrude: FeatureKind.KExtrusion,
     AngularRevolve: FeatureKind.KRevolution,
     PlaneRevolve: FeatureKind.KRevolution,

@@ -11,6 +11,13 @@ def ReadCutCases() -> tuple[CutCliCase, ...]:
         "controls"
     ]
     Captures.append(JsonLib.loads((Corpus / "RequestedCorner.json").read_text()))
+    Captures.extend(
+        {**Value, "file": "ReviewGuards/" + Value["file"]}
+        for Value in JsonLib.loads(
+            (Corpus / "ReviewGuardObservations.json").read_text()
+        )["controls"]
+        if Value["name"] == "FlushUpper"
+    )
     Results: list[CutCliCase] = []
     for Capture in Captures:
         if Capture["name"] in ("HealthyBefore", "HealthyAfter", "CornerPocket"):

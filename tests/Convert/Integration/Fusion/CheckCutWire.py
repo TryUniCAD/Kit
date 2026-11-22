@@ -21,6 +21,11 @@ def CheckCutWire(Output: FilePath, Sample: CutCliCase) -> None:
     Bodies = Document["bodies"]["$tuple"]
     assert Definition["target_body_ids"]["$tuple"] == [Bodies[0]["id"]]
     assert Bodies[0]["final_feature_id"] == ToolCut["id"]
+    assert (
+        Stock["output_body_ids"]["$tuple"]
+        == ToolCut["output_body_ids"]["$tuple"]
+        == [Bodies[0]["id"]]
+    )
     assert ToolCut["input_feature_ids"]["$tuple"] == [Stock["id"], Features[2]["id"]]
     Parameters = {Value["id"]: Value for Value in Document["parameters"]["$tuple"]}
     for Feature, Extent, ParamName in (

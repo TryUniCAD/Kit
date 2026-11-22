@@ -1,3 +1,11 @@
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.ReadVertexPoint import (
+    ReadVertexPoint,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.VectorMath import (
+    DotProduct,
+    Normalize,
+    Subtract,
+)
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.FaceNode import FaceNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.LoopNode import LoopNode
 from convert.Formats.Fusion.BrepCodec.Journal.Geometry.PlaneNode import PlaneNode
@@ -27,4 +35,18 @@ def ReadPlanarFace(
         StableRef(Table, FaceValue.FirstLoop),
         AllowOpen=AllowSheet,
     )
+    Normal = Normalize(Surface.Normal)
+    if any(
+        abs(
+            DotProduct(
+                Subtract(
+                    ReadVertexPoint(Table, UseValue.StartVertex), Surface.OriginCm
+                ),
+                Normal,
+            )
+        )
+        > 1e-7
+        for UseValue in BoundaryUses
+    ):
+        raise ValueError("Native planar face boundary leaves its declared plane")
     return FaceBoundary(FaceRef, Surface, FaceValue.Reversed, BoundaryUses)

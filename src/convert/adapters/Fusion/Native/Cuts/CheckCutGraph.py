@@ -53,5 +53,6 @@ def CheckCutGraph(
             for Value in ObjectFields(NodeValue.Fields["massProperties"]).values()
         ):
             raise ValueError("Native cut has custom mass property overrides")
+    EmptyFields(Contexts[0].BodyNode, ("faceVisualMaterialByAttrTagID",))
     RequireFields(Contexts[0].DcBody, {"isEliminated": False})
     return BodyTag

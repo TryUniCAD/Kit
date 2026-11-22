@@ -13,6 +13,10 @@ def ProjectCutSteps(
     Graph: NativeGraph, Contexts: tuple[ExtrudeContext, ExtrudeContext]
 ) -> tuple[FeatureStep, ...]:
     Stock = ProjectFeatures(Graph, Contexts[0])
+    Stock = (
+        Stock[0],
+        CopyData(Stock[1], OutputBodyIds=(Contexts[0].BodyNode.Identity,)),
+    )
     ToolCut = ProjectFeatures(Graph, Contexts[1])
     Definition = ToolCut[-1].definition
     if not isinstance(Definition, DistanceExtrude):
@@ -20,6 +24,7 @@ def ProjectCutSteps(
     CutStep = CopyData(
         ToolCut[-1],
         order=3,
+        OutputBodyIds=(Contexts[0].BodyNode.Identity,),
         operation=BooleanOp.KCutOperation,
         input_feature_ids=(Stock[-1].id, ToolCut[0].id),
         definition=DistanceCut(Definition, (Contexts[0].BodyNode.Identity,)),
