@@ -120,10 +120,12 @@ The Windows research CLI compatibility job partitions its existing collected ros
 across four Windows runners. Its stable report requires every shard and verifies
 that each collected case has exactly one outcome. Shard artifacts include the
 run attempt, roster, selected node IDs, report log, and slowest case durations.
-The macOS platform roster also runs across four runners from the same shared plan.
-Its stable report checks complete combined outcomes and an actual native macOS pass.
+The Windows and macOS platform rosters each run across four runners from the same shared plan.
+Each stable report checks complete combined outcomes and an actual native pass on its target platform.
+Platform cases stay serial within each runner to preserve process isolation.
+See [Windows platform sharding](Documentation/Changes/Ci/Testing/WindowsPlatformShards.md).
 See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
-Each Windows shard retains two pytest workers with file-level scheduling and case-name output.
+Each Windows CLI shard retains two pytest workers with file-level scheduling and case-name output.
 See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
 PR-only checks have explicit deferred contexts on the candidate.
 
@@ -232,3 +234,6 @@ Do not describe this configuration as active until the settings are read back.
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [Repository rulesets API](https://docs.github.com/en/rest/repos/rules)
 - [Trusted pull-request metadata workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target)
+
+The catalogue fixture roster and trusted native shell checks are described in
+[the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).

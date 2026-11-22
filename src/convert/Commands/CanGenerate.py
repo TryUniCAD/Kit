@@ -1,3 +1,4 @@
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from collections.abc import Mapping
 
 from convert.Commands.GeneratorKinds import KCreatorTypes
@@ -14,6 +15,15 @@ def CanGenerate(
     Generators: set[str],
 ) -> bool:
     Inputs = set(Feature.input_feature_ids)
+    if isinstance(Feature.definition, DistanceCut):
+        return (
+            Feature.operation == BooleanOp.KCutOperation
+            and Feature.sketch_id in Profiles
+            and bool(
+                Inputs.intersection(SketchInputs.get(Feature.sketch_id or "", set()))
+            )
+            and bool(Inputs.intersection(Generators))
+        )
     if isinstance(Feature.definition, KCreatorTypes):
         if (
             Feature.operation != BooleanOp.KCreate
