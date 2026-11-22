@@ -58,9 +58,10 @@ and two measured plain-part archives with their original complete hashes.
 
 Current admission covers those six exact files in isolation. The guarded
 writer inputs consist entirely of disclosed neutral intent and the measured
-locator and event. The host publication proof uses standalone streams.
-Windows file publication, native-edited derivatives, alternative profiles,
-material and presentation state, and assemblies retain separate scope.
+locator and event. The host publication proof uses standalone streams. A
+separate Windows run covers named file publication for the two cases below.
+Native-edited derivatives, alternative profiles, material and presentation
+state, and assemblies retain separate scope.
 [Exact coordinate inversion](../../../Documentation/Gotchas/Conversion/Solidworks/ThinDriverDisplayUsesScale.md)
 
 ## Complete suite and publication boundary
@@ -81,8 +82,14 @@ staging and the direct writer, checks the complete bytes and strict
 readback, and releases only its owned paths. A preserved original packet
 occupying either root requires an independent Windows environment for
 this route. The host [review receipt](../measurements/2026/SdkThinRevolveReview01.json)
-records stream and readback checks. Windows file execution has a separate
-pending result.
+records stream and readback checks.
+
+An independent [Windows file run](../measurements/2026/SdkThinRevolveWindowsPublication01.json)
+used CPython 3.12.7 ARM64 and zlib 1.3.1 in the Parallels guest. Each case
+produced exact complete bytes through both paths, with its editable
+angle and thickness owners intact. The four writes required zero input
+opens or external launches. The transport restored the two preserved
+native packets and verified their complete trees and original files.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/revolve/CheckThinSuiteCase.py --case front

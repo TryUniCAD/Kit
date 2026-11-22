@@ -19,8 +19,9 @@ matches a fresh read of the regenerated part. Changed dimensions, locators,
 epochs, and native-saved derivatives require their own evidence.
 
 The complete suite exercises measured Front and Right parts through
-both SDK stream routes. Its Windows job also exercises the direct and
-staged file routes at the exact inspected locators. A conflicting
+both SDK stream routes. The [Windows path proof](../../../../re/solidworks/measurements/2026/SdkThinRevolveWindowsPublication01.json)
+records all four exact writes through direct and staged file routes.
+A conflicting
 KeyWords feature name gives a strict refusal and permits a legacy
 inspection when the caller selects permissive reading.
 
