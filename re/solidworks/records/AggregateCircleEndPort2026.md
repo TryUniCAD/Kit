@@ -62,8 +62,8 @@ Four locked case records were authenticated from redacted reports in this
 tranche. The protected original/request data was never consumed. Current
 host publication was exercised with the six independently disclosed requests.
 
-Normal dispatch requires two changes after existing more-specific routes,
-including any independently qualified offset-plane route.
+Normal dispatch selects this profile after the existing more-specific
+routes, including the measured offset-plane route.
 
 1. In `Core/Writing/CanWritePart.py`, import `HasCircWrite` and
    `CanWriteCircle` from `Core.Writing.Circle.CanWriteCircle`. After the ellipse
@@ -76,8 +76,9 @@ including any independently qualified offset-plane route.
    `EmitCircMut(DocumentValue, TargetValue, OptionsValue)` when
    `HasCircWrite(DocumentValue)` is true.
 
-The normal dispatch verification used an isolated copy of `src` with those
-two additions. Production activation requires aggregate integration.
+The initial normal dispatch verification used an isolated copy of `src` with
+these additions. The integrated aggregate source then passed all six
+normal-entry replays.
 
 ## Process evidence and exit
 

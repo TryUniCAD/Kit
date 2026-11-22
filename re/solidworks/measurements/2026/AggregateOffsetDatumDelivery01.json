@@ -1,0 +1,506 @@
+{
+  "macos_disclosed": {
+    "cases": [
+      {
+        "bytes": 8634,
+        "case": "FrontOffsetCircle",
+        "geometry": {
+          "area_mm2": 771.7121291613498,
+          "centroid_mm": [
+            0.0,
+            0.0,
+            17.025000000000002
+          ],
+          "driver_owner_indices": [
+            156,
+            168,
+            191
+          ],
+          "faces": 3,
+          "ordered_neutral_features": 20,
+          "signed_offset_mm": 13.79,
+          "strict_read_modes": 2,
+          "volume_mm3": 1403.641502802787
+        },
+        "guarded_builds": 2,
+        "linked_replay": {
+          "configuration_map_counter": 83,
+          "resolved_map_counter": 217
+        },
+        "malformed_input_refusals": [
+          "expected concrete moDefaultRefPlnData_c",
+          "mismatched local selection owner",
+          "state contradicts the linked distance"
+        ],
+        "native": {
+          "complete_native_feature_rows": 26,
+          "controls_healthy": true,
+          "native_processes": 4,
+          "numeric_checks": 81,
+          "result_sha256": "381ec5033f864322f457ca82fd1f1ffef5e4dc953a5dd00fd4567621a06fd2d1"
+        },
+        "normal_publication": {
+          "publish_adapter": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": 6,
+            "whole_streams": 2
+          }
+        },
+        "request_sha256": "d7c22522f52c67e29a6874f29f1ba610d4fa1515de63a6c3a509ed28636375eb",
+        "runtime_input_file_reads": 0,
+        "sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21136,
+            "sha256": "fa2e1ab9f779930fac8a198c6cadfc738df37939d829006292000f78fe96334a"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 851,
+            "sha256": "74b3ff4e6afbd6544a97a035438a090715a4049f1af525309f334c3982f1f6b9"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17441,
+            "sha256": "3cd537ecc4f13825debb12b3c0ec397b3d2370c40ecbf9a12f49bc2e5589b84f"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 851,
+            "sha256": "296ce370c1db3b7407b060d9cfe8a58ba2b9ec50d67f3d023137b979bf24dd2f"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1602,
+            "sha256": "941ebda9ec747ff786fbbdbdf0b332895199b378a60b807e9814e8fbc2f5cc23"
+          }
+        }
+      },
+      {
+        "bytes": 8679,
+        "case": "TopReverseOffset",
+        "geometry": {
+          "area_mm2": 1094.7457654481898,
+          "centroid_mm": [
+            0.0,
+            -25.035000000000004,
+            0.0
+          ],
+          "driver_owner_indices": [
+            156,
+            168,
+            191
+          ],
+          "faces": 3,
+          "ordered_neutral_features": 20,
+          "signed_offset_mm": -27.13,
+          "strict_read_modes": 2,
+          "volume_mm3": 1671.9055049792564
+        },
+        "guarded_builds": 2,
+        "linked_replay": {
+          "configuration_map_counter": 83,
+          "resolved_map_counter": 217
+        },
+        "malformed_input_refusals": [
+          "expected concrete moDefaultRefPlnData_c",
+          "mismatched local selection owner",
+          "state contradicts the linked distance"
+        ],
+        "native": {
+          "complete_native_feature_rows": 26,
+          "controls_healthy": true,
+          "native_processes": 4,
+          "numeric_checks": 81,
+          "result_sha256": "a3badc21c75925ac2f40290be7a5ef4b1fd3d5fa1f9dbec926fa6d92f73513b1"
+        },
+        "normal_publication": {
+          "publish_adapter": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": 6,
+            "whole_streams": 2
+          }
+        },
+        "request_sha256": "56414188a4535df0b6e10d081869beda53c469634499809ef202611e56a69dfd",
+        "runtime_input_file_reads": 0,
+        "sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21134,
+            "sha256": "e5ef68d33b0012e5f59e48d0c64e2c5b506e56c214abd1cc0404574d9f9398b6"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 845,
+            "sha256": "ca5ba35518d92546092c9774c6f4ea2de67272f9b3aa1edf3edba61b5bf4e4f8"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17729,
+            "sha256": "befec0d3a1a1b16d5aec4573fe4cc164afd57c3d1c96eec304b9240c4bcafb06"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 845,
+            "sha256": "5f00bf8478321522e03bfddcf7647569beb0fa113687fa7683939d496de7637f"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1588,
+            "sha256": "a55aeaa5f8b2b65bea684e825d46fc9fcdf37301501150933436ccd0e4fa0f6c"
+          }
+        }
+      },
+      {
+        "bytes": 8689,
+        "case": "RightOffsetCircle",
+        "geometry": {
+          "area_mm2": 772.1544654069751,
+          "centroid_mm": [
+            23.924999999999997,
+            0.0,
+            0.0
+          ],
+          "driver_owner_indices": [
+            156,
+            168,
+            191
+          ],
+          "faces": 3,
+          "ordered_neutral_features": 20,
+          "signed_offset_mm": 19.369999999999997,
+          "strict_read_modes": 2,
+          "volume_mm3": 1579.9592184504697
+        },
+        "guarded_builds": 2,
+        "linked_replay": {
+          "configuration_map_counter": 83,
+          "resolved_map_counter": 217
+        },
+        "malformed_input_refusals": [
+          "expected concrete moDefaultRefPlnData_c",
+          "mismatched local selection owner",
+          "state contradicts the linked distance"
+        ],
+        "native": {
+          "complete_native_feature_rows": 26,
+          "controls_healthy": true,
+          "native_processes": 4,
+          "numeric_checks": 81,
+          "result_sha256": "51ab991098c9e7cf46844f6e84017847b5151d919bbd8f98491e149a3c097015"
+        },
+        "normal_publication": {
+          "publish_adapter": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": 6,
+            "whole_streams": 2
+          }
+        },
+        "request_sha256": "735cd1fd376fb9ff4efbb54f7af75af976d727c52c2d25b1392b2d0ed0380d5b",
+        "runtime_input_file_reads": 0,
+        "sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+          },
+          "Contents/Config-0": {
+            "bytes": 21136,
+            "sha256": "3ba459537a05234b4bb5893b7fa13d930a9ab454c74009657854a132f6841a4b"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 851,
+            "sha256": "0bbd7773440382fa21151da69cb37e87972ff613064e9500f2062c468b0614da"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 17729,
+            "sha256": "8964d6b0b4570a694086cd4b97ef92bfd34c782de1fbbb68f63a8d55732c8325"
+          },
+          "Contents/Definition": {
+            "bytes": 477,
+            "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+          },
+          "Header2": {
+            "bytes": 851,
+            "sha256": "20d0d06bea58979a3fc7bacd9ecdfcff1ffd3851166045174c5cdd001639941f"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 163,
+            "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1602,
+            "sha256": "95ec425858b8fcb31a97ee53d784b33e71bbcbf4f28b8665dab0d7a89ecadc3d"
+          }
+        }
+      }
+    ],
+    "heldout_payloads_read": 0,
+    "method_sha256": "69d26121c617641841dd29bd43867f082ae59d32a68cf5ace03903e11781cd3a",
+    "model_variation": {
+      "bytes": 8687,
+      "geometry": {
+        "area_mm2": 772.1544654069751,
+        "centroid_mm": [
+          28.7675,
+          0.0,
+          0.0
+        ],
+        "driver_owner_indices": [
+          156,
+          168,
+          191
+        ],
+        "faces": 3,
+        "ordered_neutral_features": 20,
+        "signed_offset_mm": 24.2125,
+        "strict_read_modes": 2,
+        "volume_mm3": 1579.9592184504697
+      },
+      "linked_replay": {
+        "configuration_map_counter": 83,
+        "resolved_map_counter": 217
+      },
+      "malformed_input_refusals": [
+        "expected concrete moDefaultRefPlnData_c",
+        "mismatched local selection owner",
+        "state contradicts the linked distance"
+      ],
+      "normal_publication": {},
+      "runtime_input_file_reads": 0,
+      "sha256": "b1edd35a2096eb999db0a7128bd037adeee2d31ca484412e9e694e0804d67552",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "25787663519855827f72ce6562b40a5fe641c7757945cef292c75a40cfc762ae"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d6c22a47077d64fb8978c9f83f3d436a756671b789740d60b5af31106c048ea2"
+        },
+        "Contents/Config-0": {
+          "bytes": 21136,
+          "sha256": "3ba459537a05234b4bb5893b7fa13d930a9ab454c74009657854a132f6841a4b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 851,
+          "sha256": "0bbd7773440382fa21151da69cb37e87972ff613064e9500f2062c468b0614da"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 17729,
+          "sha256": "5524c14ef3cb3fc269c8cc7ce1e7cb76aaca51a4a60487e79d62f514f34d644b"
+        },
+        "Contents/Definition": {
+          "bytes": 477,
+          "sha256": "ebee9fe3bcb72f90a5fb6fbc6a7dcd70dc38110d8edee0d0852c5aeb17db9df6"
+        },
+        "Header2": {
+          "bytes": 851,
+          "sha256": "20d0d06bea58979a3fc7bacd9ecdfcff1ffd3851166045174c5cdd001639941f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 163,
+          "sha256": "00e395873b7e624c19002b38512a83461e47bb2a0bff7af699d1056bbc01340b"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1602,
+          "sha256": "9d639c0615a2322d22fddec587fedfa56262df4d13b9a18a74c6326562d72d73"
+        }
+      }
+    },
+    "new_native_processes": 0,
+    "python": "3.14.7",
+    "request_translator_sha256": "d7cd5dc1ad240647c3c59a0c37a1ca1475d4539d652bc35f6737ca1d9e1afe7d",
+    "schema": "kit.sw2026.typed-offset-datum-evidence.v1",
+    "worker_sha256": "e53a9cbf1830090155da4917c5e78bc84ba610d80f35a81b8a4f00bf5352128e",
+    "zlib_runtime": "1.2.12"
+  },
+  "oracle": {
+    "build": "34.5.2.0604",
+    "com_progid": "SldWorks.Application.34",
+    "exe_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "publication_scope": "exact matching caller-owned streams via the registry, writer and adapter",
+  "schema": "kit.sw2026.aggregate.offset-datum-delivery.v1",
+  "scope": "signed principal offset datum, centred radius-driven circle and forward blind boss",
+  "separately_frozen_default_preparation": {
+    "exact_structural_reproduction": true,
+    "front_sha256": "71ed7acdae97b2355ede899274b2e76f29aed0fef3c104f2e250c69c14262409",
+    "native_acceptance": false,
+    "reversed_top_sha256": "08c665657bb9aadea7d1d683026daeedbb461f4cc65b20f7975a5e0dc711ac57"
+  },
+  "source_revision": "e0294ddea0a35818b18d02f12606b0042a427267",
+  "src_tree": "3c4cfa74c07452e51ccec0ee767250da0cd0a099",
+  "total": {
+    "exact_archive_artifacts": 6,
+    "exact_publications": 72,
+    "guarded_build_processes": 12,
+    "new_native_processes": 0,
+    "original_fcstd_assemblies_added": 0,
+    "original_fcstd_parts_added": 0,
+    "original_held_out_designs": 2,
+    "publication_refusals": 216,
+    "strict_read_projections": 24,
+    "writer_runtime_input_reads": 0
+  },
+  "windows_digest_only": {
+    "disclosed_windows_comparison": {
+      "generated_sha256": "98986fb814e5b1b7742bc676f0a36dd6068d3833263446d08eb0ecf984ca4137",
+      "guarded_builds": 2,
+      "identical_builds": true,
+      "normal_publication": {
+        "publish_adapter": {
+          "refusals": 6,
+          "whole_streams": 2
+        },
+        "publish_direct": {
+          "refusals": 6,
+          "whole_streams": 2
+        },
+        "publish_public": {
+          "refusals": 6,
+          "whole_streams": 2
+        }
+      },
+      "passed": true,
+      "runtime_input_reads": 0
+    },
+    "original_receipt_sha256": "79210ac088a95b3c6d0913b8a056e678e8dbe14e9a861f178455ea0426f6e80c",
+    "originals": [
+      {
+        "freeze_sha256": "da95f25a1534c0b201f0150efd8303f37214f6dd15eadb41a58b0ab6025cc665",
+        "generated_sha256": "210626b0dc7d76357e3414c00a4c9f1711a97d458ab1c3b3d68f3507cdaf5951",
+        "guarded_builds": 2,
+        "identical_builds": true,
+        "normal_publication": {
+          "publish_adapter": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": 6,
+            "whole_streams": 2
+          }
+        },
+        "passed": true,
+        "request_sha256": "f96f8a197ddf2d378ebe957ae02a524c70c9e537a31f88071910859049cdda13",
+        "runtime_input_reads": 0,
+        "slot": "H01"
+      },
+      {
+        "freeze_sha256": "1548d81c2cf8b734d1de869340e4584985b49cf04899d09a14c3322db1960e7c",
+        "generated_sha256": "200d3dfba753d0120e60bcc6481248bd7362dc6fd7f606bd1708451b43328b7e",
+        "guarded_builds": 2,
+        "identical_builds": true,
+        "normal_publication": {
+          "publish_adapter": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_direct": {
+            "refusals": 6,
+            "whole_streams": 2
+          },
+          "publish_public": {
+            "refusals": 6,
+            "whole_streams": 2
+          }
+        },
+        "passed": true,
+        "request_sha256": "39da75a91ccaa175795b52e8481c5b2df447fb2b58b22ed80bf2b9df5bb9b272",
+        "runtime_input_reads": 0,
+        "slot": "H02"
+      }
+    ],
+    "passed": true,
+    "platform_machine": "ARM64",
+    "python": "3.12.7",
+    "python_exe_sha256": "ca60cf785b2314a6d6599eced15bdf094e6db171bec996b97a70b995942c3c37",
+    "schema": "kit.sw2026.offset-plane-digest-regression.v1",
+    "zlib_runtime_version": "1.3.1",
+    "zlib_version": "1.3.1"
+  },
+  "windows_frozen_source": {
+    "bundle_bytes": 6311944,
+    "bundle_sha256": "06df4177be478ea2610b2f3bdbc7c7fad3a6601eef2c71b99a7c8f33e1ab926f",
+    "extras_sha256": {
+      "re/solidworks/measurements/2026/ReferencePlaneOriginalHeldouts01.json": "79210ac088a95b3c6d0913b8a056e678e8dbe14e9a861f178455ea0426f6e80c",
+      "re/tooling/sw2026/CheckScopedPlainWriter.py": "a1fe2873539965c0db03c1b4aac971c9fd421a59fb0fde1d733dcc136601311b",
+      "re/tooling/sw2026/offset_plane/CheckOffsetDigestReplay.py": "003f6fe4fd6490ad880dbc1cf4a4111ba8adf155660f1a45bbfda02f8dcc3318",
+      "re/tooling/sw2026/offset_plane/CheckTypedOffset.py": "e53a9cbf1830090155da4917c5e78bc84ba610d80f35a81b8a4f00bf5352128e",
+      "re/tooling/sw2026/offset_plane/DisclosedOffsetRequest.py": "d7cd5dc1ad240647c3c59a0c37a1ca1475d4539d652bc35f6737ca1d9e1afe7d",
+      "re/tooling/sw2026/offset_plane/NeutralOffsetDocument.py": "c527d5c92b0ab2b36b2fd54cdcccf9c080cc82582891b5b19aaf6c0789eefbf5",
+      "re/tooling/sw2026/offset_plane/ProveOffsetPublication.py": "8a2456d7583b70734773123a643a46bb29f4b39cd3c1b7d9d13283f4d695bebc"
+    },
+    "source_revision": "e0294ddea0a35818b18d02f12606b0042a427267"
+  }
+}

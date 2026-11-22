@@ -108,6 +108,18 @@ passes two complete disclosed native assembly lifecycles, including the
 tilted anti-aligned mate with rotation locked. The saved archive retains the
 ordered signed axes and rim ranges. These add zero FCStd benchmark cases.
 
+The [shared concentric parent constructor](records/SdkConcentricParentModel2026.md)
+reproduces both native-tested parent and child pairs from the actual child
+partition owners. Public assembly publication still requires generated child
+attachment, neutral endpoint admission and an exact bundle receipt.
+
+The [aggregate offset-plane verification](records/AggregateOffsetDatumDelivery2026.md)
+reproduces the two original held-out parts and the disclosed Front, reversed
+Top and Right cases through the normal SDK routes. The Windows replay retains
+the original guest-local custody. The signed datum and both attached feature
+drivers survive strict reads. These cases add zero original FCStd benchmark
+entries.
+
 The [generated attached Top-plane box trial](measurements/2026/AttachedTopBoxGeneratedNative01.json)
 derives three editable SOLIDWORKS parts from the disclosed F14c inputs
 under three FreeCAD releases. Eight native processes pass all 1,089 candidate

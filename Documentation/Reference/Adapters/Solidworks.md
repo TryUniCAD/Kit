@@ -697,8 +697,9 @@ Model-only preparation also covers each scoped profile below. Public
 standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
 sweep, distance chamfer, selected two-stock through cuts, the contained
-oblique linear pattern, principal and thin revolves, and the width-depth
-equation have dedicated proof schemas. The other entries describe model
+oblique linear pattern, principal and thin revolves, fixed-centre circles,
+principal offset-plane bosses and the width-depth equation have dedicated
+proof schemas. The other entries describe model
 preparation and native research coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
@@ -718,9 +719,15 @@ preparation and native research coverage.
 The strict cache-free circle reader also recovers the measured Front radius
 blind, reversed Right diameter blind, Top radius mid-plane, Front diameter
 two-direction and reversed Top radius two-direction cases. Each read preserves
-the radial driver, signed support and all active depth drivers. The shared
-measured publication leaf for authored neutral input is ready for ordinary
-writer dispatch integration. [Measured circle ends](../../Changes/Solidworks/Construction/Circles/SolidworksMeasuredCircleEnds.md)
+the radial driver, signed support and all active depth drivers. The normal
+SDK publishes the six measured disclosed circle artifacts from matching
+authored neutral inputs and their authenticated receipts. [Measured circle ends](../../Changes/Solidworks/Construction/Circles/SolidworksMeasuredCircleEnds.md)
+
+The measured offset-plane profile retains a separate signed principal datum,
+its driving distance, the attached radius-driven sketch and a forward blind
+boss. The normal SDK requires the exact receipt, authored presentation and
+measured self locator. The strict reader reconstructs the signed analytic
+cylinder. [Measured offset planes](../../Changes/Solidworks/Construction/Datums/SolidworksMeasuredOffsetPlanes.md)
 
 The same cache-free full-ellipse profile reads back with its closed sketch and
 live D1. The default reader constructs a solid with exact rational elliptical
