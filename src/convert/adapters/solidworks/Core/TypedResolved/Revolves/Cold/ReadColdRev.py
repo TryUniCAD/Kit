@@ -47,14 +47,16 @@ def ReadColdRev(
                 BodyId,
             )
         (OwnerValue,) = ReadRevOwners(LinkValue)
+        Bound = BindColdSketch(Model, OwnerValue)
         if (
             OwnerValue.FrameValue.SupportValue.z_axis.z != 0.0
             or OwnerValue.AngleValue.RadiansValue == FullTurn
         ):
+            if not Settings.include_brep:
+                return Model, None
             raise ValueError(
                 "cache-free revolve requires a partial Top or Right support"
             )
-        Bound = BindColdSketch(Model, OwnerValue)
         Shape = ReadRevGeom(
             LinkValue,
             ReadCmgrMut(Archive.require("Contents/CMgr"), 19000),

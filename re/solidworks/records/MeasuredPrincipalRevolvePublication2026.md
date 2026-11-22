@@ -100,3 +100,11 @@ bytes. The measured revolve files served as immutable evidence, so
 successful replacement at those exact physical locators was left
 unexercised. The audit recorded zero external input file reads and
 launches while the writers ran.
+
+The shared queue integration verifies that a permutation of the native
+point table leaves the linked meridian unchanged. A disclosed full-turn
+Front-plane file also retains the prior design-only reading with 19
+feature rows and one sketch. These reader checks run alongside the
+measured publication and fail-closed contrasts.
+[Principal fixtures](../v2026/corpus/revolve/MeasuredPrincipal01/)
+[Reader compatibility receipt](../measurements/2026/SdkPrincipalRevolveContourCompatibility01.json)
