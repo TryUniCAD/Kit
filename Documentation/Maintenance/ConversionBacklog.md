@@ -562,7 +562,7 @@ Native recovery and semantic qualification remain blocked as recorded in that pa
 ## Recovered SOLIDWORKS native ladder evidence
 
 Task `A08h-LadderRecovery` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
-Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is pending creation.
+Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267).
 The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
 Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.

@@ -2352,7 +2352,7 @@
   },
   "full_semantics_verified": false,
   "native_conversion_acceptance": false,
-  "delivery_pr": "not yet published; separate follow-up after Fusion PR265",
+  "delivery_pr": "https://github.com/TryUniCAD/Kit/pull/267",
   "artifacts": [
     {
       "path": "Cases/solidworks-060/control-before.SLDPRT",

@@ -13,7 +13,7 @@ Successful native captures were not resubmitted.
 All 111 complete-batch files strictly decoded. Only fifteen front-plane files also match the native centroid.
 Forty-eight top-plane and forty-eight right-plane files retain incorrect neutral placement.
 Neutral bounding-box volumes match the requested and measured cuboid volumes; explicit neutral volume and area properties remain unavailable.
-The [placement finding](../../../../../Gotchas/Conversion/SolidWorks/Readers/TimestampPlaneFallback.md) identifies the next reader work.
+The [placement finding](../../../../../Gotchas/Conversion/Solidworks/Readers/TimestampPlaneFallback.md) identifies the next reader work.
 
 Run `python3 re/solidworks/FeatureLadderRecovery/Verify.py --output UNUSED_REPORT.json` with Python 3.14.
 The process verified 500 manifest-bound artifacts, all 37 complete cases and their strict reports.
