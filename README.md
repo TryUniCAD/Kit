@@ -7,7 +7,6 @@ Production conversion runs without requiring CAD software.
 
 [Wiki](https://github.com/TryUniCAD/Kit/wiki)
 
-[![Greptile: The War on Bugs](https://www.greptile.com/badge.svg)](https://www.greptile.com/?utm_source=oss_badge&utm_medium=readme&utm_campaign=greptile_for_open_source)
 
 ## Start here
 
@@ -40,14 +39,13 @@ from a qualified neutral document. [Writer scope](Documentation/Reference/Adapte
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line
-
-Use a release containing the CLI, or install from a source checkout with `uv tool install .`.
-Supply a real input file and an unused destination before running:
+Install the cli using:
+`uv tool install .`.
 
 ```sh
 kit formats
-kit convert model.f3d model.json
-kit decode model.f3d --layer container
+kit convert [model].f3d model.json
+kit decode [model].f3d --layer container
 ```
 
 The CLI uses strict reading and applies the output policy.
@@ -103,6 +101,7 @@ Run tests only in remote CI.
 [![Kit star history](https://api.star-history.com/svg?repos=TryUniCAD/Kit&type=Date)](https://www.star-history.com/#TryUniCAD/Kit&Date)
 
 ## Distribution
+Using the SDK
 
 Use Python 3.11 or later.
 Activate your project's virtual environment and install Kit from PyPI.
@@ -118,6 +117,6 @@ See [release publishing](Documentation/Changes/CommitReleases.md) for the releas
 ## License
 
 Kit uses the [MIT License](LICENSE).
-Copyright (c) 2026 Parashell, Odin Glynn-Martin, Stephen Harcourt.
+Copyright (c) 2026 Odin Glynn-Martin, Stephen Harcourt, James Harcourt.
 Third-party materials retain their own licenses.
 See the [research artifact policy](Documentation/Reference/Research/ResearchArtifacts.md).
