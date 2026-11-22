@@ -33,6 +33,14 @@ from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
 )
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
+from convert.adapters.solidworks.Core.Writing.Circle.CanWriteCircle import HasCircWrite
+from convert.adapters.solidworks.Core.Writing.Circle.EmitCircMut import EmitCircMut
+from convert.adapters.solidworks.Core.Writing.OffsetPlanes.CanWriteOffset import (
+    HasOffsetWrite,
+)
+from convert.adapters.solidworks.Core.Writing.OffsetPlanes.EmitOffsetMut import (
+    EmitOffsetMut,
+)
 from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
 from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
     WriteStocksMut,
@@ -77,6 +85,10 @@ def EmitFreshMut(
         return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipsePart(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+    if HasOffsetWrite(DocumentValue):
+        return EmitOffsetMut(DocumentValue, TargetValue, OptionsValue)
+    if HasCircWrite(DocumentValue):
+        return EmitCircMut(DocumentValue, TargetValue, OptionsValue)
     return None
 
 

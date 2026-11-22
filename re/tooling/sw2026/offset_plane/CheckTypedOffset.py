@@ -288,12 +288,13 @@ def check_refusals(candidate):
     return result
 
 
-def worker(request, *, platform_views=False):
+def worker(request, *, platform_views=False, native_report=None):
     sys.path.insert(0, str(CHECKOUT / "src"))
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
     from CheckScopedPlainWriter import WriterAudit
-    from DisclosedOffsetRequest import prepare_disclosed
+    from DisclosedOffsetRequest import offset_inputs, prepare_disclosed
+    from ProveOffsetPublication import prove
     from convert import open_document
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import (
@@ -302,19 +303,26 @@ def worker(request, *, platform_views=False):
     from interchange.Features.FeatureKinds import RefPlaneFeature
 
     for module_name in (
+        "interchange.document.Behavior.DocumentIo",
+        "interchange.document.Models.DocumentProvenance",
+        "interchange.document.Models.DocumentWalk",
         "interchange.document.Validation.DocumentAssemblyValidate",
         "interchange.document.Validation.DocumentFeatureValidate",
         "interchange.document.Validation.DocumentReferenceValidate",
     ):
         import_module(module_name)
-    for encoding in ("utf-8", "utf-16-le", "latin-1", "ascii"):
+    for encoding in ("utf-8", "utf-16-le", "latin-1", "ascii", "cp1252"):
         lookup(encoding)
     audit = WriterAudit(CHECKOUT / "src", CHECKOUT / "unused-offset-datum.SLDPRT")
     sys.addaudithook(audit.observe)
     audit.phase = "write"
     candidate = prepare_disclosed(request, platform_views=platform_views)
-    audit.phase = "done"
     expect = candidate.BytesValue
+    publication = {}
+    if native_report is not None:
+        inputs = offset_inputs(request, platform_views=platform_views)
+        publication = prove(*inputs, native_report, expect, digest(expect))
+    audit.phase = "done"
     read = check_neutral(expect, request)
     replay = check_linked(expect)
     refusals = check_refusals(candidate)
@@ -338,6 +346,7 @@ def worker(request, *, platform_views=False):
         "geometry": read,
         "linked_replay": replay,
         "malformed_input_refusals": refusals,
+        "normal_publication": publication,
     }
 
 
@@ -397,9 +406,13 @@ def native_observation(path, expected_hash, case):
     }
 
 
-def invoke(data):
+def invoke(data, native_report=None):
+    args = [sys.executable, "-I", "-B", __file__, "--worker"]
+    if native_report is not None:
+        args.append("--publication")
+        data = dumps({"model_request": loads(data), "native_report": native_report}).encode()
     process = run(
-        [sys.executable, "-I", "-B", __file__, "--worker"],
+        args,
         input=data,
         capture_output=True,
     )
@@ -411,14 +424,15 @@ def invoke(data):
 def check_all(disclosure, method_path):
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
-    method = loads(checked(method_path, METHOD_HASH))
+    method_text = checked(method_path, METHOD_HASH).decode("utf-8")
+    method = loads(method_text)
     output = []
     for (suffix, name, req_hash, file_hash, native_hash), method_row in zip(
         CASES, method["disclosed_native_cases"], strict=True
     ):
         case = disclosure / f"GeneratedReferencePlaneParity{suffix}"
         data = checked(case / "Request.json", req_hash)
-        first, second = invoke(data), invoke(data)
+        first, second = invoke(data, method_text), invoke(data, method_text)
         reference = checked(case / "FrozenGenerated" / (name + ".SLDPRT"), file_hash)
         streams = SldprtArchive.FromBytes(reference).streams
         assert (
@@ -475,11 +489,17 @@ def main():
     tool = ArgumentParser()
     tool.add_argument("--worker", action="store_true")
     tool.add_argument("--platform-views", action="store_true")
+    tool.add_argument("--publication", action="store_true")
     tool.add_argument("--disclosure", type=Path)
     tool.add_argument("--native-method", type=Path)
     args = tool.parse_args()
     if args.worker:
-        print(dumps(worker(loads(sys.stdin.buffer.read()), platform_views=args.platform_views), sort_keys=True))
+        request = loads(sys.stdin.buffer.read())
+        report = None
+        if args.publication:
+            report = request["native_report"]
+            request = request["model_request"]
+        print(dumps(worker(request, platform_views=args.platform_views, native_report=report), sort_keys=True))
     else:
         sys.path.insert(0, str(CHECKOUT / "src"))
         print(

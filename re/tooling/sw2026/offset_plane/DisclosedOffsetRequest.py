@@ -42,7 +42,7 @@ from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PrepareOffPart imp
 from NeutralOffsetDocument import make_document
 
 
-def prepare_disclosed(request, *, platform_views=False):
+def offset_inputs(request, *, platform_views=False):
     doc = request["document"]
     pres = request["presentation"]
     prov = request["provenance"]
@@ -139,11 +139,16 @@ def prepare_disclosed(request, *, platform_views=False):
         pres["selected_leader"],
         PlatformViewMath=platform_views,
     )
+    return document, settings, (DotVector(vector, frame.AxisU), DotVector(vector, frame.AxisV)), prov["created_at"]
+
+
+def prepare_disclosed(request, *, platform_views=False):
+    document, settings, point, event = offset_inputs(request, platform_views=platform_views)
     return PrepareOffPart(
         document,
         BytesIO(),
-        prov["created_at"],
-        WriteOptions(values={"final_destination": output["path_name"]}),
+        event,
+        WriteOptions(values={"final_destination": settings.OutputValue.PathName}),
         RecipeValue=settings,
-        TextPoint=(DotVector(vector, frame.AxisU), DotVector(vector, frame.AxisV)),
+        TextPoint=point,
     )

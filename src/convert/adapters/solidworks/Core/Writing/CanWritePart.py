@@ -33,9 +33,17 @@ from convert.adapters.solidworks.Core.Writing.AttachedBox.ProveBoxSource import 
     ProveBoxSource,
 )
 from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
+from convert.adapters.solidworks.Core.Writing.Circle.CanWriteCircle import (
+    CanWriteCircle,
+    HasCircWrite,
+)
 from convert.adapters.solidworks.Core.Writing.Imports.CanImportPart import CanImportPart
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CanWriteRev import CanWriteRev
+from convert.adapters.solidworks.Core.Writing.OffsetPlanes.CanWriteOffset import (
+    CanWriteOffset,
+    HasOffsetWrite,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -84,6 +92,10 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
         if IsEllipsePart(DocumentValue):
             EllipseValue = PlanEllipse(DocumentValue)
             return IsPartTarget(EllipseValue.NameValue, TargetValue)
+        if HasOffsetWrite(DocumentValue):
+            return CanWriteOffset(DocumentValue, TargetValue)
+        if HasCircWrite(DocumentValue):
+            return CanWriteCircle(DocumentValue, TargetValue)
         if DocumentValue.brep is not None:
             return CanImportPart(DocumentValue, TargetValue)
         PlanValue = PlanNativePart(DocumentValue, AllowMeasuredMid=True)

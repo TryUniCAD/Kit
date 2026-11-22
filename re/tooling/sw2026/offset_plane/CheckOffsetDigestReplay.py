@@ -28,12 +28,13 @@ def checked(path, expected, base):
     return data
 
 
-def replay(request, expected):
+def replay(request, expected, receipt_text):
+    envelope = dumps({"model_request": loads(request), "native_report": receipt_text}).encode()
     results = []
     for _ in range(2):
         process = run(
-            (sys.executable, "-I", "-B", str(WORKER), "--worker", "--platform-views"),
-            input=request,
+            (sys.executable, "-I", "-B", str(WORKER), "--worker", "--platform-views", "--publication"),
+            input=envelope,
             capture_output=True,
             timeout=150,
             cwd=ROOT,
@@ -42,19 +43,23 @@ def replay(request, expected):
             return {"passed": False, "failure_code": "worker_failed"}
         results.append(loads(process.stdout))
     first, second = results
+    routes = first["normal_publication"]
     return {
         "passed": first == second
         and first["sha256"] == expected
         and first["runtime_input_file_reads"] == 0
-        and len(first["streams"]) == 10,
+        and len(first["streams"]) == 10
+        and len(routes) == 3
+        and sum(row["whole_streams"] for row in routes.values()) == 6,
         "generated_sha256": first["sha256"],
         "runtime_input_reads": first["runtime_input_file_reads"],
         "guarded_builds": 2,
         "identical_builds": first == second,
+        "normal_publication": routes,
     }
 
 
-def replay_original(base, row, report):
+def replay_original(base, row, report, receipt_text):
     slot = row["slot"]
     work = base / slot / "T01"
     freeze = loads(checked(work / "GenerationFreeze.json", row["freeze_sha256"], base))
@@ -71,7 +76,7 @@ def replay_original(base, row, report):
         "slot": slot,
         "freeze_sha256": row["freeze_sha256"],
         "request_sha256": freeze["request_sha256"],
-        **replay(request, row["generated_sha256"]),
+        **replay(request, row["generated_sha256"], receipt_text),
     }
 
 
@@ -102,7 +107,8 @@ def main():
     if os.name != "nt" or len(sys.argv) != 4:
         raise ValueError("digest-only comparison needs its frozen Windows context")
     original, disclosure, receipt = map(Path, sys.argv[1:])
-    report = loads(checked(receipt, RECEIPT_SHA, receipt.parent))
+    receipt_text = checked(receipt, RECEIPT_SHA, receipt.parent).decode("utf-8")
+    report = loads(receipt_text)
     rows = report["originals"]
     if (
         report["schema"] != "kit.sw2026.offset-plane-original-native-acceptance.v1"
@@ -113,7 +119,7 @@ def main():
         raise ValueError("original held-out acceptance custody differs")
     expected = report["windows_disclosed_qualification"]["generated_sha256"]
     d03_request = checked(disclosure / "Request.json", D03_REQUEST_SHA, disclosure)
-    discriminator = replay(d03_request, expected)
+    discriminator = replay(d03_request, expected, receipt_text)
     result = {
         "schema": "kit.sw2026.offset-plane-digest-regression.v1",
         "original_receipt_sha256": RECEIPT_SHA,
@@ -127,7 +133,7 @@ def main():
     }
     if discriminator["passed"]:
         base = original_base(original, report)
-        result["originals"] = [replay_original(base, row, report) for row in rows]
+        result["originals"] = [replay_original(base, row, report, receipt_text) for row in rows]
     result["passed"] = discriminator["passed"] and all(
         row["passed"] for row in result["originals"]
     )
