@@ -1,6 +1,14 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRoots import (
+    ReadChmfRoots,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfStock import (
+    ReadChmfStock,
+)
+from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismProf import (
     CheckPrismProf,
 )
@@ -10,10 +18,14 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.Checks.CheckBossSta
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.CheckShellFresh import (
+    CheckShellFresh,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Stock.CheckShellEnd import (
     CheckShellEnd,
 )
@@ -44,7 +56,24 @@ def ReadShellStock(
         raise ValueError(
             "SOLIDWORKS shell stock requires the ordinary local Front plane"
         )
-    LoopValue = ReadStockLoop(ProfileValue, LinkValue)
+    return ShellStockBox(Owner, ReadStockLoop(ProfileValue, LinkValue))
+
+
+# the fresh stock shares the qualified rectangular profile and finite blind end
+def ReadFreshStock(
+    LinkValue: NativeLink,
+    ModelValue: NativeModel,
+    StockNode: ArchiveNode,
+    ShellNode: ArchiveNode,
+) -> tuple[ShellStock, tuple[ArchiveNode, ...]]:
+    CheckShellFresh(LinkValue, ShellNode)
+    _, Features = ReadChmfRoots(LinkValue, ModelValue, ShellNode)
+    OwnerValue, _, LoopValue = ReadChmfStock(LinkValue, StockNode, Features)
+    return ShellStockBox(OwnerValue, LoopValue), tuple(Features.values())
+
+
+# both stock layouts derive extents and port the actual selected support from the same owners
+def ShellStockBox(Owner: ExtrudeOwner, LoopValue: LineLoop) -> ShellStock:
     XValues = sorted({Point.PositionValue[0] for Point in LoopValue.PointsValue})
     YValues = sorted({Point.PositionValue[1] for Point in LoopValue.PointsValue})
     DepthValue = Owner.DepthValue.DepthValue.value_mm
@@ -54,7 +83,9 @@ def ReadShellStock(
         SpaceVector(XValues[0], YValues[0], 0.0),
         SpaceVector(XValues[1], YValues[1], DepthValue),
     )
-    Support = RequireNative(ProfileValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c")
+    Support = RequireNative(
+        Owner.ProfileValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c"
+    )
     PlaneId = NativeRecord(Support.FieldsValue.get("ff0")).get("f00")
     if type(PlaneId) is not int:
         raise ValueError("SOLIDWORKS shell stock lost its actual datum identity")

@@ -1,6 +1,7 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRows import (
     ChmfRoleKey,
+    KChmfRoleKey,
     ReadChmfRef,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -46,7 +47,7 @@ def ReadShellRefs(
     TopHeader: ArchiveNode,
     *,
     IsFace: bool,
-) -> tuple[tuple[object, ...], ...]:
+) -> tuple[tuple[KChmfRoleKey, ...], tuple[ArchiveNode, ...]]:
     Fields = RefValue.FieldsValue
     RowsValue = NativeRows(Fields.get("f10"))
     if (
@@ -68,16 +69,14 @@ def ReadShellRefs(
     Nodes = tuple(
         RequireNative(Value) for Value in (Records[:-1] if IsFace else Records)
     )
+    Histories = tuple(
+        ReadChmfRef(LinkValue, Value, StockNode, TopHeader, False) for Value in Nodes
+    )
     Files = {
-        RequireNative(
-            ReadChmfRef(LinkValue, Value, StockNode, TopHeader, False).FieldsValue.get(
-                "f08"
-            ),
-            "moExtObject_c",
-        )
-        for Value in Nodes
+        RequireNative(Value.FieldsValue.get("f08"), "moExtObject_c")
+        for Value in Histories
     }
     (FileValue,) = Files
     CheckShellFile(FileValue, LinkValue.ConfigValue.HeaderValue, TopHeader)
     CheckTreeAlias(LinkValue, (FileValue,))
-    return tuple(ChmfRoleKey(Value) for Value in Nodes)
+    return tuple(ChmfRoleKey(Value) for Value in Nodes), Histories

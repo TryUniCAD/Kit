@@ -41,6 +41,10 @@ SOLIDWORKS 2026 line-loop boss writer. The
 extends that bounded Front-plane route with equal and two-distance modes
 and keeps a separate exact per-output measurement gate.
 
+The [open-shell readback slice](re/solidworks/records/ColdOpenShellReader2026.md)
+extends strict inspection to a fresh inward shell on a blind rectangular
+boss. Native output acceptance and public shell writing remain open.
+
 ## Destination
 
 A fully functional release covers all nine CAD families above through one documented public SDK and CLI.

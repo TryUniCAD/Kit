@@ -15,8 +15,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Shells.ShellPartRead import 
     ShellPartRead,
 )
 
-# known unresolved saved shells need a specific strict refusal and permissive diagnostic
-KShellRejected = "SOLIDWORKS 2026 shell history requires the linked single inward top cap and saved body"
+# unresolved shells need a specific strict refusal and permissive diagnostic
+KShellRejected = "SOLIDWORKS 2026 shell history requires the linked single inward top cap and a qualified body"
 
 
 # known source types must still identify shell history without a decoded operation
@@ -54,7 +54,7 @@ def TryOpenShell(
             raise ValueError(
                 "SOLIDWORKS shell does not have the witnessed default model and stock"
             )
-        ReadValue = ReadOpenShell(Archive, ModelValue.active_configuration_id)
+        ReadValue = ReadOpenShell(Archive, ModelValue)
         return BindShellModel(ModelValue, ReadValue), ReadValue
     except (ValueError, TypeError, KeyError, IndexError, OverflowError) as ErrorInfo:
         if Settings.strict:

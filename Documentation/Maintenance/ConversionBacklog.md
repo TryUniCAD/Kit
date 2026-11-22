@@ -510,6 +510,10 @@ measured ordinary line-loop boss writer. The
 [distance chamfer delivery scope](../../re/solidworks/records/ChamferDistanceMain2026.md)
 records the next measured branch, its dependency and its exit evidence.
 
+The [#121 open-shell reader slice](../../re/solidworks/records/ColdOpenShellReader2026.md)
+tracks the guarded SDK evidence for the fresh rectangular profile and its
+separate native output exit condition.
+
 ## Existing PR inventory
 
 All rows were open at inspection. The contact is the observed GitHub author.

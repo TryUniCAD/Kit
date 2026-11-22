@@ -399,7 +399,7 @@ def ReadNativePart(
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
     Payloads, PayloadDiags, ColdBrep = PartBrepData(
-        Archive, Model, Settings, ChamferValue=ChamferValue
+        Archive, Model, Settings, ChamferValue=ChamferValue, ShellValue=ShellValue
     )
     Candidate = (
         FindLocalOwner(Model)
@@ -411,7 +411,12 @@ def ReadNativePart(
         else None
     )
     ActivePart = (
-        BindShellCache(ShellValue.CacheValue, Payloads, KPartBodyId)
+        BindShellCache(
+            ShellValue.CacheValue,
+            Payloads,
+            KPartBodyId,
+            IncludeBrep=Settings.include_brep,
+        )
         if ShellValue is not None
         else (
             ReadActivePart(
@@ -476,7 +481,9 @@ def ReadNativePart(
                     ),
                     **(
                         {"parasolid_active_payload_id": ActivePart.PayloadId}
-                        if ActivePart is not None and ActivePart.ModelValue is not None
+                        if ActivePart is not None
+                        and ActivePart.ModelValue is not None
+                        and ActivePart.PayloadId is not None
                         else {}
                     ),
                     **(
@@ -612,6 +619,7 @@ def PartBrepData(
     Settings: ReadOptions,
     *,
     ChamferValue: ChmfPartRead | None = None,
+    ShellValue: ShellPartRead | None = None,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
     ColdBrep = None
     if (
@@ -625,7 +633,14 @@ def PartBrepData(
             else BuildChmfGeom(ChamferValue, KPartBodyId)
         )
     Payloads, Diagnostics = BrepPayloads(
-        Archive, Settings, AllowAbsent=ColdBrep is not None
+        Archive,
+        Settings,
+        AllowAbsent=(
+            ColdBrep is not None
+            or (
+                ShellValue is not None and ShellValue.CacheValue.DigestValue is None
+            )
+        ),
     )
     return Payloads, Diagnostics, ColdBrep if not Payloads and not Diagnostics else None
 

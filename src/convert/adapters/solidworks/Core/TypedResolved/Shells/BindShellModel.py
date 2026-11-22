@@ -1,6 +1,6 @@
 from dataclasses import replace as ReplaceValue
 
-from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.Native import DecodeNotices, NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindDepth,
     BindExtrude,
@@ -26,28 +26,34 @@ def BindShellModel(ModelValue: NativeModel, ReadValue: ShellPartRead) -> NativeM
         or SketchValue.support_plane_id != ReadValue.StockValue.PlaneId
     ):
         raise ValueError(
-            "SOLIDWORKS saved shell archive disagrees with the selected public history"
+            "SOLIDWORKS shell archive disagrees with the selected public history"
+        )
+    if ReadValue.FreshRoots and (
+        StockOp.profile_id != SketchValue.object_id
+        or ShellOp.dependencies != (StockId,)
+    ):
+        raise ValueError(
+            "fresh shell public dependencies differ from the linked owners"
         )
     NativeFeatures = {Value.object_id: Value for Value in ModelValue.features}
-    StockFeature, ShellFeature = (
-        BindFeature(
+    BoundFeatures = {
+        NativeNodeId(NodeValue): BindFeature(
             NativeFeatures[NativeNodeId(NodeValue)], NodeValue, ReadValue.LinkValue
         )
-        for NodeValue in (StockNode, ShellNode)
-    )
+        for NodeValue in (ReadValue.FreshRoots or (StockNode, ShellNode))
+    }
+    StockFeature, ShellFeature = BoundFeatures[StockId], BoundFeatures[ShellId]
     if any(
         tuple(Value.name for Value in Feature.dimensions) != ("D1",)
         for Feature in (StockFeature, ShellFeature)
     ):
         raise ValueError(
-            "SOLIDWORKS saved shell needs its actual two independent public drivers"
+            "SOLIDWORKS shell needs its actual two independent public drivers"
         )
-    Changes = {
-        StockId: BindDepth(StockFeature, StockOwner),
-        ShellId: ReplaceValue(
-            ShellFeature, dimensions=(ReadValue.DriverValue.DepthValue,)
-        ),
-    }
+    BoundFeatures[StockId] = BindDepth(StockFeature, StockOwner)
+    BoundFeatures[ShellId] = ReplaceValue(
+        ShellFeature, dimensions=(ReadValue.DriverValue.DepthValue,)
+    )
     UpdatedShell = ReplaceValue(
         ShellOp,
         profile_id=None,
@@ -63,10 +69,25 @@ def BindShellModel(ModelValue: NativeModel, ReadValue: ShellPartRead) -> NativeM
         TypedLines=ReadValue.StockValue.LoopValue,
     )
     StockOp = BindExtrude(StockOp, StockOwner)
+    NameNotices = (
+        DecodeNotices(ModelValue.features, (), ()) if ReadValue.FreshRoots else ()
+    )
     return ReplaceValue(
         ModelValue,
-        features=tuple(
-            Changes.get(Value.object_id, Value) for Value in ModelValue.features
+        features=(
+            tuple(BoundFeatures.values())
+            if ReadValue.FreshRoots
+            else tuple(
+                BoundFeatures.get(Value.object_id, Value)
+                for Value in ModelValue.features
+            )
+        ),
+        diagnostics=(
+            tuple(
+                Message
+                for Message in ModelValue.diagnostics
+                if Message not in NameNotices
+            )
         ),
         operations=(StockOp, UpdatedShell),
         sketches=(SketchValue,),

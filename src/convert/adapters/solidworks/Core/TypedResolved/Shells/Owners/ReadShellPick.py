@@ -6,6 +6,10 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.CheckShellChsr import (
     CheckShellChsr,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.CheckFreshPick import (
+    CheckFreshPick,
+    CheckFreshRoles,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.ReadShellRefs import (
     ReadShellComp,
     ReadShellRefs,
@@ -22,6 +26,8 @@ def ReadShellPick(
     Stock: ShellStock,
     AtomNode: ArchiveNode,
     TopHeader: ArchiveNode,
+    *,
+    IsSaved: bool,
 ) -> ArchiveNode:
     Fields = ShellNode.FieldsValue
     Picks = RequireNative(Fields.get("f828"), "suObList").FieldsValue
@@ -41,8 +47,12 @@ def ReadShellPick(
     StockNode = Stock.OwnerValue.NodeValue
     TopRef = ReadShellComp(LinkValue, FaceValue, AtomId, True)
     EdgeRef = ReadShellComp(LinkValue, EdgeValue, AtomId, False)
-    TopKeys = ReadShellRefs(LinkValue, TopRef, StockNode, TopHeader, IsFace=True)
-    EdgeKeys = ReadShellRefs(LinkValue, EdgeRef, StockNode, TopHeader, IsFace=False)
+    TopKeys, TopHistory = ReadShellRefs(
+        LinkValue, TopRef, StockNode, TopHeader, IsFace=True
+    )
+    EdgeKeys, EdgeHistory = ReadShellRefs(
+        LinkValue, EdgeRef, StockNode, TopHeader, IsFace=False
+    )
     Sides = {
         ("moFromSktEntSurfIdRep_c", Value.PermanentId, None)
         for Value in Stock.LoopValue.LinesValue
@@ -57,5 +67,9 @@ def ReadShellPick(
         raise ValueError(
             "SOLIDWORKS shell removed face is outside the actual stock cap profile"
         )
-    CheckShellChsr(LinkValue, StockNode, TopHeader, TopKeys)
+    if IsSaved:
+        CheckShellChsr(LinkValue, StockNode, TopHeader, TopKeys)
+    else:
+        CheckFreshPick(FaceValue, EdgeValue, TopHistory + EdgeHistory)
+        CheckFreshRoles(FaceValue, EdgeValue, Stock.LoopValue, TopKeys, EdgeKeys)
     return TopRef

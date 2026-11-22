@@ -1,0 +1,490 @@
+{
+  "baseline_commit": "c24b9bf7c77fcde998bb39f3045c173c50247b61",
+  "guarded_generated_shell_reads": {
+    "frozen": {
+      "cases": {
+        "OpenShellCalibration": {
+          "bytes": 8885,
+          "native_process_launches": 0,
+          "permissive_refusal_runs": 8,
+          "readback": [
+            {
+              "atom": 101,
+              "brep": true,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.028,
+                0.0028
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                18559.407999999992,
+                13783.119999999999,
+                -1.0658141036401503e-14,
+                3.552713678800501e-15,
+                10.810327743212497
+              ]
+            },
+            {
+              "atom": 101,
+              "brep": false,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.028,
+                0.0028
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                18559.407999999992,
+                13783.119999999999,
+                -1.0658141036401503e-14,
+                3.552713678800501e-15,
+                10.810327743212497
+              ]
+            }
+          ],
+          "refusals": {
+            "bottom_as_top": "removed face is outside the actual stock cap",
+            "different_history_file": "alternate clip, point or history ownership",
+            "foreign_partition": "unqualified physical stream",
+            "live_thickness": "differs from its linked display value",
+            "putative_saved_partition": "stock has unsupported blind end state",
+            "reordered_auxiliary": "ordered stock cap and edge roles",
+            "saved_atom_stamp": "body stamp contradicts its partition state",
+            "swapped_manager": "alternate configuration or linked body state"
+          },
+          "runtime_data_reads": 0,
+          "source_sha256": "84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1",
+          "streams": 10,
+          "strict_refusal_runs": 16,
+          "writer_refusals": {
+            "direct": "ValueError",
+            "registry": "AdapterNotFoundError"
+          }
+        },
+        "OpenShellDistinct": {
+          "bytes": 8914,
+          "native_process_launches": 0,
+          "permissive_refusal_runs": 0,
+          "readback": [
+            {
+              "atom": 101,
+              "brep": true,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.023,
+                0.001875
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                14392.1484375,
+                15775.375,
+                -3.0,
+                7.5,
+                7.852969046436452
+              ]
+            },
+            {
+              "atom": 101,
+              "brep": false,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.023,
+                0.001875
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                14392.1484375,
+                15775.375,
+                -3.0,
+                7.5,
+                7.852969046436452
+              ]
+            }
+          ],
+          "refusals": {},
+          "runtime_data_reads": 0,
+          "source_sha256": "df63c4c39f73d50b48cf17fb68361581823195a74b3909e4190c79636c4b1fec",
+          "streams": 10,
+          "strict_refusal_runs": 0,
+          "writer_refusals": {
+            "direct": "ValueError",
+            "registry": "AdapterNotFoundError"
+          }
+        },
+        "OpenShellTranslated": {
+          "bytes": 8919,
+          "native_process_launches": 0,
+          "permissive_refusal_runs": 0,
+          "readback": [
+            {
+              "atom": 101,
+              "brep": true,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.036000000000000004,
+                0.00415
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                34018.75349999999,
+                17224.58,
+                8.499999999999996,
+                -12.25,
+                14.901582931676197
+              ]
+            },
+            {
+              "atom": 101,
+              "brep": false,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.036000000000000004,
+                0.00415
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                34018.75349999999,
+                17224.58,
+                8.499999999999996,
+                -12.25,
+                14.901582931676197
+              ]
+            }
+          ],
+          "refusals": {},
+          "runtime_data_reads": 0,
+          "source_sha256": "bf778bbd668b5600172f37e3a6c8b842ef4ffdeed72cb61e60b9a691e0b94e84",
+          "streams": 10,
+          "strict_refusal_runs": 0,
+          "writer_refusals": {
+            "direct": "ValueError",
+            "registry": "AdapterNotFoundError"
+          }
+        }
+      },
+      "format_codec": "1.2.12",
+      "fresh_guarded_workers": 3,
+      "generated_authority_sha256": "294fe57fc50e8a4968eecf5b33bd9339df30b134857672033016e11b9cdd5c19",
+      "heldout_credit": 0,
+      "published_native_outputs": 0,
+      "report_sha256": "ab66e21012e8e5588aafd6b288699547cb9dcb2cfdc399157d9c397f353d0941",
+      "schema": "kit-sw2026-cold-open-shell-sdk-v1"
+    },
+    "independent": {
+      "cases": {
+        "IndependentColdShell": {
+          "bytes": 8949,
+          "native_process_launches": 0,
+          "permissive_refusal_runs": 8,
+          "readback": [
+            {
+              "atom": 101,
+              "brep": true,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.03325,
+                0.0031000000000000003
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                28355.824000000004,
+                18971.43,
+                -12.25,
+                9.625000000000004,
+                12.843963607352762
+              ]
+            },
+            {
+              "atom": 101,
+              "brep": false,
+              "counts": [
+                1,
+                1,
+                11,
+                24,
+                16
+              ],
+              "drivers": [
+                "sldprt:parameter:19:D1",
+                "sldprt:parameter:26:D1"
+              ],
+              "json_roundtrip": true,
+              "native_metres": [
+                0.03325,
+                0.0031000000000000003
+              ],
+              "root_count": 20,
+              "selection": [
+                "sldprt:feature:19",
+                "face:1"
+              ],
+              "values": [
+                28355.824000000004,
+                18971.43,
+                -12.25,
+                9.625000000000004,
+                12.843963607352762
+              ]
+            }
+          ],
+          "refusals": {
+            "bottom_as_top": "removed face is outside the actual stock cap",
+            "different_history_file": "alternate clip, point or history ownership",
+            "foreign_partition": "unqualified physical stream",
+            "live_thickness": "differs from its linked display value",
+            "putative_saved_partition": "stock has unsupported blind end state",
+            "reordered_auxiliary": "ordered stock cap and edge roles",
+            "saved_atom_stamp": "body stamp contradicts its partition state",
+            "swapped_manager": "alternate configuration or linked body state"
+          },
+          "runtime_data_reads": 0,
+          "source_sha256": "d0b47b0484a651614e40cc9fe54a1312611f92bac0ea986f7afcaba0b1dd8f52",
+          "streams": 10,
+          "strict_refusal_runs": 16,
+          "writer_refusals": {
+            "direct": "ValueError",
+            "registry": "AdapterNotFoundError"
+          }
+        }
+      },
+      "format_codec": "1.2.12",
+      "fresh_guarded_workers": 1,
+      "generated_authority_sha256": null,
+      "heldout_credit": 0,
+      "published_native_outputs": 0,
+      "report_sha256": "057a7967c788c8855d8b128d838297a935740e43c8830937624f231137ada087",
+      "schema": "kit-sw2026-cold-open-shell-sdk-v1"
+    }
+  },
+  "guarded_probe_sha256": "e04e7f5ea43220954b37ca184a9ed4f195f71072fcc88329fceae1dd8fb2b677",
+  "heldout_credit": 0,
+  "native_files_published": 0,
+  "native_process_launches": 0,
+  "ordinary_cold_chamfer_controls": [
+    {
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "direct_and_registry_routes": 2,
+      "mode_word": 18,
+      "report_sha256": "d36e2e92507c1da66bce776d68a1d51030ac42f10ab4b41b5516cbe9a4dfb3a3",
+      "runtime_data_reads": 0,
+      "strict_readback_routes": 2
+    },
+    {
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "direct_and_registry_routes": 2,
+      "mode_word": 2,
+      "report_sha256": "c71f2038efabac8ad2a92f001603d1c64afffd04a949f8db45fabcb63f8ed3e2",
+      "runtime_data_reads": 0,
+      "strict_readback_routes": 2
+    }
+  ],
+  "ordinary_warm_chamfer_controls": {
+    "cases": {
+      "EqualEdited": {
+        "cases": {
+          "False": {
+            "native_payload_hashes": []
+          },
+          "True": {
+            "native_payload_hashes": [
+              "3851e8e4c492c6d939f4c79a81985505485449af7a1fa5d155965718c75d2a88",
+              "d60b5614dbb1ba1515ec0a15c665394283ed91d64fef8c9cefb6f816e92f2c14"
+            ]
+          }
+        },
+        "permissive_topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "runtime_data_reads": 0,
+        "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+        "strict_refusals": 2
+      },
+      "EqualOriginal": {
+        "cases": {
+          "False": {
+            "native_payload_hashes": []
+          },
+          "True": {
+            "native_payload_hashes": [
+              "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+              "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf"
+            ]
+          }
+        },
+        "permissive_topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "runtime_data_reads": 0,
+        "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+        "strict_refusals": 2
+      },
+      "UnequalEdited": {
+        "cases": {
+          "False": {
+            "native_payload_hashes": []
+          },
+          "True": {
+            "native_payload_hashes": [
+              "6e83c09b529879ed19d34def9eef966079d20f5fa72fdb63106354dd3f1e8acc",
+              "17091c1a7ddd70abd4a6ae772b581b6876039060d84267abe4bf8ddb110a4746"
+            ]
+          }
+        },
+        "permissive_topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "runtime_data_reads": 0,
+        "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+        "strict_refusals": 2
+      },
+      "UnequalOriginal": {
+        "cases": {
+          "False": {
+            "native_payload_hashes": []
+          },
+          "True": {
+            "native_payload_hashes": [
+              "a49f99d2fbd37644a37a3ba5fa51e35aa95a35e2fd0527d910af30312f81f912",
+              "54d0b8bb12d3a3882bbd1aa2cd034f74da3cb54be3091c82251c8b1576f2ed41"
+            ]
+          }
+        },
+        "permissive_topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "runtime_data_reads": 0,
+        "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+        "strict_refusals": 2
+      }
+    },
+    "report_sha256": "0383d7e37dd5d7e8ac24b8ec0fbd661af8b5b7b516a0e365a2df1f13df9bafe7"
+  },
+  "production_src_tree": "c387588a8abed365cf12697b3c10dbf288a10dda",
+  "saved_shell_and_l1": {
+    "byte_identical_prior_receipt_sha256": "ef24758701bc7c64f5c3518ac4e8819423b5335e2fdbae73d5108e672badfe3e",
+    "workers": 3
+  },
+  "schema": "kit-sw2026-cold-open-shell-scope-verification-v1"
+}
