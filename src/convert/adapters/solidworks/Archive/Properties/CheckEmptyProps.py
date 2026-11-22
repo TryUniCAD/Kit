@@ -14,8 +14,8 @@ def RequireOwner(NodeValue: object, ClassName: str) -> Mapping[str, object]:
     return NodeValue.FieldsValue
 
 
-# all advanced file and cut list scopes must be empty before a legacy text absence proof
-def CheckEmptyProps(RootValue: ArchiveNode) -> None:
+# actual file and cut list scopes must be empty before projecting literal text
+def CheckEmptyProps(RootValue: ArchiveNode, *, RequireCutOwner: bool = False) -> None:
     FieldsValue = RootValue.FieldsValue
     StateValue = (FieldsValue["f0c"], FieldsValue["f08"], FieldsValue["f54"])
     RowsValue = CastValue(Sequence[Mapping[str, object]], FieldsValue["f20"])
@@ -25,13 +25,21 @@ def CheckEmptyProps(RootValue: ArchiveNode) -> None:
         raise ValueError("part property manager policy is outside the empty profile")
     Container = RequireOwner(RowsValue[0]["o"], "moCusPropContainer_c")
     FileValue = RequireOwner(Container["f08"], "moFilePropContainer_c")
-    CutValue = RequireOwner(Container["f10"], "moCutListPropContainer_c")
+    CutNode = Container["f10"]
+    CutValue = (
+        RequireOwner(CutNode, "moCutListPropContainer_c")
+        if RequireCutOwner or CutNode is not None
+        else None
+    )
     if (
         FileValue["f08"] is not None
         or FileValue["f10"] is not None
-        or CutValue["f08"]
-        or CutValue["f38"]
+        or (CutValue is not None and (CutValue["f08"] or CutValue["f38"]))
         or Container["f18"] is not None
         or Container["f20"] != 0
     ):
-        raise ValueError("legacy part property manager has nonempty native scopes")
+        raise ValueError(
+            "legacy part property manager has nonempty native scopes"
+            if RequireCutOwner
+            else "unsupported SOLIDWORKS native field path populated advanced property manager"
+        )

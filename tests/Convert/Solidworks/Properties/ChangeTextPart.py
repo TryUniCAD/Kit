@@ -2,6 +2,7 @@ from pathlib import Path as FilePath
 
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from tests.Convert.Solidworks.Properties.ChangeTextCmgr import ChangeTextCmgr
+from tests.Convert.Solidworks.Properties.ChangeTextHdr import ChangeTextHdr
 from tests.Convert.Solidworks.Properties.ChangeTextXml import ChangeTextXml
 from tests.Convert.Solidworks.Properties.MakeAdvPropManager import MakeAdvProps
 
@@ -14,9 +15,13 @@ def ChangeTextPart(SourcePath: FilePath, FaultValue: str) -> FilePath:
         StreamsValue["docProps/Config-19-Properties.xml"] = StreamsValue.pop(
             "docProps/Config-0-Properties.xml"
         )
-    elif FaultValue in ("stale-owner", "stale-cache"):
+    elif FaultValue == "stale-owner":
+        StreamsValue["Contents/CMgrHdr2"] = ChangeTextHdr(
+            StreamsValue["Contents/CMgrHdr2"]
+        )
+    elif FaultValue in ("stale-cache", "stale-cache-owner"):
         StreamsValue["Contents/CMgr"] = ChangeTextCmgr(
-            StreamsValue["Contents/CMgr"], FaultValue == "stale-owner"
+            StreamsValue["Contents/CMgr"], FaultValue == "stale-cache-owner"
         )
     elif FaultValue == "malformed":
         StreamsValue["docProps/custom.xml"] = b"<Properties>"

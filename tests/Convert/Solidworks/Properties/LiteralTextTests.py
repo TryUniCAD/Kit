@@ -57,4 +57,4 @@ def TestJsonInspect() -> None:
     assert Refusals.keys() == {"without_carrier", "with_carrier"}
     for Reason in Refusals.values():
         assert Reason.startswith("native-only feature definitions cannot be exported")
-        assert "sldprt:feature:-1 (solidworks.sldprt:Sheet-Metal Master)" in Reason
+        assert "sldprt:feature:18 (solidworks.sldprt:ProfileFeature)" in Reason

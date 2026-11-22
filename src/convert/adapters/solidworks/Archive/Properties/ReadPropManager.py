@@ -48,12 +48,7 @@ def ReadPropManager(BufferValue: bytes, VersionValue: int) -> None:
         or ReaderValue.Cursor.GetRemaining()
     ):
         raise ValueError("part properties require an empty compatible native manager")
-    if VersionValue == 18000:
-        CheckEmptyProps(RootValue)
-    elif tuple(
-        RootValue.FieldsValue[NameValue] for NameValue in ("f0c", "f08", "n20", "f54")
-    ) != (-1, 0, 0, 0):
-        raise ValueError("part properties require an empty compatible native manager")
+    CheckEmptyProps(RootValue, RequireCutOwner=VersionValue == 18000)
 
 
 # the typed manager must consume its complete rooted stream with its independent archive map

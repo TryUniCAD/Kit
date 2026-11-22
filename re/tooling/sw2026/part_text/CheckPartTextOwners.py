@@ -102,8 +102,12 @@ def measure(path):
     if baseline["status"]["status"] != "complete" or not all(baseline["text_scopes"]):
         raise ValueError("the unmodified control must recover all authored text scopes")
     rows = {
-        "wrong_header_name": exercise(header, doc, baseline, archive.require(LANE), HEADER_CAUSE, ()),
-        "wrong_block_owner": exercise(archive, doc, baseline, block, BLOCK_CAUSE, ()),
+        "wrong_header_name": exercise(
+            header, doc, baseline, archive.require(LANE), HEADER_CAUSE, (), config_rejected=False,
+        ),
+        "wrong_block_owner": exercise(
+            archive, doc, baseline, block, BLOCK_CAUSE, (), config_rejected=True,
+        ),
     }
     unscoped = {key: value for key, value in header.streams.items() if key != CONFIG_TEXT}
     independent = read_part(BuildSldprt(unscoped, FormatVersion=archive.format_version))
@@ -116,7 +120,7 @@ def measure(path):
     if events or path.read_bytes() != native:
         raise ValueError("guarded owner inspection modified or accessed external data")
     return {
-        "schema": "kit.sw2026.literal-part-text-owners.v1",
+        "schema": "kit.sw2026.literal-part-text-owners.v2",
         "source_sha256": SOURCE_SHA,
         "positive_config": CONFIG_SHA,
         "original_header": sha256(archive.require(HEADER)).hexdigest(),

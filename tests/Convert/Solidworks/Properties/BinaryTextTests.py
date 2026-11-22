@@ -14,11 +14,14 @@ KOwnerCause = (
     "part property manager has unsupported owner placement"
 )
 
-# the scoped modern lane requires the measured empty native manager
-KAdvancedCause = "part properties require an empty compatible native manager"
+# an independently encoded nonzero unknown policy is outside the measured empty profile
+KUnknownCause = "part property manager policy is outside the empty profile"
 
 # the controls bind the unchanged advanced manager and the current empty manager
 KAdvancedHash = "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036"
+
+# the changed signed policy is the only edit in the original advanced manager
+KPolicyHash = "68ddf954035f094bc198fef05d289ca8550eb929d30c2d057944b1dbd48b7e91"
 
 # the supported empty control must retain the original manager bytes
 KEmptyHash = "becd5b67dff32e75102e20443e9e3a3f3def6896ebf05ae7dc188bcaae57ff58"
@@ -34,7 +37,7 @@ def TestBinaryText() -> None:
     )
     for NameValue, CauseValue in (
         ("malformed", KOwnerCause),
-        ("advanced", KAdvancedCause),
+        ("unknown-policy", KUnknownCause),
     ):
         StateValue = CastValue(dict[str, object], ReportValue[NameValue])
         assert StateValue["geometry_equal"] is True
@@ -58,13 +61,30 @@ def TestBinaryText() -> None:
     assert LegacySupport.startswith("unqualified SOLIDWORKS sketch support references")
     assert LegacySupport.endswith("sldprt:sketch:40")
     EmptyValue = CastValue(dict[str, object], ReportValue["empty"])
-    assert EmptyValue["manager_sha256"] == KEmptyHash
-    assert Advanced["property_xml"] == EmptyValue["property_xml"] == []
-    assert EmptyValue["status"] is None and EmptyValue["diagnostics"] == []
-    assert EmptyValue["text_scopes"] == [False, False, False]
-    assert EmptyValue["configuration"] == ["modeled default", True, 0]
-    assert EmptyValue["body"] == ["sldprt:body:1", 1, 1, 1]
-    assert EmptyValue["geometry_equal"] is True
-    Portability = CastValue(str, EmptyValue["portability_refusal"])
+    UnknownValue = CastValue(dict[str, object], ReportValue["unknown-policy"])
+    assert (
+        UnknownValue["property_xml"]
+        == Advanced["property_xml"]
+        == EmptyValue["property_xml"]
+        == []
+    )
+    assert UnknownValue["result_manager_sha256"] == KPolicyHash
+    CheckEmptyText(Advanced, KAdvancedHash, "Default", 26)
+    CheckEmptyText(EmptyValue, KEmptyHash, "modeled default", 18)
+
+
+# both physically different empty controls reach the independent native feature gate
+def CheckEmptyText(
+    StateValue: dict[str, object], HashValue: str, NameValue: str, OwnerId: int
+) -> None:
+    assert (
+        StateValue["manager_sha256"] == StateValue["result_manager_sha256"] == HashValue
+    )
+    assert StateValue["status"] is None and StateValue["diagnostics"] == []
+    assert StateValue["text_scopes"] == [False, False, False]
+    assert StateValue["configuration"] == [NameValue, True, 0]
+    assert StateValue["body"] == ["sldprt:body:1", 1, 1, 1]
+    assert StateValue["geometry_equal"] is True
+    Portability = CastValue(str, StateValue["portability_refusal"])
     assert Portability.startswith("native-only feature definitions cannot be exported")
-    assert "sldprt:feature:-1 (solidworks.sldprt:Sheet-Metal Master)" in Portability
+    assert f"sldprt:feature:{OwnerId} (solidworks.sldprt:ProfileFeature)" in Portability

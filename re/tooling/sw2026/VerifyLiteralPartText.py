@@ -237,39 +237,31 @@ def public_refusal(read, asset, include_brep):
     raise ValueError("a pre-existing unsupported modeling profile changed")
 
 
-def property_only(archive, read, path, expected_sha):
-    from convert.adapters.solidworks.Core.Adapter import Configurations, NativePartModel
-    from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
-    from interchange.document.Models.DocumentModel import CadDocument
-    from interchange.Records.RecordSource import CadSource
-
-    refusals = {}
-    for include_brep, expected in (
-        (True, "SLDPRT contains no readable Parasolid payload"),
-        (False, "sketch sldprt:sketch:18 references missing plane"),
-    ):
-        actual = public_refusal(read, path, include_brep)
-        baseline = public_refusal(
-            lambda asset, **options: old_read(read, asset, **options),
-            path,
-            include_brep,
-        )
-        require(
-            actual == baseline == expected,
-            "generated fixture's prior public refusal differs",
-        )
-        refusals[str(include_brep).lower()] = actual
-    subject = CadDocument(
-        source=CadSource("solidworks.sldprt", "", expected_sha),
-        configurations=Configurations(NativePartModel(archive, None), None),
-        parameters=(),
-        support_planes=(),
-        sketches=(),
-        selections=(),
-        feature_timeline=(),
-        bodies=(),
+def generated_history(read, path, case):
+    actual = read(path, include_brep=False)
+    compare_document(actual, old_read(read, path, include_brep=False))
+    refusal = public_refusal(read, path, True)
+    require(
+        refusal == public_refusal(
+            lambda asset, **options: old_read(read, asset, **options), path, True,
+        ) == "SLDPRT contains no readable Parasolid payload",
+        "generated fixture acquired an unverified strict solid",
     )
-    return WithPartProps(subject, archive), refusals
+    outline, depths, owner = (
+        (3, (12.75,), "sldprt:feature:19") if case == "PolygonGenerated"
+        else (1, (22.95, 17.825), "sldprt:feature:20")
+    )
+    sketch, = actual.sketches
+    body, = actual.bodies
+    require(
+        actual.brep is None and not actual.brep_payloads
+        and len(actual.feature_timeline) == 19
+        and tuple(map(len, sketch.closed_profile_entity_ids)) == (outline,)
+        and tuple(param.value.value for param in actual.parameters) == depths
+        and body.final_feature_id == owner,
+        "generated history lost its actual outline, driver, or body producer",
+    )
+    return actual, refusal
 
 
 def inspect(root, case):
@@ -312,10 +304,13 @@ def inspect(root, case):
         "native_property_manager_bytes": None if manager is None else len(manager),
     }
     if case.endswith("Generated"):
-        actual, row["existing_public_refusals"] = property_only(
-            archive, read, path, expected_sha
+        actual, row["strict_geometry_refusal"] = generated_history(
+            read, path, case
         )
-        row["boundary"] = "typed_property_projection"
+        row["boundary"] = "public_design_history"
+        row["preserved_feature_rows"] = len(actual.feature_timeline)
+        row["preserved_sketches"] = len(actual.sketches)
+        row["preserved_parameters"] = len(actual.parameters)
     else:
         actual = read(path)
         baseline = old_read(read, path)
@@ -410,7 +405,7 @@ def main():
     print(
         json.dumps(
             {
-                "schema": "kit.sw2026.literal-part-text-read.v1",
+                "schema": "kit.sw2026.literal-part-text-read.v2",
                 "passed": True,
                 "fresh_processes": len(rows),
                 "native_processes_started": 0,

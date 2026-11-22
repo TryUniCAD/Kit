@@ -30,6 +30,10 @@ def TestTextScope(TmpPath: FilePath) -> None:
         Document = RunPublicRead(ChangeTextPart(SourcePath, FaultValue))
         InfoValue = Document.metadata["solidworks.part_text_properties"]
         assert isinstance(InfoValue, dict) and InfoValue["status"] == "unsupported"
+        if FaultValue == "stale-owner":
+            assert InfoValue["diagnostic"] == (
+                "part configuration properties differ from their native owner"
+            )
         assert (
             "custom_properties" not in Document.metadata
             and "document_summary" not in Document.metadata

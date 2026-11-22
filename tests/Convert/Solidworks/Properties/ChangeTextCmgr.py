@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Archive.Cmgr.WriteCmgrMut import WriteCmgrMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# native binary cache values may lag live xml while stale configuration owner names must remain detectable
+# native binary cache values and names may lag the live configuration directory
 def ChangeTextCmgr(BufferValue: bytes, IsStaleOwner: bool) -> bytes:
     GraphValue = ReadCmgrMut(BufferValue, 19000)
     (ConfigValue,) = ReadCmgrRows(GraphValue.RootValue)

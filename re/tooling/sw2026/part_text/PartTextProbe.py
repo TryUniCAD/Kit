@@ -9,6 +9,7 @@ from convert import open_document
 
 PROPERTY_STATUS = "solidworks.part_text_properties"
 PROPERTY_DIAGNOSTIC = "solidworks.part_text_properties_unavailable"
+CIRCULAR_PROFILE_OWNER = "sldprt:feature:18 (solidworks.sldprt:ProfileFeature)"
 
 
 def read_part(source, strict=True):

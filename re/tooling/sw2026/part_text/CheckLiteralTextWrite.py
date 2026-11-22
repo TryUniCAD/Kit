@@ -6,7 +6,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from PartTextProbe import model_state, read_part, refuse_output
+from PartTextProbe import CIRCULAR_PROFILE_OWNER, model_state, read_part, refuse_output
 from convert import open_document, write_document
 
 
@@ -28,7 +28,7 @@ def inspect(source):
         name: refuse_output(
             partial(write_document, original, destination_format="interchange.json", allow_carrier=carrier),
             "native-only feature definitions cannot be exported",
-            "sldprt:feature:-1", "Sheet-Metal Master",
+            CIRCULAR_PROFILE_OWNER,
         )
         for name, carrier in (("without_carrier", False), ("with_carrier", True))
     }
