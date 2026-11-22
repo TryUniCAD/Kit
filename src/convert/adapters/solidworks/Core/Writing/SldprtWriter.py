@@ -32,6 +32,7 @@ class SldprtWriter(PairProtocol):
             return (
                 PathValue.suffix.casefold() == KPartSuffix
                 and PathValue.stem == PlanValue.NameValue
+                and not PathValue.is_dir()
             )
         return IsBinaryTarget(Target)
 

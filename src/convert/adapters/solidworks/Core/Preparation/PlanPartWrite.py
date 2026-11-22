@@ -1,6 +1,7 @@
 from math import isfinite as IsFinite
 
-from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing
+from convert.Geometry.Extrude.Polygon.PrismRing import CheckSimpleRing, MeasureRing
+from convert.Geometry.Extrude.Polygon.RingPredicates import ToRingGrid
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
@@ -24,6 +25,9 @@ def PlanPartWrite(DocumentValue: CadDocument) -> BlindPlan:
     PlanValue = ProjectBlind(DocumentValue, ReadLineLoop)
     if DocumentValue.units != "mm" or PlanValue.PlaneName != "Front Plane":
         raise ValueError("native part preparation requires millimetres and Front Plane")
+    MetrePoints = tuple(PlaneVector(*PointValue) for PointValue in PlanValue.VerticesValue)
+    ExactPoints, _ = ToRingGrid(MetrePoints)
+    CheckSimpleRing(ExactPoints)
     _, AreaValue, Perimeter = MeasureRing(
         tuple(
             PlaneVector(XCoord * 1000.0, YCoord * 1000.0)

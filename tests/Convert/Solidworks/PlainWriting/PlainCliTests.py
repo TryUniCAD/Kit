@@ -57,6 +57,7 @@ def RefuseBadLoops(
 ) -> None:
     for Points in (
         ((0.0, 0.0), (6.0, 0.0), (12.0, 0.0), (2.0, 9.0)),
+        ((0.0, 0.0), (1.0, 17.0), (3.0, 51.0), (0.0, 100.0)),
         tuple((float(Index), float(Index * Index)) for Index in range(65)),
     ):
         _ = Source.write_text(
@@ -65,3 +66,31 @@ def RefuseBadLoops(
         with RaisesError(NotFoundError, match="does not support the destination"):
             RunCommand(Candidate)
         assert Target.read_bytes() == Written
+
+
+# file overwrite authorization must protect a directory that has the part extension
+def TestTargetDir() -> None:
+    with TempDir() as FolderName:
+        Folder = FilePath(FolderName)
+        Source = Folder / "Neutral.json"
+        Target = Folder / "Candidate.SLDPRT"
+        Target.mkdir()
+        Marker = Target / "measurements.json"
+        _ = Marker.write_bytes(b"protected measurements")
+        Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
+        _ = Source.write_text(Document.to_json(), encoding="utf-8")
+        Options = CliOptions()
+        _ = BuildParser("0.0.0").parse_args(
+            [
+                "convert",
+                str(Source),
+                str(Target),
+                "--allow-unverified-native",
+                "--overwrite",
+            ],
+            namespace=Options,
+        )
+        with RaisesError(NotFoundError, match="does not support the destination"):
+            RunCommand(Options)
+        assert Marker.read_bytes() == b"protected measurements"
+        assert set(Folder.iterdir()) == {Source, Target}
