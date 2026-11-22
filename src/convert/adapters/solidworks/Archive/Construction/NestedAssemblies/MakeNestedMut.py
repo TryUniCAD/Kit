@@ -11,8 +11,8 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.MakeAsmBase impor
 from convert.adapters.solidworks.Archive.Construction.Assembly.MakeAsmGraphs import (
     MakeAsmGraphs,
 )
-from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.CheckTarget import (
-    CheckTarget,
+from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.CheckTargetMut import (
+    CheckTargetMut,
 )
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.ReadTargetBox import (
     ReadTargetBox,
@@ -23,8 +23,8 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetAudi
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
-from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.CheckNestedIn import (
-    CheckNestedIn,
+from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.CheckNestedMut import (
+    CheckNestedMut,
 )
 from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.EmitNestedAsm import (
     EmitNestedAsm,
@@ -42,13 +42,13 @@ from convert.adapters.solidworks.Container.Container import BuildSldprt
 
 
 # a true recursive assembly must derive every reference count bound header stream and container from actual generated targets and authored rigid placements
-def MakeNestedAsm(
+def MakeNestedMut(
     InputValue: AssemblyInput,
     Placements: tuple[TargetPlacement, ...],
     AuditValue: TargetAudit | None = None,
 ) -> TargetDocument:
     ScopeValue = TargetAudit() if AuditValue is None else AuditValue
-    CheckNestedIn(InputValue, Placements, ScopeValue)
+    CheckNestedMut(InputValue, Placements, ScopeValue)
     StateValue = MakeAsmBase(InputValue)
     HeadersValue = MakeAsmHeaders(StateValue, InputValue)
     References = MakePlacedRefs(
@@ -81,5 +81,5 @@ def MakeNestedAsm(
         StreamsValue=StreamsValue.StreamsValue,
         BytesValue=BuildSldprt(StreamsValue.StreamsValue, FormatVersion=4),
     )
-    CheckTarget(ResultValue, ScopeValue)
+    CheckTargetMut(ResultValue, ScopeValue)
     return ResultValue

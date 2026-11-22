@@ -13,8 +13,8 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocu
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
-from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.MakeNestedAsm import (
-    MakeNestedAsm,
+from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.MakeNestedMut import (
+    MakeNestedMut,
 )
 from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.TargetPlacement import (
     TargetPlacement,
@@ -87,7 +87,7 @@ def PrepNestedPlan(
                 TargetPlacement(Targets[IdValue], Value)
                 for IdValue, Value in PlanValue.PlacementsValue[Definition.id]
             )
-            Value = MakeNestedAsm(Recipe, Placements, AuditValue)
+            Value = MakeNestedMut(Recipe, Placements, AuditValue)
         else:
             PartRecipe = ReplaceValue(
                 MakePartRecipe(LeafValue.PartValue, WrittenAt), OutputValue=SelfFile

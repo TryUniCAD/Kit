@@ -17,7 +17,7 @@ class TargetAudit:
     PathsValue: dict[str, int] = FieldValue(default_factory=dict[str, int])
 
     # different generated roots must never own the same native locator
-    def RecordTarget(self, TargetValue: TargetDocument) -> None:
+    def StoreTargetMut(self, TargetValue: TargetDocument) -> None:
         FileValue = ArchiveNode.RequireNode(TargetValue.HeaderValue.FieldsValue["f38"])
         FileKey = NormCase(NormPath(ReadFileKey(FileValue)[1]))
         RootId = id(TargetValue.RootValue)

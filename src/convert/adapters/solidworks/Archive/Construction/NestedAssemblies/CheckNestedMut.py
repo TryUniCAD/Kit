@@ -10,8 +10,8 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.Occurrences.MakeP
 from convert.adapters.solidworks.Archive.Construction.Assembly.Xml.ReadOccName import (
     ReadOccName,
 )
-from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.CheckTarget import (
-    CheckTarget,
+from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.CheckTargetMut import (
+    CheckTargetMut,
 )
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetAudit import (
     TargetAudit,
@@ -22,7 +22,7 @@ from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.TargetPla
 
 
 # recursive publication must reject incomplete targets naming collisions and unsupported geometry before mutating a fresh parent model
-def CheckNestedIn(
+def CheckNestedMut(
     InputValue: AssemblyInput,
     Placements: tuple[TargetPlacement, ...],
     AuditValue: TargetAudit,
@@ -50,7 +50,7 @@ def CheckNestedIn(
             "recursive assembly feature and occurrence names must be distinct"
         )
     for ItemValue in Placements:
-        CheckTarget(ItemValue.TargetValue, AuditValue)
+        CheckTargetMut(ItemValue.TargetValue, AuditValue)
         _ = MakePlacement(ItemValue.OccurrenceValue.FrameValue)
         _ = ReadOccName(ItemValue.OccurrenceValue.NameValue)
     AuditValue.CheckParent(InputValue.OutputValue.PathName)
