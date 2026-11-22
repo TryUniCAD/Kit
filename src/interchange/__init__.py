@@ -130,6 +130,7 @@ from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureCfgState, FeatureStep
 from interchange.Features.ScopedExtrude import ScopedExtrude
+from interchange.Features.SweepFeature import SweepFeature
 from interchange.geometry.Models.GeometryConics import (
     ArcEllipseGeom,
     ArcHyperGeom,
@@ -431,6 +432,7 @@ __all__ = (
     "SphereSurface",
     "SplineGeometry",
     "SupportPlane",
+    "SweepFeature",
     "SpaceVector",
     "TopologySummary",
     "TorusSurface",
