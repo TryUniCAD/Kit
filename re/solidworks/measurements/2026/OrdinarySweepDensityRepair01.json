@@ -1,0 +1,292 @@
+{
+  "blocked_runtime_calls": 0,
+  "cases": [
+    {
+      "affected_streams": {
+        "Contents/Config-0": {
+          "after_sha256": "335543e538f27ae74ad4468cbe6177c463de034449f9e6f26df86e1d95226af4",
+          "before_sha256": "2270f7527c2d5c4df15a99cc3bba447411db60d5ddc45d2987673b31c9089ecc"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "after_sha256": "eb39656ca1b0c4ba78ad89241988197db793eabcb40e05665670bbf931975edc",
+          "before_sha256": "0b3c3e047ae5c27a536083ea56f261fa5892125ef9919d2e13452a916531ffa8"
+        }
+      },
+      "candidate_sha256": "7ff1baf90a52aab18fb88775eb89067d4ad7103afe45bdd1e2bffa08e63aa546",
+      "cold_solids": 1,
+      "exact_source_tree_rows": 26,
+      "geometry_checks": [
+        {
+          "absolute_error": 0.0,
+          "absolute_tolerance": 5e-11,
+          "actual": 5.8656805240473824e-05,
+          "expected": 5.8656805240473824e-05,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open cap area",
+          "passed": true
+        },
+        {
+          "absolute_error": 0.0,
+          "absolute_tolerance": 5e-11,
+          "actual": 5.8656805240473824e-05,
+          "expected": 5.8656805240473824e-05,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open cap area",
+          "passed": true
+        },
+        {
+          "absolute_error": 2.168404344971009e-19,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.0012240842293928258,
+          "expected": 0.0012240842293928255,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open total curved area",
+          "passed": true
+        },
+        {
+          "absolute_error": 4.235164736271502e-22,
+          "absolute_tolerance": 5e-12,
+          "actual": 2.6446339776032e-06,
+          "expected": 2.6446339776031996e-06,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open volume",
+          "passed": true
+        },
+        {
+          "absolute_error": 2.168404344971009e-19,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.0013413978398737734,
+          "expected": 0.0013413978398737732,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open area",
+          "passed": true
+        }
+      ],
+      "mismatched_mass_and_density": [
+        {
+          "absolute_error": 8.383489709002084e-05,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.0026446339776032,
+          "expected": 0.002728468874693221,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open mass",
+          "passed": false
+        },
+        {
+          "actual": 1000.0,
+          "expected": 1031.7,
+          "name": "actual document density in kg/m\u00b3",
+          "passed": false
+        }
+      ],
+      "name": "SweepArcNear",
+      "native_receipt_sha256": "24baab046f8ef9289587e386f4a68315ec8eaa5054325f20e3c4911417f4deea",
+      "no_diagnostics": true,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "other_streams_exact": 9,
+      "physical_owner": {
+        "density_kg_m3": 1031.7,
+        "material_slot": 49,
+        "parameter_slot": 51,
+        "physical_span": [
+          2050,
+          2127
+        ]
+      },
+      "same_locator_bytes": 10531,
+      "same_locator_sha256": "7157dbaa4cfefcfb32c521a7a9bbf1a628782103859ad262a465a56f8e1166de"
+    },
+    {
+      "affected_streams": {
+        "Contents/Config-0": {
+          "after_sha256": "7ba08ad437b0b3c4db8f99c353dd68e19b7c2047cfce29bb6e70e9be6d59b39b",
+          "before_sha256": "9d221e99558c6fed18c41017981d72774f1103fee94ace4b41af16710b3d04ab"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "after_sha256": "cfd83f203cdb53cc75bacbc4176bbdc2749db687bd3b45f37805ef239d4149cc",
+          "before_sha256": "0f0864feb6a22827d62929f31930b6d028f99de19f617821641d4bc1e06ec102"
+        }
+      },
+      "candidate_sha256": "77c494856d12c0fff720d415140a60bea79179f2809d7f178bf794b2c36b773f",
+      "cold_solids": 1,
+      "exact_source_tree_rows": 26,
+      "geometry_checks": [
+        {
+          "absolute_error": 1.3552527156068805e-20,
+          "absolute_tolerance": 5e-10,
+          "actual": 0.00010253646027555284,
+          "expected": 0.00010253646027555286,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open cap area",
+          "passed": true
+        },
+        {
+          "absolute_error": 1.3552527156068805e-20,
+          "absolute_tolerance": 5e-10,
+          "actual": 0.00010253646027555284,
+          "expected": 0.00010253646027555286,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open cap area",
+          "passed": true
+        },
+        {
+          "absolute_error": 4.336808689942018e-19,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.002328533407513561,
+          "expected": 0.0023285334075135605,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open total curved area",
+          "passed": true
+        },
+        {
+          "absolute_error": 8.470329472543003e-22,
+          "absolute_tolerance": 5e-12,
+          "actual": 6.651455678562487e-06,
+          "expected": 6.651455678562486e-06,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open volume",
+          "passed": true
+        },
+        {
+          "absolute_error": 4.336808689942018e-19,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.0025336063280646665,
+          "expected": 0.002533606328064666,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open area",
+          "passed": true
+        }
+      ],
+      "mismatched_mass_and_density": [
+        {
+          "absolute_error": 0.00021085114501042963,
+          "absolute_tolerance": 5e-09,
+          "actual": 0.006651455678562487,
+          "expected": 0.006862306823572917,
+          "method": "half_unit_at_sixth_significant_place_or_near_zero",
+          "name": "cold open mass",
+          "passed": false
+        },
+        {
+          "actual": 1000.0,
+          "expected": 1031.7,
+          "name": "actual document density in kg/m\u00b3",
+          "passed": false
+        }
+      ],
+      "name": "SweepArcWide",
+      "native_receipt_sha256": "692838c609e71beb5bdbe06b9ed7d13b3de303552537abf495780df69e3f67d5",
+      "no_diagnostics": true,
+      "open": {
+        "errors": 0,
+        "opened": true,
+        "warnings": 0
+      },
+      "other_streams_exact": 9,
+      "physical_owner": {
+        "density_kg_m3": 1031.7,
+        "material_slot": 49,
+        "parameter_slot": 51,
+        "physical_span": [
+          2050,
+          2127
+        ]
+      },
+      "same_locator_bytes": 10528,
+      "same_locator_sha256": "0cb35fb79fbff48726aecdf931f336a4b8f94204abc092ba23a65c9f35d41f5f"
+    }
+  ],
+  "control_receipt_sha256": {
+    "after": "1ee7224566482058898dc41da919f63b1de191a3e5474cf766f60e2e6399b07f",
+    "before": "f96d96920e8d79fd8dddcff12ae9953fb7cda1d4744edd362e90e729be1b723e"
+  },
+  "disclosed_source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "first_attempt_job_sha256": "0b731785080b3c530d579cee233619f19bf9bbd72e955eca0880c30ae2268a29",
+  "first_attempt_result_sha256": "011dc9148d07bd6a8acaccd58bea7a2cec32209f1fcd07d5b487c6304408ea0e",
+  "heldout_inputs_read": 0,
+  "native_distinct_processes": 4,
+  "native_source_owners": [
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2922,
+        2999
+      ],
+      "slot": 1,
+      "source_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "state": "original"
+    },
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2936,
+        3013
+      ],
+      "slot": 1,
+      "source_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "state": "section"
+    },
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2936,
+        3013
+      ],
+      "slot": 1,
+      "source_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "state": "path"
+    },
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2922,
+        2999
+      ],
+      "slot": 2,
+      "source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "state": "original"
+    },
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2936,
+        3013
+      ],
+      "slot": 2,
+      "source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "state": "section"
+    },
+    {
+      "density_kg_m3": 1031.7,
+      "material_slot": 52,
+      "parameter_slot": 54,
+      "physical_span": [
+        2936,
+        3013
+      ],
+      "slot": 2,
+      "source_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "state": "path"
+    }
+  ],
+  "new_native_processes_started": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "prior_passed": false,
+  "schema": "kit.sw2026.sweep-density-diagnostic.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7"
+}

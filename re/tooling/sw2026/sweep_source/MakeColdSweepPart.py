@@ -5,6 +5,7 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.AtomSeeds import KAt
 from convert.adapters.solidworks.Archive.Construction.Nodes.InitFeatureMut import InitFeatureMut
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import EmitPartArchive
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import MakePartHeaders
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePartDensity import MakePartDensity
 from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef import MakePartDef
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, ReadNodeName
 from convert.adapters.solidworks.Container.Container import BuildSldprt
@@ -49,6 +50,7 @@ def sweep_data(section, path):
 def make_cold_sweep_part(name, section_radius, path_radius, density, epoch, locator=None):
     labels, settings, allocator, system = make_context(name, density, epoch, locator)
     system = authored_members(system, settings, allocator, epoch)
+    system.RootValue.FieldsValue["f1420"] = MakePartDensity(settings.DensityValue)
     profiles = make_sweep_profiles(system, settings, allocator, section_radius, path_radius)
     sweep = make_sweep_node(system, profiles, settings, allocator)
     section_value = profiles.section_d1.ParameterValue.FieldsValue["f58"]
