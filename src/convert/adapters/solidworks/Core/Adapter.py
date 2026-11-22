@@ -433,7 +433,15 @@ def ReadNativePart(
         if LocalOwner is not None
         else FinalBodyId(TimeValues, SolidOpIds)
     )
-    BodyFeature = LocalOwner or SolidBody(Model.features)
+    BodyFeature = (
+        next(
+            Feature
+            for Feature in Model.features
+            if Feature.object_id == Model.operations[0].object_id
+        )
+        if Model.SavedCircleName is not None
+        else LocalOwner or SolidBody(Model.features)
+    )
     MassBody = ActivePart.ModelValue if ActivePart is not None else ColdBrep
     Fallback = TopologySummary(
         solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
@@ -446,7 +454,8 @@ def ReadNativePart(
     Bodies = (
         BodyValue(
             id=KPartBodyId,
-            name=BodyFeature.name if BodyFeature is not None else "Body 1",
+            name=Model.SavedCircleName
+            or (BodyFeature.name if BodyFeature is not None else "Body 1"),
             final_feature_id=FinalFeature,
             topology=Summary,
             provenance=FeatureA(BodyFeature) if BodyFeature is not None else None,
@@ -2336,6 +2345,20 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         return Model
 
     Model = WithTypedNative(Model, Archive)
+    if Model.SavedCircleName is not None:
+        return Model
+    return RefineLegacy(Model, Archive, ConfigStream, SelectedStream, ConfigData, Resolved)
+
+
+# unmatched histories keep their established compatibility and partial scope diagnostics
+def RefineLegacy(
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    ConfigStream: str,
+    SelectedStream: str,
+    ConfigData: bytes,
+    Resolved: bytes,
+) -> NativeModel:
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(

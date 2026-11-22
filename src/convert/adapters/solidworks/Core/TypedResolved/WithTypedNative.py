@@ -106,7 +106,7 @@ def TrySavedCircle(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
     except (KeyError, TypeError, ValueError, OverflowError):
         return Model
     try:
-        return BindSavedCircle(Model, LinkValue, Features, Profile)
+        return BindSavedCircle(Model, LinkValue, Features, Profile, Archive)
     except (KeyError, TypeError, ValueError, OverflowError) as ErrorInfo:
         return ReplaceValue(
             Model,

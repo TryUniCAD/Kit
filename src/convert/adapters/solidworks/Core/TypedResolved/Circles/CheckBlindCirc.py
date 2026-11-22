@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # an analytic circle cannot replace selected bodies draft or alternate live end states
 def CheckBlindCirc(
-    OwnerValue: ExtrudeOwner, *, SavedBody: bool = False
+    OwnerValue: ExtrudeOwner, *, SavedBody: bool = False, AttachedBody: bool = False
 ) -> tuple[ArchiveNode, ArchiveNode, float]:
     BossValue = OwnerValue.NodeValue
     Fields = OwnerValue.EndValue.FieldsValue
@@ -45,7 +45,7 @@ def CheckBlindCirc(
     FromValue = RequireNative(Fields.get("f140"), "moFromEndSpec_c")
     if FromValue.FieldsValue != {"t": 0}:
         raise ValueError("cold circle has an unsupported start owner")
-    if not SavedBody:
+    if not SavedBody and not AttachedBody:
         CheckPrismAtom(BossValue)
     CheckBossState(BossValue, SavedBody=SavedBody)
     Values = tuple(

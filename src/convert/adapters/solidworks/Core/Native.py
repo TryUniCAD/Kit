@@ -1196,6 +1196,7 @@ class NativeModel:
     linear_display: LinearDisplay | None = None
     cut_source: CutSource | None = None
     SavedCircleAtom: int | None = None
+    SavedCircleName: str | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

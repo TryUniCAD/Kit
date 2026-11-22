@@ -1,0 +1,70 @@
+# Attached radius child readback
+
+Task `B04-SW2026-MATES-CONCENTRIC/attached-radius-child` is owned by the
+PR #121 takeover team. The scoped SDK work starts at #239
+`8d98c4e347c5ee1cfdbeae52a09eb243517540b7`. Standalone native child
+publication and the concentric assembly writer remain separate delivery
+gates.
+
+## Evidence boundary
+
+The exact [native assembly observation](https://github.com/TryUniCAD/Kit/blob/67d2ac3ca36d1d714636a2eab14a4b6129647f68/re/solidworks/measurements/2026/ConcentricRadialAssemblyNative01.json)
+used SOLIDWORKS `34.5.2.0604` and four distinct processes, including the
+passing initial and trailing controls. It resolved the child in the
+assembly via `GetModelDoc2`, rebuilt it, edited its blind height and saved
+it. The subsequent fresh parent open resolved the saved child. The
+standalone radial source observation
+`ConcentricRadialSceneNative01.json` concerns a different candidate with
+no attached partition. Its open status does not attest these child bytes.
+
+| State | Exact file SHA-256 | Selected and activation marks | Typed active nodes |
+| --- | --- | --- | --- |
+| Generated child | `699be1addf4b644f1ebdeecc6862f65610155d294e10fa6d7cbcf3d6a224f1cd` | `4, 2` | 72 |
+| Saved child after the height edit | `d39693d2617c0900a607fb7e6e5be041b7caea906ebcd0cecc69fb8d767a7416` | `10, 2` | 92 |
+
+The actual `sgSketch` arc, fixed centre and radius driver lead to the
+Front datum. The ordinary forward boss owns the active `f818.f18` driver.
+The independent `f818.f20` value stays inactive. After saving, the
+`f4a8` and `f4c0` cache objects own the two paired cap representatives
+and share the live arc mark. They point back to the same producer and
+the stored self-file identity in this configuration. Their cached prior
+cylinder bounds agree with the inactive length. The two drivers retain
+their exact binary64 values independently of rounded keywords.
+
+The complete typed configuration and resolved graph must agree on the
+unique visible `moAtom_c`, real output ID and feature. Its physical
+ownership resolves through the live world and three-face analytic solid.
+The selected and activation marks agree with the rollback frame.
+`BODY_MATCH`, `ENT_TIME_STAMP_2001`, `ATOM_ID_2001` and
+`LAST_BODY_MODIFYING_FEATURE_ID` link the actual configuration, header
+and boss. The unique Unicode `SWIMPLICITBODYNAME_ID_U` gives the body name.
+These values originate in the typed input owners when reading. The
+identifiers and stamps in the receipt are observations.
+
+## Reproduction
+
+```sh
+python3.14 -I -B /Users/odin/.codex/worktrees/solidworks-attached-radius-child/Kit/re/tooling/sw2026/CheckAttachRadiusRead.py \
+  --packet /absolute/disclosed/RadialConcentric01 \
+  --output /tmp/UnusedAttachedRadiusRead.json
+```
+
+The supervisor binds the two exact child files to the native terminal
+result, job identity and independent geometric prediction. Each strict
+SDK reader is a fresh process and checks both geometry and design-only
+mode. It forbids file, process, network and native library access after
+the SDK imports and codec loading. Additional checks re-emit three
+typed streams per phase and verify unchanged decoded physical geometry.
+The transient typed negative contrasts reject changed atoms, marks,
+choices and the inactive partition before the new association is returned.
+[Guarded receipt](../measurements/2026/AttachedRadiusChildRead01.json)
+
+The two cases reproduce the original 7.19 mm radius and original and
+edited blind heights of 31.37 and approximately 36.79701 mm. Their native
+and independently calculated area, volume and centroid agree to six
+significant figures. The exact presentation remains partial. The
+ordinary SDK timeline has 19 and 27 entries respectively and the native
+observed tree lists 25 in each state. This verifies the editable circle,
+boss and linked physical solid. It gives zero held-out credit and does
+not establish an independently loadable standalone child or full scene
+round-trip.

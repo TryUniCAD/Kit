@@ -367,6 +367,11 @@ boss exposes its inactive depth and typed archive owner separately from its
 active forward depth driver.
 [Verified saved-circle scope](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedCircleDrivers.md)
 
+The bounded attached radius reader also resolves the forward Front-plane
+radius driver and blind height from one linked physical cylinder. It
+preserves the native body label and inactive depth through an edited save.
+[Attached radius scope](../../Changes/Solidworks/Inspection/Parts/SolidworksAttachedRadiusReadback.md)
+
 Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.
