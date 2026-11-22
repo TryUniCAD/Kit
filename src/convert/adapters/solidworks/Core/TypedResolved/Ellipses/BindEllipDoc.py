@@ -79,6 +79,9 @@ def BindEllipDoc(Document: CadDocument, PartValue: EllipPartRead) -> CadDocument
         provenance=TypedProvenance(
             NativeNodeSpan(PartValue.LinkValue, PartValue.SketchValue), EntityId
         ),
+        attributes=FreezeMapping(
+            {"native_ellipse_stations_m": PartValue.StationsValue}
+        ),
     )
     return ReplaceValue(
         Document,

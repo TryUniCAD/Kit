@@ -1,4 +1,6 @@
 from collections.abc import Mapping
+from hashlib import sha256 as CalcSha
+from json import dumps as DumpJson
 
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
     EllipsePart,
@@ -19,16 +21,32 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from interchange.Core.Common import FreezeMapping
 
+# this authenticates the disclosed normalized receipt and never contributes construction values
+KEllipAuthSha = "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3"
+
+
+# canonical serialization matches the exact verified disclosed offline authority
+def CheckEllipAuth(Receipt: dict[str, object]) -> None:
+    Canonical = DumpJson(Receipt, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    if CalcSha(Canonical.encode()).hexdigest() != KEllipAuthSha:
+        raise ValueError("ellipse readback requires authenticated offline evidence")
+
 
 # result evidence exists only for the exact compiled candidate and its complete native lifecycle
 def VerifyEllipMeas(
-    Receipt: dict[str, object], Candidate: EllipsePart, WrittenAt: int
+    Receipt: dict[str, object],
+    Candidate: EllipsePart,
+    WrittenAt: int,
+    *,
+    RequireAuth: bool = False,
 ) -> Mapping[str, object]:
     Phases = CheckEllipBatch(Receipt)
     CaseValue = MatchEllipCase(Receipt, Candidate, WrittenAt)
     EditHash, ReopenHash = CheckEllipSlot(
         Phases, CaseValue, Candidate.PlanValue.DepthValue
     )
+    if RequireAuth:
+        CheckEllipAuth(Receipt)
     return FreezeMapping(
         {
             KPartMeasureOpt: FreezeMapping(
@@ -40,6 +58,7 @@ def VerifyEllipMeas(
                     "oracle_build": KOraclePart["build"],
                     "edit_record_sha256": EditHash,
                     "reopen_record_sha256": ReopenHash,
+                    **({"authority_sha256": KEllipAuthSha} if RequireAuth else {}),
                 }
             )
         }

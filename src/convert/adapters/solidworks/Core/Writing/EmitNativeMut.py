@@ -6,6 +6,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipRead import IsEllipRead
 from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
@@ -112,6 +113,8 @@ def EmitNativeMut(
         return EmitOffsetMut(DocumentValue, TargetValue, OptionsValue)
     if IsCircRead(DocumentValue):
         return EmitCircMut(DocumentValue, TargetValue, OptionsValue)
+    if IsEllipRead(DocumentValue):
+        return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)

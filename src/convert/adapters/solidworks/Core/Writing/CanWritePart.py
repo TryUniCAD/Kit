@@ -10,6 +10,7 @@ from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipRead import IsEllipRead
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
 from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
@@ -37,6 +38,7 @@ from convert.adapters.solidworks.Core.Writing.AttachedBox.ProveBoxSource import 
     ProveBoxSource,
 )
 from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
+from convert.adapters.solidworks.Core.Writing.Ellipse.CanWriteEllip import CanWriteEllip
 from convert.adapters.solidworks.Core.Writing.Circle.CanWriteCircle import (
     CanWriteCircle,
     HasCircWrite,
@@ -57,6 +59,8 @@ from interchange.document.Models.DocumentModel import CadDocument
 def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     if IsCircRead(DocumentValue):
         return CanWriteCircle(DocumentValue, TargetValue)
+    if IsEllipRead(DocumentValue):
+        return CanWriteEllip(DocumentValue, TargetValue)
     PathValue = (
         FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
     )

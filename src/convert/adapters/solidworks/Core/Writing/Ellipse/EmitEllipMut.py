@@ -1,8 +1,14 @@
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipRead import IsEllipRead
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepEllipRead import (
+    PrepEllipRead,
+)
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import (
     PrepareEllipse,
 )
@@ -35,10 +41,18 @@ def EmitEllipMut(
     )
     if OutputPath is not None:
         CheckMeasPath(OutputPath, Settings)
-    Candidate = PrepareEllipse(
-        DocumentValue, OutputPath or TargetValue, WrittenAt, Settings
+    ReadbackValue = IsEllipRead(DocumentValue)
+    Draft = PrepEllipRead if ReadbackValue else PrepareEllipse
+    Candidate = Draft(DocumentValue, OutputPath or TargetValue, WrittenAt, Settings)
+    Evidence = VerifyEllipMeas(Receipt, Candidate, WrittenAt, RequireAuth=ReadbackValue)
+    Transfers: tuple[CapTransfer, ...] = (
+        tuple(
+            CapTransfer(Value, TransferMode.KNative)
+            for Value in sorted(GetDocumentCaps(DocumentValue))
+        )
+        if ReadbackValue
+        else ()
     )
-    Evidence = VerifyEllipMeas(Receipt, Candidate, WrittenAt)
     return PublishMeasMut(
-        TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence
+        TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence, Transfers
     )

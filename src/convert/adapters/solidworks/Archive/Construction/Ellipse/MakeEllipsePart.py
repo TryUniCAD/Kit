@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampM
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
     EllipsePart,
 )
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EmitEllipsePart import (
     EmitEllipsePart,
 )
@@ -41,7 +44,13 @@ from interchange.document.Models.DocumentModel import CadDocument
 def MakeEllipsePart(
     DocumentValue: CadDocument, InputValue: PartBuildInput
 ) -> EllipsePart:
-    PlanValue = ProjectEllipse(DocumentValue)
+    return MakeEllipPlan(DocumentValue, InputValue, ProjectEllipse(DocumentValue))
+
+
+# both authored and verified readback plans use the same parametric graph allocator and emitters
+def MakeEllipPlan(
+    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: EllipsePlan
+) -> EllipsePart:
     CheckPartInput(DocumentValue, InputValue, PlanValue)
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)

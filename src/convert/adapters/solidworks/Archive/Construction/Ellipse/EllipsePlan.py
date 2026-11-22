@@ -1,5 +1,8 @@
 from dataclasses import dataclass as DataClass
 
+# three physical conic stations are sufficient to derive the closed sketch
+KEllipStations = tuple[tuple[float, float], tuple[float, float], tuple[float, float]]
+
 
 # the bounded ellipse keeps authored labels and signed stations available to every part owner
 @DataClass(frozen=True, slots=True)

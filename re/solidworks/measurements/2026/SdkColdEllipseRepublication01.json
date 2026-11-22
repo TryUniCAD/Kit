@@ -1,0 +1,323 @@
+{
+  "base_commit": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+  "base_sdk_tree": "09f7bca40a5332a477e0b1b5911131d6bb122ce1",
+  "carrier_free_regenerations": 4,
+  "cases": {
+    "EllipseFrontA": {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "cases": {
+        "design_only": {
+          "exact_generation_without_raw_carrier": true,
+          "exact_publications": 6,
+          "naive_minor_m": [
+            0.013981224675840436,
+            0.0014059499569041315
+          ],
+          "refusals": {
+            "absent_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "absent_source_carrier": [
+              "registry"
+            ],
+            "altered_conic": [
+              "writer"
+            ],
+            "edited_d1": [
+              "writer"
+            ],
+            "nonempty_stream": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "source_digest": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unmeasured_locator": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unrepresented_metadata": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "untrusted_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ]
+          },
+          "verified_conic_stations_m": [
+            [
+              0.01825,
+              -0.006375
+            ],
+            [
+              0.03699003440324798,
+              0.0039061349356519113
+            ],
+            [
+              0.013981224675840434,
+              0.0014059499569041307
+            ]
+          ],
+          "wrong_filesystem_locator_refusals": 4
+        },
+        "full": {
+          "exact_generation_without_raw_carrier": true,
+          "exact_publications": 6,
+          "naive_minor_m": [
+            0.013981224675840436,
+            0.0014059499569041315
+          ],
+          "refusals": {
+            "absent_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "absent_source_carrier": [
+              "registry"
+            ],
+            "altered_conic": [
+              "writer"
+            ],
+            "edited_d1": [
+              "writer"
+            ],
+            "nonempty_stream": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "source_digest": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unmeasured_locator": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unrepresented_metadata": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "untrusted_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ]
+          },
+          "verified_conic_stations_m": [
+            [
+              0.01825,
+              -0.006375
+            ],
+            [
+              0.03699003440324798,
+              0.0039061349356519113
+            ],
+            [
+              0.013981224675840434,
+              0.0014059499569041307
+            ]
+          ],
+          "wrong_filesystem_locator_refusals": 4
+        }
+      },
+      "epoch": 1795516920,
+      "fresh_publications": 3,
+      "native_locator": "C:\\KitEllipseColdPrototype02\\Packet\\Candidates\\EllipseFrontA.SLDPRT",
+      "runtime_input_file_reads": 0
+    },
+    "EllipseFrontB": {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "cases": {
+        "design_only": {
+          "exact_generation_without_raw_carrier": true,
+          "exact_publications": 6,
+          "naive_minor_m": [
+            -0.004957359580124225,
+            0.017583197834138496
+          ],
+          "refusals": {
+            "absent_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "absent_source_carrier": [
+              "registry"
+            ],
+            "altered_conic": [
+              "writer"
+            ],
+            "edited_d1": [
+              "writer"
+            ],
+            "nonempty_stream": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "source_digest": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unmeasured_locator": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unrepresented_metadata": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "untrusted_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ]
+          },
+          "verified_conic_stations_m": [
+            [
+              -0.012375,
+              0.009125
+            ],
+            [
+              0.0008761766068169762,
+              -0.0024959699911387134
+            ],
+            [
+              -0.004957359580124226,
+              0.017583197834138496
+            ]
+          ],
+          "wrong_filesystem_locator_refusals": 4
+        },
+        "full": {
+          "exact_generation_without_raw_carrier": true,
+          "exact_publications": 6,
+          "naive_minor_m": [
+            -0.004957359580124225,
+            0.017583197834138496
+          ],
+          "refusals": {
+            "absent_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "absent_source_carrier": [
+              "registry"
+            ],
+            "altered_conic": [
+              "writer"
+            ],
+            "edited_d1": [
+              "writer"
+            ],
+            "nonempty_stream": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "source_digest": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unmeasured_locator": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "unrepresented_metadata": [
+              "registry",
+              "adapter",
+              "writer"
+            ],
+            "untrusted_receipt": [
+              "registry",
+              "adapter",
+              "writer"
+            ]
+          },
+          "verified_conic_stations_m": [
+            [
+              -0.012375,
+              0.009125
+            ],
+            [
+              0.0008761766068169762,
+              -0.0024959699911387134
+            ],
+            [
+              -0.004957359580124226,
+              0.017583197834138496
+            ]
+          ],
+          "wrong_filesystem_locator_refusals": 4
+        }
+      },
+      "epoch": 1795516981,
+      "fresh_publications": 3,
+      "native_locator": "C:\\KitEllipseColdPrototype02\\Packet\\Candidates\\EllipseFrontB.SLDPRT",
+      "runtime_input_file_reads": 0
+    }
+  },
+  "disclosed_authority_sha256": "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3",
+  "disclosed_native_result_sha256": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "fresh_processes": 2,
+  "new_heldout_credit": 0,
+  "new_native_runs": 0,
+  "protected_inputs_read": false,
+  "public_cold_republications": 24,
+  "public_fresh_controls": 6,
+  "python": "3.14.7",
+  "refusals": 100,
+  "released_heldout_record_exact_publication_bound": false,
+  "released_heldout_record_sha256": "aed36c0f0b9698469ad35a3c3975a5f600019a3c5bb28de67784c4e0fe47d0b5",
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.cold-ellipse-republication.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/ProveCircleEndPort.py": "0d35d08d44b30a5c96485d39f992c6660707b2821f958e6f725d405706453ac1",
+    "re/tooling/sw2026/ellipse_source/ColdEllipseModel.py": "f705245d8c4ce12eff42e48e90b7c52856b9f65d852add424b8312cf21c312fe",
+    "re/tooling/sw2026/ellipse_source/EllipseMeasuredReceipt.py": "8d1c674fab9ad24e68f7a1318d3dd5279983e46f1f9ed5c678a6c48db301fa11",
+    "re/tooling/sw2026/ellipse_source/ProveEllipseRepublication.py": "afb361f2f0e18be3e3a80b43cb92a37e072fe68ec03bd2017a2c9759f42355a6",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/EllipsePlan.py": "aaa1f6a8cab077193d172bc28af8341c6cbcc73b1c3226e0c9be95481e700f41",
+    "src/convert/adapters/solidworks/Archive/Construction/Ellipse/MakeEllipsePart.py": "a006b8c580157f9adf873af25fc1311344b38eb3739a3237ce60544770e60daa",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/IsEllipRead.py": "90f932395bea154ac3cbd8810a71e201c8f8f9fe116be5552aff09bdb9834f35",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/PrepEllipRead.py": "bf71d3751d5aa36355b5ba8cc1115283de1d32ad0cb327e5f24b64c08b7f67db",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/PrepareEllipse.py": "b88b94fbb4435cdc3a64f05c5669d6df866d1a381e35855e87959f20622fbc29",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/ReadEllipInput.py": "3e0a08338518a43749116e8e5533aba9d26a058c39d77af3b30c32b625ac2db0",
+    "src/convert/adapters/solidworks/Core/Preparation/Ellipse/ReadEllipPos.py": "4071608dfc4db3890f3cfd84a0b83d94226ff345f183cd9b42586fe0f57cc8f5",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "04b4790fe3996f07f534d49cbb3da1ffec8302097eebb8344dc44dfcab8352cd",
+    "src/convert/adapters/solidworks/Core/Preparation/Readback/IsColdRead.py": "f40d4ee263cb4effaaaebd3c09ef0e949bc24b57a24381967f1d7ae35dcda555",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/BindEllipDoc.py": "a47bbad11b1bfb2896499d305bc1e3a3e2bef56a2cf475c16ad78df2271f2f1f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/EllipPartRead.py": "571af875d4e3d045a5932aba804513aed30c92635ac3849efec9eb068663dcfa",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/ProjectEllip.py": "558262977be6b5b018a8da57486ad1a3a006940f0ab32620c0ef3144f26e99e7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/TryEllipPart.py": "3dfb45b604a460661ebcf3cc6291911c8d7c926ae5c6363f4d71c2fe5e0d11d7",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "b88e1eae4e6c3f33ed025cf40b0b3f2b44a68a8909fa839f7ff619b957b7492c",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CanWriteEllip.py": "0adee4e9445702a6c02eaa806bf5a0f1877fd3e6eaf7f4546b2b876b5523d2bd",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/EmitEllipMut.py": "62d1bf3cfdf01f44992e0456c0f0fa5fe05d6fb6732e5eba89302ca76a232794",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/VerifyEllipMeas.py": "50c70329079e19d95ad2fd33c98c2b64da688c0288cdbbc5f9f93d6bfc0babda",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "ae4f9732f1c832db8c0854c9094b34fc2eca53053938462d8ac7fa948cdf8f6b"
+  },
+  "unchanged_circle_control": {
+    "archive_sha256": "323b0c1010e5eb7bb9905e5a68558f1caa9116c032a67555eb1985b1ac990e9f",
+    "guarded_proof_sha256": "655abc5b45c4138261055feaaeb89b7f02fcc636a72d615a045e0651d22bad0d"
+  }
+}

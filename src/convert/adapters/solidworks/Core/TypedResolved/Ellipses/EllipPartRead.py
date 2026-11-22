@@ -1,5 +1,8 @@
 from dataclasses import dataclass as DataClass
 
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    KEllipStations,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -14,5 +17,6 @@ class EllipPartRead:
     SketchValue: ArchiveNode
     HandleValue: ArchiveNode
     GeometryValue: EllipseGeometry
+    StationsValue: KEllipStations
     SegmentId: int
     PointIds: tuple[int, ...]

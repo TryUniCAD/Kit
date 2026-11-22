@@ -24,6 +24,10 @@ from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPart
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipRead import IsEllipRead
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepEllipRead import (
+    PrepEllipRead,
+)
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import (
     PrepareEllipse,
 )
@@ -89,6 +93,8 @@ def PrepareNative(
     | EllipsePart
     | SweepPart
 ):
+    if IsEllipRead(DocumentValue):
+        return PrepEllipRead(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsColdRead(DocumentValue):
         return PrepareColdPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsSweepPart(DocumentValue):

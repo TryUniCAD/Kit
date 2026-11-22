@@ -1,6 +1,9 @@
 from collections.abc import Mapping
 from math import dist as Distance, hypot as HypotValue, isclose as IsClose
 
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    KEllipStations,
+)
 from convert.adapters.solidworks.Archive.Construction.Ellipse.ReadEllipAxes import (
     ReadEllipAxes,
 )
@@ -16,26 +19,18 @@ def ReadEllipXY(PointValue: Mapping[str, object]) -> tuple[float, float]:
     return RequireScalar(Values.get("x")), RequireScalar(Values.get("y"))
 
 
-# a free full ellipse preserves the authored center major direction and the actual distinct minor radius
-def ProjectEllip(
-    PointValues: tuple[Mapping[str, object], ...],
-    DepthValue: float,
-) -> EllipseGeometry:
-    Center, SeamValue, Major, Minor, OppMajor, OppMinor = tuple(
-        ReadEllipXY(Value) for Value in PointValues
-    )
+# the signed stations recover the ordinary analytic conic independently from its seam aliases
+def EvalEllipGeo(Stations: KEllipStations, DepthValue: float) -> EllipseGeometry:
+    Center, Major, Minor = Stations
     MajorX, MajorY = Major[0] - Center[0], Major[1] - Center[1]
     MinorX, MinorY = Minor[0] - Center[0], Minor[1] - Center[1]
     RadiusA, RadiusB = HypotValue(MajorX, MajorY), HypotValue(MinorX, MinorY)
     if (
-        SeamValue != Major
-        or not 0 < RadiusB < RadiusA
+        not 0 < RadiusB < RadiusA
         or MajorX * MinorY - MajorY * MinorX <= 0.0
         or not IsClose(
             MajorX * MinorX + MajorY * MinorY, 0.0, rel_tol=0.0, abs_tol=1e-19
         )
-        or Distance(OppMajor, (Center[0] - MajorX, Center[1] - MajorY)) > 1e-15
-        or Distance(OppMinor, (Center[0] - MinorX, Center[1] - MinorY)) > 1e-15
     ):
         raise ValueError(
             "full ellipse lacks its actual signed axes and distinct major station seam"
@@ -48,3 +43,29 @@ def ProjectEllip(
     )
     _ = ReadEllipAxes(Geometry, DepthValue)
     return Geometry
+
+
+# the full conic keeps independent signed stations and checks the actual seam and reflected owners
+def ProjectEllip(
+    PointValues: tuple[Mapping[str, object], ...],
+    DepthValue: float,
+) -> tuple[EllipseGeometry, KEllipStations]:
+    Center, SeamValue, Major, Minor, OppMajor, OppMinor = tuple(
+        ReadEllipXY(Value) for Value in PointValues
+    )
+    if SeamValue != Major or any(
+        Distance(
+            Opposite,
+            tuple(
+                Origin - (Value - Origin)
+                for Origin, Value in zip(Center, AxisValue, strict=True)
+            ),
+        )
+        > 1e-15
+        for AxisValue, Opposite in ((Major, OppMajor), (Minor, OppMinor))
+    ):
+        raise ValueError(
+            "full ellipse lacks its actual signed axes and distinct major station seam"
+        )
+    Stations = (Center, Major, Minor)
+    return EvalEllipGeo(Stations, DepthValue), Stations

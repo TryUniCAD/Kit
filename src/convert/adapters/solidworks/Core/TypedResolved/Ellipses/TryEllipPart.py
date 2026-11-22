@@ -137,9 +137,16 @@ def ReadEllipPart(Archive: SldprtArchive, ModelValue: NativeModel) -> EllipPartR
     SegmentId, Points = ReadEllipRows(SketchValue)
     Handle, PointIds = ReadEllipHandle(Points)
     CheckTreeAlias(LinkValue, (Profile, BossNode, SketchValue, Handle))
-    Geometry = ProjectEllip(Points, Driver.native_value)
+    Geometry, Stations = ProjectEllip(Points, Driver.native_value)
     return EllipPartRead(
-        LinkValue, OwnerValue, SketchValue, Handle, Geometry, SegmentId, PointIds
+        LinkValue,
+        OwnerValue,
+        SketchValue,
+        Handle,
+        Geometry,
+        Stations,
+        SegmentId,
+        PointIds,
     )
 
 

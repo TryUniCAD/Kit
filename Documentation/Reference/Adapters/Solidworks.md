@@ -757,6 +757,11 @@ geometry and both planar caps. Use `include_brep=False` to read the editable
 history without constructing the solid.
 [Full-ellipse readback and scope](../../Changes/Solidworks/Reading/Parts/SolidworksFullEllipseReadback.md)
 
+Strict full and design-only reads of the two measured cold ellipse parts
+can republish the exact original archives. Use the authenticated
+normalized receipt, creation event and measured logical locator.
+[Cold ellipse republication](../../Changes/Solidworks/Construction/Ellipses/SolidworksColdEllipseRepublication.md)
+
 The earlier writer did not generate its streams from format rules.
 Each supported family re-emitted a recorded payload, which is a typed recording of one saved stream.
 Every generated file also took its `Config-0` stream from one recorded configuration program.

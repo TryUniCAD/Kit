@@ -6,8 +6,11 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
     EllipsePart,
 )
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Ellipse.MakeEllipsePart import (
-    MakeEllipsePart,
+    MakeEllipPlan,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
@@ -24,7 +27,23 @@ def PrepareEllipse(
     OptionsValue: WriteOptions | None = None,
 ) -> EllipsePart:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue = PlanEllipse(DocumentValue)
+    return ComposeEllipse(
+        DocumentValue,
+        PlanEllipse(DocumentValue),
+        TargetValue,
+        WrittenAt,
+        SettingsValue,
+    )
+
+
+# a validated plan keeps the ordinary selected configuration and destination through construction
+def ComposeEllipse(
+    DocumentValue: CadDocument,
+    PlanValue: EllipsePlan,
+    TargetValue: KTargetType,
+    WrittenAt: int,
+    SettingsValue: WriteOptions,
+) -> EllipsePart:
     (ConfigValue,) = DocumentValue.configurations
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested ellipse write configuration is unavailable")
@@ -34,6 +53,6 @@ def PrepareEllipse(
     OutputValue = FinalPartPath(
         TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
     )
-    return MakeEllipsePart(
-        DocumentValue, ReplaceValue(RecipeValue, OutputValue=OutputValue)
+    return MakeEllipPlan(
+        DocumentValue, ReplaceValue(RecipeValue, OutputValue=OutputValue), PlanValue
     )
