@@ -1,6 +1,5 @@
 from argparse import ArgumentParser
 from codecs import lookup
-from contextlib import contextmanager
 from dataclasses import replace
 from gzip import decompress
 from importlib import import_module
@@ -8,6 +7,7 @@ from io import BytesIO
 from json import dumps, loads
 from os import name as os_name
 from pathlib import Path, PureWindowsPath
+from subprocess import run as run_process
 from tempfile import TemporaryDirectory
 import sys
 
@@ -16,6 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from ProveMeasuredPrincipalRevolve import ROOT, WriterAudit, digest, written
 from ProveMeasuredThinRevolve import PINS, emit, reject
 from ThinProofModel import WALL_MODES, neutral
+from ThinPathLease import measured_target, own_root, prove_lease
 from convert import open_document
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.solidworks.Container.Container import (
@@ -110,40 +111,27 @@ def ambiguous_name(payload, audit):
     return 4
 
 
-@contextmanager
-def lease(locator):
-    target = Path(locator)
-    root = target.parent.parent
-    assert os_name == "nt" and root.parent == Path(target.anchor) and target.parent.name == "Candidates"
-    root.mkdir()
-    try:
-        target.parent.mkdir()
-        try:
-            yield target
-        finally:
-            target.unlink(missing_ok=True)
-            target.parent.rmdir()
-    finally:
-        root.rmdir()
+def publish_path(author, options, payload, case, token):
+    target = measured_target(options["final_destination"])
+    if token is None:
+        raise ValueError("thin suite path worker requires its parent lease")
+    prove_lease(target.parent.parent, token)
+    target.parent.mkdir()
+    audit = WriterAudit(target.parent)
+    for route in ("registry", "direct"):
+        result = audit.run(lambda: emit(author, target, options, route))
+        written(lambda: result, payload)
+        assert result.path == target.resolve() and not result.dropped
+        assert set(target.parent.iterdir()) == {target}
+        assert target.read_bytes() == payload
+        verify_owner(read(target, True), author, case, True)
+        target.unlink()
+    observed = audit.report()
+    assert observed["output_opens"] == 2
+    return observed
 
 
-def publish_path(author, options, payload, case):
-    with lease(options["final_destination"]) as target:
-        audit = WriterAudit(target.parent)
-        for route in ("registry", "direct"):
-            result = audit.run(lambda: emit(author, target, options, route))
-            written(lambda: result, payload)
-            assert result.path == target.resolve() and not result.dropped
-            assert set(target.parent.iterdir()) == {target}
-            assert target.read_bytes() == payload
-            verify_owner(read(target, True), author, case, True)
-            target.unlink()
-        observed = audit.report()
-        assert observed["output_opens"] == 2
-        return observed
-
-
-def run(case_id):
+def run(case_id, token=None):
     case, expected, options = measure(case_id)
     author = neutral(case)
     author.assert_valid()
@@ -177,7 +165,7 @@ def run(case_id):
         for route in ("direct", "registry"):
             reject(audit, changed, options, route, "no matching native measurement")
         runtime = audit.report()
-    path_runtime = publish_path(author, options, payload, case) if os_name == "nt" else None
+    path_runtime = publish_path(author, options, payload, case, token) if os_name == "nt" else None
     return {
         "case": case["name"], "sha256": expected, "runtime": runtime, "stream_routes": 6,
         "file_routes": 2 if path_runtime else 0, "path_runtime": path_runtime,
@@ -185,7 +173,39 @@ def run(case_id):
     }
 
 
+def dispatch(case_id, token=None):
+    args = [
+        sys.executable,
+        "-I",
+        "-B",
+        str(Path(__file__).resolve()),
+        "--case",
+        case_id,
+        "--worker",
+    ]
+    if token is not None:
+        args.extend(("--lease-token", token))
+    return run_process(args, timeout=45, check=False).returncode
+
+
+def supervise(case_id):
+    if os_name != "nt":
+        return dispatch(case_id)
+    _, _, options = measure(case_id)
+    target = measured_target(options["final_destination"])
+    with own_root(target.parent.parent) as token:
+        return dispatch(case_id, token)
+
+
 if __name__ == "__main__":
-    parser = ArgumentParser(description="Verify an exact disclosed thin revolve in a fresh SDK worker")
+    parser = ArgumentParser(
+        description="Verify an exact disclosed thin revolve in a fresh SDK worker"
+    )
     parser.add_argument("--case", choices=CASES, required=True)
-    print(dumps(run(parser.parse_args().case), sort_keys=True))
+    parser.add_argument("--worker", action="store_true")
+    parser.add_argument("--lease-token")
+    args = parser.parse_args()
+    if args.worker:
+        print(dumps(run(args.case, args.lease_token), sort_keys=True))
+    else:
+        raise SystemExit(supervise(args.case))

@@ -365,6 +365,12 @@ Windows path. This profile's `receipt` contains the unchanged UTF-8
 `native_result` and `inspection_job` texts.
 [Thin-revolve evidence and usage](../../Changes/Solidworks/Construction/SolidworksMeasuredThinRevolve.md)
 
+A saved thin revolve with a physical body cache requires qualified editable
+history for strict inspection. The current strict reader refuses this saved
+profile in both full and design-only modes. Explicit non-strict inspection
+and raw Parasolid extraction remain available.
+[Saved thin-revolve inspection](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedThinRevolveReadGuard.md)
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

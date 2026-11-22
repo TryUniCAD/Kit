@@ -195,8 +195,9 @@ The PR #121 takeover team owns the measured thin-revolve tranche on
 part publication contract. It covers six exact disclosed cold archives and
 their strict readback from one open profile, one selected axis and up to three
 drivers. The remaining delivery gates are publication, current-head review and
-queue acceptance. Native-saved derivatives and further output hashes retain
-their own qualification requirements.
+queue acceptance. Strict saved thin-revolve reads refuse the unqualified
+cache-backed edit history. Native-saved derivatives and further output
+hashes retain their own qualification requirements.
 [Scope and process evidence](../../re/solidworks/records/MeasuredThinRevolve2026.md)
 [Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredThinRevolve.md)
 

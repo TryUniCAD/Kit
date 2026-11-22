@@ -103,3 +103,19 @@ need exact fresh native acceptance and authenticated receipt intake.
 The model-only constructor can prepare within-profile candidates for that
 external measurement. The SDK writer requires the applicable evidence
 before publishing bytes.
+
+## Saved strict read and fixture ownership
+
+The exact disclosed ThinUnequal and ThinRightCenterControl source records contain an active Config-0-Partition. Both positively identify the thin creator. Before the guard, strict full and design-only reads exposed an untyped thin feature. The linked reader stops at moLinkedAtomIdNode_c schema 1, so a saved-cache branch cannot yet promise its live wall owners. Both strict reads now refuse with the same explicit history error. Non-strict inspection retains the available geometry and metadata, and explicit raw mode still yields both partition payloads. The ordinary cached control still passes both strict modes. The two cache-free outputs regenerate at their measured SHA-256 and retain typed geometry and editable parameters.
+
+The legacy design-only branch for ordinary Front or full-turn revolutions needs no provisional sketch join. Two independently generated controls omit only the legacy keyword sketch while retaining the one actual typed profile and operation. The earlier call to BindColdSketch failed on both zero-sketch controls before it reached the fallback. The reader now evaluates this mode before trying the sketch binding. Full strict geometry still refuses these two unqualified ordinary modes.
+
+The file-publication supervisor owns the exact measured Windows directory before dispatching its 45-second worker. If the timed child is killed, cleanup requires the same file identity and unique marker. A real macOS subprocess timeout after writing partial output verified cleanup, same-path retry and preservation of both an existing root and a replaced root. The already measured Windows transport and receipt retain their original bytes at 8d9db5149. Current Windows CI still supplies the platform execution of the revised supervisor. [Timeout ownership](../../../Documentation/Gotchas/Ci/Windows/ThinSuiteWorkerTimeoutOwnership.md)
+
+~~~sh
+python3.14 -I -B re/tooling/sw2026/revolve/CheckThinReviewBoundary.py \
+  --front "$KIT_ORACLE/SdkThinGenerated01" \
+  --principal "$KIT_ORACLE/SdkThinPlaneGenerated01"
+~~~
+
+[Synthetic and exact saved boundary receipt](../measurements/2026/SdkThinReadReviewRecovery01.json) records zero open or launch attempts by the guarded writer. The separate saved reads load only the installed package grammar while their verified CAD input is supplied in memory.

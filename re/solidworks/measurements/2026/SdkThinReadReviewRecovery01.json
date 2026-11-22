@@ -1,0 +1,99 @@
+{
+  "before_ordinary_design": {
+    "front_partial_with_zero_legacy_sketches": "not enough values to unpack (expected 1, got 0)",
+    "top_full_turn_with_zero_legacy_sketches": "not enough values to unpack (expected 1, got 0)"
+  },
+  "cache_free": {
+    "front": {
+      "sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "strict_typed_reads": 2
+    },
+    "principal": {
+      "sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "strict_typed_reads": 2
+    }
+  },
+  "cached_ordinary_control": {
+    "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "strict_reads": 2
+  },
+  "evidence_pack_sha256": "f72de5faf4bc7f849dd0bc48443312700b06641d6cd06aa817f8249bac06edba",
+  "guarded_runtime": {
+    "external_launches": 0,
+    "input_file_reads": 0,
+    "output_opens": 0
+  },
+  "inspected_revision": "8d9db5149f33e2c1dffd203a41718bdc983acc70",
+  "lease": {
+    "existing_root_preserved": true,
+    "replacement_root_preserved": true,
+    "same_root_retry": true,
+    "timeout_after_output": true
+  },
+  "native_launches": 0,
+  "ordinary_legacy": {
+    "front_partial": [
+      {
+        "legacy_sketches": 1,
+        "linked_profiles": 1,
+        "sha256": "bf6a7a711e30839536b4a2b4ff9e5d3ec663779237c3f0ff0442684458177610",
+        "strict_design_read": true,
+        "strict_geometry_refused": true
+      },
+      {
+        "legacy_sketches": 0,
+        "linked_profiles": 1,
+        "sha256": "225b96d5252b87af7f3a32af48383e073f6d659f1076b506e6a9098fd044595d",
+        "strict_design_read": true,
+        "strict_geometry_refused": true
+      }
+    ],
+    "top_full_turn": [
+      {
+        "legacy_sketches": 1,
+        "linked_profiles": 1,
+        "sha256": "b935a40a6030ccfd71078bc70ae28ed3f1a1b2bedad7e18219fc8012488e220e",
+        "strict_design_read": true,
+        "strict_geometry_refused": true
+      },
+      {
+        "legacy_sketches": 0,
+        "linked_profiles": 1,
+        "sha256": "012481db805765781f59fb8a28e39dbf5d1f41ee7c855a3692a4707806d16400",
+        "strict_design_read": true,
+        "strict_geometry_refused": true
+      }
+    ]
+  },
+  "preserved_windows_receipt_sha256": "678eab513e0b77fe4421798f5e960cdf30f44806bc959f360733e550f9adf120",
+  "preserved_windows_transport_sha256": "ef60cc527db554103e7e97b43cae59cc3378d0ed1f5312c5b703b084aa750fe6",
+  "saved_read_runtime": {
+    "external_launches": 0,
+    "input_file_reads": 0,
+    "installed_grammar_reads": 12,
+    "output_opens": 0
+  },
+  "saved_thin": {
+    "front": {
+      "bytes": 51538,
+      "cache_stream": "Contents/Config-0-Partition",
+      "partial_permissive_reads": 2,
+      "raw_payloads": 2,
+      "sha256": "0d1d8490ba8219b16989c4f0f5ed94b2b8af7fe284ba64c4699431bea9f3b33b",
+      "strict_refusals": 2,
+      "typed_warm_decode_boundary": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+    },
+    "principal": {
+      "bytes": 54981,
+      "cache_stream": "Contents/Config-0-Partition",
+      "partial_permissive_reads": 2,
+      "raw_payloads": 2,
+      "sha256": "4220ae33c17a2d6f1fda6bd81769dda049544e00acab9633f1acdf068011875c",
+      "strict_refusals": 2,
+      "typed_warm_decode_boundary": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1"
+    }
+  },
+  "schema": "kit.sw2026.thin-revolve-review-repair.v1",
+  "tool_sha256": "3b9ae5f44ff9a3b7a3780ae46a168c10b1177b44f9ff122ff493748572bbd690",
+  "verification_sha256": "43acfe5b499a3bc9867664c2a9eeff7162f701b78e4f32770d9ad030ba583912"
+}

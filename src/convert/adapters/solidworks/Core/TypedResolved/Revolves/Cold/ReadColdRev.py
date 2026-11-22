@@ -27,13 +27,20 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.IsThinRev impo
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadColdThin import (
     ReadColdThin,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.RefuseSavedThin import (
+    RefuseSavedThin,
+)
 
 
 # the actual support reference supersedes the provisional plane from keyword discovery
 def ReadColdRev(
     Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions, BodyId: str
 ) -> tuple[NativeModel, ColdRevolve | None]:
-    if Settings.extract_raw_brep or not IsColdRev(Archive, Model):
+    if Settings.extract_raw_brep:
+        return Model, None
+    if not IsColdRev(Archive, Model):
+        if Settings.strict:
+            RefuseSavedThin(Archive, Model)
         return Model, None
     try:
         if Model.active_configuration_id != 0:
@@ -47,7 +54,6 @@ def ReadColdRev(
                 BodyId,
             )
         (OwnerValue,) = ReadRevOwners(LinkValue)
-        Bound = BindColdSketch(Model, OwnerValue)
         if (
             OwnerValue.FrameValue.SupportValue.z_axis.z != 0.0
             or OwnerValue.AngleValue.RadiansValue == FullTurn
@@ -57,6 +63,7 @@ def ReadColdRev(
             raise ValueError(
                 "cache-free revolve requires a partial Top or Right support"
             )
+        Bound = BindColdSketch(Model, OwnerValue)
         Shape = ReadRevGeom(
             LinkValue,
             ReadCmgrMut(Archive.require("Contents/CMgr"), 19000),

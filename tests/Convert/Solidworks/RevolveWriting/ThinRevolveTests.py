@@ -20,7 +20,6 @@ def TestThinRevolve() -> None:
             capture_output=True,
             text=True,
             check=False,
-            timeout=45,
         )
         assert Result.returncode == 0, Result.stderr
         Report = CastValue(dict[str, object], LoadJson(Result.stdout))
