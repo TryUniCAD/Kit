@@ -1,0 +1,96 @@
+{
+  "name": "CornerCut",
+  "status": "captured",
+  "observed": {
+    "timeline": [
+      {
+        "name": "Base sketch",
+        "health": 0,
+        "message": ""
+      },
+      {
+        "name": "Base extrude",
+        "health": 0,
+        "message": ""
+      },
+      {
+        "name": "Corner sketch",
+        "health": 0,
+        "message": ""
+      },
+      {
+        "name": "Corner",
+        "health": 0,
+        "message": ""
+      }
+    ],
+    "parameters": [
+      {
+        "name": "d1",
+        "expression": "20 mm",
+        "value": 2.0,
+        "unit": "mm",
+        "role": "AlongDistance"
+      },
+      {
+        "name": "d2",
+        "expression": "0.0 deg",
+        "value": 0.0,
+        "unit": "deg",
+        "role": "TaperAngle"
+      },
+      {
+        "name": "d3",
+        "expression": "20 mm",
+        "value": 2.0,
+        "unit": "mm",
+        "role": "AlongDistance"
+      },
+      {
+        "name": "d4",
+        "expression": "0.0 deg",
+        "value": 0.0,
+        "unit": "deg",
+        "role": "TaperAngle"
+      }
+    ],
+    "bodies": [
+      {
+        "name": "Body1",
+        "solid": true,
+        "volume_cm3": 22.0,
+        "area_cm2": 50.0,
+        "faces": 8,
+        "edges": 18,
+        "vertices": 12,
+        "min_cm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_cm": [
+          4.0,
+          3.0,
+          2.0
+        ],
+        "surface_types": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "profiles": [
+      1,
+      1
+    ]
+  },
+  "file": "RequestedCorner.f3d",
+  "sha256": "2be1ddf4c7a36b315a37bcdf092d9bc73391ccd1178c2dfab5ca69d62d6a8f2d",
+  "bytes": 79667
+}

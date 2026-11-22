@@ -2677,3 +2677,9 @@ They are the next research candidates, not supported Kit behavior.
 ## Circular distance extents
 
 The strict circular reader preserves negative, symmetric and two-sided distances through live parameter roles. See [circular extent reads](../../Changes/Fusion/Extents/FusionCircularExtentReads.md) and [allocated operation IDs](../../Gotchas/Conversion/Fusion/Geometry/FusionAllocatedOperations.md) for the measured profile and limits.
+
+## Bounded modifying rectangular histories
+
+The strict native source reader also qualifies two sketch and extrusion pairs that create one rectangular stock and remove one full depth rectangular corner. `DistanceCut` retains the separate live tool distance and taper bindings plus explicit target body identities. The modifying feature depends on the original stock feature and its own tool sketch. Native recipe, progenitor and journal ownership are checked independently of the generated concave solid.
+
+The cached tools are separate from the final journal body, and scoped profiles can preserve numerical solver roundoff without rounding source coordinates. The path remains read only, refuses partial pockets and other boolean profiles, and does not establish native conversion acceptance. See [behavior and evidence](../../Changes/Fusion/Extents/FusionCornerCutReads.md).
