@@ -12,6 +12,10 @@ from convert.adapters.solidworks.Archive.Construction.PlanarMates.ReadDatumFrame
     ReadDatumFrame,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Assembly.PlanarMates.ReadPlane import ReadVector
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Display.DatumDisplay import (
+    DatumDisplay,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
 )
@@ -19,12 +23,35 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckOriginGeom imp
     CheckOriginGeom,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
-from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
+
+
+# geometric restrictions remain in force when a sized label origin is supplied
+def CheckPlaneState(NodeValue: ArchiveNode, DisplayValue: DatumDisplay | None) -> None:
+    CheckPrismAtom(NodeValue)
+    CheckPrismDatum(NodeValue, DisplayValue)
+    Fields = NodeValue.FieldsValue
+    Anchor = ReadVector(Fields.get("f6c0"))
+    if (
+        Fields.get("f6e8") is not None
+        or Fields.get("f6e0") != 0
+        or Fields.get("f6f0") != 0
+        or Fields.get("f6dc") not in (1, 5)
+        or (
+            Anchor != (0.0, 0.0, 0.0)
+            if DisplayValue is None
+            else not DisplayValue.IsClose(Anchor, DisplayValue.LabelValue)
+        )
+    ):
+        raise ValueError("cache free prism has unsupported principal plane state")
+    if not IsLineState(Fields.get("f368")) or not IsLineState(Fields.get("f388")):
+        raise ValueError("cache free prism principal plane has extra references")
 
 
 # all principal datums and the model origin must remain ordinary geometry even when only one plane supports the solid
 def CheckPrismPlane(
-    Features: Mapping[int, ArchiveNode], RootValue: ArchiveNode
+    Features: Mapping[int, ArchiveNode],
+    RootValue: ArchiveNode,
+    DisplaysValue: Mapping[ArchiveNode, DatumDisplay] | None = None,
 ) -> None:
     PlanesValue = tuple(
         NodeValue
@@ -41,22 +68,9 @@ def CheckPrismPlane(
         if NodeValue.ClassValue.NameValue == "moOriginProfileFeature_c"
     )
     for NodeValue in PlanesValue:
-        CheckPrismAtom(NodeValue)
-        CheckPrismDatum(NodeValue)
-        Fields = NodeValue.FieldsValue
-        if (
-            Fields.get("f6e8") is not None
-            or Fields.get("f6e0") != 0
-            or Fields.get("f6f0") != 0
-            or Fields.get("f6dc") not in (1, 5)
-            or any(
-                NativeRecord(Fields.get("f6c0")).get(FieldName) != 0.0
-                for FieldName in ("x", "y", "z")
-            )
-        ):
-            raise ValueError("cache free prism has unsupported principal plane state")
-        if not IsLineState(Fields.get("f368")) or not IsLineState(Fields.get("f388")):
-            raise ValueError("cache free prism principal plane has extra references")
+        CheckPlaneState(
+            NodeValue, None if DisplaysValue is None else DisplaysValue[NodeValue]
+        )
     CheckPrismProf(OriginValue)
     _ = ReadPrismFrame(OriginValue, RootValue, Features)
     CheckOriginGeom(OriginValue)

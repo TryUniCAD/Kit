@@ -30,7 +30,7 @@ from interchange.geometry.Models.VectorSpace import SpaceVector
 
 
 # only actual linked feature and dimension owners may determine the reconstructed body and its provenance
-def ReadPrismPlan(
+def ReadPrismBody(
     LinkValue: NativeLink,
     Features: Mapping[int, ArchiveNode],
     ColdValue: ColdOutput | None = None,
@@ -67,10 +67,12 @@ def ReadPrismPlan(
     Length = Depth.value_mm
     if Length is None:
         raise ValueError("cache free prism requires a measured active depth")
-    CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
     PlainPolygon = (
-        AllowPolygon and not SelectedStock and not ReversedBlind
-        and ModeValue == ExtrudeEnd.KBlind and ColdValue is None
+        AllowPolygon
+        and not SelectedStock
+        and not ReversedBlind
+        and ModeValue == ExtrudeEnd.KBlind
+        and ColdValue is None
     )
     LoopValue = ReadPrismLoop(
         OwnerValue.ProfileValue, LinkValue, AllowPolygon=PlainPolygon
@@ -94,9 +96,34 @@ def ReadPrismPlan(
     return PrismPlan(
         FrameValue,
         MakePrismLines(
-            LoopValue, RequireRectangle=not (PlainPolygon and LoopValue.DimsValue is None)
+            LoopValue,
+            RequireRectangle=not (PlainPolygon and LoopValue.DimsValue is None),
         ),
         Length,
         EvidenceValue,
         ReversedBlind=ReversedBlind,
     )
+
+
+# ordinary prism readers must confirm the standard untouched plane presentation
+def ReadPrismPlan(
+    LinkValue: NativeLink,
+    Features: Mapping[int, ArchiveNode],
+    ColdValue: ColdOutput | None = None,
+    *,
+    ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
+    SelectedStock: bool = False,
+    AllowFirstScope: bool = False,
+    AllowPolygon: bool = False,
+) -> PrismPlan:
+    PlanValue = ReadPrismBody(
+        LinkValue,
+        Features,
+        ColdValue,
+        ModeValue=ModeValue,
+        SelectedStock=SelectedStock,
+        AllowFirstScope=AllowFirstScope,
+        AllowPolygon=AllowPolygon,
+    )
+    CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
+    return PlanValue

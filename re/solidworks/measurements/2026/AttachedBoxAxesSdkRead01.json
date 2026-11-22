@@ -1,0 +1,256 @@
+{
+  "axis_candidate_sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+  "axis_free_control_sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+  "base": "1098e2076a788434c64ac63fbbcd7d850c52a926",
+  "benchmark_conversion_credits": 0,
+  "candidate_manifest_sha256": "93189f21691fc1cd3ba0f26beb62541f85ac3f814ae68444d178f639099efe60",
+  "changed_reader_files_sha256": {
+    "re/tooling/sw2026/attached_top_box_source/VerifyAttachedAxisRead.py": "0859f0c87ce9aa8eaecd0e0e810a5528a876cedefb170445e2912a372e80cb2e",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/AxisPick.py": "880132aec0c74b0e820c0210f7bec9b8f3f2989c81ec5b4219ac9d2f79486e8f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/BindPrismAxes.py": "3998f1d8015d7c48992fef48205eeab061e39a604c4077ba96075adafa567171",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/CheckAxisMap.py": "06aeb65e3bf207ce4ecfb451ece2714eda3bcdb143e6e344dbbd2ecbb055598b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/CheckAxisViews.py": "c20546c6ba36e78492f53836404f4f9df9641ff00491895a94c0b336f71d202f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/PrismAxes.py": "15941b476b8e6792faf3452dc1889cf270e119e41b62eaee78ccfd917455d66b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/PrismAxis.py": "0221141c6d0393296fec7bb197436797c5b5e178a6607ebb185fd2225a3b310d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/ReadAxisGeom.py": "c773637a36883fb486baf9faa24338d09ea8ee680fb51b0257c93e23cb1478c8",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/ReadAxisPick.py": "a9ced0ccd2567f62e26e84332fbe6a1c503d6950ad370bb5a1bfd65fa133c733",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/ReadOneAxis.py": "6997a8b57a5c818c4564701fa0642bdc14d7f44da69c469d140be07bc7c03236",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Axes/ReadPrismAxes.py": "8a4e6d356d6c58ba4f922d24e16f8fb12c81501a1e8fe7dd9aa7f8ec823c16c6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismDatum.py": "c2f59b3332d36a9b5589a3bd5f19dcd3ed0c91bca3794f07d1059917add099ae",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismPlane.py": "8aa226d17c1be0cee3db4c33031b700d0f6872368a2cb28514845d0893efb5a7",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismScope.py": "7f776ce198869380682a4905f341510167e1f0cc503532bded90a0a127dd62d6",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ColdOutput/WithColdName.py": "5307b64ba07a250de0c453667d626d52cea27bd951343789b094e852a883d1d2",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Display/DatumDisplay.py": "c3738f27e2ebc38f707cf17f6a4b149ab57d22d116943579e65f5506fb33d769",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/PartGeometry.py": "907a895cf8c46e65c915dcfefb15cf841202e90de806eae26c19610cbfcc4372",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadNoCache.py": "29e7349c3b4dd2f29af9a43ad588f29cc0dc36f86238a12fae5f89d9f3f589bb",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/ReadPrismPlan.py": "6b424af465201a6d3f7ec6bda9f7f5a8b5b75fbd610971d0bc8ada366c1bd37f"
+  },
+  "freecad_axis_associations": [
+    {
+      "id": "1778",
+      "label": "X-axis",
+      "role": "X_Axis",
+      "target_id": 27
+    },
+    {
+      "id": "1779",
+      "label": "Y-axis",
+      "role": "Y_Axis",
+      "target_id": 28
+    },
+    {
+      "id": "1780",
+      "label": "Z-axis",
+      "role": "Z_Axis",
+      "target_id": 29
+    }
+  ],
+  "fresh_workers": 2,
+  "history_only_preserved": true,
+  "native_trial_sha256": "0ac0c750cd671a2f4c5dcc7e3459d79a51199c3c0cd7220ba8cc2dd6a953ac38",
+  "new_native_observations": 0,
+  "passed": true,
+  "prior_native_control_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "publication_refusals": {
+    "adapter": "SOLIDWORKS part publication requires an offline native measurement receipt",
+    "registry": "solidworks.sldprt does not support the destination"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.attached-box-axes-sdk-read.v1",
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "strict_axis_free_control": {
+    "area_mm2": 2200.0,
+    "axes": [],
+    "body": "Body",
+    "body_incidence_matches": true,
+    "body_shape_id": "sldprt:body:1-prism-body",
+    "bounds_mm": [
+      [
+        0.0,
+        -10.0,
+        0.0
+      ],
+      [
+        20.0,
+        0.0,
+        30.0
+      ]
+    ],
+    "centroid_mm": [
+      10,
+      -5,
+      15
+    ],
+    "drivers": {
+      "Height": [
+        10.0,
+        "sldprt:feature:21"
+      ],
+      "Length": [
+        20.0,
+        "sldprt:feature:18"
+      ],
+      "Width": [
+        30.0,
+        "sldprt:feature:18"
+      ]
+    },
+    "feature_count": 19,
+    "ordinary_neutral_json_roundtrip": true,
+    "solid_count": 1,
+    "volume_mm3": 6000.0
+  },
+  "strict_candidate": {
+    "area_mm2": 2200.0,
+    "axes": [
+      {
+        "end_mm": [
+          20.999999999999996,
+          0.0,
+          0.0
+        ],
+        "id": "sldprt:feature:27",
+        "name": "X-axis",
+        "parents": [
+          "Top Plane",
+          "Front Plane"
+        ],
+        "start_mm": [
+          -0.9999999999999991,
+          0.0,
+          0.0
+        ],
+        "wrappers": [
+          [
+            "sldprt:selection:27:axis-first-plane",
+            18445
+          ],
+          [
+            "sldprt:selection:27:axis-second-plane",
+            18834
+          ]
+        ]
+      },
+      {
+        "end_mm": [
+          0.0,
+          0.49999999999999956,
+          0.0
+        ],
+        "id": "sldprt:feature:28",
+        "name": "Y-axis",
+        "parents": [
+          "Front Plane",
+          "Right Plane"
+        ],
+        "start_mm": [
+          0.0,
+          -10.499999999999998,
+          0.0
+        ],
+        "wrappers": [
+          [
+            "sldprt:selection:28:axis-first-plane",
+            19552
+          ],
+          [
+            "sldprt:selection:28:axis-second-plane",
+            19853
+          ]
+        ]
+      },
+      {
+        "end_mm": [
+          0.0,
+          0.0,
+          31.5
+        ],
+        "id": "sldprt:feature:29",
+        "name": "Z-axis",
+        "parents": [
+          "Right Plane",
+          "Top Plane"
+        ],
+        "start_mm": [
+          0.0,
+          0.0,
+          -1.5000000000000013
+        ],
+        "wrappers": [
+          [
+            "sldprt:selection:29:axis-first-plane",
+            20643
+          ],
+          [
+            "sldprt:selection:29:axis-second-plane",
+            21016
+          ]
+        ]
+      }
+    ],
+    "body": "Body",
+    "body_incidence_matches": true,
+    "body_shape_id": "sldprt:body:1-prism-body",
+    "bounds_mm": [
+      [
+        0.0,
+        -10.0,
+        0.0
+      ],
+      [
+        20.0,
+        0.0,
+        30.0
+      ]
+    ],
+    "centroid_mm": [
+      10,
+      -5,
+      15
+    ],
+    "drivers": {
+      "Height": [
+        10.0,
+        "sldprt:feature:21"
+      ],
+      "Length": [
+        20.0,
+        "sldprt:feature:18"
+      ],
+      "Width": [
+        30.0,
+        "sldprt:feature:18"
+      ]
+    },
+    "feature_count": 22,
+    "ordinary_neutral_json_roundtrip": true,
+    "solid_count": 1,
+    "volume_mm3": 6000.0
+  },
+  "targeted_refusals": {
+    "aliased_component": {
+      "owner_refusal": "cache free origin axes contain shared exclusive owners",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    },
+    "coherent_old_display": {
+      "owner_refusal": "cache free axis datum display disagrees with its stock",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    },
+    "coherent_old_endpoint": {
+      "owner_refusal": "cache free origin axis endpoints disagree with their finite support",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    },
+    "crossed_wrappers": {
+      "owner_refusal": "cache free origin axis has crossed or nonprincipal supports",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    },
+    "foreign_creation": {
+      "owner_refusal": "cache free origin axes lack complete creation ownership",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    },
+    "hidden_axis": {
+      "owner_refusal": "cache free origin axis has unsupported feature state",
+      "strict_sdk_refusal": "SLDPRT contains no readable Parasolid payload"
+    }
+  }
+}

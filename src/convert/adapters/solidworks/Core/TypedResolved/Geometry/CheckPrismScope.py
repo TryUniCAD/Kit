@@ -8,6 +8,13 @@ from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadWidthDepth import (
     ReadWidthDepth,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.CheckAxisMap import (
+    CheckAxisMap,
+    KAxisClasses,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.PrismAxes import (
+    PrismAxes,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
     CheckGeometry,
 )
@@ -26,6 +33,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRels impo
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismNodes import (
     PrismNodes,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismClasses import (
+    KPrismClasses,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
     ColdOutput,
 )
@@ -39,21 +49,36 @@ def CheckPrismScope(
     ManagerValue: CmgrGraph,
     ModelValue: NativeModel,
     ColdValue: ColdOutput | None = None,
+    *,
+    AxesValue: PrismAxes | None = None,
 ) -> Mapping[int, ArchiveNode]:
     RelationValue = ModelValue.WidthDepth
     CheckGeometry(LinkValue, ManagerValue, ModelValue, RelationValue=RelationValue)
     ProvenNodes: frozenset[ArchiveNode] = frozenset()
     if RelationValue is not None:
         if (
-            ReadWidthDepth(ModelValue, LinkValue, RelationValue.SourceValue)
+            AxesValue is not None
+            or ReadWidthDepth(ModelValue, LinkValue, RelationValue.SourceValue)
             != RelationValue
         ):
             raise ValueError("cache free prism equation ownership or state has changed")
         ProvenNodes = RelationValue.RelationNodes
     ColdAtom = None if ColdValue is None else ColdValue.AtomValue
-    NodesValue = PrismNodes(LinkValue, ManagerValue, ColdAtom, ProvenNodes=ProvenNodes)
+    AllowedClasses = (
+        KPrismClasses if AxesValue is None else KPrismClasses | KAxisClasses
+    )
+    NodesValue = PrismNodes(
+        LinkValue,
+        ManagerValue,
+        ColdAtom,
+        AllowedClasses=AllowedClasses,
+        ProvenNodes=ProvenNodes,
+    )
     Features = IndexFeatures(LinkValue)
-    CheckPrismRoots(Features, NodesValue)
+    if AxesValue is None:
+        CheckPrismRoots(Features, NodesValue)
+    else:
+        CheckPrismRoots(*CheckAxisMap(LinkValue, Features, NodesValue, AxesValue))
     CheckPrismRoot(LinkValue.ConfigValue.RootValue, int(ColdAtom is not None))
     CheckPrismMgr(ManagerValue)
     if RelationValue is None:

@@ -1,10 +1,11 @@
 # Disclosed F14c part with three generated origin axes
 
-The generated candidate awaits native measurement. Its strict SDK
-history reads the three axes and one Body. Its default geometry read
-refuses with `SLDPRT contains no readable Parasolid payload`. This is
-an experimental step for `B04-SW2026-FCSTD-BOX`, owned by
-`/root/assembly_frontier` under PR #121. [Frozen host evidence](../measurements/2026/AttachedBoxAxesCandidate01.json)
+At the construction freeze, strict SDK history read the three axes and
+one Body. Default geometry refused with `SLDPRT contains no readable
+Parasolid payload`. The independent [native and strict SDK readback](AttachedBoxAxisRead2026.md)
+now ties the exact frozen bytes to the signed solid and six owned plane
+selections. This is an experimental step for `B04-SW2026-FCSTD-BOX`,
+owned by `/root/assembly_frontier` under PR #121. [Frozen host evidence](../measurements/2026/AttachedBoxAxesCandidate01.json)
 
 ## Shared authority
 
