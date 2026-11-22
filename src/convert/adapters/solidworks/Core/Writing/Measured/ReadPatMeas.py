@@ -36,7 +36,8 @@ def ReadPatMeas(
     ResultBytes = ReadPatBytes(Receipt["result"])
     PacketSha = CalcSha(PacketBytes).hexdigest()
     ResultSha = CalcSha(ResultBytes).hexdigest()
-    if KPatResultByPacket.get(PacketSha) != ResultSha:
+    Expected = KPatResultByPacket.get(PacketSha)
+    if Expected is None or ResultSha not in Expected:
         raise ValueError(
             "linear pattern requires its exact disclosed native measurement"
         )
@@ -57,4 +58,4 @@ def ReadPatMeas(
         or Result.get("distinct_processes") != 6
     ):
         raise ValueError("linear pattern native measurement authority differs")
-    return TimeValue, FilesValue, Result, ResultSha
+    return TimeValue, FilesValue, Result, Expected[0]

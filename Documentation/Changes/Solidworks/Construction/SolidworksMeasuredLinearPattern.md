@@ -22,6 +22,8 @@ the exact matching `packet` and `result` JSON bytes. Each pair binds the
 entire regenerated archive, including its self locator, before any
 destination receives bytes. The two cases have separate measurements
 for classic zlib and Windows zlib-ng.
+The shipped LF result JSON and the original Windows CRLF result
+authenticate the same exact observation.
 
 Both disclosed cases passed clean native SOLIDWORKS 2026 SP05.2 open,
 rebuild, spacing edit, save and fresh reopen, bracketed by two healthy

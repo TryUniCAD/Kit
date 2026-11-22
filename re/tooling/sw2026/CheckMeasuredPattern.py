@@ -309,6 +309,9 @@ def tree_digest(directory):
 def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate=False):
     scratch = scratch.resolve()
     request, evidence, result, request_sha, expected_streams = read_inputs(root, name, alternate)
+    published = (root / (ALTERNATE if alternate else FIXTURES) / "Result.json").read_bytes()
+    require(b"\r" not in published and published != evidence["result"],
+            "published measurement must use the Git file's LF encoding")
     expected_hash = (ALTERNATE_HASHES if alternate else SOURCE_HASHES)[name]
     classic = read_bound_receipt(root / FIXTURES, PACKET_SHA, RESULT_SHA) if alternate else None
     sys.path.insert(0, str(root / "src"))
@@ -429,6 +432,23 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
         compression_refused = 0 if classic is None else check_compression_receipts(
             parsed, values, evidence, classic, public, direct,
         )
+        published_values = {
+            **values, MEASUREMENT: {**values[MEASUREMENT], "receipt": {**evidence, "result": published}},
+        }
+        mixed_values = {
+            **values, MEASUREMENT: {
+                **values[MEASUREMENT], "receipt": {**evidence, "result": published.replace(b"\n", b"\r\n", 1)},
+            },
+        }
+        for write in (public, direct):
+            published_sink = BytesIO()
+            output = write(parsed, published_sink, published_values)
+            require(published_sink.getvalue() == raw
+                    and output.metadata[MEASUREMENT]["native_result_sha256"] == digest(evidence["result"]),
+                    "published LF report changed the native output or its measured identity")
+            mixed_sink = BytesIO(b"untouched output")
+            reject(lambda: write(parsed, mixed_sink, mixed_values), "exact disclosed native measurement")
+            require(mixed_sink.getvalue() == b"untouched output", "mixed-line receipt altered output")
     check_permissive_history(incomplete, design, open_document)
     path_source = open_document(target, source_format=FORMAT, strict=True)
     require(path_source.feature_timeline == readback.feature_timeline and path_source.bodies == readback.bodies,
@@ -454,6 +474,8 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
             "refusal_count": refused + 2, "runtime_input_file_reads": len(blocked), "native_launches": 0,
             "design_only_history_equal": True, "strict_history_refusal_count": 2,
             "permissive_history_unqualified": True,
+            "published_lf_receipt_count": 2,
+            "mixed_newline_receipt_refusal_count": 2,
             "semantics": semantics, "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "native_hash_reproduced"}
     if alternate:
         report["compression_receipt_refusal_count"] = compression_refused

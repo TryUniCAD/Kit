@@ -2,6 +2,8 @@ from json import loads as LoadJson
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as Interpreter
+from sys import platform as PlatformName
+from sys import version as PythonVersion
 from typing import cast as CastValue
 
 
@@ -33,6 +35,8 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
     assert Report["case"] == f"ColdRaisedPattern{SlotValue}"
     if Report["status"] == "native_hash_reproduced":
         assert Report["publication_count"] == 7 and Report["refusal_count"] == 21
+        assert Report["published_lf_receipt_count"] == 2
+        assert Report["mixed_newline_receipt_refusal_count"] == 2
     else:
         assert Report["status"] == "unmeasured_binary_envelope_refused"
         assert "zlib-ng" in CastValue(str, Report["compression_runtime"])
@@ -42,6 +46,13 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
     assert Report["strict_history_refusal_count"] == 2
     assert Report["permissive_history_unqualified"] is True
     assert Shape["faces"] == FacesValue
+    if (
+        PlatformName == "win32"
+        and PythonVersion
+        == "3.14.10 (tags/v3.14.10:b703b2c, Oct 25 2026, 17:36:52) [MSC v.1944 64 bit (AMD64)]"
+        and Report["compression_runtime"] == "1.3.1.zlib-ng"
+    ):
+        assert Report["generated_sha256"] == AlternateSha
     if Report["generated_sha256"] == AlternateSha:
         Result = RunProcess(
             [*Command, "--alternate-receipt"],
@@ -57,6 +68,8 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
         assert Alternate["generated_sha256"] == AlternateSha
         assert Alternate["publication_count"] == 7 and Alternate["refusal_count"] == 21
         assert Alternate["compression_receipt_refusal_count"] == 6
+        assert Alternate["published_lf_receipt_count"] == 2
+        assert Alternate["mixed_newline_receipt_refusal_count"] == 2
         assert Alternate["streams"] == Report["streams"]
         assert (
             Alternate["runtime_input_file_reads"] == Alternate["native_launches"] == 0

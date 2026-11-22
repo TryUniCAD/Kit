@@ -137,6 +137,10 @@ bind the new file hashes. Their observed SHA-256 values are
 `9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c`
 and `c119cfd3f1faef104030333cab7c55221f890ea52dc3a853b115e8e4108ec0c4`.
 Caller-supplied proof has to match the specific packet and result pair.
+The repository stores the result with LF endings. The writer pins that
+exact published digest alongside the native CRLF digest. Either exact
+encoding reports the same original native measurement identity.
+Altered and mixed-line encodings refuse.
 The writer still regenerates the entire candidate from the neutral
 request and matches the new whole-file SHA before writing. The
 [stream comparison](../v2026/corpus/linear-pattern/MeasuredZlibNg01/Compression.json)
@@ -154,3 +158,7 @@ writer refusals when the caller only supplies the original classic
 receipt. The [publication receipt](../measurements/2026/MeasuredPatternCompressionPublication01.json)
 binds both runtime reports, the native phase digests and the file
 hashes fetched independently from the retained guest directories.
+The [receipt encoding check](../measurements/2026/MeasuredPatternReceiptEncoding01.json)
+repeats the classic and Windows publications with the exact shipped LF
+result. Both writer routes accept it for each case and refuse a mixed
+encoding while preserving the destination.

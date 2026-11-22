@@ -380,7 +380,8 @@ Use the regular `solidworks_native_measurement` option with
 `{"written_at": ..., "receipt": {"packet": ..., "result": ...}}`.
 Supply the original JSON bytes of the packet and native report that
 match the generated container. The classic zlib and Windows zlib-ng
-envelopes use distinct pairs. The two measured pattern locators
+envelopes use distinct pairs. The native result can use the shipped LF
+encoding or the original Windows CRLF encoding. The two measured pattern locators
 are `C:\KitGeneratedLocalPattern\ColdRaisedPatternA.SLDPRT` and
 `C:\KitGeneratedLocalPattern\ColdRaisedPatternB.SLDPRT`. Use an empty
 seekable SDK stream, optionally an exclusively opened binary file, together
