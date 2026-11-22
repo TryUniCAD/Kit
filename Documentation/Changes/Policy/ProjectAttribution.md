@@ -26,12 +26,16 @@ and [JSON adapter metadata](../../Reference/Adapters/Json.md).
 
 The JSON media-type label changes; the interchange document schema does not.
 Consumers that inspect the label must use the current value.
+Custom writers paired with the built-in JSON reader must advertise the current label before registration.
+The registry rejects writers that advertise an unrecognized media type.
 Historical research path labels use the current organisation spelling.
 Those normalized labels do not assert the original host directory names.
 Recorded measurements and CAD fixture bytes are unchanged.
 
 Readable historical standards have explicit byte edits in their provenance manifest.
 CI still verifies every original blob, hash, size, and inventory entry before applying those edits.
+The workflow pins the resulting text hashes for the sixteen reviewed standards copies.
+Manifest edits cannot authorize other text without changing that reviewed hash inventory.
 The source commit remains pinned.
 See [the preservation gotcha](../../Gotchas/Ci/Policy/StandardsReadableEdits.md).
 
