@@ -204,8 +204,13 @@ def worker(request):
             require(pair(reordered, request["locator"])[0] == payload, "portable inventory order leaked into driver selection")
             streams = typed(payload, case)
             refusals = rejected(document, writer, values, case, request["side"])
-            refuse(lambda: open_document(BytesIO(payload), source_format=FORMAT, strict=True),
-                   "SLDPRT contains no readable Parasolid payload")
+            restored = open_document(BytesIO(payload), source_format=FORMAT, strict=True)
+            (finish,) = [step for step in restored.feature_timeline if step.kind == FeatureKind.KChamfer]
+            require(restored.brep is not None and len(restored.bodies) == 1
+                    and restored.bodies[0].topology.solid_count == 1
+                    and isinstance(finish.definition, ChamferFeature)
+                    and finish.definition.mode == "distance_angle" and len(finish.parameter_ids) == 2,
+                    "strict readback lost the live angle-distance chamfer or its solid")
             logical = str(PureWindowsPath("C:/KitSdkCandidates") / filename)
             local_bytes, _, _ = pair(document, logical)
             require(len(streams) == 10 and document.to_json() == wire, "writer modified the portable model or dropped streams")
@@ -226,7 +231,7 @@ def worker(request):
         return {"archive_sha256": digest(payload), "bytes": len(payload), "streams": streams,
                 "public_path_sha256": digest(local_bytes), "runtime_accesses": 0,
                 "replayed_streams": 2, "refusals": refusals, "inventory_order_independent": True,
-                "ordinary_read_refusal": "SLDPRT contains no readable Parasolid payload"}
+                "strict_readback": True}
 
 
 def supervise(trial, native, output):

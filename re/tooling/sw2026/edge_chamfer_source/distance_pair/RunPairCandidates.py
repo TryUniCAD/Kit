@@ -8,9 +8,15 @@ import sys
 
 
 HERE = Path(__file__).resolve()
-METHOD = PureWindowsPath(r"C:\KitChamferPairMethod04\Packet\ProbeJob.json")
-METHOD_PIN = "7a0b036c39e5aaa82283e1f1dffa67549965dc3f2916c7b06f5baccbe17eb726"
-DESTINATION = PureWindowsPath(r"C:\KitChamferPairGenerated05\Packet\Candidates")
+METHODS = {
+    "disclosed": (r"C:\KitChamferPairMethod04\Packet\ProbeJob.json",
+                  "7a0b036c39e5aaa82283e1f1dffa67549965dc3f2916c7b06f5baccbe17eb726",
+                  r"C:\KitChamferPairGenerated05\Packet\Candidates"),
+    "heldout": (r"C:\KitChamferPairHeldout04\Packet\ProbeJob.json",
+                "31473099e2efb94820f4580e59648e47c783775e5210276edc728fe134692982",
+                r"C:\KitChamferPairHeldoutGenerated06\Packet\Candidates"),
+}
+PROTECTED_SOURCE = "42a343efb48020971424d5dac0e11a3c54297fd833329dd46c9a50955ad31846"
 PHASES = ("reopen-edit-save", "edited-reopen")
 
 
@@ -37,16 +43,24 @@ def pinned(path, pin):
 def load_manifest(path, pin, local):
     raw = pinned(path, pin)
     manifest = json.loads(raw)
+    cohort = manifest.get("cohort", "disclosed")
+    _, _, destination = METHODS[cohort]
+    destination = PureWindowsPath(destination)
     require(os.name == "nt" and manifest["schema"] == "kit.sw2026.distance-pair-neutral-build.v1"
-            and PureWindowsPath(manifest["destination"]) == DESTINATION,
+            and PureWindowsPath(manifest["destination"]) == destination,
             "distance pair evaluation requires its exact guest-local candidate layout")
     if local:
-        require(path.resolve() == Path(DESTINATION.parent / "Generated.json")
+        require(path.resolve() == Path(destination.parent / "Generated.json")
                 and HERE.parent == path.parent, "distance pair evaluation must use its guest-local packet")
     rows = manifest["candidates"]
-    require([(row["name"], row["mode_word"]) for row in rows] ==
-            [("EqualDistanceEdge.SLDPRT", 18), ("UnequalDistanceEdge.SLDPRT", 2)],
-            "distance pair writer manifest does not cover both modes")
+    spec, _ = method(cohort)
+    require([row["name"] for row in rows] == [case["name"] + ".SLDPRT" for case in spec["cases"]]
+            and [row["mode_word"] for row in rows] == [18, 2],
+            "distance pair writer manifest does not cover both exact models")
+    if cohort == "heldout":
+        require(manifest["private_source_sha256"] == PROTECTED_SOURCE
+                and manifest["writer_revision"] == "9e939d42ca5eaa9e71c1c253c255010c9ef9c99e" and local,
+                "heldout generation must bind the earlier native source and exact prepared writer")
     require(all(row["guarded_processes"] == 2 and row["runtime_external_reads"] == 0 for row in rows),
             "distance pair candidates lack independent no-read generation")
     return manifest, raw
@@ -54,7 +68,7 @@ def load_manifest(path, pin, local):
 
 def stage(args):
     manifest, raw = load_manifest(args.job, args.pin, False)
-    target = Path(DESTINATION.parent)
+    target = Path(PureWindowsPath(manifest["destination"]).parent)
     require(not target.exists(), "distance pair candidate packet already exists")
     source = args.job.parent / "Candidates"
     files = {row["name"]: pinned(source / row["name"], row["archive_sha256"]) for row in manifest["candidates"]}
@@ -67,17 +81,18 @@ def stage(args):
     return {"staged": args.pin, "files": len(files), "runner_sha256": digest(HERE.read_bytes())}
 
 
-def method():
-    path = Path(METHOD)
+def method(cohort):
+    job, pin, _ = METHODS[cohort]
+    path = Path(job)
     sys.path.insert(0, str(path.parent / "Tool"))
     from RunChamferPair import load_job
 
-    return load_job(path, METHOD_PIN, local=True), path.parent
+    return load_job(path, pin, local=True), path.parent
 
 
 def phase(args):
     manifest, _ = load_manifest(args.job, args.pin, True)
-    spec, packet = method()
+    spec, packet = method(manifest.get("cohort", "disclosed"))
     import Swapp
     from ChamferApi import installed_api
     from FilletSourcePhase import run_control
@@ -93,7 +108,7 @@ def phase(args):
     case = spec["cases"][args.slot]
     original = args.job.parent / "Candidates" / row["name"]
     folder = capture / str(args.slot)
-    edited = folder / ("Edited-" + row["name"])
+    edited = folder / (case["name"] + "Edited.SLDPRT")
     constants, _ = installed_api(Swapp, distance_pair=True)
     pin = row["archive_sha256"] if args.phase == PHASES[0] else args.source
     return native_phase(case, pair_plan(case), args.phase, original, edited, pin,
@@ -135,7 +150,8 @@ def launch(args, folder, name, lifetimes, slot=None, source=None):
 
 def evaluate(args):
     manifest, _ = load_manifest(args.job, args.pin, True)
-    method()
+    cohort = manifest.get("cohort", "disclosed")
+    spec, method_packet = method(cohort)
     import Swapp
     from FilletPacket import BUILD, ORACLE
     from RunChamferSources import driver_identity
@@ -159,10 +175,21 @@ def evaluate(args):
                 source = row["native_sha256"]
             else:
                 states = (records[0]["reopened"], records[0]["edited"], records[1]["reopened"])
-                if all(state["branch"] == [slot] and state["tree"] == states[0]["tree"]
+                if all(state["tree"] == states[0]["tree"] and state["branch"] == states[0]["branch"]
                        and driver_identity(state) == driver_identity(states[0]) for state in states):
                     accepted.update(passed=True, tree_rows=len(states[0]["tree"]),
                                     drivers=driver_identity(states[0]), edited_sha256=source)
+                    if cohort == "heldout":
+                        from CompareLockedPair import compare_source
+
+                        try:
+                            accepted["native_source_comparisons"] = compare_source(
+                                method_packet.parent / "Capture", spec["cases"][slot], states, PROTECTED_SOURCE,
+                            )
+                        except (ValueError, TypeError, KeyError) as error:
+                            accepted.update(passed=False, lifecycle_failure=str(error))
+                    elif states[0]["branch"] != [slot]:
+                        accepted.update(passed=False, lifecycle_failure="disclosed orientation differs")
                 else:
                     accepted["lifecycle_failure"] = "edit changed the tree, orientation or driver ownership"
             rows.append(accepted)
@@ -171,26 +198,49 @@ def evaluate(args):
     passed = before["passed"] and after["passed"] and len(rows) == 2 and all(row["passed"] for row in rows)
     passed = passed and len(lifetimes) == len(set(lifetimes)) == 6 and idle
     report = {"schema":"kit.sw2026.distance-pair-generated-native.v1", "build": BUILD, "oracle_sha256": ORACLE,
-              "runner_sha256": digest(HERE.read_bytes()), "generation_sha256": args.pin, "method_sha256": METHOD_PIN,
-              "controls": [before, after], "candidates": rows, "heldout_writer_acceptance": False,
+              "runner_sha256": digest(HERE.read_bytes()), "generation_sha256": args.pin, "method_sha256": METHODS[cohort][1],
+              "controls": [before, after], "candidates": rows, "heldout_writer_acceptance": cohort == "heldout" and passed,
               "passed": passed, "distinct_processes": len(set(lifetimes)), "idle_after": idle}
     raw = (json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
     write_new(capture / "Result.json", raw)
     return {"passed": passed, "result_sha256": digest(raw), "distinct_processes": len(set(lifetimes))}
 
 
+def publish(args):
+    manifest, _ = load_manifest(args.job, args.pin, True)
+    raw = pinned(args.job.parent.parent / "Capture" / "Result.json", args.result_pin)
+    report = json.loads(raw)
+    require(report["generation_sha256"] == args.pin and all(row["passed"] for row in report["controls"]),
+            "distance pair report lacks passing bracket controls")
+    if manifest.get("cohort", "disclosed") == "heldout":
+        report["private_result_sha256"] = args.result_pin
+        report["private_source_sha256"] = PROTECTED_SOURCE
+        report["writer_revision"] = manifest["writer_revision"]
+        for row in report["candidates"]:
+            row.pop("drivers", None)
+            row.pop("lifecycle_failure", None)
+            for phase_result in row["phases"]:
+                phase_result.pop("first_failure", None)
+        raw = (json.dumps(report, indent=2, sort_keys=True, allow_nan=False) + "\n").encode()
+    write_new(args.output, raw)
+    return {"published_sha256": digest(raw), "passed": report["passed"]}
+
+
 def main():
     parser = ArgumentParser()
-    parser.add_argument("action", choices=("stage", "run", "worker"))
+    parser.add_argument("action", choices=("stage", "run", "worker", "publish"))
     parser.add_argument("--job", type=Path, required=True)
     parser.add_argument("--pin", required=True)
     parser.add_argument("--phase")
     parser.add_argument("--slot", type=int)
     parser.add_argument("--source")
+    parser.add_argument("--result-pin")
+    parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     if args.action == "worker":
         return 0 if phase(args) else 1
-    print(json.dumps(stage(args) if args.action == "stage" else evaluate(args), sort_keys=True))
+    actions = {"stage": stage, "run": evaluate, "publish": publish}
+    print(json.dumps(actions[args.action](args), sort_keys=True))
     return 0
 
 
