@@ -2,7 +2,9 @@ from convert.adapters.solidworks.Container.Archive import KLayoutValue
 
 
 # variable strings preserve the measured leading and trailing fixed widths in each owner
-def TextRule(SlotValue: str, AtValue: int, TailValue: int = 0) -> dict[str, KLayoutValue]:
+def TextRule(
+    SlotValue: str, AtValue: int, TailValue: int = 0
+) -> dict[str, KLayoutValue]:
     return {
         "slot": SlotValue,
         "rule": "string",
@@ -116,7 +118,10 @@ KUnitRules: dict[str, KLayoutValue] = {
         "runs": {"lead": 2, "0": 0},
         "repeat_count": {"run": "lead", "width": 2, "at": 0},
     },
-    "moLengthUserUnits_c": {"child_slots": ["moLengthUserUnits_c"], "runs": {"lead": 64, "0": 0}},
+    "moLengthUserUnits_c": {
+        "child_slots": ["moLengthUserUnits_c"],
+        "runs": {"lead": 64, "0": 0},
+    },
     "moDensityUnits_c": {"variable_runs": [GuardRule("leaf", 73, 66, 1, 0)]},
     "moUnitComponent_c": {
         "child_slots": ["moPart_c"],
@@ -133,7 +138,10 @@ KPrefixRules = KRootClasses | KVisualOwners | KUnitLeaves | KUnitRules
 # the independent material continuation only exposes its own registered children
 KMaterialRules: dict[str, KLayoutValue] = {
     "gcXhatch_c": {"variable_runs": [TextRule("leaf", 0, 40)]},
-    "moMaterial_c": {"child_slots": ["moDensityParameter_c"], "runs": {"lead": 0, "0": 0}},
+    "moMaterial_c": {
+        "child_slots": ["moDensityParameter_c"],
+        "runs": {"lead": 0, "0": 0},
+    },
     "moDensityParameter_c": {
         "child_slots": ["moNodeName_c", "moNodeName_c"],
         "runs": {"lead": 0},

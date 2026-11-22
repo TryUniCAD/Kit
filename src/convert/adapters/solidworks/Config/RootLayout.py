@@ -6,7 +6,6 @@ from convert.adapters.solidworks.Config.RootRules import (
 )
 from convert.adapters.solidworks.Container.Archive import LayoutTable
 
-
 # the root seed and inline fields have been independently checked for this generation
 KConfigGen = 19000
 
@@ -45,5 +44,7 @@ def ExtendRoot(
         **RootLayout.runs,
         **{str(SlotIndex): Width for SlotIndex, Width in enumerate(Widths, StartSlot)},
     }
-    Entries[KRootClass] = ReplaceData(RootLayout, child_slots=RootLayout.child_slots + Slots, runs=RunWidths)
+    Entries[KRootClass] = ReplaceData(
+        RootLayout, child_slots=RootLayout.child_slots + Slots, runs=RunWidths
+    )
     return ReplaceData(Layouts, classes=Entries)
