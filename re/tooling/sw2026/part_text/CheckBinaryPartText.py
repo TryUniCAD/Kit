@@ -1,13 +1,12 @@
 from functools import partial
 from hashlib import sha256
-from io import BytesIO
 import json
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from PartTextProbe import check_model, model_state, read_part, refuse_write
+from PartTextProbe import check_model, model_state, read_part, refuse_output, refuse_write
 from convert import convert
 from convert.adapters.solidworks.Container.Archive import EncodeClass
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
@@ -55,12 +54,14 @@ def inspect(path, case):
     )
     state = model_state(observed)
     if cause is None:
-        target = BytesIO()
-        result = operation(target)
-        check_model(baseline, result.document)
-        state["output_bytes"] = len(target.getvalue())
+        state["portability_refusal"] = refuse_output(
+            operation, "native-only feature definitions cannot be exported",
+            "sldprt:feature:-1", "Sheet-Metal Master",
+        )
     else:
         state["refusal"] = refuse_write(operation, cause)
+    if path.read_bytes() != raw:
+        raise ValueError("binary source changed")
     state["source_sha256"] = sha256(raw).hexdigest()
     state["manager_sha256"] = sha256(original_manager).hexdigest()
     state["property_xml"] = sorted(name for name in copied if is_property_xml(name))

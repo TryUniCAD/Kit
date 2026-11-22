@@ -7,8 +7,10 @@ can reject an otherwise lossless JSON copy.
 
 The conversion registry uses the selected input and output adapters
 for the copy decision. A registered JSON reader and JSON writer can
-preserve the snapshot and original information diagnostic when neither
-configuration selection nor geometry filtering is requested. The CLI
-also applies its existing checks for opaque native records.
-Keep the source provenance and diagnostic with the snapshot.
+preserve an eligible snapshot and its original information diagnostic
+when neither configuration selection nor geometry filtering is requested.
+The ordinary sketch-support and native feature checks still run during
+publication. A decoded native timeline can remain inspectable through
+JSON while those checks refuse an export. Keep the provenance and
+diagnostic with the snapshot.
 [Process cases](../../../../../../tests/Convert/Solidworks/Properties/WriteTextTests.py)

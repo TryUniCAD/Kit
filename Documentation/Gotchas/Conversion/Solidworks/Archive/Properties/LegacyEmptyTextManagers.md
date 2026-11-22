@@ -8,7 +8,9 @@ The same binary field grammar also occurs in the current version-19000
 ladder control.
 
 Consume the complete manager and check each recognized XML scope
-before allowing the legacy strict conversion. A familiar stream name,
-successful geometry read or empty custom XML cannot prove the
-binary owner's state.
+before treating the legacy text scopes as empty. A familiar stream name,
+successful geometry read or empty custom XML cannot prove the binary
+owner's state. The wheel control keeps its geometry in strict
+inspection and still refuses export because its sketch 40 has no
+qualified support.
 [Legacy compatibility evidence](../../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md#legacy-empty-text-compatibility)

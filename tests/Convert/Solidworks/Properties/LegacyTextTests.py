@@ -10,15 +10,17 @@ from tests.Convert.Solidworks.Properties.RunPartText import (
 KLegacyPart = KProjectPath / "re/solidworks/examples/.SLDPRT/example.SLDPRT"
 
 
-# the original wheel fixture succeeds and an authored legacy title is refused
+# legacy strict inspection preserves the solid and separates support and property refusals
 def TestLegacyText() -> None:
     ReportValue = RunPartText(KPartProbe / "CheckLegacyPartText.py", KLegacyPart)
     assert (
         ReportValue["source_sha256"]
         == "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408"
     )
-    OutputBytes = ReportValue["output_bytes"]
-    assert isinstance(OutputBytes, int) and OutputBytes > 0
+    assert ReportValue["archive_version"] == 18000
+    Portability = CastValue(str, ReportValue["original_portability_refusal"])
+    assert Portability.startswith("unqualified SOLIDWORKS sketch support references")
+    assert Portability.endswith("sldprt:sketch:40")
     Original = CastValue(dict[str, object], ReportValue["original"])
     Authored = CastValue(dict[str, object], ReportValue["authored_title"])
     assert Original["status"] is None

@@ -112,7 +112,7 @@ property receipt records its then-current scope using stdout SHA-256
 ## Legacy empty text compatibility
 
 The [isolated wheel smoke](../../../tests/Convert/Runtime/IsolatedRuntime.py)
-first converts the [legacy native control](../examples/.SLDPRT/example.SLDPRT),
+includes the [legacy native control](../examples/.SLDPRT/example.SLDPRT),
 SHA-256 `d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408`.
 Its format-4 container uses archive version 18000. The summary, document
 and configuration XML each have no authored text. Its complete manager
@@ -131,11 +131,12 @@ classes can open bodies.
 The scoped legacy path preserves a strict SDK open with one solid,
 one configuration and no optional text report. Older files with
 authored text or unknown managers fail the optional projection.
-The legacy queue case uses the exact wheel input for a strict JSON
-conversion and adds one authored title to a separate in-memory input.
-The wheel conversion succeeds with the prior model. The authored
-title preserves the inspection model and produces the expected
-write refusal. A separate binary case covers the malformed owner.
+The legacy queue case strictly opens the exact wheel input and adds
+one authored title to a separate in-memory input. The original keeps
+the accepted export refusal for its unqualified sketch support. The
+authored title preserves the same inspection model and returns the
+specific property refusal before that support check. A separate
+binary case covers the malformed owner.
 [Legacy queue case](../../../tests/Convert/Solidworks/Properties/LegacyTextTests.py)
 
 ## Binary-only owners and registry write policy
@@ -151,7 +152,8 @@ class in a temporary in-memory package. The diagnostic retains the
 and the underlying unsupported-owner placement cause. The other two
 variants preserve their original 138-byte and 33-byte binary managers
 and omit all property XML. The advanced case refuses and the compatible
-empty case converts. Each variant matches its original B-rep, bodies,
+empty case adds no property restriction and still reaches the native
+feature gate on export. Each variant matches its original B-rep, bodies,
 features, parameters, sketches and support planes.
 [Binary queue case](../../../tests/Convert/Solidworks/Properties/BinaryTextTests.py)
 · [Binary-only gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Properties/PropertyManagerCanStandAlone.md)
@@ -169,18 +171,19 @@ For a snapshot already read by the registered interchange JSON reader,
 the registry uses the actual input adapter for the text publication
 decision. A matching interchange JSON writer can retain the original
 document, unavailable diagnostic and source provenance when geometry
-and configuration filtering are disabled. The same status still
-refuses filtered copies, fresh SOLIDWORKS projections and direct
-writes. The CLI keeps its portable-data gate. The queue probes exercise
-both copy entry points, three filtered-copy refusals and the complete
-qualified circular-part JSON write/readback. The CLI process starts
-from the existing portable geometry control with the explicit native
-text diagnostic. Its unfiltered copy preserves the source. A requested
-configuration filter reaches the text refusal and preserves both paths.
+and configuration filtering are disabled and the model passes the
+other write checks. The same status refuses filtered copies, fresh
+SOLIDWORKS projections and direct writes. The queue checks both
+SDK copy entry points and the three filtered-copy refusals on a
+separate authored snapshot. The CLI uses a qualified, ordinary
+portable geometry control as its positive. The variant with native
+provenance and the text diagnostic reaches the existing support
+refusal. A requested configuration filter reaches the property
+refusal and preserves the inputs and destination.
 The SDK also traverses actual embedded assembly documents before
 publication. A linked unavailable L1 part retains its original cause and
 the prefilled stream is untouched.
-[Direct write queue case](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py)
+[Literal inspection queue case](../../../tests/Convert/Solidworks/Properties/LiteralTextTests.py)
 · [CLI process case](../../../tests/Convert/Solidworks/Properties/CliTextTests.py)
 · [Linked document case](../../../tests/Convert/Solidworks/Properties/LinkedTextTests.py)
 
@@ -193,11 +196,10 @@ owner-path diagnostic already present at review head
 the broader diagnostic before the owner-depth check. The other recorded
 values and model comparisons reproduce.
 
-The qualified circular part also succeeds through direct writes with
-either carrier setting. Both results carry 11 transfer records and
-preserve the three property bags, B-rep and feature timeline through
-JSON readback. The neutral control continues through the same registry
-preflight.
+The earlier receipt records the circular direct writes before the
+accepted portability checks. The current case verifies whole-document
+equality through strict JSON inspection. Both direct-write carrier
+settings now reach the accepted native feature refusal.
 [Current revision-bound receipt](../measurements/2026/LiteralPartTextWriteScope01.json)
 
 ## Physical configuration validation
@@ -275,13 +277,37 @@ python -I -B re/tooling/sw2026/part_text/CheckPhysicalPartText.py \
 [Physical proof receipt](../measurements/2026/LiteralPartTextPhysical01.json)
 · [Queue process case](../../../tests/Convert/Solidworks/Properties/PhysicalTextTests.py)
 
-The preceding write sections describe their recorded revisions. The
-merged main base at `f80da8caed2ca7a585c1aa85f22c1e13196761d5` also
-enforces required sketch supports and native feature portability.
-Its wheel smoke deliberately refuses the legacy fixture's unsupported
-sketch 40. The old legacy positive-conversion probe disagrees with that
-accepted outcome. The previously accepted direct write of the circular
-fixture and JSON copy of the exact L1 native timeline also reach the
-main native-only feature refusal. Those existing cases still require
-reconciliation before queue acceptance. The property integration
-preserves the shared portability gates.
+## Current portability boundary
+
+The integration uses the reviewed configuration dependency at
+`25f721039c0846c0ee50e6d1da10df1384e9a003`. The accepted model
+portability rules remain active. Strict inspection of the legacy wheel
+control preserves its B-rep and all 39 feature rows. Export refuses
+its existing unqualified sketch 40. Adding an authored legacy title
+preserves that same model and reaches the earlier property refusal.
+The compatible binary-only circular control has no property refusal.
+Its export still reaches the native-only feature gate. The
+unsupported advanced and malformed binary variants retain the exact
+property cause and model.
+
+The circular source keeps all eight literal values and equal
+source provenance, B-rep and history through strict JSON inspection
+of the serialized interchange document. The two direct writer
+carrier settings refuse at the native-only sheet-metal owner.
+Unfiltered JSON copies of the exact native L1 history also refuse at
+the native-only feature gate. The property override for unfiltered
+JSON leaves the unrelated portability requirements in place.
+
+A separately authored interchange snapshot models one imported prism
+with six analytic faces, volume 30 and one active configuration. Its
+synthetic SOLIDWORKS provenance and text diagnostic exercise the same
+property policy without relying on the L1 content. Default and
+compatibility JSON copies emit identical bytes and restore the entire
+snapshot. Geometry, mesh and configuration filters reject it with the
+exact original text diagnostic. Refusals retain their destination
+bytes and cursor. The CLI portable positive uses the existing complete
+geometry fixture. Its native-provenance contrast reaches the support
+refusal without filtering and the original text refusal with the
+configuration selected.
+
+[Exact current process evidence](../measurements/2026/LiteralPartTextPortability01.json)

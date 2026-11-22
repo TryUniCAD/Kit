@@ -1,27 +1,35 @@
 from functools import partial
 from hashlib import sha256
-from io import BytesIO
 import json
 from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from PartTextProbe import check_model, model_state, read_part, refuse_write
-from convert import convert, open_document
+from PartTextProbe import check_model, model_state, read_part, refuse_output, refuse_write
+from convert import convert
+from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 
 
 def inspect(source_path):
     native = source_path.read_bytes()
-    target = BytesIO()
-    result = convert(
-        source_path, target, source_format="solidworks.sldprt",
-        destination_format="interchange.json", strict=True,
+    archive = SldprtArchive.from_bytes(native)
+    version = ContainerMo(archive.streams)
+    if version != 18000:
+        raise ValueError("legacy property fixture changed archive version")
+    original = read_part(source_path)
+    options = {
+        "source_format": "solidworks.sldprt",
+        "destination_format": "interchange.json",
+        "strict": True,
+        "include_tessellation": False,
+    }
+    original_portability = refuse_output(
+        partial(convert, source_path, **options),
+        "unqualified SOLIDWORKS sketch support references", "sldprt:sketch:40",
     )
-    roundtrip = open_document(BytesIO(target.getvalue()), source_format="interchange.json")
-    check_model(result.document, roundtrip)
-    streams = SldprtArchive.from_bytes(native).streams
+    streams = dict(archive.streams)
     name = "docProps/core.xml"
     closing = b"</cp:coreProperties>"
     if streams[name].count(closing) != 1:
@@ -31,18 +39,17 @@ def inspect(source_path):
     )
     changed = BuildSldprt(streams, Template=native)
     inspected = read_part(changed)
-    check_model(read_part(native), inspected)
-    state = model_state(inspected)
+    check_model(original, inspected)
     cause = "legacy SOLIDWORKS part contains authored summary text"
-    refusal = refuse_write(partial(
-        convert, changed, source_format="solidworks.sldprt",
-        destination_format="interchange.json", include_tessellation=False,
-    ), cause)
+    refusal = refuse_write(partial(convert, changed, **options), cause)
+    if source_path.read_bytes() != native:
+        raise ValueError("legacy source changed")
     return {
         "source_sha256": sha256(native).hexdigest(),
-        "original": model_state(result.document),
-        "output_bytes": len(target.getvalue()),
-        "authored_title": state,
+        "archive_version": version,
+        "original": model_state(original),
+        "original_portability_refusal": original_portability,
+        "authored_title": model_state(inspected),
         "refusal": refusal,
     }
 

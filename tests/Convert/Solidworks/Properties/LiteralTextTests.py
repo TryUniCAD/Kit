@@ -45,8 +45,8 @@ def TestLiteralText() -> None:
     assert ReportValue["body"] == ["sldprt:body:1", 1, 1, 1]
 
 
-# an interchange write must retain all three qualified scopes and their actual owner
-def TestTextWrite() -> None:
+# inspection preserves the literal scopes while native history still enforces the portability gate
+def TestJsonInspect() -> None:
     ReportValue = RunPartText(
         KPartProbe / "CheckLiteralTextWrite.py",
         KPartCorpus / "part-properties/CircularProperties.SLDPRT",
@@ -56,3 +56,8 @@ def TestTextWrite() -> None:
     assert ReportValue["text"] == KNativeText
     assert ReportValue["configuration"] == ["modeled default", True, 0]
     assert ReportValue["source_provenance_preserved"] is True
+    Refusals = CastValue(dict[str, str], ReportValue["direct_portability_refusals"])
+    assert Refusals.keys() == {"without_carrier", "with_carrier"}
+    for Reason in Refusals.values():
+        assert Reason.startswith("native-only feature definitions cannot be exported")
+        assert "sldprt:feature:-1 (solidworks.sldprt:Sheet-Metal Master)" in Reason

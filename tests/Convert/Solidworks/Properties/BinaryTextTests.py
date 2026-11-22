@@ -61,5 +61,6 @@ def TestBinaryText() -> None:
     assert EmptyValue["configuration"] == ["modeled default", True, 0]
     assert EmptyValue["body"] == ["sldprt:body:1", 1, 1, 1]
     assert EmptyValue["geometry_equal"] is True
-    OutputBytes = EmptyValue["output_bytes"]
-    assert isinstance(OutputBytes, int) and OutputBytes > 0
+    Portability = CastValue(str, EmptyValue["portability_refusal"])
+    assert Portability.startswith("native-only feature definitions cannot be exported")
+    assert "sldprt:feature:-1 (solidworks.sldprt:Sheet-Metal Master)" in Portability

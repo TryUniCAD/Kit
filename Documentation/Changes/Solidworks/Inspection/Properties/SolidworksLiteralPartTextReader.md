@@ -18,15 +18,17 @@ diagnostic. The ordinary model read remains available. The registry
 refuses new native projections and direct writes when the root or an
 owned component document has this status. The error retains the first
 unavailable property's original cause. The registered interchange JSON
-reader and writer can preserve an existing snapshot and its native
+reader and writer can preserve an eligible neutral snapshot and its native
 inspection status when configuration and geometry filtering are disabled.
+The ordinary model portability checks also apply to snapshot copies.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
-text scopes. Empty scopes allow strict conversion without adding text
-metadata when the model meets the other conversion requirements.
-Authored text or an unsupported owner produces the same write refusal.
-The ordinary read remains available for inspection.
+text scopes. Empty scopes add no property-specific restriction.
+Authored text or an unsupported owner produces the same property
+write refusal. Strict inspection preserves the model. The legacy
+wheel control still encounters its separate sketch support refusal
+when it crosses the export boundary.
 
 Check `metadata["solidworks.part_text_properties"]["status"]` for
 `complete` before relying on the text. The reader leaves files without
@@ -42,8 +44,11 @@ The physical configuration case checks a one-byte stream, a missing
 tail, appended data and a different mapped owner. Each keeps the model
 readable, withholds all text and refuses conversion and direct writing
 before changing the destination. The summary-only truncation control
-applies the same rule without scoped custom XML. Other conversion
-requirements still apply to inspected models.
+applies the same rule without scoped custom XML. A distinct neutral
+snapshot with an authored prism proves exact JSON copies through both
+SDK entry points. The circular native control retains its full inspection
+document in JSON and still encounters the native-only feature gate on
+direct export.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)

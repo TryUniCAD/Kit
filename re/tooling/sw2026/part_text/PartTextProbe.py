@@ -52,15 +52,23 @@ def check_model(original, observed):
         raise ValueError("the property case changed the modeled part")
 
 
-def refuse_write(operation, cause):
+def refuse_output(operation, expected, *witnesses):
     target = BytesIO(b"unchanged")
-    expected = f"SOLIDWORKS part text properties are unavailable for writing ({cause})"
+    target.seek(3)
     try:
         operation(target)
     except ValueError as error:
-        if target.getvalue() != b"unchanged" or target.tell() != 0:
+        if target.getvalue() != b"unchanged" or target.tell() != 3:
             raise ValueError("refused write mutated its destination") from error
-        if str(error) != expected:
+        message = str(error)
+        matches = (message.startswith(expected) and all(value in message for value in witnesses)
+                   if witnesses else message == expected)
+        if not matches:
             raise ValueError(f"unexpected write refusal {error}") from error
-        return str(error)
-    raise ValueError("unsupported part text crossed the write boundary")
+        return message
+    raise ValueError("a refused case crossed the write boundary")
+
+
+def refuse_write(operation, cause):
+    expected = f"SOLIDWORKS part text properties are unavailable for writing ({cause})"
+    return refuse_output(operation, expected)

@@ -113,8 +113,10 @@ The legacy wheel fixture's empty text scopes use a complete structural
 absence proof. The local #183 integration binds every literal result to
 the complete `Config-0` codec in [PR #233](https://github.com/TryUniCAD/Kit/pull/233).
 Five guarded physical variants withhold all literal text and preserve
-the inspected model. The existing legacy and native write probes must
-agree with the accepted model portability gates. Exit requires the
+the inspected model. Strict legacy and native inspections retain
+their models while export respects the accepted portability gates.
+A separate neutral snapshot with a modeled prism preserves its
+inspection status in both SDK copy paths. Exit requires the
 foundation on main, current review and native queue acceptance.
 [Slice record](../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 [Change entry](../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
