@@ -42,3 +42,17 @@ contains the complete and per-stream digests. The tool generates the three
 files from neutral requests and exposes their exact native locators.
 Both runs had zero runtime file reads or process launches. Native opening,
 rebuilding, editing and held-out output acceptance remain pending.
+
+The final source revision repeated the same three complete file digests.
+The earlier measured equal-distance chamfer retained all ten streams and
+its exact 8,990-byte archive through both production and readback writers.
+That control used no runtime file reads.
+
+The [native observation script](../../tooling/sw2026/shell_source/InspectGeneratedOpenShell.py)
+and [guest launcher](../../tooling/sw2026/shell_source/RunGeneratedOpenShell.ps1)
+bind the disclosed calibration candidate at its exact encoded locator.
+The trial measures actual cold bodies, clean rebuild, both editable
+dimensions, a 2.8 to 3.53 mm thickness edit, clean save and fresh reopen.
+The comparison uses the disclosed calibration geometry. The independently
+sealed parts stay in their original custody for held-out evaluation. The
+first and last processes use the existing native control.
