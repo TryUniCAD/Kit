@@ -1,19 +1,20 @@
 from math import tau as FullTurn
 
-from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleNum import (
-    ReadStyleNum,
+from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ReadRevDriver import (
+    ReadRevDriver,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
-from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.RevolveSpan import GetAngleSpan
 
 
-# a fresh angular boss must use its actual sole positive radian driver and preserve the selected end ownership
-def ReadRevFeature(DocumentValue: CadDocument) -> tuple[AngularRevolve, float]:
+# angular boss construction needs each actual editable driver before native end objects can be allocated
+def ReadRevFeature(
+    DocumentValue: CadDocument,
+) -> tuple[AngularRevolve, float, float | None]:
     FeatureValue = DocumentValue.feature_timeline[0]
     DefinitionValue = FeatureValue.definition
-    Parameter = DocumentValue.parameters[0]
     if (
         FeatureValue.kind != FeatureKind.KRevolution
         or FeatureValue.operation not in (BooleanOp.KCreate, BooleanOp.KJoin)
@@ -25,23 +26,24 @@ def ReadRevFeature(DocumentValue: CadDocument) -> tuple[AngularRevolve, float]:
         or FeatureValue.attributes
     ):
         raise ValueError("revolve construction requires one ordinary angular boss")
-    if (
-        DefinitionValue.SideMode != "one_sided"
-        or DefinitionValue.AgainstParameterId is not None
-        or Parameter.name != "D1"
-        or Parameter.role != ParameterRole.KDriving
-        or Parameter.owner_id != FeatureValue.id
-        or Parameter.expression is not None
-        or Parameter.attributes
-        or Parameter.value.kind != ValueKind.KAngle
-        or Parameter.value.unit != "rad"
-        or DefinitionValue.AlongParameterId != Parameter.id
-        or FeatureValue.parameter_ids != (Parameter.id,)
-    ):
-        raise ValueError(
-            "revolve construction requires its actual sole D1 radian driver"
-        )
-    AngleValue = ReadStyleNum(Parameter.value.value, "revolve angle")
-    if not 1e-8 < AngleValue <= FullTurn:
+    ModeValue = DefinitionValue.SideMode
+    if ModeValue not in ("one_sided", "symmetric_full", "two_sided"):
+        raise ValueError("revolve construction requires a native angular end mode")
+    Along = DefinitionValue.AlongParameterId
+    Against = DefinitionValue.AgainstParameterId
+    DriverIds = (Along,) if Against is None else (Along, Against)
+    Parameters = {Parameter.id: Parameter for Parameter in DocumentValue.parameters}
+    if FeatureValue.parameter_ids != DriverIds or Parameters.keys() != set(DriverIds):
+        raise ValueError("revolve construction requires all actual angular drivers")
+    AngleValue = ReadRevDriver(Parameters[Along], FeatureValue.id, "D1")
+    AgainstValue = (
+        None
+        if Against is None
+        else ReadRevDriver(Parameters[Against], FeatureValue.id, "D2")
+    )
+    Start, End = GetAngleSpan(AngleValue, AgainstValue, ModeValue)
+    if End - Start > FullTurn:
         raise ValueError("revolve angle must be positive through one full turn")
-    return DefinitionValue, AngleValue
+    if ModeValue != "one_sided" and End - Start == FullTurn:
+        raise ValueError("multiple revolve ends require a partial angular sweep")
+    return DefinitionValue, AngleValue, AgainstValue

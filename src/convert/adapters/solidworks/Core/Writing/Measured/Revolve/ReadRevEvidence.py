@@ -3,11 +3,18 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
+from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.ReadAuthRevJson import (
+    ReadAuthRevJson,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.ReadRevReports import (
     ReadRevReports,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevEvidence import (
     RevEvidence,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevReportPins import (
+    KRevReports,
 )
 
 
@@ -26,5 +33,39 @@ def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
         or not 0 <= WrittenAt <= 0xFFFFFFFF
     ):
         raise ValueError("measured revolve requires its archive creation epoch")
-    Summary, Report, JobValue = ReadRevReports(ReadMeasMap(Envelope["receipt"]))
-    return RevEvidence(WrittenAt, Summary, Report, JobValue)
+    Receipt = ReadMeasMap(Envelope["receipt"])
+    Pins = KRevReports["end_modes"]
+    if set(Receipt) == Pins.keys():
+        Summary, Report, JobValue = (
+            ReadAuthRevJson(
+                Receipt[ReportKey], Digest, Schema, ReportKey != "generation_receipt"
+            )
+            for ReportKey, (Digest, Schema) in Pins.items()
+        )
+        if (
+            Report.get("job_sha256") != Pins["inspection_job"][0]
+            or Report.get("build") != KOraclePart["build"]
+            or Report.get("passed") is not True
+            or any(
+                Record.get("generation_receipt_sha256") != Pins["generation_receipt"][0]
+                or Record.get("writer_revision") != Summary.get("source_revision")
+                or Record.get("writer_source_tree") != Summary.get("source_tree")
+                or Record.get("spec_sha256") != Summary.get("spec_sha256")
+                for Record in (JobValue, Report)
+            )
+        ):
+            raise ValueError(
+                "measured revolve requires its passing exact-build inspection"
+            )
+        return RevEvidence(
+            WrittenAt, Summary, Report, JobValue, Pins["native_result"][0], True
+        )
+    Summary, Report, JobValue = ReadRevReports(Receipt)
+    return RevEvidence(
+        WrittenAt,
+        Summary,
+        Report,
+        JobValue,
+        KRevReports["principal"]["native_result"][0],
+        False,
+    )

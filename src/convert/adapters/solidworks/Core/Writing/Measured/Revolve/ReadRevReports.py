@@ -11,18 +11,19 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevReportPins imp
 def ReadRevReports(
     Envelope: dict[str, object],
 ) -> tuple[dict[str, object], dict[str, object], dict[str, object]]:
-    if set(Envelope) != KRevReports.keys():
+    Pins = KRevReports["principal"]
+    if set(Envelope) != Pins.keys():
         raise ValueError(
             "measured revolve requires the summary, native result and inspection job"
         )
     Summary, Report, JobValue = (
         ReadAuthRevJson(Envelope[ReportKey], Digest, Schema)
-        for ReportKey, (Digest, Schema) in KRevReports.items()
+        for ReportKey, (Digest, Schema) in Pins.items()
     )
     if (
-        Summary.get("native_report_sha256") != KRevReports["native_result"][0]
-        or Summary.get("job_sha256") != KRevReports["inspection_job"][0]
-        or Report.get("job_sha256") != KRevReports["inspection_job"][0]
+        Summary.get("native_report_sha256") != Pins["native_result"][0]
+        or Summary.get("job_sha256") != Pins["inspection_job"][0]
+        or Report.get("job_sha256") != Pins["inspection_job"][0]
         or any(
             RowValue.get("source_revision") != JobValue.get("source_revision")
             for RowValue in (Summary, Report)

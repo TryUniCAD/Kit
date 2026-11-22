@@ -38,6 +38,9 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.BuildRevBodyGeom import (
     BuildRevBody,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Geometry.CheckRevAngles import (
+    CheckRevAngles,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveOwner import (
     RevolveOwner,
 )
@@ -69,15 +72,12 @@ def ReadRevGeom(
             "moRevEndSpec_c",
             "moLineRef_w",
             "moCompSketchEntHandle_c",
-            "moDisplayAngularDim_c",
-            "moAngleParameter_c",
-            "moFeatureDimHandle_c",
-            "AngleDim_c",
         ),
     )
     CheckPrismRoot(LinkValue.ConfigValue.RootValue)
     CheckPrismMgr(ManagerValue)
     CheckPrismRels(LinkValue.ConfigValue.RootValue)
+    CheckRevAngles(Nodes, OwnerValue.EndValue)
     CheckPrismAtom(OwnerValue.NodeValue)
     if (
         len(ModelValue.features) != len(Features)

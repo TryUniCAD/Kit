@@ -13,6 +13,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveAngle import
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveAxis import (
     RevolveAxis,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveEnd import (
+    RevolveEnd,
+)
 
 
 # complete feature ownership binds its live parameter selected axis and independent body contour atomically
@@ -21,8 +24,13 @@ class RevolveOwner:
     NodeValue: ArchiveNode
     ProfileValue: ArchiveNode
     SketchValue: ArchiveNode
-    AngleValue: RevolveAngle
+    EndValue: RevolveEnd
     AxisValue: AxisReference
     ProfileGraph: RevolveProfile
     FrameValue: RevolveAxis
     IsReverse: bool
+
+    # existing primary angle consumers keep the actual forward display owner
+    @property
+    def AngleValue(self) -> RevolveAngle:
+        return self.EndValue.AlongValue

@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasNum import ReadMeasNum
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasRows import ReadMeasRows
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.Revolve.ReadRevMass import (
@@ -14,6 +15,21 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevProcessBirth i
 
 # bracket controls must be the unchanged job control on either side of every fresh candidate phase
 def CheckRevBracket(Evidence: RevEvidence) -> None:
+    if Evidence.IsEndBatch:
+        if (
+            Evidence.Report.get("controls_unchanged") is not True
+            or Evidence.Report.get("application_idle") is not True
+            or Evidence.Report.get("distinct_processes") != 10
+        ):
+            raise ValueError("measured revolve lacks a healthy native bracket control")
+        for RoleName in ("control-before", "control-after"):
+            Control = ReadMeasMap(Evidence.Report.get(RoleName))
+            if Control.get("passed") is not True:
+                raise ValueError(
+                    "measured revolve lacks a healthy native bracket control"
+                )
+            _ = ReadMeasSha(Control.get("sha256"))
+        return
     Before, After = ReadMeasRows(Evidence.Report.get("controls"), 2)
     SourceSha = ReadMeasSha(Evidence.Job.get("control_sha256"))
     for RoleName, RowValue in (("control_before", Before), ("control_after", After)):

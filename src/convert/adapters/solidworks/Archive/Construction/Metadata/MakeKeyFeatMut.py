@@ -44,10 +44,14 @@ def MakeKeyFeatMut(RootValue: Element, InputValue: KeywordFeature) -> None:
             (DimValue.NameValue, DimValue.UnitValue)
             for DimValue in InputValue.DimensionValues
         )
-        != (("D1", "degree"),)
+        not in (
+            (("D1", "degree"),),
+            (("D1", "degree"), ("D2", "degree")),
+            (("D2", "degree"), ("D1", "degree")),
+        )
     ):
         raise ValueError(
-            "ordinary revolve keyword requires its single D1 degree driver"
+            "ordinary revolve keywords require active D1 and optional D2 degree drivers"
         )
     FeatureValue = SubElement(RootValue, InputValue.TagValue, Attributes)
     for DimValue in InputValue.DimensionValues:

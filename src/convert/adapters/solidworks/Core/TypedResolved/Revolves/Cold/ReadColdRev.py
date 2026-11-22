@@ -39,10 +39,11 @@ def ReadColdRev(
             OwnerValue.ProfileValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c"
         )
         PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
+        StartAngle, EndAngle = OwnerValue.EndValue.IntervalValue
         if (
             type(PlaneId) is not int
             or FrameValue.z_axis.z != 0.0
-            or OwnerValue.AngleValue.RadiansValue == FullTurn
+            or EndAngle - StartAngle >= FullTurn
         ):
             raise ValueError(
                 "cache-free revolve requires a partial Top or Right support"
