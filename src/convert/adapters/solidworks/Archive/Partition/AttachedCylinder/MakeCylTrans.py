@@ -41,10 +41,10 @@ def MakeCylTrans(SpanValue: CylSpan, TrackValue: BodyTrackIn) -> CylPartition:
     TagsValue = MakeCylTags(NodesValue)
     IntentsValue = CylAttrIntents(BodyValue, FacesValue, TagsValue, TrackValue)
     WorldValue = MakeEmptyWorld(1, 1, 0)
-    ActiveValue, HiddenCount = MakeCylAttrs(
+    ActiveValue, PointerSlots = MakeCylAttrs(
         WorldValue, BodyValue, NodesValue, IntentsValue
     )
-    JournalValue = MakeCylMarks(ActiveValue, HiddenCount)
+    JournalValue = MakeCylMarks(ActiveValue, PointerSlots)
     SelectedId = JournalValue.SelectedValue.Integer("id")
     ActivationId = JournalValue.ActivationValue.Integer("id")
     ActiveValue = (

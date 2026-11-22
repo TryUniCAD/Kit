@@ -24,7 +24,7 @@ def BindCylAttrRows(
     ByIndex: dict[int, dict[str, object]] = {}
     OwnerHeads: dict[int, int] = {}
     TypeHeads: dict[str, int] = {}
-    HiddenCount = 0
+    PointerSlots: dict[int, tuple[int, ...]] = {}
     EntityId = FirstEntity
     for InputValue in InputsValue:
         NameValue = InputValue.NameValue
@@ -52,5 +52,11 @@ def BindCylAttrRows(
         OwnerHeads[OwnerIndex] = TypeHeads[NameValue] = IndexValue
         ByIndex[IndexValue] = FieldsValue
         RowsValue.extend((XmtNode(IndexValue, 81, FieldsValue), *Values))
-        HiddenCount += SpecValue.FieldKinds.count(9)
-    return CylAttrRows(tuple(RowsValue), OwnerHeads, TypeHeads, HiddenCount)
+        Positions = tuple(
+            Position
+            for Position, KindValue in enumerate(SpecValue.FieldKinds)
+            if KindValue == 9
+        )
+        if Positions:
+            PointerSlots[IndexValue] = Positions
+    return CylAttrRows(tuple(RowsValue), OwnerHeads, TypeHeads, PointerSlots)

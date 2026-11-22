@@ -49,6 +49,11 @@ The delete-only and retained-body paths share the original header, mark framing 
 
 The restored stock passes the complete rectangular topology guard. The active body binds seven faces to six planar carriers and the one cylindrical carrier. Its radius equals native archive D1 and the saved keyed radius. The earlier physical proof remains the separate evidence for the positional, face-ID and edge incidence cross-check. Public feature projection, other history profiles and generation have independent qualification gates.
 
+The [allocation-count proof](EdgeFilletRollbackCounts2026.md) accounts for
+both saved runtime new and deleted counts using each transition arm's
+actual rows and hidden pointer allocations. It retains the separate
+processed copy and staging limits.
+
 Four independent production workers compare every root mark, restored/removed/copied row, qualifier and reconstructed node with the prior research transaction reader. A fifth worker verifies the exact prior delete-only control. The four source archives also retain the original default read and delete-only rejection. Six contrasting inputs refuse: a wrong removal kind, short copy capacity, contradictory qualifier, unresolved predecessor pointer, copied controller detached from the map, and a physically valid partition from the other fillet paired with the wrong archive and radius. All workers report zero data reads after setup. The [transaction receipt](../measurements/2026/EdgeFilletTxnRead01.json) SHA-256 is `0e6c866f2a0a7e10cd59af873344297a4d89b19ae3736d901e936ee8b054966c`. It binds the earlier physical proof at `872478d2b7026941949d98036465bb615854c5e1`. No runtime writer or vendor application participates.
 
 ```sh

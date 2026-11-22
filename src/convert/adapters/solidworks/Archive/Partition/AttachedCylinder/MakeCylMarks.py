@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Partition.AttachedCylinder.CylJournal import (
     CylJournal,
 )
+from convert.adapters.solidworks.Archive.Partition.History.CountRollNodes import (
+    CountRollNodes,
+)
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportMarks import (
     KFirstDeltaKey,
     KFirstMarkId,
@@ -38,7 +41,7 @@ def MakeCylMark(
 # fresh attachment allocates activation and an intervening discarded mark before geometry
 def MakeCylMarks(
     ActiveValue: tuple[XmtNode, ...],
-    HiddenCount: int,
+    PointerSlots: dict[int, tuple[int, ...]],
 ) -> CylJournal:
     RootIndex = len(ActiveValue) + 1
     SelectedIndex, ActivationIndex, InitialIndex = range(RootIndex + 1, RootIndex + 4)
@@ -49,6 +52,7 @@ def MakeCylMarks(
         for NodeValue in reversed(ActiveValue)
         if NodeValue.KindValue not in (101, 79, 80)
     )
+    GraphValue = {NodeValue.IndexValue: NodeValue for NodeValue in ActiveValue}
     RootValue = XmtNode(
         RootIndex,
         3,
@@ -65,7 +69,7 @@ def MakeCylMarks(
             0,
             SelectedId,
             KFirstDeltaKey + EventsValue.index("geometry"),
-            len(Removed) + HiddenCount,
+            CountRollNodes(Removed, GraphValue, PointerSlots),
         ),
         MakeCylMark(InitialIndex, 0, ActivationIndex, KFirstMarkId, 0),
         MakeCylMark(

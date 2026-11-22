@@ -9,4 +9,4 @@ class CylAttrRows:
     NodesValue: tuple[XmtNode, ...]
     OwnerHeads: dict[int, int]
     TypeHeads: dict[str, int]
-    HiddenAllocations: int
+    PointerSlots: dict[int, tuple[int, ...]]

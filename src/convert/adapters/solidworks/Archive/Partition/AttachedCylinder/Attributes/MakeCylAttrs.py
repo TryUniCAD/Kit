@@ -21,7 +21,7 @@ def MakeCylAttrs(
     BodyValue: XmtNode,
     NodesValue: tuple[XmtNode, ...],
     InputsValue: tuple[CylAttrIn, ...],
-) -> tuple[tuple[XmtNode, ...], int]:
+) -> tuple[tuple[XmtNode, ...], dict[int, tuple[int, ...]]]:
     NamesValue = tuple(
         dict.fromkeys(InputValue.NameValue for InputValue in InputsValue)
     )
@@ -79,4 +79,4 @@ def MakeCylAttrs(
         *DefRows,
         *RowsValue.NodesValue,
         *ListRows,
-    ), RowsValue.HiddenAllocations
+    ), RowsValue.PointerSlots
