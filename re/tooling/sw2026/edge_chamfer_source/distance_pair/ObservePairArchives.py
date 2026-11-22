@@ -49,6 +49,7 @@ def snapshot(args):
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
     from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
     from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRows import ChmfRoleKey, EdgeChmfRows
     from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismParam import ReadPrismParam
     from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
     from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
@@ -114,11 +115,14 @@ def snapshot(args):
             == (config.MapValue.CounterValue, resolved.MapValue.CounterValue) and not denied,
             "distance pair archives did not replay without input reads")
     selected = RequireNative(fields["f8a8"], "moCompEdge_c")
+    edge = RequireNative(selected.FieldsValue["fe8"], "moEdgeRef_c")
     return {"case": args.case, "edited": args.edited, "source_sha256": expected,
             "native_terminal_sha256": terminal_pin, "build": BUILD, "mode_word": word,
             "mode_fields": {field: fields[field] for field in ("f860", "f8a0", "f878", "f87c", "has_f808", "f8f0")},
             "feature": dict(NativeNodeSpan(link, feature)), "drivers": drivers,
             "selected_edge": dict(NativeNodeSpan(link, selected)),
+            "ordered_edge_roles": [ChmfRoleKey(row) for row in EdgeChmfRows(edge)],
+            "edge_flip_flags": fields["f8c8"],
             "map_counters": [config.MapValue.CounterValue, resolved.MapValue.CounterValue],
             "stream_replays": {lane: [len(wire), identity(wire)] for lane, wire in replays.items()},
             "exact_replay": True, "guarded_input_reads": len(denied), "heldout_sources_read": 0}
