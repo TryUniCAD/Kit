@@ -116,6 +116,10 @@ thresholds are removed. The stable acceptance gate depends explicitly on every h
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
 Queue-only type, steering, and research CLI jobs also gate the aggregate.
+The Windows research CLI job uses two pytest workers with file-level scheduling.
+Each file stays on one worker; temporary outputs and API directories stay unique to each case.
+The job retains every selected case and its 20-minute limit, and reports case names and the 15 slowest durations.
+See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).

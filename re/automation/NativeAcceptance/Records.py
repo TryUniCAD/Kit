@@ -18,7 +18,7 @@ def ReadBytes(path, limit=256 * 1024 * 1024):
         return ReadWindows(path, limit)
     with path.open("rb") as stream:
         opened = os.fstat(stream.fileno())
-        data = stream.read(limit + 1)
+        data = stream.read(min(limit, opened.st_size) + 1)
         after = os.fstat(stream.fileno())
     final = path.lstat()
     fields = ("st_dev", "st_ino", "st_size", "st_mtime_ns", "st_ctime_ns")

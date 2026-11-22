@@ -61,7 +61,7 @@ def ReadWindows(path, limit):
         with path.open("rb") as stream:
             native_handle = msvcrt.get_osfhandle(stream.fileno())
             opened = Snapshot(native_handle)
-            data = stream.read(limit + 1)
+            data = stream.read(before[2] + 1)
             after = Snapshot(native_handle)
         with HoldPath(path) as final_handle:
             final = Snapshot(final_handle)
