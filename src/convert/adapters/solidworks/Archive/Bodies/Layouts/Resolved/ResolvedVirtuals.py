@@ -3,6 +3,11 @@ from types import MappingProxyType
 # inherited resolved dispatch remains bound to concrete current native owners and exact virtual slots
 KResolvedVirtuals = MappingProxyType(
     {
+        ("moNotesAreaFtrFolder_c", 1000): "moFeature_c.SerializeXmlData",
+        ("moNotesAreaFtrFolder_c", 1016): True,
+        ("moNotesAreaFtrFolder_c", 1208): "moConcept_c.SerializeLWData",
+        ("moNotesAreaFtrFolder_c", 1216): "moConcept_c.SerializeResolvedData",
+        ("moNotesAreaFtrFolder_c", 2624): True,
         ("moDisplayRadialDim_c", 2216): 0,
         ("moDisplayRadialDim_c", 2264): 1,
         ("moDisplayRadialDim_c", 2680): 1,

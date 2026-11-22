@@ -16,12 +16,22 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # an analytic circle cannot replace selected bodies draft or alternate live end states
-def CheckBlindCirc(OwnerValue: ExtrudeOwner) -> None:
+def CheckBlindCirc(OwnerValue: ExtrudeOwner, *, SavedBody: bool = False) -> None:
     BossValue = OwnerValue.NodeValue
     Fields = OwnerValue.EndValue.FieldsValue
     if (
         OwnerValue.ParentsValue != (OwnerValue.ProfileValue,)
-        or any(Fields.get(NameValue) != 0 for NameValue in KBlindZeroFields)
+        or any(
+            Fields.get(NameValue)
+            != int(SavedBody and NameValue in ("has_f28", "has_f48"))
+            for NameValue in KBlindZeroFields
+        )
+        or (
+            SavedBody
+            and any(
+                not IsLineState(Fields.get(NameValue)) for NameValue in ("f28", "f48")
+            )
+        )
         or Fields.get("f128") != 1
         or Fields.get("fa0") != 0.0
         or Fields.get("f138") is not None
@@ -32,8 +42,9 @@ def CheckBlindCirc(OwnerValue: ExtrudeOwner) -> None:
     FromValue = RequireNative(Fields.get("f140"), "moFromEndSpec_c")
     if FromValue.FieldsValue != {"t": 0}:
         raise ValueError("cold circle has an unsupported start owner")
-    CheckPrismAtom(BossValue)
-    CheckBossState(BossValue)
+    if not SavedBody:
+        CheckPrismAtom(BossValue)
+    CheckBossState(BossValue, SavedBody=SavedBody)
     Values = tuple(
         ReadPrismParam(Fields.get(FieldName), Index > 1)
         for Index, FieldName in enumerate(("f18", "f20", "fc8", "fd0"))
@@ -44,7 +55,7 @@ def CheckBlindCirc(OwnerValue: ExtrudeOwner) -> None:
         or len({Dimension for Dimension, _, _ in Values}) != 4
         or len({Parameter for _, Parameter, _ in Values}) != 4
         or len({Dimension.FieldsValue.get("f50") for Dimension, _, _ in Values}) != 4
-        or Reverse[2] != Forward[2]
+        or (not SavedBody and Reverse[2] != Forward[2])
         or Draft[2] != 0
         or OtherDraft[2] != 0
     ):

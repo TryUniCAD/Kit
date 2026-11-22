@@ -67,10 +67,11 @@ The PR #121 takeover team owns the main-target measured circle slice on
 part publication gate and the typed part, sketch and radial driver graph.
 The disclosed forward Front-plane diameter archive reproduces through the
 SDK with exact bytes, ten streams, separate editable drivers and strict
-cold geometry. Delivery still requires current-revision review and queue
-evidence. Warm saved ownership, a public receipt for the independently
-qualified reversed Top-plane radius and an FCStd corpus audit remain
-separate exits.
+cold geometry. The follow-up reads the three disclosed native-saved diameter
+states through their exact live drivers and checked physical body. Delivery
+still requires current-revision review and queue evidence. A public receipt
+and saved-reader scope for the reversed Top-plane radius, and an FCStd corpus
+audit, remain separate exits.
 [Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredCircleWriter.md)
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK

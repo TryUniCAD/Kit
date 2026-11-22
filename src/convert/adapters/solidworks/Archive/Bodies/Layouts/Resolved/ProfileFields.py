@@ -144,9 +144,7 @@ KProfileFields = MappingProxyType(
                 "Array",
                 "f2a8",
                 "i32",
-                BodyValue=(
-                    NativeField("Fail", "alternate moProfileData.FUN_4bb2d5c0 f2a8"),
-                ),
+                BodyValue=(NativeField("Node", "chain", "moSketchChain_c"),),
                 CountValue="n2a8",
                 ModeValue="Positive",
             ),

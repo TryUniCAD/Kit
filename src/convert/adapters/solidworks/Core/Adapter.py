@@ -176,6 +176,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.CircleSolid import (
     CircleSolid,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.SavedCircleGeom import (
+    SavedCircleGeom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.ColdCircle import (
     ColdCircle,
 )
@@ -437,7 +440,9 @@ def ReadNativePart(
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Summary, Measures = PartReadMass(MassBody, Fallback, CircleValue)
+    Summary, Measures, MassDiag = PartReadMass(
+        MassBody, Fallback, CircleValue, Model, Payloads, Settings
+    )
     Bodies = (
         BodyValue(
             id=KPartBodyId,
@@ -480,6 +485,7 @@ def ReadNativePart(
         )
         + PayloadDiags
         + ((LocalDiag,) if LocalDiag is not None else ())
+        + ((MassDiag,) if MassDiag is not None else ())
     )
     DocValue = CadDoc(
         source=CadSource(
@@ -545,7 +551,11 @@ def PartBrepData(
     tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None, CircleSolid | None
 ]:
     UseGeometry = Settings.include_brep and not Settings.extract_raw_brep
-    CircleValue = ColdCircle(Model, KPartBodyId) if UseGeometry else None
+    CircleValue = (
+        ColdCircle(Model, KPartBodyId)
+        if UseGeometry and Model.SavedCircleAtom is None
+        else None
+    )
     ColdBrep = (
         CircleValue.BrepValue if CircleValue is not None
         else ColdPrism(Model, KPartBodyId) if UseGeometry else None
@@ -560,13 +570,39 @@ def PartBrepData(
 
 # analytic circle mass belongs only to the exact body selected for this read
 def PartReadMass(
-    ModelValue: BrepModel | None, Fallback: TopologySummary, CircleValue: CircleSolid | None
-) -> tuple[TopologySummary, PartMass | None]:
+    ModelValue: BrepModel | None,
+    Fallback: TopologySummary,
+    CircleValue: CircleSolid | None,
+    NativeValue: NativeModel,
+    Payloads: tuple[BrepPayload, ...],
+    Settings: ReadOptions,
+) -> tuple[TopologySummary, PartMass | None, DiagValue | None]:
+    DiagInfo = None
+    if (
+        NativeValue.SavedCircleAtom is not None
+        and Settings.include_brep
+        and not Settings.extract_raw_brep
+    ):
+        try:
+            if ModelValue is None:
+                raise SldprtFormatError("saved circle has no usable active body")
+            CircleValue = SavedCircleGeom(
+                NativeValue, ModelValue, Payloads, KPartBodyId
+            )
+        except (KeyError, TypeError, ValueError) as ErrorInfo:
+            if Settings.strict:
+                raise SldprtFormatError(str(ErrorInfo)) from ErrorInfo
+            DiagInfo = DiagValue(
+                code="sldprt.saved_circle_geometry_unresolved",
+                message=str(ErrorInfo),
+                severity=Severity.INFO,
+            )
     if CircleValue is not None and ModelValue is CircleValue.BrepValue:
-        return CircleValue.TopologyValue, CircleValue.MassValue
-    return ActivePartMass(
+        return CircleValue.TopologyValue, CircleValue.MassValue, None
+    Summary, Measures = ActivePartMass(
         ModelValue, PartTopology(ModelValue, KPartBodyId, Fallback), KPartBodyId
     )
+    return Summary, Measures, DiagInfo
 
 
 # planes and sketches must bind to the same native parameter identities
@@ -578,7 +614,7 @@ def PartSketchData(
 
 # an active partition receives the body identity only when native records prove solid ownership
 def TypedBodyId(Model: NativeModel) -> str | None:
-    if Model.cut_source is not None:
+    if Model.cut_source is not None or Model.SavedCircleAtom is not None:
         return KPartBodyId
     if len(Model.operations) == 1:
         Operation = Model.operations[0]

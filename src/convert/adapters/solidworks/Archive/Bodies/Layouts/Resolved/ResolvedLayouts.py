@@ -1,5 +1,24 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import (
+    KContainerFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.FileRefFields import (
+    KFileRefFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SavedFolderFields import (
+    KSavedFolderFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SavedShapeFields import (
+    KSavedShapeFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SavedSketchChainFields import (
+    KSavedSketchChainFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SavedRefFields import (
+    KSavedRefFields,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
     KPartLayouts,
 )
@@ -72,5 +91,12 @@ KResolvedLayouts = MappingProxyType(
         **KMaterialFields,
         **KProfileFields,
         **KSketchFields,
+        **KFileRefFields,
+        "moPMarkRecord_c": KPartLayouts["moPMarkRecord_c"],
+        "su_CDWordArray": KContainerFields["su_CDWordArray"],
+        **KSavedFolderFields,
+        **KSavedShapeFields,
+        **KSavedSketchChainFields,
+        **KSavedRefFields,
     }
 )

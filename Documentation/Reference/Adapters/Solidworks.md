@@ -354,8 +354,12 @@ linked sketch, support and driving depth through its ordinary reader.
 For three through 64 noncollinear prism sides, the default reader also
 derives the exact planar solid from the typed loop, datum and depth.
 For the qualified cold circle graph it derives the analytic cylinder and
-retains the separate radial and depth drivers. Native-saved circles still
-require additional configuration owners for exact editable readback.
+retains the separate radial and depth drivers. The saved forward, diameter-
+driven Front-plane case also retains the live driver values. Strict geometry
+readback checks the saved cylinder and the actual result atom before reporting
+its analytic measures.
+[Verified saved-circle scope](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedCircleDrivers.md)
+
 Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.

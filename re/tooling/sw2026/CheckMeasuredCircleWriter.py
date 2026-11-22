@@ -54,28 +54,6 @@ def check_custody(directory, receipt):
            "native terminal did not complete the disclosed lifecycle")
 
 
-def check_saved_boundary(directory, case):
-    sys.path.insert(0, str(ROOT / "src"))
-    from convert import open_document
-    from convert.adapters.solidworks.Container.Container import SldprtArchive
-    from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-
-    rows = []
-    for stage in case["stages"]:
-        phase = stage["phase"]
-        path = directory / "Inspection" / NAME / phase / (NAME + "Saved.SLDPRT")
-        raw = path.read_bytes()
-        demand(digest(raw) == stage["saved_sha256"], f"saved evidence changed: {phase}")
-        document = open_document(raw, source_format=FORMAT)
-        demand(document.brep is not None, "saved boundary lost its existing geometry read")
-        failure = reject(lambda: ReadNativeLink(SldprtArchive.from_bytes(raw), 0), ValueError,
-                         "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1")
-        rows.append({"phase": phase, "sha256": digest(raw), "typed_refusal": failure,
-                     "keyword_d1_mm": [parameter.value.value for parameter in document.parameters
-                                       if parameter.name == "D1"]})
-    return rows
-
-
 def check_strict(raw):
     from convert import open_document
 
@@ -304,9 +282,6 @@ def main():
     result = json.loads(child.stdout)
     demand(result["standalone_publications"] == 3
            and digest(args.original.read_bytes()) == result["sha256"], "disclosed whole-file comparison differs")
-    receipt = json.loads(data)
-    candidate, = (row for row in receipt["cases"] if row["name"] == NAME)
-    result["saved_boundary"] = check_saved_boundary(args.request.parent.parent, candidate)
     result["tool_sha256"] = digest(HERE.read_bytes())
     with args.output.open("x", encoding="utf-8") as output:
         output.write(json.dumps(result, indent=2, sort_keys=True) + "\n")

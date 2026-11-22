@@ -83,15 +83,16 @@ input reads.
 
 ## Saved reads and independent qualification
 
-The disclosed beta native-saved archives reopened with the existing cached
-B-rep on the host. The first typed obstacle is CMgr
+At `f86f6ac5fd0e6cfb1e9d55767dc6d7cd461bbc5c`, the disclosed beta native-saved
+archives reopened with the existing cached B-rep on the host. The first typed obstacle was CMgr
 `moLinkedAtomIdNode_c` schema 1. Observationally supplying its already known
 layout exposed `su_CDWordArray`, followed by `moExtObject_c` schema 1.
 Those offline observations made no production schema changes. As an example
 of the legacy read limit, the edited radial and depth `D1` values read as
 19.1633 and 21.1226 mm from the keyword path. The native edits were
-19.16325 and 21.122625 mm. Exact editable saved owner readback and a
-lossless read-to-write cycle remain open.
+19.16325 and 21.122625 mm. The
+[saved reader follow-up](SdkSavedCircleMainRead2026.md) binds the measured
+diameter cohort to its exact owners. A lossless read-to-write cycle remains open.
 
 The separate original paired qualification on the aggregate records fourteen
 native processes and 400 numerical checks in

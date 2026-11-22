@@ -3,14 +3,14 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsL
 
 
 # all analytic create bosses must reject additional merge selections geometry and body modifier state
-def CheckBossState(NodeValue: ArchiveNode) -> None:
+def CheckBossState(NodeValue: ArchiveNode, *, SavedBody: bool = False) -> None:
     Fields = NodeValue.FieldsValue
     if (
-        Fields.get("f28") != 0x40000000 | 0x140
+        Fields.get("f28") != (0xC0000140 if SavedBody else 0x40000140)
         or Fields.get("f810") != -1
         or Fields.get("f838") != 0.0
     ):
-        raise ValueError("cache free prism requires its ordinary create boss mode")
+        raise ValueError("prism requires its ordinary create boss mode")
     if (
         Fields.get("f538") is not None
         or Fields.get("f6e0") is not None

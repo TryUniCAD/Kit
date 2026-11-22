@@ -3,14 +3,13 @@
 The generated blind circle has an exact linked cold sketch and two driving
 dimensions. SOLIDWORKS' saved derivatives still have a circular boss and a
 usable body cache, but their configuration manager includes
-`moLinkedAtomIdNode_c` schema 1. The main-target typed reader stops there.
-The ordinary saved-file path opens the body and projects values from rounded
-keywords. An edited diameter observed natively as 19.16325 mm reads as
-19.1633 mm through that older path.
+`moLinkedAtomIdNode_c` schema 1. The initial cold-only reader stopped there.
+Its compatibility path opened the body and projected values from rounded
+keywords. An edited diameter observed natively as 19.16325 mm read as
+19.1633 mm through that path.
 
-Use the typed cold read to check the exact generated archive. To qualify
-saved-source transfer, first classify the saved CMgr graph and its linked
-configuration, edit and partition owners. Keep the native-saved read as a
-separate acceptance boundary.
+The follow-up reads these owners for the forward Front-plane diameter
+cohort and links the exact live dimensions to its checked saved body. Other
+saved modes require their own configuration and body ownership evidence.
 
-[Disclosed saved-circle evidence](../../../../../../re/solidworks/records/SdkMeasuredCircleMain2026.md)
+[Disclosed saved-circle evidence](../../../../../../re/solidworks/records/SdkSavedCircleMainRead2026.md)

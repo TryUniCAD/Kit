@@ -5,9 +5,8 @@ from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
-    BindDepth,
-    BindExtrude,
+from convert.adapters.solidworks.Core.TypedResolved.Circles.ApplyCircle import (
+    ApplyCircle,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Circles.CheckBlindCirc import (
     CheckBlindCirc,
@@ -82,30 +81,16 @@ def BindColdCirc(
         )
     ):
         raise ValueError("cold circle is outside the two qualified blind profiles")
-    return ReplaceValue(
+    return ApplyCircle(
         ModelValue,
-        sketches=(
-            ReplaceValue(
-                SketchValue,
-                support_plane_id=PlaneId,
-                TypedFrame=FrameValue,
-                TypedCircle=CircleValue,
-                dimensions=(Driver,),
-            ),
+        ReplaceValue(
+            SketchValue,
+            support_plane_id=PlaneId,
+            TypedFrame=FrameValue,
+            TypedCircle=CircleValue,
+            dimensions=(Driver,),
         ),
-        features=tuple(
-            (
-                BindDepth(Feature, Owner)
-                if Feature.object_id == Operation.object_id
-                else (
-                    ReplaceValue(Feature, dimensions=(Driver,))
-                    if Feature.object_id == SketchValue.object_id
-                    else Feature
-                )
-            )
-            for Feature in ModelValue.features
-        ),
-        operations=(BindExtrude(Operation, Owner),),
+        Owner,
     )
 
 

@@ -1194,6 +1194,7 @@ class NativeModel:
     bounding_box: NativeBoundingBox | None = None
     linear_display: LinearDisplay | None = None
     cut_source: CutSource | None = None
+    SavedCircleAtom: int | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
