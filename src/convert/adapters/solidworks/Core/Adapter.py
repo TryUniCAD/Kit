@@ -171,6 +171,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 )
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
@@ -367,7 +368,7 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -387,8 +388,12 @@ def ReadNativePart(
         if Candidate is None
         else None
     )
-    if ActivePart is not None:
-        BrepValue, LocalOwner, LocalDiag = ActivePart.ModelValue, None, None
+    if ActivePart is not None or ColdBrep is not None:
+        BrepValue, LocalOwner, LocalDiag = (
+            ActivePart.ModelValue if ActivePart is not None else ColdBrep,
+            None,
+            None,
+        )
     else:
         BrepValue, LocalOwner, LocalDiag = TypedBrep(
             Payloads,
@@ -409,14 +414,14 @@ def ReadNativePart(
         else FinalBodyId(TimeValues, SolidOpIds)
     )
     BodyFeature = LocalOwner or SolidBody(Model.features)
-    SavedPart = ActivePart.ModelValue if ActivePart is not None else None
+    MassBody = ActivePart.ModelValue if ActivePart is not None else ColdBrep
     Fallback = TopologySummary(
         solid_count=1 if SolidOpIds else 0, bounding_box=BoundingBoxA(Model)
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
     Summary, Measures = ActivePartMass(
-        SavedPart, PartTopology(SavedPart, KPartBodyId, Fallback), KPartBodyId
+        MassBody, PartTopology(MassBody, KPartBodyId, Fallback), KPartBodyId
     )
     Bodies = (
         BodyValue(
@@ -514,6 +519,21 @@ def ReadNativePart(
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(DocValue, DataValue)
+
+
+# cached payloads keep priority over geometry derived from a qualified cold archive
+def PartBrepData(
+    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
+    ColdBrep = (
+        ColdPrism(Model, KPartBodyId)
+        if Settings.include_brep and not Settings.extract_raw_brep
+        else None
+    )
+    Payloads, Diagnostics = BrepPayloads(
+        Archive, Settings, AllowAbsent=ColdBrep is not None
+    )
+    return Payloads, Diagnostics, ColdBrep if not Payloads and not Diagnostics else None
 
 
 # planes and sketches must bind to the same native parameter identities
@@ -3889,7 +3909,7 @@ def FeatureKindA(Feature: NativeFeature | XmlFeature) -> FeatureKind:
 
 # this definition exists because focused behavior needs one stable owner
 def BrepPayloads(
-    Archive: SldprtArchive, Options: ReadOptions
+    Archive: SldprtArchive, Options: ReadOptions, *, AllowAbsent: bool = False
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...]]:
     if not Options.include_brep:
         return ((), ())
@@ -3914,7 +3934,7 @@ def BrepPayloads(
             continue
         for Native in Decoded:
             Payloads.append(BrepPayloadA(len(Payloads), Native))
-    if not Payloads and Options.strict:
+    if not Payloads and Options.strict and not AllowAbsent:
         raise SldprtFormatError("SLDPRT contains no readable Parasolid payload")
     return (tuple(Payloads), tuple(Diagnostics))
 

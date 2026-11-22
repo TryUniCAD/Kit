@@ -289,6 +289,13 @@ object maps, topology and editable records from the document.
 The registry rejects unsupported neutral content and assembly or drawing
 destinations before publishing a file. [Native part writer evidence](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 
+The cold archive carries the editable feature graph. SOLIDWORKS rebuilds
+the solid from that graph. With `include_brep=False`, Kit returns the
+linked sketch, support and driving depth through its ordinary reader.
+For three through 64 noncollinear prism sides, the default reader also
+derives the exact planar solid from the typed loop, datum and depth.
+Raw Parasolid extraction requires a saved Parasolid payload.
+
 The earlier writer did not generate its streams from format rules.
 Each supported family re-emitted a recorded payload, which is a typed recording of one saved stream.
 Every generated file also took its `Config-0` stream from one recorded configuration program.

@@ -40,3 +40,16 @@ measured 240 numeric values across six fresh application lifetimes
 and passed the two bracket controls.
 [Native lifecycle](../measurements/2026/SdkDefaultPartNative01.json)
 · [Public API and exact input hashes](../measurements/2026/SdkPublicPartWriter01.json)
+
+The default reader reconstructs these cold solids from the actual typed
+datum, ordered line ring and forward depth. It uses the shared prism
+geometry and planar mass calculations. The two independent default
+reads recover volumes of approximately `7658.7975` and `19822.77375`
+cubic millimetres, with topology `5/9/6` and `8/18/12` for faces,
+edges and vertices. An independent shoelace and first-moment calculation
+agrees with each returned volume and centroid. Separate authored
+three-line and six-line cases share a title and exercise file and stream
+publication. Their inflated ResolvedFeatures streams contain 13,613
+and 14,375 bytes. Six unqualified requests per case preserve both
+destinations and raw extraction refuses when the archive has no payload.
+[Process-boundary evidence](../measurements/2026/ScopedPlainWriterBoundaries01.json)

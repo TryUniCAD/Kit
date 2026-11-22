@@ -32,7 +32,7 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         Owner = ReadExtrude(LinkValue, NodesValue[Operation.object_id], NodesValue)
         if Owner.ProfileValue is not Profile:
             return Model
-        ReadPrismFrame(Profile, LinkValue.ConfigValue.RootValue, NodesValue)
+        FrameValue = ReadPrismFrame(Profile, LinkValue.ConfigValue.RootValue, NodesValue)
         Reference = RequireNative(Profile.FieldsValue.get("pd_f78"), "moCompRefPlane_c")
         PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
         if type(PlaneId) is not int or not any(Plane.object_id == PlaneId for Plane in Model.planes):
@@ -44,7 +44,7 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         return Model
     return ReplaceValue(
         Model,
-        sketches=(Bound,),
+        sketches=(ReplaceValue(Bound, TypedFrame=FrameValue),),
         features=tuple(
             BindDepth(Feature, Owner) if Feature.object_id == Operation.object_id else Feature
             for Feature in Model.features
