@@ -10,19 +10,7 @@ KProfileFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Scalar", "grow", "u32"),
-                    NativeField("Scalar", "kind", "u32"),
-                    NativeField(
-                        "Packed",
-                        "data",
-                        "f64",
-                        CountValue="n",
-                        ModeValue="Empty",
-                        MaskValue=8,
-                        OtherName="elem",
-                    ),
-                ),
+                BodyValue=(NativeField("Fail", "alternate FUN_4bb09f20 Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -47,26 +35,9 @@ KProfileFields = MappingProxyType(
                                 "Branch",
                                 "",
                                 BodyValue=(
-                                    NativeField("Scalar", "transfer", "i32"),
                                     NativeField(
-                                        "Branch",
-                                        "",
-                                        BodyValue=(
-                                            NativeField(
-                                                "Scalar", "transfer_ptr", "i32"
-                                            ),
-                                        ),
-                                        ModeValue="Expression",
-                                        ExpressionValue=(
-                                            "compare",
-                                            ("NotEq",),
-                                            (
-                                                "lookup",
-                                                ("scope",),
-                                                ("literal", "transfer"),
-                                            ),
-                                            ("literal", 0),
-                                        ),
+                                        "Fail",
+                                        "alternate moProfileData.FUN_4bb2ca30 Branch",
                                     ),
                                 ),
                                 ModeValue="Expression",
@@ -140,8 +111,7 @@ KProfileFields = MappingProxyType(
                 "f238",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "u32"),
-                    NativeField("Scalar", "v", "u32"),
+                    NativeField("Fail", "alternate moProfileData.FUN_4bb2ca30 f238"),
                 ),
                 CountValue="n238",
                 ModeValue="Positive",
@@ -152,17 +122,7 @@ KProfileFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField(
-                        "Array",
-                        "f208",
-                        "i32",
-                        BodyValue=(
-                            NativeField("Scalar", "k", "i32"),
-                            NativeField("Embed", "body", "mo_loadBodyFromArchive"),
-                        ),
-                        CountValue="n208",
-                        ModeValue="Positive",
-                    ),
+                    NativeField("Fail", "alternate moProfileData.FUN_4bb2ca30 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -184,7 +144,9 @@ KProfileFields = MappingProxyType(
                 "Array",
                 "f2a8",
                 "i32",
-                BodyValue=(NativeField("Node", "chain", "moSketchChain_c"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moProfileData.FUN_4bb2d5c0 f2a8"),
+                ),
                 CountValue="n2a8",
                 ModeValue="Positive",
             ),
@@ -197,13 +159,7 @@ KProfileFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Node", "reused_from", "moProfileFeature_c"),
-                    NativeField("Node", "f388", "moContourChooser_c"),
-                    NativeField("Scalar", "f3c0", "u16"),
-                    NativeField("Node", "f3b8", "sgLineHandle"),
-                    NativeField("Base", "moProfileFeature_c.FUN_4bb2d1d0"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moProfileFeature_c Branch"),),
                 OtherValue=(
                     NativeField(
                         "Branch",
@@ -238,7 +194,9 @@ KProfileFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Scalar", "write_ref", "u16"),),
+                        BodyValue=(
+                            NativeField("Fail", "alternate moProfileFeature_c Branch"),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "And",
@@ -301,91 +259,7 @@ KProfileFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField(
-                                "Branch",
-                                "",
-                                BodyValue=(
-                                    NativeField("Embed", "pd_ff0", "mgXform_c.restore"),
-                                    NativeField("Scalar", "pd_has_fe8", "u16"),
-                                    NativeField(
-                                        "Branch",
-                                        "",
-                                        BodyValue=(
-                                            NativeField(
-                                                "Embed", "pd_fe8", "mgXform_c.restore"
-                                            ),
-                                        ),
-                                        ModeValue="Expression",
-                                        ExpressionValue=(
-                                            "compare",
-                                            ("NotEq",),
-                                            (
-                                                "lookup",
-                                                ("scope",),
-                                                ("literal", "pd_has_fe8"),
-                                            ),
-                                            ("literal", 0),
-                                        ),
-                                    ),
-                                ),
-                                ModeValue="Expression",
-                                ExpressionValue=(
-                                    "And",
-                                    (
-                                        "Not",
-                                        (
-                                            "select",
-                                            (
-                                                "compare",
-                                                ("Eq",),
-                                                ("literal", 32),
-                                                ("literal", 0),
-                                            ),
-                                            (
-                                                "compare",
-                                                ("Eq",),
-                                                (
-                                                    "lookup_or",
-                                                    ("context",),
-                                                    ("literal", "conditions"),
-                                                    ("literal", 0),
-                                                ),
-                                                ("literal", 0),
-                                            ),
-                                            (
-                                                "compare",
-                                                ("NotEq",),
-                                                (
-                                                    "BitAnd",
-                                                    (
-                                                        "lookup_or",
-                                                        ("context",),
-                                                        ("literal", "conditions"),
-                                                        ("literal", 0),
-                                                    ),
-                                                    ("literal", 32),
-                                                ),
-                                                ("literal", 0),
-                                            ),
-                                        ),
-                                    ),
-                                    (
-                                        "compare",
-                                        ("NotEq",),
-                                        (
-                                            "BitAnd",
-                                            (
-                                                "lookup_or",
-                                                ("context",),
-                                                ("literal", "conditions"),
-                                                ("literal", 0),
-                                            ),
-                                            ("literal", 1),
-                                        ),
-                                        ("literal", 0),
-                                    ),
-                                ),
-                            ),
+                            NativeField("Fail", "alternate moProfileFeature_c Branch"),
                         ),
                         OtherValue=(
                             NativeField("Node", "pd_f78"),
@@ -395,7 +269,9 @@ KProfileFields = MappingProxyType(
                                 "Branch",
                                 "",
                                 BodyValue=(
-                                    NativeField("Embed", "pd_fe8", "mgXform_c.restore"),
+                                    NativeField(
+                                        "Fail", "alternate moProfileFeature_c Branch"
+                                    ),
                                 ),
                                 ModeValue="Expression",
                                 ExpressionValue=(
@@ -471,14 +347,7 @@ KProfileFields = MappingProxyType(
                 "items",
                 "Count",
                 BodyValue=(
-                    NativeField("Node", "contour", "moOneContour_c"),
-                    NativeField(
-                        "Array",
-                        "ids",
-                        "u16",
-                        BodyValue=(NativeField("Scalar", "v", "u32"),),
-                        CountValue="m",
-                    ),
+                    NativeField("Fail", "alternate moProfileFeature_c.contours items"),
                 ),
                 CountValue="n",
             ),
@@ -489,21 +358,7 @@ KProfileFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField(
-                        "Branch",
-                        "",
-                        OtherValue=(NativeField("Base", "mo_loadBodyFromArchiveRaw"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "bool",
-                            (
-                                "lookup_or",
-                                ("context",),
-                                ("literal", "model_compressed_stream"),
-                                ("literal", 0),
-                            ),
-                        ),
-                    ),
+                    NativeField("Fail", "alternate mo_loadBodyFromArchive Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(

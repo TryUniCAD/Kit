@@ -42,6 +42,10 @@ def MakeResolvedCtx(
         raise BodyUnsupported(
             "resolved context does not match the inherited ordinary model"
         )
+    if LinkContext["cmgr_f658"] != 0:
+        raise BodyUnsupported(
+            "ordinary resolved graph has an unsupported manager suffix"
+        )
     return BodyContext(
         VersionValue,
         KResolvedLayouts,

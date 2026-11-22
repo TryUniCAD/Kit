@@ -21,7 +21,10 @@ def FormatReport() -> list[dict[str, object]]:
                 }
                 if FormatId in Writers
                 and FormatId in Readers
-                and Writers[FormatId] != Readers[FormatId]
+                and (
+                    Writers[FormatId].Extensions != Readers[FormatId].Extensions
+                    or Writers[FormatId].AliasNames != Readers[FormatId].AliasNames
+                )
                 else {}
             ),
         }

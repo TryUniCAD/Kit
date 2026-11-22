@@ -5,9 +5,8 @@
 Kit registers one SOLIDWORKS adapter with part and assembly identifiers.
 Its primary `format_id` is `solidworks.sldprt`.
 Its `aliases` field contains `solidworks.sldasm`.
-The adapter reads source records.
-It is not registered as a writer, so Kit cannot produce `.SLDPRT` or `.SLDASM` files.
-It does not invoke SOLIDWORKS during production conversion.
+The reader accepts part and assembly source records.
+The native writer accepts qualified part documents and runs without a SOLIDWORKS installation.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
@@ -16,6 +15,7 @@ It does not invoke SOLIDWORKS during production conversion.
 
 `available_adapters()` returns one entry for this adapter.
 Read its `aliases` field to find the assembly identifier.
+The format listing reports writable extensions and aliases separately.
 See [format selection](../../Tasks/SelectFormat.md) for a discovery example.
 
 Registration is not evidence of complete feature-family support.
@@ -274,8 +274,20 @@ and supports fresh history with explicit creation and build provenance.
 Its writer reads the emitted bytes to report their object offsets.
 [Standalone history scope](../../Changes/Solidworks/Archive/Metadata/SolidworksHistoryStreamCodec.md)
 
-Kit does not write SOLIDWORKS files.
-A conversion to a `.SLDPRT` or `.SLDASM` destination raises `AdapterNotFoundError` and creates no file.
+Kit writes native SOLIDWORKS 2026 SP05.2 parts from a neutral millimetre
+document with one active configuration, one closed Front-plane line loop,
+one forward blind boss, one driving depth parameter `D1` and one solid.
+Supply at least three ordinary unconstrained sketch lines, ordered around
+a single contour with matching endpoints.
+
+Call `write_document` with a `.SLDPRT` path whose stem matches
+`document.metadata["name"]`. For a binary stream, pass
+`destination_format="solidworks.sldprt"` and supply an absolute part path in
+`values["final_destination"]`. The archive derives its stream lengths,
+object maps, topology and editable records from the document.
+
+The registry rejects unsupported neutral content and assembly or drawing
+destinations before publishing a file. [Native part writer evidence](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 
 The earlier writer did not generate its streams from format rules.
 Each supported family re-emitted a recorded payload, which is a typed recording of one saved stream.
@@ -283,9 +295,8 @@ Every generated file also took its `Config-0` stream from one recorded configura
 The [recorded payload removal](../../Changes/Solidworks/SolidworksRecordedPayloadRemoval.md) deleted that writer.
 CI now rejects any recorded field program in `src`.
 
-A future writer must derive each emitted structure from known format rules.
-The container, archive, configuration manager, definition, and resolved-feature codecs remain as its starting point.
-Do not present a carrier or a mode label as a completed translation.
+The current part writer derives its streams from format rules using the
+typed container, configuration, definition and resolved-feature codecs.
 
 ## Geometry cache boundary
 

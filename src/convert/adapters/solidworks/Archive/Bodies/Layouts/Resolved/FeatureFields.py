@@ -5,11 +5,6 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KFeatureFields = MappingProxyType(
     {
-        "moBBoxCenterData_c": (
-            NativeField("Scalar", "f08", "i32"),
-            NativeField("Embed", "f10", "mgPoint_c.restore"),
-            NativeField("Scalar", "f28", "f64"),
-        ),
         "moEndSpec_c": (
             NativeField("Node", "f138", "moDirectionSpec_c"),
             NativeField("Scalar", "f08", "i32"),
@@ -23,7 +18,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f68"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -36,7 +31,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f28", "rf.suObArray"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -48,7 +43,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f70"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -61,7 +56,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f48", "rf.suObArray"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -91,7 +86,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f78"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -103,7 +98,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f80"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -125,10 +120,6 @@ KFeatureFields = MappingProxyType(
             NativeField("Scalar", "f838", "f64"),
             NativeField("Scalar", "f810", "i32"),
         ),
-        "moFR_c": (
-            NativeField("Node", "f08", "moExtObject_c"),
-            NativeField("Embed", "f10", "moFRData_c"),
-        ),
         "moFavoriteHandle_c": (
             NativeField("Scalar", "f08", "i32"),
             NativeField("Scalar", "f0c", "i32"),
@@ -139,7 +130,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f08", "moRefWrapper_c"),),
+                BodyValue=(NativeField("Fail", "alternate moFromEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -151,10 +142,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Node", "f28", "moDisplayDim_c"),
-                    NativeField("Scalar", "f20", "i32"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moFromEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -166,10 +154,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Scalar", "f18", "f64"),
-                    NativeField("Scalar", "f20", "i32"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moFromEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -181,10 +166,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Node", "f28", "moDisplayDim_c"),
-                    NativeField("Scalar", "f20", "i32"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moFromEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -193,15 +175,6 @@ KFeatureFields = MappingProxyType(
                     ("literal", 3),
                 ),
             ),
-        ),
-        "moPerBodyChooserData_c": (
-            NativeField("Embed", "f08", "rf.suObArray"),
-            NativeField("Embed", "f28", "rf.suObArray"),
-            NativeField("Embed", "f48", "rf.suObArray"),
-            NativeField("Scalar", "f68", "i32"),
-            NativeField("Scalar", "f6c", "i32"),
-            NativeField("Embed", "f78", "su_CDWordArray"),
-            NativeField("Scalar", "f70", "i32"),
         ),
     }
 )

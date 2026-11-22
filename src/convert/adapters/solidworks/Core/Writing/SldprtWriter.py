@@ -16,7 +16,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 class SldprtWriter(PairProtocol):
     __slots__ = ()
 
-    # the registry needs independent write metadata to retain the existing assembly and drawing reader aliases
+    # independent write metadata binds only the qualified part format while assembly lookup stays with the reader
     @property
     def info(self) -> AdapterInfo:
         return KPartWriteInfo

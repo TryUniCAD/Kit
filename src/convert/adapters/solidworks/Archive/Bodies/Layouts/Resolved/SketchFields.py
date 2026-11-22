@@ -5,88 +5,7 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KSketchFields = MappingProxyType(
     {
-        "moSketchChain_c": (
-            NativeField("Embed", "f08", "su_CDWordArray"),
-            NativeField("Embed", "f60", "su_CDWordArray"),
-            NativeField("Scalar", "f28", "u32"),
-            NativeField("Scalar", "f38", "i32"),
-            NativeField("Scalar", "f50", "i32"),
-            NativeField("Scalar", "f54", "i32"),
-            NativeField("Scalar", "f58", "u32"),
-            NativeField("Scalar", "f5c", "u32"),
-            NativeField("Text", "f80"),
-            NativeField("Scalar", "flags", "u16"),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(NativeField("Fail", "moSketchChain_c flags >= 4 throw"),),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("GtE",),
-                    ("lookup", ("scope",), ("literal", "flags")),
-                    ("literal", 4),
-                ),
-            ),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(NativeField("Node", "f30", "sg3DPlaneHandle"),),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("NotEq",),
-                    (
-                        "BitAnd",
-                        ("lookup", ("scope",), ("literal", "flags")),
-                        ("literal", 1),
-                    ),
-                    ("literal", 0),
-                ),
-            ),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(
-                    NativeField("Node", "f40", "sgPointHandle"),
-                    NativeField("Node", "f48", "sgPointHandle"),
-                ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("NotEq",),
-                    (
-                        "BitAnd",
-                        ("lookup", ("scope",), ("literal", "flags")),
-                        ("literal", 2),
-                    ),
-                    ("literal", 0),
-                ),
-            ),
-            NativeField("Scalar", "fd0", "u32"),
-            NativeField(
-                "Array",
-                "end_map",
-                "i32",
-                BodyValue=(
-                    NativeField("Scalar", "k", "u32"),
-                    NativeField("Scalar", "v", "u32"),
-                ),
-                CountValue="nmap",
-                ModeValue="Positive",
-            ),
-            NativeField("Node", "fc0", "contourTrimData_c"),
-            NativeField("Node", "fc8", "contourTrimData_c"),
-            NativeField("Scalar", "f90", "i32"),
-            NativeField("Scalar", "fa0", "i32"),
-            NativeField("Scalar", "fa4", "i32"),
-        ),
-        "moSketchRegion_c": (NativeField("Node", "f08", "suObList"),),
-        "sgArcHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
-        "sgCircleDim": (NativeField("Base", "sk.sgValG1Dim.FUN_4c59ec10"),),
-        "sgEntHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
         "sgLineHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
-        "sgPntPntDist": (NativeField("Base", "sk.sgValG2Dim.FUN_4c59f080"),),
         "sgPointHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
         "sgSketch": (
             NativeField(
@@ -115,7 +34,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "texts",
                 "i32",
-                BodyValue=(NativeField("Embed", "text", "sk.sgText.FUN_4c59de50"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch texts"),),
                 CountValue="ntexts",
                 ModeValue="Positive",
             ),
@@ -123,7 +42,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "hatches",
                 "i32",
-                BodyValue=(NativeField("Embed", "hatch", "sk.sgHatch.FUN_4c5888a0"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch hatches"),),
                 CountValue="nhatches",
                 ModeValue="Positive",
             ),
@@ -131,16 +50,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "arcs",
                 "i32",
-                BodyValue=(
-                    NativeField("Scalar", "flags", "u16"),
-                    NativeField(
-                        "Branch",
-                        "flags",
-                        BodyValue=(NativeField("Fail", "alternate sketch arc body"),),
-                        ModeValue="NotEquals",
-                    ),
-                    NativeField("Embed", "arc", "sk.sgArc.FUN_4c585150"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch arcs"),),
                 CountValue="narcs",
                 ModeValue="Positive",
             ),
@@ -148,10 +58,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "ellipses",
                 "i32",
-                BodyValue=(
-                    NativeField("Scalar", "flags", "u16"),
-                    NativeField("Embed", "ellipse", "sk.sgEllipse.FUN_4c586da0"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch ellipses"),),
                 CountValue="nellipses",
                 ModeValue="Positive",
             ),
@@ -159,10 +66,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "parabolas",
                 "i32",
-                BodyValue=(
-                    NativeField("Scalar", "flags", "u16"),
-                    NativeField("Embed", "parabola", "sk.sgParabola.FUN_4c586080"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch parabolas"),),
                 CountValue="nparabolas",
                 ModeValue="Positive",
             ),
@@ -170,172 +74,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "splines",
                 "i32",
-                BodyValue=(
-                    NativeField("Scalar", "flags", "u16"),
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(
-                            NativeField("Embed", "spline", "sk.sgSpline.FUN_4c59aed0"),
-                        ),
-                        OtherValue=(
-                            NativeField(
-                                "Branch",
-                                "",
-                                BodyValue=(
-                                    NativeField(
-                                        "Embed", "spline", "sk.sgSpline.FUN_4c59aed0"
-                                    ),
-                                ),
-                                OtherValue=(
-                                    NativeField(
-                                        "Branch",
-                                        "",
-                                        BodyValue=(
-                                            NativeField(
-                                                "Embed",
-                                                "spline",
-                                                "sk.sgSpline.FUN_4c59aed0.vt1f0",
-                                            ),
-                                        ),
-                                        OtherValue=(
-                                            NativeField(
-                                                "Embed",
-                                                "spline",
-                                                "sk.sgSpline.FUN_4c59aed0",
-                                            ),
-                                            NativeField(
-                                                "Branch",
-                                                "",
-                                                BodyValue=(
-                                                    NativeField(
-                                                        "Branch",
-                                                        "",
-                                                        BodyValue=(
-                                                            NativeField(
-                                                                "Embed",
-                                                                "conv",
-                                                                "sk.sgSpline.FUN_4c3f8e00",
-                                                            ),
-                                                        ),
-                                                        OtherValue=(
-                                                            NativeField(
-                                                                "Branch",
-                                                                "",
-                                                                BodyValue=(
-                                                                    NativeField(
-                                                                        "Embed",
-                                                                        "conv",
-                                                                        "sk.sgSpline.FUN_4b975860",
-                                                                    ),
-                                                                ),
-                                                                ModeValue="Expression",
-                                                                ExpressionValue=(
-                                                                    "compare",
-                                                                    ("NotEq",),
-                                                                    (
-                                                                        "BitAnd",
-                                                                        (
-                                                                            "lookup",
-                                                                            ("scope",),
-                                                                            (
-                                                                                "literal",
-                                                                                "flags",
-                                                                            ),
-                                                                        ),
-                                                                        (
-                                                                            "literal",
-                                                                            256,
-                                                                        ),
-                                                                    ),
-                                                                    ("literal", 0),
-                                                                ),
-                                                            ),
-                                                        ),
-                                                        ModeValue="Expression",
-                                                        ExpressionValue=(
-                                                            "compare",
-                                                            ("NotEq",),
-                                                            (
-                                                                "BitAnd",
-                                                                (
-                                                                    "lookup",
-                                                                    ("scope",),
-                                                                    (
-                                                                        "literal",
-                                                                        "flags",
-                                                                    ),
-                                                                ),
-                                                                ("literal", 32),
-                                                            ),
-                                                            ("literal", 0),
-                                                        ),
-                                                    ),
-                                                ),
-                                                ModeValue="Expression",
-                                                ExpressionValue=(
-                                                    "compare",
-                                                    ("Eq",),
-                                                    (
-                                                        "BitAnd",
-                                                        (
-                                                            "lookup",
-                                                            (
-                                                                "lookup",
-                                                                ("scope",),
-                                                                ("literal", "spline"),
-                                                            ),
-                                                            ("literal", "f32c"),
-                                                        ),
-                                                        ("literal", 1),
-                                                    ),
-                                                    ("literal", 0),
-                                                ),
-                                            ),
-                                        ),
-                                        ModeValue="Expression",
-                                        ExpressionValue=(
-                                            "compare",
-                                            ("NotEq",),
-                                            (
-                                                "BitAnd",
-                                                (
-                                                    "lookup",
-                                                    ("scope",),
-                                                    ("literal", "flags"),
-                                                ),
-                                                ("literal", 128),
-                                            ),
-                                            ("literal", 0),
-                                        ),
-                                    ),
-                                ),
-                                ModeValue="Expression",
-                                ExpressionValue=(
-                                    "compare",
-                                    ("NotEq",),
-                                    (
-                                        "BitAnd",
-                                        ("lookup", ("scope",), ("literal", "flags")),
-                                        ("literal", 4),
-                                    ),
-                                    ("literal", 0),
-                                ),
-                            ),
-                        ),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            (
-                                "BitAnd",
-                                ("lookup", ("scope",), ("literal", "flags")),
-                                ("literal", 1),
-                            ),
-                            ("literal", 0),
-                        ),
-                    ),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch splines"),),
                 CountValue="nsplines",
                 ModeValue="Positive",
             ),
@@ -343,7 +82,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "planes",
                 "i32",
-                BodyValue=(NativeField("Embed", "plane", "sk.sg3DPlane.FUN_4c5845b0"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch planes"),),
                 CountValue="nplanes",
                 ModeValue="Positive",
             ),
@@ -351,12 +90,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "cylinders",
                 "i32",
-                BodyValue=(
-                    NativeField("Embed", "ent", "sk.sg2DEnt.FUN_4c583460"),
-                    NativeField("Embed", "axis", "mgVector_c.restore"),
-                    NativeField("Embed", "origin", "mgPoint_c.restore"),
-                    NativeField("Scalar", "radius", "f64"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch cylinders"),),
                 CountValue="ncylinders",
                 ModeValue="Positive",
             ),
@@ -364,11 +98,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "spheres",
                 "i32",
-                BodyValue=(
-                    NativeField("Embed", "ent", "sk.sg2DEnt.FUN_4c583460"),
-                    NativeField("Embed", "centre", "mgPoint_c.restore"),
-                    NativeField("Scalar", "radius", "f64"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch spheres"),),
                 CountValue="nspheres",
                 ModeValue="Positive",
             ),
@@ -376,7 +106,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "cones",
                 "i32",
-                BodyValue=(NativeField("Embed", "cone", "sk.sg3DCone.FUN_4c5841b0"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch cones"),),
                 CountValue="ncones",
                 ModeValue="Positive",
             ),
@@ -384,7 +114,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "parametric",
                 "i32",
-                BodyValue=(NativeField("Embed", "ent", "sk.sg2DEnt.FUN_4c583460"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch parametric"),),
                 CountValue="nparametric",
                 ModeValue="Positive",
             ),
@@ -393,32 +123,28 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "offsets",
                 "u16",
-                BodyValue=(NativeField("Embed", "o", "sk.sgOffset_c.FUN_4c58d9a0"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch offsets"),),
                 CountValue="noffsets",
             ),
             NativeField(
                 "Array",
                 "sketch_offsets",
                 "u16",
-                BodyValue=(
-                    NativeField("Embed", "o", "sk.sgSketchOffset_c.FUN_4c599eb0"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch sketch_offsets"),),
                 CountValue="nskoffsets",
             ),
             NativeField(
                 "Array",
                 "styled",
                 "u16",
-                BodyValue=(NativeField("Embed", "o", "sk.sgStyledCurve.FUN_4c59d6c0"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch styled"),),
                 CountValue="nstyled",
             ),
             NativeField(
                 "Array",
                 "intersections",
                 "u16",
-                BodyValue=(
-                    NativeField("Embed", "o", "sk.sgIntersection_c.FUN_4c5895f0"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch intersections"),),
                 CountValue="nintersections",
             ),
             NativeField("Scalar", "f12c", "u16"),
@@ -428,19 +154,7 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField(
-                        "Array",
-                        "copy_map",
-                        "u16",
-                        BodyValue=(
-                            NativeField("Scalar", "k", "u32"),
-                            NativeField("Scalar", "a", "u32"),
-                            NativeField("Scalar", "b", "u32"),
-                        ),
-                        CountValue="ncopy",
-                    ),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -578,7 +292,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "tools",
                 "i32",
-                BodyValue=(NativeField("Node", "o", "moSketchToolsUserObject_c"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch tools"),),
                 CountValue="ntools",
                 ModeValue="Positive",
             ),
@@ -587,7 +301,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "blocks",
                 "i32",
-                BodyValue=(NativeField("Embed", "ent", "sk.sg2DEnt.FUN_4c583460"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch blocks"),),
                 CountValue="nblocks",
                 ModeValue="Positive",
             ),
@@ -597,9 +311,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "silhouettes",
                 "u16",
-                BodyValue=(
-                    NativeField("Embed", "o", "sk.sgSilhouette_c.FUN_4c590d90"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate sgSketch silhouettes"),),
                 CountValue="nsilhouettes",
             ),
             NativeField("Embed", "f580", "sk.sgBlockManager.FUN_4c90b810"),
@@ -609,7 +321,7 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "f138", "moProfileFeature_c"),),
+                BodyValue=(NativeField("Fail", "alternate sgSketch Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "bool",
@@ -623,8 +335,9 @@ KSketchFields = MappingProxyType(
                 "vars",
                 "Count",
                 BodyValue=(
-                    NativeField("Text", "k"),
-                    NativeField("Scalar", "v", "f64"),
+                    NativeField(
+                        "Fail", "alternate sk.EquationVarValueMap_c.FUN_4c339ca0 vars"
+                    ),
                 ),
                 CountValue="n",
             ),
@@ -639,8 +352,7 @@ KSketchFields = MappingProxyType(
                 "m0",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Scalar", "v", "i32"),
+                    NativeField("Fail", "alternate sk.pnt3DcoincMap_c.FUN_4b9611e0 m0"),
                 ),
                 CountValue="m0_n",
                 ModeValue="Positive",
@@ -650,8 +362,7 @@ KSketchFields = MappingProxyType(
                 "m1",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Scalar", "v", "i32"),
+                    NativeField("Fail", "alternate sk.pnt3DcoincMap_c.FUN_4b9611e0 m1"),
                 ),
                 CountValue="m1_n",
                 ModeValue="Positive",
@@ -661,8 +372,7 @@ KSketchFields = MappingProxyType(
                 "m2",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Scalar", "v", "i32"),
+                    NativeField("Fail", "alternate sk.pnt3DcoincMap_c.FUN_4b9611e0 m2"),
                 ),
                 CountValue="m2_n",
                 ModeValue="Positive",
@@ -672,8 +382,7 @@ KSketchFields = MappingProxyType(
                 "m3",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Scalar", "v", "i32"),
+                    NativeField("Fail", "alternate sk.pnt3DcoincMap_c.FUN_4b9611e0 m3"),
                 ),
                 CountValue="m3_n",
                 ModeValue="Positive",
@@ -722,7 +431,9 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "ext_ptr", "i64"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sg2DEnt.FUN_4c583460 Branch"),
+                ),
                 OtherValue=(NativeField("Node", "ext", "sgExtEnt_c"),),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -749,8 +460,7 @@ KSketchFields = MappingProxyType(
                     NativeField("Scalar", "f56", "u16"),
                 ),
                 OtherValue=(
-                    NativeField("Scalar", "f54", "u16"),
-                    NativeField("Scalar", "f56", "u16"),
+                    NativeField("Fail", "alternate sk.sg2DEnt.FUN_4c583460 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -786,7 +496,11 @@ KSketchFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Text", "name"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate sk.sg2DEnt.FUN_4c583460 Branch"
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -818,8 +532,9 @@ KSketchFields = MappingProxyType(
                 "blocks",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "id", "i32"),
-                    NativeField("Node", "b", "sgBlock"),
+                    NativeField(
+                        "Fail", "alternate sk.sgBlockManager.FUN_4c90b810 blocks"
+                    ),
                 ),
                 CountValue="n",
                 ModeValue="Positive",
@@ -829,9 +544,7 @@ KSketchFields = MappingProxyType(
                 "map",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Scalar", "a", "u32"),
-                    NativeField("Scalar", "b", "u32"),
+                    NativeField("Fail", "alternate sk.sgBlockManager.FUN_4c90b810 map"),
                 ),
                 CountValue="m",
                 ModeValue="Positive",
@@ -867,7 +580,9 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "f18", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgEntHandle.Serialize Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -885,8 +600,10 @@ KSketchFields = MappingProxyType(
                 "items",
                 "i32",
                 BodyValue=(
-                    NativeField("Node", "h", "sgEntHandle"),
-                    NativeField("Node", "d", "sgEntHandleData_c"),
+                    NativeField(
+                        "Fail",
+                        "alternate sk.sgEntHandleDataManager_c.FUN_4c90bf80 items",
+                    ),
                 ),
                 CountValue="n",
                 ModeValue="Positive",
@@ -897,7 +614,9 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "dir", "mgVector_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgLine.FUN_4c58ac90 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -927,38 +646,8 @@ KSketchFields = MappingProxyType(
                 "loops",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "has", "i32"),
                     NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(
-                            NativeField("Scalar", "f178", "i32"),
-                            NativeField(
-                                "Array",
-                                "curves",
-                                "i32",
-                                BodyValue=(
-                                    NativeField("Scalar", "t", "i32"),
-                                    NativeField("Scalar", "i", "i32"),
-                                ),
-                                CountValue="m",
-                                ModeValue="Positive",
-                            ),
-                            NativeField("Scalar", "f110", "i32"),
-                            NativeField("Scalar", "f114", "i32"),
-                            NativeField("Scalar", "f118", "i32"),
-                            NativeField("Scalar", "f11c", "i32"),
-                            NativeField("Scalar", "f130", "i32"),
-                            NativeField("Scalar", "f138", "f64"),
-                            NativeField("Node", "f140", "moDisplayDim_c"),
-                        ),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            ("lookup", ("scope",), ("literal", "has")),
-                            ("literal", 0),
-                        ),
+                        "Fail", "alternate sk.sgLoopManager.FUN_4c58cf30 loops"
                     ),
                 ),
                 CountValue="n",
@@ -972,7 +661,9 @@ KSketchFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(NativeField("Embed", "pos", "mgPoint_c.restore2D"),),
-                OtherValue=(NativeField("Embed", "pos", "mgPoint_c.restore"),),
+                OtherValue=(
+                    NativeField("Fail", "alternate sk.sgPoint.FUN_4c58f910 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -1020,8 +711,9 @@ KSketchFields = MappingProxyType(
                             NativeField("Embed", "p2", "mgPoint_c.restore2D"),
                         ),
                         OtherValue=(
-                            NativeField("Embed", "p1", "mgPoint_c.restore"),
-                            NativeField("Embed", "p2", "mgPoint_c.restore"),
+                            NativeField(
+                                "Fail", "alternate sk.sgPoint.FUN_4c58f910 Branch"
+                            ),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(
@@ -1052,7 +744,9 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "jet", "gcJet_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgPoint.FUN_4c58f910 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -1063,29 +757,15 @@ KSketchFields = MappingProxyType(
             ),
             NativeField("Scalar", "ff0", "u16"),
         ),
-        "sk.sgArc.FUN_4c585150": (
-            NativeField("Base", "sk.sgSegment.FUN_4c590920"),
-            NativeField("Scalar", "fd8", "i32"),
-            NativeField("Scalar", "fdc_s", "u16"),
-            NativeField(
-                "Branch",
-                "fdc_s",
-                BodyValue=(NativeField("Scalar", "fdc", "i32"),),
-                ModeValue="Equals",
-                MaskValue=65535,
-            ),
-            NativeField("Scalar", "fe0", "i32"),
-            NativeField("Scalar", "fe4", "i32"),
-            NativeField("Scalar", "fe8", "i32"),
-            NativeField("Scalar", "fec", "i32"),
-        ),
         "sk.sgSegment.FUN_4c590920": (
             NativeField("Base", "sk.sg2DEnt.FUN_4c583460"),
             NativeField("Scalar", "fc8_s", "u16"),
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "fc8", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSegment.FUN_4c590920 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -1102,7 +782,9 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "fcc", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSegment.FUN_4c590920 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -1124,28 +806,38 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "val_g1",
                 "u16",
-                BodyValue=(NativeField("Node", "d", "sgValG1Dim"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g1"),
+                ),
                 CountValue="ng1",
             ),
             NativeField(
                 "Array",
                 "val_g2",
                 "u16",
-                BodyValue=(NativeField("Node", "d", "sgValG2Dim"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g2"),
+                ),
                 CountValue="ng2",
             ),
             NativeField(
                 "Array",
                 "val_g3",
                 "u16",
-                BodyValue=(NativeField("Node", "d", "sgValG3Dim"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g3"),
+                ),
                 CountValue="ng3",
             ),
             NativeField(
                 "Array",
                 "offset_dims",
                 "u16",
-                BodyValue=(NativeField("Node", "d", "sgOffsetDim"),),
+                BodyValue=(
+                    NativeField(
+                        "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 offset_dims"
+                    ),
+                ),
                 CountValue="noffset",
             ),
             NativeField(
@@ -1159,21 +851,27 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "log_g2",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.sgLogG2Dim.FUN_4c58b970"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 log_g2"),
+                ),
                 CountValue="nlog2",
             ),
             NativeField(
                 "Array",
                 "log_g3",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.sgLogG3Dim.Serialize"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 log_g3"),
+                ),
                 CountValue="nlog3",
             ),
             NativeField(
                 "Array",
                 "iso",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.sgIsoParam_c.FUN_4c58a910"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 iso"),
+                ),
                 CountValue="niso",
             ),
             NativeField(
@@ -1181,7 +879,9 @@ KSketchFields = MappingProxyType(
                 "linear_patterns",
                 "u16",
                 BodyValue=(
-                    NativeField("Embed", "d", "sk.sgLinearPattern.FUN_4c58adf0"),
+                    NativeField(
+                        "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 linear_patterns"
+                    ),
                 ),
                 CountValue="nlinpatt",
             ),
@@ -1189,7 +889,11 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "linear_patt_cons",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.sgPattCon.FUN_4c58f060"),),
+                BodyValue=(
+                    NativeField(
+                        "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 linear_patt_cons"
+                    ),
+                ),
                 CountValue="nlincon",
             ),
             NativeField(
@@ -1197,7 +901,9 @@ KSketchFields = MappingProxyType(
                 "circular_patterns",
                 "u16",
                 BodyValue=(
-                    NativeField("Embed", "d", "sk.sgCircularPattern.FUN_4c5856e0"),
+                    NativeField(
+                        "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 circular_patterns"
+                    ),
                 ),
                 CountValue="ncircpatt",
             ),
@@ -1205,7 +911,11 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "circular_patt_cons",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.sgPattCon.FUN_4c58f060"),),
+                BodyValue=(
+                    NativeField(
+                        "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 circular_patt_cons"
+                    ),
+                ),
                 CountValue="ncirccon",
             ),
             NativeField("Node", "f118", "suObList"),
@@ -1213,14 +923,18 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "list_7c0",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.FUN_4b9787c0"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 list_7c0"),
+                ),
                 CountValue="n7c0",
             ),
             NativeField(
                 "Array",
                 "list_9f0",
                 "u16",
-                BodyValue=(NativeField("Embed", "d", "sk.FUN_4b9789f0"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 list_9f0"),
+                ),
                 CountValue="n9f0",
             ),
             NativeField("Scalar", "ngroup", "u16"),
@@ -1232,7 +946,9 @@ KSketchFields = MappingProxyType(
                         "Repeat",
                         "groups",
                         BodyValue=(
-                            NativeField("Embed", "d", "sk.sgLogGroupDim.Serialize"),
+                            NativeField(
+                                "Fail", "alternate sk.sgSketch.FUN_4c5a0f00 groups"
+                            ),
                         ),
                         CountValue="ngroup",
                     ),
@@ -1256,47 +972,13 @@ KSketchFields = MappingProxyType(
                 "slots",
                 "i32",
                 BodyValue=(
-                    NativeField("Scalar", "k", "i32"),
-                    NativeField("Node", "s", "sgSlot_c"),
+                    NativeField(
+                        "Fail", "alternate sk.sgSlotManager_c.FUN_4c59a5f0 slots"
+                    ),
                 ),
                 CountValue="n",
                 ModeValue="Positive",
             ),
-        ),
-        "sk.sgValDim.FUN_4c59ea80": (
-            NativeField("Base", "sk.sgDim.FUN_4c5868d0"),
-            NativeField("Scalar", "fa0", "u16"),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(NativeField("Embed", "xform", "mgXform_c.operator>>"),),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "compare",
-                    ("NotEq",),
-                    ("lookup", ("scope",), ("literal", "fa0")),
-                    ("literal", 0),
-                ),
-            ),
-        ),
-        "sk.sgValG1Dim.FUN_4c59ec10": (
-            NativeField("Base", "sk.sgValDim.FUN_4c59ea80"),
-            NativeField("Node", "h1", "sgEntHandle"),
-            NativeField("Node", "h2", "sgEntHandle"),
-            NativeField("Scalar", "g1", "i32"),
-            NativeField("Scalar", "g2", "i32"),
-            NativeField("Embed", "dir", "mgVector_c.restore"),
-        ),
-        "sk.sgValG2Dim.FUN_4c59f080": (
-            NativeField("Base", "sk.sgValDim.FUN_4c59ea80"),
-            NativeField("Node", "h1", "sgEntHandle"),
-            NativeField("Node", "h2", "sgEntHandle"),
-            NativeField("Scalar", "f180", "u16"),
-            NativeField("Scalar", "f184", "u16"),
-            NativeField("Scalar", "f1b8", "u16"),
-            NativeField("Scalar", "f1bc", "u16"),
-            NativeField("Node", "plane", "sg3DPlaneHandle"),
-            NativeField("Embed", "dir", "mgVector_c.restore"),
         ),
     }
 )

@@ -23,7 +23,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Text", "f78"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate Dimension_c.Serialize Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -35,7 +37,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "cond_f34", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate Dimension_c.Serialize Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -95,7 +99,12 @@ KDimensionFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Scalar", "f60", "f64"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail",
+                                "alternate dm.moDoubleParameter_c.FUN_4c177fe0 Branch",
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -136,7 +145,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f120", "mgXform_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDimHandle_c.FUN_4c82a810 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -156,20 +167,7 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Embed", "f108", "mgXform_c.restore"),
-                    NativeField("Scalar", "has_f110", "i32"),
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(NativeField("Text", "f110"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            ("lookup", ("scope",), ("literal", "has_f110")),
-                            ("literal", 0),
-                        ),
-                    ),
+                    NativeField("Fail", "alternate moDimHandle_c.FUN_4c82a810 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -248,7 +246,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f128", "mgXform_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDimHandle_c.FUN_4c82a810 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -260,7 +260,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "cond1_flag", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDimHandle_c.FUN_4c82a810 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -282,10 +284,7 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Embed", "f180", "mgPoint_c.restore"),
-                    NativeField("Embed", "f198", "mgPoint_c.restore"),
-                    NativeField("Embed", "f1b0", "mgPoint_c.restore"),
-                    NativeField("Embed", "f1c8", "mgPoint_c.restore"),
+                    NativeField("Fail", "alternate moDimHandle_c.FUN_4c82a810 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -326,59 +325,7 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField(
-                        "Repeat",
-                        "f98",
-                        BodyValue=(NativeField("Scalar", "v", "i32"),),
-                        CountValue="n90",
-                    ),
-                    NativeField(
-                        "Repeat",
-                        "f88",
-                        BodyValue=(NativeField("Scalar", "v", "i32"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "max",
-                            (
-                                "sum_field",
-                                ("lookup", ("scope",), ("literal", "f98")),
-                                ("literal", "v"),
-                            ),
-                            ("literal", 0),
-                        ),
-                    ),
-                    NativeField(
-                        "Repeat",
-                        "f80",
-                        BodyValue=(NativeField("Scalar", "v", "i32"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "max",
-                            (
-                                "sum_field",
-                                ("lookup", ("scope",), ("literal", "f98")),
-                                ("literal", "v"),
-                            ),
-                            ("literal", 0),
-                        ),
-                    ),
-                    NativeField(
-                        "Repeat",
-                        "f78",
-                        BodyValue=(NativeField("Embed", "p", "mgPoint_c.restore"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "max",
-                            (
-                                "sum_field",
-                                ("lookup", ("scope",), ("literal", "f80")),
-                                ("literal", "v"),
-                            ),
-                            ("literal", 0),
-                        ),
-                    ),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moDimText_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -392,31 +339,7 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField(
-                        "Array",
-                        "fa8",
-                        "i32",
-                        BodyValue=(NativeField("Embed", "p", "mgPoint_c.restore"),),
-                        CountValue="na4",
-                        ModeValue="Positive",
-                    ),
-                    NativeField(
-                        "Repeat",
-                        "fb0",
-                        BodyValue=(NativeField("Scalar", "v", "i32"),),
-                        CountValue="na4",
-                        ModeValue="Positive",
-                    ),
-                    NativeField(
-                        "Repeat",
-                        "fb8",
-                        BodyValue=(NativeField("Embed", "v", "mgVector_c.restore"),),
-                        CountValue="na4",
-                        ModeValue="Positive",
-                    ),
-                    NativeField("Scalar", "fc0", "i32"),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moDimText_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -485,9 +408,7 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Embed", "fa50_p", "mgPoint_c.restore"),
-                    NativeField("Embed", "fa50_v", "mgVector_c.restore"),
-                    NativeField("Scalar", "fa50_d", "f64"),
+                    NativeField("Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -517,7 +438,11 @@ KDimensionFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Embed", "f590", "mgPoint_c.restore"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -530,7 +455,11 @@ KDimensionFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Embed", "f598", "mgPoint_c.restore"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -592,7 +521,11 @@ KDimensionFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Embed", "fa58", "rf.suObArray"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -645,7 +578,11 @@ KDimensionFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Embed", "fa60", "rf.suObArray"),),
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"
+                            ),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -699,7 +636,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "faf0", "i32"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -771,7 +710,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "fac0", "mgPoint_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -784,7 +725,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "fac8", "mgPoint_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDisplayDim_c.FUN_4c82c3d0 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -820,40 +763,6 @@ KDimensionFields = MappingProxyType(
             NativeField("Scalar", "f8e0", "i32"),
             NativeField("Text", "ff88"),
         ),
-        "moDisplayRadialDim_c": (
-            NativeField("Base", "moDisplayDim_c.FUN_4c82c3d0"),
-            NativeField("Scalar", "ffd8", "i32"),
-            NativeField("Scalar", "ffe0", "f64"),
-            NativeField("Scalar", "ffe8", "f64"),
-            NativeField("Scalar", "fff0", "f64"),
-            NativeField("Scalar", "fff8", "f64"),
-            NativeField("Scalar", "f1000", "f64"),
-            NativeField("Scalar", "f1008", "f64"),
-            NativeField("Embed", "f1010", "mgPoint_c.restore"),
-            NativeField("Embed", "f1028", "mgPoint_c.restore"),
-            NativeField(
-                "Array",
-                "ffc0",
-                "i32",
-                BodyValue=(NativeField("Text", "s"),),
-                CountValue="nfc0",
-                ModeValue="Positive",
-            ),
-            NativeField("Node", "f1050", "moHwCalloutData_c"),
-            NativeField("Text", "f1048"),
-            NativeField("Node", "f1068", "suObList"),
-            NativeField("Scalar", "has_f1060", "i32"),
-            NativeField(
-                "Branch",
-                "has_f1060",
-                BodyValue=(NativeField("Embed", "f1060", "mgXform_c.restore"),),
-                ModeValue="Nonzero",
-            ),
-            NativeField("Node", "f1090", "moMirrorHWHelper_c"),
-            NativeField("Scalar", "ffd4", "i32"),
-            NativeField("Node", "f10a8", "moHoleWizardInfo_c"),
-            NativeField("Scalar", "f10a4", "i32"),
-        ),
         "moDisplayDistanceDim_c": (
             NativeField("Base", "moDisplayDim_c.FUN_4c82c3d0"),
             NativeField("Scalar", "f1014", "i32"),
@@ -864,7 +773,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Scalar", "f1008", "i64"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moDisplayDistanceDim_c Branch"),
+                ),
                 OtherValue=(NativeField("Node", "f1008", "moDisplayRadialDim_c"),),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -896,8 +807,7 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Embed", "fe0", "mgVector_c.restore"),
-                    NativeField("Embed", "fe8", "mgVector_c.restore"),
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -911,7 +821,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "ff0", "mgXform_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -924,7 +836,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f98", "mgPoint_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "BitAnd",
@@ -935,7 +849,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "fb8", "mgPoint_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "BitAnd",
@@ -982,157 +898,6 @@ KDimensionFields = MappingProxyType(
                     ("IsNot",),
                     ("lookup_or", ("scope",), ("literal", "fe8"), ("literal", None)),
                     ("literal", None),
-                ),
-            ),
-        ),
-        "moSkDimHandleRadial_c": (NativeField("Base", "moSkDimHandle_c.Serialize"),),
-        "moSkDimHandleValG2_c": (NativeField("Base", "moSkDimHandle_c.Serialize"),),
-        "moSkDimHandle_c.Serialize": (
-            NativeField("Base", "moDimHandle_c.FUN_4c82a810"),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(
-                    NativeField("Fail", "moSkDimHandle_c condition 1 vtable 0x778"),
-                ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "And",
-                    (
-                        "compare",
-                        ("NotEq",),
-                        (
-                            "BitAnd",
-                            (
-                                "lookup_or",
-                                ("context",),
-                                ("literal", "conditions"),
-                                ("literal", 0),
-                            ),
-                            ("literal", 1),
-                        ),
-                        ("literal", 0),
-                    ),
-                    (
-                        "Not",
-                        (
-                            "lookup_or",
-                            ("context",),
-                            ("literal", "ctx874"),
-                            ("literal", 0),
-                        ),
-                    ),
-                ),
-            ),
-            NativeField(
-                "Branch",
-                "",
-                BodyValue=(
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(NativeField("Scalar", "dim_type", "u16"),),
-                        OtherValue=(NativeField("Node", "ff0", "sgSketch"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("IsNot",),
-                            (
-                                "lookup_or",
-                                ("scope",),
-                                ("literal", "fe8"),
-                                ("literal", None),
-                            ),
-                            ("literal", None),
-                        ),
-                    ),
-                    NativeField("Scalar", "ff8", "i32"),
-                ),
-                OtherValue=(
-                    NativeField("Scalar", "ff0", "i32"),
-                    NativeField("Scalar", "ff8", "i32"),
-                ),
-                ModeValue="Expression",
-                ExpressionValue=(
-                    "And",
-                    (
-                        "Not",
-                        (
-                            "select",
-                            ("compare", ("Eq",), ("literal", 6), ("literal", 0)),
-                            (
-                                "compare",
-                                ("Eq",),
-                                (
-                                    "lookup_or",
-                                    ("context",),
-                                    ("literal", "conditions"),
-                                    ("literal", 0),
-                                ),
-                                ("literal", 0),
-                            ),
-                            (
-                                "compare",
-                                ("NotEq",),
-                                (
-                                    "BitAnd",
-                                    (
-                                        "lookup_or",
-                                        ("context",),
-                                        ("literal", "conditions"),
-                                        ("literal", 0),
-                                    ),
-                                    ("literal", 6),
-                                ),
-                                ("literal", 0),
-                            ),
-                        ),
-                    ),
-                    (
-                        "Or",
-                        (
-                            "Not",
-                            (
-                                "select",
-                                ("compare", ("Eq",), ("literal", 1), ("literal", 0)),
-                                (
-                                    "compare",
-                                    ("Eq",),
-                                    (
-                                        "lookup_or",
-                                        ("context",),
-                                        ("literal", "conditions"),
-                                        ("literal", 0),
-                                    ),
-                                    ("literal", 0),
-                                ),
-                                (
-                                    "compare",
-                                    ("NotEq",),
-                                    (
-                                        "BitAnd",
-                                        (
-                                            "lookup_or",
-                                            ("context",),
-                                            ("literal", "conditions"),
-                                            ("literal", 0),
-                                        ),
-                                        ("literal", 1),
-                                    ),
-                                    ("literal", 0),
-                                ),
-                            ),
-                        ),
-                        (
-                            "bool",
-                            (
-                                "lookup_or",
-                                ("context",),
-                                ("literal", "ctx874"),
-                                ("literal", 0),
-                            ),
-                        ),
-                    ),
                 ),
             ),
         ),

@@ -10,29 +10,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(NativeField("Scalar", "cond_fr", "i32"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            (
-                                "BitAnd",
-                                (
-                                    "lookup_or",
-                                    ("context",),
-                                    ("literal", "conditions"),
-                                    ("literal", 0),
-                                ),
-                                ("literal", 65536),
-                            ),
-                            ("literal", 0),
-                        ),
-                    ),
-                ),
+                BodyValue=(NativeField("Fail", "alternate moCompFeature_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -54,21 +32,7 @@ KComponentFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(NativeField("Embed", "ff0", "moFRData_c"),),
-                OtherValue=(
-                    NativeField("Scalar", "has_ff0", "i32"),
-                    NativeField(
-                        "Branch",
-                        "",
-                        BodyValue=(NativeField("Embed", "ff0", "moFRData_c"),),
-                        ModeValue="Expression",
-                        ExpressionValue=(
-                            "compare",
-                            ("NotEq",),
-                            ("lookup", ("scope",), ("literal", "has_ff0")),
-                            ("literal", 0),
-                        ),
-                    ),
-                ),
+                OtherValue=(NativeField("Fail", "alternate moCompFeature_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "select",
@@ -178,7 +142,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f88", "moOldRef_c"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -198,7 +162,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Node", "fb0", "moFacetedData_c"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -211,7 +175,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Text", "fb8"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -224,7 +188,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "fc0", "moCompRefInfo_c"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -237,7 +201,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "fc8", "mgXform_c.restore"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -250,7 +214,7 @@ KComponentFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Text", "fd0"),),
+                BodyValue=(NativeField("Fail", "alternate moCompRef_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -264,10 +228,6 @@ KComponentFields = MappingProxyType(
         "moFRData_c": (
             NativeField("Scalar", "f00", "i32"),
             NativeField("Scalar", "f08", "u32"),
-        ),
-        "moHistoryFeatItemData_c": (
-            NativeField("Base", "moNode_c"),
-            NativeField("Node", "f48", "moCompFeature_c"),
         ),
     }
 )
