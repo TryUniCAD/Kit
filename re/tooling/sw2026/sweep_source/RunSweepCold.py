@@ -24,7 +24,7 @@ def members(packet, capture, slot, case):
 
 
 def worker(args):
-    job, spec, predictions = verify(args.job, args.pin)
+    job, spec, predictions = verify(args.job, args.pin, permit_private=True)
     packet, capture = local_roots(args.job, job)
     if args.phase in CONTROLS:
         require(args.slot is args.source is None, "control cannot name a candidate")
@@ -83,13 +83,14 @@ def run_case(manifest, pin, job, packet, capture, slot, case, comparison, proces
 
 
 def execute(manifest, pin):
-    job, spec, _ = verify(manifest, pin)
+    job, spec, _ = verify(manifest, pin, permit_private=True)
     packet, capture = local_roots(manifest, job)
     import Swapp
     require(not capture.exists() and not Swapp.application_pids() and not Swapp.owned_process_ids(),
             "native sweep requires fresh results and an idle oracle")
     capture.mkdir(parents=True, exist_ok=False)
-    comparisons = json.loads((packet / "DisclosedComparison.json").read_bytes())
+    comparison_name = "ProtectedComparison.json" if job["cohort"] == "heldout" else "DisclosedComparison.json"
+    comparisons = json.loads((packet / comparison_name).read_bytes())
     require(comparisons["source_lock_sha256"] == job["source_lock_sha256"]
             and len(comparisons["cases"]) == len(spec["cases"]), "missing independent source lock")
     processes, controls, cases = [], {}, []
@@ -109,7 +110,7 @@ def execute(manifest, pin):
             controls["after"] = {"passed": False}
             write_new(capture / "AfterControlFailure.json", {"error": repr(error)})
     try:
-        unchanged = verify(manifest, pin)[0] == job
+        unchanged = verify(manifest, pin, permit_private=True)[0] == job
     except Exception as error:
         write_new(capture / "InputCustodyFailure.json", {"error": repr(error)})
         unchanged = False

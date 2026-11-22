@@ -14,33 +14,47 @@ from SweepPacket import valid_hash, windows_paths, write_new
 
 
 SCHEMA = "kit.sw2026.standard-sweep-cold-discovery.v1"
+PRIVATE_SCHEMA = "kit.sw2026.standard-sweep-cold-heldout.v1"
 PREWRITER = "9a98691d85fbbdbbaea74f34c14e71b893ac63f1"
 LOCK = "8f8f12a4aa98efd7d50ea9d199898a140e1a0f7d4695c2ae53571c68e20b1fab"
 SOURCE_LOCK = "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca"
+SEALED_LOCK = "ccc0897416c0f5a9165e49f160274bef9000155b7c8dc3c85e2f2ae77cb4452b"
 API = "07909437b4c7068ec0ddbb0025d6f6990d6c4bb65767bc778cddfc3577cfdffe"
 SPEC = "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023"
 ADDED_TOOLS = ("SweepColdPacket.py", "RunSweepCold.py", "SweepColdPhase.py", "SweepColdCompare.py")
 CANDIDATES = tuple(f"Candidates/{name}.SLDPRT" for name in ("SweepArcNear", "SweepArcWide"))
-FILES = TOOL_FILES | {f"Tool/{name}" for name in ADDED_TOOLS} | {
-    "Control.SLDPRT", "Spec.json", "Predictions.json", "ExpectedApi.json", "DisclosedComparison.json", *CANDIDATES,
+SEALED_CANDIDATES = tuple(f"Candidates/{name}.SLDPRT" for name in ("Slot01", "Slot02"))
+COMMON_FILES = TOOL_FILES | {f"Tool/{name}" for name in ADDED_TOOLS} | {
+    "Control.SLDPRT", "Spec.json", "Predictions.json", "ExpectedApi.json",
 }
+FILES = COMMON_FILES | {"DisclosedComparison.json", *CANDIDATES}
+PRIVATE_FILES = COMMON_FILES | {"ProtectedComparison.json", *SEALED_CANDIDATES}
 
 
-def verify(manifest, pin):
+def verify(manifest, pin, *, permit_private=False):
     require(valid_hash(pin) and manifest.name == "SweepJob.json" and manifest.is_file() and not manifest.is_symlink()
             and digest(manifest) == pin, "cold sweep packet is not hash bound")
     job = json.loads(manifest.read_bytes())
-    require(job["schema"] == SCHEMA and job["cohort"] == "disclosed" and job["writer_outputs"] == len(CANDIDATES)
-            and job["oracle_build"] == BUILD and job["oracle_sha256"] == ORACLE
-            and job["source_lock_sha256"] == SOURCE_LOCK and job["prewriter_lock_sha256"] == LOCK
+    private = job["cohort"] == "heldout"
+    if private:
+        require(permit_private and os.name == "nt" and sys.version_info[:2] == (3, 12)
+                and manifest.parent.resolve() == Path(job["guest_packet"]).resolve()
+                and manifest.parent.resolve().drive.casefold() == "c:"
+                and all(valid_hash(job[key]) for key in ("method_sha256", "generation_sha256", "spec_sha256")),
+                "protected cold sweep packet is confined to its fresh local Windows location")
+    require((job["schema"], job["cohort"]) == ((PRIVATE_SCHEMA, "heldout") if private else (SCHEMA, "disclosed"))
+            and job["writer_outputs"] == 2 and job["oracle_build"] == BUILD and job["oracle_sha256"] == ORACLE
+            and job["source_lock_sha256"] == (SEALED_LOCK if private else SOURCE_LOCK) and job["prewriter_lock_sha256"] == LOCK
             and job["registered_api_sha256"] == API and valid_hash(job["writer_revision"], 40)
             and valid_hash(job["sdk_tree"], 40), "wrong scoped cold-sweep custody")
     windows_paths(job["guest_packet"], job["guest_capture"], job["guest_checkout"])
     parent = manifest.parent.resolve()
-    require(set(job["files"]) == FILES and set(job["candidates"]) == set(CANDIDATES)
+    files = PRIVATE_FILES if private else FILES
+    candidates = SEALED_CANDIDATES if private else CANDIDATES
+    require(set(job["files"]) == files and set(job["candidates"]) == set(candidates)
             and {item.relative_to(parent).as_posix() for item in parent.rglob("*") if item.is_file()}
-            == FILES | {manifest.name}, "cold sweep packet contains an unbound file")
-    fixed = {"Control.SLDPRT": CONTROL, "Spec.json": SPEC, "ExpectedApi.json": API}
+            == files | {manifest.name}, "cold sweep packet contains an unbound file")
+    fixed = {"Control.SLDPRT": CONTROL, "Spec.json": job["spec_sha256"] if private else SPEC, "ExpectedApi.json": API}
     for relative, info in job["files"].items():
         item = parent / relative
         require(item.is_file() and not item.is_symlink() and item.resolve() == item
@@ -52,13 +66,15 @@ def verify(manifest, pin):
     spec = json.loads((parent / "Spec.json").read_bytes())
     validate_spec(spec)
     expected = json.loads((parent / "Predictions.json").read_bytes())
-    require(spec["cohort"] == "disclosed" and predictions_match(expected, predictions(spec)),
+    require(spec["cohort"] == job["cohort"] and predictions_match(expected, predictions(spec)),
             "cold sweep geometric predictions differ")
     return job, spec, expected
 
 
 def create(output, job, data):
-    require(output.is_absolute() and not output.exists() and set(data) == FILES, "expected an unused absolute packet root")
+    private = job["cohort"] == "heldout"
+    require(output.is_absolute() and not output.exists() and set(data) == (PRIVATE_FILES if private else FILES),
+            "expected an unused absolute packet root")
     output.mkdir(parents=True, exist_ok=False)
     for relative, raw in sorted(data.items()):
         item = output / relative
@@ -69,7 +85,7 @@ def create(output, job, data):
     manifest = output / "SweepJob.json"
     write_new(manifest, job)
     pin = digest(manifest)
-    verify(manifest, pin)
+    verify(manifest, pin, permit_private=private)
     return pin
 
 
