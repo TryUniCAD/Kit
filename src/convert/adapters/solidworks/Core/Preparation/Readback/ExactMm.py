@@ -6,7 +6,7 @@ def ExactMm(Native: object, Display: float) -> float:
     if (
         type(Native) is not float
         or not IsFinite(Native)
-        or (Native * 1000.0).hex() != Display.hex()
+        or (Native / 0.001).hex() != Display.hex()
     ):
         raise ValueError("SOLIDWORKS metre value disagrees with its public length")
     Quotient = Native / 0.001

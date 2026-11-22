@@ -91,6 +91,18 @@ def RefuseBadSketch(
         assert Target.read_bytes() == Written
     Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
     SketchValue = Document.sketches[0]
+    Relation = SketchRelation(
+        "constraint/horizontal",
+        ConstraintKind.KHorizontal,
+        (ConstraintRef(SketchValue.entities[0].id),),
+    )
+    RelationDoc = ReplaceValue(
+        Document, sketches=(ReplaceValue(SketchValue, constraints=(Relation,)),)
+    )
+    _ = Source.write_text(RelationDoc.to_json(), encoding="utf-8")
+    with RaisesError(NotFoundError, match="does not support the destination"):
+        RunCommand(Candidate)
+    assert Target.read_bytes() == Written
     Driver = Parameter(
         "parameter/sketch/width",
         "D1",

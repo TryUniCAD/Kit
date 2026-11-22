@@ -33,8 +33,8 @@ def ReadLinePoint(RowValue: Mapping[str, object], IndexValue: int) -> LinePoint:
         IndexValue,
         CreationId,
         (
-            RequireScalar(RequireScalar(Position.get("x")) * 1000.0),
-            RequireScalar(RequireScalar(Position.get("y")) * 1000.0),
+            RequireScalar(RequireScalar(Position.get("x")) / 0.001),
+            RequireScalar(RequireScalar(Position.get("y")) / 0.001),
         ),
         (
             RequireNative(FieldsValue.get("h1"), "sgLineHandle"),
