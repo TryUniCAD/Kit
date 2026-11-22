@@ -1,11 +1,16 @@
 from dataclasses import replace as ReplaceValue
 from io import BytesIO as BytesIo
+from json import loads as LoadJson
+from typing import cast as CastValue
 
 import pytest as Pytest
 from typing_extensions import override as Override
 
+from convert.Commands.CliOptions import CliOptions
+from convert.Commands.RunCommand import RunCommand
 from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
 from convert.adapters.json.Adapter import JsonAdapter
+import convert.api.ApiContext as ApiContext
 from tests.Convert.Api.Fusion.AdapterCases import AdapterCase
 
 
@@ -16,7 +21,11 @@ class SnapshotReader(JsonAdapter):
     @property
     @Override
     def info(self) -> AdapterInfo:
-        return ReplaceValue(super().info, aliases=("interchange.snapshot",))
+        return ReplaceValue(
+            super().info,
+            aliases=("interchange.snapshot",),
+            extensions=(".json", ".snapshot"),
+        )
 
 
 # both registration orders preserve the read alias without granting publication through it
@@ -54,3 +63,28 @@ def TestAliasReplay(ReaderFirst: bool) -> None:
     RegistryValue.register_reader(JsonAdapter(), replace=True)
     with Pytest.raises(AdapterNotFoundError, match="no reader registered"):
         _ = RegistryValue.reader("interchange.snapshot")
+
+
+# the format command reports read and write names independently in both output modes
+def TestAliasCli(
+    CapSys: Pytest.CaptureFixture[str], MonkeyPatch: Pytest.MonkeyPatch
+) -> None:
+    RegistryValue = AdapterRegistry()
+    RegistryValue.register_reader(SnapshotReader())
+    RegistryValue.register_writer(JsonAdapter())
+    MonkeyPatch.setattr(ApiContext, "KAdapterRegistry", RegistryValue)
+    Options = CliOptions()
+    Options.Command = "formats"
+    Options.JsonOutput = True
+    RunCommand(Options)
+    (Format,) = CastValue(list[dict[str, object]], LoadJson(CapSys.readouterr().out))
+    assert Format["extensions"] == [".json", ".snapshot"]
+    assert Format["aliases"] == ["interchange.snapshot"]
+    assert Format["write_extensions"] == [".json"]
+    assert Format["write_aliases"] == []
+    Options.JsonOutput = False
+    RunCommand(Options)
+    Header, ValueRow = CapSys.readouterr().out.splitlines()
+    Columns = dict(zip(Header.split("\t"), ValueRow.split("\t"), strict=True))
+    assert LoadJson(Columns["extensions"]) == [".json", ".snapshot"]
+    assert LoadJson(Columns["write_extensions"]) == [".json"]

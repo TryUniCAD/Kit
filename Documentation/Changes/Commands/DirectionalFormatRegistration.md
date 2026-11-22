@@ -11,3 +11,5 @@ shows the writable extensions in a separate column in the same case.
 The API check writes and reads an authored JSON document across both
 registration orders. It also verifies that the read-only alias refuses
 publication and that replacing either adapter preserves its peer's names.
+The format command check covers distinct extensions in both output modes.
+The JSON check also covers the read-only alias.
