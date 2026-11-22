@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
 from interchange.Enums.EnumGeometry import GeometryKind
-from interchange.geometry.Models.GeometryCurves import CircleGeometry, PointGeometry
+from interchange.geometry.Models.GeometryCurves import CircleGeometry
 from interchange.geometry.Models.Sketch import (
     ConstraintRef,
     Sketch,
@@ -25,7 +25,7 @@ def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
     if CircleValue is None:
         raise ValueError("typed circle sketch requires its actual linked circle")
     SketchId = f"sldprt:sketch:{SketchValue.object_id}"
-    ArcValue, CenterValue = CircleEntities(SketchId, CircleValue)
+    ArcValue = CircleEntity(SketchId, CircleValue)
     ParamIds: tuple[str, ...] = ()
     Relations: tuple[SketchRelation, ...] = ()
     if CircleValue.DriverName is not None and CircleValue.ModeValue is not None:
@@ -43,14 +43,19 @@ def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
                 ParamId,
             ),
             SketchRelation(
-                f"{CenterValue.id}:fixed", "fixed", (ConstraintRef(CenterValue.id),)
+                f"{SketchId}:point:{CircleValue.CenterMark}:fixed",
+                "fixed",
+                (ConstraintRef(ArcValue.id, "center"),),
+                provenance=TypedProvenance(
+                    CircleValue.OwnerValue, str(CircleValue.CenterMark)
+                ),
             ),
         )
     return Sketch(
         SketchId,
         SketchValue.name,
         f"sldprt:plane:{SketchValue.support_plane_id}",
-        (ArcValue, CenterValue),
+        (ArcValue,),
         Relations,
         ParamIds,
         ((ArcValue.id,),),
@@ -66,30 +71,17 @@ def CircleSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
     )
 
 
-# an ordinary circle and its actual local centre retain their separate native sketch array identities
-def CircleEntities(
-    SketchId: str, CircleValue: LocalCircle
-) -> tuple[SketchEntity, SketchEntity]:
+# the circle records its native centre identity without exposing a separate unconstrained point
+def CircleEntity(SketchId: str, CircleValue: LocalCircle) -> SketchEntity:
     ArcId = f"{SketchId}:circle:{CircleValue.ArcMark}"
-    CenterId = f"{SketchId}:point:{CircleValue.CenterMark}"
     Center = PlaneVector(*CircleValue.CenterValue)
-    return (
-        SketchEntity(
-            ArcId,
-            GeometryKind.KCircle,
-            CircleGeometry(Center, CircleValue.RadiusValue),
-            provenance=TypedProvenance(
-                CircleValue.OwnerValue, str(CircleValue.ArcMark)
-            ),
-            attributes={"native_permanent_mark": CircleValue.ArcMark},
-        ),
-        SketchEntity(
-            CenterId,
-            GeometryKind.KPoint,
-            PointGeometry(Center),
-            provenance=TypedProvenance(
-                CircleValue.OwnerValue, str(CircleValue.CenterMark)
-            ),
-            attributes={"native_permanent_mark": CircleValue.CenterMark},
-        ),
+    return SketchEntity(
+        ArcId,
+        GeometryKind.KCircle,
+        CircleGeometry(Center, CircleValue.RadiusValue),
+        provenance=TypedProvenance(CircleValue.OwnerValue, str(CircleValue.ArcMark)),
+        attributes={
+            "native_permanent_mark": CircleValue.ArcMark,
+            "native_center_permanent_mark": CircleValue.CenterMark,
+        },
     )

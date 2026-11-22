@@ -66,6 +66,21 @@ initial state. The analytic body has three faces, volume
 Skew and Step with report SHA-256
 `77b9dd8ff69f586152d2d05180c601e38ee65d6c9b55e0a5590039254b9290dd`.
 
+## Cold review follow-up
+
+The positional relation now references the circle's actual center subelement.
+The native point mark remains in provenance. A missing sketch parameter
+fails SOLIDWORKS admission without interrupting selection of the inferred
+JSON writer. The shared required-semantics guard then refuses the invalid
+document and preserves the existing destination. The measurement parser
+checks the radial-only rebuild while depth remains unchanged and matches
+the computed volume, area and centroid of that intermediate state. A report
+that substitutes the combined radial and depth edit refuses.
+
+[Guarded follow-up receipt](../measurements/2026/SdkMeasuredCircleReview01.json)
+preserves the measured whole archive, all ten streams and zero generation
+input reads.
+
 ## Saved reads and independent qualification
 
 The disclosed beta native-saved archives reopened with the existing cached

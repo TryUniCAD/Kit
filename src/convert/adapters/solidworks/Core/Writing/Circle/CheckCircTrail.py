@@ -42,6 +42,7 @@ def CheckCircTrail(
     _ = CheckCircStage(Reopened, "edited-fresh-reopen", EditSha, PlanValue)
     Baseline = ReadCircState(Initial, "snapshot")
     Before = ReadCircState(Edited, "snapshot")
+    RadialOnly = ReadCircState(Edited, "edited_snapshot")
     After = ReadCircState(Edited, "edited_body_snapshot")
     Restored = ReadCircState(Reopened, "snapshot")
     Length = PlanValue.CircleValue.RadiusValue * (2 if PlanValue.IsDiameter else 1)
@@ -59,19 +60,28 @@ def CheckCircTrail(
         or not IsClose(Baseline.DepthValue, PlanValue.DepthValue, rel_tol=1e-12)
     ):
         raise ValueError("circle measurement differs from authored or reopened state")
+    if (
+        RadialOnly.DepthValue != Before.DepthValue
+        or RadialOnly.RadialValue != After.RadialValue
+        or RadialOnly.CenterValue != Before.CenterValue
+    ):
+        raise ValueError(
+            "circle radial-only edit did not preserve its center and depth"
+        )
     CheckCircEdit(
         Edited.get("radial_edit"),
         PlanValue.SketchName,
         Before.RadialValue,
-        After.RadialValue,
+        RadialOnly.RadialValue,
     )
     CheckCircEdit(
         Edited.get("depth_edit"),
         PlanValue.FeatureName,
-        Before.DepthValue,
+        RadialOnly.DepthValue,
         After.DepthValue,
     )
     CheckCircMass(Baseline, PlanValue)
+    CheckCircMass(RadialOnly, PlanValue)
     CheckCircMass(After, PlanValue)
     return ReadMeasSha(Edited.get("record_sha256")), ReadMeasSha(
         Reopened.get("record_sha256")

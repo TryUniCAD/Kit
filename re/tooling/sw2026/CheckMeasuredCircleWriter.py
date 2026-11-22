@@ -89,18 +89,18 @@ def check_strict(raw):
            and model.diagnostics == typed.diagnostics,
            "default analytic and explicit semantic-only read disagree")
     sketch, = model.sketches
-    circle, center = sketch.entities
+    circle, = sketch.entities
     radial, fixed = sketch.constraints
     profile, boss = tuple(feature for feature in model.feature_timeline if feature.sketch_id == sketch.id)
     diameter, depth = tuple(next(row for row in model.parameters if row.id == feature.parameter_ids[0])
                             for feature in (profile, boss))
     demand(sketch.closed_profile_entity_ids == ((circle.id,),)
            and sketch.parameter_ids == (diameter.id,)
-           and (circle.kind, center.kind, radial.kind, fixed.kind) ==
-               ("circle", "point", "diameter", "fixed")
-           and ((radial.references[0].entity_id, radial.parameter_id),
-                (fixed.references[0].entity_id, fixed.parameter_id)) ==
-               ((circle.id, diameter.id), (center.id, None))
+           and (circle.kind, radial.kind, fixed.kind) == ("circle", "diameter", "fixed")
+           and ((radial.references[0].entity_id, radial.references[0].point, radial.parameter_id),
+                (fixed.references[0].entity_id, fixed.references[0].point, fixed.parameter_id)) ==
+               ((circle.id, "", diameter.id), (circle.id, "center", None))
+           and circle.attributes["native_center_permanent_mark"] > 0
            and (diameter.owner_id, depth.owner_id) == (profile.id, boss.id)
            and (diameter.name, depth.name, diameter.value.unit, depth.value.unit) == ("D1", "D1", "mm", "mm")
            and (diameter.value.value, depth.value.value) == (22.95, 17.825)
@@ -120,6 +120,11 @@ def check_strict(raw):
     return {"solid_count": top.solid_count, "face_count": top.face_count,
             "volume_mm3": top.volume, "area_mm2": top.surface_area, "centroid_mm": list(measured[2:]),
             "driver_ids": [diameter.id, depth.id]}
+
+
+def use_combined_edit_for_radial(report):
+    snapshots = report["cases"][1]["stages"][1]["snapshots"]
+    snapshots["edited_snapshot"] = snapshots["edited_body_snapshot"]
 
 
 def publication(target, audit, model, evidence, prepared, expected):
@@ -166,6 +171,7 @@ def publication(target, audit, model, evidence, prepared, expected):
         ("warning", lambda report: report["cases"][1]["stages"][0].update(open_warnings=1), "staged open"),
         ("reopen", lambda report: report["cases"][1]["stages"][2].update(source_sha256="e" * 64), "staged open"),
         ("driver", lambda report: report["cases"][1]["stages"][1]["radial_edit"].update(name="D1@Boss-Extrude1"), "persisted edit"),
+        ("radial_only", use_combined_edit_for_radial, "radial-only edit"),
         ("stream", lambda report: report["cases"][1]["streams"]["Contents/Config-0"].update(sha256="e" * 64), "different typed stream"),
     ):
         changed = deepcopy(evidence)
@@ -190,6 +196,29 @@ def publication(target, audit, model, evidence, prepared, expected):
             demand(sink.getvalue() == b"keep caller bytes" and sink.tell() == 4, "native stream refusal changed state")
     demand(audit.target_opens == opened, "a refusal opened a publication output")
     return len(results), [*refusals, "unmeasured_input", "changed_depth", *("occupied_sink",) * exact]
+
+
+def check_inferred_format(model, directory):
+    from convert import write_document
+    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+    from convert.api.ApiContext import GetRegistry
+
+    sketch, = model.sketches
+    changed = replace(model, sketches=(replace(sketch, parameter_ids=("parameter/missing",)),))
+    changed.assert_valid()
+    writer = SldprtWriter()
+    sink = BytesIO()
+    demand(not writer.supports(changed, sink), "SOLIDWORKS claimed a missing sketch driver")
+    with TemporaryDirectory(dir=directory) as scratch:
+        target = Path(scratch) / "Probe.json"
+        target.write_bytes(b"keep existing JSON")
+        registry = GetRegistry()
+        selected = registry.PickWriter(changed, target).info.FormatId
+        demand(selected == registry.PickWriter(model, target).info.FormatId and selected != FORMAT,
+               "a missing SOLIDWORKS driver blocked the inferred format")
+        reject(lambda: write_document(changed, target, overwrite=True), ValueError, "missing parameter bindings")
+        demand(target.read_bytes() == b"keep existing JSON" and not sink.getvalue(),
+               "the shared native-state guard touched a destination")
 
 
 def worker(document, directory):
@@ -241,11 +270,12 @@ def worker(document, directory):
            and target.read_bytes() == (payload if output_count == 3 else b"keep previous path"),
            "refused publication touched its destination or left staging")
     readback = check_strict(payload)
+    check_inferred_format(model, directory)
     return {"schema": "kit.sw2026.measured-circle-main.v1", "sha256": digest(payload),
             "receipt_sha256": MANIFEST_SHA, "bytes": len(payload), "stream_count": len(stream_evidence),
             "standalone_publications": output_count, "runtime_input_file_reads": len(audit.denied),
             "profile_owners_verified": True, "strict_readback": readback, "refusals": refusals,
-            "compressor": ZLIB_RUNTIME_VERSION}
+            "missing_radial_driver_inferred_json": True, "compressor": ZLIB_RUNTIME_VERSION}
 
 
 def main():
