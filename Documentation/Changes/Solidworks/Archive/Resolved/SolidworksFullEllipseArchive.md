@@ -1,0 +1,5 @@
+# SOLIDWORKS 2026 full ellipse archive replay
+
+The internal linked archive codec can read the witnessed ordinary, schema-one full ellipse and its mapped seam handle. Call `ReadNativeLink` with `ReadEllipses=True` for this explicit version-19000 part scope. `WriteResolMut` with `ReplayEllipses=True` re-emits the resulting typed archive. The measured branch uses one positive-rotation compact ellipse and one handle, with ordinary part and manager context.
+
+Four hash-bound native saves reproduced Config-0 and ResolvedFeatures byte for byte and retained every map entry. The default rectangle and circle controls also replayed exactly. Each ellipse's stored centre, signed semiaxes, canonical Front Plane support and live blind D1 agree with the independently captured native source lifecycle. Source generation, body and cache reconstruction, public adapter admission and other ellipse shapes have separate qualification. [Archive evidence and command](../../../../../re/solidworks/records/EllipseBlindBossArchive2026.md)

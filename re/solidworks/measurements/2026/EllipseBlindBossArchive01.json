@@ -1,0 +1,1716 @@
+{
+  "archive_version": 19000,
+  "cases": [
+    {
+      "alternate_context_refusal": "unsupported ordinary SOLIDWORKS ellipse archive context",
+      "case": "EllipseFrontA",
+      "com_observations": 2,
+      "context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "coordinates_m": {
+        "Center": [
+          0.01825,
+          -0.006375
+        ],
+        "Major": [
+          0.03699003440324798,
+          0.0039061349356519113
+        ],
+        "Minor": [
+          0.013981224675840434,
+          0.0014059499569041307
+        ],
+        "OppositeMajor": [
+          -0.0004900344032479839,
+          -0.01665613493565191
+        ],
+        "OppositeMinor": [
+          0.022518775324159565,
+          -0.01415594995690413
+        ],
+        "Seam": [
+          0.03492311490813406,
+          0.0057318278389240085
+        ]
+      },
+      "depth": {
+        "name": "D1",
+        "owner_path": "f818.f18/f850.ff0.f28.f58",
+        "owners": [
+          {
+            "class": "moEndSpec_c",
+            "end": 10706,
+            "field_span": false,
+            "object_index": 225,
+            "offset": 8678,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moDisplayDistanceDim_c",
+            "end": 10585,
+            "field_span": false,
+            "object_index": 227,
+            "offset": 8719,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moFeatureDimHandle_c",
+            "end": 9793,
+            "field_span": false,
+            "object_index": 229,
+            "offset": 9303,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "ParallelPlaneDistanceDim_c",
+            "end": 9793,
+            "field_span": false,
+            "object_index": 231,
+            "offset": 9436,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moLengthParameter_c",
+            "end": 9538,
+            "field_span": false,
+            "object_index": 233,
+            "offset": 9472,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        ],
+        "persistent_dimension_id": 27,
+        "value_m": 0.013125
+      },
+      "edited": false,
+      "features": {
+        "boss": {
+          "class": "moExtrusion_c",
+          "end": 10718,
+          "field_span": false,
+          "id": 32,
+          "name": "EllipseBoss",
+          "object_index": 194,
+          "offset": 7609,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "frame_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "plane_reference": {
+          "class": "moCompRefPlane_c",
+          "end": 7545,
+          "field_span": false,
+          "object_index": 191,
+          "offset": 7444,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end": 7609,
+          "field_span": false,
+          "id": 26,
+          "name": "EllipseProfile",
+          "object_index": 182,
+          "offset": 5838,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "support": {
+          "class": "moRefPlane_c",
+          "end": 3767,
+          "field_span": false,
+          "id": 2,
+          "name": "Front Plane",
+          "object_index": 159,
+          "offset": 3228,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "first_stops": {
+        "handle_only": {
+          "diagnostic": "unsupported SOLIDWORKS body schema sk.sgEllipse.FUN_4c586da0",
+          "wire": {
+            "end": 6962,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "ellipses",
+              "ellipse"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 184,
+            "offset": 6962,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch"
+            ]
+          }
+        },
+        "shared_reader": {
+          "diagnostic": "unsupported SOLIDWORKS body class sgEllipseHandle schema 1",
+          "wire": {
+            "descriptor_schema": 1,
+            "end": 6318,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "points",
+              "point",
+              "Branch",
+              "h1"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 186,
+            "offset": 6318,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch",
+              "sk.sgPoint.FUN_4c58f910"
+            ],
+            "tag_start": 6297
+          }
+        }
+      },
+      "geometry": {
+        "center_m": [
+          0.01825,
+          -0.006375
+        ],
+        "major_direction": [
+          0.8767267557075078,
+          0.4809887689193875
+        ],
+        "minor_direction": [
+          -0.4809887689193876,
+          0.8767267557075077
+        ],
+        "radii_m": [
+          0.021375000000000005,
+          0.008875
+        ],
+        "sketch_seam_cos_sin": [
+          0.9563047559630352,
+          0.29237170472273716
+        ],
+        "sketch_seam_phase_degrees": 17.00000000000003
+      },
+      "inherited_map_entries": 108,
+      "measured_cap_seam_xy_m": [
+        0.03699003440324798,
+        0.003906134935651913
+      ],
+      "native_phase_pins": [
+        "0fb76cbe72a270df7645545dd3eb1102a24447fcd83227726deb400c31f195f4",
+        "620b12f33dfc0ad9c2fda1c49cf7bd6372b083b80e72a4d36f1457c91720355e"
+      ],
+      "resolved_map_base": 109,
+      "sha256": "27cbc6cb2c5cda422958bad07d40b048450d0bac02e558fb33be10606fe4c5ab",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "09ef1154fddf1d7024cd97a10078c5fcd85650cdab5c0ebb438348caaa597c65"
+        },
+        "Contents/Config-0": {
+          "byte_field_count": 3,
+          "bytes": 25476,
+          "completed": true,
+          "next_map_slot": 109,
+          "sha256": "11da01b712479b28a4f7be7283c345962f87c8ffa6b61c04b6a3717c9defaa91"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2357,
+          "sha256": "81eca49a33c036329d1129ee673540fd54506928af1ca0f2c06d2a1d60390349"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_count": 1,
+          "bytes": 10722,
+          "completed": true,
+          "next_map_slot": 239,
+          "sha256": "9411e53b02610bd112acdb3c1bad5de707474e030ac066b011fcb76dea19cf82"
+        }
+      },
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 108,
+          "sha256": "11da01b712479b28a4f7be7283c345962f87c8ffa6b61c04b6a3717c9defaa91"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 238,
+          "sha256": "9411e53b02610bd112acdb3c1bad5de707474e030ac066b011fcb76dea19cf82"
+        }
+      }
+    },
+    {
+      "alternate_context_refusal": "unsupported ordinary SOLIDWORKS ellipse archive context",
+      "case": "EllipseFrontAEdited",
+      "com_observations": 2,
+      "context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "coordinates_m": {
+        "Center": [
+          0.01825,
+          -0.006375
+        ],
+        "Major": [
+          0.03699003440324798,
+          0.0039061349356519113
+        ],
+        "Minor": [
+          0.013981224675840434,
+          0.0014059499569041307
+        ],
+        "OppositeMajor": [
+          -0.0004900344032479839,
+          -0.01665613493565191
+        ],
+        "OppositeMinor": [
+          0.022518775324159565,
+          -0.01415594995690413
+        ],
+        "Seam": [
+          0.03492311490813406,
+          0.0057318278389240085
+        ]
+      },
+      "depth": {
+        "name": "D1",
+        "owner_path": "f818.f18/f850.ff0.f28.f58",
+        "owners": [
+          {
+            "class": "moEndSpec_c",
+            "end": 10854,
+            "field_span": false,
+            "object_index": 225,
+            "offset": 8826,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moDisplayDistanceDim_c",
+            "end": 10733,
+            "field_span": false,
+            "object_index": 227,
+            "offset": 8867,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moFeatureDimHandle_c",
+            "end": 9941,
+            "field_span": false,
+            "object_index": 229,
+            "offset": 9451,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "ParallelPlaneDistanceDim_c",
+            "end": 9941,
+            "field_span": false,
+            "object_index": 231,
+            "offset": 9584,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moLengthParameter_c",
+            "end": 9686,
+            "field_span": false,
+            "object_index": 233,
+            "offset": 9620,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        ],
+        "persistent_dimension_id": 27,
+        "value_m": 0.019375
+      },
+      "edited": true,
+      "features": {
+        "boss": {
+          "class": "moExtrusion_c",
+          "end": 10866,
+          "field_span": false,
+          "id": 32,
+          "name": "EllipseBoss",
+          "object_index": 194,
+          "offset": 7609,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "frame_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "plane_reference": {
+          "class": "moCompRefPlane_c",
+          "end": 7545,
+          "field_span": false,
+          "object_index": 191,
+          "offset": 7444,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end": 7609,
+          "field_span": false,
+          "id": 26,
+          "name": "EllipseProfile",
+          "object_index": 182,
+          "offset": 5838,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "support": {
+          "class": "moRefPlane_c",
+          "end": 3767,
+          "field_span": false,
+          "id": 2,
+          "name": "Front Plane",
+          "object_index": 159,
+          "offset": 3228,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "first_stops": {
+        "handle_only": {
+          "diagnostic": "unsupported SOLIDWORKS body schema sk.sgEllipse.FUN_4c586da0",
+          "wire": {
+            "end": 6962,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "ellipses",
+              "ellipse"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 184,
+            "offset": 6962,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch"
+            ]
+          }
+        },
+        "shared_reader": {
+          "diagnostic": "unsupported SOLIDWORKS body class sgEllipseHandle schema 1",
+          "wire": {
+            "descriptor_schema": 1,
+            "end": 6318,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "points",
+              "point",
+              "Branch",
+              "h1"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 186,
+            "offset": 6318,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch",
+              "sk.sgPoint.FUN_4c58f910"
+            ],
+            "tag_start": 6297
+          }
+        }
+      },
+      "geometry": {
+        "center_m": [
+          0.01825,
+          -0.006375
+        ],
+        "major_direction": [
+          0.8767267557075078,
+          0.4809887689193875
+        ],
+        "minor_direction": [
+          -0.4809887689193876,
+          0.8767267557075077
+        ],
+        "radii_m": [
+          0.021375000000000005,
+          0.008875
+        ],
+        "sketch_seam_cos_sin": [
+          0.9563047559630352,
+          0.29237170472273716
+        ],
+        "sketch_seam_phase_degrees": 17.00000000000003
+      },
+      "inherited_map_entries": 108,
+      "measured_cap_seam_xy_m": [
+        0.03699003440324798,
+        0.003906134935651913
+      ],
+      "native_phase_pins": [
+        "620b12f33dfc0ad9c2fda1c49cf7bd6372b083b80e72a4d36f1457c91720355e",
+        "c7eeb7ae4096a22f2fbb58e00d7c203a518834be00a5ee0f509a28848f02592a"
+      ],
+      "resolved_map_base": 109,
+      "sha256": "d917d0989937ede5a3ee324febdf0277585452ce2abefb6548ae77d47ebe0f5e",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2307,
+          "sha256": "82ef0386444401380f0d6b32ebe3c11cc7833db1aed542139de91e2e7f7c5bd8"
+        },
+        "Contents/Config-0": {
+          "byte_field_count": 3,
+          "bytes": 25500,
+          "completed": true,
+          "next_map_slot": 109,
+          "sha256": "933a6c4cc721d765fd73ab0a6a44ca480e15db62c84e019136862f80a441ef8e"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2537,
+          "sha256": "c69507fc727ede67869991242d80760082645669dafacca9c26772923a268966"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_count": 1,
+          "bytes": 10870,
+          "completed": true,
+          "next_map_slot": 239,
+          "sha256": "76a21b57a518d09658587c3ddd40cf82c82a666ca19c90bd94b525fd24b3ed4e"
+        }
+      },
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 108,
+          "sha256": "933a6c4cc721d765fd73ab0a6a44ca480e15db62c84e019136862f80a441ef8e"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 238,
+          "sha256": "76a21b57a518d09658587c3ddd40cf82c82a666ca19c90bd94b525fd24b3ed4e"
+        }
+      }
+    },
+    {
+      "alternate_context_refusal": "unsupported ordinary SOLIDWORKS ellipse archive context",
+      "case": "EllipseFrontB",
+      "com_observations": 2,
+      "context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "coordinates_m": {
+        "Center": [
+          -0.012375,
+          0.009125
+        ],
+        "Major": [
+          0.0008761766068169762,
+          -0.0024959699911387134
+        ],
+        "Minor": [
+          -0.004957359580124226,
+          0.017583197834138496
+        ],
+        "OppositeMajor": [
+          -0.02562617660681698,
+          0.020745969991138712
+        ],
+        "OppositeMinor": [
+          -0.019792640419875773,
+          0.0006668021658615027
+        ],
+        "Seam": [
+          0.0024658713857845533,
+          0.0004847488482195724
+        ]
+      },
+      "depth": {
+        "name": "D1",
+        "owner_path": "f818.f18/f850.ff0.f28.f58",
+        "owners": [
+          {
+            "class": "moEndSpec_c",
+            "end": 10706,
+            "field_span": false,
+            "object_index": 225,
+            "offset": 8678,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moDisplayDistanceDim_c",
+            "end": 10585,
+            "field_span": false,
+            "object_index": 227,
+            "offset": 8719,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moFeatureDimHandle_c",
+            "end": 9793,
+            "field_span": false,
+            "object_index": 229,
+            "offset": 9303,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "ParallelPlaneDistanceDim_c",
+            "end": 9793,
+            "field_span": false,
+            "object_index": 231,
+            "offset": 9436,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moLengthParameter_c",
+            "end": 9538,
+            "field_span": false,
+            "object_index": 233,
+            "offset": 9472,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        ],
+        "persistent_dimension_id": 27,
+        "value_m": 0.021625
+      },
+      "edited": false,
+      "features": {
+        "boss": {
+          "class": "moExtrusion_c",
+          "end": 10718,
+          "field_span": false,
+          "id": 32,
+          "name": "EllipseBoss",
+          "object_index": 194,
+          "offset": 7609,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "frame_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "plane_reference": {
+          "class": "moCompRefPlane_c",
+          "end": 7545,
+          "field_span": false,
+          "object_index": 191,
+          "offset": 7444,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end": 7609,
+          "field_span": false,
+          "id": 26,
+          "name": "EllipseProfile",
+          "object_index": 182,
+          "offset": 5838,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "support": {
+          "class": "moRefPlane_c",
+          "end": 3767,
+          "field_span": false,
+          "id": 2,
+          "name": "Front Plane",
+          "object_index": 159,
+          "offset": 3228,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "first_stops": {
+        "handle_only": {
+          "diagnostic": "unsupported SOLIDWORKS body schema sk.sgEllipse.FUN_4c586da0",
+          "wire": {
+            "end": 6962,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "ellipses",
+              "ellipse"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 184,
+            "offset": 6962,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch"
+            ]
+          }
+        },
+        "shared_reader": {
+          "diagnostic": "unsupported SOLIDWORKS body class sgEllipseHandle schema 1",
+          "wire": {
+            "descriptor_schema": 1,
+            "end": 6318,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "points",
+              "point",
+              "Branch",
+              "h1"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 186,
+            "offset": 6318,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch",
+              "sk.sgPoint.FUN_4c58f910"
+            ],
+            "tag_start": 6297
+          }
+        }
+      },
+      "geometry": {
+        "center_m": [
+          -0.012375,
+          0.009125
+        ],
+        "major_direction": [
+          0.7518398074789775,
+          -0.6593458151000688
+        ],
+        "minor_direction": [
+          0.6593458151000687,
+          0.7518398074789774
+        ],
+        "radii_m": [
+          0.017625,
+          0.011250000000000001
+        ],
+        "sketch_seam_cos_sin": [
+          0.9563047559630353,
+          0.2923717047227373
+        ],
+        "sketch_seam_phase_degrees": 17.000000000000036
+      },
+      "inherited_map_entries": 108,
+      "measured_cap_seam_xy_m": [
+        0.0008761766068169762,
+        -0.0024959699911387134
+      ],
+      "native_phase_pins": [
+        "16351d9a59ea3630f0bc17d0d0bc11c9ce5b00e05ce65fbcd515d96b26049a3b",
+        "4844ef078cc0ee10a1c81d03836b30050a869f9624a46e51f6063b7fde2f161f"
+      ],
+      "resolved_map_base": 109,
+      "sha256": "edbb92a0a164bd705c9b25635d895585a1290d44e7d0b7fea9ae6939da3ed192",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "64abff44df85053e61f3c660bd75757ff9b67c096c40beb933460a5f3f6620e4"
+        },
+        "Contents/Config-0": {
+          "byte_field_count": 3,
+          "bytes": 25476,
+          "completed": true,
+          "next_map_slot": 109,
+          "sha256": "4c8a37a10e109ec05f39201a1cd0e99a72cb46a34524dcf788ab09faa2288073"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2357,
+          "sha256": "68b1c3ee8a42f909f5d76ac0303959ea3e3b7e25599e69945eda21a57dd20f5f"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_count": 1,
+          "bytes": 10722,
+          "completed": true,
+          "next_map_slot": 239,
+          "sha256": "96a52d13fdea408e95ef8e69ad6c2a1be2eae6420d07f7b8eac82eba8c7afb4c"
+        }
+      },
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 108,
+          "sha256": "4c8a37a10e109ec05f39201a1cd0e99a72cb46a34524dcf788ab09faa2288073"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 238,
+          "sha256": "96a52d13fdea408e95ef8e69ad6c2a1be2eae6420d07f7b8eac82eba8c7afb4c"
+        }
+      }
+    },
+    {
+      "alternate_context_refusal": "unsupported ordinary SOLIDWORKS ellipse archive context",
+      "case": "EllipseFrontBEdited",
+      "com_observations": 2,
+      "context": {
+        "cmgr_f658": 1,
+        "model_compressed_stream": 1,
+        "model_is_part": 1
+      },
+      "coordinates_m": {
+        "Center": [
+          -0.012375,
+          0.009125
+        ],
+        "Major": [
+          0.0008761766068169762,
+          -0.0024959699911387134
+        ],
+        "Minor": [
+          -0.004957359580124226,
+          0.017583197834138496
+        ],
+        "OppositeMajor": [
+          -0.02562617660681698,
+          0.020745969991138712
+        ],
+        "OppositeMinor": [
+          -0.019792640419875773,
+          0.0006668021658615027
+        ],
+        "Seam": [
+          0.0024658713857845533,
+          0.0004847488482195724
+        ]
+      },
+      "depth": {
+        "name": "D1",
+        "owner_path": "f818.f18/f850.ff0.f28.f58",
+        "owners": [
+          {
+            "class": "moEndSpec_c",
+            "end": 10854,
+            "field_span": false,
+            "object_index": 225,
+            "offset": 8826,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moDisplayDistanceDim_c",
+            "end": 10733,
+            "field_span": false,
+            "object_index": 227,
+            "offset": 8867,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moFeatureDimHandle_c",
+            "end": 9941,
+            "field_span": false,
+            "object_index": 229,
+            "offset": 9451,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "ParallelPlaneDistanceDim_c",
+            "end": 9941,
+            "field_span": false,
+            "object_index": 231,
+            "offset": 9584,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          {
+            "class": "moLengthParameter_c",
+            "end": 9686,
+            "field_span": false,
+            "object_index": 233,
+            "offset": 9620,
+            "schema": 1,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          }
+        ],
+        "persistent_dimension_id": 27,
+        "value_m": 0.010875
+      },
+      "edited": true,
+      "features": {
+        "boss": {
+          "class": "moExtrusion_c",
+          "end": 10866,
+          "field_span": false,
+          "id": 32,
+          "name": "EllipseBoss",
+          "object_index": 194,
+          "offset": 7609,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "frame_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "plane_reference": {
+          "class": "moCompRefPlane_c",
+          "end": 7545,
+          "field_span": false,
+          "object_index": 191,
+          "offset": 7444,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "profile": {
+          "class": "moProfileFeature_c",
+          "end": 7609,
+          "field_span": false,
+          "id": 26,
+          "name": "EllipseProfile",
+          "object_index": 182,
+          "offset": 5838,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "support": {
+          "class": "moRefPlane_c",
+          "end": 3767,
+          "field_span": false,
+          "id": 2,
+          "name": "Front Plane",
+          "object_index": 159,
+          "offset": 3228,
+          "schema": 1,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        }
+      },
+      "first_stops": {
+        "handle_only": {
+          "diagnostic": "unsupported SOLIDWORKS body schema sk.sgEllipse.FUN_4c586da0",
+          "wire": {
+            "end": 6962,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "ellipses",
+              "ellipse"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 184,
+            "offset": 6962,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch"
+            ]
+          }
+        },
+        "shared_reader": {
+          "diagnostic": "unsupported SOLIDWORKS body class sgEllipseHandle schema 1",
+          "wire": {
+            "descriptor_schema": 1,
+            "end": 6318,
+            "field_path": [
+              "Branch",
+              "pd_f80",
+              "points",
+              "point",
+              "Branch",
+              "h1"
+            ],
+            "map_after": 187,
+            "map_base": 109,
+            "map_before": 187,
+            "node_index": 186,
+            "offset": 6318,
+            "schema_path": [
+              "moProfileFeature_c",
+              "sgSketch",
+              "sk.sgPoint.FUN_4c58f910"
+            ],
+            "tag_start": 6297
+          }
+        }
+      },
+      "geometry": {
+        "center_m": [
+          -0.012375,
+          0.009125
+        ],
+        "major_direction": [
+          0.7518398074789775,
+          -0.6593458151000688
+        ],
+        "minor_direction": [
+          0.6593458151000687,
+          0.7518398074789774
+        ],
+        "radii_m": [
+          0.017625,
+          0.011250000000000001
+        ],
+        "sketch_seam_cos_sin": [
+          0.9563047559630353,
+          0.2923717047227373
+        ],
+        "sketch_seam_phase_degrees": 17.000000000000036
+      },
+      "inherited_map_entries": 108,
+      "measured_cap_seam_xy_m": [
+        0.0008761766068169762,
+        -0.0024959699911387134
+      ],
+      "native_phase_pins": [
+        "4844ef078cc0ee10a1c81d03836b30050a869f9624a46e51f6063b7fde2f161f",
+        "e53ab82bf4656111d39af56a25722297d67fd89b14857bdcca86b6755210101b"
+      ],
+      "resolved_map_base": 109,
+      "sha256": "6c7c0b1225aa064c8188a94bf0281e5338e945d091842aa5735c13228e1d9a9f",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2307,
+          "sha256": "eccae8b71c61d6f5f50d10856e50ad680fb3b56d1122922cc0bf4ff7776bf292"
+        },
+        "Contents/Config-0": {
+          "byte_field_count": 3,
+          "bytes": 25500,
+          "completed": true,
+          "next_map_slot": 109,
+          "sha256": "19d179f572740d56e5c74b3b76fe3613cfea29699e9c6348c23b6f3f0b3cd39a"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2537,
+          "sha256": "8f4625b10016783234c063873d82220529fcd80fb8611d7715b0e8d6ff413830"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_count": 1,
+          "bytes": 10870,
+          "completed": true,
+          "next_map_slot": 239,
+          "sha256": "cfe1039617227ed3487e5dd3da6aae9b7879d663488f5525e392b9061fdf05f5"
+        }
+      },
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 108,
+          "sha256": "19d179f572740d56e5c74b3b76fe3613cfea29699e9c6348c23b6f3f0b3cd39a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 238,
+          "sha256": "cfe1039617227ed3487e5dd3da6aae9b7879d663488f5525e392b9061fdf05f5"
+        }
+      }
+    }
+  ],
+  "codec_revision": "b2036eae24408422fb98ac2c949f8389d156b165",
+  "controls": {
+    "ControlCircle.SLDPRT": {
+      "file_sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
+      "opt_in_refusal": "SOLIDWORKS ellipse archive requires one ellipse and one handle",
+      "resolved_next_slot": 253,
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 109,
+          "sha256": "179b474b54375ef4fc70b08ec734a625cb43acce699c0a8a46cb60be191bd1e4"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayRadialDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 252,
+          "sha256": "2a71d72e52aab50efe54fa41a5a92e6eb7461e57bd81ee3c5d454fe53735b366"
+        }
+      }
+    },
+    "ControlRectangle.SLDPRT": {
+      "file_sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f",
+      "opt_in_refusal": "SOLIDWORKS ellipse archive requires one ellipse and one handle",
+      "resolved_next_slot": 269,
+      "typed_replay": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f380",
+              "object_class": "moSketchBlockMgr_c",
+              "schema": "moSketchBlockMgr_c"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 108,
+          "sha256": "5670b017bca33a2a9acc6cb7235dc06ae6b4764b2508e2dbd4ff8cb0e64b4e8a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 268,
+          "sha256": "c969d05309deb23e6607f664f56bee56b8d7dcc2fc11b84206bb2c944db9c00b"
+        }
+      }
+    }
+  },
+  "disclosed_job_sha256": "e62492e04c2431f7f9739f3ba5cf8e8d021213af3d5af99dce20f7b6fc84d133",
+  "disclosed_source_lock_sha256": "1ecae416cf69cc532072418ec56a55df62c3abe2e638851ea41777352e736fd5",
+  "dispatch": {
+    "sgEllipse": {
+      "dll": "sldmodu",
+      "serialize_addr": "4c586da0",
+      "serialize_name": "FUN_4c586da0",
+      "vtable": "4ced7b50",
+      "vtable_slots": 40
+    },
+    "sgEllipseHandle": {
+      "dll": "sldmodu",
+      "serialize_addr": "4c587800",
+      "serialize_name": "sgEntHandle::Serialize",
+      "vtable": "4d1c62e0",
+      "vtable_slots": 40
+    },
+    "sgEntHandle": {
+      "dll": "sldmodu",
+      "serialize_addr": "4c587800",
+      "serialize_name": "sgEntHandle::Serialize",
+      "vtable": "4d1cdd80",
+      "vtable_slots": 40
+    },
+    "sgSegment": {
+      "dll": "sldmodu",
+      "serialize_addr": "4c590920",
+      "serialize_name": "FUN_4c590920",
+      "vtable": "4ced7048",
+      "vtable_slots": 40
+    },
+    "sgSketch": {
+      "dll": "sldmodu",
+      "serialize_addr": "4c5916f0",
+      "serialize_name": "sgSketch::Serialize",
+      "vtable": "4d1b9590",
+      "vtable_slots": 18
+    }
+  },
+  "format_version": 4,
+  "measured_source_processes": 10,
+  "model_module_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_launches": 0,
+  "oracle_build": "34.5.2.0604",
+  "prewriter_lock_revision": "d3a1134c18027fa8a75676cf3cc7a8b9418395b3",
+  "redacted_prewriter_lock_sha256": "e152ceab9e1738d85058e6bc85cb46422b64cf92104b3ad0ba4726bee172a43e",
+  "registered_api_sha256": "72b2f8e820ede5add3b778a344d8b717270327d14ad7c5ac456c7e6c1b0172ba",
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.ellipse-blind-boss-linked-archive.v1",
+  "serialize_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "shared_sketch": {
+    "creation_counters": {
+      "f08": 7,
+      "f0c": 1,
+      "f10": 1,
+      "f14": 2,
+      "f18": 1,
+      "f1c": 1,
+      "f20": 1,
+      "f24": 1,
+      "f28": 1,
+      "f2c": 1,
+      "f30": 1,
+      "f34": 1,
+      "f38": 1,
+      "f3c": 1,
+      "f40": 0
+    },
+    "handle_manager_count": 0,
+    "loop_manager_count": 0,
+    "owner": {
+      "class": "sgSketch",
+      "end": 7326,
+      "field_span": false,
+      "object_index": 184,
+      "offset": 6053,
+      "schema": 1,
+      "stream": "Contents/Config-0-ResolvedFeatures"
+    },
+    "point_bindings": {
+      "Center": 0,
+      "Major": 2,
+      "Minor": 3,
+      "OppositeMajor": 4,
+      "OppositeMinor": 5,
+      "Seam": 1
+    },
+    "points": [
+      {
+        "handle_index": null,
+        "ordinal": 0,
+        "persistent_words": [
+          0,
+          2
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 0,
+          "fe8": 1,
+          "fec": 1,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6201,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 185,
+          "map_base": 109,
+          "map_before": 185,
+          "node_index": 184,
+          "offset": 6061,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      },
+      {
+        "handle_index": 186,
+        "ordinal": 1,
+        "persistent_words": [
+          0,
+          1
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 2,
+          "fe8": 2,
+          "fec": 0,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6372,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 187,
+          "map_base": 109,
+          "map_before": 185,
+          "node_index": 184,
+          "offset": 6203,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      },
+      {
+        "handle_index": null,
+        "ordinal": 2,
+        "persistent_words": [
+          0,
+          3
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 3,
+          "fe8": 1,
+          "fec": 0,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6514,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 187,
+          "map_base": 109,
+          "map_before": 187,
+          "node_index": 184,
+          "offset": 6374,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      },
+      {
+        "handle_index": null,
+        "ordinal": 3,
+        "persistent_words": [
+          0,
+          4
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 3,
+          "fe8": 1,
+          "fec": 0,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6656,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 187,
+          "map_base": 109,
+          "map_before": 187,
+          "node_index": 184,
+          "offset": 6516,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      },
+      {
+        "handle_index": null,
+        "ordinal": 4,
+        "persistent_words": [
+          0,
+          5
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 3,
+          "fe8": 1,
+          "fec": 0,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6798,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 187,
+          "map_base": 109,
+          "map_before": 187,
+          "node_index": 184,
+          "offset": 6658,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      },
+      {
+        "handle_index": null,
+        "ordinal": 5,
+        "persistent_words": [
+          0,
+          6
+        ],
+        "row_kind": 0,
+        "value_fields": {
+          "f108": -2,
+          "fe4": 3,
+          "fe8": 1,
+          "fec": 0,
+          "ff0": 0,
+          "pflags": 30
+        },
+        "wire": {
+          "end": 6940,
+          "field_path": [
+            "Branch",
+            "pd_f80",
+            "points",
+            "point"
+          ],
+          "map_after": 187,
+          "map_base": 109,
+          "map_before": 187,
+          "node_index": 184,
+          "offset": 6800,
+          "schema_path": [
+            "moProfileFeature_c",
+            "sgSketch"
+          ]
+        }
+      }
+    ],
+    "relations": {
+      "m0": [],
+      "m0_n": 0,
+      "m1": [],
+      "m1_n": 0,
+      "m2": [],
+      "m2_n": 0,
+      "m3": [],
+      "m3_n": 0
+    },
+    "row_flags": 0,
+    "seam_handle": {
+      "class_slot": 185,
+      "fields": {
+        "f08": 0,
+        "f1c": -1,
+        "idx": 0
+      },
+      "owner": {
+        "class": "sgEllipseHandle",
+        "end": 6328,
+        "field_span": false,
+        "object_index": 186,
+        "offset": 6297,
+        "schema": 1,
+        "stream": "Contents/Config-0-ResolvedFeatures"
+      },
+      "wire": {
+        "descriptor_schema": 1,
+        "end": 6328,
+        "field_path": [
+          "Branch",
+          "pd_f80",
+          "points",
+          "point",
+          "Branch",
+          "h1"
+        ],
+        "map_after": 187,
+        "map_base": 109,
+        "map_before": 187,
+        "node_index": 186,
+        "offset": 6318,
+        "schema_path": [
+          "moProfileFeature_c",
+          "sgSketch",
+          "sk.sgPoint.FUN_4c58f910"
+        ],
+        "tag_start": 6297
+      }
+    },
+    "segment_fields": {
+      "dflt": 0,
+      "ext": null,
+      "f08": 1,
+      "f0c": 1,
+      "f20": 0,
+      "f30": 5,
+      "f34": 1,
+      "f38": 1,
+      "f50": 0,
+      "f54": 4,
+      "f56": 0,
+      "f68": 1.0,
+      "f74": 0,
+      "f78": 0,
+      "fc8_s": 1,
+      "fcc_s": 1,
+      "fd0": 1,
+      "fd4": 0,
+      "fd8": 1,
+      "fdc_s": 0,
+      "fe0_s": 2,
+      "fe4_s": 3,
+      "fe8_s": 4,
+      "fec_s": 5,
+      "group": null,
+      "has_name": 0,
+      "lw": {
+        "f00": -1.0,
+        "f06": 1
+      },
+      "seg_tol": -1.0,
+      "vis": {
+        "f00": 65535,
+        "f02": 31,
+        "f04": 3,
+        "f08": {
+          "f00": 4294967295,
+          "f04": 65535,
+          "f08": {
+            "f00": -1.0,
+            "f06": -1
+          }
+        }
+      }
+    },
+    "state_fields": {
+      "f128": 1,
+      "f12c": 1,
+      "f130": 2,
+      "f134": 0,
+      "f568": -1,
+      "f56c": 2,
+      "f578": 1
+    },
+    "wire": {
+      "end": 7064,
+      "field_path": [
+        "Branch",
+        "pd_f80",
+        "ellipses",
+        "ellipse"
+      ],
+      "map_after": 187,
+      "map_base": 109,
+      "map_before": 187,
+      "node_index": 184,
+      "offset": 6962,
+      "schema_path": [
+        "moProfileFeature_c",
+        "sgSketch"
+      ]
+    }
+  },
+  "source_control_phases": 4
+}
