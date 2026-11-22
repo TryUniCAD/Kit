@@ -24,8 +24,7 @@ def ReadEqPart(
     Model: NativeModel, Archive: SldprtArchive, Settings: ReadOptions
 ) -> NativeModel:
     if (
-        Settings.extract_raw_brep
-        or len(Model.configurations) != 1
+        len(Model.configurations) != 1
         or len(Model.sketches) != 1
         or len(Model.operations) != 1
         or Model.operations[0].kind != "join"
@@ -35,8 +34,11 @@ def ReadEqPart(
     ):
         return Model
     (Equation,) = Model.equations
-    if Equation.lhs != f"D1@{Model.operations[0].name}" or Equation.references != (
-        f"D1@{Model.sketches[0].name}",
+    WidthName = f"D1@{Model.sketches[0].name}"
+    if (
+        Equation.lhs != f"D1@{Model.operations[0].name}"
+        or Equation.references != (WidthName,)
+        or Equation.rhs != f'"{WidthName}" / 2'
     ):
         return Model
     try:
@@ -55,5 +57,7 @@ def ReadEqPart(
         Message = f"local SOLIDWORKS width-depth history is unresolved: {Error}"
         if Settings.strict:
             raise SldprtFormatError(Message) from Error
-        return ReplaceValue(Model, diagnostics=(*Model.diagnostics, Message))
+        return ReplaceValue(
+            Model, equations=(), diagnostics=(*Model.diagnostics, Message)
+        )
     return ReplaceValue(Projected, WidthDepth=Relation)

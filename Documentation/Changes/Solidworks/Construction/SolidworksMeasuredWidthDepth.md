@@ -22,6 +22,16 @@ its dependency, the fixed Origin coincidence, and the ordinary feature
 timeline. The default read also derives one planar solid. A strict cold
 read can republish through the same writer after full-model comparison with
 the regenerated archive. The measured publication scope covers the
-disclosed 9,157-byte output. A changed model or locator needs its own
-qualification. Other equation forms and saved geometry need their own
-typed profiles. [Verification and exact scope](../../../../re/solidworks/records/MeasuredWidthDepthMain2026.md)
+disclosed 9,157-byte output and one authenticated receipt. Changing the
+model or locator requires separate qualification. The native width edit
+measures live rebuilding and the resulting SOLIDWORKS save.
+Both public writer routes refuse a newly generated archive after a
+neutral width edit at the exact measured locator and epoch.
+
+Strict reads refuse disabled or unresolved physical records for the
+scoped expression. Permissive inspection retains the source identity and
+diagnostic and leaves the depth as a driving scalar with no expression.
+The typed path selects the canonical local width divided by two formula.
+Other formulas follow generic inspection. Typed sketch widths and heights
+use the same inverse of the measured metre conversion as the point and
+depth readers. [Verification and exact scope](../../../../re/solidworks/records/MeasuredWidthDepthMain2026.md)

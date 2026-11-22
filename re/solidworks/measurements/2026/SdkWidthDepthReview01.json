@@ -1,0 +1,137 @@
+{
+  "heldout_inputs_read": 0,
+  "host_zlib_runtime": "1.2.12",
+  "native_launches": 0,
+  "ordinary_controls": {
+    "cases": [
+      {
+        "cli": {
+          "accepted_host_path": true,
+          "refusals": 2
+        },
+        "measurements_accepted": 3,
+        "role": "Skew",
+        "runtime_input_file_reads": 0,
+        "sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2"
+      },
+      {
+        "cli": {
+          "accepted_host_path": true,
+          "refusals": 2
+        },
+        "measurements_accepted": 3,
+        "role": "Step",
+        "runtime_input_file_reads": 0,
+        "sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+      }
+    ],
+    "proof_sha256": "9d2db39d00007ff79163d1381b3f7c34305608bd049a39a7f453954d766b0033"
+  },
+  "portable_queue_request": {
+    "case_report_sha256": "1caf5fe0971656d02c6f93279f6e34ea8534eb04c732c4a1ce0e83db186eb9cf",
+    "disclosed_neutral_json_sha256": "90d9d22d737bd8d313a68d10eef1e3cb730bdae81c973a3656b591d627ad786b",
+    "kind": "independently constructed portable recipe with exact typed equality to the disclosed neutral model",
+    "published_routes": 5,
+    "runtime_input_reads": 0,
+    "whole_archive_matches_measurement": true
+  },
+  "previous_native_receipt": {
+    "native_numeric_checks": 188,
+    "native_processes": 6,
+    "oracle_build": "34.5.2.0604",
+    "path": "re/solidworks/measurements/2026/SdkWidthDepthPreparationNative01.json",
+    "sha256": "f40bc2433d54bcb8c3ae5165b3a3965ebae4876c71cf52293ad4a045af85b420"
+  },
+  "reference": {
+    "bytes": 9157,
+    "config_map_counter": 163,
+    "feature_rows": 19,
+    "file_opens": 1,
+    "full_proof_sha256": "55c91891b6bdfabe64a5096727b72eb7291bfd34daf039cb099075bfd8ae4202",
+    "guarded_runtime_input_reads": 0,
+    "matches_measured_archive": true,
+    "parameter_ids": [
+      "sldprt:parameter:18:D1",
+      "sldprt:parameter:18:D2",
+      "sldprt:parameter:21:D1"
+    ],
+    "processes": 2,
+    "published_routes": 5,
+    "refusals": [
+      "no_receipt",
+      "changed_receipt",
+      "changed_epoch",
+      "stale_readback",
+      "wrong_dependency",
+      "missing_origin_coincidence",
+      "wrong_configuration",
+      "different_locator",
+      "raw_cache",
+      "unmeasured_neutral_variant",
+      "trailing_config_strict_geometry",
+      "trailing_config_strict_design",
+      "trailing_config_partial_diagnostic",
+      "unqualified_mode_strict_geometry",
+      "unqualified_mode_strict_design",
+      "unqualified_mode_partial_diagnostic",
+      "unqualified_mode_raw_diagnostic"
+    ],
+    "resolved_map_counter": 256,
+    "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+    "stream_lengths": {
+      "Contents/CMgr": 1145,
+      "Contents/CMgrHdr2": 169,
+      "Contents/Config-0": 28811,
+      "Contents/Config-0-ModelHeader": 697,
+      "Contents/Config-0-ResolvedFeatures": 12247,
+      "Contents/Definition": 459,
+      "Header2": 697,
+      "_MO_VERSION_19000/Biography": 23,
+      "_MO_VERSION_19000/History": 187,
+      "swXmlContents/KeyWords": 1522
+    },
+    "stream_sha256": {
+      "Contents/CMgr": "8e19dc894eca73aa1b68185608d6b785271812345bbaa19022567206bd9692af",
+      "Contents/CMgrHdr2": "4088c3b2b78efaa33d93da967797d2ac19d859070b739734062d47d8ee1ce355",
+      "Contents/Config-0": "a6f986c4e8a09533e36dd4b255e78bf14ece4aaf51ab80efef9b4502dfcb7483",
+      "Contents/Config-0-ModelHeader": "08f89b3839f3ecdfc649e62ced641386c57381b52233b00169023c297cad3562",
+      "Contents/Config-0-ResolvedFeatures": "af872eafdb9d1f91105415fcf1ededed573d0297bce10290f949e352327f6609",
+      "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+      "Header2": "1d6e112f85afd23b36234b3e90b868822ee05f16156b752bc89dfb3fd46292c6",
+      "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+      "_MO_VERSION_19000/History": "7420105d3cc2bba8fb54aac63795fe4d938853c8e2781d21c5301a4ee02d181e",
+      "swXmlContents/KeyWords": "59dce410a9f90637ecba5ffdef5dc1808632013e9a042ec783780161a76fc842"
+    },
+    "unmeasured_variant_stream_lengths": {
+      "Contents/Config-0": 28865,
+      "Contents/Config-0-ResolvedFeatures": 12265
+    },
+    "unrelated_formula_legacy_inspection": true,
+    "width_inverse": {
+      "depth_mm": 10.005,
+      "publication_refused": true,
+      "strict_readback_regenerated": true,
+      "width_mm": 20.01
+    }
+  },
+  "reviewed_parent": "1e91f8e3223d15834cfb4703a6b96f7650aa0c53",
+  "schema": "kit.sw2026.measured-width-depth-review.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/equations/ProveMeasuredWidthDepth.py": "aa98ca809096bd2b9d50a5882980150f34b3db9c9e7bc79ed0f3abf2ea9ba35f",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqPart.py": "5e6dc8d6b8a486279783c0bd461a20704f2b00d5c22e5a699863600a526b260d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Equations/ReadEqWidth.py": "26f134a37381a03b4217da0dc0a799f09778464669afb7ec8a3e9eb78f269a82",
+    "src/convert/adapters/solidworks/Core/TypedResolved/LineDimensions/LineNativeDims.py": "9aa7ebfc950f1bad6a2f81879002cdb0ce421da7c0d2f224e625c771fe70a82e",
+    "tests/Convert/Solidworks/WidthDepth/MakeEqRequest.py": "b3bf599aa14bf9c22ba6854ffed5ca1401c4a86b071e31e8f93603dabc395d25",
+    "tests/Convert/Solidworks/WidthDepth/MeasuredEqTests.py": "887b6334d7227b8322971a373bfe8f92282d843d06ee049ab61045f032d21ee1"
+  },
+  "supplemental_transport_contrast": {
+    "bytes": 7674,
+    "case_report_sha256": "6a8335f4a4356432c6cac7b0926a1075fb9bbcbd33647396133007ac7b6b2354",
+    "equal_decoded_streams": 10,
+    "method": "fresh portable worker with only the in-memory raw-deflate compression level forced from 1 to 9",
+    "published_routes": 0,
+    "runtime_input_reads": 0,
+    "target_file_opens": 0,
+    "whole_archive_sha256": "59428c743df602ec6b704e6c72ba9262e767e040e026108db8da1d11b6ce2a56"
+  }
+}

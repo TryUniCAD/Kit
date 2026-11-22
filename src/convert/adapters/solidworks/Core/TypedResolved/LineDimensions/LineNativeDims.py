@@ -11,9 +11,9 @@ def LineNativeDims(DimsValue: LineDims | None) -> tuple[NativeDimension, ...]:
     return tuple(
         NativeDimension(
             Driver.NameValue,
-            Driver.MetresValue * 1000.0,
+            Driver.MetresValue / 0.001,
             "length",
-            f"{Driver.MetresValue * 1000.0:.17g}mm",
+            f"{Driver.MetresValue / 0.001:.17g}mm",
             native_value=Driver.MetresValue,
             native_role="driving",
             TypedOwner={

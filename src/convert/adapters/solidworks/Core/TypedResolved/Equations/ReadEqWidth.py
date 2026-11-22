@@ -20,8 +20,8 @@ def ReadEqWidth(LoopValue: LineLoop | None) -> LineDriver:
         )
     WidthValue, HeightValue = DimsValue.DriverValues
     WidthMm, HeightMm = (
-        WidthValue.MetresValue * 1000.0,
-        HeightValue.MetresValue * 1000.0,
+        WidthValue.MetresValue / 0.001,
+        HeightValue.MetresValue / 0.001,
     )
     PointsValue = LoopValue.PointsValue
     if (

@@ -114,7 +114,7 @@ def author_document(request):
                                     if param.id == depth else param for param in document.parameters))
 
 
-def check_read(raw):
+def check_read(raw, width_mm=39.125, height_mm=17.375):
     from convert import open_document
 
     options = {"source_format": FORMAT, "configuration": "modeled default"}
@@ -125,13 +125,15 @@ def check_read(raw):
             and design.feature_timeline == solid.feature_timeline and len(solid.feature_timeline) == 19,
             "design and geometry reads disagree on editable history")
     width, height, depth = solid.parameters
+    depth_mm = width_mm / 2
     sketch, = solid.sketches
     body, = solid.bodies
     (boundary,) = solid.brep.bodies
     require((width.id, height.id, depth.id)
             == ("sldprt:parameter:18:D1", "sldprt:parameter:18:D2", "sldprt:parameter:21:D1")
-            and (width.value.value, height.value.value, depth.value.value) == (39.125, 17.375, 19.5625)
-            and depth.role.value == "derived" and depth.expression.source == '"D1@Sketch1" / 2'
+            and (width.value.value, height.value.value, depth.value.value) == (width_mm, height_mm, depth_mm)
+            and width.role.value == height.role.value == "driving"
+            and depth.role.value == "derived" and depth.expression.source == f'"D1@{sketch.name}" / 2'
             and depth.expression.parameter_ids == (width.id,)
             and sketch.parameter_ids == (width.id, height.id)
             and len(sketch.entities) == 5 and [row.kind for row in sketch.constraints]
@@ -147,50 +149,99 @@ def check_read(raw):
             "strict relation lost typed live dimension identity")
     topology = body.topology
     require((topology.solid_count, topology.face_count, topology.edge_count, topology.vertex_count)
-            == (1, 6, 12, 8) and isclose(topology.volume, 39.125 * 17.375 * 19.5625)
+            == (1, 6, 12, 8) and isclose(topology.volume, width_mm * height_mm * depth_mm)
             and all(isclose(observed, expected) for observed, expected in
-                    zip(body.attributes["solidworks.body_centroid_mm"], (19.5625, 8.6875, 9.78125), strict=True)),
+                    zip(body.attributes["solidworks.body_centroid_mm"], (width_mm / 2, height_mm / 2, depth_mm / 2), strict=True)),
             "reader geometry failed independent rectangular prism measures")
     return solid
 
 
-def check_bad_graph(candidate):
-    from convert import open_document
+def changed_config(candidate, *, trailing=False, disabled=False, divisor=None):
     from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
-    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive, SldprtFormatError
+    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
     archive = SldprtArchive.from_bytes(candidate)
-    streams = archive.streams
     config = "Contents/Config-0"
-    link = ReadNativeLink(archive, 0, RelationConfig="modeled default").ConfigValue
-    manager = link.RootValue.FieldsValue["f9d0"]
-    relation = manager.FieldsValue["f58"]["items"][0]["o"]
-    relation.FieldsValue["f18"] = 0
-    disabled, _ = WriteConfigMut(link.RootValue, link.VersionValue, link.HeaderValue, PartRelations=True)
-    cases = {"trailing_config": streams[config] + b"\x00", "unqualified_mode": disabled}
-    for config_data in cases.values():
-        malformed = BuildSldprt(streams | {config: config_data}, FileId=archive.file_id,
-                                FormatVersion=archive.format_version)
+    if trailing:
+        data = archive.streams[config] + b"\x00"
+    else:
+        link = ReadNativeLink(archive, 0, RelationConfig="modeled default").ConfigValue
+        manager = link.RootValue.FieldsValue["f9d0"]
+        fields = manager.FieldsValue["f58"]["items"][0]["o"].FieldsValue
+        if disabled:
+            fields["f18"] = 0
+        if divisor is not None:
+            side = fields["f60"].FieldsValue
+            value = side["f10"]["items"][-1]["o"]
+            require(fields["f10"].endswith(" / 2") and side["f50"].endswith(" / 2")
+                    and value.FieldsValue["f08"] == "2", "case requires the actual authored divisor")
+            fields["f10"] = fields["f10"][:-1] + divisor
+            side["f50"] = side["f50"][:-1] + divisor
+            value.FieldsValue["f08"] = divisor
+        data, _ = WriteConfigMut(link.RootValue, link.VersionValue, link.HeaderValue, PartRelations=True)
+    return BuildSldprt(archive.streams | {config: data}, FileId=archive.file_id,
+                      FormatVersion=archive.format_version)
+
+
+def boss_depth(model):
+    boss, = (step for step in model.feature_timeline if step.name == "Boss-Extrude1")
+    depth, = (parameter for parameter in model.parameters if parameter.owner_id == boss.id and parameter.name == "D1")
+    return depth
+
+
+def inspect_inactive(model, raw):
+    depth = boss_depth(model)
+    require(len(model.feature_timeline) == 19 and "solidworks.typed_width_depth" not in model.metadata
+            and depth.expression is None and depth.role.value == "driving"
+            and model.source.sha256 == digest(raw)
+            and any("width-depth history is unresolved" in value.message for value in model.diagnostics),
+            "partial inspection credited an unqualified relation or lost its source")
+
+
+def check_bad_graph(candidate):
+    from convert import open_document
+    from convert.adapters.base.ReadOptions import ReadOptions
+    from convert.adapters.solidworks.Container.Container import SldprtFormatError
+    from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
+
+    cases = {"trailing_config": {"trailing": True}, "unqualified_mode": {"disabled": True}}
+    for change in cases.values():
+        malformed = changed_config(candidate, **change)
         for include in (False, True):
             reject(lambda: open_document(BytesIO(malformed), source_format=FORMAT, include_brep=include),
                    SldprtFormatError, "local SOLIDWORKS width-depth history is unresolved")
-        partial = open_document(BytesIO(malformed), source_format=FORMAT, include_brep=False, strict=False)
-        require(len(partial.feature_timeline) == 19 and "solidworks.typed_width_depth" not in partial.metadata
-                and any("width-depth history is unresolved" in value.message for value in partial.diagnostics),
-                "partial inspection credited unqualified typed history")
-    return [f"{case}_{stage}" for case in cases for stage in ("strict_geometry", "strict_design", "partial_diagnostic")]
+        inspect_inactive(open_document(BytesIO(malformed), source_format=FORMAT, include_brep=False, strict=False),
+                         malformed)
+    disabled = changed_config(candidate, disabled=True)
+    raw_options = ReadOptions(include_brep=True, extract_raw_brep=True, strict=False)
+    inspect_inactive(SldprtAdapter().read(BytesIO(disabled), raw_options), disabled)
+    return [*(f"{case}_{stage}" for case in cases for stage in ("strict_geometry", "strict_design", "partial_diagnostic")),
+            "unqualified_mode_raw_diagnostic"]
 
 
-def varied_recipe(doc):
+def check_generic_formula(candidate):
+    from convert import open_document
+
+    alternate = changed_config(candidate, divisor="3")
+    inspection = open_document(BytesIO(alternate), source_format=FORMAT, include_brep=False, strict=False)
+    depth = boss_depth(inspection)
+    require("solidworks.typed_width_depth" not in inspection.metadata
+            and not any("width-depth history is unresolved" in value.message for value in inspection.diagnostics)
+            and depth.expression is not None and depth.expression.source == '"D1@Sketch1" / 3',
+            "unrelated formula did not stay on legacy inspection")
+    return True
+
+
+def varied_recipe(doc, *, width_mm=None, rename=True):
     (sketch,) = doc.sketches
     old_width, _ = sketch.parameter_ids
     depth, = (param for param in doc.parameters if param.expression is not None)
     width, = (param for param in doc.parameters if param.id == old_width)
     boss, = doc.feature_timeline
-    width_value = replace(width.value, value=width.value.value + 1)
+    width_value = replace(width.value, value=width.value.value + 1 if width_mm is None else width_mm)
     depth_value = replace(depth.value, value=width_value.value / 2)
-    new_sketch = replace(sketch, name=sketch.name + " Contrast")
+    new_sketch = replace(sketch, name=sketch.name + " Contrast") if rename else sketch
     points = []
     for entity in new_sketch.entities:
         curve = entity.geometry
@@ -253,14 +304,14 @@ def reject_public(doc, readback, request, values, target, audit):
             "wrong_configuration", "different_locator"]
 
 
-def worker(root, request, directory):
+def worker(root, request, directory, portable=False):
     sys.path.insert(0, str(root / "src"))
     target = directory / (request["document"]["metadata"]["name"] + ".SLDPRT")
     audit = WriterAudit(root / "src", target)
     sys.addaudithook(audit.observe)
     from convert import extract_brep, write_document
     from convert.adapters.base.WriteOptions import WriteOptions
-    from convert.adapters.solidworks.Container.Container import SldprtFormatError
+    from convert.adapters.solidworks.Container.Container import SldprtArchive, SldprtFormatError
     from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
     from interchange.Enums.EnumDocument import Capability
@@ -285,9 +336,24 @@ def worker(root, request, directory):
         audit.phase = "write"
         candidate = PrepareNative(doc, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
         raw = candidate.BytesValue
-        require(digest(raw) == expected and len(raw) == 9157, "constructed bytes differ from measured native file")
+        actual = digest(raw)
+        exact_archive = actual == expected
+        actual_streams = SldprtArchive.from_bytes(raw).streams
+        require(actual_streams == candidate.StreamsValue, "container changed the constructed logical streams")
+        stream_hashes = {name: digest(data) for name, data in actual_streams.items()}
+        if portable:
+            require(stream_hashes == request["stream_sha256"], "portable request changed the measured logical streams")
+        else:
+            require(exact_archive and len(raw) == 9157, "constructed bytes differ from measured native file")
         readback = check_read(raw)
         history_refusals = check_bad_graph(raw)
+        width_contrast = varied_recipe(doc, width_mm=20.01, rename=False)
+        rounded = PrepareNative(width_contrast, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
+        design = check_read(rounded.BytesValue, width_mm=20.01)
+        reread = PrepareNative(design, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
+        require(reread.BytesValue == rounded.BytesValue, "adjacent inverse conversion changed the strict readback bytes")
+        require((20.01 * .001) * 1000 != 20.01 == (20.01 * .001) / .001,
+                "independent width contrast does not distinguish the inverse conversion")
         variant = varied_recipe(doc)
         variant_part = PrepareNative(variant, BytesIO(), epoch, WriteOptions(values={"final_destination": path}))
         variant_lengths = {stream: len(variant_part.StreamsValue[stream])
@@ -296,13 +362,17 @@ def worker(root, request, directory):
                 and digest(variant_part.BytesValue) != expected,
                 "independent neutral dimensions and labels did not change real archive streams")
         rechecked = BytesIO()
-        reject(lambda: write_document(variant, rechecked, destination_format=FORMAT,
-                                      values=values, allow_carrier=False),
-               ValueError, "differs from the measured width-depth output")
+        for model in (variant, width_contrast):
+            reject(lambda: write_document(model, rechecked, destination_format=FORMAT,
+                                          values=values, allow_carrier=False),
+                   ValueError, "differs from the measured width-depth output")
+            reject(lambda: writer.write(model, rechecked, WriteOptions(values=values)),
+                   ValueError, "differs from the measured width-depth output")
         require(not rechecked.getvalue(), "unmeasured neutral variant reached publication")
         refusals = reject_public(doc, readback, request, values, target, audit)
     finally:
         audit.phase = "done"
+    generic_formula = check_generic_formula(raw)
     require(target.read_bytes() == b"preserve path" and tuple(directory.iterdir()) == (target,),
             "negative publication left file or staging changes")
     try:
@@ -311,30 +381,46 @@ def worker(root, request, directory):
         for model in (doc, readback):
             for direct in (False, True):
                 sink = BytesIO()
-                result = (writer.write(model, sink, WriteOptions(values=values)) if direct
-                          else write_document(model, sink, destination_format=FORMAT, allow_carrier=False, values=values))
-                require(sink.getvalue() == raw, "native stream changed with write entrypoint or cold source")
-                results.append(result)
+                action = (lambda: writer.write(model, sink, WriteOptions(values=values))) if direct else (
+                    lambda: write_document(model, sink, destination_format=FORMAT, allow_carrier=False, values=values)
+                )
+                if exact_archive:
+                    results.append(action())
+                    require(sink.getvalue() == raw, "native stream changed with write entrypoint or cold source")
+                else:
+                    reject(action, ValueError, "differs from the measured width-depth output")
+                    require(not sink.getvalue() and sink.tell() == 0, "alternate physical bytes reached the stream")
         if sys.platform != "win32":
-            results.append(write_document(doc, target, overwrite=True, allow_carrier=False, values=values))
+            if exact_archive:
+                results.append(write_document(doc, target, overwrite=True, allow_carrier=False, values=values))
+            else:
+                reject(lambda: write_document(doc, target, overwrite=True, allow_carrier=False, values=values),
+                       ValueError, "differs from the measured width-depth output")
     finally:
         audit.phase = "done"
     require(all(result.vendor_loadable and result.application_usable and not result.dropped
                 and Capability.KExpressions in result.native_capabilities
                 and result.metadata[OPTION]["generated_sha256"] == expected
                 for result in results)
-            and (sys.platform == "win32" or target.read_bytes() == raw)
-            and audit.target_opens == int(sys.platform != "win32")
+            and target.read_bytes() == (raw if exact_archive and sys.platform != "win32" else b"preserve path")
+            and audit.target_opens == int(exact_archive and sys.platform != "win32")
             and not audit.denied and tuple(directory.iterdir()) == (target,),
             "publication, capability transfer or runtime guard failed")
     reject(lambda: extract_brep(raw, directory / "raw", source_format=FORMAT),
            SldprtFormatError, "SLDPRT contains no readable Parasolid payload")
     require(not (directory / "raw").exists(), "raw extraction invented a cache")
-    return {"bytes": len(raw), "sha256": expected, "file_opens": audit.target_opens,
+    return {"bytes": len(raw), "sha256": actual, "matches_measured_archive": exact_archive,
+            "file_opens": audit.target_opens,
             "guarded_runtime_input_reads": len(audit.denied), "published_routes": len(results),
             "config_map_counter": candidate.ConfigValue.MapValue.CounterValue,
             "resolved_map_counter": candidate.ResolvedValue.MapValue.CounterValue,
             "stream_lengths": {name: len(data) for name, data in candidate.StreamsValue.items()},
+            "stream_sha256": stream_hashes,
+            "unrelated_formula_legacy_inspection": generic_formula,
+            "width_inverse": {
+                "width_mm": 20.01, "depth_mm": 10.005,
+                "strict_readback_regenerated": True, "publication_refused": True,
+            },
             "parameter_ids": [param.id for param in readback.parameters],
             "feature_rows": len(readback.feature_timeline),
             "unmeasured_variant_stream_lengths": variant_lengths,
@@ -373,9 +459,12 @@ if __name__ == "__main__":
     cli.add_argument("--disclosed", type=Path)
     cli.add_argument("--output", type=Path)
     cli.add_argument("--worker", action="store_true")
+    cli.add_argument("--portable", action="store_true")
     args = cli.parse_args()
     if args.worker:
         with TemporaryDirectory(prefix="KitMeasuredWidthDepth-") as temp:
-            print(json.dumps(worker(args.root, json.load(sys.stdin), Path(temp).resolve()), sort_keys=True))
+            print(json.dumps(worker(args.root, json.load(sys.stdin), Path(temp).resolve(), args.portable), sort_keys=True))
     else:
+        if args.portable:
+            cli.error("--portable requires --worker")
         supervise(args.root, args.disclosed, args.output)
