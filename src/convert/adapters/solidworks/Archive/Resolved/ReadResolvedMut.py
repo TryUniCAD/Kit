@@ -19,6 +19,15 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.ReadSwSchema import (
+    ReadSwSchema,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
+    UseSweepCtxMut,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
+    CheckSweepUse,
+)
 
 
 # resolved features extend the exact configuration snapshot after verifying the stored inherited base
@@ -30,8 +39,11 @@ def ReadResolvedMut(
     *,
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
+    ReadSweeps: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    if ReadSweeps:
+        UseSweepCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -43,11 +55,15 @@ def ReadResolvedMut(
     ReaderValue = GraphReader(
         Cursor,
         ArchiveMaps(BaseValue, SeedValue),
-        PartialValue(ReadBodyMut, ContextValue),
+        PartialValue(
+            ReadBodyMut, ContextValue, SchemaReader=ReadSwSchema if ReadSweeps else None
+        ),
         NodeFactory=NodeMaker,
     )
     RootsValue = tuple(ReadNodeMut(ReaderValue) for _ in range(CountValue))
     FieldsValue = ReadMbsMut(ContextValue, ReaderValue, FindModelRoot(SeedValue))
+    if ReadSweeps:
+        CheckSweepUse(ContextValue)
     if Cursor.GetRemaining():
         raise BodyUnsupported(
             f"resolved graph has {Cursor.GetRemaining()} trailing bytes"

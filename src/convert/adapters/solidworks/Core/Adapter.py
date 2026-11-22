@@ -175,6 +175,10 @@ from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
+    IsColdSweep,
+    ReadSwPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -348,6 +352,10 @@ def ReadAction(
             AsmDoc(Instance, Archive, DataValue, Label, Settings), DataValue
         )
         ValidateSource(Label, True)
+        return DocValue
+    if Settings.strict and not Settings.extract_raw_brep and IsColdSweep(Archive):
+        DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
+        ValidateSource(Label, False)
         return DocValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 

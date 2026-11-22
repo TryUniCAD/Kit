@@ -341,9 +341,12 @@ The measured Standard sweep writer accepts a first-creator solid
 canonical Front quarter arc, two driving D1 parameters and literal body
 density. It uses a separate sweep lifecycle receipt with the same SDK
 envelope. Supply the exact measured Windows self locator for the stream
-or filesystem destination. The legacy SDK reader returns partial
-history for sweep files.
+or filesystem destination. The strict cold reader restores the two
+editable sketches, typed sweep and closed analytic solid from the
+same profile. Full and design-only strict readback can republish the
+same archive through the measured write gate.
 [Measured Standard sweep](../../Changes/Solidworks/Construction/SolidworksMeasuredSweep.md)
+[Typed sweep readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdSweepReadback.md)
 
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.

@@ -51,6 +51,7 @@ from convert.adapters.solidworks.Archive.Definition.Construction.MakePartDef imp
 )
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Container.Container import BuildSldprt
+from convert.adapters.solidworks.Container.Format import KGhostPartition
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.Sweeps.SweepIntent import SweepIntent
 
@@ -135,7 +136,7 @@ def BuildSweepPart(IntentValue: SweepIntent) -> SweepPart:
         KeywordsValue,
         WriteSweeps=True,
     )
-    StreamsValue["Contents/Config-0-GhostPartition"] = PairValue.StreamValue
+    StreamsValue[KGhostPartition] = PairValue.StreamValue
     return SweepPart(
         SystemValue,
         ProfilesValue,

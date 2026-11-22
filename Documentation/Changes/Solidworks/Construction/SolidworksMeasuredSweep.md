@@ -22,9 +22,10 @@ model's density before exposing any bytes.
 The two disclosed archives reproduce all eleven streams and both whole
 digests, with all six source capabilities transferred and zero audited
 runtime input reads. The verified native receipt covers both independent
-driving edits and their fresh reopens for each archive. The SDK's legacy
-reader currently returns only partial history for these files. A
-SOLIDWORKS-to-neutral sweep conversion requires a separate typed reader.
+driving edits and their fresh reopens for each archive. The complementary
+strict cold readback preserves the complete portable profile and can
+republish the same measured archive.
+[Typed sweep readback](../Inspection/Parts/SolidworksColdSweepReadback.md)
 
 [Format and exact evidence](../../../../re/solidworks/records/ScopedSweepWriter2026.md)
 

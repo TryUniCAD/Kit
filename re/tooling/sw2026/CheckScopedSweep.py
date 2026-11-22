@@ -17,6 +17,7 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent), str(HERE.parent / "sweep_so
 
 from CheckScopedPlainWriter import WriterAudit
 from SweepSdkInput import neutral_document
+from SweepSdkRead import check_permissive, prove_sw_read
 from convert.adapters.registry import AdapterNotFoundError
 
 FORMAT = "solidworks.sldprt"
@@ -82,11 +83,10 @@ def intentionally_bad(job, document, options):
 
 
 def project_writes(job, folder):
-    from convert import open_document, write_document
+    from convert import write_document
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.base.WritePolicy import GetDocumentCaps
     from convert.adapters.solidworks.Container.Container import SldprtArchive
-    from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from convert.adapters.solidworks.Core.Preparation.Sweeps.PrepSweepPart import PrepSweepPart
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
     from interchange.document.Models.DocumentModel import CadDocument
@@ -141,17 +141,11 @@ def project_writes(job, folder):
     stream_hashes = {name: digest(data) for name, data in sorted(parsed.streams.items())}
     require(len(stream_hashes) == 11 and parsed.streams == candidate.StreamsValue
             and (job["streams"] is None or stream_hashes == job["streams"]), "physical stream identity drifted")
-    reopened = open_document(payload)
-    reader_status = {"body_geometry": reopened.brep is not None, "feature_count": len(reopened.feature_timeline),
-                     "sketch_count": len(reopened.sketches),
-                     "has_portable_sweep": any(type(step.definition).__name__ == "SweepFeature" for step in reopened.feature_timeline),
-                     "diagnostics": [row.message for row in reopened.diagnostics]}
-    try:
-        ReadNativeLink(parsed, 0)
-    except ValueError as error:
-        reader_status["typed_refusal"] = str(error)
-    else:
-        reader_status["typed_refusal"] = None
+    audit.phase = "write"
+    reader_status = prove_sw_read(payload, candidate, job, transfer, options, reject)
+    audit.phase = "done"
+    require(not audit.denied, "strict sweep projection opened a runtime asset")
+    reader_status["legacy_permissive_inventory"] = check_permissive(payload)
     return {"name": job["name"], "archive_sha256": job["sha256"], "archive_bytes": len(payload),
             "stream_sha256": stream_hashes, "normalized_state_checks": 30,
             "exact_registry_and_direct_streams": True, "native_transfers": len(caps),
@@ -165,20 +159,25 @@ def supervise(native=None):
     spec = json.loads(pinned(SPEC, SPEC_SHA))
     receipt = json.loads(pinned(RECEIPT, RECEIPT_SHA))
     require(receipt["native_result_sha256"] == NATIVE_SHA, "normalized provenance changed")
-    if native is not None:
-        pinned(native / "DisclosedRecords/Result.json", NATIVE_SHA)
+    terminal = json.loads(pinned(native / "DisclosedRecords/Result.json", NATIVE_SHA)) if native is not None else None
     results = []
     for case, row in zip(spec["cases"], receipt["cases"], strict=True):
         locator = row["locator"]
         name = case["name"]
         require(name == PureWindowsPath(locator).stem, "authored and recorded case differ")
         expected_streams = None
+        native_topology = None
         if native is not None:
             data = pinned(native / "Packet/Candidates" / PureWindowsPath(locator).name, row["archive_sha256"])
             archive = SldprtArchive.from_bytes(data)
             expected_streams = {path: digest(value) for path, value in archive.streams.items()}
+            case_result = terminal["cases"][row["slot"]]
+            phase, = (value for value in case_result["phases"] if value["phase"] == "candidate-open")
+            phase_path = native / "DisclosedRecords" / f"Slot{row['slot'] + 1:02d}" / "candidate-open" / "Record.json"
+            native_topology = json.loads(pinned(phase_path, phase["receipt_sha256"]))["reopened"]["body"]["topology"]
         job = {"name": name, "slot": row["slot"], "locator": locator, "sha256": row["archive_sha256"],
                "bytes": row["archive_bytes"], "streams": expected_streams, "density": spec["density_kg_m3"],
+               "native_topology": native_topology,
                "section": case["section_radius_m"], "path": case["path_radius_m"], "edit_section": case["edit_section_radius_m"],
                "measurement": {"written_at": row["written_at"], "receipt": receipt}}
         with TemporaryDirectory(prefix="KitScopedSweep") as folder:
@@ -186,7 +185,7 @@ def supervise(native=None):
                          input=json.dumps(job), capture_output=True, text=True, timeout=45, check=False)
             require(worker.returncode == 0, worker.stderr or worker.stdout)
         results.append(json.loads(worker.stdout))
-    return {"schema": "kit.sw2026.main-scoped-sweep.v1", "base": "e5294382aad0c04ba26554dfe381fd03daec110a",
+    return {"schema": "kit.sw2026.main-scoped-sweep-readback.v1", "base": "22994e323b217791057e2b4bc1bd3ce25677ffb9",
             "native_result_sha256": NATIVE_SHA, "normalized_receipt_sha256": RECEIPT_SHA, "neutral_spec_sha256": SPEC_SHA,
             "writer_processes": len(results), "native_calls": 0, "protected_inputs_read": 0,
             "disclosed_physical_stream_comparison": native is not None, "cases": results}

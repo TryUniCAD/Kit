@@ -65,10 +65,12 @@ The PR #121 takeover team owns the isolated Standard sweep writer delivery on
 [standalone part writer](https://github.com/TryUniCAD/Kit/pull/235), the
 measured quarter-arc recipe and exact offline native attestation.
 The scoped SDK streams reproduce both disclosed measured parts with all
-six inferred domains transferred. The delivery exits after its own PR,
-current-head review, CI and queue acceptance. A complete typed SDK sweep
-reader and broader sweep variants remain separate work.
+six inferred domains transferred. Both strict cold projections reproduce
+the measured archive on re-export. The delivery exits after its own PR,
+current-head review, CI and queue acceptance. Native-saved and broader
+sweep variants remain separate work.
 [Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
+[Cold readback and exact re-export](../../re/solidworks/records/ScopedSweepReadback2026.md)
 
 ## Important gap boundaries
 

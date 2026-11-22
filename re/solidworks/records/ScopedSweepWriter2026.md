@@ -3,9 +3,11 @@
 The production boundary is the standalone neutral-to-SOLIDWORKS write.
 The normal SDK and its direct writer reproduce both measured cold parts on
 accepted first-writer base `e5294382aad0c04ba26554dfe381fd03daec110a`.
-The default SDK reader returns legacy partial history for these files.
-No bidirectional or native-saved sweep support follows from the write result.
+At this writer revision, the default SDK reader returned legacy partial
+history for these files. The subsequent reader proof covers both exact
+cold files with full and design-only projection.
 [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+[Cold readback evidence](ScopedSweepReadback2026.md)
 
 ## Input and generated owners
 
@@ -90,8 +92,7 @@ receipt SHA-256 is
 `d8d698670b21f432e0b6fc98a541d96acf706d9037ad871ec6251fe4be851f70`.
 This extraction has no new sealed-input run or additional conversion
 credit. The native filesystem route requires its exact measured Windows
-locator and is not host-verified here. The next reader closure begins at
-the actual two-row ghost Config-0 owner before it can traverse the native
-section/path schema, link both editable drivers and rebuild geometry in
-the SDK.
+locator and is not host-verified here. The later reader starts from the
+actual two-row ghost Config-0 owner and uses the same section/path schema
+to link both editable drivers and reconstruct the analytic solid.
 [Prior protected research evidence](https://github.com/TryUniCAD/Kit/blob/fd8ddb9f0528fc5c45ce309b240b581872b5aa4b/re/solidworks/records/OrdinarySweepHeldoutEvaluation2026.md)

@@ -16,6 +16,10 @@ from convert.adapters.solidworks.Core.Preparation.Sweeps.PlanSweepPart import (
     PlanSweepPart,
 )
 from convert.adapters.solidworks.Core.Preparation.Sweeps.SweepIntent import SweepIntent
+from convert.adapters.solidworks.Core.Preparation.Sweeps.SwReadInput import (
+    IsSwReadback,
+    SwReadInput,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -48,7 +52,10 @@ def PlanSwTarget(
         raise ValueError(
             "SOLIDWORKS sweep requires its measured native Windows locator"
         )
-    IntentValue = PlanSweepPart(DocumentValue, NativeSelf)
+    InputValue = (
+        SwReadInput(DocumentValue) if IsSwReadback(DocumentValue) else DocumentValue
+    )
+    IntentValue = PlanSweepPart(InputValue, NativeSelf)
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested sweep write configuration is unavailable")

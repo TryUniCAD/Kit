@@ -1,4 +1,6 @@
-from math import isclose as IsClose, pi as PiValue
+from math import isclose as IsClose
+
+from convert.Geometry.SweptTube.QuarterMetric import MeasureQuarter
 
 
 # every observed state must match the physical quarter tube defined by its own two live drivers
@@ -11,20 +13,15 @@ def CheckSwMass(StateValue: tuple[float, ...], DensityValue: float) -> None:
         raise ValueError(
             "SOLIDWORKS sweep measurement exceeds the measured radius profile"
         )
-    ArcAngle = PiValue / 2.0
-    ExpectedVolume = PiValue * SectionRadius**2 * PathRadius * ArcAngle
-    ExpectedArea = (
-        2.0 * PiValue * SectionRadius * (PathRadius * ArcAngle + SectionRadius)
-    )
-    ExpectedX = (PathRadius + SectionRadius**2 / (4.0 * PathRadius)) / ArcAngle
+    Expected = MeasureQuarter(SectionRadius, PathRadius)
     if abs(CenterZ) > 1e-11 or not all(
-        IsClose(Measured, Expected, rel_tol=5e-7)
-        for Measured, Expected in (
-            (Volume, ExpectedVolume),
-            (AreaValue, ExpectedArea),
-            (MassValue, DensityValue * ExpectedVolume),
-            (CenterX, ExpectedX),
-            (CenterY, PathRadius - ExpectedX),
+        IsClose(Measured, Derived, rel_tol=5e-7)
+        for Measured, Derived in (
+            (Volume, Expected.VolumeValue),
+            (AreaValue, Expected.AreaValue),
+            (MassValue, DensityValue * Expected.VolumeValue),
+            (CenterX, Expected.CenterValue.x),
+            (CenterY, Expected.CenterValue.y),
         )
     ):
         raise ValueError(

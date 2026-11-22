@@ -5,9 +5,11 @@ from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPart
 from convert.adapters.solidworks.Core.Preparation.Sweeps.BuildSweepPart import (
     BuildSweepPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Sweeps.CheckSwRead import CheckSwRead
 from convert.adapters.solidworks.Core.Preparation.Sweeps.PlanSwTarget import (
     PlanSwTarget,
 )
+from convert.adapters.solidworks.Core.Preparation.Sweeps.SwReadInput import IsSwReadback
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -19,6 +21,9 @@ def PrepSweepPart(
     OptionsValue: WriteOptions | None = None,
 ) -> SweepPart:
     SettingsValue = CheckPartOpts(OptionsValue)
-    return BuildSweepPart(
+    Candidate = BuildSweepPart(
         PlanSwTarget(DocumentValue, TargetValue, WrittenAt, SettingsValue)
     )
+    if IsSwReadback(DocumentValue):
+        CheckSwRead(DocumentValue, Candidate.BytesValue)
+    return Candidate

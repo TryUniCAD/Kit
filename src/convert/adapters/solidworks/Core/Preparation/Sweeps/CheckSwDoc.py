@@ -1,3 +1,4 @@
+from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.solidworks.Archive.Construction.Sweeps.SweepLabels import (
     SweepLabels,
 )
@@ -46,6 +47,3 @@ def CheckSwDoc(DocumentValue: CadDocument, LabelsValue: SweepLabels) -> None:
         or ConfigValue.attributes
     ):
         raise ValueError("sweep requires its ordinary active Default configuration")
-
-
-from convert.adapters.base.WritePolicy import GetDocumentCaps

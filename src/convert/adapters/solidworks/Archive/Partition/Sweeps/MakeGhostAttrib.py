@@ -3,6 +3,9 @@ from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 # ghost pointer lists use the format fixed native pointer capacity
 KGhostListCapacity = 20
 
+# a native integer ghost identity must resolve this exact typed attribute definition
+KGhostBodyKey = "GHOST_REF_BODY_ID_2001"
+
 
 # body and edge definitions describe legal kernel owner kinds with an explicit integer attribute value
 def MakeGhostDefs(FirstIndex: int) -> tuple[XmtNode, XmtNode, XmtNode, XmtNode]:
@@ -10,7 +13,7 @@ def MakeGhostDefs(FirstIndex: int) -> tuple[XmtNode, XmtNode, XmtNode, XmtNode]:
     return (
         MakeGhostDef(BodyIndex, EdgeIndex, BodyName, 2),
         MakeGhostDef(EdgeIndex, 0, EdgeName, 6),
-        XmtNode(BodyName, 79, {"string": "GHOST_REF_BODY_ID_2001"}),
+        XmtNode(BodyName, 79, {"string": KGhostBodyKey}),
         XmtNode(EdgeName, 79, {"string": "EDGE_ID_2001"}),
     )
 

@@ -1,3 +1,5 @@
+from collections.abc import Callable
+
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.CheckBodyMut import CheckBodyMut
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
@@ -14,15 +16,20 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 
 # class admission and field decoding must use the existing shared graph identity
 def ReadBodyMut(
-    ContextValue: BodyContext, ReaderValue: GraphReader, NodeValue: ArchiveNode
+    ContextValue: BodyContext,
+    ReaderValue: GraphReader,
+    NodeValue: ArchiveNode,
+    *,
+    SchemaReader: Callable[[ReadFrame, str], None] | None = None,
 ) -> None:
     ClassName = CheckBodyMut(ContextValue, NodeValue)
+    RestoreValue = SchemaReader if SchemaReader is not None else ReadSchemaMut
     FrameValue = ReadFrame(
         ContextValue,
         ReaderValue,
         FieldScope(NodeValue.FieldsValue),
         NodeValue,
-        ReadSchemaMut,
+        RestoreValue,
         ReadFieldsMut,
     )
-    ReadSchemaMut(FrameValue, ClassName)
+    RestoreValue(FrameValue, ClassName)
