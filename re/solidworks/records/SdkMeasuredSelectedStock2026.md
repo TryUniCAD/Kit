@@ -15,3 +15,28 @@ The guarded receipt SHA-256 is `cf26fe0a6d692d67823b4f3e8d57aa77bcec139318c25481
 ```sh
 python3.14 -I -B re/tooling/sw2026/throughsource/CheckMeasuredSelectedStocks.py   --comparison /path/to/GeneratedTwoStockGraph01.SLDPRT   --output /tmp/KitMeasuredSelectedStock.json
 ```
+
+## Strict readback republication
+
+The exact disclosed `6eca4bed…` artifact returns two ordered result
+bodies and the historical selected Front producer with or without
+decoded B-rep. Its moving stock uses the actual Right datum reference.
+The reader retains the complete 23-row timeline and original source
+state in both modes. The stock writer projects only verified editable
+inputs into the existing planner. That projection retains the two live
+stock depths, three supported sketches, free circular tool and explicit
+selected producer. Before writing, the writer checks the complete input
+document against the regenerated read, and binds the regenerated full
+file to the original native receipt.
+
+The same process proof covers full, design-only and raw-only reads and
+JSON-deserialized full and design-only documents. All five paths
+regenerate each of the ten logical streams and the exact container.
+Direct and registry publication produce the exact measured bytes across
+ten calls with zero runtime file reads. Added opaque metadata, changed
+scaffold history and changed body geometry each refuse through both
+writer routes before an output write. The original cross-target
+depthless refusal remains in the control set. The earlier native
+measurement applies to the same file digest. This check starts no
+native process and adds no held-out evidence.
+[Readback receipt](../measurements/2026/SdkSelectedStockReadback01.json)

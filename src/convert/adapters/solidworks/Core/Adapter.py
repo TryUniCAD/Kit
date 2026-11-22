@@ -388,7 +388,6 @@ def ReadNativePart(
             if ModelValue is None
             else ModelValue
         ),
-        Settings,
     )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
@@ -401,7 +400,16 @@ def ReadNativePart(
     Payloads, PayloadDiags, ColdBrep, CircleValue = (
         PartBrepData(Archive, Model, Settings)
         if StockPart is None
-        else ((), (), StockPart.GeometryValue.BrepValue, None)
+        else (
+            (),
+            (),
+            (
+                StockPart.GeometryValue.BrepValue
+                if Settings.include_brep and not Settings.extract_raw_brep
+                else None
+            ),
+            None,
+        )
     )
     Candidate = (
         FindLocalOwner(Model)

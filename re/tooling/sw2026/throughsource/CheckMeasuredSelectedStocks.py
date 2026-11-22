@@ -227,6 +227,7 @@ def guarded_write(model, altered, receipt, directory):
 
 def worker():
     from CheckScopedPlainWriter import reject
+    from CheckStockRoundTrip import check_preserved
     from convert import open_document
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from interchange.document.Models.DocumentModel import CadDocument
@@ -242,6 +243,9 @@ def worker():
         first, other, refusals, outputs, denied, opens = guarded_write(
             model, varied, receipt, Path(saved).resolve()
         )
+        roundtrip = Path(saved).resolve() / "Roundtrip"
+        roundtrip.mkdir()
+        readback = check_preserved(first.BytesValue, first, receipt, DISCLOSED, roundtrip)
     need(not denied and not opens
          and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
          "a model-only generation accessed external content or a CAD runtime")
@@ -267,7 +271,8 @@ def worker():
         ValueError, "Parasolid payload")
     return {"schema": "kit.sw2026.measured-selected-stock-sdk.v1", "cases": results,
             "publications": outputs, "runtime_input_file_reads": len(denied), "staged_output_opens": opens,
-            "receipt_sha256": NATIVE_SHA, "refusals": refusals, "compressor": ZLIB_RUNTIME_VERSION}
+            "receipt_sha256": NATIVE_SHA, "refusals": refusals, "compressor": ZLIB_RUNTIME_VERSION,
+            "readback_roundtrip": readback}
 
 
 def main():
@@ -299,6 +304,7 @@ def main():
         report["compared_all_disclosed_streams"] = True
     report["tool_sha256"] = digest(HERE.read_bytes())
     report["neutral_tool_sha256"] = digest(HERE.with_name("SelectedStockModel.py").read_bytes())
+    report["readback_tool_sha256"] = digest(HERE.with_name("CheckStockRoundTrip.py").read_bytes())
     result = json.dumps(report, indent=2, sort_keys=True) + "\n"
     if args.output is not None:
         with args.output.open("x", encoding="utf-8") as output:

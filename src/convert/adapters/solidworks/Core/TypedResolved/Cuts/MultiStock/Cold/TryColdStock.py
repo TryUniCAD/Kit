@@ -1,4 +1,3 @@
-from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -30,12 +29,10 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # no active or malformed cached payload may fall through to two stock reconstruction
 def TryColdStock(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+    Archive: SldprtArchive, Model: NativeModel
 ) -> tuple[NativeModel, ColdStockPart | None]:
     if (
-        not Settings.include_brep
-        or Settings.extract_raw_brep
-        or Model.active_configuration_id != 0
+        Model.active_configuration_id != 0
         or Model.equations
         or tuple(
             (Config.configuration_id, Config.name) for Config in Model.configurations

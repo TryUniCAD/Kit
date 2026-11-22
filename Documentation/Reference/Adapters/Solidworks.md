@@ -376,6 +376,11 @@ binary stream can carry that locator explicitly. Other pathnames and regenerated
 bytes require their own evidence.
 [Measured selected-stock scope](../../Changes/Solidworks/Construction/SolidworksMeasuredSelectedStock.md)
 
+The measured cold stock model retains both ordered body results in geometry,
+design-only and raw-only reads. Writing the strict readback reconstructs from
+its editable geometry and drivers, then checks the whole document and exact
+measured archive before publication.
+
 Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.

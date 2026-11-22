@@ -1,5 +1,5 @@
 from dataclasses import replace as ReplaceValue
-from pathlib import PureWindowsPath
+from pathlib import Path as FilePath, PureWindowsPath
 
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
@@ -10,6 +10,15 @@ from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPart
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.IsStockRead import (
+    IsStockRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.StockReadInput import (
+    StockReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.TwoStock.EmitStockPart import (
     EmitStockPart,
 )
@@ -30,6 +39,15 @@ def PrepStockPart(
     OptionsValue: WriteOptions | None = None,
 ) -> StockCandidate:
     Options = CheckPartOpts(OptionsValue)
+    Original = DocumentValue
+    IsReadback = IsStockRead(Original)
+    if IsReadback:
+        FinalValue = Options.values.get("final_destination", TargetValue)
+        if not isinstance(FinalValue, (str, FilePath)):
+            raise ValueError(
+                "selected stock readback requires a native final destination"
+            )
+        DocumentValue = StockReadInput(Original, PureWindowsPath(FinalValue).stem)
     PlanValue = PlanTwoStocks(DocumentValue)
     Config = DocumentValue.configurations[0]
     if Options.configuration not in (None, Config.id, Config.name):
@@ -68,7 +86,10 @@ def PrepStockPart(
             PlanValue.CutName,
         ),
     )
-    return EmitStockPart(PlanValue, Inputs)
+    Candidate = EmitStockPart(PlanValue, Inputs)
+    if IsReadback:
+        CheckColdRead(Original, Candidate.BytesValue)
+    return Candidate
 
 
 # the frozen native evaluator imports this stable name for the prospective preparation path

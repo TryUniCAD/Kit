@@ -26,3 +26,11 @@ def TestStockRoute() -> None:
     assert len(CastValue(dict[str, object], Unmeasured["streams"])) == 10
     assert Measured["sha256"] != Unmeasured["sha256"]
     assert "crossed_typed_selector" in CastValue(dict[str, str], Report["refusals"])
+    RoundTrip = CastValue(dict[str, object], Report["readback_roundtrip"])
+    assert RoundTrip["exact_regenerations"] == 5
+    assert RoundTrip["publications"] == (10 if Report["publications"] else 0)
+    assert RoundTrip["geometry_free_body_counts"] == {"design_only": 2, "raw_only": 2}
+    assert (
+        RoundTrip["runtime_input_file_reads"] == RoundTrip["staged_output_opens"] == 0
+    )
+    assert len(CastValue(dict[str, str], RoundTrip["refusals"])) == 6

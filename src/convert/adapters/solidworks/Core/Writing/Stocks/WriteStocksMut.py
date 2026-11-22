@@ -1,10 +1,14 @@
 from hashlib import sha256 as CalcSha
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Readback.IsStockRead import (
+    IsStockRead,
+)
 from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
     PrepStockPart,
 )
@@ -64,6 +68,14 @@ def WriteStocksMut(
                     }
                 )
             }
+        ),
+        transfers=(
+            tuple(
+                CapTransfer(CapabilityValue, TransferMode.KNative)
+                for CapabilityValue in sorted(DocumentValue.capabilities)
+            )
+            if IsStockRead(DocumentValue)
+            else ()
         ),
         vendor_loadable=True,
         application_usable=True,

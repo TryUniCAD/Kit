@@ -79,7 +79,9 @@ audit, remain separate exits.
 The PR #121 takeover team owns the main-target measured selected-stock slice on
 `codex/solidworks-measured-two-stock-circle`. It depends on the shared circle
 constructor and authenticated part publication. The disclosed Front-selected
-through cut has exact whole-file evidence and strict cold SDK readback. Saved
+through cut has exact whole-file evidence and strict cold SDK readback.
+The measured cold file round-trips through strict full and design-only reads,
+with both stock result owners retained. Saved
 typed source intake, other selection modes and general programme coverage remain
 separate exits. Current-revision review and queue acceptance remain pending.
 [Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredSelectedStock.md)

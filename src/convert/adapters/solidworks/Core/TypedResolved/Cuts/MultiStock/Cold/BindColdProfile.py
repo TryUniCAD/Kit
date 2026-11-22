@@ -1,7 +1,11 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.Native import NativeModel, NativeSketch
+from convert.adapters.solidworks.Core.Native import (
+    KRefSupportSource,
+    NativeModel,
+    NativeSketch,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadLocalCirc import (
     ReadLocalCirc,
 )
@@ -47,6 +51,8 @@ def BindColdProfile(
     Bound = ReplaceValue(
         SketchValue,
         support_plane_id=DatumId,
+        support_source=KRefSupportSource,
+        unframed_support_plane_id=None,
         TypedFrame=FrameValue,
         dimensions=(),
         constraints=(),
