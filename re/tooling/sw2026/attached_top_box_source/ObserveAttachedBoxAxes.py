@@ -2,6 +2,8 @@ from argparse import ArgumentParser
 from json import dumps, loads
 from math import isfinite, sqrt
 from pathlib import Path, PureWindowsPath
+from platform import machine, python_version
+from re import fullmatch
 from shutil import copyfile
 from time import time
 import os
@@ -92,18 +94,27 @@ def write_result(folder, result):
     write_json(folder / "Result.json", result)
 
 
-def run(packet, expected):
+def run(packet, expected, trial):
     require(os.name == "nt", "the native observer runs in the Windows guest")
+    import pythoncom
+
+    require(machine().casefold() == "amd64" and pythoncom.IID_IDispatch is not None,
+            "the native observer needs the registered x64 COM runtime")
     job = read_job(packet, expected)
     require(not application_pids(), "the oracle must be idle before the bracket")
-    folder = Path(NATIVE).parent
+    require(fullmatch(r"Trial[0-9]{2}", trial), "choose a fresh exact native trial")
+    root = Path(NATIVE).parent
+    if not root.exists():
+        root.mkdir()
+        for name in (NATIVE.name, "Control.SLDPRT"):
+            copyfile(packet.parent / name, root / name)
+    candidate = checked(root, NATIVE.name, job["candidate_sha256"])
+    control_file = checked(root, "Control.SLDPRT", job["control_sha256"])
+    folder = root / trial
     folder.mkdir(exist_ok=False)
-    copyfile(packet.parent / "Control.SLDPRT", folder / "Control.SLDPRT")
-    candidate = folder / NATIVE.name
-    copyfile(packet.parent / NATIVE.name, candidate)
-    require(digest(candidate) == job["candidate_sha256"], "staged candidate changed")
     result = {"schema": SCHEMA, "job_sha256": expected, "candidate_sha256": digest(candidate),
               "oracle_build": job["oracle_version"], "oracle_sha256": ORACLE,
+              "python_version": python_version(), "python_machine": machine(),
               "native_destination": str(NATIVE), "passed": False, "phases": {},
               "started_at": time()}
     write_result(folder, result)
@@ -119,7 +130,7 @@ def run(packet, expected):
     box.snapshot = observe
     phases = result["phases"]
     try:
-        phases["before"] = control(folder, "ControlBefore", folder / "Control.SLDPRT")
+        phases["before"] = control(folder, "ControlBefore", control_file)
         write_result(folder, result)
         if phases["before"]["passed"]:
             phases["generated"] = box.phase(folder, case, "Author", generated_input=candidate)
@@ -129,7 +140,7 @@ def run(packet, expected):
                 write_result(folder, result)
     finally:
         box.snapshot = original_snapshot
-        phases["after"] = control(folder, "ControlAfter", folder / "Control.SLDPRT")
+        phases["after"] = control(folder, "ControlAfter", control_file)
         result["finished_at"] = time()
         write_result(folder, result)
     require(digest(candidate) == job["candidate_sha256"], "native measurement altered the original candidate")
@@ -159,11 +170,12 @@ if __name__ == "__main__":
     parser.add_argument("packet", type=Path)
     parser.add_argument("sha256")
     parser.add_argument("--verify-only", action="store_true")
+    parser.add_argument("--trial", default="Trial01")
     args = parser.parse_args()
     packet = args.packet.resolve(strict=True)
     if args.verify_only:
         print(dumps({"native_destination": read_job(packet, args.sha256)["native_path"]}))
     else:
-        output = run(packet, args.sha256)
+        output = run(packet, args.sha256, args.trial)
         print(dumps({key: output[key] for key in ("passed", "controls_healthy", "distinct_processes")}))
         raise SystemExit(0 if output["passed"] else 3)
