@@ -86,8 +86,6 @@ def TryColdChmf(
     Archive: SldprtArchive,
     ModelValue: NativeModel,
     Settings: ReadOptions,
-    *,
-    AllowDistancePair: bool = False,
 ) -> ChmfPartRead | None:
     if (
         Settings.extract_raw_brep
@@ -101,6 +99,6 @@ def TryColdChmf(
     ):
         return None
     try:
-        return ReadColdChmf(Archive, ModelValue, AllowDistancePair=AllowDistancePair)
+        return ReadColdChmf(Archive, ModelValue, AllowDistancePair=True)
     except (ValueError, TypeError, KeyError, OverflowError):
         return None

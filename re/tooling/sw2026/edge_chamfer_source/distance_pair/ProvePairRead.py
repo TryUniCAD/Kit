@@ -37,7 +37,7 @@ from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
-from interchange.Features.FeatureKinds import ChamferFeature, NativeFeature
+from interchange.Features.FeatureKinds import ChamferFeature
 
 FORMAT = "solidworks.sldprt"
 BASE = "9e939d42ca5eaa9e71c1c253c255010c9ef9c99e"
@@ -75,20 +75,9 @@ def reject(action, reason, errors=(ValueError,)):
         raise ValueError(f"expected refusal: {reason}")
 
 
-def read_doc(raw, full, private=False):
-    adapter = import_module("convert.adapters.solidworks.Core.Adapter")
-    fallback = adapter.TryColdChmf
-
-    def allow_pair(archive, model, settings):
-        return TryColdChmf(archive, model, settings, AllowDistancePair=True)
-
-    if private:
-        adapter.TryColdChmf = allow_pair
-    try:
-        return open_document(BytesIO(raw), source_format=FORMAT, strict=True,
-                             include_brep=full, configuration="Default")
-    finally:
-        adapter.TryColdChmf = fallback
+def read_doc(raw, full):
+    return open_document(BytesIO(raw), source_format=FORMAT, strict=True,
+                         include_brep=full, configuration="Default")
 
 
 def prepare(document, locator, epoch, private):
@@ -138,7 +127,7 @@ def pair_semantics(document, authored_doc, part, witnesses):
             and stock.name == body.name == authored_doc.bodies[0].name
             and stock.sketch_id == sketch.id and len(sketch.entities) == 4 and len(document.feature_timeline) == 20
             and body.final_feature_id == feature.id and feature.input_feature_ids == (stock.id,),
-            "private read did not preserve native feature and body ownership")
+            "ordinary read did not preserve native feature and body ownership")
     source_params = {value.id: value for value in authored_doc.parameters}
     actual_params = {value.id: value for value in document.parameters}
     drives = []
@@ -244,7 +233,7 @@ def mutate(archive, name):
                             resolved.ContextValue, WriteChamfers=True)
     streams = dict(archive.Streams)
     streams.update({link.ConfigName: config_wire, link.StreamName: wire})
-    return SldprtArchive.from_bytes(BuildSldprt(streams, FormatVersion=4))
+    return BuildSldprt(streams, FormatVersion=4)
 
 
 def negative_pairs(archive, mode):
@@ -266,26 +255,25 @@ def negative_pairs(archive, mode):
             "secondary_catalog_frame": "chamfer has an alternate signed display placement",
         }
     for name, reason in rows.items():
-        changed = mutate(archive, name)
+        invalid = mutate(archive, name)
+        changed = SldprtArchive.from_bytes(invalid)
         model = NativePartModel(changed, None)
         reject(lambda: ReadColdChmf(changed, model, AllowDistancePair=True), reason)
-        require(TryColdChmf(changed, model, ReadOptions(), AllowDistancePair=True) is None,
-                f"unqualified private projection for {name}")
+        require(TryColdChmf(changed, model, ReadOptions()) is None,
+                f"unqualified ordinary projection for {name}")
+        if name in ("inactive_angle", "secondary_catalog_frame"):
+            forbid_shape(invalid)
     return list(rows)
 
 
 def check_pair(raw, request, document, archive, model, part):
     mode = request["mode"]
-    require(TryColdChmf(archive, model, ReadOptions()) is None,
-            "private distance profile leaked into ordinary reader")
-    require(TryColdChmf(archive, model, ReadOptions(extract_raw_brep=True), AllowDistancePair=True) is None,
-            "private projection impersonates raw Parasolid")
+    qualified = TryColdChmf(archive, model, ReadOptions())
+    require(qualified is not None and qualified.OwnersValue.ModeWord == mode,
+            "ordinary cold selector did not bind the actual distance mode")
+    require(TryColdChmf(archive, model, ReadOptions(extract_raw_brep=True)) is None,
+            "analytic projection impersonates raw Parasolid")
     reject(lambda: ReadChmfOwn(part.LinkValue, AllowDistancePair=True), "unsupported ordinary SOLIDWORKS chamfer mode")
-    fallback = read_doc(raw, False)
-    feature, = (step for step in fallback.feature_timeline if step.kind == FeatureKind.KChamfer)
-    require(type(feature.definition) is NativeFeature and not feature.selection_ids,
-            "ordinary semantic-only path exposes the private distance projection")
-    forbid_shape(raw)
     writer = SldprtWriter()
     target = BytesIO(b"keep")
     require(not writer.supports(document, target), "public writer supports unqualified distance mode")
@@ -296,15 +284,16 @@ def check_pair(raw, request, document, archive, model, part):
            "does not support the destination", errors=(NotFoundError,))
     require(target.getvalue() == b"keep" and target.tell() == 0, "refused writer changed destination")
     expected, edge, face, primary = expected_pair(document)
-    light, full = read_doc(raw, False, True), read_doc(raw, True, True)
+    light, full = read_doc(raw, False), read_doc(raw, True)
     sem = pair_semantics(light, document, part, (edge, face))
     require(light.brep is None and not light.brep_payloads
             and sem == pair_semantics(full, document, part, (edge, face)),
-            "geometry request changed the private portable history")
+            "geometry request changed the portable history")
     return pair_geometry(full, expected, primary) | {
         "drivers": sem[0], "feature_id": sem[1], "stock_id": sem[2],
         "refusals": negative_pairs(archive, mode),
-        "ordinary_read_and_write_refuse": True,
+        "ordinary_strict_reads": 2,
+        "unmeasured_ordinary_writes_refused": True,
     }
 
 
@@ -388,7 +377,7 @@ def supervise(args):
                *(HERE.parents[1] / name for name in ("ChamferModel.py", "ProvePublicChamferRead.py",
                                                      "ProvePublicChamferWrite.py")),
                HERE.parents[2] / "edge_fillet_source/FilletModel.py"}
-    report = {"schema": "kit.sw2026.cold-distance-chamfer-readback.v1", "reader_base": BASE,
+    report = {"schema": "kit.sw2026.cold-distance-chamfer-readback.v2", "reader_base": BASE,
               "compiled_manifest_sha256": GENERATED, "signed_trial_sha256": TRIAL_SHA,
               "source_sha256": {path.relative_to(ROOT).as_posix(): digest(path.read_bytes())
                                 for path in sorted(sources)},

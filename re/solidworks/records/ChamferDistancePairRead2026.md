@@ -38,14 +38,26 @@ geometry-free SDK JSON digests from the base reader. That control uses the
 existing public signed path and keeps the old signed saved owner check.
 [Guarded receipt](../measurements/2026/SdkColdChamferDistanceRead01.json)
 
+## Ordinary cold read
+
+The aggregate held-out report at `b7b02d721f6e416171a8a2950a0bc74536a09e93`
+records both independently locked distance candidates passing the native
+lifecycle. Its SHA-256 is
+`00ebeab7479f9a9cc6468d4f91412e0a15bb162c65c4fdf32536d23b21857c36`.
+The ordinary cold selector now admits the two measured modes through the
+same cache-free graph validation. Both disclosed files pass strict
+`open_document` with and without analytic geometry. The guarded run uses
+the installed selector and repeats the exact signed angle controls.
+Inactive-angle and incorrect second catalog frame contrasts fail the
+strict public geometry path.
+[Ordinary read receipt](../measurements/2026/SdkPublicChamferDistanceRead01.json)
+
 Failed mode, selector, stock, edge order, driver name, persistent ID, alias,
-frame and view membership contrasts remain outside the private route. The
-ordinary read keeps the opaque feature for both distance candidates when
-geometry is excluded and refuses their missing raw geometry in a strict
-default read. The ordinary writer still refuses both unqualified distance
-inputs. The verifier disables runtime file reads and uses only hash-bound
-disclosed authority. This establishes the cold reader boundary and leaves
-warm distance semantics and product qualification pending.
+frame and view membership contrasts are refused by the typed cold route.
+The ordinary writer in the read tranche refuses unqualified distance
+inputs. The verifier disables runtime file reads and uses hash-bound
+disclosed authority. The cold reader leaves warm distance semantics to
+a separate proof.
 
 ```sh
 chamfer_share=/absolute/path/to/Oracle121Takeover
@@ -53,5 +65,5 @@ python3.14 -I -B re/tooling/sw2026/edge_chamfer_source/distance_pair/ProvePairRe
   --compiled "$chamfer_share/EdgeChamferPairGenerated05/FinalCompile" \
   --signed-trial "$chamfer_share/GeneratedChamferSigned01/Packet/Trial.json" \
   --signed-saved "$chamfer_share/ChamferSignedSideSource01/DisclosedNative" \
-  --output /tmp/KitColdChamferDistanceRead.json
+  --output /tmp/KitPublicChamferDistanceRead.json
 ```
