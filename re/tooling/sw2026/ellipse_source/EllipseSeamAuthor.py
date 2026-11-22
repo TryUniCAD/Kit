@@ -9,7 +9,7 @@ from EllipseSeamPacket import TEMPLATE_SHA256
 
 
 class SeamAuthor(EllipseAuthor):
-    def draw_profile(self, session, plan, api):
+    def draw_profile(self, session, plan, api, *, close_updates=True):
         template = Path(self.rec.call("default native part template", session.template, "part"))
         require(template.is_absolute() and template.is_file(), "missing actual blank-part template")
         self.rec.data["template_sha256"] = digest(template)
@@ -33,7 +33,7 @@ class SeamAuthor(EllipseAuthor):
             observe(self, "draw_open", sketch, self.segment(sketch, plan, drawn), api)
         finally:
             self.set(manager, "AddToDB", old)
-        self.get(manager, "InsertSketch", True)
+        self.get(manager, "InsertSketch", close_updates)
         require(self.get(manager, "ActiveSketch") is None, "native profile remained open after sketch close")
         feature = self.created_sketch_feature()
         self.set(feature, "Name", SKETCH)

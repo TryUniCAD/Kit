@@ -51,6 +51,7 @@ def custody(packet, job_pin, capture, result_pin):
     controls, phases = result["controls"], result["phases"]
     require(result["passed"] and result["schema"] == SCHEMA and result["job_sha256"] == job_pin
             and result["revision"] == job["revision"] and result["tree"] == job["tree"]
+            and result.get("close_updates", True) is job.get("close_updates", True)
             and result["oracle_build"] == BUILD and result["oracle_sha256"] == ORACLE
             and result["inputs_unchanged"] and result["idle_after"] and result["writer_output_count"] == 0
             and result["distinct_processes"] == result["fresh_processes"] == 8
@@ -74,12 +75,13 @@ def custody(packet, job_pin, capture, result_pin):
                     and row["input_sha256"] == (pin if operation == "reopen" else None)
                     and record["job"] == {key: row[key] for key in ("phase", "job_sha256", "control", "input_sha256")}
                     and record["schema"] == PHASE_SCHEMA and record["passed"] and record["immutable"]
+                    and record.get("close_updates", True) is job.get("close_updates", True)
                     and record["writer_output_count"] == 0 and exact(record["oracle_identity"])
                     and tuple(stage["stage"] for stage in record["seam_stages"]) == STAGES[phase],
                     "native seam phase does not match the exact source or measured order")
             records.append(record)
         sources[role] = (pin, raw, records)
-    return plan, sources
+    return plan, sources, job.get("close_updates", True)
 
 
 def native_position(centre, major, minor, position):
@@ -187,11 +189,11 @@ if __name__ == "__main__":
     parser.add_argument("--capture", required=True, type=Path)
     parser.add_argument("--result-pin", required=True)
     args = parser.parse_args()
-    plan, sources = custody(args.job, args.pin, args.capture, args.result_pin)
+    plan, sources, close_updates = custody(args.job, args.pin, args.capture, args.result_pin)
     external = guard_runtime()
     measurement = digest_roles(sources, plan)
     require(not external, "offline ellipse seam analysis attempted an external access")
     print(json.dumps({"schema": "kit.sw2026.ellipse-seam-discriminator-analysis.v1",
-                      "job_sha256": args.pin, "native_result_sha256": args.result_pin,
+                      "job_sha256": args.pin, "native_result_sha256": args.result_pin, "close_updates": close_updates,
                       "native_launches": 0, "runtime_external_accesses": len(external),
                       "writer_output_count": 0, **measurement}, sort_keys=True, indent=2))

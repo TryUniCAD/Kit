@@ -30,6 +30,7 @@ def verify(path, pin):
     guest_paths(job["guest_root"])
     require(path.name == JOB and job["schema"] == SCHEMA and job["source_method"] == SOURCE_METHOD
             and job["oracle_build"] == BUILD and job["oracle_sha256"] == ORACLE
+            and type(job.get("close_updates", True)) is bool
             and job["writer_output_count"] == 0 and valid_hash(job["host_audit_sha256"]) and valid_hash(job["revision"], 40)
             and valid_hash(job["tree"], 40) and set(job["files"]) == FILES
             and all(job["files"][name]["sha256"] == value for name, value in CONTROLS.items())
@@ -68,7 +69,7 @@ def make_packet(output, job, files):
     return pin
 
 
-def freeze(revision, output, guest_root):
+def freeze(revision, output, guest_root, *, close_updates=True):
     repo = Path(__file__).resolve().parents[4]
     require(valid_hash(revision, 40) and not output.resolve().is_relative_to(repo),
             "freeze requires a committed revision and external packet")
@@ -87,7 +88,7 @@ def freeze(revision, output, guest_root):
               "Shape.json": encode(CASES[0]), "Prediction.json": encode(predict(CASES[0]))}
     job = {"schema": SCHEMA, "revision": revision, "tree": git("rev-parse", f"{revision}^{{tree}}").decode().strip(),
            "source_method": SOURCE_METHOD, "oracle_build": BUILD, "oracle_sha256": ORACLE,
-           "guest_root": guest_root, "writer_output_count": 0,
+           "guest_root": guest_root, "close_updates": close_updates, "writer_output_count": 0,
            "host_audit_sha256": digest(git("show", f"{revision}:{FAMILY}/AuditEllipseSeam.py"))}
     pin = make_packet(output, job, files)
     return {"job_sha256": pin, "bound_files": len(FILES), "shape_sha256": digest(files["Shape.json"]),
@@ -118,5 +119,7 @@ if __name__ == "__main__":
     parser.add_argument("--revision", required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--guest-root", required=True)
+    parser.add_argument("--close-without-update", action="store_true")
     args = parser.parse_args()
-    print(json.dumps(freeze(args.revision, args.output, args.guest_root), sort_keys=True))
+    print(json.dumps(freeze(args.revision, args.output, args.guest_root,
+                            close_updates=not args.close_without_update), sort_keys=True))

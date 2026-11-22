@@ -15,7 +15,7 @@ SCHEMA = "kit.sw2026.ellipse-seam-discriminator-result.v1"
 PHASE_SCHEMA = "kit.sw2026.ellipse-seam-discriminator-phase.v1"
 
 
-def native_phase(entry, record, path, plan, api):
+def native_phase(entry, record, path, plan, api, close_updates):
     import Swapp
     from AuthorCurves import Recorder
     from EllipseSeamAuthor import SeamAuthor
@@ -24,7 +24,7 @@ def native_phase(entry, record, path, plan, api):
     operation, role = entry["phase"].split("-")
     before = entry["input_sha256"]
     rec = Recorder(record, entry)
-    rec.data.update(schema=PHASE_SCHEMA, seam_stages=[], writer_output_count=0)
+    rec.data.update(schema=PHASE_SCHEMA, seam_stages=[], writer_output_count=0, close_updates=close_updates)
     session, success = None, False
     with Swapp.Dismisser() as monitor:
         try:
@@ -41,7 +41,7 @@ def native_phase(entry, record, path, plan, api):
             require(exact(identity) and session.revision == "34.5.2", "wrong native oracle or build")
             author = SeamAuthor(session.app, rec, api["enums"])
             if operation == "author":
-                profile = author.draw_profile(session, plan, api)
+                profile = author.draw_profile(session, plan, api, close_updates=close_updates)
                 if role == "boss":
                     author.create_boss(profile, plan, api)
                 author.check_shape(role, "before_save", plan, api)
@@ -114,7 +114,8 @@ def work(job_path, pin, phase, control_name, incoming):
     api = inspect_api()
     require(api == json.loads((capture / "RegisteredApi.json").read_bytes()),
             "registered ellipse seam interfaces changed")
-    return native_phase(entry, record, capture / DESTINATIONS[phase.split("-")[1]], plan, api)
+    return native_phase(entry, record, capture / DESTINATIONS[phase.split("-")[1]], plan, api,
+                        job.get("close_updates", True))
 
 
 def launch(job_path, pin, capture, phase, processes, *, control_name=None, incoming=None):
@@ -186,6 +187,7 @@ def run(job_path, pin):
     controls, phases, observed, processes = {}, {}, {}, []
     outcome = {"schema": SCHEMA, "job_sha256": pin, "revision": job["revision"], "tree": job["tree"],
                "oracle_build": BUILD, "oracle_sha256": ORACLE, "controls": controls, "phases": phases,
+               "close_updates": job.get("close_updates", True),
                "writer_output_count": 0, "native_writer_acceptance": False}
 
     def bracket(side):
