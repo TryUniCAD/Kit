@@ -16,6 +16,9 @@ from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.registry.NativeWrite import CheckNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+    IsRevRead,
+)
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
@@ -125,7 +128,9 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+        if type(AdapterData) is not SldprtWriter or not (
+            IsColdRead(DocumentData) or IsRevRead(DocumentData)
+        ):
             CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

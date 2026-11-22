@@ -12,7 +12,7 @@ from interchange import frozen_mapping as FreezeMapping
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.registry.RegistryErrors import RegistryError
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.base.WritePolicy import RunCheckedMut
+from convert.adapters.Staging.WriteStageMut import WriteStageMut
 from convert.adapters.base.WriteResult import WriteResult
 
 
@@ -207,10 +207,11 @@ def WritePathStaged(
             OptionValues = dict(OptionsData.OptionValues)
             OptionValues["final_destination"] = str(FinalPath)
             OptionValues["final_overwrite"] = OptionsData.Overwrite
-            ResultData = RunCheckedMut(
+            ResultData = WriteStageMut(
                 DocumentData,
                 AdapterData,
                 StagedTarget,
+                FinalPath,
                 ReplaceValue(
                     OptionsData,
                     overwrite=False,

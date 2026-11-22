@@ -30,11 +30,12 @@ def RequireDisplay(
         not in (
             RuntimeClass("moMateDistanceDim_c", 1),
             RuntimeClass("moExtrusion_c", 1),
+            RuntimeClass("moRevolution_c", 1),
         )
         or FieldInt(OwnerValue.FieldsValue, "f2b0") != 19000
     ):
         raise ValueError(
-            "display reuse requires a verified current mate distance or ordinary extrusion owner"
+            "display reuse requires a verified current mate distance, extrusion or revolve owner"
         )
     Dimension = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("ff0"))
     IsAngular = Dimension.ClassValue == RuntimeClass("AngleDim_c", 1)
@@ -55,6 +56,8 @@ def RequireDisplay(
         or TextKind != ExpectedKind
         or IsAngular
         and ExpectedKind == 18
+        or OwnerValue.ClassValue.NameValue == "moRevolution_c"
+        and not IsAngular
     ):
         raise ValueError(
             "display text kind disagrees with its verified native factory and dimension owner"

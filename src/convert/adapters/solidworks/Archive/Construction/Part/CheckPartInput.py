@@ -1,8 +1,6 @@
 from ntpath import basename as BaseName, splitext as SplitExt
 from typing import cast as CastValue
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
-)
+from convert.adapters.solidworks.Archive.Construction.Part.PartLabels import PartLabels
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
 )
@@ -17,7 +15,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # modeled presentation and provenance must agree with the supported neutral graph before construction can consume any persistent identity
 def CheckPartInput(
-    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: BlindPlan
+    DocumentValue: CadDocument, InputValue: PartBuildInput, PlanValue: PartLabels
 ) -> None:
     if type(InputValue) is not PartBuildInput:
         raise TypeError(
@@ -33,10 +31,11 @@ def CheckPartInput(
         )
     if (
         InputValue.SystemValue.OriginAxis != "z"
-        or dict(InputValue.SystemValue.PlaneNames).get("z") != PlanValue.PlaneName
+        or dict(InputValue.SystemValue.PlaneNames).get(PlanValue.AxisValue)
+        != PlanValue.PlaneName
     ):
         raise ValueError(
-            "part system support must match the actual neutral front plane"
+            "part system support must match the actual neutral principal plane"
         )
     if (
         InputValue.HeaderValue.CreatedAt != InputValue.SystemValue.CreatedAt

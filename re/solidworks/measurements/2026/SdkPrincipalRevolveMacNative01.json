@@ -1,0 +1,186 @@
+{
+  "cases": {
+    "PrincipalRevolveHeldoutRight": {
+      "edited_sha256": "a721d6228572e8a29cf56cb2ca0519739343d2c25f9fa0affb59a211e3f1ecc6",
+      "generated_proof_sha256": "8c5ec49430753f5dbe74f140d5a856c24d0944c6cd50baf5171eff457762b949",
+      "generated_sha256": "dfbefdfc55e8b2354f277a2bfa0192874fb40792f75124596250c11bc26812a7",
+      "phases": {
+        "edited": {
+          "angle_radians": 2.251474735072685,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586934
+            ],
+            "mass": 1.998728594203906e-05,
+            "volume": 1.998728594203906e-05
+          },
+          "mass": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          },
+          "reverse": false
+        },
+        "open": {
+          "angle_radians": 1.3089969389957472,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.003107832994738985,
+            "com": [
+              -0.01202367550757136,
+              0.004789999999999999,
+              -0.021009558996276358
+            ],
+            "mass": 1.1620515082580853e-05,
+            "volume": 1.1620515082580853e-05
+          },
+          "mass": {
+            "area": 0.0031078329947389844,
+            "com": [
+              -0.01202367550757136,
+              0.00479,
+              -0.021009558996276358
+            ],
+            "mass": 1.1620515082580853e-05,
+            "volume": 1.1620515082580853e-05
+          },
+          "reverse": false
+        },
+        "reopen": {
+          "angle_radians": 2.251474735072685,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          },
+          "mass": {
+            "area": 0.004698207726951052,
+            "com": [
+              -0.01536706901111703,
+              0.004789999999999999,
+              -0.012669715927586936
+            ],
+            "mass": 1.9987285942039063e-05,
+            "volume": 1.9987285942039063e-05
+          },
+          "reverse": false
+        }
+      }
+    },
+    "PrincipalRevolveHeldoutTop": {
+      "edited_sha256": "5c7f88bacf1b3363a0596eceaa22eb581f2728c7ce0237270ab0d5bc4b88008e",
+      "generated_proof_sha256": "796b428820a26c3d0f0485b409aec43a41a276271931a421fc9c8e50bc0bc948",
+      "generated_sha256": "08c42819d33e9796c3090e06daa82025a483796161e37546911d78e715d4f864",
+      "phases": {
+        "edited": {
+          "angle_radians": 4.590215932745087,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.01239047283662811,
+              0.0072796302927561,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "mass": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.012390472836628108,
+              0.007279630292756097,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "reverse": true
+        },
+        "open": {
+          "angle_radians": 2.949606435870417,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.008900666117151325,
+            "com": [
+              -0.0040232075677885505,
+              0.02001050449952112,
+              0.002294999999999998
+            ],
+            "mass": 4.4804312142665895e-05,
+            "volume": 4.4804312142665895e-05
+          },
+          "mass": {
+            "area": 0.008900666117151325,
+            "com": [
+              -0.004023207567788548,
+              0.02001050449952112,
+              0.002294999999999998
+            ],
+            "mass": 4.4804312142665895e-05,
+            "volume": 4.4804312142665895e-05
+          },
+          "reverse": true
+        },
+        "reopen": {
+          "angle_radians": 4.590215932745087,
+          "body_count": 1,
+          "feature_rows": 19,
+          "locked_source_mass": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.01239047283662811,
+              0.0072796302927561,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "mass": {
+            "area": 0.0132601947337917,
+            "com": [
+              -0.012390472836628108,
+              0.007279630292756097,
+              0.002294999999999997
+            ],
+            "mass": 6.972505380781728e-05,
+            "volume": 6.972505380781728e-05
+          },
+          "reverse": true
+        }
+      }
+    }
+  },
+  "controls_healthy": true,
+  "distinct_processes": 6,
+  "job_sha256": "e24be3c8e3fbefea0fcd53dbf48c07e2a60ea52d1965d48d7568d1cced8e148e",
+  "native_input_measurements_sha256": "8441d6c4fac5bb36621519e83c9e5a2bd5677cd25deae46536c4dfbacf4819d0",
+  "native_report_sha256": "42fef25d55e57f41b7482228f565e2053a14add5a7eb52a4c41dcd601b15660b",
+  "new_heldout_credit": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "paired_mass_metrics": 36,
+  "schema": "kit.sw2026.macos-generated-principal-revolve-native.v1",
+  "source_revision": "43e7180c726e990e6e3302a45302b801f542bf79",
+  "source_tree": "73c9b51c21a96d6978abbcc6a3d8a285281acc11"
+}
