@@ -69,10 +69,12 @@ extrusion's actual input sketch to select `PlanEllipse` and
 configuration and depth before the shared writer opens the destination.
 The selected configuration and final path use the established part options.
 
-The scoped linked readback selects the existing `ReadEllipses` context.
-A public reading route needs a separate ownership guard before enabling
-it. This host integration receipt binds the two disclosed qualified
-artifacts. The independent protected native result belongs to the
-earlier frozen construction method.
+The public reading route selects `ReadEllipses` after validating the
+actual cold profile, support and boss owners. Its default read derives
+the exact rational boundary from those editable owners.
+This host writer receipt binds the two disclosed qualified artifacts.
+The independent protected native result belongs to the earlier frozen
+construction method.
+[Strict public readback](EllipsePublicRead2026.md)
 [Disclosed native result](../measurements/2026/EllipseColdNativeDisclosed02.json)
 · [Protected native receipt](../measurements/2026/EllipseColdSealedNative01.json)

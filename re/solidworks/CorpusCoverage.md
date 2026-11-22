@@ -32,6 +32,14 @@ controls. These native-authored studies add zero benchmark conversions.
 [Chamfer evidence](measurements/2026/EdgeChamferSealedNative03.json)
 · [Ellipse evidence](measurements/2026/EllipseColdSealedNative01.json)
 
+Two pre-writer locked Standard sweep parts passed both independent D1
+edits and both fresh reopens. Twelve measured processes included both
+healthy controls and 168 paired numeric comparisons. Six guarded SDK
+processes also reproduced the two separately disclosed native-tested
+archives from typed portable sweep documents. These cases use native
+SOLIDWORKS originals. [Held-out lifecycle](measurements/2026/OrdinarySweepColdNativeHeldout01.json)
+[Typed document parity](measurements/2026/SdkPortableSweepDoc01.json)
+
 Four disclosed [principal-plane boss revolves](measurements/2026/SdkPrincipalRevolveNative01.json)
 match their native source shapes and reported feature trees through
 open, live D1 edit, save and fresh reopen. Both controls pass
