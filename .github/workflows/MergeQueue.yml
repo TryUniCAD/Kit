@@ -1188,6 +1188,43 @@ jobs:
             test "$?" -eq 23
           fi
 
+      - name: Verify public checksum classification stays narrow
+        run: |
+          set -euo pipefail
+          FixturePath=$(mktemp -d "${RUNNER_TEMP}/GitleaksChecksum.XXXXXX")
+          ConfigPath="${GITHUB_WORKSPACE}/.github/config/Gitleaks.toml"
+          ScannerPath="${RUNNER_TEMP}/gitleaks"
+          mkdir -p "${FixturePath}/.github/workflows"
+          grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
+            .github/workflows/SteeringSync.yml > "${FixturePath}/.github/workflows/SteeringSync.yml"
+          (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          )
+          cp "${FixturePath}/.github/workflows/SteeringSync.yml" "${FixturePath}/Other.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted another file"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+          rm -- "${FixturePath}/Other.yml"
+          sed 's/5034005417c0910a/6034005417c0910a/' \
+            "${FixturePath}/.github/workflows/SteeringSync.yml" > "${FixturePath}/Changed.yml"
+          mv -- "${FixturePath}/Changed.yml" "${FixturePath}/.github/workflows/SteeringSync.yml"
+          if (
+            cd "${FixturePath}"
+            "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23
+          ); then
+            echo "::error::The checksum classification accepted an unknown value"
+            exit 1
+          else
+            test "$?" -eq 23
+          fi
+
       - name: Run Gitleaks history secret audit
         run: >-
           "${RUNNER_TEMP}/gitleaks" git

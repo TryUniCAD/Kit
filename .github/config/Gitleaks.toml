@@ -26,3 +26,9 @@ condition = "AND"
 commits = ["86ab1082a65054afb2c2022c77b18cd3a6b59908"]
 paths = ['''^src/convert/adapters/solidworks/resolved/Core\.py$''']
 regexes = ['''^axis_kind=None$''']
+
+[[rules.allowlists]]
+description = "Public SHA256 of the reviewed readable WorkOS verification standard"
+condition = "AND"
+paths = ['''^\.github/workflows/SteeringSync\.yml$''']
+regexes = ['''^5034005417c0910a0582e6d6d099a177ca363a2934b8166647cdc7fbd602eb4b$''']

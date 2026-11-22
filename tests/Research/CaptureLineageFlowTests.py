@@ -10,6 +10,14 @@ from pytest import mark as MarkValue
 # fixture mutations affect only their private index and detached object store
 KSpecPath = "re/automation/PairSpecs.json"
 
+# each approved text migration must still reject arbitrary content mode and roster changes
+KMigrationPaths = (
+    "re/automation/Corpus.json",
+    "re/automation/PairedCaptures/SolidWorksAuthoring/BossWitnessReadback.cs",
+    "re/automation/PairedCaptures/SolidWorksAuthoring/P02Readback.cs",
+    "re/automation/PairedCaptures/SolidWorksAuthoring/RunBossWitness.ps1",
+)
+
 
 # real git commands keep the fixture at the repository boundary with bounded output
 def RunGit(
@@ -72,6 +80,35 @@ def MakeBare(RootPath: FilePath, Directory: FilePath, Revision: str) -> FilePath
 def MutateIndex(
     BarePath: FilePath, IndexPath: FilePath, Revision: str, CaseMode: str
 ) -> None:
+    if CaseMode.startswith("attribution-"):
+        Mutation, TargetPath = CaseMode.split(":", 1)
+        if Mutation == "attribution-missing":
+            _ = RunGit(
+                BarePath,
+                "update-index",
+                "--index-info",
+                InputData=f"0 {'0' * 40}\t{TargetPath}\n".encode(),
+                IndexPath=IndexPath,
+            )
+            return
+        BlobValue = RunGit(BarePath, "rev-parse", f"{Revision}:{TargetPath}")
+        if Mutation == "attribution-content":
+            SourceBytes = RunGit(BarePath, "show", f"{Revision}:{TargetPath}")
+            BlobValue = RunGit(
+                BarePath,
+                "hash-object",
+                "-w",
+                "--stdin",
+                InputData=SourceBytes + b"\nunapproved attribution edit\n",
+            )
+        _ = RunGit(
+            BarePath,
+            "update-index",
+            "--cacheinfo",
+            f"{'100755' if Mutation == 'attribution-mode' else '100644'},{BlobValue.decode().strip()},{TargetPath}",
+            IndexPath=IndexPath,
+        )
+        return
     if CaseMode == "changed-spec":
         BlobValue = RunGit(BarePath, "hash-object", "-w", "--stdin", InputData=b"{}\n")
         _ = RunGit(
@@ -156,12 +193,24 @@ def NewRevision(
 def AssertLineage(ResultData: dict[str, object], Revision: str) -> None:
     Report = ParseJson(EncodeJson(ResultData))
     assert Report["source_revision"] == Revision
-    assert Report["historical_lineage"] == {
-        "lineage_revision": "f5b23031c4163528a2e4f5029ab34102133b983e",
-        "input_tree_sha256": "ca44feca3f2ca32cd852f32e4afde2e5a2b334a8c83a150e813d8256f6c106b6",
-        "bound_input_count": 130,
-        "binding": "identical_tracked_file_modes_and_blob_ids",
-    }
+    assert (
+        Report["historical_lineage"]["lineage_revision"]
+        == "f5b23031c4163528a2e4f5029ab34102133b983e"
+    )
+    assert (
+        Report["historical_lineage"]["input_tree_sha256"]
+        == "ca44feca3f2ca32cd852f32e4afde2e5a2b334a8c83a150e813d8256f6c106b6"
+    )
+    assert Report["historical_lineage"]["bound_input_count"] == 130
+    assert (
+        Report["historical_lineage"]["binding"]
+        == "pinned_attribution_and_identical_tracked_file_modes_and_blob_ids"
+    )
+    assert len(Report["historical_lineage"]["current_input_tree_sha256"]) == 64
+    assert {
+        Entry["path"]
+        for Entry in Report["historical_lineage"]["attribution_migrations"]
+    } == set(KMigrationPaths)
     assert Report["summary"]["capture_receipts"] == 10
     assert Report["summary"]["native_files"] == 74
     assert Report["summary"]["qualified_pairs"] == 0
@@ -211,6 +260,15 @@ def BindOverrideMut(
         "missing-lineage",
         "outside-alias",
         "shallow-source",
+        *(
+            f"{Mutation}:{PathValue}"
+            for Mutation in (
+                "attribution-content",
+                "attribution-mode",
+                "attribution-missing",
+            )
+            for PathValue in KMigrationPaths
+        ),
     ),
 )
 def CheckLineage(CaseMode: str) -> None:

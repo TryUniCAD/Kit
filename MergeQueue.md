@@ -51,6 +51,11 @@ It also checks every registered workflow outcome. Unexpected failures,
 cancellations, timeouts, and skipped required jobs fail the aggregate.
 Jobs assigned to the other phase are explicitly deferred.
 
+The Gitleaks job classifies one reviewed standards SHA-256 as public data only at its exact workflow path.
+Real scanner probes require detection for that value in another file and for an unknown value at the allowed path.
+The complete history scan and upstream detector rules remain enabled.
+See [attribution queue repairs](Documentation/Changes/Ci/AttributionQueueRepair.md).
+
 The [breaking change label check](Documentation/Changes/BreakingChangeLabelChecks.md)
 separates PR event types into different concurrency groups and reads current metadata.
 The [PR diff breakdown](Documentation/Reference/Operations/DiffBreakdown.md)

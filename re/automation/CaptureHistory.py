@@ -27,6 +27,25 @@ SOLIDWORKS_AUTHORING_PATH = (
 # only the reviewed authoring revision can replace the live entry at that path
 SOLIDWORKS_AUTHORING_BLOB = "32f05b05db457b68f56091bf73bda00043b103c7"
 
+ATTRIBUTION_INPUTS = {
+    "re/automation/Corpus.json": (
+        "c9ab93069474450d48ad56e11d23482c1a4f712f",
+        "cc4877e647ce21904542913e1f85f181675c228f",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/BossWitnessReadback.cs": (
+        "2cbadb2bace2225d84f778a10d455fe35e075319",
+        "21d5c2e151a6894e562f6091038e769ef5293716",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/P02Readback.cs": (
+        "210c13c2a66d239a391afcf4e53860d6515af96b",
+        "655dfed84ac7e53ef62d7cbdb4efa53ac963f86c",
+    ),
+    "re/automation/PairedCaptures/SolidWorksAuthoring/RunBossWitness.ps1": (
+        "d456572fa62aeba43c8f7a56972afd727ca0e150",
+        "67f45c5be3109f08bc10a26a601e1ef5eee90396",
+    ),
+}
+
 
 def unique_fields(pairs):
     value = dict(pairs)
@@ -106,6 +125,8 @@ def bind_inputs(root, revision, source_revision, expected=None):
     if expected is not None and observed != expected:
         raise ValueError("historical lineage input tree differs from its contract")
     current = input_tree(root, revision)
+    current_digest = tree_digest(current)
+    migrations = []
     binding = "identical_tracked_file_modes_and_blob_ids"
     if (
         expected is not None
@@ -116,14 +137,29 @@ def bind_inputs(root, revision, source_revision, expected=None):
     ):
         current[SOLIDWORKS_AUTHORING_PATH] = original[SOLIDWORKS_AUTHORING_PATH]
         binding = "pinned_live_authoring_and_identical_historical_inputs"
+    if expected is not None:
+        for path, (before, after) in ATTRIBUTION_INPUTS.items():
+            if (
+                original.get(path) == {"mode": "100644", "git_blob": before}
+                and current.get(path) == {"mode": "100644", "git_blob": after}
+            ):
+                current[path] = original[path]
+                migrations.append({"path": path, "original_git_blob": before, "current_git_blob": after})
     if current != original:
         raise ValueError("current capture inputs differ from original lineage")
-    return {
+    result = {
         "lineage_revision": source_revision,
         "input_tree_sha256": observed,
         "bound_input_count": len(original),
         "binding": binding,
     }
+    if migrations:
+        result.update({
+            "binding": "pinned_attribution_and_" + binding,
+            "current_input_tree_sha256": current_digest,
+            "attribution_migrations": migrations,
+        })
+    return result
 
 
 def input_blobs(root, revision):
