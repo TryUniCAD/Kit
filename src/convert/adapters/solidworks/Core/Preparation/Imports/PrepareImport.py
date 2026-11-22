@@ -20,15 +20,13 @@ from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePart
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# a staged periodic part must carry the final filename and the actual single selected configuration
+# a staged local import must carry the final filename and actual selected configuration
 def PrepareImport(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     WrittenAt: int,
     SettingsValue: WriteOptions,
 ) -> ImportCandidate:
-    if not isinstance(TargetValue, (str, FilePath)):
-        raise TypeError("native periodic import requires a part path")
     FinalValue = SettingsValue.values.get("final_destination")
     if FinalValue is None:
         FinalValue = TargetValue
@@ -47,4 +45,5 @@ def PrepareImport(
         ReplaceValue(RecipeValue, OutputValue=OutputValue),
         PlanValue,
         AmbientValue=MakeImportLight(WrittenAt),
+        OwnedBody=PlanValue.OwnedBody,
     )

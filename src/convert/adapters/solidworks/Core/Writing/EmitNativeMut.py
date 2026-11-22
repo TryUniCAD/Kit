@@ -4,16 +4,15 @@ from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
-    ImportCandidate,
-)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
+from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
 from convert.adapters.solidworks.Core.Writing.Measured.EmitEqMut import EmitEqMut
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
     MatchPartMeas,
@@ -36,13 +35,6 @@ from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSwe
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Writing.Patterns.EmitPatMut import EmitPatMut
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Enums.EnumDocument import Capability
-
-# a bare import transfers the closed boundary and active configuration as native objects
-KImportTransfers = (
-    CapTransfer(Capability.KBrep, TransferMode.KNative),
-    CapTransfer(Capability.KConfigurations, TransferMode.KNative),
-)
 
 
 # publication verifies the complete regenerated archive before touching either kind of output target
@@ -65,6 +57,8 @@ def EmitNativeMut(
             return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     if HasEqIntent(DocumentValue):
         return EmitEqMut(DocumentValue, TargetValue, OptionsValue)
+    if not ReadbackValue and HasBareBrep(DocumentValue):
+        return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (
@@ -77,9 +71,7 @@ def EmitNativeMut(
     )
     Payload = Candidate.BytesValue
     Evidence = MatchPartMeas(Receipt, Payload)
-    Transfers: tuple[CapTransfer, ...] = (
-        KImportTransfers if isinstance(Candidate, ImportCandidate) else ()
-    )
+    Transfers: tuple[CapTransfer, ...] = ()
     if ReadbackValue:
         Transfers = tuple(
             CapTransfer(CapabilityValue, TransferMode.KNative)

@@ -13,6 +13,7 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.ReadFaceRing impor
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.ReadPrismFaces import (
     ReadPrismFaces,
 )
+from convert.adapters.solidworks.Core.Preparation.Imports.CheckLPrism import CheckLPrism
 from interchange.brep.Curves.BrepCurves import LineCurve
 from interchange.brep.Surfaces.BrepSurfaces import PlaneSurface
 from interchange.brep.Topology.BrepModel import BrepModel
@@ -40,18 +41,18 @@ def HasBoxCorners(ModelValue: BrepModel) -> bool:
 
 
 # each validated ring must lie exactly on the axis plane carried by its own face
-def CheckBoxPlanes(ModelValue: BrepModel) -> None:
+def CheckAxisPlanes(ModelValue: BrepModel) -> None:
     TopologyValue = BrepTopology(ModelValue)
     AxesValue = ((1.0, 0.0, 0.0), (0.0, 1.0, 0.0), (0.0, 0.0, 1.0))
     GroupsValue: set[tuple[int, float]] = set()
     for BoundaryValue in ReadPrismFaces(ModelValue, TopologyValue):
         PlaneValue = TopologyValue.surface_by_id[BoundaryValue.FaceValue.surface_id]
         if not isinstance(PlaneValue, PlaneSurface):
-            raise ValueError("local box requires plane carriers")
+            raise ValueError("local solid requires plane carriers")
         Normal = PlaneValue.normal
         Direction = (abs(Normal.x), abs(Normal.y), abs(Normal.z))
         if Direction not in AxesValue:
-            raise ValueError("local box requires exact axis-plane normals")
+            raise ValueError("local solid requires exact axis-plane normals")
         AxisIndex = AxesValue.index(Direction)
         Origin = PlaneValue.origin
         Station = (Origin.x, Origin.y, Origin.z)[AxisIndex]
@@ -63,16 +64,26 @@ def CheckBoxPlanes(ModelValue: BrepModel) -> None:
             (PointValue.x, PointValue.y, PointValue.z)[AxisIndex]
             for PointValue in PointsValue
         } != {Station}:
-            raise ValueError("local box plane does not match its exact face station")
+            raise ValueError("local solid plane does not match its exact face station")
         GroupsValue.add((AxisIndex, Station))
-    if len(GroupsValue) != 6:
-        raise ValueError("local box requires six distinct face planes")
+    if len(GroupsValue) != len(ModelValue.faces):
+        raise ValueError("local solid requires distinct face planes")
 
 
-# matching corners still require the shared compiler to prove the complete outward face and trim graph
-def CheckImportGeo(ModelValue: BrepModel) -> None:
+# each measured planar profile uses its own typed ownership and the shared closed trim validation
+def IsOwnedPrism(ModelValue: BrepModel) -> bool:
     if HasBoxCorners(ModelValue):
         _ = MakeLocalPrism(ModelValue)
-        CheckBoxPlanes(ModelValue)
-        return
+        CheckAxisPlanes(ModelValue)
+        return False
+    if (
+        len(ModelValue.faces),
+        len(ModelValue.edges),
+        len(ModelValue.vertices),
+    ) == (8, 18, 12):
+        _ = MakeLocalPrism(ModelValue)
+        CheckAxisPlanes(ModelValue)
+        CheckLPrism(ModelValue)
+        return True
     _ = ReadCylShape(ModelValue)
+    return False

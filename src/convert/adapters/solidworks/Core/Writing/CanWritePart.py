@@ -14,9 +14,6 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
-from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
-    PlanImportPart,
-)
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
@@ -31,6 +28,7 @@ from convert.adapters.solidworks.Core.Writing.AttachedBox.ProveBoxSource import 
     ProveBoxSource,
 )
 from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
+from convert.adapters.solidworks.Core.Writing.Imports.CanImportPart import CanImportPart
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -76,8 +74,7 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             EllipseValue = PlanEllipse(DocumentValue)
             return IsPartTarget(EllipseValue.NameValue, TargetValue)
         if DocumentValue.brep is not None:
-            _ = PlanImportPart(DocumentValue, TargetValue)
-            return True
+            return CanImportPart(DocumentValue, TargetValue)
         PlanValue = PlanNativePart(DocumentValue)
     except (IndexError, TypeError, ValueError):
         return False

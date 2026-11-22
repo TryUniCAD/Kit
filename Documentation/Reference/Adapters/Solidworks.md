@@ -744,7 +744,8 @@ and alternate models remain useful for preparation and reader checks.
 Model-only preparation accepts an ordinary `.SLDPRT` destination and a
 geometry-only millimetre document with one active configuration.
 The solid may be a closed axis-aligned rectangular prism with exact
-plane and edge ownership, or a closed periodic cylinder. The cylinder's
+plane and edge ownership, an orthogonal concave L prism or a closed
+periodic cylinder. The cylinder's
 two outward caps and full circular rims share the signed mantle axis
 and retain the canonical linked seam ownership. The destination
 supplies the part name and the configuration retains its authored name.
@@ -754,6 +755,14 @@ requests carrying source identity or additional model content refuse
 before publication.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 · [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
+
+Exact measured publication supports the disclosed bare rectangle and
+one orthogonal concave L prism. Pass the completed import report through
+the native measurement envelope and supply its exact locator and epoch.
+A binary stream requires the measured `final_destination`. A filesystem
+destination must use the corresponding actual Windows path. The result
+reports unavailable editable history for the imported body.
+[Measured planar publication](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredPlanarImports.md)
 
 ### Preparing one angle-distance edge chamfer
 

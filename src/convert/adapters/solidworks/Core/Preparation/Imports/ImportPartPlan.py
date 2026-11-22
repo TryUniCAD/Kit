@@ -10,3 +10,4 @@ class ImportPartPlan:
     PlaneName: str = "Front Plane"
     AxisValue: str = "z"
     SketchName: str = ""
+    OwnedBody: bool = False

@@ -16,6 +16,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.BindImportMut
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.CheckBareImport import (
     CheckBareImport,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.EncodeImpBody import (
+    EncodeImpBody,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.FinishImportMut import (
     FinishImportMut,
 )
@@ -68,21 +71,11 @@ from convert.adapters.solidworks.Archive.Partition.ImportHistory.ImportEvent imp
 from convert.adapters.solidworks.Archive.Partition.ImportHistory.MakeImportHist import (
     MakeImportHist,
 )
-from convert.adapters.solidworks.Archive.Partition.LocalCylinder.MakeLocalCyl import (
-    MakeLocalCyl,
-)
-from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPrism import (
-    MakeLocalPrism,
-)
-from convert.adapters.solidworks.Archive.Partition.LocalWrite.EncodeLocalBody import (
-    EncodeLocalBody,
-)
 from convert.adapters.solidworks.Container.Container import BuildSldprt
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
     KPartitionStream,
 )
-from interchange.brep.Surfaces.BrepSurfaces import CylinderSurface
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -97,17 +90,12 @@ def MakeBareImport(
     NotesValue: NotesInput | None = None,
     HasEmptyExplodedView: bool = False,
     KeywordInput: ImportKeyInput | None = None,
+    OwnedBody: bool = False,
 ) -> ImportCandidate:
     if type(HasEmptyExplodedView) is not bool:
         raise TypeError("part exploded view presence requires an explicit boolean")
     Selected = ReadImportScene(AmbientValue, LightValues)
     ModelValue = CheckBareImport(DocumentValue, InputValue, LabelsValue, Selected)
-    NodesValue = (
-        MakeLocalCyl(ModelValue)
-        if any(isinstance(Surface, CylinderSurface) for Surface in ModelValue.surfaces)
-        else MakeLocalPrism(ModelValue)
-    )
-    LocalValue = EncodeLocalBody(LabelsValue.FeatureName, NodesValue)
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, LabelsValue, Allocator)
     TargetValue = InputValue.TargetValue
@@ -134,7 +122,10 @@ def MakeBareImport(
         )
     SetCfgStampMut(SystemValue.ConfigValues[0], Allocator)
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
-    _ = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
+    BodyStamp = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
+    LocalValue = EncodeImpBody(
+        ModelValue, LabelsValue.FeatureName, FeatureValue, AtomId, BodyStamp, OwnedBody
+    )
     FinishImportMut(SystemValue, FeatureValue, HeadersValue, InputValue)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
     KeywordsValue = MakeImportKeys(
