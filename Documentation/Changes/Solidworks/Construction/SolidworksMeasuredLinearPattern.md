@@ -6,7 +6,8 @@ four axis relations each, a forward blind plate and joined raised seed, a
 finite Top/Right hinge, an acute angular plane, and one signed linear pattern.
 The final solid contains two through eight disjoint raised instances wholly
 inside the plate. It retains the two stock depths, plane angle, instance count,
-and spacing as editable dimensions.
+and spacing as editable dimensions. The measured stock sketches use
+horizontal and vertical relations and have no sketch dimension parameters.
 
 Submit a complete neutral part to the normal SOLIDWORKS SDK writer. When
 exact source presentation matters, add the typed `PatPresentInput` in
@@ -27,10 +28,16 @@ rebuild, spacing edit, save and fresh reopen, bracketed by two healthy
 controls. Fresh SDK processes reproduced their complete archive hashes in
 the direct writer, public registry and strict cold readback republication.
 They recovered the linked plan, selected body owners, annotation presentation
-and matching geometry without CAD runtime or input file reads. See the
+and matching geometry without CAD runtime or input file reads. Design-only
+strict reads retain the same typed feature and driver owners and can publish
+the exact measured archive from a restored neutral JSON document. Both strict
+read modes refuse a recognized cache-free pattern with incomplete typed
+history. See the
 [scope and reproduction record](../../../../re/solidworks/records/MeasuredLocalLinearPattern2026.md).
 
-Warm saves, alternate pattern modes, overlapping instances, and compressed
-variants with a different file digest remain outside this publication scope.
+Warm saves, alternate pattern modes, overlapping instances, and outputs
+with new file digests remain outside this publication scope. This includes
+Kit-authored edits to held values and compression variants that have not
+completed a fresh native measurement.
 The [adapter guide](../../../Reference/Adapters/Solidworks.md#measured-local-linear-pattern)
 describes caller options and the destination boundary.

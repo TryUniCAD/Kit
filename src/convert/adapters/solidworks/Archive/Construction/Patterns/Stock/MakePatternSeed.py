@@ -49,7 +49,7 @@ def MakePatternSeed(InputValue: SeedStockInput) -> SeedStockGraph:
     PlatePlan = MakeSeedStock(InputValue, InputValue.PlateValue, PlateBounds)
     SeedPlan = MakeSeedStock(InputValue, InputValue.SeedValue, SeedBounds)
     SettingsValue = ReplaceValue(
-        MakePartRecipe(PlatePlan, InputValue.SavedAt),
+        MakePartRecipe(PlatePlan.NameValue, PlatePlan.PlaneName, InputValue.SavedAt),
         OutputValue=SelfFileInput(InputValue.PathValue, InputValue.SavedAt),
     )
     TreeInput = SettingsValue.SystemValue
@@ -62,7 +62,9 @@ def MakePatternSeed(InputValue: SeedStockInput) -> SeedStockGraph:
     if len(set(AllNames)) != len(AllNames):
         raise ValueError("raised seed operation and support names must be distinct")
     Allocator = PersistentIds()
-    SystemValue = MakePartBaseMut(SettingsValue, PlatePlan, Allocator)
+    SystemValue = MakePartBaseMut(
+        SettingsValue, PlatePlan.NameValue, PlatePlan.ConfigName, Allocator
+    )
     Manager = SystemValue.RootValue.FieldsValue.get("fd88")
     if not isinstance(Manager, dict):
         raise ValueError("raised seed requires the actual root atom manager")

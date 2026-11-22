@@ -14,9 +14,9 @@ from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.ColdPatInput
     ColdPatInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.PatReadData import (
+    IsPatRead,
     PatDocName,
 )
-from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -26,7 +26,7 @@ def PatWritePlan(
     Target: SelfFileInput,
     Presentation: PatPresentInput | None = None,
 ) -> LinPatternInput:
-    if IsColdRead(Document):
+    if IsPatRead(Document):
         Neutral, Original = ColdPatInput(Document, PatDocName(Document))
         if Presentation is not None and Presentation != Original:
             raise ValueError("cannot replace a cold pattern's authored presentation")

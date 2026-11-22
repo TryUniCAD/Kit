@@ -362,7 +362,9 @@ The SOLIDWORKS writer also accepts one bounded oblique linear pattern built
 from two Front sketch rectangles with horizontal and vertical relations,
 a blind plate and joined raised seed, a finite Top/Right hinge, and a
 driving angular plane. The single pattern direction uses that actual plane.
-The instance footprints must be disjoint and interior to the plate.
+The instance footprints must be disjoint and interior to the plate. The
+measured rectangles use relations and authored vertex positions. Sketch
+dimension parameters are outside this profile.
 
 For independent authored input, use the five qualified feature steps and
 pass a typed `PatPresentInput` under
@@ -370,6 +372,9 @@ pass a typed `PatPresentInput` under
 catalog and label placement. The presentation refers to the real angle,
 count and pitch parameter IDs. Strict cold SDK reads recover and reuse
 the validated annotation and body selection owners from the native graph.
+With `include_brep=False`, the same typed history can be transported using
+`CadDocument.to_json()` and `CadDocument.from_json()` and republished with
+the matching native receipt.
 
 Use the regular `solidworks_native_measurement` option with
 `{"written_at": ..., "receipt": {"packet": ..., "result": ...}}`.
@@ -385,8 +390,10 @@ logical directory refuses before publication.
 
 The pattern reader derives the linked solid from the cold editable graph
 when physical geometry caches are absent. Raw Parasolid extraction still
-requires a real payload. Warm saved pattern variants and unmeasured archive
-hashes remain outside this writer boundary.
+requires a real payload. Both strict read modes refuse a cache-free
+pattern with incomplete typed ownership. Warm saved pattern variants
+and newly generated digests from a model or compressor edit remain
+outside the current publication boundary.
 [Measured pattern change](../../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
 
 ## Geometry cache boundary

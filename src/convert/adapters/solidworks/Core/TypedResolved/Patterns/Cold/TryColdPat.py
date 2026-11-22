@@ -1,7 +1,9 @@
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
+from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
     CheckGeometry,
@@ -52,14 +54,15 @@ def TryColdPat(
     Archive: SldprtArchive, ModelValue: NativeModel, Settings: ReadOptions, BodyId: str
 ) -> ColdPatPart | None:
     if (
-        not Settings.include_brep
-        or Settings.extract_raw_brep
-        or ModelValue.active_configuration_id != 0
+        Settings.extract_raw_brep
+        or ContainerMo(Archive.streams) != 19000
         or not any(Value.class_name == "moLPattern_c" for Value in ModelValue.features)
         or not IsCacheAbsent(Archive)
     ):
         return None
     try:
+        if ModelValue.active_configuration_id != 0:
+            raise ValueError("cold linear pattern requires physical configuration zero")
         LinkValue = ReadNativeLink(Archive, 0, PartPattern=True)
         Manager = ReadCmgrMut(Archive.require("Contents/CMgr"), 19000)
         Header = ReadHeaderGraph(Archive.require("Header2"), 19000)
@@ -104,5 +107,9 @@ def TryColdPat(
             (PlateValue, SeedValue),
             LookValue,
         )
-    except (ValueError, TypeError, KeyError, OverflowError):
+    except (ValueError, TypeError, KeyError, OverflowError) as ErrorInfo:
+        if Settings.strict:
+            raise SldprtFormat(
+                "cache-free linear pattern lacks a verified typed feature history"
+            ) from ErrorInfo
         return None

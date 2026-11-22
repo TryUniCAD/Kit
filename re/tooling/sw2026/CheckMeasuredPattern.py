@@ -1,11 +1,13 @@
 from argparse import ArgumentParser
 from codecs import lookup
+from contextlib import contextmanager
 from dataclasses import replace
 from hashlib import sha256
 from importlib import import_module
 from io import BytesIO
 import json
 from math import isclose
+from os import getpid
 from pathlib import Path, PureWindowsPath
 import sys
 from tempfile import TemporaryDirectory
@@ -76,16 +78,19 @@ def plan_presentation(row):
     )
 
 
-def reject(call, reason):
+def reject(call, reason, exception=ValueError):
     try:
         call()
-    except ValueError as error:
+    except exception as error:
         require(reason in str(error), f"unexpected refusal: {error}")
         return str(error)
     raise ValueError("unsupported pattern published successfully")
 
 
-def check_rejections(document, readback, packet, native_path, values, public, direct, permissive):
+def check_rejections(document, readback, design, packet, native_path, values, public, direct, permissive):
+    from convert.adapters.registry.RegistryErrors import NotFoundError
+    from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
+
     scope = document.feature_timeline
     pattern = scope[-1]
     _, pitch = pattern.parameter_ids
@@ -97,6 +102,17 @@ def check_rejections(document, readback, packet, native_path, values, public, di
         parameters=tuple(replace(item, value=spacing) if item is driver else item for item in document.parameters),
     )
     extra = replace(readback, metadata={**readback.metadata, "other_source_state": True})
+    design_extra = replace(design, metadata={**design.metadata, "other_source_state": True})
+    sketch = document.sketches[0]
+    dimension = replace(driver, id="extra-sketch-width", name="Width", owner_id=sketch.id)
+    relation = SketchRelation("extra-width-relation", "distance",
+                              (ConstraintRef(sketch.entities[0].id),), dimension.id)
+    dimensional = replace(
+        document, parameters=(*document.parameters, dimension),
+        sketches=(replace(sketch, parameter_ids=(dimension.id,), constraints=(*sketch.constraints, relation)),
+                  *document.sketches[1:]),
+    )
+    dimensional.assert_valid()
     wrong_id = replace(values[PRESENTATION], PitchParamId="unowned pitch")
     failed_bind = {**values, PRESENTATION: wrong_id}
     evidence = values[MEASUREMENT]
@@ -113,6 +129,8 @@ def check_rejections(document, readback, packet, native_path, values, public, di
          "no exact native linear pattern measurement"),
         ("extra_source_domain", extra, {key: value for key, value in values.items() if key != PRESENTATION},
          "readback differs from its regenerated part"),
+        ("extra_design_only_domain", design_extra, {key: value for key, value in values.items() if key != PRESENTATION},
+         "readback differs from its regenerated part"),
         ("wrong_presentation_owner", document, failed_bind, "not bound to the actual active parameter owners"),
     )
     count = 0
@@ -123,6 +141,14 @@ def check_rejections(document, readback, packet, native_path, values, public, di
             reject(lambda: write(model, target, options), reason)
             require((target.getvalue(), target.tell()) == (b"untouched output", 2), "refusal modified caller output")
             count += 1
+    for write, error, reason in ((public, NotFoundError, "does not support the destination"),
+                                 (direct, ValueError, "complete owned five operation document graph")):
+        target = BytesIO(b"untouched output")
+        target.seek(2)
+        reject(lambda: write(dimensional, target, values), reason, error)
+        require((target.getvalue(), target.tell()) == (b"untouched output", 2),
+                "extra sketch driver modified caller output")
+        count += 1
     target = BytesIO(b"untouched output")
     reject(lambda: permissive(changed, target, values), "no exact native linear pattern measurement")
     require(target.getvalue() == b"untouched output", "permissive policy bypassed native measurement")
@@ -141,6 +167,14 @@ def check_semantics(readback, original, report):
     count, pitch = (next(value for value in readback.parameters if value.id == key)
                     for key in pattern.parameter_ids)
     authored = original.feature_timeline[-1].definition
+    for authored_sketch, recovered_sketch in zip(original.sketches, readback.sketches, strict=True):
+        for sketch in (authored_sketch, recovered_sketch):
+            require(not sketch.parameter_ids
+                    and all(item.parameter_id is None and item.driving and not item.suppressed
+                            for item in sketch.constraints)
+                    and sorted(item.kind for item in sketch.constraints) == [
+                        "horizontal", "horizontal", "vertical", "vertical"],
+                    "the supported rectangle scope requires four live relations with no sketch dimensions")
     require(readback.brep is not None and not readback.brep_payloads
             and body.final_feature_id == pattern.id
             and len(readback.configurations) == 1 and readback.configurations[0].active
@@ -165,14 +199,75 @@ def check_semantics(readback, original, report):
             "pitch_mm": pitch.value.value, "reversed": model.reversed}
 
 
-def verify(root, name, scratch, verify_runtime_boundary):
+def check_design_history(payload, full, open_document, open_archive, build_archive):
+    from convert.adapters.solidworks.Core.Adapter import KSourceSemanticShaTwoFive, SemanticShaTwo
+    from interchange.Enums.EnumDocument import Capability
+
+    design = open_document(BytesIO(payload), source_format=FORMAT, strict=True, include_brep=False)
+    expected = replace(full, brep=None, capabilities=full.capabilities - {Capability.BREP})
+    expect_digest = SemanticShaTwo(expected)
+    require(full.metadata[KSourceSemanticShaTwoFive] == SemanticShaTwo(full),
+            "full read no longer owns its derived geometry in the semantic digest")
+    expected = replace(expected, metadata={**expected.metadata, KSourceSemanticShaTwoFive: expect_digest})
+    require(design == expected, "design-only pattern lost a typed owner or source domain")
+    streams = dict(open_archive(payload).streams)
+    del streams["Contents/CMgr"]
+    unqualified = build_archive(streams, FormatVersion=4)
+    for geometry in (True, False):
+        reject(lambda: open_document(BytesIO(unqualified), source_format=FORMAT, strict=True,
+                                     include_brep=geometry),
+               "cache-free linear pattern lacks a verified typed feature history")
+    return design, unqualified
+
+
+def check_permissive_history(unqualified, design, open_document):
+    from interchange.Features.FeatureKinds import LinearPattern
+
+    permissive = open_document(BytesIO(unqualified), source_format=FORMAT, strict=False, include_brep=False)
+    pattern, = (item for item in design.feature_timeline if type(item.definition) is LinearPattern)
+    incomplete, = (item for item in permissive.feature_timeline if item.name == pattern.name)
+    require(type(incomplete.definition) is not LinearPattern and permissive.brep is None,
+            "permissive incomplete archive gained unverified typed history")
+
+
+def capture_candidate(directory, raw, report, root):
+    directory.mkdir(exist_ok=False)
+    with (directory / f"{report['case']}.SLDPRT").open("xb") as output:
+        output.write(raw)
+    bindings = {
+        **report,
+        "capture_schema": "kit.sw2026.pattern-compression-capture.v1",
+        "worker_sha256": digest(HERE.read_bytes()),
+        "sdk_source_sha256": tree_digest(root / "src"),
+        "python_version": sys.version,
+        "runtime_platform": sys.platform,
+        "worker_pid": getpid(),
+    }
+    with (directory / "Capture.json").open("xb") as output:
+        output.write((json.dumps(bindings, sort_keys=True, indent=2, allow_nan=False) + "\n").encode())
+    return bindings
+
+
+def tree_digest(directory):
+    source = sha256()
+    entries = (path.relative_to(directory) for path in directory.rglob("*") if path.is_file())
+    for relative in sorted(entries, key=lambda path: path.as_posix()):
+        if "__pycache__" not in relative.parts and relative.suffix != ".pyc":
+            path = directory / relative
+            source.update(relative.as_posix().encode())
+            source.update(b"\0")
+            source.update(sha256(path.read_bytes()).digest())
+    return source.hexdigest()
+
+
+def verify(root, name, scratch, verify_runtime_boundary, capture=None):
     scratch = scratch.resolve()
     request, evidence, result, request_sha, expected_streams = read_inputs(root, name)
     sys.path.insert(0, str(root / "src"))
     from convert import extract_brep, open_document, write_document
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.base.WritePolicy import GetDocumentCaps
-    from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
     from convert.adapters.solidworks.Core.Preparation.Patterns.PreparePat import PreparePat
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
     from interchange import CadDocument
@@ -221,46 +316,66 @@ def verify(root, name, scratch, verify_runtime_boundary):
             blocked.append(event)
             raise RuntimeError(f"pattern worker attempted filesystem or CAD launch: {event}")
 
+    @contextmanager
+    def guard():
+        nonlocal active
+        active = True
+        try:
+            yield
+        finally:
+            active = False
+
     sys.addaudithook(audit)
     if verify_runtime_boundary and "zlib-ng" in ZLIB_RUNTIME_VERSION:
-        active = True
-        prepared = PreparePat(parsed, BytesIO(), request["target"]["SavedAt"],
-                              WriteOptions(values={"final_destination": native_path}), presentation)
+        with guard():
+            prepared = PreparePat(parsed, BytesIO(), request["target"]["SavedAt"],
+                                  WriteOptions(values={"final_destination": native_path}), presentation)
+            if digest(prepared) != SOURCE_HASHES[name]:
+                readback = open_document(BytesIO(prepared), source_format=FORMAT, strict=True)
+                semantic = check_semantics(readback, parsed, result["phases"][f"{name}-edit"])
+                design, incomplete = check_design_history(prepared, readback, open_document,
+                                                          SldprtArchive.from_bytes, BuildSldprt)
+                for write in (public, direct):
+                    untouched = BytesIO()
+                    reject(lambda: write(parsed, untouched, values), "no exact native linear pattern measurement")
+                    require(untouched.getvalue() == b"", "unmeasured compressor published an archive")
+                streams = stream_manifest(SldprtArchive.from_bytes(prepared))
+                require(streams == expected_streams and not blocked, "alternate runtime changed logical streams")
         if digest(prepared) != SOURCE_HASHES[name]:
-            readback = open_document(BytesIO(prepared), source_format=FORMAT, strict=True)
-            semantic = check_semantics(readback, parsed, result["phases"][f"{name}-edit"])
-            for write in (public, direct):
-                untouched = BytesIO()
-                reject(lambda: write(parsed, untouched, values), "no exact native linear pattern measurement")
-                require(untouched.getvalue() == b"", "unmeasured compressor published an archive")
-            streams = stream_manifest(SldprtArchive.from_bytes(prepared))
-            require(streams == expected_streams and not blocked, "alternate runtime changed logical streams")
-            return {"case": name, "request_sha256": request_sha, "generated_sha256": digest(prepared),
-                    "streams": streams, "publication_count": 0, "refusal_count": 2,
-                    "runtime_input_file_reads": len(blocked), "native_launches": 0, "semantics": semantic,
-                    "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "unmeasured_binary_envelope_refused"}
-        active = False
+            check_permissive_history(incomplete, design, open_document)
+            report = {"case": name, "request_sha256": request_sha, "generated_sha256": digest(prepared),
+                      "bytes": len(prepared), "streams": streams, "publication_count": 0, "refusal_count": 2,
+                      "runtime_input_file_reads": len(blocked), "native_launches": 0, "semantics": semantic,
+                      "design_only_history_equal": True, "strict_history_refusal_count": 2,
+                      "permissive_history_unqualified": True,
+                      "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "unmeasured_binary_envelope_refused"}
+            return capture_candidate(capture, prepared, report, root) if capture else report
     original, direct_output, retained, direct_retained = (BytesIO() for _ in range(4))
     target = scratch / (name + ".SLDPRT")
-    with target.open("xb") as file_sink:
-        active = True
+    with target.open("xb") as file_sink, guard():
         neutral_results = [public(parsed, original, values), direct(parsed, direct_output, values),
                            public(parsed, file_sink, values)]
         raw = original.getvalue()
         readback = open_document(BytesIO(raw), source_format=FORMAT, strict=True)
+        design, incomplete = check_design_history(raw, readback, open_document, SldprtArchive.from_bytes, BuildSldprt)
         snapshot = CadDocument.from_json(readback.to_json())
+        design_snapshot = CadDocument.from_json(design.to_json())
+        design_sinks = (BytesIO(), BytesIO())
         readback_results = [public(readback, retained, reopen_values), direct(snapshot, direct_retained, reopen_values)]
+        design_results = [public(design_snapshot, design_sinks[0], reopen_values),
+                          direct(design, design_sinks[1], reopen_values)]
         require(digest(raw) == SOURCE_HASHES[name]
-                and direct_output.getvalue() == retained.getvalue() == direct_retained.getvalue() == raw,
+                and direct_output.getvalue() == retained.getvalue() == direct_retained.getvalue() == raw
+                and all(sink.getvalue() == raw for sink in design_sinks),
                 "measured registry or direct model and readback publication diverged")
-        for doc, results in ((parsed, neutral_results), (readback, readback_results)):
+        for doc, results in ((parsed, neutral_results), (readback, readback_results), (design, design_results)):
             require(all(item.vendor_loadable and item.application_usable and not item.dropped
                         and item.bytes_written == len(raw) and item.native_capabilities == GetDocumentCaps(doc)
                         and item.metadata[MEASUREMENT]["generated_sha256"] == digest(raw) for item in results),
                     "every published pattern must retain complete native transfer evidence")
         semantics = check_semantics(readback, parsed, result["phases"][f"{name}-edit"])
-        refused = check_rejections(parsed, readback, evidence, native_path, values, public, direct, permissive)
-        active = False
+        refused = check_rejections(parsed, readback, design, evidence, native_path, values, public, direct, permissive)
+    check_permissive_history(incomplete, design, open_document)
     path_source = open_document(target, source_format=FORMAT, strict=True)
     require(path_source.feature_timeline == readback.feature_timeline and path_source.bodies == readback.bodies,
             "strict path and binary input describe different pattern owners")
@@ -268,10 +383,9 @@ def verify(root, name, scratch, verify_runtime_boundary):
     unmeasured = scratch / "Other" / target.name
     unmeasured.parent.mkdir()
     unmeasured.write_bytes(b"prior path")
-    active = True
-    reject(lambda: write_document(parsed, unmeasured, overwrite=True, values=values, allow_carrier=False),
-           "no exact native linear pattern measurement")
-    active = False
+    with guard():
+        reject(lambda: write_document(parsed, unmeasured, overwrite=True, values=values, allow_carrier=False),
+               "no exact native linear pattern measurement")
     require(unmeasured.read_bytes() == b"prior path" and tuple(unmeasured.parent.iterdir()) == (unmeasured,),
             "failed measured path replacement changed the prior file or left staging artifacts")
     raw_path = scratch / "Raw"
@@ -280,11 +394,14 @@ def verify(root, name, scratch, verify_runtime_boundary):
             "absent raw extraction produced output or imported a CAD runtime")
     streams = stream_manifest(SldprtArchive.from_bytes(raw))
     require(streams == expected_streams, "complete file did not retain all independently pinned logical streams")
-    return {"case": name, "request_sha256": request_sha,
+    report = {"case": name, "request_sha256": request_sha,
             "generated_sha256": digest(raw), "bytes": len(raw),
-            "streams": streams, "publication_count": len(neutral_results) + len(readback_results),
+            "streams": streams, "publication_count": len(neutral_results) + len(readback_results) + len(design_results),
             "refusal_count": refused + 2, "runtime_input_file_reads": len(blocked), "native_launches": 0,
+            "design_only_history_equal": True, "strict_history_refusal_count": 2,
+            "permissive_history_unqualified": True,
             "semantics": semantics, "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "native_hash_reproduced"}
+    return capture_candidate(capture, raw, report, root) if capture else report
 
 
 def stream_manifest(archive):
@@ -296,9 +413,12 @@ def main():
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--case", choices=tuple(SOURCE_HASHES), required=True)
     parser.add_argument("--verify-runtime-boundary", action="store_true")
+    parser.add_argument("--capture-candidate", type=Path)
     args = parser.parse_args()
     with TemporaryDirectory(prefix="KitMeasuredPattern-") as directory:
-        print(json.dumps(verify(args.root.resolve(), args.case, Path(directory), args.verify_runtime_boundary), sort_keys=True))
+        report = verify(args.root.resolve(), args.case, Path(directory),
+                        args.verify_runtime_boundary or args.capture_candidate is not None, args.capture_candidate)
+    print(json.dumps(report, sort_keys=True))
 
 
 if __name__ == "__main__":

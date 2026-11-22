@@ -19,9 +19,14 @@ native batch used SOLIDWORKS 2026 SP05.2 (`34.5.2.0604`), executable SHA
 `3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe`.
 Its two controls bracket four separate candidate processes. Both
 candidates opened and rebuilt without reported errors or warnings.
-Each actual D3 spacing edit rebuilt and saved. Each separate reopen
-matched the stored edit. The original-to-edit and reopen phases have 55
-and 33 numeric checks per candidate, with no controller diagnostics.
+Native D1 count and D3 spacing were observed as live editable pattern
+parameters. The stock feature depths and angled datum constraint were
+measured as separate native relationships. The batch changed D3 from
+18 to 24 mm in A and from 19 to 22 mm in B. Each edit rebuilt and saved,
+and each separate reopen matched the stored edit. The original-to-edit
+and reopen phases have 55 and 33 numeric checks per candidate, with no
+controller diagnostics. A SOLIDWORKS edit/save and a Kit publication
+after a neutral edit are separate operations.
 
 | Candidate | Exact original archive | Bytes | Original topology | Volume in mm³ | Area in mm² |
 | --- | --- | ---: | --- | ---: | ---: |
@@ -66,10 +71,22 @@ checks cover the base transforms, view aliases, role membership,
 and inactive secondary direction. The strict reader also projects the
 real two original stock rectangles and their four axis relations, both
 independent native depths, directed hinge and angular plane, and both
-stock body picks. Cold republication regenerates from those fields
-and compares the full neutral result from a new strict decode before
-matching the complete native-measured output. It refuses residual
-readback metadata that is absent from that reproduction.
+stock body picks. Each original sketch has two horizontal and two
+vertical relations and no sketch dimension parameter. The rectangles'
+sizes and positions are authored by their vertices. A valid neutral
+input with an added sketch dimension refuses before writing.
+
+Strict reads with `include_brep=False` recover the same features,
+dimensions, constraints, selections, configurations, and body metadata.
+They omit the derived B-rep and its capability and recompute the semantic
+fingerprint for that projection. A recognized cache-free version-19000
+pattern with missing typed history refuses in either strict mode.
+Permissive inspection can return unqualified native-only history.
+
+Cold republication regenerates the archive and checks the entire neutral
+result against a new strict decode in the same geometry mode. It refuses
+any residual readback state absent from that reproduction before requiring
+a matching complete-file native receipt.
 
 The measured historical family has distinct pre-writer locked native
 tests on the aggregate branch. The previously locked method, native
@@ -89,19 +106,32 @@ python3.14 -I -B re/tooling/sw2026/CheckMeasuredPattern.py --case ColdRaisedPatt
 ```
 
 Each process admits the recipe JSON before installing the audit guard.
-It produces five exact public or direct file-stream publications,
-checks the ordinary strict file and stream reader, and republishes a
-full neutral JSON snapshot. Seventeen refused routes include unmeasured
-pitch even with explicit permissive policy, a forged report, a missing
-receipt, wrong clock and locator, wrong driver ID, extra source state,
-wrong-path replacement and absent raw Parasolid payload. The exact archive and all ten logical
-streams match the native-tested files, with zero runtime input reads
-and zero CAD launches. The [revision-bound receipt](../measurements/2026/MeasuredLocalLinearPattern01.json)
-retains independent geometry and stream digests.
+Each case produces seven exact public or direct publications from the
+authored neutral request, the full strict readback and the design-only
+strict readback. The registry consumes a design-only snapshot restored
+via the ordinary `CadDocument` neutral JSON methods. Strict reader checks
+use actual file and memory inputs. Twenty-one refused writer or raw
+extraction routes include an unmeasured pitch even with explicit
+permissive policy, a forged or missing receipt, wrong clock and locator,
+wrong driver ID, extra source metadata on both read modes, an additional
+sketch dimension, wrong-path replacement and absent raw Parasolid
+payload. Two further strict reads refuse a missing CMgr owner.
+Permissive inspection of that malformed archive is exercised separately
+from the writer and strict-reader runtime audit.
+
+The complete archives and all ten logical streams match the measured
+files, with zero guarded runtime input reads or CAD launches. The
+[revision-bound receipt](../measurements/2026/MeasuredLocalLinearPattern02.json)
+binds the current scoped evidence and links the
+[original proof](../measurements/2026/MeasuredLocalLinearPattern01.json).
 
 The witnessed original outer compressor is zlib 1.2.12. The complete
 suite's fresh process can additionally verify the reserved unmeasured
 zlib-ng branch. A different complete-file hash requires identical
 logical streams for that contrast and refusal in both writer paths.
-A positive alternate-runtime output needs its own native measurement.
-No physical warm caches or unmatched source attachment is discarded.
+A positive alternate-runtime output requires its own native measurement.
+See the [alternate-compression procedure](MeasuredPatternCompression2026.md)
+for the guard and fresh native comparison. Warm saved reads, newly
+generated edited outputs and dimension-driven stock sketches remain
+open in the wider [PR #121](https://github.com/TryUniCAD/Kit/pull/121)
+programme.

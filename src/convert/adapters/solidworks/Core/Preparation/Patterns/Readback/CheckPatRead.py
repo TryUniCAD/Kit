@@ -13,11 +13,9 @@ def CheckPatRead(Document: CadDocument, Payload: bytes) -> None:
         SldprtArchive.from_bytes(Payload, SourceName),
         Payload,
         SourceName,
-        ReadOptions(),
+        ReadOptions(include_brep=Document.brep is not None),
     )
-    if Expected.brep is None or ToJson(Document, IndentSize=None) != ToJson(
-        Expected, IndentSize=None
-    ):
+    if ToJson(Document, IndentSize=None) != ToJson(Expected, IndentSize=None):
         raise ValueError(
             "SOLIDWORKS cold pattern readback differs from its regenerated part"
         )

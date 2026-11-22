@@ -78,9 +78,8 @@ def ApplyPatDoc(
         raise ValueError(
             "pattern selection conflicts with another existing neutral owner"
         )
-    ModelValue = Document.brep
     (BodyValue,) = Document.bodies
-    if ModelValue is None or BodyValue.final_feature_id != StepValue.id:
+    if BodyValue.final_feature_id != StepValue.id:
         raise ValueError("pattern final public body identity differs")
     Parameters = {Count.id: Count, Pitch.id: Pitch}
     Evidence = {

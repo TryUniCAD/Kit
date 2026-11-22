@@ -63,12 +63,13 @@ B04's parent is not complete merely because controlled constructor probes exist.
 ### B04-SW2026-LOCAL-LINEAR-PATTERN
 
 The PR #121 takeover team owns the cold measured local pattern delivery
-on `codex/solidworks-measured-linear-pattern`. It depends on the accepted
+in [PR #243](https://github.com/TryUniCAD/Kit/pull/243). It depends on the accepted
 typed ordinary part archive and exact native measurement gate on main.
 The scoped exit requires the two genuinely measured origination and
 readback republication cases, complete stream equality, preserved typed
 presentation, and the accepted revision's review and integration checks.
-Warm reads, other pattern modes and additional unmeasured outputs remain
+Warm reads, other pattern modes, dimension-driven stock sketches, and
+additional outputs after neutral edits or alternate compression remain
 open.
 [Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
 

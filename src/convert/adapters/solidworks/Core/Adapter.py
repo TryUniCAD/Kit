@@ -571,7 +571,7 @@ def ReadPartInput(
     return Model, PatternValue
 
 
-# only a complete derived pattern body may replace ordinary optional semantic projection
+# verified pattern history owns both geometry reads and reads that request only design data
 def FinishPartDoc(
     DocValue: CadDoc,
     Model: NativeModel,
@@ -581,7 +581,9 @@ def FinishPartDoc(
     PatternValue: ColdPatPart | None,
     ColdBrep: BrepModel | None,
 ) -> CadDoc:
-    if PatternValue is not None and ColdBrep is PatternValue.GeometryValue.BrepValue:
+    if PatternValue is not None and (
+        not Settings.include_brep or ColdBrep is PatternValue.GeometryValue.BrepValue
+    ):
         DocValue = ApplyTiltDoc(
             Replace(DocValue, bodies=PatternValue.BodiesValue),
             PatternValue.LinkValue,
@@ -2435,8 +2437,10 @@ def Parameters(
                     ),
                     owner_id=FeatureId(Feature.object_id),
                     provenance=TypedProvenance(
-                        Dimension.TypedOwner or {}, f"{Feature.object_id}:{Dimension.name}"
-                    ) or (
+                        Dimension.TypedOwner or {},
+                        f"{Feature.object_id}:{Dimension.name}",
+                    )
+                    or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,

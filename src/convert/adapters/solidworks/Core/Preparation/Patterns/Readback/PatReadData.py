@@ -11,9 +11,14 @@ def IsPatWrite(Document: CadDocument) -> bool:
     )
 
 
+# the dedicated pattern writer also recompares snapshots requested without derived geometry
+def IsPatRead(Document: CadDocument) -> bool:
+    return IsPatWrite(Document) and IsColdRead(Document, NeedBrep=False)
+
+
 # round trips use a verified cold projection while fresh authored models keep their own name
 def PatDocName(Document: CadDocument) -> str:
-    if IsColdRead(Document):
+    if IsPatRead(Document):
         Details = NativeRecord(Document.metadata.get("solidworks.typed_linear_pattern"))
         if Details.get("status") != "projected_cold_single_direction":
             raise ValueError("unsupported saved linear pattern source")

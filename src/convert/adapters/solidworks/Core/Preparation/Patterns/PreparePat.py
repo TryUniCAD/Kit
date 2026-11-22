@@ -23,9 +23,9 @@ from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.CheckPatRead
     CheckPatRead,
 )
 from convert.adapters.solidworks.Core.Preparation.Patterns.Readback.PatReadData import (
+    IsPatRead,
     PatDocName,
 )
-from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.SelectPartSelf import KNeutralRoot
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -62,6 +62,6 @@ def PreparePat(
     OutputValue = FinalPartPath(Target, Settings, Recipe, NameValue)
     PlanValue = PatWritePlan(Document, OutputValue, Presentation)
     _, Payload = EmitPatArchive(MakePatGraph(PlanValue))
-    if IsColdRead(Document):
+    if IsPatRead(Document):
         CheckPatRead(Document, Payload)
     return Payload
