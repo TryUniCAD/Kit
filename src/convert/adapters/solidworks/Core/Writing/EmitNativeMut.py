@@ -10,7 +10,11 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandida
 )
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
+    IsEllipsePart,
+)
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
 
@@ -27,6 +31,8 @@ def EmitNativeMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if IsEllipsePart(DocumentValue):
+        return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()

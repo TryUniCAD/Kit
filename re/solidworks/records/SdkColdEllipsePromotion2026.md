@@ -26,7 +26,11 @@ geometry enters the preparation process.
 
 ## Guarded parity
 
-Run the focused verifier from a checkout with the integration below.
+The original parity method was run at the promotion revision `d85956815`.
+The current [measured publication proof](EllipseMeasuredPublication2026.md)
+uses the same disclosed inputs and exercises the exact output gate.
+
+Run the historical verifier from its recorded promotion revision.
 
 ```sh
 python -I -B re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py

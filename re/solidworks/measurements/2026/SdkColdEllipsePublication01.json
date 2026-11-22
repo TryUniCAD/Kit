@@ -1,0 +1,136 @@
+{
+  "disclosed_native_result_sha256": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "guarded_processes": 2,
+  "heldout_credit": 0,
+  "method": {
+    "CheckMeasuredEllipse.py": "5d11dc715098552db5bd6d79c955742d6f622a439d09241d84c0d6d362d234eb",
+    "EllipseMeasuredReceipt.py": "8d1c674fab9ad24e68f7a1318d3dd5279983e46f1f9ed5c678a6c48db301fa11"
+  },
+  "native_checks": 910,
+  "native_launches": 0,
+  "native_processes": 8,
+  "normalized_receipt_sha256": "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3",
+  "results": [
+    {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "case": "EllipseFrontA",
+      "contrasts": {
+        "direct": {
+          "incompatible_caller_streams": 3,
+          "receipt_or_model_refusals": [
+            "absent",
+            "wrong_epoch",
+            "changed_locator",
+            "wrong_build",
+            "failed_control",
+            "duplicate_lifetime",
+            "wrong_reported_locator",
+            "foreign_derivative",
+            "wrong_measured_depth",
+            "missing_live_d1",
+            "changed_depth"
+          ]
+        },
+        "registry": {
+          "incompatible_caller_streams": 3,
+          "receipt_or_model_refusals": [
+            "absent",
+            "wrong_epoch",
+            "changed_locator",
+            "wrong_build",
+            "failed_control",
+            "duplicate_lifetime",
+            "wrong_reported_locator",
+            "foreign_derivative",
+            "wrong_measured_depth",
+            "missing_live_d1",
+            "changed_depth"
+          ]
+        }
+      },
+      "posix_path_refusals": 3,
+      "readback_features": 19,
+      "runtime_input_file_reads": 0,
+      "scope": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "streams": 10
+    },
+    {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "case": "EllipseFrontB",
+      "contrasts": {
+        "direct": {
+          "incompatible_caller_streams": 3,
+          "receipt_or_model_refusals": [
+            "absent",
+            "wrong_epoch",
+            "changed_locator",
+            "wrong_build",
+            "failed_control",
+            "duplicate_lifetime",
+            "wrong_reported_locator",
+            "foreign_derivative",
+            "wrong_measured_depth",
+            "missing_live_d1",
+            "changed_depth"
+          ]
+        },
+        "registry": {
+          "incompatible_caller_streams": 3,
+          "receipt_or_model_refusals": [
+            "absent",
+            "wrong_epoch",
+            "changed_locator",
+            "wrong_build",
+            "failed_control",
+            "duplicate_lifetime",
+            "wrong_reported_locator",
+            "foreign_derivative",
+            "wrong_measured_depth",
+            "missing_live_d1",
+            "changed_depth"
+          ]
+        }
+      },
+      "posix_path_refusals": 3,
+      "readback_features": 19,
+      "runtime_input_file_reads": 0,
+      "scope": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "streams": 10
+    }
+  ],
+  "schema": "kit.sw2026.measured-ellipse-publication-proof.v1",
+  "src_sha256": {
+    "src/convert/adapters/Staging/CheckWholeSink.py": "b7c6e7601bf91b8a13a23ae44b0c38c2bb005de4845a11821eeb2bbff934dd9d",
+    "src/convert/adapters/Staging/SeekBinary.py": "7a4412600555090c029df253dea731248465372c9564368e6b932b22ca9bb251",
+    "src/convert/adapters/Staging/SinkExtentMut.py": "92a9c7eff93a8de20dc048146da6fd285998e8b6fdde50ff20d7d53002ab663b",
+    "src/convert/adapters/Staging/StreamStaging.py": "46b8b9ed0b8e5bacf5e11361540c85cc9846234443afba5630f090c574249073",
+    "src/convert/adapters/Staging/WriteWholeMut.py": "204bf2caa6bc82314d4521bccf59242001c7be783719bdd73ca83147d80b936d",
+    "src/convert/adapters/base/WholeStreamWriter.py": "d864ec81be813c204ce81816d94f1e00dd6cd90c92c39286f18a35df8221182d",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipBatch.py": "b1064155017786d73cb40da09fb03e3417a29e0c21427ef3d803ffffad51fe17",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipEdits.py": "b18eff9def825a07b007fc900d8b9e3f1786eacd2f94f1e1c1adc379d8aafc3a",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipPath.py": "8f03f6af87fada0d38c7996db9f979751abab7861120b65a794895f92a32e01a",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipPhase.py": "7dce21c966951bf1221f1861e33f7fd438f91e5e02e79a7d161c7ecc89b093cd",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipSlot.py": "b2b5a71a7708e24d953979bbcb0fd5bb312e2c1d074c18c9a0d72f66292e662d",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/CheckEllipState.py": "ccf823202b23a27b415b9a9d31802466c9c9a296a3fb762a2e7c0b68e0b257ac",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/EmitEllipMut.py": "0610b2c50aefcb084d4c7baf0feca37cce83ef61936355c40c12d7a6ebfa4212",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/MatchEllipCase.py": "a1e28b6714087a262fd52d0ae25d9e00d004d0b8ea2c537f43eac2c209ebbaa6",
+    "src/convert/adapters/solidworks/Core/Writing/Ellipse/VerifyEllipMeas.py": "dc8f95f611583bc6bfe5113a9c3e5f73f0e8fab543c06c8b174a027ae956be34",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "5af8e427f122d29d7f0e359a00fc8704da7ff108874ce969ff267b2ef07e7204",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasOracle.py": "db149680912ab2f22ca2c6e1463df69400eac3fb8baea5278ac256045cffd050",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/PartMeasureOpt.py": "16d084c40adbf5f6fc731f141989303b017fd8deaf6dbbf911260d4c3ff88798",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasInput.py": "817bc3777c5b1c6fb85e065d215cc0f2a76e7aa70b86d2f12174c267216fa910",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasMap.py": "68a0fe17a7d5a1189f840b93206e1949a57d48496eccc61f9a090f495c71c5d1",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasNum.py": "db88ebf57f39efc94ee811a1ff06a5aa0a267901dab12505f57612f0a995021a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasRows.py": "8144d3670f227ab2d743aa4960d9fe968e211053d1bf605805ed44023d4cb448",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasSha.py": "6c89e97df915b9b0cd87ab19b1676823f365bb47649a59d8ed85cb461cc87d86",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "e7e6289827bc096a38f40ddcc9045eb4223b4b00f4f722f7ff76ba3828520964"
+  }
+}

@@ -13,3 +13,7 @@ SOLIDWORKS 2026 SP05.2 oracle. The typed archive reader recovers and replays
 the linked configuration and feature streams in the measured ellipse context.
 [Public SDK evidence](../../../../re/solidworks/measurements/2026/SdkColdEllipsePublic01.json)
 [Protected native evidence](../../../../re/solidworks/measurements/2026/EllipseColdSealedNative01.json)
+
+
+Current public output uses the
+[exact full-ellipse measurement gate](SolidworksMeasuredEllipsePublication.md).
