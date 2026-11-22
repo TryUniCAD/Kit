@@ -8,12 +8,15 @@ complete archive. This procedure stages a disclosed research batch only.
 
 ## Freeze and capture
 
-Freeze the committed checkout's `src/`,
-`re/tooling/sw2026/CheckMeasuredPattern.py` and the
-`re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/` directory
-with `git archive`. Record the commit, SDK tree ID and archive SHA-256.
-Use that unchanged snapshot on the classic host and target Windows
-runtime. Record the guest Python distribution archive SHA-256 as well.
+Freeze the committed checkout's `src/` with `git archive`. The root
+`.gitattributes` omits `re/` from Git archives. Append the committed
+`re/tooling/sw2026/CheckMeasuredPattern.py` blob and the five JSON members
+under `re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/` to the
+same archive using their exact `git show <commit>:<path>` bytes. Extract
+the result into a fresh directory and reproduce a classic capture to
+verify both the SDK source fingerprint and worker SHA. Record the commit,
+SDK tree ID and archive SHA-256. Use that unchanged snapshot with the
+hash-pinned guest Python distribution.
 
 Run the two classic witnesses in fresh Python 3.14 processes. Use a new
 working directory with an empty `Classic` parent.
