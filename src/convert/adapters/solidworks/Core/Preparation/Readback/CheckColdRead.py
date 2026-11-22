@@ -32,15 +32,16 @@ def CheckColdRead(
             configuration_stream=KConfigStream,
         )
     )
+    IncludeBrep = not IsEllipse or Document.brep is not None
     Expected = ReadNativePart(
         SldprtAdapter(),
         Archive,
         Payload,
         SourceName,
-        ReadOptions(),
+        ReadOptions(include_brep=IncludeBrep),
         ModelValue=None if Model is None else WithTypedNative(Model, Archive),
     )
-    if Expected.brep is None or ToJson(Document, IndentSize=None) != ToJson(
-        Expected, IndentSize=None
-    ):
+    if (Expected.brep is not None) != IncludeBrep or ToJson(
+        Document, IndentSize=None
+    ) != ToJson(Expected, IndentSize=None):
         raise ValueError("SOLIDWORKS cold readback differs from its regenerated part")

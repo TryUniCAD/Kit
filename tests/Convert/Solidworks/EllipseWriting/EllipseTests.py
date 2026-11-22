@@ -108,6 +108,9 @@ def TestEllipCase(SlotValue: int) -> None:
     AssertEllipOut(
         CadDocument.from_json(Reopened.to_json()), Settings, Payload, Measured
     )
+    Design = OpenDocument(Payload, source_format=KPartFormatId, include_brep=False)
+    assert Design.brep is None and Design.feature_timeline == Reopened.feature_timeline
+    AssertEllipOut(CadDocument.from_json(Design.to_json()), Settings, Payload, Measured)
 
 
 # translated sketch stations must remain orthogonal within their binary64 construction error

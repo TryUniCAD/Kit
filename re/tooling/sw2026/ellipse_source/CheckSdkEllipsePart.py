@@ -11,6 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
+from xml.etree.ElementTree import Element, fromstring
 from zlib import ZLIB_RUNTIME_VERSION
 
 HERE = Path(__file__).resolve()
@@ -24,9 +25,15 @@ from VerifyEllipseBoundary import check_measures
 from convert import open_document, write_document
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
+from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import FeatureTarget
+from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import PersistentIds
+from convert.adapters.solidworks.Archive.Construction.Profile.MakeProfileMut import MakeProfileMut
+from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonInput import PolygonInput
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
+from convert.adapters.solidworks.Container.Format import KeywordsStream, KResolvedFeaturesStream
 from convert.adapters.solidworks.Core.Adapter import DecodePartModel, SldprtAdapter
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import PrepareEllipse
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
@@ -136,6 +143,11 @@ def write_refusals(emit, document, values, slot):
     for record in edited_pair["receipt"]["cases"][slot]["states"][1:]:
         record["area_m2"] *= 1.125
     variants["consistent_wrong_edits"] = document, values | {OPTION: edited_pair}, "disagrees with the generated swept solid"
+    formerly_consistent = deepcopy(envelope)
+    reopened = formerly_consistent["receipt"]["cases"][slot]["states"][2]
+    reopened["depth_m"] *= 1.00000045
+    reopened["volume_m3"] *= 0.99999955
+    variants["reopen_mass_at_own_depth"] = document, values | {OPTION: formerly_consistent}, "disagrees with the generated swept solid"
     for model, opts, why in variants.values():
         sink = BytesIO()
         reject(lambda: emit(model, sink, opts), why)
@@ -169,7 +181,42 @@ def read_refusals(raw):
         for included in (True, False):
             reject(lambda: open_document(contrast, source_format=FORMAT, include_brep=included),
                    "full ellipse lacks its verified cold owners", SldprtFormat)
+        partial = open_document(contrast, source_format=FORMAT, include_brep=False, strict=False)
+        require(any("full ellipse lacks its verified cold owners" in row.message for row in partial.diagnostics),
+                "permissive malformed-ellipse inspection lost the scoped diagnostic")
     return 7
+
+
+def extra_sketch_refusal(candidate):
+    archive = SldprtArchive.from_bytes(candidate.BytesValue)
+    from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
+    config, graph = candidate.ConfigValue, candidate.ResolvedValue
+    front, = (row for row in graph.RootsValue if ReadNodeName(row) == "Front Plane")
+    ids = PersistentIds(config.HeaderValue.FieldsValue["f08"])
+    extra = MakeProfileMut("ExtraProfile", config.RootValue, front, "z",
+                           PolygonInput(((.002, .001), (.012, .002), (.005, .013)), 19000),
+                           FeatureTarget(2026306, 370108), ids).ProfileValue
+    roots = (*graph.RootsValue[:-1], extra, graph.RootsValue[-1])
+    compiled, _ = WriteResolMut(roots, graph.ExtraFields, 19000, config.MapValue,
+                                graph.ContextValue, ReplayEllipses=True)
+    keywords = fromstring(archive.require(KeywordsStream)[1:])
+    keywords.insert(len(keywords) - 1, Element("Sketch", {"id": str(extra.FieldsValue["f08"]),
+                    "Name": "ExtraProfile", "Type": "moProfileFeature_c"}))
+    contrast = BuildSldprt(dict(archive.streams) | {KResolvedFeaturesStream: compiled, KeywordsStream: FrameKeywords(keywords, False)},
+                           FormatVersion=4)
+    parsed = SldprtArchive.from_bytes(contrast)
+    extra_link = ReadNativeLink(parsed, 0, ReadEllipses=True)
+    active, _, _ = DecodePartModel(parsed, None)
+    require(len(extra_link.ResolvedValue.RootsValue) == len(graph.RootsValue) + 1
+            and tuple(value.name for value in active.sketches) == ("EllipseProfile", "ExtraProfile"),
+            "contrast failed to create two physically resolved sketches")
+    for included in (True, False):
+        reject(lambda: open_document(contrast, source_format=FORMAT, include_brep=included),
+               "full ellipse is outside the verified cold archive profile", SldprtFormat)
+    partial = open_document(contrast, source_format=FORMAT, strict=False, include_brep=False)
+    require(len(partial.sketches) == 2 and any("full ellipse is outside the verified cold archive profile" in row.message
+                                             for row in partial.diagnostics), "permissive inspection dropped the extra sketch or diagnostic")
+    return {"sha256": digest(contrast), "resolved_sketches": len(partial.sketches), "strict_refusals": 2, "permissive_inspection": True}
 
 
 def verify_roundtrip(document, raw, scope, entrypoints):
@@ -248,6 +295,7 @@ def worker(request):
                     and full.feature_timeline == design.feature_timeline, "geometry option changed editable history")
             geometric, observed = check_measures(full, request["case"], request["cold_native"])
             roundtrips = verify_roundtrip(full, raw, scope, entrypoints)
+            design_roundtrips = verify_roundtrip(design, raw, scope, entrypoints)
             translated = verify_translated(scope, entrypoints)
             require(not audit.denied and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
                     "preparation, publication or typed readback escaped the offline guard")
@@ -260,7 +308,8 @@ def worker(request):
             "write_refusals": refusals + (2 if sys.platform != "win32" else 0), "read_refusals": read_refusals(raw),
             "filesystem_reads_after_import": len(audit.denied), "trim_surface_evaluations": geometric,
             "native_measure_comparisons": observed, "cold_readback_to_write": roundtrips,
-            "unmeasured_translated_contrast": translated}
+            "unmeasured_translated_contrast": translated, "design_only_readback_to_write": design_roundtrips,
+            "extra_sketch_contrast": extra_sketch_refusal(internal)}
 
 
 def cold_summary(phase):
@@ -285,9 +334,14 @@ def saved_refusals(folder):
         for included in (True, False):
             reject(lambda: open_document(raw, source_format=FORMAT, include_brep=included),
                    "full ellipse is outside the verified cold archive profile", SldprtFormat)
+        partial = open_document(raw, source_format=FORMAT, strict=False, include_brep=False)
+        require(len(partial.sketches) == 1 and len(partial.feature_timeline) == 26
+                and any("full ellipse is outside the verified cold archive profile" in item.message for item in partial.diagnostics)
+                and not any(type(entity.geometry) is EllipseGeometry for sketch in partial.sketches for entity in sketch.entities),
+                "permissive native saved inspection did not retain its available diagnostic history")
         findings.append({"case": row["case"], "sha256": row["sha256"], "streams": len(archive.records),
                          "first_scoped_owner": "moLinkedAtomIdNode_c schema 1", "profile_handle_offset": handle.offset,
-                         "explicit_public_refusals": 2})
+                         "explicit_public_refusals": 2, "permissive_tree_rows": len(partial.feature_timeline)})
     return findings
 
 

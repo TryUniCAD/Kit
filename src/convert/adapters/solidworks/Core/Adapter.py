@@ -2244,7 +2244,7 @@ def SelectPartModel(
     )
     if SelectedStream == KitResolvedStream:
         return Model, None
-    Ellipse = TryEllipPart(Archive, Model, Settings)
+    Model, Ellipse = TryEllipPart(Archive, Model, Settings)
     if Ellipse is not None:
         return BindEllipModel(Model, Ellipse), Ellipse
     return RefinePartModel(Archive, Model, ConfigStream, SelectedStream), None

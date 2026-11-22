@@ -50,4 +50,4 @@ def CheckEllipEdits(CaseValue: dict[str, object], PlanValue: EllipsePlan) -> Non
         )
     CheckEllipMass(PlanValue, Initial, PlanValue.DepthValue)
     for StateValue in (Edited, Reopened):
-        CheckEllipMass(PlanValue, StateValue, Edited[0])
+        CheckEllipMass(PlanValue, StateValue, StateValue[0])

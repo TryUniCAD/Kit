@@ -1,3 +1,5 @@
+from dataclasses import replace as ReplaceValue
+
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -75,26 +77,25 @@ def ReadEllipPart(Archive: SldprtArchive, ModelValue: NativeModel) -> EllipPartR
     )
 
 
-# the legacy descriptor is only a dispatch hint while the linked owners must independently prove the shape
-def TryEllipPart(
-    Archive: SldprtArchive, ModelValue: NativeModel, Settings: ReadOptions
-) -> EllipPartRead | None:
+# an actual typed descriptor in any active sketch requires explicit conic admission
+def HasEllipSketch(ModelValue: NativeModel) -> bool:
+    return any(
+        Value.name == "sgEllipseHandle"
+        and any(
+            SketchValue.native_offset <= Value.offset < SketchValue.native_end
+            for SketchValue in ModelValue.sketches
+        )
+        for Value in ModelValue.classes
+    )
+
+
+# the verified read boundary requires the only modeled cold profile and its one final boss
+def ReadScopeEllip(Archive: SldprtArchive, ModelValue: NativeModel) -> EllipPartRead:
     if (
-        Settings.extract_raw_brep
-        or Archive.format_version != 4
+        Archive.format_version != 4
         or len(ModelValue.sketches) != 1
         or tuple(Value.kind for Value in ModelValue.operations) != ("join",)
-    ):
-        return None
-    (SketchValue,) = ModelValue.sketches
-    if not any(
-        Value.name == "sgEllipseHandle"
-        and SketchValue.native_offset <= Value.offset < SketchValue.native_end
-        for Value in ModelValue.classes
-    ):
-        return None
-    if (
-        KPartitionStream in Archive.streams
+        or KPartitionStream in Archive.streams
         or len(Archive.records) != 10
         or ModelValue.equations
         or tuple(
@@ -111,3 +112,23 @@ def TryEllipPart(
         raise SldprtFormat(
             "SOLIDWORKS full ellipse lacks its verified cold owners"
         ) from ErrorInfo
+
+
+# strict reads refuse unsupported ellipse history while permissive inspection retains a diagnostic
+def TryEllipPart(
+    Archive: SldprtArchive, ModelValue: NativeModel, Settings: ReadOptions
+) -> tuple[NativeModel, EllipPartRead | None]:
+    if Settings.extract_raw_brep or not HasEllipSketch(ModelValue):
+        return ModelValue, None
+    try:
+        return ModelValue, ReadScopeEllip(Archive, ModelValue)
+    except SldprtFormat as ErrorInfo:
+        if Settings.strict:
+            raise
+        return (
+            ReplaceValue(
+                ModelValue,
+                diagnostics=(*ModelValue.diagnostics, str(ErrorInfo)),
+            ),
+            None,
+        )

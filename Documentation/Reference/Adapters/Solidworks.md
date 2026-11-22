@@ -341,8 +341,9 @@ canonical Front Plane and one forward blind D1 boss. Exact offline native
 measurement is required for publication. Its cold readback verifies the
 entire typed archive and reconstructs the live D1 and rational solid. The
 same strict cold document can be written again with its measured bytes and
-complete semantic state. Recognized native saved ellipses with unsupported
-owners report a format refusal.
+complete semantic state, including after a design-only read. Strict reads
+refuse recognized ellipses in unsupported histories. Permissive reads retain
+the available history and an explicit diagnostic.
 [Measured full-ellipse boss](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipseBoss.md)
 
 The combined SDK adapter listing describes the reader for shared formats.

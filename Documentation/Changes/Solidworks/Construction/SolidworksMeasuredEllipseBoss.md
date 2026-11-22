@@ -23,7 +23,7 @@ native evidence even when the clear streams match.
 Strict SDK reads of this cold archive prove the linked Front datum, exact
 ellipse point/seam roles and actual D1, then verify all ten clear streams from
 the recovered typed semantic model. The result retains one editable ellipse,
-its boss and the linked solid. Re-export of that same strict readback uses
+its boss and the linked solid. Re-export of that same strict readback, including a design-only read, uses
 the preserved geometric stations and compares the entire regenerated strict
 neutral document, including its topology and provenance, before the normal
 per-artifact publication gate. With B-rep enabled, the SDK constructs two
@@ -31,7 +31,8 @@ planar caps and a rational swept boundary. Raw native geometry extraction,
 alternate supports, constrained conics and additional features remain outside
 this scoped reader and writer. The strict reader refuses known rebuilt or
 edited saved ellipses explicitly when their additional owners lie outside
-its verified cold profile.
+its verified cold profile. An explicitly permissive read retains the
+available history and reports the unsupported ellipse projection.
 
 The [disclosed integration proof](../../../../re/solidworks/records/SdkColdEllipsePromotion2026.md)
 reproduced the two measured complete archives through the normal and direct

@@ -3,11 +3,15 @@ from convert.adapters.solidworks.Core.Adapter import KSourceFormatKey
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# only the native typed reader projection requires regeneration and full source comparison
-def IsColdRead(Document: CadDocument) -> bool:
+# recorded native custody selects a strict comparison before any source projection is trusted
+def HasColdSource(Document: CadDocument) -> bool:
     return (
         Document.source.format_id == KPartFormatId
         and Document.source.container_version == "4"
         and Document.metadata.get(KSourceFormatKey) == KPartFormatId
-        and Document.brep is not None
     )
+
+
+# the ordinary line part readback requires its complete linked boundary
+def IsColdRead(Document: CadDocument) -> bool:
+    return HasColdSource(Document) and Document.brep is not None
