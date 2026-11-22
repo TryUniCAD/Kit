@@ -180,9 +180,12 @@ def refuse_paths(document, options):
         refuse(lambda: SldprtWriter().write(document, path, WriteOptions(overwrite=True, values=options)),
                ValueError, "actual measured Windows destination")
         missing = path.parent / "new" / path.name
+        windows = sys.platform == "win32"
+        require(SldprtWriter().supports(document, missing) is windows,
+                "registry path eligibility differs from its actual platform")
         refuse(lambda: write_document(document, missing, destination_format=FORMAT, values=options),
-               ValueError, "actual measured Windows destination" if sys.platform != "win32"
-               else "no exact native measurement")
+               ValueError if windows else NotFoundError,
+               "no exact native measurement" if windows else "does not support the destination")
         require(path.read_bytes() == b"retain prior output" and tuple(path.parent.iterdir()) == (path,),
                 "a rejected path write changed its prior file or left a stage")
 
