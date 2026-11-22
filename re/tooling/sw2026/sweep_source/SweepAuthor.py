@@ -45,8 +45,15 @@ class SweepAuthor(SweepSketches):
         else:
             expected["Direction"] = -1
         actual = {name: self.get(definition, name) for name in expected}
-        self.rec.data["last_option_comparison"] = {"setting": write, "expected": expected, "actual": dict(actual)}
+        self.rec.data["last_option_comparison"] = {"setting": write, "expected": dict(expected), "actual": dict(actual)}
         self.rec.flush()
+        if not write:
+            count = int(self.get(definition, "GetFeatureScopeBodiesCount"))
+            bodies = self.get(definition, "FeatureScopeBodies")
+            require(actual["Merge"] is True and count in (0, -1) and not bodies
+                    and type(actual.pop("AutoSelect")) is bool,
+                    "first body sweep carries an actual pre-existing solid scope")
+            del expected["AutoSelect"]
         require(actual == expected, "native sweep options differ from the explicit Standard one-direction boss")
         return actual
 

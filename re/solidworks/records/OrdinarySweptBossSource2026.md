@@ -38,6 +38,12 @@ The next packet retains that legacy result as a diagnostic. Its physics gate use
 
 Packet 05 measured the same solid through the new selected-body observer. The observed mass was 0.0027284688746932215 kg, against 0.002728468874693221 kg predicted at 1031.7 kg/m³. It retained the reported area, volume and centre without overrides. The observer recorded those values and then stopped on a missing Python import in its validation. Packet 06 adds that import and reruns the original operands and thresholds. [Packet 05 failure](../measurements/2026/OrdinarySweptBossSourceFailure05.json)
 
+### Empty first-body scope
+
+Packet 06 authored and saved the first exact source after 186 passing checks. The fresh section-edit process opened the same hash-bound source and verified one solid, both sketches and their true support planes. The bound definition then reported `AutoSelect=False` after save, while the fresh authored definition had reported `True`. Both controls were healthy.
+
+The next packet explicitly requests the empty scope appropriate for its first solid. It records the actual flag and requires an empty `FeatureScopeBodies` collection, a zero or unavailable count, and real merge state before admitting the effective empty scope. Shape, feature, marked sketches, drivers and open and edit diagnostics retain their original gates. [Packet 06 receipt](../measurements/2026/OrdinarySweptBossSourceFailure06.json) · [Scope collection](https://help.solidworks.com/2026/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.ISweepFeatureData~FeatureScopeBodies.html) · [Merge and empty scope](https://help.solidworks.com/2024/english/api/sldworksapiprogguide/Overview/Programming_Multibody_Parts.htm?id=1.4.39.1)
+
 ### Reproduce the corrected disclosed capture
 
 Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
@@ -46,9 +52,9 @@ Freeze an exact committed revision on the host. Use an unused output path outsid
 python3.14 -B re/tooling/sw2026/sweep_source/SweepPacket.py \
   --revision EXACT_COMMITTED_METHOD \
   --control /Users/odin/Documents/UniCAD/Oracle121Takeover/EdgeFilletSource03/Packet/Control.SLDPRT \
-  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource06/Packet \
-  --guest-packet 'C:\KitSweepBossSource06\Packet' \
-  --guest-capture 'C:\KitSweepBossSource06\Capture' \
+  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource07/Packet \
+  --guest-packet 'C:\KitSweepBossSource07\Packet' \
+  --guest-capture 'C:\KitSweepBossSource07\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -56,8 +62,8 @@ The oracle owner transfers the verified packet and runs it from the new guest di
 
 ```sh
 sweep_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource06\Packet'
-sweep_guest='C:\KitSweepBossSource06\Packet'
+sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource07\Packet'
+sweep_guest='C:\KitSweepBossSource07\Packet'
 sweep_pin=EXACT_SOURCE_JOB_SHA256
 prlctl exec 'Windows 11' --current-user "$sweep_python" -E -B \
   "$sweep_share\Tool\RunSweepSources.py" --job "$sweep_share\SourceJob.json" --pin "$sweep_pin" --stage-guest

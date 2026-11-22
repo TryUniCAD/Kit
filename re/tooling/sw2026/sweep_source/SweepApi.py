@@ -14,7 +14,7 @@ SWEEP_OPTIONS = {
     "AdvancedSmoothing": False,
     "Merge": True,
     "FeatureScope": True,
-    "AutoSelect": True,
+    "AutoSelect": False,
 }
 ENUMS = {
     "swFeatureNameID_e": ("swFmSweep",),
@@ -41,6 +41,7 @@ MEMBERS = {
     "ISldWorks": ("IsSame",),
     "IFeatureManager": ("CreateDefinition", "CreateFeature"),
     "ISweepFeatureData": (*SWEEP_OPTIONS, "Direction", "SweepType", "GetGuideCurvesCount", "IsBossFeature", "IsThinFeature",
+                          "GetFeatureScopeBodiesCount", "FeatureScopeBodies",
                           "GetProfileType", "GetPathType", "Profile", "Path", "AccessSelections", "ReleaseSelectionAccess"),
     "ISketchManager": ("InsertSketch", "ActiveSketch", "AddToDB", "CreateCircleByRadius", "CreateArc"),
     "ISketch": ("GetConstrainedStatus", "GetSketchSegments", "ModelToSketchTransform", "RelationManager",
