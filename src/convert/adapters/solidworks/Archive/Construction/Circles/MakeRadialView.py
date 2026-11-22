@@ -35,6 +35,8 @@ def MakeRadialView(
     IsDiameter: bool,
     DesignIntent: bool,
     SelectedLeader: int,
+    *,
+    NormalOffset: float = 0.0,
 ) -> ArchiveNode:
     TextKind = 17 if IsDiameter else 20
     FieldsValue = MakeCommonView(HandleValue, DesignIntent, SelectedLeader, TextKind)
@@ -57,7 +59,7 @@ def MakeRadialView(
         }
     )
     TextValue = dict(RequireRecord(FieldsValue["f6a0"]))
-    TextValue["f38"] = RadialText(GraphValue.FrameValue, TextPoint)
+    TextValue["f38"] = RadialText(GraphValue.FrameValue, TextPoint, NormalOffset)
     FieldsValue["f6a0"] = TextValue
     CacheValue = dict(RequireRecord(FieldsValue["f5b0"]))
     CacheValue["data"] = PackValues("<d", LengthValue)

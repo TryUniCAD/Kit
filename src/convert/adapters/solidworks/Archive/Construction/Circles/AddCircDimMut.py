@@ -45,6 +45,7 @@ def AddCircDimMut(
     Allocator: PersistentIds,
     *,
     OffsetValue: OffsetGraph | None = None,
+    NormalOffset: float = 0.0,
 ) -> DimensionGraph:
     Geometry = NeedCircle(GraphValue)
     if OffsetValue is not None:
@@ -64,6 +65,7 @@ def AddCircDimMut(
         IsDiameter,
         DesignIntent,
         SelectedLeader,
+        NormalOffset=NormalOffset,
     )
     Constraint = MakeOriginFix(Geometry.SketchValue, Geometry.CenterValue)
     DisplayList = ArchiveNode.RequireNode(FieldsValue["f118"])

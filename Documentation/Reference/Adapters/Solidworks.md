@@ -168,6 +168,8 @@ The normal reader now projects the measured ordinary solved concentric profile b
 
 The internal concentric preparation builds its circular-boss child from the neutral sketch, actual support, radial and depth drivers, and ordered scene. The linked body atom, active partition and rollback marks reproduce both disclosed native-tested pairs within the ordinary forward Front scope. Whole-source and public publication eligibility are still open. [Child construction](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricChildModel.md)
 
+Internal circular preparation also accepts the actual sketch and radial driver owner for an explicit three-dimensional label in the sketch frame. The normal offset changes the text position while the leader retains its tangential calculation. [Spatial radial labels](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksSpatialRadialLabels.md)
+
 The internal concentric planner binds explicit neutral lateral faces to a verified generated feature-only cylinder child. It retains the original occurrence order, the selected endpoint order, explicit alignment, rotation lock and the fixed occurrence. Supplied B-reps remain outside this preparation profile. [Concentric mate planning](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricMatePlanning.md)
 
 The assembly reader exposes display-state names in `CadDocument.assembly.attributes["display_states"]`. It reads `swDisplayStateName` and accepts `swName` when the display-state attribute is absent. [Display-state names](../../Changes/Solidworks/Reading/Assembly/SolidworksAssemblyDisplayStateNames.md)

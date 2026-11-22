@@ -25,6 +25,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.LogCylU
 from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.ReadAttCyl import (
     ReadAttCyl,
 )
+from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn import (
+    RadialLabelIn,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakeCirclePart import (
     MakeCirclePart,
 )
@@ -58,8 +61,10 @@ def MakeCylChild(
     DocumentValue: CadDocument,
     RecipeValue: PartBuildInput,
     LightValues: tuple[LightInput, ...],
+    *,
+    LabelValue: RadialLabelIn | None = None,
 ) -> CylChild:
-    ChildValue = MakeCirclePart(DocumentValue, RecipeValue)
+    ChildValue = MakeCirclePart(DocumentValue, RecipeValue, LabelValue=LabelValue)
     PlanValue = ChildValue.PlanValue
     if (
         not isinstance(PlanValue, CirclePlan)

@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.AsmDispl
 from convert.adapters.solidworks.Archive.Construction.AssemblySets.OrderedAsm import (
     OrderedAsm,
 )
+from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn import (
+    RadialLabelIn,
+)
 from convert.adapters.solidworks.Archive.Construction.ConcentricMates.MakeCylAsm import (
     MakeCylAsm,
 )
@@ -70,13 +73,18 @@ def PrepCylAsm(
     LightValues: tuple[LightInput, ...],
     *,
     DisplayValues: tuple[AsmDisplayIn, ...] | None = None,
+    LabelValue: RadialLabelIn | None = None,
 ) -> OrderedAsm:
     ModelValue = ReadAsmModel(DocumentValue)
     PathsValue = ReadAsmPaths(
         ModelValue.RootValue.name, ModelValue.ChildValue.name, NativePath, WrittenAt
     )
     ChildValue = PrepCylChild(
-        ModelValue.ChildDocument, PathsValue.ChildValue, SceneName, LightValues
+        ModelValue.ChildDocument,
+        PathsValue.ChildValue,
+        SceneName,
+        LightValues,
+        LabelValue=LabelValue,
     )
     PlanValue = PlanCylMate(
         DocumentValue,

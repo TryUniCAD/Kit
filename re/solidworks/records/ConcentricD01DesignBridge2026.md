@@ -62,6 +62,11 @@ done
 
 ## Remaining gates
 
+The [spatial radial label port](SdkSpatialRadialLabels2026.md) extends
+this proof. It transfers the actual D01 radial display position
+through the shared circular model. The single parent display state
+and saved child appearance still require their separate owners.
+
 The actual source still refuses at `CheckAsmRoot` with `assembly root
 contains unprojected model content`. At the initial bridge revision the
 singleton reached the prior three-state guard. The subsequent

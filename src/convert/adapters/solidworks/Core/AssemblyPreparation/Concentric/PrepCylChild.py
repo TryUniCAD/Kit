@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.CylChil
 from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.MakeCylChild import (
     MakeCylChild,
 )
+from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn import (
+    RadialLabelIn,
+)
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
@@ -27,6 +30,8 @@ def PrepCylChild(
     OutputValue: SelfFileInput,
     SceneName: str,
     LightValues: tuple[LightInput, ...],
+    *,
+    LabelValue: RadialLabelIn | None = None,
 ) -> CylChild:
     if not ReadStyleText(SceneName, "concentric child environment"):
         raise ValueError("concentric child requires an authored environment name")
@@ -41,4 +46,4 @@ def PrepCylChild(
         RecipeValue, SystemValue=ReplaceValue(SystemValue, FolderValues=FoldersValue)
     )
     InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
-    return MakeCylChild(DocumentValue, InputValue, LightValues)
+    return MakeCylChild(DocumentValue, InputValue, LightValues, LabelValue=LabelValue)

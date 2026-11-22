@@ -1,0 +1,555 @@
+{
+  "base": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+  "cases": [
+    {
+      "archives": {
+        "default": {
+          "bytes": 10833,
+          "sha256": "01a416de10a19ca5e76e81e45dccec83dffc48b44dd0ab75df9760adc61a1133"
+        },
+        "off_plane": {
+          "bytes": 10847,
+          "sha256": "a0db440270716e782d109cdf3f82984bfc0f41819ec16319b9d2ce785da85e31"
+        },
+        "on_plane": {
+          "bytes": 10839,
+          "sha256": "e66417077e2a2b88e00630d8723bf1c332dc944ffabc1d94f641887bb6c77c03"
+        }
+      },
+      "base": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+      "exact_changed_streams": {
+        "default_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "planar_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ]
+      },
+      "guarded_runtime_accesses": 0,
+      "guarded_workers": 2,
+      "held_out_reads": 0,
+      "native_runs": 0,
+      "neutral_json_sha256": "58086c3937a9b531a325b3205da9aa28b151d09f54ca3b15541eeb1b9944d0ff",
+      "ordinary_assembly_child_identical": true,
+      "phase": "Source",
+      "public_admission_claim": false,
+      "read_labels": {
+        "default": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 31.37,
+          "dimension_id": 19,
+          "direction": [
+            0.8944271909999159,
+            0.4472135954999579,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008887328758223489,
+          "radial_scale": 2.23606797749979,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.01701,
+            0.00302,
+            0.0
+          ]
+        },
+        "off_plane": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 31.37,
+          "dimension_id": 19,
+          "direction": [
+            0.7943578329771961,
+            0.607450107570797,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008197271947944508,
+          "radial_scale": 2.1400934559032696,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.014853,
+            0.005176999999999999,
+            0.0001
+          ]
+        },
+        "on_plane": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 31.37,
+          "dimension_id": 19,
+          "direction": [
+            0.7943578329771961,
+            0.607450107570797,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008197271947944508,
+          "radial_scale": 2.1400934559032696,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.014853,
+            0.005176999999999999,
+            0.0
+          ]
+        }
+      },
+      "refusals": {
+        "boolean_coordinate": "view coordinate or scale must be a real numeric value",
+        "foreign_sketch": "radial label requires its actual owned sketch and radial driver",
+        "nonfinite_coordinate": "view coordinate or scale must be finite",
+        "same_named_depth_driver": "radial label requires its actual owned sketch and radial driver",
+        "short_point": "radial label requires three sketch frame coordinates in metres"
+      },
+      "source_sha256": {
+        "child": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "parent": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+      },
+      "source_typed_view": {
+        "centre": [
+          0.00263,
+          -0.00417,
+          0.0
+        ],
+        "depth_mm": 31.37,
+        "dimension_id": 27,
+        "direction": [
+          0.7943578329771961,
+          0.6074501075707971,
+          0.0
+        ],
+        "display_index": 199,
+        "driver_name": "D1",
+        "mode": "radius",
+        "parameter_index": 191,
+        "radial_offset": 0.008197271947944508,
+        "radial_scale": 2.1400934559032696,
+        "radius_or_diameter_m": 0.00719,
+        "second_centre": [
+          0.00263,
+          -0.00417,
+          0.0
+        ],
+        "text": [
+          0.014853,
+          0.005176999999999999,
+          0.0001
+        ]
+      }
+    },
+    {
+      "archives": {
+        "default": {
+          "bytes": 10832,
+          "sha256": "d64ff41f00c8cd123005fd45daf18b390900ac0fef6bd54eefe0613c6f4cce05"
+        },
+        "off_plane": {
+          "bytes": 10847,
+          "sha256": "44033dce4893eb1054ceb77fb36d06d2e4cd32813c21ecb854111d84969ec15f"
+        },
+        "on_plane": {
+          "bytes": 10838,
+          "sha256": "6c0f382cbcaf524854496be9f53194d1a1bf17678903d8defd3985ee53cbcddf"
+        }
+      },
+      "base": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+      "exact_changed_streams": {
+        "default_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "planar_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ]
+      },
+      "guarded_runtime_accesses": 0,
+      "guarded_workers": 2,
+      "held_out_reads": 0,
+      "native_runs": 0,
+      "neutral_json_sha256": "de888ab1888e77bd9b2f6ce92ebbb5866a2529bf5352aed9d813d57ff88801b7",
+      "ordinary_assembly_child_identical": true,
+      "phase": "Edited",
+      "public_admission_claim": false,
+      "read_labels": {
+        "default": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 46.91,
+          "dimension_id": 19,
+          "direction": [
+            0.8944271909999159,
+            0.4472135954999579,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008887328758223489,
+          "radial_scale": 2.23606797749979,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.01701,
+            0.00302,
+            0.0
+          ]
+        },
+        "off_plane": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 46.91,
+          "dimension_id": 19,
+          "direction": [
+            0.7943578329771961,
+            0.607450107570797,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008197271947944508,
+          "radial_scale": 2.1400934559032696,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.014853,
+            0.005176999999999999,
+            0.0001
+          ]
+        },
+        "on_plane": {
+          "centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "depth_mm": 46.91,
+          "dimension_id": 19,
+          "direction": [
+            0.7943578329771961,
+            0.607450107570797,
+            0.0
+          ],
+          "display_index": 177,
+          "driver_name": "D1",
+          "mode": "radius",
+          "parameter_index": 169,
+          "radial_offset": 0.008197271947944508,
+          "radial_scale": 2.1400934559032696,
+          "radius_or_diameter_m": 0.00719,
+          "second_centre": [
+            0.00263,
+            -0.00417,
+            0.0
+          ],
+          "text": [
+            0.014853,
+            0.005176999999999999,
+            0.0
+          ]
+        }
+      },
+      "refusals": {
+        "boolean_coordinate": "view coordinate or scale must be a real numeric value",
+        "foreign_sketch": "radial label requires its actual owned sketch and radial driver",
+        "nonfinite_coordinate": "view coordinate or scale must be finite",
+        "same_named_depth_driver": "radial label requires its actual owned sketch and radial driver",
+        "short_point": "radial label requires three sketch frame coordinates in metres"
+      },
+      "source_sha256": {
+        "child": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "parent": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52"
+      },
+      "source_typed_view": {
+        "centre": [
+          0.00263,
+          -0.00417,
+          0.0
+        ],
+        "depth_mm": 46.91,
+        "dimension_id": 27,
+        "direction": [
+          0.7943578329771961,
+          0.6074501075707971,
+          0.0
+        ],
+        "display_index": 199,
+        "driver_name": "D1",
+        "mode": "radius",
+        "parameter_index": 191,
+        "radial_offset": 0.008197271947944508,
+        "radial_scale": 2.1400934559032696,
+        "radius_or_diameter_m": 0.00719,
+        "second_centre": [
+          0.00263,
+          -0.00417,
+          0.0
+        ],
+        "text": [
+          0.014853,
+          0.005176999999999999,
+          0.0001
+        ]
+      }
+    },
+    {
+      "archives": {
+        "default": {
+          "bytes": 8434,
+          "sha256": "117c1a5c3ec219b6fc0db3f5beb9154392b341698f35d70e2988e02a8ac199d5"
+        },
+        "off_plane": {
+          "bytes": 8448,
+          "sha256": "0d86c6f1706eff211396a9ffe105139cb99bb8d978289e7ead6accba36886d48"
+        },
+        "on_plane": {
+          "bytes": 8439,
+          "sha256": "1b1b4d9e842e14a5de9f105a930e169f3e78037b9871094edef9c31928bbf04e"
+        }
+      },
+      "base": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+      "exact_changed_streams": {
+        "default_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ],
+        "planar_to_spatial": [
+          "Contents/Config-0-ResolvedFeatures"
+        ]
+      },
+      "guarded_runtime_accesses": 0,
+      "guarded_workers": 2,
+      "held_out_reads": 0,
+      "native_runs": 0,
+      "neutral_json_sha256": "aeb74f13fea1a530c84219c642220db12e17f8fefccc07ee177f778239fbd4b2",
+      "ordinary_assembly_child_identical": false,
+      "phase": "RightContrast",
+      "public_admission_claim": false,
+      "read_labels": {
+        "default": {
+          "centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "depth_mm": 17.542,
+          "dimension_id": 19,
+          "direction": [
+            0.8944271909999159,
+            0.4472135954999579,
+            0.0
+          ],
+          "display_index": 163,
+          "driver_name": "D1",
+          "mode": "diameter",
+          "parameter_index": 155,
+          "radial_offset": 0.008013428698131137,
+          "radial_scale": 2.23606797749979,
+          "radius_or_diameter_m": 0.012965999999999998,
+          "second_centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "text": [
+            0.0,
+            0.002568,
+            -0.015141
+          ]
+        },
+        "off_plane": {
+          "centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "depth_mm": 17.542,
+          "dimension_id": 19,
+          "direction": [
+            0.9570917833858635,
+            -0.2897849516025069,
+            0.0
+          ],
+          "display_index": 163,
+          "driver_name": "D1",
+          "mode": "diameter",
+          "parameter_index": 155,
+          "radial_offset": 0.005370617591267234,
+          "radial_scale": 1.8284154853103862,
+          "radius_or_diameter_m": 0.012965999999999998,
+          "second_centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "text": [
+            -0.000817,
+            -0.00735,
+            -0.01352
+          ]
+        },
+        "on_plane": {
+          "centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "depth_mm": 17.542,
+          "dimension_id": 19,
+          "direction": [
+            0.9570917833858635,
+            -0.2897849516025069,
+            0.0
+          ],
+          "display_index": 163,
+          "driver_name": "D1",
+          "mode": "diameter",
+          "parameter_index": 155,
+          "radial_offset": 0.005370617591267234,
+          "radial_scale": 1.8284154853103862,
+          "radius_or_diameter_m": 0.012965999999999998,
+          "second_centre": [
+            0.002175,
+            -0.003915,
+            0.0
+          ],
+          "text": [
+            0.0,
+            -0.00735,
+            -0.01352
+          ]
+        }
+      },
+      "refusals": {
+        "boolean_coordinate": "view coordinate or scale must be a real numeric value",
+        "foreign_sketch": "radial label requires its actual owned sketch and radial driver",
+        "nonfinite_coordinate": "view coordinate or scale must be finite",
+        "same_named_depth_driver": "radial label requires its actual owned sketch and radial driver",
+        "short_point": "radial label requires three sketch frame coordinates in metres"
+      },
+      "source_sha256": null,
+      "source_typed_view": null
+    }
+  ],
+  "changed_source_sha256": {
+    "re/tooling/sw2026/para/concentric/ProveD01RadialLabel.py": "4b3ee1e8692fdecee77e6cd171d54ac7aaf05a90a44f1824b610c0591587b8ff",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/AddCircDimMut.py": "9537611b0f29990579b0142e7ca083194081f3d5000be655aa294f49ebf621f6",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/MakeCylChild.py": "f689f728730fe2e429fb7f98b52763110f8ca04b4f54d2612842da152e3f095a",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/MakeRadialView.py": "b52830e2987c88e63e1201b65091b64f8cb84d26d804973afd86b842d742b8c6",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/RadialLabelIn.py": "eda64ebb1a36f8e2fbbbd9a36dd67ff9df4e48da55e7bc51c2ff4ded5798deaa",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/RadialText.py": "82bbbf9e703bb15da97c68d9da66e5e22b769842a2ca0b794813c33face11e71",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/MakeCirclePart.py": "488d07a6228812805a790d9063169784cf6712e21f52162d0be0e458b07cdb19",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PrepCylAsm.py": "cf66493b8ff68228257dd43d68720f56d5cfce2098604b529a8052b8bec281e3",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PrepCylChild.py": "9c0c7589c282b8abfc2147c465564fa2b21a1754024f12aa4989127ca308c500"
+  },
+  "disclosed_source_build": "34.5.2.0604",
+  "distinct_case_refusal_checks": 15,
+  "guarded_workers": 6,
+  "heldout_source_reads": 0,
+  "legacy_circle_exact_matches": [
+    {
+      "archive_sha256": "fac76de7a6724c18f09bd1f8a15f1a870750d716b7968cac28da2eb1565b69eb",
+      "case": "radius",
+      "identical_report_sha256": "a49d8151e79f9b673402add17c92847a02335fa2b8c871de1d777feef4444844"
+    },
+    {
+      "archive_sha256": "62a07340be437efe6464cf7e0599ffa5e1f9d208b6c8976311bfb0fe15d54b64",
+      "case": "diameter",
+      "identical_report_sha256": "7e7cd9911433b1ec07bad11822f494166ea4118503e512ec4f1439a601fce18b"
+    },
+    {
+      "archive_sha256": "353cd8c4a73320d83d5882c1397b2373901279bd6269ee9c90f0b8fe6674b3aa",
+      "case": "reverse-right",
+      "identical_report_sha256": "4af2f5ed9e89a71207ebfb7411148c61e32882abdff093df70fe9aa7c6bb0556"
+    },
+    {
+      "archive_sha256": "55334d70ab7a29ab5926fe640e221f7728decfc2c38f06de24a553eccafc2c3d",
+      "case": "mid-top",
+      "identical_report_sha256": "69778e939271b5d5197cd56e8574c7fbaa0aa7fd2d86441fa9764389d4aca357"
+    },
+    {
+      "archive_sha256": "e6b347ccc6c64e72454a1bb90eca1667237c93f17cc116fa56fff66c786daec4",
+      "case": "two-front",
+      "identical_report_sha256": "98f366485688ddfb026600c165a5c0ad08c48170b4d5f2f34d364085db8fdab4"
+    },
+    {
+      "archive_sha256": "323b0c1010e5eb7bb9905e5a68558f1caa9116c032a67555eb1985b1ac990e9f",
+      "case": "two-rev-top",
+      "identical_report_sha256": "655abc5b45c4138261055feaaeb89b7f02fcc636a72d615a045e0651d22bad0d"
+    }
+  ],
+  "legacy_offset_exact_matches": {
+    "identical_report_sha256": "b1ebd51720834df5340e843015ec5d3518b6b413a3efc801fb9321292a1b07b7",
+    "native_method_sha256": "69d26121c617641841dd29bd43867f082ae59d32a68cf5ace03903e11781cd3a",
+    "parts": [
+      {
+        "bytes": 8634,
+        "case": "FrontOffsetCircle",
+        "sha256": "9a565b31ab2fcb750f993ab3e7249316f1437712aed879445f2a3986b72d922e"
+      },
+      {
+        "bytes": 8679,
+        "case": "TopReverseOffset",
+        "sha256": "732d0d93db968c2f26242dbb92dcfa75d3a9748938d35ef7d602caacb1977a85"
+      },
+      {
+        "bytes": 8689,
+        "case": "RightOffsetCircle",
+        "sha256": "8cd21b6d7d1be689f120cce89ee2a968dbf55ca016cc9354b3dcd242f795a297"
+      }
+    ]
+  },
+  "new_native_runs": 0,
+  "new_public_qualification": false,
+  "runtime_input_accesses": 0,
+  "schema": "kit.solidworks.spatial_radial_labels.v1",
+  "written_at": 1816327100
+}
