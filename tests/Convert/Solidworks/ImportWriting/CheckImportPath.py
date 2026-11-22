@@ -9,17 +9,15 @@ from pytest import skip as SkipCase
 from tests.Convert.Api.ApiTestPaths import KRootPath
 
 
-# exercise the measured physical path through both public write routes
+# both measured solids share one runner to keep runtime selection and staging checks consistent
 def CheckImportPath(ProfileName: str, ExpectedSize: int) -> None:
     ScriptPath = (
         KRootPath / "re/tooling/sw2026/imported_body_source/VerifyMeasuredBoxPaths.py"
     )
     RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON")
-    if (
-        not RuntimePath
-        and "zlib-ng" in DeflateRuntime
-        and Environment.get("GITHUB_ACTIONS") != "true"
-    ):
+    if Environment.get("GITHUB_ACTIONS") == "true":
+        assert RuntimePath, "the selected windows shard requires its measured runtime"
+    elif not RuntimePath and "zlib-ng" in DeflateRuntime:
         SkipCase("measured Windows publication requires the matching runtime")
     Outcome = RunProcess(
         (
