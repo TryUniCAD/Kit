@@ -63,3 +63,9 @@ prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Py
 ```
 
 The observer requires an idle oracle and a new `Run01`. `--verify` checks the exact packet without launching CAD. A successful disclosed trial gains no held-out credit. Whole original source presentation, opposite D2 label state, warm historical physical cache construction and public writer admission have separate gates.
+
+## Disclosed native result
+
+SOLIDWORKS 2026 SP05.2 build `34.5.2.0604` opened both computed cold archives without errors or warnings and reported one correct solid before explicit rebuild. Both retained the actual selected edge branch and feature tree. One passed its D1 edit and the other passed its D2 edit. Each saved without diagnostics and measured correctly after fresh read-only reopen. Six fresh processes included two healthy controls and 154 passing numeric checks. The raw process records remain in Windows-local custody. [Redacted native receipt](../measurements/2026/EdgeChamferColdNativeDisclosed01.json) · [Receipt extraction](../../tooling/sw2026/edge_chamfer_source/RecordChamferDisclosed.py)
+
+The next native check uses the two separately locked pre-writer cases. This disclosed lifecycle establishes the behavior of the measured axial and transverse shapes. [Private pre-writer source lock](../measurements/2026/EdgeChamferPrivateSourceLock01.json)
