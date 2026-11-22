@@ -30,6 +30,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwState import (
     ReadSwState,
     SwReadState,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSavedSw import (
+    ReadSavedSw,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordSource import CadSource
 
@@ -87,7 +90,14 @@ def ReadSwPart(
     Archive: SldprtArchive, DataValue: bytes, Label: str, SettingsValue: ReadOptions
 ) -> CadDocument:
     if KPartitionStream in Archive.streams:
-        raise SldprtFormatError("unsupported SOLIDWORKS saved sweep result partition")
+        try:
+            DocValue = ReadSavedSw(Archive, DataValue, Label, SettingsValue)
+            DocValue.assert_valid()
+            return DocValue
+        except (IndexError, KeyError, TypeError, ValueError) as ErrorValue:
+            raise SldprtFormatError(
+                f"unsupported SOLIDWORKS saved sweep result partition: {ErrorValue}"
+            ) from ErrorValue
     try:
         StateValue = ReadSwState(Archive)
         if BuildSweepPart(StateValue.IntentValue).BytesValue != DataValue:

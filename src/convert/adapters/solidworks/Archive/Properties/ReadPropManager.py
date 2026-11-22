@@ -25,7 +25,9 @@ KPropertyLayoutVersion = 19000
 
 
 # the binary manager must establish that xml has no competing property value owners
-def ReadPropManager(BufferValue: bytes, VersionValue: int) -> None:
+def ReadPropManager(
+    BufferValue: bytes, VersionValue: int, *, SavedEmpty: bool = False
+) -> None:
     if VersionValue not in (18000, 19000):
         raise ValueError("part property manager requires supported archive version")
     ContextValue = BodyContext(
@@ -43,7 +45,7 @@ def ReadPropManager(BufferValue: bytes, VersionValue: int) -> None:
         or ReaderValue.Cursor.GetRemaining()
     ):
         raise ValueError("part properties require an empty compatible native manager")
-    if VersionValue == 18000:
+    if VersionValue == 18000 or SavedEmpty:
         CheckEmptyProps(RootValue)
     elif tuple(
         RootValue.FieldsValue[NameValue] for NameValue in ("f0c", "f08", "n20", "f54")

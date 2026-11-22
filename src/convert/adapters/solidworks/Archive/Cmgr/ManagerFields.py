@@ -1,5 +1,14 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import (
+    KContainerFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.FileRefFields import (
+    KFileRefFields,
+)
+from convert.adapters.solidworks.Archive.Cmgr.Layouts.LinkedAtomFields import (
+    KLinkedAtomFields,
+)
 from convert.adapters.solidworks.Archive.Cmgr.Layouts.BaseConfigFields import (
     KBaseConfigFields,
 )
@@ -22,6 +31,9 @@ from convert.adapters.solidworks.Archive.Cmgr.Layouts.StringIntFields import (
 # manager class layouts must share one registry across read and write contexts
 KManagerRecordRules = MappingProxyType(
     {
+        **KFileRefFields,
+        "moLinkedAtomIdNode_c": KLinkedAtomFields,
+        "su_CDWordArray": KContainerFields["su_CDWordArray"],
         "moBaseConfiguration_c": KBaseConfigFields,
         "moConfigurationMgr_c": KConfigMgrFields,
         "moCustomPropertyList": KCustomPropListFields,

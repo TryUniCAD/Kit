@@ -114,8 +114,7 @@ and temporary overlay facility. Each of six fresh guarded workers
 receives one checked disclosed part and its independently checked
 native measurements. The receipt records zero guarded runtime
 accesses, new CAD processes, published archives and held-out credits.
-It gives a typed prerequisite for a bounded saved sweep reader. The
-existing public strict refusal remains while portable projection of
-the editable Section incidence and the owned trim is unqualified.
+This measurement supplied a typed prerequisite for the subsequent
+[strict saved sweep projection](ScopedSavedSweepSdk2026.md).
 
 [Result receipt](../measurements/2026/ScopedSavedSweepTopology01.json)

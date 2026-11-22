@@ -1,4 +1,4 @@
-from math import pi as PiValue
+from math import hypot as HypotValue, pi as PiValue
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
@@ -58,10 +58,22 @@ def CheckSwRules(SketchValue: ArchiveNode, IsSection: bool) -> None:
 
 # the full section has one oriented seam while the path has two distinct ordered endpoints
 def ReadSwArc(
-    SketchValue: ArchiveNode, RadiusValue: float, IsSection: bool
+    SketchValue: ArchiveNode,
+    RadiusValue: float,
+    IsSection: bool,
+    *,
+    SavedResult: bool = False,
 ) -> CircleGeometry | ArcGeometry:
     FieldsValue = SketchValue.FieldsValue
     ArcValue = NativeRecord(ReadSwRow(FieldsValue, "narcs", "arcs", "arc"))
+    if SavedResult and (
+        ReadSwRow(FieldsValue, "narcs", "arcs", "flags") != 0
+        or ArcValue.get("f08") != 1
+        or ArcValue.get("ext") is not None
+        or ArcValue.get("group") is not None
+        or ArcValue.get("f50") != 0
+    ):
+        raise ValueError("SOLIDWORKS saved sweep has a foreign or construction profile")
     OriginValue = PlaneVector(0.0, 0.0)
     ExpectedPoints = (
         (OriginValue, PlaneVector(RadiusValue, 0.0))
@@ -72,17 +84,31 @@ def ReadSwArc(
             PlaneVector(RadiusValue, RadiusValue),
         )
     )
-    if (
-        any(
-            FieldsValue.get(NameValue) != 0
-            for NameValue in ("nlines", "nellipses", "nsplines")
-        )
-        or tuple(
-            ArcValue.get(NameValue) for NameValue in ("fd8", "fdc_s", "fc8_s", "fcc_s")
-        )
-        != (1, 0, 1, 1 if IsSection else 2)
-        or SwArcPoints(SketchValue) != ExpectedPoints
+    if any(
+        FieldsValue.get(NameValue) != 0
+        for NameValue in ("nlines", "nellipses", "nsplines")
+    ) or tuple(
+        ArcValue.get(NameValue) for NameValue in ("fd8", "fdc_s", "fc8_s", "fcc_s")
+    ) != (
+        1,
+        0,
+        1,
+        1 if IsSection else 2,
     ):
+        raise ValueError(
+            "SOLIDWORKS sweep arc disagrees with its ordered driver incidence"
+        )
+    PointsValue = SwArcPoints(SketchValue)
+    if SavedResult and IsSection:
+        CenterValue, SeamValue = PointsValue
+        if (
+            CenterValue != OriginValue
+            or HypotValue(SeamValue.x, SeamValue.y) != RadiusValue
+        ):
+            raise ValueError(
+                "SOLIDWORKS saved sweep section seam is off its owned circle"
+            )
+    elif PointsValue != ExpectedPoints:
         raise ValueError(
             "SOLIDWORKS sweep arc disagrees with its ordered driver incidence"
         )

@@ -94,6 +94,7 @@ def MakeSwSketch(
         EntityId,
         GeometryKind.KCircle if SectionValue else GeometryKind.KArcGeometry,
         GeometryValue,
+        attributes=SwSeamAttrs(ProfileValue),
     )
     return (
         Sketch(
@@ -114,3 +115,21 @@ def MakeSwSketch(
         ),
         ParamValue,
     )
+
+
+# the sketch circle keeps its exact shared millimetre point through neutral serialization
+def SwSeamAttrs(ProfileValue: SwReadProfile) -> dict[str, object]:
+    SeamValue = ProfileValue.SeamValue
+    if SeamValue is None:
+        return {}
+    return {
+        "periodic_seam": {
+            "point_mm": (
+                SeamValue.PointValue.x * 1000.0,
+                SeamValue.PointValue.y * 1000.0,
+            ),
+            "center_index": SeamValue.CenterIndex,
+            "start_end_index": SeamValue.SeamIndex,
+            "point_marks": SeamValue.MarkValues,
+        }
+    }

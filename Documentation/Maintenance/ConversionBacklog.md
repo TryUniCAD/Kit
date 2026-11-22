@@ -67,10 +67,14 @@ measured quarter-arc recipe and exact offline native attestation.
 The scoped SDK streams reproduce both disclosed measured parts with all
 six inferred domains transferred. Both strict cold projections reproduce
 the measured archive on re-export. The delivery exits after its own PR,
-current-head review, CI and queue acceptance. Native-saved and broader
-sweep variants remain separate work.
+current-head review, CI and queue acceptance. The isolated saved reader
+depends on this delivery and the shared linked body grammar. Its six
+disclosed sources now pass strict SDK readback. Independent validation
+and delivery gates still apply to this reader, and wider sweep variants
+remain open.
 [Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
 [Cold readback and exact re-export](../../re/solidworks/records/ScopedSweepReadback2026.md)
+[Saved reader evidence](../../re/solidworks/records/ScopedSavedSweepSdk2026.md)
 
 ## Important gap boundaries
 

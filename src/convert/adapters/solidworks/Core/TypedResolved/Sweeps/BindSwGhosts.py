@@ -1,6 +1,7 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Partition.CheckXmtGraph import CheckXmtGraph
 from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import (
     ReadActiveNodes,
 )
@@ -8,10 +9,18 @@ from convert.adapters.solidworks.Archive.Partition.Sweeps.MakeGhostAttrib import
     KGhostBodyKey,
 )
 from convert.adapters.solidworks.Archive.Partition.Sweeps.ReadSwFrame import ReadSwFrame
+from convert.adapters.solidworks.Archive.Partition.Sweeps.ReadSwSect import ReadSwSect
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.CheckSwWire import (
+    CheckSwWire,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.SwReadGraph import (
+    SwReadGraph,
+)
+from interchange.geometry.Models.GeometryCurves import ArcGeometry
 
 
 # a ghost transport must link actual kernel objects of each expected schema kind
@@ -80,6 +89,7 @@ def BindSwGhosts(
     SweepValue: ArchiveNode,
     PathId: int,
     SectionId: int,
+    SavedGraph: SwReadGraph | None = None,
 ) -> None:
     CheckSwManager(PartValue, SweepValue, PathId, SectionId)
     NodesValue = ReadActiveNodes(ReadSwFrame(WrappedValue))
@@ -103,3 +113,13 @@ def BindSwGhosts(
         raise ValueError(
             "SOLIDWORKS sweep ghost partition does not match its live picks"
         )
+    if SavedGraph is not None:
+        CheckXmtGraph(NodesValue)
+        if ReadSwSect(NodesValue, SectionValue) != SavedGraph.SectionValue.CurveValue:
+            raise ValueError(
+                "SOLIDWORKS saved sweep ghost section disagrees with its selected sketch"
+            )
+        PathCurve = SavedGraph.PathValue.CurveValue
+        if type(PathCurve) is not ArcGeometry:
+            raise ValueError("SOLIDWORKS saved sweep path does not own a quarter arc")
+        CheckSwWire(NodesValue, PathValue, PathCurve)
