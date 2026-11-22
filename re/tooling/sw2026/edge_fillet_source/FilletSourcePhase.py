@@ -53,7 +53,7 @@ def save_part(session, recorder, author, target):
         recorder.flush()
 
 
-def run_source(case, phase, paths, record_path, source_hash, constants):
+def run_source(case, phase, paths, record_path, source_hash, constants, *, measure_cold=False):
     require(phase in PHASES, "unsupported native source phase")
     initial, derivative = paths
     source = derivative if phase == "edited-reopen" else initial
@@ -88,7 +88,20 @@ def run_source(case, phase, paths, record_path, source_hash, constants):
                 recorder.data["before_explicit_rebuild"] = cold
                 recorder.flush()
                 require(cold == {"bodies": 1, "errors": 0}, "fresh native open has no solid or has diagnostics")
-                author.snapshot(case, "reopened", edited if phase == "edited-reopen" else radius)
+                if measure_cold:
+                    require(Path(str(author.get(author.model, "GetPathName"))).resolve() == source,
+                            "native open did not use the exact encoded input locator")
+                    cold["mass"] = recorder.call("measure cold solid mass", Swapp.mass, author.model)
+                    recorder.flush()
+                initial_state = author.snapshot(case, "reopened", edited if phase == "edited-reopen" else radius)
+                if measure_cold:
+                    mass = cold["mass"]
+                    expected = initial_state["body"]["expected"]
+                    require(mass is not None and "error" not in mass, "fresh native open has no measurable mass")
+                    for key, tolerance in (("volume", 1e-21), ("area", 1e-16)):
+                        author.close_six(f"cold {key}", mass[key], expected[key], tolerance)
+                    for index, (actual, target_value) in enumerate(zip(mass["com"], expected["com"], strict=True)):
+                        author.close_six(f"cold centre of mass {index}", actual, target_value, 1e-10)
                 if phase == "reopen-edit-save":
                     author.edit_radius(radius, edited)
                     author.snapshot(case, "edited", edited)
