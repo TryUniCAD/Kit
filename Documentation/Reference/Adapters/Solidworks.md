@@ -125,6 +125,13 @@ density parameter, model data with an absent scene and empty body visual
 counts. Each concrete owner retains its actual archive slot.
 [Lightweight material scope](../../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
 
+The internal part visual reader follows the physical ModelHeader and
+part root to the ordinary lightweight `f78` visual record. It preserves
+the part-owned name, material and rendering fields, the shared map
+and the exact next cursor. The physical material assignment reader
+also needs the active configuration, density and material tree.
+[Part material visual scope](../../Changes/Solidworks/Archive/Configuration/SolidworksPartMaterialVisual.md)
+
 The internal part-start reader loads the named
 `Contents/Config-0-ModelHeader` and the current part root. At the start
 of the lightweight section, it inserts the original header objects

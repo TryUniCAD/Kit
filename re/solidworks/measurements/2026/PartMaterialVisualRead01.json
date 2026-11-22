@@ -1,0 +1,292 @@
+{
+  "aggregate_read_commit": "c181cc057089eb1dbf6149f12158c5d846ce1c3a",
+  "assigned_visual_records": 7,
+  "base_commit": "d5a72e06a1402d7b9f64c1a4c35f84844f42416b",
+  "cases": {
+    "Control": {
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "exact_typed_replay": true,
+      "file_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "identity_sha256": "ea9973d1460ee95c08102b183f8c7fd7b4f05fa716cab4f91e9672ccd893a6d2",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "88a1d9438e94c9e262c53de7ce53c152c7a52f12fbefc0dbd7394e6735e77aa8",
+      "prefix_span": [
+        18,
+        925
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        1,
+        0,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 0,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        82,
+        925
+      ]
+    },
+    "D01Corner/Author": {
+      "config_sha256": "c27dda1efd3d052077b85a724a78daff2d16450f8f7e10c3f71a071cf278eef6",
+      "exact_typed_replay": true,
+      "file_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "identity_sha256": "adaef47c615fcd6c0e67776906063cc0c958cb9ab721e7c69147955905076410",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "d76d0384d2ca3b1d8685c699a5675dbc2731677406ac99a92716c45b741221bc",
+      "prefix_span": [
+        18,
+        1217
+      ],
+      "refusals": {
+        "missing_physical_model_header": "required stream is missing: Contents/Config-0-ModelHeader",
+        "missing_visual_owner": "SOLIDWORKS part material requires moVisualProperties_c",
+        "prefix_reuses_part": "SOLIDWORKS part material requires moVisualProperties_c",
+        "truncated_lightweight_limit": "SOLIDWORKS body moPart_c field moConcept_c.SerializeLWData at 1213: SOLIDWORKS body moPart_c/moConcept_c.SerializeLWData field moConcept_c.SerializeLWData/f78 at 1213: SOLIDWORKS body moPart_c/moConcept_c.SerializeLWData/moVisualProperties_c field moConcept_c.SerializeLWData/f78/has88 at 1213: SOLIDWORKS body moPart_c/moConcept_c.SerializeLWData/moVisualProperties_c field moConcept_c.SerializeLWData/f78/has88/f88 at 1213: SOLIDWORKS body moPart_c/moConcept_c.SerializeLWData/moVisualProperties_c/uoDSPBRProperties_c.restore field moConcept_c.SerializeLWData/f78/has88/f88/f150 at 1213: archive string has no complete length byte",
+        "unknown_texture_selector": "unsupported SOLIDWORKS part material visual selectors",
+        "unqualified_user_properties": "unsupported SOLIDWORKS native field path populated material user properties",
+        "unsupported_secondary_texture": "unsupported SOLIDWORKS native field path secondary material texture",
+        "wrong_concrete_visual_body": "unsupported SOLIDWORKS part material visual body owner",
+        "wrong_format": "SOLIDWORKS configuration start requires format 4 at version 19000"
+      },
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 1,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        82,
+        1217
+      ]
+    },
+    "D01Corner/Depth": {
+      "config_sha256": "af02cd8ea14b51b7e746b82354e43c08b34521ff767ab8ab4b4e5d4d1dc38e2f",
+      "exact_typed_replay": true,
+      "file_sha256": "55ec08dca438f20b0b5623eb2e36905279899035ba44aaeddf0427aa5ebf7370",
+      "identity_sha256": "2adc1a6135479142e4d6ec590f51811396406b555ff9fabebdc36531a68ab58b",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "908bb72db8c633ed0231dc784b0916b52d5d38db99e4daad3dd9b1e619d1d7a8",
+      "prefix_span": [
+        18,
+        1013
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 0,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        86,
+        1013
+      ]
+    },
+    "D01Corner/Swap": {
+      "config_sha256": "133ab3e3687e49e5d03e85fdf11bd4aa49f06b607aaded761b5b70bfeb669bae",
+      "exact_typed_replay": true,
+      "file_sha256": "af2c822de8ee4cf274f4d5d15ad419dba16b129b31af8b28945c21850857d62c",
+      "identity_sha256": "2adc1a6135479142e4d6ec590f51811396406b555ff9fabebdc36531a68ab58b",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "21a9d22c39d72be8fb8367cb7b186871673cee803fa75226d10d483091333c23",
+      "prefix_span": [
+        18,
+        1053
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 0,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        88,
+        1053
+      ]
+    },
+    "D02Center/Author": {
+      "config_sha256": "486a24a1218b0891246d9f5f1b7de75be806c1c9575d7a72c3baa238e6e34dae",
+      "exact_typed_replay": true,
+      "file_sha256": "603b8387e59ce3f9095a4d9d32f06525422a8d825c969dce7fb82eb2d478074e",
+      "identity_sha256": "2adc1a6135479142e4d6ec590f51811396406b555ff9fabebdc36531a68ab58b",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "88eb8f247b02ec2f1a7e61450ff8700d079f6fa2faf15965b33b8508f4617252",
+      "prefix_span": [
+        18,
+        1047
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        0,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 0,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        82,
+        1047
+      ]
+    },
+    "D02Center/Depth": {
+      "config_sha256": "574a2ee930455626a4440ff3d0690ab3bc645f1dc9e10f0538f3c12cf4681353",
+      "exact_typed_replay": true,
+      "file_sha256": "1680a7e30de015cc2a88016d6ca0887636a4ee75716e597b6db7fbede97cfb05",
+      "identity_sha256": "adaef47c615fcd6c0e67776906063cc0c958cb9ab721e7c69147955905076410",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "14f061a6bc3ca7a1bbc7e7bb2b122a7c3fa0743588ab75f0729a5025c368189e",
+      "prefix_span": [
+        18,
+        1183
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 1,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        86,
+        1183
+      ]
+    },
+    "D02Center/Swap": {
+      "config_sha256": "a014c27ec89173e9f3ad80a275c22df0e11784c3ee3c82d4b2c3dd4cfceb7163",
+      "exact_typed_replay": true,
+      "file_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "identity_sha256": "adaef47c615fcd6c0e67776906063cc0c958cb9ab721e7c69147955905076410",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "1e5318a308751d80304d1ea1fbcc447742e8bbb64da289bb45c4c4fb10dd59f8",
+      "prefix_span": [
+        18,
+        1223
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 1,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        88,
+        1223
+      ]
+    },
+    "Diagnostic": {
+      "config_sha256": "5da5363400dd14c132c145167760cb6ee9933feb6f4d0bd73a5b1cceb0a0f26b",
+      "exact_typed_replay": true,
+      "file_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583",
+      "identity_sha256": "adaef47c615fcd6c0e67776906063cc0c958cb9ab721e7c69147955905076410",
+      "prefix_map": {
+        "end_counter": 8,
+        "entry_counter": 4
+      },
+      "prefix_sha256": "d76d0384d2ca3b1d8685c699a5675dbc2731677406ac99a92716c45b741221bc",
+      "prefix_span": [
+        18,
+        1217
+      ],
+      "refusals": {},
+      "runtime_input_or_process_accesses": 0,
+      "selector": [
+        0,
+        1,
+        1,
+        0,
+        1
+      ],
+      "texture_calls": 1,
+      "visual_span": [
+        "moVisualProperties_c",
+        7,
+        82,
+        1217
+      ]
+    }
+  },
+  "fresh_guarded_processes": 8,
+  "heldout_credit": 0,
+  "material_assignment_admitted": false,
+  "native_build": "34.5.2.0604",
+  "native_processes": 0,
+  "prior_receipt_sha256": {
+    "AssignedMaterialArchiveOwners01.json": "0d21e27c454c2b4619c3db3106e2f167d0a28d9eb91e9a1cca90b05d7625ea5c",
+    "SdkAssignedMaterialRead01.json": "48d1a287e6137ac69f1156aa6cbba8fca590e114dbc3a9c33e16ac5ed2d9f1d7"
+  },
+  "public_writer_qualified": false,
+  "schema": "kit.sw2026.part-material-visual-prefix.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/materials/ProvePartMaterialVisual.py": "81e3f1c203f0b86bb6abc851f692f1f5b9ff9274ac3dc67a27ea6c30fb5d934d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/MatPropFields.py": "65818e3a751e05ddc873c8e27d19a22f014b7d678be2938a16186503425c31ff",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/MatTextureFields.py": "8bbc25e5a16ed1d9369c6c3eb64023dd8622f97024976e8c5948901005d72814",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/MatVisualFields.py": "18ae1dd1e19e72df869be9f32a7239a26d4ff943a84ba21b4d8904196fff2771",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/PbrVisFields.py": "bd3c58f39da89872c7c5d77921237be1e5477c0e567d487ba286693d2d7ce6fe",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/RvVisualFields.py": "d6f409856b5bd828c7579f18609c48ac110e88ad219485ca465ee0e2c7a1409a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Visual/VisualPropFields.py": "f64c16895429c14ecc1f47ecaa3924f058c31a4b940d5b7be5706dcbe46b4957",
+    "src/convert/adapters/solidworks/Archive/Config/Material/CfgVisualGraph.py": "5968223e83cbf8b08d760fc8222c5e766cc3509d84d3fe7cafe9d5dd4e2da29c",
+    "src/convert/adapters/solidworks/Archive/Config/Material/CheckMatVisual.py": "35a92b47d111ae2b0f987a0b612f8c54136c68d2673a51ea9036359bf0cce760",
+    "src/convert/adapters/solidworks/Archive/Config/Material/MatVisualTypes.py": "99b4e357c06987e8b987d888f84d53c518f0ebeb58adf8762957e71f0f5d8203",
+    "src/convert/adapters/solidworks/Archive/Config/Material/PartVisLayouts.py": "dd042b13f05942e242cec28b53cf281de543b479f036e5676f4771fb485266bc",
+    "src/convert/adapters/solidworks/Archive/Config/Material/ReadPartVisual.py": "1b3b143e31f02ad1a25cfcf86e71caeef1563456b795335abdb5991094904207",
+    "src/convert/adapters/solidworks/Archive/Config/Material/ReadVisBodyMut.py": "c923ac8c49424864b7ae83fe693d127f05f05c41a3b5ad8efa48a5a2c1aadfec"
+  },
+  "whole_config_admitted": false
+}

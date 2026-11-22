@@ -349,6 +349,14 @@ evidence. Complete configuration admission and material assignment
 retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigMaterialOwners.md)
 
+The same team owns the separate part visual prefix on
+`codex/solidworks-part-visual-member`. It uses the physical ModelHeader
+handoff and lightweight node grammar. The disclosed prefix evidence is
+complete for that bounded scope. Hosted review and queue checks remain
+pending. Linking the active configuration, physical density and
+material tree remains separate.
+[Part visual prerequisite](../../re/solidworks/records/PartMaterialVisualRead2026.md)
+
 ### B04-SW2026-CONFIG-CACHES
 
 The PR #121 takeover team owns the bounded part cache reader on
