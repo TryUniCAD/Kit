@@ -1,4 +1,5 @@
 from dataclasses import dataclass as DataClass
+from math import ulp as FloatUlp
 
 from interchange.geometry.Models.BoundingBox import BoundingBox
 from interchange.geometry.Models.VectorSpace import SpaceVector
@@ -9,6 +10,17 @@ from interchange.geometry.Models.VectorSpace import SpaceVector
 class ShellFootprint:
     Bounds: BoundingBox
     Thickness: float
+
+    # one rounding budget covers the stock and cavity at their shared coordinate scale
+    def CornerTolerance(self) -> float:
+        Minimum, Maximum = self.Bounds.minimum, self.Bounds.maximum
+        return 16 * FloatUlp(
+            max(
+                abs(Value)
+                for Point in (Minimum, Maximum)
+                for Value in (Point.x, Point.y, Point.z)
+            )
+        )
 
     # every axial station keeps a consistent cyclic order around its rectangle
     def CornerPoints(self) -> tuple[SpaceVector, ...]:

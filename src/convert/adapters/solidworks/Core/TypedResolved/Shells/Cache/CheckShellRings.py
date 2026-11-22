@@ -1,5 +1,4 @@
 from collections import Counter
-from math import ulp as FloatUlp
 
 from convert.adapters.solidworks.Core.Partition.PartMassRings import ReadMassRings
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.CheckShellEdge import (
@@ -38,25 +37,29 @@ def ShellRingSet() -> tuple[frozenset[int], ...]:
 def ShellCorner(
     PointValue: SpaceVector, Corners: tuple[SpaceVector, ...], Tolerance: float
 ) -> int:
-    (Match,) = tuple(
+    Matches = tuple(
         IndexValue
         for IndexValue, Expected in enumerate(Corners)
-        if max(
-            abs(PointValue.x - Expected.x),
-            abs(PointValue.y - Expected.y),
-            abs(PointValue.z - Expected.z),
+        if all(
+            abs(Value) <= Tolerance
+            for Value in (
+                PointValue.x - Expected.x,
+                PointValue.y - Expected.y,
+                PointValue.z - Expected.z,
+            )
         )
-        <= Tolerance
     )
-    return Match
+    if len(Matches) != 1:
+        raise ValueError(
+            "SOLIDWORKS shell corner does not have one matching footprint position"
+        )
+    return Matches[0]
 
 
 # the complete solid shell must match the expected individual rim floor and wall boundaries
 def CheckShellRings(ModelValue: BrepModel, Footprint: ShellFootprint) -> None:
     Corners = Footprint.CornerPoints()
-    BoundValue = 16 * FloatUlp(
-        max(abs(Value) for Point in Corners for Value in (Point.x, Point.y, Point.z))
-    )
+    BoundValue = Footprint.CornerTolerance()
     Vertices = tuple(
         ShellCorner(Value.point, Corners, BoundValue) for Value in ModelValue.vertices
     )

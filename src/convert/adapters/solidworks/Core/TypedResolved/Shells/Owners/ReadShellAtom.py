@@ -57,9 +57,9 @@ def ReadShellAtom(
 
 
 # the active shell mark belongs to the selected modeled feature after the stock
-def ReadShellMark(
+def ReadShellMarks(
     LinkValue: NativeLink, StockNode: ArchiveNode, ShellNode: ArchiveNode
-) -> int:
+) -> tuple[int, int, int]:
     MarksValue = (
         RequireNative(
             LinkValue.ConfigValue.RootValue.FieldsValue.get("fe38"), "moPMarkRecord_c"
@@ -80,4 +80,4 @@ def ReadShellMark(
         or not 0 < Activation < StockMark < FinalMark
     ):
         raise ValueError("SOLIDWORKS shell lacks distinct saved partition marks")
-    return FinalMark
+    return Activation, StockMark, FinalMark

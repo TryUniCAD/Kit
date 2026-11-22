@@ -27,13 +27,14 @@ def require(condition, reason):
         raise ValueError(reason)
 
 
-def guarded_worker(raw, name, edited_raw=None):
+def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
     sys.path[:0] = [str(ROOT / "src"), str(HERE.parent.parent), str(HERE.parent)]
     from CheckScopedPlainWriter import WriterAudit
     from ReplaySavedShell import replay_manager, replay_resolved
     from convert import open_document
     from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
     from convert.adapters.solidworks.Container.Container import EmitSldprt, SldprtArchive, TemplateFields
+    from convert.adapters.solidworks.Container.Parasolid import DecodePartition
     from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from interchange.Features.FeatureKinds import NativeFeature, ShellFeature
@@ -177,8 +178,26 @@ def guarded_worker(raw, name, edited_raw=None):
             "cache_owner": "partition does not own its active single body",
             "manager_owner": "linked manager row identifies another body",
         }
+        mixed_history = None
+        if check_deltas:
+            original_partition = archive.require(name_value)
+            edited_partition = edited.require(name_value)
+            active, delta = DecodePartition(original_partition, name_value)
+            _, edited_delta = DecodePartition(edited_partition, name_value)
+            mixed_history = original_partition[:delta.wrapper_offset] + edited_partition[edited_delta.wrapper_offset:]
+            require(
+                [row.sha256 for row in DecodePartition(mixed_history, name_value)]
+                == [active.sha256, edited_delta.sha256],
+                "mixed history must preserve two intact typed payloads",
+            )
+            cases["history_owner"] = "native world and history identities disagree"
         for kind, reason in cases.items():
-            data = encode({name_value: edited.require(name_value)}) if kind == "cache_owner" else contrast(kind)
+            if kind == "history_owner":
+                data = encode({name_value: mixed_history})
+            elif kind == "cache_owner":
+                data = encode({name_value: edited.require(name_value)})
+            else:
+                data = contrast(kind)
             for include in (True, False):
                 try:
                     open_document(data, source_format=FORMAT, include_brep=include, strict=True)
@@ -204,12 +223,14 @@ def main():
     mode.add_argument("--disclosure", type=Path)
     mode.add_argument("--worker")
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--check-deltas", action="store_true")
     args = parser.parse_args()
     if args.worker:
         transport = sys.stdin.buffer.read()
         size = int.from_bytes(transport[:8], "little")
         raw, contrast = transport[8 : 8 + size], transport[8 + size :]
-        print(dumps(guarded_worker(raw, args.worker, contrast or None), sort_keys=True, allow_nan=False))
+        print(dumps(guarded_worker(raw, args.worker, contrast or None, args.check_deltas),
+                    sort_keys=True, allow_nan=False))
         return
     require(args.output is not None, "choose a fresh JSON output")
     directory = args.disclosure.resolve(strict=True)
@@ -225,13 +246,15 @@ def main():
     rows = {}
     for name, raw in data.items():
         contrast = data["OpenShellEdited.SLDPRT"] if name == "OpenShell.SLDPRT" else b""
-        result = run((sys.executable, "-I", "-B", str(HERE), "--worker", name),
+        options = ("--check-deltas",) if args.check_deltas else ()
+        result = run((sys.executable, "-I", "-B", str(HERE), "--worker", name, *options),
                      input=len(raw).to_bytes(8, "little") + raw + contrast, capture_output=True, timeout=60, check=False)
         require(result.returncode == 0 and not result.stderr, result.stderr.decode())
         rows[name] = loads(result.stdout)
     require(all(paths[name].read_bytes() == raw for name, raw in data.items()), "original source changed")
     with args.output.open("x", encoding="utf-8") as stream:
-        stream.write(dumps({"schema": "kit-sw2026-saved-open-shell-sdk-v1", "native_receipt_sha256": NATIVE_RECEIPT_SHA,
+        version = "v2" if args.check_deltas else "v1"
+        stream.write(dumps({"schema": f"kit-sw2026-saved-open-shell-sdk-{version}", "native_receipt_sha256": NATIVE_RECEIPT_SHA,
               "native_build": "34.5.2.0604", "fresh_guarded_workers": 3, "published_native_outputs": 0,
               "heldout_credit": 0, "cases": rows}, indent=2, sort_keys=True, allow_nan=False))
         stream.write("\n")

@@ -6,7 +6,8 @@ edge-reference and planar-body readers in [#240](https://github.com/TryUniCAD/Ki
 at `48da1cc86a14490a10253ffe2782d7cf2415d895` and the shared shell archive
 checkpoint `798e016e18dbf8321f05d7e84a5c13dd3b6ee568`. The source-authoring
 and edit oracle belongs to [#250](https://github.com/TryUniCAD/Kit/pull/250).
-Separate publication and hosted acceptance remain pending.
+The scoped reader is in [#255](https://github.com/TryUniCAD/Kit/pull/255).
+Hosted acceptance remains pending on the repaired queue candidate.
 
 The disclosed receipt SHA-256
 `d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b`
@@ -49,8 +50,10 @@ The normal strict SDK verifies the saved active body's 11 faces, 24 edges,
 trims or vertex interval. The top rim has a distinct inner and outer loop.
 Volume and centroid follow the signed ring geometry. Surface area follows
 the per-face rectangle and rim geometry. Those measures agree with the
-prior native phases to six significant figures. Design-only reads verify
-the same in-memory active body and omit the boundary and raw payloads.
+prior native phases to six significant figures. The one-to-one assignment
+of all corners also proves the extent within the common coordinate
+tolerance. An earlier exact bounding-box comparison conflicted with that
+rounding budget. [Corner tolerance gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Inspection/ShellBoundsRoundoff.md)
 
 Run the [guarded proof](../../tooling/sw2026/shell_source/CheckSavedShellRead.py)
 with CPython 3.14 in the isolated checkout, supplying the exact disclosed
@@ -58,7 +61,7 @@ directory and a fresh output path.
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/shell_source/CheckSavedShellRead.py \
-  --disclosure /path/to/Disclosure --output /tmp/KitSavedShellRead.json
+  --disclosure /path/to/Disclosure --check-deltas --output /tmp/KitSavedShellRead.json
 ```
 
 [SdkSavedOpenShellRead01](../measurements/2026/SdkSavedOpenShellRead01.json)
@@ -79,11 +82,54 @@ contrasts. These sources lack admission as tracked assets for the general
 corpus worker. The guarded probe supplements that pipeline with exact
 disclosed-file and archive-owner assertions.
 
-The selected native delta stream remains retained but unqualified for
-full rollback reconstruction. Current generic history parsing refuses
-its framing. This slice qualifies the actual saved body and editable
-bounded history. It grants no SOLIDWORKS writing or publication and adds
-no protected, corpus-conversion or new feature-family acceptance credit.
+## Saved rollback and shared queue coverage
+
+The [disclosed rollback study](https://github.com/TryUniCAD/Kit/blob/9810079614b14edd7ed61101b2505bad9dc94b09/re/solidworks/records/OpenShellRetainedRollback2026.md)
+pins the complete typed transaction proof to two byte-exact native streams
+and the shared retained decoder at
+`0167c3e33a045b82fb9ac17a5aa10560b2070ba8`. The ordinary shell reader now
+uses that decoder with the actual activation, stock and shell markers
+from the linked archive. It follows the preceding mark chain through the
+selected shell, retained stock, activation and initial states. The same
+body slot and atom must resolve on either side of the shell. The stock
+controller must own body creation. Both older states must be body-free.
+The [historical face check](../../../src/convert/adapters/solidworks/Core/TypedResolved/Shells/History/CheckStockFaces.py)
+matches both cap and all four wall keys to actual typed trims and the
+earlier sketch lines. The selected top cap must be an actual restored
+record. The active rim can share its key. The legacy delete-only path
+continues to require its own selected deletion.
+
+Design-only reads apply the same checks before omitting the boundary and
+raw payloads. Full reads preserve those payloads for inspection and the
+portable conversion gate still refuses retained payloads. Raw extraction
+is a separate inspection route. The
+[follow-up SDK proof](../measurements/2026/SdkSavedOpenShellRead02.json)
+repeats both strict modes with the exact native files and L1, and pairs
+the unmodified original active payload with the unmodified edited
+rollback. Both strict modes refuse the conflicting history. Permissive
+inspection retains its unresolved native feature in that contrast.
+
+The [shared queue test](../../../tests/Convert/Solidworks/Partition/ShellCacheTests.py)
+launches independent retained-history and geometry workers. The
+history worker uses the tracked OneLights active and history digests from
+the existing partition controls. It checks the four stage identities,
+retained BODY slot, row counts and rejection of mismatched selectors.
+It also checks that the existing L1 transaction still passes the
+delete-only profile. The geometry worker encodes and decodes a distinct
+authored shell with an exact extent and two controlled shifts. The
+existing 16-ULP budget accepts the observed
+`1.4210854715202004e-14` mm extent difference and refuses
+`2.8421709430404007e-13` mm. Both workers have zero data reads after setup.
+[Shared process receipt](../measurements/2026/SdkOpenShellReaderParts01.json)
+
+At the reader's original revision, the tracked SOLIDWORKS examples contain
+57 files tagged mo14000, one tagged mo18000 and eight tagged mo19000.
+None of the eight has a shell feature. The full SDK shell positives therefore
+use the two external, digest-bound disclosures and the shared queue uses
+tracked and independently authored component inputs. The native source-only
+lock and native fresh-generation requirements remain separate from this
+reader regression. The archived evidence represents a single geometry and
+its saved edit. Protected coverage and native shell writing remain open.
 The [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
 and [reverse-engineering playbook](../../Playbook/README.md) govern the later
 native writer and held-out validation.

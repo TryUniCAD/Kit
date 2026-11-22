@@ -22,7 +22,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.CheckShellMgr 
 )
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.ReadShellAtom import (
     ReadShellAtom,
-    ReadShellMark,
+    ReadShellMarks,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Owners.ReadShellDim import (
     ReadShellDim,
@@ -70,7 +70,7 @@ def ReadOpenShell(Archive: SldprtArchive, ConfigId: int | None) -> ShellPartRead
     StockValue = ReadShellStock(Linked, StockNode, ShellRootIndex(Linked, ShellNode))
     AtomValue = ReadShellAtom(Linked, StockNode, ShellNode)
     CheckShellMgr(Linked, StockNode, ShellNode, AtomValue)
-    SelectedMark = ReadShellMark(Linked, StockNode, ShellNode)
+    MarksValue = ReadShellMarks(Linked, StockNode, ShellNode)
     Header = ReadHeaderGraph(Archive.require("Header2"), 19000)
     FaceValue = ReadShellPick(Linked, ShellNode, StockValue, AtomValue, Header)
     Driver = ReadShellDim(Linked, ShellNode)
@@ -82,8 +82,10 @@ def ReadOpenShell(Archive: SldprtArchive, ConfigId: int | None) -> ShellPartRead
     Cache = ReadShellCache(
         Archive,
         AtomValue,
+        StockValue,
         NativeNodeId(ShellNode),
-        SelectedMark,
+        MarksValue,
+        Header,
         ShellFootprint(StockValue.BoundsValue, Thickness),
     )
     return ShellPartRead(

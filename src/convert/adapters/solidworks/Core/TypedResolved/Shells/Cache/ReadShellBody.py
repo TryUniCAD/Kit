@@ -47,7 +47,7 @@ def ReadShellBody(
         ("ATOM_ID_2001", Fields.get("f140")),
         ("LAST_BODY_MODIFYING_FEATURE_ID", FeatureId),
     ):
-        Slots = Attributes[NameValue]
+        Slots = Attributes[NameValue].Indexes("fields")
         if (
             (NameValue == "BODY_MATCH" and len(Slots) != 1)
             or (NameValue != "BODY_MATCH" and (len(Slots) != 2 or Slots[0] != 0))
@@ -56,4 +56,4 @@ def ReadShellBody(
             raise ValueError(
                 "SOLIDWORKS shell partition uses a different result identity"
             )
-    return ShellBodyName(Nodes, Attributes["SWIMPLICITBODYNAME_ID_U"])
+    return ShellBodyName(Nodes, Attributes["SWIMPLICITBODYNAME_ID_U"].Indexes("fields"))
