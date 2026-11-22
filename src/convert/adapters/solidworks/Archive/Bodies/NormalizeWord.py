@@ -19,4 +19,6 @@ def NormalizeWord(
         return max(CastValue(int, Value), RuleValue.MaskValue)
     if RuleValue.ModeValue == "Identity":
         return CastValue(int, Value)
+    if RuleValue.ModeValue == "Equals":
+        return int(CastValue(int, Value) == RuleValue.MaskValue)
     raise BodyUnsupported("unsupported native normalization rule")
