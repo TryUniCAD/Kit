@@ -39,11 +39,30 @@ print('validated Boss collector source pins')
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    for SourcePath in (KRepoRoot / "re/automation").rglob("*"):
-        if SourcePath.is_file() and SourcePath.suffix in (".py", ".cs", ".ps1"):
-            Destination = RootPath / SourcePath.relative_to(KRepoRoot)
-            Destination.parent.mkdir(parents=True, exist_ok=True)
-            _ = Destination.write_bytes(SourcePath.read_bytes())
+    for RelativePath in (
+        "RunSolidWorksBossWitness.py",
+        "VerifySolidWorksBossWitness.py",
+        "Records.py",
+        "WindowsProcess.py",
+        "WindowsApi.py",
+        "WindowsJobMembers.py",
+        "LogCapture.py",
+        "ApplicationWorkers/ApplicationProtocol.py",
+        "ApplicationWorkers/SolidWorksReadbackWorker.py",
+        "ApplicationWorkers/SolidWorksProgress.py",
+        "ApplicationWorkers/SolidWorksAvailability.py",
+        "ApplicationWorkers/WindowsIdentity.py",
+        "ApplicationWorkers/WindowsRecords.py",
+        "CaptureTools/SolidWorksAuthoring/RunBossWitness.ps1",
+        "CaptureTools/SolidWorksAuthoring/BossWitnessReadback.cs",
+        "CaptureTools/SolidWorksAuthoring/P04Readback.cs",
+        "CaptureTools/SolidWorksAuthoring/P02Readback.cs",
+        "CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs",
+    ):
+        SourcePath = KRepoRoot / "re/automation" / RelativePath
+        Destination = RootPath / "re/automation" / RelativePath
+        Destination.parent.mkdir(parents=True, exist_ok=True)
+        _ = Destination.write_bytes(SourcePath.read_bytes())
     _ = ReadbackGit(RootPath, "add", "re")
     _ = ReadbackGit(
         RootPath,
