@@ -132,8 +132,7 @@ def encode_ghost(nodes):
     return ParaStream(buffer, KTerminalFinSchema, DESCRIPTION)
 
 
-def read_ghost(archive, roles, owners):
-    raw = archive.require(GHOST_STREAM)
+def inspect_ghost(raw, roles, owners):
     payload, = DecodePartData(raw, GHOST_STREAM)
     require(payload.wrapper_offset == 0 and payload.stored_size == len(raw), "ghost partition has extra outer owners")
     nodes = ReadActiveNodes(payload.data)
@@ -152,3 +151,7 @@ def read_ghost(archive, roles, owners):
     return {"path": path, "section": observe_section(nodes, section, owners["section"]),
             "kernel_sha256": payload.sha256, "kernel_bytes": len(reemitted), "wrapped_bytes": len(raw),
             "typed_nodes": len(nodes), "world_last_id": world.Integer("highest_id"), "raw_and_wrapper_exact": True}
+
+
+def read_ghost(archive, roles, owners):
+    return inspect_ghost(archive.require(GHOST_STREAM), roles, owners)

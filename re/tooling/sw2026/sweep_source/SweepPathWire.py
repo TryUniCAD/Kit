@@ -11,7 +11,7 @@ from SweepModel import require
 from SweepSectionTransport import encode_section_nodes
 
 
-def make_path_wire(radius):
+def make_path_nodes(radius):
     require(type(radius) in (int, float) and isfinite(radius) and 0.001 <= radius <= 0.15,
             "path radius exceeds the measured positive quarter-arc range")
     frame = PrincipalFrame("z")
@@ -40,4 +40,8 @@ def make_path_wire(radius):
         PrismCell(negative, {"loop": 0, "forward": 0, "backward": 0, "vertex": start, "other": positive,
                              "edge": edge, "next_at_vx": 0, "sense": "-"}),
     )
-    return encode_section_nodes(MakePrismNodes(cells))
+    return MakePrismNodes(cells)
+
+
+def make_path_wire(radius):
+    return encode_section_nodes(make_path_nodes(radius))

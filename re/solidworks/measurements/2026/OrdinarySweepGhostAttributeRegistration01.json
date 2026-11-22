@@ -1,0 +1,21 @@
+{
+  "module": "sldgciParau.dll",
+  "native_execution": false,
+  "registration": {
+    "EDGE_ID_2001": {
+      "definition_call": "0x32f9ef6b",
+      "end": "0x32f9ef77",
+      "first": "0x32f9ef2e",
+      "identifier_location": "0x330b8388",
+      "sha256": "c0e305606600998f62aee00b57e60f17a364fef18e0211429afa131dfc99fccf"
+    },
+    "GHOST_REF_BODY_ID_2001": {
+      "definition_call": "0x32f9edcf",
+      "end": "0x32f9eddb",
+      "first": "0x32f9ed9c",
+      "identifier_location": "0x330b81a0",
+      "sha256": "4a91ff5939902e445bdca0c72242224583efcabebf1a88fd1f066a95963698a1"
+    }
+  },
+  "sha256": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce"
+}
