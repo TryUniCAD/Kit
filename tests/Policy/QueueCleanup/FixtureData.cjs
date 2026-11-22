@@ -25,7 +25,7 @@ function FixtureData(CaseName) {
     requested: { status: "requested" },
   };
   Object.assign(Current, Changes[CaseName] ?? {});
-  return { CaseName, Current, Cancelled: [], Calls: [] };
+  return { CaseName, Current, Cancelled: [], Calls: [], EntryNumbers: [] };
 }
 
 module.exports = { FixtureData };

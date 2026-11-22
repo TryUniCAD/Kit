@@ -28,7 +28,7 @@ async function CancelStale(Github, Context, RunInfo, Heads) {
   const Result = await Github.graphql(
     `query($owner:String!, $repo:String!, $number:Int!) {
       repository(owner:$owner, name:$repo) {
-        pullRequest(number:$number) { mergeQueueEntry { id } }
+        pullRequest(number:$number) { mergeQueueEntry { headCommit { oid } } }
       }
     }`,
     { ...Context.repo, number: Number(BranchMatch[1]) },
@@ -36,7 +36,13 @@ async function CancelStale(Github, Context, RunInfo, Heads) {
   const PullInfo = Result.repository?.pullRequest;
   if (!PullInfo || !("mergeQueueEntry" in PullInfo))
     throw new Error("Current queue entry evidence unavailable");
-  if (PullInfo.mergeQueueEntry !== null) return false;
+  const EntryInfo = PullInfo.mergeQueueEntry;
+  if (
+    EntryInfo !== null &&
+    (!/^[0-9a-f]{40}$/.test(EntryInfo.headCommit?.oid ?? "") ||
+      EntryInfo.headCommit.oid === RunInfo.head_sha)
+  )
+    return false;
   await Github.rest.actions.cancelWorkflowRun({
     ...Context.repo,
     run_id: RunInfo.id,

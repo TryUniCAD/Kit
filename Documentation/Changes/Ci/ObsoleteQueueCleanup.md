@@ -8,9 +8,11 @@ Those jobs compete with replacement candidates for the same runners.
 
 The cleanup cancels only unfinished, same-repository `merge_group` runs of `.github/workflows/MergeQueue.yml` under `gh-readonly-queue/main/`.
 Each sweep reads every page of active queue heads once, avoiding repeated full scans as unfinished runs accumulate.
-Before cancellation it refreshes the run, requires the exact queue branch to return HTTP 404, and directly checks that its source PR currently has no queue entry.
+Before cancellation it refreshes the run, requires the exact queue branch to return HTTP 404, and directly checks its source PR's current queue candidate SHA.
 A matching active queue head or any existing branch preserves the run.
-The direct PR check also preserves a newly requeued source after the initial snapshot, regardless of its new candidate SHA.
+The direct PR check preserves a matching candidate or an entry whose candidate identity is unavailable.
+A missing source entry or a different valid candidate SHA permits cleanup of the abandoned run.
+This releases superseded speculative candidates even while their replacement remains queued.
 Unrecognized queue branch naming preserves the run.
 Missing queue evidence and API failures stop cleanup without authorizing cancellation.
 Manual audits, PR checks, other workflows, forks, and other target branches remain outside its scope.
@@ -43,3 +45,4 @@ Remote execution and a post-merge queue benchmark remain pending.
 No measured speedup is claimed for this change before candidate acceptance and end-to-end timing.
 The motivating observations are recorded in [dequeued candidate runs](../../Gotchas/Ci/Scheduling/DequeuedCandidateRuns.md).
 The implementation retains the security audit by avoiding [workflow completion triggers](../../Gotchas/Ci/Scheduling/WorkflowCompletionTriggers.md).
+The [queue entry identity](../../Gotchas/Ci/Scheduling/QueueEntryIdentity.md) check distinguishes a superseded candidate from its still-queued source PR.

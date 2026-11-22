@@ -34,6 +34,8 @@ import pytest as Pytest
         "entry-missing",
         "entry-error",
         "multiple",
+        "entry-unknown",
+        "replacement",
     ),
 )
 def CheckCleanup(CaseName: str) -> None:
@@ -63,7 +65,7 @@ def CheckCleanup(CaseName: str) -> None:
         else (
             [42]
             if CaseName
-            in {"abandoned", "queued", "waiting", "pending", "requested", "multiple"}
+            in {"abandoned", "queued", "waiting", "pending", "requested", "replacement"}
             else []
         )
     )
@@ -73,3 +75,5 @@ def CheckCleanup(CaseName: str) -> None:
         )
     if CaseName == "queue-page":
         assert Evidence["Calls"] == ["queue", "queue"]
+    if CaseName == "multiple":
+        assert Evidence["EntryNumbers"] == [42, 43]

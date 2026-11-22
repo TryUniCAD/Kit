@@ -6,7 +6,8 @@ const Github = {
   graphql: async (Query, Variables) => {
     if (Query.includes("pullRequest(number:")) {
       Fixture.Calls.push("entry");
-      Assert.equal(Variables.number, 42);
+      Fixture.EntryNumbers.push(Variables.number);
+      Assert.ok([42, 43].includes(Variables.number));
       if (Fixture.CaseName === "entry-error")
         throw new Error("Entry unavailable");
       return {
@@ -15,10 +16,23 @@ const Github = {
             Fixture.CaseName === "entry-missing"
               ? null
               : {
-                  mergeQueueEntry:
-                    Fixture.CaseName === "entry-active"
-                      ? { id: "current" }
-                      : null,
+                  mergeQueueEntry: [
+                    "entry-active",
+                    "entry-unknown",
+                    "replacement",
+                  ].includes(Fixture.CaseName)
+                    ? {
+                        headCommit:
+                          Fixture.CaseName === "entry-unknown"
+                            ? null
+                            : {
+                                oid:
+                                  Fixture.CaseName === "replacement"
+                                    ? "c".repeat(40)
+                                    : Fixture.Current.head_sha,
+                              },
+                      }
+                    : null,
                 },
         },
       };
@@ -38,9 +52,11 @@ const Github = {
             nodes:
               Fixture.CaseName === "queue-missing"
                 ? [{ headCommit: null }]
-                : Active
-                  ? [{ headCommit: { oid: Fixture.Current.head_sha } }]
-                  : [],
+                : Fixture.CaseName === "replacement"
+                  ? [{ headCommit: { oid: "c".repeat(40) } }]
+                  : Active
+                    ? [{ headCommit: { oid: Fixture.Current.head_sha } }]
+                    : [],
             pageInfo: { hasNextPage: More, endCursor: More ? "next" : null },
           },
         },
@@ -51,7 +67,23 @@ const Github = {
     actions: {
       listWorkflowRuns: "list",
       getWorkflowRun: async (Request) => ({
-        data: { ...Fixture.Current, id: Request.run_id },
+        data: {
+          ...Fixture.Current,
+          id: Request.run_id,
+          head_branch:
+            Fixture.CaseName === "multiple"
+              ? Fixture.Current.head_branch.replace(
+                  "pr-42-",
+                  `pr-${Request.run_id}-`,
+                )
+              : Fixture.CaseName === "replacement" && Request.run_id === 43
+                ? `gh-readonly-queue/main/pr-42-${"d".repeat(40)}`
+                : Fixture.Current.head_branch,
+          head_sha:
+            Fixture.CaseName === "replacement" && Request.run_id === 43
+              ? "c".repeat(40)
+              : Fixture.Current.head_sha,
+        },
       }),
       cancelWorkflowRun: async (Request) => {
         Fixture.Calls.push("cancel");
@@ -62,7 +94,7 @@ const Github = {
     git: {
       getRef: async (Request) => {
         Fixture.Calls.push("ref");
-        Assert.equal(Request.ref, `heads/${Fixture.Current.head_branch}`);
+        Assert.ok(Request.ref.startsWith("heads/gh-readonly-queue/main/pr-"));
         if (Fixture.CaseName === "ref-active")
           return { data: { object: { sha: Fixture.Current.head_sha } } };
         throw Object.assign(new Error("Reference lookup"), {
@@ -76,7 +108,7 @@ const Github = {
     Assert.equal(Request.workflow_id, "MergeQueue.yml");
     Assert.equal(Request.event, "merge_group");
     return Request.status === "in_progress"
-      ? Fixture.CaseName === "multiple"
+      ? ["multiple", "replacement"].includes(Fixture.CaseName)
         ? [{ id: 42 }, { id: 43 }]
         : [{ id: 42 }]
       : [];
