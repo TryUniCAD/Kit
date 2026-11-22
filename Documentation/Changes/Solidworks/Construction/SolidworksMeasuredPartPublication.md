@@ -1,5 +1,13 @@
 # Require exact native evidence for SOLIDWORKS part output
 
+The SDK can regenerate an exact measured cold part after a strict SDK read.
+It uses the linked Front-plane line loop and the actual driving D1. The final
+locator supplies the expected part name. Before publication, Kit compares
+the complete strict readback against an in-memory projection of its newly
+generated archive, including the default scaffold, B-rep, and provenance.
+A changed source hash, extra metadata, or changed topology refuses publication.
+This path applies to exact cold readbacks with a matching offline receipt.
+
 Public SOLIDWORKS part writes release a file or write to a binary stream only
 when the complete regenerated archive matches a passing offline native
 measurement from SOLIDWORKS 2026 SP05.2. Direct adapter calls and ordinary

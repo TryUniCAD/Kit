@@ -1,3 +1,5 @@
+from pathlib import Path as FilePath, PureWindowsPath
+
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
@@ -7,6 +9,13 @@ from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPart
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
+    ColdReadInput,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -18,8 +27,20 @@ def PrepareNative(
     OptionsValue: WriteOptions | None = None,
 ) -> PartCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue = PlanPartWrite(DocumentValue)
+    IsReadback = IsColdRead(DocumentValue)
+    InputValue = DocumentValue
+    if IsReadback:
+        FinalValue = SettingsValue.values.get("final_destination", TargetValue)
+        if not isinstance(FinalValue, (str, FilePath)):
+            raise ValueError(
+                "unnamed native streams require an explicit final destination"
+            )
+        InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
+    PlanValue = PlanPartWrite(InputValue)
     RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
-    return RunPartPrep(
-        DocumentValue, TargetValue, PlanValue, RecipeValue, SettingsValue
+    Candidate = RunPartPrep(
+        InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
     )
+    if IsReadback:
+        CheckColdRead(DocumentValue, Candidate.BytesValue)
+    return Candidate

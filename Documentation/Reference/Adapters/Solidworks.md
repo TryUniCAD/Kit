@@ -316,6 +316,11 @@ the existing neutral Windows self-locator rule. A Windows output must
 reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 
+A strict cold readback of a measured ordinary part can use the same SDK writer
+with its matching final locator and receipt. Kit verifies the regenerated
+model and complete output digest before exposing bytes. Native saves with
+extra state remain outside this path.
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.
