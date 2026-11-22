@@ -1,7 +1,11 @@
 from hashlib import sha256 as CalcSha
-from json import dumps as JsonDumps
+from json import dumps as JsonDumps, loads as JsonLoads
 
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Core.Writing.Imports.CheckImportLife import (
+    CheckImportLife,
+)
+from convert.adapters.solidworks.Core.Writing.Imports.ImportMeasure import ImportMeasure
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
     ReadMeasInput,
 )
@@ -9,12 +13,38 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMe
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
 
-# only this disclosed native report already measures the exact standalone archive
+# only this disclosed native report already measures the exact standalone archives
 KImportReceiptSha = "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4"
 
+# each geometry profile has its own native lifecycle comparison
+KImportCases = (("RectangularBare", 116), ("ConcaveOwned", 164))
 
-# exact oracle evidence is authenticated independently of model construction
-def ReadImportMeas(SettingsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+
+# publication keeps only checked immutable values from the authenticated case
+def ReadImportCase(
+    CaseValue: dict[str, object],
+    EpochValue: int,
+    ResultSha: str,
+    NumericChecks: int,
+) -> ImportMeasure:
+    SizeValue = CaseValue.get("generated_bytes")
+    if type(SizeValue) is not int or SizeValue < 1:
+        raise ValueError("local solid measurement lacks a complete archive size")
+    RebuildSha, ReopenSha = CheckImportLife(CaseValue, NumericChecks)
+    return ImportMeasure(
+        EpochValue,
+        SizeValue,
+        ReadMeasSha(CaseValue.get("native_input_sha256")),
+        ResultSha,
+        RebuildSha,
+        ReopenSha,
+    )
+
+
+# native eligibility is computed from the identical bytes authenticated for each case
+def ReadImportMeas(
+    SettingsValue: WriteOptions,
+) -> tuple[int, tuple[ImportMeasure, ...]]:
     EpochValue, Receipt = ReadMeasInput(SettingsValue)
     try:
         Evidence = (
@@ -24,9 +54,13 @@ def ReadImportMeas(SettingsValue: WriteOptions) -> tuple[int, dict[str, object]]
         raise ValueError(
             "local solid needs bounded JSON measurement evidence"
         ) from ErrorValue
+    if CalcSha(Evidence).hexdigest() != KImportReceiptSha:
+        raise ValueError(
+            "local solid output requires its exact controlled native receipt"
+        )
+    Receipt = ReadMeasMap(JsonLoads(Evidence))
     if (
-        CalcSha(Evidence).hexdigest() != KImportReceiptSha
-        or Receipt.get("schema")
+        Receipt.get("schema")
         != "kit.sw2026.generated-imported-local-parts-completed.v1"
         or Receipt.get("oracle_file_version") != KOraclePart["build"]
         or Receipt.get("oracle_sha256") != KOraclePart["sha256"]
@@ -42,4 +76,14 @@ def ReadImportMeas(SettingsValue: WriteOptions) -> tuple[int, dict[str, object]]
         Controls.get("ControlAfter")
     ):
         raise ValueError("local solid measurement needs separate controls")
-    return EpochValue, Receipt
+    CasesValue = ReadMeasMap(Receipt.get("cases"))
+    ResultSha = ReadMeasSha(Receipt.get("native_raw_sha256"))
+    return EpochValue, tuple(
+        ReadImportCase(
+            ReadMeasMap(CasesValue.get(RoleValue)),
+            EpochValue,
+            ResultSha,
+            NumericChecks,
+        )
+        for RoleValue, NumericChecks in KImportCases
+    )

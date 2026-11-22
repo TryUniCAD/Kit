@@ -3,8 +3,9 @@ from os import environ as Environment
 from os import name as OsName
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
+from zlib import ZLIB_RUNTIME_VERSION as DeflateRuntime
 
-from pytest import mark as MarkCase
+from pytest import mark as MarkCase, skip as SkipCase
 
 from tests.Convert.Api.ApiTestPaths import KRootPath
 
@@ -47,9 +48,15 @@ def TestBoxWinPath() -> None:
     ScriptPath = (
         KRootPath / "re/tooling/sw2026/imported_body_source/VerifyMeasuredBoxPaths.py"
     )
-    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON") or PythonExec
+    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON")
+    if (
+        not RuntimePath
+        and "zlib-ng" in DeflateRuntime
+        and Environment.get("GITHUB_ACTIONS") != "true"
+    ):
+        SkipCase("measured Windows publication requires the matching runtime")
     Outcome = RunProcess(
-        (RuntimePath, "-I", "-B", str(ScriptPath)),
+        (RuntimePath or PythonExec, "-I", "-B", str(ScriptPath)),
         capture_output=True,
         encoding="utf-8",
         timeout=90,

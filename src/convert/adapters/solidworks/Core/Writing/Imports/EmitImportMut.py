@@ -24,12 +24,12 @@ def EmitImportMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
-    EpochValue, Receipt = ReadImportMeas(SettingsValue)
+    EpochValue, Measurements = ReadImportMeas(SettingsValue)
     OutputPath, SettingsValue = ImportTarget(TargetValue, SettingsValue)
     Payload = PrepareImport(
         DocumentValue, OutputPath or TargetValue, EpochValue, SettingsValue
     ).BytesValue
-    Measurement = MatchImportMeas(Payload, EpochValue, Receipt)
+    Measurement = MatchImportMeas(Payload, Measurements)
     if OutputPath is None:
         WriteWholeMut(TargetValue, Payload)
     else:
