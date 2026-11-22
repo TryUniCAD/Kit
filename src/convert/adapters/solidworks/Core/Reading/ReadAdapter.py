@@ -289,6 +289,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
     IsSavedSweep,
     ReadSwPart,
 )
+from convert.adapters.solidworks.Core.TypedResolved.OffsetPlanes.TryColdOff import (
+    TryColdOff,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
 )
@@ -530,6 +533,10 @@ def SelectPartShape(
     )
     if Settings.extract_raw_brep:
         return NativeValue, None, None, None, None
+    OffsetValue = TryColdOff(Archive, NativeValue, Settings, KPartBodyId)
+    if OffsetValue is not None:
+        ModelValue, GeometryValue = OffsetValue
+        return ModelValue, None, None, GeometryValue, None
     ChmfValue = TryColdChmf(Archive, NativeValue, Settings)
     if ChmfValue is not None:
         Geometry = (
@@ -4295,7 +4302,9 @@ def BuildFeature(
         return RefPlaneFeature(
             support_plane_id=PlaneId(Feature.object_id),
             reference_plane_id=PlaneId(RefIds[0]),
-            offset=ParamValue(Offset, ValueKind.LENGTH, "mm"),
+            offset=ParamValue(
+                -Offset if Plane.OffsetReversed else Offset, ValueKind.LENGTH, "mm"
+            ),
         )
     return NativeFallback(Feature, Operation)
 

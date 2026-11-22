@@ -19,6 +19,12 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph 
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.CheckOffRadial import (
+    CheckOffRadial,
+)
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
 from convert.adapters.solidworks.Archive.Construction.Origin.MakeOriginFix import (
     MakeOriginFix,
 )
@@ -37,9 +43,13 @@ def AddCircDimMut(
     DesignIntent: bool,
     SelectedLeader: int,
     Allocator: PersistentIds,
+    *,
+    OffsetValue: OffsetGraph | None = None,
 ) -> DimensionGraph:
     Geometry = NeedCircle(GraphValue)
-    if GraphValue.FrameValue.OriginValue != (0.0, 0.0, 0.0):
+    if OffsetValue is not None:
+        CheckOffRadial(GraphValue, OffsetValue, IsDiameter)
+    elif GraphValue.FrameValue.OriginValue != (0.0, 0.0, 0.0):
         raise ValueError("radial dimension requires a principal support at origin")
     FieldsValue = RequireDimRows(Geometry.SketchValue)
     ValueNode = MakeRadialVal(GraphValue, IsDiameter)

@@ -29,6 +29,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Displays.PutSelfLookM
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
     EmitPartStreams,
 )
@@ -84,6 +87,7 @@ def FinishBlindMut(
     ThroughValue: ThroughPartSpec | None = None,
     WidthDriver: DimensionGraph | None = None,
     SelfView: PartSelfView | None = None,
+    OffsetValue: OffsetGraph | None = None,
 ) -> PartCandidate:
     if SelfView is not None and (
         PocketValue is not None
@@ -138,6 +142,7 @@ def FinishBlindMut(
         CutValue=CutValue,
         CutSketchDims=CutSketchDims,
         PartRelations=WidthDriver is not None,
+        OffsetValue=OffsetValue,
     )
     if SelfView is not None:
         StreamsValue[KVisualStream] = MakePartVis(

@@ -1085,6 +1085,7 @@ class NativePlane:
     principal: bool = False
     reference_ids: tuple[int, ...] = ()
     native_stream: str = ResolvedFeaturesStream
+    OffsetReversed: bool = False
 
 
 # this definition exists because focused behavior needs one stable owner

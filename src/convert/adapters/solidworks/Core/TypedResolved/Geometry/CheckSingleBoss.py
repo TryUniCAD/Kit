@@ -8,7 +8,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
 # complete single boss history must exclude another solid producer or profile
-def CheckSingleBoss(Features: Mapping[int, ArchiveNode], SolidClass: str) -> None:
+def CheckSingleBoss(
+    Features: Mapping[int, ArchiveNode], SolidClass: str, *, HasOffset: bool = False
+) -> None:
     CountsValue = Counter(
         NodeValue.ClassValue.NameValue for NodeValue in Features.values()
     )
@@ -22,6 +24,6 @@ def CheckSingleBoss(Features: Mapping[int, ArchiveNode], SolidClass: str) -> Non
         },
         1,
     )
-    Expected["moRefPlane_c"] = 3
+    Expected["moRefPlane_c"] = 3 + int(HasOffset)
     if CountsValue != Expected:
         raise ValueError("SOLIDWORKS requires the whole ordinary single boss inventory")

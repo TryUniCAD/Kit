@@ -52,6 +52,8 @@ def CheckPrismPlane(
     Features: Mapping[int, ArchiveNode],
     RootValue: ArchiveNode,
     DisplaysValue: Mapping[ArchiveNode, DatumDisplay] | None = None,
+    *,
+    FrontOnly: bool = True,
 ) -> None:
     PlanesValue = tuple(
         NodeValue
@@ -72,5 +74,5 @@ def CheckPrismPlane(
             NodeValue, None if DisplaysValue is None else DisplaysValue[NodeValue]
         )
     CheckPrismProf(OriginValue)
-    _ = ReadPrismFrame(OriginValue, RootValue, Features)
+    _ = ReadPrismFrame(OriginValue, RootValue, Features, FrontOnly=FrontOnly)
     CheckOriginGeom(OriginValue)

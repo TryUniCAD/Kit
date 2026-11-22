@@ -98,8 +98,7 @@ def RequireDisplay(
             "moRevolutionThin_c",
             "moRefPlane_c",
         )
-        or OwnerValue.ClassValue.NameValue
-        in ("moRevolution_c", "moRevCut_c", "moRefPlane_c")
+        or OwnerValue.ClassValue.NameValue in ("moRevolution_c", "moRevCut_c")
         and not IsAngular
     ):
         raise ValueError(
@@ -108,7 +107,11 @@ def RequireDisplay(
     if OwnerValue.ClassValue.NameValue == "moRefPlane_c":
         _ = RequireNode(
             OwnerValue.FieldsValue.get("f6f8"),
-            "moConstraintCoincLineAtAnglePlaneRefplaneData_c",
+            (
+                "moConstraintCoincLineAtAnglePlaneRefplaneData_c"
+                if IsAngular
+                else "moFaceRefPlnData_c"
+            ),
         )
     CheckViewArgs(DesignIntent, SelectedLeader)
     return OwnerValue

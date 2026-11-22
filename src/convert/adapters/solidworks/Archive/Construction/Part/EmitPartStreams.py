@@ -3,6 +3,12 @@ from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import 
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
     KeywordDim,
 )
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OrderOffStreams import (
+    OrderOffStreams,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import (
     EmitPartArchive,
 )
@@ -36,6 +42,7 @@ def EmitPartStreams(
     CutValue: CutGraph | None = None,
     CutSketchDims: tuple[KeywordDim, ...] = (),
     PartRelations: bool = False,
+    OffsetValue: OffsetGraph | None = None,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     KeywordsValue = MakePartKeys(
         SystemValue,
@@ -45,8 +52,9 @@ def EmitPartStreams(
         SketchDims,
         CutValue=CutValue,
         CutSketchDims=CutSketchDims,
+        OffsetValue=OffsetValue,
     )
-    return EmitPartArchive(
+    StreamsValue, ConfigValue, ResolvedValue = EmitPartArchive(
         SystemValue,
         FeatureValues,
         HeadersValue,
@@ -54,4 +62,9 @@ def EmitPartStreams(
         InputValue,
         KeywordsValue,
         PartRelations=PartRelations,
+    )
+    return (
+        OrderOffStreams(StreamsValue) if OffsetValue is not None else StreamsValue,
+        ConfigValue,
+        ResolvedValue,
     )

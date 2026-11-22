@@ -9,6 +9,7 @@ def ReadGeomMessage(MethodValue: str) -> str:
         "typed_parametric_selected_revolve_cut": "B-rep reconstructed from two typed annular stocks and the selected partial revolve cut",
         "typed_parametric_ordinary_revolve": "B-rep reconstructed from the typed rectangle, selected revolve axis and live angle",
         "typed_parametric_circular_boss": "B-rep reconstructed from the complete typed circular boss history",
+        "typed_parametric_offset_circular_boss": "B-rep reconstructed from the typed offset plane, fixed circle and live blind boss depth",
     }
     return Messages.get(
         MethodValue,

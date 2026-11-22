@@ -16,6 +16,7 @@ def ReadDepthOwner(
     SlotName: str = "f18",
     *,
     RadiusSlot: bool = False,
+    OwnerSlot: str | None = None,
 ) -> DepthOwner:
     DisplayValue = RequireNative(DisplayValue, "moDisplayDistanceDim_c")
     HandlesValue = NativeRows(DisplayValue.FieldsValue.get("f850"))
@@ -60,7 +61,7 @@ def ReadDepthOwner(
             "dimension_index": Dimension.IndexValue,
             "handle_index": HandleValue.IndexValue,
             "display_index": DisplayValue.IndexValue,
-            "slot": "f818" if RadiusSlot else "f818." + SlotName,
+            "slot": OwnerSlot or ("f818" if RadiusSlot else "f818." + SlotName),
         },
     )
     return DepthOwner(Parameter, Dimension, HandleValue, DisplayValue, DepthValue)

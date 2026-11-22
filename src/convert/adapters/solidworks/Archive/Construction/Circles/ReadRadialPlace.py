@@ -31,7 +31,9 @@ def ReadRadialPlace(
         TextValue[1] - CenterValue[1],
     )
     SquaredValue = FirstValue * FirstValue + SecondValue * SecondValue
-    CenterSquare = sum(Value * Value for Value in CenterValue)
+    Origin = GraphValue.FrameValue.OriginValue
+    NormPoint = CenterValue if Origin == (0.0, 0.0, 0.0) else Origin
+    CenterSquare = sum(Value * Value for Value in NormPoint)
     if not IsFinite(SquaredValue) or not IsFinite(CenterSquare):
         raise ValueError("radial placement must retain finite distances")
     DistanceValue = SquareRoot(SquaredValue)
@@ -40,7 +42,7 @@ def ReadRadialPlace(
         "f988": MakePoint(XValue=CenterValue[0], YValue=CenterValue[1]),
         "fad0": (
             SquareRoot(CenterSquare)
-            if max(map(abs, CenterValue)) >= 1e-8
+            if max(map(abs, NormPoint)) >= 1e-8
             else LengthValue
         ),
     }

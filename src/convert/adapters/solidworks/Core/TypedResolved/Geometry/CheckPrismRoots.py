@@ -13,8 +13,9 @@ def CheckPrismRoots(
     *,
     SolidClass: str = "moExtrusion_c",
     RequiredClasses: tuple[str, ...] = ("moEndSpec_c", "moFromEndSpec_c"),
+    HasOffset: bool = False,
 ) -> None:
-    CheckSingleBoss(Features, SolidClass)
+    CheckSingleBoss(Features, SolidClass, HasOffset=HasOffset)
     for ClassName in (
         "moPart_c",
         "moProfileFeature_c",
@@ -38,7 +39,7 @@ def CheckPrismRoots(
         )
     for ClassName, CountValue in (
         ("moDefaultRefPlnData_c", 3),
-        ("moCompRefPlane_c", 2),
+        ("moCompRefPlane_c", 2 + int(HasOffset)),
     ):
         if (
             sum(NodeValue.ClassValue.NameValue == ClassName for NodeValue in NodesValue)

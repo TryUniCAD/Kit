@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
+from convert.adapters.solidworks.Archive.Construction.OffsetPlane.OffsetGraph import (
+    OffsetGraph,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakeCutKeys import (
     MakeCutKeys,
 )
@@ -25,6 +28,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan impo
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
+)
+from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketchKeys import (
+    MakeSketchKeys,
 )
 from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
     PartSystem,
@@ -47,6 +53,7 @@ def MakePartKeys(
     CutValue: CutGraph | None = None,
     CutSketchDims: tuple[KeywordDim, ...] = (),
     AdditionalRows: tuple[KeywordFeature, ...] = (),
+    OffsetValue: OffsetGraph | None = None,
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -84,11 +91,17 @@ def MakePartKeys(
             if TagValue == "Extrusion"
             else SketchDims if TagValue == "Sketch" else ()
         )
+        NativeClass = NodeValue.ClassValue.NameValue
+        if OffsetValue is not None and NodeValue is OffsetValue.FeatureValue:
+            NativeClass = "PLANE"
+            Dimensions = MakeSketchKeys(
+                (OffsetValue.DistanceValue,), InputValue.DocumentUnits.LengthUnit
+            )
         RowsValue.append(
             KeywordFeature(
                 FieldInt(NodeValue.FieldsValue, "f08"),
                 ReadNodeName(NodeValue),
-                NodeValue.ClassValue.NameValue,
+                NativeClass,
                 TagValue,
                 Dimensions,
                 (),

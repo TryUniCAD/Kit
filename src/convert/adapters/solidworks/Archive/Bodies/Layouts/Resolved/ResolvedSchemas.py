@@ -57,6 +57,7 @@ KResolvedSchemas = MappingProxyType(
         "moPointBackedUpData_c": (1,),
         "moProfileFeature_c": (1,),
         "moRefPlane_c": (1,),
+        "moFaceRefPlnData_c": (1,),
         "moRevEndSpec_c": (1,),
         "moRevolution_c": (1,),
         "moSelectionSetFolder_c": (1,),
