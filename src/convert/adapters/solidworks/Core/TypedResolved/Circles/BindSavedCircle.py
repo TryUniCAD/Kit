@@ -1,15 +1,13 @@
 from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
-
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Circles.ApplyCircle import (
     ApplyCircle,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Circles.CheckBodyCache import (
-    CheckBodyCache,
+from convert.adapters.solidworks.Core.TypedResolved.Circles.Attached.ReadLinkedName import (
+    ReadLinkedName,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Circles.CheckBlindCirc import (
     CheckBlindCirc,
@@ -17,14 +15,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Circles.CheckBlindCirc impor
 from convert.adapters.solidworks.Core.TypedResolved.Circles.CheckCircChain import (
     CheckCircChain,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
-    LocalCircle,
+from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadCirclePlane import (
+    ReadCirclePlane,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadLocalCirc import (
     ReadLocalCirc,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Circles.ReadAttachBody import (
-    ReadAttachBody,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Circles.SavedCircleAtom import (
     SavedCircleAtom,
@@ -38,16 +33,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckSingleBoss imp
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.CheckCircDrive import (
     CheckCircDrive,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
-    ReadPrismFrame,
-)
-from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
-from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
-from interchange.geometry.Models.Transform import Transform
 
 
 # one saved circle binds its live dimension handles to the actual profile support and producing atom
@@ -97,62 +86,20 @@ def BindSavedCircle(
         "value_field": "f58",
         "value_m": Inactive,
     }
-    return ReplaceValue(
-        ApplyCircle(ModelValue, Bound, Owner, InactiveDepth=DepthValue),
-        SavedCircleAtom=BodyId,
-        SavedCircleName=(
-            ReadLinkedName(
-                LinkValue,
-                Owner,
-                CircleValue,
-                Inactive,
-                ModelValue.configurations[0].name,
-                BodyId,
-                Archive,
-                SavedBody,
-            )
-            if AttachedBody
-            else None
-        ),
-    )
 
-
-# an implicit circular body must use the actual front datum presented in the neutral document
-def ReadCirclePlane(
-    ModelValue: NativeModel,
-    LinkValue: NativeLink,
-    Features: Mapping[int, ArchiveNode],
-    Profile: ArchiveNode,
-) -> tuple[Transform, int]:
-    FrameValue = ReadPrismFrame(Profile, LinkValue.ConfigValue.RootValue, Features)
-    Reference = RequireNative(Profile.FieldsValue.get("pd_f78"), "moCompRefPlane_c")
-    PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
-    if type(PlaneId) is not int or not any(
-        Plane.object_id == PlaneId for Plane in ModelValue.planes
-    ):
-        raise ValueError("saved circle has no owned front support datum")
-    return FrameValue, PlaneId
-
-
-# mere archive aliases cannot establish an attached name until the kernel and saved cache owners agree
-def ReadLinkedName(
-    LinkValue: NativeLink,
-    Owner: ExtrudeOwner,
-    CircleValue: LocalCircle,
-    InactiveDepth: float,
-    Configuration: str,
-    BodyId: int,
-    Archive: SldprtArchive,
-    SavedBody: bool,
-) -> str:
-    if SavedBody:
-        CheckBodyCache(
-            LinkValue, Owner.NodeValue, CircleValue, InactiveDepth, Configuration
+    BoundModel = ApplyCircle(ModelValue, Bound, Owner, InactiveDepth=DepthValue)
+    BodyName = (
+        ReadLinkedName(
+            LinkValue,
+            Owner,
+            CircleValue,
+            Inactive,
+            BodyId,
+            Archive,
+            BoundModel,
+            SavedBody,
         )
-    return ReadAttachBody(
-        LinkValue,
-        Owner.NodeValue,
-        BodyId,
-        Archive.require(KPartitionStream),
-        SavedBody=SavedBody,
+        if AttachedBody
+        else None
     )
+    return ReplaceValue(BoundModel, SavedCircleAtom=BodyId, SavedCircleName=BodyName)

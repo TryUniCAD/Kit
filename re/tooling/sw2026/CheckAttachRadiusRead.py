@@ -178,6 +178,7 @@ def worker(request):
     from convert.adapters.solidworks.Core.Adapter import NativePartModel
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from CheckSavedCircleRead import linked_streams
+    from CheckAttachDimConflict import check_dimension_conflicts
     from interchange.brep.Validation import BrepValidate
     from interchange.document.Models import DocumentProvenance
     from interchange.document.Validation import DocumentFeatureValidate, DocumentReferenceValidate
@@ -216,6 +217,7 @@ def worker(request):
         nodes = ReadActiveNodes(active_part.data)
         marks = ReadHistMarks(history.data, nodes)
         refusals = check_refusals(archive, link, model, opposite)
+        conflicts = check_dimension_conflicts(archive, model) if request.get('geometry_conflicts') else {}
     finally:
         active = False
     require(not attempts and checked(path, PHASES[phase]) == data,
@@ -223,12 +225,14 @@ def worker(request):
     return {"phase": phase, "file_sha256": PHASES[phase], "linked_streams": replay,
             "physical": {"active_sha256": digest(active_part.data), "rollback_sha256": digest(history.data),
                          "active_nodes": len(nodes), "selected_activation_marks": marks},
-            "editable": observed, "refusals": refusals, "runtime_external_accesses": len(attempts)}
+            "editable": observed, "refusals": refusals, "runtime_external_accesses": len(attempts),
+            **({"physical_driver_conflicts": conflicts} if conflicts else {})}
 
 
 def main():
     parser = ArgumentParser()
     parser.add_argument("--worker", action="store_true")
+    parser.add_argument("--geometry-conflicts", action="store_true")
     parser.add_argument("--packet", type=Path)
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
@@ -243,6 +247,8 @@ def main():
     cases = []
     for phase, native, prediction in validate_native(terminal, trial, predict):
         data = {"phase": phase, "packet": str(root), "native": native, "prediction": prediction}
+        if args.geometry_conflicts:
+            data["geometry_conflicts"] = True
         child = run((sys.executable, "-I", "-B", str(HERE), "--worker"), input=dumps(data),
                     capture_output=True, text=True, timeout=120, check=False)
         require(child.returncode == 0 and not child.stderr, child.stderr)
@@ -253,6 +259,9 @@ def main():
               "tool_sha256": digest(HERE.read_bytes()), "fresh_processes": len(cases),
               "reported_native_scope": "resolved child in native concentric assembly",
               "native_standalone_acceptance": False, "heldout_credits": 0}
+    if args.geometry_conflicts:
+        result["schema"] = "kit.sw2026.attached-radius-sdk-read.v2"
+        result["conflict_tool_sha256"] = digest(HERE.with_name("CheckAttachDimConflict.py").read_bytes())
     with args.output.open("x", encoding="utf-8") as output:
         output.write(dumps(result, sort_keys=True, indent=2) + "\n")
     print(digest(args.output.read_bytes()))

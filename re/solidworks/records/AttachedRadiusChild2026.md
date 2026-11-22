@@ -69,6 +69,44 @@ boss and linked physical solid. It gives zero held-out credit and does
 not establish an independently loadable standalone child or full scene
 round-trip.
 
+## Strict read-mode regression
+
+[AttachedRadiusChildRead02](../measurements/2026/AttachedRadiusChildRead02.json)
+contains two fresh guarded SDK positives and four private-memory
+contrasts derived from the same disclosed before and after saves. A
+radius contrast changes the actual seam and radial parameter together.
+For the edited save, it also recomputes the chooser's inactive diagonal
+from that radius and the unchanged inactive depth. A depth contrast
+changes the live forward parameter and retains the saved prior chooser.
+In the generated phase, the distinct reverse handle retains its required
+equal value. All four contrasts preserve the exact active and rollback
+payloads.
+
+The baseline at `da59a4dca059a86b5546d4792da2f4a9698a854e` accepted
+all four contrasts in strict design-only reads. Full reads diagnosed the
+radius or cap span. Both strict modes now refuse each contradiction
+through the common circular body validator. The exact two positives
+still recover their drivers, names and physical identity with zero
+runtime external accesses. A separate transient model-only queue
+fixture supplies a linked radius with an unsupported active transmit.
+The test enters the actual attached-body reader in both modes and
+checks the strict refusal and explicit permissive diagnostic. It uses
+tracked source and requires no external CAD fixture.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckAttachRadiusRead.py \
+  --geometry-conflicts --packet /absolute/disclosed/RadialConcentric01 \
+  --output /tmp/UnusedAttachedRadiusRead02.json
+python3.14 -I -B re/tooling/sw2026/CheckLinkedRadiusQueue.py
+```
+
+Python 3.13 and 3.14 produce the same guarded receipt with SHA-256
+`5643e51fb047757206118bb0f65f6e71d3f6d3b1892fa65fcb15fc7b3c6d1033`.
+The source tree is `99f73890a5f28bbc96f6fb32f9c9d403d69c384a`.
+The generated queue probe is a reader refusal regression. It adds
+no native lifecycle or independent held-out evidence. The two existing
+saved diameter controls retain their prior readback.
+
 ## Model-only generation
 
 The [compiler comparison](../measurements/2026/AttachedRadiusChildBuild01.json)
