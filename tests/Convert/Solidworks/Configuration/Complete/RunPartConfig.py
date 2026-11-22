@@ -11,9 +11,11 @@ KConfigProbe = (
 
 
 # the same guarded decoder must consume both real sections before reemission
-def RunPartConfig(CaseName: str) -> dict[str, object]:
+def RunPartConfig(
+    CaseName: str, ProbeName: str = "CheckOrdinaryCfg.py"
+) -> dict[str, object]:
     Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(KConfigProbe), CaseName),
+        (PythonExec, "-I", "-B", str(KConfigProbe.with_name(ProbeName)), CaseName),
         capture_output=True,
         text=True,
         encoding="utf-8",

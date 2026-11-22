@@ -94,7 +94,13 @@ KPartRootRules = MappingProxyType(
                                 CountValue="n16b8",
                                 ModeValue="Unsigned",
                             ),
-                            NativeField("Length", "n16d0", "i32", CountValue="f16d0"),
+                            NativeField(
+                                "Length",
+                                "n16d0",
+                                "i32",
+                                CountValue="f16d0",
+                                ModeValue="Positive",
+                            ),
                             NativeField(
                                 "Repeat",
                                 "f16d0",
@@ -149,7 +155,13 @@ KPartRootRules = MappingProxyType(
                         "Branch",
                         "f1be0",
                         BodyValue=(
-                            NativeField("Length", "n1b98", "i32", CountValue="f1bc8"),
+                            NativeField(
+                                "Length",
+                                "n1b98",
+                                "i32",
+                                CountValue="f1bc8",
+                                ModeValue="Positive",
+                            ),
                             NativeField(
                                 "Repeat",
                                 "f1bc8",
