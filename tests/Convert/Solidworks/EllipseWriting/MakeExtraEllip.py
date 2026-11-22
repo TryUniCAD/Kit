@@ -1,5 +1,8 @@
 from xml.etree.ElementTree import Element as XmlElement, fromstring as ParseXml
 
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
+    EllipsePart,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import (
     FrameKeywords,
 )
@@ -8,9 +11,6 @@ from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTarget import
 )
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
-    PartCandidate,
 )
 from convert.adapters.solidworks.Archive.Construction.Profile.MakeProfileMut import (
     MakeProfileMut,
@@ -31,12 +31,12 @@ from convert.adapters.solidworks.Container.Format import (
 
 
 # a second real profile tests strict history ownership without using a saved part
-def MakeExtraEllip(Candidate: PartCandidate) -> bytes:
+def MakeExtraEllip(Candidate: EllipsePart) -> bytes:
     ConfigValue, GraphValue = Candidate.ConfigValue, Candidate.ResolvedValue
     FrontValue = next(
         NodeValue
         for NodeValue in GraphValue.RootsValue
-        if ReadNodeName(NodeValue) == "Front Plane"
+        if NodeValue is not None and ReadNodeName(NodeValue) == "Front Plane"
     )
     Extra = MakeProfileMut(
         "ExtraProfile",
