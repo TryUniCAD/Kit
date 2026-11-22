@@ -44,6 +44,8 @@ question. [Orientation gotcha](../../../Documentation/Gotchas/Conversion/Solidwo
 
 ## Handle and result ownership
 
+The [later exact-build trace](EdgeFilletResultOwners2026.md) closes the initial collection counts and separates pre-solve corner data from successful result assignments. The table below records the original saved-file observations that prompted that analysis.
+
 | Field and owner | Evidence status | Construction consequence |
 | --- | --- | --- |
 | `f848[0].o.fe8` selected `moEdgeRef_c` | Confirmed wire and alias. Its separately owned radial wrapper in `f868[0].o.f10` and `f820.ff0[0].o` share the reference. `fe8=0x200`, `f70>0` on all four saves. | The input needs the real stock, four roles and owner aliases. Start from the recorded BEnt constructor zero only in a separately controlled cold experiment. |
