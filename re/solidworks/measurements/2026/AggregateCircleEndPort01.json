@@ -1,0 +1,483 @@
+{
+  "actual_registered_circle_route_in_this_commit": false,
+  "base_commit": "133d616e82251e11ddd99c5b2e0376d8fb488830",
+  "base_sdk_tree": "57aa721d441534b3890e557e0aad86f15065d199",
+  "disclosed_cases": [
+    {
+      "archive_sha256": "fac76de7a6724c18f09bd1f8a15f1a870750d716b7968cac28da2eb1565b69eb",
+      "authored_request_sha256": "fe54e29e3849fd1d7a97b759de0fb76508a964d6bab272239293eaba1f7535a8",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "SLDPRT contains no readable Parasolid payload"
+      },
+      "case": "radius",
+      "name": "SDK circle radius alpha",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 2
+        },
+        "True": {
+          "area_mm2": 1162.200786269008,
+          "centroid_m": [
+            -0.004275,
+            0.006825000000000001,
+            0.0062375
+          ],
+          "driver_count": 2,
+          "faces": 3,
+          "stations_mm": [
+            0,
+            12.475
+          ],
+          "volume_mm3": 2983.467410517895
+        }
+      },
+      "receipt_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "c6265068fb8d66d68d036c1bb90f51825053657de124ec3f4ff7e3a8e684a229",
+        "Contents/Config-0-ModelHeader": "07eec913645c37ea0cf0e54525ff1a3aab9bc532c7e772f64cafd16cf239cb84",
+        "Contents/Config-0-ResolvedFeatures": "893db8bdcab24678a3909631ae0d471982577398e61305c0cf4b24a443475483",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "bed26fb2d4e377e7bd7b433558286c0154fd0d691716b67d2f90e961f70eb2c8",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "3d9c5977d49dc5eca120a33dcff74f23cdead7c58f39b68e2bba97bbeb4863a9"
+      }
+    },
+    {
+      "archive_sha256": "62a07340be437efe6464cf7e0599ffa5e1f9d208b6c8976311bfb0fe15d54b64",
+      "authored_request_sha256": "c1f549304f70301ee07403a18b60801f1cda0f6bea285e73c494264ebe8a0a4a",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "passed"
+      },
+      "case": "diameter",
+      "name": "SDK circle diameter beta",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 2
+        },
+        "True": {
+          "area_mm2": 2112.5168560166526,
+          "centroid_m": [
+            0.007125000000000001,
+            -0.005675,
+            0.0089125
+          ],
+          "driver_count": 2,
+          "faces": 3,
+          "stations_mm": [
+            0,
+            17.825
+          ],
+          "volume_mm3": 7373.688714995751
+        }
+      },
+      "receipt_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "6f63b6469a598b7665fe81f4c335754fb4d1bb9a3aad13dc8829f2c90e0b464c",
+        "Contents/Config-0-ModelHeader": "e65beb33e925ee7660ecf8e3de60c175598bd7d3303016b30f44fb4ad08c78a4",
+        "Contents/Config-0-ResolvedFeatures": "f69a102bdcf0df37b5b076354698d4b11722802f0c8638a18b3c319ad77c99c2",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "05c9d6045ff19393012185acb4f5412d7f48461ea4c6e3404abd12945b321a96",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "1b5af6d63b566eb5778351ee4d14181ec9388057c8371b01b539fa6971255259"
+      }
+    },
+    {
+      "archive_sha256": "353cd8c4a73320d83d5882c1397b2373901279bd6269ee9c90f0b8fe6674b3aa",
+      "authored_request_sha256": "5e059253ce182ba4edb041949bddf3a983866b5a577603c6dfd2ef003d5c7548",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "SLDPRT contains no readable Parasolid payload"
+      },
+      "case": "reverse-right",
+      "name": "SDK circle reverse right",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 2
+        },
+        "True": {
+          "area_mm2": 1087.9021200116094,
+          "centroid_m": [
+            -0.008262499999999999,
+            -0.006714,
+            -0.0031129999999999994
+          ],
+          "driver_count": 2,
+          "faces": 3,
+          "stations_mm": [
+            -16.525,
+            0
+          ],
+          "volume_mm3": 2747.6242211968633
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "f2a07f341190075be7751fbf4e0245150fce87b163c8f19a81a3bd7b399742eb",
+        "Contents/Config-0-ModelHeader": "e2b56f0e9bb6b383ea446997851276c700e9c762ed5c3977d86069f14460b55f",
+        "Contents/Config-0-ResolvedFeatures": "3f77bbd41bbd6125a8f127224b98608e65cc5c058bdc6cb601bf3e4930f7bf5c",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "d5c597231fa515a354654a21d2b3f0c92ca765b7e800b69390cec655bbc58998",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "d57459c4254f702d2457d9dbdab63aa87d1597c46e7f0d1aced4bcadd1393c34"
+      }
+    },
+    {
+      "archive_sha256": "55334d70ab7a29ab5926fe640e221f7728decfc2c38f06de24a553eccafc2c3d",
+      "authored_request_sha256": "dfe169fb7a3cc298a886acba7a24686d149253e818e4d306273b2a3c5a072305",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "SLDPRT contains no readable Parasolid payload"
+      },
+      "case": "mid-top",
+      "name": "SDK circle mid-plane top",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 2
+        },
+        "True": {
+          "area_mm2": 2323.207767329652,
+          "centroid_m": [
+            -0.007216000000000001,
+            0.0,
+            -0.0023119999999999994
+          ],
+          "driver_count": 2,
+          "faces": 3,
+          "stations_mm": [
+            -12.0875,
+            12.0875
+          ],
+          "volume_mm3": 8573.817458497699
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "81a6c3965c0c67123bec0721ae66dfa3741be3f4ed5db06d8b0ea9a435051a9a",
+        "Contents/Config-0-ModelHeader": "43a4f74656afe1b4710af86677d1d7ddabfd47fc1ac01efb0879ce840af9f60f",
+        "Contents/Config-0-ResolvedFeatures": "28b8e9ec73f71af3c33c1ad6ff580531cc3861a93da2516ad75d27ff58a5a9fd",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "09790eed93298a8f33236cd158811afd8a34021112ff81e547563551ff5b1573",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "286a4a89306a5ed0ff4b112bf2c74a3375350fda4d186251b5e86d0a516a08a9"
+      }
+    },
+    {
+      "archive_sha256": "e6b347ccc6c64e72454a1bb90eca1667237c93f17cc116fa56fff66c786daec4",
+      "authored_request_sha256": "cf7bf20875994518855452e8cedf73d692c7683178a0077e5322e574da2f909a",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "SLDPRT contains no readable Parasolid payload"
+      },
+      "case": "two-front",
+      "name": "SDK circle two directions front",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 3
+        },
+        "True": {
+          "area_mm2": 1484.3043540507526,
+          "centroid_m": [
+            0.004824999999999999,
+            -0.008113,
+            0.00305
+          ],
+          "driver_count": 3,
+          "faces": 3,
+          "stations_mm": [
+            -7.425,
+            13.525
+          ],
+          "volume_mm3": 4344.908542838805
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "c35fe040eda8a0220e495184bf7a498e8e2a8c7886ffe55c3da42adb5a9d5194",
+        "Contents/Config-0-ModelHeader": "d5ebd529b3de4b4f1abcfaf4a30adf55539f2bf9771d954ec03ccec7bbaff5ed",
+        "Contents/Config-0-ResolvedFeatures": "fbc2838868ffc8f2187747598b658ed06e350a0a12e8ea52ec05df98e3c6abb9",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "119aeeae8649d1e04ea4580f9b0ae9e1e00ead5f306eae3695936e9f92ef4ec6",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "0885d57202008eaf5a0d3ccf5b34357b236aaa4b8a9ee5e92bb50dc08d85694f"
+      }
+    },
+    {
+      "archive_sha256": "323b0c1010e5eb7bb9905e5a68558f1caa9116c032a67555eb1985b1ac990e9f",
+      "authored_request_sha256": "99edc1e824726636f1279d85b9601e28fcf7257c994a588bd49cfab5eae336df",
+      "baseline_strict": {
+        "False": "passed",
+        "True": "SLDPRT contains no readable Parasolid payload"
+      },
+      "case": "two-rev-top",
+      "name": "SDK circle reversed two directions top",
+      "native_calls": 0,
+      "profile_refusals": 2,
+      "reads": {
+        "False": {
+          "driver_count": 3
+        },
+        "True": {
+          "area_mm2": 2894.4082166145313,
+          "centroid_m": [
+            -0.0028810000000000003,
+            0.0033999999999999994,
+            -0.009615000000000002
+          ],
+          "driver_count": 3,
+          "faces": 3,
+          "stations_mm": [
+            -9.025,
+            15.825
+          ],
+          "volume_mm3": 11955.470742283811
+        }
+      },
+      "receipt_sha256": "9c0fdd3617ad06f1c7a7d90f3dd59f88794c80e22e7b5d7b54256c75d5a77a10",
+      "routes": {
+        "adapter": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "direct": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "private": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        },
+        "public": {
+          "paths": 1,
+          "refusals": 6,
+          "streams": 2
+        }
+      },
+      "runtime_input_file_reads": 0,
+      "streams": {
+        "Contents/CMgr": "97db742b2b04306cfd7bee1e8fb5b90e14c2cd5bd168c11f1a2a697967131e51",
+        "Contents/CMgrHdr2": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+        "Contents/Config-0": "8e0566793a6cbd6578d86805b5de98944a663ef03f3e9bafd6976b46692e041f",
+        "Contents/Config-0-ModelHeader": "b6e6808e521cb42e28a3130fd60dd88f94ccab664179b304b0ea27196a49ea1d",
+        "Contents/Config-0-ResolvedFeatures": "9361fda65fd2f05a361b8542cec86b55a7337fa35d05893773049b52faf28b8e",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "a1ca70a2b003172e5f89dcca7d8d1b6913e4db34ccee4f78d088763748bb7956",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "3d622354bb33faa7c6834f96d265a1a722be8ecc9bba8304ffec1d0ec6d06f56",
+        "swXmlContents/KeyWords": "e33bf9e5103ed72a53437f250df534c6c7354800f5acf0c07d2dbaaa847e151d"
+      }
+    }
+  ],
+  "host": {
+    "os": "Darwin",
+    "python": "3.14.7"
+  },
+  "native_saved_circles_republished": false,
+  "normal_dispatch_isolated_overlay": true,
+  "pre_writer_lock_authority_metadata_only": {
+    "SdkOriginalCircleNative01.json": {
+      "cases": {
+        "H01TranslatedDiameter": {
+          "native_candidate_sha256": "3ef1b2b4d25125d1d8c3e7d0fa5f0665318f4f64c3f53fd65bdbea84e20ae4ef",
+          "native_result_sha256": "aa4de54d15eba568e66dd6158cdfddcf83872f6ae0d50a2a36a9841a9648c61b"
+        },
+        "H02ReverseTopCircle": {
+          "native_candidate_sha256": "ada3681efd7636ee6eab13db76df8b51d25c60aa74a454e23532c7a7081a049c",
+          "native_result_sha256": "aa4de54d15eba568e66dd6158cdfddcf83872f6ae0d50a2a36a9841a9648c61b"
+        }
+      },
+      "report_sha256": "a14c4ff431f4e75b129025072d8be8f752df2694467b8c743b0ce861b0401da5"
+    },
+    "SdkPairedEndConditionsNative01.json": {
+      "cases": {
+        "H03MidPlane": {
+          "native_candidate_sha256": "bbc717abfa67d0362ca77edd70d3e816f06141370264a459424b3f5ef04355fe",
+          "native_result_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c"
+        },
+        "H04TwoDirections": {
+          "native_candidate_sha256": "bef5b2fd6f35ae597ec40391a3a2f387be4e4c9f5476234b9446a7f816869080",
+          "native_result_sha256": "e94dd631acd5942a53296f36b77d1c3bc8b321e8ba7fd725327c74ac4a12916c"
+        }
+      },
+      "report_sha256": "08a866d4922298c892b2126f71adca26ac9ae3f96421f6a0ed9ab77195607ca4"
+    }
+  },
+  "prior_native_oracle": {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2"
+  },
+  "proposed_dispatch_patch_sha256": "42db53f4e028aecf4f86720910e017971b218e25679417d3c3bbedf13610c92d",
+  "protected_originals_or_requests_opened": false,
+  "schema": "kit.sw2026.aggregate-circle-end-port.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/AuthorSdkCircleRequests.py": "46b484aabec4bf79bb083ecc1e959e322d8543b2b092c497339d9c54f7d890a7",
+    "re/tooling/sw2026/ProveCircleEndPort.py": "0d35d08d44b30a5c96485d39f992c6660707b2821f958e6f725d405706453ac1",
+    "re/tooling/sw2026/VerifySdkCircleEndRegistration.py": "98fb1eb74b9c291dc3bfc3183fc24c6932b0a8ea0b18d15a1bc163fbd535d0aa",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/CircleModes.py": "9b12b37517285cb19df0fd857c61bb8de0561a0cac33039886fb4a2cb27f74b5",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/CheckCircMode.py": "48f3c0bfac76365387577ed41658f227f76b258fc45507b95152893ffe0e647f",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/PlanCircle.py": "4f0c77b1e60082c4f76efc8e97c92ae31176ad13ec02139847ae6f6c0db5283b",
+    "src/convert/adapters/solidworks/Core/Preparation/Circle/PrepareCircle.py": "9e9579b7a16ef904ddb728cddbac7291cab1ad29c6151f5afdbf5b1887808596",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Circles/CheckCircMode.py": "e84e6292b0118c4124c8c5a476ddbe120c9a0c80857db768477d1d3aa459fab7",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/CanWriteCircle.py": "3cfe4a18e90e8b1136c8c720e2e58498e38dbfe5a68a0a3d313e00cc80999278",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/CircAuthPins.py": "e22929491fc7b1cb42475f675a6340c4c9f393199b772808e74bb50209f511ed",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/CircOutput.py": "83c46559415a8fe1607526e060087476ffcc462c234e93f47d69cd621d9631b9",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/EmitCircMut.py": "6c99abc0c3ec4fffb23a11272129b7a293f3d0132e850fb3a321de510a3ecb89",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/MatchCircAuth.py": "034de8972745416c6b85437623ddf8d4f8455bff202f3bfd35fc164c0abda0c2",
+    "src/convert/adapters/solidworks/Core/Writing/Circle/ReadCircAuth.py": "5a55a2943f9c31e9d2471c66778b22e787298810c54d53e813cbfd7817b6d88c",
+    "tests/Convert/Solidworks/Research/Construction/Part/MakePlainDoc.py": "1ebc4d22746f79b8bfc1affd9e312b0404ea26accca3d3e780a4ef0b732d40b0"
+  },
+  "totals": {
+    "baseline_comparison_workers": 1,
+    "native_calls": 0,
+    "publication_refusals": 144,
+    "runtime_input_file_reads": 0,
+    "strict_reads": 24,
+    "structural_scope_refusals": 24,
+    "successful_outputs": 72,
+    "workers": 12
+  }
+}

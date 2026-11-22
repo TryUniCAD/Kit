@@ -18,9 +18,11 @@ def PrepareCircle(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
+    *,
+    Measured: bool = False,
 ) -> PartCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue = PlanCircle(DocumentValue)
+    PlanValue = PlanCircle(DocumentValue, Measured=Measured)
     RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
     return RunCirclePrep(
         DocumentValue, TargetValue, PlanValue, RecipeValue, SettingsValue

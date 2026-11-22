@@ -715,6 +715,13 @@ preparation and native research coverage.
 - A partial square Mid Plane or Two Directions boss revolve on either of those planes, with four unary contour relations and one ordered equal-length relation. The Mid Plane case uses one total D1. [Square profile writing](../../Changes/Solidworks/Construction/Revolve/SolidworksSquareRevolvePublicParity.md)
 - A forward partial thin boss revolve on a canonical principal plane, with one ordered open axial line and a separate selected centreline. The writer retains the angle and each active wall driver for the measured fresh neutral models. Their receipt supplies the original native result and inspection job texts and exact authoring epoch. The stream uses the measured self locator. A filesystem write requires the actual measured Windows path. The strict cold reader derives the analytic solid from its typed owners. [Measured thin publication](../../Changes/Solidworks/Construction/Revolve/SolidworksMeasuredThinPublication.md)
 
+The strict cache-free circle reader also recovers the measured Front radius
+blind, reversed Right diameter blind, Top radius mid-plane, Front diameter
+two-direction and reversed Top radius two-direction cases. Each read preserves
+the radial driver, signed support and all active depth drivers. The shared
+measured publication leaf for authored neutral input is ready for ordinary
+writer dispatch integration. [Measured circle ends](../../Changes/Solidworks/Construction/Circles/SolidworksMeasuredCircleEnds.md)
+
 The same cache-free full-ellipse profile reads back with its closed sketch and
 live D1. The default reader constructs a solid with exact rational elliptical
 geometry and both planar caps. Use `include_brep=False` to read the editable
