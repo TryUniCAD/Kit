@@ -50,6 +50,18 @@ empty states. The native default constructor and the first-solve path supply
 these rules. [Initial options](EdgeFilletInitialOptions2026.md) ·
 [Result owners](EdgeFilletResultOwners2026.md)
 
+These spans use preferred virtual addresses in the exact modules pinned by
+the [result-owner receipt](../measurements/2026/EdgeFilletResultOwnersStatic01.json).
+The exclusive end and SHA-256 identify the original PE code intervals.
+
+| Rule | Module | Span | SHA-256 |
+| --- | --- | --- | --- |
+| Current body-group gate and scalar | sldmopartu | `0x180270553–0x18027058f` | `f12f2ee795986b78c8c7ae4c99dd6c7943f510ba13445283910de1eacdb37af3` |
+| Inherited body-field initialization | sldmodu | `0x4b76efef–0x4b76f003` | `177f5751a90d03e01a187ee7272394407c45abbbb7e10be5556998aab86e48e0` |
+| Radius and selected edge wrapper | sldmopartu | `0x18026b910–0x18026b9e4` | `d8d9ef656e31bf68061b6aa74369415fcdb4c5916f745af6a2aac87b907492db` |
+| Feature owner and parameter name | sldmopartu | `0x18026a42b–0x18026a458` | `e345621d669fe470ff90f262d3fcc8a49c81ba420789ed8b159dc95d28cabfba` |
+| Solid radial display initialization | sldmodu | `0x4c8c0040–0x4c8c01f4` | `0afa3c307a8f5c24b7ce4d01a83472c6e3a3bcc4fd9197d9fbcdeac9db4aaa8e` |
+
 ## Guarded proof and native boundary
 
 From the committed checkout, use Python 3.14 and a new absolute output
@@ -73,6 +85,15 @@ fillet validation refusal, and rejection of trailing typed bytes. An edit
 to just the neutral radius changes only ResolvedFeatures and KeyWords. The
 separate analytic predictor supplies volume, surface area, centroid and
 oriented cylindrical-face expectations for the upcoming native trial.
+
+The [guarded compile receipt](../measurements/2026/EdgeFilletModelColdCompile01.json)
+records eight fresh processes on compiler `346aa4093b510aba3ee88004c53d3f6aed73d361`.
+Both candidates have ten streams and a ResolvedFeatures map from 89 through
+245 over twenty roots. Their respective SHA-256 values are
+`6d28864133d0d291317d309a9835d9fabf2717a073b4f7b435f644b520e18acd` and
+`2cd7a0bcc61d19a02a295c16f47d13e660f886a9630728671eecd3d8a9e4c5f7`.
+The receipt SHA-256 is
+`efe553717fcd7ea1323bd58c138a5a9211f4b022870fdd89d3807f987c8ae8dc`.
 
 `Compile.json` binds exact source and SDK identities, compiler inputs, encoded
 locators, whole-file and logical-stream hashes, the complete map endpoints,

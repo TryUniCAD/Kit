@@ -1,0 +1,630 @@
+{
+  "cases": {
+    "EdgeFilletAxial": {
+      "analytic_edited": {
+        "area": 0.008091465420244682,
+        "com": [
+          0.013089285138282907,
+          -0.00773545814644481,
+          0.011399999999999999
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "edge_axis": 2,
+        "fillet_axis_origin": [
+          0.03579,
+          -0.018989999999999996,
+          0.0
+        ],
+        "radius_m": 0.00611,
+        "removed_volume": 1.8266304871244679e-07,
+        "source_edge": [
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0228
+          ]
+        ],
+        "stock_bounds": [
+          [
+            -0.0155,
+            0.0419
+          ],
+          [
+            -0.025099999999999997,
+            0.0095
+          ],
+          [
+            0.0,
+            0.0228
+          ]
+        ],
+        "vertices": [
+          [
+            -0.0155,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            -0.0155,
+            -0.025099999999999997,
+            0.0228
+          ],
+          [
+            -0.0155,
+            0.0095,
+            0.0
+          ],
+          [
+            -0.0155,
+            0.0095,
+            0.0228
+          ],
+          [
+            0.0419,
+            0.0095,
+            0.0
+          ],
+          [
+            0.0419,
+            0.0095,
+            0.0228
+          ],
+          [
+            0.03579,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.018989999999999996,
+            0.0
+          ],
+          [
+            0.03579,
+            -0.025099999999999997,
+            0.0228
+          ],
+          [
+            0.0419,
+            -0.018989999999999996,
+            0.0228
+          ]
+        ],
+        "volume": 4.509904895128756e-05
+      },
+      "analytic_initial": {
+        "area": 0.008116319403189704,
+        "com": [
+          0.01314267296753979,
+          -0.007766245718553831,
+          0.0114
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "edge_axis": 2,
+        "fillet_axis_origin": [
+          0.03753,
+          -0.02073,
+          0.0
+        ],
+        "radius_m": 0.00437,
+        "removed_volume": 9.343963974586815e-08,
+        "source_edge": [
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.025099999999999997,
+            0.0228
+          ]
+        ],
+        "stock_bounds": [
+          [
+            -0.0155,
+            0.0419
+          ],
+          [
+            -0.025099999999999997,
+            0.0095
+          ],
+          [
+            0.0,
+            0.0228
+          ]
+        ],
+        "vertices": [
+          [
+            -0.0155,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            -0.0155,
+            -0.025099999999999997,
+            0.0228
+          ],
+          [
+            -0.0155,
+            0.0095,
+            0.0
+          ],
+          [
+            -0.0155,
+            0.0095,
+            0.0228
+          ],
+          [
+            0.0419,
+            0.0095,
+            0.0
+          ],
+          [
+            0.0419,
+            0.0095,
+            0.0228
+          ],
+          [
+            0.03753,
+            -0.025099999999999997,
+            0.0
+          ],
+          [
+            0.0419,
+            -0.02073,
+            0.0
+          ],
+          [
+            0.03753,
+            -0.025099999999999997,
+            0.0228
+          ],
+          [
+            0.0419,
+            -0.02073,
+            0.0228
+          ]
+        ],
+        "volume": 4.5188272360254137e-05
+      },
+      "bytes": 8811,
+      "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+      "guarded_external_accesses": 0,
+      "owners": {
+        "atom_id": 101,
+        "config_id": 0,
+        "config_name": "Default",
+        "driver": "D1",
+        "driver_id": 25,
+        "feature_id": 26,
+        "radius_m": 0.00437,
+        "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletAxial.SLDPRT",
+        "stock_birth": 1795510277,
+        "stock_id": 19,
+        "surface_keys": [
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            1,
+            null
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moEndFaceSurfIdRep_c",
+            0,
+            0
+          ]
+        ]
+      },
+      "radius_only": {
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_external_accesses": 0,
+        "radius_m": 0.00611,
+        "sha256": "01b57d32fa6c91da86c1b57d695546677bd9540d0fc97b178627bd1c251b1f68"
+      },
+      "refusals": {
+        "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+        "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+      },
+      "resolved_map": {
+        "base": 89,
+        "end": 245,
+        "roots": 20
+      },
+      "sha256": "6d28864133d0d291317d309a9835d9fabf2717a073b4f7b435f644b520e18acd",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+        },
+        "Contents/Config-0": {
+          "bytes": 22364,
+          "sha256": "75300e0cc13fdf76c165553a9df5c6843e4eeaebacf02b6ac057a25c489d4778"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 965,
+          "sha256": "1d0450ee9bb04311a39a2e8a04d2cac5aaf334361331480f431c2f9839245642"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16913,
+          "sha256": "7639414ff990e78e1773de4d2d9b3dc8acdb19137928380c6ba22c76e3028711"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 965,
+          "sha256": "ba8bff97f988b3451421808bbd983c3be56fb230cbab7001646920795c666f60"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1562,
+          "sha256": "b505fb9cd14e42896c0eef809450f015d634201cda2f67176999b2568d6bcd0f"
+        }
+      }
+    },
+    "EdgeFilletTransverse": {
+      "analytic_edited": {
+        "area": 0.006878024115255212,
+        "com": [
+          -0.008299999999999998,
+          0.010502902432202138,
+          0.014213159554725838
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "edge_axis": 0,
+        "fillet_axis_origin": [
+          -0.02975,
+          0.02118,
+          0.02333
+        ],
+        "radius_m": 0.0052699999999999995,
+        "removed_volume": 2.556889484197194e-07,
+        "source_edge": [
+          [
+            -0.02975,
+            0.02645,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0286
+          ]
+        ],
+        "stock_bounds": [
+          [
+            -0.02975,
+            0.01315
+          ],
+          [
+            -0.0052499999999999995,
+            0.02645
+          ],
+          [
+            0.0,
+            0.0286
+          ]
+        ],
+        "vertices": [
+          [
+            -0.02975,
+            -0.0052499999999999995,
+            0.0
+          ],
+          [
+            -0.02975,
+            -0.0052499999999999995,
+            0.0286
+          ],
+          [
+            -0.02975,
+            0.02645,
+            0.0
+          ],
+          [
+            0.01315,
+            -0.0052499999999999995,
+            0.0
+          ],
+          [
+            0.01315,
+            -0.0052499999999999995,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0
+          ],
+          [
+            -0.02975,
+            0.02118,
+            0.0286
+          ],
+          [
+            -0.02975,
+            0.02645,
+            0.02333
+          ],
+          [
+            0.01315,
+            0.02118,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.02333
+          ]
+        ],
+        "volume": 3.8638309051580285e-05
+      },
+      "analytic_initial": {
+        "area": 0.006931434220348855,
+        "com": [
+          -0.0083,
+          0.010571095934096605,
+          0.014274039927302024
+        ],
+        "counts": {
+          "edges": 15,
+          "faces": 7,
+          "vertices": 10
+        },
+        "edge_axis": 0,
+        "fillet_axis_origin": [
+          -0.02975,
+          0.023620000000000002,
+          0.02577
+        ],
+        "radius_m": 0.00283,
+        "removed_volume": 7.373328744922898e-08,
+        "source_edge": [
+          [
+            -0.02975,
+            0.02645,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0286
+          ]
+        ],
+        "stock_bounds": [
+          [
+            -0.02975,
+            0.01315
+          ],
+          [
+            -0.0052499999999999995,
+            0.02645
+          ],
+          [
+            0.0,
+            0.0286
+          ]
+        ],
+        "vertices": [
+          [
+            -0.02975,
+            -0.0052499999999999995,
+            0.0
+          ],
+          [
+            -0.02975,
+            -0.0052499999999999995,
+            0.0286
+          ],
+          [
+            -0.02975,
+            0.02645,
+            0.0
+          ],
+          [
+            0.01315,
+            -0.0052499999999999995,
+            0.0
+          ],
+          [
+            0.01315,
+            -0.0052499999999999995,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.0
+          ],
+          [
+            -0.02975,
+            0.023620000000000002,
+            0.0286
+          ],
+          [
+            -0.02975,
+            0.02645,
+            0.02577
+          ],
+          [
+            0.01315,
+            0.023620000000000002,
+            0.0286
+          ],
+          [
+            0.01315,
+            0.02645,
+            0.02577
+          ]
+        ],
+        "volume": 3.882026471255077e-05
+      },
+      "bytes": 8839,
+      "encoded_locator": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+      "guarded_external_accesses": 0,
+      "owners": {
+        "atom_id": 101,
+        "config_id": 0,
+        "config_name": "Default",
+        "driver": "D1",
+        "driver_id": 25,
+        "feature_id": 26,
+        "radius_m": 0.00283,
+        "self_path": "C:\\KitEdgeFilletModelCold01\\Candidates\\EdgeFilletTransverse.SLDPRT",
+        "stock_birth": 1795510277,
+        "stock_id": 19,
+        "surface_keys": [
+          [
+            "moEndFaceSurfIdRep_c",
+            1,
+            0
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            3,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            2,
+            null
+          ],
+          [
+            "moFromSktEntSurfIdRep_c",
+            4,
+            null
+          ]
+        ]
+      },
+      "radius_only": {
+        "changed_streams": [
+          "Contents/Config-0-ResolvedFeatures",
+          "swXmlContents/KeyWords"
+        ],
+        "guarded_external_accesses": 0,
+        "radius_m": 0.0052699999999999995,
+        "sha256": "e3142e416d59c6222594e4ca3d80c402c508d2f9bd8e4f933aeb94e9a526c630"
+      },
+      "refusals": {
+        "default_resolved": "unsupported SOLIDWORKS body class Fillet_c schema 1",
+        "saved_resolved": "unsupported SOLIDWORKS fillet keeper inventory",
+        "trailing_typed_bytes": "cold fillet resolved read must finish at its actual empty inline body map"
+      },
+      "resolved_map": {
+        "base": 89,
+        "end": 245,
+        "roots": 20
+      },
+      "sha256": "2cd7a0bcc61d19a02a295c16f47d13e660f886a9630728671eecd3d8a9e4c5f7",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "56375d8ca4d8f5e24bed94b3af924ce2711041f74b5e3a720d354ab2300bef68"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "e0668f400d1a89b839fc8c4492f3f015edf967b736a1c19d0defb7e687039413"
+        },
+        "Contents/Config-0": {
+          "bytes": 22374,
+          "sha256": "f165ecf4eb1117c60433791c95a00b23aee350db420a19b1342c4308821b2ee1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 995,
+          "sha256": "53565adeb723cab9723e97b42772a805d4e8e7e132a6119fc97d03867b071395"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16929,
+          "sha256": "96c63d56c0ee7ae795d3ecffeaf44f4e6f13e0fcd793c9a2754fd3972484c967"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 995,
+          "sha256": "0786675b6d3dd4ca43e5cfc26c97bf71960dc0b5d0625ea76a6b7a80a8bd91c0"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "821e35e72365a12fbcc6cc355999b667c59c44cb192d2882165278674f932284"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1567,
+          "sha256": "262f317e3e827563cb37b919b987d40f38fac7cf182a0dc93eb905790972b3d4"
+        }
+      }
+    }
+  },
+  "encoded_guest_root": "C:\\KitEdgeFilletModelCold01",
+  "epoch": 1795510277,
+  "fresh_guarded_processes": 8,
+  "host_native_launches": 0,
+  "native_accepted_candidates": 0,
+  "neutral_intent_sha256": "d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb",
+  "refusals": {
+    "over_radius": "ValueError: uniform radius exceeds its convex stock supports",
+    "unmeasured_stock_fin": "ValueError: stock positive-fin selection needs a measured carrier orientation"
+  },
+  "schema": "kit.sw2026.edge-fillet-model-cold.v1",
+  "source_head": "346aa4093b510aba3ee88004c53d3f6aed73d361",
+  "source_tree_at_head": "02553a016cbc416d4d0a72d1a28a28a4488ce744",
+  "tools": {
+    "re/tooling/sw2026/edge_fillet_source/FilletModel.py": "47d224eb44afcda2916d1990116c3944cbf9c46d30da6ea85539b53e33fa8730",
+    "re/tooling/sw2026/edge_fillet_source/FilletPacket.py": "32b021abded223392b9f8eac17b9b432d7702e456f2867efb0345ecaf6baaf3d",
+    "re/tooling/sw2026/edge_fillet_source/ProveFilletInputs.py": "b47e81c3727224f640be9edd4f423405984e015368551837f64f405575361faa",
+    "re/tooling/sw2026/edge_fillet_source/cold/BuildColdFillet.py": "609da691afa969e0ee65b7db9062a42515af752c9b5a193887bc5f63d609807b",
+    "re/tooling/sw2026/edge_fillet_source/cold/ColdFilletGraph.py": "c452a350eb1abe680ecbeb043e39b7edbf407b32e118e5f0cdea2faadccb81f1",
+    "re/tooling/sw2026/edge_fillet_source/cold/ColdFilletIntent.py": "db90db9ac05401d53ec4c868594e04b316e29de88fc62f31bd9789bc42deedf9",
+    "re/tooling/sw2026/edge_fillet_source/cold/ColdFilletWire.py": "426f8bd9f82a01f7b9e9e5426fd9a436b64b28164f12559470f825c01c0cfc85",
+    "re/tooling/sw2026/edge_fillet_source/cold/ComposeColdFillet.py": "bb269fb0f2bd5ec835ae5e8dcac9f56e26d4532aced06aaf1695c5558bc92ed8",
+    "tests/Convert/Solidworks/Research/Construction/Part/MakePlainDoc.py": "1ebc4d22746f79b8bfc1affd9e312b0404ea26accca3d3e780a4ef0b732d40b0"
+  }
+}
