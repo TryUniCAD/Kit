@@ -39,6 +39,9 @@ def FromMapping(
         ResultValue, ValidDocument
     ):
         raise TypeError("data does not describe a CadDocument")
+    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
+
+    CheckOffsetRead(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 
@@ -55,6 +58,9 @@ def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
         ResultValue, ValidDocument
     ):
         raise TypeError("JSON does not describe a CadDocument")
+    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
+
+    CheckOffsetRead(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 

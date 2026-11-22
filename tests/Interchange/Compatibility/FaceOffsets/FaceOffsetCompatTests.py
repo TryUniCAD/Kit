@@ -9,8 +9,14 @@ from tests.Interchange.Compatibility.FaceOffsets.BuildOffsetDoc import BuildOffs
 
 
 # public document serialization must validate the complete selected face and live parameter graph
-def CheckOffsetDoc() -> None:
+@Pytest.mark.parametrize("Amount", (-2.7, 0.0, 4.3))
+def CheckOffsetDoc(Amount: float) -> None:
     Document = BuildOffsetDoc()
+    Parameter = CopyData(
+        Document.parameters[-1],
+        value=CopyData(Document.parameters[-1].value, value=Amount),
+    )
+    Document = CopyData(Document, parameters=(*Document.parameters[:-1], Parameter))
     Document.assert_valid()
     Restored = CadDocument.from_json(Document.to_json())
     assert Restored == Document
@@ -18,7 +24,7 @@ def CheckOffsetDoc() -> None:
     assert isinstance(Feature.definition, FaceOffset)
     Parameters = {Value.id: Value for Value in Restored.parameters}
     Selections = {Value.id: Value for Value in Restored.selections}
-    assert GetOffsetValue(Feature, Feature.definition, Parameters, Selections) == 0.0
+    assert GetOffsetValue(Feature, Feature.definition, Parameters, Selections) == Amount
 
 
 # malformed wire graphs must fail public validation instead of silently losing offset intent

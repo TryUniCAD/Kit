@@ -9,3 +9,9 @@ The face-offset research CLI now emits this typed definition after resolving eac
 This schema does not make native offset archives strict-neutral decodable. Native projector graph qualification, physical label and snapshot validation, geometry evaluation in production adapters and native output acceptance remain unfinished. Existing export restrictions stay enabled.
 
 Actual CLI source analysis decoded all six modified archives to typed FaceOffset definitions with native geometry comparisons still passing. SchemaDecode.json records source and implementation hashes. Targeted Pyright, Mypy and repository steering checks passed for 15 Python files. Public document compatibility coverage includes a zero-distance offset over real stock topology and rejects broken parameter ownership, missing faces and missing prior producers; these checks await remote execution.
+
+## Filtered reads and export qualification
+
+A complete JSON or mapping input must supply the offset face topology. After validating that complete input, geometry filtering records `kit.omitted_brep` on the filtered view. Post-filter validation permits that intentional omission. Persisting the marker cannot make a missing-topology source input valid. Wrong B-rep field types produce the ordinary DocumentError instead of an attribute error.
+
+FaceOffset definitions remain blocked at shared and direct writer boundaries until a production geometry evaluator is qualified. A valid semantic graph, including a signed distance, is not proof that a retained stock solid is its evaluated result. Public compatibility replays cover positive, negative and zero distance serialization, strict filtered JSON reads, absent or malformed source topology, forged omission markers and export refusal without stream mutation. These replays await remote execution.

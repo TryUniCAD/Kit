@@ -1,3 +1,4 @@
+from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.Offsets.FaceOffset import FaceOffset
@@ -17,7 +18,9 @@ def OffsetTopoErrs(Feature: FeatureStep, Document: CadDocument) -> tuple[str, ..
         ),
         None,
     )
-    if Model is None or Selected is None or len(Selected.path) != 2:
+    if Model is None and Document.metadata.get("kit.omitted_brep") is True:
+        return ()
+    if not isinstance(Model, BrepModel) or Selected is None or len(Selected.path) != 2:
         return (f"face offset {Feature.id} requires resolved face topology",)
     RegionIds = {
         Identity
