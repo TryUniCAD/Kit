@@ -224,6 +224,21 @@ declaration for the row count. Signed normalization retains the
 original word with its runtime projection.
 [Configuration field modes](../../Changes/Solidworks/Archive/SolidworksConfigFieldModes.md)
 
+For the compatible version-19000 part profile, strict reads project
+literal native summary, document custom text and active configuration
+text. Configuration text uses the saved directory and the matching
+ModelHeader configuration name. All literal property scopes require the complete
+ordinary Config-0 body linked to its ModelHeader. Unsupported property
+variants leave the ordinary geometry and feature result available with
+a diagnostic.
+The registry refuses fresh native projections and direct writes when a
+part or owned assembly component has an explicit property refusal.
+An unfiltered interchange JSON copy preserves the inspection status
+and original provenance when both registered adapters are interchange
+JSON and the document meets the other portable-data requirements.
+A verified empty legacy scope adds no property-specific restriction.
+[Literal part properties](../../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
+
 For current partitions with schema `SCH_3701250_37102_13006`, the Parasolid
 reader uses forward fin links and terminal vertices. This preserves outward
 face loops and positive signed volume in the disclosed rectangular case.
@@ -315,6 +330,11 @@ locator used in the measured archive. Standalone non-Windows host paths keep
 the existing neutral Windows self-locator rule. A Windows output must
 reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
+
+A strict cold readback of a measured ordinary part can use the same SDK writer
+with its matching final locator and receipt. Kit verifies the regenerated
+model and complete output digest before exposing bytes. Native saves with
+extra state remain outside this path.
 
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.

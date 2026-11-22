@@ -102,3 +102,32 @@ the original typed stream evidence and produces a fresh native batch for
 the existing `InspectSdkDefaultParts.py` observer. `RecordPlainCompression.py`
 checks the host terminal outcome, six phase records and saved derivative
 hashes before issuing the matching compressed-file receipt.
+
+## Strict cold SDK round trip
+
+The default SDK read of each measured cold archive retains the three
+principal planes, the origin and folder scaffold, the linked line sketch,
+its driving D1 and the default direction selection. The source also has the
+derived prism B-rep, typed record locations and original-source custody
+metadata. The proposed output uses the actual linked sketch and parameter
+with the same plain constructor. It obtains the name from the final locator
+and requires it to reproduce the original archive and its complete strict
+projection. The retained bytes only participate in that comparison. The
+usual reader still runs its legacy analysis. The writer comparison uses
+the typed configuration and resolved-feature path with the existing cold
+prism projection, so it never opens the legacy layout resource.
+
+Two fresh guarded SDK workers checked the exact measured Skew and Step
+archives through internal preparation, the direct and registry streams,
+and staged registry paths. All ten native transfers and the complete strict
+readback survived. Altered metadata, topology, source digest and retained
+bytes refused both stream routes without writing. The other-format native
+guard still refused. There were zero runtime input reads and no new native
+or protected processes. The same-backend exact output gate still applies
+to this SDK route. [Binary64 inverse](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Geometry/ReadbackMillimetreInverse.md)
+[Guarded proof](../measurements/2026/SdkColdPartRoundtrip01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckColdPartWrite.py \
+  --native /path/to/SdkDefaultPartNative03 --output /tmp/KitColdPartRoundtrip.json
+```

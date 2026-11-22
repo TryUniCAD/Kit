@@ -160,6 +160,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
 )
@@ -358,8 +359,10 @@ def ReadNativePart(
     DataValue: bytes,
     Label: str,
     Settings: ReadOptions,
+    *,
+    ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration)
+    Model = NativePartModel(Archive, Settings.configuration) if ModelValue is None else ModelValue
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -518,7 +521,7 @@ def ReadNativePart(
     DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue.assert_valid()
     ValidateSource(Label, False)
-    return RetainSource(DocValue, DataValue)
+    return RetainSource(WithPartProps(DocValue, Archive), DataValue)
 
 
 # cached payloads keep priority over geometry derived from a qualified cold archive

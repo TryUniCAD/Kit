@@ -1,0 +1,258 @@
+{
+  "accepted_base": "f80da8caed2ca7a585c1aa85f22c1e13196761d5",
+  "archive_dependency": "25f721039c0846c0ee50e6d1da10df1384e9a003",
+  "archive_dependency_pr": 233,
+  "authored_sdk_snapshot": {
+    "filtered_copy_refusals": {
+      "configuration": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "geometry": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "mesh": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)"
+    },
+    "identical_sdk_and_compatibility_bytes": true,
+    "inspection": {
+      "body": [
+        "portable:body",
+        1,
+        1,
+        1
+      ],
+      "configuration": [
+        "Inspection",
+        true,
+        0
+      ],
+      "diagnostics": [
+        [
+          "solidworks.part_text_properties_unavailable",
+          "info",
+          "part properties require an empty compatible native manager"
+        ]
+      ],
+      "feature_count": 1,
+      "status": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "status": "unsupported"
+      },
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    },
+    "shape": "one prism, six analytic faces, volume 30",
+    "unfiltered_copies": {
+      "compatibility": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "status": "unsupported"
+      },
+      "ordinary": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "status": "unsupported"
+      }
+    },
+    "whole_document_equal_on_readback": true
+  },
+  "binary_only": {
+    "advanced": {
+      "export_gate": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "strict_inspection": {
+        "diagnostic": "part properties require an empty compatible native manager",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      }
+    },
+    "empty": {
+      "export_gate": "native-only feature definitions cannot be exported",
+      "manager_sha256": "becd5b67dff32e75102e20443e9e3a3f3def6896ebf05ae7dc188bcaae57ff58",
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "strict_inspection": null
+    },
+    "malformed": {
+      "export_gate": "SOLIDWORKS part text properties are unavailable for writing (SOLIDWORKS body moCusPropMgr_c field f20 at 56: SOLIDWORKS body moCusPropMgr_c field f20/o at 56: part property manager has unsupported owner placement)",
+      "manager_sha256": "9fd3dc57a5b385acbbd4b0f36fffec581481014616bb254a4f417f3537c1f036",
+      "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+      "strict_inspection": {
+        "diagnostic": "SOLIDWORKS body moCusPropMgr_c field f20 at 56: SOLIDWORKS body moCusPropMgr_c field f20/o at 56: part property manager has unsupported owner placement",
+        "profile": "compatible_literal_text",
+        "status": "unsupported"
+      }
+    }
+  },
+  "cli_boundary": {
+    "native_provenance_configuration_filter": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+    "native_provenance_unfiltered": "unqualified SOLIDWORKS sketch support references: : sketch",
+    "qualified_portable_output_sha256": "21659b2c6a64e4fc632c45e72405362ac73449468ea5cadcfeefe5c6d9925934",
+    "source_and_existing_output_preserved_on_both_refusals": true,
+    "whole_portable_model_equal": true
+  },
+  "disclosed_processes": 6,
+  "exact_dependency_merge": "1090e73dd7098ed4c49958827b772a1a939a643f",
+  "hosted_suite_executed_locally": false,
+  "legacy_18000": {
+    "authored_title_export": "SOLIDWORKS part text properties are unavailable for writing (legacy SOLIDWORKS part contains authored summary text)",
+    "feature_rows": 39,
+    "original_export": "unqualified sketch support, sketch 40",
+    "source_sha256": "d1bbca099ccac1330024619390df3c6b76320a6a6c281a5009578b2fb63e7408",
+    "strict_inspection": {
+      "body": [
+        "sldprt:body:1",
+        1,
+        1,
+        1
+      ],
+      "configuration": [
+        "Default",
+        true,
+        0
+      ],
+      "diagnostics": [],
+      "feature_count": 39,
+      "status": null,
+      "text_scopes": [
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "native_circular_literal": {
+    "direct_writer_carrier_modes_refused": [
+      "with_carrier",
+      "without_carrier"
+    ],
+    "export_gate": "native-only feature definitions cannot be exported (includes Sheet-Metal Master)",
+    "literal_field_counts": [
+      3,
+      3,
+      2
+    ],
+    "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+    "whole_document_equal_after_strict_json_inspection": true
+  },
+  "native_ladder": {
+    "embedded_component_refusal": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+    "source_refusals": {
+      "compatibility": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "nonstrict": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "public_write": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "registry": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)",
+      "strict": "SOLIDWORKS part text properties are unavailable for writing (part properties require an empty compatible native manager)"
+    },
+    "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+    "unfiltered_native_json_copy_refusals": {
+      "compatibility": "native-only feature definitions cannot be exported",
+      "ordinary": "native-only feature definitions cannot be exported"
+    }
+  },
+  "native_processes_started": 0,
+  "physical_refusals": {
+    "appended": {
+      "diagnostic": "SOLIDWORKS configuration has 1 trailing bytes",
+      "same_geometry": true,
+      "withheld_scopes": [
+        false,
+        false,
+        false
+      ],
+      "write_refusals": [
+        "direct_write",
+        "strict_convert"
+      ]
+    },
+    "one_byte": {
+      "diagnostic": "archive tag has no complete unsigned short",
+      "same_geometry": true,
+      "withheld_scopes": [
+        false,
+        false,
+        false
+      ],
+      "write_refusals": [
+        "direct_write",
+        "strict_convert"
+      ]
+    },
+    "summary_only_truncated": {
+      "diagnostic": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3058: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3058: SOLIDWORKS model section exceeds its remaining stream",
+      "same_geometry": true,
+      "withheld_scopes": [
+        false,
+        false,
+        false
+      ],
+      "write_refusals": [
+        "direct_write",
+        "strict_convert"
+      ]
+    },
+    "tail_truncated": {
+      "diagnostic": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3058: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3058: SOLIDWORKS model section exceeds its remaining stream",
+      "same_geometry": true,
+      "withheld_scopes": [
+        false,
+        false,
+        false
+      ],
+      "write_refusals": [
+        "direct_write",
+        "strict_convert"
+      ]
+    },
+    "wrong_owner": {
+      "diagnostic": "SOLIDWORKS component owner differs from its enclosing part",
+      "same_geometry": true,
+      "withheld_scopes": [
+        false,
+        false,
+        false
+      ],
+      "write_refusals": [
+        "direct_write",
+        "strict_convert"
+      ]
+    }
+  },
+  "property_integration": "64b10af045f132a49aa1b88c1898dd3c1b9c0db5",
+  "published_property_head": "601289d81cfdf429a0be0ea6f4ee84545122c2a9",
+  "schema": "kit.sw2026.literal-part-text-portability.v1",
+  "shared_production_paths_unchanged_in_portability_followup": true,
+  "source_sha256": {
+    "re/tooling/sw2026/CheckOrdinaryCfg.py": "4b40f76859d320e229d58cb1c3c5972f27d1a45bc6f52244ae91647c96589c33",
+    "re/tooling/sw2026/VerifyLiteralPartText.py": "01ed8df7c7538f87d8b6c39efb76c7223dc200c51b8cf3c7fdf8cb61a8692578",
+    "re/tooling/sw2026/part_text/CheckBinaryPartText.py": "6699cbf923e164f05d4fcae802ba159f2f27395d2a55250197d9a2f10c6e8288",
+    "re/tooling/sw2026/part_text/CheckLegacyPartText.py": "4a8f886cff56e52d35253a394ee0f30886a8bd85fe89e5001de8e4ab0f395ca9",
+    "re/tooling/sw2026/part_text/CheckLiteralTextWrite.py": "7f7ca9ac357582c7391d282484466c599c0fa6aac6bdae576319276ae4331eb8",
+    "re/tooling/sw2026/part_text/CheckPhysicalPartText.py": "184dc00f8c4449afde88cc4556558f09488e205350e713a3674840d3cb562a3b",
+    "re/tooling/sw2026/part_text/CheckWritePartText.py": "b0e831966f23f8962462e005e6cbe08dc3a8a26e6b6282944f4e86f88473f714",
+    "re/tooling/sw2026/part_text/PartTextProbe.py": "e83b1040d953507cb6953a55f9f372173d96f73714ed1bdff6f253816d0993ea",
+    "src/convert/Formats/CheckPartText.py": "6ea67501c031a2ea4013af6b261acc8885de8ca79a6f7fe2699bbd4a259bfbaf",
+    "src/convert/Formats/CheckSourceText.py": "14e9440a894c49850d1defc6326abb7b796d3320b602487d6f1a48b96c559704",
+    "src/convert/adapters/json/Writer.py": "7321d307d52c673ed9f04b14194bc455f8cde4ce30e8f2dac0e47ca052968b5b",
+    "src/convert/adapters/registry/NativeWrite.py": "833a8875a93f83f6cefb1d92113b483009c93c5e641ea5ed21fa9ddc17867246",
+    "src/convert/adapters/registry/RegistryWriteApi.py": "05a8daac25d0685248dcc423713e6d7135a673aa7c19e9638ed716b7121c104f",
+    "src/convert/adapters/registry/SupportWrite.py": "bcceec0cb3f2c6b58e5ce0ad76bb7f483801171ee6d5b8f49b9e257e1a5bf765",
+    "src/convert/adapters/solidworks/Archive/Config/ReadPartConfig.py": "75ae02945105e400faf798e4788596625abb124816f70ccf8d7cafabb7dc24d2",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "7640c2bff86d95784c1c4b6074cc0c1ecce620fe684d1bac47c6bafbe2d633bd",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropOwners.py": "b9774f72e3a59031180a47c3837fd2b8e4120cfa4369085d1ceec2d3b6f0e130",
+    "tests/Convert/Solidworks/Properties/BinaryTextTests.py": "f6b7ec656d96a436c95c589fae8f9471ff8fb993ff5580c00e35c349f6cea7b9",
+    "tests/Convert/Solidworks/Properties/CliTextTests.py": "8fbf97f73d57bb450f0af4508a48aaad3dbf6413c1784ab1da4f024d1352b55c",
+    "tests/Convert/Solidworks/Properties/LegacyTextTests.py": "7590545b809a01ed4c45fccf7ea7a92ba8e702710bf1063a19c35f109e798cca",
+    "tests/Convert/Solidworks/Properties/LinkedTextTests.py": "1505ae31555798ccccbb8958fed3210b0797c6904e835c0ef356285d5ae61cf3",
+    "tests/Convert/Solidworks/Properties/LiteralTextTests.py": "240f49b8e4c10969d9256efd05fddce73079a2b1f3c7a65c30436d014f9b5179",
+    "tests/Convert/Solidworks/Properties/PhysicalTextTests.py": "bb5302ed1b7563fa46496075960f707e5d32820aa20abb5cae7d24eef0617c25",
+    "tests/Convert/Solidworks/Properties/ReadLiteralPart.py": "9b669b1dbd6e6f8c731fe4ec21c0f887b91d389354fb5d2d5dc1d8cfd7aeefea",
+    "tests/Convert/Solidworks/Properties/RunPartText.py": "cb1d9dc18d35760c953e14bd5b56f9c8da955fcf6b2d71e8338f8e2eb22ed41f",
+    "tests/Convert/Solidworks/Properties/WriteTextTests.py": "8969843793b705627f1f26d250557f0ba9699231d3d3d6f19cda8a2faba4e815"
+  },
+  "stdout_sha256": {
+    "Binary.json": "02c952a8fa67e2587f86e625f5de0ce539fd49f8350a2e7f1d33a5e62db75cca",
+    "Circle.json": "0f22f6017b04aeec5c2d3a11ea91d99a29bd228e05094c5f629fea9e12e89932",
+    "Disclosed.json": "d5f852cc90680be708b6a885c45a16a485740e5fdee9584eed071d9dac18b3e3",
+    "Legacy.json": "8bf1a4e47444003a8ff7954e0bfcfd6e0bcf3afa87761f63b12a7853d1df6643",
+    "Physical.json": "ba3aabfa3355c303309b0f51bce2b709bce48d84b680bba8a994328e67b531a8",
+    "Registry.json": "e7b71ca4d76279f266946af9c176e5cfdafd102a82235edaf8ec70794d671587",
+    "Typed.json": "c89296e438cd4395b49b51762e1d48f8891cfd6c80850296cb2c5a47b6d61fc3"
+  }
+}
