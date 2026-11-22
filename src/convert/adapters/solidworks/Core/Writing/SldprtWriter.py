@@ -16,6 +16,10 @@ from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInf
 from interchange.document.Models.DocumentModel import CadDocument
 
 
+from convert.adapters.solidworks.Core.Preparation.Imports.CanImportBox import CanImportBox
+from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
+
+
 # the bounded native writer reports only the standalone part formats and neutral feature combinations it can synthesize
 class SldprtWriter(PairProtocol):
     __slots__ = ()
@@ -32,6 +36,8 @@ class SldprtWriter(PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
+        if HasBareBrep(DocValue):
+            return CanImportBox(DocValue, Target)
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
             if IsColdRead(DocValue):

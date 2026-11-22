@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.LocalBodyBranch import (
+    LocalBodyBranch,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -9,12 +13,25 @@ KCoreFields = MappingProxyType(
             NativeField("Virtual", "", MaskValue=1208),
             NativeField("Virtual", "", MaskValue=1216),
         ),
+        "moPartConfiguration_c.SerializeMBSMDataObjects": (
+            NativeField(
+                "Array",
+                "fcd8",
+                "u32",
+                BodyValue=(NativeField("Fail", "unsupported local import body map"),),
+                CountValue="n",
+            ),
+        ),
         "rf.suObArray": (
             NativeField(
                 "Array",
                 "items",
                 "Count",
-                BodyValue=(NativeField("Fail", "alternate rf.suObArray items"),),
+                BodyValue=(
+                    LocalBodyBranch(
+                        NativeField("Node", "o", "moAtom_c"),
+                    ),
+                ),
                 CountValue="n",
             ),
         ),

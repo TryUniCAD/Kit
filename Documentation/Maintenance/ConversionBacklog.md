@@ -60,6 +60,17 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B04-SW2026-IMPORTED-BODY
+
+The PR #121 takeover owns a main-based rectangular fallback in
+`codex/solidworks-measured-local-import`. It depends on the typed local
+geometry reader and the completed SOLIDWORKS 2026 SP05.2 receipt. The
+bounded exit is exact public SDK publication of the disclosed one-solid
+model, strict geometry readback and explicit history accounting.
+The guarded host comparison passes for this slot. Separate native
+filesystem transport and general source fallback need their own evidence.
+[Change entry](../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction

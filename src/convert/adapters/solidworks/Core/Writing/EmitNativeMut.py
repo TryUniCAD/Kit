@@ -16,12 +16,18 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadP
 from interchange.document.Models.DocumentModel import CadDocument
 
 
+from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
+from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
+
+
 # publication verifies the complete regenerated archive before touching either kind of output target
 def EmitNativeMut(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if HasBareBrep(DocumentValue):
+        return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
     WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (

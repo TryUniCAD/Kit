@@ -1,5 +1,9 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.ImportFields import (
+    KImportFields,
+)
+
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
     KPartLayouts,
 )
@@ -40,7 +44,9 @@ KResolvedLayouts = MappingProxyType(
         "mgMatrix_c.restore": KPartLayouts["mgMatrix_c.restore"],
         "mgVector_c.restore": KPartLayouts["mgVector_c.restore"],
         "mgXform_c.restore": KPartLayouts["mgXform_c.restore"],
+        "moAtom_c": KPartLayouts["moAtom_c"],
         "moComponent_c": KPartLayouts["moComponent_c"],
+        "moPMarkRecord_c": KPartLayouts["moPMarkRecord_c"],
         "moConcept_c.SerializeLWData": KPartLayouts["moConcept_c.SerializeLWData"],
         "moConcept_c.SerializeResolvedData": KPartLayouts[
             "moConcept_c.SerializeResolvedData"
@@ -69,6 +75,7 @@ KResolvedLayouts = MappingProxyType(
         **KFeatureFields,
         **KFolderFields,
         **KGeometryFields,
+        **KImportFields,
         **KMaterialFields,
         **KProfileFields,
         **KSketchFields,
