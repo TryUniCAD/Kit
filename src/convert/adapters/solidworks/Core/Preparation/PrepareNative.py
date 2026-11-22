@@ -57,6 +57,10 @@ from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import 
 from convert.adapters.solidworks.Core.Preparation.Revolve.RevPrepInput import (
     RevPrepInput,
 )
+from convert.adapters.solidworks.Core.Preparation.Readback.PrepareColdPart import (
+    PrepareColdPart,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Preparation.Sweeps.PrepSweepPart import (
     PrepSweepPart,
@@ -85,6 +89,8 @@ def PrepareNative(
     | EllipsePart
     | SweepPart
 ):
+    if IsColdRead(DocumentValue):
+        return PrepareColdPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsSweepPart(DocumentValue):
         return PrepSweepPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsChmfPart(DocumentValue):

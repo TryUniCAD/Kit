@@ -43,11 +43,17 @@ The SOLIDWORKS 34.4.1 comparison used a separate-process reopen. Fresh Fusion
 reopening, complete live relation and dimension targets, and editable
 authoring qualification remain open for this YZ source.
 
+The constrained-prism process still requires zero SOLIDWORKS output bytes for
+the material-bearing inch source. With the part writer registered, the public
+write refuses at the typed-material check. Queue verification requires that
+exact refusal, then compares every other report byte against the historical
+digest below. [Hosted failure evidence](https://github.com/TryUniCAD/Kit/actions/runs/44999436815/job/137137780140)
+
 The historical proof-only YZ report and both prior strict reports are pinned at
 `9b648ea17ce750c4c556b8f653c2c800adff365a`. The geometry-only signed XY report
 retains its exact current checksum.
 
-| Process report        | Current SHA-256                                                    | Prior SHA-256                                                      |
+| Process report        | Pinned SHA-256                                                     | Prior SHA-256                                                      |
 | --------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
 | Constrained prism     | `d7c7ab718de1aaf5f5f6cd6b952849db50d07c56d42c948050b91ca162ee4fab` | `7c2bac73e8a3b6241ccddf0da5bbad20b8d4383fdfb9f43e7e091c438a82cef1` |
 | YZ datum prism        | `8fb0b77a5d097c95119649ab550a3718b93f567d9652b8f6b40cc956cd1f65e2` | `941c644135992ecfc2226769e4beae569f60870c0b1af6af739114b12ccd5b49` |

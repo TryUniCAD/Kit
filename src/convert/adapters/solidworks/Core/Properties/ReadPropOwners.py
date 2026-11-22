@@ -1,54 +1,46 @@
-from collections.abc import Mapping
+from collections.abc import Mapping, Sequence
 from typing import cast as CastValue
 
-from interchange import CadDocument
+from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
+from convert.adapters.solidworks.Container.Container import SldprtArchive
+from interchange.document.Models.DocumentModel import CadDocument
 
 
-# owner tables need concrete runtime checks before optional configuration text can rely on their identities
-def ReadOwnerTable(InfoObject: object) -> dict[int, str]:
-    if not isinstance(InfoObject, Mapping):
-        raise ValueError(
-            "part configuration properties require a complete typed manager"
-        )
-    InfoValue = CastValue(Mapping[str, object], InfoObject)
-    if InfoValue.get("status") != "complete":
-        raise ValueError(
-            "part configuration properties require a complete typed manager"
-        )
-    RowsValue = InfoValue.get("configurations")
-    if not isinstance(RowsValue, (list, tuple)):
-        raise ValueError("part configuration property owners are unavailable")
-    OwnersValue: dict[int, str] = {}
-    for RowObject in CastValue(tuple[object, ...], RowsValue):
-        if not isinstance(RowObject, Mapping):
-            raise ValueError("part configuration property owner is malformed")
-        RowValue = CastValue(Mapping[str, object], RowObject)
-        IdentValue, NameValue = RowValue.get("native_object_id"), RowValue.get("name")
-        if (
-            type(IdentValue) is not int
-            or not isinstance(NameValue, str)
-            or IdentValue in OwnersValue
-        ):
-            raise ValueError("part configuration property owner identity is ambiguous")
-        OwnersValue[IdentValue] = NameValue
-    return OwnersValue
-
-
-# configuration xml ids must resolve to the same actual manager node and named neutral configuration
-def ReadPropOwners(Document: CadDocument) -> dict[int, str]:
-    OwnersValue = ReadOwnerTable(
-        Document.metadata.get("solidworks.typed_configuration_manager")
-    )
-    NeutralOwners: dict[int, str] = {}
-    for ConfigValue in Document.configurations:
-        IdentValue = ConfigValue.attributes.get("native_configuration_id")
-        if type(IdentValue) is not int or IdentValue in NeutralOwners:
-            raise ValueError(
-                "part configuration property neutral identity is ambiguous"
-            )
-        NeutralOwners[IdentValue] = ConfigValue.name
-    if NeutralOwners != OwnersValue:
-        raise ValueError(
-            "part configuration property owners differ from the actual manager"
-        )
-    return OwnersValue
+# scoped xml requires the native saved directory id and name on the same active part configuration
+def ReadPropOwners(
+    Document: CadDocument, Archive: SldprtArchive, VersionValue: int
+) -> dict[int, str]:
+    if len(Document.configurations) != 1:
+        raise ValueError("part text requires one ordinary configuration")
+    Directory = Archive.get("Contents/CMgrHdr2")
+    if Directory is None:
+        raise ValueError("part configuration properties require their saved directory")
+    GraphValue = ReadMgrHeader(Directory, VersionValue)
+    ListValue = CastValue(Mapping[str, object], GraphValue.RootValue.FieldsValue["f08"])
+    RowsValue = CastValue(Sequence[Mapping[str, object]], ListValue["items"])
+    if len(RowsValue) != 1:
+        raise ValueError("part text requires one concrete saved configuration")
+    Fields = ArchiveNode.RequireNode(RowsValue[0]["o"]).FieldsValue
+    OwnerId, RawName = Fields["f30"], Fields["f10"]
+    OwnerName = RawName.TextValue if isinstance(RawName, CStringValue) else RawName
+    (ConfigValue,) = Document.configurations
+    ActualId = ConfigValue.attributes.get("native_configuration_id")
+    if (
+        type(OwnerId) is not int
+        or OwnerId != 0
+        or type(OwnerName) is not str
+        or not OwnerName.strip()
+        or type(ActualId) is not int
+        or ActualId != OwnerId
+        or ConfigValue.name != OwnerName
+        or ConfigValue.active is not True
+        or Fields["f08"] != 1
+        or Fields["f34"] != -1
+    ):
+        raise ValueError("part configuration properties differ from their native owner")
+    LaneValue = f"Contents/Config-{OwnerId}"
+    if not Archive.get(LaneValue) or not Archive.get(LaneValue + "-ResolvedFeatures"):
+        raise ValueError("part configuration properties lack their physical part lanes")
+    return {OwnerId: OwnerName}

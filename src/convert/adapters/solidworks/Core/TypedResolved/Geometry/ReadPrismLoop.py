@@ -23,7 +23,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # reconstruction must use complete active typed contour and relation ownership instead of keyword profiles or guessed construction points
 def ReadPrismLoop(
-    ProfileValue: ArchiveNode, LinkValue: NativeLink, *, IsSaved: bool = False
+    ProfileValue: ArchiveNode,
+    LinkValue: NativeLink,
+    *,
+    IsSaved: bool = False,
+    AllowPolygon: bool = False,
 ) -> LineLoop:
     CheckPrismProf(ProfileValue, IsSaved=IsSaved)
     Fields = ProfileValue.FieldsValue
@@ -48,14 +52,18 @@ def ReadPrismLoop(
         else ReadLineDims(SketchValue, LinkValue)
     )
     LoopValue = ReadLineLoop(SketchValue, LinkValue, DimsValue)
+    PointCount = len(LoopValue.PointsValue)
+    CountMatches = (
+        3 <= PointCount <= 64 if AllowPolygon and DimsValue is None else PointCount == 4
+    )
     if (
-        len(LoopValue.PointsValue) != 4
-        or len(LoopValue.LinesValue) != 4
+        not CountMatches
+        or len(LoopValue.LinesValue) != PointCount
         or LoopValue.RetiredRows
         or LoopValue.RetiredPointRows
         or LoopValue.RegionValues
     ):
-        raise ValueError("cache free prism requires one fresh four line contour")
+        raise ValueError("cache free prism requires one fresh contour with matching points and lines")
     if DimsValue is not None:
         CheckDimGraph(LoopValue, DimsValue)
     if IsSaved:

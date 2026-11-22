@@ -18,9 +18,7 @@ def MakeTableStyle(*, KindValue: str, FontName: str) -> dict[str, object]:
         "f20": MakeLineWidth(CategoryValue=0, WidthValue=-1),
         "f10": MakeCharFormat(FontName=FontName, HeightValue=0.0035, PointHeight=0),
     }
-    if KindValue in ("general", "title_block"):
-        pass
-    elif KindValue == "revision":
+    if KindValue == "revision":
         FieldsValue.update(
             {"f40": 0, "f44": 0, "f48": 1, "f4c": 0, "f50": "", "f58": 0}
         )
@@ -64,6 +62,6 @@ def MakeTableStyle(*, KindValue: str, FontName: str) -> dict[str, object]:
                 "f70": 2,
             }
         )
-    else:
+    elif KindValue not in ("general", "title_block"):
         raise ValueError(f"unsupported table style {KindValue!r}")
     return FieldsValue

@@ -5,12 +5,12 @@ original source: `.agents/skills/no-donor-blocks/SKILL.md`
 This section replaces the preserved "THE STATE OF THE WORK" paragraph below where they disagree.
 [AGENTS.md](../../../../../../AGENTS.md) takes precedence over the preserved text.
 
-Kit registers generative SOLIDWORKS 2026 writers for the qualified ordinary
-line-loop and fixed-centre circle blind bosses, bounded principal-plane mate
-assemblies, and one unlinked ANSI A landscape drawing. The drawing writer also
-regenerates the unchanged canonical generated blank subtype from its typed
-strict-read document. Every additional profile requires its own held-out
-oracle qualification. [Current adapter scope](../../../../../../Documentation/Reference/Adapters/Solidworks.md)
+Kit registers bounded generative SOLIDWORKS 2026 writers. Public standalone
+part output requires an exact offline measurement for the complete generated
+archive. The principal-plane assembly and blank drawing routes have their
+own documented scopes. Each additional profile requires independent held-out
+oracle qualification. The writer derives every emitted structure from the model
+and documented format rules. [Current adapter scope](../../../../../../Documentation/Reference/Adapters/Solidworks.md)
 
 The removed writer did not generate its streams from format rules.
 Each supported family was one vendor-saved stream, re-encoded as typed field operations.

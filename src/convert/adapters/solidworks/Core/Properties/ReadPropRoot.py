@@ -17,4 +17,14 @@ def ReadPropRoot(BufferValue: bytes) -> Element:
         "utf8",
     ):
         raise ValueError("part property xml has an unsupported encoding declaration")
-    return ParseUntrusted(TextValue)
+    RootValue = ParseUntrusted(TextValue)
+    if any(
+        (ItemValue.tail or "").strip()
+        or (
+            (ItemValue is RootValue or len(ItemValue))
+            and (ItemValue.text or "").strip()
+        )
+        for ItemValue in RootValue.iter()
+    ):
+        raise ValueError("part property xml contains unqualified mixed text")
+    return RootValue

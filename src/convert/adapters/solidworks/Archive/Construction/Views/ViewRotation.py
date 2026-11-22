@@ -1,9 +1,13 @@
-from math import cos as CosValue, sin as SinValue
+from convert.adapters.solidworks.Archive.Construction.Views.RoundViewSeries import (
+    RoundViewSeries,
+)
 
 
 # native view rotation uses the negative half angle and must not inherit a library convention silently
 def ViewRotation(AxisName: str, AngleValue: float) -> tuple[float, float, float, float]:
-    SineValue, CosineValue = SinValue(AngleValue * -0.5), CosValue(AngleValue * -0.5)
+    HalfAngle = AngleValue * -0.5
+    SineValue = RoundViewSeries(HalfAngle, 1)
+    CosineValue = RoundViewSeries(HalfAngle, 0)
     if AxisName == "x":
         return SineValue, 0.0 * SineValue, 0.0 * SineValue, CosineValue
     if AxisName == "y":

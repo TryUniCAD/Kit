@@ -3,11 +3,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.Proper
     KConfigPropertyNamespace,
     KModelPropertyNamespace,
     KSummaryPropertyFormat,
-)
-from convert.adapters.solidworks.Core.Properties.ReadPropSection import ReadPropSection
-from convert.adapters.solidworks.Drawing.Metadata.Writing.PropertyVocabulary import (
     KUserPropertyFormat,
 )
+from convert.adapters.solidworks.Core.Properties.ReadPropSection import ReadPropSection
 
 
 # document and configuration bags use distinct roots while sharing the two measured native sections

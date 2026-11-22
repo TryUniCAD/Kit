@@ -4,8 +4,10 @@ from interchange.geometry.Models.GeometryCurves import LineGeometry
 from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
-# actual typed line endpoints and traversal must define the rectangle without changing coordinates or sweeping the external origin point
-def MakePrismLines(LoopValue: LineLoop) -> tuple[LineGeometry, ...]:
+# actual typed line endpoints and traversal define the contour and retain the required rectangle check
+def MakePrismLines(
+    LoopValue: LineLoop, *, RequireRectangle: bool = True
+) -> tuple[LineGeometry, ...]:
     LinesValue = tuple(
         LineGeometry(
             PlaneVector(*LoopValue.PointsValue[LineValue.StartValue].PositionValue),
@@ -14,6 +16,8 @@ def MakePrismLines(LoopValue: LineLoop) -> tuple[LineGeometry, ...]:
         for LineValue in LoopValue.LinesValue
     )
     OrderedValue = tuple(LinesValue[Index] for Index in LoopValue.OrderValue)
+    if not RequireRectangle:
+        return OrderedValue
     AxisValues = tuple(
         (
             IsClose(LineValue.start.x, LineValue.end.x, rel_tol=0.0, abs_tol=1e-9),

@@ -38,6 +38,7 @@ def ReadPrismPlan(
     ModeValue: ExtrudeEnd = ExtrudeEnd.KBlind,
     SelectedStock: bool = False,
     AllowFirstScope: bool = False,
+    AllowPolygon: bool = False,
 ) -> PrismPlan:
     (BossValue,) = (
         NodeValue
@@ -67,7 +68,13 @@ def ReadPrismPlan(
     if Length is None:
         raise ValueError("cache free prism requires a measured active depth")
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue)
-    LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
+    PlainPolygon = (
+        AllowPolygon and not SelectedStock and not ReversedBlind
+        and ModeValue == ExtrudeEnd.KBlind and ColdValue is None
+    )
+    LoopValue = ReadPrismLoop(
+        OwnerValue.ProfileValue, LinkValue, AllowPolygon=PlainPolygon
+    )
     FrameValue = ReadPrismFrame(
         OwnerValue.ProfileValue,
         LinkValue.ConfigValue.RootValue,
@@ -86,7 +93,9 @@ def ReadPrismPlan(
     }
     return PrismPlan(
         FrameValue,
-        MakePrismLines(LoopValue),
+        MakePrismLines(
+            LoopValue, RequireRectangle=not (PlainPolygon and LoopValue.DimsValue is None)
+        ),
         Length,
         EvidenceValue,
         ReversedBlind=ReversedBlind,

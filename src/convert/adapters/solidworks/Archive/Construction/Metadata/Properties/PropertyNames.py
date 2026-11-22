@@ -9,6 +9,14 @@ KConfigPropertyNamespace = "http://www.solidworks.com/config-properties"
 # the document summary section uses the published standard property set identity
 KSummaryPropertyFormat = "{D5CDD502-2E9C-101B-9397-08002B2CF9AE}"
 
+# literal values use the native variant namespace in both independent custom scopes
+KPropertyValueNamespace = (
+    "http://schemas.openxmlformats.org/officeDocument/2006/docPropsVTypes"
+)
+
+# the named text rows belong to the reserved user defined property set identity
+KUserPropertyFormat = "{D5CDD505-2E9C-101B-9397-08002B2CF9AE}"
+
 # native core property editing requires the declared file summary vocabulary
 KSummaryNamespaces = {
     "xmlns:cp": "http://schemas.openxmlformats.org/package/2006/metadata/core-properties",

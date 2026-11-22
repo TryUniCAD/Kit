@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLineLoop import (
     ReadLineLoop,
 )
+from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonInput import (
+    PolygonInput,
+)
 from interchange.geometry.Models.Sketch import Sketch
 
 
@@ -18,4 +21,4 @@ def ReadRectSketch(
         raise ValueError(
             "first plain boss profile requires a local axis aligned rectangle"
         )
-    return VerticesValue
+    return PolygonInput(VerticesValue, 19000).VerticesValue

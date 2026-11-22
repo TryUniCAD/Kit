@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConceptFields imp
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ExternalFields import (
     KExternalFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.FeatColorFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.FeatColorFields import (
     KFeatColorFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.FinishFields import (
@@ -36,10 +36,10 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GhostFields impor
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.LabelAnnotationFields import (
     KLabelAnnotationFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.LightFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Lighting.LightFields import (
     KLightFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MassCacheFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Caches.MassCacheFields import (
     KMassCacheFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MaterialFields import (
@@ -96,7 +96,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RecordFields impo
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.RelMgrFields import (
     KRelMgrFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ThreadFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.ThreadFields import (
     KThreadFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ToleranceHelperFields import (
@@ -105,7 +105,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ToleranceHelperFi
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.UnitFields import (
     KUnitFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ViewFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.ViewFields import (
     KViewFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.ContainerFields import (
