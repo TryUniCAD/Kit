@@ -12,11 +12,18 @@ from pathlib import Path
 
 # fixed powershell expressions pass native path values without interpreting them as command text
 def CompilerEnv(
-    ScriptPath: Path, CasePath: Path, OutputPath: Path, ExePath: Path, Interop: Path
+    ScriptPath: Path,
+    CasePath: Path,
+    OutputPath: Path,
+    ExePath: Path,
+    Interop: Path,
+    ShellPath: Path,
 ) -> dict[str, str]:
     Environment = dict(environ)
     Environment.update(
         {
+            "SystemRoot": str(ShellPath.parents[3]),
+            "WINDIR": str(ShellPath.parents[3]),
             "KIT_COMPILE_SCRIPT": str(ScriptPath),
             "KIT_COMPILE_CASE": str(CasePath),
             "KIT_COMPILE_OUTPUT": str(OutputPath),

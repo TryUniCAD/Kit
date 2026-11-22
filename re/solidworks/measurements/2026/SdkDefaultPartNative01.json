@@ -1,0 +1,402 @@
+{
+  "builds": [
+    {
+      "build_a_sha256": "7d342d90f1154a382381f778e528ecb2d2cbab4d69a14986e8e9a9b1c5eb597a",
+      "build_b_sha256": "7d342d90f1154a382381f778e528ecb2d2cbab4d69a14986e8e9a9b1c5eb597a",
+      "bytes": 8094,
+      "candidate_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "expected_sha256": "28bfdf7c5ba72aaee59835e9ae4697ebf2974de4104d63bad85b05ecf7ce7e9e",
+      "request_sha256": "a80a073e64a107c293e0e9e649e84d2b0b09720f7661b4254dcc45742444f93f",
+      "role": "Skew",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd",
+          "typed_roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22266,
+          "sha256": "67ed420c7f3687ead74df8374ba75bc9f88025ee0a0737182148258f3e8ae8b4",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 655,
+          "sha256": "29a8688bef96a91d019c9fd6558d4cf1c6f5c8a935d3bfa75bf302a092382fc8",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13613,
+          "sha256": "8e6f6d0cfb36458c87fbaf9cec6f63f5e5d0f4fee0a2e332a1c2d6f2fed9238c",
+          "typed_roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "typed_roundtrip": true
+        },
+        "Header2": {
+          "bytes": 655,
+          "sha256": "e2b3d83b8c5117cd719311b6840b62c53340e44e140c6c7693541473e7ef2b06",
+          "typed_roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "typed_roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe",
+          "typed_roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1428,
+          "sha256": "a51f4b84c45cabb7716222b4fa01609ef23512797d2376aa47a77105a9befbbf",
+          "typed_roundtrip": true
+        }
+      }
+    },
+    {
+      "build_a_sha256": "aea4b17755d0f44dad5d572fb2892a15ce1bb1fe48765bda2443600445eeccb7",
+      "build_b_sha256": "aea4b17755d0f44dad5d572fb2892a15ce1bb1fe48765bda2443600445eeccb7",
+      "bytes": 8180,
+      "candidate_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "expected_sha256": "0843665906900d2e1098e614b5fb8b1b999d3df53e129b6cc4e0b978f35c23f9",
+      "request_sha256": "e155d170e01947992f3af6a680623bba4553dd442c9b43b4c877331d15661a46",
+      "role": "Step",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1145,
+          "sha256": "2d50cd50cc7520444ad1d818930677c363ab7308863da47816d65a13567730bd",
+          "typed_roundtrip": true
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 169,
+          "sha256": "f0e87e094fb3f04ca1d901fb4fddb21a7dbf50a9432e3f1ca9326438b39f25f8",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0": {
+          "bytes": 22262,
+          "sha256": "c194c08a97e4676ed892daffe3f6ad002b71f2c2cb9cc1985dd227e1f783ed0d",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 643,
+          "sha256": "e47aaa854a4bc33a2952d646ca2a42f3ea5f573271c20764e9a474a84f38d189",
+          "typed_roundtrip": true
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14375,
+          "sha256": "87924c2d06b6df1c53c33d9d749949565ab7868a3601cd74791f1038f3fba11d",
+          "typed_roundtrip": true
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+          "typed_roundtrip": true
+        },
+        "Header2": {
+          "bytes": 643,
+          "sha256": "8367d3000b8c4d3e3e73c9a3426d33ad7c2880192c78add7c7b06c4afe98aea0",
+          "typed_roundtrip": true
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+          "typed_roundtrip": true
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "3128ed047232c860fa6050b25d761ba1c42bce42acf3278417ae3d6669bb4bbe",
+          "typed_roundtrip": true
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1431,
+          "sha256": "d2197399c12142a6075ab7dc79dd593e2e0e80cb8c39172e7a2092b62025d0f9",
+          "typed_roundtrip": true
+        }
+      }
+    }
+  ],
+  "cases": [
+    {
+      "archive_locator_absent": true,
+      "document_preference_and_unassigned_body_density_match": true,
+      "generated_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "passed": true,
+      "role": "Skew"
+    },
+    {
+      "archive_locator_absent": true,
+      "document_preference_and_unassigned_body_density_match": true,
+      "generated_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "passed": true,
+      "role": "Step"
+    }
+  ],
+  "controls_healthy": true,
+  "distinct_native_processes": 6,
+  "fcstd_conversions": 0,
+  "frozen_writer_source_sha256": "020d5a2529548481d74f5b65779680f18b5798e605fb90a608b27949c2cf66db",
+  "generation_report_sha256": "e8d6f43e9d11afc00233a558327fbdd0b161a4205871d5ce30fafda6b360a2f2",
+  "guarded_processes": 4,
+  "heldout_inputs_read": 0,
+  "native_result_sha256": "8ca7b13b7bd69f916655539fa08d1df4d836c6c551f218b745e538b84b9bfc0c",
+  "numeric_checks": 240,
+  "observer_sha256": "8b795a1973db35ac5c6e7079b0362752f7afe0cfb57a107df674078739af0048",
+  "oracle": {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "packet_sha256": "ca59b0dc23b6ed5f1c84c11fd077a47e28bcb232504ecabd2a30b23473cde6b5",
+  "passed": true,
+  "phases": [
+    {
+      "derivative_sha256": null,
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "39b866f7602db3412418bc5caba85429413bc1edb0b2b6d03b600f17172fe774",
+      "role": "ControlBefore",
+      "save_status": null,
+      "states": []
+    },
+    {
+      "derivative_sha256": "7cbc61613416c5080af5549f97be8cccd9b6855b4e5e0ba08b2008643082f7ec",
+      "numeric_checks": 54,
+      "passed": true,
+      "record_sha256": "257e035ffdc2b27579b7ecdfeb12600387de5ea8e298bd88f65e02cf4f7acbd2",
+      "role": "SkewGenerated",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": [
+        {
+          "area_m2": 0.002631956290881713,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.004933333333333333,
+            0.009133333333333334,
+            0.006375
+          ],
+          "depth_m": 0.012750000000000001,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 7.658797500000002e-06,
+          "role": "Initial",
+          "rows": 25,
+          "volume_m3": 7.658797500000002e-06,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.002631956290881713,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.004933333333333333,
+            0.009133333333333334,
+            0.006375
+          ],
+          "depth_m": 0.012750000000000001,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 7.658797500000002e-06,
+          "role": "Rebuilt",
+          "rows": 25,
+          "volume_m3": 7.658797500000002e-06,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.0030961362214995676,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.004933333333333331,
+            0.009133333333333334,
+            0.008443499999999998
+          ],
+          "depth_m": 0.016887,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 1.0143852030000003e-05,
+          "role": "Edited",
+          "rows": 25,
+          "volume_m3": 1.0143852030000003e-05,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "derivative_sha256": null,
+      "numeric_checks": 36,
+      "passed": true,
+      "record_sha256": "90b674b20ec70a0f371c654bcd3d6c35045199fb3f981053209b96cf6925b417",
+      "role": "SkewReopen",
+      "save_status": null,
+      "states": [
+        {
+          "area_m2": 0.0030961362214995676,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.004933333333333331,
+            0.009133333333333334,
+            0.008443499999999998
+          ],
+          "depth_m": 0.016887,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 1.0143852030000003e-05,
+          "role": "Initial",
+          "rows": 25,
+          "volume_m3": 1.0143852030000003e-05,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.0030961362214995676,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.004933333333333331,
+            0.009133333333333334,
+            0.008443499999999998
+          ],
+          "depth_m": 0.016887,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 1.0143852030000003e-05,
+          "role": "Rebuilt",
+          "rows": 25,
+          "volume_m3": 1.0143852030000003e-05,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "derivative_sha256": "0d4086ee2194b8d2f3fc1a0cff3d651b2e40fe4b494ff8399cb4e6cc72db287d",
+      "numeric_checks": 90,
+      "passed": true,
+      "record_sha256": "8a3cff6237016c365a21ef7ccd62ee6fae98f1898a553012b1bc52ca70b1d599",
+      "role": "StepGenerated",
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "states": [
+        {
+          "area_m2": 0.004937269999999999,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.011141989176085913,
+            0.004078708740874367,
+            0.0093125
+          ],
+          "depth_m": 0.018625,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 1.9822773749999992e-05,
+          "role": "Initial",
+          "rows": 25,
+          "volume_m3": 1.9822773749999992e-05,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.004937269999999999,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.011141989176085911,
+            0.004078708740874369,
+            0.0093125
+          ],
+          "depth_m": 0.018625,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 1.9822773749999996e-05,
+          "role": "Rebuilt",
+          "rows": 25,
+          "volume_m3": 1.9822773749999996e-05,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.005879920799999999,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.011141989176085915,
+            0.004078708740874371,
+            0.012438
+          ],
+          "depth_m": 0.024876,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 2.6475775559999997e-05,
+          "role": "Edited",
+          "rows": 25,
+          "volume_m3": 2.6475775559999997e-05,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "derivative_sha256": null,
+      "numeric_checks": 60,
+      "passed": true,
+      "record_sha256": "1197900deba43c1ec957b87594ede8da522d8ec53e6cc2dddafb7f37c6c06777",
+      "role": "StepReopen",
+      "save_status": null,
+      "states": [
+        {
+          "area_m2": 0.005879920799999999,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.011141989176085915,
+            0.004078708740874371,
+            0.012438
+          ],
+          "depth_m": 0.024876,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 2.6475775559999997e-05,
+          "role": "Initial",
+          "rows": 25,
+          "volume_m3": 2.6475775559999997e-05,
+          "warnings": 0
+        },
+        {
+          "area_m2": 0.005879920799999999,
+          "bodies": 1,
+          "centre_of_mass_m": [
+            0.011141989176085915,
+            0.004078708740874371,
+            0.012438
+          ],
+          "depth_m": 0.024876,
+          "document_density_kg_m3": 1000.0,
+          "effective_body_density_kg_m3": 1.0,
+          "mass_kg": 2.6475775559999997e-05,
+          "role": "Rebuilt",
+          "rows": 25,
+          "volume_m3": 2.6475775559999997e-05,
+          "warnings": 0
+        }
+      ]
+    },
+    {
+      "derivative_sha256": null,
+      "numeric_checks": 0,
+      "passed": true,
+      "record_sha256": "5ad81c988ffaf451152ff98ce9aa62f0050822d6e3dc1bf4bcdb4f2c427366ee",
+      "role": "ControlAfter",
+      "save_status": null,
+      "states": []
+    }
+  ],
+  "prior_density_assumption_passed": false,
+  "prior_density_assumption_result_sha256": "85739c7c135391caf706c55f7e1b6ff1912011ffa3359ee50e727702930846eb",
+  "public_registry_in_candidate_trial": false,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.sdk-standalone-default-part-evidence.v1"
+}

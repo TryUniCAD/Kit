@@ -7,6 +7,7 @@ from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.adapters.Fusion.State.StateTypes import KStateTypes
+from convert.adapters.Fusion.State.OmitStateFields import KStateOmit
 
 # fixed supported classes need constant time membership checks during recursive encoding
 KEncodeTypes = frozenset(KStateTypes)
@@ -39,6 +40,8 @@ def EncodeState(Value: object, Depth: int = 0) -> object:
                 "fields": {
                     FieldName: EncodeState(getattr(Value, FieldName), Depth + 1)
                     for FieldName in KRecordFields[ValueType]
+                    if FieldName not in KStateOmit.get(ValueType, {})
+                    or getattr(Value, FieldName) != KStateOmit[ValueType][FieldName]
                 },
             }
     if isinstance(Value, bytes) and len(Value) <= 2000000:

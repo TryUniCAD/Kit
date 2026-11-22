@@ -1,4 +1,7 @@
-from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
+from convert.adapters.solidworks.Container.Format import (
+    CANONICAL_PLANE_FEATURE_TYPE as KCanonicalPlane,
+    KResolvedFeaturesStream,
+)
 from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
 
 # reference scaffold classes can accompany an import without adding solid history
@@ -23,15 +26,22 @@ KLocalScaffold = frozenset(
 )
 
 
-# the fallback represents the resolved native import in a standalone import part
+# the local import must own the solid after excluding the retained native scaffold
 def FindLocalOwner(ModelValue: NativeModel) -> NativeFeature | None:
     if ModelValue.operations:
         return None
     ImportValue = None
     for FeatureValue in ModelValue.features:
-        if FeatureValue.kind in KLocalScaffold and FeatureValue.class_name in (
+        ScaffoldType = FeatureValue.kind
+        if (
+            ScaffoldType == KCanonicalPlane.title()
+            and FeatureValue.xml_tag == "Feature"
+            and FeatureValue.properties.get("Type") == "moRefPlane_c"
+        ):
+            ScaffoldType = "moRefPlane_c"
+        if ScaffoldType in KLocalScaffold and FeatureValue.class_name in (
             "",
-            FeatureValue.kind,
+            ScaffoldType,
         ):
             continue
         if (

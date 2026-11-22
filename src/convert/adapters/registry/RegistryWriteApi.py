@@ -15,6 +15,8 @@ from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -23,6 +25,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WritePolicy import GetWriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.Formats.CheckSourceText import CheckSourceText
 
 # historical destination annotations need local resolution after public methods move to the registry facade
 Destination = KTargetType
@@ -121,7 +124,9 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
-        CheckNative(DocumentData)
+        CheckSourceText(DocumentData)
+        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+            CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)

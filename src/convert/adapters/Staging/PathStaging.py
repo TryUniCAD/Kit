@@ -146,6 +146,10 @@ def CommitOutputs(
         )
         if ConflictPath is not None:
             raise FileExistsError(ConflictPath)
+    if len(TargetValues) == 1 and TargetValues[0][0].is_file():
+        SourcePath, OutputPath = TargetValues[0]
+        PublishOutput(SourcePath, OutputPath, Overwrite)
+        return
     ReplacedValues: list[tuple[FilePath, FilePath]] = []
     CommitValues: list[tuple[FilePath, FilePath, tuple[int, int, int]]] = []
     try:

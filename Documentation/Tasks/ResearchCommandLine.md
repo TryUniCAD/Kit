@@ -71,6 +71,10 @@ The run saves decoded documents and receipts without committing files or promoti
 Use the [codec patch procedure](#export-a-qualified-codec-change) to propose a corroborated reader change.
 
 The installed CLI automatically requests native API verification after decoding.
+Use `kit research --offline --root /path/to/KitPr94 solidworks ...` for offline decoding.
+The offline option also supports Fusion and must precede the tool name.
+Offline runs preserve reader exit codes and artifacts without contacting a native API.
+Native verification remains pending, and vendor acceptance is not established.
 Read `NativeVerification.json` for the application observations and case comparisons.
 An unavailable API returns status `4` with instructions for the local machine.
 Failed or invalid native verification returns status `5`.

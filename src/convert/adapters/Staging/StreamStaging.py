@@ -7,9 +7,11 @@ from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.ContractTypes import IsBinaryTarget
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.registry.RegistryErrors import RegistryError
+from convert.adapters.base.WholeStreamWriter import WholeStreamWriter
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import RunCheckedMut
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 
 
 # stream writes stage payloads so policy failures never mutate caller owned destinations
@@ -33,6 +35,11 @@ def WriteStreamMut(
     if ResultData.OutputPath is not None:
         raise RegistryError("stream writer returned a filesystem path")
     PayloadData = StagedStream.getvalue()
+    if isinstance(AdapterData, WholeStreamWriter) and AdapterData.IsWholeStream:
+        if not isinstance(PayloadData, bytes):
+            raise RegistryError("standalone stream writer returned nonbinary output")
+        WriteWholeMut(TargetData, PayloadData)
+        return ResultData
     WriterData = getattr(TargetData, "write", None)
     if not callable(WriterData):
         raise TypeError("destination must be a writable path or stream")

@@ -18,12 +18,13 @@ from tests.Research.SupervisorClient import KRepoRoot
 # the actual native interop compiler validates the additive authoring contract without launching cad
 def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
     ExePath, Interop = LoadInterop()
+    ShellPath = SystemShell()
     ScriptPath = (
         KRepoRoot / "re/automation/CaptureTools/Catalogue/SolidWorks/RunSolidWorks.ps1"
     )
     return run(
         [
-            str(SystemShell()),
+            str(ShellPath),
             "-NoProfile",
             "-NonInteractive",
             "-STA",
@@ -36,7 +37,7 @@ def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
             + "-InteropAssembly $env:KIT_COMPILE_INTEROP -Phase first -CompileOnly",
         ],
         cwd=KRepoRoot,
-        env=CompilerEnv(ScriptPath, CasePath, OutputPath, ExePath, Interop),
+        env=CompilerEnv(ScriptPath, CasePath, OutputPath, ExePath, Interop, ShellPath),
         capture_output=True,
         text=True,
         check=False,

@@ -1,0 +1,67 @@
+from convert.adapters.Fusion.Native.DraftedRectangle.CheckOldSheet import CheckOldSheet
+from convert.adapters.Fusion.Native.DraftedRectangle.DraftSheetSlots import (
+    DraftSheetSlots,
+)
+from convert.adapters.Fusion.Native.Rectangle.RectGeometry import RectGeometry
+from convert.adapters.Fusion.Native.SignedPrism.CheckSignedTags import (
+    SelectedCurves,
+)
+from convert.adapters.Fusion.Native.SignedPrism.ReadSignedBody import (
+    CheckSectionOwn,
+)
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.LiveTable import LiveTable
+from convert.Formats.Fusion.BrepCodec.Journal.Planar.PlanarShell import PlanarShell
+from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.EmitGeometry import EmitGeometry
+from convert.Formats.Fusion.BrepCodec.Journal.Snapshot.GeometryState import (
+    GeometryState,
+)
+from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Models.RegionFrame import (
+    RegionFrame,
+)
+from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Reading.MapRegion import (
+    MapRegion,
+)
+from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Reading.ReadRegion import (
+    ReadRegion,
+)
+from convert.Formats.Fusion.DocumentCodec.Auxiliary.PrismSnapshot.Validation.CheckRegion import (
+    CheckRegion,
+)
+from convert.Formats.Fusion.Topology.AsmEdge.AsmTable import ReadAsmTable
+
+
+# every current and retired sheet keeps complete disjoint topology and its original selected sketch labels
+def ReadDraftSheets(
+    Snapshot: GeometryState, Table: LiveTable, Solid: PlanarShell, Shape: RectGeometry
+) -> tuple[tuple[RegionFrame, RegionFrame], frozenset[int]]:
+    Occupied = DraftSheetSlots(Snapshot, Table, Solid)
+    Records = ReadAsmTable(EmitGeometry(Snapshot))
+    Corners = tuple(Point for Point in Solid.PointsCm if Point[2] == 0)
+    Regions: list[RegionFrame] = []
+    Retired: frozenset[int] = frozenset()
+    Curves = SelectedCurves(Shape)
+    for RootIndex in range(2, Snapshot.Header.RootCount):
+        Start = 88 + (RootIndex - 2) * 25
+        Attribute = 152 + (RootIndex - 2) * 8
+        Mapping = MapRegion(Records, RootIndex, Start, Attribute)
+        Slots = frozenset(Mapping.values())
+        if Occupied.intersection(Slots):
+            raise ValueError("Native drafted snapshot sheets share physical ownership")
+        Occupied.update(Slots)
+        Region = ReadRegion(Records, Mapping, Start, Attribute)
+        CheckSectionOwn(Snapshot, Mapping, Start, Attribute)
+        if RootIndex < 4:
+            CheckRegion(Region, Corners)
+            Regions.append(Region)
+            continue
+        CheckOldSheet(Region, Curves)
+        Retired = Slots
+    if Occupied != set(range(len(Snapshot.Entities))):
+        raise ValueError(
+            "Native drafted snapshot has records outside its qualified solid and sheet roles"
+        )
+    if len(Regions) != 2:
+        raise ValueError(
+            "Native drafted snapshot does not retain both current profile sheets"
+        )
+    return (Regions[0], Regions[1]), Retired
