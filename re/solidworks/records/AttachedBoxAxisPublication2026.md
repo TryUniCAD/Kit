@@ -84,12 +84,19 @@ functional state, a nonempty stream, alternate locator or epoch
 and malformed or rewritten receipts refuse before changing an owned
 destination. The host's direct path, explicit and inferred registry
 paths, and explicit and inferred CLI all reach the physical locator
-guard and preserve the sentinel file and its directory. A successful
-physical write at the exact Windows path remains to be exercised
-through the SDK and CLI. The archived genuine native lifecycle
-qualifies the bytes produced by the host writer. Neither the
-disclosed source nor this proof establishes new held-out or
-historical benchmark membership.
+guard and preserve the sentinel file and its directory. The archived
+native lifecycle qualifies the bytes produced by the host writer.
+
+The ARM64 Windows guest also generated the exact part through its binary
+stream with Python 3.12.7 and zlib 1.3.1. Explicit and inferred SDK and
+CLI writes each produced 10,707 bytes at `C:\KitAttachedBoxAxes01\F14c.SLDPRT`
+with six native capabilities and three original source evidence domains.
+The controlled trial temporarily relocated the original measured file and
+restored it. A separate PowerShell invocation confirmed matching hashes on
+all four results and the original file. The governing SOLIDWORKS build is
+SP05.2 `34.5.2.0604`. This trial added zero native application observations,
+held-out credits or historical benchmark conversions.
+[Windows publication evidence](../measurements/2026/AttachedBoxAxesWindowsPublication01.json)
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyAttachedBoxPublication.py \
@@ -100,3 +107,10 @@ python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyAttachedBoxPubl
   /tmp/AttachedBoxAxesSdkPublication01.json \
   --measurement-out /tmp/AttachedBoxAxesMeasurement.json
 ```
+
+The [Windows verifier](../../tooling/sw2026/attached_top_box_source/VerifyAttachedBoxWindows.py)
+takes the original FCStd, that measurement file and a staged SDK source
+directory. Run it through `prlctl exec` with the guest's current user.
+An omitted `--trial` verifies stream generation. Supply a fresh directory
+under `C:\KitAttachedBoxAxes01` to verify the four file routes and restore
+the original file.

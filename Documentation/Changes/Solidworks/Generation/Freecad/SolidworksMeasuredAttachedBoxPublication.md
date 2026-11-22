@@ -16,7 +16,9 @@ The source evidence report preserves the original owner associations
 and the verification digests of the FreeCAD archive and cache members.
 It explicitly records that original byte replay is unavailable.
 Two guarded host workers reproduced all 12 streams through six SDK
-and adapter entry points. Real Windows path and CLI success require
-their own execution at the measured locator.
+and adapter entry points. The explicit and inferred Windows SDK and CLI
+file routes each reproduced the same 10,707-byte part at the measured
+locator. An independent Windows disk check verified the four files and
+the restored original.
 
 [Exact contract and process evidence](../../../../../re/solidworks/records/AttachedBoxAxisPublication2026.md)

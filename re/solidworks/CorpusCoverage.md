@@ -150,9 +150,12 @@ three independently edited states save and reopen with all three axes
 selectable and linked to their native support planes. The
 [strict SDK readback](measurements/2026/AttachedBoxAxesSdkRead01.json)
 preserves the same analytical solid, native history and six plane
-selections through neutral JSON. The disclosed F14c case adds zero
-held-out or corpus conversion credits. Public writing of the intact
-source and historical roster membership remain unverified.
+selections through neutral JSON. The [public writer](measurements/2026/AttachedBoxAxesSdkPublication01.json)
+regenerates all 12 streams from the intact source with zero runtime
+input reads in six SDK and adapter entry points. Four [Windows file publications](measurements/2026/AttachedBoxAxesWindowsPublication01.json)
+produce the same 10,707 bytes through explicit and inferred SDK and
+CLI routes. The disclosed F14c case has unverified historical roster
+membership and adds zero held-out or corpus conversion credits.
 
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
