@@ -1,0 +1,1550 @@
+{
+  "blocked_runtime_calls": 0,
+  "epoch": 1794000000,
+  "fresh_sketch_only_parts": [
+    {
+      "bytes": 8128,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcNearSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.008642
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.028703
+        }
+      ],
+      "sha256": "bf23935fee8d51546a4ab65e7f2dfa9b00d2b3c8d766f708b099c46d6aa1e0e8",
+      "state": "original",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "1db801078b1ae6cdba0c8c5309d0bf1514f071c4e861f6c5712e207dd7f24dae",
+        "Contents/Config-0-ModelHeader": "72b610fee2146e516dad06198c382667dc541e8dbd0f6194066d62ea80396bcd",
+        "Contents/Config-0-ResolvedFeatures": "98d641ae285801648676ba209ffa76fe8c01666dda5674baab3072b6a5931159",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "a03b493920de344091a3532e58d369ba9ab174dac4317d78a998ca14c0d791fa",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "125358f28cf3a51ebbb99b936f165cab943481bbfb0f6c83145257984d766bb6"
+      }
+    },
+    {
+      "bytes": 8126,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcNearSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.012478
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.028703
+        }
+      ],
+      "sha256": "4dfff9700cd37285f8718799a8aee4e97b15466e17678723f7b68b05fc6316cd",
+      "state": "section",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "1db801078b1ae6cdba0c8c5309d0bf1514f071c4e861f6c5712e207dd7f24dae",
+        "Contents/Config-0-ModelHeader": "72b610fee2146e516dad06198c382667dc541e8dbd0f6194066d62ea80396bcd",
+        "Contents/Config-0-ResolvedFeatures": "0b411206ee28ebde759ffba9030071bc2321326194d38666ca6455d29454cd57",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "a03b493920de344091a3532e58d369ba9ab174dac4317d78a998ca14c0d791fa",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "46a148c0a5466fa9caadfc44108065639f06cd72b64e68ea9bbd63e9002a6a4f"
+      }
+    },
+    {
+      "bytes": 8127,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcNearSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.008642
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.033471,
+              0.0
+            ],
+            "end_m": [
+              0.033471,
+              0.033471,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.033471
+        }
+      ],
+      "sha256": "bbe1c6234d13023b611b8681f84de5b266417b48806531e37b71c923ad98b170",
+      "state": "path",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "1db801078b1ae6cdba0c8c5309d0bf1514f071c4e861f6c5712e207dd7f24dae",
+        "Contents/Config-0-ModelHeader": "72b610fee2146e516dad06198c382667dc541e8dbd0f6194066d62ea80396bcd",
+        "Contents/Config-0-ResolvedFeatures": "fa05830cda7f2d1951123987b05b4688fa85dce850fb4d76f546397a8285473b",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "a03b493920de344091a3532e58d369ba9ab174dac4317d78a998ca14c0d791fa",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "47e74ed897b2a689114dc55ef6b19e9784915187126b6826218ec7a572f0662f"
+      }
+    },
+    {
+      "bytes": 8134,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcWideSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.011426
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.041297
+        }
+      ],
+      "sha256": "c964546dade8a9a0f32c496218fbf86e1a82c1dc925d457a7df6a4c3a0d3147b",
+      "state": "original",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "7c36b7448b900fb21e47a6f5fc1ca7ade563eb58fe16764358589e8bd1483157",
+        "Contents/Config-0-ModelHeader": "ba123bd8464fe178b99fe304d829a192e651600cff3324c8bf7fc6467023a78c",
+        "Contents/Config-0-ResolvedFeatures": "c93d34c0e084683c1aa3e512364caf66f408fe3c7b6088c6071c23d078912e72",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "9792480ccb260038229ac04cd58de543822a123bbb30a723780cb396da57734b",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "678d08635cc20fa30f9b1233e56847143e301704eb5e5ceb593af060a9d86f8b"
+      }
+    },
+    {
+      "bytes": 8131,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcWideSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.014186
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.041297
+        }
+      ],
+      "sha256": "2d44c54b03ee36a6b683593b74234be32b842bb0aa91f9eeabcd3ff9e8211bd8",
+      "state": "section",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "7c36b7448b900fb21e47a6f5fc1ca7ade563eb58fe16764358589e8bd1483157",
+        "Contents/Config-0-ModelHeader": "ba123bd8464fe178b99fe304d829a192e651600cff3324c8bf7fc6467023a78c",
+        "Contents/Config-0-ResolvedFeatures": "b781c7e896546412f5718fb7af0d3e9b1a415f84a3d75fea7262ed53a6151dcb",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "9792480ccb260038229ac04cd58de543822a123bbb30a723780cb396da57734b",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "d48dc58d771091dc3ececbc9ef19db4b8ec20af9e5f1a35848b63e88fc9d6f30"
+      }
+    },
+    {
+      "bytes": 8136,
+      "exact_map_counts": [
+        87,
+        193
+      ],
+      "name": "SweepArcWideSketches",
+      "profiles": [
+        {
+          "dimension_id": 19,
+          "driver_slots": [
+            153,
+            155,
+            163,
+            165
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 18,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.011426
+        },
+        {
+          "dimension_id": 21,
+          "driver_slots": [
+            176,
+            177,
+            187,
+            188
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.046371,
+              0.0
+            ],
+            "end_m": [
+              0.046371,
+              0.046371,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 20,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 5,
+            "f34": 1,
+            "f54": 4
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 1,
+            "f578": 0
+          },
+          "support": "Front Plane",
+          "value_metres": 0.046371
+        }
+      ],
+      "sha256": "69db8c23e228fb8ca5ea3ddfa39c1564251bd5361a1cf667c5d2a3bc50053dd2",
+      "state": "path",
+      "stream_sha256": {
+        "Contents/CMgr": "ea1544a75d7a290ef2cd5641487c3c76ee5d1bde00aa9f1ea1d9a2488d464b1f",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "7c36b7448b900fb21e47a6f5fc1ca7ade563eb58fe16764358589e8bd1483157",
+        "Contents/Config-0-ModelHeader": "ba123bd8464fe178b99fe304d829a192e651600cff3324c8bf7fc6467023a78c",
+        "Contents/Config-0-ResolvedFeatures": "c15b32a9963975c376ce9887c58c9f780fdf454773ea53a648ff4e426553394b",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "9792480ccb260038229ac04cd58de543822a123bbb30a723780cb396da57734b",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "a8f2a725f5a99f2bde3ee9ea1b74d9312364d513128d3011179a191cb2417aaf"
+      }
+    }
+  ],
+  "heldout_inputs_read": 0,
+  "input_refusals": {
+    "Boolean radius": "need positive separated quarter-tube radii",
+    "negative": "need positive separated quarter-tube radii",
+    "nonfinite": "need positive separated quarter-tube radii",
+    "outside archive profile": "need positive separated quarter-tube radii",
+    "unchanged or reversed clearance": "need positive separated quarter-tube radii"
+  },
+  "intent_sha256": "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023",
+  "native_processes_started": 0,
+  "native_source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "schema": "kit.sw2026.ordinary-sweep-sketches.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "source_witness_sketches": [
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.008642
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.028703
+        }
+      ],
+      "sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "slot": 1,
+      "state": "original"
+    },
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.012478
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.028703
+        }
+      ],
+      "sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "slot": 1,
+      "state": "section"
+    },
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.008642
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.033471,
+              0.0
+            ],
+            "end_m": [
+              0.033471,
+              0.033471,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.033471
+        }
+      ],
+      "sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "slot": 1,
+      "state": "path"
+    },
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.011426
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.041297
+        }
+      ],
+      "sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "slot": 2,
+      "state": "original"
+    },
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.014186
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.041297
+        }
+      ],
+      "sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "slot": 2,
+      "state": "section"
+    },
+    {
+      "profiles": [
+        {
+          "dimension_id": 27,
+          "driver_slots": [
+            192,
+            194,
+            202,
+            204
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "sense": 1
+          },
+          "id": 26,
+          "logical_relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "name": "SweepSection",
+          "support": "Right Plane",
+          "value_metres": 0.011426
+        },
+        {
+          "dimension_id": 29,
+          "driver_slots": [
+            217,
+            218,
+            228,
+            229
+          ],
+          "geometry": {
+            "center_m": [
+              0.0,
+              0.046371,
+              0.0
+            ],
+            "end_m": [
+              0.046371,
+              0.046371,
+              0.0
+            ],
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "id": 28,
+          "logical_relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "name": "SweepPath",
+          "ordinary_arc_state": {
+            "f30": 4,
+            "f34": 2,
+            "f54": 68
+          },
+          "points": [
+            {
+              "centres": 1,
+              "permanence": 3,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 1,
+              "relations": 2,
+              "uses": 1
+            },
+            {
+              "centres": 0,
+              "permanence": 2,
+              "relations": 1,
+              "uses": 1
+            }
+          ],
+          "sketch_state": {
+            "f12c": 2,
+            "f578": 1
+          },
+          "support": "Front Plane",
+          "value_metres": 0.046371
+        }
+      ],
+      "sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "slot": 2,
+      "state": "path"
+    }
+  ],
+  "tool_sha256": {
+    "AuditSweepArchive.py": "42b4934924fae2ea680fab48457bb5b3f852814fc9c6b074eff0d74ae2be4421",
+    "AuditSweepSketches.py": "3bc91a41d7a37834ef418050f7638159b6fda6fabc302c40c15eb0e6a56ed59b",
+    "MakeSweepPathDim.py": "ccef6f9eb486b39bb521ff64e6b9b5db4e1d273da8b533e5e46ec8fd685b3bf6",
+    "MakeSweepSketchPart.py": "fbcc6b670304a98c2d1c2271307c7c7118666f281a8aa5620d124445849b9094",
+    "MakeSweepSketches.py": "f250ecfc36646b2874498048ef9a57defba78b40faa76440c71048cfed773f00",
+    "SweepArchiveLayout.py": "1fb2b6d9850b4754872d7ce0ef162efeee4a4ac27f065fe3cee16f14905b28c6",
+    "SweepArchiveOwners.py": "43d66024f02391d7377319a98470257f72b4deb6e6583da0a22794ff340bbf99",
+    "SweepModel.py": "2087b569565e86f81dafa5f8d2b46b3e888261512a5edf61064663667a87eda6"
+  },
+  "whole_sweep_candidates": 0
+}
