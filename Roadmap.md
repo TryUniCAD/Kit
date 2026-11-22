@@ -33,6 +33,11 @@ Registration, same-format reconstruction and retained native bytes do not establ
 See [format selection](Documentation/Tasks/SelectFormat.md) and the [Fusion public contract](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md).
 The [SOLIDWORKS guide](Documentation/Reference/Adapters/Solidworks.md) documents the production write restriction.
 
+The isolated B04 [assigned material reader](Documentation/Changes/Solidworks/Inspection/Parts/SolidworksAssignedPartMaterial.md)
+verifies saved physical assignments for the disclosed SOLIDWORKS 2026
+parts. Complete material appearance and native writing remain in the
+conversion backlog.
+
 ## Destination
 
 A fully functional release covers all nine CAD families above through one documented public SDK and CLI.

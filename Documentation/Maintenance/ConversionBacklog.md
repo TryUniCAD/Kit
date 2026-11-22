@@ -120,6 +120,20 @@ foundation on main, current review and native queue acceptance.
 [Slice record](../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 [Change entry](../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
 
+### B04-SW2026-NAMED-MATERIAL
+
+The [PR #121 takeover](https://github.com/TryUniCAD/Kit/pull/121) owns the
+isolated `codex/solidworks-sdk-assigned-material` saved-reader tranche.
+Its shared archive prerequisites are
+[PR #232](https://github.com/TryUniCAD/Kit/pull/232),
+[PR #238](https://github.com/TryUniCAD/Kit/pull/238) and
+[PR #239](https://github.com/TryUniCAD/Kit/pull/239).
+The guarded SDK run verifies linked physical assignments on seven
+disclosed saves and preserves the unassigned control. Complete
+appearance and catalog transfer, independent held-out qualification
+and a native material writer remain open.
+[Change entry](../Changes/Solidworks/Inspection/Parts/SolidworksAssignedPartMaterial.md)
+
 ### B03-SW2026-ARCHIVE
 
 The [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed the

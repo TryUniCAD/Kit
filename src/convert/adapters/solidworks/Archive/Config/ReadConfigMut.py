@@ -5,7 +5,11 @@ from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsup
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Config.MakeConfigCtx import MakeConfigCtx
+from convert.adapters.solidworks.Archive.Config.Material.BindMatVisMut import (
+    BindMatVisMut,
+)
 from convert.adapters.solidworks.Archive.Config.ReadCfgBodyMut import ReadCfgBodyMut
+from convert.adapters.solidworks.Archive.Config.UseSweepCfgMut import UseSweepCfgMut
 from convert.adapters.solidworks.Archive.Config.RequireConfig import RequireConfig
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -21,8 +25,12 @@ def ReadConfigMut(
     HeaderValue: ArchiveNode,
     *,
     UsageValue: BodyUsage | None = None,
+    ReadMaterial: bool = False,
 ) -> ConfigGraph:
     ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue)
+    if ReadMaterial:
+        BindMatVisMut(ContextValue)
+        UseSweepCfgMut(ContextValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),

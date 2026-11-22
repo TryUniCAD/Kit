@@ -1,0 +1,188 @@
+{
+  "assigned_sources": 7,
+  "baseline": "c8d85d713dc357770115329e9f1bcb027dbfca4f",
+  "cases": {
+    "Control": {
+      "assign": null,
+      "file_sha256": "c0472f9f42bf473a9073adb997180040b7767dfae93310610f77cff9509bec57",
+      "grammar_reads": 4,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {},
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "ff08e0287fcbe148938ca774f421dce593ebec225ab84b0f51c48b18702ea7d5",
+        "geometry": "11830fd20ffe6051046749d12531b7a96ed4ff759c47428382475f1ea188387d"
+      }
+    },
+    "D01Corner/Author": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 2700.0,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 258
+      },
+      "file_sha256": "6f3683065b2e401812a52c03e8c9913d8ea76ff82444dd975a174977f3b5740f",
+      "grammar_reads": 13,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "duplicate_association": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "foreign_physical_atom": "SOLIDWORKS material partition atom disagrees with its manager",
+        "material_write": "ValueError",
+        "missing_partition": "required stream is missing: Contents/Config-0-Partition",
+        "wrong_config": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "wrong_density": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment",
+        "wrong_framing": "SOLIDWORKS MATERIALTREE requires its current UTF-16LE framing",
+        "wrong_id": "SOLIDWORKS MATERIALTREE does not corroborate its binary assignment"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "010eeaa3661f7cb186e476d26e20e0e176b79d89d128b121152218aabfb2e385",
+        "geometry": "8474fafcf65434673231d998fc2ee5d53428104f46571b64b7adee7f88f89117"
+      }
+    },
+    "D01Corner/Depth": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 7858.000032,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 82
+      },
+      "file_sha256": "55ec08dca438f20b0b5623eb2e36905279899035ba44aaeddf0427aa5ebf7370",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "d609a4b7e2d6c36818f50ca6d7829afe08aa842bd2cfb38f520df84c985e590d",
+        "geometry": "ef431a2d012c6aadf38d35333303d8d6986d17a7743e9c79cc739e8811239e95"
+      }
+    },
+    "D01Corner/Swap": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 7858.000032,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 82
+      },
+      "file_sha256": "af2c822de8ee4cf274f4d5d15ad419dba16b129b31af8b28945c21850857d62c",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "53f5845fbb758095e829ad2d161d05df02dc2739c482b73d281749d8ee1bf4ac",
+        "geometry": "4954bdcb4c7311a4c818495fbd714a9409e1ba9aaea20822cc28592cccf208a6"
+      }
+    },
+    "D02Center/Author": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 7858.000032,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 82
+      },
+      "file_sha256": "603b8387e59ce3f9095a4d9d32f06525422a8d825c969dce7fb82eb2d478074e",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "0a15a9c3091d0b617b017f7f694b43bbe489f4f53c2e0f442eb44e7bf0e09466",
+        "geometry": "7588dc669c374719ae295f6d20c0f06f477f236bd0253f9f7ee19c056770ab26"
+      }
+    },
+    "D02Center/Depth": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 2700.0,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 258
+      },
+      "file_sha256": "1680a7e30de015cc2a88016d6ca0887636a4ee75716e597b6db7fbede97cfb05",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "89bbfaf77e6b05c463f07105559cf9127b8db048af716006ca39ee28c6ee97a3",
+        "geometry": "0d7eb404e6962ffeee01ff86f6d7513f49f2980b5e8978074ab09edb8c4d8c6f"
+      }
+    },
+    "D02Center/Swap": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 2700.0,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 258
+      },
+      "file_sha256": "e1c79ba4b22508f465ee624a6fe2b41f04f5efdf60012c0ef909cbed1195ec23",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "1937e11904a56f16572a3da7c72a8842443308892bfb17c811770159b78932ac",
+        "geometry": "c919efb6636de616bf5c4c44852ecf7514a007a1bdb117bbe5223d0a270ca1e7"
+      }
+    },
+    "Diagnostic": {
+      "assign": {
+        "configuration_id": "sldprt:configuration:0",
+        "configuration_name": "Default",
+        "density_kg_m3": 2700.0,
+        "native_atom_id": 101,
+        "native_feature_id": 34,
+        "native_material_id": 258
+      },
+      "file_sha256": "04ddbe3934185b0c484ca60579312aac6dc0d2412317cda58d8c518f8d214583",
+      "grammar_reads": 2,
+      "grammar_sha256": "be92c068506d33c254efe371277b6c003ab103959d1560f1568f9028a6290a29",
+      "refusals": {
+        "material_write": "ValueError"
+      },
+      "runtime_external_accesses": 0,
+      "unchanged_fields": {
+        "design": "654b047d43818d6adc28685c30a1ff0d1c320989162c7205f77cce11a1aafbef",
+        "geometry": "4df2ccf6242164f391367f8d0f8683d9e303333f93777d320fe2b65a9c87a8d7"
+      }
+    }
+  },
+  "fresh_processes": 16,
+  "immutable_source_receipts": [
+    "cb044d2a615d819e8ac642f3eea4bf5f313b8b61c5bd70570e7e3c90895a26f1",
+    "a23e44a29967ad84e2716f66363c2898025460bd5a9dddf266e575bdac3a88d2"
+  ],
+  "native_build": "34.5.2.0604",
+  "native_write_qualified": false,
+  "protected_cases": 0,
+  "schema": "kit.sw2026.sdk-assigned-part-material.v1",
+  "strict_assigned_reads": 14,
+  "strict_unassigned_controls": 2,
+  "tool_sha256": {
+    "NamedMaterialCustody.py": "327621d6502a02fb0ac02c5f74a73155a2d7ad33689cb108c289399b4382bea9",
+    "ProveSdkNamedMaterial.py": "af3f7248617ae3e7f3d7efb3c4a01b6758c129520b95131c9b53cdc6f0f456ed"
+  },
+  "whole_portable_material": false
+}
