@@ -18,3 +18,16 @@ python3.14 -I -B re/tooling/sw2026/nested_delivery/ProveNestedDimLeaves.py \
 ```
 
 This read evidence uses the already completed native lifecycles. It grants no new native writer, whole-source neutral rewrite or independent held-out credit, and does not qualify saved dimensioned variants.
+
+## Exact profile and scalar regressions
+
+At the original review revision `db0cb24f3f626f354d3eeddb6ea7707c563e791a`, a keyword dimension count or nonzero `ng2` could activate strict rectangle validation for an unrelated shape. The repaired reader recognizes the physical profile before applying fatal validation. It requires four points and four straight lines, two concrete point-distance rows, four axis rows in the supported logical family, no extra relation groups, the Front datum selector, and the ordinary forward blind boss mode. Crossed displays, shared parameters, inconsistent line reference counts, contradicted axis assignments and nonzero draft still fail both strict read modes. Keyword dimension counts supply no admission evidence.
+
+The public write input now requires exact equality of each authored length after unit conversion and the corresponding typed edge length. The three disclosed dimensioned leaves have six matching authored, derived and stored metre words. Plate D1 and D2 use `0x1.d566cf41f212dp-6` and `0x1.0be0ded288ce8p-6`; gauge D1 and D2 use `0x1.39c0ebedfa440p-6` and `0x1.923a29c779a6cp-6`. The public display value `16.350000000000005 mm` after readback is a separate unit reconstruction. The two prospective adjacent input changes produce distinct metre words within the former tolerance. Both refuse before staging through registry and direct routes with the original genuine receipt still supplied.
+
+The [review receipt](../measurements/2026/SdkNestedDimensionReview01.json) SHA-256 `2552e6ad626c6d1c87a26725634c06496a3466d81df0cd2aac8a131bf7ae647c` used source tree `216b1b1db5ef3df7217e483f69f818f8bba4788e`. Eight guarded public writer processes matched the existing native results for all four bundles and all fourteen complete member files on each route. Three independent readers checked both actual ordered dimension-point pairs and parameter IDs. An in-memory cold contrast with the same two value rows and zero axis rows matched the legacy neutral reader output exactly. An existing disclosed circular control also retained its independent live radius, boss depth and one body. The reviewed code additionally passed the original nine-process readback probe. There were no new CAD or protected-source runs.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/nested_delivery/ProveNestedDimReview.py \
+  --workspace /disclosed/oracle/parent --output /new/external/Result.json
+```

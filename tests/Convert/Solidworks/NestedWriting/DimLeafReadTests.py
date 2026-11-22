@@ -6,6 +6,7 @@ from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import (
     PrepNestedAsm,
 )
+from tests.Convert.Solidworks.NestedWriting.CheckDriverRefs import CheckDriverRefs
 from tests.Convert.Solidworks.NestedWriting.MakeDimNest import MakeDimNest
 
 
@@ -19,6 +20,7 @@ def TestDimLeafRead() -> None:
     PartValue = OpenDocument(BytesIO(Target.BytesValue), source_format=KPartFormatId)
     (SketchValue,) = PartValue.sketches
     assert len(SketchValue.constraints) == 6
+    CheckDriverRefs(SketchValue)
     SketchIds = SketchValue.parameter_ids
     assert len(SketchIds) == 2
     (BodyValue,) = PartValue.bodies

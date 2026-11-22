@@ -9,10 +9,12 @@ from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFe
 from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.BindDimLeaf import (
     BindDimLeaf,
 )
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.IsDimLeaf import (
+    IsDimLeaf,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import (
     BindLineLoop,
 )
-from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
@@ -29,18 +31,16 @@ def ReadTypedPrism(
         and Model.active_configuration_id == 0
         and len(Model.configurations) == 1
     )
-    HasDims = CheckDims and len(SketchValue.dimensions) == 2
+    HasDims = False
     try:
         LinkValue = ReadNativeLink(
             Archive, Model.active_configuration_id, RectangleDims=CheckDims
         )
         NodesValue = IndexFeatures(LinkValue)
         Profile = RequireNative(NodesValue[SketchValue.object_id], "moProfileFeature_c")
-        if CheckDims:
-            Geometry = RequireNative(Profile.FieldsValue.get("pd_f80"), "sgSketch")
-            DimsValue = NativeRecord(Geometry.FieldsValue.get("dims"))
-            HasDims = HasDims or DimsValue.get("ng2") != 0
-        Owner = ReadExtrude(LinkValue, NodesValue[Operation.object_id], NodesValue)
+        BossValue = NodesValue[Operation.object_id]
+        HasDims = CheckDims and IsDimLeaf(Profile, BossValue)
+        Owner = ReadExtrude(LinkValue, BossValue, NodesValue)
         if Owner.ProfileValue is not Profile:
             raise ValueError("boss does not own its selected sketch")
         LocalSketch = ReadPrismSketch(SketchValue, Profile, LinkValue, NodesValue)

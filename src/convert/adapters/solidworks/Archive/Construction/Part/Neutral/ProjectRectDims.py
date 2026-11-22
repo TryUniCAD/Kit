@@ -1,5 +1,4 @@
 from dataclasses import replace as ReplaceValue
-from math import isclose as IsClose
 
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
@@ -60,9 +59,7 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
         (WidthParam, PlanValue.WidthValue),
         (HeightParam, PlanValue.HeightValue),
     ):
-        if not IsClose(
-            ReadLength(Parameter.value), LengthValue, rel_tol=1e-12, abs_tol=1e-14
-        ):
+        if ReadLength(Parameter.value) != LengthValue:
             raise ValueError(
                 "rectangle driving parameters disagree with their authored endpoint distances"
             )
