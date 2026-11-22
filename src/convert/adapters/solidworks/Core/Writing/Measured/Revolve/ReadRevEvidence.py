@@ -18,7 +18,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.Revolve.RevReportPins imp
 )
 
 
-# the caller supplies the exact authoring event and the independently authenticated evidence in memory
+# the caller binds the authoring event to authenticated evidence in memory
 def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
     SourceValue = OptionsValue.values.get(KPartMeasureOpt)
     if SourceValue is None:
@@ -36,6 +36,7 @@ def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
     Receipt = ReadMeasMap(Envelope["receipt"])
     ReportPins = KRevReports["end_modes"]
     if set(Receipt) == ReportPins.keys():
+        GenerationSha = ReportPins["generation_receipt"][0]
         Summary, Report, JobValue = (
             ReadAuthRevJson(
                 Receipt[ReportKey], Digest, Schema, ReportKey != "generation_receipt"
@@ -47,7 +48,7 @@ def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
             or Report.get("build") != KOraclePart["build"]
             or Report.get("passed") is not True
             or any(
-                Record.get("generation_receipt_sha256") != ReportPins["generation_receipt"][0]
+                Record.get("generation_receipt_sha256") != GenerationSha
                 or Record.get("writer_revision") != Summary.get("source_revision")
                 or Record.get("writer_source_tree") != Summary.get("source_tree")
                 or Record.get("spec_sha256") != Summary.get("spec_sha256")

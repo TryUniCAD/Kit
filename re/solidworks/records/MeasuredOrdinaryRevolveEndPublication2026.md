@@ -61,3 +61,61 @@ The original measured filesystem destinations remain in custody and
 were not replaced in the scoped process proof. The earlier independent
 held-out evaluation has its own [record](https://github.com/TryUniCAD/Kit/pull/121).
 This delivery adds no new native lifetimes or held-out and FCStd credits.
+
+## Shared queue coverage
+
+The complete suite discovers two focused process tests for Mid Plane,
+Two Directions and reversed Two Directions. The measured process checks
+all ten logical stream hashes, the strict full and design-only views,
+the actual D1 and D2 roles, the directed axis, the sweep interval and
+one resolved body. It exercises seven native publication routes when
+the generated container matches the measured complete SHA-256. A
+different complete digest must refuse all seven routes with the
+destinations unchanged. An explicit DEFLATE-level contrast reproduced
+all ten logical streams in each profile while changing each full
+digest and refusing all 21 publication attempts. The production
+compressor and measurement predicate retain their existing behavior.
+
+The independent process authors three new neutral documents in code
+without reading any fixture. These use different rectangular dimensions,
+axes and angles, including a Right-plane Mid Plane and a reversed
+Right-plane Two Directions profile. The full and design-only readers
+retain each actual selection, angular driver and creator. An independent
+calculation checks the body volume and area and all eight signed cap
+corners. The typed serializer provides malformed contrast archives
+with an unexpected Mid Plane secondary end, a shared Two Directions
+display, and two distinct angle displays that share one persistent
+dimension identifier. Both strict views refuse each applicable
+contrast. The public writer also refuses each unmeasured document.
+The parser continues to use the typed graph and geometry, independent
+of the measured publication digests.
+[Measured queue process](../../../tests/Convert/Solidworks/RevolveEnds/RevolveEndTests.py)
+· [Independent reader process](../../../tests/Convert/Solidworks/RevolveEnds/RevStructTests.py)
+
+## Native-saved reader boundary
+
+Six immutable SOLIDWORKS 2026 originals and independently edited
+derivatives came from the earlier disclosed authoring and Mid Plane
+recovery. Their exact SDK process tests consume Config-0 with map
+counter 109 in every case. The linked reader then refuses
+`moLinkedAtomIdNode_c` schema 1 in `Contents/CMgr`, before it reaches
+ResolvedFeatures or either end display. This identifies the first
+missing native-saved owner without extending the cold path. The audit
+binds each source hash to the appropriate original or derivative
+reopen receipt from the prior healthy native controls.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/revolve/AuditSavedRevEndBounds.py \
+  --disclosures /absolute/path/to/Oracle121Takeover
+```
+
+Earlier redacted aggregate evidence records two successful Two
+Directions parity pairs and three individual passes in the mixed
+held-out batch. The mixed batch remained failed and qualified zero
+cases overall. The current reader controls add independent
+structural evidence and a precise saved-source limit. Native
+qualification of new outputs and broader saved-source recovery
+remain pending.
+[Prior mixed held-out receipt](https://github.com/TryUniCAD/Kit/blob/0e8673133c0c82152a80acab9b502b1a3990e329/re/solidworks/measurements/2026/SdkOrdinaryRevolveEndHeldout01.json)
+· [Earlier Two Directions parity](https://github.com/TryUniCAD/Kit/blob/0e8673133c0c82152a80acab9b502b1a3990e329/re/solidworks/measurements/2026/SdkTwoDirectionRevolvePublicParity01.json)
+· [Guarded review evidence](../measurements/2026/SdkRevolveEndReview01.json)

@@ -18,7 +18,9 @@ from ProveMeasuredPrincipalRevolve import WriterAudit, denied, stream_hashes, wr
 from convert import open_document, write_document
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
+from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+from interchange.Features.RevolveSpan import GetAngleSpan
 from interchange import CadDocument
 from interchange.Features.FeatureAngleRev import AngularRevolve
 
@@ -45,17 +47,33 @@ def inspect_document(document, expected, name):
     shape, = document.bodies
     topology = shape.topology
     assert len(drivers) == driver_count and [item.name for item in drivers] == (["D1", "D2"][:driver_count])
-    assert all(item.value.unit == "rad" for item in drivers)
+    assert all(item.value.unit == "rad" and item.owner_id == feature.id
+               and item.role == "driving" and item.expression is None for item in drivers)
+    assert definition.AlongParameterId == drivers[0].id
+    assert definition.AgainstParameterId == (drivers[1].id if driver_count == 2 else None)
     assert definition.SideMode == side and feature.attributes["native_reverse_direction"] is reverse
-    assert len(document.selections) == 1 and len(document.sketches[0].constraints) == 4
+    sketch, = document.sketches
+    selection, = document.selections
+    assert len(sketch.constraints) == 4 and feature.sketch_id == sketch.id
+    assert selection.id == definition.AxisSelectionId and selection.path[0].entity_id == sketch.id
+    axis, = (item for item in sketch.entities if item.construction)
+    assert selection.path[-1].entity_id == axis.id
     assert shape.final_feature_id == feature.id
     assert (topology.solid_count, topology.face_count, topology.edge_count, topology.vertex_count) == (1, 6, 12, 8)
     assert isclose(topology.volume, expected["volume"] * 1e9, rel_tol=5e-7)
     assert isclose(topology.surface_area, expected["area"] * 1e6, rel_tol=5e-7)
-    return {item.name: item.value.value for item in drivers}
+    return {
+        "driving_values": {item.name: item.value.value for item in drivers},
+        "mode": side, "reversed": reverse,
+        "effective_axis": [definition.AxisDirection.x, definition.AxisDirection.y, definition.AxisDirection.z],
+        "angle_span": GetAngleSpan(drivers[0].value.value,
+                                   None if driver_count == 1 else drivers[1].value.value, side),
+        "topology": [topology.solid_count, topology.face_count, topology.edge_count, topology.vertex_count],
+        "volume_mm3": topology.volume, "area_mm2": topology.surface_area,
+    }
 
 
-def verify(name, scratch, disclosed):
+def verify(name, scratch, disclosed, *, queue=False):
     documents = {"generation_receipt": "Generation.json", "native_result": "Result.json", "inspection_job": "Job.json"}
     evidence = {key: (FIXTURE / filename).read_bytes().decode("utf-8") for key, filename in documents.items()}
     request = loads((FIXTURE / (name + "Request.json")).read_bytes())
@@ -73,6 +91,7 @@ def verify(name, scratch, disclosed):
     values = {"final_destination": request["locator"], OPTION: {"written_at": request["epoch"], "receipt": evidence}}
     direct = SldprtWriter()
     import_module("interchange.brep.Validation.BrepValidate")
+    import_module("interchange.document.Models.DocumentProvenance")
     GetDocumentCaps(document)
     lookup("utf-16-le")
     audit = WriterAudit(scratch)
@@ -82,24 +101,36 @@ def verify(name, scratch, disclosed):
             return write_document(model, sink, destination_format=FORMAT, values=options, allow_carrier=False)
         return direct.write(model, sink, WriteOptions(values=options))
 
-    first = BytesIO()
-    report = audit.run(lambda: write(document, first, values, True))
-    candidate = first.getvalue()
-    assert report.vendor_loadable and report.application_usable
-    assert digest(candidate) == source["candidate_sha256"]
+    options = WriteOptions(values=values)
+    candidate = audit.run(lambda: PrepareRevolve(document, BytesIO(), request["epoch"], options).BytesValue)
+    exact = digest(candidate) == source["candidate_sha256"]
+    if not queue or reference is not None:
+        assert exact, "canonical runtime failed to reproduce the measured complete archive"
     if reference is not None:
         assert candidate == reference
     streams = stream_hashes(candidate)
     assert streams == {key: row["sha256"] for key, row in expected_generation["streams"].items()}
-    methods = ["authored registry"]
-    sink = BytesIO()
-    written(lambda: audit.run(lambda: write(document, sink, values, False)), candidate, sink)
-    methods.append("authored direct")
+    methods, unmatched = [], []
+
+    def qualify(model, target, registry, label):
+        if exact:
+            written(lambda: audit.run(lambda: write(model, target, values, registry)), candidate,
+                    target if isinstance(target, BytesIO) else None)
+            methods.append(label)
+        else:
+            denied(lambda: audit.run(lambda: write(model, target, values, registry)),
+                   "no matching native measurement")
+            assert target.tell() == 0
+            if isinstance(target, BytesIO):
+                assert target.getvalue() == b""
+            unmatched.append(label)
+
+    qualify(document, BytesIO(), True, "authored registry")
+    qualify(document, BytesIO(), False, "authored direct")
     file_path = scratch / (name + ".SLDPRT")
-    with file_path.open("xb") as file_sink:
-        written(lambda: audit.run(lambda: write(document, file_sink, values, True)), candidate)
-    assert file_path.read_bytes() == candidate
-    methods.append("authored file sink")
+    with file_path.open("x+b") as file_sink:
+        qualify(document, file_sink, True, "authored file sink")
+    assert file_path.read_bytes() == (candidate if exact else b"")
     expected = observation["comparisons"]["reopened"]["actual"]
     models = {}
     driver_sets = {}
@@ -111,10 +142,8 @@ def verify(name, scratch, disclosed):
         driver_sets[label] = inspect_document(model, expected, name)
         models[label] = model
         for use_registry in True, False:
-            sink = BytesIO()
-            written(lambda: audit.run(lambda: write(model, sink, values, use_registry)), candidate, sink)
-            methods.append(f"strict {label} JSON {'registry' if use_registry else 'direct'}")
-            counter += 1
+            qualify(model, BytesIO(), use_registry, f"strict {label} JSON {'registry' if use_registry else 'direct'}")
+            counter += int(exact)
     assert driver_sets["full"] == driver_sets["design"]
     first_driver, *others = document.parameters
     changed_driver = replace(first_driver, value=replace(first_driver.value, value=first_driver.value.value + 0.005))
@@ -126,7 +155,7 @@ def verify(name, scratch, disclosed):
         (document, {**values, "final_destination": r"C:\Foreign\Part.SLDPRT"}, "exact inspected self locator"),
         (document, {**values, OPTION: {**envelope, "written_at": request["epoch"] + 1}}, "no matching native measurement"),
         (changed_document, values, "no matching native measurement"),
-        (changed_design, values, "differs from its regenerated part"),
+        (changed_design, values, "differs from its regenerated part" if exact else "no matching native measurement"),
     ]
     for key in evidence:
         modified = {**values, OPTION: {**envelope, "receipt": {**evidence, key: evidence[key] + "\n"}}}
@@ -139,7 +168,9 @@ def verify(name, scratch, disclosed):
     return {
         "case": name, "sha256": digest(candidate), "bytes": len(candidate), "streams": streams,
         "strict_json_republications": counter, "publication_routes": methods, "refusals": len(contrasts) * 2,
-        "drivers_radians": driver_sets["full"], "audit": audit.report(),
+        "drivers_radians": driver_sets["full"]["driving_values"], "readback": driver_sets["full"],
+        "exact_native_hash": exact, "measured_sha256": source["candidate_sha256"],
+        "unmeasured_route_refusals": unmatched, "audit": audit.report(),
         "disclosed_file_independently_compared": reference is not None, "new_native_launches": 0,
     }
 
@@ -148,6 +179,7 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--case", required=True, choices=tuple(CASES))
     parser.add_argument("--disclosed", type=Path)
+    parser.add_argument("--queue", action="store_true")
     args = parser.parse_args()
     with TemporaryDirectory(prefix="KitMeasuredRevolveEnd-") as directory:
-        print(dumps(verify(args.case, Path(directory).resolve(), args.disclosed), sort_keys=True))
+        print(dumps(verify(args.case, Path(directory).resolve(), args.disclosed, queue=args.queue), sort_keys=True))

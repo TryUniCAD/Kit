@@ -9,25 +9,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevAngle import
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.ReadRevMode import (
     ReadRevMode,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveAngle import (
-    RevolveAngle,
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.CheckRevPair import (
+    CheckRevPair,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveEnd import (
     RevolveEnd,
 )
-
-
-# independent end controls cannot share a display handle dimension or parameter
-def CheckRevPair(AlongValue: RevolveAngle, AgainstValue: RevolveAngle) -> None:
-    if (
-        AgainstValue.NameValue != "D2"
-        or AlongValue.DisplayValue is AgainstValue.DisplayValue
-        or AlongValue.HandleValue is AgainstValue.HandleValue
-        or AlongValue.ParameterValue is AgainstValue.ParameterValue
-        or AlongValue.DimensionValue.FieldsValue["f50"]
-        == AgainstValue.DimensionValue.FieldsValue["f50"]
-    ):
-        raise ValueError("ordinary revolve requires its distinct D1 and D2 owners")
 
 
 # positive live drivers are needed to rebuild the measured modern angular end modes
