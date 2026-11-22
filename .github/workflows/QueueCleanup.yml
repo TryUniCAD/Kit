@@ -1,0 +1,42 @@
+name: Queue cleanup
+
+on:
+  delete:
+  workflow_run:
+    workflows: [Merge queue]
+    types: [requested, completed]
+    branches: [gh-readonly-queue/main/**]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: QueueCleanup
+  cancel-in-progress: false
+
+jobs:
+  cleanup:
+    if: >-
+      (github.event_name == 'delete' && github.event.ref_type == 'branch' && startsWith(github.event.ref, 'gh-readonly-queue/main/')) ||
+      (github.event_name == 'workflow_run' && github.event.workflow_run.event == 'merge_group' && github.event.workflow_run.head_repository.id == github.repository_id)
+    name: Release obsolete queue runners
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      actions: write
+      pull-requests: read
+    steps:
+      - name: Checkout trusted default branch revision
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: .github/scripts/Queue
+
+      - name: Cancel only abandoned native queue runs
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const { CleanRuns } = require(`${process.env.GITHUB_WORKSPACE}/.github/scripts/Queue/CleanRuns.cjs`);
+            await CleanRuns({ Github: github, Context: context, Core: core });
