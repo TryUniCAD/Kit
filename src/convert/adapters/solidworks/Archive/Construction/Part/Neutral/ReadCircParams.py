@@ -20,12 +20,17 @@ def ReadCircParams(DocumentValue: CadDocument) -> tuple[Parameter, Parameter]:
         (RadialParam, SketchValue.id),
         (DepthParam, FeatureValue.id),
     ):
-        if (
-            ValueInput.name != "D1"
-            or ValueInput.owner_id != OwnerValue
-            or ValueInput.role != ParameterRole.KDriving
-            or ValueInput.expression is not None
-            or ValueInput.attributes
-        ):
-            raise ValueError("circle boss requires two actual unexpressed D1 drivers")
+        CheckCircDrive(ValueInput, OwnerValue, "D1")
     return RadialParam, DepthParam
+
+
+# independent boss and sketch drivers must remain distinct actual editable parameters
+def CheckCircDrive(ParamValue: Parameter, OwnerValue: str, NameValue: str) -> None:
+    if (
+        ParamValue.name != NameValue
+        or ParamValue.owner_id != OwnerValue
+        or ParamValue.role != ParameterRole.KDriving
+        or ParamValue.expression is not None
+        or ParamValue.attributes
+    ):
+        raise ValueError("circle boss requires two actual unexpressed D1 drivers")

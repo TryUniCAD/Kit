@@ -126,7 +126,7 @@ class WriteApi(WriteLookup):
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
         if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
-            CheckNative(DocumentData)
+            CheckNative(DocumentData, AdapterData, TargetData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)

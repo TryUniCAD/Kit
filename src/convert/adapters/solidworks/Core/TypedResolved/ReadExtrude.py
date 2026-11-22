@@ -1,12 +1,17 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Core.TypedResolved.Ends.CheckThroughEnd import (
+    CheckThroughEnd,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.ReadDepthOwner import ReadDepthOwner
 from convert.adapters.solidworks.Core.TypedResolved.ReadParents import ReadParents
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
+from interchange.Features.FeatureExtrude import ExtrudeEnd
 
 
 # blind boss semantics require actual typed parents and the ordinary forward end branch
@@ -16,8 +21,18 @@ def ReadExtrude(
     Features: Mapping[int, ArchiveNode],
     *,
     AllowReverse: bool = False,
+    IsCut: bool = False,
+    NewSolid: bool = False,
 ) -> ExtrudeOwner:
-    NodeValue = RequireNative(NodeValue, "moExtrusion_c")
+    ClassName = "moICE_c" if IsCut or NewSolid else "moExtrusion_c"
+    NodeValue = RequireNative(NodeValue, ClassName)
+    if IsCut or NewSolid:
+        if NodeValue.ClassValue != RuntimeClass("moICE_c", 1) or (
+            (IsCut and NewSolid) or NodeValue.FieldsValue.get("f810") != int(IsCut)
+        ):
+            raise ValueError(
+                "selected cut and independent stock require their actual mode"
+            )
     ParentsValue = ReadParents(NodeValue)
     if any(
         Features.get(NativeNodeId(ParentValue)) is not ParentValue
@@ -33,6 +48,18 @@ def ReadExtrude(
         raise ValueError("ordinary blind boss requires one retained profile")
     EndValue = RequireNative(NodeValue.FieldsValue.get("f818"), "moEndSpec_c")
     FieldsValue = EndValue.FieldsValue
+    FromValue = RequireNative(FieldsValue.get("f140"), "moFromEndSpec_c")
+    if IsCut:
+        CheckThroughEnd(EndValue, FromValue)
+        return ExtrudeOwner(
+            NodeValue,
+            ProfilesValue[0],
+            ParentsValue,
+            EndValue,
+            None,
+            True,
+            ExtrudeEnd.KThroughAll,
+        )
     for FieldName, Expected in (("f08", 1), ("f0c", 0), ("f10", 0), ("f88", 0)):
         if (
             type(FieldsValue.get(FieldName)) is not int
@@ -42,7 +69,6 @@ def ReadExtrude(
     ReverseValue = FieldsValue.get("f8c")
     if type(ReverseValue) is not int or ReverseValue not in (0, int(AllowReverse)):
         raise ValueError("reversed extrusion is outside typed forward blind semantics")
-    FromValue = RequireNative(FieldsValue.get("f140"), "moFromEndSpec_c")
     if (
         type(FromValue.FieldsValue.get("t")) is not int
         or FromValue.FieldsValue["t"] != 0

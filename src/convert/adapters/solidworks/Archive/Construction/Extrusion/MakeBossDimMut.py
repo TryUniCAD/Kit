@@ -36,8 +36,12 @@ def MakeBossDimMut(
     DesignIntent: bool,
     SelectedLeader: int,
     Allocator: PersistentIds,
+    *,
+    IndependentStock: bool = False,
 ) -> DimensionGraph:
-    RequireRootNode(OwnerValue, "moExtrusion_c")
+    if IndependentStock and OrdinalValue != 1:
+        raise ValueError("independent stock has only its active D1 dimension")
+    RequireRootNode(OwnerValue, "moICE_c" if IndependentStock else "moExtrusion_c")
     Parameter = MakeBlindParam(InputValue, OrdinalValue)
     Parameter.FieldsValue["owner"] = OwnerValue
     IsAngular = OrdinalValue in (3, 4)

@@ -1,0 +1,178 @@
+{
+  "cases": [
+    {
+      "bytes": 8574,
+      "sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22470,
+          "sha256": "1d0ea07a53f13a307c8dc4e00047d3c00b126813357f6793b330159e5b95b065"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 687,
+          "sha256": "79142a4e66ecdced4823929f3a93127073b79b214943413bb63512ccecb524bb"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14902,
+          "sha256": "2f006e47e9d1ff6fb5654c73910a62d55b584bb501d74e38dafb1a07af68c4c7"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 687,
+          "sha256": "c26a9aa1190a7c2cbd9e57ebf9e7ad92a02cb2629aae7ec00a788d14a6a1d6c6"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1782,
+          "sha256": "c7eb93ddf9683ca4028bb4e928ce4f4181c66628af1275fd065c55139e6eab2a"
+        }
+      },
+      "strict": {
+        "cut_id": "sldprt:feature:25",
+        "driver_ids": [
+          "sldprt:parameter:19:D1",
+          "sldprt:parameter:22:D1"
+        ],
+        "rows": 23,
+        "selected_producer": "sldprt:feature:19",
+        "solids": [
+          {
+            "area": 664.0,
+            "center": [
+              5.0,
+              8.0,
+              9.0
+            ],
+            "faces": 6,
+            "volume": 1120.0
+          },
+          {
+            "area": 868.1693915921742,
+            "center": [
+              21.0,
+              -8.886027482188885,
+              6.0
+            ],
+            "faces": 8,
+            "volume": 1256.3060357342374
+          }
+        ]
+      }
+    },
+    {
+      "bytes": 8717,
+      "sha256": "bd173702186e5a38ec9094ec8686cd3e72da0f90e3bf148045b40d1b023d8f0d",
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "a89e9fbb04a1168d1acb253019fb84c9d38c9f25270a5ac14dfde88d05b8bbb1"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22462,
+          "sha256": "0a09b1b2dc6b4630f013dcc38fae634eb835635bf9f9908ceb880ad07780d92e"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 663,
+          "sha256": "1ff3b09d7f9a0804bf3b72ea2bcfa691e66a24c9cad1fe4bc54ae0b38793ae6d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 15008,
+          "sha256": "4a5d48a4ae20ac20c7c872f0b85f3102e109dd3151bdd1bdf115aca93c15b914"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 663,
+          "sha256": "7531fc90ef691f286626c87df584e2a797202f2101377a0e7d764d56cec50010"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1839,
+          "sha256": "72d039b3f9f8f46f4806faa3c7fa726556b620b03feb95105831c64a9cff6221"
+        }
+      },
+      "strict": {
+        "cut_id": "sldprt:feature:25",
+        "driver_ids": [
+          "sldprt:parameter:19:D1",
+          "sldprt:parameter:22:D1"
+        ],
+        "rows": 23,
+        "selected_producer": "sldprt:feature:19",
+        "solids": [
+          {
+            "area": 1901.75,
+            "center": [
+              15.9375,
+              13.5,
+              13.0
+            ],
+            "faces": 6,
+            "volume": 4908.75
+          },
+          {
+            "area": 2096.378857426205,
+            "center": [
+              5.0,
+              -8.047345762304586,
+              6.8125
+            ],
+            "faces": 7,
+            "volume": 5099.557559909952
+          }
+        ]
+      }
+    }
+  ],
+  "compared_all_disclosed_streams": true,
+  "compressor": "1.2.12",
+  "neutral_tool_sha256": "5dedff4e8d6a41f885859bfb7b80e882729ab42762fc2d240aaae7830e881500",
+  "publications": 3,
+  "receipt_sha256": "d672ec1f8d427844410a7e2d809bfbcf0d130ecaf1df1bb78cefdd1f5f64e187",
+  "refusals": {
+    "build": "exact controlled native receipt",
+    "changed_model": "no exact native measurement",
+    "control": "exact controlled native receipt",
+    "cross_target_depthless": "depthless extrusion reconstruction is unqualified",
+    "crossed_typed_selector": "Parasolid payload",
+    "missing_receipt": "requires an offline native measurement receipt",
+    "occupied_sink": "empty seekable binary stream",
+    "wrong_logical_locator": "exact measured locator",
+    "wrong_physical_locator": "actual measured final path"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.measured-selected-stock-sdk.v1",
+  "staged_output_opens": 0,
+  "tool_sha256": "4f9117e37deb99bc0b0d03957b5350f0468766c28bbd80bdddf0bcda78b09a3b"
+}

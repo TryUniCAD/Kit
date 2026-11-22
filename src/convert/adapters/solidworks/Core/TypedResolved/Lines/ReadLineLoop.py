@@ -1,4 +1,9 @@
+from collections import Counter
+
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineAxis import (
+    LineAxis,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.CheckLineScope import (
     CheckLineScope,
 )
@@ -16,15 +21,20 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 
 # the linked typed sketch owns array membership and provenance independently of legacy marker discovery
-def ReadLineLoop(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
+def ReadLineLoop(
+    SketchValue: ArchiveNode,
+    LinkValue: NativeLink,
+    AxisValues: tuple[LineAxis, ...] = (),
+) -> LineLoop:
     FieldsValue = SketchValue.FieldsValue
-    CheckLineScope(FieldsValue)
+    CheckLineScope(FieldsValue, HasDrivers=bool(AxisValues))
+    AxisCounts = Counter(AxisValue.LineValue for AxisValue in AxisValues)
     PointsValue = tuple(
         ReadLinePoint(RowValue, Index)
         for Index, RowValue in enumerate(NativeRows(FieldsValue.get("points")))
     )
     LinesValue = tuple(
-        ReadLineSegment(RowValue, Index)
+        ReadLineSegment(RowValue, Index, AxisCounts[Index])
         for Index, RowValue in enumerate(NativeRows(FieldsValue.get("lines")))
     )
     if FieldsValue.get("npoints") != len(PointsValue) or FieldsValue.get(
@@ -36,4 +46,5 @@ def ReadLineLoop(SketchValue: ArchiveNode, LinkValue: NativeLink) -> LineLoop:
         LinesValue,
         LineOrder(PointsValue, LinesValue),
         NativeNodeSpan(LinkValue, SketchValue),
+        AxisValues,
     )

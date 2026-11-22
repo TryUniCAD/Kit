@@ -1,0 +1,247 @@
+{
+  "edited_native_save": {
+    "bytes": 76337,
+    "sha256": "236865bd1e13e246199429ad635da99a737b6280802c61df252c92d613275452"
+  },
+  "fresh_reopen_profiles_match": true,
+  "fresh_reopen_tree_matches": true,
+  "guest_summary_sha256": "0a14522ae13d2f520e3c2a4d7206f2914ad300c28a9ca8c58702b569d74b4ef3",
+  "numerical_checks": {
+    "After": 14,
+    "Before": 14,
+    "Open": 53,
+    "Reopen": 26
+  },
+  "plan": {
+    "candidate_bytes": 8574,
+    "candidate_sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+    "control_trial_sha256": "2b3474ad32783ef4c3fc0e611651772c1012b80226e4ed7501e7adcac69fc46a",
+    "generation_runtime_access_attempts": 0,
+    "held_out_sources_read": 0,
+    "revision": "9d6daad135fe65337d82900e1ccd984bdb086f0e",
+    "schema": "kit.sw2026.disclosed-two-stock-construction.v1",
+    "tool_sha256": {
+      "MeasureTwoStockConstruction01.py": "2d65b7dbfbd3179736b94156a0760980a41673e634928c7c621772bf41760ac9",
+      "ProbeThroughAutoScope01.py": "9d9065ea04a275b77e24371e74c7f98ebbfaa9fa2bc80bf774dd8e908a663f83",
+      "ProbeThroughMultiStock01.py": "b892caa8c228c816bb11cf81a04e2fefea8c9159ed952873b895798f64dabe4e"
+    }
+  },
+  "schema": "kit.sw2026.disclosed-two-stock-native-observation.v1",
+  "snapshots": {
+    "edited": {
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 1499.9999999999998,
+          "box_mm": [
+            0.0,
+            4.0,
+            2.0,
+            29.0,
+            12.0,
+            16.0
+          ],
+          "centre_mm": [
+            14.500000000000004,
+            8.0,
+            9.0
+          ],
+          "cut_face": false,
+          "volume_mm3": 3247.999999999999
+        },
+        "SteadyStock": {
+          "area_mm2": 868.1693915921741,
+          "box_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -4.0,
+            12.0
+          ],
+          "centre_mm": [
+            20.999999999999996,
+            -8.886027482188885,
+            6.000000000000001
+          ],
+          "cut_face": true,
+          "volume_mm3": 1256.3060357342372
+        }
+      },
+      "drivers_mm": {
+        "MovingStock": 29.0,
+        "SteadyStock": 12.0
+      },
+      "scope": {
+        "auto_select": false,
+        "context": "direct",
+        "feature_scope": true,
+        "owner_status": "observed_direct_unavailability",
+        "reported_count": -1,
+        "returned_array_count": null,
+        "scope_owners": null
+      },
+      "tree_sha256": "b3ddcc91a60dd26e1ab6cf8d03eb593d999b71ae2ce87f31f61d8dd495e13b52"
+    },
+    "fresh_reopen": {
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 1499.9999999999998,
+          "box_mm": [
+            0.0,
+            4.0,
+            2.0,
+            29.0,
+            12.0,
+            16.0
+          ],
+          "centre_mm": [
+            14.500000000000004,
+            8.0,
+            9.0
+          ],
+          "cut_face": false,
+          "volume_mm3": 3247.999999999999
+        },
+        "SteadyStock": {
+          "area_mm2": 868.1693915921741,
+          "box_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -4.0,
+            12.0
+          ],
+          "centre_mm": [
+            20.999999999999996,
+            -8.886027482188885,
+            6.000000000000001
+          ],
+          "cut_face": true,
+          "volume_mm3": 1256.3060357342372
+        }
+      },
+      "drivers_mm": {
+        "MovingStock": 29.0,
+        "SteadyStock": 12.0
+      },
+      "scope": {
+        "auto_select": false,
+        "context": "direct",
+        "feature_scope": true,
+        "owner_status": "observed_direct_unavailability",
+        "reported_count": -1,
+        "returned_array_count": null,
+        "scope_owners": null
+      },
+      "tree_sha256": "b3ddcc91a60dd26e1ab6cf8d03eb593d999b71ae2ce87f31f61d8dd495e13b52"
+    },
+    "initial": {
+      "bodies": {
+        "MovingStock": {
+          "area_mm2": 664.0000000000001,
+          "box_mm": [
+            0.0,
+            4.0,
+            2.0,
+            10.0,
+            12.0,
+            16.0
+          ],
+          "centre_mm": [
+            5.0,
+            8.0,
+            9.0
+          ],
+          "cut_face": false,
+          "volume_mm3": 1120.0
+        },
+        "SteadyStock": {
+          "area_mm2": 868.1693915921741,
+          "box_mm": [
+            12.0,
+            -12.0,
+            0.0,
+            30.0,
+            -4.0,
+            12.0
+          ],
+          "centre_mm": [
+            20.999999999999996,
+            -8.886027482188885,
+            6.000000000000001
+          ],
+          "cut_face": true,
+          "volume_mm3": 1256.3060357342372
+        }
+      },
+      "drivers_mm": {
+        "MovingStock": 10.0,
+        "SteadyStock": 12.0
+      },
+      "scope": {
+        "auto_select": false,
+        "context": "direct",
+        "feature_scope": true,
+        "owner_status": "observed_direct_unavailability",
+        "reported_count": -1,
+        "returned_array_count": null,
+        "scope_owners": null
+      },
+      "tree_sha256": "b3ddcc91a60dd26e1ab6cf8d03eb593d999b71ae2ce87f31f61d8dd495e13b52"
+    }
+  },
+  "summary": {
+    "candidate_sha256": "6eca4bed5c698744cb3f33f39b1f15aebb69bedfef658060ef7c1d3a8603a508",
+    "controls_passed": true,
+    "generated_native_lifecycle_passed": true,
+    "held_out_cases": 0,
+    "oracle_build": "34.5.2.0604",
+    "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+    "phases": {
+      "After": {
+        "first_failure": null,
+        "open": [
+          true,
+          0,
+          0
+        ],
+        "passed": true,
+        "sha256": "d9d0465815016186de23c374d16ab916f45e452ed8639eb730401dd4e346af4d"
+      },
+      "Before": {
+        "first_failure": null,
+        "open": [
+          true,
+          0,
+          0
+        ],
+        "passed": true,
+        "sha256": "af9db99b3451abcca330c866e0f7843e66243f871df96bab211885959f3f1697"
+      },
+      "Open": {
+        "first_failure": null,
+        "open": [
+          true,
+          0,
+          0
+        ],
+        "passed": true,
+        "sha256": "43707dbcff97cbc9775036bfe5eae57cd16b948fa3a9e7b4c5e2968085ebcf18"
+      },
+      "Reopen": {
+        "first_failure": null,
+        "open": [
+          true,
+          0,
+          0
+        ],
+        "passed": true,
+        "sha256": "74fab20df2a7804c8f30c73c46be6059721b4ed5aaa011fd652621be05c5f96d"
+      }
+    },
+    "plan_sha256": "96e0499b948f4c741cd1ef64094563cd1b91e42045e0b5a4130148a6e0ed0fc8",
+    "schema": "kit.sw2026.disclosed-two-stock-construction.v1",
+    "writer_revision": "9d6daad135fe65337d82900e1ccd984bdb086f0e"
+  }
+}

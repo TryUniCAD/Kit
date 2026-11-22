@@ -1,0 +1,7 @@
+# Measured SOLIDWORKS selected two-stock through cut
+
+Kit can generate the measured standalone SOLIDWORKS part for two separate rectangular blind bosses on the canonical Front and Right planes and one forward circular through-all cut. The cut uses an explicit historical selection on the Front boss. Both boss depths remain editable, and the circular tool has no depth dimension.
+
+Supply the original creation epoch and authenticated [native report](../../../../re/solidworks/measurements/2026/TwoStockColdNative01.json) in the existing `solidworks_native_measurement` option. Use the exact measured locator for a Windows path or explicitly name that locator for an empty standalone binary stream. The SDK checks the full regenerated archive digest before publication. An unrelated neutral model, altered receipt or occupied stream cannot acquire native acceptance.
+
+The strict reader derives two separate solids from the cache-free archive, including the selected cut body, and retains the live `D1` drivers, signed cut direction and historical body selection. The native-saved history and broader selection modes retain their previous scope. [Adapter guide](../../../Reference/Adapters/Solidworks.md) · [Verification](../../../../re/solidworks/records/SdkMeasuredSelectedStock2026.md)

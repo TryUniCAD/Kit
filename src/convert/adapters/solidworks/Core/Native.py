@@ -24,6 +24,7 @@ from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 from interchange.geometry.Models.Transform import Transform
+from interchange.geometry.Models.VectorSpace import SpaceVector
 from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
 )
@@ -1137,6 +1138,7 @@ class NativeOperation(NativeOpFrame):
     spacing_mm: float | None = None
     archive_spans: tuple[tuple[int, int, str], ...] = ()
     inactive_blind_depth: Mapping[str, object] | None = None
+    ThroughDirection: SpaceVector | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

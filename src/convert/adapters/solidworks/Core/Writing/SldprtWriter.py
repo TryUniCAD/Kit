@@ -1,3 +1,11 @@
+from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
+from convert.adapters.solidworks.Core.Preparation.TwoStock.PlanTwoStocks import (
+    PlanTwoStocks,
+)
+from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
+    WriteStocksMut,
+)
 from pathlib import Path as FilePath
 
 from convert.adapters.base.AdapterInfo import AdapterInfo
@@ -48,7 +56,11 @@ class SldprtWriter(PairProtocol):
             PlanValue = (
                 PlanCircle(DocValue)
                 if IsCirclePart(DocValue)
-                else PlanPartWrite(DocValue)
+                else (
+                    PlanTwoStocks(DocValue)
+                    if IsStockChain(DocValue)
+                    else PlanPartWrite(DocValue)
+                )
             )
         except (IndexError, TypeError, ValueError):
             return False
@@ -60,6 +72,14 @@ class SldprtWriter(PairProtocol):
             )
         return IsBinaryTarget(Target)
 
+    # only this exact permitted stock chain can prove a depthless through feature
+    def ProveThroughEnd(
+        self, DocumentValue: CadDocument, TargetValue: KTargetType
+    ) -> str | None:
+        if IsStockChain(DocumentValue) and self.supports(DocumentValue, TargetValue):
+            return DocumentValue.feature_timeline[-1].id
+        return None
+
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(
         self,
@@ -67,4 +87,7 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsStockChain(document):
+            CheckNative(document, self, destination)
+            return WriteStocksMut(document, destination, options)
         return EmitNativeMut(document, destination, options)
