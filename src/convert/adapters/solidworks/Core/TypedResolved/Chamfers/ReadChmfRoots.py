@@ -27,6 +27,8 @@ def ReadChmfRoots(
     LinkValue: NativeLink,
     ModelValue: NativeModel,
     ChmfValue: ArchiveNode,
+    *,
+    IsSaved: bool = False,
 ) -> tuple[tuple[ArchiveNode, ...], dict[int, ArchiveNode]]:
     Resolved = LinkValue.ResolvedValue
     if (
@@ -54,7 +56,9 @@ def ReadChmfRoots(
             _, Owned = ReadOwnedRows(LinkValue, NodeValue)
             Members += Owned
     CheckExtras(ModelValue, Roots, Members, ReadConfigHelp(LinkValue))
-    if set(Nodes) != {Feature.object_id for Feature in ModelValue.features}:
+    if not IsSaved and set(Nodes) != {
+        Feature.object_id for Feature in ModelValue.features
+    }:
         raise ValueError(
             "chamfer cannot project unrepresented alternate feature presentation"
         )

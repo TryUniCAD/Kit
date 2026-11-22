@@ -34,6 +34,15 @@ def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeMod
             "cold chamfer cannot project the whole actual free stock sketch"
         )
     StockOp, ChmfOp = ModelValue.operations
+    SavedValue = PartValue.WarmValue
+    if SavedValue is not None:
+        ChmfOp = ReplaceValue(
+            ChmfOp,
+            mode=None,
+            selection_offsets=(),
+            selected_local_ids=(),
+            selection_references=(),
+        )
     Evidence = ReportTyped(
         ModelValue,
         LinkValue,
@@ -45,7 +54,11 @@ def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeMod
     PriorDiagnostic = ModelValue.TypedGraph.get("diagnostic")
     return ReplaceValue(
         ModelValue,
-        features=tuple(Features.values()),
+        features=(
+            tuple(Features.get(Value.object_id, Value) for Value in ModelValue.features)
+            if SavedValue is not None
+            else tuple(Features.values())
+        ),
         operations=(BindExtrude(StockOp, StockValue), ChmfOp),
         sketches=(
             ReplaceValue(StockSketch, name=Features[SketchValue.object_id].name),
@@ -62,9 +75,27 @@ def BindChmfModel(ModelValue: NativeModel, PartValue: ChmfPartRead) -> NativeMod
         TypedGraph={
             **Evidence,
             "status": (
-                "supplemented_cold_signed_chamfer"
-                if PartValue.OwnersValue.ModeWord == 1
-                else "supplemented_cold_distance_chamfer"
+                "supplemented_saved_distance_chamfer"
+                if SavedValue is not None
+                else (
+                    "supplemented_cold_signed_chamfer"
+                    if PartValue.OwnersValue.ModeWord == 1
+                    else "supplemented_cold_distance_chamfer"
+                )
+            ),
+            **(
+                {
+                    "saved_chamfer_partition": {
+                        "sha256": SavedValue.PayloadHash,
+                        "mark_ids": SavedValue.MarkIds,
+                        "body_slot": SavedValue.BodySlot,
+                        "restored_edge_slot": SavedValue.EdgeSlot,
+                        "bevel_face_slot": SavedValue.FaceSlot,
+                        "retained_options_regeneration": False,
+                    }
+                }
+                if SavedValue is not None
+                else {}
             ),
         },
     )

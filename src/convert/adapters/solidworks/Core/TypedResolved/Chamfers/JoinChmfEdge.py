@@ -1,7 +1,7 @@
 from typing import cast as CastValue
 
 from convert.Geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
-from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing
+from convert.Geometry.Extrude.Polygon.PrismRing import MeasureRing, ReadPrismRing
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfEdgeRoles import (
     ChmfFinLinks,
     ChmfLoopOwners,
@@ -33,8 +33,7 @@ def ReadChmfRoleMap(
     PrismValue: PrismPlan,
     LoopValue: LineLoop,
 ) -> dict[str, KChmfRoleKey]:
-    Points = tuple(LineValue.start for LineValue in PrismValue.LinesValue)
-    Ordered, _, _ = MeasureRing(Points)
+    Ordered, _, _ = MeasureRing(ReadPrismRing(PrismValue.LinesValue))
     Lines = {
         ChmfSideKey(
             PlaneVector(*LoopValue.PointsValue[LineValue.StartValue].PositionValue),

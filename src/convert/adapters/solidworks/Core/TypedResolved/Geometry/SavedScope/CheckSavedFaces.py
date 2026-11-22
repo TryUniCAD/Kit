@@ -24,6 +24,8 @@ def CheckSavedFaces(
     BossValue: ArchiveNode,
     LoopValue: LineLoop,
     ConfigName: str,
+    *,
+    FileValue: ArchiveNode | None = None,
 ) -> None:
     ChooserValue = NativeRecord(BossValue.FieldsValue.get("f4b0"))
     if ChooserValue.get("f68") is not BossValue or not IsLineState(
@@ -57,7 +59,9 @@ def CheckSavedFaces(
     CheckRevSelf(HeaderValue, (*First, *Second))
     CheckRevSelf(TopHeader, (*First, *Second))
     External = First[0].ExternalValue
-    if NativeRecord(External.FieldsValue.get("refcfg")).get("f08") != ConfigName:
+    if NativeRecord(External.FieldsValue.get("refcfg")).get("f08") != ConfigName or (
+        FileValue is not None and External is not FileValue
+    ):
         raise ValueError(
             "SOLIDWORKS saved first boss faces do not own the active configuration"
         )

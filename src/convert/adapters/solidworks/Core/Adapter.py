@@ -168,6 +168,15 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
     TryColdChmf,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.BindWarmActive import (
+    BindWarmActive,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.ReadWarmChmf import (
+    TryWarmChmf,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.WarmChmfBody import (
+    WarmChmfBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.BindStockDoc import (
     BindStockDoc,
 )
@@ -517,6 +526,9 @@ def SelectPartShape(
             BuildChmfGeom(ChmfValue, KPartBodyId) if Settings.include_brep else None
         )
         return BindChmfModel(NativeValue, ChmfValue), None, None, Geometry, ChmfValue
+    WarmValue = TryWarmChmf(Archive, NativeValue, Settings)
+    if WarmValue is not None:
+        return BindChmfModel(NativeValue, WarmValue), None, None, None, WarmValue
     EllipValue = TryEllipPart(Archive, NativeValue, Settings)
     if EllipValue is not None:
         Geometry = (
@@ -568,6 +580,7 @@ def ReadNativePart(
         len(ConfigValues),
         DerivedValue,
         StockValue.BrepValue if StockValue is not None else None,
+        WarmValue=ShapeValue.WarmValue if isinstance(ShapeValue, ChmfPartRead) else None,
     )
     if StockValue is not None:
         Bodies = StockDesigns(StockValue, TimeValues, Payloads)
@@ -4316,6 +4329,8 @@ def ReadPartSolid(
     ConfigCount: int,
     DerivedValue: PartGeometry | None = None,
     StockBrep: BrepModel | None = None,
+    *,
+    WarmValue: WarmChmfBody | None = None,
 ) -> tuple[
     tuple[BrepPayload, ...],
     tuple[DiagValue, ...],
@@ -4326,6 +4341,9 @@ def ReadPartSolid(
     if DerivedValue is not None:
         return (*ReadGeomParts(DerivedValue), None, None)
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    if WarmValue is not None and Settings.include_brep:
+        WarmPart = BindWarmActive(WarmValue, Payloads, KPartBodyId)
+        return Payloads, PayloadDiags, WarmPart.ModelValue, None, WarmPart
     if StockBrep is not None:
         return Payloads, PayloadDiags, StockBrep, None, None
     Candidate = (

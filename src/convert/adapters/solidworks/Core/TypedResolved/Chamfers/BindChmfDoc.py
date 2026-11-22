@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfDef import 
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ReadChmfRows import (
     EdgeChmfRows,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindPrismCreate import (
+    BindPrismCreate,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
@@ -157,10 +160,12 @@ def BindChmfDoc(Document: CadDocument, PartValue: ChmfPartRead) -> CadDocument:
         StepValue.id: ReplaceValue(
             StepValue, definition=Definition, selection_ids=IdsValue
         ),
-        StockValue.id: ReplaceValue(StockValue, operation=BooleanOp.KCreate),
     }
+    SavedValue = PartValue.WarmValue is not None
+    if not SavedValue:
+        Updated[StockValue.id] = ReplaceValue(StockValue, operation=BooleanOp.KCreate)
     ParamValues = {Value.id: Value for Value in Bound}
-    return ReplaceValue(
+    Projected = ReplaceValue(
         Document,
         parameters=tuple(
             ParamValues.get(Value.id, Value) for Value in Document.parameters
@@ -171,7 +176,26 @@ def BindChmfDoc(Document: CadDocument, PartValue: ChmfPartRead) -> CadDocument:
         ),
         bodies=(
             ReplaceValue(
-                BodyValue, name=StockValue.name, provenance=StockValue.provenance
+                BodyValue,
+                name=StepValue.name if SavedValue else StockValue.name,
+                provenance=(
+                    StepValue.provenance if SavedValue else StockValue.provenance
+                ),
+                attributes=(
+                    FreezeMapping(
+                        {
+                            **BodyValue.attributes,
+                            "native_object_id": NativeNodeId(Owners.FeatureValue),
+                        }
+                    )
+                    if SavedValue
+                    else BodyValue.attributes
+                ),
             ),
         ),
+    )
+    return (
+        BindPrismCreate(Projected, StockValue, FirstScope=True)
+        if SavedValue
+        else Projected
     )

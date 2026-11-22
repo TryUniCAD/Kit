@@ -63,7 +63,7 @@ def ReadChmfOwn(
         raise ValueError("ordinary chamfer lacks actual stock and rollback owners")
     Feature = RequireNative(RootsValue[-1], "Chamfer_c")
     Fields = Feature.FieldsValue
-    ModeWord = Fields.get("f8c0") if ColdValue and AllowDistancePair else 1
+    ModeWord = Fields.get("f8c0") if AllowDistancePair else 1
     if type(ModeWord) is not int:
         raise ValueError("unsupported ordinary SOLIDWORKS chamfer mode or selector")
     CheckChmfMode(Feature, ModeWord)

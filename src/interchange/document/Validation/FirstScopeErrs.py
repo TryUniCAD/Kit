@@ -3,11 +3,36 @@ from collections.abc import Mapping
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumValues import ParameterRole
 from interchange.Features.FeatureBody import DesignBody
+from interchange.Features.FeatureKinds import ChamferFeature
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.ScopedExtrude import ScopedExtrude
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane
 from interchange.Records.RecordParameter import Parameter
+
+
+# one direct terminal bevel can modify the original solid without changing its creation scope
+def HasScopeBody(
+    StepValue: FeatureStep,
+    History: tuple[FeatureStep, ...],
+    BodyValue: DesignBody,
+) -> bool:
+    if BodyValue.final_feature_id == StepValue.id:
+        return True
+    Later = tuple(Value for Value in History if Value.order > StepValue.order)
+    if len(Later) != 1:
+        return False
+    (Final,) = Later
+    return (
+        BodyValue.final_feature_id == Final.id
+        and Final.kind == FeatureKind.KChamfer
+        and isinstance(Final.definition, ChamferFeature)
+        and Final.input_feature_ids == (StepValue.id,)
+        and Final.operation is None
+        and Final.sketch_id is None
+        and not Final.suppressed
+        and not Final.configuration_states
+    )
 
 
 # neutral history must prove this selected mode creates the sole first solid
@@ -24,7 +49,7 @@ def CheckScopeRoot(
         or StepValue.sketch_id is None
         or StepValue.selection_ids
         or len(Bodies) != 1
-        or Bodies[0].final_feature_id != StepValue.id
+        or not HasScopeBody(StepValue, History, Bodies[0])
     ):
         raise ValueError("first creator scope requires one active root solid extrusion")
     for PriorStep in History:

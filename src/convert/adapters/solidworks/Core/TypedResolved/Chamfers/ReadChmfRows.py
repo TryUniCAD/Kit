@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import Read
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfOwners import (
     ChmfOwners,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.CheckWarmSelf import (
+    CheckWarmSelf,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
@@ -108,6 +111,8 @@ def ReadChmfRows(
     LinkValue: NativeLink,
     Owners: ChmfOwners,
     TopHeader: ArchiveNode,
+    *,
+    IsSaved: bool = False,
 ) -> tuple[KChmfRoleKey, ...]:
     Selected, Detached = (
         EdgeChmfRows(Value) for Value in (Owners.SelectedRef, Owners.DetachedRef)
@@ -147,5 +152,8 @@ def ReadChmfRows(
     ):
         raise ValueError("chamfer surface references lack one actual local file owner")
     CheckTreeAlias(LinkValue, (FileValue,))
-    CheckChmfFile(LinkValue, FileValue, TopHeader)
+    if IsSaved:
+        CheckWarmSelf(LinkValue, FileValue, TopHeader)
+    else:
+        CheckChmfFile(LinkValue, FileValue, TopHeader)
     return KeysValue

@@ -699,6 +699,14 @@ locator. The cache-free strict reader recovers the live drivers and their
 solid in the measured stock scope.
 [Distance chamfer publication](../../Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredDistanceChamferPublication.md)
 
+A strict read of the measured saved distance modes keeps the active
+Parasolid body and links it to the typed chamfer and its preceding stock.
+The rollback establishes the actual selected edge and its ordered adjacent
+faces. The stock keeps its rectangular sketch, editable blind depth and
+selected-empty first-creator scope. `include_brep=False` returns the same
+verified history and parameters without the saved geometry.
+[Saved distance chamfer reading](../../Changes/Solidworks/Reading/Parts/SolidworksSavedDistanceChamferRead.md)
+
 ### Writing standalone blank drawings
 
 Call `write_document(document, path)` with an authored metre document and a

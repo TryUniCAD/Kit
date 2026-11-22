@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfOwners import (
     ChmfOwners,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.Warm.WarmChmfBody import (
+    WarmChmfBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.PrismPlan import PrismPlan
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
@@ -31,3 +34,4 @@ class ChmfPartRead:
     PrismValue: PrismPlan
     EdgeValue: ChmfEdgeRead
     RootsValue: tuple[ArchiveNode, ...]
+    WarmValue: WarmChmfBody | None = None
