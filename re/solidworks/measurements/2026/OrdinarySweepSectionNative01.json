@@ -1,0 +1,216 @@
+{
+  "candidate_hashes": {
+    "Section3773": "7a9e5e0b6e30805dacc82e2443eebe00100e0b05d6dcbca578ba126bbfe06637",
+    "Section5159": "2f3666f352e66181c5a2d7b1aa5fd522268499fe41624cb15b58fe85209fc31a"
+  },
+  "candidates": {
+    "Section3773": {
+      "cold": {
+        "area_m2": 4.4722233326364445e-05,
+        "bounds_m": [
+          [
+            0.0,
+            -0.003773,
+            -0.003773
+          ],
+          [
+            0.0,
+            0.003773,
+            0.003773
+          ]
+        ],
+        "circle": {
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.003773,
+          "trim": [
+            0.0,
+            6.283185307179586
+          ]
+        },
+        "edges": 1,
+        "faces": 1,
+        "plane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seam_m": null,
+        "sheets": 1,
+        "vertices": 0
+      },
+      "control": "ImportBefore",
+      "numeric_checks": 34,
+      "rebuilt": {
+        "area_m2": 4.4722233326364445e-05,
+        "bounds_m": [
+          [
+            0.0,
+            -0.003773,
+            -0.003773
+          ],
+          [
+            0.0,
+            0.003773,
+            0.003773
+          ]
+        ],
+        "circle": {
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.003773,
+          "trim": [
+            0.0,
+            6.283185307179586
+          ]
+        },
+        "edges": 1,
+        "faces": 1,
+        "plane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seam_m": null,
+        "sheets": 1,
+        "vertices": 0
+      }
+    },
+    "Section5159": {
+      "cold": {
+        "area_m2": 8.361437126282802e-05,
+        "bounds_m": [
+          [
+            0.0,
+            -0.005159,
+            -0.005159
+          ],
+          [
+            0.0,
+            0.005159,
+            0.005159
+          ]
+        ],
+        "circle": {
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.005159,
+          "trim": [
+            0.0,
+            6.283185307179586
+          ]
+        },
+        "edges": 1,
+        "faces": 1,
+        "plane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seam_m": null,
+        "sheets": 1,
+        "vertices": 0
+      },
+      "control": "ImportAfter",
+      "numeric_checks": 34,
+      "rebuilt": {
+        "area_m2": 8.361437126282802e-05,
+        "bounds_m": [
+          [
+            0.0,
+            -0.005159,
+            -0.005159
+          ],
+          [
+            0.0,
+            0.005159,
+            0.005159
+          ]
+        ],
+        "circle": {
+          "center_m": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "normal": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "radius_m": 0.005159,
+          "trim": [
+            0.0,
+            6.283185307179586
+          ]
+        },
+        "edges": 1,
+        "faces": 1,
+        "plane": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "seam_m": null,
+        "sheets": 1,
+        "vertices": 0
+      }
+    }
+  },
+  "controls_healthy": true,
+  "distinct_processes": 8,
+  "heldout_count": 0,
+  "job_sha256": "1269215793b17f26b2c02ec923b5d89a97ee1f138f9ecf535eed33c17f14f776",
+  "native_checks": 172,
+  "native_result_sha256": "9626d33203884f30c9bab4261d2539a6574c956c52e2a07c01d8c7de3415f340",
+  "native_sweep_writer_outputs": 0,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "oracle_version": "34.5.2.0604",
+  "phase_receipts": {
+    "ApplicationAfter": "d329f341755fc3c40927be9fe2a687a191293bf0c095c897fbd155b9c376e706",
+    "ApplicationBefore": "392351114db3d03d6dbab422e062d3ae1766668719894f752bba71948682f735",
+    "AuthorAfter": "53da1ccdb83e14c8895ea0b868e28796a3ca1418def7216eaac32e664fbd40c1",
+    "AuthorBefore": "eb5c0002049867508f1ca09910446d6c6d64cf5c288f823b2fdacf63f3d9b986",
+    "ImportAfter": "9590a4648c4888a3e57296d38a6f22f76f6d816000b9263a3f443aeff137054e",
+    "ImportBefore": "2acdace89c327f63eee5fd7172f632238e5826c9743e8ce1f35710f537990e57",
+    "Section3773": "e70741527e06102f489b99d8204d9039a47221f1de561708fbcfd1df449f636c",
+    "Section5159": "881dd5a3d9d901c3e021140155ecf4d5996511430769478025ab6eeffe17bc59"
+  },
+  "schema": "kit.sw2026.disclosed-sweep-section-exchange.v1"
+}

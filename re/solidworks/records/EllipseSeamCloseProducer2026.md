@@ -18,9 +18,11 @@ Addresses below are preferred-image virtual addresses for the four exact x64 ima
 
 The `uiEnvironment_c::setAddToDB` leaf at `sldappu:0x456fba00` only writes the 32-bit environment field at `+0x2d8`. The disclosed author did no seam read immediately after restoration. The static update paths do not yet identify the first write to the kind-2 point, or the dependency that produces its phase. The previously identified literal references for circular geometry leave this ellipse rule unproved. [Allocation and literal analysis](EllipseSeamAllocation2026.md)
 
-## Smallest next native discriminator
+## Controlled native discriminator
 
 Use two fresh parts with the same disclosed Front ellipse and the same open `InsertSketch(True)`, template, selection, and `AddToDB` lifecycle. Read the seam after drawing and after restoring the flag. Verify the registered Boolean signature and vary only the close argument. Observe `ActiveSketch` and read the same owner through the retained profile immediately after each close, before rename, save, or explicit rebuild. Check both point getters, actual live point ID, the full point inventory, and unchanged centre and axes. If a False close actually exits and retains the major station, run a separately recorded clean rebuild and read the same point again. If False exits and already moves the point, inspect the shared close work and the no-update branch. A still-active False result is a reported branch outcome. Use independent healthy before and after controls on the exact build. This experiment isolates the Boolean-dependent update window while leaving the exact setter and generalized placement rule as separate questions.
+
+The completed False-close arm retained the major station after closing and after boss creation. Its separately observed clean rebuild moved the same seam to the recorded 17-degree position. The archived endpoint and the four application controls also passed. These observations narrow the practical starting state for a generated test to the major station, with native rebuild responsible for the measured movement. [Paired results](EllipseSeamDiscriminator2026.md#measured-disposition)
 
 ## Replay
 

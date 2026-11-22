@@ -1,0 +1,88 @@
+{
+  "bound_snapshots": 13,
+  "cases": {
+    "boss": {
+      "config_next_slot": 109,
+      "observed_phase_degrees": {
+        "after_save": 17.000000000000032,
+        "before_save": 17.000000000000032,
+        "boss_created": -9.858394544310149e-15,
+        "draw_open": -9.858394544310149e-15,
+        "reopened_cold": 17.000000000000032,
+        "reopened_rebuilt": 17.000000000000032,
+        "sketch_closed": -9.858394544310149e-15
+      },
+      "owned_live_position_changes": [
+        [
+          "author",
+          "boss_created",
+          "before_save"
+        ]
+      ],
+      "part_sha256": "4dabf0ef3ffa31418f27399d8c0ea1913387e91853feca0d4c0058dc5e5cb173",
+      "resolved_next_slot": 239,
+      "seam_archive_handle": [
+        0,
+        1
+      ],
+      "seam_live_id": [
+        1,
+        1
+      ],
+      "seam_map_slot": 186,
+      "seam_saved_xyz_m": [
+        0.03492311490813406,
+        0.0057318278389240085,
+        0
+      ]
+    },
+    "sketch": {
+      "config_next_slot": 103,
+      "observed_phase_degrees": {
+        "after_save": 17.000000000000032,
+        "before_save": 17.000000000000032,
+        "draw_open": -9.858394544310149e-15,
+        "reopened_cold": 17.000000000000032,
+        "reopened_rebuilt": 17.000000000000032,
+        "sketch_closed": -9.858394544310149e-15
+      },
+      "owned_live_position_changes": [
+        [
+          "author",
+          "sketch_closed",
+          "before_save"
+        ]
+      ],
+      "part_sha256": "1fba200257f700f79d727566090afc5320eec1d374083ce0f4e1a10cfa7b7045",
+      "resolved_next_slot": 182,
+      "seam_archive_handle": [
+        0,
+        1
+      ],
+      "seam_live_id": [
+        1,
+        1
+      ],
+      "seam_map_slot": 177,
+      "seam_saved_xyz_m": [
+        0.03492311490813406,
+        0.0057318278389240085,
+        0
+      ]
+    }
+  },
+  "close_updates": false,
+  "distinct_processes": 8,
+  "guarded_analysis_sha256": "1c58b066fec03e29b588719c46199bfc45896538ec4fccd766f866598a00d8ea",
+  "healthy_controls": 4,
+  "job_sha256": "a7fe7ab4b37a113ca5046a9fd79e7933be8bceb22ed41f3e31fe061d3e0be519",
+  "native_result_sha256": "efbd584eca6cafdd9b715b1a03b26db6a0f146ab51c850681dfee2268cfc3cc8",
+  "oracle": {
+    "build": "34.5.2.0604",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.ellipse-seam-no-update-disclosed.v1",
+  "source_revision": "3f7ecc14e713503d1d14edad0bb50aea7264c915",
+  "writer_output_count": 0
+}

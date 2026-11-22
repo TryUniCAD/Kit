@@ -20,3 +20,7 @@ prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Py
 ```
 
 Retrieve `C:\KitSweepSectionExchange01\Records\Result.json` after the oracle exits and verify the terminal digest. Keep native binaries and raw exports outside Git. The receipt's scope is standalone sheet transport on disclosed inputs. The embedded section allocator, path ownership and editable sweep feature acceptance remain separate gates. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) [Research playbook](../../Playbook/README.md)
+
+## Native result
+
+Both generated sections cold opened and rebuilt with one sheet, one planar face, one circular rim and zero vertices. The measured areas were `4.4722233326364445e-05` and `8.361437126282802e-05` square metres. Both match the paired native-authored controls. Each candidate passed 34 numeric checks. The full eight-process run passed 172 numeric checks, including all six control phases. The exact terminal receipt SHA-256 is `9626d33203884f30c9bab4261d2539a6574c956c52e2a07c01d8c7de3415f340`. This qualifies standalone exchange on these two sections. [Native section receipt](../measurements/2026/OrdinarySweepSectionNative01.json)
