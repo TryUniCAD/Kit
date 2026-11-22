@@ -95,7 +95,7 @@ def inspect_pair(parent, reader):
     graph = result.assembly
     assert graph is not None and len(graph.mate_groups) == 1
     assert len(graph.instances) == 2 and len(graph.mate_entities) == 4
-    assert tuple(value.kind.value for value in graph.mates) == ("coincident", "distance")
+    assert tuple(str(value.kind) for value in graph.mates) == ("coincident", "distance")
     assert graph.mates[1].value is not None and graph.mates[1].value.value == 42.0
     assert result.metadata["solidworks.typed_mates_semantics"]["status"] == "admitted"
     assert tuple(value.fixed for value in graph.instances) == (True, False)

@@ -54,7 +54,7 @@ def VerifyMateRead(TargetValue: FilePath) -> None:
     assert GraphValue is not None
     assert tuple(Value.fixed for Value in GraphValue.instances) == (True, False)
     assert len(GraphValue.mate_groups) == 1 and len(GraphValue.mate_entities) == 4
-    assert tuple(Value.kind.value for Value in GraphValue.mates) == (
+    assert tuple(str(Value.kind) for Value in GraphValue.mates) == (
         "coincident",
         "distance",
     )
