@@ -47,9 +47,10 @@ def CheckCylPlan(
         Value + AxisItem * PlanValue.DepthValue
         for Value, AxisItem in zip(Origin, AxisValue, strict=True)
     )
+    CenterValue = PlanValue.CircleValue.CenterValue
     if (
         AxisValue != FrameValue.NormalValue
-        or Origin != PlacePoint(FrameValue, (*PlanValue.CircleValue.CenterValue, 0.0))
+        or Origin != PlacePoint(FrameValue, (CenterValue[0], CenterValue[1], 0.0))
         or RimsValue != (Origin, FarValue)
         or not IsFinite(Radius)
         or Radius <= 0.0

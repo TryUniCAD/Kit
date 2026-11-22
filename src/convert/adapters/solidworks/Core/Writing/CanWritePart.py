@@ -92,13 +92,18 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
         if IsEllipsePart(DocumentValue):
             EllipseValue = PlanEllipse(DocumentValue)
             return IsPartTarget(EllipseValue.NameValue, TargetValue)
-        if HasOffsetWrite(DocumentValue):
-            return CanWriteOffset(DocumentValue, TargetValue)
-        if HasCircWrite(DocumentValue):
-            return CanWriteCircle(DocumentValue, TargetValue)
-        if DocumentValue.brep is not None:
-            return CanImportPart(DocumentValue, TargetValue)
-        PlanValue = PlanNativePart(DocumentValue, AllowMeasuredMid=True)
+        return CanWriteSimple(DocumentValue, TargetValue)
     except (IndexError, TypeError, ValueError):
         return False
+
+
+# the standalone shape needs to qualify for a measured writer before entering generic part preparation
+def CanWriteSimple(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
+    if HasOffsetWrite(DocumentValue):
+        return CanWriteOffset(DocumentValue, TargetValue)
+    if HasCircWrite(DocumentValue):
+        return CanWriteCircle(DocumentValue, TargetValue)
+    if DocumentValue.brep is not None:
+        return CanImportPart(DocumentValue, TargetValue)
+    PlanValue = PlanNativePart(DocumentValue, AllowMeasuredMid=True)
     return IsPartTarget(PlanValue.NameValue, TargetValue)

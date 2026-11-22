@@ -1,4 +1,4 @@
-from math import cos as Cosine, sin as Sine
+from math import cos as Cosine, sin as SinAngle
 
 from convert.adapters.solidworks.Archive.Construction.Views.RoundViewSeries import (
     RoundViewSeries,
@@ -11,7 +11,7 @@ def ViewRotation(
 ) -> tuple[float, float, float, float]:
     HalfAngle = AngleValue * -0.5
     if PlatformMath:
-        SineValue = Sine(HalfAngle)
+        SineValue = SinAngle(HalfAngle)
         CosineValue = Cosine(HalfAngle)
     else:
         SineValue = RoundViewSeries(HalfAngle, 1)
