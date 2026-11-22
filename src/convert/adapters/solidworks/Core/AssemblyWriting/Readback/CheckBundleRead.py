@@ -19,11 +19,15 @@ def CheckBundleRead(
     if GraphValue is None:
         raise ValueError("reopened bundle lacks its source definition graph")
     SourcePaths = {FilePath(Value.source_path) for Value in GraphValue.definitions}
-    NamesValue = {Value.name: Value for Value in SourcePaths}
+    NamesValue = {Value.name.casefold(): Value for Value in SourcePaths}
     FilesValue = {
-        PathValue.name: Payload.BytesValue for PathValue, Payload in Candidates
+        PathValue.name.casefold(): Payload.BytesValue for PathValue, Payload in Candidates
     }
-    if len(SourcePaths) != len(NamesValue) or NamesValue.keys() != FilesValue.keys():
+    if (
+        len(SourcePaths) != len(NamesValue)
+        or len(Candidates) != len(FilesValue)
+        or NamesValue.keys() != FilesValue.keys()
+    ):
         raise ValueError(
             "reopened bundle source members differ from their regenerated members"
         )

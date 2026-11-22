@@ -2,7 +2,6 @@ from argparse import ArgumentParser
 from base64 import b64decode, b64encode
 from codecs import lookup
 from hashlib import sha256
-from importlib import import_module
 from io import BytesIO
 from math import inf, isclose, nextafter
 from pathlib import Path, PureWindowsPath
@@ -19,10 +18,10 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks import SldprtAdapter
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import PrepNestedAsm
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-from interchange.document.Behavior.DocumentIo import ToJson
 from NestedRequest import authored_document, checked, require
 from NestedWriteAudit import Audit, snapshot
 from ProveMeasuredNested import run_worker
@@ -110,7 +109,15 @@ def worker_read(job):
         raw = BuildSldprt(archive.streams | {link.StreamName: resolved})
         changed = SldprtArchive.from_bytes(raw)
         ReadNativeLink(changed, 0, RectangleDims=True)
-    part = open_document(BytesIO(raw), source_format="solidworks.sldprt", include_brep=kind != "other_relation_inventory")
+        for geometry in (False, True):
+            try:
+                open_document(BytesIO(raw), source_format="solidworks.sldprt", include_brep=geometry)
+            except SldprtFormat as error:
+                require("typed dimensioned cold leaf" in str(error), str(error))
+            else:
+                raise AssertionError("strict read accepted unsupported owned dimension history")
+    part = open_document(BytesIO(raw), source_format="solidworks.sldprt",
+                         strict=kind != "other_relation_inventory", include_brep=kind != "other_relation_inventory")
     sketch, = part.sketches
     if kind == "endpoints":
         loop, = sketch.closed_profile_entity_ids
@@ -135,12 +142,11 @@ def worker_read(job):
                 "existing circular source lost its radius, depth or body")
         result = {"circle_radius_mm": 7.19, "boss_depth_mm": 31.37, "body_count": len(part.bodies)}
     else:
-        owner = import_module("convert.adapters.solidworks.Core.Adapter")
-        owner.WithTypedNative = lambda model, archive: model
-        legacy = open_document(BytesIO(raw), source_format="solidworks.sldprt", include_brep=False)
-        require(ToJson(part, IndentSize=None) == ToJson(legacy, IndentSize=None), "out-of-scope dimensioned part diverged from the legacy reader")
-        require(sketch.attributes.get("typed_line_dimensions") is not True, "alternate relation inventory was incorrectly bound")
-        result = {"legacy_semantics_identical": True, "value_rows": 2, "axis_rows": 0, "semantic_archive_sha256": sha256(raw).hexdigest()}
+        require(sketch.attributes.get("typed_line_dimensions") is not True
+                and any("typed dimensioned cold leaf" in row.message for row in part.diagnostics),
+                "permissive result omitted the unsupported sketch diagnostic")
+        result = {"strict_refusals": 2, "permissive_diagnostic": True, "value_rows": 2, "axis_rows": 0,
+                  "semantic_archive_sha256": sha256(raw).hexdigest()}
     require(not any(name.startswith(("pythoncom", "win32com", "FreeCAD")) for name in sys.modules), "CAD runtime loaded")
     return {"kind": kind, "input_sha256": job["sha256"], "runtime_input_file_reads": audit.input_files, **result}
 

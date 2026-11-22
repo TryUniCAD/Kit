@@ -3,6 +3,7 @@ from dataclasses import replace as ReplaceValue
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
     BindDepth,
@@ -12,7 +13,9 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadTypedPrism import ReadTy
 
 
 # cold prism refinements must bind their verified dimensions through existing feature and operation identities
-def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
+def WithTypedNative(
+    Model: NativeModel, Archive: SldprtArchive, *, Strict: bool = True
+) -> NativeModel:
     if (
         ContainerMo(Archive.streams) != 19000
         or KPartitionStream in Archive.streams
@@ -20,7 +23,12 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         or len(Model.operations) != 1
     ):
         return Model
-    TypedValue = ReadTypedPrism(Model, Archive)
+    try:
+        TypedValue = ReadTypedPrism(Model, Archive)
+    except SldprtFormat as ErrorInfo:
+        if Strict:
+            raise
+        return ReplaceValue(Model, diagnostics=(*Model.diagnostics, str(ErrorInfo)))
     if TypedValue is None:
         return Model
     Bound, Owner = TypedValue

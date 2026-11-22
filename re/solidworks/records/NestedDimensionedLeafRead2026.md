@@ -31,6 +31,8 @@ The current writer stores the authored metre word in both the driving row and it
 
 The [current guarded receipt](../measurements/2026/SdkNestedDimensionReview02.json) SHA-256 `a15ae5c88b1d0264137a8f594032bf2d1fda7f3e8361c201315d3ac0bc2816c4` reproduces every complete file in the four measured bundles. For each one-ULP driver change, the new generated member digest differs and strict readback recovers the new metre word. Both public routes refuse the prior exact receipt before staged member writes. The three measured leaf readbacks now compare each displayed length, its owned endpoints and the native metre word directly.
 
+The [strict scope replay](../measurements/2026/SdkNestedDimensionReview03.json) SHA-256 `b85251cf7142e4869d0c7fbf6da12fc898b7f729358331ae9b9bfc69de0881fb` recognizes the four real lines and two typed point distances before validating their complete axis inventory. Both strict read modes reject the same contrast with zero axis rows. Permissive inspection includes a diagnostic. The existing circular control and all measured publication rows pass in the same replay.
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/nested_delivery/ProveNestedDimReview.py \
   --workspace /disclosed/oracle/parent --output /new/external/Result.json

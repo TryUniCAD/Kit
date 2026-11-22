@@ -45,6 +45,9 @@ dimensioned leaf. They rebuild the leaf's analytic geometry from its actual
 sketch, support and depth.
 [Dimensioned leaf readback](../../Changes/Solidworks/Archive/Assembly/SolidworksColdDimensionedLeafRead.md)
 
+The source sibling resolver accepts equivalent filename casing. It preserves
+the actual local path during the regenerated readback comparison.
+
 To republish an unchanged measured bundle, open the complete original through
 `open_document` with strict reading and B-rep enabled. Supply that document to
 the same writer with the original measurement and native locator. The writer

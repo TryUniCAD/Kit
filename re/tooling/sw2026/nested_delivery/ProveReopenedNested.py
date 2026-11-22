@@ -55,10 +55,13 @@ def edited_label(document):
 
 def load_bundle(folder, envelope):
     members = envelope["receipt"]["members"]
+    entries = tuple(folder.iterdir())
+    paths = {path.name.casefold(): path for path in entries}
+    require(len(paths) == len(entries), "disclosed source member names collide")
     for row in members:
-        data = checked(folder / row["name"], row["sha256"])
+        data = checked(paths[row["name"].casefold()], row["sha256"])
         require(len(data) == row["bytes"], "disclosed member size changed")
-    return open_document(folder / members[-1]["name"])
+    return open_document(paths[members[-1]["name"].casefold()]), paths
 
 
 def compare_candidates(document, native_path, epoch, expected):
@@ -96,7 +99,7 @@ def worker(job, area):
     envelope = deepcopy(job["envelope"])
     initial_receipt = json.dumps(envelope, sort_keys=True)
     folder = Path(job["folder"])
-    document = load_bundle(folder, envelope)
+    document, source_paths = load_bundle(folder, envelope)
     members = envelope["receipt"]["members"]
     expected = {row["name"]: {key: row[key] for key in ("bytes", "sha256")} for row in members}
     target = area / members[-1]["name"]
@@ -129,7 +132,7 @@ def worker(job, area):
     require(not audit.attempts and not any(name.startswith(("pythoncom", "win32com", "FreeCAD"))
                                            for name in sys.modules), "writer touched external input or a CAD runtime")
     for row in members:
-        checked(folder / row["name"], row["sha256"])
+        checked(source_paths[row["name"].casefold()], row["sha256"])
     after = snapshot(area)
     common = {"process": getpid(), "route": route, "mode": mode, "runtime_input_reads": 0}
     if mode != "measured":
@@ -157,7 +160,7 @@ def launch(job):
 
 
 def prove(workspace):
-    passes, refusals = {}, []
+    passes, refusals, folded = {}, [], []
     for case in TERMINALS:
         request, envelope = measured_request(workspace, case)
         folder = workspace / case / "FrozenGenerated"
@@ -172,12 +175,24 @@ def prove(workspace):
                 for mode in REFUSALS:
                     refusals.append(launch({**request_value, "route": route, "mode": mode}))
         passes[case] = pairs
-    processes = [row["process"] for runs in passes.values() for row in runs] + [row["process"] for row in refusals]
+        if case == "SdkNestedDimensionedNative01":
+            with TemporaryDirectory(prefix="KitLowercaseAsm.") as dirname:
+                lower = Path(dirname).resolve()
+                for row in envelope["receipt"]["members"]:
+                    source = folder / row["name"]
+                    destination = lower / source.with_suffix(source.suffix.lower()).name
+                    with destination.open("xb") as output:
+                        output.write(checked(source, row["sha256"]))
+                for route in ("registry", "adapter"):
+                    found = launch({**request_value, "folder": str(lower), "route": route, "mode": "measured"})
+                    require(found["files"] == pairs[0]["files"], "lowercase extensions changed the measured bundle")
+                    folded.append(found)
+    processes = [row["process"] for runs in passes.values() for row in runs] + [row["process"] for row in (*refusals, *folded)]
     require(len(set(processes)) == len(processes), "guarded processes were reused")
-    return {"schema": "kit.sw2026.reopened-nested-exact.v1", "passed": True,
+    return {"schema": "kit.sw2026.reopened-nested-exact.v2", "passed": True,
             "native_processes_started": 0, "protected_inputs_read": 0,
             "guarded_publication_workers": len(processes), "authored_regression_workers": 8,
-            "reopened_bundles": passes, "refusals": refusals}
+            "reopened_bundles": passes, "refusals": refusals, "lowercase_extension_publications": folded}
 
 
 def main():

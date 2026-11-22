@@ -390,7 +390,7 @@ def ReadNativePart(
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
     Model = (
-        NativePartModel(Archive, Settings.configuration)
+        NativePartModel(Archive, Settings.configuration, Strict=Settings.strict)
         if ModelValue is None
         else ModelValue
     )
@@ -2258,7 +2258,9 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 
 # this definition exists because focused behavior needs one stable owner
-def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+def NativePartModel(
+    Archive: SldprtArchive, Requested: str | None, *, Strict: bool = True
+) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2310,7 +2312,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     if SelectedStream == KitResolvedStream:
         return Model
 
-    Model = WithTypedNative(Model, Archive)
+    Model = WithTypedNative(Model, Archive, Strict=Strict)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(

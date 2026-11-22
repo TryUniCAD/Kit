@@ -4,6 +4,7 @@ from os import name as KOsName
 from pathlib import Path as FilePath, PureWindowsPath
 
 from tests.Convert.Commands.CliProcess import CliProcess
+from tests.Convert.Solidworks.NestedWriting.VerifyNestReplay import VerifyReplay
 
 
 # the installed command enforces the native locator before publishing a measured bundle
@@ -47,10 +48,12 @@ def TestNestedCli(TmpPath: FilePath) -> None:
     Report = LoadJson(Result.stdout)
     assert Report["application_usable"] is Report["vendor_loadable"] is True
     assert Report["dropped"] == []
-    assert {
-        Member.name: CalcSha(Member.read_bytes()).hexdigest()
-        for Member in set(TmpPath.iterdir()) - {Source, Receipt}
-    } == {
+    Expected = {
         MemberRow["name"]: MemberRow["sha256"]
         for MemberRow in FixtureValue["measurement"]["receipt"]["members"]
     }
+    assert {
+        Member.name: CalcSha(Member.read_bytes()).hexdigest()
+        for Member in set(TmpPath.iterdir()) - {Source, Receipt}
+    } == Expected
+    VerifyReplay(TmpPath, NativePath, FixtureValue["measurement"], Expected)
