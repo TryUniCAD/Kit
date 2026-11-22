@@ -26,6 +26,9 @@ def TestStockRoute() -> None:
     assert len(CastValue(dict[str, object], Unmeasured["streams"])) == 10
     assert Measured["sha256"] != Unmeasured["sha256"]
     assert "crossed_typed_selector" in CastValue(dict[str, str], Report["refusals"])
+    Portable = CastValue(dict[str, object], Report["portable_json"])
+    assert set(Portable) == {"direct", "registry"}
+    assert Portable["direct"] == Portable["registry"]
     RoundTrip = CastValue(dict[str, object], Report["readback_roundtrip"])
     assert RoundTrip["exact_regenerations"] == 5
     assert RoundTrip["publications"] == (10 if Report["publications"] else 0)

@@ -117,6 +117,32 @@ def cross_owner(raw):
     return BuildSldprt(dict(archive.streams) | {link.StreamName: edited}, FormatVersion=4)
 
 
+def check_json_boundary(model, write_document, reject):
+    from convert.adapters.json.Adapter import JsonAdapter
+    from interchange.document.Models.DocumentModel import CadDocument
+
+    front, right, cut = model.feature_timeline
+    missing_direction = replace(model, feature_timeline=(
+        front, right, replace(cut, definition=replace(cut.definition, direction=None)),
+    ))
+    report = {}
+    for route, action in (
+        ("direct", JsonAdapter().write),
+        ("registry", lambda document, target: write_document(document, target, destination_format="interchange.json")),
+    ):
+        target = BytesIO()
+        action(model, target)
+        raw = target.getvalue()
+        need(CadDocument.from_json(raw.decode("utf-8")) == model,
+             "interchange JSON lost an explicit selected through cut")
+        empty = BytesIO()
+        reject(lambda: action(missing_direction, empty), ValueError,
+               "depthless extrusion reconstruction is unqualified")
+        need(not empty.getvalue(), "unresolved through direction touched the output")
+        report[route] = {"bytes": len(raw), "sha256": digest(raw), "unresolved_direction_refused": True}
+    return report
+
+
 def guarded_write(model, altered, receipt, directory):
     from CheckScopedPlainWriter import WriterAudit, reject
     from convert import write_document
@@ -140,6 +166,7 @@ def guarded_write(model, altered, receipt, directory):
     stream_path = directory / "owned-stream.bin"
     values = {"final_destination": LOCATOR, OPTION: {"written_at": EPOCH, "receipt": receipt}}
     audit = WriterAudit(ROOT / "src", path)
+    import_module("convert.adapters.json.Adapter")
     emit = SldprtWriter().write
 
     def direct(document, target, options=values):
@@ -153,6 +180,7 @@ def guarded_write(model, altered, receipt, directory):
         sys.addaudithook(audit.observe)
         audit.phase = "write"
         try:
+            json_cases = check_json_boundary(model, write_document, reject)
             settings = WriteOptions(values={"final_destination": LOCATOR})
             first, second = (
                 PrepStockPart(model, BytesIO(), EPOCH, settings) for _ in range(2)
@@ -168,7 +196,7 @@ def guarded_write(model, altered, receipt, directory):
                     sink = BytesIO()
                     reject(lambda: route(model, sink), ValueError, "no exact native measurement")
                     need(sink.getvalue() == b"", "different compressed bytes acquired native claims")
-                return first, other, failures, 0, audit.denied, audit.target_opens
+                return first, other, failures, 0, audit.denied, audit.target_opens, json_cases
 
             for route in (direct, registry):
                 sink = BytesIO()
@@ -215,14 +243,11 @@ def guarded_write(model, altered, receipt, directory):
                 failures["wrong_physical_locator"] = reject(lambda: route(model, path), ValueError, "actual measured final path")
                 need(not sink.getvalue(), "a rejected publication modified its empty sink")
 
-            failures["cross_target_depthless"] = reject(
-                lambda: write_document(model, BytesIO(), destination_format="interchange.json"),
-                ValueError, "depthless extrusion reconstruction is unqualified")
         finally:
             audit.phase = "done"
     need(path.read_bytes() == b"preserve existing path" and stream_path.read_bytes() == first.BytesValue
          and set(directory.iterdir()) == {path, stream_path}, "path refusal changed destination or left stage")
-    return first, other, failures, 3, audit.denied, audit.target_opens
+    return first, other, failures, 3, audit.denied, audit.target_opens, json_cases
 
 
 def worker():
@@ -240,7 +265,7 @@ def worker():
     model = CadDocument.from_json(json.dumps(request))
     varied = selected_stock_document(alternate=True)
     with TemporaryDirectory(prefix="KitSelectedStockWriter") as saved:
-        first, other, refusals, outputs, denied, opens = guarded_write(
+        first, other, refusals, outputs, denied, opens, json_cases = guarded_write(
             model, varied, receipt, Path(saved).resolve()
         )
         roundtrip = Path(saved).resolve() / "Roundtrip"
@@ -272,7 +297,7 @@ def worker():
     return {"schema": "kit.sw2026.measured-selected-stock-sdk.v1", "cases": results,
             "publications": outputs, "runtime_input_file_reads": len(denied), "staged_output_opens": opens,
             "receipt_sha256": NATIVE_SHA, "refusals": refusals, "compressor": ZLIB_RUNTIME_VERSION,
-            "readback_roundtrip": readback}
+            "readback_roundtrip": readback, "portable_json": json_cases}
 
 
 def main():

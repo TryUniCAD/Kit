@@ -5,6 +5,7 @@ from convert.adapters.base import WriteOptions
 from convert.adapters.base import WriteResult
 from convert.adapters.json.Metadata import KInfoValue
 from convert.adapters.json.StreamIo import WriteStream
+from convert.adapters.json.ThroughCut import JsonThroughCut
 from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
@@ -21,6 +22,12 @@ class JsonWriter:
     def TypedMaterials(self) -> bool:
         return True
 
+    # replacing a qualified end with an artificial distance would change the portable model
+    def ProveThroughEnd(
+        self, DocumentValue: CadDocument, TargetValue: Destination
+    ) -> str | None:
+        return JsonThroughCut(DocumentValue)
+
     # this writer validates and emits deterministic utf eight json
     def EmitTarget(
         self,
@@ -32,7 +39,7 @@ class JsonWriter:
         CheckInchWrite(DocValue)
         CheckEquations(DocValue)
         CheckSupports(DocValue)
-        CheckNative(DocValue)
+        CheckNative(DocValue, self, Target)
         Settings = Options or WriteOptions()
         if Settings.validate:
             DocValue.assert_valid()

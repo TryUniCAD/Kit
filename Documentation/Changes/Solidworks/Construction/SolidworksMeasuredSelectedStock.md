@@ -5,3 +5,7 @@ Kit can generate the measured standalone SOLIDWORKS part for two separate rectan
 Supply the original creation epoch and authenticated [native report](../../../../re/solidworks/measurements/2026/TwoStockColdNative01.json) in the existing `solidworks_native_measurement` option. Use the exact measured locator for a Windows path or explicitly name that locator for an empty standalone binary stream. The SDK checks the full regenerated archive digest before publication. An unrelated neutral model, altered receipt or occupied stream cannot acquire native acceptance.
 
 The strict reader derives two separate solids from the cache-free archive, including the selected cut body, and retains the live `D1` drivers, signed cut direction and historical body selection. Design-only and raw-only reads preserve the same body and feature identities. Complete and design-only readbacks can regenerate the exact measured part, including after JSON deserialization. Before publication, the writer compares the whole input document with its regenerated readback and checks the existing native receipt against the full file digest. [Adapter guide](../../../Reference/Adapters/Solidworks.md) · [Verification](../../../../re/solidworks/records/SdkMeasuredSelectedStock2026.md)
+
+Interchange JSON preserves the neutral sketch, signed through-all end and
+selected stock without supplying a cut depth. A through cut with unresolved
+direction is refused before the destination is written.

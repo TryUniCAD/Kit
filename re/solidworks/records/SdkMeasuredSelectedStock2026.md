@@ -6,7 +6,7 @@ The [native report](../measurements/2026/TwoStockColdNative01.json) was retained
 
 Use the normal SDK with the measured Windows self locator `C:\KitSdkCandidates\GeneratedTwoStockGraph01.SLDPRT` and epoch `1765500071`. Pass the parsed report as `values["solidworks_native_measurement"]["receipt"]` and the epoch as `written_at` in the same option. For a binary stream also supply the locator in `values["final_destination"]`. Publication authenticates the pinned report and compares the entire independently generated archive. The hash is a validation input. Construction receives the neutral design and explicit event and locator. The registry checks actual staged path ownership before a file write. A positive Windows SDK pathname publication was not run for this extraction. The guarded host proof verified direct, registry and write-only file-stream sinks plus transactional pathname refusals.
 
-The default strict reader verifies the same linked config, resolved roots, two stock atoms and one self-owned body wrapper. The wrapper selects producer `19` with provisional atom `101`. The other boss, `22`, remains a separate create operation. Cut `25` retains the selected producer and its actual circular profile, effective +Z and no length. The exact disclosure reads as 23 ordered stored rows, `D1` at 12 and 10 mm, a 6-face 1120 mm³ uncut solid and an 8-face 1256.306035734 mm³ cut solid. Area and centre agree with the independent native snapshot. The read route requires physically absent cached geometry and an ordinary B-rep read. Saved-cache semantics and no-B-rep options retain their earlier routes. The independently saved derivative first stops at unsupported typed `moEndFace3IntSurfIdRep_c` schema 1 on this baseline. The unchanged legacy SDK path exposes 31 rows and one fallback body on that saved derivative. This is outside the measured two-body readback contract.
+The default strict reader verifies the same linked config, resolved roots, two stock atoms and one self-owned body wrapper. The wrapper selects producer `19` with provisional atom `101`. The other boss, `22`, remains a separate create operation. Cut `25` retains the selected producer and its actual circular profile, effective +Z and no length. The exact disclosure reads as 23 ordered stored rows, `D1` at 12 and 10 mm, a 6-face 1120 mm³ uncut solid and an 8-face 1256.306035734 mm³ cut solid. Area and centre agree with the independent native snapshot. The linked route applies when the archive has no saved geometry cache. The independently saved derivative first stops at unsupported typed `moEndFace3IntSurfIdRep_c` schema 1 on this baseline. The legacy SDK path exposes 31 rows and one fallback body on that saved derivative.
 
 The [guarded host method](../../tooling/sw2026/throughsource/CheckMeasuredSelectedStocks.py) runs from a fresh Python process and reads no source file while generating. It compares each of the ten streams to the independently disclosed archive only after emission. A differently sized enclosed circular cut reaches strict analytic readback, and changes to the geometry, receipt, target and actual stored selector exercise separate refusal paths. The disclosed and alternate host cases do not add held-out or FCStd corpus credit. [Guarded comparison receipt](../measurements/2026/SdkMeasuredSelectedStock01.json)
 
@@ -35,8 +35,14 @@ regenerate each of the ten logical streams and the exact container.
 Direct and registry publication produce the exact measured bytes across
 ten calls with zero runtime file reads. Added opaque metadata, changed
 scaffold history and changed body geometry each refuse through both
-writer routes before an output write. The original cross-target
-depthless refusal remains in the control set. The earlier native
-measurement applies to the same file digest. This check starts no
-native process and adds no held-out evidence.
+writer routes before an output write. The earlier native measurement
+applies to the same file digest. This check starts no native process
+and adds no held-out evidence.
 [Readback receipt](../measurements/2026/SdkSelectedStockReadback01.json)
+
+The neutral authored part also round-trips through the direct and
+registry interchange JSON writers. Both routes retain the null
+through-all length, signed direction, earlier stock producer, and
+its actual body selection. Both refuse an otherwise identical part
+with the cut direction missing before any bytes reach the sink.
+[Interchange receipt](../measurements/2026/SdkSelectedStockJsonBoundary01.json)

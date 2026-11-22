@@ -381,6 +381,10 @@ design-only and raw-only reads. Writing the strict readback reconstructs from
 its editable geometry and drivers, then checks the whole document and exact
 measured archive before publication.
 
+The neutral profile can also be written as interchange JSON. The JSON
+retains the signed through-all end and the explicit selected stock, with
+the cut depth absent.
+
 Raw Parasolid extraction requires a saved Parasolid payload.
 
 The earlier writer did not generate its streams from format rules.
