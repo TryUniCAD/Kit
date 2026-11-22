@@ -29,7 +29,9 @@ def CheckCutState() -> None:
     Report = LoadJson(Result.stdout)
     for CaseValue in Report["cases"].values():
         assert CaseValue["public_guards"]["strict"] == (
-            "Native Fusion projection requires a sketch followed by one extrusion"
+            "Native Fusion semantic link requires an entity reference"
+            if CaseValue["cut"]["mode"] == "through_all"
+            else "Unmodeled native Fusion semantic entity class"
         )
         CaseValue["public_guards"]["strict"] = "Unknown native Fusion entity class"
     ArchiveBytes = (

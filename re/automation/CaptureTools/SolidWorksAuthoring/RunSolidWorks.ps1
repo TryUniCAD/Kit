@@ -31,5 +31,6 @@ if ($Phase -eq 'second' -and -not (Test-Path -LiteralPath (Join-Path $caseFolder
 }
 
 Add-Type -Path $interop
-Add-Type -Path (Join-Path $PSScriptRoot 'SolidWorksCapture.cs') -ReferencedAssemblies @($interop, 'System.Core.dll', $webExtensions)
+Add-Type -Path @((Join-Path $PSScriptRoot 'SolidWorksCapture.cs'),
+    (Join-Path $PSScriptRoot '../Catalogue/SolidWorks/ConfiguredCapture.cs')) -ReferencedAssemblies @($interop, 'System.Core.dll', $webExtensions)
 [SolidWorksCapture]::Run($repository, $output, $Recipe, $Phase)

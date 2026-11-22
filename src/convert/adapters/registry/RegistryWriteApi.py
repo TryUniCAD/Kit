@@ -15,7 +15,8 @@ from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.json.Adapter import JsonAdapter
-from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeHistory import CheckHistory
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
     IsChmfSnapDoc,
 )
@@ -133,7 +134,7 @@ class WriteApi(WriteLookup):
             (type(AdapterData) is SldprtWriter and IsColdRead(DocumentData))
             or (type(AdapterData) is JsonAdapter and IsChmfSnapDoc(DocumentData))
         ):
-            CheckNative(DocumentData)
+            CheckHistory(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -142,6 +143,7 @@ class WriteApi(WriteLookup):
             raise NotFoundError(
                 f"{AdapterData.info.FormatId} does not support the destination"
             )
+        CheckReadOnly(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
         UnsupportedCaps = GetDocumentCaps(DocumentData) - AdapterData.info.Capabilities

@@ -4,11 +4,20 @@ from shutil import copytree as CopyTree
 
 
 # complete and corrupted artifact sets exercise the actual reporter without substituting its implementation
-def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
-    NodeNames = [f"tests/Native/ProbeTests.py::CheckCase{Index}" for Index in range(4)]
+def WriteReports(
+    TmpPath: FilePath,
+    Outcome: str,
+    ReportPrefix: str = "Platform",
+    NativePrefix: str = "tests/Native/",
+) -> None:
+    NodeNames = [
+        f"{NativePrefix if Outcome != 'mixed-native' or Index == 0 else 'tests/Other/'}ProbeTests.py::CheckCase{Index}"
+        for Index in range(4)
+    ]
+    NodeNames.sort()
     for ShardIndex, NodeName in enumerate(NodeNames, 1):
         Attempt = 2 if Outcome in ("rerun", "latest-failed") and ShardIndex == 1 else 1
-        ReportPath = TmpPath / f"Platform-shard-{ShardIndex}-{Attempt}"
+        ReportPath = TmpPath / f"{ReportPrefix}-shard-{ShardIndex}-{Attempt}"
         ReportPath.mkdir()
         _ = (ReportPath / "Collected.txt").write_text("\n".join(NodeNames) + "\n")
         _ = (ReportPath / "Selected.txt").write_text(NodeName + "\n")
@@ -22,7 +31,9 @@ def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
             TestRecord,
             {"$report_type": "SessionFinish", "exitstatus": 0},
         ]
-        if Outcome == "native":
+        if Outcome == "native" or (
+            Outcome == "mixed-native" and NodeName.startswith(NativePrefix)
+        ):
             TestRecord.update(when="setup", outcome="skipped")
         if ShardIndex == 1:
             if Outcome == "missing":
@@ -42,7 +53,8 @@ def WriteReports(TmpPath: FilePath, Outcome: str) -> None:
         )
         if Outcome in ("rerun", "latest-failed") and ShardIndex == 1:
             _ = (
-                CopyTree(ReportPath, TmpPath / "Platform-shard-1-1") / "Report.jsonl"
+                CopyTree(ReportPath, TmpPath / f"{ReportPrefix}-shard-1-1")
+                / "Report.jsonl"
             ).write_text(
                 "{}\n"
                 if Outcome == "rerun"

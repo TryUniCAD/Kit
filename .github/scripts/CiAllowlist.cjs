@@ -8,6 +8,10 @@ const QueueJobs = [
   "Test suite / Plan",
   "Test suite / Report",
   "Test suite / Platform (windows-2025)",
+  "Test suite / Platform (windows-2025) / shard-1",
+  "Test suite / Platform (windows-2025) / shard-2",
+  "Test suite / Platform (windows-2025) / shard-3",
+  "Test suite / Platform (windows-2025) / shard-4",
   "Test suite / Platform (macos-26)",
   "Test suite / Platform (macos-26) / shard-1",
   "Test suite / Platform (macos-26) / shard-2",
@@ -97,6 +101,7 @@ function CiWorkflows(IsPull, IncludeAgg = false, Opened = false) {
     "CAD feature decoding session",
     "Analyze ${{ matrix.language }}",
     "Test suite / Shard (${{ matrix.shard }})",
+    "Test suite / Platform (windows-2025) / ${{ matrix.group }}",
     "Test suite / Platform (macos-26) / ${{ matrix.group }}",
   ];
   Workflows.set(QueuePath, {

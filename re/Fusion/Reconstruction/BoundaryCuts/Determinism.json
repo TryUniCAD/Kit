@@ -1,0 +1,32 @@
+{
+  "scope": "byte equality of repeated public CLI source decodes; native conversion acceptance not established",
+  "source_revision": "0e4f4be155475c08159a55090a5c71865c13764f",
+  "src_tree": "fd710e57942b83b948f7add9dca564cc884c9b2d",
+  "cli_tree": "f7d36923ae84187ec50d45bf6d2dbb0be9581be0",
+  "cases": [
+    {
+      "name": "CornerCut",
+      "exit": 0,
+      "source_sha256": "2be1ddf4c7a36b315a37bcdf092d9bc73391ccd1178c2dfab5ca69d62d6a8f2d",
+      "previous_neutral_sha256": "f2e7e2132b8fd04039cbc9813acfcf1e8a87d84628e8abbf3d2dc8face93d4f5",
+      "repeated_neutral_sha256": "f2e7e2132b8fd04039cbc9813acfcf1e8a87d84628e8abbf3d2dc8face93d4f5",
+      "identical": true
+    },
+    {
+      "name": "DiscFlip",
+      "exit": 0,
+      "source_sha256": "c00cb518a622646f9bf1ce659b1ba5ef0a70b94f757feab9eb638d65012a418b",
+      "previous_neutral_sha256": "aae8979e5f07fbc8baa1bb9f1f75a32296d97b4ae8ba17cf84b48bd7c510ceaf",
+      "repeated_neutral_sha256": "aae8979e5f07fbc8baa1bb9f1f75a32296d97b4ae8ba17cf84b48bd7c510ceaf",
+      "identical": true
+    },
+    {
+      "name": "DiscSymmetric",
+      "exit": 0,
+      "source_sha256": "6a8b62f1be608491ab806ce244d05cf42ecfff368050f070f26be13177fabccd",
+      "previous_neutral_sha256": "e6ecfd626caa01ae237fb63214d0f421c7b382f936c1af96dcdb36f3a5d26a62",
+      "repeated_neutral_sha256": "e6ecfd626caa01ae237fb63214d0f421c7b382f936c1af96dcdb36f3a5d26a62",
+      "identical": true
+    }
+  ]
+}
