@@ -7,8 +7,11 @@ Those jobs compete with replacement candidates for the same runners.
 `QueueCleanup.yml` releases that capacity after a queue branch is deleted, with another sweep after updates to `main`.
 
 The cleanup cancels only unfinished, same-repository `merge_group` runs of `.github/workflows/MergeQueue.yml` under `gh-readonly-queue/main/`.
-Immediately before cancellation it refreshes the run, reads every page of active queue heads, and requires the exact queue branch to return HTTP 404.
+Each sweep reads every page of active queue heads once, avoiding repeated full scans as unfinished runs accumulate.
+Before cancellation it refreshes the run, requires the exact queue branch to return HTTP 404, and directly checks that its source PR currently has no queue entry.
 A matching active queue head or any existing branch preserves the run.
+The direct PR check also preserves a newly requeued source after the initial snapshot, regardless of its new candidate SHA.
+Unrecognized queue branch naming preserves the run.
 Missing queue evidence and API failures stop cleanup without authorizing cancellation.
 Manual audits, PR checks, other workflows, forks, and other target branches remain outside its scope.
 

@@ -1,19 +1,20 @@
-const { QueueHeads } = require("./QueueHeads.cjs");
-
-async function CancelStale(Github, Context, RunInfo) {
+async function CancelStale(Github, Context, RunInfo, Heads) {
+  const BranchMatch =
+    /^gh-readonly-queue\/main\/pr-([1-9][0-9]*)-[0-9a-f]{40}$/.exec(
+      RunInfo.head_branch ?? "",
+    );
   if (
     RunInfo.event !== "merge_group" ||
     RunInfo.path !== ".github/workflows/MergeQueue.yml" ||
     RunInfo.repository?.id !== Context.payload.repository.id ||
     RunInfo.head_repository?.id !== Context.payload.repository.id ||
-    !RunInfo.head_branch?.startsWith("gh-readonly-queue/main/") ||
+    !BranchMatch ||
     !/^[0-9a-f]{40}$/.test(RunInfo.head_sha) ||
     !["queued", "in_progress", "waiting", "pending", "requested"].includes(
       RunInfo.status,
     )
   )
     return false;
-  const Heads = await QueueHeads(Github, Context.repo);
   if (Heads.has(RunInfo.head_sha)) return false;
   try {
     await Github.rest.git.getRef({
@@ -24,6 +25,18 @@ async function CancelStale(Github, Context, RunInfo) {
   } catch (ErrorInfo) {
     if (ErrorInfo.status !== 404) throw ErrorInfo;
   }
+  const Result = await Github.graphql(
+    `query($owner:String!, $repo:String!, $number:Int!) {
+      repository(owner:$owner, name:$repo) {
+        pullRequest(number:$number) { mergeQueueEntry { id } }
+      }
+    }`,
+    { ...Context.repo, number: Number(BranchMatch[1]) },
+  );
+  const PullInfo = Result.repository?.pullRequest;
+  if (!PullInfo || !("mergeQueueEntry" in PullInfo))
+    throw new Error("Current queue entry evidence unavailable");
+  if (PullInfo.mergeQueueEntry !== null) return false;
   await Github.rest.actions.cancelWorkflowRun({
     ...Context.repo,
     run_id: RunInfo.id,

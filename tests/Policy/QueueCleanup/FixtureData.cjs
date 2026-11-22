@@ -5,7 +5,7 @@ function FixtureData(CaseName) {
     path: ".github/workflows/MergeQueue.yml",
     repository: { id: 1 },
     head_repository: { id: 1 },
-    head_branch: "gh-readonly-queue/main/pr-42-example",
+    head_branch: `gh-readonly-queue/main/pr-42-${"b".repeat(40)}`,
     head_sha: "a".repeat(40),
     status: "in_progress",
   };

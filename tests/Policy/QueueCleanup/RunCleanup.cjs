@@ -1,11 +1,28 @@
 const Assert = require("node:assert/strict");
-const {
-  CleanRuns,
-} = require("../../../../.github/scripts/Queue/CleanRuns.cjs");
+const { CleanRuns } = require("../../../.github/scripts/Queue/CleanRuns.cjs");
 const { FixtureData } = require("./FixtureData.cjs");
 const Fixture = FixtureData(process.argv[2]);
 const Github = {
   graphql: async (Query, Variables) => {
+    if (Query.includes("pullRequest(number:")) {
+      Fixture.Calls.push("entry");
+      Assert.equal(Variables.number, 42);
+      if (Fixture.CaseName === "entry-error")
+        throw new Error("Entry unavailable");
+      return {
+        repository: {
+          pullRequest:
+            Fixture.CaseName === "entry-missing"
+              ? null
+              : {
+                  mergeQueueEntry:
+                    Fixture.CaseName === "entry-active"
+                      ? { id: "current" }
+                      : null,
+                },
+        },
+      };
+    }
     Fixture.Calls.push("queue");
     if (Fixture.CaseName === "queue-error")
       throw new Error("Queue unavailable");
@@ -33,10 +50,12 @@ const Github = {
   rest: {
     actions: {
       listWorkflowRuns: "list",
-      getWorkflowRun: async () => ({ data: Fixture.Current }),
+      getWorkflowRun: async (Request) => ({
+        data: { ...Fixture.Current, id: Request.run_id },
+      }),
       cancelWorkflowRun: async (Request) => {
         Fixture.Calls.push("cancel");
-        Assert.equal(Request.run_id, 42);
+        Assert.ok([42, 43].includes(Request.run_id));
         Fixture.Cancelled.push(Request.run_id);
       },
     },
@@ -57,7 +76,9 @@ const Github = {
     Assert.equal(Request.workflow_id, "MergeQueue.yml");
     Assert.equal(Request.event, "merge_group");
     return Request.status === "in_progress"
-      ? [{ id: 42, status: "in_progress" }]
+      ? Fixture.CaseName === "multiple"
+        ? [{ id: 42 }, { id: 43 }]
+        : [{ id: 42 }]
       : [];
   },
 };

@@ -30,6 +30,10 @@ import pytest as Pytest
         "queue-missing",
         "ref-active",
         "ref-error",
+        "entry-active",
+        "entry-missing",
+        "entry-error",
+        "multiple",
     ),
 )
 def CheckCleanup(CaseName: str) -> None:
@@ -43,14 +47,29 @@ def CheckCleanup(CaseName: str) -> None:
     )
     Evidence = JsonLib.loads(Outcome.stdout)
     assert Outcome.returncode == int(
-        CaseName in {"queue-error", "queue-null", "queue-missing", "ref-error"}
+        CaseName
+        in {
+            "queue-error",
+            "queue-null",
+            "queue-missing",
+            "ref-error",
+            "entry-error",
+            "entry-missing",
+        }
     ), Outcome.stderr
     assert Evidence["Cancelled"] == (
-        [42]
-        if CaseName in {"abandoned", "queued", "waiting", "pending", "requested"}
-        else []
+        [42, 43]
+        if CaseName == "multiple"
+        else (
+            [42]
+            if CaseName
+            in {"abandoned", "queued", "waiting", "pending", "requested", "multiple"}
+            else []
+        )
     )
     if Evidence["Cancelled"]:
-        assert Evidence["Calls"] == ["queue", "ref", "cancel"]
+        assert Evidence["Calls"] == ["queue"] + ["ref", "entry", "cancel"] * len(
+            Evidence["Cancelled"]
+        )
     if CaseName == "queue-page":
         assert Evidence["Calls"] == ["queue", "queue"]

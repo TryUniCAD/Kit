@@ -1,6 +1,8 @@
 const { CancelStale } = require("./CancelStale.cjs");
+const { QueueHeads } = require("./QueueHeads.cjs");
 
 async function CleanRuns({ Github, Context, Core }) {
+  const Heads = await QueueHeads(Github, Context.repo);
   for (const Status of [
     "queued",
     "in_progress",
@@ -20,7 +22,7 @@ async function CleanRuns({ Github, Context, Core }) {
         ...Context.repo,
         run_id: Listed.id,
       });
-      if (await CancelStale(Github, Context, Current))
+      if (await CancelStale(Github, Context, Current, Heads))
         Core.info(
           `Cancelled abandoned queue run ${Current.id} at ${Current.head_sha}`,
         );
