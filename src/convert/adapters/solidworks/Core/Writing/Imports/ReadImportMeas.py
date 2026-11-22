@@ -2,10 +2,10 @@ from hashlib import sha256 as CalcSha
 from json import dumps as JsonDumps, loads as JsonLoads
 
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Core.Writing.Imports.CheckImportLife import (
-    CheckImportLife,
-)
 from convert.adapters.solidworks.Core.Writing.Imports.ImportMeasure import ImportMeasure
+from convert.adapters.solidworks.Core.Writing.Imports.ReadImportCase import (
+    ReadImportCase,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import (
     ReadMeasInput,
 )
@@ -18,27 +18,6 @@ KImportReceiptSha = "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e
 
 # each geometry profile has its own native lifecycle comparison
 KImportCases = (("RectangularBare", 116), ("ConcaveOwned", 164))
-
-
-# publication keeps only checked immutable values from the authenticated case
-def ReadImportCase(
-    CaseValue: dict[str, object],
-    EpochValue: int,
-    ResultSha: str,
-    NumericChecks: int,
-) -> ImportMeasure:
-    SizeValue = CaseValue.get("generated_bytes")
-    if type(SizeValue) is not int or SizeValue < 1:
-        raise ValueError("local solid measurement lacks a complete archive size")
-    RebuildSha, ReopenSha = CheckImportLife(CaseValue, NumericChecks)
-    return ImportMeasure(
-        EpochValue,
-        SizeValue,
-        ReadMeasSha(CaseValue.get("native_input_sha256")),
-        ResultSha,
-        RebuildSha,
-        ReopenSha,
-    )
 
 
 # native eligibility is computed from the identical bytes authenticated for each case
