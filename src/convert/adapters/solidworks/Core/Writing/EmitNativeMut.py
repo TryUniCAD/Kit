@@ -46,28 +46,42 @@ from convert.adapters.solidworks.Core.Writing.Measured.Thin.EmitThinMut import (
 from interchange.document.Models.DocumentModel import CadDocument
 
 
+# a fresh feature intent selects its measurement before the generic archive fallback
+def EmitFreshMut(
+    DocumentValue: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
+) -> WriteResult | None:
+    if HasThinWrite(DocumentValue):
+        return EmitThinMut(DocumentValue, TargetValue, OptionsValue)
+    if HasPrincRev(DocumentValue):
+        return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
+    if IsStockChain(DocumentValue):
+        return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
+    if IsPatPart(DocumentValue):
+        return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
+    if IsSweepPart(DocumentValue):
+        return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
+    if IsDistChmf(DocumentValue):
+        return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
+    if IsEllipsePart(DocumentValue):
+        return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+    return None
+
+
 # publication verifies the complete regenerated archive before touching either kind of output target
 def EmitNativeMut(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
-    if IsRevRead(DocumentValue) or HasPrincRev(DocumentValue):
+    if IsRevRead(DocumentValue):
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
-        if HasThinWrite(DocumentValue):
-            return EmitThinMut(DocumentValue, TargetValue, OptionsValue)
-        if IsStockChain(DocumentValue):
-            return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
-        if IsPatPart(DocumentValue):
-            return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
-        if IsSweepPart(DocumentValue):
-            return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
-        if IsDistChmf(DocumentValue):
-            return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
-        if IsEllipsePart(DocumentValue):
-            return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+        FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)
+        if FreshValue is not None:
+            return FreshValue
     if HasEqIntent(DocumentValue):
         return EmitEqMut(DocumentValue, TargetValue, OptionsValue)
     if not ReadbackValue and HasBareBrep(DocumentValue):
