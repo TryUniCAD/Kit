@@ -100,3 +100,15 @@ has one concrete child. The scoped process tests cover the authored
 65,535-row case, including the shared class and aliased row slots.
 [SDK directory census](../measurements/2026/ManagerDirectoryCorpus01.json)
 · [Integrated audit](../measurements/2026/BinaryArchiveAfterManagerDirectory01.json)
+
+## Concentric preparation and cold offset checkpoint
+
+Two independent processes repeated the audit at
+`8ea2fa45b285499f1f50c61f04b29c7f0649ebf4`. All 88 disclosed files
+reproduced all 1,328 measured streams. The eight linked MatesList streams
+use their original configuration and resolved-feature maps. Every stream
+consumed its full input and matched without raw fields or provisional or
+missing schemas. The two full reports have the same SHA-256
+`e0f38125514ee2e049bf37d1a9335e334ea7b837aa97c72a171e4b196ee1912b`.
+The audit started no native processes and generated no new CAD files.
+[Revision-bound receipt](../measurements/2026/BinaryArchiveAfterConcentricAndOffset01.json)
