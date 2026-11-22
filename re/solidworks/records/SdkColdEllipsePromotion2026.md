@@ -66,6 +66,46 @@ launches and zero new held-out credit. The [ordinary line part round-trip proof]
 also reproduced its original receipt byte for byte on this SDK. Existing aggregate source qualification
 and its separate protected custody remain in their historical records.
 
+## Exact review follow-up
+
+The [review proof](../measurements/2026/SdkEllipseReview01.json) reproduced
+both compressed archives through the original authored route and through
+normal strict read→write using direct and registry calls. Neutral JSON
+restoration preserves both cases. All ten inferred transfers agree with the
+canonical regenerated document. Altered source identity or added semantic
+metadata stopped both routes before they wrote to a caller sink. The same
+fixture compares every retained field after the regenerated strict read. None
+of its retained archive bytes can enter construction.
+
+Translated absolute stations require an error bound derived from their
+stored binary64 coordinates. For each axis component, the bound includes the
+forward product and addition and the inverse subtraction. Each dot-product
+term adds the component cross-errors and multiplication rounding. The
+signed-axis, reflected-station and complete clear-stream checks still apply.
+The independently authored translated 40 × 30 mm ellipse centred at
+(70, 70) mm and rotated 33 degrees strictly rereads at two creation epochs.
+Both generated variants refuse public publication without their own
+measurements. [Station precision gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Geometry/EllipseStationPrecision.md)
+
+The native receipt now compares volume, surface area and centroid from the
+generated section at its actual original and reported edited depths. The
+relative tolerance is `5e-7`. The near-zero absolute guard is `1e-11` when
+the expected value is within that range. An independently changed initial
+volume, area or centroid and matching but wrong edited/reopened areas all
+fail before publication. A POSIX filename has no native Windows directory
+identity for this profile and cannot qualify for file publication. The two
+original current-format line parts reproduce their unchanged guarded
+round-trip receipt.
+
+All four disclosed original/edited warm saves explicitly refuse strict
+interchange projection with and without B-rep. Each has forty streams and a
+real `sgEllipseHandle` in its owned sketch. The scoped linked grammar first
+stops at `moLinkedAtomIdNode_c` schema 1 before it reaches the measured
+17-degree saved seam. Retained module analysis and separate archive
+observations remain in [the archive record](EllipseBlindBossArchive2026.md).
+They do not qualify that warm configuration, cache or B-rep in this reader.
+The dry run adds zero native launches and zero new held-out credit.
+
 ## Reproduce
 
 Run from this checkout with the disclosed `EllipseColdPrototype02` folder and
@@ -75,6 +115,7 @@ fresh model-only workers. The loaded candidate files supply comparisons only.
 ```sh
 python -I -B re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py \
   --disclosed /path/to/EllipseColdPrototype02 \
+  --warm-disclosed /path/to/EllipseBlindBossSource04/DisclosedNative \
   --output /tmp/KitScopedEllipse.json
 ```
 
