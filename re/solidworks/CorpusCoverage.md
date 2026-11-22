@@ -4,11 +4,11 @@ Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
 The generative writer publishes the measured scopes listed in the
 [SOLIDWORKS adapter guide](../../Documentation/Reference/Adapters/Solidworks.md#writing).
 Published scopes include exact selected-stock cuts, one width-driven
-boss, measured principal, end-mode and thin revolves, and measured
+boss, measured fixed-centre circle and signed principal offset-plane
+bosses, measured principal, end-mode and thin revolves, and measured
 standalone geometry-only imports. The linked native-authored
 experiments qualify those bounded constructions independently of the
-FCStd benchmark. Model-only preparation covers additional cases,
-including fixed-centre circular bosses.
+FCStd benchmark.
 The historical FCStd audit below used the retired stream-replay writer.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
@@ -121,6 +121,13 @@ the original guest-local custody. The signed datum and both attached feature
 drivers survive strict reads. These cases add zero original FCStd benchmark
 entries.
 
+The [cold offset-plane round trip](measurements/2026/SdkOffsetColdReadback01.json)
+republishes the three disclosed Front, reversed Top and Right artifacts from
+full and design-only reads, including neutral JSON round trips. The six
+isolated workers verify all 72 complete outputs and 144 pre-write refusals
+with zero writer input reads. This replay adds zero original FCStd benchmark
+entries.
+
 The [generated attached Top-plane box trial](measurements/2026/AttachedTopBoxGeneratedNative01.json)
 derives three editable SOLIDWORKS parts from the disclosed F14c inputs
 under three FreeCAD releases. Eight native processes pass all 1,089 candidate
@@ -129,13 +136,13 @@ The initial files read strictly back to their signed geometry in Kit.
 The [locked native-source evaluation](measurements/2026/AttachedTopBoxHeldoutNative01.json)
 passes two independent signed boxes and both controls in six fresh processes.
 Both articles retain three independently editable dimensions, the signed
-solid and the feature history through save and reopen. Public writer
-registration and original FCStd benchmark membership remain open. The native
-holdouts and disclosed trials add zero benchmark conversion credits. The
+solid and the feature history through save and reopen. Public registration
+for the locked cases and original FCStd benchmark membership remain open.
+The native holdouts and disclosed trials add zero benchmark conversion credits. The
 [shared FreeCAD projection and constructor](measurements/2026/FreecadAttachedBoxSharedBuild01.json)
 reproduce six exact containers and 72 stream digests with zero runtime input
-reads. The public SDK refuses all three full FreeCAD inputs before publishing
-any bytes. The [intact 0.21.2 owner proof](measurements/2026/OriginalFcstdAttachedBoxOwners01.json)
+reads. At that checkpoint the public SDK rejected all three full FreeCAD
+inputs before writing. The [intact 0.21.2 owner proof](measurements/2026/OriginalFcstdAttachedBoxOwners01.json)
 joins all three source shape payloads and full boundary incidence to the
 strict target and independently verifies the three editable drivers.
 The original archive payload and binding, provenance and round-trip
@@ -146,13 +153,14 @@ The [intact attached-box planner](measurements/2026/IntactFreecadAttachedPlan01.
 rederives the full 0.21.2 F14c neutral model and its source binding in
 memory before generating the same measured 12-stream part. It preserves
 the intact source beside the clean model and rejects altered parameters,
-crossed shape owners and the origin-fixed F14a control. Explicit and
-inferred public writes still refuse. This adds zero benchmark conversions.
+crossed shape owners and the origin-fixed F14a control. At that checkpoint
+explicit and inferred public writes rejected the source. This adds zero
+benchmark conversions.
 
 The [origin datum audit](records/FreecadAttachedOriginAxes2026.md) retains
 three actual source axis owners in the typed plan and confirms that none
-occurs in the existing measured native part. The normal SDK and CLI
-still refuse. Source archive attribution and selectable geometry have
+occurs in the earlier measured native part. The normal SDK and CLI rejected
+that projection. Source archive attribution and selectable geometry have
 separate evidence. The recorded roster and conversion counts stay open.
 
 The [three-axis research candidate](records/AttachedBoxAxisCandidate2026.md)
