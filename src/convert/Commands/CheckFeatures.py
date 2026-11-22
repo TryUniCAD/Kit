@@ -10,12 +10,17 @@ def CheckFeatures(Document: CadDocument) -> None:
     Generators = set[str]()
     ActiveFeatures = set[str]()
     SketchInputs: dict[str, set[str]] = {}
+    Features = {Value.id: Value for Value in Document.feature_timeline}
     Sketches = {Sketch.id: Sketch for Sketch in Document.sketches}
     Profiles = ProfileInputs(Document.sketches)
     Frames = {Frame.id: Frame for Frame in Document.support_planes}
     Parameters = {Param.id: Param for Param in Document.parameters}
     Selections = {Selection.id: Selection for Selection in Document.selections}
-    IdentitySets = {"sketches": set(Sketches), "support_planes": set(Frames)}
+    IdentitySets = {
+        "sketches": set(Sketches),
+        "support_planes": set(Frames),
+        "bodies": {BodyValue.id for BodyValue in Document.bodies},
+    }
     SuppressedFeatures = {
         FeatureId
         for Configuration in Document.configurations
@@ -24,7 +29,9 @@ def CheckFeatures(Document: CadDocument) -> None:
 
     # feature dependencies need chronological processing to establish active generators
     for Feature in sorted(Document.feature_timeline, key=lambda Value: Value.order):
-        CheckStep(Feature, IdentitySets, Selections, Parameters, Frames, Sketches)
+        CheckStep(
+            Feature, IdentitySets, Selections, Parameters, Frames, Sketches, Features
+        )
         if (
             Feature.suppressed
             or Feature.id in SuppressedFeatures

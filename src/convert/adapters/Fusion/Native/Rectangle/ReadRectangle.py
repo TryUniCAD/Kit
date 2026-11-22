@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Rectangle.ReadRectBounds import ReadRectBounds
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     LinkedNodes,
     RequireFields,
@@ -22,12 +23,13 @@ def ReadRectangle(
     Graph: NativeGraph,
     Context: ExtrudeContext,
     Rectangle: RectSketchProof | None = None,
+    Scoped: bool = False,
 ) -> RectGeometry:
     if Graph.ByClass("CircArc3D"):
         raise ValueError(
             "Native rectangle profile contains an unaccounted circular curve"
         )
-    Points, Lines = ReadRectNodes(Graph, Context, Rectangle)
+    Points, Lines = ReadRectNodes(Graph, Context, Rectangle, Scoped)
     LineNodes = OrderLines(Graph, Lines)
     Normal = (0.0, 0.0, 1.0 if Rectangle else -1.0)
     Geometry = tuple(ReadLine(Graph, NodeValue, Normal) for NodeValue in LineNodes)
@@ -39,19 +41,7 @@ def ReadRectangle(
         <= 0
     ):
         raise ValueError("Native rectangle requires counterclockwise profile winding")
-    Corners = {(LineValue.start.x, LineValue.start.y) for LineValue in Geometry}
-    XValues, YValues = {Point[0] for Point in Corners}, {Point[1] for Point in Corners}
-    if (
-        len(XValues) != 2
-        or len(YValues) != 2
-        or len(Corners) != 4
-        or any(
-            LineValue.start.x != LineValue.end.x
-            and LineValue.start.y != LineValue.end.y
-            for LineValue in Geometry
-        )
-    ):
-        raise ValueError("Native rectangle requires axis-aligned rectangular geometry")
+    LowerX, UpperX, LowerY, UpperY = ReadRectBounds(Geometry, Scoped)
     Entities: list[SketchEntity] = []
     for Point in Points:
         Coordinates = PointCoords(Point.Fields["point"])
@@ -83,9 +73,9 @@ def ReadRectangle(
         tuple(Entities),
         Geometry,
         LineNodes,
-        max(XValues) - min(XValues),
-        max(YValues) - min(YValues),
-        (min(XValues), min(YValues), 0.0),
+        UpperX - LowerX,
+        UpperY - LowerY,
+        (LowerX, LowerY, 0.0),
     )
 
 
@@ -94,6 +84,7 @@ def ReadRectNodes(
     Graph: NativeGraph,
     Context: ExtrudeContext,
     Rectangle: RectSketchProof | None,
+    Scoped: bool = False,
 ) -> tuple[tuple[NativeNode, ...], tuple[NativeNode, ...]]:
     Children = LinkedNodes(Graph, Context.Sketch, "children")
     if any(
@@ -111,6 +102,7 @@ def ReadRectNodes(
     if len(Points) != 5 or len(Lines) != 4 or len(Children) != 9 + len(Dimensions):
         raise ValueError("Native rectangle requires five points and four lines")
     SameNodes(Children, (*Points, *Lines, *Dimensions))
-    SameNodes(Points, Graph.ByClass("Point3D"))
-    SameNodes(Lines, Graph.ByClass("Line3D"))
+    if not Scoped:
+        SameNodes(Points, Graph.ByClass("Point3D"))
+        SameNodes(Lines, Graph.ByClass("Line3D"))
     return Points, Lines
