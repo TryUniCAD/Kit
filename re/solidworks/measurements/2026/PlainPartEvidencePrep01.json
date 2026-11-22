@@ -1,0 +1,170 @@
+{
+  "cases": [
+    {
+      "archive_bytes": 8032,
+      "archive_sha256": "fbae99b27b1e4de2b9e44a48b651d1d0869070a0be891ade49c9010483068e80",
+      "canonical_manifest_sha256": "f7f0fc13c12da84f20d693a15ce50e8136d3e0ee30ab416d2368c3d3ba1f050a",
+      "constructions": 2,
+      "native_locator": "C:\\KitSdkCandidates\\FreshTri.SLDPRT",
+      "neutral_sha256": "8db117771e82d4e7179e2ad37a065fcde9d884b64beeecc36edb81f3ea9db8f4",
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.plain-part-measurement-input.v1",
+      "stage": "awaiting_native_measurement",
+      "streams": {
+        "Contents/CMgr": [
+          1145,
+          "66e3912d1dc5dfe5d56b89338a3605008c1f814e8f693ca93602d2c80fd233b5"
+        ],
+        "Contents/CMgrHdr2": [
+          169,
+          "1e49638a5818459743460a27f265794a6a7619b14ccdb7e4c54a3c512b9a8149"
+        ],
+        "Contents/Config-0": [
+          22250,
+          "c5701bb01bfa032a4b2edf2334eb44196faaa2cfa013dd17d76e6fa2127333b1"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          607,
+          "24396dc7805827eba9ac52819c98edc1caa7ac72d93dae4f49d0b5349b61f4ad"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          13613,
+          "bd7eb6fdb130b1f25fb8cbb3c89c7581abfbd2cfa4436be42896ac08aa6d526d"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          607,
+          "dc6f8d009e8e9abbefd8d21187cecce16dcd6bb3133e28d7715cdd2080dacf0b"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "f7f4f0755234a619959ec4013575ac2dbf3f35a7925a7192224b995a5acd3323"
+        ],
+        "swXmlContents/KeyWords": [
+          1418,
+          "d51e8e5df927cf57916bc388f378ba8443b2311806e4400c6f888bc873b598f2"
+        ]
+      },
+      "written_at": 1795331800
+    },
+    {
+      "archive_bytes": 8132,
+      "archive_sha256": "4fabe3b7513f2aeb783b97c262412486dc1a4b0ed9c044320487af2a6fd13a9e",
+      "canonical_manifest_sha256": "80df04a4a04f17ca5176067c051fe6a000d74fd1d0b61cc41eae69ddb5926feb",
+      "constructions": 2,
+      "native_locator": "C:\\KitSdkCandidates\\FreshConcave.SLDPRT",
+      "neutral_sha256": "65b493b2e559552b79329520cb6b1b68a9b17e6e0e27b8969e1699f72498f0ed",
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.plain-part-measurement-input.v1",
+      "stage": "awaiting_native_measurement",
+      "streams": {
+        "Contents/CMgr": [
+          1145,
+          "66e3912d1dc5dfe5d56b89338a3605008c1f814e8f693ca93602d2c80fd233b5"
+        ],
+        "Contents/CMgrHdr2": [
+          169,
+          "1e49638a5818459743460a27f265794a6a7619b14ccdb7e4c54a3c512b9a8149"
+        ],
+        "Contents/Config-0": [
+          22258,
+          "c145e9214598eaf881765f9c8031662943c521fe7ba437b24b6aa28e23fb7f39"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          631,
+          "3ca7794b4c228adaf5c30cbf977b643833d97ef90c122f634337690dd6f24dd3"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14121,
+          "207a1026974303ade1a4a61a920f8372062fd069d615202ff649ca8f09f0a7db"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          631,
+          "3ebaa8013de8958eb193c8846feb0df63139cb1f6de78d359e925098ebb96438"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "f7f4f0755234a619959ec4013575ac2dbf3f35a7925a7192224b995a5acd3323"
+        ],
+        "swXmlContents/KeyWords": [
+          1423,
+          "c892df7c1e72b41b818dd123e02059678f6d645132c0b4adf3c8804cbdece111"
+        ]
+      },
+      "written_at": 1795331800
+    },
+    {
+      "archive_bytes": 8228,
+      "archive_sha256": "fa5585a9d40564dee5940f07f367cb03eb80667e92774e49e245f345db36d88f",
+      "canonical_manifest_sha256": "c48c494643b023964d23318562b625655736e468de5ba8e3ab348238f3d33c84",
+      "constructions": 2,
+      "native_locator": "C:\\KitSdkCandidates\\FreshOctagon.SLDPRT",
+      "neutral_sha256": "2bf6af20d2f4e37f390d6b962c4b2bc9f2b314c5feccea845c9742c4c1b7caf2",
+      "runtime_input_reads": 0,
+      "schema": "kit.sw2026.plain-part-measurement-input.v1",
+      "stage": "awaiting_native_measurement",
+      "streams": {
+        "Contents/CMgr": [
+          1145,
+          "66e3912d1dc5dfe5d56b89338a3605008c1f814e8f693ca93602d2c80fd233b5"
+        ],
+        "Contents/CMgrHdr2": [
+          169,
+          "1e49638a5818459743460a27f265794a6a7619b14ccdb7e4c54a3c512b9a8149"
+        ],
+        "Contents/Config-0": [
+          22258,
+          "a857ff59d816a8cfd56135364d82699312b367a8743422d0825962015f1802dd"
+        ],
+        "Contents/Config-0-ModelHeader": [
+          631,
+          "eea451ea4013b01d0d9c6a82ffac4a13bb509c4d5fc3071b51887d463cb20d3c"
+        ],
+        "Contents/Config-0-ResolvedFeatures": [
+          14883,
+          "292a9ea67fb32fef4fbad338b2346bbbc1e0f9b881101f82223e3ef48bce3400"
+        ],
+        "Contents/Definition": [
+          459,
+          "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        ],
+        "Header2": [
+          631,
+          "8daa7671074a7f15dc8a5fc1f207876c9dac4377e56de50c76c1351462c7f56c"
+        ],
+        "_MO_VERSION_19000/Biography": [
+          23,
+          "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        ],
+        "_MO_VERSION_19000/History": [
+          187,
+          "f7f4f0755234a619959ec4013575ac2dbf3f35a7925a7192224b995a5acd3323"
+        ],
+        "swXmlContents/KeyWords": [
+          1421,
+          "10202e876519941315bd0f353726104f115a1cb9c419f61ade476e724c1beb27"
+        ]
+      },
+      "written_at": 1795331800
+    }
+  ],
+  "native_processes": 0,
+  "qualified_outputs": 0,
+  "schema": "kit.sw2026.plain-part-research-preparation.v1",
+  "tool_sha256": "983b7f84a8188175111c22dc515e768dd39111549653af259ebdb06df6d61473"
+}

@@ -14,8 +14,15 @@ epoch in whole Unix seconds. Its `receipt` contains a parsed
 [standalone part evidence report](../../../../re/solidworks/measurements/2026/SdkDefaultPartNative01.json).
 For CLI use, store the same dictionary as JSON and pass
 `--native-measurement Measurement.json`. Receipt paths can begin with `~/`.
-The previous candidate option is removed. Controlled measurements can still generate a candidate through the
-internal in-memory preparation path.
+The previous candidate option is removed.
+
+Use the [research preparation command](../../../../re/tooling/sw2026/PreparePlainPartEvidence.py)
+with authored neutral JSON, its intended absolute Windows locator, the
+creation epoch and a fresh scratch directory. The command generates the
+complete candidate and records its file and stream digests under
+`awaiting_native_measurement`. Use that file in a separate controlled
+SOLIDWORKS measurement. The command returns a candidate digest and manifest
+digest for custody. Publication still uses the normal SDK or CLI.
 
 The caller establishes the authenticity of the unsigned oracle report.
 The writer verifies its required structure, oracle build and digest binding
