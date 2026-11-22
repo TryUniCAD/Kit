@@ -1,0 +1,26 @@
+{
+  "schema": "kit.sw2026.edge-chamfer-source-spec.v1",
+  "cohort": "disclosed",
+  "cases": [
+    {
+      "name": "ChamferComplementAxialC",
+      "center_mm": [3.375, -5.625],
+      "size_mm": [68.625, 46.125, 32.875],
+      "edge_axis": "z",
+      "corner": {"x": "max", "y": "min"},
+      "distance_mm": 4.875,
+      "angle_deg": 32.125,
+      "edit": {"distance_mm": 6.625}
+    },
+    {
+      "name": "ChamferPrincipalTopD",
+      "center_mm": [-9.125, 12.375],
+      "size_mm": [52.375, 43.25, 31.625],
+      "edge_axis": "x",
+      "corner": {"y": "max", "z": "max"},
+      "distance_mm": 3.625,
+      "angle_deg": 38.125,
+      "edit": {"angle_deg": 58.625}
+    }
+  ]
+}
