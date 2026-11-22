@@ -11,7 +11,8 @@ from tests.Policy.ShardPlanTests import KRootPath, PlanSample, RunCommand
 # scheduling changes must retain actual pytest outcomes through the complete native reporting boundary
 @TestMark.parametrize("HasHistory", (False, True))
 def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
-    _, TestIds = PlanSample(TmpPath)
+    _, CollectedIds = PlanSample(TmpPath)
+    TestIds = sorted(CollectedIds)
     HistoryPath = TmpPath / "History.json"
     if HasHistory:
         _ = HistoryPath.write_text(
