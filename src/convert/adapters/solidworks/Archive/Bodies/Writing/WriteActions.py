@@ -18,6 +18,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBytesMut import (
     WriteBytesMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteContextMut import (
+    WriteContextMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteControlMut import (
     WriteControlMut,
 )
@@ -77,7 +80,7 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Boolean": WriteBooleanMut,
             "Present": WritePresentMut,
             "Branch": WriteBranchMut,
-            "Context": WriteControlMut,
+            "Context": WriteContextMut,
             "Mask": WriteControlMut,
             "Virtual": WriteVirtualMut,
             "Validate": WriteValidMut,

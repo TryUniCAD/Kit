@@ -14,8 +14,8 @@ from convert.adapters.solidworks.Archive.Expressions.ReadExpression import (
 def IsBranchTaken(
     ContextValue: BodyContext,
     ScopeValue: FieldScope,
-    NodeValue: ArchiveNode,
     RuleValue: NativeField,
+    NodeValue: ArchiveNode,
 ) -> bool:
     if RuleValue.ModeValue == "Expression" and RuleValue.ExpressionValue:
         return bool(

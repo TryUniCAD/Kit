@@ -4,11 +4,12 @@ from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.CheckConfigLink import CheckConfigLink
-from convert.adapters.solidworks.Archive.Bodies.WriteBodyMut import WriteBodyMut
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
+from convert.adapters.solidworks.Archive.Config.Link.CheckPartRoot import KPartRoot
 from convert.adapters.solidworks.Archive.Config.MakeConfigCtx import MakeConfigCtx
 from convert.adapters.solidworks.Archive.Config.RequireConfig import RequireConfig
+from convert.adapters.solidworks.Archive.Config.WriteCfgBodyMut import WriteCfgBodyMut
 from convert.adapters.solidworks.Archive.Header.ReadHeadItems import ReadHeadItems
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -28,7 +29,9 @@ def WriteConfigMut(
     ContextValue = MakeConfigCtx(
         VersionValue, HeaderValue, UsageValue, ReadItems, PartRelations=PartRelations
     )
-    WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteBodyMut)
+    if RootValue.ClassValue == KPartRoot:
+        ContextValue.PartRootValue = RootValue
+    WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteCfgBodyMut)
     WriteNodeMut(WriterValue, RootValue)
     CheckConfigLink(ContextValue)
     ContextValue.UsageValue.IsComplete = True

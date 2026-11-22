@@ -8,8 +8,8 @@ def WriteBranchMut(FrameValue: WriteFrame, RuleValue: NativeField) -> None:
     Selected = IsBranchTaken(
         FrameValue.WriterValue.ContextValue,
         FrameValue.ScopeValue,
-        FrameValue.NodeValue,
         RuleValue,
+        FrameValue.NodeValue,
     )
     FrameValue.FieldsWriter(
         FrameValue, RuleValue.BodyValue if Selected else RuleValue.OtherValue

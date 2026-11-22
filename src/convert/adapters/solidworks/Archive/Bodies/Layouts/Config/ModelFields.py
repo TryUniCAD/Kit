@@ -433,7 +433,9 @@ KModelFields = MappingProxyType(
             NativeField("Node", "fa48"),
             NativeField("Scalar", "feb0", "i32"),
             NativeField("Scalar", "feb4", "i32"),
-            NativeField("Length", "nec8", "i32", CountValue="fec0"),
+            NativeField(
+                "Length", "nec8", "i32", CountValue="fec0", ModeValue="Positive"
+            ),
             NativeField(
                 "Repeat",
                 "fec0",
@@ -443,7 +445,9 @@ KModelFields = MappingProxyType(
             ),
             NativeField("Node", "fa90"),
             NativeField("Scalar", "ff3c", "u32"),
-            NativeField("Length", "n1290", "i32", CountValue="f1288"),
+            NativeField(
+                "Length", "n1290", "i32", CountValue="f1288", ModeValue="Positive"
+            ),
             NativeField(
                 "Repeat",
                 "f1288",
@@ -478,7 +482,9 @@ KModelFields = MappingProxyType(
                 MaskValue=128,
             ),
             NativeField("Scalar", "f1010", "i32"),
-            NativeField("Length", "nff4", "i32", CountValue="ffe0"),
+            NativeField(
+                "Length", "nff4", "i32", CountValue="ffe0", ModeValue="Positive"
+            ),
             NativeField(
                 "Repeat",
                 "ffe0",
@@ -505,7 +511,9 @@ KModelFields = MappingProxyType(
                 ),
                 ModeValue="Class",
             ),
-            NativeField("Length", "n10c4", "i32", CountValue="f10b0"),
+            NativeField(
+                "Length", "n10c4", "i32", CountValue="f10b0", ModeValue="Positive"
+            ),
             NativeField(
                 "Branch",
                 "n10c4",
@@ -590,7 +598,9 @@ KModelFields = MappingProxyType(
                 BodyValue=(
                     NativeField("Text", "k0"),
                     NativeField("Text", "k1"),
-                    NativeField("Length", "m", "i32", CountValue="pairs"),
+                    NativeField(
+                        "Length", "m", "i32", CountValue="pairs", ModeValue="Positive"
+                    ),
                     NativeField(
                         "Repeat",
                         "pairs",

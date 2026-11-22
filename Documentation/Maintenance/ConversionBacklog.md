@@ -628,6 +628,18 @@ cases, and current revision queue and review evidence. Inline bodies,
 handle modes and full configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/Configuration/SolidworksConfigAtomManager.md)
 
+### B04-SW2026-ORDINARY-CONFIG
+
+The #121 takeover team owns the ordinary Config-0 graph on
+codex/solidworks-ordinary-config-graph. It combines the accepted part
+ModelHeader, section, unit, member, scene and annotation owners with the
+remaining ordinary model rules. Four disclosed files reproduce the
+complete physical stream. The guard rejects truncated sections and
+wrong unit owner aliases. Current review and queue acceptance govern the
+archive delivery. The literal property call site and published native
+part writer use separate deliveries.
+[Ordinary graph evidence](../../re/solidworks/records/OrdinaryPartConfigGraph2026.md)
+
 ### B04-SW2026-CONFIG-FINISH-HELPER
 
 The PR #121 takeover team owns the bounded surface-finish reader

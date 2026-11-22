@@ -1,7 +1,7 @@
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 from convert.adapters.solidworks.Archive.Bodies.ReadFrame import ReadFrame
-from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Bodies.RequirePartOwn import RequirePartOwn
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import MakeArchiveNode
 
 
@@ -11,7 +11,10 @@ def ReadOwnedMut(FrameValue: ReadFrame, RuleValue: NativeField) -> None:
     Factory = (
         MakeArchiveNode if ReaderValue.NodeFactory is None else ReaderValue.NodeFactory
     )
-    NodeValue = Factory(RuntimeClass(RuleValue.TypeValue, 1))
+    ClassValue = RequirePartOwn(
+        FrameValue.ContextValue, FrameValue.NodeValue, RuleValue
+    )
+    NodeValue = Factory(ClassValue)
     ChildFrame = ReadFrame(
         FrameValue.ContextValue,
         ReaderValue,

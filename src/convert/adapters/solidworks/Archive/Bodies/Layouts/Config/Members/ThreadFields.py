@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 KThreadFields = MappingProxyType(
     {
         "moCThreadRefMgr_c": (
-            NativeField("Length", "n", "i32", CountValue="f18"),
+            NativeField("Length", "n", "i32", CountValue="f18", ModeValue="Positive"),
             NativeField(
                 "Repeat",
                 "f18",

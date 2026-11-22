@@ -397,6 +397,12 @@ its separate annotation leader fields against the ordinary linked
 part archive. The same field layout serves the two weld-side copies.
 [Configuration finish helper](../../Changes/Solidworks/Archive/Configuration/SolidworksConfigFinishHelpers.md)
 
+The internal ordinary part configuration codec reads both bounded
+version-19000 sections and retains the original ModelHeader aliases.
+It emits from the same typed graph and derives lengths and references.
+The bounded standalone record readers retain their own entry points.
+[Complete ordinary part configuration](../../Changes/Solidworks/Archive/Configuration/SolidworksOrdinaryConfigGraph.md)
+
 The configuration scene reader keeps the environment folder, its actual
 name and the observed ambient and directional light children. The
 runtime light reset retains its separate signed wire word. Populated

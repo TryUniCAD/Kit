@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.BlockMapFields import (
+    KBlockMapFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current native field order supplies both directions without saved document values
@@ -48,41 +51,7 @@ KCommonFields = MappingProxyType(
             NativeField("Scalar", "f3a4", "i32"),
             NativeField("Embed", "f368", "su_CMapWordToOb.Serialize"),
         ),
-        "moRefIdToSketchBlockListMap_c.FUN_4c9080f0": (
-            NativeField("Scalar", "f18", "i32"),
-            NativeField("Node", "f30"),
-            NativeField("Length", "n70", "i32", CountValue="f68"),
-            NativeField(
-                "Repeat",
-                "f68",
-                BodyValue=(
-                    NativeField("Scalar", "key", "i32"),
-                    NativeField("Length", "m", "i32", CountValue="guids"),
-                    NativeField(
-                        "Repeat",
-                        "guids",
-                        BodyValue=(NativeField("Bytes", "g", MaskValue=16),),
-                        CountValue="m",
-                        ModeValue="Positive",
-                    ),
-                ),
-                CountValue="n70",
-                ModeValue="Positive",
-            ),
-            NativeField("Length", "n98", "u32", CountValue="f90"),
-            NativeField(
-                "Repeat",
-                "f90",
-                BodyValue=(
-                    NativeField("Bytes", "k", MaskValue=16),
-                    NativeField("Bytes", "v", MaskValue=16),
-                    NativeField("Scalar", "i", "i32"),
-                    NativeField("Text", "name"),
-                ),
-                CountValue="n98",
-                ModeValue="SignedPositive",
-            ),
-        ),
+        "moRefIdToSketchBlockListMap_c.FUN_4c9080f0": KBlockMapFields,
         "moSketchBlockMgr_c": (
             NativeField("Base", "moFeature_c"),
             NativeField("Bytes", "f380", MaskValue=16),
