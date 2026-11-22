@@ -70,20 +70,22 @@ def AssertSwModes(Registry: AdapterRegistry) -> None:
     assert Reader.info.capabilities == frozenset(Capability)
     assert Writer.extensions == Writer.part_extensions == (".sldprt",)
     assert Writer.assembly_extensions == Writer.aliases == ()
-    assert Writer.native_capabilities == {
-        Capability.BODY_STRUCTURE,
-        Capability.CONFIGURATIONS,
-        Capability.EDITABLE_SKETCHES,
-        Capability.PARAMETERS,
-        Capability.PARAMETRIC_HISTORY,
-        Capability.SUPPORT_PLANES,
-    }
-    assert Writer.capabilities == Writer.native_capabilities | {
-        Capability.BREP,
-        Capability.PROVENANCE,
-        Capability.ROUNDTRIP_METADATA,
-        Capability.SELECTIONS,
-    }
+    assert (
+        Writer.capabilities
+        == Writer.native_capabilities
+        == {
+            Capability.BODY_STRUCTURE,
+            Capability.CONFIGURATIONS,
+            Capability.EDITABLE_SKETCHES,
+            Capability.PARAMETERS,
+            Capability.PARAMETRIC_HISTORY,
+            Capability.SUPPORT_PLANES,
+            Capability.BREP,
+            Capability.PROVENANCE,
+            Capability.ROUNDTRIP_METADATA,
+            Capability.SELECTIONS,
+        }
+    )
     with Pytest.raises(AdapterNotFoundError):
         _ = Registry.writer("solidworks.sldasm")
     with Pytest.raises(AdapterNotFoundError):
