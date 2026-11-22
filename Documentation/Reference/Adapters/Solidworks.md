@@ -681,12 +681,14 @@ Raw Parasolid extraction requires a saved Parasolid payload.
 Model-only preparation also covers each scoped profile below. Public
 standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
-sweep, distance chamfer and selected two-stock through cuts have dedicated proof
-schemas. Other entries identify preserved preparation and native research coverage.
+sweep, distance chamfer, selected two-stock through cuts and the contained
+oblique linear pattern have dedicated proof schemas. Other entries identify
+preserved preparation and native research coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
 - One unrestrained full ellipse on the canonical Front Plane with a forward blind boss, one driving depth D1 and a Default configuration. Public output requires an exact offline measurement receipt and the measured native locator. [Measured ellipse publication](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipsePublication.md)
 - One Standard solid sweep with an origin-centred Right circle and an origin-start Front quarter arc, two editable sketch drivers and body-owned density. Publication needs the exact offline receipt, creation event and measured native locator. [Measured sweep publication](../../Changes/Solidworks/Construction/Sweeps/SolidworksMeasuredSweepPublication.md)
+- One contained oblique linear pattern with a rectangular plate and joined seed, finite hinge, angled datum and explicit count and spacing. The SDK accepts the exact disclosed packet and result through the `solidworks_native_measurement` envelope. The `solidworks_pattern_presentation` option takes the typed authored `PatPresentInput` for noncanonical annotations and driver display values. Publication verifies the complete regenerated digest and measured native locator. [Measured pattern publication](../../Changes/Solidworks/Construction/Patterns/SolidworksMeasuredPatternPublication.md)
 - A signed rectangle on the canonical Top Plane with its fixed model-origin corner, two editable sketch lengths and a reversed blind depth. [Top rectangle writing](../../Changes/Solidworks/Construction/Part/SolidworksExplicitTopRectangleOrigin.md)
 - A fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward blind boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss

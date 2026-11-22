@@ -4,7 +4,9 @@ from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import ImportCandidate
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
+    ImportCandidate,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
@@ -27,6 +29,8 @@ from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
     WriteStocksMut,
 )
 from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
+from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
+from convert.adapters.solidworks.Core.Writing.Patterns.EmitPatMut import EmitPatMut
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
 
@@ -47,6 +51,8 @@ def EmitNativeMut(
     if not ReadbackValue:
         if IsStockChain(DocumentValue):
             return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
+        if IsPatPart(DocumentValue):
+            return EmitPatMut(DocumentValue, TargetValue, OptionsValue)
         if IsSweepPart(DocumentValue):
             return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
         if IsDistChmf(DocumentValue):

@@ -11,6 +11,9 @@ from convert.adapters.solidworks.Archive.Construction.Patterns.Emission.EmitPatA
 from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.MakePatGraph import (
     MakePatGraph,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Input.PatPresentInput import (
+    PatPresentInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
@@ -32,6 +35,8 @@ def PrepPatPart(
     TargetValue: KTargetType | None,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
+    *,
+    PresentValue: PatPresentInput | None = None,
 ) -> PatCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
     NameValue = ReadStyleText(DocumentValue.metadata.get("name"), "neutral part name")
@@ -43,7 +48,7 @@ def PrepPatPart(
         if TargetValue is None
         else FinalPartPath(TargetValue, SettingsValue, NeutralSelf, NameValue)
     )
-    PlanValue = PlanLinPattern(DocumentValue, NativeSelf)
+    PlanValue = PlanLinPattern(DocumentValue, NativeSelf, PresentValue)
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested pattern write configuration is unavailable")
