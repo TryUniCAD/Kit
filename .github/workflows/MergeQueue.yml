@@ -367,6 +367,9 @@ jobs:
     timeout-minutes: 30
     env:
       PlatformRunner: windows-2025
+      ShardIndex: 0
+      ShardCount: 1
+      PlatformShard: unsharded
       NativePattern: "^tests/Research/Windows/"
       SelectionPatterns: |-
         ^tests/Research/Windows/
@@ -419,16 +422,19 @@ jobs:
             test -n "$Pattern"
             grep -E "$Pattern" "$Roster" >> "$Selected"
           done <<< "$SelectionPatterns"
-          sort -u "$Selected" > "${Selected}.sorted"
-          mv "${Selected}.sorted" "$Selected"
-          test -s "$Selected"
-          grep -E "$NativePattern" "$Selected" > "${RUNNER_TEMP}/PlatformReport/Native.txt"
+          LC_ALL=C sort -u "$Selected" > "${RUNNER_TEMP}/PlatformReport/Collected.txt"
+          test -s "${RUNNER_TEMP}/PlatformReport/Collected.txt"
+          grep -E "$NativePattern" "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "${RUNNER_TEMP}/PlatformReport/Native.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Native.txt"
+          awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
+            "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          test -s "$Selected"
 
       - name: Execute the required platform process cases
         id: tests
         run: >-
           env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 python -m pytest -p no:cacheprovider
+          --durations=20
           --report-log="${RUNNER_TEMP}/PlatformReport/Report.jsonl"
           "@${RUNNER_TEMP}/PlatformReport/Selected.txt"
 
@@ -437,6 +443,7 @@ jobs:
           set -euo pipefail
           jq --slurp --exit-status \
             --rawfile Selected "${RUNNER_TEMP}/PlatformReport/Selected.txt" \
+            --argjson ShardCount "$ShardCount" \
             --rawfile Native "${RUNNER_TEMP}/PlatformReport/Native.txt" '
             ($Selected | split("\n") | map(select(length > 0))) as $Expected
             | ($Native | split("\n") | map(select(length > 0))) as $NativeIds
@@ -445,27 +452,42 @@ jobs:
               and ([.[] | select(.["$report_type"] == "TestReport")
                     | select(.when == "call" or (.when == "setup" and .outcome == "skipped"))
                     | .nodeid] | sort) == ($Expected | sort)
-              and any(.[]; .["$report_type"] == "TestReport" and .when == "call"
-                    and .outcome == "passed" and (.nodeid as $Id | $NativeIds | index($Id) != null))
+              and ($ShardCount > 1 or any(.[]; .["$report_type"] == "TestReport" and .when == "call"
+                    and .outcome == "passed" and (.nodeid as $Id | $NativeIds | index($Id) != null)))
             ' "${RUNNER_TEMP}/PlatformReport/Report.jsonl"
 
       - name: Publish exact platform selection and process outcomes
         if: always() && steps.tests.outcome != 'skipped'
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
-          name: PlatformReport-${{ env.PlatformRunner }}-${{ github.run_attempt }}
+          name: PlatformReport-${{ env.PlatformRunner }}-${{ env.PlatformShard }}-${{ github.run_attempt }}
           path: ${{ runner.temp }}/PlatformReport
           if-no-files-found: error
           retention-days: 14
 
-  research-macos:
+  research-macos-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
-    name: Test suite / Platform (macos-26)
+    name: Test suite / Platform (macos-26) / ${{ matrix.group }}
     runs-on: macos-26
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: shard-1
+            index: 0
+          - group: shard-2
+            index: 1
+          - group: shard-3
+            index: 2
+          - group: shard-4
+            index: 3
     env:
       PlatformRunner: macos-26
+      ShardIndex: ${{ matrix.index }}
+      ShardCount: 4
+      PlatformShard: ${{ matrix.group }}
       NativePattern: '^tests/Research/Applications/FusionColdStartTests\.py::'
       SelectionPatterns: |-
         ^tests/Research/Supervisor[^/]*Tests\.py::
@@ -480,6 +502,42 @@ jobs:
       run:
         shell: bash
     steps: *ResearchPlatformSteps
+
+  research-macos:
+    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    needs: [test-plan, research-macos-shard]
+    name: Test suite / Platform (macos-26)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - *AuditSource
+      - name: Require every macOS platform shard to succeed
+        env:
+          ShardResult: ${{ needs.research-macos-shard.result }}
+        run: test "$ShardResult" = success
+
+      - name: Checkout the workflow revision for shard reporting
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          sparse-checkout: .github/scripts/VerifyShardReports.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Download this attempt's macOS platform reports
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: PlatformReport-macos-26-shard-*
+          path: ${{ runner.temp }}/MacosReports
+
+      - name: Require every selected case and an actual native macOS pass
+        env:
+          ReportRoot: ${{ runner.temp }}/MacosReports
+          RunAttempt: ${{ github.run_attempt }}
+        run: >-
+          bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
+          PlatformReport-macos-26 "$RunAttempt"
+          '^tests/Research/Applications/FusionColdStartTests\.py::'
 
   linux-oom-witness:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -1292,6 +1350,7 @@ jobs:
         test-report,
         research-windows,
         research-macos,
+        research-macos-shard,
         linux-oom-witness,
         verify-end-to-end,
         analyze,

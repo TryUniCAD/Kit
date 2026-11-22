@@ -22,7 +22,11 @@
       "Verify CI policy and pytest compatibility",
       "Qualify reader and writer patches",
       "Research CLI compatibility",
-      "Research CLI Windows compatibility"
+      "Research CLI Windows compatibility",
+      "Research CLI Windows compatibility / shard-1",
+      "Research CLI Windows compatibility / shard-2",
+      "Research CLI Windows compatibility / shard-3",
+      "Research CLI Windows compatibility / shard-4"
     ]
   }
 }
