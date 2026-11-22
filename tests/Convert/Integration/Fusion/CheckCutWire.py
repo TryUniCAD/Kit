@@ -47,3 +47,4 @@ def CheckCutWire(Output: FilePath, Sample: CutCliCase) -> None:
         len(Document["sketches"]["$tuple"]) == 2
         and Document["metadata"]["fusion.read_only"] is True
     )
+    assert "fusion.native_state" not in Document["metadata"]

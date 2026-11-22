@@ -271,3 +271,42 @@ def CheckRegistry() -> None:
         "PlaneIntersectionAxis",
         "ScopedExtrusionFeature",
     }
+
+
+# historical feature state must survive pickle loading through public document validation
+def CheckOldStep() -> None:
+    SavedState = [
+        "legacy",
+        "legacy",
+        "unknown",
+        0,
+        (),
+        None,
+        (),
+        None,
+        None,
+        (),
+        False,
+        (),
+        None,
+        {},
+    ]
+    PickleBytes = (
+        b"\x80\x02cinterchange.history\nFeatureStep\n)\x81"
+        + PickleCodec.dumps(SavedState, protocol=2)[2:-1]
+        + b"b."
+    )
+    StepValue = PickleCodec.loads(PickleBytes)
+    assert isinstance(StepValue, InterchangeApi.FeatureStep)
+    assert StepValue.OutputBodyIds == ()
+    Document = InterchangeApi.CadDocument(
+        InterchangeApi.CadSource("interchange.json", "legacy.json", "0" * 64),
+        (),
+        (),
+        (),
+        (),
+        (),
+        (StepValue,),
+        (),
+    )
+    assert isinstance(Document.validate(), tuple)

@@ -19,3 +19,11 @@ Public process-boundary integration replays cover the flush input, appearance re
 A separate public conversion replay requires a qualification refusal rather than an unknown-feature or missing-context failure, and verifies that no output is published. It is committed for remote CI and was not executed locally. Static checks passed for 53 changed Python files.
 
 The final pinned source regression at `0c0d73b11b16a906f7a7b9ce3df32f08a02b4ddd` decoded all 25 inputs strictly with zero partial decodes, reader errors or rejections. The face-appearance refusal was exercised separately. Repeated CLI output for each of the three originally requested inputs was byte identical. ReviewGuardRegression.json and ReviewGuardDeterminism.json retain exact revision, tree and digest evidence. Native acceptance remains not established.
+
+## Compatibility and neutral payloads
+
+The public compatibility field list includes `output_body_ids` as the trailing FeatureStep field. Positional pickle restoration fills omitted trailing fields from their declared defaults, including the empty output tuple for earlier feature steps, and rejects missing required fields.
+
+Circular spans and bounded cuts retain only the read-only marker in neutral metadata. They no longer embed the parsed native model or its archived payloads. Native re-emission remains unavailable for these projections. Process-boundary decode coverage checks that the native-state payload is absent.
+
+A separate malformed-archive CLI replay populates the semantic appearance map on a journal-compatible control and requires the exact map refusal. The native appearance control remains a separate early-journal refusal. Compatibility coverage restores a pre-field positional FeatureStep pickle and calls public document validation. These additions await remote execution; no local tests were run.

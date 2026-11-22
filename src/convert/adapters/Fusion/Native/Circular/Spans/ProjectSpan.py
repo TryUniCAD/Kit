@@ -15,7 +15,6 @@ from convert.adapters.Fusion.Native.Policy.CheckAuxiliary import CheckSceneRefs
 from convert.adapters.Fusion.Native.Projection.ProjectRectangle import ProjectFeatures
 from convert.adapters.Fusion.Native.Projection.ReadMaterial import ReadMaterial
 from convert.adapters.Fusion.Native.Rectangle.CheckRegion import CheckRegion
-from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.Formats.Fusion.GeometryCodec.Frustum.FrustumBody import FrustumBody
 from convert.Geometry.Extrude.Circular.CircularExtrude import BuildCircular
@@ -100,7 +99,6 @@ def ProjectSpan(
         brep=Geometry,
         materials=(Material,),
         metadata={
-            "fusion.native_state": {"version": 2, "model": EncodeState(Model)},
             "fusion.read_only": True,
         },
     )

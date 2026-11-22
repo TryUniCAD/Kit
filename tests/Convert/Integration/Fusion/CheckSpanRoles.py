@@ -38,3 +38,4 @@ def CheckSpanRoles(Output: FilePath, Sample: SpanCliCase) -> None:
         for RoleName in ("against_parameter_id", "start_offset_id", "second_taper_id")
         if RoleName not in Expected
     )
+    assert "fusion.native_state" not in Document["metadata"]

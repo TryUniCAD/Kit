@@ -11,7 +11,6 @@ from convert.adapters.Fusion.Native.Graph.GraphValues import TextValue
 from convert.adapters.Fusion.Native.Policy.CheckAuxiliary import CheckSceneRefs
 from convert.adapters.Fusion.Native.Projection.ProjectRectangle import ProjectSketch
 from convert.adapters.Fusion.Native.Projection.ReadMaterial import ReadMaterial
-from convert.adapters.Fusion.State.EncodeState import EncodeState
 from convert.Formats.Fusion.DocumentCodec.Model.DocumentModel import DocumentModel
 from convert.Geometry.Extrude.Polygon.PolygonExtrude import BuildPrism
 from interchange.Features.DistanceValues import GetDistValues
@@ -107,7 +106,6 @@ def ProjectBoundary(
         brep=Geometry,
         materials=(Material,),
         metadata={
-            "fusion.native_state": {"version": 2, "model": EncodeState(Model)},
             "fusion.read_only": True,
         },
     )
