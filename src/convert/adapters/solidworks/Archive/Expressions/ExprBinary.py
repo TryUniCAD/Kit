@@ -25,5 +25,4 @@ def ExprBinary(ActionValue: str, LeftValue: object, RightValue: object) -> objec
             return CastValue(int, LeftValue) << CastValue(int, RightValue)
         case "RShift":
             return CastValue(int, LeftValue) >> CastValue(int, RightValue)
-        case _:
-            raise ValueError(f"unsupported native binary operation {ActionValue}")
+    raise ValueError(f"unsupported native binary operation {ActionValue}")

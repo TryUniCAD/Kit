@@ -12,5 +12,4 @@ def ExprUnary(ActionValue: str, Value: object) -> object:
             return ~CastValue(int, Value)
         case "Not":
             return not Value
-        case _:
-            raise ValueError(f"unsupported native unary operation {ActionValue}")
+    raise ValueError(f"unsupported native unary operation {ActionValue}")

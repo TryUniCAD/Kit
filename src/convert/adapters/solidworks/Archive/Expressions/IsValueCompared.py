@@ -23,5 +23,4 @@ def IsValueCompared(ActionValue: str, LeftValue: object, RightValue: object) -> 
             return LeftValue is RightValue
         case "IsNot":
             return LeftValue is not RightValue
-        case _:
-            raise ValueError(f"unsupported native comparison {ActionValue}")
+    raise ValueError(f"unsupported native comparison {ActionValue}")
