@@ -53,6 +53,18 @@ def values_si(case, edited):
 
 
 def predict(case, params=None, branch=None):
+    if params is None:
+        return predict_legs(case)
+    distance, angle = params
+    side, relation = branch
+    tangent = math.tan(angle)
+    legs = [distance, distance * (tangent if relation == "tan" else 1 / tangent)]
+    if side:
+        legs.reverse()
+    return predict_legs(case, legs)
+
+
+def predict_legs(case, legs=None):
     sizes, bounds = stock(case)
     length, axis, transverse, first, inward = edge_role(case)
     last = list(first)
@@ -63,15 +75,9 @@ def predict(case, params=None, branch=None):
     high_a, high_b = (sizes[i] for i in transverse)
     face_areas = [high_a * high_b] * 2 + [length * high_a] * 2 + [length * high_b] * 2
     basic = {"source_edge": [first, last], "stock_bounds": bounds, "edge_axis": axis}
-    if params is None:
+    if legs is None:
         return basic | {"vertices": corners, "volume": stock_volume, "area": sum(face_areas), "com": center,
                         "face_areas": sorted(face_areas), "counts": {"faces": 6, "edges": 12, "vertices": 8}}
-    distance, angle = params
-    side, relation = branch
-    tangent = math.tan(angle)
-    legs = [distance, distance * (tangent if relation == "tan" else 1 / tangent)]
-    if side:
-        legs.reverse()
     a, b = legs
     removed_area = a * b / 2
     removed_volume = removed_area * length

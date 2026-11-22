@@ -19,7 +19,7 @@ def case_paths(capture, slot, case):
     return folder, folder / (case["name"] + ".SLDPRT"), folder / (case["name"] + "Edited.SLDPRT")
 
 
-def native_phase(case, plan, phase, initial, edited, source_hash, record, constants):
+def native_phase(case, plan, phase, initial, edited, source_hash, record, constants, author_type=None):
     import Swapp
     from AuthorCurves import Recorder
     from FilletSourcePhase import has_exact_identity, save_part
@@ -42,7 +42,7 @@ def native_phase(case, plan, phase, initial, edited, source_hash, record, consta
             rec.data["oracle_identity"] = identity
             rec.flush()
             require(has_exact_identity(identity) and session.revision == "34.5.2", "incorrect native executable or build")
-            author = ChamferAuthor(session.app, rec, constants)
+            author = (author_type or ChamferAuthor)(session.app, rec, constants)
             if phase == "author":
                 author.author(case, session, plan["stock"])
                 author.snapshot(case, plan, "authored")

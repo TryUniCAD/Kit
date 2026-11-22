@@ -36,25 +36,37 @@ ENUMS = {
 }
 
 
-def installed_api(sw):
+def installed_api(sw, *, distance_pair=False):
     model, model_id = load(sw, MODEL_LIB)
     consts, constants_id = load(sw, CONSTS_LIB)
     interfaces, enums, constants = {}, {}, {}
+    expected_interfaces = INTERFACES
+    expected_enums = ENUMS
+    if distance_pair:
+        expected_interfaces = INTERFACES | {
+            "IChamferFeatureData2": INTERFACES["IChamferFeatureData2"] | {"EqualDistance": 0},
+        }
+        expected_enums = ENUMS | {
+            "swChamferType_e": ENUMS["swChamferType_e"] | {
+                "swChamferDistanceDistance": 2,
+                "swChamferEqualDistance": 16,
+            },
+        }
     for index in range(model.GetTypeInfoCount()):
         name = model.GetDocumentation(index)[0]
-        if name not in INTERFACES:
+        if name not in expected_interfaces:
             continue
         info = model.GetTypeInfo(index)
         observed = {}
         for offset in range(info.GetTypeAttr().cFuncs):
             member = info.GetFuncDesc(offset)
             names = info.GetNames(member.memid)
-            if not names or names[0] not in INTERFACES[name]:
+            if not names or names[0] not in expected_interfaces[name]:
                 continue
             if member.invkind not in (sw.pythoncom.INVOKE_FUNC, sw.pythoncom.INVOKE_PROPERTYGET):
                 continue
             nargs = len(member.args)
-            require(nargs == INTERFACES[name][names[0]], f"registered {name}.{names[0]} arity differs: {nargs}")
+            require(nargs == expected_interfaces[name][names[0]], f"registered {name}.{names[0]} arity differs: {nargs}")
             if name == "IFeatureManager" and names[0] == "InsertFeatureChamfer":
                 require(tuple(arg[0] for arg in member.args) == (3, 3, 5, 5, 5, 5, 5, 5),
                         "registered InsertFeatureChamfer argument types differ from two I4 and six R8")
@@ -65,21 +77,21 @@ def installed_api(sw):
                         "registered GetIsFlipped requires the actual entity and a Boolean result")
             observed[names[0]] = {"id": member.memid, "invoke_kind": member.invkind, "names": list(names),
                                   "arguments": repr(member.args), "result": repr(member.rettype)}
-        require(observed.keys() == INTERFACES[name].keys(), f"unbound {name} members: {INTERFACES[name].keys() - observed.keys()}")
+        require(observed.keys() == expected_interfaces[name].keys(), f"unbound {name} members: {expected_interfaces[name].keys() - observed.keys()}")
         interfaces[name] = observed
-    require(interfaces.keys() == INTERFACES.keys(), "registered 34.0 chamfer interfaces are incomplete")
+    require(interfaces.keys() == expected_interfaces.keys(), "registered 34.0 chamfer interfaces are incomplete")
     for index in range(consts.GetTypeInfoCount()):
         name = consts.GetDocumentation(index)[0]
-        if name not in ENUMS:
+        if name not in expected_enums:
             continue
         info = consts.GetTypeInfo(index)
         values = {info.GetNames(member.memid)[0]: member.value
                   for member in (info.GetVarDesc(offset) for offset in range(info.GetTypeAttr().cVars))}
-        for key, expected in ENUMS[name].items():
+        for key, expected in expected_enums[name].items():
             value = values.get(key)
             require(type(value) is int and (expected is None or value == expected), f"registered {name}.{key} differs")
             constants[key] = value
-        enums[name] = {key: constants[key] for key in ENUMS[name]}
-    require(enums.keys() == ENUMS.keys(), "registered 34.0 chamfer enums are incomplete")
+        enums[name] = {key: constants[key] for key in expected_enums[name]}
+    require(enums.keys() == expected_enums.keys(), "registered 34.0 chamfer enums are incomplete")
     return constants, {"model_library": model_id, "constants_library": constants_id,
                        "interfaces": interfaces, "constants": enums}

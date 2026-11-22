@@ -14,7 +14,16 @@ EDGE_MARK = 1
 
 
 class ChamferAuthor(FilletAuthor):
+    feature_name = CHAMFER
+
     def author(self, case, session, stock):
+        manager, edge, proof = self.author_stock(case, session, stock)
+        self.create_chamfer(manager, edge, proof, self.profile_params(case, False))
+
+    def profile_params(self, case, edited):
+        return values_si(case, edited)
+
+    def author_stock(self, case, session, stock):
         template = Path(self.rec.call("locate installed default part template", session.template, "part"))
         require(template.is_absolute() and template.is_file(), "installed part template is unavailable")
         self.rec.data["part_template_sha256"] = self.rec.call("hash part template", digest, template)
@@ -35,9 +44,9 @@ class ChamferAuthor(FilletAuthor):
         self.check_face_areas(self.one_body(), stock, "unbeveled")
         endpoints = [self.transform(point, inverse) for point in stock["source_edge"]]
         edge, proof = self.find_edge(endpoints, boss)
-        self.create_chamfer(manager, edge, proof, values_si(case, False))
+        return manager, edge, proof
 
-    def create_chamfer(self, manager, edge, proof, params):
+    def select_chamfer(self, edge, proof):
         self.get(self.model, "ClearSelection2", True)
         selection = self.get(self.model, "SelectionManager")
         data = self.get(selection, "CreateSelectData")
@@ -50,10 +59,13 @@ class ChamferAuthor(FilletAuthor):
                 and self.same(self.typed(selected, "Edge"), edge), "selection did not retain the one marked stock edge")
         self.rec.data["authored_edge"] = proof | {"mark": EDGE_MARK, "counts": counts, "selection_kind": kind}
         self.rec.flush()
+
+    def create_chamfer(self, manager, edge, proof, params):
+        self.select_chamfer(edge, proof)
         feature = self.get(manager, "InsertFeatureChamfer", 0, self.constants["swChamferAngleDistance"],
                            *params, 0.0, 0.0, 0.0, 0.0)
         require(feature is not None, "InsertFeatureChamfer returned no feature for the exact edge")
-        self.set(feature, "Name", CHAMFER)
+        self.set(feature, "Name", self.feature_name)
         self.get(self.model, "ClearSelection2", True)
 
     def definition(self, feature, boss, endpoints, params):
@@ -98,7 +110,7 @@ class ChamferAuthor(FilletAuthor):
         return {"type": kind, "fields": fields, "edge": proof, "feature_reference": self.reference(feature),
                 "parents": [str(self.get(parent, "Name")) for parent in parents]}
 
-    def display_drivers(self, feature, params):
+    def driver_inventory(self, feature):
         preference = self.constants["swDisplayFeatureDimensions"]
         old = bool(self.get(self.model, "GetUserPreferenceToggle", preference))
         inventory, live = [], {}
@@ -119,6 +131,10 @@ class ChamferAuthor(FilletAuthor):
                     "unable to restore native display preference")
         self.rec.data["last_native_driver_inventory"] = inventory
         self.rec.flush()
+        return inventory, live
+
+    def display_drivers(self, feature, params):
+        inventory, live = self.driver_inventory(feature)
         require(len(live) == 2, "expected two distinct actual driving chamfer handles")
         bindings = {}
         for role, expected in zip(ROLES, params, strict=True):
@@ -144,7 +160,7 @@ class ChamferAuthor(FilletAuthor):
             return
         pieces = name.split("@")
         path = str(self.get(self.model, "GetPathName"))
-        require(len(pieces) == 3 and re.fullmatch(r"D[1-9][0-9]*", pieces[0]) and pieces[1] == CHAMFER
+        require(len(pieces) == 3 and re.fullmatch(r"D[1-9][0-9]*", pieces[0]) and pieces[1] == self.feature_name
                 and (not path or pieces[2].casefold() == (Path(path).stem + ".Part").casefold()),
                 f"unexpected editable model driver owner: {name}")
         require(name not in live or self.same(live[name][1], dimension), "two native handles use the same driver name")
@@ -200,14 +216,14 @@ class ChamferAuthor(FilletAuthor):
         configurations = list(self.get(self.model, "GetConfigurationNames") or ())
         active = self.get(self.get(self.model, "ConfigurationManager"), "ActiveConfiguration")
         require(configurations == [str(self.get(active, "Name"))], "source is outside the sole ordinary configuration")
-        tree = self.feature_tree(required_names=(SKETCH, BOSS, CHAMFER))
+        tree = self.feature_tree(required_names=(SKETCH, BOSS, self.feature_name))
         names = [row["name"] for row in tree]
-        require(names.index(BOSS) < names.index(CHAMFER), "native feature tree reordered the chamfer before its stock")
+        require(names.index(BOSS) < names.index(self.feature_name), "native feature tree reordered the chamfer before its stock")
         stock = self.inspect_feature(BOSS, SKETCH, case["size_mm"][2], True)
         require(not stock["reverse"], "native box stock reversed its authored depth")
         profile, inverse = self.inspect_profile(SKETCH, self.profile(case))
-        boss, feature = (self.get(self.model, "FeatureByName", name) for name in (BOSS, CHAMFER))
-        params = values_si(case, edited)
+        boss, feature = (self.get(self.model, "FeatureByName", name) for name in (BOSS, self.feature_name))
+        params = self.profile_params(case, edited)
         endpoints = [self.transform(point, inverse) for point in plan["stock"]["source_edge"]]
         definition = self.definition(feature, boss, endpoints, params)
         body = self.one_body()

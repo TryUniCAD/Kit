@@ -15,3 +15,24 @@ The expected edge archive words are `0x12` for type 2 with equality enabled and 
 Use a narrow matched source control on one displaced rectangular Front blind boss and the same vertical convex edge. Author the shared 4.875 mm setback and a separate 4.875 mm by 8.375 mm chamfer. The documented insertion arguments place the shared distance in OtherDist and the two independent distances in the first and second edge-distance positions. Verify exact registered getter signatures and the observed type and equality bit. Use the existing marked edge and rollback checks, measure each physical setback against independently computed bevel vertices, and reopen and edit the one shared driver and the real second independent driver. The first required evidence is each mode's original and edited typed archive identity, including stable distinct handles for the asymmetric case and the unchanged first leg. Surround both lifecycles with healthy controls. [Insertion API](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeatureManager~InsertFeatureChamfer.html)
 
 The [static probe](../../tooling/sw2026/edge_chamfer_source/distance_pair/ProbeChamferPairOwners.py) verifies exported function identities, selected call/control-flow anchors and original file range digests without executing the licensed module. It reads and replays the four pinned angle-distance streams in four independent guarded workers. The current linked reader and public registry retain their existing refusal boundary.
+
+## Disclosed source probe
+
+The [source runner](../../tooling/sw2026/edge_chamfer_source/distance_pair/RunChamferPair.py)
+freezes the two disclosed cases, an existing healthy control, and the exact
+committed source tool closure. The registered 2026 type library verifies
+the two distance mode flags and `EqualDistance` before either case opens.
+Both parts use the same marked convex edge of a displaced rectangular boss.
+The insertion call supplies the common setback in `OtherDist` for the equal
+case and two independent distances in the first and second side arguments
+for the asymmetric case. [Mode flags](https://help.solidworks.com/2026/English/api/swconst/SOLIDWORKS.Interop.swconst~SOLIDWORKS.Interop.swconst.swChamferType_e.html)
+[Insertion arguments](https://help.solidworks.com/2024/english/api/sldworksapi/SolidWorks.Interop.sldworks~SolidWorks.Interop.sldworks.IFeatureManager~InsertFeatureChamfer.html)
+
+Each source phase measures the live feature tree, actual rolled-back edge
+and driver inventory. An independent polygon calculation verifies each
+bevel's physical orientation and six-figure body measurements. The equal
+case edits its shared driving value. The asymmetric case edits only its
+second driver and independently checks its first value after the edit.
+Original authoring, edit/save and reopened geometry use fresh processes
+with a known healthy control at both ends. The disclosed result supports
+field analysis and remains outside the protected qualification cohort.
