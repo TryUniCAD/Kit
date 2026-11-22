@@ -9,6 +9,7 @@ from pytest import mark as TestMark, raises as RaisesError
 from convert.api import open_document as OpenDocument, write_document as WriteDocument
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import (
     PrepareEllipse,
 )
@@ -19,6 +20,7 @@ from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.Enums.EnumValues import ParameterRole
 from interchange.document.Models.DocumentModel import CadDocument
+from tests.Convert.Solidworks.EllipseWriting.MakeExtraEllip import MakeExtraEllip
 from tests.Convert.Solidworks.EllipseWriting.MakeEllipseDoc import (
     MakeEllipseDoc,
     ReadEllipseCase,
@@ -127,3 +129,27 @@ def TestOffsetEllip() -> None:
     with RaisesError(ValueError, match="offline native measurement"):
         _ = SldprtWriter().write(Document, Target, Settings)
     assert Target.tell() == 0 and Target.getvalue() == b""
+
+
+# unsupported extra sketch ownership must refuse strict reading and remain visible in permissive inspection
+def TestEllipExtra() -> None:
+    Document = MakeEllipseDoc(0)
+    _, CaseValue, _ = ReadEllipseCase(0)
+    Clock = CastValue(int, CaseValue["written_at"])
+    Settings = WriteOptions(values={"final_destination": CaseValue["locator"]})
+    Candidate = PrepareEllipse(Document, BytesIO(), Clock, Settings)
+    Payload = MakeExtraEllip(Candidate)
+    Diagnostic = "full ellipse is outside the verified cold archive profile"
+    for Geometry in (False, True):
+        with RaisesError(SldprtFormat, match=Diagnostic):
+            _ = OpenDocument(
+                Payload, source_format=KPartFormatId, include_brep=Geometry
+            )
+    Partial = OpenDocument(
+        Payload, source_format=KPartFormatId, include_brep=False, strict=False
+    )
+    assert tuple(Sketch.name for Sketch in Partial.sketches) == (
+        "EllipseProfile",
+        "ExtraProfile",
+    )
+    assert any(Diagnostic in Record.message for Record in Partial.diagnostics)

@@ -66,7 +66,8 @@ def point_on_face(surface, uv):
 
 
 def require_ellipse(point, prediction):
-    center, major, minor = prediction["points_m"][0], *prediction["unit_axes"]
+    center = prediction["points_m"][0]
+    major, minor = prediction["unit_axes"]
     dx, dy = point[0] / 1000 - center[0], point[1] / 1000 - center[1]
     radius_a, radius_b = prediction["radii_m"]
     value = ((dx * major[0] + dy * major[1]) / radius_a) ** 2 + ((dx * minor[0] + dy * minor[1]) / radius_b) ** 2
