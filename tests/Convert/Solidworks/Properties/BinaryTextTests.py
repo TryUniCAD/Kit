@@ -53,6 +53,10 @@ def TestBinaryText() -> None:
             f"SOLIDWORKS part text properties are unavailable for writing ({CauseValue})"
         )
     Advanced = CastValue(dict[str, object], ReportValue["advanced"])
+    Malformed = CastValue(dict[str, object], ReportValue["malformed"])
+    LegacySupport = CastValue(str, Malformed["portability_refusal"])
+    assert LegacySupport.startswith("unqualified SOLIDWORKS sketch support references")
+    assert LegacySupport.endswith("sldprt:sketch:40")
     EmptyValue = CastValue(dict[str, object], ReportValue["empty"])
     assert EmptyValue["manager_sha256"] == KEmptyHash
     assert Advanced["property_xml"] == EmptyValue["property_xml"] == []

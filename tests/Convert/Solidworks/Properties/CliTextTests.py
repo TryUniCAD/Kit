@@ -14,8 +14,7 @@ def TestCliTextCopy(TmpPath: FilePath) -> None:
     TargetPath = TmpPath / "target.json"
     Original = Geometry.to_json()
     _ = SourcePath.write_text(Original, encoding="utf-8")
-    Arguments = ("convert", str(SourcePath), str(TargetPath), "--json")
-    Copied = CliProcess(TmpPath, *Arguments)
+    Copied = CliProcess(TmpPath, "convert", str(SourcePath), str(TargetPath), "--json")
     assert Copied.returncode == 0, Copied.stderr
     Output = TargetPath.read_bytes()
     assert LoadJson(Output) == LoadJson(Original)
@@ -40,13 +39,14 @@ def TestCliTextCopy(TmpPath: FilePath) -> None:
     assert Portability.startswith("unqualified SOLIDWORKS sketch support references")
     assert Portability.endswith(": sketch")
     assert TargetPath.read_bytes() == Output
-    Filtered = CliProcess(
-        TmpPath, *NativeArgs, "--configuration", DocumentValue.configurations[0].name
-    )
-    assert Filtered.returncode == 1 and Filtered.stdout == ""
-    assert LoadJson(Filtered.stderr)["message"] == (
-        f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})"
-    )
-    assert TargetPath.read_bytes() == Output
-    assert SourcePath.read_text(encoding="utf-8") == Original
     assert NativePath.read_text(encoding="utf-8") == NativeJson
+    InspectionJson = ReplaceValue(DocumentValue, source=Geometry.source).to_json()
+    _ = NativePath.write_text(InspectionJson, encoding="utf-8")
+    for Selection in ((), ("--configuration", Geometry.configurations[0].name)):
+        Refused = CliProcess(TmpPath, *NativeArgs, *Selection)
+        assert Refused.returncode == 1 and Refused.stdout == ""
+        assert LoadJson(Refused.stderr)["message"] == (
+            f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})"
+        )
+        assert TargetPath.read_bytes() == Output
+    assert NativePath.read_text(encoding="utf-8") == InspectionJson

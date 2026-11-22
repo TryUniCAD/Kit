@@ -10,6 +10,7 @@ from PartTextProbe import check_model, model_state, read_part, refuse_output, re
 from convert import convert
 from convert.adapters.solidworks.Container.Archive import EncodeClass
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+from convert.Formats.CheckSourceText import CheckSourceText
 
 MANAGER = "Contents/CusProps"
 INVALID_OWNER_CAUSE = (
@@ -58,6 +59,11 @@ def inspect(path, case):
             operation, "native-only feature definitions cannot be exported",
             "sldprt:feature:-1", "Sheet-Metal Master",
         )
+    elif case == "malformed":
+        state["portability_refusal"] = refuse_output(
+            operation, "unqualified SOLIDWORKS sketch support references", "sldprt:sketch:40",
+        )
+        state["refusal"] = refuse_write(lambda _: CheckSourceText(observed), cause)
     else:
         state["refusal"] = refuse_write(operation, cause)
     if path.read_bytes() != raw:
