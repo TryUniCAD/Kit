@@ -98,8 +98,8 @@ def run(packet, expected, trial):
     require(os.name == "nt", "the native observer runs in the Windows guest")
     import pythoncom
 
-    require(machine().casefold() == "amd64" and pythoncom.IID_IDispatch is not None,
-            "the native observer needs the registered x64 COM runtime")
+    require(pythoncom.IID_IDispatch is not None,
+            "the native observer needs its registered COM runtime")
     job = read_job(packet, expected)
     require(not application_pids(), "the oracle must be idle before the bracket")
     require(fullmatch(r"Trial[0-9]{2}", trial), "choose a fresh exact native trial")
