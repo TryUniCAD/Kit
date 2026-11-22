@@ -20,9 +20,10 @@ def MakeOffsetPlane(Source: FilePath, Target: FilePath) -> None:
             continue
         Entities[Index] = CopyData(
             Entity,
-            OriginCm=tuple(
-                Point + Normal
-                for Point, Normal in zip(Entity.OriginCm, Entity.Normal, strict=True)
+            OriginCm=(
+                Entity.OriginCm[0] + Entity.Normal[0],
+                Entity.OriginCm[1] + Entity.Normal[1],
+                Entity.OriginCm[2] + Entity.Normal[2],
             ),
         )
         _ = Target.write_bytes(
