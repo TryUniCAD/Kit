@@ -44,7 +44,7 @@ identifiers and stamps in the receipt are observations.
 ## Reproduction
 
 ```sh
-python3.14 -I -B /Users/odin/.codex/worktrees/solidworks-attached-radius-child/Kit/re/tooling/sw2026/CheckAttachRadiusRead.py \
+python3.14 -I -B re/tooling/sw2026/CheckAttachRadiusRead.py \
   --packet /absolute/disclosed/RadialConcentric01 \
   --output /tmp/UnusedAttachedRadiusRead.json
 ```
@@ -85,7 +85,7 @@ agree with the earlier construction. Strict SDK readback also agrees
 with the neutral input owners and independent analytic body metrics.
 
 ```sh
-python3.14 -I -B /Users/odin/.codex/worktrees/solidworks-attached-radius-child/Kit/re/tooling/sw2026/VerifyAttachedRadiusBuild.py \
+python3.14 -I -B re/tooling/sw2026/VerifyAttachedRadiusBuild.py \
   --intent /absolute/disclosed/IndependentRequest.json \
   --packet /absolute/disclosed/RadialConcentric01 \
   --output /tmp/UnusedAttachedRadiusBuild.json
@@ -107,6 +107,22 @@ records the exact different file. Only `Header2` and
 declares the original recursive tree, the actual radius and depth
 drivers and the independent `34.125 mm` blind edit. The identical
 geometry and parameter checks apply after fresh native reopen.
+
+## Standalone observation and control failure
+
+The exact 10,863-byte standalone candidate opened, rebuilt, accepted the
+34.125 mm blind edit, saved and reopened in independent SOLIDWORKS 2026
+SP05.2 processes. The initial and edited trees each had 25 ordered entries.
+The one solid retained its three faces, 7.19 mm radius, and two live drivers.
+The initial control passed. The trailing control lost its COM interface at
+`Parameter` after 20 numerical comparisons. This batch grants zero
+native qualification.
+
+The unchanged candidate was queued again with a local copy of the control.
+Both retry controls failed during COM activation and the candidate never
+launched. A separate, previously healthy ordinary revolve failed during
+activation with the same COM error. The qualification remains pending.
+[Standalone observation and control receipt](../measurements/2026/AttachedRadiusStandaloneControlBoundary01.json)
 
 The remaining delivery work is the standalone native lifecycle at that
 locator and the runtime neutral topology and authored presentation
