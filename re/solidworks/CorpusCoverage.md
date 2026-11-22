@@ -989,6 +989,16 @@ section below retains the five documented historical path names. An exact match
 requires the original file hash, including for the old Windows AssemblyExample.
 [Audit inventory counting](../../Documentation/Gotchas/Conversion/Freecad/AuditCountsResolvedPaths.md)
 
+The original audit ran from the repository root. It recorded two assembly
+paths under the ignored `.rescratch/` directory and three under the ignored
+`examples/Random/` directory. A later example relocation updated the
+three written path names to `re/solidworks/examples/Random/`. The audit
+invocation printed its per-file rows to stdout. Its optional JSON recorded
+generated output sizes and no source hashes. The retained target-side
+inventory describes native outputs.
+[Original assembly paths](https://github.com/TryUniCAD/Kit/blob/2ac05f439476115605ee911cf6eef6fc4221129e/re/solidworks/CorpusCoverage.md#L18-L36)
+· [Historical target inventory](https://github.com/TryUniCAD/Kit/blob/48ff095c940efb439c5aea674484bff1522412b6/re/data/Inventories/CorpusCensusPerFile.json)
+
 A fresh host inventory recovered 171 resolved paths across CADMPEG (57), FreeCAD
 1.1.4 resources (45), GA3D BasicBot (68), and LulzBot TAZ6 (1). Its 162 SHA-256
 identities and Document.xml object type counts match the retained inventory.
