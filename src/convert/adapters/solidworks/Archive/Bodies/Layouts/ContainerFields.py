@@ -32,5 +32,17 @@ KContainerFields = MappingProxyType(
                 CountValue="n",
             ),
         ),
+        "su_CMapStringToInt": (
+            NativeField(
+                "Array",
+                "items",
+                "Framework",
+                BodyValue=(
+                    NativeField("Text", "k"),
+                    NativeField("Scalar", "v", "i32"),
+                ),
+                CountValue="n",
+            ),
+        ),
     }
 )

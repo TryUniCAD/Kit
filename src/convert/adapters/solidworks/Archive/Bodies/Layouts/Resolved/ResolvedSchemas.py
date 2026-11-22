@@ -1,13 +1,13 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigSchemas import (
-    KConfigSchemas,
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartSchemas import (
+    KPartSchemas,
 )
 
 # current resolved object descriptors extend the pinned configuration class vocabulary without guessing schemas
 KResolvedSchemas = MappingProxyType(
     {
-        **KConfigSchemas,
+        **KPartSchemas,
         "AngleDim_c": (1,),
         "ParallelPlaneDistanceDim_c": (1,),
         "moAngleParameter_c": (1,),

@@ -12,6 +12,24 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBoundsMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBranchMut import (
     WriteBranchMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBooleanMut import (
+    WriteBooleanMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteBytesMut import (
+    WriteBytesMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteContextMut import (
+    WriteContextMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WriteOwnedMut import (
+    WriteOwnedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
+    WritePackedMut,
+)
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
+    WritePresentMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteDirectMut import (
     WriteDirectMut,
 )
@@ -26,9 +44,6 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteMassMut import (
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNormalMut import (
     WriteNormalMut,
-)
-from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
-    WritePresentMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSectionMut import (
     WriteSectionMut,
@@ -47,13 +62,18 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValueMut import (
 KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] = (
     MappingProxyType(
         {
+            "Boolean": WriteBooleanMut,
+            "Bytes": WriteBytesMut,
+            "Context": WriteContextMut,
+            "DirectNode": WriteOwnedMut,
+            "Present": WritePresentMut,
+            "Packed": WritePackedMut,
             "Scalar": WriteValueMut,
             "Text": WriteValueMut,
             "Node": WriteValueMut,
             "Base": WriteNestedMut,
             "Embed": WriteNestedMut,
             "Array": WriteArrayMut,
-            "Present": WritePresentMut,
             "Branch": WriteBranchMut,
             "Length": WriteLengthMut,
             "Repeat": WriteArrayMut,

@@ -1,3 +1,4 @@
+from collections.abc import Mapping
 from dataclasses import dataclass as Dataclass
 
 from convert.adapters.solidworks.Core.NativeOperand import NativeOperand
@@ -16,3 +17,4 @@ class NativeDimension:
     operands: tuple[NativeOperand, ...] = ()
     inch_display_value: float | None = None
     native_stream: str | None = None
+    TypedOwner: Mapping[str, object] | None = None

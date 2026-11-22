@@ -171,6 +171,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 )
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -2228,6 +2231,8 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     )
     if SelectedStream == KitResolvedStream:
         return Model
+
+    Model = WithTypedNative(Model, Archive)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(
@@ -2309,7 +2314,9 @@ def Parameters(
                         else ParamRole.DRIVING
                     ),
                     owner_id=FeatureId(Feature.object_id),
-                    provenance=(
+                    provenance=TypedProvenance(
+                        Dimension.TypedOwner or {}, f"{Feature.object_id}:{Dimension.name}"
+                    ) or (
                         ProvenanceA(
                             f"{Feature.object_id}:{Dimension.name}",
                             Dimension.native_offset,
@@ -2338,6 +2345,11 @@ def Parameters(
                                 else {}
                             ),
                             "native_role": Dimension.native_role or "unresolved",
+                            **(
+                                {"typed_archive_owner": Dimension.TypedOwner}
+                                if Dimension.TypedOwner is not None
+                                else {}
+                            ),
                             "native_operands": tuple(
                                 (
                                     {
@@ -2760,6 +2772,8 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
+    if Sketch.TypedLines is not None:
+        return LineSketch(Sketch)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities

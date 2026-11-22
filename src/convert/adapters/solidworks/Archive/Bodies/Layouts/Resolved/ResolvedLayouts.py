@@ -1,7 +1,7 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.ConfigLayouts import (
-    KConfigLayouts,
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
+    KPartLayouts,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AssemblyFields import (
     KAssemblyFields,
@@ -43,7 +43,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.SketchFields im
 # resolved field owners share the same typed serialization kernel and existing configuration definitions
 KResolvedLayouts = MappingProxyType(
     {
-        **KConfigLayouts,
+        **KPartLayouts,
         **KAssemblyFields,
         **KBodyFields,
         **KComponentFields,

@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.BodySchemas import KBody
 from convert.adapters.solidworks.Archive.Bodies.Layouts.BodyVirtuals import (
     KBodyVirtuals,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
+    KPartLayouts,
+)
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 
 
@@ -12,7 +15,7 @@ from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 def MakeCmgrContext(VersionValue: int, UsageValue: BodyUsage | None) -> BodyContext:
     return BodyContext(
         VersionValue,
-        KBodyLayouts,
+        KPartLayouts | KBodyLayouts,
         KBodyVirtuals,
         KBodySchemas,
         NewBodyUsage(VersionValue, UsageValue),
