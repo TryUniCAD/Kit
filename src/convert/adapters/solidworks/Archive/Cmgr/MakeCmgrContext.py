@@ -2,11 +2,16 @@ from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import KPartLayouts
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartSchemas import KPartSchemas
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
+    KPartLayouts,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartSchemas import (
+    KPartSchemas,
+)
 from convert.adapters.solidworks.Archive.Bodies.NewBodyUsage import NewBodyUsage
 from convert.adapters.solidworks.Archive.Cmgr.ManagerFields import KManagerRecordRules
 
+# manager and part configuration records use distinct section and feature dispatch
 KManagerVirtuals = MappingProxyType(
     {
         ("moConfigurationMgr_c", 0x4B8): "moConcept_c.SerializeLWData",
@@ -20,13 +25,15 @@ KManagerVirtuals = MappingProxyType(
     }
 )
 
+
 # manager admission retains its distinct registry while sharing ordinary version and evidence guards
 def MakeCmgrContext(VersionValue: int, UsageValue: BodyUsage | None) -> BodyContext:
     return BodyContext(
         VersionValue,
         KPartLayouts | KManagerRecordRules,
         KManagerVirtuals,
-        KPartSchemas | {
+        KPartSchemas
+        | {
             "moConfigurationMgr_c": (1,),
             "moCustomPropertyList": (1,),
             "moPartConfiguration_c": (1,),

@@ -12,6 +12,27 @@ from convert.adapters.solidworks.Archive.Expressions.ReadExpression import (
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
+# context flags define the same branches for reading and writing without inspecting inline fields
+def BranchByFlag(FlagsValue: dict[str, int], RuleValue: NativeField) -> bool | None:
+    ModeValue = RuleValue.ModeValue
+    Conditions = FlagsValue.get("conditions", 0)
+    if ModeValue == "Context":
+        return bool(FlagsValue.get(RuleValue.NameValue, 0))
+    if ModeValue in ("Condition", "NotCondition"):
+        IsSet = bool(Conditions & RuleValue.MaskValue)
+        return IsSet if ModeValue == "Condition" else not IsSet
+    if ModeValue == "NotContext":
+        return not FlagsValue.get(RuleValue.NameValue, 0)
+    if ModeValue == "ConditionsClear":
+        return Conditions == 0
+    if ModeValue == "PeNoise":
+        return bool(
+            (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
+            or FlagsValue.get("pe_file", 0)
+        )
+    return None
+
+
 # the native feature prefixes select their fields from the owning scope and archive flags
 def IsBranchTaken(
     ContextValue: BodyContext,
@@ -19,8 +40,6 @@ def IsBranchTaken(
     RuleValue: NativeField,
     NodeValue: ArchiveNode,
 ) -> bool:
-    FlagsValue = ContextValue.FlagsValue
-    Conditions = FlagsValue.get("conditions", 0)
     ModeValue = RuleValue.ModeValue
     if ModeValue == "Expression" and RuleValue.ExpressionValue:
         return bool(
@@ -38,20 +57,9 @@ def IsBranchTaken(
     if ModeValue == "BitsEqual":
         Value = CastValue(int, ReadScopeValue(ScopeValue, RuleValue.NameValue))
         return Value & RuleValue.MaskValue == RuleValue.CompareValue
-    if ModeValue == "Context":
-        return bool(FlagsValue.get(RuleValue.NameValue, 0))
-    if ModeValue in ("Condition", "NotCondition"):
-        IsSet = bool(Conditions & RuleValue.MaskValue)
-        return IsSet if ModeValue == "Condition" else not IsSet
-    if ModeValue == "NotContext":
-        return not FlagsValue.get(RuleValue.NameValue, 0)
-    if ModeValue == "ConditionsClear":
-        return Conditions == 0
-    if ModeValue == "PeNoise":
-        return bool(
-            (FlagsValue.get("pe_active", 0) and FlagsValue.get("pe_helper", 0))
-            or FlagsValue.get("pe_file", 0)
-        )
+    FlagResult = BranchByFlag(ContextValue.FlagsValue, RuleValue)
+    if FlagResult is not None:
+        return FlagResult
     if ModeValue == "Equals":
         return ReadScopeValue(ScopeValue, RuleValue.NameValue) == RuleValue.MaskValue
     if ModeValue == "Greater":
