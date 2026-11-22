@@ -29,6 +29,24 @@ def require(condition, message):
         raise ValueError(message)
 
 
+def replay_manager(root):
+    writer = BodyWriter(ArchiveMaps(1), MakeCmgrContext(VERSION, None, ReadLinked=True), WriteBodyMut)
+    WriteNodeMut(writer, root)
+    return bytes(writer.OutputValue)
+
+
+def replay_resolved(config_map, model_root, resolved):
+    context = MakeResolvedCtx(VERSION, config_map, resolved.ContextValue, None, ChamferLayout=True)
+    UseShellCtxMut(context)
+    writer = BodyWriter(ArchiveMaps(resolved.MapBase, config_map), context, WriteBodyMut)
+    writer.OutputValue.extend(EncodeScalar(resolved.MapBase, "u32"))
+    writer.OutputValue.extend(EncodeCount(len(resolved.RootsValue)))
+    for row in resolved.RootsValue:
+        WriteNodeMut(writer, row)
+    WriteMbsMut(writer, model_root, resolved.ExtraFields)
+    return bytes(writer.OutputValue)
+
+
 def replay_case(disclosure, name):
     identity, start, end, thickness = CASES[name]
     raw = (disclosure / name).read_bytes()
@@ -53,20 +71,12 @@ def replay_case(disclosure, name):
     metres = value.FieldsValue["f28"].FieldsValue["f58"]
     require(value.ClassValue.NameValue == "ThreeDRadiusDim_c"
             and metres == thickness, "actual thickness changed")
-    manager_writer = BodyWriter(ArchiveMaps(1), MakeCmgrContext(VERSION, None, ReadLinked=True), WriteBodyMut)
-    WriteNodeMut(manager_writer, root)
+    manager_data = replay_manager(root)
     config_data, config_replay = WriteConfigMut(configuration.RootValue, VERSION, configuration.HeaderValue)
-    context = MakeResolvedCtx(VERSION, config_replay.MapValue, resolved.ContextValue, None, ChamferLayout=True)
-    UseShellCtxMut(context)
-    writer = BodyWriter(ArchiveMaps(resolved.MapBase, config_replay.MapValue), context, WriteBodyMut)
-    writer.OutputValue.extend(EncodeScalar(resolved.MapBase, "u32"))
-    writer.OutputValue.extend(EncodeCount(len(resolved.RootsValue)))
-    for row in resolved.RootsValue:
-        WriteNodeMut(writer, row)
-    WriteMbsMut(writer, configuration.RootValue, resolved.ExtraFields)
+    resolved_data = replay_resolved(config_replay.MapValue, configuration.RootValue, resolved)
     result = {}
-    for stream, encoded in (("Contents/CMgr", manager_writer.OutputValue), (linked.ConfigName, config_data),
-                            (linked.StreamName, writer.OutputValue)):
+    for stream, encoded in (("Contents/CMgr", manager_data), (linked.ConfigName, config_data),
+                            (linked.StreamName, resolved_data)):
         require(encoded == archive.require(stream), f"{stream} typed replay differs")
         result[stream] = {"sha256": sha256(encoded).hexdigest(), "bytes": len(encoded)}
     return {"sha256": identity, "config_base": resolved.MapBase, "resolved_end": resolved.MapValue.CounterValue,

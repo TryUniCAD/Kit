@@ -276,6 +276,12 @@ Do not infer rebuild order from physical stream order alone.
 Boss and cut behavior can depend on several related records.
 A single flag change is not a general operation converter.
 
+For the saved 2026 rectangular inward open-shell profile, strict inspection
+projects the actual historical stock cap and live `D1` owner. Full and
+design-only reads validate the same active saved body. Unsupported shell
+ownership or modes keep a native-only fallback in permissive inspection.
+[Saved open-shell readback](../../Changes/Solidworks/Inspection/SolidworksSavedOpenShell.md)
+
 ## Writing
 
 The shared atom manager encoder derives its row count and map allocation

@@ -178,13 +178,31 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import Typed
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfDoc import BindChmfDoc
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfModel import BindChmfModel
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import BuildChmfGeom
-from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import ChmfPartRead
+from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import (
+    ChmfPartRead,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
     IsChmfFeature,
     KChmfRejected,
     TryColdChmf,
 )
-from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedResolved.Shells.BindShellDoc import (
+    BindShellDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.BindShellCache import (
+    BindShellCache,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.ShellPartRead import (
+    ShellPartRead,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.TryOpenShell import (
+    IsShellFeature,
+    KShellRejected,
+    TryOpenShell,
+)
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -371,7 +389,7 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model, ChamferValue = ReadBoundPart(Archive, Settings, ModelValue)
+    Model, ChamferValue, ShellValue = ReadBoundPart(Archive, Settings, ModelValue)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -380,7 +398,9 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings, ChamferValue=ChamferValue)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(
+        Archive, Model, Settings, ChamferValue=ChamferValue
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -391,14 +411,18 @@ def ReadNativePart(
         else None
     )
     ActivePart = (
-        ReadActivePart(
-            Payloads,
-            Model.active_configuration_id,
-            TypedBodyId(Model),
-            (Record.name for Record in Archive.records),
+        BindShellCache(ShellValue.CacheValue, Payloads, KPartBodyId)
+        if ShellValue is not None
+        else (
+            ReadActivePart(
+                Payloads,
+                Model.active_configuration_id,
+                TypedBodyId(Model),
+                (Record.name for Record in Archive.records),
+            )
+            if Candidate is None
+            else None
         )
-        if Candidate is None
-        else None
     )
     if ActivePart is not None or ColdBrep is not None:
         BrepValue, LocalOwner, LocalDiag = (
@@ -471,11 +495,17 @@ def ReadNativePart(
                     code=(
                         "sldprt.chamfer_history_unresolved"
                         if Message == KChmfRejected
-                        else "sldprt.native_record_unresolved"
+                        else (
+                            "sldprt.shell_history_unresolved"
+                            if Message == KShellRejected
+                            else "sldprt.native_record_unresolved"
+                        )
                     ),
                     message=Message,
                     severity=(
-                        Severity.KWarning if Message == KChmfRejected else Severity.INFO
+                        Severity.KWarning
+                        if Message in (KChmfRejected, KShellRejected)
+                        else Severity.INFO
                     ),
                 )
                 for Message in Model.diagnostics
@@ -534,35 +564,45 @@ def ReadNativePart(
         units=UnitSystem.MILLIMETER,
     )
     DocValue = ProjectPartDoc(
-        DocValue, Model, Archive, Payloads, Settings, ChamferValue=ChamferValue
+        DocValue,
+        Model,
+        Archive,
+        Payloads,
+        Settings,
+        ChamferValue=ChamferValue,
+        ShellValue=ShellValue,
     )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
 
 
-# the measured cold chamfer projection is separate from the unchanged native model fallback
+# typed modifier histories depend on the selected native model before neutral projection
 def ReadBoundPart(
     Archive: SldprtArchive, Settings: ReadOptions, ModelValue: NativeModel | None
-) -> tuple[NativeModel, ChmfPartRead | None]:
+) -> tuple[NativeModel, ChmfPartRead | None, ShellPartRead | None]:
     if ModelValue is not None:
         ModelValue, ChamferValue = TryColdChmf(Archive, ModelValue, Settings)
-        return (
-            BindChmfModel(ModelValue, ChamferValue) if ChamferValue is not None else ModelValue,
-            ChamferValue,
-        )
+        if ChamferValue is not None:
+            return BindChmfModel(ModelValue, ChamferValue), ChamferValue, None
+        ModelValue, ShellValue = TryOpenShell(Archive, ModelValue, Settings)
+        return ModelValue, None, ShellValue
     Model, ConfigData, Resolved, ConfigStream, ResolvedName = DecodePartBase(
         Archive, Settings.configuration
     )
     Model, ChamferValue = TryColdChmf(Archive, Model, Settings)
     if ChamferValue is not None:
-        return BindChmfModel(Model, ChamferValue), ChamferValue
+        return BindChmfModel(Model, ChamferValue), ChamferValue, None
+    Model, ShellValue = TryOpenShell(Archive, Model, Settings)
+    if ShellValue is not None:
+        return Model, None, ShellValue
     Refined = RefinePartModel(
         Archive, Model, ConfigData, Resolved, ConfigStream, ResolvedName
     )
-    if KChmfRejected in Model.diagnostics and KChmfRejected not in Refined.diagnostics:
-        Refined = Replace(Refined, diagnostics=(*Refined.diagnostics, KChmfRejected))
-    return Refined, None
+    for Message in (KChmfRejected, KShellRejected):
+        if Message in Model.diagnostics and Message not in Refined.diagnostics:
+            Refined = Replace(Refined, diagnostics=(*Refined.diagnostics, Message))
+    return Refined, None, None
 
 
 # cached payloads keep priority over geometry derived from a qualified cold archive
@@ -617,7 +657,10 @@ def ProjectPartDoc(
     Settings: ReadOptions,
     *,
     ChamferValue: ChmfPartRead | None = None,
+    ShellValue: ShellPartRead | None = None,
 ) -> CadDoc:
+    if ShellValue is not None:
+        return BindShellDoc(DocValue, ShellValue)
     if ChamferValue is not None:
         return BindChmfDoc(DocValue, ChamferValue)
     DocValue = ProjectCutDoc(DocValue, Model.cut_source)
@@ -3633,6 +3676,7 @@ def Timeline(
     }
     SelectionIds = {Selection.id for Selection in Selections}
     ChamferUnresolved = KChmfRejected in Model.diagnostics
+    ShellUnresolved = KShellRejected in Model.diagnostics
     PrincipalPlaneIds = {Plane.object_id for Plane in Model.planes if Plane.principal}
     PreviousOperation: int | None = None
     Result: list[FeatureStep] = []
@@ -3700,6 +3744,8 @@ def Timeline(
                         IsChmfFeature(Feature)
                         or (Operation is not None and Operation.kind == "chamfer")
                     )
+                    or ShellUnresolved
+                    and IsShellFeature(Feature)
                     else BuildFeature(Feature, Operation, SketchById, PlaneById)
                 ),
                 selection_ids=Selected,

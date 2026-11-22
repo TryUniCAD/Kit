@@ -10,10 +10,13 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSegment import Lin
 
 # exact degree and handle joins must establish one closed ring before public loop identities are emitted
 def LineOrder(
-    PointsValue: tuple[LinePoint, ...], LinesValue: tuple[LineSegment, ...]
+    PointsValue: tuple[LinePoint, ...],
+    LinesValue: tuple[LineSegment, ...],
+    *,
+    LineBase: int = 0,
 ) -> tuple[int, ...]:
     Incident = LineIncidence(PointsValue, LinesValue)
-    CheckHandles(PointsValue, Incident)
+    CheckHandles(PointsValue, Incident, LineBase=LineBase)
     OrderValue = [0]
     SeenValues = {0}
     StartValue, CurrentValue = LinesValue[0].StartValue, LinesValue[0].EndValue
