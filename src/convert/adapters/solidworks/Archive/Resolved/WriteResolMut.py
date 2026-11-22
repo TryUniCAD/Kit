@@ -1,6 +1,8 @@
 from collections.abc import Mapping, MutableMapping
+from functools import partial as BindArgs
 
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
+from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.NormalizeCount import NormalizeCount
@@ -14,6 +16,13 @@ from convert.adapters.solidworks.Archive.Resolved.CheckEllipUse import CheckElli
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
+    UseSweepCtxMut,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
+    CheckSweepUse,
+    WriteSwSchema,
+)
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
@@ -31,15 +40,28 @@ def WriteResolMut(
     UsageValue: BodyUsage | None = None,
     ReplayEllipses: bool = False,
     WriteChamfers: bool = False,
+    WriteSweeps: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    if WriteSweeps:
+        if ReplayEllipses or WriteChamfers or ExtraFields is not None:
+            raise BodyUnsupported(
+                "cold sweep requires its exclusive ordinary resolved context"
+            )
+        UseSweepCtxMut(ContextValue)
     if ReplayEllipses:
         UseEllipCtxMut(ContextValue)
     if WriteChamfers:
         UseChmfCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
-        ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut
+        ArchiveMaps(SeedValue.CounterValue, SeedValue),
+        ContextValue,
+        (
+            BindArgs(WriteBodyMut, SchemaWriter=WriteSwSchema)
+            if WriteSweeps
+            else WriteBodyMut
+        ),
     )
     WriterValue.OutputValue.extend(EncodeScalar(SeedValue.CounterValue, "u32"))
     WriterValue.OutputValue.extend(EncodeCount(len(RootsValue)))
@@ -48,6 +70,8 @@ def WriteResolMut(
     WriteMbsMut(WriterValue, FindModelRoot(SeedValue), ExtraFields)
     if ReplayEllipses:
         CheckEllipUse(ContextValue)
+    if WriteSweeps:
+        CheckSweepUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True
     GraphValue = ResolvedGraph(
         RootsValue,
