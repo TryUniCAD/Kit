@@ -1,0 +1,198 @@
+{
+  "configuration_dependency_parent": "1136c8f1f3edc344849d01d17361900a0c8e070a",
+  "disclosed_regression": {
+    "fresh_processes": 6,
+    "stdout_sha256": "d5f852cc90680be708b6a885c45a16a485740e5fdee9584eed071d9dac18b3e3"
+  },
+  "guarded_owner_cases": {
+    "cases": {
+      "wrong_block_owner": {
+        "body": [
+          "sldprt:body:1",
+          1,
+          1,
+          1
+        ],
+        "config_bytes": 26055,
+        "configuration": [
+          "modeled default",
+          true,
+          0
+        ],
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "info",
+            "SOLIDWORKS sketch block map requires its owning backlink"
+          ]
+        ],
+        "feature_count": 27,
+        "geometry_equal": true,
+        "removed_property_xml": [],
+        "status": {
+          "diagnostic": "SOLIDWORKS sketch block map requires its owning backlink",
+          "profile": "compatible_literal_text",
+          "status": "unsupported"
+        },
+        "text_scopes": [
+          false,
+          false,
+          false
+        ],
+        "write_refusals": {
+          "direct_write": "SOLIDWORKS part text properties are unavailable for writing (SOLIDWORKS sketch block map requires its owning backlink)",
+          "strict_convert": "SOLIDWORKS part text properties are unavailable for writing (SOLIDWORKS sketch block map requires its owning backlink)"
+        }
+      },
+      "wrong_header_name": {
+        "body": [
+          "sldprt:body:1",
+          1,
+          1,
+          1
+        ],
+        "config_bytes": 26055,
+        "configuration": [
+          "modeled default",
+          true,
+          0
+        ],
+        "diagnostics": [
+          [
+            "solidworks.part_text_properties_unavailable",
+            "info",
+            "part configuration properties differ from the saved ModelHeader name"
+          ]
+        ],
+        "feature_count": 27,
+        "geometry_equal": true,
+        "removed_property_xml": [],
+        "status": {
+          "diagnostic": "part configuration properties differ from the saved ModelHeader name",
+          "profile": "compatible_literal_text",
+          "status": "unsupported"
+        },
+        "text_scopes": [
+          false,
+          false,
+          false
+        ],
+        "write_refusals": {
+          "direct_write": "SOLIDWORKS part text properties are unavailable for writing (part configuration properties differ from the saved ModelHeader name)",
+          "strict_convert": "SOLIDWORKS part text properties are unavailable for writing (part configuration properties differ from the saved ModelHeader name)"
+        }
+      }
+    },
+    "contrasted_config": "4f2c4e72c7ef6d0375755f94a1bdf4697b7d2d39ae70883488cb727bcb43a614",
+    "contrasted_header": "e6aeb1a2e1e521b362fca37a9eaa62544295db51bfe3dd19fa0053a64bb45b7e",
+    "native_block_link": [
+      25227,
+      25229,
+      115,
+      2
+    ],
+    "native_header_names": [
+      "modeled default",
+      "shifted default"
+    ],
+    "original_header": "dbff4fc3e0c22cc292d30541648df2aef7e7e193c513d005ceb3cbc88e962a9a",
+    "positive_config": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+    "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+    "typed_external_accesses": 0,
+    "unscoped_text": [
+      true,
+      true,
+      false
+    ]
+  },
+  "pre_repair": {
+    "block_link": [
+      25227,
+      25229,
+      115,
+      2
+    ],
+    "head": "e63a95f2e031c8a165d5ef30a48f72f99d434d2d",
+    "header_names": [
+      "modeled default",
+      "shifted default"
+    ],
+    "status": {
+      "wrong_block": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      },
+      "wrong_header": {
+        "advanced_property_owners": false,
+        "archive_version": 19000,
+        "binary_configuration_values": "non_authoritative_cache",
+        "configuration_ids": [
+          0
+        ],
+        "profile": "compatible_literal_text",
+        "status": "complete"
+      }
+    }
+  },
+  "schema": "kit.sw2026.literal-part-text-owners.v1",
+  "shared_block_map_control": {
+    "archive_sha256": "b10214fafbec49f15aa21e2131e94df8f4050499827d725a1f040b31a6d3034e",
+    "backlink": [
+      24490,
+      24492,
+      98,
+      2
+    ],
+    "next_map_slot": 110,
+    "rows": 0,
+    "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+    "value": 2147483685,
+    "wire_offset": 24496,
+    "wrong_owner_refusal": "SOLIDWORKS sketch block map requires its owning backlink"
+  },
+  "snapshot_transport_contrast": {
+    "accepted_main": "f80da8caed2ca7a585c1aa85f22c1e13196761d5",
+    "config": "Inspection",
+    "full_observation_equal": true,
+    "input_sha256": "f291394aa4726485349b981b5f4a0e39cfc07e5df2d34baba57a10ce6b81992a",
+    "outputs": {
+      "compatibility": {
+        "full_document_equal": true,
+        "native_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations"
+        ],
+        "sha256": "b8abb25fd244299501c585a0efbcad28e9bb3e9fd1f75fa4a49370f61f0233f0"
+      },
+      "ordinary": {
+        "full_document_equal": true,
+        "native_capabilities": [
+          "body_structure",
+          "brep",
+          "configurations"
+        ],
+        "sha256": "b8abb25fd244299501c585a0efbcad28e9bb3e9fd1f75fa4a49370f61f0233f0"
+      }
+    },
+    "source_format_preserved": "solidworks.sldprt",
+    "transports": [
+      "interchange.json",
+      "interchange.json"
+    ]
+  },
+  "subject_sha256": {
+    "re/tooling/sw2026/part_text/CheckPartTextOwners.py": "3303aca22e7166cfbcb743864ee95826567462ca98f98e08c62f9263863b9c90",
+    "src/convert/adapters/solidworks/Archive/Config/Members/CheckBlockOwner.py": "cdca6a7047151fa957d6d2824c060ec1b51d58c59270ca763898c5d6f56ac52e",
+    "src/convert/adapters/solidworks/Archive/Config/ReadCfgBodyMut.py": "31176acd1088d49421008196f9ed1716a653a5e3e671e68a7185d441972be695",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "3241932b45d61f23f89b66e652c4b68753689f5e2369b91b79b260aa736a17d5",
+    "tests/Convert/Solidworks/Properties/OwnerTextTests.py": "30cccac830b237c607deab171da3f974ac54e683775b8a26c12df9a0d2ce4609"
+  },
+  "verified_configuration_dependency": "ce82b71fb3fba30ea51e7fb4b8ac4a37c3061f5a"
+}
