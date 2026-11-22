@@ -69,12 +69,12 @@ def TestBinaryText() -> None:
         == []
     )
     assert UnknownValue["result_manager_sha256"] == KPolicyHash
-    CheckEmptyText(Advanced, KAdvancedHash, "Default", 26)
-    CheckEmptyText(EmptyValue, KEmptyHash, "modeled default", 18)
+    AssertEmptyText(Advanced, KAdvancedHash, "Default", 26)
+    AssertEmptyText(EmptyValue, KEmptyHash, "modeled default", 18)
 
 
 # both physically different empty controls reach the independent native feature gate
-def CheckEmptyText(
+def AssertEmptyText(
     StateValue: dict[str, object], HashValue: str, NameValue: str, OwnerId: int
 ) -> None:
     assert (

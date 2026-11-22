@@ -8,13 +8,13 @@ from interchange.Enums.EnumDocument import Severity
 
 # independently decoded configuration rows must stay visible beside the remaining resolved field boundary
 def CheckCircleInfo(Document: CadDocument) -> None:
-    TypedInfo, PropertyInfo = Document.diagnostics
-    assert PropertyInfo.code == "solidworks.part_text_properties_unavailable"
-    assert PropertyInfo.severity == Severity.INFO
-    assert (
-        PropertyInfo.message
-        == "part properties require an empty compatible native manager"
+    (TypedInfo,) = Document.diagnostics
+    PropertyInfo = CastValue(
+        Mapping[str, object], Document.metadata["solidworks.part_text_properties"]
     )
+    assert PropertyInfo["status"] == "complete"
+    assert PropertyInfo["archive_version"] == KConfigGen
+    assert PropertyInfo["configuration_ids"] == (0,)
     ManagerInfo = CastValue(
         Mapping[str, object],
         Document.metadata["solidworks.typed_configuration_manager"],
