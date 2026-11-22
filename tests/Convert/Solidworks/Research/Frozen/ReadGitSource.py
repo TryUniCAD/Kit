@@ -28,11 +28,13 @@ def HydrateFrozen(Objects: list[str], InputData: bytes) -> None:
         if LineValue.endswith(" missing"):
             MissingIds.add(ObjectId)
     if MissingIds:
-        _ = RunProcess(
+        FetchResult = RunProcess(
             [
                 "git",
                 "-c",
                 "protocol.version=2",
+                "-c",
+                "fetch.negotiationAlgorithm=noop",
                 "fetch",
                 "--filter=blob:none",
                 "--no-tags",
@@ -44,8 +46,11 @@ def HydrateFrozen(Objects: list[str], InputData: bytes) -> None:
             cwd=KRepoRoot,
             input=("\n".join(sorted(MissingIds)) + "\n").encode("ascii"),
             capture_output=True,
-            check=True,
+            check=False,
             timeout=60,
+        )
+        assert FetchResult.returncode == 0, FetchResult.stderr.decode(
+            "utf-8", "replace"
         )
 
 
