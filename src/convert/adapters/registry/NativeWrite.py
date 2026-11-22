@@ -1,3 +1,4 @@
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.NativeEnds import EndFindings
 from convert.adapters.registry.NativeAssembly import AssemblyIssues
 from convert.adapters.registry.NativeFeatures import FeatureFindings
@@ -9,6 +10,7 @@ from interchange.Features.FeatureKinds import NativeFeature
 
 # shared conversion boundaries must reject incomplete native history even after source relabeling
 def CheckNative(Document: CadDocument) -> None:
+    CheckReadOnly(Document)
     Findings = sorted(
         {
             f"{PartValue.source.path}: {StepValue.id} ({Definition.format_id}:{Definition.type_id})"

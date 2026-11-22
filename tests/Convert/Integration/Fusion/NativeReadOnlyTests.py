@@ -1,0 +1,38 @@
+from io import BytesIO
+from tempfile import TemporaryDirectory
+from pathlib import Path as FilePath
+import pytest as Pytest
+from convert.api.ApiOpen import OpenDocument
+from convert.api.ApiWrite import WriteDocument
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.json.Adapter import JsonAdapter
+
+
+# public and direct writer boundaries must refuse native inspection graphs before touching destinations
+@Pytest.mark.parametrize(
+    "SourceName",
+    (
+        "BoundaryCuts/Controls/RequestedCorner.f3d",
+        "CircularSpans/Controls/Original/DiscFlip.f3d",
+        "CircularSpans/Controls/Original/DiscSymmetric.f3d",
+    ),
+)
+@Pytest.mark.parametrize("Validated", (True, False))
+def CheckReadExport(SourceName: str, Validated: bool) -> None:
+    RootPath = FilePath(__file__).resolve().parents[4]
+    Document = OpenDocument(RootPath / "re/Fusion/Reconstruction" / SourceName)
+    with TemporaryDirectory() as WorkName:
+        Target = FilePath(WorkName) / "unqualified.json"
+        with Pytest.raises(
+            ValueError, match="read-only Fusion histories cannot be exported"
+        ):
+            _ = WriteDocument(
+                Document, Target, DestFormat="interchange.json", ValidateData=Validated
+            )
+        assert not Target.exists()
+        Stream = BytesIO()
+        with Pytest.raises(
+            ValueError, match="read-only Fusion histories cannot be exported"
+        ):
+            _ = JsonAdapter().Write(Document, Stream, WriteOptions(validate=Validated))
+        assert Stream.getvalue() == b""

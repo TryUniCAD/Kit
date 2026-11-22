@@ -27,3 +27,7 @@ The public compatibility field list includes `output_body_ids` as the trailing F
 Circular spans and bounded cuts retain only the read-only marker in neutral metadata. They no longer embed the parsed native model or its archived payloads. Native re-emission remains unavailable for these projections. Process-boundary decode coverage checks that the native-state payload is absent.
 
 A separate malformed-archive CLI replay populates the semantic appearance map on a journal-compatible control and requires the exact map refusal. The native appearance control remains a separate early-journal refusal. Compatibility coverage restores a pre-field positional FeatureStep pickle and calls public document validation. These additions await remote execution; no local tests were run.
+
+## Export boundaries
+
+All shared native write checks reject a `fusion.read_only` projection, including nested component documents, before output staging or stream mutation. Direct JSON adapter writes use the same check. Disabling structural validation does not bypass this export restriction. The decode command remains available for inspection JSON; that artifact does not establish application usability or native acceptance. Public API and direct stream compatibility replays cover this restriction, and historical pickle replays now cover declared values, factory defaults and missing required fields. These tests await remote execution.
