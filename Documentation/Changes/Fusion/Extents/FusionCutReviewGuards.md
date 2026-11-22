@@ -31,3 +31,5 @@ A separate malformed-archive CLI replay populates the semantic appearance map on
 ## Export boundaries
 
 All shared native write checks reject a `fusion.read_only` projection, including nested component documents, before output staging or stream mutation. Direct JSON adapter writes use the same check. Disabling structural validation does not bypass this export restriction. The decode command remains available for inspection JSON; that artifact does not establish application usability or native acceptance. Public API and direct stream compatibility replays cover this restriction, and historical pickle replays now cover declared values, factory defaults and missing required fields. These tests await remote execution.
+
+The registry preserves its unsupported-adapter exception for explicit Fusion re-exports by checking adapter support before native export qualification. Supported writers still perform the read-only check before staging. Public API replays cover nested Fusion components beneath an unmarked assembly root and require unchanged destinations for both unsupported native export and blocked JSON export.

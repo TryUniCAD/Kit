@@ -4,6 +4,8 @@ from pathlib import Path as FilePath
 import pytest as Pytest
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
+from convert.adapters.registry.RegistryErrors import AdapterNotFoundError
+from tests.Convert.Integration.Fusion.NestReadOnly import NestReadOnly
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.json.Adapter import JsonAdapter
 
@@ -18,9 +20,17 @@ from convert.adapters.json.Adapter import JsonAdapter
     ),
 )
 @Pytest.mark.parametrize("Validated", (True, False))
-def CheckReadExport(SourceName: str, Validated: bool) -> None:
+@Pytest.mark.parametrize("Nested", (True, False))
+def CheckReadExport(SourceName: str, Validated: bool, Nested: bool) -> None:
     RootPath = FilePath(__file__).resolve().parents[4]
     Document = OpenDocument(RootPath / "re/Fusion/Reconstruction" / SourceName)
+    if Nested:
+        Document = NestReadOnly(Document)
+        assert "fusion.read_only" not in Document.metadata
+    Unsupported = BytesIO()
+    with Pytest.raises(AdapterNotFoundError):
+        _ = WriteDocument(Document, Unsupported, DestFormat="fusion.f3d")
+    assert Unsupported.getvalue() == b""
     with TemporaryDirectory() as WorkName:
         Target = FilePath(WorkName) / "unqualified.json"
         with Pytest.raises(

@@ -125,8 +125,6 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
-            CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -135,6 +133,8 @@ class WriteApi(WriteLookup):
             raise NotFoundError(
                 f"{AdapterData.info.FormatId} does not support the destination"
             )
+        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+            CheckNative(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
         UnsupportedCaps = GetDocumentCaps(DocumentData) - AdapterData.info.Capabilities
