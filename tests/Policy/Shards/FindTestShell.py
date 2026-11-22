@@ -10,10 +10,9 @@ def FindTestShell() -> str:
     GitProgram = FindProgram("git")
     if GitProgram is None:
         raise FileNotFoundError("native Windows reporting requires Git for Windows")
-    RootPath = FilePath(GitProgram).resolve().parent.parent
-    if RootPath.name.lower() == "mingw64":
-        RootPath = RootPath.parent
-    ShellPath = RootPath / "bin" / "bash.exe"
-    if not ShellPath.is_file():
-        raise FileNotFoundError(f"Git Bash was not found at {ShellPath}")
-    return str(ShellPath)
+    GitPath = FilePath(GitProgram).resolve()
+    for RootPath in (GitPath.parent.parent, GitPath.parent.parent.parent):
+        ShellPath = RootPath / "bin" / "bash.exe"
+        if ShellPath.is_file():
+            return str(ShellPath)
+    raise FileNotFoundError("Git for Windows has no native Bash executable")
