@@ -1,0 +1,83 @@
+{
+  "build": "34.5.2.0604",
+  "candidates": [
+    {
+      "candidate_sha256": "3ce044f3507bebceb5bfe8d24ce2b50963020ee0fb488172e37c9e31363e3229",
+      "edited_sha256": "b9ae997176caf39fb7820ac8da6197adb2c29dbef5cb11fa2323554d6131d393",
+      "native_source_comparisons": 69,
+      "passed": true,
+      "phases": [
+        {
+          "checks": 43,
+          "native_sha256": "b9ae997176caf39fb7820ac8da6197adb2c29dbef5cb11fa2323554d6131d393",
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "9544f4d5321e37ab139133681b031bc44c7099519cbfaaf9e2ed7502b7c6e7ce"
+        },
+        {
+          "checks": 21,
+          "native_sha256": "b9ae997176caf39fb7820ac8da6197adb2c29dbef5cb11fa2323554d6131d393",
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "ca79e8ea221b6715c10098bd248aaa88b7e02f249a25366664484e1324d3d963"
+        }
+      ],
+      "slot": 0,
+      "tree_rows": 26
+    },
+    {
+      "candidate_sha256": "86c6f4e5cbd8906d0f2b824c8c9ffe7bdc600d7c3c0d6466a07257ecff8ed99a",
+      "edited_sha256": "8d7424f9f8a26812524c4fe753e0aea4f9d82ed24fe986c6ab1c41135509eca0",
+      "native_source_comparisons": 72,
+      "passed": true,
+      "phases": [
+        {
+          "checks": 45,
+          "native_sha256": "8d7424f9f8a26812524c4fe753e0aea4f9d82ed24fe986c6ab1c41135509eca0",
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "389916ac109905aff46c7b6c0140211a66a26437ac60d7a68108e0dc7effe798"
+        },
+        {
+          "checks": 22,
+          "native_sha256": "8d7424f9f8a26812524c4fe753e0aea4f9d82ed24fe986c6ab1c41135509eca0",
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "3bed0a521597f9fdb0a9e1b09e9c1131f3a7285ea1380bec5213a3b22032f4bd"
+        }
+      ],
+      "slot": 1,
+      "tree_rows": 26
+    }
+  ],
+  "controls": [
+    {
+      "checks": 0,
+      "first_failure": null,
+      "native_sha256": null,
+      "passed": true,
+      "phase": "control-before",
+      "record_sha256": "0a3321673e504df1912e7ce0fc4209429260a663b4bfe20c84a9b4457556fc73"
+    },
+    {
+      "checks": 0,
+      "first_failure": null,
+      "native_sha256": null,
+      "passed": true,
+      "phase": "control-after",
+      "record_sha256": "2f8347ee6ac930c3ba3ad5cc6d726d12cc51415423f78fd07d979f6634ef7b33"
+    }
+  ],
+  "distinct_processes": 6,
+  "generation_sha256": "3b1ce612d2877499a7cb49c69ed66a7ae20004042fcbb74a5d4612faf440b866",
+  "heldout_writer_acceptance": true,
+  "idle_after": true,
+  "method_sha256": "31473099e2efb94820f4580e59648e47c783775e5210276edc728fe134692982",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "private_result_sha256": "992cd9889e9eea84a27c62c70f5eefe805b6757eb052f985d04ed12b0cc6a109",
+  "private_source_sha256": "42a343efb48020971424d5dac0e11a3c54297fd833329dd46c9a50955ad31846",
+  "runner_sha256": "b72a7e02e4ccae5c5c56b24a48c1f6fedb67b38d00347c49970ecf533e9bbc44",
+  "schema": "kit.sw2026.distance-pair-generated-native.v1",
+  "writer_revision": "9e939d42ca5eaa9e71c1c253c255010c9ef9c99e"
+}

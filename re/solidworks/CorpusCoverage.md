@@ -32,11 +32,14 @@ controls. These native-authored studies add zero benchmark conversions.
 [Chamfer evidence](measurements/2026/EdgeChamferSealedNative03.json)
 · [Ellipse evidence](measurements/2026/EllipseColdSealedNative01.json)
 
-The native equal-distance and two-distance chamfer sources also passed
-both controlled lifecycles. Their original and edited files were locked
-before writer work, across eight fresh processes with both controls.
-These source authoring runs add zero benchmark conversions.
+The native equal-distance and two-distance chamfers passed both
+pre-writer locked cases. Both generated parts rebuilt, accepted
+their independent driver edits, and reopened with the full feature tree.
+The six-process writer evaluation passed 141 paired numerical comparisons
+against native sources. These native-authored cases add zero benchmark
+conversions.
 [Distance source lock](measurements/2026/ChamferDistancePairHeldoutSource01.json)
+· [Generated evaluation](measurements/2026/ChamferDistancePairHeldoutNative01.json)
 
 Two pre-writer locked Standard sweep parts passed both independent D1
 edits and both fresh reopens. Twelve measured processes included both

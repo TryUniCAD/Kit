@@ -96,3 +96,14 @@ editable readback. These distance candidate results cover disclosed
 inputs before the independent writer evaluation.
 [Native distance results](../measurements/2026/ChamferDistancePairDisclosedNative01.json)
 · [Existing angle parity](../measurements/2026/ChamferAngleAfterDistancePair01.json)
+
+The [independent evaluation](../measurements/2026/ChamferDistancePairHeldoutNative01.json)
+passed both pre-writer locked cases. Each candidate was generated twice
+from its neutral document on the guest with zero runtime input reads.
+The generated candidate opened and rebuilt, accepted its driving edit,
+saved and reopened in a fresh process. Both exact-build controls passed.
+All candidates kept the 26-row native tree, their ordered stock edge
+and their live driver identities. The six-process batch passed 141
+paired numeric comparisons against the independently authored sources
+to six significant figures. The proof qualifies this bounded construction
+scope. Public writer publication for the two distance modes remains gated.
