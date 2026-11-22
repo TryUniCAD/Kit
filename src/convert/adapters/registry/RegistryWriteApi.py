@@ -19,6 +19,9 @@ from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsC
 from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
     IsRevRead,
 )
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsThinRead import (
+    IsThinRead,
+)
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
@@ -129,7 +132,9 @@ class WriteApi(WriteLookup):
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
         if type(AdapterData) is not SldprtWriter or not (
-            IsColdRead(DocumentData) or IsRevRead(DocumentData)
+            IsColdRead(DocumentData)
+            or IsRevRead(DocumentData)
+            or IsThinRead(DocumentData)
         ):
             CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()

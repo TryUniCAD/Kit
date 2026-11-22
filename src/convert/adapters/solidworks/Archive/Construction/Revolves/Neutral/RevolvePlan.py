@@ -1,5 +1,9 @@
 from dataclasses import dataclass as DataClass
 
+from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ThinWallPlan import (
+    ThinWallPlan,
+)
+
 
 # the fresh revolve must retain actual neutral owners and dimensions before allocating any native identity
 @DataClass(frozen=True, slots=True)
@@ -21,3 +25,4 @@ class RevolvePlan:
     SelectionId: str
     AxisEntityId: str
     AxisValue: str = "z"
+    ThinWalls: ThinWallPlan | None = None

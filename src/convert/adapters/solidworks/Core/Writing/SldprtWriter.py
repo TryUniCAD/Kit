@@ -10,6 +10,16 @@ from convert.adapters.solidworks.Core.Preparation.Revolve.HasRevWrite import Has
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanRevWrite import (
     PlanRevWrite,
 )
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinWrite import (
+    HasThinWrite,
+    PlanThinWrite,
+)
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsThinRead import (
+    IsThinRead,
+)
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.ReadRevInput import (
+    ReadRevInput,
+)
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from convert.adapters.solidworks.Core.Writing.PlainPartName import PlainPartName
@@ -34,7 +44,13 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
-            if HasRevWrite(DocValue):
+            if HasThinWrite(DocValue):
+                if IsThinRead(DocValue):
+                    DocValue = ReadRevInput(
+                        DocValue, PathValue.stem if PathValue else "Part", IsThin=True
+                    )
+                NameValue = PlanThinWrite(DocValue).NameValue
+            elif HasRevWrite(DocValue):
                 NameValue = PlanRevWrite(
                     DocValue, PathValue.stem if PathValue else None
                 ).NameValue

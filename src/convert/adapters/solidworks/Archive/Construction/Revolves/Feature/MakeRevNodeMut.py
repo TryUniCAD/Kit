@@ -24,9 +24,12 @@ def MakeRevNodeMut(
     OwnerValue: ArchiveNode,
     TargetValue: FeatureTarget,
     Allocator: PersistentIds,
+    *,
+    IsThin: bool = False,
 ) -> ArchiveNode:
     RequireRootNode(OwnerValue, "moPart_c")
-    NodeValue = ArchiveNode(RuntimeClass("moRevolution_c", 1), {})
+    ClassName = "moRevolutionThin_c" if IsThin else "moRevolution_c"
+    NodeValue = ArchiveNode(RuntimeClass(ClassName, 1), {})
     InitFeatureMut(NodeValue, NameValue, OwnerValue, TargetValue, Allocator)
     NodeValue.FieldsValue.update(dict.fromkeys(KAtomWords, 0))
     NodeValue.FieldsValue.update({FieldName: [] for FieldName in KAtomLists})

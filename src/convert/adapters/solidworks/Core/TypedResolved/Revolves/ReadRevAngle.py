@@ -13,8 +13,12 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.RevolveAngle import
 
 
 # the active end must resolve its real dimension and parameter before any angular intent is published
-def ReadRevAngle(LinkValue: NativeLink, NodeValue: ArchiveNode) -> RevolveAngle:
-    FieldsValue = RequireNative(NodeValue, "moRevolution_c").FieldsValue
+def ReadRevAngle(
+    LinkValue: NativeLink, NodeValue: ArchiveNode, *, IsThin: bool = False
+) -> RevolveAngle:
+    FieldsValue = RequireNative(
+        NodeValue, "moRevolutionThin_c" if IsThin else "moRevolution_c"
+    ).FieldsValue
     if FieldsValue.get("f808") is not None or FieldsValue.get("f810") is not None:
         raise ValueError("ordinary revolve requires the modern angular branch")
     EndValue = RequireNative(FieldsValue.get("f8d8"), "moRevEndSpec_c").FieldsValue

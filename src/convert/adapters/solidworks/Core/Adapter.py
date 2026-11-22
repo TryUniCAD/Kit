@@ -174,6 +174,7 @@ from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.ApplyColdRev import (
     ApplyColdRev,
 )
@@ -435,7 +436,11 @@ def ReadNativePart(
     FinalFeature = (
         FeatureId(LocalOwner.object_id)
         if LocalOwner is not None
-        else FinalBodyId(TimeValues, SolidOpIds)
+        else (
+            FeatureId(NativeNodeId(ColdValue.ShapeValue.ProducerValue))
+            if ColdValue is not None and ColdValue.ShapeValue.ProducerValue is not None
+            else FinalBodyId(TimeValues, SolidOpIds)
+        )
     )
     BodyFeature = LocalOwner or SolidBody(Model.features)
     MassBody = ActivePart.ModelValue if ActivePart is not None else ColdBrep

@@ -5,7 +5,9 @@ from interchange.document.Validation.BoundPlaneValidate import CheckBoundPlane
 from interchange.document.Validation.DistExtValidate import GetDistExtErrs
 from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
+from interchange.document.Validation.ThinRevValidate import GetThinRevErrs
 from interchange.Features.FeatureAngleRev import AngularRevolve
+from interchange.Features.ThinRevolve import ThinRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.Axes.AxisExtentConfig import AxisConfigView
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
@@ -64,8 +66,12 @@ def GetDefErrors(
         return GetPlaneRevErrs(
             StepValue, Definition, Selections, IdentitySets["support_planes"]
         )
-    if isinstance(Definition, AngularRevolve):
-        return GetAngleRevErrs(StepValue, Definition, Selections, Params)
+    if isinstance(Definition, (AngularRevolve, ThinRevolve)):
+        return (
+            GetThinRevErrs(StepValue, Definition, Selections, Params)
+            if isinstance(Definition, ThinRevolve)
+            else GetAngleRevErrs(StepValue, Definition, Selections, Params)
+        )
     if isinstance(Definition, DistanceExtrude):
         return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
     if isinstance(Definition, ExtrudeFeature):

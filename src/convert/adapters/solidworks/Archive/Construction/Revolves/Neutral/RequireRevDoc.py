@@ -1,6 +1,7 @@
 from typing import cast as CastValue
 
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Features.ThinRevolve import ThinRevolve
 
 
 # an ordinary revolve constructor must reject extra neutral domains before any native output can be allocated
@@ -26,6 +27,14 @@ def RequireRevDoc(DocumentValue: CadDocument) -> None:
         )
     ):
         raise ValueError("revolve construction does not admit other document domains")
+    Definition = (
+        DocumentValue.feature_timeline[0].definition
+        if len(DocumentValue.feature_timeline) == 1
+        else None
+    )
+    ParamCount = (
+        1 + len(Definition.GetWallIds()) if isinstance(Definition, ThinRevolve) else 1
+    )
     if tuple(
         map(
             len,
@@ -39,7 +48,7 @@ def RequireRevDoc(DocumentValue: CadDocument) -> None:
                 DocumentValue.selections,
             ),
         )
-    ) != (1, 1, 1, 1, 1, 1, 1):
+    ) != (1, 1, 1, 1, 1, ParamCount, 1):
         raise ValueError("revolve construction requires one complete ordinary model")
     if set(DocumentValue.metadata) != {"name"} or DocumentValue.units != "mm":
         raise ValueError("revolve construction requires explicit names and millimetres")
