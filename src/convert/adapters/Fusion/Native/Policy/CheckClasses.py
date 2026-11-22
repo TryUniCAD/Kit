@@ -11,6 +11,7 @@ def CheckClasses(
     Graph: NativeGraph,
     Dimension: NativeNode | None = None,
     Rectangle: RectSketchProof | None = None,
+    Additional: tuple[str, ...] = (),
 ) -> None:
     Schemas = {Schema.Value.ClassGuid.upper(): Schema.Value for Schema in ReadNames()}
     RectNodes = (*Rectangle.Rules, *Rectangle.Dimensions) if Rectangle else ()
@@ -24,6 +25,7 @@ def CheckClasses(
             not IsRadial
             and NodeValue.SegmentId == 0
             and NodeValue.ClassName not in KDesignClasses
+            and NodeValue.ClassName not in Additional
             and NodeValue not in RectNodes
         ):
             raise ValueError("Unmodeled native Fusion semantic entity class")

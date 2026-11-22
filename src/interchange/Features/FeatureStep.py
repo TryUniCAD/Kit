@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from interchange.Features.History.CheckOutputIds import CheckOutputIds
+
 from dataclasses import dataclass as MakeDataClass
 from dataclasses import field as MakeDataField
 from typing import Mapping as TypeMap
@@ -64,6 +66,9 @@ class FeatureStep(FeatureStepView, StepConfigView, ModelExtras, ModelBase):
     provenance: Provenance | None = None
     attributes: TypeMap[str, object] = MakeDataField(default_factory=FreezeMapping)
 
+    OutputBodyIds: tuple[str, ...] = ()
+
     # invalid definitions must fail before corrupt feature records propagate
     def __post_init__(self) -> None:
         _ = ValidateFeature(self.definition)
+        CheckOutputIds(self.OutputBodyIds)
