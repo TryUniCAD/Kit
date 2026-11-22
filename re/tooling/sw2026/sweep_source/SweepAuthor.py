@@ -44,7 +44,7 @@ class SweepAuthor(SweepSketches):
         else:
             expected["Direction"] = -1
         actual = {name: self.get(definition, name) for name in expected}
-        self.rec.data["last_option_comparison"] = {"setting": write, "expected": expected, "actual": actual}
+        self.rec.data["last_option_comparison"] = {"setting": write, "expected": expected, "actual": dict(actual)}
         self.rec.flush()
         require(actual == expected, "native sweep options differ from the explicit Standard one-direction boss")
         return actual
@@ -81,6 +81,18 @@ class SweepAuthor(SweepSketches):
     def feature(self, name):
         return self.typed(self.get(self.model, "FeatureByName", name), "Feature")
 
+    def parents(self, feature):
+        expected = {name: "ProfileFeature" for name, _ in MARKED_SKETCHES}
+        expected.update({row[0]: "RefPlane" for row in SPEC.values()})
+        parents = [self.typed(parent, "Feature") for parent in self.get(feature, "GetParents") or ()]
+        names = [str(self.get(parent, "Name")) for parent in parents]
+        require(len(names) == len(expected) and set(names) == set(expected),
+                "sweep did not retain both sketch owners and both supporting planes")
+        for parent, name in zip(parents, names, strict=True):
+            require(self.get(parent, "GetTypeName2") == expected[name] and self.same(parent, self.feature(name)),
+                    f"actual sweep parent differs from the named {name} owner")
+        return sorted(names)
+
     def definition(self, feature, plan, sketches):
         require(self.get(feature, "GetTypeName2") == "Sweep", "native feature is not Sweep")
         definition = self.typed(self.get(feature, "GetDefinition"), "SweepFeatureData")
@@ -107,9 +119,7 @@ class SweepAuthor(SweepSketches):
         finally:
             self.get(definition, "ReleaseSelectionAccess")
         self.get(self.model, "ClearSelection2", True)
-        parents = sorted(str(self.get(parent, "Name")) for parent in self.get(feature, "GetParents") or ())
-        facts["parents"] = parents
-        require(len(parents) == 2 and set(parents) == {SECTION, PATH}, "native sweep does not depend on both sketches")
+        facts["parents"] = self.parents(feature)
         return facts
 
     def solid(self):

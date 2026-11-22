@@ -167,8 +167,20 @@ class SweepSketches(CurveAuthor):
         self.set(feature, "Name", name)
         self.inspect_sketch(feature, name, plan)
 
+    def sketch_support(self, sketch, name):
+        plane_name = SPEC[name][0]
+        plane = self.typed(self.get(self.model, "FeatureByName", plane_name), "Feature")
+        datum = self.get(plane, "GetSpecificFeature2")
+        support_type = self.sw.byref_long()
+        support = self.get(sketch, "GetReferenceEntity", support_type)
+        require(int(support_type.value) == self.constants["swSelDATUMPLANES"]
+                and (self.same(support, datum) or self.same(support, plane)),
+                f"{name} is not attached to its actual {plane_name} support")
+        return plane_name
+
     def inspect_sketch(self, feature, name, plan):
         sketch = self.feature_sketch(feature, name)
+        support = self.sketch_support(sketch, name)
         status = int(self.get(sketch, "GetConstrainedStatus"))
         require(status == 3, f"{name} is not fully constrained (native status {status})")
         inverse, frame = self.sketch_frame(sketch, name)
@@ -188,7 +200,7 @@ class SweepSketches(CurveAuthor):
             require(int(self.get(arc, "GetRotationDir")) == 1, "actual Front path is not counterclockwise")
             self.rec.close_number("explicit quarter-arc length", self.get(segments[0], "GetLength"), plan["arc_length_m"])
         segment = self.entity_binding(segments[0], "segment")
-        return {"frame": frame, "segment": segment, "points_m": point_positions,
+        return {"frame": frame, "support": support, "segment": segment, "points_m": point_positions,
                 "relations": self.inspect_relations(sketch, name, points, segment), "fully_constrained": status, "circle": circle}
 
     def driving_dimension(self, feature, name, plan):

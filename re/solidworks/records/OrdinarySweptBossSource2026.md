@@ -26,6 +26,10 @@ Packet 02 reads both named relation types from the installed type library and qu
 
 Packet 02 got through 135 checks in the first author phase, including both driving sketch relations and the exact marked sweep inputs. The options comparison then failed. The registered 34.0 setter had accepted direction 1 on the unbound feature definition, while the actual definition returned `-1` after selection rollback. All other compared options agreed. Both native controls passed and no file was saved. The documented direction property applies when the path crosses both sides of the sketch profile. Packet 03 verifies the one-sided path through its actual sketch geometry and requires the `-1` readback on the bound feature. The readback remains an observed API value, with its original geometric inputs unchanged. [Packet 02 failure](../measurements/2026/OrdinarySweptBossSourceFailure02.json) · [Sweep direction property](https://help.solidworks.com/2022/English/api/sldworksapi/SolidWorks.interop.sldworks~SolidWorks.interop.sldworks.ISweepFeatureData~Direction.html)
 
+### Actual sweep ancestry
+
+Packet 03 reached 171 checks, including the actual bound Standard sweep options, rollback sketch identities, independent driving dimensions and the expected one-sided direction. After releasing rollback, the named parent list contained both sketches and their Right and Front support planes. The native observer originally expected two parents. The next packet verifies both actual support relationships from each sketch's reference entity, then matches all four typed parents against their real feature objects. Both controls passed and the original lifecycle stopped before any part was saved. [Packet 03 failure](../measurements/2026/OrdinarySweptBossSourceFailure03.json)
+
 ### Reproduce the corrected disclosed capture
 
 Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact 19-file Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
@@ -34,9 +38,9 @@ Freeze an exact committed revision on the host. Use an unused output path outsid
 python3.14 -B re/tooling/sw2026/sweep_source/SweepPacket.py \
   --revision EXACT_COMMITTED_METHOD \
   --control /Users/odin/Documents/UniCAD/Oracle121Takeover/EdgeFilletSource03/Packet/Control.SLDPRT \
-  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource03/Packet \
-  --guest-packet 'C:\KitSweepBossSource03\Packet' \
-  --guest-capture 'C:\KitSweepBossSource03\Capture' \
+  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource04/Packet \
+  --guest-packet 'C:\KitSweepBossSource04\Packet' \
+  --guest-capture 'C:\KitSweepBossSource04\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -44,8 +48,8 @@ The oracle owner transfers the verified packet and runs it from the new guest di
 
 ```sh
 sweep_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource03\Packet'
-sweep_guest='C:\KitSweepBossSource03\Packet'
+sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource04\Packet'
+sweep_guest='C:\KitSweepBossSource04\Packet'
 sweep_pin=EXACT_SOURCE_JOB_SHA256
 prlctl exec 'Windows 11' --current-user "$sweep_python" -E -B \
   "$sweep_share\Tool\RunSweepSources.py" --job "$sweep_share\SourceJob.json" --pin "$sweep_pin" --stage-guest

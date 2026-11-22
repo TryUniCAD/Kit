@@ -348,6 +348,11 @@ class CurveAuthor:
         }
         self.rec.flush()
 
+    def same(self, actual, expected):
+        require(all(value is not None and getattr(value, "_oleobj_", None) is not None
+                    for value in (actual, expected)), "native identity requires two actual dispatch objects")
+        return int(self.get(self.app, "IsSame", actual, expected)) == self.constants["swObjectSame"]
+
     def get(self, obj, name, *args):
         function = self.sw.invoke if args else self.sw.cv
         parameters = {"values": safe_result(args), "dispatch_class": type(obj).__module__ + "." + type(obj).__name__, "binding": "untyped-method" if args else "property-or-zero-argument-method"}

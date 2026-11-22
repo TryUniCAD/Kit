@@ -39,11 +39,6 @@ class FilletAuthor(BlindCutAuthor):
         result = self.get(utility, kind, values)
         return [float(value) for value in self.get(self.get(result, "MultiplyTransform", frame), "ArrayData")]
 
-    def same(self, actual, expected):
-        require(all(value is not None and getattr(value, "_oleobj_", None) is not None
-                    for value in (actual, expected)), "native identity requires two actual dispatch objects")
-        return int(self.get(self.app, "IsSame", actual, expected)) == self.constants["swObjectSame"]
-
     def reference(self, value):
         raw = self.get(self.get(self.model, "Extension"), "GetPersistReference3", value)
         require(raw is not None and 0 < len(raw) <= 4096, "missing bounded native persistent reference")
