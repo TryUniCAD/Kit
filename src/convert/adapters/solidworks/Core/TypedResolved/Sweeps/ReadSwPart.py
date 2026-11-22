@@ -14,6 +14,7 @@ from convert.adapters.solidworks.Container.Format import (
     KeywordsStream,
     KPartitionStream,
     KPartFormatId,
+    KResolvedFeaturesStream,
 )
 from convert.adapters.solidworks.Core.Native import ParseKeywords
 from convert.adapters.solidworks.Core.Preparation.Sweeps.BuildSweepPart import (
@@ -28,16 +29,24 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordSource import CadSource
 
 
-# recognize the measured sweep family before deciding whether its saved state can be read
-def IsScopedSweep(Archive: SldprtArchive) -> bool:
+# the scoped sweep belongs to the selected standalone configuration zero
+def IsScopedSweep(Archive: SldprtArchive, ConfigurationName: str | None) -> bool:
     if (
         Archive.format_version != 4
         or KConfigStream not in Archive.streams
+        or KResolvedFeaturesStream not in Archive.streams
         or KeywordsStream not in Archive.streams
         or ContainerMo(Archive.streams) != 19000
     ):
         return False
-    _, FeaturesValue = ParseKeywords(Archive.require(KeywordsStream))
+    ConfigValues, FeaturesValue = ParseKeywords(Archive.require(KeywordsStream))
+    if len(ConfigValues) != 1 or ConfigValues[0].configuration_id != 0:
+        return False
+    if KPartitionStream in Archive.streams and ConfigurationName not in (
+        None,
+        ConfigValues[0].name,
+    ):
+        return False
     return any(
         FeatureValue.kind == "Sweep" and FeatureValue.name == KSweepBossName
         for FeatureValue in FeaturesValue

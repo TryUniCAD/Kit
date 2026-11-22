@@ -353,7 +353,7 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
-    if not Settings.extract_raw_brep and IsScopedSweep(Archive):
+    if not Settings.extract_raw_brep and IsScopedSweep(Archive, Settings.configuration):
         try:
             DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
         except SldprtFormatError:

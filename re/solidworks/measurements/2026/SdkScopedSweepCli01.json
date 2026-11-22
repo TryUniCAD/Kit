@@ -1,0 +1,264 @@
+{
+  "base": "ab4c5b98b5fdb7b49146601ffc5731aa0b6a095d",
+  "cases": [
+    {
+      "archive_bytes": 10528,
+      "archive_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "exact_registry_and_direct_streams": true,
+      "fresh_attempt_refusals": [
+        "crossed_owner",
+        "untransferred_domain",
+        "unmeasured_model",
+        "unmeasured_path_edit",
+        "absent_receipt",
+        "shifted_locator",
+        "shifted_epoch",
+        "swapped_controls",
+        "swapped_edit_reopen",
+        "reopened_volume",
+        "initial_area",
+        "edited_center"
+      ],
+      "name": "SweepArcNear",
+      "native_transfers": 6,
+      "normalized_state_checks": 30,
+      "occupied_stream_and_unverified_path_refused": true,
+      "sdk_readback": {
+        "config_map": 101,
+        "density_object_span": [
+          "Contents/Config-0",
+          2068,
+          2127
+        ],
+        "portable_cli": {
+          "neutral_round_trip": true,
+          "whole_semantic_document_equal": true
+        },
+        "rejected_sources": [
+          "foreign_ghost_shape",
+          "missing_ghost",
+          "unmodeled_stream"
+        ],
+        "resolved_map": 225,
+        "saved_envelope": {
+          "legacy_permissive_routes": 2,
+          "selected_configuration_checks": 8,
+          "strict_refusals": 8,
+          "transport_control_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+        },
+        "strict_readback": [
+          {
+            "analytic_native_matches": 6,
+            "driver_slots": [
+              174,
+              196
+            ],
+            "exact_republication_routes": 2,
+            "include_brep": true,
+            "native_face_edge_vertex_counts": [
+              3,
+              2,
+              0
+            ],
+            "native_face_rows_checked": true,
+            "native_transfers": 8,
+            "permissive_typed_routes": 2,
+            "solid_count": 1,
+            "strict_reader_routes": 2
+          },
+          {
+            "analytic_native_matches": 6,
+            "driver_slots": [
+              174,
+              196
+            ],
+            "exact_republication_routes": 2,
+            "include_brep": false,
+            "native_face_edge_vertex_counts": [
+              3,
+              2,
+              0
+            ],
+            "native_face_rows_checked": true,
+            "native_transfers": 7,
+            "permissive_typed_routes": 2,
+            "solid_count": 1,
+            "strict_reader_routes": 2
+          }
+        ],
+        "typed_stream_replays": 2
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "335543e538f27ae74ad4468cbe6177c463de034449f9e6f26df86e1d95226af4",
+        "Contents/Config-0-GhostPartition": "0ab990a2217590c31c5dda0853bb4e6564f161bbcda202255169192aae13bc9c",
+        "Contents/Config-0-ModelHeader": "3cc995bcd3664696f64aba8c62073394ecabf7ee1248791e66107c05365e7e9e",
+        "Contents/Config-0-ResolvedFeatures": "eb39656ca1b0c4ba78ad89241988197db793eabcb40e05665670bbf931975edc",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "cd13f7d3033e9f9816d148fedf3804fc9670513e164706a6c3e192dad7df31c8",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "d670588be390b934f7bd900ce0a3dad71bd5ad7431f148b627922f4e12f6ec90"
+      },
+      "writer_runtime_input_reads": 0
+    },
+    {
+      "archive_bytes": 10526,
+      "archive_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "exact_registry_and_direct_streams": true,
+      "fresh_attempt_refusals": [
+        "crossed_owner",
+        "untransferred_domain",
+        "unmeasured_model",
+        "unmeasured_path_edit",
+        "absent_receipt",
+        "shifted_locator",
+        "shifted_epoch",
+        "swapped_controls",
+        "swapped_edit_reopen",
+        "reopened_volume",
+        "initial_area",
+        "edited_center"
+      ],
+      "name": "SweepArcWide",
+      "native_transfers": 6,
+      "normalized_state_checks": 30,
+      "occupied_stream_and_unverified_path_refused": true,
+      "sdk_readback": {
+        "config_map": 101,
+        "density_object_span": [
+          "Contents/Config-0",
+          2068,
+          2127
+        ],
+        "portable_cli": {
+          "neutral_round_trip": true,
+          "whole_semantic_document_equal": true
+        },
+        "rejected_sources": [
+          "foreign_ghost_shape",
+          "missing_ghost",
+          "unmodeled_stream"
+        ],
+        "resolved_map": 225,
+        "saved_envelope": {
+          "legacy_permissive_routes": 2,
+          "selected_configuration_checks": 8,
+          "strict_refusals": 8,
+          "transport_control_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+        },
+        "strict_readback": [
+          {
+            "analytic_native_matches": 6,
+            "driver_slots": [
+              174,
+              196
+            ],
+            "exact_republication_routes": 2,
+            "include_brep": true,
+            "native_face_edge_vertex_counts": [
+              3,
+              2,
+              0
+            ],
+            "native_face_rows_checked": true,
+            "native_transfers": 8,
+            "permissive_typed_routes": 2,
+            "solid_count": 1,
+            "strict_reader_routes": 2
+          },
+          {
+            "analytic_native_matches": 6,
+            "driver_slots": [
+              174,
+              196
+            ],
+            "exact_republication_routes": 2,
+            "include_brep": false,
+            "native_face_edge_vertex_counts": [
+              3,
+              2,
+              0
+            ],
+            "native_face_rows_checked": true,
+            "native_transfers": 7,
+            "permissive_typed_routes": 2,
+            "solid_count": 1,
+            "strict_reader_routes": 2
+          }
+        ],
+        "typed_stream_replays": 2
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "7ba08ad437b0b3c4db8f99c353dd68e19b7c2047cfce29bb6e70e9be6d59b39b",
+        "Contents/Config-0-GhostPartition": "20be6593e1b0bd0f18f82c9336dc519ad5ac05ffedea8696b2f8322a12cddd47",
+        "Contents/Config-0-ModelHeader": "40c1ebd346db90d4e3699d9fe2ad7ad80e41f6399ada4b892700af118351985e",
+        "Contents/Config-0-ResolvedFeatures": "cfd83f203cdb53cc75bacbc4176bbdc2749db687bd3b45f37805ef239d4149cc",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "026b2ad17fb3c36c0b15539cd2809c40f8c430bd50b4e66785c65bab1ff11206",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "cf1fff80157d3a76aa3b74fc997182a775089004a64ec5de9ccfc4d184e8a4c3"
+      },
+      "writer_runtime_input_reads": 0
+    }
+  ],
+  "disclosed_physical_stream_comparison": true,
+  "disclosed_saved_sources": {
+    "results": [
+      {
+        "archive_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+        "legacy_permissive_routes": 2,
+        "role": "original",
+        "slot": 0,
+        "strict_refusals": 8
+      },
+      {
+        "archive_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+        "legacy_permissive_routes": 2,
+        "role": "section",
+        "slot": 0,
+        "strict_refusals": 8
+      },
+      {
+        "archive_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+        "legacy_permissive_routes": 2,
+        "role": "path",
+        "slot": 0,
+        "strict_refusals": 8
+      },
+      {
+        "archive_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+        "legacy_permissive_routes": 2,
+        "role": "original",
+        "slot": 1,
+        "strict_refusals": 8
+      },
+      {
+        "archive_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+        "legacy_permissive_routes": 2,
+        "role": "section",
+        "slot": 1,
+        "strict_refusals": 8
+      },
+      {
+        "archive_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+        "legacy_permissive_routes": 2,
+        "role": "path",
+        "slot": 1,
+        "strict_refusals": 8
+      }
+    ],
+    "source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca"
+  },
+  "native_calls": 0,
+  "native_result_sha256": "380ead8ff07a9337bd0df87d32eb92e49529e0579c15449767a5ee26e53dd512",
+  "neutral_spec_sha256": "e62d1d09ac26cc0ae9538a846b0800023441403b5d04ac432a8f6b1da8e71023",
+  "normalized_receipt_sha256": "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0",
+  "protected_inputs_read": 0,
+  "schema": "kit.sw2026.main-scoped-sweep-readback.v3",
+  "writer_processes": 2
+}

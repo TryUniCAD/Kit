@@ -89,3 +89,29 @@ The readback uses disclosed files and records zero new held-out or
 native-lifetime credit. Native comparisons remain bound to the original
 controlled batch.
 [Supplemental guarded read and publication receipt](../measurements/2026/SdkScopedSweepReview01.json)
+
+## Selected configuration and portable conversion
+
+The strict saved-state refusal is scoped to the recognized single
+Config-0 profile. All six native saves refuse with implicit selection
+and explicit Default in both reader routes and B-rep modes. Explicit
+permissive inspection remains available. A different configuration name
+uses the ordinary selection path.
+
+The hosted process proof also exercises that boundary without the six
+external CAD files. Its in-memory dispatch envelope adds the verified
+ordinary L1 control's valid result transport to the generated test
+source. The envelope verifies dispatch and fallback only. A second
+declared configuration without its own resolved stream causes the
+ordinary missing-lane diagnostic when selected. These envelopes are
+read in memory and never passed to the native application or the writer.
+
+Each cold source passes the actual conversion command to
+`interchange.json` and its reopened portable document equals the strict
+source projection, including both sketches, both driving dimensions,
+the analytic solid and provenance. The command reuses canonical sweep
+preparation and full source projection verification before neutral
+publication. Other target writers retain their capability checks. The
+exact native publication proof is unchanged.
+
+[Command and configuration receipt](../measurements/2026/SdkScopedSweepCli01.json)

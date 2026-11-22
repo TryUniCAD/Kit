@@ -5,6 +5,7 @@ from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.NativeMeasVals import NativeMeasVals
+from convert.Commands.Qualified.IsSwJsonReady import IsSwJsonReady
 from convert.Commands.WriteReport import WriteReport
 from convert.Formats.SourceFormat import ResolveFormat
 
@@ -42,7 +43,10 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
     )
     Writer = Registry.GetWriter(DestFormat)
     IsPartWriter = Writer.info.FormatId == KPartFormatId
-    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
+    CheckPortable(
+        Document,
+        PartQualified=IsPartWriter or IsSwJsonReady(Document, Writer.info.FormatId),
+    )
     Result = WriteDocument(
         Document,
         Options.Destination,
