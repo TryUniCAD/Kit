@@ -56,6 +56,7 @@ Exit conditions: current-head PR gates and configured review, followed by author
 The repair records [Windows roster newlines](../../Gotchas/Ci/Windows/SelectedRosterNewlines.md),
 [historical scheduler compatibility](../../Gotchas/Ci/Audits/SchedulerSourceRevisions.md), and
 [duration artifact reruns](../../Gotchas/Ci/Scheduling/DurationArtifactReruns.md).
+Process fixtures also follow the [sorted platform roster contract](../../Gotchas/Ci/Scheduling/SortedPlatformRosters.md).
 
 The investigation inspected [candidate 45065850751](https://github.com/TryUniCAD/Kit/actions/runs/45065850751).
 Its final macOS shard started 10 minutes 17 seconds after planning completed.
