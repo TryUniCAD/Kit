@@ -6,11 +6,15 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from functools import partial as BindCall
+from importlib import import_module as ImportModule
 from pathlib import Path
 from sys import platform
 
 from pytest import MonkeyPatch as PatchScope, mark as TestMark
 
+from tests.Research.Inference.Authoring.SolidWorks.CompileCapture import CompileCapture
+from tests.Research.Inference.Authoring.SolidWorks.ShellInterop import ShellInterop
 from tests.Research.Inference.Authoring.SolidWorks.SystemShell import SystemShell
 
 
@@ -23,3 +27,11 @@ def CheckShellPath(TmpPath: Path, MonkeyPatch: PatchScope) -> None:
     assert ShellPath.parent.name == "v1.0"
     assert ShellPath.is_file()
     assert not ShellPath.is_relative_to(TmpPath)
+    CompilerModule = ImportModule(
+        "tests.Research.Inference.Authoring.SolidWorks.CompileCapture"
+    )
+    MonkeyPatch.setattr(CompilerModule, "LoadInterop", BindCall(ShellInterop, TmpPath))
+    ResultInfo = CompileCapture(TmpPath / "ConfiguredCase.json", TmpPath / "Capture")
+    assert ResultInfo.returncode != 0
+    assert "Select the registered SOLIDWORKS executable" in ResultInfo.stderr
+    assert not (TmpPath / "Capture").exists()
