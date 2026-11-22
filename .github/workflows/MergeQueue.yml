@@ -379,6 +379,7 @@ jobs:
         ^tests/Research/Owners/
         ^tests/Research/WindowsRecords/
         ^tests/Research/Inference/Authoring/SolidWorks/NativeEnvTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/SystemShellTests\.py::
         ^tests/Research/Inference/Authoring/SolidWorks/PhaseProcessTests\.py::
         ^tests/Research/Inference/Authoring/Recipes/
         ^tests/Research/Inference/BuilderDevelopment/

@@ -6,27 +6,24 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
-from os import environ
 from pathlib import Path
 from subprocess import CompletedProcess, run
 
 from tests.Research.Inference.Authoring.SolidWorks.CompilerEnv import CompilerEnv
 from tests.Research.Inference.Authoring.SolidWorks.NativeInterop import LoadInterop
+from tests.Research.Inference.Authoring.SolidWorks.SystemShell import SystemShell
 from tests.Research.SupervisorClient import KRepoRoot
 
 
 # the actual native interop compiler validates the additive authoring contract without launching cad
 def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
     ExePath, Interop = LoadInterop()
-    ShellPath = (
-        Path(environ["SystemRoot"]) / "System32/WindowsPowerShell/v1.0/powershell.exe"
-    )
     ScriptPath = (
         KRepoRoot / "re/automation/CaptureTools/Catalogue/SolidWorks/RunSolidWorks.ps1"
     )
     return run(
         [
-            str(ShellPath),
+            str(SystemShell()),
             "-NoProfile",
             "-NonInteractive",
             "-STA",
