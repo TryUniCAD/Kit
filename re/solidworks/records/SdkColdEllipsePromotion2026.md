@@ -34,6 +34,8 @@ python -I -B re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py
 
 Two independent authored neutral documents with opposite signed rotation
 go through the complete SDK preparation twice each in separate processes.
+Both `convert.write_document` and `SldprtAdapter.write` independently
+reproduce the constructor output into fresh caller-owned streams.
 They reproduce the exact CAD containers previously measured on
 SOLIDWORKS 2026 SP05.2 at their original modeled final paths and creation
 times. Both archive graphs replay their actual streams and map identities.
@@ -44,7 +46,8 @@ shape, construction geometry, reverse depth, misowned D1, unsupported
 metadata, unavailable configuration and a stream without its final path.
 The exact linked readback also exercises a crossed endpoint and the
 usual reader's explicit refusal of an unscoped ellipse.
-[SDK parity evidence](../measurements/2026/SdkColdEllipsePromotion01.json)
+[Public SDK parity evidence](../measurements/2026/SdkColdEllipsePublic01.json)
+· [Constructor parity evidence](../measurements/2026/SdkColdEllipsePromotion01.json)
 
 ## Shared integration
 
@@ -60,16 +63,11 @@ The constructor uses four additive shared interfaces.
 - `EmitPartArchive` accepts the default-false `ReplayEllipses` keyword
   and forwards it to the existing resolved writer.
 
-The actual preparation entry is
-`PrepareEllipse(Document, Target, WrittenAt, Options)`. Its paired
-admission entry is `PlanEllipse(Document)`. The public planner and
-preparer should use the same actual full-ellipse entity discriminator
-before their line and circle fallback, after applying the earlier
-special-family dispatch. An unsupported model on that ellipse branch
-fails its own guard. Both the staged file and binary stream publication
-can take the resulting `EllipsePart.BytesValue` through the existing
-writer. The selected configuration and final path use the ordinary
-part options.
+The public planner and preparer use the full ellipse entity on the
+extrusion's actual input sketch to select `PlanEllipse` and
+`PrepareEllipse`. The ellipse guard validates the feature, shape,
+configuration and depth before the shared writer opens the destination.
+The selected configuration and final path use the established part options.
 
 The scoped linked readback selects the existing `ReadEllipses` context.
 A public reading route needs a separate ownership guard before enabling

@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Extrusion.CutGraph import CutGraph
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import (
     KeywordConfig,
@@ -38,7 +41,7 @@ def MakePartKeys(
     SystemValue: PartSystem,
     FeatureValues: tuple[ArchiveNode, ...],
     InputValue: PartBuildInput,
-    PlanValue: KPartPlan,
+    PlanValue: KPartPlan | EllipsePlan,
     SketchDims: tuple[KeywordDim, ...] = (),
     *,
     CutValue: CutGraph | None = None,

@@ -45,6 +45,7 @@ def EmitPartArchive(
     BodyMapFields: MutableMapping[str, object] | None = None,
     PartRelations: bool = False,
     WriteChamfers: bool = False,
+    ReplayEllipses: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(
@@ -62,6 +63,7 @@ def EmitPartArchive(
         ConfigValue.MapValue,
         ContextValue,
         WriteChamfers=WriteChamfers,
+        ReplayEllipses=ReplayEllipses,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),

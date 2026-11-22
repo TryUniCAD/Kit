@@ -1,0 +1,250 @@
+{
+  "cases": [
+    {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "bytes": 8120,
+      "case": "EllipseFrontA",
+      "depth_m": 0.013125,
+      "linked_replays": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 86,
+          "sha256": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 194,
+          "sha256": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8"
+        }
+      },
+      "linked_roots": 19,
+      "major_station_m": [
+        0.03699003440324798,
+        0.0039061349356519113
+      ],
+      "map_frontiers": [
+        87,
+        195
+      ],
+      "neutral_request_sha256": "a1a8650a76e29c0b14a04b0adbd7e8a8fdaefa53ab7c5fd0c93cb7bcec022384",
+      "public_routes": [
+        "convert.write_document",
+        "SldprtAdapter.write"
+      ],
+      "refusals": {
+        "construction": "cold ellipse requires its actual free full closed entity",
+        "equal_radii": "cold ellipse is outside the measured signed geometry and depth scope",
+        "requested_configuration": "requested ellipse write configuration is unavailable",
+        "reversed_boss": "plain boss requires its admitted single blind direction",
+        "unnamed_stream": "unnamed native streams require an explicit final destination",
+        "unsupported_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_driver": "plain boss requires its actual unexpressed driving D1 parameter"
+      },
+      "resolved_map_base": 87,
+      "runtime_file_reads": 0,
+      "sdk_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "7ac1f0425dd7638edd352f8c7cae0d6f9f872534543f2725b6f531d0ba699c9b"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "d2f1e86f2508795804f641868bae538253ab7106e124203c4f1f8c1b040fd657"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "34fadd57567d318f58ef4f901df8e13a79a6d39b6f57445489adcabee7824471"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "12571a6c2795373bd1527ad2d49583fd02c09c5b34f1ab5b34242b69b91c007a"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "35835c3bb521af80dfa3458d12ef74af226535c58fcc30ade8db7fe2740598b8"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "8a138d4c17160278b92b78401523b89135b7fa437a83d2c497a352fc856ed24b"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1a673a332a9b021393fbe39e19e974d5fb4e403f6c7289a69eeea9bb306e30f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "1b9d29b93b4d64fbab1e72051734cfd5d85787014c7737b53eedac8adec1a874"
+        }
+      }
+    },
+    {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "bytes": 8119,
+      "case": "EllipseFrontB",
+      "depth_m": 0.021625000000000002,
+      "linked_replays": {
+        "Contents/Config-0": {
+          "byte_field_owners": [
+            {
+              "field": "f784",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            },
+            {
+              "field": "f7a4",
+              "object_class": "moPart_c",
+              "schema": "moModel_c.FUN_4c22ec80"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 86,
+          "sha256": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "byte_field_owners": [
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayDistanceDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            },
+            {
+              "field": "data",
+              "object_class": "moDisplayAngularDim_c",
+              "schema": "dm.FUN_4bd03960"
+            }
+          ],
+          "exact": true,
+          "identical_map_entries": 194,
+          "sha256": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716"
+        }
+      },
+      "linked_roots": 19,
+      "major_station_m": [
+        0.0008761766068169762,
+        -0.0024959699911387134
+      ],
+      "map_frontiers": [
+        87,
+        195
+      ],
+      "neutral_request_sha256": "ce733456558355ff2e1748c50a4111a9a6d721a10cae67988833d1f66e2c6964",
+      "public_routes": [
+        "convert.write_document",
+        "SldprtAdapter.write"
+      ],
+      "refusals": {
+        "construction": "cold ellipse requires its actual free full closed entity",
+        "equal_radii": "cold ellipse is outside the measured signed geometry and depth scope",
+        "requested_configuration": "requested ellipse write configuration is unavailable",
+        "reversed_boss": "plain boss requires its admitted single blind direction",
+        "unnamed_stream": "unnamed native streams require an explicit final destination",
+        "unsupported_metadata": "plain boss candidate does not admit unprojected document metadata",
+        "wrong_driver": "plain boss requires its actual unexpressed driving D1 parameter"
+      },
+      "resolved_map_base": 87,
+      "runtime_file_reads": 0,
+      "sdk_research_imports": 0,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "6882876e49e128bc53e9774ce928ddf8af410d71cdd015aae813d0d23b73408d"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "3734927b8c64051ce160ea40b0f062ecb0d7ec361331d95a784f14d8ad5d7ae5"
+        },
+        "Contents/Config-0": {
+          "bytes": 22260,
+          "sha256": "24d980da2f4559a78a1455818d352ab88ac27f6b3fd6d0e2026f6bfb3ea40124"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 675,
+          "sha256": "3e48ba0b81bb4f805239d045c634063a3b8b5f33622c0cae8471f7f00a75130d"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 13834,
+          "sha256": "deea5090185a57493dce670bdf3c57fba31f52ac2a91e6d1e7837ac4a664b716"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 675,
+          "sha256": "e9a2949ef153d1fc15a43c5269ffa5bb9b650f0d62e326cf22a8a1a233c4264c"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "1690143a6e71930dbba6c1750161b135f89961299c3f95383d681606c0f676e0"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1423,
+          "sha256": "884457c2b720ef3c8661534d1a7280c84ba6936d4d3b320309cdbc46be412d3b"
+        }
+      }
+    }
+  ],
+  "construction_reference_receipt": "646be1559ff71dba8650df05a4dcdfdbf987c6a7e11ce3e132a720cd8fb3c555",
+  "guarded_processes": 4,
+  "method_sha256": "fa2134397a44f32560cf224b090a272dc6e4dbeb925dd6c571766ee76bf0011d",
+  "native_processes_started": 0,
+  "native_reference_receipt": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "schema": "kit.sw2026.sdk-full-ellipse-public.v1"
+}

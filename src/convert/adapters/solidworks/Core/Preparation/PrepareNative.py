@@ -1,5 +1,8 @@
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
+    EllipsePart,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
     ImportCandidate,
 )
@@ -19,6 +22,12 @@ from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
+    IsEllipsePart,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import (
+    PrepareEllipse,
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
     PrepareEqPart,
@@ -70,11 +79,15 @@ def PrepareNative(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
-) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart | PatCandidate:
+) -> (
+    PartCandidate | ImportCandidate | StockCandidate | RevolvePart | PatCandidate | EllipsePart
+):
     if IsChmfPart(DocumentValue):
         return PrepChmfPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsPatPart(DocumentValue):
         return PrepPatPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
+    if IsEllipsePart(DocumentValue):
+        return PrepareEllipse(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if PlanThinPart(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if DocumentValue.brep is not None:

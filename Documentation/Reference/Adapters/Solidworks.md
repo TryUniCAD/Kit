@@ -571,6 +571,7 @@ active configuration, one sketch, one boss and one solid. It admits these
 profiles:
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
+- One unrestrained full ellipse on the canonical Front Plane with a forward blind boss, one driving depth D1 and a Default configuration. [Ellipse construction and verification](../../../re/solidworks/records/SdkColdEllipsePromotion2026.md)
 - A signed rectangle on the canonical Top Plane with its fixed model-origin corner, two editable sketch lengths and a reversed blind depth. [Top rectangle writing](../../Changes/Solidworks/Construction/Part/SolidworksExplicitTopRectangleOrigin.md)
 - A fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward blind boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss

@@ -2,6 +2,7 @@ from base64 import b64decode, b64encode
 from codecs import lookup
 from dataclasses import replace
 from hashlib import sha256
+from importlib import import_module
 from io import BytesIO
 from pathlib import Path, PureWindowsPath
 import json
@@ -22,7 +23,9 @@ def worker():
 
     audit = BuildAudit(HERE.parents[1] / "serial" / "defs")
     sys.addaudithook(audit.InspectEvent)
+    from convert import write_document
     from convert.adapters.base.WriteOptions import WriteOptions
+    from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
     from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import PrepareEllipse
     from interchange.document.Behavior.DocumentIo import FromJson
     from interchange.document.Models.DocumentModel import CadDocument
@@ -40,6 +43,8 @@ def worker():
     feature, = document.feature_timeline
     ellipse = entity.geometry
     blocked = []
+    import_module("interchange.document.Models.DocumentProvenance")
+    import_module("convert.adapters.solidworks.Core.Writing.EmitNativeMut").ReadTime = lambda: request["epoch"]
 
     def guard(event, _args):
         if event.startswith(("socket.", "ctypes.", "winreg.")) or event in ("os.startfile", "os.startfile/2"):
@@ -55,6 +60,16 @@ def worker():
     outcome = PrepareEllipse(document, target, request["epoch"], options)
     if target.tell() or target.getvalue():
         raise ValueError("preparation unexpectedly opened its caller-owned destination")
+    config, = document.configurations
+    adapter_result = SldprtAdapter().write(document, target, replace(options, configuration=config.name))
+    sdk_target = BytesIO()
+    sdk_result = write_document(document, sdk_target, destination_format="solidworks.sldprt",
+                                configuration=config.id, values=options.values)
+    if (target.getvalue() != outcome.BytesValue or sdk_target.getvalue() != outcome.BytesValue
+            or adapter_result.bytes_written != len(outcome.BytesValue)
+            or sdk_result.bytes_written != len(outcome.BytesValue)
+            or sdk_result.dropped or sdk_result.carrier_capabilities):
+        raise ValueError("public ellipse writer routes do not reproduce the typed constructor")
     circle = replace(shape, entities=(replace(entity, geometry=replace(ellipse, minor_radius=ellipse.major_radius)),))
     construction = replace(shape, entities=(replace(entity, construction=True),))
     reversed_boss = replace(feature, definition=replace(feature.definition, reversed=True))
@@ -96,6 +111,7 @@ def worker():
         "resolved_map_base": outcome.ResolvedValue.MapBase,
         "runtime_file_reads": 0,
         "sdk_research_imports": len(loaded),
+        "public_routes": ["convert.write_document", "SldprtAdapter.write"],
         "refusals": refusals,
     }, sort_keys=True, allow_nan=False))
 
@@ -108,6 +124,7 @@ def measure():
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 
     records = ROOT / "re/solidworks/measurements/2026"
+    method = digest(HERE.read_bytes())
     construction_raw = (records / "EllipseColdPrototype02.json").read_bytes()
     oracle_raw = (records / "EllipseColdNativeDisclosed02.json").read_bytes()
     construction, oracle = map(json.loads, (construction_raw, oracle_raw))
@@ -152,9 +169,9 @@ def measure():
                                  "bytes": len(archive), "linked_replays": linked["linked_replays"],
                                  "depth_m": linked["depth_m"], "major_station_m": linked["major_station"],
                                  "linked_roots": linked["root_count"]})
-    return {"schema": "kit.sw2026.sdk-full-ellipse-promotion.v1", "native_reference_receipt": digest(oracle_raw),
+    return {"schema": "kit.sw2026.sdk-full-ellipse-public.v1", "native_reference_receipt": digest(oracle_raw),
             "construction_reference_receipt": digest(construction_raw), "guarded_processes": 4,
-            "native_processes_started": 0, "cases": results}
+            "method_sha256": method, "native_processes_started": 0, "cases": results}
 
 
 if __name__ == "__main__":

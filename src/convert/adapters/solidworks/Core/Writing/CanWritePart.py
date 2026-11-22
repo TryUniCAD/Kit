@@ -3,6 +3,10 @@ from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsC
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
     PlanChmfPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
+    IsEllipsePart,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
 from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
     PlanImportPart,
 )
@@ -21,6 +25,9 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             return IsPartTarget(PlanChmf.StockValue.NameValue, TargetValue)
         if IsPatPart(DocumentValue):
             return CanWritePat(DocumentValue, TargetValue)
+        if IsEllipsePart(DocumentValue):
+            EllipseValue = PlanEllipse(DocumentValue)
+            return IsPartTarget(EllipseValue.NameValue, TargetValue)
         if DocumentValue.brep is not None:
             _ = PlanImportPart(DocumentValue, TargetValue)
             return True
