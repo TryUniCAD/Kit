@@ -20,7 +20,7 @@ def WaitRequest(Session: object) -> None:
     while MonoTime() < Deadline:
         for EventValue in AsRecords(getattr(Session, "events")):
             ResultValue = EventValue.get("result")
-            if isinstance(ResultValue, dict) and AsRecord(ResultValue).get("turn") == {
+            if ResultValue is not None and AsRecord(ResultValue).get("turn") == {
                 "id": "fixture-turn-1"
             }:
                 return

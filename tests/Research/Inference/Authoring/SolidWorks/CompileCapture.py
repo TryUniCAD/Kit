@@ -34,9 +34,9 @@ def CompileCapture(CasePath: Path, OutputPath: Path) -> CompletedProcess[str]:
             "Bypass",
             "-Command",
             "& $env:KIT_COMPILE_SCRIPT -CasePath $env:KIT_COMPILE_CASE "
-            "-OutputDirectory $env:KIT_COMPILE_OUTPUT "
-            "-ExecutablePath $env:KIT_COMPILE_EXECUTABLE "
-            "-InteropAssembly $env:KIT_COMPILE_INTEROP -Phase first -CompileOnly",
+            + "-OutputDirectory $env:KIT_COMPILE_OUTPUT "
+            + "-ExecutablePath $env:KIT_COMPILE_EXECUTABLE "
+            + "-InteropAssembly $env:KIT_COMPILE_INTEROP -Phase first -CompileOnly",
         ],
         cwd=KRepoRoot,
         env=CompilerEnv(ScriptPath, CasePath, OutputPath, ExePath, Interop),

@@ -8,6 +8,7 @@
 
 from collections.abc import Callable
 from contextlib import AbstractContextManager as ContextScope
+from abc import abstractmethod
 from pathlib import Path as FilePath
 from typing import Protocol
 
@@ -16,6 +17,7 @@ from typing import Protocol
 class SessionMaker(Protocol):
 
     # provider construction stays separate from caller controlled protocol requests
+    @abstractmethod
     def __call__(self, Options: object, *, Command: list[str]) -> object:
         pass
 
@@ -24,6 +26,7 @@ class SessionMaker(Protocol):
 class BrokerMaker(Protocol):
 
     # the broker factory receives only the existing options directory and trusted session constructor
+    @abstractmethod
     def __call__(
         self,
         Options: object,
@@ -37,5 +40,6 @@ class BrokerMaker(Protocol):
 class LiveProbe(Protocol):
 
     # the live flag excludes exited processes while preserving the original inspection boundary
+    @abstractmethod
     def __call__(self, ProcessId: int, **Flags: bool) -> str | None:
         pass

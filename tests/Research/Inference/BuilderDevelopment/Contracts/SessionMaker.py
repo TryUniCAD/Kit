@@ -6,6 +6,7 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from abc import abstractmethod
 from pathlib import Path as FilePath
 from typing import Protocol
 
@@ -14,6 +15,7 @@ from typing import Protocol
 class SessionMaker(Protocol):
 
     # constructor keywords pin fixture transport and explicit personal context permission independently
+    @abstractmethod
     def __call__(
         self,
         Options: object,
