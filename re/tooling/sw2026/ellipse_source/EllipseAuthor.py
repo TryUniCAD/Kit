@@ -19,6 +19,7 @@ METHODS = {
     "ISketchContour": {"IsClosed": 0, "GetSketchSegments": 0},
     "IFeatureManager": {"FeatureExtrusion3": 23},
     "IFeature": {"Parameter": 1, "GetFaces": 0, "GetParents": 0},
+    "ISelectionMgr": {"GetSelectedObjectCount2": 1, "GetSelectedObject6": 2},
     "IBody2": {"GetFaces": 0, "GetExtremePoint": 6, "Select2": 2},
     "IFace2": {"GetFeature": 0, "GetBody": 0, "GetSurface": 0, "GetEdges": 0, "GetArea": 0, "Normal": 0,
                "GetLoopCount": 0},
@@ -262,7 +263,12 @@ class EllipseAuthor(FilletAuthor):
         try:
             require(bool(self.get(body, "Select2", False, Swapp.nothing())),
                     "native exact solid selection for mass properties failed")
-            self.selected(body)
+            selection = self.get(self.model, "SelectionManager")
+            require(int(self.get(selection, "GetSelectedObjectCount2", -1)) == 1,
+                    "native mass measurement requires one selected object")
+            selected = self.typed(self.get(selection, "GetSelectedObject6", 1, -1), "Body2")
+            require(int(self.get(selected, "GetType")) == self.constants["swSolidBody"] and self.same(selected, body),
+                    "native mass selection is not the same actual solid")
             extension = self.get(self.model, "Extension")
             mass = self.typed(self.get(extension, "CreateMassProperty2"), "MassProperty2")
             accuracy = self.constants["swMassPropertyAccuracyLevel_Higher"]
