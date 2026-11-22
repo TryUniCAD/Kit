@@ -23,6 +23,7 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WritePolicy import GetWriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.Formats.CheckSourceText import CheckSourceText
 
 # historical destination annotations need local resolution after public methods move to the registry facade
 Destination = KTargetType
@@ -121,6 +122,7 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
+        CheckSourceText(DocumentData)
         CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

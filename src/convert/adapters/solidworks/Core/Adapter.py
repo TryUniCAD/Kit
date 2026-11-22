@@ -160,6 +160,7 @@ from convert.adapters.solidworks.Core.SketchIdentity import (
     MarkerId as MarkerId,
 )
 from convert.adapters.solidworks.Core.Display import NativeDisplay
+from convert.adapters.solidworks.Core.Properties.WithPartProps import WithPartProps
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.FindLocalOwner import (
     FindLocalOwner,
 )
@@ -510,7 +511,7 @@ def ReadNativePart(
     DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue.assert_valid()
     ValidateSource(Label, False)
-    return RetainSource(DocValue, DataValue)
+    return RetainSource(WithPartProps(DocValue, Archive), DataValue)
 
 
 # planes and sketches must bind to the same native parameter identities
