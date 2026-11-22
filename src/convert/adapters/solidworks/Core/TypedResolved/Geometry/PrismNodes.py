@@ -25,7 +25,9 @@ def PrismNodes(
         for Entry in Entries
         if isinstance(Entry.EntryValue, ArchiveNode)
     )
-    OwnersValue = ProvenNodes if ProvenNodes is not None else frozenset()
+    OwnersValue: frozenset[ArchiveNode] = (
+        ProvenNodes if ProvenNodes is not None else frozenset()
+    )
     FoundNodes: set[ArchiveNode] = set()
     for NodeValue in NodesValue:
         _ = RequireNative(NodeValue)

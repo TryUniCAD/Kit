@@ -1,6 +1,6 @@
 # SOLIDWORKS History and Biography stream codec
 
-Use `ReadHistGraph` and `WriteHistGraph` for the standalone
+Use `ReadHistMut` and `WriteHistGraph` for the standalone
 version-19000 History and Biography streams. Each stream uses
 its own archive map. Biography preserves ordered embedded
 telemetry. Version-history entries use the existing header stamp

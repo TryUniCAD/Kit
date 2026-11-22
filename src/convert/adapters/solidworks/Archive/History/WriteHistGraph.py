@@ -1,5 +1,5 @@
 from convert.adapters.solidworks.Archive.History.HistoryGraph import HistoryGraph
-from convert.adapters.solidworks.Archive.History.ReadHistGraph import ReadHistGraph
+from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
 from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
@@ -9,4 +9,4 @@ def WriteHistGraph(
     RootValue: ArchiveNode, VersionValue: int
 ) -> tuple[bytes, HistoryGraph]:
     BufferValue, _ = WriteHistMut(RootValue, VersionValue)
-    return BufferValue, ReadHistGraph(BufferValue, VersionValue)
+    return BufferValue, ReadHistMut(BufferValue, VersionValue)

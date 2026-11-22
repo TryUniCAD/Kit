@@ -15,7 +15,7 @@ from CheckCfgOwners import audit_run
 from convert.adapters.solidworks.Archive.Construction.Metadata.HistoryInput import HistoryInput
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeBiography import MakeBiography
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeFreshHist import MakeFreshHist
-from convert.adapters.solidworks.Archive.History.ReadHistGraph import ReadHistGraph
+from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
 from convert.adapters.solidworks.Archive.History.WriteHistGraph import WriteHistGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Archive import ContainerMo
@@ -77,7 +77,7 @@ def describe(graph, data, role):
 def verify_control(streams, control):
     reports = {}
     for role, data in streams.items():
-        graph = ReadHistGraph(data, VERSION)
+        graph = ReadHistMut(data, VERSION)
         expected = control["streams"][role]
         report = describe(graph, data, role)
         require(report == expected, f"{role} physical bytes or map differ")
@@ -128,7 +128,7 @@ def edited():
     original = HistoryInput(1881802743, "short", 2031447, 0, 1033, False)
     revised = replace(original, CommentText="longer \U0001d11e comment")
     source = history_wire(original)
-    source_graph = ReadHistGraph(source, VERSION)
+    source_graph = ReadHistMut(source, VERSION)
     root = source_graph.RootValue
     state = root.FieldsValue["states"][0]["st"]
     date = state["f38"]
@@ -163,7 +163,7 @@ def renumbered():
                       + pack("<IHii", VERSION, 0x8003, 1, retained.BuildCode))
     source = (new_class("moVersionHistory_c") + pack("<i", 2)
               + first_state + retained_state + history_tail(first))
-    source_graph = ReadHistGraph(source, VERSION)
+    source_graph = ReadHistMut(source, VERSION)
     source_report = describe(source_graph, source, "History")
     rows = source_graph.RootValue.FieldsValue["states"]
     removed_date, retained_date = (row["st"]["f38"] for row in rows)
@@ -255,8 +255,8 @@ def read_refusals(spec):
         ("empty_date_history", state + date_tag + pack("<i", 0), "date code history requires states"),
         ("trailing_bytes", history_wire(spec) + b"\0", "history stream has trailing data"),
     )
-    reports = [refuse(name, lambda: ReadHistGraph(wire, VERSION), diagnostic) for name, wire, diagnostic in wires]
-    reports.append(refuse("wrong_outer_version", lambda: ReadHistGraph(history_wire(spec), 18900),
+    reports = [refuse(name, lambda: ReadHistMut(wire, VERSION), diagnostic) for name, wire, diagnostic in wires]
+    reports.append(refuse("wrong_outer_version", lambda: ReadHistMut(history_wire(spec), 18900),
                           "history requires archive version 19000"))
     return reports
 
