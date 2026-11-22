@@ -3,6 +3,7 @@ from typing import Mapping as TypeMap
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.SweepFeature import SweepFeature
 from interchange.document.Validation.SweepValidate import GetSweepErrs
+from interchange.geometry.Models.Sketch import Sketch
 
 
 # step links must name an existing entity and point only to prior operations
@@ -10,6 +11,7 @@ def GetStepErrors(
     FeatureValue: FeatureStep,
     FeatureOrders: TypeMap[str, int],
     IdentitySets: TypeMap[str, set[str]],
+    Sketches: TypeMap[str, Sketch],
 ) -> list[str]:
     ErrorValues: list[str] = []
     if (
@@ -36,7 +38,5 @@ def GetStepErrors(
             )
     Definition = FeatureValue.definition
     if isinstance(Definition, SweepFeature):
-        ErrorValues.extend(
-            GetSweepErrs(FeatureValue, Definition, IdentitySets["sketches"])
-        )
+        ErrorValues.extend(GetSweepErrs(FeatureValue, Definition, Sketches))
     return ErrorValues

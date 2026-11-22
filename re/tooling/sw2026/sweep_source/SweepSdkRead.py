@@ -71,10 +71,10 @@ def check_boundary(document, job):
         raise ValueError("sweep reconstructed the wrong angular sector")
 
 
-def reject_source(raw, expected_error):
+def reject_source(raw, expected_error, configuration=None):
     for include_brep in (True, False):
-        for read in (lambda: open_document(raw, include_brep=include_brep),
-                     lambda: SldprtAdapter().read(raw, ReadOptions(include_brep=include_brep))):
+        for read in (lambda: open_document(raw, include_brep=include_brep, configuration=configuration),
+                     lambda: SldprtAdapter().read(raw, ReadOptions(include_brep=include_brep, configuration=configuration))):
             try:
                 read()
             except ValueError as error:
@@ -172,14 +172,16 @@ def prove_sw_read(payload, candidate, job, transfer, options, reject):
     return result | {"strict_readback": checks}
 
 
-def prove_saved_boundary(payload):
+def prove_saved_boundary(payload, genuine_sweep=True):
     archive = SldprtArchive.from_bytes(payload)
     if archive.get(KPartitionStream) is None:
         raise ValueError("disclosed native sweep lacks its saved result partition")
     reject_source(payload, "unsupported SOLIDWORKS saved sweep result partition")
+    reject_source(payload, "unsupported SOLIDWORKS saved sweep result partition", configuration="Default")
     permissive = open_document(payload, strict=False, include_tessellation=False)
     direct = SldprtAdapter().read(payload, ReadOptions(strict=False, include_tessellation=False))
-    if (permissive != direct or not any(row.kind.value == "sweep" for row in permissive.feature_timeline)
+    if (permissive != direct or not permissive.feature_timeline
+            or (genuine_sweep and not any(row.kind.value == "sweep" for row in permissive.feature_timeline))
             or any(isinstance(row.definition, SweepFeature) for row in permissive.feature_timeline)):
         raise ValueError("explicit permissive native sweep inspection lost its legacy inventory")
-    return {"strict_refusals": 4, "legacy_permissive_routes": 2}
+    return {"strict_refusals": 8, "legacy_permissive_routes": 2}

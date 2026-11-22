@@ -17,6 +17,7 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent), str(HERE.parent / "sweep_so
 
 from CheckScopedPlainWriter import WriterAudit
 from SweepSdkInput import neutral_document
+from SweepCliProbe import prove_cli_transfer, prove_saved_envelope
 from SweepSdkRead import prove_saved_boundary, prove_sw_read
 from convert.adapters.registry import AdapterNotFoundError
 
@@ -159,6 +160,8 @@ def project_writes(job, folder):
     reader_status = prove_sw_read(payload, candidate, job, transfer, options, reject)
     audit.phase = "done"
     require(not audit.denied, "strict sweep projection opened a runtime asset")
+    reader_status["saved_envelope"] = prove_saved_envelope(payload, ROOT)
+    reader_status["portable_cli"] = prove_cli_transfer(payload, ROOT, folder)
     return {"name": job["name"], "archive_sha256": job["sha256"], "archive_bytes": len(payload),
             "stream_sha256": stream_hashes, "normalized_state_checks": 30,
             "exact_registry_and_direct_streams": True, "native_transfers": len(caps),
@@ -211,7 +214,7 @@ def supervise(native=None, warm=None):
                          input=json.dumps(job), capture_output=True, text=True, timeout=45, check=False)
             require(worker.returncode == 0, worker.stderr or worker.stdout)
         results.append(json.loads(worker.stdout))
-    report = {"schema": "kit.sw2026.main-scoped-sweep-readback.v2", "base": "1d66aa9bab4a9573de86ea90992d828224cd8196",
+    report = {"schema": "kit.sw2026.main-scoped-sweep-readback.v3", "base": "ab4c5b98b5fdb7b49146601ffc5731aa0b6a095d",
             "native_result_sha256": NATIVE_SHA, "normalized_receipt_sha256": RECEIPT_SHA, "neutral_spec_sha256": SPEC_SHA,
             "writer_processes": len(results), "native_calls": 0, "protected_inputs_read": 0,
             "disclosed_physical_stream_comparison": native is not None, "cases": results}
