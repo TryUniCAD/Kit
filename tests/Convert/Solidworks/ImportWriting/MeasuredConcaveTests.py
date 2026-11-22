@@ -1,8 +1,12 @@
 from json import loads as LoadJson
+from os import name as OsName
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
+from pytest import mark as MarkCase
+
 from tests.Convert.Api.ApiTestPaths import KRootPath
+from tests.Convert.Solidworks.ImportWriting.CheckImportPath import CheckImportPath
 
 
 # the complete suite exercises attributed concave publication in a fresh sdk process
@@ -29,7 +33,18 @@ def TestConcave() -> None:
     if "unmatched_compressor" in ReportValue:
         assert ReportValue["exact_publications"] == 0
         assert "zlib-ng" in ReportValue["unmatched_compressor"]
+        assert ReportValue["distinct_compression_refused"] == dict.fromkeys(
+            ("direct", "registry"), "no exact native measurement"
+        )
     else:
         assert ReportValue["exact_publications"] == 2
         assert ReportValue["exact_streams"] == 12
         assert len(ReportValue["refusals"]) == 10
+
+
+# exercise the measured concave writer at its actual windows output locator
+@MarkCase.skipif(
+    OsName != "nt", reason="the measured physical locator requires Windows"
+)
+def TestConcaveWin() -> None:
+    CheckImportPath("ConcaveOwned", 10890)

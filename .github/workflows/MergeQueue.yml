@@ -400,6 +400,7 @@ jobs:
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
         ^tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests\.py::TestBoxWinPath$
+        ^tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests\.py::TestConcaveWin$
     defaults:
       run:
         shell: bash
@@ -457,6 +458,13 @@ jobs:
                 fi
                 continue
                 ;;
+              '^tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests\.py::TestConcaveWin$')
+                test "$AuditEvent" = workflow_dispatch
+                if git grep -q '^def TestConcaveWin(' "$AuditSha" -- tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests.py; then
+                  exit 1
+                fi
+                continue
+                ;;
               *) exit 1 ;;
             esac
             test "$AuditEvent" = workflow_dispatch
@@ -472,7 +480,9 @@ jobs:
           awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
             "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
           test -s "$Selected"
-          if grep -Fqx 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' "$Selected"; then
+          if grep -Fqx \
+            -e 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' \
+            -e 'tests/Convert/Solidworks/ImportWriting/MeasuredConcaveTests.py::TestConcaveWin' "$Selected"; then
             printf '%s\n' 'measured_windows_part=true' >> "$GITHUB_OUTPUT"
           fi
 

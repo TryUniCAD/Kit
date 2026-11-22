@@ -13,6 +13,7 @@ from zlib import ZLIB_RUNTIME_VERSION
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
+from ConcaveImportCase import LOCATOR, OUTLINE, STATIONS
 from VerifyMeasuredBox import (
     EPOCH, FORMAT, RECEIPT, RECEIPT_SHA, ROOT, assert_result, check_compression,
     fingerprint, guard, prism, refuse, require,
@@ -34,9 +35,6 @@ from interchange import CadDocument
 from tests.Convert.Solidworks.Core.SolidworksLocalBodyTests import ShellMeasures
 
 REFERENCE = ROOT / "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT"
-LOCATOR = r"C:\KitImportedProbe03\Candidates\ConcaveOwned.SLDPRT"
-OUTLINE = ((7, -12), (33, -12), (33, -3), (17, -3), (17, 8), (7, 8))
-STATIONS = (-4, 11)
 ATTRIBUTE_ROLES = (
     "ATOM_ID_2001", "LAST_BODY_MODIFYING_FEATURE_ID", "SWIMPLICITBODYNAME_ID_U",
     "ENT_TIME_STAMP_2001", "BODY_RECIPE_2001",
@@ -213,13 +211,18 @@ def check(coverage_only=False):
         prepared = PrepareImport(document, BytesIO(), EPOCH, settings)
         exact = prepared.BytesValue == reference
         if coverage_only and not exact and "zlib-ng" in ZLIB_RUNTIME_VERSION:
-            stream = BytesIO()
-            refusal = refuse(lambda: write_document(document, stream, destination_format=FORMAT,
-                                                     values=options),
-                             ValueError, "no exact native measurement")
-            require(stream.getvalue() == b"", "an unmeasured compressor output was published")
+            staged = BytesIO()
+            direct = BytesIO()
+            unmatched = "no exact native measurement"
+            refusals = {
+                "registry": refuse(lambda: write_document(document, staged, destination_format=FORMAT,
+                                                          values=options), ValueError, unmatched),
+                "direct": refuse(lambda: SldprtWriter().write(document, direct, settings), ValueError, unmatched),
+            }
+            require(staged.getvalue() == direct.getvalue() == b"",
+                    "an unmeasured compressor output was published")
             result |= {"exact_publications": 0, "unmatched_compressor": ZLIB_RUNTIME_VERSION,
-                       "distinct_compression_refused": refusal}
+                       "distinct_compression_refused": refusals}
         else:
             require(exact and {name: fingerprint(data) for name, data in prepared.StreamsValue.items()}
                     == case["generated_streams"], "complete neutral output is not the archived native input")

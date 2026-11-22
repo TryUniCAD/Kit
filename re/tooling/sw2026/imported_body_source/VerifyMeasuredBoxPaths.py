@@ -24,6 +24,7 @@ from VerifyMeasuredBox import (
     assert_result,
     box,
     fingerprint,
+    prism,
     require,
     write_document,
 )
@@ -94,7 +95,9 @@ def audit_writer(target):
         if isinstance(location, int):
             return
         path = Path(fsdecode(location)).resolve()
-        if flags & (O_WRONLY | O_RDWR) == O_WRONLY and path.is_relative_to(target.parent):
+        if flags & (O_WRONLY | O_RDWR) == O_WRONLY and path.is_relative_to(
+            target.parent
+        ):
             return
         if path.suffix in {".py", ".pyc"} and any(
             path.is_relative_to(root) for root in allowed_code
@@ -110,20 +113,28 @@ def audit_writer(target):
         active = False
 
 
-def prove(preserve_existing):
+def prove(preserve_existing, profile="RectangularBare"):
     require(name == "nt", "the measured physical locator requires Windows")
     for codec in ("ascii", "latin-1", "cp1252", "utf-8", "utf-16-le", "utf-16-be"):
         lookup(codec)
     raw = RECEIPT.read_bytes()
     require(sha256(raw).hexdigest() == RECEIPT_SHA, "the native receipt changed")
     receipt = json.loads(raw)
-    case = receipt["cases"]["RectangularBare"]
+    case = receipt["cases"][profile]
     expected = {"bytes": case["generated_bytes"], "sha256": case["native_input_sha256"]}
     options = {
         "solidworks_native_measurement": {"written_at": EPOCH, "receipt": receipt}
     }
-    target = Path(LOCATOR)
-    document = box(BOUNDS)
+    if profile == "ConcaveOwned":
+        from ConcaveImportCase import LOCATOR as CONCAVE_LOCATOR, OUTLINE, STATIONS
+
+        target = Path(CONCAVE_LOCATOR)
+        document = prism(OUTLINE, STATIONS)
+        shape = "concave"
+    else:
+        target = Path(LOCATOR)
+        document = box(BOUNDS)
+        shape = "rectangular"
     publishers = {
         "registry": lambda: write_document(
             document,
@@ -150,7 +161,7 @@ def prove(preserve_existing):
             outcomes[route] = observed
             target.unlink()
     return {
-        "schema": "kit.sw2026.measured-rectangular-import-windows-paths.v1",
+        "schema": f"kit.sw2026.measured-{shape}-import-windows-paths.v1",
         "exact_publications": len(outcomes),
         "runtime_input_file_reads": 0,
         "runtime": {"python": list(sys.version_info[:3]), "zlib": ZLIB_RUNTIME_VERSION},
@@ -165,9 +176,16 @@ def prove(preserve_existing):
 if __name__ == "__main__":
     cli = ArgumentParser()
     cli.add_argument("--preserve-existing-measured-output", action="store_true")
+    cli.add_argument(
+        "--profile",
+        choices=("RectangularBare", "ConcaveOwned"),
+        default="RectangularBare",
+    )
     args = cli.parse_args()
     print(
         json.dumps(
-            prove(args.preserve_existing_measured_output), indent=2, sort_keys=True
+            prove(args.preserve_existing_measured_output, args.profile),
+            indent=2,
+            sort_keys=True,
         )
     )

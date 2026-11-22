@@ -1,13 +1,12 @@
 from json import loads as LoadJson
-from os import environ as Environment
 from os import name as OsName
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
-from zlib import ZLIB_RUNTIME_VERSION as DeflateRuntime
 
-from pytest import mark as MarkCase, skip as SkipCase
+from pytest import mark as MarkCase
 
 from tests.Convert.Api.ApiTestPaths import KRootPath
+from tests.Convert.Solidworks.ImportWriting.CheckImportPath import CheckImportPath
 
 
 # the complete suite must exercise the measured geometry and refusal boundary in isolation
@@ -45,27 +44,4 @@ def TestMeasuredBox() -> None:
     OsName != "nt", reason="the measured physical locator requires Windows"
 )
 def TestBoxWinPath() -> None:
-    ScriptPath = (
-        KRootPath / "re/tooling/sw2026/imported_body_source/VerifyMeasuredBoxPaths.py"
-    )
-    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON")
-    if (
-        not RuntimePath
-        and "zlib-ng" in DeflateRuntime
-        and Environment.get("GITHUB_ACTIONS") != "true"
-    ):
-        SkipCase("measured Windows publication requires the matching runtime")
-    Outcome = RunProcess(
-        (RuntimePath or PythonExec, "-I", "-B", str(ScriptPath)),
-        capture_output=True,
-        encoding="utf-8",
-        timeout=90,
-        check=False,
-    )
-    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    ReportValue = LoadJson(Outcome.stdout)
-    assert ReportValue["exact_publications"] == 2
-    assert ReportValue["runtime_input_file_reads"] == 0
-    assert not ReportValue["declared_locator_option_used"]
-    assert ReportValue["routes"]["direct"] == ReportValue["routes"]["registry"]
-    assert ReportValue["routes"]["direct"]["bytes"] == 9914
+    CheckImportPath("RectangularBare", 9914)

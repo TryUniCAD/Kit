@@ -1,0 +1,36 @@
+{
+  "schema": "kit.sw2026.measured-concave-import-windows-publications.v1",
+  "sdk_revision": "18ca1896194d8902ee55fa3eeb20320007d2a6b7",
+  "sdk_source_tree": "ff972501911f5262d2ea2b9af0bfcf63e1ff1c35",
+  "path_verifier_sha256": "99c1e503bba9003b8673bd1e140ad0f34b73485f505a955087418d8b619197a3",
+  "neutral_case_sha256": "d24fe34ce8a186d36a1e20b530ab5eed8b6520772e8e79b1ab3d31fed66a65c7",
+  "native_cases_added": 0,
+  "path_observation": {
+    "declared_locator_option_used": false,
+    "exact_publications": 2,
+    "native_processes_started": 0,
+    "native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+    "original_locator_restored": true,
+    "routes": {
+      "direct": {
+        "bytes": 10890,
+        "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+      },
+      "registry": {
+        "bytes": 10890,
+        "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+      }
+    },
+    "runtime": {
+      "python": [
+        3,
+        12,
+        7
+      ],
+      "zlib": "1.3.1"
+    },
+    "runtime_input_file_reads": 0,
+    "schema": "kit.sw2026.measured-concave-import-windows-paths.v1"
+  },
+  "passed": true
+}

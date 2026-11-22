@@ -85,8 +85,8 @@ The source tree is `5a8a1ead66155c923136d8ac5675c5d18fdd4649`, based
 on `00689f44f82f4216267ced80d7cd4ed1e1b156da`. Fresh macOS Python 3.13
 and 3.14 processes produce the same evidence with zero external access
 during construction and stream publication. Existing native evidence
-authorizes the exact archive. There are zero additional native lifecycles
-or held-out cases and no new Windows filesystem observation.
+authorizes the exact archive. The host run added zero native lifecycles
+or held-out cases.
 
 The guarded report reproduced byte for byte after integration with the
 rectangular publication branch at `c577ee5653672ef38fda05e9005d32e34b584201`.
@@ -94,6 +94,16 @@ That run used source tree `07ea80a456f3c5ffa77d19f2d6dc145e0a65096d` and
 verifier SHA-256
 `5f616de5f31bc4f2f849b2aab605f2e846baa3ff8d5ec2185f06e3179783f81a`.
 On macOS the registry refuses the filesystem target during writer selection.
+
+The [Windows filesystem report](../measurements/2026/SdkMeasuredConcaveImportWindows01.json)
+records exact direct and registry writes to the measured physical locator
+with Python 3.12.7 and zlib 1.3.1 in the Windows 11 VM. Both routes inferred
+the destination without a locator option, read no input files during
+publication, and produced exactly 10,890 bytes. The verifier restored
+and checked the original disclosed file. This SDK run started zero
+native processes. The shared Windows suite runs both physical routes
+with the matching runtime. Stream coverage on a compressor with different
+output verifies refusal on both public routes.
 
 ```sh
 python3 -I -B re/tooling/sw2026/imported_body_source/VerifyMeasuredConcave.py
