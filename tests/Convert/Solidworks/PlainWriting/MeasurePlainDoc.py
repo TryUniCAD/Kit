@@ -1,6 +1,7 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
+from zlib import ZLIB_RUNTIME_VERSION as DeflateRuntime
 
 from interchange.document.Models.DocumentModel import CadDocument
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
@@ -35,9 +36,12 @@ def MeasurePlainDoc(
     RoleName: str,
 ) -> tuple[CadDocument, dict[str, object], str]:
     NameValue, Corners, DepthValue = KMeasuredCases[RoleName]
-    ReceiptPath = (
-        KMeasureRoot / "re/solidworks/measurements/2026/SdkDefaultPartNative01.json"
+    ReceiptName = (
+        "SdkDefaultPartZlibNgNative01.json"
+        if "zlib-ng" in DeflateRuntime
+        else "SdkDefaultPartNative01.json"
     )
+    ReceiptPath = KMeasureRoot / "re/solidworks/measurements/2026" / ReceiptName
     Receipt = CastValue(dict[str, object], LoadJson(ReceiptPath.read_bytes()))
     CaseRows = CastValue(list[dict[str, object]], Receipt["cases"])
     (CaseValue,) = (Value for Value in CaseRows if Value["role"] == RoleName)

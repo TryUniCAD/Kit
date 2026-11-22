@@ -31,6 +31,29 @@ reproduces both complete file hashes and all ten standard views from the
 two hash-bound neutral requests with zero construction reads.
 [Camera rounding rule and contrast](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Presentation/StandardViewRoundingChangesHashes.md)
 
+The Windows CPython 3.14.10 runtime uses zlib-ng. Its raw DEFLATE
+representation changes the saved record extents even though all ten clear
+streams and their order match the classic zlib output. In the guest, classic
+zlib on Windows Python 3.12.7 reproduced both measured archive hashes.
+Four fresh guarded workers also reproduced both distinct zlib-ng archives
+with zero construction reads. The Skew file grows from 8,094 to 9,289 bytes
+and Step grows from 8,180 to 9,395 bytes.
+[Exact compressed and clear stream comparison](../measurements/2026/PlainPartCompressionParity01.json)
+
+SOLIDWORKS 2026 SP05.2 independently opened, rebuilt, edited, saved and
+reopened both zlib-ng files. Six fresh processes include the two healthy
+controls. All 240 numeric checks passed, and the native tree, sketch and
+boss owners and numeric states match the earlier classic zlib results to
+six significant figures. The command fixture supplies the exact measured
+receipt for the emitting runtime. Publication still requires the full
+archive hash, which covers the compressed representation.
+[Zlib-ng native receipt](../measurements/2026/SdkDefaultPartZlibNgNative01.json)
+
+The Windows command publishes both models on each runtime with exact
+archive hashes and both native result flags. A different output locator
+refuses in all four trials and preserves the existing destination.
+[Windows command evidence](../measurements/2026/PlainPartWindowsCliParity01.json)
+
 Eight evidence and model contrasts per file fail through both direct streams
 and the staged registry path. A ninth contrast fails when the stream
 requests a different encoded locator. Those attempts leave the output
@@ -43,8 +66,9 @@ An evidence report is unsigned. The host proof independently verifies
 custody against archived digests. The production contract checks data
 shape, exact oracle identity, measured phases and full output digest.
 The caller remains responsible for obtaining an authentic report from the
-controlled offline oracle. This follow-up introduces no native runs,
-unmeasured successes or new held-out comparisons.
+controlled offline oracle. Prepare the offline candidate with the same
+Python compression runtime that will publish it. The packaging comparison
+uses the two disclosed models and adds zero held-out corpus conversions.
 
 ## Reproduce
 
@@ -67,3 +91,14 @@ python -I -B re/tooling/sw2026/CheckStdViewRounding.py \
 ```
 
 [Standard view replay and adjacent-value contrast](../measurements/2026/PlainStdViewRounding01.json)
+
+To compare compression backends, run `PreparePlainPartEvidence.py` for each
+of the original neutral requests, exact Windows locators and writer epoch.
+Capture each role in folders named `Mac`, `Windows`, `Windows314` and
+`Windows314Repeat` followed by `Skew` or `Step`. The final two captures run
+in independent Windows CPython 3.14.10 processes. Keep the source and
+runtime packages alongside the captures. `StagePlainCompression.py` checks
+the original typed stream evidence and produces a fresh native batch for
+the existing `InspectSdkDefaultParts.py` observer. `RecordPlainCompression.py`
+checks the host terminal outcome, six phase records and saved derivative
+hashes before issuing the matching compressed-file receipt.
