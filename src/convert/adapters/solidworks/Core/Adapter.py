@@ -23,6 +23,10 @@ from convert.adapters.base import (
     Source,
     is_binary_destination as IsBinaryTarget,
 )
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -295,6 +299,24 @@ class SldprtAdapter(PairProtocol):
     # conversion needs one neutral document result across solidworks reader implementations
     def read(self, SourceValue: Source, Options: ReadOptions | None = None) -> CadDoc:
         return ReadAction(self, SourceValue, Options)
+
+    # direct callers need the same capability checks and bundle transaction as the public registry
+    def write(
+        self,
+        document: CadDoc,
+        destination: KTargetType,
+        options: WriteOptions | None = None,
+    ) -> WriteResult:
+        from convert.adapters.registry import AdapterRegistry
+
+        FormatId = options.destination_format if options is not None else None
+        if FormatId is None:
+            FormatId = KAsmFormatId if document.assembly is not None else KFormatId
+        RegistryValue = AdapterRegistry()
+        RegistryValue.RegisterWriter(SldprtWriter())
+        return RegistryValue.WriteDocument(
+            document, destination, FormatId=FormatId, OptionsData=options
+        )
 
 
 # adapter metadata stays isolated so discovery can inspect capabilities without reading documents

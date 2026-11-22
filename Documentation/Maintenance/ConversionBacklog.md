@@ -284,6 +284,18 @@ and queue evidence. Complete section bodies, broader context and public
 configuration admission retain separate exits.
 [Change entry](../Changes/Solidworks/Archive/SolidworksConfigSections.md)
 
+### B04-SW2026-RIGID-NESTED
+
+The PR #121 takeover owns the scoped SDK writer on
+`codex/solidworks-measured-assembly-stack`. It depends on the ordinary part
+writer, shared assembly Definition and measured reference rules. Both SDK
+routes reproduce all 14 disclosed native-tested files with zero runtime input
+reads. A single exact native receipt binds every member before staging. Exit
+requires current-head review and queue acceptance.
+Nested mates, whole-source re-export and original FCStd benchmark membership
+remain open.
+[Exact evidence](../../re/solidworks/records/NestedAssemblyDelivery2026.md)
+
 ### B04-SW2026-ASSEMBLY-DEFINITION
 
 The PR #121 takeover team owns the ordinary version-19000 assembly
