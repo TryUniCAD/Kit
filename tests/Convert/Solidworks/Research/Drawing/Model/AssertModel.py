@@ -1,5 +1,5 @@
 # model process proof must retain the actual complete graph and honest remaining factory boundaries
-def AssertModel(Result: dict[str, object], MapValue: int) -> None:
+def AssertModel(Result: dict[str, object], MapValue: int, IsLinked: bool) -> None:
     for FieldName in (
         "passed",
         "plain_sdk_model",
@@ -18,9 +18,12 @@ def AssertModel(Result: dict[str, object], MapValue: int) -> None:
         "complete_sdk_only_drawing_factory",
         "vendor_runtime_executed",
         "native_acceptance",
-        "public_writer_enabled",
     ):
         assert Result[FieldName] is False
+    assert Result["public_write_refusals"] == {
+        "inspection": True,
+        "linked_layout": IsLinked,
+    }
     assert Result["root_id"] == 0 and Result["root_next_id"] == 9
     assert Result["auxiliary_lists"] == 3 and Result["canonical_view_count"] == 10
     assert Result["shared_owner_guard_rejections"] == 3

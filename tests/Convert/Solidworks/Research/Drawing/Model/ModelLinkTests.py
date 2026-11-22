@@ -20,5 +20,5 @@ def TestModelLinks() -> None:
         JobValue.update(schema="kit.sw2026.sdk-drawing-model-process.v1", mode="front")
         Result = RunModelCase(JobValue)
         assert Result == RunModelCase(JobValue)
-        AssertModel(Result, 172)
+        AssertModel(Result, 172, True)
         assert Result["mode"] == "front"

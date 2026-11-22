@@ -16,13 +16,13 @@ sys.path.append(str(TOOLS))
 
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 from DrawingSdkLinkedInput import linked_input, part_settings
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPart
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import EmitPartStreams
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Drawing.Construction.Linked.MakeLinkedFile import MakeLinkedFile
 from convert.adapters.solidworks.Drawing.Definition.Named.ReadNamedDef import ReadNamedDef
 from convert.adapters.solidworks.Drawing.Definition.Named.WriteNamedDef import WriteNamedDef
@@ -53,7 +53,6 @@ def main():
         suffix = "Projection." if name == "JoinConcept" else ""
         importlib.import_module("convert.adapters.solidworks.Drawing.Definition." + suffix + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "SDK linked drawing enabled public writing")
     AUDIT.BeginBuild()
     neutral = FromData(job["part"]["document"])
     require(type(neutral) is CadDocument, "SDK linked child requires an actual neutral CAD document")
@@ -88,6 +87,7 @@ def main():
             and actual_view.ConfigurationName == expected_view.ConfigurationName and actual_view.PositionValue == expected_view.PositionValue
             and actual_view.ScaleRatio == expected_view.ScaleRatio and public.drawing.ModelRefs[0].SourcePath == inputs.DrawingValue.ModelRefs[0].SourcePath,
             "SDK linked drawing lost portable model and view semantics")
+    public_refusals = refuse_research_drawing(public, linked=True, authored=inputs.DrawingValue)
     require(not AUDIT.DeniedReads, "SDK linked drawing attempted runtime input access")
     plan = child.PlanValue
     result = {"schema": "kit.sw2026.sdk-linked-drawing-result.v1", "passed": True,
@@ -107,7 +107,7 @@ def main():
               "child_artifact_sha256": digest(child.BytesValue), "child_artifact_base64": b64encode(child.BytesValue).decode("ascii"),
               "streams": {name: {"bytes": len(data), "sha256": digest(data)} for name, data in sorted(candidate.StreamsValue.items())},
               "runtime_input_file_access_attempts": len(AUDIT.DeniedReads), "heldout_inputs_read": 0,
-              "vendor_runtime_executed": False, "native_acceptance": False, "public_writer_enabled": False}
+              "vendor_runtime_executed": False, "native_acceptance": False, "public_write_refusals": public_refusals}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 

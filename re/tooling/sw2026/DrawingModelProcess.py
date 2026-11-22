@@ -26,13 +26,13 @@ from builders.DrawingFrontView import add_front_view
 from builders.DrawingMetadata import DrawingViewIndex, drawing_sheet_indexes
 from builders.DrawingSheet import drawing_sheet
 from builders.Part import construct_part
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Construction.Model.RequireModel import RequireModel
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Container import build_sldprt
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Drawing.Construction.Model.MakeDrawRoot import MakeDrawRoot
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import BlankGraph
 from convert.adapters.solidworks.Drawing.Definition.Emission.ReadBlankDef import ReadBlankDef
@@ -131,7 +131,6 @@ def main():
     for name in ("DocumentAssemblyValidate", "DocumentFeatureValidate", "DocumentReferenceValidate"):
         importlib.import_module("interchange.document.Validation." + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "drawing root constructor enabled public writing")
     mode = job.get("mode", "blank")
     require(mode in ("blank", "front"), "drawing root process mode differs")
     request = job["request"]
@@ -148,6 +147,7 @@ def main():
             "drawing root constructor changed complete independent Definition bytes or map")
     require(streams == canonical.streams, "drawing root constructor changed another generated logical stream")
     payload = build_sldprt(streams)
+    public = open_document(payload, source_format=KDrawingFormatId, strict=False)
     if mode == "front":
         bundle = FrontDrawingBundle(streams, view, part, output.MapValue.CounterValue)
         inspection = check_bundle(drawing_data=payload, part_data=build_sldprt(part.streams),
@@ -155,10 +155,10 @@ def main():
         require(read_model.FieldsValue["f1430"].FieldsValue["f08"] == graph.SheetValue.SheetValue.FieldsValue["f08"],
                 "drawing root constructor lost linked sheet identity")
     else:
-        document = open_document(payload, source_format=KDrawingFormatId, strict=False)
-        require(document.drawing is not None and document.drawing.Sheets[0].EntityName == spec["sheet"]["name"],
+        require(public.drawing is not None and public.drawing.Sheets[0].EntityName == spec["sheet"]["name"],
                 "drawing root constructor changed public sheet readback")
-        inspection = {"sheet": document.drawing.Sheets[0].EntityName}
+        inspection = {"sheet": public.drawing.Sheets[0].EntityName}
+    public_refusals = refuse_research_drawing(public, linked=mode == "front")
     require(not AUDIT.DeniedReads, "drawing root constructor attempted runtime input access")
     result = {"schema": "kit.sw2026.sdk-drawing-model-result.v1", "passed": True, "mode": mode,
               **construction, "inspection": inspection, "sdk_model_factory": True,
@@ -170,7 +170,7 @@ def main():
               "artifact_bytes": len(payload), "artifact_sha256": digest(payload),
               "artifact_base64": b64encode(payload).decode("ascii"),
               "runtime_input_file_access_attempts": len(AUDIT.DeniedReads), "heldout_inputs_read": 0,
-              "vendor_runtime_executed": False, "native_acceptance": False, "public_writer_enabled": False}
+              "vendor_runtime_executed": False, "native_acceptance": False, "public_write_refusals": public_refusals}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 

@@ -22,10 +22,12 @@ from PrepareScaledDrawing import prediction
 from Classes import registry
 from defs.Definition import load_definition
 from builders.DrawingFrontBundle import construct_front_bundle
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Container.Container import build_sldprt
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
+from convert.adapters.solidworks.Container.Format import KDrawingFormatId
+from convert.api import open_document
 from convert.adapters.solidworks.Drawing.Definition.Linked.FrontGraph import FrontGraph
 from convert.adapters.solidworks.Drawing.Definition.Linked.ReadFrontDef import ReadFrontDef
 from convert.adapters.solidworks.Drawing.Definition.Linked.WriteFrontDef import WriteFrontDef
@@ -99,7 +101,6 @@ def main():
     for name in ("DocumentAssemblyValidate", "DocumentFeatureValidate", "DocumentReferenceValidate"):
         importlib.import_module("interchange.document.Validation." + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "named drawing Definition enabled the public adapter")
     rules = registry()
     independent_rules = registry()
     AUDIT.BeginBuild()
@@ -148,6 +149,8 @@ def main():
     part_data = build_sldprt(independent.part.streams)
     inspection = check_bundle(drawing_data=payload, part_data=part_data, bundle=independent, request=request, rules=rules)
     independent_geometry = compare_prediction(request, inspection, document)
+    public = open_document(payload, source_format=KDrawingFormatId, strict=False)
+    public_refusals = refuse_research_drawing(public, linked=True)
     require(not AUDIT.DeniedReads, "named drawing Definition attempted runtime input access")
     usage = GetBodyReport(output.UsageValue)
     require(usage["completed"] and not usage["missing_schemas"], "named drawing Definition grammar did not finish")
@@ -162,7 +165,7 @@ def main():
               "complete_research_readback": True, "public_reader_passed": True,
               "front_profile_unchanged": True, "runtime_input_file_access_attempts": len(AUDIT.DeniedReads),
               "heldout_inputs_read": 0, "vendor_runtime_executed": False, "native_acceptance": False,
-              "public_writer_enabled": False, "research_semantic_factory_retained": True}
+              "public_write_refusals": public_refusals, "research_semantic_factory_retained": True}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 

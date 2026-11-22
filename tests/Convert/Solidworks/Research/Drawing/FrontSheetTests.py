@@ -15,5 +15,8 @@ def TestFrontSheets() -> None:
         assert Report["logical_streams_identical"]
         assert Report["runtime_input_file_access_attempts"] == 0
         assert Report["native_acceptance"] is False
-        assert Report["public_writer_enabled"] is False
+        assert Report["public_write_refusals"] == {
+            "inspection": True,
+            "linked_layout": True,
+        }
     assert First["artifact_sha256"] != Other["artifact_sha256"]

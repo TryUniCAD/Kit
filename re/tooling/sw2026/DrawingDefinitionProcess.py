@@ -19,11 +19,11 @@ from Classes import registry
 from Core import ArchiveError
 from defs.Definition import load_definition
 from builders.DrawingDocument import construct_blank_drawing
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Drawing.Definition.Emission.BlankGraph import BlankGraph
 from convert.adapters.solidworks.Drawing.Definition.Emission.ReadBlankDef import ReadBlankDef
 from convert.adapters.solidworks.Drawing.Definition.Emission.WriteBlankDef import WriteBlankDef
@@ -68,7 +68,6 @@ def main():
     for name in ("DocumentAssemblyValidate", "DocumentFeatureValidate", "DocumentReferenceValidate"):
         importlib.import_module("interchange.document.Validation." + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "drawing Definition emission enabled the public adapter")
     normal = registry()
     independent_rules = registry()
     AUDIT.BeginBuild()
@@ -102,6 +101,7 @@ def main():
             and sheet.FieldsValue["f3d0"] == request["sheet"]["custom_property_view"], "public concept readback differs")
     public = open_document(payload, source_format=KDrawingFormatId, strict=False)
     require(public.drawing is not None and len(public.drawing.Sheets) == 1, "public drawing reader lost the generated sheet")
+    public_refusals = refuse_research_drawing(public, linked=False)
     require(not AUDIT.DeniedReads, "complete Definition emission attempted runtime input access")
     usage = GetBodyReport(output.UsageValue)
     require(usage["completed"] and not usage["missing_schemas"], "complete Definition grammar did not finish")
@@ -117,7 +117,7 @@ def main():
               "property_view": sheet.FieldsValue["f3d0"],
               "runtime_input_file_access_attempts": len(AUDIT.DeniedReads),
               "heldout_inputs_read": 0, "vendor_runtime_executed": False,
-              "native_acceptance": False, "public_writer_enabled": False}
+              "native_acceptance": False, "public_write_refusals": public_refusals}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 

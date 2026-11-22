@@ -15,9 +15,12 @@ def AssertPortable(Result: dict[str, object]) -> None:
         "research_builder_modules_loaded",
         "vendor_runtime_executed",
         "native_acceptance",
-        "public_writer_enabled",
     ):
         assert Result[FieldName] is False
+    assert Result["public_write_refusals"] == {
+        "inspection": True,
+        "linked_layout": False,
+    }
     assert (
         Result["runtime_input_file_access_attempts"]
         == Result["heldout_inputs_read"]

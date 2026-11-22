@@ -17,7 +17,10 @@ def TestBlankSheets() -> None:
         assert Report["logical_streams_identical"]
         assert Report["runtime_input_file_access_attempts"] == 0
         assert Report["native_acceptance"] is False
-        assert Report["public_writer_enabled"] is False
+        assert Report["public_write_refusals"] == {
+            "inspection": True,
+            "linked_layout": False,
+        }
     FirstRows = CastValue(list[dict[str, object]], First["sdk_write_observations"])
     OtherRows = CastValue(list[dict[str, object]], Other["sdk_write_observations"])
     assert CastValue(int, OtherRows[0]["body_bytes"]) > CastValue(

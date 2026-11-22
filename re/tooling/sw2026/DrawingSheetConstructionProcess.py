@@ -17,10 +17,10 @@ from DrawingFrontBundleProcess import AUDIT, digest, require
 from DrawingGraphBridge import generated_document
 from Classes import registry
 from builders.DrawingDocument import construct_blank_drawing
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Container import build_sldprt
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Drawing.Construction.Sheet.MakeBlankSheet import MakeBlankSheet
 from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetBuild import SheetBuild
 from convert.adapters.solidworks.Drawing.Construction.Sheet.SheetInput import SheetInput
@@ -82,7 +82,6 @@ def main():
     for name in ("DocumentAssemblyValidate", "DocumentFeatureValidate", "DocumentReferenceValidate"):
         importlib.import_module("interchange.document.Validation." + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "sheet construction enabled the public writer")
     canonical_rules, independent_rules = registry(), registry()
     AUDIT.BeginBuild()
     request = job["request"]
@@ -141,6 +140,7 @@ def main():
     require(public.drawing is not None and len(public.drawing.Sheets) == 1
             and public.drawing.Sheets[0].EntityName == request["sheet"]["name"],
             "public SDK readback differs from the independent authored sheet")
+    public_refusals = refuse_research_drawing(public, linked=False)
     require(not AUDIT.DeniedReads, "SDK sheet construction attempted runtime input access")
     result = {
         "schema": "kit.sw2026.sdk-sheet-construction-result.v1", "passed": True,
@@ -156,7 +156,7 @@ def main():
         "artifact_base64": b64encode(payload).decode("ascii"),
         "sdk_sheet_constructor": True, "research_parent_factory_retained": True,
         "complete_sdk_only_drawing_factory": False, "native_acceptance": False,
-        "public_writer_enabled": False, "heldout_inputs_read": 0,
+        "public_write_refusals": public_refusals, "heldout_inputs_read": 0,
         "runtime_input_file_access_attempts": len(AUDIT.DeniedReads), "vendor_runtime_executed": False,
     }
     print(json.dumps(result, indent=None, sort_keys=True, allow_nan=False))

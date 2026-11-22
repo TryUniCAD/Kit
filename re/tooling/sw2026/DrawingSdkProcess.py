@@ -15,13 +15,13 @@ sys.path[:0] = [str(ROOT), str(ROOT / "src"), str(TOOLS)]
 
 from tests.Convert.Solidworks.Research.ConstructionGuard import BuildAudit
 from DrawingSdkInput import blank_input
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.History.ReadHistMut import ReadHistMut
 from convert.adapters.solidworks.Archive.History.WriteHistMut import WriteHistMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Drawing.Construction.Portable.MakeBlankFile import MakeBlankFile
 from convert.adapters.solidworks.Drawing.Definition.Emission.ReadBlankDef import ReadBlankDef
 from convert.adapters.solidworks.Drawing.Definition.Emission.WriteBlankDef import WriteBlankDef
@@ -50,7 +50,6 @@ def main():
         suffix = "Projection." if name == "JoinConcept" else ""
         importlib.import_module("convert.adapters.solidworks.Drawing.Definition." + suffix + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "SDK blank drawing enabled public writing")
     AUDIT.BeginBuild()
     inputs = blank_input(job)
     candidate = MakeBlankFile(inputs)
@@ -82,6 +81,7 @@ def main():
             and public.drawing.Sheets[0].EntityName == expected.EntityName
             and public.drawing.Sheets[0].ScaleRatio == expected.ScaleRatio,
             "SDK blank drawing lost portable sheet semantics")
+    public_refusals = refuse_research_drawing(public, linked=False)
     require(not AUDIT.DeniedReads, "SDK blank drawing attempted runtime input access")
     result = {"schema": "kit.sw2026.sdk-blank-drawing-result.v1", "passed": True,
               "complete_sdk_only_blank_factory": True, "research_builder_modules_loaded": False,
@@ -93,7 +93,7 @@ def main():
               "artifact_base64": b64encode(candidate.BytesValue).decode("ascii"),
               "streams": {name: {"bytes": len(data), "sha256": digest(data)} for name, data in sorted(candidate.StreamsValue.items())},
               "runtime_input_file_access_attempts": len(AUDIT.DeniedReads), "heldout_inputs_read": 0,
-              "vendor_runtime_executed": False, "native_acceptance": False, "public_writer_enabled": False}
+              "vendor_runtime_executed": False, "native_acceptance": False, "public_write_refusals": public_refusals}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 

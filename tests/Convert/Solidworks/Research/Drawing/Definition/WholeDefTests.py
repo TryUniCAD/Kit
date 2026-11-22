@@ -32,7 +32,10 @@ def TestWholeDefs() -> None:
         assert Report["complete_research_readback"] and Report["public_reader_passed"]
         assert Report["runtime_input_file_access_attempts"] == 0
         assert Report["native_acceptance"] is False
-        assert Report["public_writer_enabled"] is False
+        assert Report["public_write_refusals"] == {
+            "inspection": True,
+            "linked_layout": False,
+        }
     assert len({Report["artifact_sha256"] for Report in Reports}) == 4
     assert CastValue(int, Reports[1]["definition_bytes"]) > CastValue(
         int, Reports[0]["definition_bytes"]

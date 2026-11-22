@@ -42,8 +42,7 @@ def TestSheetCtor() -> None:
         assert Report["runtime_input_file_access_attempts"] == 0
         assert Report["sdk_sheet_constructor"] is True
         assert Report["complete_sdk_only_drawing_factory"] is False
-        assert (
-            Report["native_acceptance"] is False
-            and Report["public_writer_enabled"] is False
-        )
+        assert Report["native_acceptance"] is False and Report[
+            "public_write_refusals"
+        ] == {"inspection": True, "linked_layout": False}
     assert len({Report["artifact_sha256"] for Report in Reports}) == 4

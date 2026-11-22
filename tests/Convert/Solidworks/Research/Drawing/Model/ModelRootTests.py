@@ -44,6 +44,6 @@ def TestModelRoots() -> None:
         }
         Result = RunModelCase(JobValue)
         assert Result == RunModelCase(JobValue)
-        AssertModel(Result, 131)
+        AssertModel(Result, 131, False)
         HashesValue.add(Result["artifact_sha256"])
     assert len(HashesValue) == 4

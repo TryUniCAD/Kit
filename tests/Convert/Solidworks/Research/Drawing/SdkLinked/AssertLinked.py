@@ -16,9 +16,12 @@ def AssertLinked(Result: dict[str, object], Counterpart: dict[str, object]) -> N
         "research_builder_modules_loaded",
         "vendor_runtime_executed",
         "native_acceptance",
-        "public_writer_enabled",
     ):
         assert Result[FieldName] is False
+    assert Result["public_write_refusals"] == {
+        "inspection": True,
+        "linked_layout": True,
+    }
     assert (
         Result["runtime_input_file_access_attempts"]
         == Result["heldout_inputs_read"]

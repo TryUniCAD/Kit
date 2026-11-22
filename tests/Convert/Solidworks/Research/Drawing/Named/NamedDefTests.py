@@ -28,10 +28,9 @@ def TestNamedDefs() -> None:
         )
         assert Result["research_semantic_factory_retained"]
         assert not Result["native_acceptance"]
-        assert (
-            not Result["vendor_runtime_executed"]
-            and not Result["public_writer_enabled"]
-        )
+        assert not Result["vendor_runtime_executed"] and Result[
+            "public_write_refusals"
+        ] == {"inspection": True, "linked_layout": True}
         assert Result["definition_map_next_index"] == 172
         HashesValue.add(Result["artifact_sha256"])
     assert len(HashesValue) == len(KNamedCases)

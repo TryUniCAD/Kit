@@ -18,13 +18,13 @@ from Classes import registry
 from SheetWriteBridge import install_sheet_writer
 from builders.DrawingDocument import construct_blank_drawing
 from builders.DrawingFrontBundle import construct_front_bundle
+from DrawingPublicScope import refuse_research_drawing
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
 from convert.adapters.solidworks.Container.Format import KDrawingFormatId
 from convert.adapters.solidworks.Drawing.Definition.ReadConcept import ReadConcept
 from convert.adapters.solidworks.Drawing.Definition.Projection.JoinConcept import JoinConcept
 from convert.adapters.solidworks.Drawing.Definition.Projection.ReadOwnedNodes import ReadOwnedNodes
 from convert.api import open_document
-from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 
 
 def sheet_projection(archive, request):
@@ -56,7 +56,6 @@ def main():
     for name in ("DocumentAssemblyValidate", "DocumentFeatureValidate", "DocumentReferenceValidate"):
         importlib.import_module("interchange.document.Validation." + name)
     tuple(codecs.lookup(name) for name in ("utf-16-le", "utf-8", "latin-1"))
-    require(not callable(getattr(SldprtAdapter(), "write", None)), "sheet field construction must not enable the public writer")
     normal, shared = registry(), registry()
     observations = []
     install_sheet_writer(shared, observations, job.get("qualification_probe"))
@@ -79,6 +78,7 @@ def main():
         child = build_sldprt(candidate.part.streams)
         report["front_bundle"] = check_bundle(drawing_data=payload, part_data=child, bundle=candidate,
                                                request=job["request"], rules=normal)
+    public_refusals = refuse_research_drawing(parsed, linked=job["kind"] == "front")
     require(not AUDIT.DeniedReads, "SDK sheet writer attempted runtime input access")
     result = {"schema": "kit.sw2026.sdk-sheet-writer-result.v1", "kind": job["kind"], "passed": True,
               "runtime_input_file_access_attempts": len(AUDIT.DeniedReads), "public_reader_passed": True,
@@ -86,7 +86,7 @@ def main():
               "artifact_sha256": digest(payload), "artifact_bytes": len(payload),
               "streams": {name: {"bytes": len(data), "sha256": digest(data)} for name, data in sorted(candidate.streams.items())},
               "artifact_base64": b64encode(payload).decode("ascii"), "vendor_runtime_executed": False,
-              "native_acceptance": False, "heldout_inputs_read": 0, "public_writer_enabled": False}
+              "native_acceptance": False, "heldout_inputs_read": 0, "public_write_refusals": public_refusals}
     print(json.dumps(result, sort_keys=True, allow_nan=False))
 
 
