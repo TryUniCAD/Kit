@@ -1,0 +1,206 @@
+{
+  "cases": [
+    {
+      "case": "equal",
+      "edge_flip_flags": {
+        "items": [
+          {
+            "v": 0
+          },
+          {
+            "v": 21040
+          },
+          {
+            "v": 25
+          },
+          {
+            "v": 23341
+          },
+          {
+            "v": 22710
+          },
+          {
+            "v": 22991
+          }
+        ],
+        "n": 6
+      },
+      "edited": false,
+      "ordered_edge_roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8"
+    },
+    {
+      "case": "equal",
+      "edge_flip_flags": {
+        "items": [
+          {
+            "v": 0
+          },
+          {
+            "v": 21040
+          },
+          {
+            "v": 25
+          },
+          {
+            "v": 23341
+          },
+          {
+            "v": 22710
+          },
+          {
+            "v": 22991
+          }
+        ],
+        "n": 6
+      },
+      "edited": true,
+      "ordered_edge_roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18"
+    },
+    {
+      "case": "unequal",
+      "edge_flip_flags": {
+        "items": [
+          {
+            "v": 0
+          },
+          {
+            "v": 21040
+          },
+          {
+            "v": 25
+          },
+          {
+            "v": 23341
+          },
+          {
+            "v": 22710
+          },
+          {
+            "v": 22991
+          }
+        ],
+        "n": 6
+      },
+      "edited": false,
+      "ordered_edge_roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6"
+    },
+    {
+      "case": "unequal",
+      "edge_flip_flags": {
+        "items": [
+          {
+            "v": 0
+          },
+          {
+            "v": 21040
+          },
+          {
+            "v": 25
+          },
+          {
+            "v": 23341
+          },
+          {
+            "v": 22710
+          },
+          {
+            "v": 22991
+          }
+        ],
+        "n": 6
+      },
+      "edited": true,
+      "ordered_edge_roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a"
+    }
+  ],
+  "observer_sha256": "7e99d5881f5349c46833209358b524d6ba1e119e855e2daa3221207644cbd934",
+  "schema": "kit.sw2026.chamfer-edge-distance-selector.v1"
+}

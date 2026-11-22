@@ -23,19 +23,16 @@ def CheckChmfDriver(
         or ParamValue.attributes
         or ParamValue.value.kind != KindValue
     ):
-        raise ValueError("chamfer requires actual distinct driving D1 and D2")
+        raise ValueError(f"chamfer requires its actual driving {NameValue} parameter")
 
 
-# a chamfer plan keeps both ordered controls and refuses every unmeasured operation mode
-def ReadChmfValues(
-    StepValue: FeatureStep, PriorValue: FeatureStep, Params: tuple[Parameter, Parameter]
-) -> tuple[str, float, float]:
+# both mode groups require the same active feature and physical stock owner
+def CheckChmfStep(
+    StepValue: FeatureStep, PriorValue: FeatureStep
+) -> ChamferFeature:
     Definition = StepValue.definition
     if (
         type(Definition) is not ChamferFeature
-        or Definition.mode != "distance_angle"
-        or Definition.second_distance is not None
-        or Definition.angle is None
         or StepValue.kind != FeatureKind.KChamfer
         or StepValue.operation is not None
         and StepValue.operation != BooleanOp.KCutOperation
@@ -46,9 +43,16 @@ def ReadChmfValues(
         or StepValue.configuration_states
         or StepValue.attributes
     ):
-        raise ValueError(
-            "only one active angle-distance chamfer on the preceding boss is supported"
-        )
+        raise ValueError("only one active chamfer on the preceding boss is supported")
+    return Definition
+
+
+# the existing angular mode keeps its original length and angular unit rules
+def ReadAngleValues(
+    StepValue: FeatureStep, Definition: ChamferFeature, Params: tuple[Parameter, ...]
+) -> tuple[float, float]:
+    if len(Params) != 2 or Definition.second_distance is not None or Definition.angle is None:
+        raise ValueError("angle-distance chamfer needs a length and an angle")
     Distance, Angle = Params
     CheckChmfDriver(Distance, StepValue.id, "D1", ValueKind.KLength)
     CheckChmfDriver(Angle, StepValue.id, "D2", ValueKind.KAngle)
@@ -68,4 +72,45 @@ def ReadChmfValues(
         AngleValue = Radians(AngleValue)
     if DepthValue < 1e-14 or not 0.0 < AngleValue < PiValue / 2:
         raise ValueError("chamfer requires a positive distance and an acute angle")
-    return ReadStyleText(StepValue.name, "chamfer feature name"), DepthValue, AngleValue
+    return DepthValue, AngleValue
+
+
+# a shared setback owns one driver and separate setbacks retain their actual driver order
+def ReadPairValues(
+    StepValue: FeatureStep, Definition: ChamferFeature, Params: tuple[Parameter, ...]
+) -> tuple[float, float | None]:
+    EqualValue = Definition.mode == "equal_distance"
+    if (
+        Definition.angle is not None
+        or len(Params) != (1 if EqualValue else 2)
+        or (Definition.second_distance is None) != EqualValue
+    ):
+        raise ValueError("chamfer distance mode requires its exact independent driver count")
+    Wanted = (Definition.distance,) if EqualValue else (Definition.distance, Definition.second_distance)
+    Values: list[float] = []
+    for Param, WantedValue, NameValue in zip(Params, Wanted, ("D1",) if EqualValue else ("D1", "D3"), strict=True):
+        CheckChmfDriver(Param, StepValue.id, NameValue, ValueKind.KLength)
+        if Param.value != WantedValue or Param.value.unit != "mm":
+            raise ValueError("chamfer distance driver must retain its modeled millimetres")
+        Values.append(RequireScalar(Param.value.value) / 1000.0)
+    if min(Values) < 1e-14 or (not EqualValue and Values[0] == Values[1]):
+        raise ValueError("distance chamfer needs positive setbacks and distinct independent values")
+    return Values[0], None if EqualValue else Values[1]
+
+
+# the fixed angle route stays public while the two measured source modes enter controlled construction
+def ReadChmfValues(
+    StepValue: FeatureStep,
+    PriorValue: FeatureStep,
+    Params: tuple[Parameter, ...],
+    AllowDistancePair: bool,
+) -> tuple[str, float, float | None, float | None]:
+    Definition = CheckChmfStep(StepValue, PriorValue)
+    NameValue = ReadStyleText(StepValue.name, "chamfer feature name")
+    if Definition.mode == "distance_angle":
+        Setback, Angle = ReadAngleValues(StepValue, Definition, Params)
+        return NameValue, Setback, Angle, None
+    if AllowDistancePair and Definition.mode in ("equal_distance", "two_distances"):
+        Setback, OtherSetback = ReadPairValues(StepValue, Definition, Params)
+        return NameValue, Setback, None, OtherSetback
+    raise ValueError("only one active angle-distance chamfer on the preceding boss is supported")

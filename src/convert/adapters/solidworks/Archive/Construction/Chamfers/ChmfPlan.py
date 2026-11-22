@@ -21,11 +21,12 @@ class ChmfEdgePlan:
     ShortSpan: float
 
 
-# the chamfer keeps its sole predecessor and both independent driver values
+# the chamfer keeps its sole predecessor and exact driving distance and angle roles
 @DataClass(frozen=True, slots=True)
 class ChmfPlan:
     StockValue: BlindPlan
     EdgeValue: ChmfEdgePlan
     FeatureName: str
     SetbackValue: float
-    AngleValue: float
+    AngleValue: float | None
+    OtherSetback: float | None = None

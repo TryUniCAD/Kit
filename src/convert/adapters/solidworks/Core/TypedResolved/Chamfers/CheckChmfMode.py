@@ -4,16 +4,17 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # unfamiliar modes and secondary selectors stay outside the measured ordinary edge profile
-def CheckChmfMode(NodeValue: ArchiveNode) -> None:
+def CheckChmfMode(NodeValue: ArchiveNode, ModeWord: int = 1) -> None:
     FieldsValue = RequireNative(NodeValue, "Chamfer_c").FieldsValue
     if (
-        any(
+        ModeWord not in (1, 2, 18)
+        or any(
             FieldsValue.get(FieldName) != Expected
             for FieldName, Expected in (
                 ("f860", 0),
                 ("f8a0", 10),
                 ("f878", 0),
-                ("f8c0", 1),
+                ("f8c0", ModeWord),
                 ("f87c", 0),
                 ("has_f808", 0),
                 ("f8f0", 1),
@@ -30,7 +31,6 @@ def CheckChmfMode(NodeValue: ArchiveNode) -> None:
         or any(
             FieldsValue[FieldName] is not None
             for FieldName in (
-                "f820",
                 "f8b0",
                 "f8b8",
                 "f828",
@@ -42,5 +42,7 @@ def CheckChmfMode(NodeValue: ArchiveNode) -> None:
                 "f858",
             )
         )
+        or (FieldsValue["f818"] is not None) != (ModeWord == 1)
+        or (FieldsValue["f820"] is not None) != (ModeWord == 2)
     ):
         raise ValueError("unsupported ordinary SOLIDWORKS chamfer mode or selector")

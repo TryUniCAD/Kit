@@ -6,9 +6,6 @@ from convert.adapters.solidworks.Archive.Construction.BodyScope.BindStockMut imp
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfEdgeRoles import (
     PickChmfRoles,
 )
-from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfFrame import (
-    MakeChmfFrame,
-)
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfPlan import ChmfPlan
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfRefOwners import (
     MakeChmfNode,
@@ -16,11 +13,8 @@ from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfRefOwners imp
 from convert.adapters.solidworks.Archive.Construction.Chamfers.ChmfStockGeom import (
     MakeChmfStock,
 )
-from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfAngle import (
-    MakeChmfAngle,
-)
-from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfDist import (
-    MakeChmfDist,
+from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfDrivers import (
+    MakeChmfDrivers,
 )
 from convert.adapters.solidworks.Archive.Construction.Chamfers.MakeChmfRefs import (
     MakeChmfRefs,
@@ -50,9 +44,6 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
-from convert.adapters.solidworks.Archive.Construction.Views.Annotations.PutAnnoCatalog import (
-    PutAnnoCatalog,
-)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.CheckChmfMode import (
@@ -60,7 +51,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.CheckChmfMode impor
 )
 
 
-# shape and mode fields encode the ordinary cold single edge angle distance feature
+# shape and mode fields encode the ordinary cold single edge feature
 def InitChmfNode(
     Model: ArchiveNode,
     PlanValue: ChmfPlan,
@@ -68,6 +59,13 @@ def InitChmfNode(
 ) -> ArchiveNode:
     Feature = MakeChmfNode("Chamfer_c", {})
     InitFeatureMut(Feature, PlanValue.FeatureName, Model, Settings.TargetValue)
+    if PlanValue.AngleValue is not None and PlanValue.OtherSetback is not None:
+        raise ValueError("the chamfer cannot own an angle and a second setback")
+    ModeWord = 18
+    if PlanValue.AngleValue is not None:
+        ModeWord = 1
+    elif PlanValue.OtherSetback is not None:
+        ModeWord = 2
     Fields = Feature.FieldsValue
     Fields.update(dict.fromkeys(KAtomWords, 0))
     Fields.update({NameValue: [] for NameValue in KAtomLists})
@@ -83,7 +81,7 @@ def InitChmfNode(
         f860=0,
         f8a0=10,
         f878=0,
-        f8c0=1,
+        f8c0=ModeWord,
         f87c=0,
         has_f808=0,
         f8f0=1,
@@ -92,6 +90,7 @@ def InitChmfNode(
     Fields.update(
         dict.fromkeys(
             (
+                "f818",
                 "f820",
                 "f8b0",
                 "f8b8",
@@ -150,12 +149,12 @@ def LogChmfMut(
         Header.FieldsValue["f08"] = Allocator.NextValue
 
 
-# the linked feature adds both live dimensions before the shared persistent allocation of the chamfer
+# the linked feature adds its live dimensions before the shared persistent allocation of the chamfer
 def MakeChmfMut(
     Stock: PartCandidate,
     PlanValue: ChmfPlan,
     Settings: PartBuildInput,
-) -> tuple[ArchiveNode, tuple[DimensionGraph, DimensionGraph]]:
+) -> tuple[ArchiveNode, tuple[DimensionGraph, ...]]:
     Model = Stock.SystemValue.RootValue
     StockId = FieldInt(Stock.HeaderValue.FieldsValue, "f08")
     if (
@@ -166,20 +165,16 @@ def MakeChmfMut(
             "chamfer must extend the same actual stock and header allocator frontier"
         )
     Roles = PickChmfRoles(MakeChmfStock(Stock), PlanValue.EdgeValue)
-    Basis = MakeChmfFrame(PlanValue)
-    Views = PutAnnoCatalog(Model, 19000, (Basis.ViewInput,), None, (None,))
-    ViewId = FieldInt(Views[Basis.ViewInput.NameValue].FieldsValue, "f360")
     Allocator = PersistentIds(StockId)
     Feature = InitChmfNode(Model, PlanValue, Settings)
-    Distance = MakeChmfDist(Feature, PlanValue, Basis, ViewId)
-    Angle = MakeChmfAngle(Feature, PlanValue, Basis, ViewId)
-    _ = Allocator.AllocateMut(Distance.DimensionValue, "f50")
-    _ = Allocator.AllocateMut(Angle.DimensionValue, "f50")
-    Feature.FieldsValue.update(f810=Distance.DisplayValue, f818=Angle.DisplayValue)
+    Drivers = MakeChmfDrivers(Model, Feature, PlanValue)
+    for SlotName, Driver in Drivers:
+        _ = Allocator.AllocateMut(Driver.DimensionValue, "f50")
+        Feature.FieldsValue[SlotName] = Driver.DisplayValue
     _ = Allocator.AllocateMut(Feature)
     AtomValue = BindChmfAtomMut(Stock, Feature)
     LogChmfMut(Stock, Feature, Settings, Allocator)
     Feature.FieldsValue.update(MakeChmfRefs(Stock, Feature, AtomValue, Roles))
-    CheckChmfMode(Feature)
+    CheckChmfMode(Feature, FieldInt(Feature.FieldsValue, "f8c0"))
     Stock.SystemValue.ManagerValue.FieldsValue["f658"] = 1
-    return Feature, (Distance, Angle)
+    return Feature, tuple(Driver for _, Driver in Drivers)

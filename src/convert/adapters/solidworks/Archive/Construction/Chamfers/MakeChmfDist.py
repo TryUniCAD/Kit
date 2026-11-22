@@ -38,10 +38,11 @@ def MakeChmfDist(
     PlanValue: ChmfPlan,
     Basis: ChmfFrame,
     ViewId: int,
+    DriverName: str = "D1",
 ) -> DimensionGraph:
     Depth = PlanValue.SetbackValue
     Frame = Basis.FrameValue
-    Parameter = MakeLengthParam(Feature, Depth)
+    Parameter = MakeLengthParam(Feature, Depth, DriverName)
     Dimension = MakeChmfNode(
         "ParallelPlaneDistanceDim_c", MakeValueFields(Feature, Parameter)
     )

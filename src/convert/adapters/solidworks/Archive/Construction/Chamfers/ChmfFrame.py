@@ -30,7 +30,7 @@ class ChmfFrame:
 
 
 # the selected signed carrier supplies its outward normal and the positive setback orientation
-def MakeChmfFrame(PlanValue: ChmfPlan) -> ChmfFrame:
+def MakeChmfFrame(PlanValue: ChmfPlan, NameValue: str = KChmfViewName) -> ChmfFrame:
     EdgeValue = PlanValue.EdgeValue
     First = EdgeValue.DistanceAxis
     Along = EdgeValue.EdgeAxis
@@ -73,5 +73,5 @@ def MakeChmfFrame(PlanValue: ChmfPlan) -> ChmfFrame:
     return ChmfFrame(
         PlaneFrame(Anchor, AxisU, AxisV, Normal),
         Center,
-        AnnoViewInput(KChmfViewName, (AxisU, AxisV, Normal)),
+        AnnoViewInput(NameValue, (AxisU, AxisV, Normal)),
     )

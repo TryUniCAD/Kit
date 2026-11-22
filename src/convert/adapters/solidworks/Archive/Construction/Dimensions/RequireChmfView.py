@@ -17,6 +17,7 @@ def RequireChmfView(
     Dimension = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("ff0"))
     Parameter = ArchiveNode.RequireNode(Dimension.FieldsValue.get("f28"))
     ScalarValue = RequireScalar(Parameter.FieldsValue.get("f58"))
+    NameValue = ReadNodeName(Parameter)
     if (
         OwnerValue.ClassValue != RuntimeClass("Chamfer_c", 1)
         or type(TextKind) is not int
@@ -39,11 +40,16 @@ def RequireChmfView(
         or Dimension.FieldsValue.get("retaining_handles") != (HandleValue,)
         or Dimension.FieldsValue.get("refcount") != 1
         or Parameter.FieldsValue.get("f20") != ""
-        or ReadNodeName(Parameter) != ("D2" if IsAngle else "D1")
+        or (
+            NameValue != ("D2" if IsAngle else "D1")
+            and (
+                IsAngle or NameValue != "D3" or OwnerValue.FieldsValue.get("f8c0") != 2
+            )
+        )
         or ScalarValue <= 0
         or (
             IsAngle
             and (ScalarValue >= PiValue / 2 or Dimension.FieldsValue.get("ff8") != 1)
         )
     ):
-        raise ValueError("chamfer display requires its actual local D1 or D2 driver")
+        raise ValueError("chamfer display requires its actual local mode driver")

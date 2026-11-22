@@ -24,9 +24,11 @@ def PrepChmfPart(
     TargetValue: KTargetType,
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
+    *,
+    AllowDistancePair: bool = False,
 ) -> PartCandidate:
     Settings = CheckPartOpts(OptionsValue)
-    PlanValue = PlanChmfPart(DocumentValue)
+    PlanValue = PlanChmfPart(DocumentValue, AllowDistancePair=AllowDistancePair)
     Config = DocumentValue.configurations[0]
     if Settings.configuration not in (None, Config.id, Config.name):
         raise ValueError("requested chamfer write configuration is unavailable")

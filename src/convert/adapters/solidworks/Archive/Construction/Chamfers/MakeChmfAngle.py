@@ -120,6 +120,8 @@ def MakeChmfAngle(
     ViewId: int,
 ) -> DimensionGraph:
     ShortSpan, Angle = PlanValue.EdgeValue.ShortSpan, PlanValue.AngleValue
+    if Angle is None:
+        raise ValueError("the angular chamfer display requires its actual angle")
     Radius = ShortSpan / 4
     Param, Dimension = MakeChmfAngDim(Feature, Basis, Angle, Radius)
     Handle = MakeHandleMut(Feature, Dimension)

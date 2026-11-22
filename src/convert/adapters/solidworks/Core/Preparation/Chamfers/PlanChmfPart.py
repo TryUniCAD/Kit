@@ -51,7 +51,7 @@ def CheckChmfDoc(DocumentValue: CadDocument) -> None:
         or DocumentValue.materials
         or not DocumentValue.capabilities <= KPartWriteCaps | {Capability.KSelections}
         or len(DocumentValue.feature_timeline) != 2
-        or len(DocumentValue.parameters) != 3
+        or len(DocumentValue.parameters) not in (2, 3)
         or len(DocumentValue.bodies) != 1
         or len(DocumentValue.sketches) != 1
         or len(DocumentValue.selections) != 2
@@ -66,20 +66,20 @@ def ReadChmfParams(
     DocumentValue: CadDocument,
     BossValue: FeatureStep,
     ChmfValue: FeatureStep,
-) -> tuple[Parameter, Parameter, Parameter]:
+) -> tuple[Parameter, tuple[Parameter, ...]]:
     DriverIds = (*BossValue.parameter_ids, *ChmfValue.parameter_ids)
     Parameters = {Value.id: Value for Value in DocumentValue.parameters}
     if (
         len(BossValue.parameter_ids) != 1
-        or len(ChmfValue.parameter_ids) != 2
+        or len(ChmfValue.parameter_ids) not in (1, 2)
         or set(DriverIds) != set(Parameters)
-        or len(set(DriverIds)) != 3
+        or len(set(DriverIds)) != len(DriverIds)
     ):
         raise ValueError(
-            "chamfer requires three distinct operations' driving dimensions"
+            "chamfer requires distinct driving dimensions on the actual operations"
         )
-    StockId, DistanceId, AngleId = DriverIds
-    return Parameters[StockId], Parameters[DistanceId], Parameters[AngleId]
+    StockId, *ChamferIds = DriverIds
+    return Parameters[StockId], tuple(Parameters[Value] for Value in ChamferIds)
 
 
 # the actual step orders the two physical picks even if portable inventories are reordered
@@ -110,10 +110,12 @@ def ChmfStockBounds(
 
 
 # the scoped operation resolves the selected edge and offset side before creating any archive node
-def PlanChmfPart(DocumentValue: CadDocument) -> ChmfPlan:
+def PlanChmfPart(
+    DocumentValue: CadDocument, *, AllowDistancePair: bool = False
+) -> ChmfPlan:
     CheckChmfDoc(DocumentValue)
     BossValue, ChmfValue = DocumentValue.feature_timeline
-    StockDim, DistDim, AngleDim = ReadChmfParams(DocumentValue, BossValue, ChmfValue)
+    StockDim, Drivers = ReadChmfParams(DocumentValue, BossValue, ChmfValue)
     (BodyValue,) = DocumentValue.bodies
     EdgePick, FacePick = FindChmfPicks(DocumentValue, ChmfValue)
     if BodyValue.final_feature_id != ChmfValue.id or StockDim.value.unit != "mm":
@@ -132,17 +134,18 @@ def PlanChmfPart(DocumentValue: CadDocument) -> ChmfPlan:
         raise ValueError(
             "chamfer requires the ordinary Front Plane and Default configuration"
         )
-    NameValue, Setback, Angle = ReadChmfValues(
-        ChmfValue, BossValue, (DistDim, AngleDim)
+    NameValue, Setback, Angle, Other = ReadChmfValues(
+        ChmfValue, BossValue, Drivers, AllowDistancePair
     )
     BoundsValue, ShortSpan = ChmfStockBounds(DocumentValue, StockDim)
     EdgeValue = ReadChmfPicks(BoundsValue, ShortSpan, BossValue, (EdgePick, FacePick))
-    CheckChmfLegs(EdgeValue, Setback, Angle)
-    return ChmfPlan(StockValue, EdgeValue, NameValue, Setback, Angle)
+    SecondLeg = Setback * Tangent(Angle) if Angle is not None else Other or Setback
+    CheckChmfLegs(EdgeValue, Setback, SecondLeg)
+    return ChmfPlan(StockValue, EdgeValue, NameValue, Setback, Angle, Other)
 
 
 # both independently measured face setbacks must end strictly inside the real stock
-def CheckChmfLegs(EdgeValue: ChmfEdgePlan, Setback: float, Angle: float) -> None:
+def CheckChmfLegs(EdgeValue: ChmfEdgePlan, Setback: float, OtherSetback: float) -> None:
     First = EdgeValue.DistanceAxis
     Other = next(
         Index for Index in range(3) if Index not in (First, EdgeValue.EdgeAxis)
@@ -151,6 +154,6 @@ def CheckChmfLegs(EdgeValue: ChmfEdgePlan, Setback: float, Angle: float) -> None
     BFloor, BCeil = EdgeValue.BoundsValue[Other]
     if (
         not 0.0 < Setback < ACeil - AFloor
-        or not 0.0 < Setback * Tangent(Angle) < BCeil - BFloor
+        or not 0.0 < OtherSetback < BCeil - BFloor
     ):
         raise ValueError("chamfer setback would leave its actual incident stock faces")

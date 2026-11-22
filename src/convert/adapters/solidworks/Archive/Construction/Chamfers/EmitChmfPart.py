@@ -45,23 +45,26 @@ from convert.adapters.solidworks.Container.Container import BuildSldprt
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# the keyword index uses the actual live owner and its two generated native parameters
+# the keyword index uses the actual live owner and each generated native parameter
 def MakeChmfKey(
     Feature: ArchiveNode,
-    Drivers: tuple[DimensionGraph, DimensionGraph],
+    Drivers: tuple[DimensionGraph, ...],
 ) -> KeywordFeature:
-    Distance, Angle = (
-        RequireScalar(Value.ParameterValue.FieldsValue["f58"]) for Value in Drivers
-    )
+    RowsValue: list[KeywordDim] = []
+    for Driver in Drivers:
+        Param = Driver.ParameterValue
+        Value = RequireScalar(Param.FieldsValue["f58"])
+        NameValue = ReadNodeName(Param)
+        if Param.ClassValue.NameValue == "moAngleParameter_c":
+            RowsValue.append(KeywordDim(NameValue, Degrees(Value), "degree"))
+        else:
+            RowsValue.append(KeywordDim(NameValue, Value * 1000, None))
     return KeywordFeature(
         FieldInt(Feature.FieldsValue, "f08"),
         ReadNodeName(Feature),
         "Chamfer",
         "Feature",
-        (
-            KeywordDim("D1", Distance * 1000, None),
-            KeywordDim("D2", Degrees(Angle), "degree"),
-        ),
+        tuple(RowsValue),
         (),
         None,
         None,
