@@ -29,7 +29,7 @@ def ReadPropOwners(
     ActualId = ConfigValue.attributes.get("native_configuration_id")
     if (
         type(OwnerId) is not int
-        or OwnerId < 0
+        or OwnerId != 0
         or type(OwnerName) is not str
         or not OwnerName.strip()
         or type(ActualId) is not int

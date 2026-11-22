@@ -1,3 +1,4 @@
+from convert.adapters.solidworks.Archive.Config.ReadPartConfig import ReadPartConfig
 from convert.adapters.solidworks.Archive.Properties.ReadPropManager import (
     ReadPropManager,
 )
@@ -33,4 +34,5 @@ def ReadPartText(Document: CadDocument, Archive: SldprtArchive) -> PartTextData 
     ConfigFields = ReadConfigProps(Document, Archive, VersionValue)
     if SummaryFields is None and DocumentFields is None and not ConfigFields:
         return None
+    _ = ReadPartConfig(Archive)
     return PartTextData(SummaryFields, DocumentFields, ConfigFields)

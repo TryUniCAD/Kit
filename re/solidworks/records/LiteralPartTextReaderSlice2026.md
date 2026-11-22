@@ -200,7 +200,7 @@ JSON readback. The neutral control continues through the same registry
 preflight.
 [Current revision-bound receipt](../measurements/2026/LiteralPartTextWriteScope01.json)
 
-## Physical configuration validation remains open
+## Physical configuration validation
 
 A saved directory match and a nonempty `Contents/Config-0` establish
 presence. A one-byte replacement can satisfy that presence check. The
@@ -239,6 +239,49 @@ optional `Archive/Config/UsePartRelationsMut.py` mode and its resolved
 sketch dependencies leaves 150 modules, 79 missing paths and 5,652 missing
 lines. That narrower profile still needs the observed 142 layouts and
 updates to main's `Archive/Bodies/Reading/ReadActions.py`,
-`ReadNestedMut.py` and `ReadValueMut.py`. The physical configuration
-finding remains open until the genuine codec can qualify this profile.
+`ReadNestedMut.py` and `ReadValueMut.py`. These counts record the dependency frontier before the complete codec
+was extracted for ordinary single-configuration parts.
 [Complete typed field and map evidence](https://github.com/TryUniCAD/Kit/blob/8302c824a15830b837c72db75f79cabe5693d200/re/solidworks/records/ConfigBodyGrammar2026.md)
+
+The local property integration uses the exact ordinary configuration
+foundation at `629373b9a0529c426c7f284fda7f6e19154ef7de`. The production
+reader checks the complete version-19000 graph even when only summary
+XML is present. Version 18000 takes the existing verified-empty path.
+A configuration text stream must identify the actual saved active
+configuration, ID 0, as the linked ordinary codec reads Config-0.
+[Foundation PR](https://github.com/TryUniCAD/Kit/pull/233)
+
+The unchanged six-process disclosed probe reproduces all results.
+The circular control's guarded typed read consumes 26,055 bytes,
+preserves map base 4 and counter 122 and re-emits the exact stream.
+A separate fresh SDK process checks the same source with one-byte,
+tail-truncated, appended and wrong-owner Config-0 inputs. The wrong
+reference uses the original unit owner's measured range `[2441,2443)`
+and selects the actual header alias at slot 3 instead of the enclosing
+part at slot 2. A fifth case omits both custom XML scopes, keeping the
+summary XML and truncating Config-0. Every malformed variant retains
+one solid, 27 feature rows, two parameters and the same B-rep and
+configuration. The public reader withholds all three property bags,
+and strict conversion and direct writing refuse with the original
+cause and leave the output bytes and cursor intact. The typed codec
+boundary has zero external accesses. Ordinary inspection may still
+use the existing packaged layout rules.
+
+```sh
+python -I -B re/tooling/sw2026/part_text/CheckPhysicalPartText.py \
+  re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT
+```
+
+[Physical proof receipt](../measurements/2026/LiteralPartTextPhysical01.json)
+· [Queue process case](../../../tests/Convert/Solidworks/Properties/PhysicalTextTests.py)
+
+The preceding write sections describe their recorded revisions. The
+merged main base at `f80da8caed2ca7a585c1aa85f22c1e13196761d5` also
+enforces required sketch supports and native feature portability.
+Its wheel smoke deliberately refuses the legacy fixture's unsupported
+sketch 40. The old legacy positive-conversion probe disagrees with that
+accepted outcome. The previously accepted direct write of the circular
+fixture and JSON copy of the exact L1 native timeline also reach the
+main native-only feature refusal. Those existing cases still require
+reconciliation before queue acceptance. The property integration
+preserves the shared portability gates.

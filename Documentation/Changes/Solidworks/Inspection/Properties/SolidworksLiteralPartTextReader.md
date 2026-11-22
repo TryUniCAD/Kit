@@ -7,8 +7,9 @@ active configuration's `attributes["custom_properties"]`.
 
 This profile covers ordinary version-19000 parts. The configuration
 property stream must identify the active, unparented configuration in the
-saved directory. The reader checks for its corresponding physical part
-streams. Full validation of the physical configuration body remains open.
+saved directory. Before exposing any literal properties, the reader
+binds the native ModelHeader and consumes the complete ordinary Config-0
+archive, including both typed sections and their owner references.
 The supported binary property manager is absent or empty. A manager is
 checked even when it is the sole property owner. Name dictionaries, raw
 and evaluated text and reserved section fields must agree. Unsupported
@@ -23,8 +24,9 @@ inspection status when configuration and geometry filtering are disabled.
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
 text scopes. Empty scopes allow strict conversion without adding text
-metadata. Authored text or an unsupported owner produces the same
-write refusal. A relaxed read remains available for inspection.
+metadata when the model meets the other conversion requirements.
+Authored text or an unsupported owner produces the same write refusal.
+The ordinary read remains available for inspection.
 
 Check `metadata["solidworks.part_text_properties"]["status"]` for
 `complete` before relying on the text. The reader leaves files without
@@ -36,10 +38,12 @@ values through the public reader. The advanced property control keeps
 its B-rep and native feature tree while withholding all property scopes.
 Two generated files retain their existing modeling refusals and pass
 separate typed property checks.
-The queued direct-write case reads back all three qualified text bags,
-their configuration owner and original source provenance through JSON.
-The queue also checks an actual unavailable part wrapped in an assembly
-and a copy of a portable neutral CLI document with and without filtering.
+The physical configuration case checks a one-byte stream, a missing
+tail, appended data and a different mapped owner. Each keeps the model
+readable, withholds all text and refuses conversion and direct writing
+before changing the destination. The summary-only truncation control
+applies the same rule without scoped custom XML. Other conversion
+requirements still apply to inspected models.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)
