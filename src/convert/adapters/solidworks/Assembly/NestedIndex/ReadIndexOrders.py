@@ -18,7 +18,7 @@ def ReadIndexOrders(
     Owner: IndexModel,
     Items: tuple[NativeAsmItem, ...],
     Models: Mapping[int, IndexModel],
-) -> dict[int, int]:
+) -> dict[int, tuple[int, tuple[float, ...]]]:
     if Owner.KeyValue[2] == 2:
         if Items:
             raise ValueError("nested index assigned occurrences to a part")
@@ -29,10 +29,10 @@ def ReadIndexOrders(
     ByFeature = {Value.feature_id: Value for Value in Items}
     if len(RowsValue) != len(ByFeature) or len(Items) != len(ByFeature):
         raise ValueError("nested index has an incomplete owner-local occurrence list")
-    Orders: dict[int, int] = {}
+    Orders: dict[int, tuple[int, tuple[float, ...]]] = {}
     for Order, RowValue in enumerate(RowsValue):
         Reference = RequireNode(RowValue.get("o"), "moReference_c")
         ItemValue = ByFeature.pop(FieldInt(Reference.FieldsValue, "f08"))
-        CheckIndexRef(ItemValue, Reference, Models[ItemValue.definition_id])
-        Orders[ItemValue.object_id] = Order
+        PoseValue = CheckIndexRef(ItemValue, Reference, Models[ItemValue.definition_id])
+        Orders[ItemValue.object_id] = Order, PoseValue
     return Orders

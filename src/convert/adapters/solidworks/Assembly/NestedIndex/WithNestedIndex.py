@@ -2,6 +2,7 @@ from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Assembly.Assembly import NativeAsm
+from convert.adapters.solidworks.Assembly.NestedIndex.AsmMatrix import AsmMatrix
 from convert.adapters.solidworks.Assembly.NestedIndex.ReadNestedIndex import (
     ReadNestedIndex,
 )
@@ -9,6 +10,7 @@ from convert.adapters.solidworks.Container.Container import (
     SldprtArchive,
     SldprtFormatError,
 )
+from interchange.Core.Common import FreezeMapping
 from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.assembly.ComponentInstance import ComponentInst
 from interchange.document.Models.DocumentModel import CadDocument
@@ -46,7 +48,15 @@ def WithNestedIndex(
             for Value, NativeValue in zip(Definitions, Native.definitions, strict=True)
         ),
         tuple(
-            ReplaceValue(Value, order=Orders[NativeValue.object_id])
+            ReplaceValue(
+                Value,
+                order=OrderValue,
+                transform=AsmMatrix(PoseValue),
+                attributes=FreezeMapping(
+                    {**Value.attributes, "typed_placement_m": PoseValue}
+                ),
+            )
             for Value, NativeValue in zip(Instances, Native.occurrences, strict=True)
+            for OrderValue, PoseValue in (Orders[NativeValue.object_id],)
         ),
     )

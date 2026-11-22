@@ -1,0 +1,328 @@
+{
+  "authored_regression_workers": 8,
+  "guarded_publication_workers": 18,
+  "native_processes_started": 0,
+  "passed": true,
+  "protected_inputs_read": 0,
+  "refusals": [
+    {
+      "final_writes": 0,
+      "mode": "changed_native_label",
+      "process": 34800,
+      "refusal": "ValueError",
+      "route": "registry",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "unrepresented_mate_group",
+      "process": 34803,
+      "refusal": "AdapterNotFoundError",
+      "route": "registry",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "contradicted_pose",
+      "process": 36365,
+      "refusal": "AdapterNotFoundError",
+      "route": "registry",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "receipt_child_order",
+      "process": 36371,
+      "refusal": "ValueError",
+      "route": "registry",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "duplicate_receipt_alias",
+      "process": 36374,
+      "refusal": "ValueError",
+      "route": "registry",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "changed_native_label",
+      "process": 36775,
+      "refusal": "ValueError",
+      "route": "adapter",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "unrepresented_mate_group",
+      "process": 36778,
+      "refusal": "AdapterNotFoundError",
+      "route": "adapter",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "contradicted_pose",
+      "process": 36780,
+      "refusal": "AdapterNotFoundError",
+      "route": "adapter",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "receipt_child_order",
+      "process": 37196,
+      "refusal": "ValueError",
+      "route": "adapter",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    },
+    {
+      "final_writes": 0,
+      "mode": "duplicate_receipt_alias",
+      "process": 37200,
+      "refusal": "ValueError",
+      "route": "adapter",
+      "runtime_input_reads": 0,
+      "source_and_destination_unchanged": true,
+      "staged_writes": 0
+    }
+  ],
+  "reopened_bundles": {
+    "SdkNestedDimensionedNative01": [
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9060,
+            "sha256": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 8846,
+            "sha256": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8694,
+            "sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 34397,
+        "route": "registry",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      },
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9060,
+            "sha256": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 8846,
+            "sha256": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8694,
+            "sha256": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 34562,
+        "route": "adapter",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      }
+    ],
+    "SdkNestedNeutralNative03": [
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9047,
+            "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 8827,
+            "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8192,
+            "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 32801,
+        "route": "registry",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      },
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9047,
+            "sha256": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 8827,
+            "sha256": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8192,
+            "sha256": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 32803,
+        "route": "adapter",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      }
+    ],
+    "SdkRepeatedDimensionedNative01": [
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9869,
+            "sha256": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155"
+          },
+          "SdkGaugePlate.SLDPRT": {
+            "bytes": 8719,
+            "sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 9141,
+            "sha256": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8706,
+            "sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 34795,
+        "route": "registry",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      },
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9869,
+            "sha256": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155"
+          },
+          "SdkGaugePlate.SLDPRT": {
+            "bytes": 8719,
+            "sha256": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 9141,
+            "sha256": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8706,
+            "sha256": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 36377,
+        "route": "adapter",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      }
+    ],
+    "SdkRepeatedNeutralNative03": [
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9854,
+            "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+          },
+          "SdkGaugePlate.SLDPRT": {
+            "bytes": 8198,
+            "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 9125,
+            "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8203,
+            "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 33214,
+        "route": "registry",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      },
+      {
+        "application_usable": true,
+        "files": {
+          "SdkFrame.SLDASM": {
+            "bytes": 9854,
+            "sha256": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10"
+          },
+          "SdkGaugePlate.SLDPRT": {
+            "bytes": 8198,
+            "sha256": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173"
+          },
+          "SdkModule.SLDASM": {
+            "bytes": 9125,
+            "sha256": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490"
+          },
+          "SdkNestedPlate.SLDPRT": {
+            "bytes": 8203,
+            "sha256": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+          }
+        },
+        "mode": "measured",
+        "native_transfers": 14,
+        "process": 34389,
+        "route": "adapter",
+        "runtime_input_reads": 0,
+        "source_and_receipt_unchanged": true,
+        "vendor_loadable": true
+      }
+    ]
+  },
+  "schema": "kit.sw2026.reopened-nested-exact.v1"
+}

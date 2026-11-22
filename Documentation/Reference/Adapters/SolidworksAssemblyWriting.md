@@ -40,8 +40,16 @@ The registry publishes each owned definition beside the root file. It checks for
 The result path and `bytes_written` describe the root assembly. The `component_file_count`, `component_file_names`, `component_bytes_written` and `bundle_bytes_written` metadata describe the complete bundle. [Exact native and public evidence](../../../re/solidworks/records/NestedAssemblyDelivery2026.md)
 
 Strict SDK reads recover the measured definition names, local occurrence order,
-physical owner titles in expanded paths,
-and the three driving limits in each dimensioned leaf. The body is rebuilt
-from its actual sketch lengths, support and blind depth. Full publication of
-an unprojected native assembly readback remains open.
+physical owner titles in expanded paths and three driving lengths in each
+dimensioned leaf. They rebuild the leaf's analytic geometry from its actual
+sketch, support and depth.
 [Dimensioned leaf readback](../../Changes/Solidworks/Archive/Assembly/SolidworksColdDimensionedLeafRead.md)
+
+To republish an unchanged measured bundle, open the complete original through
+`open_document` with strict reading and B-rep enabled. Supply that document to
+the same writer with the original measurement and native locator. The writer
+generates and independently re-reads the full bundle in memory before any
+staged file opens. It refuses if any recovered source state or measured file
+identity differs. This covers the four disclosed rigid nested profiles. Mates
+and other native feature families require their own qualified path.
+[Reopened publication](../../Changes/Solidworks/Archive/Assembly/SolidworksReopenedNestedPublication.md)

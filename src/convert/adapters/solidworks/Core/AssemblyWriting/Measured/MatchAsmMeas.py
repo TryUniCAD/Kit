@@ -8,6 +8,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocu
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.NestedAssemblyPlan import (
     NestedAsmPlan,
 )
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.AsmMeasIds import (
+    AsmMeasIds,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -20,15 +23,21 @@ def MatchAsmMeas(
     Receipt: dict[str, object],
     PlanValue: NestedAsmPlan,
     Candidates: tuple[tuple[PureWindowsPath, TargetDocument], ...],
+    *,
+    Reopened: bool = False,
 ) -> Mapping[str, object]:
     MemberRows = ReadMeasRows(Receipt.get("members"))
     if (
         len(MemberRows) != len(Candidates)
         or type(Receipt.get("root")) is not str
-        or Receipt["root"] != PlanValue.RootValue.id
         or type(Receipt.get("namespace")) is not str
         or Receipt["namespace"] != str(Candidates[-1][0].parent)
     ):
+        raise ValueError(
+            "native assembly measurement has a different root namespace or member closure"
+        )
+    IdsValue = AsmMeasIds(PlanValue, MemberRows, Reopened)
+    if Receipt["root"] != IdsValue[PlanValue.RootValue.id]:
         raise ValueError(
             "native assembly measurement has a different root namespace or member closure"
         )
@@ -36,10 +45,11 @@ def MatchAsmMeas(
         PlanValue.OrderedDefinitions, Candidates, MemberRows, strict=True
     ):
         Children = [
-            Value for Value, _ in PlanValue.PlacementsValue.get(Definition.id, ())
+            IdsValue[Value]
+            for Value, _ in PlanValue.PlacementsValue.get(Definition.id, ())
         ]
         if type(RowValue.get("bytes")) is not int or RowValue != {
-            "id": Definition.id,
+            "id": IdsValue[Definition.id],
             "name": PathValue.name,
             "configuration": Definition.configuration_name,
             "children": Children,

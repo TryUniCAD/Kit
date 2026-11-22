@@ -39,6 +39,7 @@ def ReadNestPlaces(
     Owner: ComponentDef,
     Occurrences: list[ComponentInst],
     Definitions: Mapping[str, ComponentDef],
+    ExactPlacements: Mapping[str, OccurrenceIn] | None = None,
 ) -> tuple[tuple[str, OccurrenceIn], ...]:
     SortedRows = tuple(sorted(Occurrences, key=ReadAsmOrder))
     RequireAsm(
@@ -61,7 +62,17 @@ def ReadNestPlaces(
             not Value.fixed,
             "nested assembly requires the measured floating occurrences",
         )
-    return tuple((Value.definition_id, ReadAsmPlace(Value)) for Value in SortedRows)
+    return tuple(
+        (
+            Value.definition_id,
+            (
+                ReadAsmPlace(Value)
+                if ExactPlacements is None
+                else ExactPlacements[Value.id]
+            ),
+        )
+        for Value in SortedRows
+    )
 
 
 # validated acyclic definitions are emitted once after all their actual dependencies
@@ -89,7 +100,9 @@ def OrderNested(
 
 
 # an ordinary rigid hierarchy must account for every definition document and placement before generating any files
-def ReadNestedAsm(Document: CadDocument) -> NestedAsmPlan:
+def ReadNestedAsm(
+    Document: CadDocument, *, ExactPlacements: Mapping[str, OccurrenceIn] | None = None
+) -> NestedAsmPlan:
     CheckAsmRoot(Document)
     Graph = Document.assembly
     if Graph is None:
@@ -117,7 +130,9 @@ def ReadNestedAsm(Document: CadDocument) -> NestedAsmPlan:
     )
     Parts, AssemblyOccurrences = ReadNestMembers(Graph, Definitions)
     Placements = {
-        OwnerId: ReadNestPlaces(Definitions[OwnerId], OccurrenceRows, Definitions)
+        OwnerId: ReadNestPlaces(
+            Definitions[OwnerId], OccurrenceRows, Definitions, ExactPlacements
+        )
         for OwnerId, OccurrenceRows in AssemblyOccurrences.items()
     }
     Planes = ReadAsmPlanes(Document)

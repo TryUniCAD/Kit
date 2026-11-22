@@ -4,11 +4,11 @@ from pathlib import Path as FilePath
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import (
-    PrepNestedAsm,
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepNestedPlan import (
+    PrepNestedPlan,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import (
-    ReadNestedAsm,
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.IsNestedRead import (
+    IsNestedRead,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
@@ -24,6 +24,15 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadAsmMeas impor
 )
 from convert.adapters.solidworks.Core.AssemblyWriting.Nested.NestFileNames import (
     NestFileNames,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.PlanNestedDoc import (
+    PlanNestedDoc,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.CheckBundleRead import (
+    CheckBundleRead,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadbackTransfers import (
+    ReadbackTrans,
 )
 from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmFiles import WriteAsmFiles
 from interchange.document.Models.DocumentModel import CadDocument
@@ -48,7 +57,7 @@ def EmitNestedMut(
         and OutputPath.parent != FinalPath.parent,
         "nested assembly emission requires registry path staging",
     )
-    PlanValue = ReadNestedAsm(Document)
+    PlanValue = PlanNestedDoc(Document)
     RequireAsm(
         SettingsValue.configuration
         in (
@@ -60,13 +69,17 @@ def EmitNestedMut(
     )
     FileValues = NestFileNames(PlanValue, NativePath)
     CheckFreshFiles(FinalPath, tuple(PathValue.name for PathValue in FileValues[:-1]))
-    Candidates = PrepNestedAsm(Document, NativePath, WrittenAt)
+    Candidates = PrepNestedPlan(PlanValue, NativePath, WrittenAt)
     RequireAsm(
         tuple(str(PathValue) for PathValue, _ in Candidates)
         == tuple(map(str, FileValues)),
         "generated nested files differ from the validated output plan",
     )
-    Evidence = MatchAsmMeas(Receipt, PlanValue, Candidates)
+    Reopened = IsNestedRead(Document)
+    Evidence = MatchAsmMeas(Receipt, PlanValue, Candidates, Reopened=Reopened)
+    if Reopened:
+        CheckBundleRead(Document, Candidates)
+    Transfers = ReadbackTrans(Document) if Reopened else ()
     ResultValue = WriteAsmFiles(
         OutputPath,
         Candidates[-1][1].BytesValue,
@@ -77,6 +90,7 @@ def EmitNestedMut(
     return ReplaceValue(
         ResultValue,
         metadata={**ResultValue.metadata, **Evidence},
+        transfers=Transfers,
         application_usable=True,
         vendor_loadable=True,
     )

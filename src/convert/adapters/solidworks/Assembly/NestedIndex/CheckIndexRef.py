@@ -21,7 +21,7 @@ def CheckIndexRef(
     ItemValue: NativeAsmItem,
     Reference: ArchiveNode,
     Target: IndexModel,
-) -> None:
+) -> tuple[float, ...]:
     Fields = Reference.FieldsValue
     Feature = RequireNode(Fields.get("f4f8"), "moExtFeature_c")
     TargetFile = RequireNode(Fields.get("f3b0"), "moExtObject_c")
@@ -42,3 +42,4 @@ def CheckIndexRef(
         for Actual, Expected in zip(ItemValue.transform, PoseValue, strict=True)
     ):
         raise ValueError("nested index placement differs from its physical owner")
+    return PoseValue

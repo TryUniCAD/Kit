@@ -14,7 +14,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 # publish the physical titles and local orders only after the entire selected definition graph agrees
 def ReadNestedIndex(
     Archive: SldprtArchive, Native: NativeAsm, SourceData: Mapping[int, object]
-) -> tuple[dict[int, str], dict[int, int]]:
+) -> tuple[dict[int, str], dict[int, tuple[int, tuple[float, ...]]]]:
     RootId = Native.root_definition_id
     Files = {Value.object_id: Value for Value in Native.files}
     Definitions = {Value.object_id: Value for Value in Native.definitions}
@@ -50,7 +50,7 @@ def ReadNestedIndex(
         ):
             raise ValueError("nested occurrence has an unsupported target selection")
         Members[ItemValue.owner_definition_id].append(ItemValue)
-    Orders: dict[int, int] = {}
+    Orders: dict[int, tuple[int, tuple[float, ...]]] = {}
     for Identity, RowsValue in Members.items():
         Orders.update(ReadIndexOrders(Models[Identity], tuple(RowsValue), Models))
     if len(Orders) != len(Native.occurrences):

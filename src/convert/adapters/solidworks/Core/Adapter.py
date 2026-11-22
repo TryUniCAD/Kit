@@ -14,7 +14,7 @@ from pathlib import Path as FilePath, PureWindowsPath
 import re as RegexLib
 import struct as Struct
 import tempfile as Tempfile
-from typing import Mapping, Sequence
+from typing import Callable, Mapping, Sequence
 
 from convert.adapters.base import (
     AdapterInfo,
@@ -64,7 +64,6 @@ from interchange import (
     MateEntityKind,
     MateGroup,
     MateKind,
-    Matrix4 as MatrixFour,
     Mesh as MeshValue,
     MoveBodyFeature,
     NativeFeatureDefinition,
@@ -117,6 +116,7 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_native_assembly as DecodeNativeAsm,
     ExpandItemPaths,
 )
+from convert.adapters.solidworks.Assembly.NestedIndex.AsmMatrix import AsmMatrix
 from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
     WithNestedIndex,
 )
@@ -183,6 +183,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.AssemblyReading.AsmReadData import AsmReadData
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -926,6 +927,8 @@ def AsmDoc(
     DataValue: bytes,
     Label: str,
     Settings: ReadOptions,
+    *,
+    Readback: AsmReadData | None = None,
 ) -> CadDoc:
     Native = DecodeNativeAsm(Archive, include_tessellation=True)
     (
@@ -938,10 +941,14 @@ def AsmDoc(
         TimeValues,
     ) = AsmPartFields(Archive, Settings)
     Meshes, MeshIds = AsmMeshes(Native)
-    Index = ComponentFile(Label, Settings)
+    Index = ComponentFile(Label, Settings) if Readback is None else Readback.IndexValue
     ResolveComponents = Settings.values.get("resolve_components", True) is not False
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
-        Adapter, Native, Index if ResolveComponents else {}, Settings
+        Adapter,
+        Native,
+        Index if ResolveComponents else {},
+        Settings,
+        ReadMember=None if Readback is None else Readback.ReadDocument,
     )
     LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     Definitions = AsmDefinitions(
@@ -952,6 +959,7 @@ def AsmDoc(
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
+        RootPath=None if Readback is None else PathValue(Label),
     )
     Instances = AsmInstances(Native)
     Definitions, Instances = WithNestedIndex(
@@ -965,7 +973,12 @@ def AsmDoc(
         SourceKey=KSourceBytesKey,
     )
     MateSourceValues, SourceDiagnostics = MateSources(
-        Native, Archive, Label, Index, Settings
+        Native,
+        Archive,
+        Label,
+        Index,
+        Settings,
+        ReadArchive=None if Readback is None else Readback.ReadArchive,
     )
     MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
     FlatMateValues = FlattenedMates(Native, Mates)
@@ -973,7 +986,8 @@ def AsmDoc(
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
     CompanionPayloads = (
         Companion(Label)
-        if Settings.include_brep
+        if Readback is None
+        and Settings.include_brep
         and Settings.values.get("discover_companions", True) is not False
         else ()
     )
@@ -1219,6 +1233,8 @@ def AsmDocuments(
     Native: NativeAssembly,
     Index: dict[str, tuple[Path, ...]],
     Settings: ReadOptions,
+    *,
+    ReadMember: Callable[[PathValue, ReadOptions], CadDoc] | None = None,
 ) -> tuple[
     tuple[ComponentDoc, ...],
     dict[int, str],
@@ -1228,6 +1244,7 @@ def AsmDocuments(
     if not Index:
         return ((), {}, {}, ())
     DefinitionsByPath, ResolvedPaths, Diagnostics = FindAsmSources(Native, Index)
+    LoadMember = Adapter.read if ReadMember is None else ReadMember
     Documents: list[ComponentDoc] = []
     DocIds: dict[int, str] = {}
 
@@ -1246,7 +1263,7 @@ def AsmDocuments(
             values=FrozenMapping(Values),
         )
         try:
-            DocValue = Adapter.read(Resolved, Options)
+            DocValue = LoadMember(Resolved, Options)
         except (OSError, SldprtFormatError, TypeError, ValueError) as ErrorInfo:
             if Settings.strict:
                 raise
@@ -1383,17 +1400,19 @@ def AsmDefinitions(
     MeshIds: dict[int, str],
     Label: str,
     ResolveComponents: bool = True,
+    *,
+    RootPath: PathValue | None = None,
 ) -> tuple[ComponentDefinition, ...]:
     Result: list[ComponentDefinition] = []
     for Definition in Native.definitions:
         DocId = DocIds.get(Definition.object_id, "")
         DocValue = Documents.get(DocId)
         SourcePath = ResolvedPaths.get(Definition.object_id)
-        if (
-            Definition.object_id == Native.root_definition_id
-            and PathValue(Label).is_file()
-        ):
-            SourcePath = PathValue(Label).resolve()
+        if Definition.object_id == Native.root_definition_id:
+            if RootPath is not None:
+                SourcePath = RootPath
+            elif PathValue(Label).is_file():
+                SourcePath = PathValue(Label).resolve()
         KindValue = (
             ComponentKind.ASSEMBLY
             if Definition.document_type == "ASSEMBLY"
@@ -1524,10 +1543,13 @@ def MateSources(
     Label: str,
     Index: dict[str, tuple[Path, ...]],
     Settings: ReadOptions,
+    *,
+    ReadArchive: Callable[[PathValue], SldprtArchive] | None = None,
 ) -> tuple[
     tuple[tuple[NativeAsm, SldprtArchive, dict[int, int], dict[int, int], str], ...],
     tuple[DiagValue, ...],
 ]:
+    LoadArchive = SldprtArchive.open if ReadArchive is None else ReadArchive
     Sources = [
         (
             RootValue,
@@ -1565,7 +1587,7 @@ def MateSources(
                 )
             )
             continue
-        NestedArchive = SldprtArchive.open(Resolved)
+        NestedArchive = LoadArchive(Resolved)
         Nested = DecodeNativeAsm(NestedArchive, include_tessellation=False)
         try:
             DefinitionMap = NestedMap(RootValue, Nested, Target.object_id)
@@ -2144,30 +2166,6 @@ def Companion(Label: str) -> tuple[BrepPayload, ...]:
             )
         )
     return tuple(Result)
-
-
-# this definition exists because focused behavior needs one stable owner
-def AsmMatrix(Values: tuple[float, ...]) -> MatrixFour:
-    return MatrixFour(
-        (
-            Values[0],
-            Values[4],
-            Values[8],
-            Values[12] * 1000.0,
-            Values[1],
-            Values[5],
-            Values[9],
-            Values[13] * 1000.0,
-            Values[2],
-            Values[6],
-            Values[10],
-            Values[14] * 1000.0,
-            Values[3],
-            Values[7],
-            Values[11],
-            Values[15],
-        )
-    )
 
 
 # this definition exists because focused behavior needs one stable owner
