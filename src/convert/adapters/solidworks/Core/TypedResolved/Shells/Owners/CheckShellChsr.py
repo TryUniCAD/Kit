@@ -49,7 +49,7 @@ def CheckOwnedCaps(
     )
     CheckTreeAlias(LinkValue, (NodeValue, Bottom, Upper))
     BottomKeys, UpperKeys = (
-        ReadShellRefs(LinkValue, RefValue, StockNode, TopHeader, IsFace=True)
+        ReadShellRefs(LinkValue, RefValue, StockNode, TopHeader, IsFace=True)[0]
         for RefValue in (Bottom, Upper)
     )
     if (

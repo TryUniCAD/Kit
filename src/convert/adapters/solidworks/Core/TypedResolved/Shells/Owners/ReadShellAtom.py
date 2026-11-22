@@ -16,11 +16,14 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # current shell atom ownership links the original creator and actual last modifier
 def ReadShellAtom(
-    LinkValue: NativeLink, StockNode: ArchiveNode, ShellNode: ArchiveNode
+    LinkValue: NativeLink,
+    StockNode: ArchiveNode,
+    ShellNode: ArchiveNode,
+    *,
+    IsSaved: bool,
 ) -> ArchiveNode:
     AtomValue = ReadMgrAtom(LinkValue)
     AtomFields, ShellFields = AtomValue.FieldsValue, ShellNode.FieldsValue
-    StampValue = AtomFields.get("f180")
     if (
         ReadOutputAtom(StockNode) is not AtomValue
         or ShellFields.get("f538") is not AtomValue
@@ -28,18 +31,9 @@ def ReadShellAtom(
         or AtomFields.get("f130") != NativeNodeId(ShellNode)
         or AtomFields.get("f18") is not None
         or AtomFields.get("f18c") != 1
-        or type(StampValue) is not int
-        or StampValue <= 0
-        or any(
-            Value != StampValue
-            for Value in (
-                AtomFields.get("f1b0"),
-                ShellFields.get("f3c0"),
-                ShellFields.get("f580"),
-            )
-        )
     ):
         raise ValueError("SOLIDWORKS shell has a different active atom or producer")
+    CheckShellStamp(StockNode, ShellNode, AtomValue, IsSaved)
     Manager = NativeRecord(LinkValue.ConfigValue.RootValue.FieldsValue.get("fd88"))
     AtomId = AtomFields.get("f140")
     if type(AtomId) is not int or AtomId <= 0 or Manager.get("f260") != AtomId:
@@ -54,6 +48,38 @@ def ReadShellAtom(
         raise ValueError("SOLIDWORKS shell has alternate selected or result atom state")
     CheckTreeAlias(LinkValue, (StockNode, ShellNode, AtomValue))
     return AtomValue
+
+
+# a fresh body has no saved atom stamp or feature partition mark
+def CheckShellStamp(
+    StockNode: ArchiveNode, ShellNode: ArchiveNode, AtomNode: ArchiveNode, IsSaved: bool
+) -> None:
+    Stamp = AtomNode.FieldsValue.get("f180")
+    if IsSaved:
+        Valid = (
+            type(Stamp) is int
+            and Stamp > 0
+            and AtomNode.FieldsValue.get("f1b0") == Stamp
+            and ShellNode.FieldsValue.get("f3c0") == Stamp
+            and ShellNode.FieldsValue.get("f580") == Stamp
+        )
+    else:
+        Valid = (
+            Stamp == 0
+            and AtomNode.FieldsValue.get("f1b0") == 0
+            and AtomNode.FieldsValue.get("f188") == 0
+            and AtomNode.FieldsValue.get("f1c0") is None
+            and all(
+                Value.FieldsValue.get("has_f3d0") == 0
+                and all(
+                    Value.FieldsValue.get(FieldName) is None
+                    for FieldName in ("f3c0", "f580", "f3d0")
+                )
+                for Value in (StockNode, ShellNode)
+            )
+        )
+    if not Valid:
+        raise ValueError("SOLIDWORKS shell body stamp contradicts its partition state")
 
 
 # the active shell mark belongs to the selected modeled feature after the stock

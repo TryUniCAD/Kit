@@ -3,6 +3,9 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireChmfView import (
     RequireChmfView,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireWallView import (
+    RequireWallView,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.CheckViewArgs import (
@@ -29,8 +32,16 @@ def RequireDisplay(
         return OwnerValue
     _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
     OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
-    if OwnerValue.ClassValue == RuntimeClass("Chamfer_c", 1):
-        RequireChmfView(OwnerValue, HandleValue, TextKind)
+    if OwnerValue.ClassValue in (
+        RuntimeClass("Chamfer_c", 1),
+        RuntimeClass("moShell_c", 1),
+    ):
+        RequireFinish = (
+            RequireWallView
+            if OwnerValue.ClassValue == RuntimeClass("moShell_c", 1)
+            else RequireChmfView
+        )
+        RequireFinish(OwnerValue, HandleValue, TextKind)
         CheckViewArgs(DesignIntent, SelectedLeader)
         return OwnerValue
     if (

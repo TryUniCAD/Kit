@@ -1,0 +1,172 @@
+{
+  "cases": {
+    "OpenShellCalibration": {
+      "bytes": 8885,
+      "hash": "84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1",
+      "locator": "C:\\KitOpenShellGenerated01\\Working\\OpenShellCalibration.SLDPRT",
+      "neutral_sha256": "e61479e318e5186bd1faf52d8f91db283f516867543d618efc67725754e088d4",
+      "resolved_map_base": 91,
+      "resolved_map_final": 255,
+      "resolved_roots": 20,
+      "stream_hashes": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22682,
+          "sha256": "8548e845ebbe05841048288a92a914dea929fad7e43837942c8683d90fb55e77"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 967,
+          "sha256": "68f7a6775ecd21dc94c7fce4125c3d62d10730787b1eab55d3d9bf907ec09e1c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16924,
+          "sha256": "2827377103b7395a9e60815dfcce5a42b97cb2f87cb57af94b39d7e5881fae0c"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 967,
+          "sha256": "f8efad35a8a34ec50cffd6ca6e17c39103a521508e816974f6203c560d28a2a2"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1539,
+          "sha256": "c7d5a032c0280f73d59112bdc647cbfa44ad5935535c72c4eb4a33bb922ec237"
+        }
+      },
+      "wall_m": 0.0028
+    },
+    "OpenShellDistinct": {
+      "bytes": 8914,
+      "hash": "df63c4c39f73d50b48cf17fb68361581823195a74b3909e4190c79636c4b1fec",
+      "locator": "C:\\KitOpenShellGenerated01\\Working\\OpenShellDistinct.SLDPRT",
+      "neutral_sha256": "946c78378063a9ea38e1864d1dd6b5b97a0a7d7b1bd691d60afc837e35f71db5",
+      "resolved_map_base": 91,
+      "resolved_map_final": 255,
+      "resolved_roots": 20,
+      "stream_hashes": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22676,
+          "sha256": "6c453122293498487d57065dbdb4593ea656b728b6659f55061483520b93667f"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 949,
+          "sha256": "d9d512771b6b71ed762c622994bd516aa9df3431f915e555b05990f936eaaf50"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16912,
+          "sha256": "f7397f63a975f758131a484e7d55153963eee7446d3a0cefa8f174fcb4f4fcf4"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 949,
+          "sha256": "f2aa5b5e57365eff9aaeb077bca836d17c187b5f806b0e89fe95bc2b7525c02b"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1523,
+          "sha256": "4b16e7ab9f6f5a65c03389da866216baec3964cfd9a537bef7e5464fc85982e5"
+        }
+      },
+      "wall_m": 0.001875
+    },
+    "OpenShellTranslated": {
+      "bytes": 8919,
+      "hash": "bf778bbd668b5600172f37e3a6c8b842ef4ffdeed72cb61e60b9a691e0b94e84",
+      "locator": "C:\\KitOpenShellGenerated01\\Working\\OpenShellTranslated.SLDPRT",
+      "neutral_sha256": "c3fdda0bc78b2be251ef54b74b90ca1406fee7b364529424f99de1c1c5dfcc72",
+      "resolved_map_base": 91,
+      "resolved_map_final": 255,
+      "resolved_roots": 20,
+      "stream_hashes": {
+        "Contents/CMgr": {
+          "bytes": 1129,
+          "sha256": "2753dbb1fe3af538138e6c21a818ca01c62cc92d3e4c96f48d5f77628b489e88"
+        },
+        "Contents/CMgrHdr2": {
+          "bytes": 137,
+          "sha256": "259c6d6424e0b146f13e433cd3d666ea4a265b1ad55c53058db7295270fc896e"
+        },
+        "Contents/Config-0": {
+          "bytes": 22680,
+          "sha256": "d8d8ac596da3764a6a4656148304dc710efa09abfb9a7d5e34480cd9ffd6ac07"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 961,
+          "sha256": "1ce43309af384a19f336f575548a82cf9cdd77bfcbde7382eb1ff5e1a9a8e568"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 16920,
+          "sha256": "4564f69b896851b3bbc0b6a26837d64cb2c96ab2cb471ab247d22f441ea15c83"
+        },
+        "Contents/Definition": {
+          "bytes": 459,
+          "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+        },
+        "Header2": {
+          "bytes": 961,
+          "sha256": "a58119922b4faabd68e8dad790c3095716f3f3fb91762b32a5393756afa9ff1f"
+        },
+        "_MO_VERSION_19000/Biography": {
+          "bytes": 23,
+          "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+        },
+        "_MO_VERSION_19000/History": {
+          "bytes": 187,
+          "sha256": "2339d27067d21d8c451522a9bd5705f1d208c93cffdff656fa43a6cf0010e5f1"
+        },
+        "swXmlContents/KeyWords": {
+          "bytes": 1538,
+          "sha256": "e3657c12eec15c2f2069c7c41bdd68a5f7d93faa8e42d4af05368861730edf92"
+        }
+      },
+      "wall_m": 0.00415
+    }
+  },
+  "epoch": 1765500071,
+  "heldout_source_reads": 0,
+  "independent_process_reproductions": 2,
+  "native_trial_run": false,
+  "runtime_external_accesses": [],
+  "schema": "kit-sw2026-generated-open-shell-archives-v1",
+  "whole_file_and_receipt_sha256": {
+    "OpenShellCalibration.SLDPRT": "84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1",
+    "OpenShellDistinct.SLDPRT": "df63c4c39f73d50b48cf17fb68361581823195a74b3909e4190c79636c4b1fec",
+    "OpenShellTranslated.SLDPRT": "bf778bbd668b5600172f37e3a6c8b842ef4ffdeed72cb61e60b9a691e0b94e84",
+    "Receipt.json": "74e5e43165331104070d83fdf1e9bd5ab8a0fb4d6800a7c3c238b32128cea4ba"
+  }
+}

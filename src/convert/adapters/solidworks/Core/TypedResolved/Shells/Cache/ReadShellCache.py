@@ -13,12 +13,6 @@ from convert.adapters.solidworks.Container.Parasolid import (
 from convert.adapters.solidworks.Container.Parasolid import (
     decode_partition_stream as DecodePartition,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.CheckShellCache import (
-    CheckShellCache,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.MeasureShell import (
-    MeasureShell,
-)
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.ReadShellBody import (
     ReadShellBody,
 )
@@ -28,13 +22,15 @@ from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.ShellCache impo
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.ShellFootprint import (
     ShellFootprint,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.SummShellBrep import (
+    SummShellBrep,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Shells.History.CheckShellUndo import (
     CheckShellUndo,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Shells.Stock.ShellStock import (
     ShellStock,
 )
-from interchange import TopologySummary
 
 
 # the active saved partition must join the true shell atom before exposing geometry
@@ -59,16 +55,9 @@ def ReadShellCache(
     ModelValue = DecodeBrep(Current.data)
     if ModelValue is None:
         raise ValueError("SOLIDWORKS shell active geometry cannot be decoded")
-    CheckShellCache(ModelValue, Footprint)
-    Volume, SurfaceArea, Centre = MeasureShell(ModelValue, Footprint)
-    Summary = TopologySummary(
-        solid_count=1,
-        shell_count=1,
-        face_count=11,
-        edge_count=24,
-        vertex_count=16,
-        volume=Volume,
-        surface_area=SurfaceArea,
-        bounding_box=Footprint.Bounds,
+    return SummShellBrep(
+        ModelValue,
+        Footprint,
+        NameValue=NameValue,
+        DigestValue=Current.sha256,
     )
-    return ShellCache(NameValue, ModelValue, Summary, Centre, Current.sha256)

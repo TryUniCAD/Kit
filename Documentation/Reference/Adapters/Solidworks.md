@@ -283,6 +283,13 @@ Unsupported shell ownership or modes keep a native-only fallback in permissive
 inspection.
 [Saved open-shell readback](../../Changes/Solidworks/Inspection/SolidworksSavedOpenShell.md)
 
+For a fresh 2026 rectangular Front-plane boss with one uniform inward
+shell, strict inspection reconstructs the closed solid. The linked
+stock atom, selected terminal cap and two driving dimensions establish
+the model. Full reads return an analytic boundary. Design-only reads
+retain its topology summary and editable history.
+[Cold open-shell readback](../../Changes/Solidworks/Inspection/SolidworksColdOpenShell.md)
+
 ## Writing
 
 The shared atom manager encoder derives its row count and map allocation

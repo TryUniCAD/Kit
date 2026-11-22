@@ -75,14 +75,18 @@ def BindShellDoc(Document: CadDocument, ReadValue: ShellPartRead) -> CadDocument
     return ReplaceValue(
         Document,
         selections=(*PicksValue, FacePick),
-        sketches=(BindShellSketch(Document.sketches[0], ReadValue.StockValue),),
+        sketches=(
+            Document.sketches
+            if Cache.DigestValue is None
+            else (BindShellSketch(Document.sketches[0], ReadValue.StockValue),)
+        ),
         feature_timeline=tuple(
             Updates.get(Value.id, Value) for Value in Document.feature_timeline
         ),
         bodies=(
             ReplaceValue(
                 BodyValue,
-                name=Cache.NameValue,
+                name=Cache.NameValue if Cache.NameValue is not None else BodyValue.name,
                 topology=Cache.SummaryValue,
                 provenance=TypedProvenance(
                     NativeNodeSpan(ReadValue.LinkValue, AtomNode), BodyValue.id

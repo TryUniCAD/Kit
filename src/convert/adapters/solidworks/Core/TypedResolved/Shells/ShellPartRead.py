@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Shells.Stock.ShellStock impo
 )
 
 
-# one linked saved shell carries the neutral parameters and solved body together
+# a linked shell carries its live owners and validated geometry together
 @DataClass(frozen=True, slots=True)
 class ShellPartRead:
     LinkValue: NativeLink
@@ -21,3 +21,4 @@ class ShellPartRead:
     DriverValue: DepthOwner
     AtomValue: ArchiveNode
     CacheValue: ShellCache
+    FreshRoots: tuple[ArchiveNode, ...] = ()

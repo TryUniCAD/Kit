@@ -4,11 +4,11 @@ from interchange import TopologySummary
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
-# retained shell geometry and its measured summary share the active partition
+# qualified shell geometry retains a native name and payload digest only when saved
 @DataClass(frozen=True, slots=True)
 class ShellCache:
-    NameValue: str
+    NameValue: str | None
     BodyValue: BrepModel
     SummaryValue: TopologySummary
     CentreValue: tuple[float, float, float]
-    DigestValue: str
+    DigestValue: str | None
