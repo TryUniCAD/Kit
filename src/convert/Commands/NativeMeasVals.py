@@ -20,7 +20,12 @@ def NativeMeasVals(
         return Values
     if not IsPartWriter:
         raise ValueError("native measurement requires the SOLIDWORKS part writer")
-    ReceiptPath = ReceiptPath.expanduser()
+    try:
+        ReceiptPath = ReceiptPath.expanduser()
+    except RuntimeError as ErrorInfo:
+        raise ValueError(
+            "native measurement receipt home directory is unavailable"
+        ) from ErrorInfo
     if ReceiptPath.resolve() == TargetPath.resolve():
         raise ValueError("native measurement and output must use separate paths")
     with ReceiptPath.open("rb") as ReceiptFile:

@@ -1,3 +1,4 @@
+from json import loads as LoadJson
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDir
 
@@ -7,6 +8,7 @@ from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.RunCommand import RunCommand
+from tests.Convert.Commands.CliProcess import CliProcess
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
 from tests.Convert.Solidworks.PlainWriting.VerifyCliMeas import VerifyCliMeas
 
@@ -40,6 +42,31 @@ def TestMeasuredCli() -> None:
     for RoleName in ("Skew", "Step"):
         with TempDir() as FolderName:
             VerifyCliMeas(FilePath(FolderName), RoleName)
+
+
+# the installed command reports an invalid receipt home before any publication
+def TestReceiptHome(TmpPath: FilePath) -> None:
+    Source = TmpPath / "Neutral.json"
+    Target = TmpPath / "Candidate.SLDPRT"
+    Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
+    _ = Source.write_text(Document.to_json(), encoding="utf-8")
+    _ = Target.write_bytes(b"previous output")
+    Outcome = CliProcess(
+        TmpPath,
+        "convert",
+        str(Source),
+        str(Target),
+        "--json",
+        "--overwrite",
+        "--native-measurement",
+        "~.__kit_missing_native_receipt_home__/Measurement.json",
+    )
+    assert Outcome.returncode == 1 and Outcome.stdout == ""
+    assert (
+        LoadJson(Outcome.stderr)["message"]
+        == "native measurement receipt home directory is unavailable"
+    )
+    assert Target.read_bytes() == b"previous output"
 
 
 # unsupported rings must fail selection while the prior native file stays intact

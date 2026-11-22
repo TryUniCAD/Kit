@@ -4,7 +4,7 @@ from pathlib import Path as FilePath
 from types import SimpleNamespace as SinkNamespace
 from typing import cast as CastValue
 
-from pytest import raises as RaisesError
+from pytest import mark as TestMark, raises as RaisesError
 
 from convert.api import open_document as OpenDocument, write_document as WriteDocument
 from convert.adapters.base.ContractTypes import BinaryWriter
@@ -73,6 +73,31 @@ def TestFileSink(TmpPath: FilePath) -> None:
             Outcome = SendMeasured(Document, OutputFile, Envelope, IsDirect)
             assert Outcome.vendor_loadable and Outcome.application_usable
         assert CalcSha(TargetPath.read_bytes()).hexdigest() == Digest
+
+
+# seek and extent establish a complete write even when the sink has no count result
+@TestMark.parametrize("IsDirect", (False, True))
+def TestNoSinkCount(IsDirect: bool) -> None:
+    Document, Envelope, Digest = MeasurePlainDoc("Skew")
+    Buffer = BytesIO()
+
+    # the sink advances normally and deliberately returns no byte count
+    def WritePayload(Payload: bytes) -> None:
+        _ = Buffer.write(Payload)
+
+    SinkValue = CastValue(
+        BinaryWriter,
+        SinkNamespace(
+            write=WritePayload,
+            seek=Buffer.seek,
+            tell=Buffer.tell,
+            seekable=Buffer.seekable,
+            writable=Buffer.writable,
+        ),
+    )
+    Outcome = SendMeasured(Document, SinkValue, Envelope, IsDirect)
+    assert Outcome.vendor_loadable and Outcome.application_usable
+    assert CalcSha(Buffer.getvalue()).hexdigest() == Digest
 
 
 # writers without standalone attestation retain their ordinary binary append boundary

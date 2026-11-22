@@ -9,7 +9,7 @@ def WriteWholeMut(TargetValue: KTargetType, Payload: bytes) -> None:
     PayloadSize = len(Payload)
     WrittenCount = Output.write(Payload)
     if (
-        WrittenCount != PayloadSize
+        (WrittenCount is not None and WrittenCount != PayloadSize)
         or Output.tell() != PayloadSize
         or SinkExtentMut(Output) != PayloadSize
     ):
