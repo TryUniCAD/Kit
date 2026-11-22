@@ -176,7 +176,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
-    IsColdSweep,
+    IsScopedSweep,
     ReadSwPart,
 )
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
@@ -353,10 +353,15 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
-    if Settings.strict and not Settings.extract_raw_brep and IsColdSweep(Archive):
-        DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
-        ValidateSource(Label, False)
-        return DocValue
+    if not Settings.extract_raw_brep and IsScopedSweep(Archive):
+        try:
+            DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
+        except SldprtFormatError:
+            if Settings.strict:
+                raise
+        else:
+            ValidateSource(Label, False)
+            return DocValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 

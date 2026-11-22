@@ -1,6 +1,6 @@
 # Exact cold Standard sweep readback and republication
 
-The strict reader recognizes the current canonical cache-free Standard
+The reader recognizes the current canonical cache-free Standard
 swept boss and verifies the entire archive against the model derived
 from its typed physical owners. The two disclosed parts retain the same
 editable design, body and native measurements through direct and
@@ -32,6 +32,9 @@ complete archive with the exact measured write request.
   Front-plane path are selected through their native references and
   creation stamps. CMgr independently owns the active Default at slot 6.
   The actual part material record owns its literal density parameter.
+  Its unnumbered object occupies Config-0 bytes [2068, 2127) in both
+  regenerated outputs. The portable density records that exact object
+  span and leaves the persistent ID empty.
 - Complete canonical regeneration compares all eleven streams and the
   container bytes. This accounts for deterministic scene, ghost
   geometry, configuration and archive scaffolding without copying
@@ -69,9 +72,20 @@ python3.14 -I -B re/tooling/sw2026/CheckScopedSweep.py \
 [Guarded strict readback receipt](../measurements/2026/SdkScopedSweepReadback01.json)
 [Earlier writer-only receipt with the original reader refusal](../measurements/2026/SdkScopedSweepWriter01.json)
 
-The permissive inspection path retains its earlier legacy inventory.
-Native-saved result partitions and their sweep side-surface identifier
-representatives belong to the separate warm archive grammar. This
-readback reuses exact disclosed outputs and has no new held-out or
-native-lifetime credit. Actual native comparisons remain bound to the
-original controlled batch.
+The supplemental proof compares strict and permissive typed reads for
+each cold case and both B-rep modes. The two authored warm sources and
+their section- and path-edit saves in disclosed lock
+`563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca`
+all identify the same ordinary sweep in KeyWords and carry a saved
+result partition. Each now explicitly refuses strict reading through
+both routes and in both B-rep modes. Their explicit permissive reads
+still expose the legacy inventory. These are the six native-authored
+controls and derivatives. The candidate-saved artifacts are not included.
+
+Supply the disclosed native-authoring directory with `--warm` to
+reproduce that half of the comparison. The supplemental receipt has
+SHA-256 `78f232b045949a7e134340f1453f26471c82c544ebecaa564e1bed2df0a07626`.
+The readback uses disclosed files and records zero new held-out or
+native-lifetime credit. Native comparisons remain bound to the original
+controlled batch.
+[Supplemental guarded read and publication receipt](../measurements/2026/SdkScopedSweepReview01.json)

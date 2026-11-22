@@ -17,7 +17,11 @@ Windows path in `values["final_destination"]`. Pass
 full archive at that locator, both healthy controls and each native
 initial, edit and fresh-reopen process. Kit checks each state's volume,
 area, mass and centre of mass from its two reported drivers and the
-model's density before exposing any bytes.
+model's density before exposing any bytes. Both controls and all
+candidate phases must occur in the recorded process creation order.
+The native measurements from a prior write cannot qualify a different
+driver value, final locator or creation epoch. Those inputs require
+measurements for their own regenerated archive.
 
 The two disclosed archives reproduce all eleven streams and both whole
 digests, with all six source capabilities transferred and zero audited

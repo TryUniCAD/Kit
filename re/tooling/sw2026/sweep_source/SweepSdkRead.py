@@ -8,7 +8,7 @@ from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
-from convert.adapters.solidworks.Container.Format import KGhostPartition
+from convert.adapters.solidworks.Container.Format import KGhostPartition, KPartitionStream
 from convert.adapters.solidworks.Core.Adapter import SldprtAdapter
 from convert.adapters.solidworks.Core.Preparation.Sweeps.BuildSweepPart import BuildSweepPart
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwState import ReadSwState
@@ -110,7 +110,11 @@ def prove_sw_archives(payload, candidate, job):
     reject_source(build_sldprt(extra, FormatVersion=4), "canonical sweep reconstruction differs")
     if len(archive.records) != len(candidate.StreamsValue):
         raise ValueError("sweep source and re-emitted stream cardinalities differ")
+    density = state.DensityValue
+    if density.FieldsValue["f08"] != -1 or density is not config.RootValue.FieldsValue["f1420"].FieldsValue["f08"]:
+        raise ValueError("sweep density needs the actual unnumbered part material parameter")
     return {"config_map": config.MapValue.CounterValue, "resolved_map": resolved.MapValue.CounterValue,
+            "density_object_span": [state.LinkValue.ConfigName, density.StartOffset, density.EndOffset],
             "typed_stream_replays": 2, "rejected_sources": ["foreign_ghost_shape", "missing_ghost", "unmodeled_stream"]}
 
 
@@ -124,6 +128,9 @@ def prove_sw_read(payload, candidate, job, transfer, options, reject):
         portable = document.to_json(indent=None)
         if document != same_label or CadDocument.from_json(portable).to_json(indent=None) != portable:
             raise ValueError("registry direct reader and neutral JSON projections disagree")
+        if (open_document(payload, include_brep=include_brep, strict=False) != document
+                or SldprtAdapter().read(BytesIO(payload), ReadOptions(include_brep=include_brep, strict=False)) != direct_doc):
+            raise ValueError("permissive read did not retain the canonical typed sweep")
         section, path = document.sketches
         step, = document.feature_timeline
         drivers = document.parameters[:2]
@@ -135,6 +142,12 @@ def prove_sw_read(payload, candidate, job, transfer, options, reject):
                 or document.parameters[2].owner_id != document.bodies[0].id
                 or document.source.sha256 != sha256(payload).hexdigest()):
             raise ValueError("sweep projection lost the actual typed sketch, feature, body or D1 links")
+        provenance = document.parameters[2].provenance
+        if provenance is None or provenance.native_id or len(provenance.spans) != 1:
+            raise ValueError("sweep density provenance claims a persistent id or has no object span")
+        span, = provenance.spans
+        if [span.stream, span.offset, span.offset + span.length] != result["density_object_span"]:
+            raise ValueError("sweep density provenance misses the actual material parameter span")
         shape = topology_view(document, job)
         if include_brep:
             check_boundary(document, job)
@@ -153,14 +166,20 @@ def prove_sw_read(payload, candidate, job, transfer, options, reject):
             wrong_geometry = replace(document, bodies=(wrong_body,))
             sink = BytesIO(b"unchanged")
             reject(lambda: transfer(wrong_geometry, sink, options, direct), sink, "differs from its regenerated part")
-        checks.append({"include_brep": include_brep, "strict_reader_routes": 2, "exact_republication_routes": 2,
+        checks.append({"include_brep": include_brep, "strict_reader_routes": 2, "permissive_typed_routes": 2,
+                       "exact_republication_routes": 2,
                        "native_transfers": len(document.capabilities), "driver_slots": [174, 196], **shape})
     return result | {"strict_readback": checks}
 
 
-def check_permissive(payload):
-    permissive = open_document(payload, strict=False)
-    inventory = [len(permissive.feature_timeline), len(permissive.sketches), int(permissive.brep is not None)]
-    if inventory != [20, 2, 0]:
-        raise ValueError("legacy source inspection behavior changed")
-    return inventory
+def prove_saved_boundary(payload):
+    archive = SldprtArchive.from_bytes(payload)
+    if archive.get(KPartitionStream) is None:
+        raise ValueError("disclosed native sweep lacks its saved result partition")
+    reject_source(payload, "unsupported SOLIDWORKS saved sweep result partition")
+    permissive = open_document(payload, strict=False, include_tessellation=False)
+    direct = SldprtAdapter().read(payload, ReadOptions(strict=False, include_tessellation=False))
+    if (permissive != direct or not any(row.kind.value == "sweep" for row in permissive.feature_timeline)
+            or any(isinstance(row.definition, SweepFeature) for row in permissive.feature_timeline)):
+        raise ValueError("explicit permissive native sweep inspection lost its legacy inventory")
+    return {"strict_refusals": 4, "legacy_permissive_routes": 2}

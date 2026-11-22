@@ -17,12 +17,13 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent), str(HERE.parent / "sweep_so
 
 from CheckScopedPlainWriter import WriterAudit
 from SweepSdkInput import neutral_document
-from SweepSdkRead import check_permissive, prove_sw_read
+from SweepSdkRead import prove_saved_boundary, prove_sw_read
 from convert.adapters.registry import AdapterNotFoundError
 
 FORMAT = "solidworks.sldprt"
 OPTION = "solidworks_native_measurement"
 NATIVE_SHA = "380ead8ff07a9337bd0df87d32eb92e49529e0579c15449767a5ee26e53dd512"
+WARM_LOCK_SHA = "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca"
 RECEIPT = ROOT / "re/solidworks/measurements/2026/SdkStandardSweepReceipt01.json"
 RECEIPT_SHA = "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0"
 SPEC = HERE.parent / "sweep_source/DisclosedSweepInputs.json"
@@ -67,15 +68,28 @@ def intentionally_bad(job, document, options):
     bad_area[OPTION]["receipt"]["cases"][job["slot"]]["states"][0]["area_m2"] *= 1.001
     bad_center = deepcopy(options)
     bad_center[OPTION]["receipt"]["cases"][job["slot"]]["states"][3]["com_m"][0] *= 1.001
+    bad_controls = deepcopy(options)
+    phases = bad_controls[OPTION]["receipt"]["phases"]
+    phases[0]["lifetime"], phases[-1]["lifetime"] = phases[-1]["lifetime"], phases[0]["lifetime"]
+    bad_sequence = deepcopy(options)
+    phases = bad_sequence[OPTION]["receipt"]["phases"]
+    phases[2]["lifetime"], phases[3]["lifetime"] = phases[3]["lifetime"], phases[2]["lifetime"]
+    bad_epoch = deepcopy(options)
+    bad_epoch[OPTION]["written_at"] += 1
     return (
         ("crossed_owner", replace(document, feature_timeline=(replace(step, definition=wrong_path),)), options, None),
         ("untransferred_domain", replace(document, metadata=dict(document.metadata, extra=True)), options, None),
         ("unmeasured_model", neutral_document(job["name"], job["edit_section"], job["path"], job["density"]), options,
          "no unique exact native measurement"),
+        ("unmeasured_path_edit", neutral_document(job["name"], job["section"], job["edit_path"], job["density"]), options,
+         "no unique exact native measurement"),
         ("absent_receipt", document, {key: value for key, value in options.items() if key != OPTION},
          "requires an offline native measurement receipt"),
         ("shifted_locator", document, dict(options, final_destination=rf"C:\Different\{job['name']}.SLDPRT"),
          "no unique exact native measurement"),
+        ("shifted_epoch", document, bad_epoch, "no unique exact native measurement"),
+        ("swapped_controls", document, bad_controls, "lifetimes are out of creation order"),
+        ("swapped_edit_reopen", document, bad_sequence, "lifetimes are out of creation order"),
         ("reopened_volume", document, bad_mass, "disagrees with quarter tube geometry"),
         ("initial_area", document, bad_area, "disagrees with quarter tube geometry"),
         ("edited_center", document, bad_center, "disagrees with quarter tube geometry"),
@@ -145,7 +159,6 @@ def project_writes(job, folder):
     reader_status = prove_sw_read(payload, candidate, job, transfer, options, reject)
     audit.phase = "done"
     require(not audit.denied, "strict sweep projection opened a runtime asset")
-    reader_status["legacy_permissive_inventory"] = check_permissive(payload)
     return {"name": job["name"], "archive_sha256": job["sha256"], "archive_bytes": len(payload),
             "stream_sha256": stream_hashes, "normalized_state_checks": 30,
             "exact_registry_and_direct_streams": True, "native_transfers": len(caps),
@@ -153,7 +166,19 @@ def project_writes(job, folder):
             "writer_runtime_input_reads": len(audit.denied), "sdk_readback": reader_status}
 
 
-def supervise(native=None):
+def prove_warm_sources(folder, cases):
+    lock = json.loads(pinned(folder / "SourceLock.json", WARM_LOCK_SHA))
+    results = []
+    for slot, (case, source) in enumerate(zip(cases, lock["sources"], strict=True)):
+        require(source["passed"] and source["slot"] == slot, "unexpected disclosed source slot")
+        for role, suffix in (("original", ""), ("section", "SectionEdit"), ("path", "PathEdit")):
+            pin = source["artifact_sha256"][role]
+            raw = pinned(folder / f"{case['name']}{suffix}.SLDPRT", pin)
+            results.append({"slot": slot, "role": role, "archive_sha256": pin, **prove_saved_boundary(raw)})
+    return {"source_lock_sha256": WARM_LOCK_SHA, "results": results}
+
+
+def supervise(native=None, warm=None):
     from convert.adapters.solidworks.Container.Container import SldprtArchive
 
     spec = json.loads(pinned(SPEC, SPEC_SHA))
@@ -179,22 +204,27 @@ def supervise(native=None):
                "bytes": row["archive_bytes"], "streams": expected_streams, "density": spec["density_kg_m3"],
                "native_topology": native_topology,
                "section": case["section_radius_m"], "path": case["path_radius_m"], "edit_section": case["edit_section_radius_m"],
+               "edit_path": case["edit_path_radius_m"],
                "measurement": {"written_at": row["written_at"], "receipt": receipt}}
         with TemporaryDirectory(prefix="KitScopedSweep") as folder:
             worker = run((sys.executable, "-I", "-B", str(HERE), "--worker", folder),
                          input=json.dumps(job), capture_output=True, text=True, timeout=45, check=False)
             require(worker.returncode == 0, worker.stderr or worker.stdout)
         results.append(json.loads(worker.stdout))
-    return {"schema": "kit.sw2026.main-scoped-sweep-readback.v1", "base": "22994e323b217791057e2b4bc1bd3ce25677ffb9",
+    report = {"schema": "kit.sw2026.main-scoped-sweep-readback.v2", "base": "1d66aa9bab4a9573de86ea90992d828224cd8196",
             "native_result_sha256": NATIVE_SHA, "normalized_receipt_sha256": RECEIPT_SHA, "neutral_spec_sha256": SPEC_SHA,
             "writer_processes": len(results), "native_calls": 0, "protected_inputs_read": 0,
             "disclosed_physical_stream_comparison": native is not None, "cases": results}
+    if warm is not None:
+        report["disclosed_saved_sources"] = prove_warm_sources(warm, spec["cases"])
+    return report
 
 
 if __name__ == "__main__":
     parser = ArgumentParser(description="Reproduce the two disclosed measured sweep writes without an oracle")
     parser.add_argument("--native", type=Path, help="optional original disclosed capture directory")
+    parser.add_argument("--warm", type=Path, help="optional disclosed native-authored positives and derivatives")
     parser.add_argument("--worker")
     args = parser.parse_args()
-    result = project_writes(json.load(sys.stdin), args.worker) if args.worker else supervise(args.native)
+    result = project_writes(json.load(sys.stdin), args.worker) if args.worker else supervise(args.native, args.warm)
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))

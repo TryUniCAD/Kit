@@ -38,7 +38,9 @@ cold files with full and design-only projection.
   `(x, R−x, 0)` with `x=(R+r²/(4R))/θ`. The relative bound is
   `5e-7`, with an absolute `1e-11 m` guard for the zero transverse
   component. An edit changes exactly one D1 and its saved reopen retains
-  both values. The caller authenticates custody of the unsigned report.
+  both values. The control and candidate FILETIMEs must increase
+  strictly in recorded phase order. The caller authenticates custody
+  of the unsigned report.
 
 ## Provenance and verification
 
@@ -84,6 +86,15 @@ locator, missing evidence, occupied output, and fabricated area, volume
 and centroid observations before writing. Actual unverified staged
 filesystem targets leave no files.
 [Scoped parity receipt](../measurements/2026/SdkScopedSweepWriter01.json)
+
+The supplemental process proof rejects swapped control lifetimes and
+swapped edit/reopen lifetimes even though their process identities and
+receipt hashes remain distinct. It independently changes each sketch
+driver, the locator and the creation epoch while keeping the old evidence.
+Both public stream routes refuse before output in all four cases. The
+original authentic receipt still qualifies each exact archive. A
+different generated archive requires its own native measurements.
+[Supplemental guarded receipt](../measurements/2026/SdkScopedSweepReview01.json)
 
 The earlier independently locked research evaluation used writer
 `09b77272b02b74a1b4d54413cc185cb602105527` and passed both aliases,

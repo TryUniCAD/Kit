@@ -341,10 +341,13 @@ The measured Standard sweep writer accepts a first-creator solid
 canonical Front quarter arc, two driving D1 parameters and literal body
 density. It uses a separate sweep lifecycle receipt with the same SDK
 envelope. Supply the exact measured Windows self locator for the stream
-or filesystem destination. The strict cold reader restores the two
+or filesystem destination. The cold reader restores the two
 editable sketches, typed sweep and closed analytic solid from the
-same profile. Full and design-only strict readback can republish the
-same archive through the measured write gate.
+same profile in strict and permissive mode. Full and design-only readback
+can republish the same archive through the measured write gate. Strict
+reading of a recognized native-saved sweep with a result partition
+requires additional grammar. Permissive inspection can show its partial
+legacy inventory.
 [Measured Standard sweep](../../Changes/Solidworks/Construction/SolidworksMeasuredSweep.md)
 [Typed sweep readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdSweepReadback.md)
 

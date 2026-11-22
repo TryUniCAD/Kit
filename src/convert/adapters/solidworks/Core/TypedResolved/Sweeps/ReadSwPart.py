@@ -28,13 +28,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordSource import CadSource
 
 
-# select only cache free sweep sources in the current ordinary part archive context
-def IsColdSweep(Archive: SldprtArchive) -> bool:
+# recognize the measured sweep family before deciding whether its saved state can be read
+def IsScopedSweep(Archive: SldprtArchive) -> bool:
     if (
         Archive.format_version != 4
         or KConfigStream not in Archive.streams
         or KeywordsStream not in Archive.streams
-        or KPartitionStream in Archive.streams
         or ContainerMo(Archive.streams) != 19000
     ):
         return False
@@ -64,6 +63,8 @@ def SwSource(StateValue: SwReadState, DataValue: bytes, Label: str) -> CadSource
 def ReadSwPart(
     Archive: SldprtArchive, DataValue: bytes, Label: str, SettingsValue: ReadOptions
 ) -> CadDocument:
+    if KPartitionStream in Archive.streams:
+        raise SldprtFormatError("unsupported SOLIDWORKS saved sweep result partition")
     try:
         StateValue = ReadSwState(Archive)
         if BuildSweepPart(StateValue.IntentValue).BytesValue != DataValue:

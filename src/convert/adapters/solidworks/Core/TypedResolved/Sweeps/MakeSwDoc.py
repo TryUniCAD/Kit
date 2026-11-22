@@ -81,7 +81,7 @@ def MakeSwDoc(
         ),
         owner_id=BodyValue.id,
         provenance=TypedProvenance(
-            NativeNodeSpan(LinkValue, StateValue.DensityValue), str(NativeId)
+            NativeNodeSpan(LinkValue, StateValue.DensityValue), ""
         ),
     )
     ConfigValue = StateValue.ConfigValue

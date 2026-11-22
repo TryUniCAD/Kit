@@ -41,4 +41,9 @@ def CheckSwBatch(Receipt: dict[str, object]) -> tuple[dict[str, object], ...]:
         raise ValueError("sweep measurement repeats a process or phase receipt")
     CheckSwControl(Phases[0], "control-before", ControlHash)
     CheckSwControl(Phases[-1], "control-after", ControlHash)
+    if any(
+        Earlier[1] >= Later[1]
+        for Earlier, Later in zip(Owners[:-1], Owners[1:], strict=True)
+    ):
+        raise ValueError("sweep measurement lifetimes are out of creation order")
     return Phases[1:-1]

@@ -101,6 +101,7 @@ KCompatFieldsHistory = (
     ),
     ("interchange.history.ScaleFeature", ("factors",)),
     ("interchange.history.ShellFeature", ("thickness", "outward")),
+    ("interchange.history.SweepFeature", ("PathSketchId",)),
     (
         "interchange.history.TopologySummary",
         (

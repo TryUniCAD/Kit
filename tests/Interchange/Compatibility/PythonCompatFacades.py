@@ -123,6 +123,7 @@ KPythonCompatFacades = (
             "RevolutionFeature",
             "ScaleFeature",
             "ShellFeature",
+            "SweepFeature",
             "TopologySummary",
         ),
     ),
