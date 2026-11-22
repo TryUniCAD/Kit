@@ -1,0 +1,1488 @@
+{
+  "authored": {
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "edited": {
+      "bodies": 1,
+      "features": [
+        {
+          "error": 0,
+          "name": "Comments",
+          "suppressed": false,
+          "type": "CommentsFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Favorites",
+          "suppressed": false,
+          "type": "FavoriteFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "History",
+          "suppressed": false,
+          "type": "HistoryFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Selection Sets",
+          "suppressed": false,
+          "type": "SelectionSetFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Sensors",
+          "suppressed": false,
+          "type": "SensorFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Design Binder",
+          "suppressed": false,
+          "type": "DocsFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Annotations",
+          "suppressed": false,
+          "type": "DetailCabinet",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Surface Bodies",
+          "suppressed": false,
+          "type": "SurfaceBodyFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Solid Bodies",
+          "suppressed": false,
+          "type": "SolidBodyFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Lights and Cameras",
+          "suppressed": false,
+          "type": "EnvFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Markups",
+          "suppressed": false,
+          "type": "InkMarkupFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Equations",
+          "suppressed": false,
+          "type": "EqnFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Material <not specified>",
+          "suppressed": false,
+          "type": "MaterialFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Front Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Top Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Right Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Origin",
+          "suppressed": false,
+          "type": "OriginProfileFeature",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "ShellStockSketch",
+          "suppressed": false,
+          "type": "ProfileFeature",
+          "warning": false
+        },
+        {
+          "dims": [
+            {
+              "name": "D1@ShellStockBoss@OpenShell.Part",
+              "value": 0.028
+            }
+          ],
+          "error": 0,
+          "name": "ShellStockBoss",
+          "suppressed": false,
+          "type": "Extrusion",
+          "warning": false
+        },
+        {
+          "dims": [
+            {
+              "name": "D1@OpenShell@OpenShell.Part",
+              "value": 0.00353
+            }
+          ],
+          "error": 0,
+          "name": "OpenShell",
+          "suppressed": false,
+          "type": "Shell",
+          "warning": false
+        }
+      ],
+      "mass": {
+        "area": 0.0135193272,
+        "com": [
+          -4.666274788406596e-18,
+          0.0,
+          0.011032153046474251
+        ],
+        "mass": 2.269028790800002e-05,
+        "volume": 2.269028790800002e-05
+      }
+    },
+    "edited_sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+    "oracle_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341306043559,
+      "process_id": 1056,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "original": {
+      "bodies": 1,
+      "features": [
+        {
+          "error": 0,
+          "name": "Comments",
+          "suppressed": false,
+          "type": "CommentsFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Favorites",
+          "suppressed": false,
+          "type": "FavoriteFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "History",
+          "suppressed": false,
+          "type": "HistoryFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Selection Sets",
+          "suppressed": false,
+          "type": "SelectionSetFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Sensors",
+          "suppressed": false,
+          "type": "SensorFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Design Binder",
+          "suppressed": false,
+          "type": "DocsFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Annotations",
+          "suppressed": false,
+          "type": "DetailCabinet",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Surface Bodies",
+          "suppressed": false,
+          "type": "SurfaceBodyFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Solid Bodies",
+          "suppressed": false,
+          "type": "SolidBodyFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Lights and Cameras",
+          "suppressed": false,
+          "type": "EnvFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Markups",
+          "suppressed": false,
+          "type": "InkMarkupFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Equations",
+          "suppressed": false,
+          "type": "EqnFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Material <not specified>",
+          "suppressed": false,
+          "type": "MaterialFolder",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Front Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Top Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Right Plane",
+          "suppressed": false,
+          "type": "RefPlane",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "Origin",
+          "suppressed": false,
+          "type": "OriginProfileFeature",
+          "warning": false
+        },
+        {
+          "error": 0,
+          "name": "ShellStockSketch",
+          "suppressed": false,
+          "type": "ProfileFeature",
+          "warning": false
+        },
+        {
+          "dims": [
+            {
+              "name": "D1@ShellStockBoss@Part1.Part",
+              "value": 0.028
+            }
+          ],
+          "error": 0,
+          "name": "ShellStockBoss",
+          "suppressed": false,
+          "type": "Extrusion",
+          "warning": false
+        },
+        {
+          "dims": [
+            {
+              "name": "D1@OpenShell@Part1.Part",
+              "value": 0.0028
+            }
+          ],
+          "error": 0,
+          "name": "OpenShell",
+          "suppressed": false,
+          "type": "Shell",
+          "warning": false
+        }
+      ],
+      "mass": {
+        "area": 0.01378312,
+        "com": [
+          -4.089255006085605e-18,
+          2.852437922771767e-18,
+          0.010810327743212505
+        ],
+        "mass": 1.855940800000002e-05,
+        "volume": 1.855940800000002e-05
+      }
+    },
+    "original_sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+    "parameter": "D1@OpenShell",
+    "qualified": false,
+    "request_sha256": "191c2d2e924f75c4c4cd55171d50488241e83b696eff7298780e0e68a81dd602",
+    "save_edited": [
+      true,
+      0,
+      0
+    ],
+    "save_original": [
+      true,
+      0,
+      0
+    ],
+    "selection": {
+      "cap_box_m": [
+        -0.0265,
+        -0.0205,
+        0.028,
+        0.0265,
+        0.0205,
+        0.028
+      ],
+      "mark": 1,
+      "persistent_reference_sha256": "e37db479e5741b2945545ea40376d3d5fc46ab3a2f053804a4c0cfb788d9c92d",
+      "selection_counts": [
+        1,
+        1
+      ]
+    },
+    "template_sha256": "b82f8f25d797f5fc4e110f566c2469d8ec87637fb7b220eae444e4918afefb15"
+  },
+  "control_after": {
+    "bodies": 1,
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "features": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "RevolveSketch",
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@OrdinaryBossRevolve@RevolveFull.Part",
+            "value": 6.283185307179586
+          }
+        ],
+        "error": 0,
+        "name": "OrdinaryBossRevolve",
+        "suppressed": false,
+        "type": "Revolution",
+        "warning": false
+      }
+    ],
+    "mass": {
+      "area": 0.013069025438933537,
+      "com": [
+        0.0020000000000000005,
+        0.004000000000000001,
+        1.5610629066404477e-19
+      ],
+      "mass": 7.690618815987813e-05,
+      "volume": 7.690618815987813e-05
+    },
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "oracle_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398344098098548,
+      "process_id": 7372,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\GeneratedOrdinaryRevolveNative01\\Control\\RevolveFull.SLDPRT",
+    "process_ids": [
+      1708,
+      7372
+    ],
+    "progress_windows": [],
+    "rebuilt": true,
+    "revision": "34.5.2",
+    "seconds": 10.84,
+    "session_diagnostics": [],
+    "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "stage": "close_return",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1795360805.3767278
+      },
+      {
+        "stage": "open_start",
+        "time": 1795360819.1126015
+      },
+      {
+        "stage": "open_return",
+        "time": 1795360827.7585235
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1795360827.7585235
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1795360828.2626932
+      },
+      {
+        "stage": "status_start",
+        "time": 1795360828.2626932
+      },
+      {
+        "stage": "status_return",
+        "time": 1795360828.282989
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1795360828.282989
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1795360828.4525023
+      },
+      {
+        "stage": "mass_start",
+        "time": 1795360828.4525023
+      },
+      {
+        "stage": "mass_return",
+        "time": 1795360828.5631487
+      },
+      {
+        "stage": "features_start",
+        "time": 1795360828.5631487
+      },
+      {
+        "stage": "features_return",
+        "time": 1795360829.841711
+      },
+      {
+        "stage": "close_start",
+        "time": 1795360829.841711
+      },
+      {
+        "stage": "close_return",
+        "time": 1795360829.955189
+      }
+    ],
+    "whats_wrong": 0
+  },
+  "control_before": {
+    "bodies": 1,
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "features": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "RevolveSketch",
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@OrdinaryBossRevolve@RevolveFull.Part",
+            "value": 6.283185307179586
+          }
+        ],
+        "error": 0,
+        "name": "OrdinaryBossRevolve",
+        "suppressed": false,
+        "type": "Revolution",
+        "warning": false
+      }
+    ],
+    "mass": {
+      "area": 0.013069025438933537,
+      "com": [
+        0.0020000000000000005,
+        0.004000000000000001,
+        1.5610629066404477e-19
+      ],
+      "mass": 7.690618815987813e-05,
+      "volume": 7.690618815987813e-05
+    },
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "oracle_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341033739061,
+      "process_id": 5132,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "path": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\GeneratedOrdinaryRevolveNative01\\Control\\RevolveFull.SLDPRT",
+    "process_ids": [
+      5132,
+      6232
+    ],
+    "progress_windows": [],
+    "rebuilt": true,
+    "revision": "34.5.2",
+    "seconds": 11.25,
+    "session_diagnostics": [],
+    "sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+    "stage": "close_return",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1795360498.889832
+      },
+      {
+        "stage": "open_start",
+        "time": 1795360512.330401
+      },
+      {
+        "stage": "open_return",
+        "time": 1795360521.3911324
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1795360521.3911324
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1795360521.8599
+      },
+      {
+        "stage": "status_start",
+        "time": 1795360521.8599
+      },
+      {
+        "stage": "status_return",
+        "time": 1795360521.9287214
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1795360521.9287214
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1795360522.088206
+      },
+      {
+        "stage": "mass_start",
+        "time": 1795360522.088206
+      },
+      {
+        "stage": "mass_return",
+        "time": 1795360522.2062604
+      },
+      {
+        "stage": "features_start",
+        "time": 1795360522.2062604
+      },
+      {
+        "stage": "features_return",
+        "time": 1795360523.480779
+      },
+      {
+        "stage": "close_start",
+        "time": 1795360523.480779
+      },
+      {
+        "stage": "close_return",
+        "time": 1795360523.584926
+      }
+    ],
+    "whats_wrong": 0
+  },
+  "exported_sha256": {
+    "Author.json": "5cc3a800d92fa21d6df42572dc1a0e5d3bbec5b0e760e65413abc66ac21b27f8",
+    "ControlAfter.json": "bb18d098153894b92cbbf7589d796b1a50b2c5dcfb8b3e2c19f0ccb2f41afdb7",
+    "ControlBefore.json": "1ab007b8f8a42766ab6c0db749cd62f544ab3929049354436f874f5aefe7eac3",
+    "OpenShell.SLDPRT": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+    "OpenShellEdited.SLDPRT": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+    "Receipt.json": "d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b",
+    "ReopenEdited.json": "276154179e019f55b6e256c5bd99f91988c0b69c19759e5c0e2ca8a8bda1e691",
+    "ReopenOriginal.json": "55af426f6b2c923bcd85fd3e45cd5ecff95a78034acb4b9f95bcf5c305162e8a",
+    "Request.json": "191c2d2e924f75c4c4cd55171d50488241e83b696eff7298780e0e68a81dd602"
+  },
+  "reopen_edited": {
+    "bodies": 1,
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "features": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "ShellStockSketch",
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@ShellStockBoss@OpenShellEdited.Part",
+            "value": 0.028
+          }
+        ],
+        "error": 0,
+        "name": "ShellStockBoss",
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@OpenShell@OpenShellEdited.Part",
+            "value": 0.00353
+          }
+        ],
+        "error": 0,
+        "name": "OpenShell",
+        "suppressed": false,
+        "type": "Shell",
+        "warning": false
+      }
+    ],
+    "mass": {
+      "area": 0.0135193272,
+      "com": [
+        -4.71648390512985e-18,
+        0.0,
+        0.011032153046474254
+      ],
+      "mass": 2.2690287908000024e-05,
+      "volume": 2.2690287908000024e-05
+    },
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "oracle_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341969770003,
+      "process_id": 5532,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "parameters": {
+      "D1@OpenShell": 0.00353
+    },
+    "path": "C:\\KitOpenShellSource02\\disclosed\\OpenShellEdited.SLDPRT",
+    "process_ids": [
+      5532,
+      6480
+    ],
+    "progress_windows": [],
+    "rebuilt": true,
+    "revision": "34.5.2",
+    "seconds": 11.91,
+    "session_diagnostics": [],
+    "sha256": "c0be437a8c13a50c940b0d9cee51d369865abf3fa0a7ed62610fb9c76eb4b810",
+    "stage": "close_return",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1795360592.5286198
+      },
+      {
+        "stage": "open_start",
+        "time": 1795360605.2659304
+      },
+      {
+        "stage": "open_return",
+        "time": 1795360614.5191007
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1795360614.5191007
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1795360615.046161
+      },
+      {
+        "stage": "status_start",
+        "time": 1795360615.046161
+      },
+      {
+        "stage": "status_return",
+        "time": 1795360615.060095
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1795360615.060095
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1795360615.2650902
+      },
+      {
+        "stage": "mass_start",
+        "time": 1795360615.2650902
+      },
+      {
+        "stage": "mass_return",
+        "time": 1795360615.3753526
+      },
+      {
+        "stage": "features_start",
+        "time": 1795360615.3753526
+      },
+      {
+        "stage": "features_return",
+        "time": 1795360616.9609675
+      },
+      {
+        "stage": "parameters_start",
+        "time": 1795360616.9609675
+      },
+      {
+        "stage": "parameters_return",
+        "time": 1795360617.0064428
+      },
+      {
+        "stage": "close_start",
+        "time": 1795360617.0064428
+      },
+      {
+        "stage": "close_return",
+        "time": 1795360617.1756196
+      }
+    ],
+    "whats_wrong": 0
+  },
+  "reopen_original": {
+    "bodies": 1,
+    "controller_diagnostics": [],
+    "dialogs": [],
+    "features": [
+      {
+        "error": 0,
+        "name": "Comments",
+        "suppressed": false,
+        "type": "CommentsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Favorites",
+        "suppressed": false,
+        "type": "FavoriteFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "History",
+        "suppressed": false,
+        "type": "HistoryFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Selection Sets",
+        "suppressed": false,
+        "type": "SelectionSetFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Sensors",
+        "suppressed": false,
+        "type": "SensorFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Design Binder",
+        "suppressed": false,
+        "type": "DocsFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Annotations",
+        "suppressed": false,
+        "type": "DetailCabinet",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Surface Bodies",
+        "suppressed": false,
+        "type": "SurfaceBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Solid Bodies",
+        "suppressed": false,
+        "type": "SolidBodyFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Lights and Cameras",
+        "suppressed": false,
+        "type": "EnvFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Markups",
+        "suppressed": false,
+        "type": "InkMarkupFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Equations",
+        "suppressed": false,
+        "type": "EqnFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Material <not specified>",
+        "suppressed": false,
+        "type": "MaterialFolder",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Front Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Top Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Right Plane",
+        "suppressed": false,
+        "type": "RefPlane",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "Origin",
+        "suppressed": false,
+        "type": "OriginProfileFeature",
+        "warning": false
+      },
+      {
+        "error": 0,
+        "name": "ShellStockSketch",
+        "suppressed": false,
+        "type": "ProfileFeature",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@ShellStockBoss@OpenShell.Part",
+            "value": 0.028
+          }
+        ],
+        "error": 0,
+        "name": "ShellStockBoss",
+        "suppressed": false,
+        "type": "Extrusion",
+        "warning": false
+      },
+      {
+        "dims": [
+          {
+            "name": "D1@OpenShell@OpenShell.Part",
+            "value": 0.0028
+          }
+        ],
+        "error": 0,
+        "name": "OpenShell",
+        "suppressed": false,
+        "type": "Shell",
+        "warning": false
+      }
+    ],
+    "mass": {
+      "area": 0.01378312,
+      "com": [
+        -4.089255006085605e-18,
+        2.852437922771767e-18,
+        0.010810327743212505
+      ],
+      "mass": 1.855940800000002e-05,
+      "volume": 1.855940800000002e-05
+    },
+    "open_errors": 0,
+    "open_warnings": 0,
+    "opened": true,
+    "oracle_identity": {
+      "bytes": 718936,
+      "executable": "SLDWORKS.exe",
+      "expected_version": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "file_version": "34.5.2.0604",
+      "file_version_words": [
+        34,
+        5,
+        2,
+        604
+      ],
+      "pe_machine": "0x8664",
+      "process_creation_filetime": 134398341694029672,
+      "process_id": 5352,
+      "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+      "version_matches": true
+    },
+    "parameters": {
+      "D1@OpenShell": 0.0028
+    },
+    "path": "C:\\KitOpenShellSource02\\disclosed\\OpenShell.SLDPRT",
+    "process_ids": [
+      3376,
+      5352
+    ],
+    "progress_windows": [],
+    "rebuilt": true,
+    "revision": "34.5.2",
+    "seconds": 10.98,
+    "session_diagnostics": [],
+    "sha256": "73a4330ef831d38273ef6128bcbff15e4a105421219293ae5454941a3c7301cd",
+    "stage": "close_return",
+    "stages": [
+      {
+        "stage": "oracle_idle_guard",
+        "time": 1795360564.9178753
+      },
+      {
+        "stage": "open_start",
+        "time": 1795360578.74691
+      },
+      {
+        "stage": "open_return",
+        "time": 1795360587.1619084
+      },
+      {
+        "stage": "rebuild_start",
+        "time": 1795360587.1619084
+      },
+      {
+        "stage": "rebuild_return",
+        "time": 1795360587.6592846
+      },
+      {
+        "stage": "status_start",
+        "time": 1795360587.6592846
+      },
+      {
+        "stage": "status_return",
+        "time": 1795360587.668703
+      },
+      {
+        "stage": "bodies_start",
+        "time": 1795360587.668703
+      },
+      {
+        "stage": "bodies_return",
+        "time": 1795360588.000113
+      },
+      {
+        "stage": "mass_start",
+        "time": 1795360588.000113
+      },
+      {
+        "stage": "mass_return",
+        "time": 1795360588.126269
+      },
+      {
+        "stage": "features_start",
+        "time": 1795360588.126269
+      },
+      {
+        "stage": "features_return",
+        "time": 1795360589.5492373
+      },
+      {
+        "stage": "parameters_start",
+        "time": 1795360589.5492373
+      },
+      {
+        "stage": "parameters_return",
+        "time": 1795360589.5822556
+      },
+      {
+        "stage": "close_start",
+        "time": 1795360589.5822556
+      },
+      {
+        "stage": "close_return",
+        "time": 1795360589.7238247
+      }
+    ],
+    "whats_wrong": 0
+  },
+  "request": {
+    "dimensions_m": [
+      0.053,
+      0.041,
+      0.028,
+      0.0028,
+      0.00353
+    ],
+    "kind": "front-rectangular-inward-open-top-shell"
+  },
+  "schema": "kit-sw2026-open-shell-disclosed-source-v1"
+}
