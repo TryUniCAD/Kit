@@ -34,7 +34,9 @@ def ReadResolvedMut(
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadEllipses: bool = False,
 ) -> ResolvedGraph:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, EllipseScope=ReadEllipses
+    )
     if ReadEllipses:
         UseEllipCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)

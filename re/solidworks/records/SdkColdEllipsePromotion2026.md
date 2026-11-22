@@ -1,80 +1,83 @@
-# SDK construction of the ordinary cold ellipse boss
+# Scoped SDK full-ellipse boss
 
-The shared constructor projects a neutral millimetre part with one free
-full ellipse on the actual origin Front Plane, one forward blind boss,
-its driving D1 and one active `Default` configuration. The shape guard
-uses the disclosed and pre-writer locked calibration envelope for centre,
-signed major direction, semiaxes and depth.
-[Native construction rule](EllipseColdPrototype2026.md)
-· [Independent held-out qualification](EllipseColdHeldoutProtocol2026.md)
+`B04-SW2026-FULL-ELLIPSE` is a main-target extraction from PR #121. The
+ellipse delivery branch owns this work and depends on the measured standalone
+part foundation in PR #235. Exit requires exact disclosed SDK regeneration,
+strict source ownership and passing review and hosted queue checks. This
+record covers the scoped implementation and disclosed verification.
 
-The centre and signed major and minor stations come from the authored
-conic. The centre, seam, major, minor and reflected points retain their
-physical array order. The seam uses its own creation identity and the
-major station. Both inline segment endpoints refer to that one seam. It
-owns the mapped ellipse handle. The ordinary sketch constructor retains
-point, ellipse and persistent creation counts. The same allocator binds
-the shared profile, boss and live depth dimension. The native solver
-updates the cold seam during the measured rebuild.
-[Allocation and field ownership](EllipseSeamAllocation2026.md)
+The inputs have one editable free full ellipse on the canonical Front Plane,
+one forward blind boss, one active `Default` configuration and one positive
+D1. The signed conic, five axis/centre roles and independent seam point drive
+the typed `sgEllipse` row and mapped `sgEllipseHandle`. The shared stock
+profile wrapper, part allocation, header, counts, key rows and output codec
+construct the ten streams. `ReadEllipses` and `ReplayEllipses` explicitly
+select the manager `f658=1` branch and its empty `u32` body-map count.
+Populated body maps and other resolved contexts remain closed.
 
-The established part system, header, key rows and archive emitters
-construct all ten streams. The actual manager uses `f658=1`, and the
-one-ellipse context is passed to the resolved serializer for this
-candidate. Geometry comes from the editable feature history. No saved
-geometry enters the preparation process.
+## Disclosed native custody and exact parity
 
-## Guarded parity
+Both parts were measured on SOLIDWORKS 2026 SP05.2 build `34.5.2.0604` in
+eight distinct native lifetimes with four healthy before/after controls and
+910 candidate checks. The native terminal SHA-256 is
+`6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93`.
+The [normalized measurement](../measurements/2026/SdkColdEllipseReceipt01.json)
+binds the initial, edited and fresh-reopened states and the exact original
+logical locators. The SDK consumes this as caller-provided unsigned evidence.
+It determines the model independently and requires its complete emitted bytes
+to match a single record.
 
-Run the focused verifier from a checkout with the integration below.
+| Disclosed input | Bytes | SHA-256 |
+| --- | ---: | --- |
+| EllipseFrontA | 8120 | `d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581` |
+| EllipseFrontB | 8119 | `fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996` |
+
+The [scoped proof](../measurements/2026/SdkScopedEllipse01.json) verifies the
+frozen Trial, terminal and eight component receipts. Each fresh SDK worker
+receives neutral intent and normalized observations. Candidate preparation,
+direct and registry stream publication and strict readback use zero runtime
+file reads after imports. All 20 clear streams match the pinned candidate
+archives. The normal and direct routes refuse missing, substituted or
+unbound evidence and preserve incompatible output sinks. The measured
+Windows locator is passed with the stream. A different host path or compressed
+archive requires new exact native evidence. Ordinary saved circle and
+rectangle read controls remain valid.
+
+## Typed read scope
+
+The strict cold reader resolves the actual Front support, sole ellipse and
+linked blind extrusion depth. It derives the accepted clear streams from only
+the typed conic point stations, names, live depth, creation epoch and linked
+self path. All ten named streams must match. This verifies the ordinary
+presentation and empty caches without enrolling additional scene, assembly,
+revolve or generic feature approximations. The generation used for this
+comparison contributes no bytes to an output. Source retention stays under
+the normal reader rules.
+
+The projected D1, support and boss remain editable in neutral JSON. With
+geometry enabled, the solver-independent body has three faces and an explicit
+rational seam. The two cases each passed 201 independent curve, trim and
+surface evaluations and 17 comparisons against native cold geometry.
+Unsupported endpoint and axis roles, reversed end and raw geometry requests
+cannot publish the cold typed solid. This scoped receipt adds zero native
+launches and zero new held-out credit. Existing aggregate source qualification
+and its separate protected custody remain in their historical records.
+
+## Reproduce
+
+Run from this checkout with the disclosed `EllipseColdPrototype02` folder and
+an unused result path. The supervisor verifies disclosed hashes before the two
+fresh model-only workers. The loaded candidate files supply comparisons only.
 
 ```sh
-python -I -B re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py
+python -I -B re/tooling/sw2026/ellipse_source/CheckSdkEllipsePart.py \
+  --disclosed /path/to/EllipseColdPrototype02 \
+  --output /tmp/KitScopedEllipse.json
 ```
 
-Two independent authored neutral documents with opposite signed rotation
-go through the complete SDK preparation twice each in separate processes.
-They reproduce the exact CAD containers previously measured on
-SOLIDWORKS 2026 SP05.2 at their original modeled final paths and creation
-times. Both archive graphs replay their actual streams and map identities.
-The body and dimensions resolve through the original sketch, origin Front
-Plane and boss owners. The guard records zero runtime file reads and
-zero SDK research imports. The verifier separately rejects an equal-radius
-shape, construction geometry, reverse depth, misowned D1, unsupported
-metadata, unavailable configuration and a stream without its final path.
-The exact linked readback also exercises a crossed endpoint and the
-usual reader's explicit refusal of an unscoped ellipse.
-[SDK parity evidence](../measurements/2026/SdkColdEllipsePromotion01.json)
-
-## Shared integration
-
-The constructor uses four additive shared interfaces.
-
-- `ProfileGraph.GeometryValue` includes the real `EllipseGraph` along
-  with the existing polygon and circle graphs.
-- `RequirePolygon` accepts the shared profile input type and still
-  requires the actual polygon owner before line-specific operations.
-- `MakePartKeys` takes the actual `EllipsePlan` alongside its existing
-  plans. The established key builder emits the ordinary sketch and D1
-  rows from the generated owners.
-- `EmitPartArchive` accepts the default-false `ReplayEllipses` keyword
-  and forwards it to the existing resolved writer.
-
-The actual preparation entry is
-`PrepareEllipse(Document, Target, WrittenAt, Options)`. Its paired
-admission entry is `PlanEllipse(Document)`. The public planner and
-preparer should use the same actual full-ellipse entity discriminator
-before their line and circle fallback, after applying the earlier
-special-family dispatch. An unsupported model on that ellipse branch
-fails its own guard. Both the staged file and binary stream publication
-can take the resulting `EllipsePart.BytesValue` through the existing
-writer. The selected configuration and final path use the ordinary
-part options.
-
-The scoped linked readback selects the existing `ReadEllipses` context.
-A public reading route needs a separate ownership guard before enabling
-it. This host integration receipt binds the two disclosed qualified
-artifacts. The independent protected native result belongs to the
-earlier frozen construction method.
-[Disclosed native result](../measurements/2026/EllipseColdNativeDisclosed02.json)
-· [Protected native receipt](../measurements/2026/EllipseColdSealedNative01.json)
+The original aggregate layout, construction and public evidence are preserved
+in PR #121 pins `9e0d90a575980e213cb68395e324ffaaefcd58b2` and
+`04d2df1b3a78f8169d144d0677d295917122e7f6`.
+[Historical preparation receipt](../measurements/2026/SdkColdEllipsePromotion01.json)
+· [Archive ownership](EllipseBlindBossArchive2026.md)
+· [Publication change](../../../Documentation/Changes/Solidworks/Construction/SolidworksMeasuredEllipseBoss.md)

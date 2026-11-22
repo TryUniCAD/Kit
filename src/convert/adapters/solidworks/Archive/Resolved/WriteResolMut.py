@@ -30,7 +30,9 @@ def WriteResolMut(
     UsageValue: BodyUsage | None = None,
     ReplayEllipses: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    ContextValue = MakeResolvedCtx(
+        VersionValue, SeedValue, LinkContext, UsageValue, EllipseScope=ReplayEllipses
+    )
     if ReplayEllipses:
         UseEllipCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")

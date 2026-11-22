@@ -33,6 +33,15 @@ def CompactOrdinals() -> tuple[NativeField, ...]:
 # the full positive rotation and local seam handle are the observed ordinary profile
 KEllipseFields = MappingProxyType(
     {
+        "moPartConfiguration_c.SerializeMBSMDataObjects": (
+            NativeField(
+                "Array",
+                "fcd8",
+                "u32",
+                BodyValue=(NativeField("Fail", "populated SOLIDWORKS body mapping"),),
+                CountValue="n",
+            ),
+        ),
         KEllipseHandle: (
             NativeField("Base", "sk.sgEntHandle.Serialize"),
             NativeField(

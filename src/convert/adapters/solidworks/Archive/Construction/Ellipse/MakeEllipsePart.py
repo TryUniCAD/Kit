@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Configuration.SetCfgStampM
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import (
     EllipsePart,
 )
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EmitEllipsePart import (
     EmitEllipsePart,
 )
@@ -43,6 +46,11 @@ def MakeEllipsePart(
 ) -> EllipsePart:
     PlanValue = ProjectEllipse(DocumentValue)
     CheckPartInput(DocumentValue, InputValue, PlanValue)
+    return BuildEllipPart(PlanValue, InputValue)
+
+
+# a qualified ellipse plan shares the same ordinary part allocation and stream owners
+def BuildEllipPart(PlanValue: EllipsePlan, InputValue: PartBuildInput) -> EllipsePart:
     Allocator = PersistentIds()
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
     ProfileValue = MakeEllipProf(

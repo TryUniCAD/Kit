@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Model.PartRootInput import
 from convert.adapters.solidworks.Archive.Construction.Nodes.PersistentIds import (
     PersistentIds,
 )
+from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
+    EllipsePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
 )
@@ -29,7 +32,9 @@ from convert.adapters.solidworks.Archive.Construction.System.PartSystem import (
 
 # the full part must reuse the proven system graph with the neutral configuration name and one shared actual allocator
 def MakePartBaseMut(
-    InputValue: PartBuildInput, PlanValue: BlindPlan, Allocator: PersistentIds
+    InputValue: PartBuildInput,
+    PlanValue: BlindPlan | EllipsePlan,
+    Allocator: PersistentIds,
 ) -> PartSystem:
     RefsValue = MakePartRefs(
         InputValue.StyleValue, InputValue.DocumentUnits, InputValue.AnalysisUnits

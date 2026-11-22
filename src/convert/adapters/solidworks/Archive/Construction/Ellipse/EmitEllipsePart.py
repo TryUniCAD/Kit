@@ -4,11 +4,8 @@ from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePart import
 from convert.adapters.solidworks.Archive.Construction.Ellipse.EllipsePlan import (
     EllipsePlan,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import (
-    EmitPartArchive,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
-    MakePartKeys,
+from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams import (
+    EmitPartStreams,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -31,16 +28,14 @@ def EmitEllipsePart(
     InputValue: PartBuildInput,
     PlanValue: EllipsePlan,
 ) -> EllipsePart:
-    KeywordsValue = MakePartKeys(SystemValue, RootsValue, InputValue, PlanValue)
     Definition = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)
-    StreamsValue, ConfigValue, ResolvedValue = EmitPartArchive(
+    StreamsValue, ConfigValue, ResolvedValue = EmitPartStreams(
         SystemValue,
         RootsValue,
         HeadersValue,
         Definition,
         InputValue,
-        KeywordsValue,
-        BodyMapFields={"n": 0, "fcd8": []},
+        PlanValue,
         ReplayEllipses=True,
     )
     return EllipsePart(

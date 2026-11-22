@@ -331,10 +331,16 @@ the existing neutral Windows self-locator rule. A Windows output must
 reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 
-A strict cold readback of a measured ordinary part can use the same SDK writer
+A strict cold readback of a measured ordinary line part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
+
+The measured SDK full-ellipse profile accepts one free ellipse on the
+canonical Front Plane and one forward blind D1 boss. Exact offline native
+measurement is required for publication. Its cold readback verifies the
+entire typed archive and reconstructs the live D1 and rational solid.
+[Measured full-ellipse boss](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipseBoss.md)
 
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.

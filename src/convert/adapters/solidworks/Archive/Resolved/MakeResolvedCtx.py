@@ -23,6 +23,8 @@ def MakeResolvedCtx(
     SeedValue: MapSnapshot,
     LinkContext: Mapping[str, int],
     UsageValue: BodyUsage | None,
+    *,
+    EllipseScope: bool = False,
 ) -> BodyContext:
     UsageValue = NewBodyUsage(VersionValue, UsageValue)
     if set(LinkContext) != {
@@ -42,7 +44,7 @@ def MakeResolvedCtx(
         raise BodyUnsupported(
             "resolved context does not match the inherited ordinary model"
         )
-    if LinkContext["cmgr_f658"] != 0:
+    if LinkContext["cmgr_f658"] != int(EllipseScope):
         raise BodyUnsupported(
             "ordinary resolved graph has an unsupported manager suffix"
         )

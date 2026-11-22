@@ -1,0 +1,297 @@
+{
+  "cases": [
+    {
+      "archive_bytes": 8120,
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "edited_sha256": "618c60bde3923201a43ff5b97562d83a522599d461cb1a71439e2a59fe51de0b",
+      "locator": "C:\\KitEllipseColdPrototype02\\Packet\\Candidates\\EllipseFrontA.SLDPRT",
+      "opens": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "setter_status": 0,
+      "slot": 0,
+      "states": [
+        {
+          "area_m2": 0.002493090954451763,
+          "com_m": [
+            0.018250000759015894,
+            -0.006374999389148893,
+            0.0065625000000000015
+          ],
+          "depth_m": 0.013125,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "initial",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 7.822107140176482e-06
+        },
+        {
+          "area_m2": 0.0031126863572385616,
+          "com_m": [
+            0.018250000759015898,
+            -0.006374999389148894,
+            0.0096875
+          ],
+          "depth_m": 0.019375,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "edited",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 1.1546920064070049e-05
+        },
+        {
+          "area_m2": 0.0031126863572385616,
+          "com_m": [
+            0.018250000759015894,
+            -0.006374999389148895,
+            0.009687500000000002
+          ],
+          "depth_m": 0.019375,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "reopen",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 1.154692006407005e-05
+        }
+      ],
+      "written_at": 1795516920
+    },
+    {
+      "archive_bytes": 8119,
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "edited_sha256": "2fa01282ee94bcc1625c3b11736980e336a44cf7cd3bb79712d3642d6c9c516e",
+      "locator": "C:\\KitEllipseColdPrototype02\\Packet\\Candidates\\EllipseFrontB.SLDPRT",
+      "opens": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "save_status": [
+        true,
+        0,
+        0
+      ],
+      "setter_status": 0,
+      "slot": 1,
+      "states": [
+        {
+          "area_m2": 0.0032314955635499645,
+          "com_m": [
+            -0.01237499901509161,
+            0.009124999532280161,
+            0.010812500000000001
+          ],
+          "depth_m": 0.021625000000000002,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "initial",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 1.3470621637629157e-05
+        },
+        {
+          "area_m2": 0.0022444056045195747,
+          "com_m": [
+            -0.01237499901509161,
+            0.009124999532280161,
+            0.005437499999999999
+          ],
+          "depth_m": 0.010875,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "edited",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 6.774243251293278e-06
+        },
+        {
+          "area_m2": 0.0022444056045195747,
+          "com_m": [
+            -0.01237499901509161,
+            0.009124999532280161,
+            0.005437499999999999
+          ],
+          "depth_m": 0.010875,
+          "driver": "D1",
+          "driver_state": 2,
+          "faces": 3,
+          "readonly": false,
+          "solid_count": 1,
+          "stage": "reopen",
+          "support": "Front Plane",
+          "tree_rows": 25,
+          "volume_m3": 6.774243251293278e-06
+        }
+      ],
+      "written_at": 1795516981
+    }
+  ],
+  "fresh_processes": 8,
+  "healthy_controls": true,
+  "native_result_sha256": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "oracle": {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "passed": true,
+  "phases": [
+    {
+      "checks": 0,
+      "control": "ControlRectangle.SLDPRT",
+      "exit_code": 0,
+      "lifetime": [
+        8540,
+        134397965295081342
+      ],
+      "passed": true,
+      "phase": "before",
+      "receipt_sha256": "5f234124d345997f4ab297ed79cbffd87ccbf5f1d2b7a60a22677b120f501259",
+      "slot": null,
+      "source": null,
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 0,
+      "control": "ControlCircle.SLDPRT",
+      "exit_code": 0,
+      "lifetime": [
+        812,
+        134397965596672548
+      ],
+      "passed": true,
+      "phase": "before",
+      "receipt_sha256": "6d250cbf5bb77772ee34a8591e6fe367972d0dc1dcee600d53ac5aab3b3bd894",
+      "slot": null,
+      "source": null,
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 287,
+      "control": null,
+      "exit_code": 0,
+      "lifetime": [
+        6192,
+        134397965856004866
+      ],
+      "passed": true,
+      "phase": "edit",
+      "receipt_sha256": "df6da151a62372e467ed1df45890c89ab2914be2797a3c484d10d1090fd7e1cf",
+      "slot": 0,
+      "source": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 168,
+      "control": null,
+      "exit_code": 0,
+      "lifetime": [
+        4588,
+        134397966610232522
+      ],
+      "passed": true,
+      "phase": "reopen",
+      "receipt_sha256": "cf2f4aed23a0503e2cda7f9f4861fa4bb41ebb1515d5c593cb2261985a3225d3",
+      "slot": 0,
+      "source": "618c60bde3923201a43ff5b97562d83a522599d461cb1a71439e2a59fe51de0b",
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 287,
+      "control": null,
+      "exit_code": 0,
+      "lifetime": [
+        5284,
+        134397967023727345
+      ],
+      "passed": true,
+      "phase": "edit",
+      "receipt_sha256": "245480d9f0b90b90eba748a744ea9c76f4549b4e58fb9e4ba51bff201ed91050",
+      "slot": 1,
+      "source": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 168,
+      "control": null,
+      "exit_code": 0,
+      "lifetime": [
+        6412,
+        134397967778768068
+      ],
+      "passed": true,
+      "phase": "reopen",
+      "receipt_sha256": "71855b223d863d350ddfeb1efba665206746549a8632dce0e0804a2c24df424d",
+      "slot": 1,
+      "source": "2fa01282ee94bcc1625c3b11736980e336a44cf7cd3bb79712d3642d6c9c516e",
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 0,
+      "control": "ControlRectangle.SLDPRT",
+      "exit_code": 0,
+      "lifetime": [
+        8552,
+        134397968235685460
+      ],
+      "passed": true,
+      "phase": "after",
+      "receipt_sha256": "758e36ccd1becbc8ceaebe38df1911af40a958b1f2b87073810f6bb70111d0bc",
+      "slot": null,
+      "source": null,
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    },
+    {
+      "checks": 0,
+      "control": "ControlCircle.SLDPRT",
+      "exit_code": 0,
+      "lifetime": [
+        7372,
+        134397968501530735
+      ],
+      "passed": true,
+      "phase": "after",
+      "receipt_sha256": "f141d4cd46303e3695874b5df5c90b1489b9ce0dfdfefa38d85b23538d31243a",
+      "slot": null,
+      "source": null,
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    }
+  ],
+  "schema": "kit.sw2026.ordinary-full-ellipse-measurement.v1",
+  "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+}

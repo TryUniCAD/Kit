@@ -6,11 +6,16 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
+    IsEllipsePart,
+)
+from convert.adapters.solidworks.Core.Preparation.Ellipse.PlanEllipse import PlanEllipse
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -41,13 +46,17 @@ class SldprtWriter(PairProtocol):
                     else DocValue.sketches[0].name
                 )
                 DocValue = ColdReadInput(DocValue, NameValue)
-            PlanValue = PlanPartWrite(DocValue)
+            NameValue = (
+                PlanEllipse(DocValue).NameValue
+                if IsEllipsePart(DocValue)
+                else PlanPartWrite(DocValue).NameValue
+            )
         except (IndexError, TypeError, ValueError):
             return False
         if PathValue is not None:
             return (
                 PathValue.suffix.casefold() == KPartSuffix
-                and PathValue.stem == PlanValue.NameValue
+                and PathValue.stem == NameValue
                 and not PathValue.is_dir()
             )
         return IsBinaryTarget(Target)
@@ -59,4 +68,6 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsEllipsePart(document):
+            return EmitEllipMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

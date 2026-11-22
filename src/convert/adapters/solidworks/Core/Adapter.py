@@ -172,6 +172,21 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 )
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.BindEllipDoc import (
+    BindEllipDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.BindEllipModel import (
+    BindEllipModel,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.EllipPartRead import (
+    EllipPartRead,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.Geometry.WithEllipSolid import (
+    WithEllipSolid,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.ReadEllipPart import (
+    TryEllipPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
@@ -362,7 +377,9 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration) if ModelValue is None else ModelValue
+    Model, Ellipse = (
+        SelectPartModel(Archive, Settings) if ModelValue is None else (ModelValue, None)
+    )
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -371,7 +388,9 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(
+        Archive, Model, Settings, HasTypedEllipse=Ellipse is not None
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -518,7 +537,7 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings, Ellipse=Ellipse)
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
@@ -526,7 +545,11 @@ def ReadNativePart(
 
 # cached payloads keep priority over geometry derived from a qualified cold archive
 def PartBrepData(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    *,
+    HasTypedEllipse: bool = False,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
     ColdBrep = (
         ColdPrism(Model, KPartBodyId)
@@ -534,7 +557,7 @@ def PartBrepData(
         else None
     )
     Payloads, Diagnostics = BrepPayloads(
-        Archive, Settings, AllowAbsent=ColdBrep is not None
+        Archive, Settings, AllowAbsent=HasTypedEllipse or ColdBrep is not None
     )
     return Payloads, Diagnostics, ColdBrep if not Payloads and not Diagnostics else None
 
@@ -564,7 +587,12 @@ def ProjectPartDoc(
     Archive: SldprtArchive,
     Payloads: tuple[BrepPayload, ...],
     Settings: ReadOptions,
+    *,
+    Ellipse: EllipPartRead | None = None,
 ) -> CadDoc:
+    if Ellipse is not None:
+        DocValue = BindEllipDoc(DocValue, Ellipse)
+        return WithEllipSolid(DocValue, Ellipse) if Settings.include_brep else DocValue
     DocValue = ProjectCutDoc(DocValue, Model.cut_source)
     DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
@@ -2202,8 +2230,49 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
     return True
 
 
-# this definition exists because focused behavior needs one stable owner
+# historical callers still receive the active native model without the internal shape proof
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+    return SelectPartModel(Archive, ReadOptions(configuration=Requested))[0]
+
+
+# a proven ellipse bypasses the unrelated legacy rectangle and cut projections
+def SelectPartModel(
+    Archive: SldprtArchive, Settings: ReadOptions
+) -> tuple[NativeModel, EllipPartRead | None]:
+    Model, ConfigStream, SelectedStream = DecodePartModel(
+        Archive, Settings.configuration
+    )
+    if SelectedStream == KitResolvedStream:
+        return Model, None
+    Ellipse = TryEllipPart(Archive, Model, Settings)
+    if Ellipse is not None:
+        return BindEllipModel(Model, Ellipse), Ellipse
+    return RefinePartModel(Archive, Model, ConfigStream, SelectedStream), None
+
+
+# an explicit configuration name must resolve to the actual exported configuration record
+def SelectPartId(Initial: NativeModel, Requested: str | None, InitialId: int) -> int:
+    if Requested is None:
+        return InitialId
+    Selected = next(
+        (
+            ItemValue.configuration_id
+            for ItemValue in Initial.configurations
+            if ItemValue.name == Requested
+        ),
+        None,
+    )
+    if Selected is None:
+        raise SldprtFormatError(
+            f"configuration {Requested!r} is unavailable; choices are {sorted((ItemValue.name for ItemValue in Initial.configurations))}"
+        )
+    return Selected
+
+
+# selected configuration decoding is common to both the legacy and typed part paths
+def DecodePartModel(
+    Archive: SldprtArchive, Requested: str | None
+) -> tuple[NativeModel, str, str]:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2220,21 +2289,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_id=InitialId,
         resolved_stream=InitialStream,
     )
-    SelectedId = InitialId
-    if Requested is not None:
-        Selected = next(
-            (
-                ItemValue.configuration_id
-                for ItemValue in Initial.configurations
-                if ItemValue.name == Requested
-            ),
-            None,
-        )
-        if Selected is None:
-            raise SldprtFormatError(
-                f"configuration {Requested!r} is unavailable; choices are {sorted((ItemValue.name for ItemValue in Initial.configurations))}"
-            )
-        SelectedId = Selected
+    SelectedId = SelectPartId(Initial, Requested, InitialId)
     if SelectedId not in Lanes:
         raise SldprtFormatError(
             f"native data for configuration {SelectedId} is unavailable; available lanes are {sorted(Lanes)}"
@@ -2252,9 +2307,15 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_stream=ConfigStream,
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
     )
-    if SelectedStream == KitResolvedStream:
-        return Model
+    return Model, ConfigStream, SelectedStream
 
+
+# the legacy part path retains its existing rectangle cut and two body scope behavior
+def RefinePartModel(
+    Archive: SldprtArchive, Model: NativeModel, ConfigStream: str, SelectedStream: str
+) -> NativeModel:
+    Resolved = Archive.require(SelectedStream)
+    ConfigData = Archive.get(ConfigStream) or b""
     Model = WithTypedNative(Model, Archive)
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
