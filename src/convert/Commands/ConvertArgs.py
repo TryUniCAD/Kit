@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from pathlib import Path as FilePath
 
 
-# file conversion exposes format configuration overwrite and native candidate publication controls
+# file conversion exposes format configuration overwrite and measured native publication
 def AddConvertMut(Parser: ArgumentParser) -> None:
     _ = Parser.add_argument("Source", type=FilePath, metavar="SOURCE")
     _ = Parser.add_argument("Destination", type=FilePath, metavar="DESTINATION")
@@ -30,10 +30,11 @@ def AddConvertMut(Parser: ArgumentParser) -> None:
         help="Replace existing output files",
     )
     _ = Parser.add_argument(
-        "--allow-unverified-native",
-        dest="AllowUnverifiedNative",
-        action="store_true",
-        help="Publish a SOLIDWORKS part candidate for vendor verification",
+        "--native-measurement",
+        dest="NativeMeasurePath",
+        type=FilePath,
+        metavar="RECEIPT",
+        help="Trusted offline measurement receipt for an exact SOLIDWORKS part",
     )
     _ = Parser.add_argument(
         "--json",

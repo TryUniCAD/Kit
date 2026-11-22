@@ -4,6 +4,7 @@ from convert.api.ApiWrite import WriteDocument
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
+from convert.Commands.NativeMeasVals import NativeMeasVals
 from convert.Commands.WriteReport import WriteReport
 from convert.Formats.SourceFormat import ResolveFormat
 
@@ -40,12 +41,8 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         StrictMode=True,
     )
     Writer = Registry.GetWriter(DestFormat)
-    IsPartCandidate = Writer.info.FormatId == KPartFormatId
-    if Options.AllowUnverifiedNative and not IsPartCandidate:
-        raise ValueError(
-            "unverified native candidate output requires SOLIDWORKS part format"
-        )
-    CheckPortable(Document, WriterQualifiedPart=IsPartCandidate)
+    IsPartWriter = Writer.info.FormatId == KPartFormatId
+    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
     Result = WriteDocument(
         Document,
         Options.Destination,
@@ -53,8 +50,10 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         Configuration=Options.Configuration,
         Overwrite=Options.Overwrite,
         ValidateData=True,
-        AllowCarrier=Options.AllowUnverifiedNative,
-        InputValues={"require_native_transfers": True},
+        AllowCarrier=False,
+        InputValues=NativeMeasVals(
+            Options.NativeMeasurePath, Options.Destination, IsPartWriter
+        ),
     )
     return {
         "source_format": ResolveFormat(Document, Reader),

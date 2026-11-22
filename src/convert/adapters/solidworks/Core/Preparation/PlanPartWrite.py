@@ -25,7 +25,9 @@ def PlanPartWrite(DocumentValue: CadDocument) -> BlindPlan:
     PlanValue = ProjectBlind(DocumentValue, ReadLineLoop)
     if DocumentValue.units != "mm" or PlanValue.PlaneName != "Front Plane":
         raise ValueError("native part preparation requires millimetres and Front Plane")
-    MetrePoints = tuple(PlaneVector(*PointValue) for PointValue in PlanValue.VerticesValue)
+    MetrePoints = tuple(
+        PlaneVector(*PointValue) for PointValue in PlanValue.VerticesValue
+    )
     ExactPoints, _ = ToRingGrid(MetrePoints)
     CheckSimpleRing(ExactPoints)
     _, AreaValue, Perimeter = MeasureRing(

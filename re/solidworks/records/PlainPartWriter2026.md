@@ -1,6 +1,6 @@
 # Ordinary line-loop solid writer on SOLIDWORKS 2026
 
-The public adapter emits the ten streams below for a millimetre neutral
+The standalone constructor generates the ten streams below for a millimetre neutral
 document with one canonical Front-plane line loop, one forward blind boss,
 one driving `D1` and one resulting solid. The minimum contour has three
 ordinary lines. The simple closed-loop validation runs before construction.
@@ -53,3 +53,9 @@ publication. Their inflated ResolvedFeatures streams contain 13,613
 and 14,375 bytes. Six unqualified requests per case preserve both
 destinations and raw extraction refuses when the archive has no payload.
 [Process-boundary evidence](../measurements/2026/ScopedPlainWriterBoundaries01.json)
+
+
+Public publication now checks an explicit, in-memory measurement envelope.
+The original candidate generation and readback evidence above is preserved.
+The [exact publication follow-up](MeasuredPartPublication2026.md) binds the
+same Skew and Step native observations to strict SDK and CLI output.

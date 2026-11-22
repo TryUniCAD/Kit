@@ -1,21 +1,23 @@
 from contextlib import redirect_stdout as RedirectOutput
+from hashlib import sha256 as CalcSha
 from io import StringIO as StringIo
-from json import loads as LoadJson
+from json import dumps as DumpJson, loads as LoadJson
+from os import name as OsName
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDir
 from typing import cast as CastValue
 
 from pytest import raises as RaisesError
 
-from convert.adapters.base.UsabilityError import UsabilityError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.RunCommand import RunCommand
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
+from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import MeasurePlainDoc
 
 
-# the cli must retain strict publication while allowing a native candidate with explicit consent
+# the ordinary cli has no switch that publishes a candidate without evidence
 def TestCandidate() -> None:
     with TempDir() as FolderName:
         Folder = FilePath(FolderName)
@@ -23,32 +25,56 @@ def TestCandidate() -> None:
         Target = Folder / "Candidate.SLDPRT"
         Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
         _ = Source.write_text(Document.to_json(), encoding="utf-8")
+        _ = Target.write_bytes(b"previous output")
         Parser = BuildParser("0.0.0")
         Arguments = ["convert", str(Source), str(Target), "--json", "--overwrite"]
-        _ = Target.write_bytes(b"previous output")
-        Strict = CliOptions()
-        _ = Parser.parse_args(Arguments, namespace=Strict)
-        with RaisesError(UsabilityError, match="vendor_unloadable"):
-            RunCommand(Strict)
+        Options = CliOptions()
+        _ = Parser.parse_args(Arguments, namespace=Options)
+        with RaisesError(ValueError, match="offline native measurement receipt"):
+            RunCommand(Options)
+        with RaisesError(SystemExit):
+            _ = Parser.parse_args(
+                [*Arguments, "--allow-unverified-native"], namespace=CliOptions()
+            )
         assert Target.read_bytes() == b"previous output"
+        RefuseBadLoops(Source, Target, Options, b"previous output")
+        assert set(Folder.iterdir()) == {Source, Target}
 
-        Candidate = CliOptions()
-        _ = Parser.parse_args(
-            [*Arguments, "--allow-unverified-native"], namespace=Candidate
+
+# a trusted receipt permits the exact relocated standalone output on the host path branch
+def TestMeasuredCli() -> None:
+    if OsName == "nt":
+        return
+    with TempDir() as FolderName:
+        Folder = FilePath(FolderName)
+        Source = Folder / "Neutral.json"
+        Target = Folder / "sdk factory skew.SLDPRT"
+        ReceiptPath = Folder / "Measurement.json"
+        Document, Envelope, Digest = MeasurePlainDoc("Skew")
+        _ = Source.write_text(Document.to_json(), encoding="utf-8")
+        _ = ReceiptPath.write_text(DumpJson(Envelope), encoding="utf-8")
+        Options = CliOptions()
+        _ = BuildParser("0.0.0").parse_args(
+            [
+                "convert",
+                str(Source),
+                str(Target),
+                "--json",
+                "--native-measurement",
+                str(ReceiptPath),
+            ],
+            namespace=Options,
         )
         Output = StringIo()
         with RedirectOutput(Output):
-            RunCommand(Candidate)
+            RunCommand(Options)
         Report = CastValue(dict[str, object], LoadJson(Output.getvalue()))
-        assert Report["application_usable"] is False
-        assert Report["vendor_loadable"] is False
-        assert Report["dropped"] == []
-        Transfers = CastValue(list[dict[str, object]], Report["transfers"])
-        assert Transfers and all(Transfer["mode"] == "native" for Transfer in Transfers)
         Written = Target.read_bytes()
+        assert Report["application_usable"] is Report["vendor_loadable"] is True
+        assert Report["dropped"] == []
         assert Report["bytes_written"] == len(Written)
-        RefuseBadLoops(Source, Target, Candidate, Written)
-        assert set(Folder.iterdir()) == {Source, Target}
+        assert CalcSha(Written).hexdigest() == Digest
+        assert set(Folder.iterdir()) == {Source, Target, ReceiptPath}
 
 
 # unsupported rings must fail selection while the prior native file stays intact
@@ -81,13 +107,7 @@ def TestTargetDir() -> None:
         _ = Source.write_text(Document.to_json(), encoding="utf-8")
         Options = CliOptions()
         _ = BuildParser("0.0.0").parse_args(
-            [
-                "convert",
-                str(Source),
-                str(Target),
-                "--allow-unverified-native",
-                "--overwrite",
-            ],
+            ["convert", str(Source), str(Target), "--overwrite"],
             namespace=Options,
         )
         with RaisesError(NotFoundError, match="does not support the destination"):

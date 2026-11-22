@@ -1,21 +1,30 @@
-from json import loads as LoadJson
-from pathlib import Path as FilePath
+from json import dumps as DumpJson, loads as LoadJson
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
-from interchange.document.Models.DocumentModel import CadDocument
+from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import (
+    KMeasureRoot,
+    MeasurePlainDoc,
+)
 
-# the fresh worker consumes a neutral request and exercises only the installed writer stack
-KProjectRoot = FilePath(__file__).resolve().parents[4]
 
-
-# two independent processes prevent shared writer state from hiding any input dependency
-def RunPlainCase(DocumentValue: CadDocument) -> dict[str, object]:
-    Command = KProjectRoot / "re/tooling/sw2026/CheckScopedPlainWriter.py"
+# a fresh guarded process exercises the installed writer with authentic disclosed in memory evidence
+def RunPlainCase(RoleName: str) -> dict[str, object]:
+    DocumentValue, Envelope, Digest = MeasurePlainDoc(RoleName)
+    NameValue = CastValue(str, DocumentValue.metadata["name"])
+    Command = KMeasureRoot / "re/tooling/sw2026/CheckMeasuredPartWriter.py"
     Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(Command), str(KProjectRoot)),
-        input=DocumentValue.to_json(),
+        (PythonExec, "-I", "-B", str(Command), "--root", str(KMeasureRoot), "--worker"),
+        input=DumpJson(
+            {
+                "document": LoadJson(DocumentValue.to_json()),
+                "evidence": Envelope,
+                "expected_locator": rf"C:\KitSdkCandidates\{NameValue}.SLDPRT",
+                "role": RoleName,
+                "sha256": Digest,
+            }
+        ),
         capture_output=True,
         encoding="utf-8",
         timeout=90,
@@ -23,6 +32,6 @@ def RunPlainCase(DocumentValue: CadDocument) -> dict[str, object]:
     )
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     ReportValue = CastValue(dict[str, object], LoadJson(Outcome.stdout))
-    assert ReportValue["writer_input_file_reads"] == 0
-    assert ReportValue["sdk_runtime_research_imports"] == 0
+    assert ReportValue["runtime_input_file_reads"] == 0
+    assert ReportValue["sha256"] == Digest
     return ReportValue

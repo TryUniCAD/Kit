@@ -13,11 +13,10 @@ preserves the final filename. Unsupported features, material overrides,
 extra document state and unqualified assembly and drawing destinations fail
 before publication.
 
-Use `kit convert document.json Name.SLDPRT --allow-unverified-native`
-to generate a candidate for measurement with native transfers required.
-The result reports both acceptance flags as false until vendor
-verification. The strict CLI and SDK publication policies protect existing
-destinations when the writer has no measurement for the output.
+Public paths and binary streams require the
+[exact offline measurement receipt](SolidworksMeasuredPartPublication.md).
+The internal construction API still produces in-memory native bytes for
+controlled offline measurements.
 
 The three original native polygon cases pass controlled native depth edits
 and fresh reopen with source geometry and tree parity. Two further parts use

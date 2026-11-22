@@ -1,5 +1,6 @@
 from typing import cast as CastValue
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Core.Writing.Measured.MeasFields import KPartMeasureOpt
 
 
 # internal preparation must preserve standard option semantics without introducing a public switch that enables unqualified native writing
@@ -37,10 +38,14 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
         "require_native_transfers",
         "allow_non_native",
         "portable",
+        KPartMeasureOpt,
     }
     if set(SettingsValue.values) - AllowedNames:
         raise ValueError("unsupported plain part preparation options")
     for NameValue, FieldValue in SettingsValue.values.items():
-        if NameValue != "final_destination" and type(FieldValue) is not bool:
+        if (
+            NameValue not in ("final_destination", KPartMeasureOpt)
+            and type(FieldValue) is not bool
+        ):
             raise TypeError("write policy options must be boolean: " + NameValue)
     return SettingsValue
