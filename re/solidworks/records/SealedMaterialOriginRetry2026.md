@@ -15,3 +15,9 @@ python -E -B C:\KitMaterialOriginRetry01\Tools\RunMaterialOriginRetry.py run --r
 ```
 
 Use the exact current-user Python 3.12 interpreter already qualified for the licensed application and existing native wrapper. The public method does not include an original private result or any private source.
+
+## First ownership retry
+
+Both initial archive ownership chains passed, including the centered archive's actual point and diagonal handles. The corner candidate passed all six native states, including fresh reopen, with 60 numeric checks. The centered candidate opened without warnings or errors but the observer stopped before the edit. Its combined diagonal identity predicate failed after ten numeric checks. Both controls passed, all original artifacts remained unchanged, and the redacted batch does not claim full physical scope. [First retry receipt](../measurements/2026/AssignedMaterialSealedOriginRetry01.json)
+
+The next observer separately checks the actual construction-line owners and identities in the measured geometry and the typed local point identity for each point-on-line relation. The point identity combines the owning sketch, point type, documented local ID pair and zero position. Both relations must match the one local center from the original proxy pair. The native `IsSame` return for the line-relation point and the original center remains in the private observation. [Sketch point ID](https://help.solidworks.com/2026/english/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.ISketchPoint~GetID.html) · [Centered ownership observer](../../tooling/sw2026/materials/sealed_evaluation/RunMaterialCenterObserver.py)

@@ -1,0 +1,3 @@
+# Verify centered and corner material anchor ownership
+
+The retry reopens the two immutable generated material candidates using the original source plan. For a centered rectangle it verifies that both distinct construction diagonals use the same typed local sketch point and that the external origin proxy remains a separate point. It records the original COM equality observations for comparison. Both candidate lifecycles still require native driving depth edits, physical mass and shape comparisons, clean saves and independent fresh reopens. [Method and retained evidence](../../../../../re/solidworks/records/SealedMaterialOriginRetry2026.md)
