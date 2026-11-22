@@ -14,5 +14,7 @@ def RequirePartOwn(
         or RuleValue.NameValue != "f1018"
         or RuleValue.TypeValue != "moSheetMetalMaster_c"
     ):
-        raise BodyUnsupported("unqualified directly owned configuration field")
+        raise BodyUnsupported(
+            f"unsupported SOLIDWORKS native field path {RuleValue.NameValue} without its enclosing part"
+        )
     return RuntimeClass(RuleValue.TypeValue, 1)

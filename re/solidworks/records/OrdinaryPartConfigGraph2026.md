@@ -62,8 +62,56 @@ existing PR Git object. The branch adds no source CAD fixture.
 
 Run the probe with Python 3.14, isolated mode and bytecode creation
 disabled, once for each case name ladder, concave, bare and literal.
-The literal case requires the Git object named in the script. Only the
-tracked ladder and concave controls are scheduled in the queue suite.
+The literal case requires the Git object named in the script. The
+queue uses the tracked ladder and concave controls and the separate
+authored configuration variant described below.
 The scope establishes typed byte replay and enables a later
 ordinary native composer. Fresh native, held-out and conversion
 acceptance remain separate.
+
+## Retained wire forms
+
+The density unit's nonzero byte owns the subsequent node field. The
+complete writer preserves the byte for an explicit null or concrete
+node. The typed control uses 167 with a null tag and 99 with a new
+length-format node. Dropping that byte used to emit 0 and 1 for these
+same inputs. A missing node field with an explicit nonzero byte refuses.
+The narrower standalone unit-table admission continues to require its
+original absent override.
+
+Signed length fields preserve a word that still describes the actual
+repeat rows under the declared count mode. Four modeled empty repeats
+retain -7, -13, -19 and -29, including one nested record. The prior
+length writer emitted zero for all four. A stale count of -23 with two
+modeled rows derives 2. This applies to the native `Positive` pairings
+and the block map's `SignedPositive` pairing. The separately bounded
+atom-manager writer derives its count as before. Its existing authored
+controls still produce counts of 0, 1 and 2.
+
+A fresh typed sheet-metal master belongs to the enclosing part's
+`f1018` field. The variant adds it to the hash-pinned ConcaveOwned
+configuration graph and changes the measured length and density fields
+using authored values. No additional CAD fixture enters the queue.
+The author-supplied caption and embedded width survive. The owner
+occupies [22663, 22834) and leaves the map counter at 94 across the
+field. The whole stream's counter grows to 95 only for the new
+length-format object. The populated master and wrong concrete class
+refuse. The older member proof continues to refuse the same `f1018`
+field when it lacks its real enclosing part.
+
+The core configuration reader binds its root through the focused
+`ReadCfgBodyMut` callback. It still validates the root before reading
+either section. The four disclosed native streams retain their
+original extents, map identities, SHA-256 and byte-exact replay. The
+authored archive variant and older boundary probes are host evidence.
+They establish no new native acceptance.
+
+```sh
+python -I -B re/tooling/sw2026/ProveConfigVariants.py authored
+python -I -B re/tooling/sw2026/CheckCfgFieldModes.py authored
+python -I -B re/tooling/sw2026/CheckAtomEmission.py ladder
+```
+
+[Variant and exact-source receipt](../measurements/2026/OrdinaryPartConfigGraphReview01.json)
+· [Queue variant](../../../tests/Convert/Solidworks/Configuration/Complete/ConfigVariantTests.py)
+· [Native prefix gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Configuration/EmptyFieldsRetainNativePrefixes.md)

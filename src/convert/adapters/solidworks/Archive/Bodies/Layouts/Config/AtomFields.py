@@ -14,7 +14,9 @@ KAtomFields = MappingProxyType(
     {
         "moAtomManager_c.FUN_4bcef8d0": (
             NativeField("Scalar", "f260", "i32"),
-            NativeField("Length", "n6c", "i32", CountValue="atoms"),
+            NativeField(
+                "Length", "n6c", "i32", CountValue="atoms", ModeValue="Positive"
+            ),
             NativeField(
                 "Repeat",
                 "atoms",
