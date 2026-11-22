@@ -23,3 +23,7 @@ See [recorded format findings](../../../../re/Fusion/Reconstruction/CircularSpan
 ## Review repairs
 
 Physical feature labels must now cover the actual solid face and edge owners. A sketch sheet label cannot substitute for a missing cap label at the same station. The integration replay checks serialized snake case field names and compares each parameter role binding against independent native role observations, including the two equal valued taper controls. Type and steering checks passed without executing local tests. Underconstrained source sketches remain underconstrained; this addition is read only and does not establish qualified conversion or round trip acceptance.
+
+## Floating point boundary and rejection replay
+
+Station coverage now uses the same centimeter arithmetic as the physical label reader, preserving valid 15 mm along and 8 mm against extents. Three additional API-authored controls bracket this rounding case. A process boundary integration replay encodes an archive with its solid cap label moved to a coincident sketch sheet and requires the public CLI to refuse physical label coverage. This replay is committed for remote execution and has not been run locally.

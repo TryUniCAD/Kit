@@ -51,7 +51,7 @@ def CheckSpanTags(
                 raise ValueError("Native circular span repeats a sketch source link")
             SketchOwners.add(Entity.Links.OwnerRef)
             CheckSpanLink(State, Entity, Shape)
-    Lower, Upper = Solid.BasePoint[2] / 10, (Solid.BasePoint[2] + Solid.Height) / 10
+    Lower, Upper = Solid.BasePoint[2] / 10, Solid.BasePoint[2] / 10 + Solid.Height / 10
     if set(Labels) != {
         ("side", 0.0),
         ("cap", Lower),
