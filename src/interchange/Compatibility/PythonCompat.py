@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from copy import copy as CopyValue
+from dataclasses import MISSING as NoDefault
 from inspect import Parameter as FuncParam
 from inspect import Signature as FuncSig
 from inspect import signature as GetSignature
@@ -142,12 +143,22 @@ def GetModelState(SelfValue: object) -> list[object]:
 # canonical slots need direct assignment when historical pickles restore positional state
 def SetModelState(SelfValue: object, StateValues: list[object]) -> None:
     ClassType = type(SelfValue)
-    SlotNames = GetSlotNames(ClassType)
-    for FieldName, FieldValue in zip(SlotNames, StateValues):
+    for Index, FieldName in enumerate(GetSlotNames(ClassType)):
+        if Index < len(StateValues):
+            FieldValue = StateValues[Index]
+        else:
+            FieldSpec = GetStoredField(ClassType, FieldName)
+            DefaultValue = getattr(FieldSpec, "default", NoDefault)
+            DefaultMaker = getattr(FieldSpec, "default_factory", NoDefault)
+            if DefaultValue is not NoDefault:
+                FieldValue = DefaultValue
+            elif callable(DefaultMaker):
+                FieldValue = DefaultMaker()
+            elif FieldSpec.metadata.get(KOmitNullField):
+                FieldValue = None
+            else:
+                raise ValueError(f"Missing required pickle field {FieldName}")
         object.__setattr__(SelfValue, FieldName, FieldValue)
-    for FieldName in SlotNames[len(StateValues) :]:
-        if GetStoredField(ClassType, FieldName).metadata.get(KOmitNullField):
-            object.__setattr__(SelfValue, FieldName, None)
 
 
 # historical repr keeps default bearing signatures and diagnostics source compatible

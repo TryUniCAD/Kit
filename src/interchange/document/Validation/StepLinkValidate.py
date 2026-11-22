@@ -1,3 +1,4 @@
+from interchange.Enums.EnumFeatures import FeatureKind
 from typing import Mapping as TypeMap
 
 from interchange.document.Validation.SweepValidate import GetSweepErrs
@@ -24,6 +25,13 @@ def GetStepErrors(
             )
         elif FeatureOrders[InputId] >= FeatureValue.order:
             ErrorValues.append(f"feature {FeatureValue.id} has a forward dependency")
+    if any(
+        Identity not in IdentitySets["bodies"]
+        for Identity in FeatureValue.OutputBodyIds
+    ):
+        ErrorValues.append(f"feature {FeatureValue.id} references missing output body")
+    if FeatureValue.OutputBodyIds and FeatureValue.kind == FeatureKind.KReference:
+        ErrorValues.append(f"reference feature {FeatureValue.id} cannot produce bodies")
     for ParameterId in FeatureValue.parameter_ids:
         if ParameterId not in IdentitySets["parameters"]:
             ErrorValues.append(

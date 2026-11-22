@@ -21,6 +21,8 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
+from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.Revolves.ThinRevolve import ThinRevolve
@@ -85,6 +87,8 @@ def CheckRegistry() -> None:
             BoundDatum,
             BoundScale,
             DistanceExtrude,
+            DistanceCut,
+            FaceOffset,
             PlaneExtrude,
             PlaneRevolve,
             ThinRevolve,

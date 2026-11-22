@@ -359,17 +359,29 @@ jobs:
           if-no-files-found: error
           retention-days: 7
 
-  research-windows:
+  research-windows-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     needs: test-plan
-    name: Test suite / Platform (windows-2025)
+    name: Test suite / Platform (windows-2025) / ${{ matrix.group }}
     runs-on: windows-2025
     timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: shard-1
+            index: 0
+          - group: shard-2
+            index: 1
+          - group: shard-3
+            index: 2
+          - group: shard-4
+            index: 3
     env:
       PlatformRunner: windows-2025
-      ShardIndex: 0
-      ShardCount: 1
-      PlatformShard: unsharded
+      ShardIndex: ${{ matrix.index }}
+      ShardCount: 4
+      PlatformShard: ${{ matrix.group }}
       NativePattern: "^tests/Research/Windows/"
       SelectionPatterns: |-
         ^tests/Research/Windows/
@@ -381,6 +393,11 @@ jobs:
         ^tests/Research/Supervisor/Grouping/SupervisorSoloTests\.py::CheckBatchCrash
         ^tests/Research/Owners/
         ^tests/Research/WindowsRecords/
+        ^tests/Research/Inference/Authoring/SolidWorks/NativeEnvTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/SystemShellTests\.py::
+        ^tests/Research/Inference/Authoring/SolidWorks/PhaseProcessTests\.py::
+        ^tests/Research/Inference/Authoring/Recipes/
+        ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
     defaults:
       run:
@@ -412,6 +429,8 @@ jobs:
           path: ${{ runner.temp }}/ShardPlan
 
       - name: Select required platform cases from the shared collected roster
+        env:
+          AuditEvent: ${{ github.event_name }}
         run: |
           set -euo pipefail
           mkdir -p "${RUNNER_TEMP}/PlatformReport"
@@ -421,7 +440,21 @@ jobs:
           : > "$Selected"
           while IFS= read -r Pattern; do
             test -n "$Pattern"
-            grep -E "$Pattern" "$Roster" >> "$Selected"
+            if grep -E "$Pattern" "$Roster" >> "$Selected"; then
+              continue
+            else
+              test "$?" -eq 1
+            fi
+            case "$Pattern" in
+              '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
+              '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
+              *) exit 1 ;;
+            esac
+            test "$AuditEvent" = workflow_dispatch
+            if git cat-file -e "${AuditSha}:${AuditSuite}" 2>/dev/null; then
+              echo "::error::Required suite $AuditSuite has no collected cases" >&2
+              exit 1
+            fi
           done <<< "$SelectionPatterns"
           LC_ALL=C sort -u "$Selected" > "${RUNNER_TEMP}/PlatformReport/Collected.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Collected.txt"
@@ -465,6 +498,42 @@ jobs:
           path: ${{ runner.temp }}/PlatformReport
           if-no-files-found: error
           retention-days: 14
+
+  research-windows:
+    if: ${{ !cancelled() && (github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    needs: [test-plan, research-windows-shard]
+    name: Test suite / Platform (windows-2025)
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - *AuditSource
+      - name: Require every Windows platform shard to succeed
+        env:
+          ShardResult: ${{ needs.research-windows-shard.result }}
+        run: test "$ShardResult" = success
+
+      - name: Checkout the workflow revision for shard reporting
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.sha }}
+          sparse-checkout: .github/scripts/VerifyShardReports.sh
+          sparse-checkout-cone-mode: false
+
+      - name: Download this attempt's Windows platform reports
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: PlatformReport-windows-2025-shard-*
+          path: ${{ runner.temp }}/WindowsReports
+
+      - name: Require every selected case and an actual native Windows pass
+        env:
+          ReportRoot: ${{ runner.temp }}/WindowsReports
+          RunAttempt: ${{ github.run_attempt }}
+        run: >-
+          bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
+          PlatformReport-windows-2025 "$RunAttempt"
+          '^tests/Research/Windows/'
 
   research-macos-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -1350,6 +1419,7 @@ jobs:
         test-shard,
         test-report,
         research-windows,
+        research-windows-shard,
         research-macos,
         research-macos-shard,
         linux-oom-witness,

@@ -2,7 +2,7 @@ from typing import Mapping as TypeMap
 
 from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.document.Validation.BoundPlaneValidate import GetBoundErrs
-from interchange.document.Validation.DistExtValidate import GetDistExtErrs
+from interchange.document.Validation.GetDistanceErrs import GetDistanceErrs
 from interchange.document.Validation.PlaneAxisValidate import GetAxisErrors
 from interchange.document.Validation.PlaneRevValidate import GetPlaneRevErrs
 from interchange.document.Validation.ThinRevValidate import GetThinRevErrs
@@ -10,6 +10,7 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.BoundScaleValues import GetScaleValues
 from interchange.Features.Axes.AxisExtentConfig import AxisConfigView
 from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
@@ -70,8 +71,14 @@ def GetDefErrors(
         return GetAngleRevErrs(StepValue, Definition, Selections, Params)
     if isinstance(Definition, ThinRevolve):
         return GetThinRevErrs(StepValue, Definition, Selections, Params)
-    if isinstance(Definition, DistanceExtrude):
-        return GetDistExtErrs(StepValue, Definition, IdentitySets["sketches"], Params)
+    if isinstance(Definition, (DistanceExtrude, DistanceCut)):
+        return GetDistanceErrs(
+            StepValue,
+            Definition,
+            IdentitySets["sketches"],
+            IdentitySets["bodies"],
+            Params,
+        )
     if isinstance(Definition, ExtrudeFeature):
         return GetExtrudeErrs(StepValue, Definition)
     if isinstance(Definition, BoundDatum) and (

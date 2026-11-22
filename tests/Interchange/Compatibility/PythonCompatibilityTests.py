@@ -5,6 +5,7 @@ from importlib import import_module as ImportModule
 from inspect import getattr_static as GetStaticAttr
 from inspect import signature as GetSignature
 import pickle as PickleCodec
+import pytest as Pytest
 from types import FunctionType as FuncType
 from typing import Protocol, cast as TypeCast, runtime_checkable, TypeVar
 
@@ -14,6 +15,8 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
+from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.ScopedExtrude import ScopedExtrude
@@ -259,7 +262,9 @@ def CheckRegistry() -> None:
             BoundDatum,
             BoundScale,
             DistanceExtrude,
+            DistanceCut,
             DrawingNote,
+            FaceOffset,
             PlaneExtrude,
             PlaneRevolve,
             ThinRevolve,
@@ -271,4 +276,52 @@ def CheckRegistry() -> None:
     assert set(KTypeRegistry.values()) == IntendedTypes | {ScopedExtrude}
     assert set(KTypeRegistry) == {
         ClassType.__name__ for ClassType in IntendedTypes - {InterchangeApi.PlaneAxis}
-    } | {"PlaneIntersectionAxis", "ScopedExtrusionFeature"}
+    } | {
+        "PlaneIntersectionAxis",
+        "ScopedExtrusionFeature",
+    }
+
+
+# historical feature state must survive pickle loading through public document validation
+@Pytest.mark.parametrize("FieldCount", (14, 13, 3))
+def CheckOldStep(FieldCount: int) -> None:
+    SavedState: list[object] = [
+        "legacy",
+        "legacy",
+        "unknown",
+        0,
+        (),
+        None,
+        (),
+        None,
+        None,
+        (),
+        False,
+        (),
+        None,
+        {},
+    ]
+    PickleBytes = (
+        b"\x80\x02cinterchange.history\nFeatureStep\n)\x81"
+        + PickleCodec.dumps(SavedState[:FieldCount], protocol=2)[2:-1]
+        + b"b."
+    )
+    if FieldCount == 3:
+        with Pytest.raises(ValueError, match="Missing required pickle field order"):
+            _ = PickleCodec.loads(PickleBytes)
+        return
+    StepValue = PickleCodec.loads(PickleBytes)
+    assert isinstance(StepValue, InterchangeApi.FeatureStep)
+    assert StepValue.OutputBodyIds == ()
+    assert dict(StepValue.attributes) == {}
+    Document = InterchangeApi.CadDocument(
+        InterchangeApi.CadSource("interchange.json", "legacy.json", "0" * 64),
+        (),
+        (),
+        (),
+        (),
+        (),
+        (StepValue,),
+        (),
+    )
+    assert isinstance(Document.validate(), tuple)

@@ -17,6 +17,7 @@ from tempfile import TemporaryDirectory
 
 sys.path[:0] = [
     str(Path(__file__).resolve().parents[1]),
+    str(Path(__file__).resolve().parents[1] / "ApplicationWorkers"),
     str(Path(__file__).resolve().parents[3] / "src"),
 ]
 
@@ -40,8 +41,18 @@ def MainRun():
         description="Run every mapped feature in one or both CAD catalogues",
         allow_abbrev=False,
     )
-    Parser.add_argument("--input", type=Path, help="Inspect this CAD file and schedule feature experiments from its decoded structure")
-    Parser.add_argument("--control", type=Path, action="append", default=[], help="Local SOLIDWORKS control part or raw binary comparison stream in auto mode (repeatable)")
+    Parser.add_argument(
+        "--input",
+        type=Path,
+        help="Inspect this CAD file and schedule feature experiments from its decoded structure",
+    )
+    Parser.add_argument(
+        "--control",
+        type=Path,
+        action="append",
+        default=[],
+        help="Local SOLIDWORKS control part or raw binary comparison stream in auto mode (repeatable)",
+    )
     Parser.add_argument("--directory", required=True, type=Path)
     Mode = Parser.add_mutually_exclusive_group()
     Mode.add_argument(
@@ -81,14 +92,57 @@ def MainRun():
     Parser.add_argument("--native-kind")
     Parser.add_argument("--native-resource")
     Parser.add_argument(
+        "--author-samples",
+        action="store_true",
+        help="Author fresh executable recipe cases before decoding their native files",
+    )
+    Parser.add_argument(
+        "--authoring-cases",
+        type=Path,
+        help="Explicit catalogue features and parameter overrides",
+    )
+    Parser.add_argument(
+        "--capture-mode", choices=("discovery", "qualification", "holdout")
+    )
+    Parser.add_argument(
+        "--authoring-grid",
+        choices=("baseline", "three-values"),
+        help="Generate a one-parameter-at-a-time ladder for every exposed driving quantity",
+    )
+    Parser.add_argument(
+        "--solidworks-host",
+        type=Path,
+        help="Explicit installed executable and interop paths for owned SOLIDWORKS authoring",
+    )
+    Parser.add_argument(
+        "--fusion-lifecycle",
+        type=Path,
+        help="Pinned owner lifecycle configuration for automatic Fusion restart and reopen",
+    )
+    Parser.add_argument(
+        "--prepare-only",
+        action="store_true",
+        help="Write an authoring plan without native applications or controller jobs",
+    )
+    Parser.add_argument(
         "--native-ready",
         action="store_true",
         help="Mark the configured application resource ready in this run's new store",
     )
-    Parser.add_argument("--codec-request", type=Path, help="Qualify a reader or writer patch for this reviewed scope")
-    Parser.add_argument("--codec-image", help="Local immutable Docker image ID for qualification")
+    Parser.add_argument(
+        "--codec-request",
+        type=Path,
+        help="Qualify a reader or writer patch for this reviewed scope",
+    )
+    Parser.add_argument(
+        "--codec-image", help="Local immutable Docker image ID for qualification"
+    )
     Parser.add_argument("--codec-output", type=Path, help="New output patch file")
-    Parser.add_argument("--codec-candidate", type=Path, help="Use supplied replacements instead of Codex")
+    Parser.add_argument(
+        "--codec-candidate",
+        type=Path,
+        help="Use supplied replacements instead of Codex",
+    )
     add_options(Parser)
     Args = Parser.parse_args()
     try:
@@ -120,16 +174,24 @@ def MainRun():
             )
         else:
             Outcome = StartNewRun(Args, SourceRoot)
-        if Args.codec_request and Outcome["status"] in {"completed", "coverage_incomplete"}:
+        if Args.codec_request and Outcome["status"] in {
+            "completed",
+            "coverage_incomplete",
+        }:
             from CodecPatch import promote_scope
+
             Outcome["codec_patch"] = promote_scope(Args, Outcome)
         Output = canonical(
             {**Outcome, "result": str(Directory / "CatalogueResult.json")}
         )
         sys.stdout.buffer.write((Output + "\n").encode("utf-8"))
-        return {"completed": 0, "coverage_incomplete": 2, "paused": 0, "failed": 1}[
-            Outcome["status"]
-        ]
+        return {
+            "completed": 0,
+            "coverage_incomplete": 2,
+            "paused": 0,
+            "failed": 1,
+            "prepared": 0,
+        }[Outcome["status"]]
     except Busy:
         Parser.exit(1, "catalogue run is already active\n")
     except (
@@ -146,25 +208,37 @@ def MainRun():
 
 # saved runs use the original inputs and runtime settings without making new claims
 def CheckSavedArgs(Args):
-    if any(
-        value is not None
-        for value in (
-            Args.catalogue,
-            Args.solidworks_catalogue,
-            Args.solidworks_sha256,
-            Args.fusion_catalogue,
-            Args.fusion_sha256,
-            Args.workers,
-            Args.reserved_memory_mib,
-            Args.native_config,
-            Args.native_kind,
-            Args.native_resource,
-            Args.advisor,
-            Args.auth,
-            Args.model,
-            Args.advice_calls,
+    if (
+        any(
+            value is not None
+            for value in (
+                Args.catalogue,
+                Args.solidworks_catalogue,
+                Args.solidworks_sha256,
+                Args.fusion_catalogue,
+                Args.fusion_sha256,
+                Args.workers,
+                Args.reserved_memory_mib,
+                Args.native_config,
+                Args.native_kind,
+                Args.native_resource,
+                Args.advisor,
+                Args.auth,
+                Args.model,
+                Args.advice_calls,
+                Args.authoring_cases,
+                Args.capture_mode,
+                Args.authoring_grid,
+                Args.solidworks_host,
+                Args.fusion_lifecycle,
+            )
         )
-    ) or Args.input is not None or Args.control or (Args.pause and (Args.native_ready or Args.max_seconds is not None)):
+        or Args.author_samples
+        or Args.prepare_only
+        or Args.input is not None
+        or Args.control
+        or (Args.pause and (Args.native_ready or Args.max_seconds is not None))
+    ):
         raise ValueError(
             "use the saved run directory without new input or worker options"
         )
@@ -183,20 +257,88 @@ def StartNewRun(Args, SourceRoot):
     FileAudit = None
     if Args.batch_format == "auto" and not Args.input:
         raise ValueError("kit run auto requires --input")
-    if Args.control and (not Args.input or (Args.batch_format != "auto" and (Args.batch_format != "solidworks" or Args.input.suffix.lower() != ".sldprt"))):
+    if Args.control and (
+        not Args.input
+        or (
+            Args.batch_format != "auto"
+            and (
+                Args.batch_format != "solidworks"
+                or Args.input.suffix.lower() != ".sldprt"
+            )
+        )
+    ):
         raise ValueError("--control requires a SOLIDWORKS part --input")
     if Args.input:
         from InferenceGrid.FileScope import file_scope
-        if not Args.batch_format or any((Args.catalogue, Args.solidworks_catalogue, Args.fusion_catalogue, Args.fusion_sha256, Args.solidworks_sha256)):
-            raise ValueError("use --input with one kit run format and no catalogue options")
+
+        if not Args.batch_format or any(
+            (
+                Args.catalogue,
+                Args.solidworks_catalogue,
+                Args.fusion_catalogue,
+                Args.fusion_sha256,
+                Args.solidworks_sha256,
+            )
+        ):
+            raise ValueError(
+                "use --input with one kit run format and no catalogue options"
+            )
         with TemporaryDirectory() as Scratch:
-            Catalogues, FileAudit = file_scope(Args.input, Args.batch_format, Path(Scratch), SourceRoot, Args.control)
+            Catalogues, FileAudit = file_scope(
+                Args.input, Args.batch_format, Path(Scratch), SourceRoot, Args.control
+            )
     else:
         Catalogues = ReadRunInputs(Args)
     Native = ReadNativeOptions(Args)
-    if Args.native_ready and Native is None:
+    if (
+        Args.native_ready
+        and Native is None
+        and not (Args.author_samples and Args.solidworks_host is not None)
+    ):
         raise ValueError("--native-ready requires the native worker configuration")
     Revision = git(SourceRoot, "rev-parse", "HEAD").decode("ascii").strip()
+    if Args.author_samples:
+        if Advice is not None:
+            raise ValueError(
+                "native sample authoring uses deterministic recipes without model advice"
+            )
+        from InferenceGrid.Authoring.RunAuthorBatch import RunAuthorBatch
+
+        return RunAuthorBatch(
+            Args.directory.resolve(),
+            SourceRoot,
+            Revision,
+            Catalogues,
+            bounded(1200 if Args.max_seconds is None else Args.max_seconds, 1, 86400),
+            Native,
+            CasePath=Args.authoring_cases,
+            ModeValue=Args.capture_mode or "discovery",
+            GridValue=Args.authoring_grid or "baseline",
+            HostPath=Args.solidworks_host,
+            Reserve=Reserve,
+            LifecyclePath=Args.fusion_lifecycle,
+            Workers=(
+                4
+                if Args.workers is None
+                else bounded(Args.workers, 1, KMaxBatchWorkers)
+            ),
+            NativeReady=Args.native_ready,
+            PrepareOnly=Args.prepare_only,
+        )
+    if (
+        any(
+            Value is not None
+            for Value in (
+                Args.authoring_cases,
+                Args.capture_mode,
+                Args.authoring_grid,
+                Args.solidworks_host,
+                Args.fusion_lifecycle,
+            )
+        )
+        or Args.prepare_only
+    ):
+        raise ValueError("authoring options require --author-samples")
     return RunCatalogueBatch(
         Args.directory.resolve(),
         SourceRoot,

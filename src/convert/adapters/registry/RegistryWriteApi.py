@@ -15,7 +15,8 @@ from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeHistory import CheckHistory
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -30,24 +31,31 @@ if TYPE_CHECKING:
     from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxProof import BoxProof
 
 
-# only the exact standalone part writer verifies its complete strict cold source after regeneration
+# selected native history and drawing ownership must qualify before publication
 def CheckPubNative(
     DocumentValue: CadDocument, WriterValue: CadWriterAdapter, TargetValue: KTargetType
 ) -> BoxProof | None:
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
-    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
-    from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
-        FindBoxProof,
+    from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import (
+        IsBoxSource,
     )
+    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 
-    ProofValue = FindBoxProof(WriterValue, DocumentValue)
-    if ProofValue is not None:
-        return ProofValue
-    if type(WriterValue) is not SldprtWriter or not IsColdRead(DocumentValue):
-        CheckNative(DocumentValue, WriterValue, TargetValue)
-    return None
+    ProofValue = None
+    if type(WriterValue) is SldprtWriter and IsBoxSource(DocumentValue):
+        from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
+            FindBoxProof,
+        )
+
+        ProofValue = FindBoxProof(WriterValue, DocumentValue)
+    if ProofValue is None and (
+        type(WriterValue) is not SldprtWriter or not IsColdRead(DocumentValue)
+    ):
+        CheckHistory(DocumentValue, WriterValue, TargetValue)
+    CheckDrawWrites(DocumentValue, WriterValue)
+    return ProofValue
 
 
 # historical destination annotations need local resolution after public methods move to the registry facade
@@ -149,7 +157,6 @@ class WriteApi(WriteLookup):
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
         BoxProofValue = CheckPubNative(DocumentData, AdapterData, TargetData)
-        CheckDrawWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)
@@ -158,6 +165,7 @@ class WriteApi(WriteLookup):
             raise NotFoundError(
                 f"{AdapterData.info.FormatId} does not support the destination"
             )
+        CheckReadOnly(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
         InputCaps = (
