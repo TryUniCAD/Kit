@@ -19,24 +19,26 @@ The linked writer uses the SDK's explicit typed ellipse context. A generated arc
 
 ## Native discriminator
 
+Trial 01 staged successfully on the Windows guest. Its launcher then stopped before COM because the packaged tool tried to resolve a source checkout during module import. The packaged Windows file has only four parents and the checkout lookup used parent index four. Trial 02 resolves the checkout only while freezing on the host. It uses a fresh owned root and recomputes the native self-file locators. Trial 01 and its measured hashes remain retained. [First guarded freeze](../measurements/2026/EllipseColdPrototype01.json)
+
 Freeze the committed research branch with an unused external shared path. The packet reads only the exact disclosed source summaries for the paired close experiment and its independent controls. Source reference rows and physics predictions remain on the observer side. Each ordinary part consumes its own neutral intent in two fresh guarded Python processes. The writer converges to the same exact bytes for each input.
 
 ```sh
 ellipse_share=/absolute/path/to/Oracle121Takeover
 python3.12 -E -B re/tooling/sw2026/ellipse_source/ColdEllipsePacket.py \
-  --output "$ellipse_share/EllipseColdPrototype01/Packet"
+  --output "$ellipse_share/EllipseColdPrototype02/Packet"
 ```
 
 The root-owned oracle stages the verified packet into its unused guest root. Each generated file needs a clean direct open, one solid with three actual boss-owned faces, the full analytic cap trims, high-accuracy mass properties, actual bounds, the real live D1 and the signed free ellipse. The observer records both native seam getters and the actual point inventory before explicit rebuild, after rebuild, after edit and after save. It checks the same live point identity and ellipse membership while measuring the phase. The fresh read-only reopen repeats cold and rebuilt checks on the owned derivative. Complete ordered tree and parent rows are compared to the paired 25-row ordinary source footprint once both native states are available. The analytical checks use each case's own dimensions and geometry.
 
 ```sh
 ellipse_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-ellipse_source='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\EllipseColdPrototype01\Packet'
-ellipse_guest='C:\KitEllipseColdPrototype01\Packet'
+ellipse_source='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\EllipseColdPrototype02\Packet'
+ellipse_guest='C:\KitEllipseColdPrototype02\Packet'
 prlctl exec 'Windows 11' --current-user "$ellipse_python" -E -B "$ellipse_source\Tool\RunColdEllipseProbe.py" \
   --trial "$ellipse_source\Trial.json" --pin TRIAL_SHA256 --stage
 prlctl exec 'Windows 11' --current-user "$ellipse_python" -E -B "$ellipse_guest\Tool\RunColdEllipseProbe.py" \
   --trial "$ellipse_guest\Trial.json" --pin TRIAL_SHA256
 ```
 
-The two control families bracket the four candidate phases in eight distinct process lifetimes. The terminal is `C:\KitEllipseColdPrototype01\Capture\Result.json`. This disclosed procedure carries zero held-out credit. The pre-writer cohort remains sealed. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+The two control families bracket the four candidate phases in eight distinct process lifetimes. The terminal is `C:\KitEllipseColdPrototype02\Capture\Result.json`. This disclosed procedure carries zero held-out credit. The pre-writer cohort remains sealed. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)

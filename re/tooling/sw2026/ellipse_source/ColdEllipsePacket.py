@@ -7,19 +7,21 @@ import subprocess
 import sys
 
 HERE = Path(__file__).resolve()
-ROOT = HERE.parents[4]
-sys.path.insert(0, str(HERE.parents[1] / "edge_fillet_source"))
+SOURCE_HELPERS = HERE.parent.parent / "edge_fillet_source"
+if SOURCE_HELPERS.is_dir():
+    sys.path.insert(0, str(SOURCE_HELPERS))
 
 from EllipseModel import CASES, SCHEMA as INTENT_SCHEMA, predict, require, validate
 from EllipsePacket import ASSETS, BUILD, CONTROLS, FAMILY, ORACLE, SHARE, TOOLS, digest, encode, pinned_json, put, sha, valid_hash
 
 SCHEMA = "kit.sw2026.cold-ellipse-prototype.v1"
-NAME = "EllipseColdPrototype01"
-GUEST = PureWindowsPath(r"C:\KitEllipseColdPrototype01")
+NAME = "EllipseColdPrototype02"
+GUEST = PureWindowsPath(r"C:\KitEllipseColdPrototype02")
 TOOLS_COLD = TOOLS | {FAMILY: (*TOOLS[FAMILY], "EllipseSeamPacket.py", "EllipseSeamObserve.py",
                                "EllipseSeamAuthor.py", "ColdEllipsePacket.py", "RunColdEllipseProbe.py")}
 TRIAL = "Trial.json"
 EPOCH = 1795516920
+PRIOR_PACKET_SHA256 = "13619e76344d3a3bc2fa2b98e06b5753260d81c34bc010b5d4aaa82c270fc1f6"
 SOURCE_TERMINALS = {
     "EllipseSeamDiscriminator01": "24835a708644209a1d8fb73fa17b36f85d471c7308b38d22d6a22f75870cb39d",
     "EllipseSeamNoUpdate01": "efbd584eca6cafdd9b715b1a03b26db6a0f146ab51c850681dfee2268cfc3cc8",
@@ -44,6 +46,7 @@ def verify(path, pin):
             and job["native_build"] == BUILD and job["oracle_sha256"] == ORACLE
             and valid_hash(job["revision"], 40) and valid_hash(job["src_tree"], 40)
             and job["guest_root"] == str(GUEST) and job["source_terminals"] == SOURCE_TERMINALS
+            and job["prior_packet_sha256"] == PRIOR_PACKET_SHA256
             and job["guarded_writer_processes"] == 4 and job["runtime_accesses"] == job["heldout_credit"] == 0
             and cases == list(CASES), "prototype plan or disclosure custody differs")
     files = job["files"]
@@ -142,11 +145,15 @@ def compiled(wire):
 
 
 def freeze(output):
+    repo = HERE.parents[4]
+    require((repo / ".git").exists() and (repo / "src").is_dir(), "freezing requires the source checkout")
     require(output.is_absolute() and output.name == "Packet" and output.parent.name == NAME
-            and not output.exists() and not output.resolve().is_relative_to(ROOT), "select the unused disclosed prototype")
+            and not output.exists() and not output.resolve().is_relative_to(repo), "select the unused disclosed prototype")
+    prior = output.parents[1] / "EllipseColdPrototype01" / "Packet" / TRIAL
+    require(sha(prior) == PRIOR_PACKET_SHA256, "the first disclosed packet must remain immutable")
 
     def git(*args):
-        return subprocess.check_output(("git", "-C", str(ROOT), *args))
+        return subprocess.check_output(("git", "-C", str(repo), *args))
 
     revision = git("rev-parse", "HEAD").decode().strip()
     require(not git("status", "--porcelain", "--untracked-files=no"), "freeze the committed generator and observer")
@@ -172,6 +179,7 @@ def freeze(output):
     job = {"schema": SCHEMA, "construction_scope": REQUESTED_OBSERVER, "revision": revision,
            "src_tree": git("rev-parse", f"{revision}:src").decode().strip(), "native_build": BUILD, "oracle_sha256": ORACLE,
            "guest_root": str(GUEST), "source_terminals": SOURCE_TERMINALS, "paired_source": paired,
+           "prior_packet_sha256": PRIOR_PACKET_SHA256,
            "spec": {"schema": INTENT_SCHEMA, "cohort": "disclosed", "cases": list(CASES)},
            "guarded_writer_processes": 4, "runtime_accesses": 0, "heldout_credit": 0,
            "candidates": candidates, "files": {name: {"bytes": len(data), "sha256": digest(data)} for name, data in assets.items()}}
