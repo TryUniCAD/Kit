@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Core.TypedMates.ReadMateGroup import ReadMateGr
 from convert.adapters.solidworks.Core.TypedMates.ReadMateRows import ReadMateRows
 from convert.adapters.solidworks.Core.TypedMates.ReadFixedFlags import ReadFixedFlags
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-from interchange import MateConstraint, MateEntity, MateGroup
+from interchange import MateConstraint, MateEntity, MateGroup, Parameter
 
 
 # public typed mates require the complete linked stream and independently loaded child configurations
@@ -26,6 +26,7 @@ def ReadPublicMates(
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
     tuple[MateGroup, ...],
+    tuple[Parameter, ...],
     Mapping[str, object],
 ]:
     LinkValue = ReadNativeLink(EnvValue.ArchiveValue, 0, AssemblyValue=True)
@@ -50,7 +51,7 @@ def ReadPublicMates(
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
     CheckMateWraps(GraphValue.RootsValue)
-    Entities, Rules = ReadMateRows(
+    Entities, Rules, Parameters = ReadMateRows(
         GraphValue.RootsValue, Context, EnvValue, LegacyRules, LegacyEntities
     )
     if LegacyGroups:
@@ -62,6 +63,7 @@ def ReadPublicMates(
         Entities,
         Rules,
         (GroupValue,),
+        Parameters,
         {
             "status": "admitted",
             "scope": "ordinary_aligned_mates_direct_part_occurrences",

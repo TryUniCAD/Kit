@@ -1,5 +1,7 @@
 from argparse import ArgumentParser
 from codecs import lookup
+from copy import deepcopy
+from dataclasses import replace
 from hashlib import sha256
 from json import dumps, loads
 from os import O_ACCMODE, O_WRONLY, fsdecode
@@ -99,14 +101,21 @@ def inspect_pair(parent, reader):
     assert graph.mates[1].value is not None and graph.mates[1].value.value == 42.0
     assert result.metadata["solidworks.typed_mates_semantics"]["status"] == "admitted"
     assert tuple(value.fixed for value in graph.instances) == (True, False)
+    assert all("typed_placement_m" in value.attributes for value in graph.instances)
+    assert {value.name for value in graph.definitions} == {"PublicPlanarPair2", "PublicDatumPrism"}
     parameters = graph.documents[0].document.parameters
     assert len(parameters) == 3
-    return {
+    driver_id, = graph.mates[1].parameter_ids
+    driver = result.parameter(driver_id)
+    assert driver.name == "D1" and driver.value == graph.mates[1].value
+    assert driver.owner_id == graph.mates[1].id and driver.provenance.native_id == "20"
+    return result, {
         "occurrences": len(graph.instances),
         "mates": len(graph.mates),
         "endpoints": len(graph.mate_entities),
         "child_drivers_mm": [value.value.value for value in parameters],
         "mate_distance_mm": graph.mates[1].value.value,
+        "mate_driver_native_dimension_id": driver.provenance.native_id,
     }
 
 
@@ -122,17 +131,64 @@ def archive_metrics(payload, archive_type):
     }
 
 
+def scoped_refusals(parent, document, options, reader, writer, archive_type):
+    from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
+    from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
+    from convert.adapters.solidworks.Container.Container import BuildSldprt
+    from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
+
+    wrong_receipt = deepcopy(options)
+    wrong_receipt["solidworks_native_measurement"]["receipt"]["members"][0]["sha256"] = "0" * 64
+    wrong_parent = parent.parent / "WrongChild" / parent.name
+    try:
+        writer(document, wrong_parent, allow_carrier=False, values=wrong_receipt)
+    except ValueError as failure:
+        assert "does not match the exact member PublicDatumPrism" in str(failure)
+    else:
+        raise ValueError("mismatched child receipt published a bundle")
+    assert not wrong_parent.parent.exists()
+    archive = archive_type.from_bytes(parent.read_bytes())
+    link = ReadNativeLink(archive, 0, AssemblyValue=True)
+    stream_name = "Contents/Config-0-MatesList"
+    mates = ReadMatesMut(archive.require(stream_name), link.ResolvedValue)
+    mates.RootsValue[0].FieldsValue["f388"] = 1
+    updated, _ = WriteMatesMut(mates.RootsValue, link.ResolvedValue)
+    assert updated != archive.require(stream_name)
+    contrast = parent.parent / "UnsupportedMate" / parent.name
+    contrast.parent.mkdir()
+    (contrast.parent / CHILD).write_bytes((parent.parent / CHILD).read_bytes())
+    contrast.write_bytes(BuildSldprt(dict(archive.streams) | {stream_name: updated}, FormatVersion=4))
+    try:
+        reader(contrast, strict=True)
+    except ValueError as failure:
+        assert "typed mate has unsupported auxiliary options" in str(failure)
+    else:
+        raise ValueError("strict projection accepted an unmodeled mate option")
+    partial = reader(contrast, strict=False)
+    assert partial.metadata["solidworks.typed_mates_semantics"]["status"] == "unsupported"
+    assert not partial.assembly.mates
+    assert any(row.format_id == "solidworks.mates" for row in partial.brep_payloads)
+    assert any(row.code == "sldasm.typed_mates_unqualified" for row in partial.diagnostics)
+    return {"wrong_child_rolled_back": True, "unsupported_mate_refused_strict": True}
+
+
 def prove(packet):
     sys.path.insert(0, str(ROOT / "src"))
     from convert import open_document, write_document
     from convert.adapters.solidworks.Container.Container import SldprtArchive
     from interchange.document.Models.DocumentModel import CadDocument
+    from interchange.Enums.EnumDocument import Capability
 
     expected = verified(FIXTURES / "MeasuredOutput.json", MEASUREMENT_SHA)
     request = verified(FIXTURES / "NeutralRequest.json", expected["neutral_request_sha256"])
     recovery = verified(FIXTURES / "OriginalNativeRecovery.json", expected["native_recovery_sha256"])
     check_report(packet, expected, recovery)
     doc = CadDocument.from_json(dumps(request["document"]))
+    doc = replace(
+        doc,
+        assembly=replace(doc.assembly, mates=tuple(reversed(doc.assembly.mates))),
+        capabilities=doc.capabilities | {Capability.KAssemblyMates},
+    )
     options = {
         "native_destination": request["native_parent"],
         "solidworks_native_measurement": expected["measurement"],
@@ -146,7 +202,16 @@ def prove(packet):
             for name in (CHILD, PARENT)
         }
         assert metrics == expected["files"]
-        typed = inspect_pair(parent, open_document)
+        reopened, typed = inspect_pair(parent, open_document)
+        replay_target = parent.parent / "Reopened" / PARENT
+        serialized = reopened.to_json(indent=None)
+        attempted += write_guarded(CadDocument.from_json(serialized), options, replay_target, write_document)
+        assert reopened.to_json(indent=None) == serialized
+        assert {
+            name: archive_metrics((replay_target.parent / name).read_bytes(), SldprtArchive)
+            for name in (CHILD, PARENT)
+        } == metrics
+        refusals = scoped_refusals(parent, doc, options, open_document, write_document, SldprtArchive)
     return {
         "schema": "kit.sw2026.planar-main-registry-proof.v1",
         "measured_output_sha256": MEASUREMENT_SHA,
@@ -157,6 +222,8 @@ def prove(packet):
         "matching_generated_streams": sum(len(row["streams"]) for row in metrics.values()),
         "member_sha256": {name: row["sha256"] for name, row in metrics.items()},
         "strict_public_read": typed,
+        "strict_round_trip_files": len(metrics),
+        "refusals": refusals,
         "passed": True,
     }
 

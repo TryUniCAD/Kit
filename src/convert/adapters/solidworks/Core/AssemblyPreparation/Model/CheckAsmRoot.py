@@ -4,11 +4,14 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.AsmWriteCaps import (
     KAsmWriteCaps,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
+from interchange.Enums.EnumDocument import Capability
 from interchange.document.Models.DocumentModel import CadDocument
 
 
 # unsupported root domains must reject instead of becoming an apparently complete partial assembly output
-def CheckAsmRoot(Document: CadDocument) -> None:
+def CheckAsmRoot(
+    Document: CadDocument, *, AllowedCaps: frozenset[Capability] = KAsmWriteCaps
+) -> None:
     RequireAsm(
         type(CastValue(object, Document)) is CadDocument
         and str(Document.units) == "mm",
@@ -35,7 +38,7 @@ def CheckAsmRoot(Document: CadDocument) -> None:
         "assembly root contains an unsupported document domain",
     )
     RequireAsm(
-        not Document.source.attributes and Document.capabilities <= KAsmWriteCaps,
+        not Document.source.attributes and Document.capabilities <= AllowedCaps,
         "assembly has unsupported source extensions or capabilities",
     )
     RequireAsm(

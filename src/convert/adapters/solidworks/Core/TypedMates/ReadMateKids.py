@@ -18,12 +18,15 @@ def ReadMateKids(EnvValue: PublicMateEnv) -> dict[tuple[str, int], PlanarChild]:
             PureWindowsPath(Definition.source_path).name.casefold(),
             Definition.configuration_id,
         )
-        Identity = (str(SourcePath.resolve()), Document.source.sha256)
+        Identity = (str(SourcePath), Document.source.sha256)
         if KeyValue in Owners and Owners[KeyValue] != Identity:
             raise ValueError(
                 "typed mate children have ambiguous basenames and configurations"
             )
         if KeyValue not in Result:
-            Result[KeyValue] = ReadMateChild(SourcePath, Document.source.sha256)
+            Payload = Document.metadata.get(EnvValue.SourceKey)
+            if type(Payload) is not bytes:
+                raise ValueError("typed mate child is missing its loaded archive")
+            Result[KeyValue] = ReadMateChild(Payload, Document.source.sha256)
             Owners[KeyValue] = Identity
     return Result

@@ -183,8 +183,11 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedMates.ReadAsmMates import (
+    AsmMateDiags,
+    ReadAsmMates,
+)
 from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
-from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
 from convert.adapters.solidworks.Core.AssemblyReading.AsmReadData import AsmReadData
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -963,6 +966,24 @@ def AsmDoc(
         ResolveComponents=ResolveComponents,
         RootPath=None if Readback is None else PathValue(Label),
     )
+    MateSourceValues, SourceDiagnostics = MateSources(
+        Native,
+        Archive,
+        Label,
+        Index,
+        Settings,
+        ReadArchive=None if Readback is None else Readback.ReadArchive,
+    )
+    MatePayloads, MateEntities, Mates, MateGroups, MateParams, TypedMates = ReadAsmMates(
+        Native,
+        Archive,
+        ResolvedPaths,
+        DocIds,
+        Documents,
+        AsmMates(Native, MateSourceValues),
+        Strict=Settings.strict,
+        SourceKey=KSourceBytesKey,
+    )
     Definitions, Instances, IndexConflict = WithNestedIndex(
         Archive,
         Native,
@@ -973,17 +994,7 @@ def AsmDoc(
         Enabled=ResolveComponents,
         Strict=Settings.strict,
         SourceKey=KSourceBytesKey,
-    )
-    MateSourceValues, SourceDiagnostics = MateSources(
-        Native,
-        Archive,
-        Label,
-        Index,
-        Settings,
-        ReadArchive=None if Readback is None else Readback.ReadArchive,
-    )
-    MatePayloads, MateEntities, Mates, MateGroups, TypedMates = ReadAsmMates(
-        Native, Archive, ResolvedPaths, DocIds, Documents, MateSourceValues, Settings.strict
+        AllowFlat=TypedMates is not None and TypedMates.get("status") == "admitted",
     )
     FlatMateValues = FlattenedMates(Native, Mates)
     PayloadSettings = Replace(Settings, strict=False)
@@ -1023,6 +1034,7 @@ def AsmDoc(
         + PayloadDiagnostics
         + DocDiagnostics
         + SourceDiagnostics
+        + AsmMateDiags(TypedMates)
     )
     if IndexConflict is not None:
         Diagnostics += (
@@ -1118,7 +1130,7 @@ def AsmDoc(
             ),
         ),
         configurations=ConfigValues,
-        parameters=ParamValues,
+        parameters=(*ParamValues, *MateParams),
         support_planes=PlaneValues,
         sketches=SketchValues,
         selections=SelectValues,
@@ -1680,34 +1692,6 @@ def NestedItemMap(
             )
         Result[ItemValue.object_id] = Candidates[0].object_id
     return Result
-
-
-# typed mates can refine the existing inventory only after joining the physical component sources
-def ReadAsmMates(
-    Native: NativeAssembly,
-    Archive: SldprtArchive,
-    ResolvedPaths: dict[int, Path],
-    DocIds: dict[int, str],
-    Documents: tuple[ComponentDoc, ...],
-    Sources: tuple[
-        tuple[NativeAssembly, SldprtArchive, dict[int, int], dict[int, int], str], ...
-    ],
-    Strict: bool,
-) -> tuple[
-    tuple[BrepPayload, ...],
-    tuple[MateEntity, ...],
-    tuple[MateRule, ...],
-    tuple[MateGroup, ...],
-    Mapping[str, object] | None,
-]:
-    Payloads, Entities, Mates, Groups = AsmMates(Native, Sources)
-    return (
-        Payloads,
-        *WithTypedMates(
-            Native, Archive, ResolvedPaths, DocIds, Documents, Entities, Mates, Groups,
-            Strict=Strict,
-        ),
-    )
 
 
 # this definition exists because focused behavior needs one stable owner

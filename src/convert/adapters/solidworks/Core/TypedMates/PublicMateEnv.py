@@ -14,3 +14,4 @@ class PublicMateEnv:
     ArchiveValue: SldprtArchive
     PathsValue: Mapping[int, FilePath]
     DocumentsValue: Mapping[int, CadDocument]
+    SourceKey: str

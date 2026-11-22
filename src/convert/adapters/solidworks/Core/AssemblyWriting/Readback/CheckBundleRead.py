@@ -1,8 +1,5 @@
 from pathlib import Path as FilePath, PureWindowsPath
 
-from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
-    TargetDocument,
-)
 from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadBundle import (
     ReadBundle,
 )
@@ -13,7 +10,9 @@ from interchange.document.Models.DocumentModel import CadDocument
 # candidate bytes must reconstruct every original reader field before publication can begin
 def CheckBundleRead(
     Document: CadDocument,
-    Candidates: tuple[tuple[PureWindowsPath, TargetDocument], ...],
+    Candidates: tuple[tuple[PureWindowsPath, bytes], ...],
+    *,
+    ScopeValue: str = "nested",
 ) -> None:
     GraphValue = Document.assembly
     if GraphValue is None:
@@ -21,7 +20,7 @@ def CheckBundleRead(
     SourcePaths = {FilePath(Value.source_path) for Value in GraphValue.definitions}
     NamesValue = {Value.name.casefold(): Value for Value in SourcePaths}
     FilesValue = {
-        PathValue.name.casefold(): Payload.BytesValue for PathValue, Payload in Candidates
+        PathValue.name.casefold(): Payload for PathValue, Payload in Candidates
     }
     if (
         len(SourcePaths) != len(NamesValue)
@@ -37,5 +36,5 @@ def CheckBundleRead(
     )
     if ToJson(Document, IndentSize=None) != ToJson(Expected, IndentSize=None):
         raise ValueError(
-            "SOLIDWORKS nested readback differs from its regenerated bundle"
+            f"SOLIDWORKS {ScopeValue} readback differs from its regenerated bundle"
         )

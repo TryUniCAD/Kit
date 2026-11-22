@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Container.Container import (
 from convert.adapters.solidworks.Core.TypedMates.CanReadMates import CanReadMates
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.ReadPublicMates import ReadPublicMates
-from interchange import ComponentDocument, MateConstraint, MateEntity, MateGroup
+from interchange import ComponentDocument, MateConstraint, MateEntity, MateGroup, Parameter
 
 
 # unqualified typed profiles must leave the established reader and its validation behavior available
@@ -24,10 +24,12 @@ def WithTypedMates(
     GroupsValue: tuple[MateGroup, ...],
     *,
     Strict: bool,
+    SourceKey: str,
 ) -> tuple[
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
     tuple[MateGroup, ...],
+    tuple[Parameter, ...],
     Mapping[str, object] | None,
 ]:
     DocumentMap = {Value.id: Value.document for Value in Documents}
@@ -40,20 +42,22 @@ def WithTypedMates(
             for Identity, Value in DocumentIds.items()
             if Value in DocumentMap
         },
+        SourceKey,
     )
     if not CanReadMates(EnvValue):
-        return Entities, RulesValue, GroupsValue, None
+        return Entities, RulesValue, GroupsValue, (), None
     try:
         return ReadPublicMates(EnvValue, Entities, RulesValue, GroupsValue)
     except (OSError, ValueError, TypeError, KeyError) as ErrorInfo:
-        if Strict and any(not Value.entity_ids for Value in RulesValue):
+        if Strict:
             raise SldprtFormatError(
                 f"typed planar mate graph rejected: {ErrorInfo}"
             ) from ErrorInfo
         return (
-            Entities,
-            RulesValue,
-            GroupsValue,
+            (),
+            (),
+            (),
+            (),
             {
                 "status": "unsupported",
                 "diagnostic": str(ErrorInfo),

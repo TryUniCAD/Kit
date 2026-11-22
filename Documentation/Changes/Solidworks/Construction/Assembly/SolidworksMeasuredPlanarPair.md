@@ -5,5 +5,7 @@ coincident mate and an aligned distance mate. The writer generates the root
 and its shared dimensioned part from the neutral model.
 
 The bundle receipt covers both outputs. Strict reopen recovers the mate
-group, four datum endpoints, the fixed occurrence and the three child drivers.
+group, four datum endpoints, the fixed occurrence, the distance driver
+and the three child drivers. A complete strict reread republishes the
+same measured files.
 [Assembly writer reference](../../../../Reference/Adapters/SolidworksAssemblyWriting.md#coincident-and-distance-mates)

@@ -1,6 +1,7 @@
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.AsmRootData import (
     AsmRootData,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.AsmWriteCaps import KAsmWriteCaps
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.CheckAsmRoot import (
     CheckAsmRoot,
 )
@@ -18,11 +19,12 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmOccs impo
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from interchange.document.Models.DocumentModel import AssemblyData, CadDocument
+from interchange.Enums.EnumDocument import Capability
 
 
 # native assembly preparation requires one validated portable ownership graph shared by every later projection
 def ReadAsmModel(Document: CadDocument) -> AsmRootData:
-    CheckAsmRoot(Document)
+    CheckAsmRoot(Document, AllowedCaps=KAsmWriteCaps | {Capability.KAssemblyMates})
     GraphValue = Document.assembly
     RequireAsm(
         type(GraphValue) is AssemblyData and not GraphValue.attributes,

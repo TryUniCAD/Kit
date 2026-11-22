@@ -9,6 +9,10 @@
   "native_numeric_checks_in_original_receipt": 360,
   "native_processes_started": 0,
   "passed": true,
+  "refusals": {
+    "unsupported_mate_refused_strict": true,
+    "wrong_child_rolled_back": true
+  },
   "runtime_input_file_reads": 0,
   "schema": "kit.sw2026.planar-main-registry-proof.v1",
   "strict_public_read": {
@@ -19,7 +23,9 @@
     ],
     "endpoints": 4,
     "mate_distance_mm": 42.0,
+    "mate_driver_native_dimension_id": "20",
     "mates": 2,
     "occurrences": 2
-  }
+  },
+  "strict_round_trip_files": 2
 }

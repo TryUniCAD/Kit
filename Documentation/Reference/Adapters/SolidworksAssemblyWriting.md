@@ -68,6 +68,9 @@ The same `write_document` call accepts this graph with the
 `kit.sw2026.planar-assembly-measurement.v1` receipt. Both complete generated
 SHA-256 hashes, the native locator and the four application lifetimes must
 match the receipt. The strict SDK reader recovers the two mates, their four
-endpoints, the fixed state and all three editable child drivers from the
-generated bundle.
+endpoints, the fixed state, the owned distance driver and all three editable
+child drivers from the generated bundle. A complete strict reread can
+regenerate both exact files using the same receipt. The writer compares
+the entire reopened neutral document against its regenerated bundle
+before publication.
 [Measured pair and result](../../../re/solidworks/records/MeasuredPlanarPair2026.md)

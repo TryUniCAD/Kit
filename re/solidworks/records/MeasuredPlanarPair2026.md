@@ -27,9 +27,14 @@ streams from the neutral request. It checks the four phase identities and
 checksums from the original oracle packet. The audit permits Python code
 loading and stage creation. It observes zero input data reads from the
 writer. The strict reopen of the regenerated assembly finds two occurrences,
-one mate group, four endpoints and three child drivers. This measurement
-covers the disclosed coincident-and-distance pair with one shared child.
-Further native saved assembly variants use the established legacy reader.
+one mate group, four endpoints, the owned distance driver and three child
+drivers. The complete strict read preserves actual component names and
+physical placement words. It survives neutral JSON and republishes both
+exact files from the same receipt. The proof also checks verified
+rollback on a wrong child digest and strict refusal of an unsupported
+auxiliary mate option. Permissive inspection retains the raw mate payload
+and its diagnostic for the unsupported option. This measurement covers
+the disclosed coincident-and-distance pair with one shared child.
 [Neutral request](../measurements/2026/MeasuredPlanarPair/NeutralRequest.json)
 [Exact output receipt](../measurements/2026/MeasuredPlanarPair/MeasuredOutput.json)
 [Process proof](../measurements/2026/MeasuredPlanarPair/PublicationProcessProof.json)

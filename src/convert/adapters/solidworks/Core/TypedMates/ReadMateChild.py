@@ -1,5 +1,4 @@
 from hashlib import sha256 as HashBytes
-from pathlib import Path as FilePath
 
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt
@@ -9,8 +8,7 @@ from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNa
 
 
 # child datum owners must come from the same immutable bytes as the already loaded public document
-def ReadMateChild(SourcePath: FilePath, SourceHash: str) -> PlanarChild:
-    BufferValue = SourcePath.read_bytes()
+def ReadMateChild(BufferValue: bytes, SourceHash: str) -> PlanarChild:
     if HashBytes(BufferValue).hexdigest() != SourceHash:
         raise ValueError("typed mate child changed after component document loading")
     Archive = SldprtArchive.from_bytes(BufferValue)

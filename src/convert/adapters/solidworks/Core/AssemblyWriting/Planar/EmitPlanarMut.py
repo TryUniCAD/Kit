@@ -10,6 +10,8 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel imp
 from convert.adapters.solidworks.Core.AssemblyPreparation.PrepareAssembly import (
     PrepareAssembly,
 )
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.IsPlanarRead import IsPlanarRead
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.PlanarReadIn import PlanarReadIn
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshFiles import (
@@ -23,6 +25,8 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Planar.MatchPlanarMeas imp
     KPlanarMeasSchema,
     MatchPlanarMeas,
 )
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.CheckBundleRead import CheckBundleRead
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadbackTransfers import ReadbackTrans
 from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmFiles import WriteAsmFiles
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -44,7 +48,9 @@ def EmitPlanarMut(
         and OutputPath.parent != FinalPath.parent,
         "planar assembly emission requires registry path staging",
     )
-    ModelValue = ReadAsmModel(Document)
+    Reopened = IsPlanarRead(Document)
+    InputValue = PlanarReadIn(Document) if Reopened else Document
+    ModelValue = ReadAsmModel(InputValue)
     RequireAsm(
         SettingsValue.configuration
         in (None, ModelValue.ConfigValue.id, ModelValue.ConfigValue.name),
@@ -52,11 +58,15 @@ def EmitPlanarMut(
     )
     ChildName = ModelValue.ChildValue.name + ".SLDPRT"
     CheckFreshFiles(FinalPath, (ChildName,))
-    Candidate = PrepareAssembly(Document, NativePath, WrittenAt)
+    Candidate = PrepareAssembly(InputValue, NativePath, WrittenAt)
     Companions = ((ChildName, Candidate.ChildValue.BytesValue),)
+    Locator = PureWindowsPath(NativePath)
+    Members = ((Locator.with_name(ChildName), Candidate.ChildValue.BytesValue), (Locator, Candidate.BytesValue))
     Evidence = MatchPlanarMeas(
-        Receipt, PureWindowsPath(NativePath), (*Companions, (OutputPath.name, Candidate.BytesValue))
+        Receipt, Locator, tuple((PathValue.name, Payload) for PathValue, Payload in Members)
     )
+    if Reopened:
+        CheckBundleRead(Document, Members, ScopeValue="planar")
     ResultValue = WriteAsmFiles(OutputPath, Candidate.BytesValue, Companions)
     return ReplaceValue(
         ResultValue,
@@ -65,6 +75,7 @@ def EmitPlanarMut(
             **Evidence,
             "output_scope": "root_and_owned_planar_child",
         },
+        transfers=ReadbackTrans(Document) if Reopened else (),
         application_usable=True,
         vendor_loadable=True,
     )
