@@ -43,8 +43,9 @@ def MakeAnchorPart(
     AnchorValue: AnchorPartInput,
     *,
     WidthDepth: bool = False,
+    AllocatorValue: PersistentIds | None = None,
 ) -> PartCandidate:
-    Allocator = PersistentIds()
+    Allocator = PersistentIds() if AllocatorValue is None else AllocatorValue
     SystemValue = MakePartBaseMut(InputValue, PlanValue, Allocator)
     ProfileValue = MakePartProfMut(SystemValue, InputValue, PlanValue, Allocator)
     Dimensions = MakeRectDimsMut(

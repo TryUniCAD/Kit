@@ -31,6 +31,8 @@ def MakeHingePick(
     DatumValue: ArchiveNode,
     AxisValue: str,
     Headers: tuple[ArchiveNode, ...],
+    *,
+    AllowFrontIdentity: bool = False,
 ) -> ArchiveNode:
     Reference = MakeOriginRef(DatumValue, SystemValue.RootValue, AxisValue)
     NativeId = FieldInt(DatumValue.FieldsValue, "f08")
@@ -43,6 +45,14 @@ def MakeHingePick(
         DatumValue.FieldsValue["f6f8"], "moDefaultRefPlnData_c"
     ).FieldsValue
     Transform = RequireRecord(Source["f20"])
+    if AllowFrontIdentity and AxisValue == "z":
+        if Transform.get("has_matrix") != 0 or "f08" in Transform:
+            raise ValueError(
+                "ordinary Front support requires its identity-matrix branch"
+            )
+        MatrixValue = dict(Transform)
+    else:
+        MatrixValue = {**Transform, "f08": dict(RequireRecord(Transform["f08"]))}
     Fields = WrapperFields(Reference)
     Fields.update(
         f68=1,
@@ -50,7 +60,7 @@ def MakeHingePick(
         f0c=FieldInt(SystemValue.ConfigValues[0].FieldsValue, "f08"),
         fd0=dict(RequireRecord(Source["root"])),
         fe8=dict(RequireRecord(Source["normal"])),
-        f100={**Transform, "f08": dict(RequireRecord(Transform["f08"]))},
+        f100=MatrixValue,
         f188=MakePoint(),
     )
     Fields.update(
