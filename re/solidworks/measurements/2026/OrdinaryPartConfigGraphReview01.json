@@ -1,0 +1,226 @@
+{
+  "authored": {
+    "case": "authored",
+    "complete_replay": true,
+    "density_presence": [
+      167,
+      99
+    ],
+    "density_present_null": true,
+    "direct_master": [
+      22663,
+      22834,
+      94,
+      94
+    ],
+    "final_map_counter": 95,
+    "map_base": 4,
+    "model_config_bytes": 22977,
+    "model_config_sha256": "705ecba1d36e54c0bc5200a09e3f0624a3aa70ea138b8f34e8f14b4a5e575944",
+    "native_source_bytes": 22700,
+    "refusals": {
+      "missing_density_field": "native object presence requires its modeled field",
+      "populated_master": "unsupported SOLIDWORKS native field path nonempty sheet metal master body list",
+      "wrong_master": "native directly owned object has the wrong class"
+    },
+    "runtime_external_accesses": 0,
+    "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+    "wire_lengths": {
+      "m": -29,
+      "n10c4": -19,
+      "n1290": 2,
+      "nec8": -7,
+      "nff4": -13
+    }
+  },
+  "backward_checks": {
+    "atom_manager_derived_counts": [
+      0,
+      1,
+      2,
+      1,
+      1,
+      1
+    ],
+    "atom_manager_source_count": 1,
+    "field_mode_refusals": [
+      "branch",
+      "fixed_negative",
+      "fixed_limit",
+      "fixed_truncated",
+      "normalization",
+      "signed_width",
+      "direct_owner",
+      "component_owner"
+    ]
+  },
+  "base": "f80da8caed2ca7a585c1aa85f22c1e13196761d5",
+  "foundation_pr": 233,
+  "hosted_suite_executed_locally": false,
+  "native_processes": 0,
+  "public_conversion_credit": 0,
+  "review_findings": {
+    "density_presence": 4656586772,
+    "direct_sheet_metal_owner": 4656586870,
+    "root_callback": 4656586927,
+    "signed_repeat_lengths": 4656586817
+  },
+  "reviewed_head": "629373b9a0529c426c7f284fda7f6e19154ef7de",
+  "saved_controls": {
+    "bare": {
+      "config_sha256": "9b1d79fe0e012e6722c8e8d9faf51c29e17cc11fd57512530a60abe23df071d6",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        2111
+      ],
+      "map_counter": 94,
+      "resolved": [
+        2115,
+        22706
+      ],
+      "runtime_external_accesses": 0,
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+    },
+    "concave": {
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        2105
+      ],
+      "map_counter": 94,
+      "resolved": [
+        2109,
+        22700
+      ],
+      "runtime_external_accesses": 0,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+    },
+    "ladder": {
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        3052
+      ],
+      "map_counter": 110,
+      "resolved": [
+        3056,
+        25390
+      ],
+      "runtime_external_accesses": 0,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "literal": {
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        3058
+      ],
+      "map_counter": 122,
+      "resolved": [
+        3062,
+        26055
+      ],
+      "runtime_external_accesses": 0,
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23"
+    }
+  },
+  "schema": "kit.sw2026.ordinary-part-config-review.v1",
+  "single_handler_predecessor_contrasts": {
+    "Length": {
+      "density_flags": [
+        167,
+        99
+      ],
+      "refusal": "signed empty repeat changed its retained length or rows",
+      "runtime_external_accesses": 0,
+      "wire_lengths": {
+        "m": 0,
+        "n10c4": 0,
+        "nec8": 0,
+        "nff4": 0
+      }
+    },
+    "Present": {
+      "density_flags": [
+        0,
+        1
+      ],
+      "refusal": "density presence or its explicit null was lost",
+      "runtime_external_accesses": 0,
+      "wire_lengths": {
+        "m": -29,
+        "n10c4": -19,
+        "nec8": -7,
+        "nff4": -13
+      }
+    }
+  },
+  "source_sha256": {
+    "re/tooling/sw2026/CheckOrdinaryCfg.py": "4b40f76859d320e229d58cb1c3c5972f27d1a45bc6f52244ae91647c96589c33",
+    "re/tooling/sw2026/ProveConfigVariants.py": "eddfbfaa16db9ecbedd958fa363bcfb0fd5267928bdee21f752b614211690fa5",
+    "src/convert/adapters/solidworks/Archive/Bodies/BodyContext.py": "d27dda048650f918b47c043eec161b14c670e204cfb2906ae4494358936f84a9",
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "fa15c634f1d41a7f67169ed02b37f6fbb4ac7dc0d8d91dd4981036107a06a1d5",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/AtomFields.py": "91665e1682f320fe8161963582fed8d5b4fc806823abf5923363c28d4fb40d19",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/BlockMapFields.py": "67c2a1f40e9e0e83b005211f0b79b94bc7e82ca40dae1015ae14413f293f6a59",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotDimRules.py": "89c9be03eaedd9a68a0a37f1cdeeaea55a048656b8fbcc8700d6be08df7cafc1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotHelpRules.py": "5bdaf3e528c7f00112429e4c415386035e2f72c5266cf61228bba3c5e28308a1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotTableRules.py": "5c475291459db3461e46b9683d49528a146e18f24fb0f20b7589f375798a7bf1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotViewRules.py": "90a8deec9db0332dfd7e039bb5c42d5600750d7f777069468d26bf74c5a27ba4",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/DetailRules.py": "a2d2d3e481bffef3b0e29c26ecc8bb9b289c58ce7769232a6256759100259e77",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/ModelLwRules.py": "ccf4b6b26d4f81259a43c406f6e6615039bd24cab0b11109d6963714479bf90e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/ModelResRules.py": "c3544f9c6f20eb278e2f2e3404d8890ccf29dadfad511d93fb3ead7d574173a1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartFeatureRules.py": "d50a8c58f971c2b508bd9db65fa0ad94bfefe240125e1d1e475aa4895b432385",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartLayouts.py": "ac65b10858adb1969b911cfd3faf6256c89d471a073d434ae96f0b8da0cd0abc",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartOptionRules.py": "6c9989cbe6a2829e0648a0106ab29aa47666e38f530706af046bc2bb4becc41e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartPbrRules.py": "c359d7a481a83260676648fe4af3b726cdcfc2fa4c6f90cb0d518e218c1be3f1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartRecordRules.py": "2f60f01d9ccf590a59e606f9a54ff7d079b7a083c5c42f0081d047f957a68933",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartRootRules.py": "e834b4e7c537595f95bb45969aeb73d620a1a04b9b7b9a2f1eb18f8d33d515d1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartSchemas.py": "aec9d34c19f9f963c5520962d819d90b88cde94f261691127c7c5512c54af6c3",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartVirtuals.py": "1476f2259d1f84579ce0ec94e958244964ed0f73776a54467bc98f76c2762762",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartVisualRules.py": "6b14a76f7d3439779e9f1d6669bbcb90544c973f85b1fcb9af0a2f365af54809",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/ThreadFields.py": "fab0ba6885b85ed05f734866c27a4f9bdf5124079ddf72b8865fcdc872c97bf2",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/UnitFields.py": "c25dcaaafa611a202a4e7bdb2db4d0ed8a056f7b6467de902e22b55329f587e6",
+    "src/convert/adapters/solidworks/Archive/Bodies/NewBodyUsage.py": "ba80ec59c90c3707eec7db34be1dfb973f8dd83da338ce47791d6df416e621ad",
+    "src/convert/adapters/solidworks/Archive/Bodies/PartScopeOwner.py": "2ed4b10cebddc563ce0d84b1a5a4d8c23f9384d7218fc73445b7e931cf2b4bf7",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "799ca73a9d73776b696e098859c6e06c99b7573877de0255a43031c3f522868a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadBranchMut.py": "fc4ce5e3775e121254c0adce4a237e0ac4a9dd85caa0b8ef36b54bf0304c79ca",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "01fea91eff93d308f590c22a493939633c0f073fa30732a53e54fd95582f908e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadOwnedMut.py": "943da1c539ca78cd2b5807add1f8b68dc9142441a4179d903dd3a7bdb37bda1c",
+    "src/convert/adapters/solidworks/Archive/Bodies/RequirePartOwn.py": "481e9163175b000515ef2b811ba2fd7a3445bfd9a9247112584c2fb3f796f477",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "b008dae4bc35dfef849e38a13dd9e6979aff4ee0b57c538e4f8756b0faa786a0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteArrayMut.py": "32fbc5d4590d50ccb1f99f785afb783248ac4a0ea2176d171b34592056f71a6d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBooleanMut.py": "73dd15f91471d1e09c6e75cc373731e88fb1ce116e8b4ecfa9c78f52a79b391a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBranchMut.py": "4628783bf6ee49630676740356f7f75c46708dc818548bf716a22e9208c3d2a8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBytesMut.py": "c3b70f323adbb3fedc5e58a763d1ba7478757eb95e88a87a2955fdd0c5fb6acf",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteContextMut.py": "81dbf9f0d41c01a1a42ebdfeb231756c6b359aae224450e884bbb52a4a7cc95d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteLengthMut.py": "a7103cb56bd18190c90b25b93cae31774f10cd4ac451519c0b8c425ce6104f7e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteOwnedMut.py": "3276b59a899ae33b66078ee6add34a1a2252fbe9c0c071a6fdfebc0f132f8465",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WritePresentMut.py": "b5027a5107782f361c2c98d2677cb9b629627025b0ae6217378111d215438756",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteValueMut.py": "4cafd3e6dd5e493bc558c7f094fe49f55a342ba48975b1df78c450174983e787",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteVirtualMut.py": "200c4213c03761cf262d577a15959a55230ae779b36397accce49445cd1f20f3",
+    "src/convert/adapters/solidworks/Archive/Config/Atoms/WriteAtomMgr.py": "fe3f1d5636d82581cc67837b624c387bae9a5c434661151f3610cc4a4fe24da2",
+    "src/convert/adapters/solidworks/Archive/Config/ConfigGraph.py": "4a918eb8dd1625a08aa77d51a94954a8aa522e7e713c6098a6c0e16dd457fbad",
+    "src/convert/adapters/solidworks/Archive/Config/MakeConfigCtx.py": "254a1bbf37b4e9a2fb4099b5a9126bc0e870cf1b87b7818dadd83995a72d6ea4",
+    "src/convert/adapters/solidworks/Archive/Config/ReadCfgBodyMut.py": "b110ae5dcf9b871e8c9d67c8ba255aece41c3f3e161bce7c08ce7bd716ecbc0c",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "346dc17a4d7964f71ebe91289975ea043aa444612a42379dec171351043862a4",
+    "src/convert/adapters/solidworks/Archive/Config/ReadPartConfig.py": "75ae02945105e400faf798e4788596625abb124816f70ccf8d7cafabb7dc24d2",
+    "src/convert/adapters/solidworks/Archive/Config/RequireConfig.py": "b37b7f3f63f8816f5ac9dfca30d08c9019aff35300c0327feb3e34a6b0c37045",
+    "src/convert/adapters/solidworks/Archive/Config/WriteConfigMut.py": "0425c23106c5c91fc839f7822feaa8d34c78486d971c258321d9d835c5b314cf",
+    "tests/Convert/Solidworks/Configuration/Complete/ConfigVariantTests.py": "673e2c383247987bdc8d0d0befe8eeabe27696977f3491cdb6637e2e60304d8d",
+    "tests/Convert/Solidworks/Configuration/Complete/RunPartConfig.py": "605a4dfdea1f46bcdee14d756272f39ecf31ae4d259b51af41b76af543457ce6"
+  },
+  "stdout_sha256": {
+    "atoms.json": "112f16d249aa552b6cafd75f4dd66330572b3dc6248dd3d19e11603c51c276b4",
+    "authored.json": "b61fdface6076b78a4da47033864954310d6665b7eca9aa0e5b5e4840eb11181",
+    "bare.json": "4f55b1399d9126ce795a8ed7010fedb6323bfb1e9fe9daafe40fc31c6b7a887c",
+    "concave.json": "99e86148c7c076dc9dc10743890a73d9922551ed18ec0ba39945d432cc7bdfdc",
+    "ladder.json": "d5421b357bfed1082241ad63e055f9c07ad262480b33ce67436919954738da7b",
+    "literal.json": "c89296e438cd4395b49b51762e1d48f8891cfd6c80850296cb2c5a47b6d61fc3",
+    "modes.json": "a328d95d46b1e32ae7fe040e23b6a2bc2942f4e35bb19e2d63b3f444e0114f99",
+    "predecessor.json": "fc154b5cb7f0af6d1fdcfb7c27844bc76b4db1b575c959a48a909af4ef18af09"
+  }
+}
