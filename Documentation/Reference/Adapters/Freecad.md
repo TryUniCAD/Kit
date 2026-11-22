@@ -52,7 +52,7 @@ The native reader maps object declarations, properties, sketches, and feature de
 The protocol tables identify recognized type families.
 A recognized type identifier does not prove complete reconstruction of every instance.
 
-The internal `ReadBoxLineage` projection resolves `Body.Shape.ElementMap2` for the witnessed unattached AdditiveBox shapes. It binds the typed child owner and subelement ordinals to the strict body's actual B-rep and re-derives the result from the existing neutral JSON roundtrip. The original archive and sidecar stay attached to the document. [Origin-box element ownership](../../Changes/Freecad/FreeCadOriginBoxElementOwnership.md)
+The internal `ReadBoxLineage` projection resolves `Body.Shape.ElementMap2` for the witnessed unattached AdditiveBox shapes. It checks the neutral parameters against their actual primitive owner and binds the typed child and subelement ordinals to the strict body's B-rep. It re-derives those identities from the existing neutral JSON roundtrip. The original archive and sidecar stay attached to the document. [Origin-box element ownership](../../Changes/Freecad/FreeCadOriginBoxElementOwnership.md) · [Parameter ownership](../../Changes/Freecad/FreeCadAdditiveBoxParameterOwners.md)
 
 For native `Part::Extrusion`, the reader preserves the saved `Symmetric` and `Reversed` flags.
 Equal forward and reverse distances do not imply symmetry.

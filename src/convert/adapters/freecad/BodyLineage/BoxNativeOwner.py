@@ -2,6 +2,7 @@ from dataclasses import dataclass as MakeDataClass
 from uuid import UUID
 from xml.etree.ElementTree import Element as XmlElement
 
+from convert.adapters.freecad.BodyLineage.CheckBoxParams import CheckBoxParams
 from convert.adapters.freecad.Native import (
     LoadNative,
     NativeArchive,
@@ -241,6 +242,7 @@ def ReadBoxOwners(Document: CadDocument) -> BoxNativeOwner:
     CheckBoxIds(BodyValue, FeatureValue, BodyObj, Child)
     CheckNativeTip(BodyObj, Child)
     CheckBoxAttach(BodyObj, Child)
+    CheckBoxParams(Document.parameters, Child, FeatureValue)
     return BoxNativeOwner(
         ArchiveValue, BodyObj, Child, BodyValue, FeatureValue, ReadBoxUuid(ArchiveValue)
     )
