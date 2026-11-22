@@ -229,7 +229,7 @@
     "re/tooling/sw2026/part_text/PartTextProbe.py": "e83b1040d953507cb6953a55f9f372173d96f73714ed1bdff6f253816d0993ea",
     "src/convert/Formats/CheckPartText.py": "6ea67501c031a2ea4013af6b261acc8885de8ca79a6f7fe2699bbd4a259bfbaf",
     "src/convert/Formats/CheckSourceText.py": "14e9440a894c49850d1defc6326abb7b796d3320b602487d6f1a48b96c559704",
-    "src/convert/adapters/Json/Writer.py": "7321d307d52c673ed9f04b14194bc455f8cde4ce30e8f2dac0e47ca052968b5b",
+    "src/convert/adapters/json/Writer.py": "7321d307d52c673ed9f04b14194bc455f8cde4ce30e8f2dac0e47ca052968b5b",
     "src/convert/adapters/registry/NativeWrite.py": "833a8875a93f83f6cefb1d92113b483009c93c5e641ea5ed21fa9ddc17867246",
     "src/convert/adapters/registry/RegistryWriteApi.py": "05a8daac25d0685248dcc423713e6d7135a673aa7c19e9638ed716b7121c104f",
     "src/convert/adapters/registry/SupportWrite.py": "bcceec0cb3f2c6b58e5ce0ad76bb7f483801171ee6d5b8f49b9e257e1a5bf765",
