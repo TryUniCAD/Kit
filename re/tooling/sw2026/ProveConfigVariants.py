@@ -203,9 +203,20 @@ def check_block_word(raw):
     wrong = wire[:first] + pointer + wire[stop:]
     refused = rejection(lambda: ReadConfigMut(wrong, 19000, graph.HeaderValue),
                         "SOLIDWORKS sketch block map requires its owning backlink")
+    values["f30"] = reopened.RootValue
+    try:
+        refused_write = rejection(
+            lambda: WriteConfigMut(reopened.RootValue, 19000, graph.HeaderValue),
+            "SOLIDWORKS sketch block map requires its owning backlink",
+        )
+    finally:
+        values["f30"] = saved
+    require(WriteConfigMut(reopened.RootValue, 19000, graph.HeaderValue)[0] == wire,
+            "a refused backlink changed the valid typed output")
     return {"value": HIGH_BLOCK_COUNT, "wire_offset": offset, "archive_sha256": identity(wire),
             "next_map_slot": reopened.MapValue.CounterValue, "rows": len(values["f90"]),
-            "backlink": [first, stop, saved.IndexValue, root_index], "wrong_owner_refusal": refused}
+            "backlink": [first, stop, saved.IndexValue, root_index],
+            "wrong_owner_refusal": refused, "wrong_owner_write_refusal": refused_write}
 
 
 def measure():

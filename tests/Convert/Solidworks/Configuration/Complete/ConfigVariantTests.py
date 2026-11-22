@@ -23,6 +23,7 @@ def TestConfigForms() -> None:
     assert BlockWord["wrong_owner_refusal"] == (
         "SOLIDWORKS sketch block map requires its owning backlink"
     )
+    assert BlockWord["wrong_owner_write_refusal"] == BlockWord["wrong_owner_refusal"]
     assert (
         BlockWord["archive_sha256"]
         == "b10214fafbec49f15aa21e2131e94df8f4050499827d725a1f040b31a6d3034e"
