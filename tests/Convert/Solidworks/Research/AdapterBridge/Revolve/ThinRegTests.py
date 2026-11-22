@@ -3,7 +3,7 @@ from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
 
-# a fresh hosted interpreter must publish and read an independent two wall thin profile
+# a fresh hosted interpreter checks the publication gate and reads an independently prepared two wall profile
 def TestThinReg(TmpPath: FilePath) -> None:
     Program = FilePath(__file__).resolve().with_name("ThinRegPhase.py")
     Outcome = RunProcess(

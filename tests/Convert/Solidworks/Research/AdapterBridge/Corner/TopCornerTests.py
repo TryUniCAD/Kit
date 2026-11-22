@@ -1,9 +1,5 @@
 from dataclasses import replace as Replace
-from io import BytesIO
 from pathlib import Path as FilePath
-from unittest.mock import patch as Patch
-
-from pytest import raises as Raises
 
 from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
@@ -11,6 +7,7 @@ from convert.adapters.registry.RegistryErrors import AdapterNotFoundError
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import (
     LowerBoxModel,
 )
+from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.Features.FeatureExtrude import ExtrudeFeature
 from interchange.geometry.Models.GeometryCurves import PointGeometry
@@ -22,6 +19,7 @@ from interchange.geometry.Models.Sketch import (
 from interchange.geometry.Models.Transform import Transform
 from interchange.geometry.Models.VectorPlane import PlaneVector
 from interchange.geometry.Models.VectorSpace import SpaceVector
+from tests.Convert.Solidworks.Research.AdapterBridge.PrepareProbe import PrepareProbe
 from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
     MakePlainDoc,
 )
@@ -79,28 +77,16 @@ def TestTopOrigin(TmpPath: FilePath) -> None:
         ),
     )
     PathValue = TmpPath / "SignedBox.SLDPRT"
-    with Raises((ValueError, AdapterNotFoundError)):
+    assert not SldprtWriter().supports(Unanchored, PathValue)
+    try:
         _ = WriteDoc(Unanchored, PathValue, allow_carrier=False)
+    except AdapterNotFoundError:
+        pass
+    else:
+        raise AssertionError("an unanchored corner reached the writer")
     assert not PathValue.exists()
 
-    Stream = BytesIO()
-    Policy = {"require_native_transfers": True}
-    with Patch(
-        "convert.adapters.solidworks.Core.Writing.EmitNativeMut.ReadTime",
-        return_value=1795128000,
-    ):
-        Output = WriteDoc(Anchored, PathValue, allow_carrier=False, values=Policy)
-        StreamResult = WriteDoc(
-            Anchored,
-            Stream,
-            destination_format="solidworks.sldprt",
-            allow_carrier=False,
-            values={**Policy, "final_destination": str(PathValue)},
-        )
-    assert Output.bytes_written == StreamResult.bytes_written == len(Stream.getvalue())
-    assert PathValue.read_bytes() == Stream.getvalue()
-    assert Anchored.capabilities <= Output.native_capabilities and not Output.dropped
-
+    _ = PrepareProbe(Anchored, PathValue, 1795128000)
     Parsed = OpenDoc(PathValue, strict=True)
     Sketch = Parsed.sketches[0]
     (Plane,) = (

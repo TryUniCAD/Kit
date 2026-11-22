@@ -4,7 +4,6 @@ from math import isclose as IsClose
 from pathlib import Path as FilePath
 from sys import path as ImportPath
 from typing import cast as CastValue
-from unittest.mock import patch as PatchValue
 
 # the fresh interpreter must resolve the exact checkout before importing the sdk
 KRepoRoot = FilePath(__file__).resolve().parents[6]
@@ -13,12 +12,12 @@ KRepoRoot = FilePath(__file__).resolve().parents[6]
 ImportPath[:0] = [str(KRepoRoot / "src"), str(KRepoRoot)]
 
 from convert import open_document as OpenDoc, write_document as WriteDoc
-from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks.Container.Format import KPartFormatId, KPartSuffix
 from convert.Security.PathBoundary import ResolveTemp
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.Revolves.ThinRevolve import ThinRevolve
+from tests.Convert.Solidworks.Research.AdapterBridge.PrepareProbe import PrepareProbe
 from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.MakeThinCase import (
     MakeThinCase,
 )
@@ -93,32 +92,12 @@ def CheckRefusal(Document: CadDocument, TargetPath: FilePath) -> None:
     assert StreamValue.getvalue() == PriorValue and StreamValue.tell() == 0
 
 
-# the isolated hosted phase exercises registry publication before strict independent readback
+# the isolated hosted phase checks the measurement refusal and independently reads both prepared sinks
 def RunThinPhase(RootValue: FilePath) -> None:
     Document = MakeThinCase()
     TargetPath = RootValue / (str(Document.metadata["name"]) + KPartSuffix)
-    Streams = BytesIO()
-    Policy = {"require_native_transfers": True}
-    with PatchValue(
-        "convert.adapters.solidworks.Core.Writing.EmitNativeMut.ReadTime",
-        return_value=1760000000,
-    ):
-        Written = WriteDoc(Document, TargetPath, allow_carrier=False, values=Policy)
-        Named = WriteDoc(
-            Document,
-            Streams,
-            destination_format=KPartFormatId,
-            allow_carrier=False,
-            values={**Policy, "final_destination": str(TargetPath)},
-        )
-    RawValue = TargetPath.read_bytes()
-    assert RawValue == Streams.getvalue()
-    for Result in (Written, Named):
-        assert Result.application_usable and Result.vendor_loadable
-        assert Result.bytes_written == len(RawValue) and not Result.dropped
-        assert Document.capabilities <= Result.native_capabilities
-        assert all(Value.mode is TransferMode.KNative for Value in Result.transfers)
-    for SourceValue in (TargetPath, Streams.getvalue()):
+    RawValue = PrepareProbe(Document, TargetPath, 1760000000)
+    for SourceValue in (TargetPath, RawValue):
         CheckSolid(SourceValue, Document.feature_timeline[0].name)
     CheckRefusal(Document, RootValue / "Rejected" / TargetPath.name)
 
