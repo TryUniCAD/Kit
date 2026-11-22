@@ -17,6 +17,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.CheckTarge
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.ReadTargetBox import (
     ReadTargetBox,
 )
+from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetAudit import (
+    TargetAudit,
+)
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
@@ -40,9 +43,12 @@ from convert.adapters.solidworks.Container.Container import BuildSldprt
 
 # a true recursive assembly must derive every reference count bound header stream and container from actual generated targets and authored rigid placements
 def MakeNestedAsm(
-    InputValue: AssemblyInput, Placements: tuple[TargetPlacement, ...]
+    InputValue: AssemblyInput,
+    Placements: tuple[TargetPlacement, ...],
+    AuditValue: TargetAudit | None = None,
 ) -> TargetDocument:
-    CheckNestedIn(InputValue, Placements)
+    ScopeValue = TargetAudit() if AuditValue is None else AuditValue
+    CheckNestedIn(InputValue, Placements, ScopeValue)
     StateValue = MakeAsmBase(InputValue)
     HeadersValue = MakeAsmHeaders(StateValue, InputValue)
     References = MakePlacedRefs(
@@ -75,5 +81,5 @@ def MakeNestedAsm(
         StreamsValue=StreamsValue.StreamsValue,
         BytesValue=BuildSldprt(StreamsValue.StreamsValue, FormatVersion=4),
     )
-    CheckTarget(ResultValue)
+    CheckTarget(ResultValue, ScopeValue)
     return ResultValue

@@ -4,11 +4,11 @@ from xml.etree.ElementTree import tostring as XmlBytes
 from pytest import mark as TestMark, raises as RaisesError
 
 from convert import open_document as OpenDocument
-from convert.adapters.solidworks.Archive.Config.MakeAsmCfgCtx import MakeAsmCfgCtx
-from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteCfgDocMut
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
+from convert.adapters.solidworks.Archive.Header.HeaderRefNodes import HeaderRefNodes
+from convert.adapters.solidworks.Archive.Header.WriteHeaderGraph import WriteHeadGraph
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 from convert.adapters.solidworks.Assembly.Assembly import Elements, XmlRoot
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
@@ -93,6 +93,9 @@ def TestNestCasing(TmpPath: FilePath) -> None:
     Before = OpenDocument(Target)
     Reference = RootValue.ReferenceValues[0]
     FileValue = RequireNode(Reference.FieldsValue["f3b0"], "moExtObject_c")
+    assert any(
+        Value is FileValue for Value in HeaderRefNodes(RootValue.HeaderValue, 19000)
+    )
     Fields = RequireRecord(FileValue.FieldsValue["shared"])
     Handle = RequireNode(Fields["h18"], "moCStringHandle_c")
     Locator = Handle.FieldsValue["value"]
@@ -100,12 +103,10 @@ def TestNestCasing(TmpPath: FilePath) -> None:
     Folded = Locator.TextValue.lower()
     assert Locator.TextValue != Folded
     Handle.FieldsValue["value"] = CStringValue(Folded, Locator.IsUnicode)
-    ConfigBytes, _ = WriteCfgDocMut(
-        RootValue.RootValue,
-        RootValue.HeaderValue,
-        MakeAsmCfgCtx(19000, RootValue.HeaderValue, None),
-    )
-    Streams = dict(RootValue.StreamsValue) | {KConfigStream: ConfigBytes}
+    StreamName = KConfigStream + "-ModelHeader"
+    HeaderBytes = WriteHeadGraph(RootValue.HeaderValue, 19000)
+    assert HeaderBytes != RootValue.StreamsValue[StreamName]
+    Streams = dict(RootValue.StreamsValue) | {StreamName: HeaderBytes}
     _ = Target.write_bytes(BuildSldprt(Streams, FormatVersion=4))
     After = OpenDocument(Target)
     assert Before.assembly is not None and After.assembly is not None

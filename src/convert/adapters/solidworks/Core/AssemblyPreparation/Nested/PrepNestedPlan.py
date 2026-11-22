@@ -4,6 +4,9 @@ from pathlib import PureWindowsPath
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.MakePartTarget import (
     MakePartTarget,
 )
+from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetAudit import (
+    TargetAudit,
+)
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
@@ -54,6 +57,7 @@ def PrepNestedPlan(
     )
     Targets: dict[str, TargetDocument] = {}
     Results: list[tuple[PureWindowsPath, TargetDocument]] = []
+    AuditValue = TargetAudit()
     for Definition in PlanValue.OrderedDefinitions:
         LeafValue = PlanValue.LeafValues.get(Definition.id)
         FileName = (
@@ -83,7 +87,7 @@ def PrepNestedPlan(
                 TargetPlacement(Targets[IdValue], Value)
                 for IdValue, Value in PlanValue.PlacementsValue[Definition.id]
             )
-            Value = MakeNestedAsm(Recipe, Placements)
+            Value = MakeNestedAsm(Recipe, Placements, AuditValue)
         else:
             PartRecipe = ReplaceValue(
                 MakePartRecipe(LeafValue.PartValue, WrittenAt), OutputValue=SelfFile
