@@ -173,7 +173,7 @@ jobs:
             fi
             RuntimeArgs=(--target-seconds "$TargetSeconds" --runtime-shards 8)
           fi
-          echo "Runtime shard target: ${TargetSeconds} CPU seconds; zero retains count-based sizing" >> "$GITHUB_STEP_SUMMARY"
+          echo "Runtime shard target: ${TargetSeconds} test seconds; zero retains count-based sizing" >> "$GITHUB_STEP_SUMMARY"
           git ls-tree -r -z HEAD > "${RUNNER_TEMP}/Tree.bin"
           uv run --no-sync --python 3.14 python -m tools.TestShards.PlanShards \
             --collected "${RUNNER_TEMP}/Collected.txt" \

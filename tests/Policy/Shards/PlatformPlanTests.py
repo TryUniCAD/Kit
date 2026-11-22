@@ -6,6 +6,7 @@ from subprocess import run as RunProcess
 from pytest import mark as TestMark
 
 from tests.Policy.ShardPlanTests import KRootPath, PlanSample, RunCommand
+from tests.Policy.Shards.FindTestShell import FindTestShell
 
 
 # scheduling changes must retain actual pytest outcomes through the complete native reporting boundary
@@ -54,7 +55,7 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
     DurationPath = TmpPath / "Durations.json"
     Reported = RunProcess(
         [
-            "bash",
+            FindTestShell(),
             (KRootPath / ".github/scripts/VerifyShardReports.sh").as_posix(),
             TmpPath.as_posix(),
             "Platform",

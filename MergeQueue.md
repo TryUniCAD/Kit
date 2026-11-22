@@ -139,7 +139,7 @@ The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedT
 The plan [reuses verified results](Documentation/Changes/QueueTestReuse.md) of test modules whose recorded files and folders did not change since an accepted ancestor candidate.
 Every other collected test runs in a shard.
 Each shard holds at most 1,200 tests, which is 300 tests for each CPU of its 4-CPU runner.
-Measured Linux durations can request additional shards toward 1,200 estimated CPU seconds each, with an eight-shard runtime budget.
+Measured Linux durations can request additional shards toward 1,200 estimated test seconds each, with an eight-shard runtime budget.
 The count cap takes precedence if it requires more shards.
 Platform shards use platform-specific duration histories from the shared plan instead of count-based modulo selection.
 See [runtime scheduling](Documentation/Changes/Ci/QueueRuntimeScheduling.md).

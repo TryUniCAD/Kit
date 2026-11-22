@@ -20,7 +20,7 @@ Durations affect scheduling only; they never authorize test-result reuse.
 The existing accepted-ancestor dependency checks still control reuse.
 
 Linux planning retains the 1,200-test cap.
-It also requests enough shards for 1,200 estimated CPU seconds per shard, up to eight runtime-requested shards.
+It also requests enough shards for 1,200 estimated test seconds per shard, up to eight runtime-requested shards.
 The test-count cap can require additional shards beyond that runtime budget.
 The four-worker execution path retains slow/fast pairing.
 This estimate is not an elapsed-time acceptance target.
