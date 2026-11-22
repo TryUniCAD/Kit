@@ -46,6 +46,9 @@ def CheckPubNative(
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
+    from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+        IsRevRead,
+    )
     from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import (
         IsBoxSource,
     )
@@ -59,7 +62,8 @@ def CheckPubNative(
 
         ProofValue = FindBoxProof(WriterValue, DocumentValue)
     if ProofValue is None and (
-        type(WriterValue) is not SldprtWriter or not IsColdRead(DocumentValue)
+        type(WriterValue) is not SldprtWriter
+        or not (IsColdRead(DocumentValue) or IsRevRead(DocumentValue))
     ):
         CheckHistory(DocumentValue, WriterValue, TargetValue)
     CheckDrawWrites(DocumentValue, WriterValue)

@@ -21,6 +21,7 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import 
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.CanWritePat import CanWritePat
 from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import IsBoxSource
@@ -30,6 +31,7 @@ from convert.adapters.solidworks.Core.Writing.AttachedBox.ProveBoxSource import 
 from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
 from convert.adapters.solidworks.Core.Writing.Imports.CanImportPart import CanImportPart
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CanWriteRev import CanWriteRev
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -59,6 +61,8 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             ProofValue = ProveBoxSource(DocumentValue)
             NameValue = ProofValue.PlanValue.PartSource.ModelValue.metadata.get("name")
             return isinstance(NameValue, str) and IsPartTarget(NameValue, TargetValue)
+        if IsRevRead(DocumentValue):
+            return CanWriteRev(DocumentValue, TargetValue)
         if IsColdRead(DocumentValue):
             return CanWriteCold(DocumentValue, TargetValue)
         if IsSweepPart(DocumentValue):

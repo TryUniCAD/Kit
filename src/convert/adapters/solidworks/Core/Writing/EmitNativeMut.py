@@ -12,6 +12,7 @@ from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import Has
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
 from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
 from convert.adapters.solidworks.Core.Writing.Measured.EmitEqMut import EmitEqMut
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
@@ -21,6 +22,8 @@ from convert.adapters.solidworks.Core.Writing.Measured.PublishMeasMut import (
     PublishMeasMut,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadPartMeas
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.EmitPrincMut import EmitPrincMut
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.HasPrincRev import HasPrincRev
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
@@ -43,6 +46,8 @@ def EmitNativeMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if IsRevRead(DocumentValue) or HasPrincRev(DocumentValue):
+        return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
         if IsStockChain(DocumentValue):

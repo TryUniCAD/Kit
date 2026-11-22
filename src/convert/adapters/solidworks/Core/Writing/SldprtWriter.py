@@ -8,6 +8,7 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
@@ -28,6 +29,7 @@ from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.CanWriteSldDoc import CanWriteSldDoc
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
 from convert.adapters.base.Materials.CheckMatState import CheckMatState
 from convert.Formats.CheckSourceText import CheckSourceText
 from interchange.document.Models.DocumentModel import CadDocument
@@ -67,7 +69,9 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         CheckSourceText(document)
         if IsBoxSource(document):
             return EmitBoxMut(document, destination, options)
-        if not IsColdRead(document):
+        if IsRevRead(document):
+            CheckReadOnly(document)
+        elif not IsColdRead(document):
             CheckNative(document, self, destination)
         if document.DrawingValue is not None:
             return EmitBlankMut(document, destination, options)

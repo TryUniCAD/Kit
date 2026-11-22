@@ -1,12 +1,11 @@
 from dataclasses import dataclass as DataClass, replace as ReplaceData
-from pkgutil import get_data as ReadPackage
-import json as JsonModule
-
-from convert.adapters.solidworks.Container.Archive import (
-    ArchiveError,
-    IsLayoutObject,
-    LayoutTable,
+from convert.adapters.solidworks.Config.RootRules import (
+    KAtomRules,
+    KMaterialRules,
+    KPrefixRules,
 )
+from convert.adapters.solidworks.Container.Archive import LayoutTable
+
 
 # the root seed and inline fields have been independently checked for this generation
 KConfigGen = 19000
@@ -23,18 +22,12 @@ class PartLayouts:
     Atoms: LayoutTable
 
 
-# the format grammar must remain available when the package is installed alone
+# exact readback comparison must resolve the existing format grammar without runtime file reads
 def LoadPartLayouts() -> PartLayouts:
-    Resource = ReadPackage("convert.adapters.solidworks.Config", "RootLayout.json")
-    if Resource is None:
-        raise ArchiveError("missing packaged configuration layout")
-    Value: object = JsonModule.loads(Resource.decode("utf-8"))
-    if not IsLayoutObject(Value):
-        raise ArchiveError("invalid packaged configuration layout")
     return PartLayouts(
-        LayoutTable.FromMapping({"classes": Value["prefix"]}),
-        LayoutTable.FromMapping({"classes": Value["material"]}),
-        LayoutTable.FromMapping({"classes": Value["atoms"]}),
+        LayoutTable.FromMapping({"classes": KPrefixRules}),
+        LayoutTable.FromMapping({"classes": KMaterialRules}),
+        LayoutTable.FromMapping({"classes": KAtomRules}),
     )
 
 
@@ -52,7 +45,5 @@ def ExtendRoot(
         **RootLayout.runs,
         **{str(SlotIndex): Width for SlotIndex, Width in enumerate(Widths, StartSlot)},
     }
-    Entries[KRootClass] = ReplaceData(
-        RootLayout, child_slots=RootLayout.child_slots + Slots, runs=RunWidths
-    )
+    Entries[KRootClass] = ReplaceData(RootLayout, child_slots=RootLayout.child_slots + Slots, runs=RunWidths)
     return ReplaceData(Layouts, classes=Entries)

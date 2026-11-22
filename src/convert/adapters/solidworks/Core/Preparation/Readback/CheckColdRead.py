@@ -9,7 +9,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # comparison covers every derived and retained field without making it an input to generation
-def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
+def CheckColdRead(Document: CadDocument, Payload: bytes, *, IncludeBrep: bool = True) -> None:
     SourceName = Document.source.path
     Archive = SldprtArchive.from_bytes(Payload, SourceName)
     Expected = ReadNativePart(
@@ -17,9 +17,9 @@ def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
         Archive,
         Payload,
         SourceName,
-        ReadOptions(),
+        ReadOptions(include_brep=IncludeBrep),
     )
-    if Expected.brep is None or ToJson(Document, IndentSize=None) != ToJson(
+    if (Expected.brep is not None) != IncludeBrep or ToJson(Document, IndentSize=None) != ToJson(
         Expected, IndentSize=None
     ):
         raise ValueError("SOLIDWORKS cold readback differs from its regenerated part")

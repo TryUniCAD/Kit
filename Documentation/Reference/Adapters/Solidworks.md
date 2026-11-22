@@ -688,8 +688,8 @@ Model-only preparation also covers each scoped profile below. Public
 standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
 sweep, distance chamfer, selected two-stock through cuts, the contained
-oblique linear pattern and the width-depth equation have dedicated proof
-schemas. Other entries identify preserved preparation and native research
+oblique linear pattern, principal revolve and width-depth equation have
+dedicated proof schemas. Other entries identify preserved preparation and native research
 coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
@@ -701,7 +701,7 @@ coverage.
 - A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss
 - A fixed-centre analytic circle on the canonical Right Plane with a driving diameter and a symmetric mid-plane boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving diameter and a reversed two-direction boss
-- A rectangular partial boss revolve on the canonical Top or Right plane with a selected construction line and one live D1
+- A one-sided rectangular boss revolve on the canonical Top or Right plane with a selected construction line and one live D1. The exact inspected receipt covers authored neutral input and strict full or design-only readback. [Measured principal revolve publication](../../Changes/Solidworks/Construction/Revolve/SolidworksMeasuredPrincipalRevolve.md)
 - A rectangular two-direction partial boss revolve on the canonical Top or Right plane with a selected construction line and independent D1 and D2 angular drivers. [Two-direction writing](../../Changes/Solidworks/Construction/Revolve/SolidworksTwoDirectionRevolveWriting.md)
 - A partial square Mid Plane or Two Directions boss revolve on either of those planes, with four unary contour relations and one ordered equal-length relation. The Mid Plane case uses one total D1. [Square profile writing](../../Changes/Solidworks/Construction/Revolve/SolidworksSquareRevolvePublicParity.md)
 - A forward partial thin boss revolve on a canonical principal plane, with one ordered open axial line and a separate selected centreline. The writer retains the angle and each active wall driver. The strict cold reader derives the analytic solid from those owners. [Thin revolve writing](../../Changes/Solidworks/Construction/Revolve/SolidworksThinRevolvePublic.md)
