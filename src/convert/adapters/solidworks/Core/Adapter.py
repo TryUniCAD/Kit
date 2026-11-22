@@ -557,11 +557,12 @@ def ReadBoundPart(
     Model, ChamferValue = TryColdChmf(Archive, Model, Settings)
     if ChamferValue is not None:
         return BindChmfModel(Model, ChamferValue), ChamferValue
-    if KChmfRejected in Model.diagnostics:
-        return Model, None
-    return RefinePartModel(
+    Refined = RefinePartModel(
         Archive, Model, ConfigData, Resolved, ConfigStream, ResolvedName
-    ), None
+    )
+    if KChmfRejected in Model.diagnostics and KChmfRejected not in Refined.diagnostics:
+        Refined = Replace(Refined, diagnostics=(*Refined.diagnostics, KChmfRejected))
+    return Refined, None
 
 
 # cached payloads keep priority over geometry derived from a qualified cold archive
@@ -573,7 +574,11 @@ def PartBrepData(
     ChamferValue: ChmfPartRead | None = None,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
     ColdBrep = None
-    if Settings.include_brep and not Settings.extract_raw_brep:
+    if (
+        Settings.include_brep
+        and not Settings.extract_raw_brep
+        and KChmfRejected not in Model.diagnostics
+    ):
         ColdBrep = (
             ColdPrism(Model, KPartBodyId)
             if ChamferValue is None
@@ -2323,7 +2328,10 @@ def RefinePartModel(
 ) -> NativeModel:
     if SelectedStream == KitResolvedStream:
         return Model
-    Model = WithTypedNative(Model, Archive)
+    TypedModel = WithTypedNative(Model, Archive)
+    if TypedModel is not Model and KChmfRejected in TypedModel.diagnostics:
+        return TypedModel
+    Model = TypedModel
     Generation = ContainerMo(Archive.streams)
     Ordinary = ReadRectSupport(Model, ConfigData, Resolved, Generation)
     Decoded = ReadCutArchive(

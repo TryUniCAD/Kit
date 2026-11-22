@@ -15,6 +15,7 @@ from convert.adapters.solidworks.Core.Native import (
 )
 from convert.adapters.solidworks.Core.Partition.ActivePartition import IsEmptyStream
 from convert.adapters.solidworks.Resolved.RectanglePart import (
+    KRectListCounts,
     RectanglePart,
     ReadRectPart,
 )
@@ -101,7 +102,12 @@ def AttachRectPlane(
 def ReadRectSupport(
     Model: NativeModel, ConfigData: bytes, Resolved: bytes, Generation: int | None
 ) -> NativeModel:
-    if Generation != KConfigGen or not ConfigData:
+    if (
+        Generation != KConfigGen
+        or not ConfigData
+        or len(Resolved) < 6
+        or int.from_bytes(Resolved[4:6], "little") not in KRectListCounts
+    ):
         return Model
     try:
         Parsed = ReadRectPart(ConfigData, Resolved, Generation)

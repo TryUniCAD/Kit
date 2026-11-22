@@ -14,9 +14,8 @@ from interchange.document.Behavior.DocumentIo import ToJson
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# comparison covers every derived and retained field without making it an input to generation
-def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
-    SourceName = Document.source.path
+# a regenerated archive is always decoded through the same strict typed source reader
+def ReadColdDoc(SourceName: str, Payload: bytes) -> CadDocument:
     Archive = SldprtArchive.from_bytes(Payload, SourceName)
     Model = DecodeNative(
         Archive.require(KeywordsStream),
@@ -26,7 +25,7 @@ def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
         resolved_stream=KResolvedFeaturesStream,
         configuration_stream=KConfigStream,
     )
-    Expected = ReadNativePart(
+    return ReadNativePart(
         SldprtAdapter(),
         Archive,
         Payload,
@@ -34,6 +33,11 @@ def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
         ReadOptions(),
         ModelValue=WithTypedNative(Model, Archive),
     )
+
+
+# comparison covers every derived and retained field without making it an input to generation
+def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
+    Expected = ReadColdDoc(Document.source.path, Payload)
     if Expected.brep is None or ToJson(Document, IndentSize=None) != ToJson(
         Expected, IndentSize=None
     ):

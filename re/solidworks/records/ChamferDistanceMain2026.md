@@ -142,3 +142,55 @@ comparison remains available through `--folder`.
 ```sh
 python3.14 -I -B re/tooling/sw2026/CheckWarmChmfBoundary.py --fixture
 ```
+
+## Independent permissive history and ordinary JSON
+
+An unresolved native chamfer no longer prevents the reader from
+running its independently qualified stock and cut refinements. The
+warning survives legacy paths that replace their intermediate
+diagnostics. Physical payloads remain authoritative for geometry,
+and the unresolved warning prevents an analytic stock-only fallback.
+Strict semantics continue to refuse the unresolved chamfer.
+
+The tracked inventory included 103 disclosed `.SLDPRT` files under
+`re/`, including the paired-capture source. The scan found no ordinary
+19000 file with both recognized cut and chamfer. The supplemental
+process uses the hash-bound native P04 baseline source
+`c1986308375aaf68ebac6f8de61e70a47b9b33535c94271bab2e4bd00504c59d`.
+It adds only an in-memory Chamfer keyword. The real archive's physical
+ResolvedFeatures, Config-0 and payload streams remain unchanged.
+The two strict geometry modes refuse that keyword-only contrast, while
+permissive reads retain the same typed `BlindBoss` and `BlindCut`
+rows, sketches, driver ownership and cached geometry as the unchanged
+source. Raw extraction preserves all four matched payload hashes.
+This contrast covers coexistence with an unresolved entry without
+claiming a physically authored mixed chamfer.
+
+Both independently measured cold modes now use ordinary
+`interchange.json` through direct SDK, registry and CLI. The narrow route
+regenerates the source from the linked stock and modifier, reopens
+the result strictly and compares the entire readback before releasing a
+snapshot. Only the replay envelope `metadata.solidworks_source_bytes`
+and `object_data.record_data` from the 18 native tree rows are omitted.
+The snapshot records the exact typed self locator and epoch under
+`solidworks_cold_chamfer_source`. Source digest and label, all 20
+ordered step rows, native type data, provenance, editable parameters,
+source selections and geometry remain. The repeated native writer
+comparison constructs the same snapshot representation from its newly
+generated archive. Native publication still requires the original
+complete-file measurement.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckChmfMixedRead.py
+python3.14 -I -B re/tooling/sw2026/CheckChmfJsonBoundary.py --slot 0
+python3.14 -I -B re/tooling/sw2026/CheckChmfJsonBoundary.py --slot 1
+```
+
+The two direct and registry JSON routes, normal CLI conversion and
+repeated CLI serialization preserve the canonical snapshot. Both
+SOLIDWORKS SDK routes regenerate the original measured bytes from the
+strict JSON reload. Extra row data, changed body volume, stale and
+malformed snapshots, and another-format output refuse before modifying
+destination content. The prior measured native hashes and real warm
+saved-file inspection remain intact.
+[Revision-bound verification](../measurements/2026/SdkChamferSnapshotBoundary01.json)

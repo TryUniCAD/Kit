@@ -14,7 +14,11 @@ from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
+from convert.adapters.json.Adapter import JsonAdapter
 from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.solidworks.Core.Preparation.Chamfers.MakeChmfSnap import (
+    IsChmfSnapDoc,
+)
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.registry.RegistryErrors import CapLossError
@@ -125,7 +129,10 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        if type(AdapterData) is not SldprtWriter or not IsColdRead(DocumentData):
+        if not (
+            (type(AdapterData) is SldprtWriter and IsColdRead(DocumentData))
+            or (type(AdapterData) is JsonAdapter and IsChmfSnapDoc(DocumentData))
+        ):
             CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

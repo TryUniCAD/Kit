@@ -1,0 +1,149 @@
+{
+  "baseline_changes": {
+    "prior_head_mixed_boss_cut_matches": [
+      false,
+      false
+    ],
+    "prior_head_mixed_raw_matches": true,
+    "prior_head_ordinary_cli_reason": "NativeFeature records are not conversion-ready"
+  },
+  "disclosed_tracked_native_inventory": {
+    "part_archives_examined": 103,
+    "verified_native_mixed_sources": 0
+  },
+  "json_snapshots": [
+    {
+      "cad_launches": 0,
+      "cli_native_rows": 18,
+      "cli_publications": 2,
+      "cli_refusals": 2,
+      "json_routes": 2,
+      "json_sha256": "15e79b922c413d2b1773c3475e5aea2248f26eda67b16875484f25114fe5de7f",
+      "native_republication_routes": 2,
+      "native_rows": 18,
+      "ordered_rows": 20,
+      "runtime_input_reads": 0,
+      "sdk_refusals": 16,
+      "source_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded"
+    },
+    {
+      "cad_launches": 0,
+      "cli_native_rows": 18,
+      "cli_publications": 2,
+      "cli_refusals": 2,
+      "json_routes": 2,
+      "json_sha256": "2c1daa4772648c92a2225d8bb3ed4972470d032aea67343e8276e01cffee5d19",
+      "native_republication_routes": 2,
+      "native_rows": 18,
+      "ordered_rows": 20,
+      "runtime_input_reads": 0,
+      "sdk_refusals": 16,
+      "source_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb"
+    }
+  ],
+  "mixed_keyword_boundary": {
+    "boundary_kind": "synthetic_keyword_only",
+    "changed_streams": [
+      "swXmlContents/KeyWords"
+    ],
+    "native_mixed_saves": 0,
+    "permissive_warnings": 2,
+    "raw_payload_sha256": [
+      "a4419aaf6395aac47218091f2ec18d067a7e216e288b85657c7bdac69e362415",
+      "3da84f44cb1ede3dcc9b55f1042212102ddcd3c890d7f07982066edc274c174f",
+      "b28e8ec44098d4f7aaf33d1d657b7cac20266c5f129917b9b6f910de6b4b27c0",
+      "9dbbf95853698da6e6a127c60a76a8bdf485566539ec5941a92d54ac4639897a"
+    ],
+    "source_sha256": "c1986308375aaf68ebac6f8de61e70a47b9b33535c94271bab2e4bd00504c59d",
+    "strict_refusals": 2,
+    "typed_stock_ids": [
+      "sldprt:feature:34",
+      "sldprt:feature:46"
+    ]
+  },
+  "new_native_launches": 0,
+  "plain_writer_control": {
+    "complete_candidate_sha256": {
+      "Skew": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "Step": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47"
+    },
+    "proof_sha256": "feaa410f70f30ef5d2639cf129703e90a773240980dc8fcba5c9e1debcaa2c4a"
+  },
+  "prior_head": "3aba4b87d8c61ddd586c83c0eac19f074bac4500",
+  "real_disclosed_warm_sources": {
+    "EqualEdited": {
+      "permissive_brep_topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "3851e8e4c492c6d939f4c79a81985505485449af7a1fa5d155965718c75d2a88",
+        "d60b5614dbb1ba1515ec0a15c665394283ed91d64fef8c9cefb6f816e92f2c14"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+      "strict_semantic_refusals": 2
+    },
+    "EqualOriginal": {
+      "permissive_brep_topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+        "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+      "strict_semantic_refusals": 2
+    },
+    "UnequalEdited": {
+      "permissive_brep_topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "6e83c09b529879ed19d34def9eef966079d20f5fa72fdb63106354dd3f1e8acc",
+        "17091c1a7ddd70abd4a6ae772b581b6876039060d84267abe4bf8ddb110a4746"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "974768384a7f017b2fcdfabc90794a17ecbfe3c5570ee9704e638d373be4338a",
+      "strict_semantic_refusals": 2
+    },
+    "UnequalOriginal": {
+      "permissive_brep_topology": [
+        1,
+        1,
+        7,
+        15,
+        10
+      ],
+      "permissive_warnings": 2,
+      "raw_payload_sha256": [
+        "a49f99d2fbd37644a37a3ba5fa51e35aa95a35e2fd0527d910af30312f81f912",
+        "54d0b8bb12d3a3882bbd1aa2cd034f74da3cb54be3091c82251c8b1576f2ed41"
+      ],
+      "semantic_runtime_reads": 0,
+      "source_sha256": "60eb87a27e0e121998274272d654f6bec616095b0884b1ef4d70a123942a3fe6",
+      "strict_semantic_refusals": 2
+    }
+  },
+  "schema": "kit.sw2026.chamfer-json-and-mixed-boundary.v1",
+  "sdk_source_tree": "0803904790573d7064c88b6fa62f4e6b136dc799",
+  "worker_sha256": {
+    "CheckChmfJsonBoundary.py": "70e42cdda017eb5587311177f69382ae8210abf8ca0a0e7b5d71e019259895ba",
+    "CheckChmfMixedRead.py": "e4ebc938f438654dcc23d7fa836a0620960e1fe88e2964e802c44ef265bc5f45"
+  }
+}

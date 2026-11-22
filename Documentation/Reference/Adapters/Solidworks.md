@@ -362,10 +362,21 @@ the complete readback to that regenerated archive, and checks the exact
 measurement. Both writer entry points report the actual native capability
 transfers.
 
+The same complete cold chamfer can use ordinary interchange JSON through
+the SDK or `kit convert Part.SLDPRT Part.json`. Kit first regenerates and
+strictly reads the full source. The JSON keeps the original source digest,
+ordered feature-tree rows, native type IDs, archive provenance and editable
+model. It stores the verified self locator and construction epoch in
+`solidworks_cold_chamfer_source` and omits the original replay envelope and
+native row byte copies. An unchanged snapshot can use either measured
+SOLIDWORKS SDK writer at the original locator with the original receipt.
+Each writer repeats the complete comparison before emitting anything.
+
 A current SOLIDWORKS chamfer with an unqualified saved or alternate
 history is refused in strict mode, including `include_brep=False`.
-Permissive inspection reports `sldprt.chamfer_history_unresolved` and
-retains the native-only feature record. Raw Parasolid extraction follows
+Permissive inspection reports `sldprt.chamfer_history_unresolved`,
+retains the native-only feature record and continues the independently
+qualified stock or cut projection. Raw Parasolid extraction follows
 its separate payload path. The
 [measured distance chamfer entry](../../Changes/Solidworks/Construction/SolidworksMeasuredDistanceChamfers.md)
 links the two disclosed inputs and verification.

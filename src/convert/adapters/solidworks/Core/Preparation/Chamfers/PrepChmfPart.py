@@ -18,8 +18,8 @@ from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
-from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
-    CheckColdRead,
+from convert.adapters.solidworks.Core.Preparation.Chamfers.CheckChmfRead import (
+    CheckChmfRead,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.document.Models.DocumentModel import CadDocument
@@ -60,5 +60,5 @@ def PrepChmfPart(
         InputValue, PlanValue, ReplaceValue(Recipe, OutputValue=Destination)
     )
     if IsReadback:
-        CheckColdRead(DocumentValue, Candidate.BytesValue)
+        CheckChmfRead(DocumentValue, Candidate.BytesValue)
     return Candidate

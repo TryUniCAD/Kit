@@ -20,9 +20,19 @@ model, original measured locator and receipt still agree. The regenerated
 archive must reproduce the complete observed document before publication.
 Both entry points report the same native capability transfers.
 
+Ordinary interchange JSON can preserve both reverified cold chamfer
+documents through the SDK and `kit convert`. Each snapshot retains the
+source digest, all 20 ordered tree rows and their ownership. It carries
+the original self locator and construction epoch. The full native file
+and each row's redundant replay bytes stay out of JSON. Reloading the
+snapshot supports exact measured SDK republication after complete
+regeneration and revalidation.
+
 Strict inspection refuses unqualified SOLIDWORKS 2026 chamfer history,
 including saved states requested without geometry. Permissive inspection
 keeps an unresolved-history warning and a native-only feature record.
+Independent stock and cut refinement remains eligible under its existing
+typed rules.
 This applies when the native class or the explicit Chamfer keyword
 identifies the feature without a decoded operation. Raw Parasolid
 extraction remains available for readable saved payloads. The shared
