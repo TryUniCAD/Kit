@@ -87,3 +87,71 @@ python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyOriginalFcstdAt
 The proof result contains hashes and analytic observations. The source
 owner inventory and incidence checks accept independent expected input
 identities through their worker request for a later locked comparison.
+
+## Intact neutral planning
+
+The next source-admission slice of `B04-SW2026-FCSTD-BOX` is owned by
+`/root/assembly_frontier` for PR #121. It depends on the existing strict
+FreeCAD reader, the signed projection, the shared box composer and the
+exact disclosed SP05.2 lifecycle above.
+
+The normal SDK reads the intact 0.21.2 F14c archive and reconstructs an
+equal `CadDocument` through ordinary neutral JSON. `PlanAttachedBox`
+validates the native archive and verification payload pair and decodes
+the original data again in memory. It compares the complete canonical
+neutral JSON, including the actual source, ordered objects, parameters,
+payloads and provenance. The supplied source locator remains a label
+when the FreeCAD reader has no filesystem context. The plan keeps the
+original neutral model beside the separate typed construction intent.
+The composer receives computed dimensions, support and identity fields
+through this intent. The source file and its B-rep streams are absent
+from the emitted part.
+
+The earlier geometric projection accepts three changed neutral rows
+while the native archive stays fixed. These are an alternate Width
+caption, a flipped Visibility parameter and a renamed Length ID that
+also changes the feature's parameter list. The intact planner rejects
+all three before lowering. A missing binding, modified archive data
+and a cache from the wrong owner also refuse. The verified 0.21.2 F14a
+source has the same dimensions and matches its earlier origin-source
+receipt. Its inactive attachment and identity placement fail the
+attached planner's scope guard.
+
+Two guarded builds and two guarded strict target reads produce the
+previously measured 10,189-byte container and all 12 stream digests.
+The target retains the actual Length and Width sketch owners and the
+Height boss owner. Its full boundary matches the three verified source
+shape members. Twenty-five signed geometry checks agree with the
+previous native measurements for the original and the independently
+edited 27, 36.9 and 15 mm lengths. The processes record zero data-file
+reads after source intake and initialization.
+[Exact process receipt](../measurements/2026/IntactFreecadAttachedPlan01.json)
+
+The public inferred path tries the generic B-rep import and finds no
+supporting writer. The explicit registry and direct adapter path and
+stream calls refuse the actual `PartDesign::AdditiveBox` definition.
+The clean projected model still carries the FreeCAD source schema
+identity, and the ordinary plain part planner refuses that extended
+source state. The guarded calls preserve populated destinations and the
+stream cursor and create no staging entries. The general catalogue lacks
+the native-payload capability on this revision. The original owner proof's
+catalogue assertion records an earlier capability set. The intact original
+archive and its digest binding, the source-only origin axes, per-record
+provenance and round-trip metadata still require target representation
+and source-specific transfer qualification. The existing archived native
+report also needs a matching
+publication receipt before a public route could publish even the scoped
+candidate. Historical roster membership is unverified. This comparison
+adds no native observations and zero benchmark conversion credits.
+
+Run the [intact planner proof](../../tooling/sw2026/attached_top_box_source/VerifyIntactAttachedPlan.py)
+with the two verified CADMPEG originals and an unused report path. The
+receipt's neutral digest uses the source basename to make file relocation
+irrelevant to the reported digest. The actual planner comparison retains
+the full source locator.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/attached_top_box_source/VerifyIntactAttachedPlan.py \
+  /path/to/recipe-0.21.2-F14c.FCStd /path/to/recipe-0.21.2-F14a.FCStd \
+  /tmp/IntactFreecadAttachedPlan01.json
+```

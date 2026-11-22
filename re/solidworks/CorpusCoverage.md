@@ -129,6 +129,13 @@ The original archive payload and binding, provenance and round-trip
 metadata remain unsupported transfers. This disclosed source has
 unverified historical roster membership.
 
+The [intact attached-box planner](measurements/2026/IntactFreecadAttachedPlan01.json)
+rederives the full 0.21.2 F14c neutral model and its source binding in
+memory before generating the same measured 12-stream part. It preserves
+the intact source beside the clean model and rejects altered parameters,
+crossed shape owners and the origin-fixed F14a control. Explicit and
+inferred public writes still refuse. This adds zero benchmark conversions.
+
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
 healthy controls. This verifies kernel geometry for those disclosed
