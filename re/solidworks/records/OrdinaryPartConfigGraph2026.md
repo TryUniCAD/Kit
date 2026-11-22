@@ -88,6 +88,14 @@ and the block map's `SignedPositive` pairing. The separately bounded
 atom-manager writer derives its count as before. Its existing authored
 controls still produce counts of 0, 1 and 2.
 
+The separate typed LinearLadder control retains the unsigned block-map
+word `0x80000025` as a signed-negative count with zero rows. The inline
+owner remains attached and the next map slot remains 110. The four
+bytes at offset 24496 are the sole stream difference. The guarded
+writer and reader return an identical archive on replay with zero
+external accesses. The change yields SHA-256
+`b10214fafbec49f15aa21e2131e94df8f4050499827d725a1f040b31a6d3034e`.
+
 A fresh typed sheet-metal master belongs to the enclosing part's
 `f1018` field. The variant adds it to the hash-pinned ConcaveOwned
 configuration graph and changes the measured length and density fields
