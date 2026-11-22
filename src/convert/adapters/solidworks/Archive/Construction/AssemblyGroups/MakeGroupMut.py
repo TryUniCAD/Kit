@@ -76,12 +76,18 @@ def MakeGroupMut(
         MateValue.NameValue,
         (First, Second),
         Occurrences[FixedIndex],
-        InputValue.HeaderValue.CreatedAt,
+        (
+            InputValue.HeaderValue.CreatedAt
+            if MateValue.CreatedAt is None
+            else MateValue.CreatedAt
+        ),
     )
     NodeValue = (
         MakeMateMut(Context, NativeInput)
         if MateValue.DistanceValue is None
         else MakeDistMateMut(Context, NativeInput, MateValue.DistanceValue)
     )
-    RecordMateMut(StateValue, InputValue, NodeValue, HeadersValue)
+    RecordMateMut(
+        StateValue, InputValue, NodeValue, HeadersValue, CreatedAt=MateValue.CreatedAt
+    )
     return NodeValue

@@ -6,8 +6,13 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Strings.CStringValue import CStringValue
 
 
-# the initial revision log derives its owner name identifier and stamp from the actual root and explicit provenance
-def MakeRootLog(OwnerValue: ArchiveNode, InputValue: HeaderInput) -> ArchiveNode:
+# the initial revision log binds its actual owner and explicit creation epoch to the authored attribution
+def MakeRootLog(
+    OwnerValue: ArchiveNode,
+    InputValue: HeaderInput,
+    *,
+    CreatedAt: int | None = None,
+) -> ArchiveNode:
     NameValue = ArchiveNode.RequireNode(OwnerValue.FieldsValue["f18"])
     OwnerName = NameValue.FieldsValue.get("f08")
     if type(OwnerName) is not str:
@@ -18,7 +23,7 @@ def MakeRootLog(OwnerValue: ArchiveNode, InputValue: HeaderInput) -> ArchiveNode
             "f08": 0,
             "f0c": 0,
             "f10": 0,
-            "f18": InputValue.CreatedAt,
+            "f18": InputValue.CreatedAt if CreatedAt is None else CreatedAt,
             "f20": CStringValue(InputValue.CommentText, True),
         },
     )

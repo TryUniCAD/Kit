@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Header.MakeRootLog import (
     MakeRootLog,
 )
+from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
+    FeatureTime,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
@@ -16,7 +19,16 @@ def RecordMateMut(
     InputValue: AssemblyInput,
     NodeValue: ArchiveNode,
     HeadersValue: tuple[ArchiveNode, ArchiveNode],
+    *,
+    CreatedAt: int | None = None,
 ) -> None:
+    if CreatedAt is not None and any(
+        NodeValue.FieldsValue.get(FieldName) != FieldValue
+        for FieldName, FieldValue in FeatureTime(CreatedAt).items()
+    ):
+        raise ValueError(
+            "mate revision event differs from its actual feature creation time"
+        )
     StateValue.CurrentConfig.FieldsValue["f85c"] = StateValue.Allocator.NextValue - 1
     for HeaderValue in HeadersValue:
         LogsValue = ArchiveNode.RequireNode(HeaderValue.FieldsValue["f20"])
@@ -27,6 +39,6 @@ def RecordMateMut(
             )
         LogsValue.FieldsValue["items"] = (
             *ItemsValue,
-            MakeRootLog(NodeValue, InputValue.HeaderValue),
+            MakeRootLog(NodeValue, InputValue.HeaderValue, CreatedAt=CreatedAt),
         )
         HeaderValue.FieldsValue["f08"] = StateValue.Allocator.NextValue

@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.PlaneEndIn 
 from convert.adapters.solidworks.Archive.Construction.Dimensions.DistanceInput import (
     DistanceInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Nodes.FeatureTime import (
+    FeatureTime,
+)
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
@@ -18,6 +21,7 @@ class GroupMateIn:
     NameValue: str
     EndValues: tuple[PlaneEndIn, PlaneEndIn]
     DistanceValue: DistanceInput | None
+    CreatedAt: int | None = None
 
     # aligned kinds retain their shared datum guard while perpendicular preserves both actual principal selections without a scalar dimension
     def __post_init__(self) -> None:
@@ -52,3 +56,5 @@ class GroupMateIn:
             raise ValueError(
                 "a positive driving dimension belongs exactly to a distance mate"
             )
+        if self.CreatedAt is not None:
+            _ = FeatureTime(self.CreatedAt)

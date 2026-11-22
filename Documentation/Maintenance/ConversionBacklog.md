@@ -190,6 +190,10 @@ six datum endpoints, the fixed occurrence and the live 63.5 mm distance.
 The independent complete-suite case constructs its own pair. Public
 three-mate writing still requires a separately qualified production route.
 [Aggregate readback](../../re/solidworks/records/ColdRotatedMateAggregate2026.md)
+The shared internal constructor now keeps independent whole-second mate events
+across both headers and MatesList. Two guarded workers reproduced the disclosed
+native-tested pair. Original fractional events and public three-mate writing
+remain open. [Creation-event proof](../../re/solidworks/records/SharedMateCreationClocks2026.md)
 The first locked through-all candidate passes native stock-depth editing, save and fresh reopen between healthy controls. Every source comparison still differs in the stock extrusion's secondary depth. The exact cut-owner fields match at that comparison boundary. [Locked through-all receipt](../../re/solidworks/measurements/2026/SdkLockedThroughAllNativeComparison01.json)
 The same-locator disclosed trial confirms that an explicit null secondary display gives the source-style reverse depth while preserving the live driver, geometry, tree and persistence. Six native phases passed with healthy controls. The repaired internal SDK emits that exact native-tested part. Its strict reader reconstructs the cold solid and reads the saved derivative's actual D1 and stock alias. Three all-body controls retain their original bytes. [Native stock calibration](../../re/solidworks/measurements/2026/MidPlaneStockSecondaryNative01.json) [Guarded SDK proof](../../re/solidworks/records/SdkSelectedStockSecondary2026.md)
 The second pre-writer locked source matches the repaired SDK in all six scoped through-all snapshots with two healthy controls. Native save and fresh reopen retain the actual editable stock depth and selected stock. Continuous automatic selection, whole-source transfer and public registration remain open. [Locked scoped parity](../../re/solidworks/measurements/2026/SdkLockedThroughAllScopedParity01.json)
