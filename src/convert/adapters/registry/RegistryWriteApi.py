@@ -21,6 +21,7 @@ from convert.adapters.solidworks.Core.Writing.AttachedBox.CheckBoxTarget import 
 from convert.adapters.solidworks.Core.Writing.AttachedBox.ReadBoxMeasure import (
     ReadBoxMeasure,
 )
+from convert.adapters.registry.NativeReadOnly import CheckReadOnly
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -138,6 +139,7 @@ class WriteApi(WriteLookup):
             raise NotFoundError(
                 f"{AdapterData.info.FormatId} does not support the destination"
             )
+        CheckReadOnly(DocumentData)
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
         SourceCaps = (

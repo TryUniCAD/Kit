@@ -1,5 +1,5 @@
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
-from convert.adapters.registry.NativeWrite import CheckNative
+from convert.adapters.registry.NativeHistory import CheckHistory
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxProof import BoxProof
 from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
@@ -17,5 +17,5 @@ def CheckPartSource(
     if ProofValue is None and (
         type(WriterValue) is not SldprtWriter or not IsColdRead(Document)
     ):
-        CheckNative(Document)
+        CheckHistory(Document)
     return ProofValue

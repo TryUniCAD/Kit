@@ -6,6 +6,7 @@ from typing import Protocol as TypeProtocol
 from typing import runtime_checkable as RuntimeCheck
 from typing import TypeVar
 
+from interchange.document.Behavior.DocumentValidBehavior import ValidateIo
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.JsonCodec import DumpJson, LoadJson
@@ -24,6 +25,7 @@ KDocumentType = TypeVar("KDocumentType")
 
 # mapping output gives callers a portable structure without exposing codec internals
 def ToMapping(DocumentValue: object) -> dict[str, KWireData]:
+    ValidateIo(DocumentValue)
     ResultValue = ToData(DocumentValue)
     if not isinstance(ResultValue, dict):
         raise TypeError("document serialization did not produce a mapping")
@@ -39,12 +41,14 @@ def FromMapping(
         ResultValue, ValidDocument
     ):
         raise TypeError("data does not describe a CadDocument")
+    ValidateIo(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 
 
 # json output centralizes deterministic serialization options for document methods
 def ToJson(DocumentValue: object, *, IndentSize: int | None = 2) -> str:
+    ValidateIo(DocumentValue)
     return DumpJson(DocumentValue, IndentSize=IndentSize)
 
 
@@ -55,15 +59,18 @@ def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
         ResultValue, ValidDocument
     ):
         raise TypeError("JSON does not describe a CadDocument")
+    ValidateIo(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 
 
 # file output provides atomic ownership of path normalization and parent creation
 def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
+    ValidateIo(DocumentValue, IsWrite=True)
+    Payload = (ToJson(DocumentValue) + "\n").encode("utf-8")
     OutputPath = FilePath(PathValue).expanduser().resolve()
     OutputPath.parent.mkdir(parents=True, exist_ok=True)
-    _ = OutputPath.write_text(ToJson(DocumentValue) + "\n", encoding="utf-8")
+    _ = OutputPath.write_bytes(Payload)
     return OutputPath
 
 

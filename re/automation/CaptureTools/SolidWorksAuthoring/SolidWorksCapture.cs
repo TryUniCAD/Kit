@@ -7,18 +7,22 @@ using System.Text;
 using System.Web.Script.Serialization;
 using SolidWorks.Interop.sldworks;
 
-public sealed class SolidWorksCapture
+public sealed partial class SolidWorksCapture
 {
     static readonly JavaScriptSerializer Json = new JavaScriptSerializer { MaxJsonLength = int.MaxValue };
     static readonly UTF8Encoding Utf8 = new UTF8Encoding(false);
-    readonly ISldWorks app = (ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application"));
+    readonly ISldWorks app;
     readonly IMathUtility math;
     readonly string repo, output, template;
     readonly Dictionary<string, object>[] recipes;
     readonly string spec;
 
     SolidWorksCapture(string repo, string output)
+        : this((ISldWorks)Activator.CreateInstance(Type.GetTypeFromProgID("SldWorks.Application")), repo, output) { }
+
+    SolidWorksCapture(ISldWorks application, string repo, string output)
     {
+        this.app = application;
         this.repo = repo;
         this.output = output;
         math = (IMathUtility)app.GetMathUtility();
@@ -191,7 +195,7 @@ public sealed class SolidWorksCapture
             var sketch = BeginSketch(doc,basis,null);
             if (id == "P02")
             {
-                var circle = (ISketchSegment)doc.SketchManager.CreateCircleByRadius(0,0,0,.005);
+                var circle = (ISketchSegment)doc.SketchManager.CreateCircleByRadius(0,0,0,ConfiguredValue(id,"diameter_mm",.010)/2);
                 Check(circle != null,"Create origin circle");
                 if (sketch.RelationManager.GetRelationsCount(0) == 0)
                 {
@@ -202,21 +206,24 @@ public sealed class SolidWorksCapture
                 }
                 doc.ClearSelection2(true);
                 Select(circle);
-                SetName(doc.IAddDiameterDimension2(.014,.014,.014),"diameter_mm",.010);
+                SetName(doc.IAddDiameterDimension2(.014,.014,.014),"diameter_mm",ConfiguredValue(id,"diameter_mm",.010));
                 EndSketch(doc,sketch,"CircleSketch");
             }
             else if (id == "P05")
             {
-                var outline = Rectangle(doc,sketch,basis,.002,0,.006,.012,0);
-                var inner = Corner(sketch,basis,.002,0,0);
-                var outer = Corner(sketch,basis,.006,0,0);
+                double innerRadius=ConfiguredValue(id,"inner_radius_mm",.002);
+                double outerRadius=ConfiguredValue(id,"outer_radius_mm",.006);
+                double height=ConfiguredValue(id,"height_mm",.012);
+                var outline = Rectangle(doc,sketch,basis,innerRadius,0,outerRadius,height,0);
+                var inner = Corner(sketch,basis,innerRadius,0,0);
+                var outer = Corner(sketch,basis,outerRadius,0,0);
                 doc.ClearSelection2(true);
                 Origin(doc);
                 Select(inner,true);
                 doc.SketchAddConstraints("sgHORIZPOINTS");
-                OriginDimension(doc,sketch,inner,basis,0,"inner_radius_mm",.002);
-                OriginDimension(doc,sketch,outer,basis,0,"outer_radius_mm",.006);
-                EdgeDimension(doc,Edge(sketch,outline,basis,0,.002),"height_mm",.012);
+                OriginDimension(doc,sketch,inner,basis,0,"inner_radius_mm",innerRadius);
+                OriginDimension(doc,sketch,outer,basis,0,"outer_radius_mm",outerRadius);
+                EdgeDimension(doc,Edge(sketch,outline,basis,0,innerRadius),"height_mm",height);
                 var end = Transform(World(basis,0,.02,0),sketch.ModelToSketchTransform);
                 var manager = doc.SketchManager;
                 manager.AddToDB = true;
@@ -229,20 +236,24 @@ public sealed class SolidWorksCapture
                 doc.SketchAddConstraints("sgFIXED");
                 var profile = EndSketch(doc,sketch,"AnnulusProfile");
                 Check(profile.Select2(false,0),"Select axis-bound profile");
-                var feature = doc.FeatureManager.FeatureRevolve2(true,true,false,false,false,false,0,0,2*Math.PI,0,false,false,0,0,0,0,0,false,true,true);
+                double angle=ConfiguredValue(id,"angle_deg",2*Math.PI);
+                var feature = doc.FeatureManager.FeatureRevolve2(true,true,false,false,false,false,0,0,angle,0,false,false,0,0,0,0,0,false,true,true);
                 Check(feature != null,"Create full revolution");
                 feature.Name = "Revolution";
-                FeatureDimension(feature,"angle_deg",2*Math.PI);
+                FeatureDimension(feature,"angle_deg",angle);
             }
             else
             {
-                var edges = Rectangle(doc,sketch,basis,0,0,.04,.02,0);
-                EdgeDimension(doc,Edge(sketch,edges,basis,1,0),"width_mm",.04);
-                EdgeDimension(doc,Edge(sketch,edges,basis,0,0),"height_mm",.02);
+                double width=ConfiguredValue(id,"width_mm",.04);
+                double height=ConfiguredValue(id,"height_mm",.02);
+                double depth=ConfiguredValue(id,"depth_mm",.01);
+                var edges = Rectangle(doc,sketch,basis,0,0,width,height,0);
+                EdgeDimension(doc,Edge(sketch,edges,basis,1,0),"width_mm",width);
+                EdgeDimension(doc,Edge(sketch,edges,basis,0,0),"height_mm",height);
                 var profile = EndSketch(doc,sketch,"RectangleSketch");
                 if (id != "P01")
                 {
-                    Extrusion(doc,profile,"BlindBoss",reverse,.01,false,false);
+                    Extrusion(doc,profile,"BlindBoss",reverse,depth,false,false);
                     if (id == "P04")
                     {
                         Check(doc.ForceRebuild3(false),"Rebuild parent boss");
@@ -251,17 +262,23 @@ public sealed class SolidWorksCapture
                         var face = Array(body.GetFaces()).Cast<IFace2>().Single(f =>
                             ((double[])f.Normal).Zip(normal,(a,b)=>Math.Abs(a-b)).Sum() < 1e-8);
                         var cut = BeginSketch(doc,basis,(IEntity)face);
-                        var edgesCut = Rectangle(doc,cut,basis,.015,.006,.025,.014,.01);
-                        var corner = Corner(cut,basis,.015,.006,.01);
-                        EdgeDimension(doc,Edge(cut,edgesCut,basis,1,.006),"cut_width_mm",.010);
-                        EdgeDimension(doc,Edge(cut,edgesCut,basis,0,.015),"cut_height_mm",.008);
-                        var du = OriginDimension(doc,cut,corner,basis,0,"cut_left_mm",.015);
-                        var dv = OriginDimension(doc,cut,corner,basis,1,"cut_bottom_mm",.006);
+                        double cutWidth=ConfiguredValue(id,"cut_width_mm",.010);
+                        double cutHeight=ConfiguredValue(id,"cut_height_mm",.008);
+                        double cutLeft=configuredCase == null ? .015 : (width-cutWidth)/2;
+                        double cutBottom=configuredCase == null ? .006 : (height-cutHeight)/2;
+                        var edgesCut = Rectangle(doc,cut,basis,cutLeft,cutBottom,
+                            configuredCase == null ? .025 : cutLeft+cutWidth,
+                            configuredCase == null ? .014 : cutBottom+cutHeight,depth);
+                        var corner = Corner(cut,basis,cutLeft,cutBottom,depth);
+                        EdgeDimension(doc,Edge(cut,edgesCut,basis,1,cutBottom),"cut_width_mm",cutWidth);
+                        EdgeDimension(doc,Edge(cut,edgesCut,basis,0,cutLeft),"cut_height_mm",cutHeight);
+                        var du = OriginDimension(doc,cut,corner,basis,0,"cut_left_mm",cutLeft);
+                        var dv = OriginDimension(doc,cut,corner,basis,1,"cut_bottom_mm",cutBottom);
                         var cutProfile = EndSketch(doc,cut,"CutSketch");
                         var equations = doc.GetEquationMgr();
                         SetEquation(equations,du,"width_mm@RectangleSketch","cut_width_mm@CutSketch");
                         SetEquation(equations,dv,"height_mm@RectangleSketch","cut_height_mm@CutSketch");
-                        Extrusion(doc,cutProfile,through?"ThroughAllCut":"BlindCut",false,.004,true,through);
+                        Extrusion(doc,cutProfile,through?"ThroughAllCut":"BlindCut",false,ConfiguredValue(id,"cut_depth_mm",.004),true,through);
                     }
                 }
             }
@@ -470,14 +487,15 @@ public sealed class SolidWorksCapture
         finally { Close(doc); }
     }
     static string Filename(string id, string suffix) { return id + "-solidworks-" + suffix + ".SLDPRT"; }
-    string Basis(string id) { return id=="P05"?"XZ":"XY"; }
+    string Basis(string id) { return configuredCase == null ? (id=="P05"?"XZ":"XY") : (string)configuredOptions["basis"]; }
     void First(Dictionary<string,object> recipe)
     {
         var id=(string)recipe["id"];
         var dir=Path.Combine(output,id);
         Directory.CreateDirectory(dir);
         var observations=Row("healthy_control_before",Control("before"));
-        var doc=Build(id,Basis(id),false,false);
+        var doc=Build(id,Basis(id),configuredCase != null && (int)configuredOptions["direction"] == -1,
+            configuredCase != null && (string)configuredOptions["termination"] == "through_all");
         try
         {
             observations["baseline"]=Measure(doc,"as built",true);
