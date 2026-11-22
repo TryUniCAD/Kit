@@ -1,0 +1,497 @@
+{
+  "base_revision": "a6409718da5686c72695342535270dd8b210c736",
+  "evidence_input_sha256": {
+    "ChamferDistancePairSelectors01.json": "a1bdd5b12a650a36b17896cb78d287a701e2df3930c85ab038716feec26311b6",
+    "EdgeFilletArchiveRead01.json": "e7573a71c5fb709a26ae512a332f3fe6eecca5fef949b8f98380ac7cbd1337f3",
+    "EdgeFilletColdDiagnosticResult01.json": "c9f32bfd24f3dbf721111f4b8097ddcad0c6f18e0c0b00c13b45fb54166aa160",
+    "EdgeFilletColdDiagnosticStage01.json": "28f9e42a15247ece8789d74c5cfc295160a21b27c716ca58682b7bf4df72ce91",
+    "disclosed_intent": "d985611e397e943860b8b0ce4b3f9631e6c31f5355bdd784519a2b028a9a51cb"
+  },
+  "fillet_writer_output_count": 0,
+  "guarded_external_accesses": 0,
+  "guarded_processes": 6,
+  "heldout_sources_read": 0,
+  "model_only_stock_workers": [
+    {
+      "case": "EdgeFilletAxial",
+      "generated_stock_sha256": "7fa5e309791b7eb9e8e0aa0109268cd76be77a18fc8f97ea97480dfc9bfcc37f",
+      "guarded_external_accesses": 0,
+      "logical_streams": 10,
+      "native_saved_role_relation": "reciprocal",
+      "positive_fin_endpoints_m": [
+        [
+          0.0419,
+          -0.0251,
+          0.0
+        ],
+        [
+          0.0419,
+          -0.0251,
+          0.0228
+        ]
+      ],
+      "roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          1,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ]
+      ]
+    },
+    {
+      "case": "EdgeFilletTransverse",
+      "generated_stock_sha256": "6d8b5d1a4ffc6a4697224e4e1295b1225448ce3af751f5e26246bce91dd57287",
+      "guarded_external_accesses": 0,
+      "logical_streams": 10,
+      "native_saved_role_relation": "same",
+      "positive_fin_endpoints_m": [
+        [
+          0.013149999999999998,
+          0.02645,
+          0.0286
+        ],
+        [
+          -0.029750000000000002,
+          0.02645,
+          0.0286
+        ]
+      ],
+      "roles": [
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          4,
+          null
+        ]
+      ]
+    }
+  ],
+  "new_native_processes": 0,
+  "physical_saved_reads": [
+    {
+      "body_stamp": 1816,
+      "case": "EdgeFilletAxial",
+      "edited": false,
+      "guarded_external_accesses": 0,
+      "positive_face_slots": [
+        128,
+        86,
+        98,
+        131
+      ],
+      "positive_fin_endpoints_m": [
+        [
+          0.0419,
+          -0.025099999999999997,
+          0.0228
+        ],
+        [
+          0.0419,
+          -0.025099999999999997,
+          0.0
+        ]
+      ],
+      "prior_edge_node_id": 81,
+      "prior_edge_slot": 227,
+      "reference_owners": {
+        "f848_selected_edge": {
+          "atom_words": [
+            101,
+            0
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            1912,
+            512
+          ]
+        },
+        "f9b8_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        },
+        "f9b8_result_face": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moFaceRef_c",
+          "ref_words": [
+            2146,
+            768
+          ]
+        },
+        "fbf0_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        }
+      },
+      "result_face_node_id": 186,
+      "result_face_slot": 44,
+      "roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          1,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "saved_options_count": 6,
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6"
+    },
+    {
+      "body_stamp": 1409,
+      "case": "EdgeFilletAxial",
+      "edited": true,
+      "guarded_external_accesses": 0,
+      "positive_face_slots": [
+        126,
+        88,
+        96,
+        131
+      ],
+      "positive_fin_endpoints_m": [
+        [
+          0.0419,
+          -0.025099999999999997,
+          0.0228
+        ],
+        [
+          0.0419,
+          -0.025099999999999997,
+          0.0
+        ]
+      ],
+      "prior_edge_node_id": 81,
+      "prior_edge_slot": 226,
+      "reference_owners": {
+        "f848_selected_edge": {
+          "atom_words": [
+            101,
+            0
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            1505,
+            512
+          ]
+        },
+        "f9b8_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        },
+        "f9b8_result_face": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moFaceRef_c",
+          "ref_words": [
+            1739,
+            768
+          ]
+        },
+        "fbf0_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        }
+      },
+      "result_face_node_id": 186,
+      "result_face_slot": 43,
+      "roles": [
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          1,
+          null
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moEndFaceSurfIdRep_c",
+          0,
+          0
+        ]
+      ],
+      "saved_options_count": 6,
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a"
+    },
+    {
+      "body_stamp": 1816,
+      "case": "EdgeFilletTransverse",
+      "edited": false,
+      "guarded_external_accesses": 0,
+      "positive_face_slots": [
+        89,
+        134,
+        128,
+        43
+      ],
+      "positive_fin_endpoints_m": [
+        [
+          0.01315,
+          0.02645,
+          0.0286
+        ],
+        [
+          -0.02975,
+          0.02645,
+          0.0286
+        ]
+      ],
+      "prior_edge_node_id": 17,
+      "prior_edge_slot": 228,
+      "reference_owners": {
+        "f848_selected_edge": {
+          "atom_words": [
+            101,
+            0
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            1838,
+            512
+          ]
+        },
+        "f9b8_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        },
+        "f9b8_result_face": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moFaceRef_c",
+          "ref_words": [
+            2146,
+            768
+          ]
+        },
+        "fbf0_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        }
+      },
+      "result_face_node_id": 186,
+      "result_face_slot": 44,
+      "roles": [
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          4,
+          null
+        ]
+      ],
+      "saved_options_count": 6,
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e"
+    },
+    {
+      "body_stamp": 1412,
+      "case": "EdgeFilletTransverse",
+      "edited": true,
+      "guarded_external_accesses": 0,
+      "positive_face_slots": [
+        86,
+        134,
+        126,
+        41
+      ],
+      "positive_fin_endpoints_m": [
+        [
+          0.01315,
+          0.02645,
+          0.0286
+        ],
+        [
+          -0.02975,
+          0.02645,
+          0.0286
+        ]
+      ],
+      "prior_edge_node_id": 17,
+      "prior_edge_slot": 227,
+      "reference_owners": {
+        "f848_selected_edge": {
+          "atom_words": [
+            101,
+            0
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            1434,
+            512
+          ]
+        },
+        "f9b8_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        },
+        "f9b8_result_face": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moFaceRef_c",
+          "ref_words": [
+            1742,
+            768
+          ]
+        },
+        "fbf0_detached_edge": {
+          "atom_words": [
+            101,
+            101
+          ],
+          "ref_class": "moEdgeRef_c",
+          "ref_words": [
+            0,
+            512
+          ]
+        }
+      },
+      "result_face_node_id": 186,
+      "result_face_slot": 43,
+      "roles": [
+        [
+          "moEndFaceSurfIdRep_c",
+          1,
+          0
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          3,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          2,
+          null
+        ],
+        [
+          "moFromSktEntSurfIdRep_c",
+          4,
+          null
+        ]
+      ],
+      "saved_options_count": 6,
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3"
+    }
+  ],
+  "proof_sha256": "b47e81c3727224f640be9edd4f423405984e015368551837f64f405575361faa",
+  "same_encoding_chamfer_options_sha256": "e554183c15a68111af687002a42e79448ddc2085d7c4c4b351b725867d629a0a",
+  "saved_option_array_sha256": "fafee459ba308aa73a1553cd5b5b78d80eb58556a6017cac1294e98be58afa7d",
+  "schema": "kit.sw2026.edge-fillet-construction-boundary.v1"
+}
