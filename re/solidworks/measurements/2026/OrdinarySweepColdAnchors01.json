@@ -1,0 +1,151 @@
+{
+  "header_import": {
+    "module": "sldarchiveu.dll",
+    "name": "?getCurrentUpdateStamp@moHeader_c@@QEBAKPEBV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@@Z"
+  },
+  "managed_methods": [
+    {
+      "code_sha256": "3fbf007191ae352731aadd2b10215ec62e215d82467cc4bc8a0fd489cc806296",
+      "code_size": 3479,
+      "methoddef": "0x060053fc",
+      "module": "sldcoreu.dll",
+      "name": "CreateSweepPacket_c.Apply",
+      "rva": "0x15eac0",
+      "sweep_initializer_call_code_offset": 1756,
+      "target_methoddef": "0x06004687"
+    }
+  ],
+  "modules": {
+    "sldarchiveu.dll": "5f743916826fd26a25c8d4792ada785d414d1c718c32495e481b1c5dc512ac48",
+    "sldcoreu.dll": "3af88769b06bf7a1510fe52f279fbda20e5dc5548dc3925a1357e0f71cc3b3e3",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_edges": [
+    [
+      "0x4cb3d507",
+      "0x4cb4f2c0"
+    ],
+    [
+      "0x4cb3d52b",
+      "0x4c03ed80"
+    ],
+    [
+      "0x4cb3d5a9",
+      "0x4c03ed80"
+    ],
+    [
+      "0x4cb4656f",
+      "0x4cb52420"
+    ],
+    [
+      "0x4cb5d847",
+      "0x4c307770"
+    ],
+    [
+      "0x4c321633",
+      "0x4c30f000"
+    ],
+    [
+      "0x4c321749",
+      "0x4c3290f0"
+    ]
+  ],
+  "native_execution": false,
+  "schema": "kit.sw2026.cold-sweep-physical-anchors.v1",
+  "spans": {
+    "Component profile wrapper allocation": {
+      "byte_span": [
+        "0x4cb5d7b9",
+        "0x4cb5d86a"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "83ddc00a276e4ca2ccd513841085f471df258926fa07f545ab22b9d6c5e3d9bf"
+    },
+    "Embedded sweep arguments and stored words": {
+      "byte_span": [
+        "0x4cb52816",
+        "0x4cb528d8"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "aff25220f5d06db25c91ee82778234f3123056e8d785270afc30181b3b296083"
+    },
+    "Embedded sweep constructor": {
+      "byte_span": [
+        "0x4cb4f2c0",
+        "0x4cb4f5b7"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "cab24fad028900666469e77b9d85dee275a67f7dac3af1d9642e97c78441275c"
+    },
+    "Fresh Standard argument forwarding": {
+      "byte_span": [
+        "0x4cb46485",
+        "0x4cb46574"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "aef40fd4501de4ce30a2cf1457692ac7e1099e04b6d18394d83279fe83aafab2"
+    },
+    "General curve resolution and cache assignment": {
+      "byte_span": [
+        "0x4c3211d0",
+        "0x4c321789"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "26e21ad2df755c0cecf691aa70f4f7dbe93cb6b9802747c255512258106bc4e1"
+    },
+    "Live header update stamp getter": {
+      "byte_span": [
+        "0x319f9810",
+        "0x319f9814"
+      ],
+      "module": "sldarchiveu.dll",
+      "sha256": "68b70ba1e6ad2356c69cac8e846649e599945994fa7690a0bf4af28fa25c24a5"
+    },
+    "No sketch block selection state": {
+      "byte_span": [
+        "0x4cb54000",
+        "0x4cb5400e"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "1a143a9ee4e8ddb7181d2b527484ab8fd912b5e617329723136201894ad80d48"
+    },
+    "Node flag OR": {
+      "byte_span": [
+        "0x4c03ed80",
+        "0x4c03ed8e"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "bbf083eefd0910d279c0eb035c2b0dc21ec682e4d65cf0ca1f025b13e667c5de"
+    },
+    "Reference last-access stamp": {
+      "byte_span": [
+        "0x4c3290f0",
+        "0x4c3291f4"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "bd02c080bdc279fcfd943e695bcbf74b36309db2918b6499898996a01b0b4be4"
+    },
+    "Same-model update stamp boundary": {
+      "byte_span": [
+        "0x4bdac640",
+        "0x4bdac699"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "111072237dbae55c6f25f328011093e1ccc1252a9a3f974d50a03dfc73237182"
+    },
+    "Sweep constructor": {
+      "byte_span": [
+        "0x4cb3d4d0",
+        "0x4cb3d5ec"
+      ],
+      "module": "sldmodu.dll",
+      "sha256": "79df2c7cef2c7bf95cc9262c122a2c86bffa6d6c1e3cbbfce72a8c0287cfabf4"
+    }
+  },
+  "vendor_body_or_code_emitted": false,
+  "virtual_targets": {
+    "0x4d126308": "0x4bdac640",
+    "0x4d1269b0": "0x4b27cbe0",
+    "0x4d17d8f0": "0x4c3211d0"
+  }
+}

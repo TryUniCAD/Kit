@@ -108,10 +108,11 @@ def observe(mode):
         if mode == "baseline":
             return value
         require(value.VersionValue == 19000 and value.FlagsValue == {
-            "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": 1,
+            "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": 0 if mode == "cold" else 1,
         }, "sweep observation requires the measured ordinary 19000 part context")
-        layouts = LAYOUTS if mode == "linked" else {SWEEP: LAYOUTS[SWEEP][:1]}
-        registered = (SWEEP, SIDE, CURVE, CONTACT, PROFILE) if mode == "linked" else (SWEEP,)
+        linked = mode in ("linked", "cold")
+        layouts = LAYOUTS if linked else {SWEEP: LAYOUTS[SWEEP][:1]}
+        registered = (SWEEP, SIDE, CURVE, CONTACT, PROFILE) if linked else (SWEEP,)
         return replace(
             value,
             LayoutsValue=value.LayoutsValue | layouts,

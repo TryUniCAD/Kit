@@ -14,13 +14,13 @@ BODY_CODEC = import_module("convert.adapters.solidworks.Archive.Bodies.WriteBody
 
 
 @contextmanager
-def sweep_replay():
+def sweep_replay(*, cold=False):
     base_context, base_schema = RESOLVED.MakeResolvedCtx, BODY_CODEC.WriteSchemaMut
 
     def context(*args):
         value = base_context(*args)
         require(value.VersionValue == 19000 and value.FlagsValue == {
-            "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": 1,
+            "model_compressed_stream": 1, "model_is_part": 1, "cmgr_f658": 0 if cold else 1,
         }, "sweep replay requires the measured ordinary 19000 part context")
         classes = {name: (1,) for name in LAYOUTS if not name.startswith("sweep.")}
         return replace(value, LayoutsValue=value.LayoutsValue | LAYOUTS, SchemasValue=value.SchemasValue | classes,
@@ -31,7 +31,8 @@ def sweep_replay():
     def schema(frame, name):
         fields = frame.ScopeValue.FieldsValue
         if name == BODY:
-            nodes = tuple(XmtNode(row.index, row.kind, row.fields) for row in fields["nodes"])
+            nodes = tuple(row if isinstance(row, XmtNode) else XmtNode(row.index, row.kind, row.fields)
+                          for row in fields["nodes"])
             frame.WriterValue.OutputValue.extend(wrap_section(encode_section_nodes(nodes)))
         elif name == GUARD:
             data = fields["f820"]

@@ -49,11 +49,12 @@ def phase_worker(job_path, pin, phase, slot, source_hash):
                       source_hash, record, constants)
 
 
-def launch(job, pin, folder, phase, processes, slot=None, source=None):
+def launch(job, pin, folder, phase, processes, slot=None, source=None, *, runner=None):
     folder.mkdir(parents=True, exist_ok=False)
     entry = {"phase": phase, "slot": slot, "source_sha256": source, "job_sha256": pin}
     write_new(folder / "Phase.json", entry)
-    command = [sys.executable, "-E", "-B", str(Path(__file__).resolve()), "--job", str(job), "--pin", pin, "--phase", phase]
+    script = Path(__file__).resolve() if runner is None else runner
+    command = [sys.executable, "-E", "-B", str(script), "--job", str(job), "--pin", pin, "--phase", phase]
     if slot is not None:
         command.extend(("--slot", str(slot)))
     if source is not None:
