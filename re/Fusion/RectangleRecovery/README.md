@@ -29,7 +29,7 @@ The files were authored after the proposed rule; they were not used to derive it
 `Controls/Constrained` retains seven further native controls and their explicit driving-parameter, constraint, feature and geometry inventories.
 The XY controls and reverse XY case pass. Other placements retain their explicit baseline refusals.
 These observations do not qualify arbitrary annotation placement, XZ frames or reverse-YZ bodies.
-`CaptureUnconstrained.py` and `CaptureConstrained.py` are the submitted owner-authored research scripts.
+`CaptureUnconstrained.py`, `CaptureConstrained.py` and `CaptureDecimal.py` are the submitted owner-authored research scripts.
 The constrained script uses the existing repository P03 helper functions. It contains no vendor software.
 Run capture programs only through configured native research workers, which supply the `app` and `work` objects.
 `Controls.json` binds the original native bytes and published measurement files to their hashes.
@@ -65,3 +65,9 @@ The new capacity-one controller resource stopped further dispatch on the first n
 The failed case subsequently passed an instrumented retry while an interactive SOLIDWORKS instance existed.
 This observation does not establish the crash's root cause or a permanent worker repair.
 Native recovery and remaining SOLIDWORKS batches retain separate evidence and acceptance requirements.
+
+Decimal controls use 16.2 × 23.7 × 6.3 mm dimensions. The pre-review reader rejected reverse XY and positive YZ after centimeter to millimeter round trips. Native bounds and curve tags now compare original Point3D endpoints, preserving exact geometry disagreement checks. Named reverse distance references remain outside this bounded literal path.
+
+`Controls/Decimal` retains four further independent API controls and `DecimalNative.json` records their measurements. `DecimalComparison.json` retains the pre-repair refusals. `InitialIntegrationEvidence.json` preserves the first four-control checkpoint. The original 144-file replay remains in `ReplayEvidence.json`; the first rounding-repair replay finished at 72 strict successes and 72 explicit refusals; revision-bound corrections for intermediate source fingerprints must settle before final readiness.
+
+The scoped repair passes all 13 existing native edited-prism controls in `DraftCompatibility.json`, including four drafted prisms. The shared recovery process includes those four drafted controls alongside eight holdouts and fourteen refusals.

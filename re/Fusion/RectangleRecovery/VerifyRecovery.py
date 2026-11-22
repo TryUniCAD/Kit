@@ -31,15 +31,17 @@ def verify():
         raw = (PACKAGE / entry['file']).read_bytes()
         assert len(raw) == entry['size_bytes']
         assert hashlib.sha256(raw).hexdigest() == entry['sha256']
-    truth = json.loads((PACKAGE / 'UnconstrainedNative.json').read_text())
+    truth = {'cases': [{**case, 'folder': folder} for folder, name in [('Unconstrained', 'UnconstrainedNative.json'), ('Decimal', 'DecimalNative.json')] for case in json.loads((PACKAGE / name).read_text())['cases']]}
     positives = []
     negatives = []
+    drafted = []
     with tempfile.TemporaryDirectory() as temporary:
         work = Path(temporary)
         for case in truth['cases']:
-            source = PACKAGE / 'Controls/Unconstrained' / (case['case'] + '.f3d')
+            source = PACKAGE / 'Controls' / case['folder'] / (case['case'] + '.f3d')
+            label = ('decimal-' if case['folder'] == 'Decimal' else '') + case['case']
             assert hashlib.sha256(source.read_bytes()).hexdigest() == case['sha256']
-            target = work / (case['case'] + '.json')
+            target = work / (label + '.json')
             run = subprocess.run([sys.executable, '-m', 'convert', 'decode', str(source), '-o', str(target)], capture_output=True, timeout=180, env={**environ, 'PYTHONPATH': str(ROOT / 'src')})
             assert run.returncode == 0, run.stderr.decode(errors='replace')
             decoded = json.loads(target.read_text())
@@ -74,8 +76,8 @@ def verify():
                         assert 'qualified authoring' in str(error) or 'read-only' in str(error)
                     else:
                         raise AssertionError('native-state bridge accepted unqualified profile')
-                    negatives.append(case['case'] + '-writer-' + label)
-            positives.append({'case': case['case'], 'volume_mm3': topology['volume'], 'surface_area_mm2': topology['surface_area'], 'centroid_mm': center, 'strict_sdk_and_cli_equal': True})
+                    negatives.append(('decimal-' if case['folder'] == 'Decimal' else '') + case['case'] + '-writer-' + label)
+            positives.append({'case': ('decimal-' if case['folder'] == 'Decimal' else '') + case['case'], 'volume_mm3': topology['volume'], 'surface_area_mm2': topology['surface_area'], 'centroid_mm': center, 'strict_sdk_and_cli_equal': True})
         for name in ('forward-xz', 'reverse-xz', 'reverse-yz'):
             source = PACKAGE / 'Controls/Constrained' / (name + '.f3d')
             target = work / (name + '-refused.json')
@@ -90,17 +92,21 @@ def verify():
         settings = graph.OneClass('CommonDataAssetSettings')
         units = ResolveField(graph, settings, 'activeUnitSystem', 'UnitSystem')
         choice, = [n for n in LinkedNodes(graph, units, 'children') if n.ClassName == 'UnitSystemChoiceById' and n.Fields['id'] == 'ModelingLength']
-        for name, node, field, value in [('wrong-distance', parameter, 'expression', '-13 mm'), ('unsupported-display-unit', choice, 'unitString', 'inch')]:
+        for name, node, field, value in [('wrong-distance', parameter, 'expression', '-13 mm'), ('unsupported-display-unit', choice, 'unitString', 'inch'), ('named-reverse-distance', parameter, 'expression', parameter.Fields['userName'])]:
             changed = mutation_archive(model, node, field, value)
             path = work / (name + '.f3d')
             path.write_bytes(changed)
             target = work / (name + '.json')
             run = subprocess.run([sys.executable, '-m', 'convert', 'decode', str(path), '-o', str(target)], capture_output=True, timeout=180, env={**environ, 'PYTHONPATH': str(ROOT / 'src')})
             assert run.returncode != 0 and not target.exists()
-            expected = 'saved geometry or parameter values disagree' if name == 'wrong-distance' else 'require millimeter display units'
+            expected = {'wrong-distance': 'saved geometry or parameter values disagree', 'unsupported-display-unit': 'require millimeter display units', 'named-reverse-distance': 'unconstrained reverse distance requires a literal'}[name]
             assert expected in run.stderr.decode(errors='replace')
             negatives.append(name)
-    return {'status': 'passed', 'source_revision': inventory['source_revision'], 'positives': positives, 'negative_cases': negatives, 'full_semantics_verified': False, 'native_conversion_acceptance': False}
+    for source in sorted((ROOT / 're/Fusion/Reconstruction/NativeEditedPrisms').glob('Draft*.f3d')):
+        document = open_document(source, source_format='fusion.f3d', strict=True)
+        assert len(document.bodies) == 1 and document.metadata['fusion.read_only'] is True
+        drafted.append({'source': str(source.relative_to(ROOT)), 'sha256': hashlib.sha256(source.read_bytes()).hexdigest(), 'strict_decoded': True})
+    return {'drafted_controls': drafted, 'status': 'passed', 'source_revision': inventory['source_revision'], 'positives': positives, 'negative_cases': negatives, 'full_semantics_verified': False, 'native_conversion_acceptance': False}
 
 
 if __name__ == '__main__':

@@ -23,6 +23,7 @@ def CheckRecovery(TmpPath: FilePath) -> None:
     )
     assert Result.returncode == 0, Result.stderr.decode(errors="replace")
     Report = LoadJson(ReportPath.read_text())
-    assert Report["status"] == "passed" and len(Report["positives"]) == 4
-    assert len(Report["negative_cases"]) == 9
+    assert Report["status"] == "passed" and len(Report["positives"]) == 8
+    assert len(Report["negative_cases"]) == 14
+    assert len(Report["drafted_controls"]) == 4
     assert Report["native_conversion_acceptance"] is False

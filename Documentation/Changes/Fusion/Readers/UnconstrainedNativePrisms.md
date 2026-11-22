@@ -12,10 +12,10 @@ The new projections are read-only. Both ordinary native writes and marker-stripp
 ## Usage and evidence
 
 Use `kit decode SOURCE.f3d -o REPORT.json` or the public strict SDK reader.
-The [research package](../../../../re/Fusion/RectangleRecovery/README.md) retains four independently authored controls and seven constrained comparison controls.
+The [research package](../../../../re/Fusion/RectangleRecovery/README.md) retains eight independently authored controls and seven constrained comparison controls.
 It records native geometry and parameter inventories, source hashes, replay commands and the process verification.
 The new controls match native body count, volume, surface area and rectangular centroid.
-The process verifies nine writer, malformed-input and unsupported-placement refusal cases.
+The process verifies fourteen writer, malformed-input and unsupported-placement refusal cases.
 Existing signed-state and datum process reports retain their exact recorded hashes.
 The shared test suite includes the new process integration through its existing planner and shards.
 
@@ -27,3 +27,5 @@ The [authoring gotcha](../../../Gotchas/Conversion/Fusion/Readers/RectangleApiDo
 
 The [launcher gotcha](../../../Gotchas/Research/Supervisor/Runtime/ShadowedKitLauncher.md) records a separate operational failure found during this work.
 The repair selected the existing Python 3.14 installation explicitly. No process-fence implementation was weakened.
+
+Decimal controls use 16.2 × 23.7 × 6.3 mm dimensions. The pre-review reader rejected reverse XY and positive YZ after centimeter to millimeter round trips. Native bounds and curve tags now compare original Point3D endpoints, preserving exact geometry disagreement checks. Named reverse distance references remain outside this bounded literal path.

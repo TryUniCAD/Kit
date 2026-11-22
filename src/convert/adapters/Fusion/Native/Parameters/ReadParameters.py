@@ -33,6 +33,12 @@ def ReadParameters(
     if len(Catalog) != len(Nodes) or "" in Catalog:
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
+    if (
+        Reverse
+        and Rectangle is None
+        and TextValue(Along.Fields["expression"]) in Catalog
+    ):
+        raise ValueError("Native unconstrained reverse distance requires a literal")
     Taper = CheckBinding(Graph, Context.Taper, Context)
     ExtentBindings: tuple[NativeNode, ...] = (Context.Along, Context.Taper)
     if Context.Extrude.Fields["rAgainstDistance"] is not None:

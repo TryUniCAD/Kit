@@ -69,6 +69,31 @@
       "sha256": "ce09f3a50727d62d71bcd22a267f9e912a370589ccc17e0c88b08711cf4001d4",
       "original_sha256": "09892324db4d4a4cf7c72e2bbf5365c5fee060c8a0a85cefb2bf013f95f9aac3",
       "size_bytes": 39976
+    },
+    {
+      "file": "Controls/Decimal/control-after.f3d",
+      "sha256": "ea71a26dd21d8843a204520b10df7c49efa91fe58df76484e426dc16750262b9",
+      "size_bytes": 60943
+    },
+    {
+      "file": "Controls/Decimal/control-before.f3d",
+      "sha256": "69b4768126f52426b2b815b18942628163d3655184edfb3c437d87daef4bb2fa",
+      "size_bytes": 60866
+    },
+    {
+      "file": "Controls/Decimal/datum-yz.f3d",
+      "sha256": "a5854737797b7fe8823d3abf56288be33f1a81b81a6ee22dbefd1a535b4f697f",
+      "size_bytes": 60758
+    },
+    {
+      "file": "Controls/Decimal/reverse-xy.f3d",
+      "sha256": "678aefa49ad86937eace549b906ec8523e9693452605ac69d71bf280efc5cebe",
+      "size_bytes": 60834
+    },
+    {
+      "file": "DecimalNative.json",
+      "sha256": "805f240d9159d618d47ac75f8873b252ca3051ceedcc34e4d4a94cdc79006404",
+      "size_bytes": 2410
     }
   ]
 }
