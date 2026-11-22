@@ -260,7 +260,7 @@ def path_refusals(document, options):
                 "registry path eligibility differs from its actual platform")
         refuse(lambda: write_document(document, untouched, destination_format=FORMAT, values=options),
                ValueError if windows else NotFoundError,
-               "actual measured Windows destination" if windows else "does not support the destination")
+               "no exact native measurement" if windows else "does not support the destination")
         require(not untouched.parent.exists(), "refused path left its stage or directory")
     return {"direct": result, "registry_untouched": True}
 
@@ -303,12 +303,18 @@ def check(coverage_only=False):
         matches = fingerprint(prepared.BytesValue) == expected
         if coverage_only and not matches and "zlib-ng" in ZLIB_RUNTIME_VERSION:
             require(len(prepared.StreamsValue) == 12, "archive changed its logical stream inventory")
-            stream = BytesIO()
-            refusal = refuse(lambda: write_document(document, stream, destination_format=FORMAT, values=options),
-                             ValueError, "no exact native measurement")
-            require(stream.getvalue() == b"", "unmeasured compressor output reached a stream")
+            registry, direct = BytesIO(), BytesIO()
+            rejections = {
+                "registry": refuse(lambda: write_document(document, registry, destination_format=FORMAT,
+                                                          allow_carrier=False, values=options),
+                                   ValueError, "no exact native measurement"),
+                "direct": refuse(lambda: SldprtWriter().write(document, direct, WriteOptions(values=options)),
+                                 ValueError, "no exact native measurement"),
+            }
+            require(registry.getvalue() == direct.getvalue() == b"",
+                    "unmeasured compressor output reached a stream")
             comparison = {"exact_publications": 0, "unmatched_compressor": ZLIB_RUNTIME_VERSION,
-                          "distinct_compression_refused": refusal}
+                          "distinct_compression_refused": rejections}
         else:
             comparison = {}
     if comparison:

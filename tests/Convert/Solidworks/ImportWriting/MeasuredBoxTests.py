@@ -1,4 +1,5 @@
 from json import loads as LoadJson
+from os import name as OsName
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
@@ -26,7 +27,32 @@ def TestMeasuredBox() -> None:
     if "unmatched_compressor" in ReportValue:
         assert ReportValue["exact_publications"] == 0
         assert "zlib-ng" in ReportValue["unmatched_compressor"]
+        assert ReportValue["distinct_compression_refused"] == dict.fromkeys(
+            ("direct", "registry"), "no exact native measurement"
+        )
     else:
         assert ReportValue["exact_publications"] == 2
         assert ReportValue["exact_streams"] == 12
         assert len(ReportValue["refusals"]) == 11
+        if OsName == "nt":
+            VerifyBoxPath(ReportValue["archive"])
+
+
+# the real windows path hands the measured locator through registry staging and direct writing
+def VerifyBoxPath(Expected: dict[str, object]) -> None:
+    ScriptPath = (
+        KRootPath / "re/tooling/sw2026/imported_body_source/VerifyMeasuredBoxPaths.py"
+    )
+    Outcome = RunProcess(
+        (PythonExec, "-I", "-B", str(ScriptPath)),
+        capture_output=True,
+        encoding="utf-8",
+        timeout=90,
+        check=False,
+    )
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    ReportValue = LoadJson(Outcome.stdout)
+    assert ReportValue["exact_publications"] == 2
+    assert ReportValue["runtime_input_file_reads"] == 0
+    assert not ReportValue["declared_locator_option_used"]
+    assert ReportValue["routes"] == {"direct": Expected, "registry": Expected}
