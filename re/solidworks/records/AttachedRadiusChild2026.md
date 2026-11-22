@@ -68,3 +68,47 @@ observed tree lists 25 in each state. This verifies the editable circle,
 boss and linked physical solid. It gives zero held-out credit and does
 not establish an independently loadable standalone child or full scene
 round-trip.
+
+## Model-only generation
+
+The [compiler comparison](../measurements/2026/AttachedRadiusChildBuild01.json)
+constructs the same child twice through the exact #239 SDK source and
+shared typed `EncodePartXmt` at `8a0043cb85affcf39660007383abcadd38a0b13e`.
+The isolated topology producer at
+`787a836b6aecdbb726dc86078e79977aafdefc78` computes its 72 active nodes
+and rollback from the disclosed neutral request. Both workers prohibit
+external accesses after imports and explicit input transfer. The SDK
+worker computes the file and configuration state from that plan, the
+actual owning feature and atom, its explicit save event and the four
+typed authored lights. Whole bytes and all eleven logical stream digests
+agree with the earlier construction. Strict SDK readback also agrees
+with the neutral input owners and independent analytic body metrics.
+
+```sh
+python3.14 -I -B /Users/odin/.codex/worktrees/solidworks-attached-radius-child/Kit/re/tooling/sw2026/VerifyAttachedRadiusBuild.py \
+  --intent /absolute/disclosed/IndependentRequest.json \
+  --packet /absolute/disclosed/RadialConcentric01 \
+  --output /tmp/UnusedAttachedRadiusBuild.json
+```
+
+The handoff requires the three explicitly pinned local Git objects and
+the disclosed semantic input. The research supervisor exports source
+code into temporary directories and validates the control receipt and
+locator provenance before worker execution. It opens no saved CAD input.
+The runtime compressor observed here was zlib `1.2.12`. Whole file digests
+remain platform and locator specific.
+
+The same command with `--trial-locator` and a fresh external
+`--candidate-dir` produces a separately pinned standalone discriminator.
+The [prospective build receipt](../measurements/2026/AttachedRadiusStandaloneBuild01.json)
+records the exact different file. Only `Header2` and
+`Contents/Config-0-ModelHeader` differ in logical stream bytes. The
+[prospective observation plan](../authoring/AttachedRadiusStandalonePlan01.json)
+declares the original recursive tree, the actual radius and depth
+drivers and the independent `34.125 mm` blind edit. The identical
+geometry and parameter checks apply after fresh native reopen.
+
+The remaining delivery work is the standalone native lifecycle at that
+locator and the runtime neutral topology and authored presentation
+constructor closure. The measured parent-child route has separate
+publication and mate-ownership requirements.

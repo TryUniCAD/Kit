@@ -1,0 +1,197 @@
+{
+  "active_configuration": "Default",
+  "control_prior_standalone_native_report_sha256": "2053d7c1b046fe6bc0a67e923499c0a795a35cc02af1032d59670b4346e39c7b",
+  "edited_and_reopen": {
+    "area_m2": 0.0018664506689464362,
+    "body_count": 1,
+    "bounds_m": [
+      [
+        -0.00456,
+        -0.01136,
+        0.0
+      ],
+      [
+        0.00982,
+        0.00302,
+        0.034125
+      ]
+    ],
+    "centre_of_mass_m": [
+      0.00263,
+      -0.00417,
+      0.0170625
+    ],
+    "depth_m": 0.034125,
+    "face_count": 3,
+    "native_drivers_m": {
+      "D1@CurveBoss": 0.034125,
+      "D1@CurveSketch": 0.00719
+    },
+    "radius_m": 0.00719,
+    "volume_m3": 5.542176002291678e-06
+  },
+  "expected_tree": [
+    [
+      "Comments",
+      "CommentsFolder",
+      null
+    ],
+    [
+      "Favorites",
+      "FavoriteFolder",
+      null
+    ],
+    [
+      "History",
+      "HistoryFolder",
+      null
+    ],
+    [
+      "Selection Sets",
+      "SelectionSetFolder",
+      null
+    ],
+    [
+      "Sensors",
+      "SensorFolder",
+      null
+    ],
+    [
+      "Design Binder",
+      "DocsFolder",
+      null
+    ],
+    [
+      "Annotations",
+      "DetailCabinet",
+      null
+    ],
+    [
+      "Notes",
+      "NotesAreaFtrFolder",
+      "Annotations"
+    ],
+    [
+      "Notes1___EndTag___",
+      "NotesAreaFtrFolder",
+      "Annotations"
+    ],
+    [
+      "Surface Bodies",
+      "SurfaceBodyFolder",
+      null
+    ],
+    [
+      "Solid Bodies",
+      "SolidBodyFolder",
+      null
+    ],
+    [
+      "Lights and Cameras",
+      "EnvFolder",
+      null
+    ],
+    [
+      "Ambient",
+      "AmbientLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional1",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional2",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Directional3",
+      "DirectionLight",
+      "Lights and Cameras"
+    ],
+    [
+      "Markups",
+      "InkMarkupFolder",
+      null
+    ],
+    [
+      "Equations",
+      "EqnFolder",
+      null
+    ],
+    [
+      "Material <not specified>",
+      "MaterialFolder",
+      null
+    ],
+    [
+      "Front Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Top Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Right Plane",
+      "RefPlane",
+      null
+    ],
+    [
+      "Origin",
+      "OriginProfileFeature",
+      null
+    ],
+    [
+      "CurveSketch",
+      "ProfileFeature",
+      null
+    ],
+    [
+      "CurveBoss",
+      "Extrusion",
+      null
+    ]
+  ],
+  "geometry_owner": "CurveBoss",
+  "initial": {
+    "area_m2": 0.0017419905069484347,
+    "body_count": 1,
+    "bounds_m": [
+      [
+        -0.00456,
+        -0.01136,
+        0.0
+      ],
+      [
+        0.00982,
+        0.00302,
+        0.03137
+      ]
+    ],
+    "centre_of_mass_m": [
+      0.00263,
+      -0.00417,
+      0.015685
+    ],
+    "depth_m": 0.03137,
+    "face_count": 3,
+    "native_drivers_m": {
+      "D1@CurveBoss": 0.03137,
+      "D1@CurveSketch": 0.00719
+    },
+    "radius_m": 0.00719,
+    "volume_m3": 5.094741719908863e-06
+  },
+  "linked_native_build_version": "34.5.2.0604",
+  "linked_tree_source_sha256": "3263e7d2019953bede2c36948b84274d915b9cd8f4de1afc0bcb1988e0397f03",
+  "matching_control_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+  "native_processes_started": 0,
+  "schema": "kit.sw2026.attached-radius-prospective-native.v1",
+  "scope": "planned standalone check only",
+  "standalone_candidate_sha256": "502544a82aa60b83ac6ee8e032a209022b3382734e6e68f9bb6c737287fec149"
+}
