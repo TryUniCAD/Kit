@@ -1,0 +1,33 @@
+[
+  {
+    "case": {
+      "application": "solidworks",
+      "axis": "depth",
+      "id": "solidworks-068-restart",
+      "original_case_id": "solidworks-068",
+      "parameters_mm": {
+        "depth": 4,
+        "height": 20,
+        "width": 40
+      },
+      "plane": "top",
+      "reverse": false,
+      "script_sha256": "28aff63876de76847fbe92da1afad05b107736f2212abf090b978ae577435cd1"
+    },
+    "execution": {
+      "definition_sha256": "dc3d1e0e46fb35dfde0468622895e299a90ab469dd0123cc1fe39b3f8af285f7",
+      "fingerprint": "edf6707393a9544ca3756a5cd82c2acf491bfb8874abeec69be85d60d3aa74a7",
+      "rule_version": "controlled-extrusion-ladders@1",
+      "tool_version": "7a0a987ec2f1ab4099c839621a8e51d18bcfa872",
+      "input_sha256": {}
+    },
+    "started": 1795382739.912055,
+    "native_status": "failed",
+    "decodes": [],
+    "native_job": "f70a2ce111110ad1b5c8f5e0b881eb74",
+    "error": "com_error: (-2147023170, 'The remote procedure call failed.', None, None)",
+    "finished": 1795382801.9314392,
+    "duration_seconds": 62.019384145736694,
+    "artifact_directory": "$RECOVERY/SolidWorksRemaining/solidworks-068-restart"
+  }
+]

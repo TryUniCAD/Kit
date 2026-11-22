@@ -40,6 +40,15 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08h-LadderRecovery: recovered native corpus
+
+Codex owns this active evidence publication on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
+Delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267). Dependencies are merged PR #263, the existing research controller and licensed source captures.
+The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
+Original controller failures remain recorded. Fifteen front-plane centroids match; 96 top/right placements remain wrong.
+The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.
+Production placement repair is a separate follow-up; this evidence does not close conversion acceptance.
+
 #### A08h-Ladders2026: native campaign evidence
 
 Codex owns this scoped research-evidence follow-up on `feat/deterministic-campaign-20261122`.
