@@ -399,6 +399,7 @@ jobs:
         ^tests/Research/Inference/Authoring/Recipes/
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
+        ^tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests\.py::TestBoxWinPath$
     defaults:
       run:
         shell: bash
@@ -429,6 +430,7 @@ jobs:
           path: ${{ runner.temp }}/ShardPlan
 
       - name: Select required platform cases from the shared collected roster
+        id: platform-cases
         env:
           AuditEvent: ${{ github.event_name }}
         run: |
@@ -448,6 +450,13 @@ jobs:
             case "$Pattern" in
               '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
               '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
+              '^tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests\.py::TestBoxWinPath$')
+                test "$AuditEvent" = workflow_dispatch
+                if git grep -q '^def TestBoxWinPath(' "$AuditSha" -- tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py; then
+                  exit 1
+                fi
+                continue
+                ;;
               *) exit 1 ;;
             esac
             test "$AuditEvent" = workflow_dispatch
@@ -463,9 +472,23 @@ jobs:
           awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
             "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
           test -s "$Selected"
+          if grep -Fqx 'tests/Convert/Solidworks/ImportWriting/MeasuredBoxTests.py::TestBoxWinPath' "$Selected"; then
+            printf '%s\n' 'measured_windows_part=true' >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up the measured Windows part runtime
+        if: runner.os == 'Windows' && steps.platform-cases.outputs.measured_windows_part == 'true'
+        id: measured-part-python
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
+        with:
+          python-version: "3.12.7"
+          architecture: x64
+          update-environment: false
 
       - name: Execute the required platform process cases
         id: tests
+        env:
+          KIT_MEASURED_PART_PYTHON: ${{ steps.measured-part-python.outputs.python-path }}
         run: >-
           env GITHUB_SHA="$AuditSha" uv run --no-sync --python 3.14 python -m pytest -p no:cacheprovider
           --durations=20

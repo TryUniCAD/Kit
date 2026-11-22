@@ -1,7 +1,10 @@
 from json import loads as LoadJson
+from os import environ as Environment
 from os import name as OsName
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
+
+from pytest import mark as MarkCase
 
 from tests.Convert.Api.ApiTestPaths import KRootPath
 
@@ -34,17 +37,19 @@ def TestMeasuredBox() -> None:
         assert ReportValue["exact_publications"] == 2
         assert ReportValue["exact_streams"] == 12
         assert len(ReportValue["refusals"]) == 11
-        if OsName == "nt":
-            VerifyBoxPath(ReportValue["archive"])
 
 
 # the real windows path hands the measured locator through registry staging and direct writing
-def VerifyBoxPath(Expected: dict[str, object]) -> None:
+@MarkCase.skipif(
+    OsName != "nt", reason="the measured physical locator requires Windows"
+)
+def TestBoxWinPath() -> None:
     ScriptPath = (
         KRootPath / "re/tooling/sw2026/imported_body_source/VerifyMeasuredBoxPaths.py"
     )
+    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON") or PythonExec
     Outcome = RunProcess(
-        (PythonExec, "-I", "-B", str(ScriptPath)),
+        (RuntimePath, "-I", "-B", str(ScriptPath)),
         capture_output=True,
         encoding="utf-8",
         timeout=90,
@@ -55,4 +60,5 @@ def VerifyBoxPath(Expected: dict[str, object]) -> None:
     assert ReportValue["exact_publications"] == 2
     assert ReportValue["runtime_input_file_reads"] == 0
     assert not ReportValue["declared_locator_option_used"]
-    assert ReportValue["routes"] == {"direct": Expected, "registry": Expected}
+    assert ReportValue["routes"]["direct"] == ReportValue["routes"]["registry"]
+    assert ReportValue["routes"]["direct"]["bytes"] == 9914

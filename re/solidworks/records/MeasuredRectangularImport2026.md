@@ -88,6 +88,8 @@ writer and staged registry then created the same exact 9,914-byte archive
 at its actual measured path. Both derive the final locator from the
 filesystem target. The existing disclosed file was restored with its
 identical hash. Successful writes used zero runtime input reads and no
-native process. The shared queue scenario exercises both physical routes
-when its runtime emits the qualified bytes. An unmatched compressor is
-checked as a refusal on both entry points. [Windows and staging proof](../measurements/2026/SdkMeasuredRectangularImportWindows01.json)
+native process. The Windows queue roster includes a dedicated physical
+publication scenario. Its assigned shard sets up the measured CPython
+3.12.7 runtime for that scenario, while the complete suite keeps its
+locked interpreter. The stream scenario checks an unmeasured compressor
+as a refusal on both entry points. [Windows and staging proof](../measurements/2026/SdkMeasuredRectangularImportWindows01.json)
