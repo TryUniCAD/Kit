@@ -43,7 +43,8 @@ def PrepareColdPart(
     if not isinstance(FinalValue, (str, FilePath)):
         raise ValueError("unnamed native streams require an explicit final destination")
     NameValue = PureWindowsPath(FinalValue).stem
-    if IsCircRead(DocumentValue):
+    CircleRead = IsCircRead(DocumentValue)
+    if CircleRead:
         Candidate = PrepareCircle(
             ReadCircInput(DocumentValue, NameValue),
             TargetValue,
@@ -65,6 +66,8 @@ def PrepareColdPart(
                 Settings,
             )
     CheckColdRead(
-        DocumentValue, Candidate.BytesValue, IncludeBrep=DocumentValue.brep is not None
+        DocumentValue,
+        Candidate.BytesValue,
+        IncludeBrep=not CircleRead or DocumentValue.brep is not None,
     )
     return Candidate

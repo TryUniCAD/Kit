@@ -115,7 +115,7 @@ def project_circle(stock, circle, body_id):
         plan = PrismPlan(
             stock.frame, stock_lines(stock), stock.extent[1] - stock.extent[0], {}
         )
-        tool = LocalCircle((x, y), radius, 0, 0, None, None, {})
+        tool = LocalCircle((x, y), radius, 0, 0, None, None, {}, (x / 1000, y / 1000))
         projected = BuildCircleCut(
             plan, tool, stock.extent, stock.extent, body_id, f"{body_id}-through"
         )
