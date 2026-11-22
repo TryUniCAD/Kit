@@ -43,3 +43,5 @@ The diagnostic permits only the already measured warning 32 or zero to continue 
 | Complete packet manifest | `bee4a972e540934ccca713d5465f1199aba862066a17f61a47630fa7a8601600` |
 
 Root captures the additive sources, verifies the packet in the pinned guest runtime, then runs the exact recipe. Its after control and summary remain independent of candidate success. The old native records and queue snapshot remain unchanged. Host verification, compilation and static undefined-name checks pass. The new diagnostic has not run natively; all held-out source contents remain sealed.
+
+Later controlled trials isolated the child warning and occurrence-name behavior, and exact authorized pairs passed native persistence. The [concentric parent record](SdkConcentricParentModel2026.md) links the individual outcomes and retains the original warning gate recorded here.
