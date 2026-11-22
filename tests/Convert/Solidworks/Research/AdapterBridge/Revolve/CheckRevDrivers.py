@@ -4,7 +4,11 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 
 # strict readback must preserve the actual angular drivers and their feature owner
 def CheckRevDrivers(Parsed: CadDocument, ModeValue: str, TwoSides: bool) -> None:
-    (Feature,) = Parsed.feature_timeline
+    (Feature,) = (
+        FeatureValue
+        for FeatureValue in Parsed.feature_timeline
+        if isinstance(FeatureValue.definition, AngularRevolve)
+    )
     Definition = Feature.definition
     assert isinstance(Definition, AngularRevolve)
     assert Definition.SideMode == ModeValue

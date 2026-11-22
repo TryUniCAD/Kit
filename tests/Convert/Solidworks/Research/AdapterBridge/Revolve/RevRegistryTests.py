@@ -3,7 +3,6 @@ from pathlib import Path as FilePath
 from convert import open_document as OpenDoc
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KResolvedFeaturesStream
-from interchange.Features.FeatureAngleRev import AngularRevolve
 from tests.Convert.Solidworks.Research.AdapterBridge.PrepareProbe import PrepareProbe
 from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.CheckRevDrivers import (
     CheckRevDrivers,
@@ -39,13 +38,7 @@ def TestSqRegistry(TmpPath: FilePath) -> None:
     _ = PrepareProbe(Request, Target, 1795000061)
     Parsed = OpenDoc(Target, strict=True)
     (Sketch,) = Parsed.sketches
-    (Feature,) = Parsed.feature_timeline
-    Definition = Feature.definition
-    assert isinstance(Definition, AngularRevolve)
-    assert (
-        Definition.SideMode == "symmetric_full"
-        and Definition.AgainstParameterId is None
-    )
+    CheckRevDrivers(Parsed, "symmetric_full", False)
     assert len(Sketch.constraints) == 5
     (EqualRule,) = (
         Relation for Relation in Sketch.constraints if Relation.kind == "equal"
@@ -54,8 +47,4 @@ def TestSqRegistry(TmpPath: FilePath) -> None:
         Sketch.entities[3].id,
         Sketch.entities[0].id,
     )
-    (Driver,) = (
-        Param for Param in Parsed.parameters if Param.id == Definition.AlongParameterId
-    )
-    assert Driver.name == "D1" and Driver.value.value == 1.25
-    assert Driver.owner_id == Feature.id and len(Parsed.bodies) == 1
+    assert len(Parsed.bodies) == 1

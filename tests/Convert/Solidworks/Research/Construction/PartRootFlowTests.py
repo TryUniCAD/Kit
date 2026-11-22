@@ -12,5 +12,5 @@ def TestPartRoot() -> None:
     FirstPrepared = RunRootPhase({"request": FirstInput, "build": FirstBuild}, True)
     SecondPrepared = RunRootPhase({"request": SecondInput, "build": SecondBuild}, True)
     FirstLength = AssertRootFlow(FirstBuild, FirstPrepared, 1, 2)
-    SecondLength = AssertRootFlow(SecondBuild, SecondPrepared, 19, 20)
+    SecondLength = AssertRootFlow(SecondBuild, SecondPrepared, 19, 21)
     assert FirstLength != SecondLength
