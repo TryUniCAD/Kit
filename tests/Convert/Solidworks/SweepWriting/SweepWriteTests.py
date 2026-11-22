@@ -49,7 +49,9 @@ def TestSweepWrite() -> None:
         SavedEnvelope = CastValue(dict[str, object], ReadbackValue["saved_envelope"])
         assert SavedEnvelope["strict_refusals"] == 8
         assert SavedEnvelope["legacy_permissive_routes"] == 2
-        assert SavedEnvelope["selected_configuration_checks"] == 8
+        assert SavedEnvelope["selected_configuration_checks"] == 24
+        assert SavedEnvelope["multi_config_saved_refusals"] == 8
+        assert SavedEnvelope["unrelated_physical_lane_reads"] == 8
         assert len(CastValue(list[str], ReadbackValue["rejected_sources"])) == 3
         ModesValue = CastValue(
             list[dict[str, object]], ReadbackValue["strict_readback"]

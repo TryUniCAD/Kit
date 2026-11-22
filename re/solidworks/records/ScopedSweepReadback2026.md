@@ -92,19 +92,27 @@ controlled batch.
 
 ## Selected configuration and portable conversion
 
-The strict saved-state refusal is scoped to the recognized single
-Config-0 profile. All six native saves refuse with implicit selection
-and explicit Default in both reader routes and B-rep modes. Explicit
-permissive inspection remains available. A different configuration name
-uses the ordinary selection path.
+The strict saved-state refusal follows the selected physical Config-0
+sweep lane. All six native saves refuse with implicit selection and
+explicit Default in both reader routes and B-rep modes. Explicit
+permissive inspection remains available. An explicit name resolves
+through the ordinary keyword configuration lookup. An implicit read
+uses the ordinary SDK physical-lane selection, which prefers lane zero
+when available.
 
 The hosted process proof also exercises that boundary without the six
 external CAD files. Its in-memory dispatch envelope adds the verified
 ordinary L1 control's valid result transport to the generated test
-source. The envelope verifies dispatch and fallback only. A second
-declared configuration without its own resolved stream causes the
-ordinary missing-lane diagnostic when selected. These envelopes are
-read in memory and never passed to the native application or the writer.
+source. A second declared configuration without its own resolved stream
+still produces the ordinary missing-lane diagnostic when selected. The
+two-lane envelope lists Alternate first and links it to the independent
+L1 control's physical streams. Both implicit selection and explicit
+Default still refuse the saved sweep. Explicit Alternate opens through
+the ordinary reader with lane one provenance. With the physical roles
+reversed, the Default lane also opens through the ordinary reader. A
+global sweep keyword alone cannot trigger the saved refusal in that
+unrelated lane. These in-memory envelopes verify SDK dispatch only and
+stay outside the native application and the writer.
 
 Each cold source passes the actual conversion command to
 `interchange.json` and its reopened portable document equals the strict
@@ -115,3 +123,11 @@ publication. Other target writers retain their capability checks. The
 exact native publication proof is unchanged.
 
 [Command and configuration receipt](../measurements/2026/SdkScopedSweepCli01.json)
+
+The configuration follow-up reran `CheckScopedSweep.py` with both
+`--native` and `--warm` against the same disclosed packets. The result
+has SHA-256
+`3845621077f5c812072354551a8204742dfb7df63b9d16c7d10b1f5644b58fa5`.
+Each cold worker passed 24 selected-configuration checks and reproduced
+its measured archive with zero writer input reads. The six native-saved
+files passed 48 contextual refusals and 12 permissive reads.

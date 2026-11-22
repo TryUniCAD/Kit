@@ -16,7 +16,12 @@ from convert.adapters.solidworks.Container.Format import (
     KPartFormatId,
     KResolvedFeaturesStream,
 )
-from convert.adapters.solidworks.Core.Native import ParseKeywords
+from convert.adapters.solidworks.Core.ConfigLanes import (
+    ResolvedLanes,
+    ResolvedStream,
+    SelectLaneId,
+)
+from convert.adapters.solidworks.Core.Native import ParseClasses, ParseKeywords
 from convert.adapters.solidworks.Core.Preparation.Sweeps.BuildSweepPart import (
     BuildSweepPart,
 )
@@ -29,7 +34,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordSource import CadSource
 
 
-# the scoped sweep belongs to the selected standalone configuration zero
+# saved sweep dispatch follows the selected physical lane while cold projection needs one complete configuration
 def IsScopedSweep(Archive: SldprtArchive, ConfigurationName: str | None) -> bool:
     if (
         Archive.format_version != 4
@@ -40,16 +45,25 @@ def IsScopedSweep(Archive: SldprtArchive, ConfigurationName: str | None) -> bool
     ):
         return False
     ConfigValues, FeaturesValue = ParseKeywords(Archive.require(KeywordsStream))
-    if len(ConfigValues) != 1 or ConfigValues[0].configuration_id != 0:
-        return False
-    if KPartitionStream in Archive.streams and ConfigurationName not in (
-        None,
-        ConfigValues[0].name,
-    ):
-        return False
-    return any(
+    if not any(
         FeatureValue.kind == "Sweep" and FeatureValue.name == KSweepBossName
         for FeatureValue in FeaturesValue
+    ):
+        return False
+    if KPartitionStream not in Archive.streams:
+        return len(ConfigValues) == 1 and ConfigValues[0].configuration_id == 0
+    Lanes = ResolvedLanes(Archive.streams)
+    Selected = SelectLaneId(ConfigValues, Lanes, ConfigurationName)
+    if (
+        Selected is None
+        or Selected not in Lanes
+        or ResolvedStream(Archive.streams, Lanes[Selected]) != KResolvedFeaturesStream
+        or not any(Value.configuration_id == Selected for Value in ConfigValues)
+    ):
+        return False
+    return len(ConfigValues) == 1 or any(
+        ClassValue.name == "moSweep_c"
+        for ClassValue in ParseClasses(Archive.require(KResolvedFeaturesStream))
     )
 
 
