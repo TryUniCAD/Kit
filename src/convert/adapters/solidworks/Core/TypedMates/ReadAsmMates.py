@@ -31,6 +31,7 @@ def ReadAsmMates(
     ],
     *,
     Strict: bool,
+    ResolveComponents: bool,
     SourceKey: str,
 ) -> tuple[
     tuple[BrepPayload, ...],
@@ -44,8 +45,17 @@ def ReadAsmMates(
     return (
         Payloads,
         *WithTypedMates(
-            Native, Archive, ResolvedPaths, DocIds, Documents, Entities, Rules, Groups,
-            Strict=Strict, SourceKey=SourceKey,
+            Native,
+            Archive,
+            ResolvedPaths,
+            DocIds,
+            Documents,
+            Entities,
+            Rules,
+            Groups,
+            Strict=Strict,
+            ResolveComponents=ResolveComponents,
+            SourceKey=SourceKey,
         ),
     )
 

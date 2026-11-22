@@ -1,3 +1,4 @@
+from contextlib import chdir as WithDirectory
 from copy import deepcopy as CopyValue
 from dataclasses import replace as ReplaceValue
 from hashlib import sha256 as CalcSha
@@ -7,6 +8,8 @@ from pathlib import Path as FilePath
 from pytest import raises as RaisesError
 
 from convert import open_document as OpenDocument, write_document as WriteDocument
+from convert.adapters.base.ReadOptions import ReadOptions
+from convert.api.ApiContext import KConvertEngine
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
 
@@ -63,7 +66,50 @@ def TestPlanarWrite(TmpPath: FilePath) -> None:
         NameValue: RowValue["sha256"] for NameValue, RowValue in Proof["files"].items()
     }
     VerifyPairFiles(TmpPath, Expected)
-    ReplayPair(VerifyMateRead(TargetValue), TargetValue, Expected, Settings)
+    ReplayPair(
+        VerifyMateRead(TargetValue),
+        TmpPath / "Reopened" / TargetValue.name,
+        Expected,
+        Settings,
+    )
+    ReplayRelPair(TargetValue, Expected, Settings)
+    VerifyDeferred(TargetValue)
+
+
+# the recorded root locator survives a relative source and a change in working directory
+def ReplayRelPair(
+    TargetValue: FilePath, Expected: dict[str, str], Settings: dict[str, object]
+) -> None:
+    with (
+        WithDirectory(TargetValue.parent),
+        FilePath(TargetValue.name).open("rb") as Source,
+    ):
+        Relative = OpenDocument(Source, source_format="solidworks.sldasm", strict=True)
+    assert Relative.source.path == TargetValue.name
+    ReplayPair(
+        CadDocument.from_json(Relative.to_json(indent=None)),
+        TargetValue.parent / "Relative" / TargetValue.name,
+        Expected,
+        Settings,
+    )
+
+
+# deferred component reading retains the physical mate payload for later resolution
+def VerifyDeferred(TargetValue: FilePath) -> None:
+    Deferred = KConvertEngine.read(
+        TargetValue,
+        format_id="solidworks.sldasm",
+        options=ReadOptions(
+            strict=True,
+            values={"resolve_components": False, "discover_companions": False},
+        ),
+    )
+    assert Deferred.assembly is not None and not Deferred.assembly.documents
+    assert len(Deferred.assembly.instances) == 2
+    assert not Deferred.assembly.mates
+    assert any(
+        Value.format_id == "solidworks.mates" for Value in Deferred.brep_payloads
+    )
 
 
 # measured output after a complete sdk reopen must retain both files and their exact evidence
@@ -73,12 +119,9 @@ def ReplayPair(
     Expected: dict[str, str],
     Settings: dict[str, object],
 ) -> None:
-    Replay = TargetValue.parent / "Reopened"
-    Result = WriteDocument(
-        Reopened, Replay / TargetValue.name, allow_carrier=False, values=Settings
-    )
+    Result = WriteDocument(Reopened, TargetValue, allow_carrier=False, values=Settings)
     assert Result.application_usable and Result.vendor_loadable and not Result.dropped
-    VerifyPairFiles(Replay, Expected)
+    VerifyPairFiles(TargetValue.parent, Expected)
 
 
 # both generated members must retain their complete measured file identities

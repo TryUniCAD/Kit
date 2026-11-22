@@ -33,6 +33,7 @@ def WithTypedMates(
     GroupsValue: tuple[MateGroup, ...],
     *,
     Strict: bool,
+    ResolveComponents: bool,
     SourceKey: str,
 ) -> tuple[
     tuple[MateEntity, ...],
@@ -54,10 +55,23 @@ def WithTypedMates(
         SourceKey,
     )
     if not CanReadMates(EnvValue):
-        if Strict and HasPlanarMates(EnvValue):
-            raise SldprtFormatError(
-                "typed planar mate graph requires two qualified component occurrences"
-            )
+        if HasPlanarMates(EnvValue):
+            if not ResolveComponents:
+                return (
+                    (),
+                    (),
+                    (),
+                    (),
+                    {
+                        "status": "deferred",
+                        "full_selected_mate_graph": False,
+                        "public_writer_qualified": False,
+                    },
+                )
+            if Strict:
+                raise SldprtFormatError(
+                    "typed planar mate graph requires two qualified component occurrences"
+                )
         return Entities, RulesValue, GroupsValue, (), None
     try:
         return ReadPublicMates(EnvValue, Entities, RulesValue, GroupsValue)

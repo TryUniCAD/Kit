@@ -982,6 +982,7 @@ def AsmDoc(
         Documents,
         AsmMates(Native, MateSourceValues),
         Strict=Settings.strict,
+        ResolveComponents=ResolveComponents,
         SourceKey=KSourceBytesKey,
     )
     Definitions, Instances, IndexConflict = WithNestedIndex(

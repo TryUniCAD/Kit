@@ -1,4 +1,5 @@
 {
+  "deferred_planar_component_read": true,
   "matching_generated_files": 2,
   "matching_generated_streams": 22,
   "measured_output_sha256": "9eb6ee8e05d4cf357c4f0f0902604b6cf7f46d2e06c8fb6b05254d42c7a4cd5e",

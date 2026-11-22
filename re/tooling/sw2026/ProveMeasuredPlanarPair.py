@@ -165,12 +165,16 @@ def typed_boundary(parent, archive, mate_roots, reopened):
         graph.mate_groups,
     )
     try:
-        WithTypedMates(unqualified, *inputs, Strict=True, SourceKey=str(parent))
+        WithTypedMates(
+            unqualified, *inputs, Strict=True, ResolveComponents=True, SourceKey=str(parent)
+        )
     except ValueError as failure:
         assert "requires two qualified component occurrences" in str(failure)
     else:
         raise ValueError("strict projection accepted a three-occurrence planar list")
-    assert WithTypedMates(unqualified, *inputs, Strict=False, SourceKey=str(parent)) == (
+    assert WithTypedMates(
+        unqualified, *inputs, Strict=False, ResolveComponents=True, SourceKey=str(parent)
+    ) == (
         graph.mate_entities, graph.mates, graph.mate_groups, (), None
     )
     return {
@@ -250,7 +254,9 @@ def scoped_refusals(parent, document, reopened, options, reader, writer, archive
 def prove(packet):
     sys.path.insert(0, str(ROOT / "src"))
     from convert import open_document, write_document
+    from convert.adapters.base.ReadOptions import ReadOptions
     from convert.adapters.solidworks.Container.Container import SldprtArchive
+    from convert.api.ApiContext import KConvertEngine
     from interchange.document.Models.DocumentModel import CadDocument
     from interchange.Enums.EnumDocument import Capability
 
@@ -297,6 +303,18 @@ def prove(packet):
             name: archive_metrics((alias_target.parent / name).read_bytes(), SldprtArchive)
             for name in (CHILD, PARENT)
         } == metrics
+        deferred = KConvertEngine.read(
+            parent,
+            format_id="solidworks.sldasm",
+            options=ReadOptions(
+                strict=True,
+                values={"resolve_components": False, "discover_companions": False},
+            ),
+        )
+        assert len(deferred.assembly.instances) == 2 and not deferred.assembly.documents
+        assert not deferred.assembly.mates
+        assert any(row.format_id == "solidworks.mates" for row in deferred.brep_payloads)
+        assert deferred.metadata["solidworks.typed_mates_semantics"]["status"] == "deferred"
         refusals = scoped_refusals(
             parent, doc, reopened, options, open_document, write_document, SldprtArchive
         )
@@ -308,6 +326,7 @@ def prove(packet):
         "native_numeric_checks_in_original_receipt": 360,
         "matching_generated_files": len(metrics),
         "relative_handle_replay_files": len(metrics),
+        "deferred_planar_component_read": True,
         "matching_generated_streams": sum(len(row["streams"]) for row in metrics.values()),
         "member_sha256": {name: row["sha256"] for name, row in metrics.items()},
         "strict_public_read": typed,

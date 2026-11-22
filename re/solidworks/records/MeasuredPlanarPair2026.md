@@ -43,6 +43,13 @@ rollback on a wrong child digest and strict refusal of an unsupported
 auxiliary mate option. Permissive inspection retains the raw mate payload
 and its diagnostic for the unsupported option. This measurement covers
 the disclosed coincident-and-distance pair with one shared child.
+
+When a parent requests a component snapshot with resolution deferred,
+the planar child read retains the raw mate payload and a deferred result
+without unbound mate rows. The shared queue test exercises that path and
+the relative-handle JSON round trip. The measured nested assembly
+regression also reproduced all four earlier bundles on both public
+routes, with their original exact hashes and ten refusal cases.
 [Neutral request](../measurements/2026/MeasuredPlanarPair/NeutralRequest.json)
 [Exact output receipt](../measurements/2026/MeasuredPlanarPair/MeasuredOutput.json)
 [Process proof](../measurements/2026/MeasuredPlanarPair/PublicationProcessProof.json)
