@@ -2831,7 +2831,7 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
     if Sketch.TypedLines is not None:
-        return LineSketch(Sketch)
+        return LineSketch(Sketch, ParamIds)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
     MarkerValues, MarkerEntities = SketchMarkers(
         Sketch, ProfileOffsets, ProfileEntities

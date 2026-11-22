@@ -6,11 +6,11 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.RectDimFields i
 )
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
-# the alternate point pair rows extend only the dimensioned rectangle resumption context
+# the alternate point pair rows extend only the dimensioned rectangle archive context
 KSketchSchema = "sk.sgSketch.FUN_4c5a0f00"
 
 
-# model only width and height emission adds the actual two point driving dimensions to the common sketch grammar
+# dimensioned rectangle archives add the actual two point driving dimensions to the common sketch grammar
 def BindRectCtxMut(ContextValue: BodyContext) -> None:
     SketchRules = tuple(
         (
