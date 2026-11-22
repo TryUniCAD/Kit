@@ -1,4 +1,6 @@
 from pathlib import Path as FilePath
+from subprocess import run as RunProcess
+from sys import executable as Interpreter
 from interchange import RevolutionFeature
 from convert.adapters.solidworks.Core.Adapter import (
     NativePartModel,
@@ -48,3 +50,15 @@ def TestAxisOwner() -> None:
         assert Definition.axis_entity_id in {
             ItemValue.id for ItemValue in AxisSketch.entities
         }
+    RootValue = FilePath(__file__).resolve().parents[4]
+    Worker = RootValue / "re/tooling/sw2026/revolve/CheckPrincipalQueueCase.py"
+    for CaseValue in ("Top", "Right"):
+        Result = RunProcess(
+            [Interpreter, "-I", "-B", str(Worker), "--case", CaseValue],
+            cwd=RootValue,
+            check=False,
+            capture_output=True,
+            text=True,
+            timeout=30,
+        )
+        assert Result.returncode == 0, Result.stderr

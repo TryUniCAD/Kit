@@ -1,0 +1,42 @@
+{
+  "additional_heldout_credit": 0,
+  "base_revision": "1f9678d1826102a032ab7c96e2bfe11d394009d4",
+  "fixtures": {
+    "FrontFull.SLDPRT": "0a4b996b35316aa12c43222113e6d033d3a9e5fc617109056315120a907287c5",
+    "InspectJob.json": "e24be3c8e3fbefea0fcd53dbf48c07e2a60ea52d1965d48d7568d1cced8e148e",
+    "Inspection.json.gz": "4cf47c7d759e26ae90a6efca6de889096abd4f702ae8a63a343662b6b855473d",
+    "Right.json": "e261a011d75b5bba4d1b14e2339cd4291275c7759b581d1b9a92312b79e180d7",
+    "Top.json": "943efaaee0947d57977b8e16ac460f3725e024ef662a54492102a57d98d0a47e"
+  },
+  "new_native_launches": 0,
+  "prior_controls_reverified_sha256": "f18b197627f5611e64003151a02c280b8a78f4d62b5f1e2bce5e36aa214f49da",
+  "result": [
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "Top",
+      "exact_native_hash": true,
+      "legacy_design_only": true,
+      "permuted_contour_equal": true,
+      "publications": 4
+    },
+    {
+      "audit": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "case": "Right",
+      "exact_native_hash": true,
+      "legacy_design_only": true,
+      "permuted_contour_equal": true,
+      "publications": 4
+    }
+  ],
+  "schema": "kit.sw2026.measured-principal-revolve-reader-compatibility.v1",
+  "shared_suite_node": "tests/Convert/Solidworks/Core/RevolveAxisTests.py::TestAxisOwner",
+  "worker_sha256": "c8e9ab4768fb2984d21405f449020444c0e5e7334ae14bb78e0ad891a943527c"
+}
