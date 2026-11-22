@@ -1,0 +1,2992 @@
+{
+  "blocked_runtime_calls": 0,
+  "cases": [
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13441
+        ],
+        "sweep.data19000": [
+          13441,
+          14587
+        ]
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14598,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14297,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14292,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14385,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14290,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14476,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14288,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.028703,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316301,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14476,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14205,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.004321,
+              0.0,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.0,
+            "sense": 1,
+            "start_m": [
+              0.004321,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13494,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13489,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13582,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13468,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14203,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13443,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.008642,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 525,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.004321,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13659,
+              14189
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316298,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12851,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13035,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13011,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "original",
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "9b4cbcbb99feed59282d1437bfb4476159ede877cdcd13ab204caaf668d89f3a"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "0621ed1a2d143166267e81e87d43453d0ec3999ab0ad1d198e0f02efdbec2ad1"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "95d5ca24f9f93f078b6be294ae11eb3ada8271bf604a54f703fce454caefa644"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14602,
+          "sha256": "f3425a79bcb18b2ea553d31aabf8c28cda9576b2dce8bfec296c414f49838a80"
+        }
+      }
+    },
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13571
+        ],
+        "sweep.data19000": [
+          13571,
+          14715
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14726,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.028703,
+              0.0
+            ],
+            "end_m": [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14425,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14420,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14513,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14418,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14604,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14416,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.028703,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316301,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14604,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14333,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.005966385372453377,
+              0.001824107065765158,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.2967059728390366,
+            "sense": 1,
+            "start_m": [
+              0.005966385372453377,
+              0.001824107065765158,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13624,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13619,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13712,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13598,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14331,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13573,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.012478,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 523,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.006239,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13789,
+              14317
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "9ddb7f1f7b473e32849a3dfb138ba7d27cde5d9797b6e74a501806146b090ecf",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316298,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12981,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13165,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13141,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "section",
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "e01ff9e6290ab4f3c3c3a0bfd7cb2ecb222e398d76f15dfed8b8e2ea9bcf2b3b"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "d6d45f9b69568de40eff000e1093f47c9938ef31d14b614664b804b594c447ab"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "704092dfaf8364fcaa161ce3026b973367a5d91eb62c850a251bf5b34a9444ee"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "b314344b452e6e3918219e51ee396dfd39fb700f81122f5f13a52ba69d0d4d0d"
+        }
+      }
+    },
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13571
+        ],
+        "sweep.data19000": [
+          13571,
+          14717
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14728,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.033471,
+              0.0
+            ],
+            "end_m": [
+              0.033471,
+              0.033471,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14427,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14422,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14515,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14420,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14606,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14418,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.033471,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316301,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14606,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14335,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.004321,
+              0.0,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.0,
+            "sense": 1,
+            "start_m": [
+              0.004321,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13624,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13619,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13712,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13598,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14333,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13573,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.008642,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 525,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.004321,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13789,
+              14319
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "0e21e3d798f7a41fb90ac24d06eb3d1d872e83b10f50f1b6e223d0f34ef81cce",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316298,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12981,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13165,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13141,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "path",
+      "slot": 1,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "616f9883f8fac1aec012f8328ddfd8d9f71a9ad8a9b04f92e5da0153cd168c99"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "fd662e0a547a78e0684d3eba84aae3c305506bb39443c1c6c5a56d2f989cea2b"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "0ff5df5aa2427ba0b7f545d4ea2371a4c6e8b0581a6e140d19c57951f25fc63c"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14732,
+          "sha256": "b6fa9053c1aa4f3c104746e2f97558a50927496557f5c8945e0841cfe4bcc46d"
+        }
+      }
+    },
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13441
+        ],
+        "sweep.data19000": [
+          13441,
+          14586
+        ]
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14597,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14296,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14291,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14384,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14289,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14475,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14287,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.041297,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316586,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14475,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14204,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.005713,
+              0.0,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.0,
+            "sense": 1,
+            "start_m": [
+              0.005713,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13494,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13489,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13582,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13468,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14202,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13443,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.011426,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 524,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.005713,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13659,
+              14188
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316583,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12851,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13035,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13011,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "original",
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2159,
+          "sha256": "46a58ceadce90a6bcb60690a28f1bd38bb5739837d680971fffee6d79ae57b00"
+        },
+        "Contents/Config-0": {
+          "bytes": 26010,
+          "sha256": "05de99627331bf93709af0de110695be6889044c10b2407b93dfbc511044c867"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2457,
+          "sha256": "bb1be8d61f6cf421fa70384a96e8bd18fd1a9a671397f9b56dccc1b37befbb78"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14601,
+          "sha256": "5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02"
+        }
+      }
+    },
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13571
+        ],
+        "sweep.data19000": [
+          13571,
+          14715
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14726,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.041297,
+              0.0
+            ],
+            "end_m": [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14425,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14420,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14513,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14418,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14604,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14416,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.041297,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316586,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14604,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14333,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.00678306963404581,
+              0.0020737925015983758,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.2967059728390366,
+            "sense": 1,
+            "start_m": [
+              0.00678306963404581,
+              0.0020737925015983758,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13624,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13619,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13712,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13598,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14331,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13573,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.014186,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 523,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.007093,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13789,
+              14317
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "9a30751f5feffbb7a803268139ac5636f9eaf17d69b0fe6d0c70268af4a7e32c",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316583,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12981,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13165,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13141,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "section",
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "92d903aa74e4f309bfafc0cd8b09d752a77f12a5e43ed179f7ba3f9788b12b12"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "def8c32cbcc2616bf770e0c88c93673d5c2dab317a6e922e920b47a242f46e83"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "9c7ea60c2872cbf98c0477c9464d97563dd8fb9d3dc10d5b0e5000bbdf39d2ed"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14730,
+          "sha256": "e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d"
+        }
+      }
+    },
+    {
+      "base_only_refusal": {
+        "body_offset": 12688,
+        "class": "moSweepSideSurfIdRep_c",
+        "cursor": 12688,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweepSideSurfIdRep_c schema 1",
+        "field_path": [
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "Branch",
+          "f4a8",
+          "f48",
+          "items",
+          "o",
+          "f08",
+          "items",
+          "o",
+          "moBEntRef_c",
+          "f10",
+          "Branch",
+          "moEntityId_c",
+          "f08"
+        ],
+        "map_base": 110,
+        "next_slot": 244,
+        "object_slot": 243,
+        "schema": 1,
+        "tag_offset": 12660
+      },
+      "baseline_refusal": {
+        "body_offset": 12340,
+        "class": "moSweep_c",
+        "cursor": 12340,
+        "diagnostic": "unsupported SOLIDWORKS body class moSweep_c schema 1",
+        "field_path": [],
+        "map_base": 110,
+        "next_slot": 237,
+        "object_slot": 236,
+        "schema": 1,
+        "tag_offset": 12325
+      },
+      "config_next_slot": 110,
+      "file_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "inline_spans": {
+        "moBodyFeature_c": [
+          12340,
+          13571
+        ],
+        "sweep.data19000": [
+          13571,
+          14716
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82"
+      },
+      "owners": {
+        "contact_scalar": {
+          "f40": 0,
+          "f44": 0,
+          "f48": 0,
+          "f90": 0.0,
+          "f98": 0,
+          "fa8": 1.0,
+          "fb0": 0,
+          "fb8": 1,
+          "fc0": -1.0,
+          "fc8": -1,
+          "fcc": 2
+        },
+        "feature": {
+          "class": "moSweep_c",
+          "end": 14727,
+          "field_span": false,
+          "object_index": 236,
+          "offset": 12325,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "feature_id": 31,
+        "inline_scalar": {
+          "f230": 0,
+          "f234": 0,
+          "f238": 0.0,
+          "f240": 0.0,
+          "f248": 0,
+          "f24c": 1,
+          "f258": 0,
+          "f260": 0.0,
+          "f270": 0,
+          "f274": 0,
+          "f278": 0,
+          "f27c": 0,
+          "f280": 0.0,
+          "f288": 0.0,
+          "f290": 0,
+          "f2a8": 0,
+          "f2ac": 0,
+          "f2b0": 0,
+          "f2b4": 1,
+          "f2b8": 1,
+          "f3b0": 0,
+          "f70": 1.0,
+          "f78": 0,
+          "f7c": 0,
+          "f80": 0
+        },
+        "outer_scalar": {
+          "f80c": 1,
+          "fc0c": 0,
+          "fc10": 1,
+          "fc14": 1,
+          "fc18": 1,
+          "fc1c": 1,
+          "fc20": 0,
+          "fc24": 1
+        },
+        "path": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.046371,
+              0.0
+            ],
+            "end_m": [
+              0.046371,
+              0.046371,
+              0.0
+            ],
+            "section_seam_angle_rad": null,
+            "sense": 1,
+            "start_m": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 14426,
+            "field_span": false,
+            "object_index": 277,
+            "offset": 14421,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 14514,
+            "field_span": false,
+            "object_index": 276,
+            "offset": 14419,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14605,
+            "field_span": false,
+            "object_index": 275,
+            "offset": 14417,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "radius",
+            "metres": 0.046371,
+            "name": "D1",
+            "native_id": 29,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 10033,
+                "field_span": false,
+                "object_index": 217,
+                "offset": 9889,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 9938,
+                "field_span": false,
+                "object_index": 218,
+                "offset": 9895,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 11855,
+                "field_span": false,
+                "object_index": 228,
+                "offset": 10336,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 11009,
+                "field_span": false,
+                "object_index": 229,
+                "offset": 10894,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": null,
+          "feature_id": 28,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 12325,
+            "field_span": false,
+            "object_index": 212,
+            "offset": 9092,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316586,
+          "relations": [
+            [
+              17,
+              [
+                1
+              ]
+            ],
+            [
+              26,
+              [
+                0,
+                1
+              ]
+            ],
+            [
+              25,
+              [
+                2,
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 12061,
+            "field_span": false,
+            "object_index": 214,
+            "offset": 9275,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 3886,
+            "field_span": false,
+            "object_index": 163,
+            "offset": 3347,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Front Plane"
+        },
+        "path_contact": {
+          "class": "moWireContact_c",
+          "end": 14605,
+          "field_span": false,
+          "object_index": 274,
+          "offset": 14334,
+          "stream": "Contents/Config-0-ResolvedFeatures"
+        },
+        "section": {
+          "arc": {
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "end_m": [
+              0.005713,
+              0.0,
+              0.0
+            ],
+            "section_seam_angle_rad": 0.0,
+            "sense": 1,
+            "start_m": [
+              0.005713,
+              0.0,
+              0.0
+            ]
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 13624,
+            "field_span": false,
+            "object_index": 272,
+            "offset": 13619,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "component_profile": {
+            "class": "moCompProfile_c",
+            "end": 13712,
+            "field_span": false,
+            "object_index": 271,
+            "offset": 13598,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "curve_wrapper": {
+            "class": "moGeneralCurveRef_w",
+            "end": 14332,
+            "field_span": false,
+            "object_index": 269,
+            "offset": 13573,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "driver": {
+            "component": "diameter",
+            "metres": 0.011426,
+            "name": "D1",
+            "native_id": 27,
+            "owners": [
+              {
+                "class": "sgCircleDim",
+                "end": 6842,
+                "field_span": false,
+                "object_index": 192,
+                "offset": 6645,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moLengthParameter_c",
+                "end": 6732,
+                "field_span": false,
+                "object_index": 194,
+                "offset": 6666,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moDisplayRadialDim_c",
+                "end": 8531,
+                "field_span": false,
+                "object_index": 202,
+                "offset": 6923,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              },
+              {
+                "class": "moSkDimHandleRadial_c",
+                "end": 7645,
+                "field_span": false,
+                "object_index": 204,
+                "offset": 7505,
+                "stream": "Contents/Config-0-ResolvedFeatures"
+              }
+            ]
+          },
+          "embedded_body": {
+            "body_type": 3,
+            "center_m": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "declared_body_bytes": 524,
+            "kernel_word": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ],
+            "radius_m": 0.005713,
+            "schema_roles": {
+              "BODY": [
+                1
+              ],
+              "CIRCLE": [
+                5
+              ],
+              "EDGE": [
+                7
+              ],
+              "FACE": [
+                8
+              ],
+              "HALFEDGE": [
+                9,
+                11
+              ],
+              "LOOP": [
+                10
+              ],
+              "PLANE": [
+                4
+              ],
+              "REGION": [
+                6
+              ],
+              "SHELL": [
+                3
+              ]
+            },
+            "span": [
+              13789,
+              14318
+            ],
+            "transmit_schema": "SCH_3701250_37102_13006",
+            "transmit_sha256": "7262934c5d1fd87df8757d6cab8ae45cede95832d8fdd40083bd61d582871463",
+            "uncompressed_bytes": 873
+          },
+          "feature_id": 26,
+          "owner": {
+            "class": "moProfileFeature_c",
+            "end": 9092,
+            "field_span": false,
+            "object_index": 186,
+            "offset": 5957,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "reference_stamp": 1795316583,
+          "relations": [
+            [
+              17,
+              [
+                0
+              ]
+            ]
+          ],
+          "sketch": {
+            "class": "sgSketch",
+            "end": 8737,
+            "field_span": false,
+            "object_index": 188,
+            "offset": 6168,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support": {
+            "class": "moRefPlane_c",
+            "end": 5022,
+            "field_span": false,
+            "object_index": 170,
+            "offset": 4452,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "support_name": "Right Plane"
+        },
+        "side_surface_identifiers": [
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 12981,
+              "field_span": false,
+              "object_index": 243,
+              "offset": 12660,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          },
+          {
+            "f38": 1,
+            "f3c": 1,
+            "owner": {
+              "class": "moSweepSideSurfIdRep_c",
+              "end": 13165,
+              "field_span": false,
+              "object_index": 259,
+              "offset": 13141,
+              "stream": "Contents/Config-0-ResolvedFeatures"
+            }
+          }
+        ]
+      },
+      "resolved_next_slot": 278,
+      "role": "path",
+      "slot": 2,
+      "streams": {
+        "Contents/CMgr": {
+          "bytes": 2289,
+          "sha256": "793f4475cde334bdedd9a11cca7965bc3191f4983e40b2dfcd0672e61d58e97f"
+        },
+        "Contents/Config-0": {
+          "bytes": 26024,
+          "sha256": "72bc86c6b01b01c087909dd303be218fb84b573f06a80d70ae95ed54b351f5cc"
+        },
+        "Contents/Config-0-ModelHeader": {
+          "bytes": 2619,
+          "sha256": "20a60980fd6a27e8cdbe12c30e595017c14bf78343993c6afeb626aac54dc169"
+        },
+        "Contents/Config-0-ResolvedFeatures": {
+          "bytes": 14731,
+          "sha256": "de0908376ec65b7509aa1fe35d63e423c590671508559c53a0097f665f9dc576"
+        }
+      }
+    }
+  ],
+  "codec_baseline": "5ed14c72bbd78f93caab1a94a3f0ca92d6979e88",
+  "disclosed_job_sha256": "e7a321d410d278b255fe4fe220d6ef5e2e35628b416646cc454bc5cf9b14f421",
+  "model_binary_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+  "native_controls": {
+    "after": "153d209162df7aa964082c3b3aa53a464615b82da933f4b8c6efcece7139dcca",
+    "before": "959b5ccefa657a6f51c08077e4cddd113911d0a7fe867d78b43e8552646983d3"
+  },
+  "native_fresh_processes": 12,
+  "native_lifecycles": [
+    {
+      "phases": [
+        {
+          "checks": 186,
+          "phase": "author",
+          "sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27"
+        },
+        {
+          "checks": 197,
+          "phase": "section-edit",
+          "sha256": "a4188ff301e3df157391fb156f86998e99e44ba691865cf1255dc76b83fbc9c6"
+        },
+        {
+          "checks": 105,
+          "phase": "section-reopen",
+          "sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+        },
+        {
+          "checks": 197,
+          "phase": "path-edit",
+          "sha256": "643f8e0a73161968d7125f297b0b6e7b55cc9a94e117dc53e77669f97cf34f50"
+        },
+        {
+          "checks": 105,
+          "phase": "path-reopen",
+          "sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d"
+        }
+      ],
+      "slot": 1
+    },
+    {
+      "phases": [
+        {
+          "checks": 186,
+          "phase": "author",
+          "sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0"
+        },
+        {
+          "checks": 197,
+          "phase": "section-edit",
+          "sha256": "de3350975d05bc7c7a68cab29481edfda0d2ce294018ddbe01c91a91288c7fbc"
+        },
+        {
+          "checks": 105,
+          "phase": "section-reopen",
+          "sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+        },
+        {
+          "checks": 197,
+          "phase": "path-edit",
+          "sha256": "b2a83caf1063942a6fc2ece220eeb3d8ee0290d2f41d0be78f42750205023da6"
+        },
+        {
+          "checks": 105,
+          "phase": "path-reopen",
+          "sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82"
+        }
+      ],
+      "slot": 2
+    }
+  ],
+  "native_processes_started": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "private_sources_accessed": 0,
+  "registered_api_sha256": "07909437b4c7068ec0ddbb0025d6f6990d6c4bb65767bc778cddfc3577cfdffe",
+  "resolved_byte_replays": 0,
+  "resolved_graph_reads": 6,
+  "schema": "kit.sw2026.standard-sweep-archive-observation.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "serialize_map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+  "source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "source_revision": "038a8fc7aaf0ad3ba8541c325a23ef70646e9ba6",
+  "source_tree": "b016df607bb39d9c1c233070e0fef8b4cabfae38",
+  "tool_sha256": {
+    "AuditSweepArchive.py": "42b4934924fae2ea680fab48457bb5b3f852814fc9c6b074eff0d74ae2be4421",
+    "SweepArchiveLayout.py": "1fb2b6d9850b4754872d7ce0ef162efeee4a4ac27f065fe3cee16f14905b28c6",
+    "SweepArchiveOwners.py": "43d66024f02391d7377319a98470257f72b4deb6e6583da0a22794ff340bbf99"
+  },
+  "writer_outputs": 0
+}
