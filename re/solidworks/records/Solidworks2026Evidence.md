@@ -6,6 +6,8 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [Integrated archive replay](../measurements/2026/ArchiveAfterEllipseAndFinish01.json) | All 1,328 measured streams from the 80 disclosed parts and eight assemblies replay byte for byte after the ellipse codec and accepted surface-finish work. The known cohort has no raw operations, unread tails or provisional layouts. |
+| [Disclosed swept-boss source lifecycle](../measurements/2026/OrdinarySweptBossDisclosedLock01.json) | Twelve fresh native processes cover two ordinary swept-boss sources, two edits per source and healthy controls. The independent private sweep inputs were subsequently frozen. |
 | [Generated cold chamfer lifecycles](../measurements/2026/EdgeChamferColdNativeDisclosed01.json) | Two disclosed model-generated chamfers retain one real solid, the selected edge and live D1 or D2 through cold open, rebuild, edit, save and fresh reopen. Six processes include two healthy controls and 154 numeric checks. The two independent held-out cases remain separate. |
 | [Ellipse source custody](EllipseBlindBossSource2026.md#completed-source-custody) | Two disclosed and two private native-authored full-ellipse bosses complete their depth-edit lifecycles. Each cohort uses ten fresh processes and four healthy controls. The private hashes precede the ellipse codec changes. |
 | [Typed full-ellipse archives](../measurements/2026/EllipseBlindBossArchive01.json) | Four disclosed originals and edited parts reproduce eight linked Config-0 and ResolvedFeatures streams byte for byte. The strict opt-in bound retains actual point handles and D1 ownership. Native construction remains open. |
