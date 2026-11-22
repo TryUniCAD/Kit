@@ -25,6 +25,19 @@ print('validated Boss collector source pins')
 """
 
 
+# the copied fixture should use exactly the companion sources pinned by production
+KCopyBossSources = """import sys
+from pathlib import Path
+source_root, target_root = map(Path, sys.argv[1:])
+sys.path.insert(0, str(source_root / 're/automation'))
+from RunSolidWorksBossWitness import PinnedSources
+for relative in PinnedSources:
+    destination = target_root / relative
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_bytes((source_root / relative).read_bytes())
+"""
+
+
 # real python and git processes expose source replacements that mocks would miss
 @TestMark.skipif(HostPlatform != "win32", reason="Windows Boss source admission")
 @TestMark.parametrize(
@@ -39,12 +52,13 @@ print('validated Boss collector source pins')
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    for SourcePath in (KRepoRoot / "re/automation").rglob("*"):
-        if SourcePath.is_file() and SourcePath.suffix in (".py", ".cs", ".ps1"):
-            Destination = RootPath / SourcePath.relative_to(KRepoRoot)
-            Destination.parent.mkdir(parents=True, exist_ok=True)
-            _ = Destination.write_bytes(SourcePath.read_bytes())
-    _ = ReadbackGit(RootPath, "add", "re")
+    _ = RunProcess(
+        [PythonExe, "-B", "-c", KCopyBossSources, str(KRepoRoot), str(RootPath)],
+        capture_output=True,
+        check=True,
+        timeout=25,
+    )
+    _ = ReadbackGit(RootPath, "add", "--", "re/automation")
     _ = ReadbackGit(
         RootPath,
         "-c",
