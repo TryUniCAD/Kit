@@ -2685,3 +2685,7 @@ The strict native source reader also qualifies two sketch and extrusion pairs th
 The cached tools are separate from the final journal body, and scoped profiles can preserve numerical solver roundoff without rounding source coordinates. The path remains read only, refuses partial pockets and other boolean profiles, and does not establish native conversion acceptance. See [behavior and evidence](../../Changes/Fusion/Extents/FusionCornerCutReads.md).
 
 The bounded cut profile declares persistent output body IDs on both the stock and modifying feature. Target bodies must have an earlier declared producer in the cut's direct dependencies. Original bounds drive flush contact classification; all planar boundaries must lie on their saved carriers, and unprojected per-face appearances refuse explicitly. See [the review guard changes](../../Changes/Fusion/Extents/FusionCutReviewGuards.md). Conversion kind recognition does not establish native writer support or acceptance.
+
+## Planar face offset research
+
+The [face offset corpus](../../../re/Fusion/Reconstruction/FaceOffsets/Findings.md) records signed parameter ownership, bound-face recipe selection and six measured journal correlations, including two held-out inputs. Strict neutral projection remains unfinished. See the [change entry](../../Changes/Fusion/Research/FusionFaceOffsetCorpus.md) and [target-reference gotcha](../../Gotchas/Conversion/Fusion/Features/FusionOffsetFaceTargets.md).
