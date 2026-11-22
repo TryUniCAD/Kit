@@ -4,20 +4,14 @@ from typing import cast
 import pytest as Pytest
 
 from convert import available_adapters as GetAdapters
-from convert.adapters import AdapterInfo, AdapterRegistry
+from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
 from convert.adapters.base.AdapterProtocols import CadReaderAdapter, CadWriterAdapter
 from interchange import Capability
 from tests.Convert.Api.ApiTestHelpers import GetPackNames, ListFormatPacks
 from tests.Convert.Api.CatalogAliases import AssertAliases
 
 # existing bidirectional formats retain their established reader and writer capabilities
-KLegacyFormats = frozenset(
-    {"catia.v5", "freecad.fcstd", "interchange.json", "solidworks.sldprt"}
-)
-
-
-# the read only formats cases must remain explicit so format translation exercises the intended compatibility boundary
-KReadOnlyFormats = frozenset({"solidworks.sldprt"})
+KLegacyFormats = frozenset({"catia.v5", "freecad.fcstd", "interchange.json"})
 
 
 # deterministic introspection prevents import order from changing the public format catalog
@@ -38,8 +32,7 @@ def CheckDiscovery() -> None:
     assert ReaderIds == tuple(sorted(set(ReaderIds)))
     assert WriterIds == tuple(sorted(set(WriterIds)))
     assert FirstIds == SecondIds == tuple(sorted(set(ReaderIds) | set(WriterIds)))
-    assert KLegacyFormats - KReadOnlyFormats <= set(ReaderIds) & set(WriterIds)
-    assert KReadOnlyFormats <= set(ReaderIds) - set(WriterIds)
+    assert KLegacyFormats | {"solidworks.sldprt"} <= set(ReaderIds) & set(WriterIds)
     assert "fusion.f3d" in ReaderIds
     for FormatId in ("f3d", "fusion.f3d"):
         assert FirstRegistry.reader(FormatId).info.format_id == "fusion.f3d"
@@ -55,6 +48,7 @@ def CheckDiscovery() -> None:
         for AdapterData in (*ReaderValues, *WriterValues)
     )
     AssertCaps((*ReaderValues, *WriterValues))
+    AssertSwModes(FirstRegistry)
 
 
 # the registry advertises capabilities consistently across discovered adapter families
@@ -66,6 +60,36 @@ def AssertCaps(
         for AdapterData in Adapters
         if AdapterData.info.format_id in KLegacyFormats
     )
+
+
+# the part writer must retain separate capabilities from the assembly capable native reader
+def AssertSwModes(Registry: AdapterRegistry) -> None:
+    Reader = Registry.reader("solidworks.sldprt")
+    Writer = Registry.writer("solidworks.sldprt").info
+    assert Registry.reader("solidworks.sldasm") is Reader
+    assert Reader.info.capabilities == frozenset(Capability)
+    assert Writer.extensions == Writer.part_extensions == (".sldprt",)
+    assert Writer.assembly_extensions == Writer.aliases == ()
+    assert (
+        Writer.capabilities
+        == Writer.native_capabilities
+        == {
+            Capability.BODY_STRUCTURE,
+            Capability.CONFIGURATIONS,
+            Capability.EDITABLE_SKETCHES,
+            Capability.PARAMETERS,
+            Capability.PARAMETRIC_HISTORY,
+            Capability.SUPPORT_PLANES,
+            Capability.BREP,
+            Capability.PROVENANCE,
+            Capability.ROUNDTRIP_METADATA,
+            Capability.SELECTIONS,
+        }
+    )
+    with Pytest.raises(AdapterNotFoundError):
+        _ = Registry.writer("solidworks.sldasm")
+    with Pytest.raises(AdapterNotFoundError):
+        _ = Registry.writer("solidworks.slddrw")
 
 
 # document kind extensions remain introspective so clients need no format specific branches

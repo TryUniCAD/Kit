@@ -9,6 +9,11 @@ decoder selects it when the ordinary decoder finds no geometry candidates,
 configuration zero is the sole configuration, and the active partition
 is empty.
 
+Canonical plane nodes retain their native XML type for scaffold admission,
+including resolved rows whose separate class marker is absent. The scaffold
+check keeps the same local body and rollback validation on saved files.
+[Plane type projection](../../../../Gotchas/Conversion/Solidworks/Archive/Partition/LocalScaffoldUsesNativePlaneType.md)
+
 The local body must have a complete current-schema topology of straight
 edges and planar faces with one loop per face. The selected partition and its
 history must agree. A strict B-rep read raises a format error when the

@@ -381,6 +381,7 @@ jobs:
         ^tests/Research/Supervisor/Grouping/SupervisorSoloTests\.py::CheckBatchCrash
         ^tests/Research/Owners/
         ^tests/Research/WindowsRecords/
+        ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
     defaults:
       run:
         shell: bash

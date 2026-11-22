@@ -22,6 +22,8 @@ from convert.adapters.solidworks.Core.BindMirrorField import (
 from convert.adapters.solidworks.Core.Inch.BindInch import BindInch
 from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
+from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
+from interchange.geometry.Models.Transform import Transform
 from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
 from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
@@ -1059,6 +1061,8 @@ class NativeSketch:
     unframed_support_plane_id: int | None = None
     rectangle: RectanglePart | None = None
     rectangle_geometry_stream: str | None = None
+    TypedLines: LineLoop | None = None
+    TypedFrame: Transform | None = None
 
 
 # this definition exists because focused behavior needs one stable owner
@@ -1863,7 +1867,9 @@ def ParseKeywords(
             if TagValue != "Feature"
             else ElemValue.attrib.get("Type", "Feature")
         )
-        if KindValue.casefold() in PlaneFeatureTypes:
+        if KindValue.casefold() in PlaneFeatureTypes or (
+            TagValue == "Feature" and KindValue == "moRefPlane_c"
+        ):
             KindValue = CanonicalPlaneFeatureType.title()
         NameValue = ElemValue.attrib.get("Name", "")
         Dimensions = [
@@ -2460,7 +2466,10 @@ def PrincipalPlaneA(
 
 # this definition exists because focused behavior needs one stable owner
 def IsOriginFeature(Feature: NativeFeature) -> bool:
-    return Feature.properties.get("Type", "").casefold() == "origin"
+    return Feature.properties.get("Type", "").casefold() in {
+        "origin",
+        "mooriginprofilefeature_c",
+    }
 
 
 # this definition exists because focused behavior needs one stable owner

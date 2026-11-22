@@ -24,6 +24,9 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteContextMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteOwnedMut import (
     WriteOwnedMut,
 )
+from convert.adapters.solidworks.Archive.Bodies.Writing.WritePackedMut import (
+    WritePackedMut,
+)
 from convert.adapters.solidworks.Archive.Bodies.Writing.WritePresentMut import (
     WritePresentMut,
 )
@@ -64,6 +67,7 @@ KWriteActions: MappingProxyType[str, Callable[[WriteFrame, NativeField], None]] 
             "Context": WriteContextMut,
             "DirectNode": WriteOwnedMut,
             "Present": WritePresentMut,
+            "Packed": WritePackedMut,
             "Scalar": WriteValueMut,
             "Text": WriteValueMut,
             "Node": WriteValueMut,
