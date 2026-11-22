@@ -40,7 +40,8 @@ def MainRun(ArgList: list[str] | None = None) -> int:
             Remaining, History, ArgsInfo.TargetSecs, ArgsInfo.RuntimeShards
         )
     except ValueError as ErrorInfo:
-        ParserInfo.error(str(ErrorInfo))
+        print(f"test shard runtime input error: {ErrorInfo}", file=System.stderr)
+        return 2
     Plans = AllocateTests(Remaining, History, MaxTests, ShardCount)
     HistoryCount = sum(TestId in History for TestId in Remaining)
     Seconds = {

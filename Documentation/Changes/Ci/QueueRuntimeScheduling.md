@@ -31,6 +31,7 @@ Without measured history, the existing count-based sizing remains active.
 
 `tools.TestShards.PlanShards` accepts `--target-seconds` and `--runtime-shards`.
 The defaults disable runtime sizing and limit runtime-requested shards to eight.
+The runtime target must be finite and nonnegative; the shard budget must be positive.
 The queue supplies `--target-seconds 1200 --runtime-shards 8` only after verifying the live scheduling settings.
 Until build concurrency, merge minimum, and batching wait are `1`, `1`, and `0`, runtime expansion remains disabled.
 Manual audits retain count-based sizing and modulo platform selection.
