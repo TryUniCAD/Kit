@@ -5,7 +5,7 @@ from sys import executable as PythonExe
 
 
 # real native controls must pass both public reader surfaces while malformed and unsupported files retain their refusals
-def CheckRectangleRecovery(TmpPath: FilePath) -> None:
+def CheckRecovery(TmpPath: FilePath) -> None:
     RepoPath = FilePath(__file__).resolve().parents[4]
     ReportPath = TmpPath / "Recovery.json"
     Result = RunProcess(
