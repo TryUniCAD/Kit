@@ -3,7 +3,6 @@ from hashlib import sha256 as CalcSha
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.PrepareBoxAxes import (
     PrepareBoxAxes,
 )
@@ -34,15 +33,7 @@ def PrepareBoxOut(
 ) -> BoxOutputPlan:
     PlanValue = ProofValue.PlanValue
     SourceValue = PlanValue.PartSource
-    Settings = CheckPartOpts(OptionsValue)
-    if Settings.configuration not in (
-        None,
-        SourceValue.ModelValue.configurations[0].name,
-    ):
-        raise ValueError(
-            "attached box publication requires its actual active configuration"
-        )
-    Measured = ReadBoxMeasure(Settings, PlanValue)
+    Measured = ReadBoxMeasure(OptionsValue, PlanValue)
     OutputPath = CheckBoxTarget(TargetValue, Measured)
     Candidate = PrepareBoxAxes(
         SourceValue.ModelValue,

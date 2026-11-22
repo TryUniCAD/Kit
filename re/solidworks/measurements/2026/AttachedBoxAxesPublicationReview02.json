@@ -1,0 +1,47 @@
+{
+  "base_revision": "7eeec0991910dd03adf9b486eedfd34f9e367224",
+  "measurement_fixture_sha256": "7941bb76f72764431cc8916def26d5861fc44e2c82087ed92ac3e7141656e4f2",
+  "new_benchmark_credit": 0,
+  "new_native_lifetimes": 0,
+  "prior_full_guard_rerun_sha256": "0811f7aa09d68c2171e88bef558270d05120c2fc63f120000158d5a4792e55b9",
+  "profile": [
+    {
+      "bytes": 10707,
+      "generated_sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+      "preparation_calls": 1,
+      "route": "registry",
+      "text_source_evidence_equal_to_json": true
+    },
+    {
+      "bytes": 10707,
+      "generated_sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+      "preparation_calls": 1,
+      "route": "direct",
+      "text_source_evidence_equal_to_json": true
+    }
+  ],
+  "schema": "kit.sw2026.f14c-publication-review.v1",
+  "shared_suite_node": "tests/Convert/Solidworks/PlainWriting/MeasuredStreamTests.py::TestFileSink",
+  "source_fixture_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "worker": {
+    "attempts": [
+      {
+        "exact_publication": true,
+        "preparation_count": 1,
+        "registry": true
+      },
+      {
+        "exact_publication": true,
+        "preparation_count": 1,
+        "registry": false
+      }
+    ],
+    "known_runtime": true,
+    "result": {
+      "actual_output_opens": 0,
+      "external_launches": 0,
+      "runtime_input_reads": 0
+    }
+  },
+  "worker_sha256": "432b0629434452d66a99b3b2704fa1b51d04a7a3578dfb47873d1ed8d158ecb4"
+}

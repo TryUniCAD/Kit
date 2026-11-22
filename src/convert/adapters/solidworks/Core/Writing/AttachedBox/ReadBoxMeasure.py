@@ -1,4 +1,5 @@
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanAttachedBox import (
     AttachedBoxPlan,
 )
@@ -47,9 +48,17 @@ def ReadBoxResult(RawValue: object, Summary: dict[str, object]) -> dict[str, obj
 
 # the supplied offline evidence must qualify this source and no unmeasured archive
 def ReadBoxMeasure(
-    SettingsValue: WriteOptions, PlanValue: AttachedBoxPlan
+    SettingsValue: WriteOptions | None, PlanValue: AttachedBoxPlan
 ) -> BoxMeasure:
-    CreationTime, Envelope, OptionsValue = ReadMeasInput(SettingsValue)
+    Settings = CheckPartOpts(SettingsValue)
+    if Settings.configuration not in (
+        None,
+        PlanValue.PartSource.ModelValue.configurations[0].name,
+    ):
+        raise ValueError(
+            "attached box publication requires its actual active configuration"
+        )
+    CreationTime, Envelope, OptionsValue = ReadMeasInput(Settings)
     if set(Envelope) != {"summary", "native_result"}:
         raise ValueError(
             "attached box requires its specific offline native measurement"

@@ -100,6 +100,15 @@ FreeCAD case. It preserves the Windows-native custody and does not create new
 held-out or historical FCStd benchmark credit.
 [Main-based verification receipt](../measurements/2026/AttachedBoxAxesMainPublication01.json)
 
+The shared complete-suite worker reads the
+[CC0-1.0 input and its measurement](../v2026/corpus/freecad/MeasuredF14c01/).
+Each supported stream route calls the model-only archive preparer once.
+The registry authenticates the measurement and locator before staging.
+The actual adapter compiles and verifies the full archive once as part
+of publication. Both CLI report formats include the same separate
+source evidence.
+[Shared-suite worker receipt](../measurements/2026/AttachedBoxAxesPublicationReview02.json)
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/attached_top_box_source/ProveMainAttachedBox.py \
   --source /path/to/recipe-0.21.2-F14c.FCStd \

@@ -16,7 +16,8 @@ The CLI reads the same envelope through `--native-measurement`.
 
 The report includes native transfer of six functional capabilities and a
 separate source evidence record for the FreeCAD archive, shape encodings and
-provenance. The output cannot reproduce the original FreeCAD archive bytes.
+provenance. Both text and JSON CLI reports show that source evidence and
+the unavailable original archive byte replay.
 Publication requires the exact intact source, authenticated receipts and the
 complete measured output hash. Other FreeCAD parts, native-saved SOLIDWORKS
 derivatives and other output paths require separate qualification.
