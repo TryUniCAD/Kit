@@ -187,6 +187,11 @@ both mixed visibility states through the named and active native APIs.
 
 For the measured internal radial concentric profile, the assembly compositor can generate two mixed visibility states in the binary VisualStates owner. Its authored states bind to the actual occurrence names. The complete output matches the previously native-tested store-only parent and child. Public display-state writing remains open. [Binary display-state construction](../../Changes/Solidworks/Archive/Assembly/SolidworksAssemblyBinaryDisplayStates.md)
 
+The same internal compositor accepts one all-visible default for the
+ordinary two-occurrence concentric parent. Its binary state uses the
+actual generated header, active configuration and persistent references.
+[Concentric default state](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricDefaultDisplay.md)
+
 The public writer accepts one initially satisfied principal-plane perpendicular between two direct occurrences of one owned dimensioned rectangular part. Both pre-writer locked assembly and child pairs pass the standard registry recipe, a live child depth edit, valid reorientation, synchronized save and fresh reopen. Both retain the ordered mate references, geometry and three driver values. [Perpendicular writer qualification](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPerpendicularRegistryQualification.md)
 
 The SDK construction layer builds complete aligned coincident and parallel plane-mate graphs from the actual registered assembly and child datum owners. Six independently generated parent and child pairs match the research composer byte for byte across all three principal axes. The SDK also constructs the complete positive driving distance graph with its dimension allocated before the mate, two actual reference pairs and its live length parameter. Six independent parent and child bundles match the reference composer across all principal axes. [Driving distance construction](../../Changes/Solidworks/Archive/SolidworksDrivingDistanceConstruction.md) [Fresh planar mate construction](../../Changes/Solidworks/Archive/SolidworksFreshPlanarMateConstruction.md)

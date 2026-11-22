@@ -43,4 +43,8 @@ The [guarded result](../measurements/2026/SdkConcentricVisualStore01.json) has S
 
 ## Original source boundary
 
+The later [singleton proof](ConcentricDefaultDisplay2026.md) verifies
+the internal default state with the actual disclosed D01 design
+projection. It preserves every measured three-state output.
+
 The synchronized disclosed D01 has historical parent contexts using flag 8, a populated manager locator, real plane creation events and its own populated child display appearances. The generated-child absence experiment covers initial generated binary visibility only. Actual source appearance and chronology must retain their own authority before endpoint-preserving source projection can request this writer. Source native payloads and field operands remain outside the generation input. The exact prior evidence applies to the measured artifact. The alternate allocation is host evidence and the held-out files remain sealed. [Source owners and time authority](ConcentricVisualStateStore2026.md) · [Child appearance boundary](ConcentricChildAppearance2026.md) · [Whole-source prerequisite register](ConcentricSealedAdmission2026.md)

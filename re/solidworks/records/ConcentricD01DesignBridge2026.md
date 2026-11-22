@@ -34,7 +34,8 @@ cap roles and seam positions. [Prior face comparison](ConcentricSourceFaceCorres
 
 ## Guarded evidence
 
-Each source stage sends a new neutral JSON request to two independent
+At the initial bridge revision `4ed90ac69acee3763f476e456edb57be0c4825b4`,
+each source stage sends a new neutral JSON request to two independent
 isolated construction workers. They use the current shared child attachment,
 neutral mate planner and signed parent constructor. Both repeats produce
 the same pair with zero file, process or network accesses while generating.
@@ -62,14 +63,15 @@ done
 ## Remaining gates
 
 The actual source still refuses at `CheckAsmRoot` with `assembly root
-contains unprojected model content`. Explicit source display construction
-then reaches a separate guard. Both parents have one all-visible
-`Display State-1`. The current radial assembly path requires a default
-and two opposite mixed states. No additional states are synthesized.
-The D01 binary display streams are 1,275 and 1,599 bytes respectively.
-The ordinary child visual store is 1,789 bytes in each source. The
-observed manager locator `f1f8` is empty in all four source files.
-The writer comparison does not carry those stores. [Display store evidence](ConcentricVisualStateStore2026.md) ·
+contains unprojected model content`. At the initial bridge revision the
+singleton reached the prior three-state guard. The subsequent
+[default-state proof](ConcentricDefaultDisplay2026.md) builds one
+all-visible binary state under the actual generated parent and
+configuration. The D01 source binary display streams are 1,275 and
+1,599 bytes respectively. The ordinary child visual store is 1,789 bytes
+in each source. The observed manager locator `f1f8` is empty in all four
+source files. Historical file aliases and the original child store remain
+separate source owners. [Display store evidence](ConcentricVisualStateStore2026.md) ·
 [Child appearance owners](ConcentricChildAppearance2026.md)
 
 The actual radial display's `moDisplayRadialDim_c.f6a0.f38` is

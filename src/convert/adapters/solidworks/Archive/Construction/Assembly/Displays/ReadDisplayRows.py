@@ -13,11 +13,12 @@ def ReadDisplayRows(
     *,
     Planar: bool = False,
 ) -> tuple[tuple[str, dict[int, bool]], ...]:
-    if type(DisplayValues) is not tuple or len(DisplayValues) != (1 if Planar else 3):
+    Counts = (1,) if Planar else (1, 3)
+    if type(DisplayValues) is not tuple or len(DisplayValues) not in Counts:
         if Planar:
             raise ValueError("planar visibility requires one all-visible default state")
         raise ValueError(
-            "assembly visibility requires the default and two opposite states"
+            "assembly visibility requires one default state or the default and two opposite states"
         )
     States: list[tuple[str, dict[int, bool]]] = []
     Vectors: list[tuple[bool, ...]] = []
@@ -54,9 +55,13 @@ def ReadDisplayRows(
         States.append(
             (State.NameValue, dict(zip(FeatureIds, VectorValue, strict=True)))
         )
-    if Planar:
+    if len(States) == 1:
         if States[0][0] != "Display State-1" or not all(Vectors[0]):
-            raise ValueError("planar visibility requires one all-visible default state")
+            raise ValueError(
+                "planar visibility requires one all-visible default state"
+                if Planar
+                else "assembly visibility requires one all-visible default state"
+            )
     elif (
         States[0][0] != "Display State-1"
         or len({NameValue.casefold() for NameValue, _ in States}) != 3
