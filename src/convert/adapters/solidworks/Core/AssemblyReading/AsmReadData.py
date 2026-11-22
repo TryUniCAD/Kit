@@ -13,3 +13,4 @@ class AsmReadData:
     IndexValue: dict[str, tuple[FilePath, ...]]
     ReadDocument: Callable[[FilePath, ReadOptions], CadDocument]
     ReadArchive: Callable[[FilePath], SldprtArchive]
+    RootPathValue: FilePath | None = None

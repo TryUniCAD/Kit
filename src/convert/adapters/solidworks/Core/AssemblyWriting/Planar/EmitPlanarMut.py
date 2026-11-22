@@ -10,8 +10,15 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel imp
 from convert.adapters.solidworks.Core.AssemblyPreparation.PrepareAssembly import (
     PrepareAssembly,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.IsPlanarRead import IsPlanarRead
-from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.PlanarReadIn import PlanarReadIn
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.IsPlanarRead import (
+    IsPlanarRead,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.ReadExactPlace import (
+    ReadExactPlace,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.Readback.PlanarReadIn import (
+    PlanarReadIn,
+)
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshFiles import (
@@ -25,8 +32,12 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Planar.MatchPlanarMeas imp
     KPlanarMeasSchema,
     MatchPlanarMeas,
 )
-from convert.adapters.solidworks.Core.AssemblyWriting.Readback.CheckBundleRead import CheckBundleRead
-from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadbackTransfers import ReadbackTrans
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.CheckBundleRead import (
+    CheckBundleRead,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Readback.ReadbackTransfers import (
+    ReadbackTrans,
+)
 from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmFiles import WriteAsmFiles
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -40,7 +51,9 @@ def EmitPlanarMut(
     SettingsValue = CheckAsmOpts(OptionsValue)
     WrittenAt, Receipt = ReadAsmMeas(SettingsValue, SchemaValue=KPlanarMeasSchema)
     if not isinstance(TargetValue, (str, FilePath)):
-        raise TypeError("planar assembly output requires a staged filesystem destination")
+        raise TypeError(
+            "planar assembly output requires a staged filesystem destination"
+        )
     OutputPath = FilePath(TargetValue).expanduser().resolve()
     FinalPath, NativePath = FinalAsmPath(OutputPath, SettingsValue)
     RequireAsm(
@@ -52,18 +65,35 @@ def EmitPlanarMut(
     InputValue = PlanarReadIn(Document) if Reopened else Document
     ModelValue = ReadAsmModel(InputValue)
     RequireAsm(
+        len(ModelValue.Occurrences) == 2,
+        "measured planar assembly requires two direct component occurrences",
+    )
+    RequireAsm(
         SettingsValue.configuration
         in (None, ModelValue.ConfigValue.id, ModelValue.ConfigValue.name),
         "requested assembly configuration is unavailable",
     )
     ChildName = ModelValue.ChildValue.name + ".SLDPRT"
     CheckFreshFiles(FinalPath, (ChildName,))
-    Candidate = PrepareAssembly(InputValue, NativePath, WrittenAt)
+    GraphValue = Document.assembly
+    Placements = (
+        {Value.id: ReadExactPlace(Value) for Value in GraphValue.instances}
+        if Reopened and GraphValue is not None
+        else None
+    )
+    Candidate = PrepareAssembly(
+        InputValue, NativePath, WrittenAt, ExactPlacements=Placements
+    )
     Companions = ((ChildName, Candidate.ChildValue.BytesValue),)
     Locator = PureWindowsPath(NativePath)
-    Members = ((Locator.with_name(ChildName), Candidate.ChildValue.BytesValue), (Locator, Candidate.BytesValue))
+    Members = (
+        (Locator.with_name(ChildName), Candidate.ChildValue.BytesValue),
+        (Locator, Candidate.BytesValue),
+    )
     Evidence = MatchPlanarMeas(
-        Receipt, Locator, tuple((PathValue.name, Payload) for PathValue, Payload in Members)
+        Receipt,
+        Locator,
+        tuple((PathValue.name, Payload) for PathValue, Payload in Members),
     )
     if Reopened:
         CheckBundleRead(Document, Members, ScopeValue="planar")

@@ -1,11 +1,23 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import FieldInt, RequireNode
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
+    FieldInt,
+    ReadNodeName,
+    RequireNode,
+)
 from convert.adapters.solidworks.Core.TypedMates.ReadMateDim import ReadMateDim
-from interchange import MateConstraint, Parameter, ParameterRole, Provenance, ProvenanceSpan
+from interchange import (
+    MateConstraint,
+    Parameter,
+    ParameterRole,
+    Provenance,
+    ProvenanceSpan,
+)
 
 
 # the live length parameter belongs to the distance mate rather than its display cache
-def ReadMateDriver(NodeValue: ArchiveNode, RuleValue: MateConstraint) -> Parameter | None:
+def ReadMateDriver(
+    NodeValue: ArchiveNode, RuleValue: MateConstraint
+) -> Parameter | None:
     if RuleValue.value is None:
         return None
     Dimension = ReadMateDim(NodeValue)
@@ -16,7 +28,7 @@ def ReadMateDriver(NodeValue: ArchiveNode, RuleValue: MateConstraint) -> Paramet
         raise ValueError("typed mate driver lacks its native parameter span")
     return Parameter(
         id=f"{RuleValue.id}:parameter:{NativeId}",
-        name="D1",
+        name=ReadNodeName(LengthValue),
         value=RuleValue.value,
         role=ParameterRole.DRIVING,
         owner_id=RuleValue.id,
@@ -24,7 +36,12 @@ def ReadMateDriver(NodeValue: ArchiveNode, RuleValue: MateConstraint) -> Paramet
             adapter="sldasm",
             native_id=str(NativeId),
             spans=(
-                ProvenanceSpan("Contents/Config-0-MatesList", StartValue, EndValue - StartValue, "typed-length-parameter"),
+                ProvenanceSpan(
+                    "Contents/Config-0-MatesList",
+                    StartValue,
+                    EndValue - StartValue,
+                    "typed-length-parameter",
+                ),
             ),
             confidence=1.0,
         ),

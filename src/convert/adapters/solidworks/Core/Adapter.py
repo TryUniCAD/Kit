@@ -964,7 +964,7 @@ def AsmDoc(
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
-        RootPath=None if Readback is None else PathValue(Label),
+        RootPath=None if Readback is None else Readback.RootPathValue or PathValue(Label),
     )
     MateSourceValues, SourceDiagnostics = MateSources(
         Native,

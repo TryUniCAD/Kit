@@ -1,3 +1,8 @@
+from collections.abc import Mapping
+
+from convert.adapters.solidworks.Archive.Construction.Assembly.OccurrenceIn import (
+    OccurrenceIn,
+)
 from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.MakePlanarGroup import (
     MakePlanarGroup,
 )
@@ -18,8 +23,12 @@ def PrepareAssembly(
     Document: CadDocument,
     NativePath: str,
     WrittenAt: int,
+    *,
+    ExactPlacements: Mapping[str, OccurrenceIn] | None = None,
 ) -> OrderedAsm:
-    PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt)
+    PlanValue = PlanAsmWrite(
+        Document, NativePath, WrittenAt, ExactPlacements=ExactPlacements
+    )
     ChildValue = MakeRectDimPart(
         PlanValue.ChildDocument, PlanValue.ChildRecipe, PlanValue.ChildDimensions
     )

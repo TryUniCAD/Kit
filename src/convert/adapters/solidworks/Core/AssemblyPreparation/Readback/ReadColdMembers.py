@@ -34,12 +34,16 @@ def ReadColdMembers(
         if not IsRoot and Member is None:
             raise ValueError("reopened nested definition lacks its owned document")
         SourceValue = Document if Member is None else Member.document
-        Locator = FilePath(SourceValue.source.path)
+        SourcePath = FilePath(SourceValue.source.path)
+        Locator = FilePath(Value.source_path)
+        MatchesSource = str(SourcePath) == Value.source_path
+        if IsRoot and not SourcePath.is_absolute():
+            MatchesSource = SourcePath.name == Locator.name
         if (
             SourceValue.source.format_id != (KPartFormatId if IsPart else KAsmFormatId)
             or not Locator.is_absolute()
             or Locator.stem != Value.name
-            or str(Locator) != Value.source_path
+            or not MatchesSource
         ):
             raise ValueError(
                 "reopened nested member lacks its exact resolved source identity"

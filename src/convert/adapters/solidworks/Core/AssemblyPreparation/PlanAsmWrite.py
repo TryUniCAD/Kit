@@ -1,5 +1,9 @@
+from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Archive.Construction.Assembly.OccurrenceIn import (
+    OccurrenceIn,
+)
 from convert.adapters.solidworks.Archive.Construction.AssemblyGroups.CheckGroupGeom import (
     CheckGroupGeom,
 )
@@ -48,6 +52,8 @@ def PlanAsmWrite(
     Document: CadDocument,
     NativePath: str,
     WrittenAt: int,
+    *,
+    ExactPlacements: Mapping[str, OccurrenceIn] | None = None,
 ) -> AsmWritePlan:
     ModelValue = ReadAsmModel(Document)
     RootPlanes = ReadAsmPlanes(Document)
@@ -72,7 +78,10 @@ def PlanAsmWrite(
         RootPlanes,
         PathsValue.ParentValue,
     )
-    Occurrences = tuple(ReadAsmPlace(Value) for Value in ModelValue.Occurrences)
+    Occurrences = tuple(
+        ReadAsmPlace(Value) if ExactPlacements is None else ExactPlacements[Value.id]
+        for Value in ModelValue.Occurrences
+    )
     MateValues = ReadAsmRules(Document, ModelValue, ChildPlanes)
     CheckPerpGroup(Occurrences, MateValues)
     CheckGroupNames(RootRecipe, Occurrences, MateValues)

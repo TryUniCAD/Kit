@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from codecs import lookup
+from contextlib import chdir
 from copy import deepcopy
 from dataclasses import replace
 from hashlib import sha256
@@ -131,7 +132,55 @@ def archive_metrics(payload, archive_type):
     }
 
 
-def scoped_refusals(parent, document, options, reader, writer, archive_type):
+def typed_boundary(parent, archive, mate_roots, reopened):
+    from convert.adapters.solidworks.Assembly.Assembly import DecodeNativeAsm
+    from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import RequireNode
+    from convert.adapters.solidworks.Core.TypedMates.ReadMateDim import ReadMateDim
+    from convert.adapters.solidworks.Core.TypedMates.ReadMateDriver import ReadMateDriver
+    from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
+
+    graph = reopened.assembly
+    distance = graph.mates[1]
+    driver = reopened.parameter(distance.parameter_ids[0])
+    mate = deepcopy(mate_roots[1])
+    dimension = ReadMateDim(mate)
+    length = RequireNode(dimension.FieldsValue.get("f28"), "moLengthParameter_c")
+    name = RequireNode(length.FieldsValue.get("f18"), "moNodeName_c")
+    name.FieldsValue["f08"] = "MeasuredGap"
+    assert ReadMateDriver(mate, distance) == replace(driver, name="MeasuredGap")
+
+    native = DecodeNativeAsm(archive)
+    occurrence = native.occurrences[1]
+    third = replace(
+        occurrence, object_id=301, feature_id=303, name="ThirdOccurrence", order=2
+    )
+    unqualified = replace(native, occurrences=(*native.occurrences, third))
+    inputs = (
+        archive,
+        {occurrence.definition_id: parent.parent / CHILD},
+        {occurrence.definition_id: graph.documents[0].id},
+        graph.documents,
+        graph.mate_entities,
+        graph.mates,
+        graph.mate_groups,
+    )
+    try:
+        WithTypedMates(unqualified, *inputs, Strict=True, SourceKey=str(parent))
+    except ValueError as failure:
+        assert "requires two qualified component occurrences" in str(failure)
+    else:
+        raise ValueError("strict projection accepted a three-occurrence planar list")
+    assert WithTypedMates(unqualified, *inputs, Strict=False, SourceKey=str(parent)) == (
+        graph.mate_entities, graph.mates, graph.mate_groups, (), None
+    )
+    return {
+        "renamed_driver_projected": "MeasuredGap",
+        "third_occurrence_refused_strict": True,
+        "third_occurrence_kept_legacy_projection_permissive": True,
+    }
+
+
+def scoped_refusals(parent, document, reopened, options, reader, writer, archive_type):
     from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
     from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
     from convert.adapters.solidworks.Container.Container import BuildSldprt
@@ -147,10 +196,31 @@ def scoped_refusals(parent, document, options, reader, writer, archive_type):
     else:
         raise ValueError("mismatched child receipt published a bundle")
     assert not wrong_parent.parent.exists()
+    graph = document.assembly
+    occurrence = graph.instances[1]
+    unqualified = replace(
+        occurrence,
+        id=f"{occurrence.id}:third",
+        name=f"{occurrence.name.rsplit('-', 1)[0]}-3",
+        reference_number="3",
+        order=2,
+    )
+    third_doc = replace(
+        document, assembly=replace(graph, instances=(*graph.instances, unqualified))
+    )
+    third_parent = parent.parent / "ThreeOccurrences" / parent.name
+    try:
+        writer(third_doc, third_parent, allow_carrier=False, values=options)
+    except ValueError as failure:
+        assert "requires two direct component occurrences" in str(failure)
+    else:
+        raise ValueError("three-occurrence planar model published a bundle")
+    assert not third_parent.parent.exists()
     archive = archive_type.from_bytes(parent.read_bytes())
     link = ReadNativeLink(archive, 0, AssemblyValue=True)
     stream_name = "Contents/Config-0-MatesList"
     mates = ReadMatesMut(archive.require(stream_name), link.ResolvedValue)
+    observations = typed_boundary(parent, archive, mates.RootsValue, reopened)
     mates.RootsValue[0].FieldsValue["f388"] = 1
     updated, _ = WriteMatesMut(mates.RootsValue, link.ResolvedValue)
     assert updated != archive.require(stream_name)
@@ -169,7 +239,12 @@ def scoped_refusals(parent, document, options, reader, writer, archive_type):
     assert not partial.assembly.mates
     assert any(row.format_id == "solidworks.mates" for row in partial.brep_payloads)
     assert any(row.code == "sldasm.typed_mates_unqualified" for row in partial.diagnostics)
-    return {"wrong_child_rolled_back": True, "unsupported_mate_refused_strict": True}
+    return {
+        "synthetic_typed_contrasts": observations,
+        "three_occurrences_rolled_back": True,
+        "wrong_child_rolled_back": True,
+        "unsupported_mate_refused_strict": True,
+    }
 
 
 def prove(packet):
@@ -211,7 +286,20 @@ def prove(packet):
             name: archive_metrics((replay_target.parent / name).read_bytes(), SldprtArchive)
             for name in (CHILD, PARENT)
         } == metrics
-        refusals = scoped_refusals(parent, doc, options, open_document, write_document, SldprtArchive)
+        alias_target = parent.parent / "Relative" / PARENT
+        with chdir(parent.parent):
+            with Path(PARENT).open("rb") as source:
+                relative = open_document(source, source_format="solidworks.sldasm", strict=True)
+        assert relative.source.path == PARENT
+        alias_document = CadDocument.from_json(relative.to_json(indent=None))
+        attempted += write_guarded(alias_document, options, alias_target, write_document)
+        assert {
+            name: archive_metrics((alias_target.parent / name).read_bytes(), SldprtArchive)
+            for name in (CHILD, PARENT)
+        } == metrics
+        refusals = scoped_refusals(
+            parent, doc, reopened, options, open_document, write_document, SldprtArchive
+        )
     return {
         "schema": "kit.sw2026.planar-main-registry-proof.v1",
         "measured_output_sha256": MEASUREMENT_SHA,
@@ -219,6 +307,7 @@ def prove(packet):
         "native_processes_started": 0,
         "native_numeric_checks_in_original_receipt": 360,
         "matching_generated_files": len(metrics),
+        "relative_handle_replay_files": len(metrics),
         "matching_generated_streams": sum(len(row["streams"]) for row in metrics.values()),
         "member_sha256": {name: row["sha256"] for name, row in metrics.items()},
         "strict_public_read": typed,

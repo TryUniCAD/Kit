@@ -2,37 +2,32 @@ from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 
 
-# existing readers keep ownership outside the measured flat single configuration mate profile
-def CanReadMates(EnvValue: PublicMateEnv) -> bool:
+# strict reads recognize the owned planar list independently of component eligibility
+def HasPlanarMates(EnvValue: PublicMateEnv) -> bool:
     Native = EnvValue.NativeValue
     if (
         EnvValue.ArchiveValue.format_version != 4
         or ContainerMo(EnvValue.ArchiveValue.streams) != 19000
-    ):
-        return False
-    if (
-        len(Native.configurations) != 1
+        or len(Native.configurations) != 1
         or len(Native.mate_lists) != 1
-        or len(Native.occurrences) != 2
     ):
         return False
     ConfigValue, ListValue = Native.configurations[0], Native.mate_lists[0]
-    if (
-        ConfigValue.configuration_id != 0
-        or ConfigValue.model_id != Native.root_definition_id
-    ):
-        return False
-    if (
-        ListValue.owner_definition_id != Native.root_definition_id
-        or ListValue.stream != "Contents/Config-0-MatesList"
-    ):
-        return False
-    if (
-        not ListValue.mates
-        or ListValue.declared_count != len(ListValue.mates)
-        or tuple(Value.class_name for Value in ListValue.mates)
-        != ("moMateCoincident", "moMateDistanceDim_c")
-    ):
+    return (
+        ConfigValue.configuration_id == 0
+        and ConfigValue.model_id == Native.root_definition_id
+        and ListValue.owner_definition_id == Native.root_definition_id
+        and ListValue.stream == "Contents/Config-0-MatesList"
+        and ListValue.declared_count == len(ListValue.mates)
+        and tuple(Value.class_name for Value in ListValue.mates)
+        == ("moMateCoincident", "moMateDistanceDim_c")
+    )
+
+
+# typed endpoints require the actual flat component files and their eligible owners
+def CanReadMates(EnvValue: PublicMateEnv) -> bool:
+    Native = EnvValue.NativeValue
+    if not HasPlanarMates(EnvValue) or len(Native.occurrences) != 2:
         return False
     Definitions = {Value.object_id: Value for Value in Native.definitions}
     if len(Definitions) != 2 or len(Native.definitions) != 2:

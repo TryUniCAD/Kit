@@ -13,7 +13,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 
 # every input dependency for generated readback comes exclusively from the new model output
-def ReadBundle(FilesValue: Mapping[FilePath, bytes], RootPath: FilePath) -> CadDocument:
+def ReadBundle(
+    FilesValue: Mapping[FilePath, bytes],
+    RootPath: FilePath,
+    *,
+    RootLabel: str | None = None,
+) -> CadDocument:
     Index: dict[str, tuple[FilePath, ...]] = {
         PathValue.name.casefold(): (PathValue,) for PathValue in FilesValue
     }
@@ -27,7 +32,11 @@ def ReadBundle(FilesValue: Mapping[FilePath, bytes], RootPath: FilePath) -> CadD
     # both source kinds share the same logical names while avoiding filesystem resolution
     def LoadDocument(PathValue: FilePath, Settings: ReadOptions) -> CadDocument:
         Payload = FilesValue[PathValue]
-        Label = str(PathValue)
+        Label = (
+            RootLabel
+            if PathValue == RootPath and RootLabel is not None
+            else str(PathValue)
+        )
         if PathValue.suffix.casefold() != KAsmSuffix:
             return ReadColdPart(Payload, Label, Settings)
         DocumentValue = AsmDoc(
@@ -36,7 +45,7 @@ def ReadBundle(FilesValue: Mapping[FilePath, bytes], RootPath: FilePath) -> CadD
             Payload,
             Label,
             Settings,
-            Readback=AsmReadData(Index, LoadDocument, LoadArchive),
+            Readback=AsmReadData(Index, LoadDocument, LoadArchive, PathValue),
         )
         return RetainSource(DocumentValue, Payload)
 

@@ -17,13 +17,22 @@ def CheckBundleRead(
     GraphValue = Document.assembly
     if GraphValue is None:
         raise ValueError("reopened bundle lacks its source definition graph")
+    RootPath = next(
+        (
+            FilePath(Value.source_path)
+            for Value in GraphValue.definitions
+            if Value.id == GraphValue.root_definition_id
+        ),
+        None,
+    )
     SourcePaths = {FilePath(Value.source_path) for Value in GraphValue.definitions}
     NamesValue = {Value.name.casefold(): Value for Value in SourcePaths}
     FilesValue = {
         PathValue.name.casefold(): Payload for PathValue, Payload in Candidates
     }
     if (
-        len(SourcePaths) != len(NamesValue)
+        RootPath is None
+        or len(SourcePaths) != len(NamesValue)
         or len(Candidates) != len(FilesValue)
         or NamesValue.keys() != FilesValue.keys()
     ):
@@ -32,7 +41,8 @@ def CheckBundleRead(
         )
     Expected = ReadBundle(
         {Value: FilesValue[NameValue] for NameValue, Value in NamesValue.items()},
-        FilePath(Document.source.path),
+        RootPath,
+        RootLabel=Document.source.path,
     )
     if ToJson(Document, IndentSize=None) != ToJson(Expected, IndentSize=None):
         raise ValueError(

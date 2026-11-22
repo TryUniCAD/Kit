@@ -30,7 +30,15 @@ writer. The strict reopen of the regenerated assembly finds two occurrences,
 one mate group, four endpoints, the owned distance driver and three child
 drivers. The complete strict read preserves actual component names and
 physical placement words. It survives neutral JSON and republishes both
-exact files from the same receipt. The proof also checks verified
+exact files from the same receipt. Opening through a relative binary
+file handle retains the source label and records the absolute root
+member. The JSON from that read regenerates the same two members after
+leaving the source directory. A typed test renames the existing
+distance parameter and verifies the projected name and ownership. The
+measured writer refuses three occurrences before publishing. Strict
+projection likewise refuses a recognized planar list with three
+occurrences, and permissive projection retains its established path.
+These synthetic contrasts add no native evidence. The proof also checks verified
 rollback on a wrong child digest and strict refusal of an unsupported
 auxiliary mate option. Permissive inspection retains the raw mate payload
 and its diagnostic for the unsupported option. This measurement covers
@@ -38,6 +46,7 @@ the disclosed coincident-and-distance pair with one shared child.
 [Neutral request](../measurements/2026/MeasuredPlanarPair/NeutralRequest.json)
 [Exact output receipt](../measurements/2026/MeasuredPlanarPair/MeasuredOutput.json)
 [Process proof](../measurements/2026/MeasuredPlanarPair/PublicationProcessProof.json)
+[Readback boundary proof](../measurements/2026/MeasuredPlanarPair/PublicationReadbackBoundary.json)
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/ProveMeasuredPlanarPair.py \

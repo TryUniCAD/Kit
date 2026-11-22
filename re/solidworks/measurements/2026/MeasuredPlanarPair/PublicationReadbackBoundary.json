@@ -1,0 +1,38 @@
+{
+  "matching_generated_files": 2,
+  "matching_generated_streams": 22,
+  "measured_output_sha256": "9eb6ee8e05d4cf357c4f0f0902604b6cf7f46d2e06c8fb6b05254d42c7a4cd5e",
+  "member_sha256": {
+    "PublicDatumPrism.SLDPRT": "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b",
+    "PublicPlanarPair2.SLDASM": "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4"
+  },
+  "native_numeric_checks_in_original_receipt": 360,
+  "native_processes_started": 0,
+  "passed": true,
+  "refusals": {
+    "synthetic_typed_contrasts": {
+      "renamed_driver_projected": "MeasuredGap",
+      "third_occurrence_kept_legacy_projection_permissive": true,
+      "third_occurrence_refused_strict": true
+    },
+    "three_occurrences_rolled_back": true,
+    "unsupported_mate_refused_strict": true,
+    "wrong_child_rolled_back": true
+  },
+  "relative_handle_replay_files": 2,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.planar-main-registry-proof.v1",
+  "strict_public_read": {
+    "child_drivers_mm": [
+      37.1,
+      18.599999999999998,
+      9.299999999999999
+    ],
+    "endpoints": 4,
+    "mate_distance_mm": 42.0,
+    "mate_driver_native_dimension_id": "20",
+    "mates": 2,
+    "occurrences": 2
+  },
+  "strict_round_trip_files": 2
+}
