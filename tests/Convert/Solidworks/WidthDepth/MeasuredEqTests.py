@@ -1,21 +1,43 @@
 from json import dumps as DumpJson, loads as LoadJson
+from os import environ as Environment
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec, platform as PlatformValue
 from typing import cast as CastValue
+
+from pytest import mark as MarkCase
 
 from tests.Convert.Solidworks.WidthDepth.MakeEqRequest import MakeEqRequest
 
 
 # an independently authored queue request verifies the real strict reader and gated writer in a fresh process
 def TestMeasuredEq() -> None:
+    Report, Digest = RunEqCase(PythonExec)
+    AssertEqRead(Report, Digest)
+
+
+# the selected windows shard must reproduce the measured archive through all four public stream routes
+@MarkCase.skipif(
+    PlatformValue != "win32", reason="the positive fixture is scheduled on Windows"
+)
+def TestEqWin() -> None:
+    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON")
+    assert RuntimePath, "the Windows shard must provide the measured part runtime"
+    Report, Digest = RunEqCase(RuntimePath)
+    assert Report["sha256"] == Digest
+    assert Report["published_routes"] == 4
+    AssertEqRead(Report, Digest)
+
+
+# both queue cases use the same portable model and independently pinned receipt
+def RunEqCase(RuntimePath: str) -> tuple[dict[str, object], str]:
     RootValue = FilePath(__file__).resolve().parents[4]
     EvidencePath = RootValue / "re/solidworks/measurements/2026"
     NativeReport = LoadJson(
         (EvidencePath / "SdkWidthDepthPreparationNative01.json").read_bytes()
     )
     WireReport = LoadJson((EvidencePath / "SdkWidthDepthReview01.json").read_bytes())
-    Digest = NativeReport["cases"]["Reference"]["generated_sha256"]
+    Digest = CastValue(str, NativeReport["cases"]["Reference"]["generated_sha256"])
     Command = RootValue / "re/tooling/sw2026/equations/ProveMeasuredWidthDepth.py"
     Request = MakeEqRequest() | {
         "receipt": NativeReport,
@@ -23,7 +45,7 @@ def TestMeasuredEq() -> None:
     }
     Outcome = RunProcess(
         (
-            PythonExec,
+            RuntimePath,
             "-I",
             "-B",
             str(Command),
@@ -42,7 +64,7 @@ def TestMeasuredEq() -> None:
     Report = CastValue(dict[str, object], LoadJson(Outcome.stdout))
     assert Report["guarded_runtime_input_reads"] == 0
     assert Report["unrelated_formula_legacy_inspection"] is True
-    AssertEqRead(Report, Digest)
+    return Report, Digest
 
 
 # strict native transport retains all owners and requires complete binary identity before both publication routes

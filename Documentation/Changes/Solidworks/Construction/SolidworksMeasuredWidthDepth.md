@@ -35,3 +35,9 @@ The typed path selects the canonical local width divided by two formula.
 Other formulas follow generic inspection. Typed sketch widths and heights
 use the same inverse of the measured metre conversion as the point and
 depth readers. [Verification and exact scope](../../../../re/solidworks/records/MeasuredWidthDepthMain2026.md)
+
+The shared Windows queue runs the exact measured publication check with
+CPython 3.12.7. The assigned shard requires the original archive digest
+and four public stream publications, covering direct and registry writes
+from authored input and strict readback. The platform-neutral check also
+covers logical stream equality and refusal of different whole bytes.

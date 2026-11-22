@@ -82,6 +82,21 @@ the original whole-archive digest on every runtime. A runtime that emits
 identical logical streams and different complete bytes reaches the
 normal exact-output refusal before any caller output.
 
+The shared Windows shard that collects `TestEqWin` uses the measured
+part runtime setup shared by the bounded imported-body fixtures.
+The pinned CPython 3.12.7 x64 path is required in that shard. The case
+requires the original whole digest and four public stream publications.
+Its report validation also requires an actual passing call for the
+selected case. The ordinary suite still checks the exact decoded streams
+and refuses different whole bytes on other compression runtimes.
+
+A fresh local macOS process with CPython 3.12.14 and classic zlib 1.2.12
+reproduced the measured 9,157-byte output, five host publication routes
+and zero runtime input reads. All ten decoded stream digests matched.
+The portable process report has SHA-256
+`1caf5fe0971656d02c6f93279f6e34ea8534eb04c732c4a1ce0e83db186eb9cf`.
+The hosted Windows 3.12.7 result is pending.
+
 The independent 20.01 mm width case keeps the same locator, names and
 epoch. Its strict geometry and design reads return 20.01 mm width,
 17.375 mm height and 10.005 mm derived depth. The displayed width
