@@ -11,7 +11,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMe
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
+from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from interchange.Core.Common import FreezeMapping
 
 
