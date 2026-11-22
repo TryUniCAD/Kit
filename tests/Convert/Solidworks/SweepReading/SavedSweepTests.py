@@ -9,7 +9,7 @@ from interchange.Features.SweepFeature import SweepFeature
 
 
 # physical saved geometry and native driver ownership must agree in both read modes
-def CheckSwFixture(Payload: bytes, Section: float, IncludeBrep: bool) -> None:
+def ReadSwFixture(Payload: bytes, Section: float, IncludeBrep: bool) -> None:
     Document = OpenDocument(
         Payload, source_format=KPartFormatId, strict=True, include_brep=IncludeBrep
     )
@@ -65,4 +65,4 @@ def TestSavedSweep() -> None:
         Payload = (Fixtures / NameValue).read_bytes()
         assert HashBytes(Payload).hexdigest() == Expected
         for IncludeBrep in (True, False):
-            CheckSwFixture(Payload, Section, IncludeBrep)
+            ReadSwFixture(Payload, Section, IncludeBrep)
