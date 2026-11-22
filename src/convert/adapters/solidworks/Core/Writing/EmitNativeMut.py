@@ -1,12 +1,14 @@
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
     MatchPartMeas,
 )
@@ -43,6 +45,14 @@ def EmitNativeMut(
         KPartFormatId,
         len(Payload),
         metadata=Evidence,
+        transfers=(
+            tuple(
+                CapTransfer(CapabilityValue, TransferMode.KNative)
+                for CapabilityValue in sorted(DocumentValue.capabilities)
+            )
+            if IsColdRead(DocumentValue)
+            else ()
+        ),
         vendor_loadable=True,
         application_usable=True,
     )

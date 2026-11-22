@@ -73,20 +73,22 @@ def AssertSwModes(Registry: AdapterRegistry) -> None:
     assert Writer.part_extensions == (".sldprt",)
     assert Writer.assembly_extensions == (".sldasm",)
     assert Writer.aliases == ("solidworks.sldasm",)
-    assert (
-        Writer.capabilities
-        == Writer.native_capabilities
-        == {
-            Capability.BODY_STRUCTURE,
-            Capability.ASSEMBLIES,
-            Capability.COMPONENT_DOCUMENTS,
-            Capability.CONFIGURATIONS,
-            Capability.EDITABLE_SKETCHES,
-            Capability.PARAMETERS,
-            Capability.PARAMETRIC_HISTORY,
-            Capability.SUPPORT_PLANES,
-        }
-    )
+    assert Writer.native_capabilities == {
+        Capability.BODY_STRUCTURE,
+        Capability.ASSEMBLIES,
+        Capability.COMPONENT_DOCUMENTS,
+        Capability.CONFIGURATIONS,
+        Capability.EDITABLE_SKETCHES,
+        Capability.PARAMETERS,
+        Capability.PARAMETRIC_HISTORY,
+        Capability.SUPPORT_PLANES,
+    }
+    assert Writer.capabilities == Writer.native_capabilities | {
+        Capability.BREP,
+        Capability.PROVENANCE,
+        Capability.ROUNDTRIP_METADATA,
+        Capability.SELECTIONS,
+    }
     assert Registry.writer("solidworks.sldasm") is PartWriter
     with Pytest.raises(AdapterNotFoundError):
         _ = Registry.writer("solidworks.slddrw")

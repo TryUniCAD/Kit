@@ -383,8 +383,10 @@ def ReadNativePart(
     DataValue: bytes,
     Label: str,
     Settings: ReadOptions,
+    *,
+    ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = NativePartModel(Archive, Settings.configuration)
+    Model = NativePartModel(Archive, Settings.configuration) if ModelValue is None else ModelValue
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)

@@ -13,6 +13,10 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut impor
     EmitNestedMut,
 )
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
+from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
+    ColdReadInput,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -36,12 +40,19 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         if DocValue.assembly is not None:
             return CanWriteNested(DocValue, Target)
+        PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
+            if IsColdRead(DocValue):
+                NameValue = (
+                    PathValue.stem
+                    if PathValue is not None
+                    else DocValue.sketches[0].name
+                )
+                DocValue = ColdReadInput(DocValue, NameValue)
             PlanValue = PlanPartWrite(DocValue)
-        except (TypeError, ValueError):
+        except (IndexError, TypeError, ValueError):
             return False
-        if isinstance(Target, (str, FilePath)):
-            PathValue = FilePath(Target)
+        if PathValue is not None:
             return (
                 PathValue.suffix.casefold() == KPartSuffix
                 and PathValue.stem == PlanValue.NameValue
