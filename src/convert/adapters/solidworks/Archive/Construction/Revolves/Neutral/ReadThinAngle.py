@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ReadRevDr
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
 
 # the measured thin feature uses one positive angular driver and independent thickness controls

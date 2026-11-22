@@ -1,6 +1,8 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
-from convert.adapters.solidworks.Archive.Bodies.CheckExtFields import CheckExtFields
+from convert.adapters.solidworks.Archive.Bodies.External.CheckExtFields import (
+    CheckExtFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass

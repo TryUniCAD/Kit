@@ -15,4 +15,4 @@ The internal profile covers literal text in one configuration. Linked
 values, equations and other property types require separate qualification.
 Public writer admission remains within the qualified ordinary part scope.
 
-[Construction and native evidence](../../../../re/solidworks/records/SdkPartTextProperties2026.md)
+[Construction and native evidence](../../../../../re/solidworks/records/SdkPartTextProperties2026.md)

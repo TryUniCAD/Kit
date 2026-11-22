@@ -17,7 +17,7 @@ from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.ScopedExtrude import ScopedExtrude
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.serialization import KTypeRegistry
 from interchange.serialization import from_data as FromData
 from interchange.serialization import to_data as ToData

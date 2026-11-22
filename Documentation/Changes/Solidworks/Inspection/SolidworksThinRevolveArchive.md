@@ -6,7 +6,7 @@ They add structural decoding and encoding rules without a fresh revolve builder 
 
 Thin revolution reuses the existing regular-revolve schema and adds its `f8f0` thin-spec reference.
 Thin cut reuses thin revolution, following the actual native inheritance chain.
-The [inheritance gotcha](../../../Gotchas/Conversion/Solidworks/Archive/ThinCutsInheritThinRevolution.md)
+The [inheritance gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Revolve/ThinCutsInheritThinRevolution.md)
 records why the ordinary cut class is not its parent.
 The thin-spec schema describes ten typed reference and scalar fields.
 Both new feature identities use the existing concept dispatch mapping.

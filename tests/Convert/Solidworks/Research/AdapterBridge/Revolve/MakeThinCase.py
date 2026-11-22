@@ -4,7 +4,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.GeometryCurves import LineGeometry
 from interchange.geometry.Models.Sketch import SketchEntity
 from interchange.geometry.Models.VectorPlane import PlaneVector

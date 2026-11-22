@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinDim im
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinWallOwner import (
     ThinWallOwner,
 )
-from interchange.Features.ThinRevolve import KWallModes
+from interchange.Features.Revolves.ThinRevolve import KWallModes
 
 
 # the thin spec keeps both wall display owners in the measured cold and saved states

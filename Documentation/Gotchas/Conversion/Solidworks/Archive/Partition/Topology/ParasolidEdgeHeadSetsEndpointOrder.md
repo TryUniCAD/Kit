@@ -11,4 +11,4 @@ ordinary generated straight prism, select the coedge that follows the
 edge's authored start and end. Check the endpoints against the supporting
 line as well as the perimeter.
 
-[Kernel trace and controlled comparison](../../../../../../re/solidworks/records/RectangleEdgeAnchor2026.md)
+[Kernel trace and controlled comparison](../../../../../../../re/solidworks/records/RectangleEdgeAnchor2026.md)

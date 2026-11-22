@@ -9,4 +9,4 @@ curve to its actual edge and the matching cylindrical carrier. Reverse the
 parameter axis for negative sense and recalculate the interval from the
 original directed endpoints. Require a quarter turn for both cap arcs and
 retain their edge and coedge identities.
-[Observed readback](../../../../../../re/solidworks/records/SavedEdgeFilletSdk2026.md)
+[Observed readback](../../../../../../../re/solidworks/records/SavedEdgeFilletSdk2026.md)

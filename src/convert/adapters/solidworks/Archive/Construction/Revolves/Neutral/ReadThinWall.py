@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.ThinWallP
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.document.Validation.ThinRevValidate import GetRevWall
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
 # native direction words follow the registered thin wall enum
 KThinModeWords = {"one_sided": 0, "opposite": 1, "midplane": 2, "two_sided": 3}

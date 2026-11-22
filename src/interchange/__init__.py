@@ -102,7 +102,7 @@ from interchange.Enums.EnumGeometry import ConstraintKind, GeometryKind
 from interchange.Enums.EnumUnits import UnitSystem
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.Features.FeatureBody import DesignBody
 from interchange.Features.FeatureContract import FeatureDef
 from interchange.Features.FeatureBoundPlane import BoundConstructionPlane

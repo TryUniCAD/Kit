@@ -20,7 +20,7 @@ def check_projection(document, case, include_brep):
     from BuildThinPlanes import WALL_MODES
     from RevolveFamilyModel import thin_predictions, world
     from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
-    from interchange.Features.ThinRevolve import ThinRevolve
+    from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
     document.assert_valid()
     require(document.metadata.get("solidworks.typed_thin_revolve_semantics") is True

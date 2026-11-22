@@ -17,7 +17,7 @@ from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks.Container.Format import KPartFormatId, KPartSuffix
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.MakeThinCase import (
     MakeThinCase,
 )

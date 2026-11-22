@@ -23,7 +23,7 @@ its mate's vertex to its own vertex agrees with the supporting line's
 positive direction. The original generated case disagrees on five edges.
 Its outward faces and closed topology still satisfy the analytic geometry
 checks. The edge anchor determines an additional ordered relation.
-[Endpoint ordering gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/ParasolidEdgeHeadSetsEndpointOrder.md).
+[Endpoint ordering gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Partition/Topology/ParasolidEdgeHeadSetsEndpointOrder.md).
 
 ## Single-variable native probe
 

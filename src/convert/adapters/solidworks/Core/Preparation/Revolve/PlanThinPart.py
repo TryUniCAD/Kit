@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Neutral.RevolvePl
     RevolvePlan,
 )
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
 
 # the measured thin wall scopes must bind all model owners before native staging

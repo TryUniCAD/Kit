@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ThinRevOwner i
 from interchange.Enums.EnumFeatures import BooleanOp
 from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.Selection import Selection
 
 

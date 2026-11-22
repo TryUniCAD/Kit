@@ -75,7 +75,7 @@ from convert.adapters.solidworks.Core.NativeRecords.PlaneRefRecord import (
     KHandleVersion,
 )
 from convert.adapters.solidworks.Core.NativeRecords.HeaderActions import ReadHdrAction
-from convert.adapters.solidworks.Core.RadialValue import MatchRadialVal
+from convert.adapters.solidworks.Core.Dimensions.RadialValue import MatchRadialVal
 from convert.adapters.solidworks.Core.TypedResolved.Equations.WidthDepthLink import (
     WidthDepthLink,
 )

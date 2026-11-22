@@ -1,6 +1,8 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
-from convert.adapters.solidworks.Archive.Bodies.CheckExtShape import CheckExtShape
+from convert.adapters.solidworks.Archive.Bodies.External.CheckExtShape import (
+    CheckExtShape,
+)
 from convert.adapters.solidworks.Archive.Bodies.WriteBodyMut import WriteBodyMut
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteNodeMut import WriteNodeMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps

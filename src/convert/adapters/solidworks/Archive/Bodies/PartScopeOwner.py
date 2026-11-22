@@ -15,7 +15,7 @@ def PartScopeOwner(ContextValue: BodyContext, NodeValue: ArchiveNode) -> Archive
 
 
 # broad archives need the same enclosing part guard at the actual unit owner field
-def UsesPartOwner(
+def HasPartOwner(
     ContextValue: BodyContext, NodeValue: ArchiveNode, RuleValue: NativeField
 ) -> bool:
     return RuleValue.ModeValue == "FrameOwner" or (

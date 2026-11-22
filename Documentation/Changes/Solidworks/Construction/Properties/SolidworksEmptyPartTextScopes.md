@@ -10,4 +10,4 @@ the existing text rules. The public SDK reports the declared empty scopes
 and their configuration owner. Three disclosed imported parts passed clean
 native open, rebuild, save and fresh reopen, retaining nine empty text
 scopes across the three parts. The binary manager remains a separate owner.
-[Format and verification record](../../../../re/solidworks/records/ImportedEmptyPartText2026.md)
+[Format and verification record](../../../../../re/solidworks/records/ImportedEmptyPartText2026.md)

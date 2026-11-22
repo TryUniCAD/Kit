@@ -20,7 +20,7 @@ from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.Features.FeatureStep import FeatureStep
 from interchange.Features.PlaneExtValues import GetPlaneExt
 from interchange.Features.ScopedExtrude import ScopedExtrude
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.Selection import Selection
 from interchange.geometry.Models.Sketch import Sketch
 from interchange.geometry.Models.SupportPlane import SupportPlane

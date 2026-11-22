@@ -35,7 +35,7 @@ from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame impo
     PrincipalFrame,
 )
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
 
 # the constructor needs one complete neutral ownership plan before any archive object or native identifier exists

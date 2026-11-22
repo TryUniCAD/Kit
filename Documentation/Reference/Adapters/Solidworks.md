@@ -101,7 +101,7 @@ scopes through native save when selected by the neutral model. Two pre-writer
 locked imports preserve these scopes and their authored lights through the
 same measured geometry lifecycle with the generated native file property owner.
 [Local import scene](../../Changes/Solidworks/Construction/SolidworksLocalImportScene.md)
-[Empty part text scopes](../../Changes/Solidworks/Construction/SolidworksEmptyPartTextScopes.md)
+[Empty part text scopes](../../Changes/Solidworks/Construction/Properties/SolidworksEmptyPartTextScopes.md)
 [Empty file property owner](../../Changes/Solidworks/Construction/Properties/SolidworksEmptyFilePropertyOwner.md)
 
 For the measured 2026 custom part preference, read `metadata["solidworks.typed_resolved_semantics"]["document_units"]` for millimetres, degrees, grams or kilograms, cubic millimetres and the native decimal counts for length, angle and mass. The reader requires a matching independent density length format in the document's user table. Presets and unqualified custom settings omit the optional entry. [Custom document units](../../Changes/Solidworks/Archive/SolidworksCustomDocumentUnitRead.md)
@@ -255,7 +255,7 @@ The internal ordinary revolve entry builds from one Front rectangle, the actual 
 
 The internal SDK rectangle composer also owns two driving sketch dimensions and four horizontal or vertical relations. Two independent neutral requests preserve all ten streams, real point and segment handles, displays and parameter ownership through typed preparation. [Rectangle driving dimensions](../../Changes/Solidworks/Construction/SolidworksRectangleDrivingDimensions.md)
 
-The internal part composer can generate summary, document and active-configuration text properties through separate native XML owners. A triangle and a circle preserve independently edited values in both custom scopes through native save and fresh reopen. [Part text properties](../../Changes/Solidworks/Construction/SolidworksPartTextProperties.md)
+The internal part composer can generate summary, document and active-configuration text properties through separate native XML owners. A triangle and a circle preserve independently edited values in both custom scopes through native save and fresh reopen. [Part text properties](../../Changes/Solidworks/Construction/Properties/SolidworksPartTextProperties.md)
 
 The internal corner-anchored rectangle keeps the actual native origin coincidence through independent edits of both sketch lengths and the boss depth. All three native saves reopen with a fully constrained sketch and one solid, across eight processes and 255 numerical comparisons. [Native origin-anchored rectangle](../../Changes/Solidworks/Inspection/Profiles/SolidworksSdkCornerNativeEdits.md)
 

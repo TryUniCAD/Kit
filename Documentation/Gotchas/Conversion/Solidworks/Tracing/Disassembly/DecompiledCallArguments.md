@@ -12,7 +12,7 @@ The instructions at `sldmodu.dll` addresses `0x4c238177` through `0x4c238180`
 also pass the archive in `r8`.
 The bridge implementation reads a signed count and tagged sheet-metal records.
 Omitting that count made all eight measured configuration streams four bytes short.
-See the [remote measurement](../../../../re/solidworks/measurements/ArchiveRoundTrip2026.md).
+See the [remote measurement](../../../../../../re/solidworks/measurements/ArchiveRoundTrip2026.md).
 
 ## Workaround
 

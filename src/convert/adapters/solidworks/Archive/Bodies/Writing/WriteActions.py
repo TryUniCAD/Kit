@@ -57,7 +57,7 @@ from convert.adapters.solidworks.Archive.Bodies.Writing.WriteRepeatMut import (
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteSectionMut import (
     WriteSectionMut,
 )
-from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValidateMut import (
+from convert.adapters.solidworks.Archive.Bodies.Writing.Validation.WriteValidateMut import (
     WriteValidMut,
 )
 from convert.adapters.solidworks.Archive.Bodies.Writing.WriteValueMut import (

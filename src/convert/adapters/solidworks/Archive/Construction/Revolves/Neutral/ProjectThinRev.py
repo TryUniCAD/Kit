@@ -23,7 +23,7 @@ from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame impo
     PrincipalFrame,
 )
 from interchange.document.Models.DocumentModel import CadDocument
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 
 
 # actual neutral references determine the principal plane axis and active thin dimensions

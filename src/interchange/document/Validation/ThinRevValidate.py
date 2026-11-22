@@ -3,7 +3,7 @@ from typing import Mapping as TypeMap
 
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.Features.FeatureStep import FeatureStep
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.Records.RecordParameter import Parameter
 from interchange.document.Validation.AngleRevValidate import GetAngleRevErrs
 from interchange.geometry.Models.Selection import Selection

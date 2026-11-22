@@ -14,7 +14,7 @@ Both thin feature vtables dispatch serialization to `0x4bb1e5f0` in
 That method runs the shared regular-revolution serializer and then writes the
 thin-spec object reference at runtime member `f8f0`.
 
-The [native record](../../../../../re/solidworks/records/ThinRevolveArchive2026.md)
+The [native record](../../../../../../re/solidworks/records/ThinRevolveArchive2026.md)
 retains the concrete tables, RTTI locators, function fingerprints and field order.
 These are static format facts. Native thin-file round trips and fresh construction
 remain unproved.
@@ -28,5 +28,5 @@ Preserve raw wire values separately from native load repairs and store-time
 normalization.
 Do not infer constructor defaults or numeric domains from class names or API enums.
 
-The [change entry](../../../../Changes/Solidworks/Inspection/SolidworksThinRevolveArchive.md)
+The [change entry](../../../../../Changes/Solidworks/Inspection/SolidworksThinRevolveArchive.md)
 describes the version-19000 research-only extension and its acceptance limits.

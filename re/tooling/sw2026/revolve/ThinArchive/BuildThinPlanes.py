@@ -23,7 +23,7 @@ from convert.adapters.solidworks.Container.Format import KeywordsStream
 from convert.adapters.solidworks.Core.Adapter import KFormatId
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import PrepareRevolve
-from interchange.Features.ThinRevolve import ThinRevolve
+from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from interchange.geometry.Models.Transform import Transform
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from interchange.serialization.Deserialize import FromData

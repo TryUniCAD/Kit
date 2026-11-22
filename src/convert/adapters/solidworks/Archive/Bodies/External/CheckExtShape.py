@@ -1,7 +1,9 @@
 from collections.abc import Mapping
 
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
-from convert.adapters.solidworks.Archive.Bodies.CheckExtFields import CheckExtFields
+from convert.adapters.solidworks.Archive.Bodies.External.CheckExtFields import (
+    CheckExtFields,
+)
 
 
 # manager external features retain their measured null reference ownership boundary
