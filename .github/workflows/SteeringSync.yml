@@ -77,7 +77,7 @@ jobs:
           FileNotice = Regex.compile(
               rb"(?m)^(?P<block><!--\r?\n)?(?P<prefix>(?:\# |// |\$\$ |))"
               rb"SPDX-License-Identifier: MIT\r?\n(?P=prefix)"
-              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:Parashell, )?"
+              rb"SPDX-FileCopyrightText: Copyright \(c\) 2026 (?:[A-Za-z]+, )?"
               rb"Odin Glynn-Martin(?:, Stephen Harcourt)?\r?\n"
               rb"(?(block)-->\r?\n)(?:\r?\n)?"
           )
@@ -126,6 +126,14 @@ jobs:
                   )
               if SourceName == ".agents/README.md":
                   ExpectedText = Regex.sub(rb"(?m)^\| `\.kiro/steering/SpdxHeader\.md`[^\n]*\n", b"", ExpectedText)
+              for Edit in reversed(Entry.get("readable_edits", [])):
+                  if not 0 <= Edit["start"] <= Edit["end"] <= len(ExpectedText):
+                      raise SystemExit(f"Invalid readable edit: {SourceName}")
+                  ExpectedText = (
+                      ExpectedText[:Edit["start"]]
+                      + Edit["replacement"].encode("utf-8")
+                      + ExpectedText[Edit["end"]:]
+                  )
               if Entry["encoding"] == "raw":
                   Preserved = Document == ExpectedText
               elif Entry["encoding"] in {"markdown-wrapper", "notice-wrapper"}:

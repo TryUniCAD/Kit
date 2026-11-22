@@ -12,7 +12,7 @@ This reference distinguishes interchange storage from native CAD output.
 | ----------------- | ------------------------------------ |
 | Format identifier | `interchange.json`                   |
 | Suffix            | `.json`                              |
-| Media type        | `application/vnd.parashell.kit+json` |
+| Media type        | `application/vnd.unicad.kit+json` |
 | Main model        | `CadDocument`                        |
 | Text encoding     | UTF-8                                |
 

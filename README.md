@@ -7,7 +7,6 @@ Production conversion runs without requiring CAD software.
 
 [Wiki](https://github.com/TryUniCAD/Kit/wiki)
 
-
 ## Start here
 
 1. Read the [installation guide](Documentation/Tasks/Install.md).
@@ -39,13 +38,20 @@ from a qualified neutral document. [Writer scope](Documentation/Reference/Adapte
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line
-Install the cli using:
-`uv tool install .`.
+
+Open the Kit repository directory, then install the CLI from that directory:
+
+```sh
+cd Kit
+uv tool install .
+```
+
+Supply a real `model.f3d` input file and an unused destination before running:
 
 ```sh
 kit formats
-kit convert [model].f3d model.json
-kit decode [model].f3d --layer container
+kit convert model.f3d model.json
+kit decode model.f3d --layer container
 ```
 
 The CLI uses strict reading and applies the output policy.
@@ -96,12 +102,15 @@ Add a [change entry](Documentation/Changes/Index.md) for each repository additio
 Record each new discovery as a separate [gotcha](Documentation/Gotchas/README.md).
 Run tests only in remote CI.
 
+Core contributors: Odin Glynn-Martin, Stephen Harcourt, and James Harcourt.
+
 ## Star history
 
 [![Kit star history](https://api.star-history.com/svg?repos=TryUniCAD/Kit&type=Date)](https://www.star-history.com/#TryUniCAD/Kit&Date)
 
 ## Distribution
-Using the SDK
+
+Use the SDK in your Python project.
 
 Use Python 3.11 or later.
 Activate your project's virtual environment and install Kit from PyPI.
