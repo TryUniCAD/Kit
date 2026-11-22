@@ -60,6 +60,9 @@ drivers, `D1` at 4.875 mm and `D3` at 8.375 mm. Editing `D3` to 9.625 mm
 preserved `D1`, the selected edge and the 26-row feature tree. All three source
 phases and both controls passed in five fresh process lifetimes.
 
-The next source packet draws two independent stock and distance cases only on
-the Windows guest. It requires both disclosed result hashes before it can
-produce the held-out packet. Only phase status and hashes leave the guest.
+The [held-out source lock](../measurements/2026/ChamferDistancePairHeldoutSource01.json)
+binds two separate stock and distance cases authored on the Windows guest
+before either mode has a writer. Both exact disclosed result hashes authorize
+the packet. Native author, reopen with a driving edit, save and fresh reopen
+pass for both cases. The eight process lifetimes include both healthy controls.
+Only phase status and hashes leave the guest. No writer output was measured.
