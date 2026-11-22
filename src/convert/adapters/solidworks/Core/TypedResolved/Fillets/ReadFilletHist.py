@@ -22,8 +22,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Fillets.CheckLiveRound impor
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.FilletHistory import (
     FilletHistory,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Fillets.ReadFilletRad import (
-    ReadFilletRad,
+from convert.adapters.solidworks.Core.TypedResolved.Fillets.ReadFilletDrive import (
+    ReadFilletDrive,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.ReadFilletOwn import (
     ReadFilletOwn,
@@ -59,6 +59,8 @@ def ReadFilletHist(ArchiveValue: SldprtArchive) -> FilletHistory:
     if ReadBodyTree(Previous).BodyIndex != StockBody.IndexValue:
         raise ValueError("SOLIDWORKS previous stock topology has a foreign owner")
     CheckFilletUndo(StagesValue, LiveBody, StockBody, LiveName, StockName)
-    RadiusValue = ReadFilletRad(OwnersValue.FilletValue)
-    CheckLiveRound(NodesValue, LiveBody, RadiusValue)
-    return FilletHistory(OwnersValue, StagesValue, LiveBody.IndexValue, RadiusValue)
+    DriveValue = ReadFilletDrive(OwnersValue.FilletValue)
+    CheckLiveRound(NodesValue, LiveBody, DriveValue.RadiusValue)
+    return FilletHistory(
+        OwnersValue, StagesValue, LiveBody.IndexValue, DriveValue, LinkValue
+    )

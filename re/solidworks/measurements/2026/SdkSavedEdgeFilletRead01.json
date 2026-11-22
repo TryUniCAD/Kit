@@ -1,0 +1,110 @@
+{
+  "guarded_processes": 4,
+  "heldout_credit": 0,
+  "native_launches": 0,
+  "results": [
+    {
+      "body_counts": {
+        "edges": 15,
+        "faces": 7,
+        "vertices": 10
+      },
+      "case": "EdgeFilletAxial",
+      "curve_senses": [
+        "+",
+        "-"
+      ],
+      "edited": false,
+      "guarded_package_grammar_reads": 0,
+      "history_only_unchanged": true,
+      "native_numeric_comparisons": 5,
+      "refusals": [
+        "crossed_radial_alias",
+        "duplicate_stock_face",
+        "opposite_circle_sense",
+        "foreign_decoded_shape"
+      ],
+      "round_spans_radians": [
+        1.5707963267948966,
+        1.5707963267948966
+      ],
+      "source_sha256": "528e0415421149b750a223d3aebdc8e9600f75da8381d9452a22255cd9d993e6",
+      "typed_edge_slot": 227,
+      "unexpected_external_access_attempts": 0
+    },
+    {
+      "body_counts": {
+        "edges": 15,
+        "faces": 7,
+        "vertices": 10
+      },
+      "case": "EdgeFilletAxial",
+      "curve_senses": [
+        "+",
+        "-"
+      ],
+      "edited": true,
+      "guarded_package_grammar_reads": 0,
+      "history_only_unchanged": true,
+      "native_numeric_comparisons": 5,
+      "refusals": [],
+      "round_spans_radians": [
+        1.5707963267948966,
+        1.5707963267948966
+      ],
+      "source_sha256": "f38135c13ee77b70960cfd5388f7472b9f30a254949d274f8edeebfb8c6e900a",
+      "typed_edge_slot": 226,
+      "unexpected_external_access_attempts": 0
+    },
+    {
+      "body_counts": {
+        "edges": 15,
+        "faces": 7,
+        "vertices": 10
+      },
+      "case": "EdgeFilletTransverse",
+      "curve_senses": [
+        "-",
+        "-"
+      ],
+      "edited": false,
+      "guarded_package_grammar_reads": 0,
+      "history_only_unchanged": true,
+      "native_numeric_comparisons": 5,
+      "refusals": [],
+      "round_spans_radians": [
+        1.5707963267948966,
+        1.5707963267948966
+      ],
+      "source_sha256": "cc36db430e80d74889f640077fde239cc48f41a1655247ea155cd0538871ed9e",
+      "typed_edge_slot": 228,
+      "unexpected_external_access_attempts": 0
+    },
+    {
+      "body_counts": {
+        "edges": 15,
+        "faces": 7,
+        "vertices": 10
+      },
+      "case": "EdgeFilletTransverse",
+      "curve_senses": [
+        "-",
+        "-"
+      ],
+      "edited": true,
+      "guarded_package_grammar_reads": 0,
+      "history_only_unchanged": true,
+      "native_numeric_comparisons": 5,
+      "refusals": [],
+      "round_spans_radians": [
+        1.570796326794896,
+        1.5707963267948961
+      ],
+      "source_sha256": "7a89a9710463afb80cb35c4e9bb5960b37167d78883f221d6e26bd86815b0fd3",
+      "typed_edge_slot": 227,
+      "unexpected_external_access_attempts": 0
+    }
+  ],
+  "schema": "kit.sw2026.saved-edge-fillet-sdk-read.v1",
+  "source_lock_sha256": "1f2652129840582cb663063b08f590dadbaf8dd046f0b96f5a1b99cf5ae47797"
+}

@@ -459,6 +459,11 @@ This is source-backed inspection of the native import. Conversion
 acceptance follows the [CAD success criteria](../Operations/CadSuccessCriteria.md).
 [Local body readback](../../Changes/Solidworks/Inspection/Parts/SolidworksLocalBodyReadback.md)
 
+A strict geometry read can bind the saved constant-radius single-edge fillet
+on rectangular stock to its actual previous edge and live D1. Its warm
+partition and rollback prove the named body and both circular trims.
+[Saved edge fillet readback](../../Changes/Solidworks/Reading/Parts/SolidworksSavedEdgeFilletRead.md)
+
 The shared version-3701250 rollback reader exposes the selected mark ID
 and its immediate predecessor ID after validation. The validation-only
 entry point returns `None`.

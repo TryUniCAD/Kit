@@ -49,3 +49,7 @@ python3.14 -B re/tooling/sw2026/edge_fillet_source/AuditTypedFillet.py \
   --control /absolute/path/to/disclosed/EdgeFilletSource03/Packet/Control.SLDPRT \
   --report /absolute/new/EdgeFilletTypedRead01.json
 ```
+
+The [saved public reader](SavedEdgeFilletSdk2026.md) now binds the warm
+transaction, actual prior edge, live D1 and sense-corrected rounded body
+across all four disclosed saves.

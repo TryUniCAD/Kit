@@ -205,6 +205,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart im
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc import (
     WithPatternDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.WithSavedFillet import (
+    WithSavedFillet,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.WithRevolveDoc import (
     WithRevolveDoc,
 )
@@ -718,6 +721,7 @@ def FinishPartDoc(
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)
     DocValue = WithThinDoc(DocValue, Archive, ConfigId, DerivedValue)
     if BindSavedOwners:
+        DocValue = WithSavedFillet(DocValue, Archive, ConfigId)
         DocValue = WithSelRevDoc(DocValue, Archive, ConfigId)
         DocValue = WithPatternDoc(DocValue, Archive, ConfigId)
     if (
