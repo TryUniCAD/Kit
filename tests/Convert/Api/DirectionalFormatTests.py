@@ -9,7 +9,7 @@ from convert.adapters.json.Adapter import JsonAdapter
 from tests.Convert.Api.Fusion.AdapterCases import AdapterCase
 
 
-# reuse the interoperable json reader with a read-specific catalog alias
+# reuse the interoperable json reader with an alias reserved for reading
 class SnapshotReader(JsonAdapter):
 
     # alias metadata lets the real codec exercise separate reader and writer lookup
