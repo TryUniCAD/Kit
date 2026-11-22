@@ -11,6 +11,7 @@ Support and security links point to `TryUniCAD/Kit`.
 Unused legacy workspace exclusions are removed from security and rationale checks.
 The JSON adapter advertises `application/vnd.unicad.kit+json`.
 FreeCAD output identifies its authoring application as `Kit`.
+Ghidra command scripts resolve the repository from their own location instead of a host-specific directory.
 
 ## Usage
 
