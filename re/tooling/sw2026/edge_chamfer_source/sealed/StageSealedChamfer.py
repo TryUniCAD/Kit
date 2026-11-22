@@ -18,7 +18,8 @@ from ChamferModel import predict
 from ChamferPacket import TOOLS as SOURCE_TOOLS, write_new
 from FilletPacket import BUILD, CONTROL, ORACLE, digest
 from RunSealedChamfer import BOUNDARY_REV, DISCLOSED_FILE, DISCLOSED_REV, DISCLOSED_SHA, DRIVER_REV, ENTRY, EPOCH, FAMILY
-from RunSealedChamfer import LOCK_REV, PREWRITER_FILE, PREWRITER_SHA, SCHEMA, TOOLS, WRITER, WRITER_TREE
+from RunSealedChamfer import EVAL_PATH, LOCK_REV, PREWRITER_FILE, PREWRITER_SHA, PRIOR_FREEZE, PRIOR_RESULT
+from RunSealedChamfer import SCHEMA, SOURCE_PATH, TOOLS, TRIAL, WRITER, WRITER_TREE
 from RunSealedChamfer import compiler_bundle, generate, hash_bytes, require, verified
 
 SHARED_CODE = {f"{RESEARCH}/{name}.py" for name in (
@@ -104,8 +105,12 @@ def identity(contents):
 
 def stage(output, control):
     output = output.resolve()
-    require(output.name == "GeneratedChamferHeldout01" and not output.exists() and not output.is_relative_to(ROOT),
+    require(output.name == TRIAL and not output.exists() and not output.is_relative_to(ROOT),
             "stage only at the unused managed disclosure root")
+    earlier = output.parent / "GeneratedChamferHeldout01"
+    previous_result = (earlier / "Public/Result.json").read_bytes()
+    require(digest(earlier / "Packet/Freeze.json") == PRIOR_FREEZE and hash_bytes(previous_result) == PRIOR_RESULT,
+            "the first freeze and result must remain immutable")
     head, physical = pinned_history()
     source = git_python_closure(head)
     assets = {f"Tool/{name}": blob(WRITER, f"{folder}/{name}") for folder, names in SOURCE_TOOLS.items() for name in names}
@@ -113,13 +118,15 @@ def stage(output, control):
     assets.update({"Tool/RunNativeChamferProbe.py": blob(WRITER, f"{FAMILY}/RunNativeChamferProbe.py"),
                    "Control.SLDPRT": control.read_bytes(), "Compiler.zip": zip_python(source),
                    "PrewriterLock.json": blob(LOCK_REV, PREWRITER_FILE),
-                   "DisclosedReceipt.json": blob(DISCLOSED_REV, DISCLOSED_FILE)})
+                   "DisclosedReceipt.json": blob(DISCLOSED_REV, DISCLOSED_FILE),
+                   "PriorEvaluation.json": previous_result})
     require([hash_bytes(assets[name]) for name in ("Control.SLDPRT", "PrewriterLock.json", "DisclosedReceipt.json")]
             == [CONTROL, PREWRITER_SHA, DISCLOSED_SHA], "public native evidence or healthy control seal differs")
     data = {"schema": SCHEMA, "evaluator_revision": head, "construction_revision": WRITER, "construction_tree": WRITER_TREE,
             "prewriter_lock_revision": LOCK_REV, "boundary_revision": physical, "driver_revision": DRIVER_REV,
             "disclosed_revision": DISCLOSED_REV, "oracle_build": BUILD, "oracle_sha256": ORACLE,
-            "source_root": r"C:\KitEdgeChamferHeld01", "evaluation_root": r"C:\KitGeneratedChamferHeldout01",
+            "source_root": SOURCE_PATH, "evaluation_root": EVAL_PATH,
+            "prior_freeze_sha256": PRIOR_FREEZE, "prior_result_sha256": PRIOR_RESULT,
             "complete_fresh_processes": 10, "epochs": [EPOCH, EPOCH + 1],
             "compiler_members": {name: identity(blob) for name, blob in source.items()},
             "files": {name: identity(blob) for name, blob in assets.items()}}

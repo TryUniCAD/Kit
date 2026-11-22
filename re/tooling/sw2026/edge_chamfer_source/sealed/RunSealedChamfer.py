@@ -35,13 +35,21 @@ PREWRITER_SHA = "71523d573c97d6bb892556803b3c3914732664371b7e3292c54626b1fe2f7f4
 DISCLOSED_SHA = "dc30cd71f69dfc8ce96c2aae8c8014adb285e5d7c7d7587e963bdb0919930d5c"
 DISCLOSED_RAW_SHA = "454f8687d8ae35134a7c374855e105181c21d40365a614ae76f443fff6b831ea"
 DISCLOSED_TRIAL_SHA = "378922a6556db618fd7c94e4430f3ba31781df56970b12072a8ff4ea3043bef9"
-SOURCE_ROOT = Path(r"C:\KitEdgeChamferHeld01")
-EVAL_ROOT = Path(r"C:\KitGeneratedChamferHeldout01")
-PUBLIC = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover\GeneratedChamferHeldout01")
-PUBLIC_ASSETS = ({"Compiler.zip", "Control.SLDPRT", "DisclosedReceipt.json", "PrewriterLock.json",
+PRIOR_FREEZE = "45bdc4f1cd7d6181f1eb7b7a5d3eb8d0c817596e28cec2b58bdb92c798dbb3d3"
+PRIOR_RESULT = "4afa02ac360e5d3cb2b68981551b95636e585ef7d269510caca47316060ec198"
+PRIOR_FAILURE = "2f6c6e11aa3e9bf5d37468033da0a713a6b766b38926c8375f6a23e948e3390d"
+COMPILER_SHA = "af0b697f9d0cf7839ec67d2c7dd99443c4168f68c228c0c2617c18d558c12d57"
+TRIAL = "GeneratedChamferHeldout02"
+SOURCE_PATH = r"C:\KitEdgeChamferHeld01"
+EVAL_PATH = fr"C:\Kit{TRIAL}"
+SOURCE_ROOT = Path(SOURCE_PATH)
+EVAL_ROOT = Path(EVAL_PATH)
+PUBLIC = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover") / TRIAL
+PUBLIC_ASSETS = ({"Compiler.zip", "Control.SLDPRT", "DisclosedReceipt.json", "PrewriterLock.json", "PriorEvaluation.json",
                   "Tool/RunNativeChamferProbe.py"} | TOOL_FILES | {f"Tool/{name}" for name in TOOLS})
 SLOTS = ("Slot01", "Slot02")
-SCHEMA = "kit.sw2026.generated-chamfer-heldout-freeze.v1"
+SCHEMA = "kit.sw2026.generated-chamfer-heldout-freeze.v2"
+CUSTODY_SCHEMA = "kit.sw2026.sealed-chamfer-custody.v1"
 EPOCH = 1795485600
 
 
@@ -56,8 +64,8 @@ def verified(packet, pin):
     freeze = json.loads(manifest.read_bytes())
     expected = {"schema": SCHEMA, "construction_revision": WRITER, "construction_tree": WRITER_TREE,
                 "prewriter_lock_revision": LOCK_REV, "disclosed_revision": DISCLOSED_REV, "oracle_build": BUILD,
-                "oracle_sha256": ORACLE, "source_root": str(PureWindowsPath(r"C:\KitEdgeChamferHeld01")),
-                "evaluation_root": str(PureWindowsPath(r"C:\KitGeneratedChamferHeldout01")),
+                "oracle_sha256": ORACLE, "source_root": SOURCE_PATH, "evaluation_root": EVAL_PATH,
+                "prior_freeze_sha256": PRIOR_FREEZE, "prior_result_sha256": PRIOR_RESULT,
                 "complete_fresh_processes": 10, "epochs": [EPOCH, EPOCH + 1]}
     require(all(freeze[key] == value for key, value in expected.items())
             and valid_hash(freeze["evaluator_revision"], 40)
@@ -72,9 +80,19 @@ def verified(packet, pin):
         require(not item.is_symlink() and item.resolve().is_relative_to(packet.resolve())
                 and item.stat().st_size == identity["bytes"] and digest(item) == identity["sha256"],
                 "a frozen public file changed")
-    require(files["Control.SLDPRT"]["sha256"] == CONTROL, "independent healthy control differs")
+    require(files["Control.SLDPRT"]["sha256"] == CONTROL and files["Compiler.zip"]["sha256"] == COMPILER_SHA,
+            "independent healthy control or earlier exact compiler differs")
     prewriter = pin_record(packet / "PrewriterLock.json", PREWRITER_SHA)
     disclosed = pin_record(packet / "DisclosedReceipt.json", DISCLOSED_SHA)
+    prior = pin_record(packet / "PriorEvaluation.json", PRIOR_RESULT)
+    require(prior["freeze_sha256"] == PRIOR_FREEZE and prior["failure_sha256"] == PRIOR_FAILURE
+            and prior["construction_revision"] == WRITER
+            and prior["source_lock_sha256"] == prewriter["source_lock_sha256"]
+            and prior["passed"] is False and prior["heldout_lifecycle_credit"] == 0
+            and prior["healthy_controls"] is True and prior["oracle_idle_after"] is True
+            and prior["distinct_fresh_processes"] == 2 and not prior["slots"]
+            and [(row["role"], row["passed"]) for row in prior["attempted_phases"]] == [("before", True), ("after", True)],
+            "the preserved first trial does not identify the same incomplete evaluation")
     require(disclosed["schema"] == "kit.sw2026.generated-cold-chamfer-disclosed.v1"
             and disclosed["native_build"] == BUILD and disclosed["oracle_sha256"] == ORACLE
             and disclosed["construction_revision"] == WRITER and disclosed["trial_sha256"] == DISCLOSED_TRIAL_SHA
@@ -160,7 +178,8 @@ def original_custody(public_lock):
         for phase, row, pin in zip(PHASES, source["phases"], sealed["phase_receipt_sha256"], strict=True):
             require(row["receipt_sha256"] == pin, "guest source phase is outside the hash lock")
             record = pin_record(private_path(folder / phase / "Record.json", SOURCE_ROOT), pin)
-            require(record["phase"] == phase
+            require(record["schema"] == "kit.sw2026.edge-chamfer-source-phase.v1"
+                    and record["job"] == {"phase": phase, "case": case}
                     and all(check["passed"] for check in record["checks"]), "locked phase did not pass")
             stamps.add(lifetime(record, passed=True))
             receipts.append(record)
@@ -304,17 +323,62 @@ def evaluate_slot(output, slot, model, compiler, epoch, metadata, phases, proces
     return row
 
 
-def guest_worker(packet, pin):
+def guest_receipt_path(packet, name):
     require(os.name == "nt" and PureWindowsPath(packet) == PUBLIC / "Packet",
             "execution must begin from the exact shared public preparation under Windows")
+    receipt = Path(PUBLIC / "Public" / name)
+    parent = receipt.parent
+    require(parent.is_dir() and not parent.is_symlink() and not parent.is_junction()
+            and not receipt.is_symlink() and not receipt.is_junction(), "invalid redacted receipt destination")
+    return receipt
+
+
+def custody_result(pin, public_lock, slots, phases, lifetimes, accesses):
+    return {"schema": CUSTODY_SCHEMA, "freeze_sha256": pin, "source_lock_sha256": public_lock["source_lock_sha256"],
+            "verified_source_slots": slots, "verified_source_phases": phases, "verified_prior_controls": lifetimes - phases,
+            "verified_prior_lifetimes": lifetimes, "native_launches": 0, "blocked_external_accesses": accesses,
+            "passed": (slots, phases, lifetimes, accesses) == (2, 6, 8, 0)}
+
+
+def custody_worker(packet, pin):
+    receipt = guest_receipt_path(packet, "Custody.json")
+    require(not receipt.exists() and not private_path(EVAL_ROOT, EVAL_ROOT).exists(),
+            "custody preflight requires its unused receipt and evaluation root")
+    _, public_lock = verified(packet, pin)
+    denied = []
+
+    def guard(event, args):
+        if event.startswith(("ctypes.", "socket.", "winreg.")) or event in (
+                "subprocess.Popen", "os.system", "os.exec", "os.posix_spawn", "os.fork", "os.forkpty",
+                "os.startfile", "os.startfile/2"):
+            denied.append(event)
+            raise PermissionError("custody verification cannot launch or access the native oracle")
+
+    require(not {"Swapp", "pythoncom", "win32com"} & sys.modules.keys(), "custody preflight loaded an oracle dependency")
+    sys.addaudithook(guard)
+    try:
+        models, _, lifetimes = original_custody(public_lock)
+        result = custody_result(pin, public_lock, len(models), sum(len(row[-1]) for row in models),
+                                len(lifetimes), len(denied))
+        require(not {"Swapp", "pythoncom", "win32com"} & sys.modules.keys(), "custody preflight loaded an oracle dependency")
+    except Exception as issue:
+        result = custody_result(pin, public_lock, 0, 0, 0, len(denied))
+        result["failure"] = "missing_protocol_field" if isinstance(issue, KeyError) else "source_custody_refused"
+    write_new(receipt, result)
+    return result["passed"]
+
+
+def guest_worker(packet, pin, custody_pin):
+    public_result = guest_receipt_path(packet, "Result.json")
     output = private_path(EVAL_ROOT, EVAL_ROOT)
-    public_result = Path(PUBLIC / "Public/Result.json")
-    require(not output.exists() and public_result.parent.is_dir() and not public_result.parent.is_symlink()
-            and not public_result.parent.is_junction() and not public_result.exists() and not public_result.is_symlink(),
+    require(not output.exists() and not public_result.exists(),
             "evaluation needs both unused private custody and public receipt locations")
     frozen, public_lock = verified(packet, pin)
+    receipt = pin_record(guest_receipt_path(packet, "Custody.json"), custody_pin)
+    require(receipt == custody_result(pin, public_lock, 2, 6, 8, 0), "native run requires a passing exact custody preflight")
     output.mkdir()
     result = {"schema": "kit.sw2026.sealed-chamfer-native-result.v1", "freeze_sha256": pin,
+              "custody_receipt_sha256": custody_pin,
               "construction_revision": WRITER, "oracle_build": BUILD, "oracle_sha256": ORACLE,
               "source_lock_sha256": public_lock["source_lock_sha256"], "attempted_phases": [],
               "slots": [], "passed": False, "heldout_lifecycle_credit": 0}
@@ -374,7 +438,10 @@ if __name__ == "__main__":
     parser = ArgumentParser()
     parser.add_argument("--packet", required=True, type=Path)
     parser.add_argument("--pin", required=True)
-    parser.add_argument("--verify", action="store_true")
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--verify", action="store_true")
+    mode.add_argument("--custody-only", action="store_true")
+    mode.add_argument("--custody-pin")
     args = parser.parse_args()
     if args.verify:
         freeze, _ = verified(args.packet, args.pin)
@@ -382,7 +449,8 @@ if __name__ == "__main__":
                           "complete_fresh_processes": freeze["complete_fresh_processes"]}, sort_keys=True))
     else:
         try:
-            passed = guest_worker(args.packet, args.pin)
+            passed = (custody_worker(args.packet, args.pin) if args.custody_only
+                      else guest_worker(args.packet, args.pin, args.custody_pin))
         except Exception:
             raise SystemExit(2) from None
         raise SystemExit(0 if passed else 2)
