@@ -73,10 +73,10 @@ def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
 
 # file output provides atomic ownership of path normalization and parent creation
 def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
-    Payload = ToJson(DocumentValue) + "\n"
+    Payload = (ToJson(DocumentValue) + "\n").encode("utf-8")
     OutputPath = FilePath(PathValue).expanduser().resolve()
     OutputPath.parent.mkdir(parents=True, exist_ok=True)
-    _ = OutputPath.write_text(Payload, encoding="utf-8")
+    _ = OutputPath.write_bytes(Payload)
     return OutputPath
 
 

@@ -1,3 +1,4 @@
+from dataclasses import replace as CopyData
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory
 import pytest as Pytest
@@ -24,3 +25,19 @@ def CheckViewWrite() -> None:
         _ = Filtered.to_json()
     with Pytest.raises(DocumentError, match="requires resolved face topology"):
         _ = Filtered.to_dict()
+
+
+# encoding failure must leave an existing document and an absent output directory untouched
+def CheckBadUnicode() -> None:
+    Document = BuildOffsetDoc()
+    Document = CopyData(Document, source=CopyData(Document.source, path=chr(0xD800)))
+    with TemporaryDirectory() as WorkName:
+        Existing = FilePath(WorkName) / "existing.json"
+        _ = Existing.write_bytes(b"preserve existing bytes")
+        with Pytest.raises(UnicodeEncodeError):
+            _ = Document.write_json(Existing)
+        assert Existing.read_bytes() == b"preserve existing bytes"
+        Missing = FilePath(WorkName) / "missing" / "offset.json"
+        with Pytest.raises(UnicodeEncodeError):
+            _ = Document.write_json(Missing)
+        assert not Missing.parent.exists()
