@@ -39,7 +39,6 @@ def FinalAsmPath(
             NativePath == PureWindowsPath(FinalPath),
             "native assembly locator must match the final Windows destination",
         )
-        NativeText = str(FinalPath)
     RequireAsm(
         TargetValue.name == FinalPath.name == NativePath.name,
         "staged final and native assembly filenames must agree",

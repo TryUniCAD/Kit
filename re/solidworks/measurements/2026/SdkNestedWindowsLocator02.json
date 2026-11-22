@@ -1,0 +1,23 @@
+{
+  "artifacts_written_to_destination": false,
+  "cases": [
+    {
+      "case": "derived",
+      "passed": true
+    },
+    {
+      "case": "explicit",
+      "passed": true
+    },
+    {
+      "case": "same_lower_drive",
+      "passed": true
+    },
+    {
+      "case": "foreign",
+      "passed": true
+    }
+  ],
+  "schema": "kit.sw2026.native-assembly-windows-locator.v2",
+  "source_sha256": "8abca9767ae7a300a019733457b6d7d169ee19e215d3763775730da5c2e9cb7c"
+}

@@ -115,6 +115,7 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     NativeMateList,
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
+    ExpandItemPaths,
 )
 from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
     WithNestedIndex,
@@ -1005,7 +1006,7 @@ def AsmDoc(
         + DocDiagnostics
         + SourceDiagnostics
     )
-    PathRecords = Flattened(Native)
+    PathRecords = Flattened(Native, Definitions)
     LinkedPartDocuments = tuple(
         (
             DocValue
@@ -2007,16 +2008,31 @@ def MateGroups(
 
 
 # this definition exists because focused behavior needs one stable owner
-def Flattened(Native: NativeAssembly) -> tuple[dict[str, object], ...]:
+def Flattened(
+    Native: NativeAssembly, Definitions: tuple[ComponentDefinition, ...]
+) -> tuple[dict[str, object], ...]:
     Identity = {
         ItemValue.object_id: ItemValue.object_id for ItemValue in Native.occurrences
     }
+    DisplayPaths = Native.occurrence_paths
+    if any(
+        NativeValue.name != Value.name
+        for NativeValue, Value in zip(Native.definitions, Definitions, strict=True)
+    ):
+        DisplayPaths = ExpandItemPaths(
+            Native.root_definition_id,
+            (
+                Replace(NativeValue, name=Value.name)
+                for NativeValue, Value in zip(Native.definitions, Definitions, strict=True)
+            ),
+            Native.occurrences,
+        )
     return tuple(
         (
             {
                 "occurrence_id": AsmInstanceId(ItemValue.occurrence_id),
                 "definition_id": AsmDefinitionId(ItemValue.definition_id),
-                "path": ItemValue.path,
+                "path": DisplayValue.path,
                 "instance_path": tuple(
                     (
                         AsmInstanceId(Value)
@@ -2025,7 +2041,9 @@ def Flattened(Native: NativeAssembly) -> tuple[dict[str, object], ...]:
                 ),
                 "depth": ItemValue.depth,
             }
-            for ItemValue in Native.occurrence_paths
+            for ItemValue, DisplayValue in zip(
+                Native.occurrence_paths, DisplayPaths, strict=True
+            )
         )
     )
 

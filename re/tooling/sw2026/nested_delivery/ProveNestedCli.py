@@ -105,6 +105,16 @@ def measure(workspace):
                 "the reopened assembly lost an owned definition name or placement order: "
                 + case,
             )
+            definition_names = {item.id: item.name for item in reopened.assembly.definitions}
+            instances = {item.id: item for item in reopened.assembly.instances}
+            paths = reopened.assembly.attributes["flattened_occurrences"]
+            require(
+                paths and all(row["path"] == "/".join(
+                    f"{item.name}@{definition_names[item.owner_definition_id]}"
+                    for item in (instances[identity] for identity in row["instance_path"])
+                ) for row in paths),
+                "the reopened occurrence path lost its physical owner title: " + case,
+            )
             rows.append(
                 {
                     "case": case,
@@ -112,9 +122,10 @@ def measure(workspace):
                     "native_flags": True,
                     "wrong_locator_preserved": True,
                     "strict_names_and_local_order": True,
+                    "flattened_physical_owner_titles": True,
                 }
             )
-    return {"schema": "kit.sw2026.measured-nested-cli.v1", "cases": rows}
+    return {"schema": "kit.sw2026.measured-nested-cli.v2", "cases": rows}
 
 
 if __name__ == "__main__":

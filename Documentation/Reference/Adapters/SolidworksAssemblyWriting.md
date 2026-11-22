@@ -2,7 +2,9 @@
 
 Kit generates SOLIDWORKS 2026 SP05.2 rigid nested assemblies from a complete millimetre neutral `CadDocument.assembly`. Public writes require exact native measurement of the full generated bundle. Supply an acyclic graph with a root assembly, at least one subassembly, owned rectangular blind-boss part documents and an explicit selected configuration for every definition. Use complete ordered rigid placements. Repeated occurrences of a definition share one native file and retain independent placements.
 
-An owned part uses a rectangular Front-plane sketch and one forward blind boss with driving `D1`. The qualified dimensioned rectangle also keeps two ordinary sketch lengths with their actual horizontal and vertical relations. Each active configuration must agree with the configuration selected by its occurrences. Mates, fixed, suppressed, hidden or flexible instances, extra semantic state and incomplete ownership are refused.
+An owned part uses a rectangular Front-plane sketch and one forward blind boss with driving `D1`. The plain leaf has an unconstrained sketch. The qualified dimensioned rectangle also keeps two ordinary sketch lengths with their actual horizontal and vertical relations. Each active configuration must agree with the configuration selected by its occurrences. Mates, fixed, suppressed, hidden or flexible instances, extra semantic state and incomplete ownership are refused.
+
+The SOLIDWORKS discovery entry lists capabilities across both writer routes. An assembly root carries the owned occurrence graph, root configuration and support planes. Part body and selection data belong to qualified part documents.
 
 Use an unused path whose basename is the assembly's modeled name. The registry selects the writer from `.SLDASM` or the format alias `solidworks.sldasm`. On Windows, the actual absolute output path supplies the native file locator. On another host, pass the corresponding absolute Windows `native_destination` separately from the physical destination.
 
@@ -38,6 +40,7 @@ The registry publishes each owned definition beside the root file. It checks for
 The result path and `bytes_written` describe the root assembly. The `component_file_count`, `component_file_names`, `component_bytes_written` and `bundle_bytes_written` metadata describe the complete bundle. [Exact native and public evidence](../../../re/solidworks/records/NestedAssemblyDelivery2026.md)
 
 Strict SDK reads recover the measured definition names, local occurrence order,
+physical owner titles in expanded paths,
 and the three driving limits in each dimensioned leaf. The body is rebuilt
 from its actual sketch lengths, support and blind depth. Full publication of
 an unprojected native assembly readback remains open.

@@ -21,7 +21,7 @@ The earlier [native locked receipt](../measurements/2026/SdkSealedNeutralNestedN
 
 Publication, configured review and CI remain separate exits. Nested mates, whole-source native re-export and the original FCStd assembly roster remain open. [Guide](../../../Documentation/Reference/Adapters/SolidworksAssemblyWriting.md)
 
-The native index identifies definitions by their file rows. Their shared root display name does not identify a definition. The disclosed repeated three-driver assembly has four distinct native definitions and seven expanded paths. The public read with `include_brep=False` retains four definitions and five direct occurrence records. The default strict B-rep reader for the three-driver cold leaves refused the missing saved Parasolid payload. The writer proof compares the complete native files and the native component index directly. [Cold reader coverage](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Assembly/NestedColdReaderCoverage.md)
+The native index identifies definitions by their file rows. The disclosed repeated three-driver assembly has four distinct native definitions, five direct occurrence records and seven expanded paths. The strict reader recovers this structure with and without analytic leaf B-rep. The writer proof compares the complete native files and the native component index directly. [Cold reader coverage](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Assembly/NestedColdReaderCoverage.md)
 
 ## Exact measured publication
 
@@ -40,9 +40,11 @@ An alternate logical root refused before any file publication in each case.
 Strict rereads recovered the actual component definition names and the
 local placement order from each file header, active configuration and
 reciprocal reference. The native XML index legitimately mirrors the assembly
-root name in each model row. The reader determines the titles from the owned
-files without changing the measured archive.
-[CLI and reread evidence](../measurements/2026/SdkMeasuredNestedCli01.json)
+root name in each model row. Each expanded path uses the physical owner's
+title in every segment and keeps the same bound occurrence IDs. The hosted
+process case uses one disclosed neutral model and the verified measurement
+metadata to compare every published member digest.
+[CLI and reread evidence](../measurements/2026/SdkMeasuredNestedCli02.json)
 
 Strict reads of the three dimensioned leaves now restore both linked sketch
 lengths and the separate boss depth. Analytic body topology and mass
@@ -50,9 +52,10 @@ properties agree with their measured native geometry.
 [Dimensioned leaf readback](NestedDimensionedLeafRead2026.md)
 
 On Windows a native locator must agree with the resolved physical output.
-The guest probe accepted the derived and identical explicit locators and
-rejected a same-basename override in a different folder.
-[Windows locator proof](../measurements/2026/SdkNestedWindowsLocator01.json)
+The guest probe accepted the derived and identical explicit locators,
+retained the spelling of an equivalent explicit locator with a lower-case
+drive letter and refused a same-basename override in a different folder.
+[Windows locator proof](../measurements/2026/SdkNestedWindowsLocator02.json)
 
 The review stack on foundation `a85465a83ae0f1c981d55aa4f8a5b9055f82cabb` uses Git source tree `242dba95c2f7b0b5f4de9dc20ec95d5888125961`. Its complete 44-process disclosed assembly proof reproduced the same receipt digest and all fourteen measured file hashes. The exact-rational standard views preserve these measured bytes. The native half-angle cosine rounds to `0x1.6a09e667f3bcdp-1`, which was also the original macOS result for these receipts. [Standard view rounding](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Presentation/StandardViewRoundingChangesHashes.md)
 

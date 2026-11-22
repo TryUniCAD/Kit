@@ -1,3 +1,5 @@
+from collections import Counter as CountItems
+
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.MakeTargetDir import (
     MakeTargetDir,
 )
@@ -11,15 +13,14 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 def MakeTargetDirs(
     Placements: tuple[TargetPlacement, ...],
 ) -> dict[int, ArchiveNode]:
+    UseCounts = CountItems(
+        id(ItemValue.TargetValue.RootValue) for ItemValue in Placements
+    )
     ResultValue: dict[int, ArchiveNode] = {}
     for ItemValue in Placements:
         IdentityValue = id(ItemValue.TargetValue.RootValue)
         if IdentityValue not in ResultValue:
-            UsersValue = sum(
-                OtherValue.TargetValue.RootValue is ItemValue.TargetValue.RootValue
-                for OtherValue in Placements
-            )
             ResultValue[IdentityValue] = MakeTargetDir(
-                ItemValue.TargetValue, UsersValue, len(ResultValue)
+                ItemValue.TargetValue, UseCounts[IdentityValue], len(ResultValue)
             )
     return ResultValue
