@@ -16,6 +16,13 @@ def TestConfigForms() -> None:
         "m": -29,
         "n1290": 2,
     }
+    BlockWord = CastValue(dict[str, object], Result["block_map_count"])
+    assert BlockWord["value"] == 0x80000025 and BlockWord["rows"] == 0
+    assert BlockWord["wire_offset"] == 24496 and BlockWord["next_map_slot"] == 110
+    assert (
+        BlockWord["archive_sha256"]
+        == "b10214fafbec49f15aa21e2131e94df8f4050499827d725a1f040b31a6d3034e"
+    )
     assert Result["direct_master"] == [22663, 22834, 94, 94]
     assert Result["map_base"] == 4 and Result["final_map_counter"] == 95
     assert Result["model_config_bytes"] == 22977
