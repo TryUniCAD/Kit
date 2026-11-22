@@ -39,18 +39,19 @@ def TestTextRefusal() -> None:
         f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})",
     )
     NativeRefusals = CastValue(dict[str, str], ReportValue["native_copy_refusals"])
-    assert NativeRefusals.keys() == {"ordinary", "compatibility"}
-    for Reason in NativeRefusals.values():
-        assert Reason.startswith("native-only feature definitions cannot be exported")
-        assert "sldprt:feature:1 (solidworks.sldprt:Annotations)" in Reason
+    assert NativeRefusals == dict.fromkeys(
+        ("ordinary", "compatibility"),
+        f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})",
+    )
     Snapshot = CastValue(dict[str, object], ReportValue["neutral_snapshot"])
     assert Snapshot["body"] == ["portable:body", 1, 1, 1]
     assert Snapshot["configuration"] == ["Inspection", True, 0]
     assert Snapshot["feature_count"] == 1
     assert Snapshot["status"] == {"status": "unsupported", "diagnostic": KPartCause}
     assert Snapshot["diagnostics"] == ReportValue["diagnostics"]
-    assert ReportValue["neutral_copies"] == dict.fromkeys(
-        ("ordinary", "compatibility"), Snapshot["status"]
+    assert ReportValue["neutral_copies_refused"] == dict.fromkeys(
+        ("ordinary", "compatibility", "source_relabel"),
+        f"SOLIDWORKS part text properties are unavailable for writing ({KPartCause})",
     )
     assert ReportValue["filtered_copies_refused"] == dict.fromkeys(
         ("geometry", "mesh", "configuration"),

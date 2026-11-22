@@ -6,11 +6,9 @@ from typing import Protocol
 
 from interchange import CadDocument
 
-from convert.adapters.base.AdapterProtocols import CadReaderAdapter
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
-from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.Staging.PathStaging import WritePathStaged
 from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
@@ -106,22 +104,11 @@ class WriteSelectApi(WriteCatalog):
 # write orchestration owns validation policy before transactional output staging
 class WriteApi(WriteLookup):
 
-    # a direct write has no selected transport reader that can attest a neutral copy
+    # complete orchestration prevents unsupported capabilities from mutating any destination
     def WriteDocument(
         self,
         DocumentData: CadDocument,
         TargetData: KTargetType,
-        **NamedValues: object,
-    ) -> WriteResult:
-        return self.WriteFromRead(DocumentData, TargetData, None, None, **NamedValues)
-
-    # selected reader identity distinguishes a neutral snapshot from a fresh native projection
-    def WriteFromRead(
-        self,
-        DocumentData: CadDocument,
-        TargetData: KTargetType,
-        ReaderData: CadReaderAdapter | None,
-        ReaderOpts: ReadOptions | None,
         **NamedValues: object,
     ) -> WriteResult:
         FormatId, OptionsData = GetWriteArgs(NamedValues)
@@ -130,12 +117,7 @@ class WriteApi(WriteLookup):
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckSourceText(
-            DocumentData,
-            None if ReaderData is None else ReaderData.info.FormatId,
-            AdapterData.info.FormatId,
-            ReaderOpts,
-        )
+        CheckSourceText(DocumentData)
         CheckMatWrites(DocumentData, AdapterData)
         CheckResearch(DocumentData)
         CheckInchWrite(DocumentData)

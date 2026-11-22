@@ -167,19 +167,13 @@ path case creates no destination. The registry's ordinary target
 transfer and carrier checks continue to apply to eligible documents.
 [Write queue case](../../../tests/Convert/Solidworks/Properties/WriteTextTests.py)
 
-For a snapshot already read by the registered interchange JSON reader,
-the registry uses the actual input adapter for the text publication
-decision. A matching interchange JSON writer can retain the original
-document, unavailable diagnostic and source provenance when geometry
-and configuration filtering are disabled and the model passes the
-other write checks. The same status refuses filtered copies, fresh
-SOLIDWORKS projections and direct writes. The queue checks both
-SDK copy entry points and the three filtered-copy refusals on a
-separate authored snapshot. The CLI uses a qualified, ordinary
-portable geometry control as its positive. The variant with native
-provenance and the text diagnostic reaches the existing support
-refusal. A requested configuration filter reaches the property
-refusal and preserves the inputs and destination.
+The registered interchange JSON reader preserves the original document,
+unavailable diagnostic and source provenance for inspection. The write
+preflight rejects that same status through both SDK conversion routes,
+including unfiltered copies, filtered copies and direct writes after a
+source relabel. The queue checks both SDK entry points and the three
+filtered-copy refusals on a separate authored snapshot. The CLI uses a
+qualified, ordinary portable geometry control as its positive.
 The SDK also traverses actual embedded assembly documents before
 publication. A linked unavailable L1 part retains its original cause and
 the prefilled stream is untouched.
@@ -325,25 +319,21 @@ The circular source keeps all eight literal values and equal
 source provenance, B-rep and history through strict JSON inspection
 of the serialized interchange document. The two direct writer
 carrier settings refuse at the native-only sheet-metal owner.
-Unfiltered JSON copies of the exact native L1 history also refuse at
-the native-only feature gate. The property override for unfiltered
-JSON leaves the unrelated portability requirements in place.
+The current write boundary refuses unfiltered JSON copies of the
+exact native L1 history with the original unavailable-property cause.
 
 A separately authored interchange snapshot models one imported prism
 with six analytic faces, volume 30 and one active configuration. Its
 synthetic SOLIDWORKS provenance and text diagnostic exercise the same
-property policy without relying on the L1 content. Default and
-compatibility JSON copies emit identical bytes and restore the entire
-snapshot. Geometry, mesh and configuration filters reject it with the
-exact original text diagnostic. Refusals retain their destination
-bytes and cursor. The CLI portable positive uses the existing complete
-geometry fixture. Its native-provenance contrast reaches the support
-refusal without filtering and the original text refusal with the
-configuration selected.
+property policy without relying on the L1 content. JSON inspection
+restores the entire snapshot. Both SDK copy entry points and the
+geometry, mesh and configuration filters refuse with the exact original
+text diagnostic. Refusals retain their destination bytes and cursor.
+The CLI portable positive uses the existing complete geometry fixture.
 
-[Exact current process evidence](../measurements/2026/LiteralPartTextPortability01.json)
+[Earlier process evidence](../measurements/2026/LiteralPartTextPortability01.json)
 
-Two fresh runs also used the exact accepted main
+The earlier copy policy was measured using the exact accepted main
 `f80da8caed2ca7a585c1aa85f22c1e13196761d5` and the revised property
 branch on the same authored snapshot. Both SDK routes emitted the
 same interchange JSON hash and restored the full document on both

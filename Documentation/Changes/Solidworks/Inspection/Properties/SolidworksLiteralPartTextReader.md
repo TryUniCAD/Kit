@@ -18,10 +18,9 @@ or malformed scopes withhold all property bags and provide an information
 diagnostic. The ordinary model read remains available. The registry
 refuses new native projections and direct writes when the root or an
 owned component document has this status. The error retains the first
-unavailable property's original cause. The registered interchange JSON
-reader and writer can preserve an eligible neutral snapshot and its native
-inspection status when configuration and geometry filtering are disabled.
-The ordinary model portability checks also apply to snapshot copies.
+unavailable property's original cause. Interchange JSON inspection
+preserves the full document and its diagnostic. The publication guard
+also applies when the source and destination are both interchange JSON.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
@@ -50,10 +49,10 @@ controls substitute a conflicting ModelHeader name and a block-map
 reference to the physical part. Both withhold all property scopes and
 refuse new writes. File-level text remains available when the first
 control has no configuration-scoped properties. A distinct neutral
-snapshot with an authored prism proves exact JSON copies through both
-SDK entry points. The circular native control retains its full inspection
-document in JSON and still encounters the native-only feature gate on
-direct export.
+snapshot with an authored prism remains inspectable in JSON. Both SDK
+conversion routes refuse to publish that snapshot with its unavailable
+property status. The circular native control retains its full inspection
+document in JSON and encounters the native-only feature gate on direct export.
 
 [SDK evidence](../../../../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
 · [Saved directory ownership](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/SavedDirectoryOwnsPartText.md)

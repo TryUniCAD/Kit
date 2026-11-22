@@ -1,6 +1,6 @@
+from dataclasses import replace
 from functools import partial
 from hashlib import sha256
-from io import BytesIO
 import json
 from pathlib import Path
 import sys
@@ -9,7 +9,7 @@ from tempfile import TemporaryDirectory
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from PartTextProbe import (
-    PROPERTY_DIAGNOSTIC, PROPERTY_STATUS, check_model, model_state, read_part, refuse_output, refuse_write,
+    PROPERTY_DIAGNOSTIC, PROPERTY_STATUS, check_model, model_state, read_part, refuse_write,
 )
 from convert import convert, open_document, write_document
 from convert.adapters.base.ReadOptions import ReadOptions
@@ -69,26 +69,25 @@ def native_copy_refusals(document, legacy):
         "compatibility": partial(legacy.ConvertData, source, SourceFormat="interchange.json", DestFormat="interchange.json"),
     }
     return {
-        mode: refuse_output(call, "native-only feature definitions cannot be exported", "sldprt:feature:1", "Annotations")
+        mode: refuse_write(call, CAUSE)
         for mode, call in operations.items()
     }
 
 
 def check_neutral_copy(document, legacy):
     source = document.to_json().encode("utf-8")
-    first, second = BytesIO(), BytesIO()
-    convert(source, first, source_format="interchange.json", destination_format="interchange.json",
-            allow_carrier=False)
-    legacy.ConvertData(source, second, SourceFormat="interchange.json", DestFormat="interchange.json")
-    result = {}
-    for mode, stream in (("ordinary", first), ("compatibility", second)):
-        restored = open_document(stream.getvalue(), source_format="interchange.json", strict=True)
-        if restored != document:
-            raise ValueError("neutral JSON copy changed the full authored inspection document")
-        result[mode] = model_state(restored)["status"]
-    if first.getvalue() != second.getvalue():
-        raise ValueError("ordinary and compatibility snapshots differ")
-    return result
+    restored = open_document(source, source_format="interchange.json", strict=True)
+    if restored != document:
+        raise ValueError("neutral JSON inspection changed the full authored inspection document")
+    relabeled = replace(document, source=replace(document.source, format_id="interchange.json"))
+    operations = {
+        "ordinary": partial(convert, source, source_format="interchange.json",
+                            destination_format="interchange.json", allow_carrier=False),
+        "compatibility": partial(legacy.ConvertData, source, SourceFormat="interchange.json",
+                                 DestFormat="interchange.json"),
+        "source_relabel": partial(write_document, relabeled, destination_format="interchange.json"),
+    }
+    return {mode: refuse_write(call, CAUSE) for mode, call in operations.items()}
 
 
 def check_filtered_copy(document):
@@ -149,7 +148,7 @@ def inspect(source):
     state["native_copy_refusals"] = native_copy_refusals(document, legacy)
     snapshot = authored_snapshot()
     state["neutral_snapshot"] = model_state(snapshot)
-    state["neutral_copies"] = check_neutral_copy(snapshot, legacy)
+    state["neutral_copies_refused"] = check_neutral_copy(snapshot, legacy)
     state["filtered_copies_refused"] = check_filtered_copy(snapshot)
     return state
 
