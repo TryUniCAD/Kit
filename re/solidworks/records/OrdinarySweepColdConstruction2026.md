@@ -31,6 +31,8 @@ python3.14 -I -B re/tooling/sw2026/sweep_source/SweepColdPacket.py \
 
 The root oracle owner can stage the pinned immutable packet, then use the same SHA-256 to run it locally. The second invocation creates the new guest Records directory.
 
+The first frozen packet requires its declared guest parent directory to exist before staging. Future freezes create missing ancestors while retaining exclusive ownership of the packet and records directories. [Staging gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Oracle/FreshSweepPacketNeedsParent.md)
+
 ```sh
 prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe' -E -B "$SHARED_PACKET\Tool\RunSweepCold.py" --job "$SHARED_PACKET\SweepJob.json" --pin "$PIN" --stage-guest
 prlctl exec 'Windows 11' --current-user 'C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe' -E -B 'C:\KitSweepCold01\Packet\Tool\RunSweepCold.py' --job 'C:\KitSweepCold01\Packet\SweepJob.json' --pin "$PIN"

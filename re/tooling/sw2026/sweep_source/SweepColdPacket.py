@@ -59,7 +59,7 @@ def verify(manifest, pin):
 
 def create(output, job, data):
     require(output.is_absolute() and not output.exists() and set(data) == FILES, "expected an unused absolute packet root")
-    output.mkdir()
+    output.mkdir(parents=True, exist_ok=False)
     for relative, raw in sorted(data.items()):
         item = output / relative
         item.parent.mkdir(parents=True, exist_ok=True)
