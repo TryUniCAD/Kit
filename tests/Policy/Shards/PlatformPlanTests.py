@@ -51,7 +51,6 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
             TmpPath,
         )
         assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    SummaryPath = TmpPath / "Summary.md"
     DurationPath = TmpPath / "Durations.json"
     Reported = RunProcess(
         [
@@ -63,7 +62,10 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
             "^test_sample.py::",
             DurationPath.as_posix(),
         ],
-        env={**KEnvironment, "GITHUB_STEP_SUMMARY": SummaryPath.as_posix()},
+        env={
+            **KEnvironment,
+            "GITHUB_STEP_SUMMARY": (TmpPath / "Summary.md").as_posix(),
+        },
         capture_output=True,
         text=True,
         check=False,
