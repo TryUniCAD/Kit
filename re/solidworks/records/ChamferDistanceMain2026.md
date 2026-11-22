@@ -80,6 +80,11 @@ requires separate native measurements, even when the ten logical streams
 match. The integration check requires a full-hash refusal on a detected
 zlib-ng envelope difference, including unchanged targets.
 
+The [main-line receipt](../measurements/2026/SdkMeasuredDistanceChamfersMain01.json)
+pins the four successful guarded runs to source commit
+`93ff73740bf75d711c3436a220ecbd9a30636165`. Its SHA-256 is
+`91df1b77ac513ef716e6ca4d78796edfda5eb1b1d7ff0325cc9e569e5658673e`.
+
 The preceding measured Skew and Step writer checks retain the exact
 pre-existing digests through the registry stream, direct stream and
 registry file path. This delivery scope starts from original neutral
