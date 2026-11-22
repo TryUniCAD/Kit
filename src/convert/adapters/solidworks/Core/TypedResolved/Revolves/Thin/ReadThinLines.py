@@ -1,25 +1,7 @@
-from collections.abc import Mapping
-
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.CheckDimGroups import (
-    CheckDimGroups,
-)
-from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.ReadDimRows import (
-    ReadDimRows,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Lines.CheckLineEntity import (
-    CheckLineEntity,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Lines.CheckLineScope import (
-    CheckLineScope,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import IsLineState
-from convert.adapters.solidworks.Core.TypedResolved.Lines.LineIndex import LineIndex
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
-from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSegment import LineSegment
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
-from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.AxisReference import (
     AxisReference,
@@ -35,44 +17,13 @@ from convert.adapters.solidworks.Core.TypedResolved.Revolves.Profile.RevolveProf
 )
 
 
-# thin body incidence uses its native open line flag and two live endpoints
-def ReadThinEdge(RowValue: Mapping[str, object]) -> LineSegment:
-    FieldsValue = NativeRecord(RowValue.get("line"))
-    CheckLineEntity(FieldsValue, FlagsValue=68)
-    Permanent = FieldsValue.get("f08")
-    Creation = FieldsValue.get("f0c")
-    if (
-        RowValue.get("flags") != 0
-        or FieldsValue.get("fd0") != 1
-        or FieldsValue.get("fd4") != 0
-        or FieldsValue.get("fe8") != 0
-        or type(Permanent) is not int
-        or Permanent <= 0
-        or type(Creation) is not int
-        or Creation <= 0
-    ):
-        raise ValueError("SOLIDWORKS thin sketch requires its actual open body line")
-    return LineSegment(
-        0,
-        Permanent,
-        Creation,
-        LineIndex(FieldsValue, "fc8_s", "fc8", 65535),
-        LineIndex(FieldsValue, "fcc_s", "fcc", 65535),
-        FieldsValue,
-    )
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.CheckThinRels import (
+    CheckThinRels,
+)
 
-
-# the measured open profile has no solver rows or hidden region owners
-def CheckThinRels(FieldsValue: Mapping[str, object]) -> None:
-    CheckLineScope(FieldsValue, HasDrivers=True)
-    GroupsValue = NativeRecord(FieldsValue.get("dims"))
-    CheckDimGroups(GroupsValue)
-    if (
-        ReadDimRows(GroupsValue, "ng2", "val_g2")
-        or ReadDimRows(GroupsValue, "nlog1", "log_g1")
-        or not IsLineState(GroupsValue.get("f118"))
-    ):
-        raise ValueError("SOLIDWORKS thin sketch has unqualified solver relations")
+from convert.adapters.solidworks.Core.TypedResolved.Revolves.Thin.ReadThinEdge import (
+    ReadThinEdge,
+)
 
 
 # exactly two native lines with disjoint point owners are required before projecting the open sketch

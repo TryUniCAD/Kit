@@ -62,3 +62,37 @@ locator and event. The host publication proof uses standalone streams.
 Windows file publication, native-edited derivatives, alternative profiles,
 material and presentation state, and assemblies retain separate scope.
 [Exact coordinate inversion](../../../Documentation/Gotchas/Conversion/Solidworks/ThinDriverDisplayUsesScale.md)
+
+## Complete suite and publication boundary
+
+The complete suite starts a fresh SDK worker for both `ThinUnequal` on
+Front and `ThinRightCenterControl` on Right. The inputs are the verified
+disclosed model and receipt texts in [ThinMeasured01](../v2026/corpus/revolve/ThinMeasured01/README.md).
+Both workers regenerate the complete native bytes via the direct and
+registry writers, check the actual editable owners, and serialize and
+republish both strict read modes. Changing only the KeyWords feature name
+leaves the physical owner intact, and both strict reads reject the mismatch
+with its original cause. Both permissive reads preserve legacy inspection.
+Changing a wall dimension leaves the output unopened under the old receipt.
+
+The Windows platform job includes this same suite case. Each worker claims
+the exact measured root exclusively, writes the named file through registry
+staging and the direct writer, checks the complete bytes and strict
+readback, and releases only its owned paths. A preserved original packet
+occupying either root requires an independent Windows environment for
+this route. The host [review receipt](../measurements/2026/SdkThinRevolveReview01.json)
+records stream and readback checks. Windows file execution has a separate
+pending result.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/revolve/CheckThinSuiteCase.py --case front
+python3.14 -I -B re/tooling/sw2026/revolve/CheckThinSuiteCase.py --case principal
+```
+
+Publication still uses the two authenticated report and job pairs, their
+creation event and six exact output locators and hashes. The earlier
+locked native cases support the format rules. Further public output hashes
+need exact fresh native acceptance and authenticated receipt intake.
+The model-only constructor can prepare within-profile candidates for that
+external measurement. The SDK writer requires the applicable evidence
+before publishing bytes.

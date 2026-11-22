@@ -9,6 +9,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPublicPlanes i
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
+from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
 from convert.adapters.solidworks.Core.TypedResolved.Revolves.Cold.BindColdSketch import (
     BindColdSketch,
 )
@@ -34,19 +35,20 @@ def ReadColdThin(
     ProfileId = NativeNodeId(SweepValue.ProfileValue)
     FeatureId = NativeNodeId(SweepValue.NodeValue)
     (SketchValue,) = ModelValue.sketches
+    (PublicFeature,) = (
+        Value for Value in ModelValue.features if Value.object_id == FeatureId
+    )
     if (
         ModelValue.operations
         or len(ModelValue.features) != len(Features)
         or {Value.object_id for Value in ModelValue.features} != set(Features)
         or SketchValue.object_id != ProfileId
-        or not any(
-            FeatureValue.object_id == FeatureId
-            and FeatureValue.kind == "Revolve-Thin"
-            and FeatureValue.class_name == "moRevolutionThin_c"
-            for FeatureValue in ModelValue.features
-        )
+        or PublicFeature.kind != "Revolve-Thin"
+        or PublicFeature.class_name != "moRevolutionThin_c"
     ):
         raise ValueError("SOLIDWORKS thin cold geometry lacks its public owner links")
+    if PublicFeature.name != ReadNativeName(SweepValue.NodeValue):
+        raise ValueError("SOLIDWORKS thin keyword name differs from its resolved owner")
     CheckPlanes(ModelValue, Features)
     Bound = BindColdSketch(ModelValue, SweepValue)
     return Bound, ColdRevolve(LinkValue, OwnerValue, BuildThinGeom(OwnerValue, BodyId))

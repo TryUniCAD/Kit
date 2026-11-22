@@ -18,6 +18,12 @@ strict cold readback in either geometry mode when the full neutral document
 matches a fresh read of the regenerated part. Changed dimensions, locators,
 epochs, and native-saved derivatives require their own evidence.
 
+The complete suite exercises measured Front and Right parts through
+both SDK stream routes. Its Windows job also exercises the direct and
+staged file routes at the exact inspected locators. A conflicting
+KeyWords feature name gives a strict refusal and permits a legacy
+inspection when the caller selects permissive reading.
+
 Two disclosed native batches exercised 28 fresh SOLIDWORKS 2026 SP05.2
 processes including four passing controls. The [scope and reproduction
 procedure](../../../../re/solidworks/records/MeasuredThinRevolve2026.md)
