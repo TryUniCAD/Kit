@@ -19,8 +19,12 @@ from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPart
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PlanOffPart import (
     PlanOffPart,
+)
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PlanOffRead import (
+    PlanOffRead,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -36,7 +40,13 @@ def PrepareOffPart(
     TextPoint: tuple[float, float] | None = None,
 ) -> PartCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
-    PlanValue, DatumValue = PlanOffPart(DocumentValue)
+    PlanValue, DatumValue = (
+        PlanOffRead(
+            DocumentValue, PureWindowsPath(RecipeValue.OutputValue.PathName).stem
+        )
+        if RecipeValue is not None and IsOffRead(DocumentValue)
+        else PlanOffPart(DocumentValue)
+    )
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested offset write configuration is unavailable")

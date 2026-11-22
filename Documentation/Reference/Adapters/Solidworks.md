@@ -731,7 +731,9 @@ The measured offset-plane profile retains a separate signed principal datum,
 its driving distance, the attached radius-driven sketch and a forward blind
 boss. The normal SDK requires the exact receipt, authored presentation and
 measured self locator. The strict reader reconstructs the signed analytic
-cylinder. [Measured offset planes](../../Changes/Solidworks/Construction/Datums/SolidworksMeasuredOffsetPlanes.md)
+cylinder. Full and design-only cold readbacks and their neutral JSON
+round trips can republish the exact measured archive.
+[Offset readback publication](../../Changes/Solidworks/Construction/Datums/SolidworksOffsetColdReadback.md)
 
 The same cache-free full-ellipse profile reads back with its closed sketch and
 live D1. The default reader constructs a solid with exact rational elliptical

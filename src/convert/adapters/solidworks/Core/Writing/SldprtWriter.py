@@ -28,6 +28,7 @@ from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.CanWriteSldDoc import CanWriteSldDoc
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
 from convert.adapters.base.Materials.CheckMatState import CheckMatState
@@ -69,7 +70,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         CheckSourceText(document)
         if IsBoxSource(document):
             return EmitBoxMut(document, destination, options)
-        if IsRevRead(document):
+        if IsRevRead(document) or IsOffRead(document):
             CheckReadOnly(document)
         elif not IsColdRead(document):
             CheckNative(document, self, destination)

@@ -10,6 +10,7 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
 )
 from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
@@ -100,6 +101,8 @@ def EmitNativeMut(
 ) -> WriteResult:
     if IsRevRead(DocumentValue):
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
+    if IsOffRead(DocumentValue):
+        return EmitOffsetMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)

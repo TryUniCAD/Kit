@@ -5,8 +5,12 @@ from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PrepareOffPart import (
     PrepareOffPart,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
@@ -56,6 +60,10 @@ def EmitOffsetMut(
     if Digest not in AcceptedHashes:
         raise ValueError(
             "regenerated SOLIDWORKS offset part has no matching native measurement"
+        )
+    if IsOffRead(DocumentValue):
+        CheckColdRead(
+            DocumentValue, Payload, IncludeBrep=DocumentValue.brep is not None
         )
     Evidence = FreezeMapping(
         {

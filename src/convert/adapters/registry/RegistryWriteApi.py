@@ -43,6 +43,9 @@ def CheckPubNative(
     CheckEquations(DocumentValue)
     CheckSupports(DocumentValue)
     CheckSourceText(DocumentValue)
+    from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import (
+        IsOffRead,
+    )
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
@@ -63,7 +66,11 @@ def CheckPubNative(
         ProofValue = FindBoxProof(WriterValue, DocumentValue)
     if ProofValue is None and (
         type(WriterValue) is not SldprtWriter
-        or not (IsColdRead(DocumentValue) or IsRevRead(DocumentValue))
+        or not (
+            IsColdRead(DocumentValue)
+            or IsRevRead(DocumentValue)
+            or IsOffRead(DocumentValue)
+        )
     ):
         CheckHistory(DocumentValue, WriterValue, TargetValue)
     CheckDrawWrites(DocumentValue, WriterValue)

@@ -1,6 +1,12 @@
+from pathlib import Path as FilePath
+
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PlanOffPart import (
     PlanOffPart,
+)
+from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PlanOffRead import (
+    PlanOffRead,
 )
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from interchange.Features.FeatureKinds import RefPlaneFeature
@@ -19,7 +25,15 @@ def HasOffsetWrite(DocumentValue: CadDocument) -> bool:
 # target discovery checks the actual offset sketch and both supports before opening a staging transaction
 def CanWriteOffset(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     try:
-        PlanValue, _ = PlanOffPart(DocumentValue)
+        if IsOffRead(DocumentValue):
+            NameValue = (
+                FilePath(TargetValue).stem
+                if isinstance(TargetValue, (str, FilePath))
+                else DocumentValue.sketches[0].name
+            )
+            PlanValue, _ = PlanOffRead(DocumentValue, NameValue)
+        else:
+            PlanValue, _ = PlanOffPart(DocumentValue)
     except (IndexError, KeyError, TypeError, ValueError):
         return False
     return IsPartTarget(PlanValue.NameValue, TargetValue)
