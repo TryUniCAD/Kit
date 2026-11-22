@@ -15,14 +15,12 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart 
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevolvePart import (
     MakeSelRevPart,
 )
+from convert.adapters.solidworks.Archive.Construction.Sweeps.SweepPart import SweepPart
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsChmfPart
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
     PrepChmfPart,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
-from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
-    PrepareCircle,
-)
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
@@ -32,14 +30,10 @@ from convert.adapters.solidworks.Core.Preparation.Ellipse.PrepareEllipse import 
 from convert.adapters.solidworks.Core.Preparation.Equations.PrepareEqPart import (
     PrepareEqPart,
 )
-from convert.adapters.solidworks.Core.Preparation.FreecadBox.PlanTopCorner import (
-    PlanTopCorner,
-)
 from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
     PrepareImport,
 )
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
-from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Preparation.Patterns.PatCandidate import (
     PatCandidate,
@@ -47,7 +41,7 @@ from convert.adapters.solidworks.Core.Preparation.Patterns.PatCandidate import (
 from convert.adapters.solidworks.Core.Preparation.Patterns.PrepPatPart import (
     PrepPatPart,
 )
-from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
+from convert.adapters.solidworks.Core.Preparation.PrepPlainPart import PrepPlainPart
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanPublicRevolve import (
     PlanRevolve,
 )
@@ -63,7 +57,10 @@ from convert.adapters.solidworks.Core.Preparation.Revolve.PrepareRevolve import 
 from convert.adapters.solidworks.Core.Preparation.Revolve.RevPrepInput import (
     RevPrepInput,
 )
-from convert.adapters.solidworks.Core.Preparation.RunPartPrep import RunPartPrep
+from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
+from convert.adapters.solidworks.Core.Preparation.Sweeps.PrepSweepPart import (
+    PrepSweepPart,
+)
 from convert.adapters.solidworks.Core.Preparation.TwoStock.PrepareStockPart import (
     PrepareStockPart,
 )
@@ -80,8 +77,16 @@ def PrepareNative(
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
 ) -> (
-    PartCandidate | ImportCandidate | StockCandidate | RevolvePart | PatCandidate | EllipsePart
+    PartCandidate
+    | ImportCandidate
+    | StockCandidate
+    | RevolvePart
+    | PatCandidate
+    | EllipsePart
+    | SweepPart
 ):
+    if IsSweepPart(DocumentValue):
+        return PrepSweepPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsChmfPart(DocumentValue):
         return PrepChmfPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsPatPart(DocumentValue):
@@ -111,22 +116,4 @@ def PrepareNative(
         return MakeSelRevPart(DocumentValue, Recipe)
     if PlanRevolve(DocumentValue) is not None:
         return PrepareRevolve(DocumentValue, TargetValue, WrittenAt, SettingsValue)
-    TopValue = PlanTopCorner(DocumentValue)
-    if TopValue is not None:
-        Projected, TopPlan = TopValue
-        return RunPartPrep(
-            Projected,
-            TargetValue,
-            TopPlan,
-            MakePartRecipe(TopPlan, WrittenAt),
-            SettingsValue,
-            TopCorner=True,
-        )
-    try:
-        PlanValue = PlanPartWrite(DocumentValue)
-    except (TypeError, ValueError):
-        return PrepareCircle(DocumentValue, TargetValue, WrittenAt, SettingsValue)
-    RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
-    return RunPartPrep(
-        DocumentValue, TargetValue, PlanValue, RecipeValue, SettingsValue
-    )
+    return PrepPlainPart(DocumentValue, TargetValue, WrittenAt, SettingsValue)

@@ -28,6 +28,7 @@ from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import 
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
+from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.CanWritePart import CanWritePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
@@ -46,12 +47,12 @@ class SldprtWriter(StockEndWriter, PairProtocol):
     def info(self) -> AdapterInfo:
         return KSldWriteInfo
 
-    # the measured ellipse family requires the registry to check the actual standalone destination
+    # measured part families require the registry to check the actual standalone destination
     def IsWholeStream(self, DocumentValue: CadDocument) -> bool:
         return (
             DocumentValue.assembly is None
             and DocumentValue.DrawingValue is None
-            and IsEllipsePart(DocumentValue)
+            and (IsEllipsePart(DocumentValue) or IsSweepPart(DocumentValue))
         )
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target

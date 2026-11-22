@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMe
 
 
 # each phase must own a successful measured process with its own receipt and creation time
-def CheckEllipPhase(
+def CheckMeasPhase(
     PhaseValue: dict[str, object], TrialHash: str
 ) -> tuple[int, int, str]:
     Process = PhaseValue.get("lifetime")
@@ -24,6 +24,6 @@ def CheckEllipPhase(
         or type(CheckCount) is not int
         or CheckCount < 0
     ):
-        raise ValueError("ellipse measurement has a failed or unowned native phase")
+        raise ValueError("measurement has a failed or unowned native phase")
     ProcessId, BirthEvent = CastValue(list[int], Process)
     return ProcessId, BirthEvent, ReadMeasSha(PhaseValue.get("receipt_sha256"))

@@ -66,6 +66,8 @@ Scope: native reading and generative writing for SLDPRT, SLDASM and SLDDRW in PR
 Dependencies: independently proven field rules, complete semantic construction, held-out native acceptance, and the applicable B03 evidence.
 The broader B04 programme remains blocked on its own dependencies.
 
+The [measured Standard sweep handoff](../../re/solidworks/records/SweepMeasuredPublication2026.md) brings the two disclosed native-qualified originals to the exact offline receipt gate in the public SDK. Both complete archives match across the three stream entry points with zero runtime input reads. This isolated PR #121 tranche is pending aggregate integration. Filesystem publication requires the actual measured locator, and ordinary semantic readback remains a separate condition.
+
 The [shared archive implementation](../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 adds memory-only counts, typed strings, tags, object identities, counters, and configuration-map handoffs.
 Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed its PR CI, including the object/map integration and separate-process string checks.

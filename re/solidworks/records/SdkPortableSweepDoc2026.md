@@ -41,3 +41,7 @@ stale dimensions and ancillary semantics.
 The evidence applies to the interchange definition and the internal SDK
 projection. The earlier [native protocol](OrdinarySweepHeldoutEvaluation2026.md)
 identifies its separately frozen research writer.
+
+The [measured publication route](SweepMeasuredPublication2026.md) separately
+verifies byte identity and exact in-memory receipt gating through the normal
+SDK for the two disclosed originals.

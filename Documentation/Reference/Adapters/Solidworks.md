@@ -578,6 +578,7 @@ profiles:
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
 - One unrestrained full ellipse on the canonical Front Plane with a forward blind boss, one driving depth D1 and a Default configuration. Public output requires an exact offline measurement receipt and the measured native locator. [Measured ellipse publication](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipsePublication.md)
+- One Standard solid sweep with an origin-centred Right circle and an origin-start Front quarter arc, two editable sketch drivers and body-owned density. Publication needs the exact offline receipt, creation event and measured native locator. [Measured sweep publication](../../Changes/Solidworks/Construction/Sweeps/SolidworksMeasuredSweepPublication.md)
 - A signed rectangle on the canonical Top Plane with its fixed model-origin corner, two editable sketch lengths and a reversed blind depth. [Top rectangle writing](../../Changes/Solidworks/Construction/Part/SolidworksExplicitTopRectangleOrigin.md)
 - A fixed-centre analytic circle on the canonical Front Plane with a driving diameter and a forward blind boss
 - A fixed-centre analytic circle on the canonical Top Plane with a driving radius and a reversed blind boss

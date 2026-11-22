@@ -1,5 +1,5 @@
-from convert.adapters.solidworks.Core.Writing.Ellipse.CheckEllipPhase import (
-    CheckEllipPhase,
+from convert.adapters.solidworks.Core.Writing.Measured.CheckMeasPhase import (
+    CheckMeasPhase,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.MeasOracle import KOraclePart
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
@@ -28,7 +28,7 @@ def CheckEllipBatch(Receipt: dict[str, object]) -> tuple[dict[str, object], ...]
         or (len(Phases) - 4) % 2
     ):
         raise ValueError("ellipse measurement lacks the complete native lifetimes")
-    Owners = tuple(CheckEllipPhase(PhaseValue, TrialHash) for PhaseValue in Phases)
+    Owners = tuple(CheckMeasPhase(PhaseValue, TrialHash) for PhaseValue in Phases)
     Lifetimes = {(ProcessId, Birth) for ProcessId, Birth, _ in Owners}
     RecordHashes = {Digest for _, _, Digest in Owners}
     if len(Phases) != len(Lifetimes) or len(Phases) != len(RecordHashes):

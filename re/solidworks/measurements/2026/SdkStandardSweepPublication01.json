@@ -1,0 +1,199 @@
+{
+  "disclosed_native_result_sha256": "380ead8ff07a9337bd0df87d32eb92e49529e0579c15449767a5ee26e53dd512",
+  "guarded_processes": 2,
+  "heldout_credit": 0,
+  "independent_numeric_checks": 168,
+  "method": {
+    "CheckMeasuredSweep.py": "7c71d971ebc9061721ac7526ebe9c5f970f7cb1c43594fdeae627301d03f83e0",
+    "SweepMeasuredReceipt.py": "88eaa981931632330988e58253d7f1ebf5c21504b7d75583a9cbea15f145c3d0"
+  },
+  "native_launches": 0,
+  "native_phase_checks": 1418,
+  "native_source_processes": 12,
+  "normalized_receipt_sha256": "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0",
+  "portable_proof_sha256": "b52e938c78eafb58d7da376ee979dbdd630a57159d3ac587e8215690beb5741f",
+  "results": [
+    {
+      "archive_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "case": "SweepArcNear",
+      "guarded_contrasts": {
+        "direct": {
+          "incompatible_streams": 4,
+          "refusals": [
+            "missing_receipt",
+            "changed_epoch",
+            "changed_locator",
+            "foreign_build",
+            "unhealthy_control",
+            "reused_lifetime",
+            "claimed_wrong_locator",
+            "claimed_wrong_length",
+            "claimed_wrong_archive",
+            "wrong_saved_derivative",
+            "swapped_driver",
+            "wrong_reported_dimension",
+            "wrong_reopen_mass",
+            "wrong_save_status",
+            "false_setter_codes",
+            "absent_independent_observer",
+            "no_independent_comparison",
+            "section_edit_without_measurement",
+            "path_edit_without_measurement",
+            "crossed_profile"
+          ]
+        },
+        "registry": {
+          "incompatible_streams": 4,
+          "refusals": [
+            "missing_receipt",
+            "changed_epoch",
+            "changed_locator",
+            "foreign_build",
+            "unhealthy_control",
+            "reused_lifetime",
+            "claimed_wrong_locator",
+            "claimed_wrong_length",
+            "claimed_wrong_archive",
+            "wrong_saved_derivative",
+            "swapped_driver",
+            "wrong_reported_dimension",
+            "wrong_reopen_mass",
+            "wrong_save_status",
+            "false_setter_codes",
+            "absent_independent_observer",
+            "no_independent_comparison",
+            "section_edit_without_measurement",
+            "path_edit_without_measurement"
+          ]
+        }
+      },
+      "linked_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ],
+      "native_posix_path_refusals": 4,
+      "runtime_external_calls": 0,
+      "scope": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "streams": 11
+    },
+    {
+      "archive_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "case": "SweepArcWide",
+      "guarded_contrasts": {
+        "direct": {
+          "incompatible_streams": 4,
+          "refusals": [
+            "missing_receipt",
+            "changed_epoch",
+            "changed_locator",
+            "foreign_build",
+            "unhealthy_control",
+            "reused_lifetime",
+            "claimed_wrong_locator",
+            "claimed_wrong_length",
+            "claimed_wrong_archive",
+            "wrong_saved_derivative",
+            "swapped_driver",
+            "wrong_reported_dimension",
+            "wrong_reopen_mass",
+            "wrong_save_status",
+            "false_setter_codes",
+            "absent_independent_observer",
+            "no_independent_comparison",
+            "section_edit_without_measurement",
+            "path_edit_without_measurement",
+            "crossed_profile"
+          ]
+        },
+        "registry": {
+          "incompatible_streams": 4,
+          "refusals": [
+            "missing_receipt",
+            "changed_epoch",
+            "changed_locator",
+            "foreign_build",
+            "unhealthy_control",
+            "reused_lifetime",
+            "claimed_wrong_locator",
+            "claimed_wrong_length",
+            "claimed_wrong_archive",
+            "wrong_saved_derivative",
+            "swapped_driver",
+            "wrong_reported_dimension",
+            "wrong_reopen_mass",
+            "wrong_save_status",
+            "false_setter_codes",
+            "absent_independent_observer",
+            "no_independent_comparison",
+            "section_edit_without_measurement",
+            "path_edit_without_measurement"
+          ]
+        }
+      },
+      "linked_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ],
+      "native_posix_path_refusals": 4,
+      "runtime_external_calls": 0,
+      "scope": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "streams": 11
+    }
+  ],
+  "schema": "kit.sw2026.measured-standard-sweep-publication-proof.v1",
+  "src_sha256": {
+    "src/convert/adapters/Staging/CheckWholeSink.py": "b7c6e7601bf91b8a13a23ae44b0c38c2bb005de4845a11821eeb2bbff934dd9d",
+    "src/convert/adapters/Staging/SeekBinary.py": "7a4412600555090c029df253dea731248465372c9564368e6b932b22ca9bb251",
+    "src/convert/adapters/Staging/SinkExtentMut.py": "92a9c7eff93a8de20dc048146da6fd285998e8b6fdde50ff20d7d53002ab663b",
+    "src/convert/adapters/Staging/StreamStaging.py": "46b8b9ed0b8e5bacf5e11361540c85cc9846234443afba5630f090c574249073",
+    "src/convert/adapters/Staging/WriteWholeMut.py": "204bf2caa6bc82314d4521bccf59242001c7be783719bdd73ca83147d80b936d",
+    "src/convert/adapters/base/WholeStreamWriter.py": "d864ec81be813c204ce81816d94f1e00dd6cd90c92c39286f18a35df8221182d",
+    "src/convert/adapters/solidworks/Core/Preparation/PrepareNative.py": "edae7ffad38ac9bb1ec87f76216514031f38cd1a5601bb2037fe747f418a93e9",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/BuildSweepPart.py": "727a15fe15835e081cd2daf5c9fa4a35d153f072f6e126f9e6607122df60c928",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/CheckSwDoc.py": "d8fc36c3b8d3dd802c1b1285fa9842040fcc3ae99eeba276d927f238bf2e2aea",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/CheckSweepInput.py": "676dbb29475e786bb6069412fb7ef4b2186de1a19a42d3111f751e4b9b9146f3",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/IsSweepPart.py": "7e01e6579afa6ff19e356131c0d991e6b882fca8d14742994bbc82682cf0e4c6",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/PlanSwTarget.py": "30e4003ee57743787981ee4f2983ac1d9b2c46d909d6011dc62cc76f8e3fded1",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/PlanSweepPart.py": "afa68ab376047eab5cdc4ed1f0c5bbd6302083f4411e8731f0f7c981adce593b",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/PrepSweepPart.py": "7ba87b645eeebe452ad23a254d9c198b1440d9eae972f4699c73ce63fe4ea4a6",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/ReadSwDrivers.py": "f0a4617ffa1cc05ab77e0169603f9ed8886195c4078c863f76c735f2879501c9",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/ReadSwProfiles.py": "a85ceee27390da9415c1112f8e9d1b13b95d47da19b6514482e518d4a62a36fb",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/ReadSwSketches.py": "56a4da1a1501cdbb1cbe7ded456c35be2b269edd036a274d2900c02a1fd81d7b",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/SweepIntent.py": "18bb9c0fede5f8ac69d0b65199ed4d85371c3d0ee5e6f637adfb31d39f7d58e8",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "864af3fe2d4a3cb7216e73021cb4915e53a4c2669da12edc66e6a03cbc097dde",
+    "src/convert/adapters/solidworks/Core/Writing/CanWriteSweep.py": "c08f104d9481f96adc4753c873206bc11f8c17f1d42d4a5659adbe9426d78016",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "dc2f166d93b8932fab2e8b7bc90fb695f6f7de6b4174027471aaeee6e45d540b",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/CheckMeasPath.py": "2efa89fdaf86cdbd912f53f99b2111b91970370813644eece364846e66011197",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/CheckMeasPhase.py": "d8281fa49cf569caafa114e401281800315d823521dbc19050504830a92b2138",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/MeasOracle.py": "db149680912ab2f22ca2c6e1463df69400eac3fb8baea5278ac256045cffd050",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/PartMeasureOpt.py": "16d084c40adbf5f6fc731f141989303b017fd8deaf6dbbf911260d4c3ff88798",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/PublishMeasMut.py": "f106749665042869df27672cac3af1d3f836630fda34f9998f0529d59faa91ef",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasInput.py": "817bc3777c5b1c6fb85e065d215cc0f2a76e7aa70b86d2f12174c267216fa910",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasMap.py": "68a0fe17a7d5a1189f840b93206e1949a57d48496eccc61f9a090f495c71c5d1",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasNum.py": "db88ebf57f39efc94ee811a1ff06a5aa0a267901dab12505f57612f0a995021a",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasRows.py": "8144d3670f227ab2d743aa4960d9fe968e211053d1bf605805ed44023d4cb448",
+    "src/convert/adapters/solidworks/Core/Writing/Measured/ReadMeasSha.py": "6c89e97df915b9b0cd87ab19b1676823f365bb47649a59d8ed85cb461cc87d86",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "3c3fe97219d51c25fb317354237f5f7205f91c618781de093d69e61e7d8f734d",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/CheckSwBatch.py": "29e941e1e738f9bf554f3b8a7ef2456ec0f5dfd109c39cb1af120e4df1bec403",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/CheckSwControl.py": "72cb8a82fe60cc0d92a0df484e2a65db46432ba9fc703c010dd73cd7828465cc",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/CheckSwEdits.py": "6e7ab22a534490069affcfdd92f50e7dad93584b96c27bd7f66b82d73d881fc1",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/CheckSwPhases.py": "a0476a945018d0f506170a88b73cf97faab762f215aafbb1bb8944e5fe7c7920",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/CheckSwState.py": "df8f367c67e94c29e6a7648c640568d749c7581de1cc6aa0562ffd538e59536b",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/EmitSweepMut.py": "91406c8319be23a6edd7aa8e0c1b0f7abd96136ad9db4893aa784cba2962089b",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/HasCleanSwCode.py": "c1b5d64c22da0142f4e477d2a4ffa2d362279c26534871780b9b7fcaec7a739e",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/MatchSweepCase.py": "ea031631d619282791e1a9dec7dad69a185a8f3d8793633e70cb38cec7e7269c",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/ReadSwHashes.py": "1c260e3c0002fb95b05cc8f9195f937891c8940142724c03580a7f8a22348734",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/SweepMeasPhases.py": "235281cc4bdc8975494ebad6b05d4f8738068b04d79a489f48ab9feb0042f6ff",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/VerifySweepMeas.py": "694bdd55c24142d6b2ef4ed86c4a6073684487e7bdf1f73fbedec58fa60a51e3"
+  }
+}

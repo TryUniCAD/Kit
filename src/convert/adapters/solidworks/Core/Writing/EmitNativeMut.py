@@ -14,7 +14,9 @@ from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
+from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumDocument import Capability
 
@@ -31,6 +33,8 @@ def EmitNativeMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
+    if IsSweepPart(DocumentValue):
+        return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipsePart(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
