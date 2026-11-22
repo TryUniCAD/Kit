@@ -2224,7 +2224,7 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
     Lanes = ResolvedLanes(Archive.streams)
     if not Lanes:
         raise SldprtFormatError("required native resolved-feature stream is missing")
-    ConfigValues, _ = ParseKeywords(Keywords)
+    ConfigValues = ParseKeywords(Keywords)[0]
     SelectedId = SelectLaneId(ConfigValues, Lanes, Requested)
     if SelectedId is None:
         raise SldprtFormatError(
