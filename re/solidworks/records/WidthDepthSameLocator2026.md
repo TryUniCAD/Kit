@@ -195,4 +195,4 @@ python3.12 -I -B re/tooling/sw2026/equations/ProveSdkWidthDepthWrite.py \
 ```
 
 [Aggregate process receipt](../measurements/2026/SdkPublicWidthDepthMeasured02.json)
-· [Scoped change](../../../Documentation/Changes/Solidworks/Construction/SolidworksWidthDepthMeasurementGate.md)
+· [Scoped change](../../../Documentation/Changes/Solidworks/Construction/Equations/SolidworksWidthDepthMeasurementGate.md)

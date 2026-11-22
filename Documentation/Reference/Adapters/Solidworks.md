@@ -666,7 +666,7 @@ The measured width-to-depth equation uses the same envelope with its own
 authenticated report. It covers the single Front Plane, origin-anchored
 rectangle and forward blind boss whose depth is the local width divided by
 two. Use the exact locator and epoch from that measurement.
-[Width-to-depth publication](../../Changes/Solidworks/Construction/SolidworksWidthDepthMeasurementGate.md)
+[Width-to-depth publication](../../Changes/Solidworks/Construction/Equations/SolidworksWidthDepthMeasurementGate.md)
 
 A strict cold readback of a measured ordinary part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated
@@ -688,8 +688,9 @@ Model-only preparation also covers each scoped profile below. Public
 standalone output requires an applicable exact native receipt. Today the
 ordinary line loop uses the version-1 standalone receipt. Ellipse, Standard
 sweep, distance chamfer, selected two-stock through cuts, the contained
-oblique linear pattern and the width-depth equation have dedicated proof schemas. Other entries identify
-preserved preparation and native research coverage.
+oblique linear pattern and the width-depth equation have dedicated proof
+schemas. Other entries identify preserved preparation and native research
+coverage.
 
 - An ordinary closed line loop on the canonical Front Plane with a forward blind boss
 - One unrestrained full ellipse on the canonical Front Plane with a forward blind boss, one driving depth D1 and a Default configuration. Public output requires an exact offline measurement receipt and the measured native locator. [Measured ellipse publication](../../Changes/Solidworks/Construction/SolidworksMeasuredEllipsePublication.md)
