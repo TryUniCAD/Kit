@@ -9,4 +9,4 @@ Changing the manifest therefore cannot activate either fix.
 An authorized administrator must update the existing ruleset's queue parameters separately.
 Preserve unrelated protections and read the accepted branch rules back.
 Do not create a second queue ruleset or replace `Protect` with the manifest.
-See [the scheduling change](../../Changes/Ci/QueueRuntimeScheduling.md).
+See [the scheduling change](../../../Changes/Ci/QueueRuntimeScheduling.md).

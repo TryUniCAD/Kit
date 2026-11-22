@@ -30,7 +30,9 @@ Without measured history, the existing count-based sizing remains active.
 
 `tools.TestShards.PlanShards` accepts `--target-seconds` and `--runtime-shards`.
 The defaults disable runtime sizing and limit runtime-requested shards to eight.
-The queue supplies `--target-seconds 1200 --runtime-shards 8`.
+The queue supplies `--target-seconds 1200 --runtime-shards 8` only after verifying the live scheduling settings.
+Until build concurrency, merge minimum, and batching wait are `1`, `1`, and `0`, runtime expansion remains disabled.
+Manual audits retain count-based sizing.
 Native platforms retain four serial shards each.
 No security checks, assertions, or acceptance contexts are removed.
 
@@ -39,7 +41,7 @@ Update only its queue build concurrency, merge minimum, and minimum-entry wait.
 Use `1`, `1`, and `0` respectively.
 Preserve every other protection and required check.
 Read the branch rules back to confirm the accepted values.
-See [merge queue operations](../../../MergeQueue.md) and [configuration drift](../../Gotchas/Ci/QueueSettingsDrift.md).
+See [merge queue operations](../../../MergeQueue.md) and [configuration drift](../../Gotchas/Ci/Scheduling/QueueSettingsDrift.md).
 
 ## Evidence and limits
 

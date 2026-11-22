@@ -154,8 +154,20 @@ jobs:
 
       - name: Plan test shards
         id: plan
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
+          TargetSeconds=0
+          if [ "$GITHUB_EVENT_NAME" = merge_group ]; then
+            TargetSeconds="$(gh api --paginate --slurp "repos/${GITHUB_REPOSITORY}/rules/branches/main?per_page=100" | jq '
+              [.[][] | select(.type == "merge_queue") | .parameters]
+              | if length == 1 and .[0].max_entries_to_build == 1
+                  and .[0].min_entries_to_merge == 1
+                  and .[0].min_entries_to_merge_wait_minutes == 0
+                then 1200 else 0 end')"
+          fi
+          echo "Runtime shard target: ${TargetSeconds} CPU seconds; zero retains count-based sizing" >> "$GITHUB_STEP_SUMMARY"
           git ls-tree -r -z HEAD > "${RUNNER_TEMP}/Tree.bin"
           uv run --no-sync --python 3.14 python -m tools.TestShards.PlanShards \
             --collected "${RUNNER_TEMP}/Collected.txt" \
@@ -165,7 +177,7 @@ jobs:
             --carried "${RUNNER_TEMP}/ShardPlan/Carried.json" \
             --max-age-days 7 \
             --max-tests 1200 \
-            --target-seconds 1200 \
+            --target-seconds "$TargetSeconds" \
             --runtime-shards 8 \
             --output "${RUNNER_TEMP}/ShardPlan/ShardPlan.json" \
             --summary "$GITHUB_STEP_SUMMARY"
@@ -525,7 +537,7 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-windows-2025 "$RunAttempt"
           '^tests/Research/Windows/'
-          "${{ runner.temp }}/WindowsReports/Durations.json"
+          "$ReportRoot/Durations.json"
 
       - name: Publish Windows durations for later plans
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -608,7 +620,7 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-macos-26 "$RunAttempt"
           '^tests/Research/Applications/FusionColdStartTests\.py::'
-          "${{ runner.temp }}/MacosReports/Durations.json"
+          "$ReportRoot/Durations.json"
 
       - name: Publish macOS durations for later plans
         uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
