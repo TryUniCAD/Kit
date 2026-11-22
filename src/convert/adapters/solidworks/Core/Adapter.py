@@ -26,7 +26,6 @@ from convert.adapters.base import (
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange import (
     ArcEllipseGeometry as ArcEllipseGeom,
     ArcGeometry as ArcGeom,
@@ -311,6 +310,7 @@ class SldprtAdapter(PairProtocol):
         options: WriteOptions | None = None,
     ) -> WriteResult:
         from convert.adapters.registry import AdapterRegistry
+        from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 
         FormatId = options.destination_format if options is not None else None
         if FormatId is None:
