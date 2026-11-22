@@ -183,9 +183,8 @@ def check_model(*, deliver=False):
         ("foreign_body", {"body_id": "foreign/body"}, "actual modeled stock body"),
         ("contradicted_bounds", {"stock_bounds_m": [[-0.04, 0.025], [-0.09, 0.05], [0.0, 0.034]]},
          "actual generated blind boss"),
-        ("crossed_distance_side", {"distance_axis": next(i for i in range(3)
-                                                        if i not in (input_shape["distance_axis"], input_shape["edge_axis"]))},
-         "positive fin's first face"),
+        ("longitudinal_distance_side", {"distance_axis": input_shape["edge_axis"]},
+         "distance must be assigned to one transverse stock side"),
     ):
         try:
             build_graph(stock, request | {"shape": input_shape | changed})

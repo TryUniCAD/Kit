@@ -63,21 +63,24 @@ def make_stock_selection(candidate, shape):
                 "ordinary edge roles require two reciprocal signed fins")
     uses = {use.id: use for use in body.coedges}
     opposite = {use.id: other.id for a, b in by_edge.values() for use, other in ((a, b), (b, a))}
-    left = next(use.id for use in by_edge[edge.id] if not use.reversed)
-    face_id, ring = by_use[left]
-    at = ring.index(left)
-    role_ids = (face_id, by_use[opposite[left]][0],
-                by_use[opposite[ring[at - 1]]][0], by_use[opposite[ring[(at + 1) % len(ring)]]][0])
-    require(len(set(role_ids)) == 4, "generated chamfer edge has ambiguous incident or endpoint faces")
-
+    require(set(uses) == set(by_use), "ordinary edge roles require actual loop owners")
     carriers = {surface.id: surface for surface in body.surfaces}
     faces = {face.id: face for face in body.faces}
-    normals = [carriers[faces[owner].surface_id].normal for owner in role_ids[:2]]
-    inner = tuple(owner for owner, normal in zip(role_ids[:2], normals, strict=True)
-                  if isclose(abs(getattr(normal, "xyz"[side])), 1.0, abs_tol=1e-12))
-    require(inner == (role_ids[0],) and set(uses) == set(by_use),
-            "authored chamfer distance side differs from the positive fin's first face")
-    return EdgeSelection(picks, tuple(surfaces[owner] for owner in role_ids), surfaces[inner[0]])
+
+    def is_distance_carrier(use):
+        face = faces[by_use[use.id][0]]
+        normal = carriers[face.surface_id].normal
+        return isclose(abs(getattr(normal, "xyz"[side])), 1.0, rel_tol=0.0, abs_tol=1e-12)
+
+    selected = [use.id for use in by_edge[edge.id] if is_distance_carrier(use)]
+    require(len(selected) == 1, "chamfer distance side must match exactly one incident carrier")
+    pick, = selected
+    face_id, ring = by_use[pick]
+    at = ring.index(pick)
+    role_ids = (face_id, by_use[opposite[pick]][0],
+                by_use[opposite[ring[at - 1]]][0], by_use[opposite[ring[(at + 1) % len(ring)]]][0])
+    require(len(set(role_ids)) == 4, "generated chamfer edge has ambiguous incident or endpoint faces")
+    return EdgeSelection(picks, tuple(surfaces[owner] for owner in role_ids), surfaces[face_id])
 
 
 def make_representations(candidate, feature, atom, selection, headers):

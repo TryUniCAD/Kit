@@ -11,11 +11,19 @@ STUDY = ROOT / "re/tooling/sw2026"
 sys.path[:0] = [str(path) for path in (ROOT, ROOT / "src", STUDY, STUDY / "serial",
                                       HERE.parent.parent, STUDY / "materials")]
 
-from AuditTypedChamfer import NAMES, digest, expected_inputs, guard_runtime, inspect, registry, require
+from AuditTypedChamfer import (
+    NAMES, checked, checked_json, digest, expected_inputs, guard_runtime, inspect, registry, require,
+)
+from ChamferModel import validate_spec
+from FilletPacket import BUILD, CONTROL, ORACLE
 from MaterialPe import PeImage
 
 MODEL_SHA = "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
 PART_SHA = "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9"
+CD_NAMES = ("ChamferComplementAxialC", "ChamferPrincipalTopD")
+CD_LOCK = "2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8"
+CD_JOB = "f68069989276d1db1204e52b2b84075698921c25849da0eb6eeb1d9c01520c01"
+CD_PHASES = ("author", "reopen-edit-save", "edited-reopen")
 
 
 def binary_owners(model_path, part_path, objdump):
@@ -107,50 +115,69 @@ def support_orders(model, endpoints):
     return result
 
 
-def shape_axes(case, edited):
-    from ChamferEdgeOwners import make_stock_selection
-    from ChamferModel import values_si
+def shape_axes(case):
     from FilletModel import edge_role, stock
     from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindPartFromPlan
     from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import ProjectBlind
     from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLineLoop import ReadLineLoop
     from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
-    from interchange.document.Validation.DocumentAssemblyValidate import GetAssemblyErrs
-    from interchange.document.Validation.DocumentFeatureValidate import GetFeatureErrs
-    from interchange.document.Validation.DocumentReferenceValidate import GetRefErrors
 
     document = authored_stock(case)
     _, axis, across, start, _ = edge_role(case)
     _, bounds = stock(case)
-    distance, angle = values_si(case, edited)
-    raw = {"body_id": "body/boss", "stock_bounds_m": [list(pair) for pair in bounds],
-           "edge_axis": axis, "corner": {str("xyz".index(key)): int(value == "max") for key, value in case["corner"].items()},
-           "distance_m": distance, "angle_rad": angle}
     plan = ProjectBlind(document, ReadLineLoop)
     model = MakeBlindPartFromPlan(document, MakePartRecipe(plan, 1795485600), plan)
-    accepted = []
-    for side in across:
-        try:
-            make_stock_selection(model, raw | {"distance_axis": side})
-        except ValueError as issue:
-            require("positive fin's first face" in str(issue), "neutral stock refused before its actual coedge test")
-        else:
-            accepted.append(side)
-    require(len(accepted) == 1, "the frozen modeled stock does not distinguish either ordinary side")
     end = list(start)
     end[axis] = bounds[axis][1]
-    return axis, across, accepted[0], support_orders(model, (start, end))
+    orders = support_orders(model, (start, end))
+    positive = "xyz".index(orders[False][0]["normal_axis"])
+    reciprocal = "xyz".index(orders[True][0]["normal_axis"])
+    require({positive, reciprocal} == set(across), "modeled fins do not distinguish both incident carriers")
+    return axis, across, positive, orders
 
 
-def warm_proof(folder, name, edited):
+def cd_source(folder):
+    require(folder.name == "DisclosedNative" and folder.parent.name == "ChamferSignedSideSource01",
+            "use only the exact disclosed signed public capture")
+    lock = checked_json(folder / "SourceLock.json", CD_LOCK)
+    require(lock["passed"] is True and lock["cohort"] == "disclosed" and lock["idle_after"] is True
+            and lock["inputs_unchanged"] is True and lock["oracle_build"] == BUILD and lock["oracle_sha256"] == ORACLE
+            and lock["control_sha256"] == CONTROL and lock["job_sha256"] == CD_JOB
+            and lock["fresh_processes"] == lock["distinct_processes"] == 8 and lock["writer_output_count"] == 0
+            and lock["heldout_writer_acceptance"] is False, "signed public lock is not a healthy disclosed capture")
+    cases = validate_spec(checked_json(HERE.with_name("ChamferSignedSideInputs.json"), lock["spec_sha256"]))
+    require(tuple(case["name"] for case in cases) == CD_NAMES and len(lock["sources"]) == len(cases)
+            and set(lock["controls"]) == {"before", "after"}, "signed disclosed roster differs")
+    return lock, cases
+
+
+def cd_inputs(folder, name, edited):
+    lock, cases = cd_source(folder)
+    idx = CD_NAMES.index(name)
+    row = lock["sources"][idx]
+    slot = folder / f"Slot{idx + 1:02d}"
+    require(row["slot"] == idx and row["passed"] is True and row["tree_rows"] == 26 and row["snapshots"] == 4
+            and tuple(phase["phase"] for phase in row["phases"]) == CD_PHASES, "incorrect disclosed case lifecycle")
+    receipts = [checked_json(slot / phase["phase"] / "Record.json", phase["receipt_sha256"]) for phase in row["phases"]]
+    require(all(item["passed"] is True and item["writer_output_count"] == 0 for item in receipts)
+            and all(phase["passed"] and phase["checks"] == phase["checks_passed"] > 0
+                    for phase in row["phases"]), "source phase is missing its independent numeric acceptance")
+    stem = name + ("Edited" if edited else "") + ".SLDPRT"
+    data = checked(slot / stem, row["edited_sha256" if edited else "original_sha256"])
+    phase = row["phases"][2 if edited else 1]["receipt_sha256"]
+    return data, cases[idx], tuple(row["orientation"]), phase
+
+
+def warm_proof(folder, name, edited, fresh=False):
     from AuditTypedChamfer import (
         KPartitionStream, ReadChmfOwn, ReadActiveNodes, ReadBodyLoop, ReadNativeLink, ReadXmtStages, RequireXmt,
         SldprtArchive, DecodePartData,
     )
     from FilletHistoryBody import vertex_point
 
-    data, case, branch, phase = expected_inputs(folder, name, edited)
-    candidate_axis, axes, modeled_positive, orders = shape_axes(case, edited)
+    inputs = cd_inputs if fresh else expected_inputs
+    data, case, branch, phase = inputs(folder, name, edited)
+    candidate_axis, axes, modeled_positive, orders = shape_axes(case)
     schemas = registry()
     denied = guard_runtime()
     proof = inspect(data, case, branch, edited, phase, schemas)
@@ -192,23 +219,33 @@ def warm_proof(folder, name, edited):
 def main():
     parser = ArgumentParser()
     parser.add_argument("--disclosed", required=True, type=Path)
-    parser.add_argument("--case", choices=NAMES)
+    parser.add_argument("--case", choices=NAMES + CD_NAMES)
+    parser.add_argument("--fresh-cd", action="store_true")
     parser.add_argument("--edited", action="store_true")
     parser.add_argument("--objdump", type=Path)
     parser.add_argument("--model-dll", type=Path)
     parser.add_argument("--part-dll", type=Path)
     parser.add_argument("--report", type=Path)
     args = parser.parse_args()
+    names = CD_NAMES if args.fresh_cd else NAMES
     if args.case is not None:
-        print(json.dumps(warm_proof(args.disclosed, args.case, args.edited), sort_keys=True))
+        require(args.case in names, "case is outside the selected disclosed source lock")
+        print(json.dumps(warm_proof(args.disclosed, args.case, args.edited, args.fresh_cd), sort_keys=True))
         return
     require(all((args.model_dll, args.part_dll, args.objdump, args.report)) and not args.report.exists(),
             "supply exact licensed binaries and an unused numeric receipt path")
     installed = binary_owners(args.model_dll, args.part_dll, args.objdump)
     rows = []
-    for name in NAMES:
+    if args.fresh_cd:
+        lock, _ = cd_source(args.disclosed)
+        for kind, phase in lock["controls"].items():
+            control = checked_json(args.disclosed / f"control-{kind}" / "Record.json", phase["receipt_sha256"])
+            require(phase["passed"] and control["passed"] is True, "source lock has an unhealthy control")
+    for name in names:
         for edited in (False, True):
             command = [sys.executable, "-I", "-B", str(HERE), "--disclosed", str(args.disclosed), "--case", name]
+            if args.fresh_cd:
+                command.append("--fresh-cd")
             if edited:
                 command.append("--edited")
             process = run(command, capture_output=True, timeout=90, check=False)
@@ -219,6 +256,8 @@ def main():
             "the disclosed calibrated pair does not distinguish the two modeled orientations")
     receipt = {"schema": "kit.sw2026.ordinary-chamfer-signed-source-audit.v1", "installed": installed,
                "disclosed": rows, "guarded_source_processes": len(rows), "native_processes": 0, "writer_outputs": 0}
+    if args.fresh_cd:
+        receipt.update(raw_source_lock_sha256=CD_LOCK, source_job_sha256=CD_JOB, source_native_lifetimes=8)
     with args.report.open("x", encoding="utf-8") as stream:
         json.dump(receipt, stream, indent=2, sort_keys=True)
         stream.write("\n")

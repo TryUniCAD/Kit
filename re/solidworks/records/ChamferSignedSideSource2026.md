@@ -19,3 +19,33 @@ Freeze a rectangular Front blind boss with an offset profile in each case. `Cham
 Stage [the bound source packet](../../tooling/sw2026/edge_chamfer_source/signed_side/StageChamferSignedSides.py) with an unused `ChamferSignedSideSource01/Packet` destination and the existing 62,796-byte healthy control. The tool uses the original author/observer closure. The root-owned native transfer and eight-phase source lifecycle use the `--stage-guest` and ordinary run modes of `RunChamferSources.py`. Archive replay and physical offset comparisons remain separate from the source capture. No writer logic changes with this packet.
 
 The staged source packet at revision `b1a7eb1a8e008081882ecafb8bc12b13cf647913` binds job SHA-256 `f68069989276d1db1204e52b2b84075698921c25849da0eb6eeb1d9c01520c01`, spec SHA-256 `841da7a229dc5baa8a1db6458a779c5688edc524fe19f62cbac318c7fe6490fa` and predictions SHA-256 `438cb1e2206dadddf7c067f3ffa6fe448b9b6b5652ad8fb93038abe68d51b786`.
+
+## Measured signed owner and guarded construction
+
+The fresh disclosed source lock SHA-256 is `2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8`. All eight distinct native phases passed, including both controls. Each source and its edited save retained a 26-row native tree, both live drivers, and the independent selected side. Four separate guarded host readers reproduced Config and Resolved while resolving the real rollback edge, both incident faces, and both endpoint faces. The offset stock and edited dimensions preserve the same two independent role orders. [C and D source evidence](../measurements/2026/ChamferSignedSideCalibrated01.json)
+
+| Source | Authored D1 axis | Modeled positive first axis | Exact source order |
+| --- | --- | --- | --- |
+| Complementary axial C | x | y | Side 2, side 1, end 1, end 0 |
+| Principal top D | z | z | End 1, side 3, side 2, side 4 |
+
+The fresh constructor selects the use whose actual incident carrier normal is parallel to the supplied D1 axis. It traverses that use's own loop to derive both endpoint faces. This gives the existing positive order when the positive use owns that normal and the reciprocal order otherwise. Both `moCompRef.f68` direction words and feature `f860` remain zero. The installed matching and coedge-orientation rules above explain the ownership boundary. The change uses the selected model-side normal, the actual stock geometry, and the shared reference serializer. It does not reuse any archived reference, handle, field program, topology or stream. [Constructor](../../tooling/sw2026/edge_chamfer_source/ChamferEdgeOwners.py)
+
+The ordinary rectangle route independently generates the actual offset stock in each neutral worker. Both fresh candidate graphs retain two exact linked stream replays, an actual shared atom and keeper alias, D1 and D2, ten generated streams, zero runtime accesses, and the normal public reader's existing refusal. The two positive-side baseline containers and all twenty of their stream digests remain exact. Invalid longitudinal direction, a foreign body, and contradictory stock bounds still refuse. [Original model-only baseline](../measurements/2026/EdgeChamferColdOwners01.json)
+
+## Frozen cold native contrast
+
+The cold observer uses the same independent analytic geometry checks and stable bracketing controls as the prior disclosed run. It additionally compares each generated initial, edited, and fresh reopened state with the corresponding measured native source state. This requires all 26 recursive feature rows, actual parents, two editable D1/D2 owners, ordinary modes, 7 faces, 15 edges, 10 vertices, physical edge and bevel points, body volume, area and centre of mass. Source authoring uses the actually observed transient `Part1.Part` qualifier. The comparison after open uses the exact real file stem and the controlled edited stem in the respective phases. Generated and source data stay separate during construction. A comparison failure records its first actual error and does not prevent observing the other independent arm. [Guarded worker](../../tooling/sw2026/edge_chamfer_source/signed_side/CompileSignedChamferTrial.py) · [Native probe](../../tooling/sw2026/edge_chamfer_source/RunNativeChamferProbe.py)
+
+Stage from the committed research checkout. This freezes the exact candidate digests, neutral input hashes, linked owners, streams and parity receipts in `Trial.json`.
+
+```sh
+chamfer_base=/Users/odin/Documents/UniCAD/Oracle121Takeover
+python3.14 -I -B re/tooling/sw2026/edge_chamfer_source/signed_side/StageGeneratedChamferSigned.py \
+    --output "$chamfer_base/GeneratedChamferSigned01/Packet" \
+    --control "$chamfer_base/ChamferSignedSideSource01/Packet/Control.SLDPRT" \
+    --disclosed "$chamfer_base/ChamferSignedSideSource01/DisclosedNative" \
+    --source-audit "$PWD/re/solidworks/measurements/2026/ChamferSignedSideCalibrated01.json"
+```
+
+The root-owned oracle stages and verifies the immutable external packet before launching the fresh serial processes. The exact generated file locators lie under `C:\KitGeneratedChamferSigned01\Packet\Candidates`. Native results and derivatives lie under `C:\KitGeneratedChamferSigned01\Run01`. The worker's zero file-read evidence and this prospective disclosed native contrast carry zero held-out credit. Existing pre-writer cases and their prior failure remain immutable.

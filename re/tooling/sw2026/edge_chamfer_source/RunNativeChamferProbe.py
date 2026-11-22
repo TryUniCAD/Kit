@@ -12,6 +12,9 @@ from FilletPacket import BUILD, CONTROL, ORACLE, digest
 
 PACKET = PureWindowsPath(r"C:\KitGeneratedChamfer01\Packet")
 OUTPUT = PACKET.parent / "Run01"
+SIGNED_PACKET = PureWindowsPath(r"C:\KitGeneratedChamferSigned01\Packet")
+SIGNED_SOURCE_LOCK = "2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8"
+SIGNED_COMPARISON = {"Reference.json", "Tool/ChamferComparison.py"}
 SCHEMA = "kit.sw2026.chamfer-cold-candidate-trial.v1"
 ROLES = ("before", "after", "edit", "reopen")
 CONTROL_FILE = "Control.SLDPRT"
@@ -22,8 +25,11 @@ def verified(path, pin):
             "unbound candidate trial manifest")
     packet = path.parent
     trial = json.loads(path.read_bytes())
+    guest = PureWindowsPath(trial["guest_packet"])
+    signed = guest == SIGNED_PACKET
     require(trial["schema"] == SCHEMA and trial["oracle_build"] == BUILD and trial["oracle_sha256"] == ORACLE
-            and trial["guest_packet"] == str(PACKET) and trial["guest_output"] == str(OUTPUT)
+            and trial["guest_packet"] in (str(PACKET), str(SIGNED_PACKET))
+            and trial["guest_output"] == str(guest.parent / OUTPUT.name)
             and valid_hash(trial["construction_revision"], 40) and trial["guarded_generation_processes"] == 4
             and trial["guarded_runtime_reads"] == trial["heldout_inputs_read"] == 0,
             "trial provenance, exact build or destination differs")
@@ -31,7 +37,8 @@ def verified(path, pin):
     plans = predictions(cases)
     names = {f"Candidates/{case['name']}.SLDPRT" for case in cases}
     files = trial["files"]
-    require(set(files) == TOOL_FILES | names | {CONTROL_FILE, "Tool/RunNativeChamferProbe.py"}
+    comparison = SIGNED_COMPARISON if signed else set()
+    require(set(files) == TOOL_FILES | names | {CONTROL_FILE, "Tool/RunNativeChamferProbe.py"} | comparison
             and files[CONTROL_FILE]["sha256"] == CONTROL
             and {node.relative_to(packet).as_posix() for node in packet.rglob("*") if node.is_file()} == set(files) | {"Trial.json"},
             "candidate packet has foreign or missing files")
@@ -43,11 +50,40 @@ def verified(path, pin):
     require(len(trial["cases"]) == len(cases), "candidate count and actual author predictions disagree")
     for case, plan, expected in zip(cases, plans, trial["cases"], strict=True):
         filename = f"Candidates/{case['name']}.SLDPRT"
-        require(expected["path"] == filename and expected["locator"] == str(PACKET / filename)
+        require(expected["path"] == filename and expected["locator"] == str(guest / filename)
                 and expected["archive_sha256"] == files[filename]["sha256"]
                 and expected["branch"] in [row["branch"] for row in plan["states"]["initial"]],
                 "candidate locator or analytic branch is outside its frozen design")
+    if signed:
+        reference = json.loads((packet / "Reference.json").read_bytes())
+        require(trial["disclosed_source_lock_sha256"] == reference["source_lock_sha256"] == SIGNED_SOURCE_LOCK
+                and len(reference["cases"]) == len(cases) and trial["heldout_credit"] == 0
+                and all(has_signed_reference(row, case, expected) for row, case, expected in
+                        zip(reference["cases"], cases, trial["cases"], strict=True)),
+                "signed trial must bind both independent measured source lifecycles")
     return trial, cases, plans
+
+
+def has_signed_reference(row, case, expected):
+    return (row["name"] == case["name"] and len(row["source_artifacts"]) == 2 and len(row["source_phases"]) == 3
+            and all(valid_hash(pin) for pin in row["source_artifacts"] + row["source_phases"])
+            and all(row[role]["branch"] == expected["branch"] and len(row[role]["tree"]) == 26
+                    and row[role]["configurations"] == ["Default"] for role in ("initial", "edited")))
+
+
+def stage_signed_guest(manifest, pin):
+    require(os.name == "nt", "native candidate transfer is Windows-only")
+    trial, _, _ = verified(manifest, pin)
+    require(trial["guest_packet"] == str(SIGNED_PACKET), "transfer requires a fresh signed disclosure")
+    destination = Path(SIGNED_PACKET)
+    require(not destination.parent.exists(), "guest signed trial root already exists")
+    destination.mkdir(parents=True)
+    for name in sorted((*trial["files"], "Trial.json")):
+        target = destination / name
+        target.parent.mkdir(exist_ok=True)
+        with target.open("xb") as stream:
+            stream.write((manifest.parent / name).read_bytes())
+    verified(destination / "Trial.json", pin)
 
 
 def expected_at(plan, branch, edited):
@@ -149,7 +185,7 @@ def candidate_phase(case, plan, choice, phase, source, target, source_sha, recei
 
 def phase_job(manifest, pin, role, slot, source_sha):
     trial, cases, predictions = verified(manifest, pin)
-    packet, output = Path(PACKET), Path(OUTPUT)
+    packet, output = (Path(trial[key]) for key in ("guest_packet", "guest_output"))
     child = output / (role if slot is None else f"Slot{slot + 1:02d}-{role}")
     record = child / "Record.json"
     require(child.is_dir() and not record.exists(), "native phase requires an unused owned receipt")
@@ -169,8 +205,8 @@ def phase_job(manifest, pin, role, slot, source_sha):
                            json.loads((output / "RegisteredApi.json").read_bytes()))
 
 
-def launch(manifest, pin, role, *, slot=None, source=None):
-    folder = Path(OUTPUT) / (role if slot is None else f"Slot{slot + 1:02d}-{role}")
+def launch(manifest, pin, role, output, *, slot=None, source=None):
+    folder = output / (role if slot is None else f"Slot{slot + 1:02d}-{role}")
     folder.mkdir()
     command = [sys.executable, "-E", "-B", str(Path(__file__).resolve()),
                "--manifest", str(manifest), "--pin", pin, "--phase", role]
@@ -203,35 +239,40 @@ def run_trial(manifest, pin):
     import Swapp
     from ChamferApi import installed_api
 
-    output = Path(OUTPUT)
+    reference = (json.loads((manifest.parent / "Reference.json").read_bytes())["cases"]
+                 if trial["guest_packet"] == str(SIGNED_PACKET) else None)
+    output = Path(trial["guest_output"])
     require(not Swapp.application_pids() and not output.exists() and output.parent.resolve() == output.parent,
             "serial oracle must begin idle and at an unused managed output")
     output.mkdir()
     phases, full_lifecycle, failure = [], [], None
+    matched = []
     try:
-        before, _ = launch(manifest, pin, "before")
+        before, _ = launch(manifest, pin, "before", output)
         phases.append(before)
         if before["phase_passed"]:
             _, metadata = installed_api(Swapp)
             write_new(output / "RegisteredApi.json", metadata)
             for slot, choice in enumerate(trial["cases"]):
                 require(not Swapp.application_pids(), "prior candidate left the serial oracle running")
-                primary, after_edit = launch(manifest, pin, "edit", slot=slot, source=choice["archive_sha256"])
+                primary, after_edit = launch(manifest, pin, "edit", output, slot=slot, source=choice["archive_sha256"])
                 phases.append(primary)
                 if not primary["phase_passed"]:
                     continue
-                reopened, record = launch(manifest, pin, "reopen", slot=slot, source=after_edit["artifact_sha256"])
+                reopened, record = launch(manifest, pin, "reopen", output, slot=slot, source=after_edit["artifact_sha256"])
                 phases.append(reopened)
                 if reopened["phase_passed"]:
                     saved, fresh = after_edit["edited"], record["reopened"]
                     if (saved["tree"] == fresh["tree"] and saved["definition"]["parents"] == fresh["definition"]["parents"]
                             and same_drivers(saved, fresh, cases[slot]["name"])):
                         full_lifecycle.append(slot)
+                        if reference is not None:
+                            matched.append(compare_disclosed_source(slot, cases[slot], reference[slot], after_edit, record))
     except Exception as issue:
         failure = str(issue)
     finally:
         if phases and not Swapp.application_pids():
-            last, _ = launch(manifest, pin, "after")
+            last, _ = launch(manifest, pin, "after", output)
             phases.append(last)
     lifetimes = [tuple(row["lifetime"]) for row in phases if row["lifetime"]]
     result = {"schema": SCHEMA, "manifest_sha256": pin, "lifecycle_slots": full_lifecycle, "phases": phases,
@@ -241,25 +282,52 @@ def run_trial(manifest, pin):
               "heldout_credit": 0, "proper_distinct_lifetimes": len(lifetimes) == len(set(lifetimes)) == len(phases)}
     result["passed"] = bool(not failure and result["healthy_controls"] and result["proper_distinct_lifetimes"]
                             and len(full_lifecycle) == len(cases) and len(phases) == 6)
+    if reference is not None:
+        result["disclosed_source_comparisons"] = matched
+        result["passed"] = result["passed"] and len(matched) == len(cases) and all(row["passed"] for row in matched)
     write_new(output / "Result.json", result)
     print(json.dumps({"passed": result["passed"], "receipt_sha256": digest(output / "Result.json"), "phases": len(phases)}))
     return result["passed"]
+
+
+def compare_disclosed_source(slot, case, reference, live, fresh):
+    from ChamferComparison import compare_state
+
+    rows = []
+    for label, state, edited, saved in (
+        ("open", live["reopened"], False, False),
+        ("edited", live["edited"], True, False),
+        ("reopen", fresh["reopened"], True, True),
+    ):
+        try:
+            count = compare_state(state, reference["edited" if edited else "initial"], case,
+                                  edited=edited, actual_saved=saved)
+            rows.append({"phase": label, "numeric_checks": count, "passed": True})
+        except ValueError as issue:
+            rows.append({"phase": label, "failure": str(issue), "passed": False})
+    return {"slot": slot, "passed": all(row["passed"] for row in rows), "phases": rows}
 
 
 if __name__ == "__main__":
     options = ArgumentParser()
     options.add_argument("--manifest", type=Path, required=True)
     options.add_argument("--pin", required=True)
-    options.add_argument("--verify", action="store_true")
+    mode = options.add_mutually_exclusive_group()
+    mode.add_argument("--verify", action="store_true")
+    mode.add_argument("--stage-signed", action="store_true")
     options.add_argument("--phase", choices=ROLES)
     options.add_argument("--slot", type=int)
     options.add_argument("--source")
     args = options.parse_args()
     if args.verify:
         verified(args.manifest, args.pin)
+    elif args.stage_signed:
+        stage_signed_guest(args.manifest, args.pin)
     else:
-        require(os.name == "nt" and args.manifest.resolve() == (Path(PACKET) / "Trial.json").resolve()
-                and Path(__file__).resolve().parent == Path(PACKET) / "Tool",
+        trial, _, _ = verified(args.manifest, args.pin)
+        guest = Path(trial["guest_packet"])
+        require(os.name == "nt" and args.manifest.resolve() == (guest / "Trial.json").resolve()
+                and Path(__file__).resolve().parent == guest / "Tool",
                 "native trials require the frozen guest-local packet and runner")
         success = phase_job(args.manifest, args.pin, args.phase, args.slot, args.source) if args.phase else run_trial(args.manifest, args.pin)
         sys.exit(0 if success else 1)

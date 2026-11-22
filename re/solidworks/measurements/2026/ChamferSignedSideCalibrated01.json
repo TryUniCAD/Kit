@@ -1,0 +1,437 @@
+{
+  "disclosed": [
+    {
+      "case": "ChamferComplementAxialC",
+      "component_f68_words": [
+        0,
+        0
+      ],
+      "edited": false,
+      "exact_linked_replay": true,
+      "feature_f860": 0,
+      "guarded_external_accesses": 0,
+      "measured_d1_motion_axis": "x",
+      "modeled_positive_first_normal_axis": "y",
+      "modeled_signed_support_orders": {
+        "positive": [
+          {
+            "face_ordinal": 1,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 0,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          }
+        ],
+        "reciprocal": [
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 0,
+            "normal_axis": "z"
+          }
+        ]
+      },
+      "native_source_phase_sha256": "d0798d14828330072f45e7219ad0259f43ca36883c2bbece74f3bf9aaf46f182",
+      "native_support_order": [
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 2,
+          "normal_axis": "x"
+        },
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "y"
+        },
+        {
+          "endpoints": [
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "z"
+        },
+        {
+          "endpoints": [
+            0
+          ],
+          "face_ordinal": 0,
+          "normal_axis": "z"
+        }
+      ],
+      "requires_reciprocal_modeled_side": true,
+      "selected_edge_axis": "z",
+      "source_sha256": "8c02615d96eb306626eae24f3e9803d76fb6a701fa61c4106e33d2720fc1f86e"
+    },
+    {
+      "case": "ChamferComplementAxialC",
+      "component_f68_words": [
+        0,
+        0
+      ],
+      "edited": true,
+      "exact_linked_replay": true,
+      "feature_f860": 0,
+      "guarded_external_accesses": 0,
+      "measured_d1_motion_axis": "x",
+      "modeled_positive_first_normal_axis": "y",
+      "modeled_signed_support_orders": {
+        "positive": [
+          {
+            "face_ordinal": 1,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 0,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          }
+        ],
+        "reciprocal": [
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 0,
+            "normal_axis": "z"
+          }
+        ]
+      },
+      "native_source_phase_sha256": "1011d5c10fed9e33fd89051a3583121570049dcdccd5de90e8480058a2a89f37",
+      "native_support_order": [
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 2,
+          "normal_axis": "x"
+        },
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "y"
+        },
+        {
+          "endpoints": [
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "z"
+        },
+        {
+          "endpoints": [
+            0
+          ],
+          "face_ordinal": 0,
+          "normal_axis": "z"
+        }
+      ],
+      "requires_reciprocal_modeled_side": true,
+      "selected_edge_axis": "z",
+      "source_sha256": "b502fb20829ab816b461dc34631a0c431c9b648a27265016fa19e1d1676827c7"
+    },
+    {
+      "case": "ChamferPrincipalTopD",
+      "component_f68_words": [
+        0,
+        0
+      ],
+      "edited": false,
+      "exact_linked_replay": true,
+      "feature_f860": 0,
+      "guarded_external_accesses": 0,
+      "measured_d1_motion_axis": "z",
+      "modeled_positive_first_normal_axis": "z",
+      "modeled_signed_support_orders": {
+        "positive": [
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 3,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 4,
+            "normal_axis": "x"
+          }
+        ],
+        "reciprocal": [
+          {
+            "face_ordinal": 3,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 4,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          }
+        ]
+      },
+      "native_source_phase_sha256": "44eda0db46e8a340f8e3773f312255fcb9f854439a8cc88cee65f695e0020b2c",
+      "native_support_order": [
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "z"
+        },
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 3,
+          "normal_axis": "y"
+        },
+        {
+          "endpoints": [
+            1
+          ],
+          "face_ordinal": 2,
+          "normal_axis": "x"
+        },
+        {
+          "endpoints": [
+            0
+          ],
+          "face_ordinal": 4,
+          "normal_axis": "x"
+        }
+      ],
+      "requires_reciprocal_modeled_side": false,
+      "selected_edge_axis": "x",
+      "source_sha256": "3dde6b2c0c6595dd661ea5fad981a3b3b44074c32934a6115cca1842c7f5f032"
+    },
+    {
+      "case": "ChamferPrincipalTopD",
+      "component_f68_words": [
+        0,
+        0
+      ],
+      "edited": true,
+      "exact_linked_replay": true,
+      "feature_f860": 0,
+      "guarded_external_accesses": 0,
+      "measured_d1_motion_axis": "z",
+      "modeled_positive_first_normal_axis": "z",
+      "modeled_signed_support_orders": {
+        "positive": [
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 3,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 4,
+            "normal_axis": "x"
+          }
+        ],
+        "reciprocal": [
+          {
+            "face_ordinal": 3,
+            "normal_axis": "y"
+          },
+          {
+            "face_ordinal": 1,
+            "normal_axis": "z"
+          },
+          {
+            "face_ordinal": 4,
+            "normal_axis": "x"
+          },
+          {
+            "face_ordinal": 2,
+            "normal_axis": "x"
+          }
+        ]
+      },
+      "native_source_phase_sha256": "67bb8e34486b5cc32cb3c9ccccad2bb89809564db365e56a09670a014dc7fa37",
+      "native_support_order": [
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 1,
+          "normal_axis": "z"
+        },
+        {
+          "endpoints": [
+            0,
+            1
+          ],
+          "face_ordinal": 3,
+          "normal_axis": "y"
+        },
+        {
+          "endpoints": [
+            1
+          ],
+          "face_ordinal": 2,
+          "normal_axis": "x"
+        },
+        {
+          "endpoints": [
+            0
+          ],
+          "face_ordinal": 4,
+          "normal_axis": "x"
+        }
+      ],
+      "requires_reciprocal_modeled_side": false,
+      "selected_edge_axis": "x",
+      "source_sha256": "4a490cd52df1e58eec7aebdc9a3ee07b894e5112fbf4bb63e4dc539dfeeb25f0"
+    }
+  ],
+  "guarded_source_processes": 4,
+  "installed": {
+    "base_coedge_field": "f8a8",
+    "base_coedge_import": {
+      "module": "SLDMODU.dll",
+      "name": "?getCoEdge@moCompEdge_c@@QEBAPEAVgcCoEdge_w@@PEAVsuPtrArray@@@Z"
+    },
+    "component_direction_field": "f68",
+    "component_direction_mask": 128,
+    "getter_export": "?isDirFlipped@moCompBEntRef_c@@QEBAHXZ",
+    "getter_import_address": "0x1803e3d28",
+    "orientation_import": {
+      "module": "sldgcu.dll",
+      "name": "?sameDirectionAsEdge@gcCoEdge_w@@QEBAHXZ"
+    },
+    "roles": [
+      {
+        "bytes": 10,
+        "end_exclusive": "0x4b28d73a",
+        "file_offset": 1362736,
+        "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "module": "sldmodu.dll",
+        "name": "component_direction_accessor",
+        "sha256": "35087ef23a7ebef169efe046c87955682649cb008155d4d5abaf900eef691c28",
+        "start": "0x4b28d730"
+      },
+      {
+        "bytes": 8,
+        "end_exclusive": "0x4b291fe8",
+        "file_offset": 1381344,
+        "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+        "module": "sldmodu.dll",
+        "name": "component_direction_setter",
+        "sha256": "443af6233167c3ee847f50cc101c53256a6a440e244cab01d4c5aa2dfd1b6593",
+        "start": "0x4b291fe0"
+      },
+      {
+        "bytes": 7,
+        "end_exclusive": "0x1801711b7",
+        "file_offset": 1508784,
+        "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+        "module": "sldmopartu.dll",
+        "name": "separate_feature_flip_setter",
+        "sha256": "9eb58ff26ffa7eadd08254500b6b3f2779ad0976b4e19f5a923ac8653caab82c",
+        "start": "0x1801711b0"
+      },
+      {
+        "bytes": 300,
+        "end_exclusive": "0x180248763",
+        "file_offset": 2390583,
+        "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+        "module": "sldmopartu.dll",
+        "name": "same_physical_edge_selector",
+        "sha256": "729278abaae25a74669fb0ffc8e5ed0d8c330b948599bc5e7b1c9628caad5fba",
+        "start": "0x180248637"
+      },
+      {
+        "bytes": 38,
+        "end_exclusive": "0x180246036",
+        "file_offset": 2380816,
+        "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+        "module": "sldmopartu.dll",
+        "name": "base_coedge_operand",
+        "sha256": "d959a441fa74127bd6a322ed5930a844eedb0d45ec2b40365fd9f68063268fa2",
+        "start": "0x180246010"
+      },
+      {
+        "bytes": 45,
+        "end_exclusive": "0x1802462f0",
+        "file_offset": 2381507,
+        "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+        "module": "sldmopartu.dll",
+        "name": "base_coedge_orientation",
+        "sha256": "68f4cd3004e3dfcf98f395fb5d825db68d5e43e155f0df3adbb31777cace8bcc",
+        "start": "0x1802462c3"
+      }
+    ],
+    "separate_feature_flip_field": "f860"
+  },
+  "native_processes": 0,
+  "raw_source_lock_sha256": "2bce5961120ea7d8ea95ceaa5c10f7cbdbe6338152833357304647f432b86ff8",
+  "schema": "kit.sw2026.ordinary-chamfer-signed-source-audit.v1",
+  "source_job_sha256": "f68069989276d1db1204e52b2b84075698921c25849da0eb6eeb1d9c01520c01",
+  "source_native_lifetimes": 8,
+  "writer_outputs": 0
+}
