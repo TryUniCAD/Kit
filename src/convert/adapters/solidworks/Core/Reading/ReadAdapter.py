@@ -276,6 +276,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Ends.BuildTypedEnd import (
 from convert.adapters.solidworks.Core.TypedResolved.Equations.BindWidthDepth import (
     BindWidthDepth,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadSavedEq import (
+    ReadSavedEq,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
@@ -566,13 +569,18 @@ def ReadNativePart(
         Model, {Param.id for Param in ParamValues}
     )
     SelectValues = Selections(Model)
-    TimeValues = Timeline(
-        Model, SelectValues, ColdLineBoss=IsCacheAbsent(Archive)
+    TimeValues = Timeline(Model, SelectValues, ColdLineBoss=IsCacheAbsent(Archive))
+    SavedEq = (
+        Model
+        if Model.WidthDepth is not None
+        and not Settings.extract_raw_brep
+        and Archive.get(f"{Model.WidthDepth.LinkValue.ConfigName}-Partition") is not None
+        else None
     )
     Payloads, PayloadDiags, BrepValue, LocalOwner, ActivePart = ReadPartSolid(
         Archive,
         Model,
-        Settings,
+        Replace(Settings, include_brep=True) if SavedEq is not None else Settings,
         len(ConfigValues),
         DerivedValue,
         StockValue.BrepValue if StockValue is not None else None,
@@ -710,6 +718,8 @@ def ReadNativePart(
         DataValue,
         Label,
         Model.WidthDepth.ConfigValue if Model.WidthDepth is not None else None,
+        Settings,
+        SavedEq=SavedEq,
         BindSavedOwners=Settings.include_brep
         and not Settings.extract_raw_brep
         and not Model.equations
@@ -726,12 +736,19 @@ def FinishPartDoc(
     DerivedValue: PartGeometry | None,
     DataValue: bytes,
     Label: str,
-    GraphValue: ConfigGraph | None = None,
+    GraphValue: ConfigGraph | None,
+    Settings: ReadOptions,
     *,
+    SavedEq: NativeModel | None = None,
     BindSavedOwners: bool = False,
 ) -> CadDoc:
     DocValue = WithColdName(DocValue, DerivedValue)
-    DocValue = WithBodyNames(DocValue, Archive, ConfigId, BindSavedScope=BindSavedOwners)
+    if SavedEq is None:
+        DocValue = WithBodyNames(
+            DocValue, Archive, ConfigId, BindSavedScope=BindSavedOwners
+        )
+    else:
+        DocValue = ReadSavedEq(DocValue, Archive, SavedEq, Settings)
     DocValue = WithPartProps(WithCmgrInfo(DocValue, Archive, GraphValue), Archive)
     DocValue = BindCutStock(DocValue)
     DocValue = WithRevolveDoc(DocValue, Archive, ConfigId)

@@ -27,6 +27,7 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadCylBodyTree im
 from convert.adapters.solidworks.Core.TypedResolved.BodyNames.ReadKernelName import (
     ReadKernelName,
 )
+from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
 from interchange.document.Models.DocumentModel import CadDocument
@@ -34,13 +35,19 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # only coherent native body and archive ownership can qualify a source name projection
 def ReadNamedBody(
-    Document: CadDocument, Archive: SldprtArchive, ConfigId: int | None
+    Document: CadDocument,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    LinkedValue: NativeLink | None = None,
 ) -> BodyNameGraph:
     if len(Document.configurations) != 1 or len(Document.bodies) != 1:
         raise ValueError(
             "native names require the witnessed single configuration and body"
         )
-    LinkValue = ReadNativeLink(Archive, ConfigId)
+    LinkValue = (
+        LinkedValue if LinkedValue is not None else ReadNativeLink(Archive, ConfigId)
+    )
     if any(
         not Report.get("completed")
         or Report.get("missing_schemas")

@@ -1,0 +1,265 @@
+{
+  "baseline_revision": "d3f98794746cb3e63b9db4710e08399312daf4ee",
+  "cases": {
+    "cold_plain": {
+      "dimensions_mm": [
+        39.125,
+        17.375,
+        19.5625
+      ],
+      "history_rows_by_mode": [
+        19,
+        19
+      ],
+      "native_payloads_by_mode": [
+        0,
+        0
+      ],
+      "neutral_json_mode_sha256": [
+        "6f0ff8fdf5f8da7444ea804d98dfa308577038cd8e85464da03a7a62c80f9841",
+        "c5d1653363741c9a0a935652ba56587930d8f58187c0fef12b9cd4208d013314"
+      ],
+      "sha256": "e1f2f33d2d4ab0d7c9b78096d1ece145a0d015444c2ad99fbac451ad56dbde56",
+      "worker_cad_file_opens": 0
+    },
+    "cold_reference": {
+      "dimensions_mm": [
+        39.125,
+        17.375,
+        19.5625
+      ],
+      "history_rows_by_mode": [
+        19,
+        19
+      ],
+      "native_payloads_by_mode": [
+        0,
+        0
+      ],
+      "neutral_json_mode_sha256": [
+        "33fd6f933c21ac8114d0c50feb0cc562a1e42a28a67fee74679c05aeef58a1f5",
+        "7c193c52f92f4203e32c9e396c6c4ef1ac8924d47934454ccd1522e29be11e2b"
+      ],
+      "sha256": "5783b3944d76563ae8143b8789a923f1b07fb4eb94f4b59fef50b6b80ac696b6",
+      "worker_cad_file_opens": 0
+    },
+    "saved_plain": {
+      "dimensions_mm": [
+        47.875,
+        17.375,
+        19.5625
+      ],
+      "history_rows_by_mode": [
+        19,
+        19
+      ],
+      "native_payloads_by_mode": [
+        3,
+        0
+      ],
+      "neutral_json_mode_sha256": [
+        "3b6884b4d69c4c2d8c847d8b6c301efb30eff3a1987c74f7985dd75a6bb0541e",
+        "16b030cd437ca011539918f05654e8ff1df3e29f6b2b052c0e651b6c6e012afe"
+      ],
+      "sha256": "b755f5300742f949b775c09d6aa4bb0150fa5597826166036f63d8b5ff68f78f",
+      "worker_cad_file_opens": 0
+    },
+    "saved_reference": {
+      "active_body": {
+        "active_transmit_sha256": "dcec66a53cc29a908028b969300fc7ac6ec61b7b32bb1ec247ff5d7c1b1ae94a",
+        "bytes": 3738,
+        "marks": [
+          8,
+          2
+        ],
+        "native_atom_slot": 58,
+        "native_atom_span": [
+          3096,
+          3196
+        ],
+        "nodes": 177,
+        "proof": {
+          "atom_manager_id": 101,
+          "body_count": 1,
+          "body_match_tag": 1422,
+          "body_transmit_index": 2,
+          "complete_brep_binding": true,
+          "configuration_stream": "Contents/Config-0",
+          "last_modifying_feature_id": 21,
+          "name_owner": "implicit_kernel",
+          "partition_stream": "Contents/Config-0-Partition",
+          "profile": "ordinary_current_single_solid_names",
+          "qualified_encoding": "printable_ascii",
+          "status": "complete"
+        },
+        "reversed_plane_carriers": 5,
+        "stream_sha256": "b25a1172422c915acc77bc945f6603037f5a65f69caf2c36a1b1c56097eb0c06"
+      },
+      "dimensions_mm": [
+        47.875,
+        17.375,
+        23.9375
+      ],
+      "history_rows_by_mode": [
+        19,
+        19
+      ],
+      "native_payloads_by_mode": [
+        3,
+        0
+      ],
+      "neutral_json_mode_sha256": [
+        "63f752fe218fd8de2abaa583533a858ae3cf0e8f8a6525b99cc04447e9dfb194",
+        "be838bce2fecbb75db898c2669ffa3bff39adb630e40391decb8d1be0700294e"
+      ],
+      "physical_geometry": {
+        "area_mm2": 4787.5,
+        "body_count": 1,
+        "bounds_mm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            47.875,
+            17.375,
+            23.9375
+          ]
+        ],
+        "centre_mm": [
+          23.9375,
+          8.6875,
+          11.96875
+        ],
+        "edge_count": 12,
+        "face_count": 6,
+        "vertex_count": 8,
+        "volume_mm3": 19911.8857421875
+      },
+      "sha256": "320adbeeb193227fb8c0b03f7278ac7cf91d421d82da68fecb27416dc03db393",
+      "typed_relation": {
+        "dependency": {
+          "cloned_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 9689,
+            "field_span": false,
+            "object_index": 83,
+            "offset": 4166,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 4197,
+            "field_span": false,
+            "object_index": 84,
+            "offset": 4192,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moSkDimHandleValG2_c",
+            "end": 7248,
+            "field_span": false,
+            "object_index": 128,
+            "offset": 7133,
+            "stream": "Contents/Config-0"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 9793,
+            "field_span": false,
+            "object_index": 80,
+            "offset": 4150,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 9749,
+            "field_span": false,
+            "object_index": 81,
+            "offset": 4156,
+            "stream": "Contents/Config-0"
+          }
+        },
+        "relation": {
+          "class": "moRelation_c",
+          "end": 9955,
+          "field_span": false,
+          "object_index": 62,
+          "offset": 3258,
+          "stream": "Contents/Config-0"
+        },
+        "target": {
+          "cloned_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 3937,
+            "field_span": false,
+            "object_index": 70,
+            "offset": 3444,
+            "stream": "Contents/Config-0"
+          },
+          "component": {
+            "class": "moUnitComponent_c",
+            "end": 3475,
+            "field_span": false,
+            "object_index": 71,
+            "offset": 3470,
+            "stream": "Contents/Config-0"
+          },
+          "live_handle": {
+            "class": "moFeatureDimHandle_c",
+            "end": 8086,
+            "field_span": false,
+            "object_index": 313,
+            "offset": 7975,
+            "stream": "Contents/Config-0-ResolvedFeatures"
+          },
+          "token": {
+            "class": "moRelDimension_c",
+            "end": 4053,
+            "field_span": false,
+            "object_index": 66,
+            "offset": 3387,
+            "stream": "Contents/Config-0"
+          },
+          "wrapper": {
+            "class": "moDimRefWrapper_c",
+            "end": 3997,
+            "field_span": false,
+            "object_index": 68,
+            "offset": 3413,
+            "stream": "Contents/Config-0"
+          }
+        }
+      },
+      "worker_cad_file_opens": 0
+    }
+  },
+  "contrasts": {
+    "crossed_creator": {
+      "actual_owner": 21,
+      "crossed_owner": 18,
+      "strict_refusal_by_mode": [
+        "SOLIDWORKS saved width-depth body is unqualified: saved width-depth equation targets a different body creator",
+        "SOLIDWORKS saved width-depth body is unqualified: saved width-depth equation targets a different body creator"
+      ]
+    },
+    "foreign_cached_boundary": {
+      "partition_sha256": "9b2671ad563f2ec12d74a038bdde78edf767bda80d57af913f29416ff121df65",
+      "permissive_omits_unbound_body_geometry": true,
+      "strict_refusal_by_mode": [
+        "SOLIDWORKS saved width-depth body is unqualified: saved width-depth boundary differs from its live dimensions",
+        "SOLIDWORKS saved width-depth body is unqualified: saved width-depth boundary differs from its live dimensions"
+      ]
+    },
+    "worker_cad_file_opens": 0
+  },
+  "heldout_input_reads": 0,
+  "native_build": "34.5.2.0604",
+  "native_measure_comparisons": 5,
+  "new_native_launches": 0,
+  "previous_native_receipt_sha256": "f40bc2433d54bcb8c3ae5165b3a3965ebae4876c71cf52293ad4a045af85b420",
+  "prior_controls_healthy": true,
+  "prior_distinct_native_processes": 6,
+  "schema": "kit.sw2026.saved-width-depth-body.v1"
+}
