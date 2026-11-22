@@ -27,24 +27,30 @@ def CheckReadExport(SourceName: str, Validated: bool, Nested: bool) -> None:
     if Nested:
         Document = NestReadOnly(Document)
         assert "fusion.read_only" not in Document.metadata
+    IsCut = SourceName.startswith("BoundaryCuts/")
+    RejectType = ValueError if IsCut else AdapterNotFoundError
+    RejectText = (
+        "no qualified geometry evaluator"
+        if IsCut
+        else "fusion.f3d does not support the destination"
+    )
+    ExportText = (
+        "no qualified geometry evaluator"
+        if IsCut
+        else "read-only Fusion histories cannot be exported"
+    )
     Unsupported = BytesIO()
-    with Pytest.raises(
-        AdapterNotFoundError, match="fusion.f3d does not support the destination"
-    ):
+    with Pytest.raises(RejectType, match=RejectText):
         _ = WriteDocument(Document, Unsupported, DestFormat="fusion.f3d")
     assert Unsupported.getvalue() == b""
     with TemporaryDirectory() as WorkName:
         Target = FilePath(WorkName) / "unqualified.json"
-        with Pytest.raises(
-            ValueError, match="read-only Fusion histories cannot be exported"
-        ):
+        with Pytest.raises(ValueError, match=ExportText):
             _ = WriteDocument(
                 Document, Target, DestFormat="interchange.json", ValidateData=Validated
             )
         assert not Target.exists()
         Stream = BytesIO()
-        with Pytest.raises(
-            ValueError, match="read-only Fusion histories cannot be exported"
-        ):
+        with Pytest.raises(ValueError, match=ExportText):
             _ = JsonAdapter().Write(Document, Stream, WriteOptions(validate=Validated))
         assert Stream.getvalue() == b""

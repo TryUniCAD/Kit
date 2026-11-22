@@ -1,4 +1,5 @@
 from interchange.Features.Offsets.FaceOffset import FaceOffset
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Features.FeatureKinds import CombineFeature
@@ -19,6 +20,10 @@ def FeatureFindings(Document: CadDocument) -> tuple[str, ...]:
         if isinstance(StepValue.definition, FaceOffset):
             Findings.append(
                 f"{Document.source.path}: face offset {StepValue.id} has no qualified geometry evaluator"
+            )
+        if isinstance(StepValue.definition, DistanceCut):
+            Findings.append(
+                f"{Document.source.path}: distance cut {StepValue.id} has no qualified geometry evaluator"
             )
         if StepValue.kind not in KPortableFeatures:
             Findings.append(

@@ -39,6 +39,6 @@ def CheckSpanRoles(Output: FilePath, Sample: SpanCliCase) -> None:
         if RoleName not in Expected
     )
     if Sample.CaseName.endswith(("HealthyBefore", "HealthyAfter")):
-        assert "fusion.native_state" in Document["metadata"]
+        assert set(Document["metadata"]) == {"fusion.native_state"}
     else:
         assert Document["metadata"] == {"fusion.read_only": True}
