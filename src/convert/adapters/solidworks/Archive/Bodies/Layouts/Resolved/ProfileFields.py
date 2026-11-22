@@ -1,6 +1,9 @@
 from types import MappingProxyType
 
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Shells.ShellFieldRule import (
+    ShellFieldRule,
+)
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KProfileFields = MappingProxyType(
@@ -145,7 +148,10 @@ KProfileFields = MappingProxyType(
                 "f2a8",
                 "i32",
                 BodyValue=(
-                    NativeField("Fail", "alternate moProfileData.FUN_4bb2d5c0 f2a8"),
+                    ShellFieldRule(
+                        "alternate moProfileData.FUN_4bb2d5c0 f2a8",
+                        NativeField("Node", "chain", "moSketchChain_c"),
+                    ),
                 ),
                 CountValue="n2a8",
                 ModeValue="Positive",
