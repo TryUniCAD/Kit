@@ -4,8 +4,8 @@ from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Construction.Extrusion.ExtrusionGraph import (
     ExtrusionGraph,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Profile.ProfileGraph import (
     ProfileGraph,
@@ -32,7 +32,7 @@ class PartCandidate:
     ResolvedValue: ResolvedGraph
     StreamsValue: Mapping[str, bytes]
     BytesValue: bytes
-    PlanValue: BlindPlan
+    PlanValue: KPartPlan
 
     # active configuration access must retain the actual independent manager node rather than invent a part configuration pointer
     @property

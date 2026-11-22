@@ -24,6 +24,9 @@ from convert.adapters.solidworks.Core.Inch.IndexInch import IndexInch
 from convert.adapters.solidworks.Core.LinearDisplay import LinearDisplay
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineLoop import LineLoop
 from interchange.geometry.Models.Transform import Transform
+from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
+    LocalCircle,
+)
 from convert.adapters.solidworks.Core.Dimensions.CountValue import CountValue
 from convert.adapters.solidworks.Core.Dimensions.FeatureCounts import FeatureCounts
 from convert.adapters.solidworks.Core.Dimensions.ProjectCounts import ProjectCounts
@@ -1063,6 +1066,7 @@ class NativeSketch:
     rectangle_geometry_stream: str | None = None
     TypedLines: LineLoop | None = None
     TypedFrame: Transform | None = None
+    TypedCircle: LocalCircle | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

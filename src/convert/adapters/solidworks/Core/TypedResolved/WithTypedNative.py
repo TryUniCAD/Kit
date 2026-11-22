@@ -4,10 +4,20 @@ from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.Native import NativeModel
-from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import BindDepth, BindExtrude
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import ReadPrismFrame
+from convert.adapters.solidworks.Core.TypedResolved.BindExtrude import (
+    BindDepth,
+    BindExtrude,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Circles.TryColdCircle import (
+    TryColdCircle,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
+    ReadPrismFrame,
+)
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
-from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import BindLineLoop
+from convert.adapters.solidworks.Core.TypedResolved.Lines.BindLineLoop import (
+    BindLineLoop,
+)
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
@@ -29,15 +39,24 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         LinkValue = ReadNativeLink(Archive, Model.active_configuration_id)
         NodesValue = IndexFeatures(LinkValue)
         Profile = RequireNative(NodesValue[SketchValue.object_id], "moProfileFeature_c")
+        CircleValue = TryColdCircle(Model, Archive, LinkValue, NodesValue, Profile)
+        if CircleValue is not None:
+            return CircleValue
         Owner = ReadExtrude(LinkValue, NodesValue[Operation.object_id], NodesValue)
         if Owner.ProfileValue is not Profile:
             return Model
-        FrameValue = ReadPrismFrame(Profile, LinkValue.ConfigValue.RootValue, NodesValue)
+        FrameValue = ReadPrismFrame(
+            Profile, LinkValue.ConfigValue.RootValue, NodesValue
+        )
         Reference = RequireNative(Profile.FieldsValue.get("pd_f78"), "moCompRefPlane_c")
         PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
-        if type(PlaneId) is not int or not any(Plane.object_id == PlaneId for Plane in Model.planes):
+        if type(PlaneId) is not int or not any(
+            Plane.object_id == PlaneId for Plane in Model.planes
+        ):
             return Model
-        Bound = BindLineLoop(ReplaceValue(SketchValue, support_plane_id=PlaneId), Profile, LinkValue)
+        Bound = BindLineLoop(
+            ReplaceValue(SketchValue, support_plane_id=PlaneId), Profile, LinkValue
+        )
         if Bound is None:
             return Model
     except (KeyError, TypeError, ValueError):
@@ -46,7 +65,11 @@ def WithTypedNative(Model: NativeModel, Archive: SldprtArchive) -> NativeModel:
         Model,
         sketches=(ReplaceValue(Bound, TypedFrame=FrameValue),),
         features=tuple(
-            BindDepth(Feature, Owner) if Feature.object_id == Operation.object_id else Feature
+            (
+                BindDepth(Feature, Owner)
+                if Feature.object_id == Operation.object_id
+                else Feature
+            )
             for Feature in Model.features
         ),
         operations=(BindExtrude(Operation, Owner),),

@@ -10,8 +10,8 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -31,7 +31,7 @@ def MakePartKeys(
     SystemValue: PartSystem,
     FeatureValues: tuple[ArchiveNode, ...],
     InputValue: PartBuildInput,
-    PlanValue: BlindPlan,
+    PlanValue: KPartPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(

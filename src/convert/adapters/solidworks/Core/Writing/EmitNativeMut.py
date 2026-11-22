@@ -7,6 +7,11 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCirclePart import (
+    IsCirclePart,
+)
+from convert.adapters.solidworks.Core.Writing.Circle.ReadCircMeas import ReadCircMeas
+from convert.adapters.solidworks.Core.Writing.Circle.MatchCircMeas import MatchCircMeas
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
@@ -23,7 +28,10 @@ def EmitNativeMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
-    WrittenAt, Receipt = ReadPartMeas(SettingsValue)
+    CircleValue = IsCirclePart(DocumentValue) and not IsColdRead(DocumentValue)
+    WrittenAt, Receipt = (
+        ReadCircMeas(SettingsValue) if CircleValue else ReadPartMeas(SettingsValue)
+    )
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()
         if isinstance(TargetValue, (str, FilePath))
@@ -33,7 +41,11 @@ def EmitNativeMut(
         DocumentValue, OutputPath or TargetValue, WrittenAt, SettingsValue
     )
     Payload = Candidate.BytesValue
-    Evidence = MatchPartMeas(Receipt, Payload)
+    Evidence = (
+        MatchCircMeas(Receipt, Candidate)
+        if CircleValue
+        else MatchPartMeas(Receipt, Payload)
+    )
     if OutputPath is not None:
         with OutputPath.open("wb" if SettingsValue.overwrite else "xb") as OutputFile:
             if OutputFile.write(Payload) != len(Payload):

@@ -1,10 +1,15 @@
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeatureStep import FeatureStep
 
 
 # only the complete ordinary forward blind create operation is proven by the first part construction profile
-def RequireBossDef(FeatureValue: FeatureStep) -> ExtrudeFeature:
+def RequireBossDef(
+    FeatureValue: FeatureStep, AxisValue: str = "z", IsReversed: bool = False
+) -> ExtrudeFeature:
     Definition = FeatureValue.definition
     if (
         FeatureValue.kind != FeatureKind.KExtrusion
@@ -24,15 +29,19 @@ def RequireBossDef(FeatureValue: FeatureStep) -> ExtrudeFeature:
         )
     if (
         Definition.end_condition != ExtrudeEnd.KBlind
-        or Definition.reversed
+        or Definition.reversed != IsReversed
         or Definition.symmetric
     ):
         raise ValueError("plain boss requires a single forward blind termination")
-    if Definition.direction is not None and (
-        Definition.direction.x,
-        Definition.direction.y,
-        Definition.direction.z,
-    ) != (0.0, 0.0, 1.0):
+    if (
+        Definition.direction is not None
+        and (
+            Definition.direction.x,
+            Definition.direction.y,
+            Definition.direction.z,
+        )
+        != PrincipalFrame(AxisValue).NormalValue
+    ):
         raise ValueError("plain boss requires the canonical forward plane normal")
     if (
         any(

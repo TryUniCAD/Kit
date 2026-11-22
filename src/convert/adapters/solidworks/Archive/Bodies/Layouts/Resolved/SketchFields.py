@@ -5,6 +5,49 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 # current resolved owner field order comes from proven serializer rules rather than saved programs
 KSketchFields = MappingProxyType(
     {
+        "sgArcHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
+        "sgCircleDim": (NativeField("Base", "sk.sgValG1Dim.FUN_4c59ec10"),),
+        "sgEntHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
+        "sk.sgArc.FUN_4c585150": (
+            NativeField("Base", "sk.sgSegment.FUN_4c590920"),
+            NativeField("Scalar", "fd8", "i32"),
+            NativeField("Scalar", "fdc_s", "u16"),
+            NativeField(
+                "Branch",
+                "fdc_s",
+                BodyValue=(NativeField("Scalar", "fdc", "i32"),),
+                ModeValue="Equals",
+                MaskValue=65535,
+            ),
+            NativeField("Scalar", "fe0", "i32"),
+            NativeField("Scalar", "fe4", "i32"),
+            NativeField("Scalar", "fe8", "i32"),
+            NativeField("Scalar", "fec", "i32"),
+        ),
+        "sk.sgValDim.FUN_4c59ea80": (
+            NativeField("Base", "sk.sgDim.FUN_4c5868d0"),
+            NativeField("Scalar", "fa0", "u16"),
+            NativeField(
+                "Branch",
+                "",
+                BodyValue=(NativeField("Embed", "xform", "mgXform_c.operator>>"),),
+                ModeValue="Expression",
+                ExpressionValue=(
+                    "compare",
+                    ("NotEq",),
+                    ("lookup", ("scope",), ("literal", "fa0")),
+                    ("literal", 0),
+                ),
+            ),
+        ),
+        "sk.sgValG1Dim.FUN_4c59ec10": (
+            NativeField("Base", "sk.sgValDim.FUN_4c59ea80"),
+            NativeField("Node", "h1", "sgEntHandle"),
+            NativeField("Node", "h2", "sgEntHandle"),
+            NativeField("Scalar", "g1", "i32"),
+            NativeField("Scalar", "g2", "i32"),
+            NativeField("Embed", "dir", "mgVector_c.restore"),
+        ),
         "sgLineHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
         "sgPointHandle": (NativeField("Base", "sk.sgEntHandle.Serialize"),),
         "sgSketch": (
@@ -50,7 +93,16 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "arcs",
                 "i32",
-                BodyValue=(NativeField("Fail", "alternate sgSketch arcs"),),
+                BodyValue=(
+                    NativeField("Scalar", "flags", "u16"),
+                    NativeField(
+                        "Branch",
+                        "flags",
+                        BodyValue=(NativeField("Fail", "alternate sketch arc body"),),
+                        ModeValue="NotEquals",
+                    ),
+                    NativeField("Embed", "arc", "sk.sgArc.FUN_4c585150"),
+                ),
                 CountValue="narcs",
                 ModeValue="Positive",
             ),
@@ -580,9 +632,7 @@ KSketchFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(
-                    NativeField("Fail", "alternate sk.sgEntHandle.Serialize Branch"),
-                ),
+                BodyValue=(NativeField("Scalar", "f18", "i32"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -806,9 +856,7 @@ KSketchFields = MappingProxyType(
                 "Array",
                 "val_g1",
                 "u16",
-                BodyValue=(
-                    NativeField("Fail", "alternate sk.sgSketch.FUN_4c5a0f00 val_g1"),
-                ),
+                BodyValue=(NativeField("Node", "d", "sgCircleDim"),),
                 CountValue="ng1",
             ),
             NativeField(

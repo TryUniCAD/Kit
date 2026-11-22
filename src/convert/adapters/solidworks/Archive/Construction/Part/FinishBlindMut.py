@@ -19,8 +19,11 @@ from convert.adapters.solidworks.Archive.Construction.Part.EmitPartStreams impor
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartHeaders import (
     MakePartHeaders,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
-    BlindPlan,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
+    CirclePlan,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
+    KPartPlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
@@ -45,7 +48,7 @@ def FinishBlindMut(
     SystemValue: PartSystem,
     ProfileValue: ProfileGraph,
     InputValue: PartBuildInput,
-    PlanValue: BlindPlan,
+    PlanValue: KPartPlan,
     Allocator: PersistentIds,
     SketchDims: tuple[KeywordDim, ...] = (),
 ) -> PartCandidate:
@@ -53,7 +56,11 @@ def FinishBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,
         ProfileValue,
-        BlindEndInput(PlanValue.DepthValue, False, 19000),
+        BlindEndInput(
+            PlanValue.DepthValue,
+            isinstance(PlanValue, CirclePlan) and PlanValue.IsReversed,
+            19000,
+        ),
         InputValue.TargetValue,
         Allocator,
         InputValue.DesignIntent,

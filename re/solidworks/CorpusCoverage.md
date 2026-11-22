@@ -1,9 +1,10 @@
 # FCStd to SOLIDWORKS corpus coverage
 
-Status: **no SOLIDWORKS output**. Kit reads SOLIDWORKS files and writes none. FCStd to SLDPRT or
-SLDASM conversion raises `AdapterNotFoundError` for all 165 repository FCStd files. The writer
-measured below re-emitted one recorded vendor stream per family, so it was removed from production.
-See `Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md`.
+There is no accepted all-corpus audit for the generative writer. Exact
+measured ordinary neutral part output, including the disclosed circle boss,
+does not establish coverage of the 165 repository FCStd inputs. The writer
+measured below re-emitted recorded vendor data and was removed.
+[Measured circle scope](records/SdkMeasuredCircleMain2026.md)
 
 The figures below are the last audit of that removed writer. They record which source histories it
 accepted and which oracle checks it passed. They are research evidence for a generative serializer,

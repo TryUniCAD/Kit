@@ -173,6 +173,15 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.CircleSolid import (
+    CircleSolid,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.ColdCircle import (
+    ColdCircle,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import (
+    CircleSketch,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
@@ -192,6 +201,7 @@ from convert.adapters.solidworks.Core.Native import (
 from convert.adapters.solidworks.Core.Cut.CutDocument import ProjectCutDoc
 from convert.adapters.solidworks.Core.Cut.CutEqProjection import ReadCutArchive
 from convert.adapters.solidworks.Core.Partition.ActivePartition import ReadActivePart
+from convert.adapters.solidworks.Core.Partition.PartMass import PartMass
 from convert.adapters.solidworks.Core.Partition.PartTopology import (
     ActivePartMass,
     PartTopology,
@@ -375,7 +385,7 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep, CircleValue = PartBrepData(Archive, Model, Settings)
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -427,9 +437,7 @@ def ReadNativePart(
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Summary, Measures = ActivePartMass(
-        MassBody, PartTopology(MassBody, KPartBodyId, Fallback), KPartBodyId
-    )
+    Summary, Measures = PartReadMass(MassBody, Fallback, CircleValue)
     Bodies = (
         BodyValue(
             id=KPartBodyId,
@@ -530,17 +538,35 @@ def ReadNativePart(
 
 # cached payloads keep priority over geometry derived from a qualified cold archive
 def PartBrepData(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
-) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+) -> tuple[
+    tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None, CircleSolid | None
+]:
+    UseGeometry = Settings.include_brep and not Settings.extract_raw_brep
+    CircleValue = ColdCircle(Model, KPartBodyId) if UseGeometry else None
     ColdBrep = (
-        ColdPrism(Model, KPartBodyId)
-        if Settings.include_brep and not Settings.extract_raw_brep
-        else None
+        CircleValue.BrepValue if CircleValue is not None
+        else ColdPrism(Model, KPartBodyId) if UseGeometry else None
     )
     Payloads, Diagnostics = BrepPayloads(
         Archive, Settings, AllowAbsent=ColdBrep is not None
     )
-    return Payloads, Diagnostics, ColdBrep if not Payloads and not Diagnostics else None
+    if Payloads or Diagnostics:
+        return Payloads, Diagnostics, None, None
+    return Payloads, Diagnostics, ColdBrep, CircleValue
+
+
+# analytic circle mass belongs only to the exact body selected for this read
+def PartReadMass(
+    ModelValue: BrepModel | None, Fallback: TopologySummary, CircleValue: CircleSolid | None
+) -> tuple[TopologySummary, PartMass | None]:
+    if CircleValue is not None and ModelValue is CircleValue.BrepValue:
+        return CircleValue.TopologyValue, CircleValue.MassValue
+    return ActivePartMass(
+        ModelValue, PartTopology(ModelValue, KPartBodyId, Fallback), KPartBodyId
+    )
 
 
 # planes and sketches must bind to the same native parameter identities
@@ -573,6 +599,8 @@ def ProjectPartDoc(
     DocValue = ProjectScopeDoc(DocValue, Model, Archive, Payloads, Settings)
     DocValue = ProjectPadDoc(DocValue, Archive, Model.active_configuration_id)
     DocValue = ProjectSoloDoc(DocValue, Model, Archive)
+    if len(Model.sketches) == 1 and Model.sketches[0].TypedCircle is not None:
+        return DocValue
     return ProjectRoundDoc(DocValue, Model, Archive, Settings.include_brep)
 
 
@@ -2799,6 +2827,8 @@ def ClosedSketch(Sketch: NativeSketch) -> tuple[tuple[str, ...], ...]:
 
 # this definition exists because focused behavior needs one stable owner
 def SketchA(Sketch: NativeSketch, ParamIds: set[str]) -> SketchData:
+    if Sketch.TypedCircle is not None:
+        return CircleSketch(Sketch, ParamIds)
     if Sketch.TypedLines is not None:
         return LineSketch(Sketch)
     Entities, RefMap, ProfileEntities, ProfileOffsets = ProfileSketch(Sketch)
@@ -3599,7 +3629,10 @@ def Timeline(
                 Operation.kind == "join"
                 and PreviousOperation is None
                 and ProfileValue is not None
-                and ProfileValue.TypedLines is not None
+                and (
+                    ProfileValue.TypedLines is not None
+                    or ProfileValue.TypedCircle is not None
+                )
                 and Operation.dependencies == (ProfileValue.object_id,)
             ):
                 OperationValue = BoolOperation.CREATE

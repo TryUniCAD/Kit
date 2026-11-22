@@ -7,6 +7,11 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartSchemas 
 # current resolved object descriptors extend the pinned configuration class vocabulary without guessing schemas
 KResolvedSchemas = MappingProxyType(
     {
+        "sgArcHandle": (1,),
+        "sgCircleDim": (1,),
+        "sgEntHandle": (1,),
+        "moDisplayRadialDim_c": (1,),
+        "moSkDimHandleRadial_c": (1,),
         "moNodeName_c": KPartSchemas["moNodeName_c"],
         "moUnitComponent_c": KPartSchemas["moUnitComponent_c"],
         "suObList": KPartSchemas["suObList"],
