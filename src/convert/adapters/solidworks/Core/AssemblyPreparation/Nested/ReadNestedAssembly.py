@@ -111,7 +111,7 @@ def ReadNestedAsm(Document: CadDocument) -> NestedAsmPlan:
         RootValue.name == Document.metadata["name"]
         and (RootValue.configuration_name, RootValue.configuration_id)
         == (Config.name, Config.id)
-        and len({Value.name.casefold() for Value in Definitions.values()})
+        and len({(Value.kind, Value.name.casefold()) for Value in Definitions.values()})
         == len(Definitions),
         "nested root identity or relative filenames differ",
     )

@@ -17,6 +17,7 @@ class CliOptions(Namespace):
         self.JsonOutput = False
         self.Overwrite = False
         self.NativeMeasurePath: FilePath | None = None
+        self.NativeDestination: str | None = None
         self.Partial = False
         self.Offline = False
         self.Layer = "neutral"

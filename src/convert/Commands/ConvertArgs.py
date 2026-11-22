@@ -34,7 +34,13 @@ def AddConvertMut(Parser: ArgumentParser) -> None:
         dest="NativeMeasurePath",
         type=FilePath,
         metavar="RECEIPT",
-        help="Trusted offline measurement receipt for an exact SOLIDWORKS part",
+        help="Trusted offline measurement receipt for an exact SOLIDWORKS output",
+    )
+    _ = Parser.add_argument(
+        "--native-destination",
+        dest="NativeDestination",
+        metavar="WINDOWS_PATH",
+        help="Exact measured Windows locator for a SOLIDWORKS assembly",
     )
     _ = Parser.add_argument(
         "--json",

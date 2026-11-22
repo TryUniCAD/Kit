@@ -20,7 +20,12 @@ KInspectText = (
 
 
 # writer success must not qualify opaque records incomplete assemblies or retained source data
-def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -> None:
+def CheckPortable(
+    Document: CadDocument,
+    *,
+    WriterQualifiedPart: bool = False,
+    WriterQualifiedAssembly: bool = False,
+) -> None:
     for PartValue in WalkDocuments(Document):
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
@@ -119,7 +124,10 @@ def CheckPortable(Document: CadDocument, *, WriterQualifiedPart: bool = False) -
         for PartValue in WalkDocuments(Document):
             CheckGeometry(PartValue)
     for PartValue in WalkDocuments(Document):
-        if PartValue.assembly is not None and PartValue.assembly.instances:
-            raise ValueError("UnqualifiedAssembly" + KInspectText)
+        if PartValue.assembly is not None:
+            if WriterQualifiedAssembly:
+                continue
+            if PartValue.assembly.instances:
+                raise ValueError("UnqualifiedAssembly" + KInspectText)
         if not PartValue.feature_timeline:
             raise ValueError("MissingFeatureHistory" + KInspectText)

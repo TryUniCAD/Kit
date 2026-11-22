@@ -1,4 +1,5 @@
 from os import fspath as PathText
+from os import name as OsName
 from pathlib import Path as FilePath, PureWindowsPath
 
 from convert.adapters.base.WriteOptions import WriteOptions
@@ -33,6 +34,12 @@ def FinalAsmPath(
         raise TypeError("assembly native destination requires explicit path text")
     NativeText = PathText(NativeValue)
     NativePath = CheckNativePath(NativeText)
+    if OsName == "nt":
+        RequireAsm(
+            NativePath == PureWindowsPath(FinalPath),
+            "native assembly locator must match the final Windows destination",
+        )
+        NativeText = str(FinalPath)
     RequireAsm(
         TargetValue.name == FinalPath.name == NativePath.name,
         "staged final and native assembly filenames must agree",

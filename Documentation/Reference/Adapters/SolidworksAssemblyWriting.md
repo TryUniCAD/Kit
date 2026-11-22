@@ -24,6 +24,15 @@ result = write_document(
 
 Supply the parsed offline measurement in `measurement`. Its `written_at` is the bundle creation epoch. Its `receipt` is the associated passing native report in assembly form. The caller establishes the authenticity of the unsigned report. The SDK verifies the native bracket, logical namespace, exact member order, names, configurations, dependency links, lengths and complete SHA-256 hashes before the first staged file write. Both acceptance flags are true after that check for the measured bundle. Missing or mismatched evidence refuses the write regardless of the carrier preference. Prepare a new bundle for measurement through the internal in-memory constructor. [Measurement evidence and export](../../../re/solidworks/records/NestedAssemblyDelivery2026.md#exact-measured-publication)
 
+The CLI accepts the same measurement envelope as a JSON file.
+
+```sh
+kit convert Neutral.json Frame.SLDASM --native-measurement Measurement.json \
+  --native-destination 'C:\Generated\Frame.SLDASM'
+```
+
+On Windows, the final output path already supplies the native locator.
+
 The registry publishes each owned definition beside the root file. It checks for conflicting sibling filenames and rolls back files published by this call if publication fails. Existing files and conflicting aliases are refused. Assembly overwrite and stream output are unsupported.
 
 The result path and `bytes_written` describe the root assembly. The `component_file_count`, `component_file_names`, `component_bytes_written` and `bundle_bytes_written` metadata describe the complete bundle. [Exact native and public evidence](../../../re/solidworks/records/NestedAssemblyDelivery2026.md)

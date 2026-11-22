@@ -13,13 +13,13 @@ KReceiptLimit = 1024 * 1024
 def NativeMeasVals(
     ReceiptPath: FilePath | None,
     TargetPath: FilePath,
-    IsPartWriter: bool,
+    IsNativeWriter: bool,
 ) -> dict[str, object]:
     Values: dict[str, object] = {"require_native_transfers": True}
     if ReceiptPath is None:
         return Values
-    if not IsPartWriter:
-        raise ValueError("native measurement requires the SOLIDWORKS part writer")
+    if not IsNativeWriter:
+        raise ValueError("native measurement requires a SOLIDWORKS writer")
     try:
         ReceiptPath = ReceiptPath.expanduser()
     except RuntimeError as ErrorInfo:
