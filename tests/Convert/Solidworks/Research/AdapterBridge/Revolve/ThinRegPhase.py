@@ -2,12 +2,12 @@ from dataclasses import replace as ReplaceValue
 from io import BytesIO
 from math import isclose as IsClose
 from pathlib import Path as FilePath
-from sys import argv as Arguments, path as ImportPath
+from sys import path as ImportPath
 from typing import cast as CastValue
 from unittest.mock import patch as PatchValue
 
 # the fresh interpreter must resolve the exact checkout before importing the sdk
-KRepoRoot = FilePath(Arguments[1])
+KRepoRoot = FilePath(__file__).resolve().parents[6]
 
 # isolated startup needs the explicit package and test fixture roots
 ImportPath[:0] = [str(KRepoRoot / "src"), str(KRepoRoot)]
@@ -16,6 +16,7 @@ from convert import open_document as OpenDoc, write_document as WriteDoc
 from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks.Container.Format import KPartFormatId, KPartSuffix
+from convert.Security.PathBoundary import ResolveTemp
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Features.Revolves.ThinRevolve import ThinRevolve
 from tests.Convert.Solidworks.Research.AdapterBridge.Revolve.MakeThinCase import (
@@ -123,4 +124,4 @@ def RunThinPhase(RootValue: FilePath) -> None:
 
 
 if __name__ == "__main__":
-    RunThinPhase(FilePath(Arguments[2]))
+    RunThinPhase(ResolveTemp(FilePath.cwd()))
