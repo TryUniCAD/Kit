@@ -144,8 +144,15 @@ separate evidence. The recorded roster and conversion counts stay open.
 
 The [three-axis research candidate](records/AttachedBoxAxisCandidate2026.md)
 emits the actual named and signed datum roots beside the editable box.
-Its host archive and history checks pass. Native and corpus credit
-remain unchanged pending the new controlled lifecycle.
+The [controlled native lifecycle](measurements/2026/AttachedBoxAxesNative01.json)
+passes all four SOLIDWORKS 2026 SP05.2 processes. The original box and
+three independently edited states save and reopen with all three axes
+selectable and linked to their native support planes. The
+[strict SDK readback](measurements/2026/AttachedBoxAxesSdkRead01.json)
+preserves the same analytical solid, native history and six plane
+selections through neutral JSON. The disclosed F14c case adds zero
+held-out or corpus conversion credits. Public writing of the intact
+source and historical roster membership remain unverified.
 
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
