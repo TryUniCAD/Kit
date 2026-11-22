@@ -2673,3 +2673,7 @@ It reads procedural geometry without evaluating it.
 cadmpeg still covers areas that Kit rejects today.
 These areas include configuration rules, cadmpeg's alternative cross-document grammar and ParaMesh color channels.
 They are the next research candidates, not supported Kit behavior.
+
+## Circular distance extents
+
+The strict circular reader preserves negative, symmetric and two-sided distances through live parameter roles. See [circular extent reads](../../Changes/Fusion/FusionCircularExtentReads.md) and [allocated operation IDs](../../Gotchas/Conversion/Fusion/Geometry/FusionAllocatedOperations.md) for the measured profile and limits.

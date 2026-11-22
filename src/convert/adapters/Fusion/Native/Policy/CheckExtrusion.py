@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Graph.ReadExtentMode import ReadExtentMode
 from convert.adapters.Fusion.Native.Graph.GraphChecks import (
     EmptyFields,
     RequireFields,
@@ -14,20 +15,27 @@ def CheckExtrusion(
     Graph: NativeGraph, Context: ExtrudeContext, YzDatum: bool = False
 ) -> None:
     Feature = Context.Extrude
+    SideMode = ReadExtentMode(Feature)
     RequireFields(
         Feature,
         {
             "booleanOperation": 4,
-            "directionType": 1,
-            "extendFaceOption": 2,
+            "directionType": (
+                1 if SideMode == "one_sided" else 2 if SideMode == "two_sided" else 3
+            ),
+            "extendFaceOption": 2 if SideMode == "one_sided" else 1,
             "isSolidOperation": True,
             "profileLocaltionType": 0,
             "side1ExtentType": 1,
             "side1SolutionType": 0,
-            "side2ExtentType": 0,
+            "side2ExtentType": 1 if SideMode == "two_sided" else 0,
             "side2SolutionType": 0,
-            "side2ExtendFaceOption": 0,
-            "symmetricMeasurementType": 0,
+            "side2ExtendFaceOption": 0 if SideMode == "one_sided" else 1,
+            "symmetricMeasurementType": (
+                1
+                if SideMode == "symmetric_full"
+                else 2 if SideMode == "symmetric_half" else 0
+            ),
         },
     )
     RequireFields(
@@ -50,17 +58,30 @@ def CheckExtrusion(
             for NameValue in (
                 "ProfileFromEntityRef",
                 "profileOffset",
-                "rAgainstDistance",
                 "rFromEntityRef",
                 "rToEntityRef",
                 "side1Offset",
                 "side2Offset",
-                "side2TaperAngle",
                 "thinExtrudeSide1WallThickness",
                 "thinExtrudeSide2WallThickness",
             )
         },
     )
+    if SideMode == "two_sided":
+        _ = ResolveField(Graph, Feature, "rAgainstDistance", "DcDoubleParameter")
+        _ = ResolveField(Graph, Feature, "side2TaperAngle", "DcDoubleParameter")
+    else:
+        RequireFields(Feature, {"rAgainstDistance": None})
+        RequireFields(
+            Feature,
+            {
+                "side2TaperAngle": (
+                    Feature.Fields["rTaperAngle"]
+                    if SideMode.startswith("symmetric_")
+                    else None
+                )
+            },
+        )
     EmptyFields(Feature, ("cachedDcBodies", "removedBodies", "targetDataRefs"))
     SameNumbers(
         PointCoords(Feature.Fields["profileNormal"]),

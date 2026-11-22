@@ -1,0 +1,57 @@
+{
+  "scope": "research evidence for strict source decoding; native output acceptance not established",
+  "cli_exit_codes": {
+    "ExtentHoldouts-HealthyAfter.exit": "0",
+    "NewFusionControls-DiscTwoSided.exit": "0",
+    "ExtentHoldouts-DiscTwoSided.exit": "0",
+    "ExtentHoldouts-DiscFlip.exit": "0",
+    "NewFusionControls-HealthyAfter.exit": "0",
+    "ExtentHoldouts-HealthyBefore.exit": "0",
+    "NewFusionControls-DiscFlip.exit": "0",
+    "ExtentHoldouts-DiscSymmetric.exit": "0",
+    "NewFusionControls-HealthyBefore.exit": "0",
+    "NewFusionControls-DiscSymmetric.exit": "0",
+    "DiscHalf.exit": "0"
+  },
+  "type_checker": {
+    "version": "1.1.414",
+    "summary": {
+      "filesAnalyzed": 24,
+      "errorCount": 0,
+      "warningCount": 0,
+      "informationCount": 0,
+      "timeInSec": 1.541
+    },
+    "configuration_notices": [
+      "Config contains unrecognized setting \"reportImplicitAbstractClass\".",
+      "Config contains unrecognized setting \"reportIncompleteStubValue\".",
+      "Config contains unrecognized setting \"reportUnsafeMultipleInheritance\"."
+    ]
+  },
+  "repository_policy": "steering compliance passed for 24 python files",
+  "sdk_file_sha256": {
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckBodyTag.py": "61cc6c4aa770b142996556b6ae8e46120974b522842e6b070f8696f7a8c44b9e",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanCap.py": "91596665aae4f46671b07c38a926546cc7f0a4a4f3cbf436b349e6297a8c1fea",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanCount.py": "f30dce6cc77941dfd347355fb751deffaa2da1e59859f2bb31df0f48ff9a944a",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanHist.py": "2868e5fc6586a47519348cf46294573ddb5bf90196d32c1d539274afa5e79f8c",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanLink.py": "028b87280b3bcdccd797bd1402127f1a5748892cb931d12cced64ea961a1717b",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanOwners.py": "2beb8115c6053493e22cf9c901cd9b9c968b1ccf13de7cc5fec83bd3ff0d6583",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanRim.py": "b6afd69345f54710e256fe63fd92192def35f562582a94eeceba839bd65bbef1",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanSave.py": "639921b8320a9a0229152f81e0c7762d669bc65fc5828ae0d9de618a684b7dc6",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanSide.py": "6d2d63d4c02c15640ad09b8d710006f38e95d6002874f1987a69ff9457b6d6e9",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanSolid.py": "d35bd0d279a4820179444d66ca7673c2266437b6dabd08df876e6eccabc56465",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanStore.py": "d3db602d8e1d7dbe7ad1a835ddee78f059c0aaf33b985961498b108b2a276d54",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanTags.py": "a35c68955fd4663dc06cdbdd3b460ad82382df395b1ea84362f8443930c50c13",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/CheckSpanUses.py": "431d2bb29cb3b5d58382fcdbc9e2fde401aec6b9039e92d16a52ca5eaab5dbba",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ProjectSpan.py": "e0d9f9591765465b13a1b5a5358d99abef9d66891e02f9c70cdf430f7371248c",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ReadSpanBody.py": "a7df595d1d159e5e131c49d48c92770d30d373096b07dd22a18285cd78182058",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ReadSpanLabel.py": "37ef80c898b219e680f1efcba8c7a6792a90188d9eb888dcd660b4cf1f6889c7",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ReadSpanOps.py": "19b3b5e8b6cf367c7f2754b98971b2731e6dd410958e71a6f9e0a2d5adbf8305",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ReadSpanProgen.py": "3c5f06b7125d7cd9dc0884a17bba4fba0147991262098cc940e5038d8678cf11",
+    "src/convert/adapters/Fusion/Native/Circular/Spans/ReadSpanState.py": "055412e45f56399abb37d6b760a3f94dfb1ed5e52e877e09f9944860f4b0e769",
+    "src/convert/adapters/Fusion/Native/Graph/ReadExtentMode.py": "4c96b94fb9727afe59ebacc24db3c40abb338ef22286a4164e07a793817ed53d",
+    "src/convert/adapters/Fusion/Native/Parameters/ReadParameters.py": "3cafcd0ab15219815d241af11b367efab3e2fdf01e36a0089d8217eb14ccffb2",
+    "src/convert/adapters/Fusion/Native/Policy/CheckExtrusion.py": "93e462fa375575c457a860f204057e4936d631456e21a69a32b91d025b4becb0",
+    "src/convert/adapters/Fusion/Native/Projection/ProjectRectangle.py": "215b8e59be4364e5da1162e9a9fb3998b26d4fb8b67af7d1f0677749ebd43ef2"
+  }
+}
