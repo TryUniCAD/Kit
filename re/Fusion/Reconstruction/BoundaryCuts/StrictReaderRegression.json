@@ -1,0 +1,314 @@
+{
+  "allow_partial": false,
+  "assets": [
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "65c6dab7acd509c98af8e60e2b0ccfefcf156c1192786b4808eaf5b51b3d3d6f",
+      "fingerprint": "7780974464cdb0afe1b0f93026f8571c720d1074391fdc19ef97d56cf8ba023f",
+      "neutral_sha256": "b036ea491a0a186f5a0100294aa722ba1873742646c61ae6aa9a7c5ab0fc4f07",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyBefore.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 64924,
+        "records": 85,
+        "unresolved": 1
+      },
+      "directory": "b5bf58e821b5a7d6fa9b737e568b1dc19652f83c069cd7814827ce68a7e8738c",
+      "fingerprint": "8074327f6b8ce954c9f22a540ef2abe833c39f13a5befcda38561d26274c3f7b",
+      "neutral_sha256": "ac1bc239db44026e0c5f413d2e841b5732737f0066aecb6c7c385c4db8b11d19",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscSymmetric.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 65487,
+        "records": 91,
+        "unresolved": 1
+      },
+      "directory": "8033bf69e97774d96822935751c6d62af548c78338d4f46b6a6cab07bb810b65",
+      "fingerprint": "95740c1a2bf26f23594bfd0caaa81d7a65669ca901afa04773bda3f5acc89138",
+      "neutral_sha256": "96681dabecf9ea497c831650905f9011b54f03362597653809a33d1c264a44cd",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscTwoSided.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 64946,
+        "records": 85,
+        "unresolved": 1
+      },
+      "directory": "9c21f6b7c456f5c2075404be6230da26d9a5271d8c3fce22b1a0a9bf91006e06",
+      "fingerprint": "f3a1929dbe03bdd6ae37f5dc9cd9de7ca3c1a493a8bdbd2ba6702a44fe7f3449",
+      "neutral_sha256": "0cd1043ed17483f1d161c4ab57b9e8f14c70e784377b935e7352ae685320b3cd",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/DiscFlip.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "a2f4b95d3b53fab7802baab0df9e348f038fe2a4b8c635a8b9352698b8600f27",
+      "fingerprint": "016d2703f061e8258b1446ed5bf4ab57d2193bb36e0428f954996d6bf5b0e811",
+      "neutral_sha256": "b603285cb6528ddb278a217551b8149d483842d21da1642d332f920f1fe60e00",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Original/HealthyAfter.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "5a692626fef08c053f50e0520c8484a8d70273d61b90b573b3d38b8ccb89f1aa",
+      "fingerprint": "f27db4d2996718aa6cd9e13f2e7fb62a51dedcf8d1b18f45c9e22d021cf4638d",
+      "neutral_sha256": "3f12c17a944975f1da20e8f347b3ab74b6e272ba036f22d33b5e62488a7998ee",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyBefore.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 64924,
+        "records": 85,
+        "unresolved": 1
+      },
+      "directory": "19cdb1bbe800d463032467166649b14fd4513500b04724ed8fd383fe0eb7e212",
+      "fingerprint": "8c616123ea7a4a55ada7ed8e3cd5cb7cf5a14462e552af5097321748ff8ce131",
+      "neutral_sha256": "997ed0519a8af73d819127daf99567748732464066a0fcc6c56370f12d314f7a",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscSymmetric.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 65487,
+        "records": 91,
+        "unresolved": 1
+      },
+      "directory": "7afc309651ac5b99aa6b5feceaa1375bc5e6b6fac6ce986f88fdc1e9885ea312",
+      "fingerprint": "68c538fb014ad2ec1d466ce8cc76bd4a8adac6e351cf68e9e58e085358b47724",
+      "neutral_sha256": "7909c1221c91ec3ef53c6418f09ae85e71db331e0a9499c876d9a7bbb84cbc01",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscTwoSided.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 64946,
+        "records": 85,
+        "unresolved": 1
+      },
+      "directory": "8efdf07b4360ceb389b8afbcf48251e01e605926b326be9308cd5e4f873f1655",
+      "fingerprint": "b93cb4a781ad01bba19240c589d4913d27a77ff68a3d807778fee43d1c19fa14",
+      "neutral_sha256": "f3c26272e22e521327323c7a0525f68bef724c88706e7c96ecc722a7b38341e6",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/DiscFlip.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "efa85a730969008c59fa3cf4e15e9b5a5dd3bd920fa698cce059e379527c16f9",
+      "fingerprint": "96fde8a119b1c603e8ff8c5443a9779d1fae46f05f847d169b2bfe8001fb8df9",
+      "neutral_sha256": "88c504f4bbadf8c737d985bf1371007b559d9509558812ced3ccd071f267181d",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/HeldOut/HealthyAfter.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "c945676b732ec7f4fc6154f7802f2e996817bc78b9598cc0db9f345fbac2e897",
+      "fingerprint": "c5c852ef47de262180efc066d9310fff4d42f36ea469b2fb101de08427c22b59",
+      "neutral_sha256": "8150bd6000b2677b855ba2ce7c61ec2431af19b4b3ead7864ac9ac1c4d3d32d9",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyBefore.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 64924,
+        "records": 85,
+        "unresolved": 1
+      },
+      "directory": "9b27bdbbf9ccb1b1215abe346ae18770fc58e6878fea059f5cca58ced1bd960a",
+      "fingerprint": "5bef284e582240a1d4a9bbf2640ba62d068fac9a46ad761e01c1fae97c1c2212",
+      "neutral_sha256": "1cb30a186a926b66a203b5dbbb6d3b6d6827c8e8950108bcbe01ad904c436ee2",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/DiscHalf.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "3eef50705bd17dacad0a2bc70f68e3d9551a5646b8c2a5d15a60cd3c634380a2",
+      "fingerprint": "1b2761ca4dc35b833ae1bf21289823dd91150d7ebce9557b8e438a3b89b227f6",
+      "neutral_sha256": "2ed45a18cfa566a0bcda85c28ff71f22a3479ae5b5aea0bbe8bfe6cf50972bd1",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Half/HealthyAfter.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 65487,
+        "records": 91,
+        "unresolved": 1
+      },
+      "directory": "5f211f73b279dff6ad27f9f331fd5bc0c1816b1db2c025a5b9f324e675e8e5a0",
+      "fingerprint": "19d1dc2e23d94a2b12246455e1be6328086a0fa8c02b6ac01e14c77b925360ca",
+      "neutral_sha256": "39028fd05be968b35b29d6a5733fdfdb685d527ece196e7eec89173be1809a87",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/DiscTwoSided.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "4c9117eabf685cd8e182b839717a3722ca53f4825747382501ef98f326462748",
+      "fingerprint": "e5fbf7360116b1aa1aa898d596db635362d2be0ef2f2cefac591cf11a7fb8a73",
+      "neutral_sha256": "24fec4d183251f1852819a1ae43cc654e6fc40328c193bc3b7e081f720267e10",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyAfter.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66778,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "2a0ddea4dd1a64af874cbbd89140a385cc48e4dbcaa3d1465553e2c5aece3273",
+      "fingerprint": "f915269e30ab7ee5eb64f8f6888efc80c514c9f9013c4df701a381fd62fb7535",
+      "neutral_sha256": "b160d136aa98e83bc58765d095ed2f5cf3bec657556f60fd9a840f4f3ab4c021",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/CircularSpans/Controls/Rounding/HealthyBefore.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 78279,
+        "records": 304,
+        "unresolved": 1
+      },
+      "directory": "bb02ff3bfd5e95e5a7bceff3b9ee78152b19dd8c8dcaf0e82d88291e629bd450",
+      "fingerprint": "4a2bfaaca5453860214f30cf2debf45ee2db19cdd0eb88229fb48da00b2bae67",
+      "neutral_sha256": "3dae268a7506e0440fbc1b7ce627b36cb25138e3ba7f6c33e2cf1857640c3b22",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/CornerHeldOut.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 78275,
+        "records": 304,
+        "unresolved": 1
+      },
+      "directory": "0f7eab4cfd2864e39fd9f789c19ee4f1cfbe2c4048876cb83f063b473d019657",
+      "fingerprint": "48bfded6b7626c8e48674f0ddd25d7338ea3f7d645cc769d55e6013e0fb1557c",
+      "neutral_sha256": "00944279214ba8610edeed331870a03d04be37a1ffaa01f068fe2e97d590e12a",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/CornerOpposite.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 78279,
+        "records": 304,
+        "unresolved": 1
+      },
+      "directory": "a4afc51d586a53f9723116dc5961e25f74a1f11396277764a2276772257f9a5b",
+      "fingerprint": "90a5c0136fe5e5ac3733a68a70aaf5dde97cdfae6c2cd5aad206fb7381c24cbc",
+      "neutral_sha256": "48e1acf10545119387d6f3ec5738d3bb4c4aa38b9d62eb3355f4db38b211b847",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/CornerOriginal.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66794,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "1e08d0edd06f856a38a04858e0ae6f9755c783976cb046964903eff8f3532fa1",
+      "fingerprint": "b47d2cd2419d2df62431ffc27141c4360ee27e482ddc6f7b8b8f829e5e9ef648",
+      "neutral_sha256": "694ea2d64c9b510115fcb7023e14edc6f202590417d96c56adab85a9ee990ad4",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/HealthyAfter.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 66794,
+        "records": 197,
+        "unresolved": 1
+      },
+      "directory": "559f6b6aa088207326d60fbb619e64d13b951e25b0364243a12feee02686bbe9",
+      "fingerprint": "318d4c314f1603901d66311aa4946e4739eefe78bfe2799e2f33278a997fe657",
+      "neutral_sha256": "70f95063198b780a145180445aad7e5bca6356d33bca599baef1bff170760e85",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/HealthyBefore.f3d",
+      "reader_mode": "strict"
+    },
+    {
+      "counts": {
+        "fields": 78279,
+        "records": 304,
+        "unresolved": 1
+      },
+      "directory": "c0df093af78bcc1677b126426fa7eb4bca4becc86e2e302731918f4442253fbc",
+      "fingerprint": "b49c1e97a6eb31470ef0fee94d51e5e6ded76d2ebe40cfcf5f52504c7fca4cf1",
+      "neutral_sha256": "88fedd652a5bec35bc52dfab740f4a8e80580ffab4ca5220b62355421a31fa2b",
+      "outcome": "decoded",
+      "path": "re/Fusion/Reconstruction/BoundaryCuts/Controls/RequestedCorner.f3d",
+      "reader_mode": "strict"
+    }
+  ],
+  "corpus_revision": "5d4b34af5c5f33ebbc360ec84e84acde3d1f5fcf",
+  "counts": {
+    "assets": 22,
+    "decoded": 22,
+    "partial": 0,
+    "reader_error": 0,
+    "rejected": 0,
+    "strict": 22
+  },
+  "manifest_sha256": "886f2cdc3b3309cba89d502981bbf4ca4599fec13a0a59c2ec067d1923a27c28",
+  "native_acceptance": "not_established",
+  "portable_complete": false,
+  "python": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+  "receipt_version": 1,
+  "sdk_revision": "5d4b34af5c5f33ebbc360ec84e84acde3d1f5fcf",
+  "sdk_sources_sha256": "07dce9e55a7dba4bd9207b76abf4158d7b3dc7a5cbab70648e0eb194a7a4460f",
+  "semantic_qualification": "unverified",
+  "tool_sources": {
+    "Corpus.py": "3d278f90800d6f510f20a0827b4178885fa52bf9775210cf973082f044894c57",
+    "Evidence.py": "cb76b9cc8c821cb9f93089410c7cbfd15926d8bef0111b8427dac5850926fd29",
+    "FusionReader.py": "9f7f0d5a8941cba25a43f80a3059dbeb7099da0324fb220122cd617ee7c0dc5d",
+    "ReaderEvidence.py": "0f8afa3d9a1787d8a338575f9d94e19e6603c37b3b74d46a5ecc19c68c5a4eb7"
+  }
+}

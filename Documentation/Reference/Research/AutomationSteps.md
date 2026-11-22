@@ -40,15 +40,62 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
+`codex/catalogue-native-authoring`, owned by Codex. It
+connects catalogue selection to the existing native builders with parameter
+overrides and automatic downstream decoding. One complete configured P03 run
+created eight native archives, verified them in fresh processes, and automatically
+completed the dependent deterministic decoder job. Its 53 findings per sample
+remain explicit. Dependencies are A03/A08 worker
+ownership, the P01–P05 builders, and the catalogue/resume implementation. Its
+remaining native and process acceptance is recorded in
+[catalogue sample authoring](../../Changes/Research/Supervisor/Catalogue/CatalogueSampleAuthoring.md).
+This child does not close A07 inference, A13 conversion acceptance, or A15 pilot
+requirements.
+
+A08i uses branch `codex/reusable-feature-builders`. The user authorized source-only
+publication with A08j/A08k on [PR #207](https://github.com/TryUniCAD/Kit/pull/207)
+on 2026-11-21. The bounded offset-start run at `7a868f5e` passed native creation,
+edits, restoration and fresh reopen, then automatically completed its decoder job
+with unresolved findings. One of the nine new bindings is native verified; full
+decoder qualification remains incomplete. The focused process checks passed 103 cases.
+See [reusable recipe builders](../../Changes/Research/Supervisor/Catalogue/ReusableRecipeBuilders.md)
+for the nine bindings, parameter grid, retained attempts, and execution limits.
+
+A08j, owned by Codex on the same local branch, is checking the
+[written recipe campaign](../../Changes/Research/Supervisor/Catalogue/WrittenRecipeCampaign.md).
+It depends on A08h/A08i and drives every written recipe through the existing
+runner with a persistent assistant handoff for missing mappings and failures.
+Its workflow checks cover the complete selected written roster, restart and
+rejection of unsupported assistant completion claims. Native recipe coverage and
+full decoder qualification remain separate exit criteria.
+
+A08k's bounded first delivery is complete on local branch `codex/automatic-builder-development`, owned by
+Codex, with dependencies A08h/A08i/A08j and the existing provider/native ownership
+contracts. The [automatic builder-development loop](../../Changes/Research/Supervisor/Catalogue/AutomaticBuilderDevelopment.md)
+implements opt-in generation, bounded repair, independently reserved qualification,
+immutable runtime registration and dependent capture/decoding for the scoped positive
+XY offset plane. At frozen source `d61c3be4`, an actual two-call loop repaired an
+injected distance defect, rejected a wrong-support plane, passed three reserved
+cases, registered its source and accepted a separate sample. The dependent decoder
+ran deterministically with 55 unresolved findings per archive; conversion remains
+unqualified. Eighteen new and two unchanged campaign process checks pass. This work
+does not close decoder, conversion or Fusion qualification. On 2026-11-21 the user
+authorized publishing the source changes to [PR #207](https://github.com/TryUniCAD/Kit/pull/207),
+head `codex/catalogue-native-authoring`. The isolated implementation branch and all
+private native evidence are preserved. Vendor binaries and native capture archives
+remain excluded from publication.
+
 The user assigned SOLIDWORKS and CAD-independent implementation to Codex on 2026-11-17.
 Delivery remains on [PR #158](https://github.com/TryUniCAD/Kit/pull/158), from isolated branch `codex/pr158-solidworks-completion`.
 The starting source revision is `a6cc279f629d088c526a654149bb9dc99a8b2bb6`.
 
-| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                       |
-| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes      |
-| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | complete | Queue, timeout recovery and source-integrity process checks pass. The licensed queue accepted all five P02 observations with healthy controls        |
-| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup |
+| Child ID | Owner | Scope                                                                                   | Depends on                                             | Status   | Exit condition                                                                                                                                                            |
+| -------- | ----- | --------------------------------------------------------------------------------------- | ------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| A07d     | Codex | Bind every inference execution to its normalized job, inputs and dependency fingerprint | A03 session contract and existing A07 process coverage | complete | Actual runner processes reject changed session identities and malformed evidence while valid controller sessions retain their existing outcomes                           |
+| A08f     | Codex | Queue the existing P02 circular SOLIDWORKS readback and pin ownership helpers           | Existing P02 collector, A03 and A08e                   | complete | Queue, timeout recovery and source-integrity process checks pass. The licensed queue accepted all five P02 observations with healthy controls                             |
+| A08g     | Codex | Fence supervised Windows worker entry after durable session publication                 | A03 ownership and leases, A08a                         | complete | Real worker processes enter only after metadata publication and current-owner lease validation, including grouped claims and startup failure cleanup                      |
+| A08i     | Codex | Reusable builders for nine named SOLIDWORKS catalogue recipes                           | PR #207 catalogue authoring and A03/A08 ownership      | checking | Source-pinned native creation, edits, fresh reopen, healthy controls, and dependent decoder receipts demonstrate each claimed binding without hiding unresolved semantics |
 
 Commit [`c572f1ac`](https://github.com/TryUniCAD/Kit/commit/c572f1ac8dfa613e8ff6bf9ea99e2be375deb63c) passed 63 combined inference, Windows launch, readback, and rearm process checks.
 The [inference session change](../../Changes/Research/Controller/InferenceSessionIntegrity.md) also records a passing historical archive gate.

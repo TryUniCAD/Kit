@@ -82,7 +82,10 @@ def inspectable_document(document, model):
     rejection = refusal(
         lambda: EncodeDocument(forged), "Fusion native-state projection is read-only"
     )
-    return sha256(encoded.encode("utf-8")), rejection
+    legacy = json.loads(encoded)
+    for feature in legacy["feature_timeline"]["$tuple"]:
+        require(feature.pop("output_body_ids") == {"$tuple": []}, "Historical radial feature gained output body ownership")
+    return sha256(json.dumps(legacy, sort_keys=True, ensure_ascii=False).encode("utf-8")), rejection
 
 
 # Preserve the other members in the inherited native value object.
@@ -305,7 +308,10 @@ def stock_reads(inputs):
             and not doc.diagnostics,
             "Previously accepted strict circle lost its unconstrained sketch",
         )
-        digest = sha256(doc.to_json(indent=None).encode("utf-8"))
+        legacy = json.loads(doc.to_json(indent=None))
+        for feature in legacy["feature_timeline"]["$tuple"]:
+            require(feature.pop("output_body_ids") == {"$tuple": []}, "Legacy feature gained output body ownership")
+        digest = sha256(json.dumps(legacy, sort_keys=True, ensure_ascii=False).encode("utf-8"))
         require(
             digest == UNCONSTRAINED[name][1],
             "Previously accepted strict circle neutral serialization changed",
