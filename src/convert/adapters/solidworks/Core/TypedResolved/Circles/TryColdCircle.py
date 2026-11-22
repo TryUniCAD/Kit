@@ -64,7 +64,7 @@ def BindColdCirc(
         ReadCmgrMut(Archive.require("Contents/CMgr"), 19000),
         Features,
     )
-    CheckBlindCirc(Owner)
+    _ = CheckBlindCirc(Owner)
     CheckCircDrive(ShapeValue)
     FrameValue = ReadPrismFrame(
         Profile, LinkValue.ConfigValue.RootValue, Features, FrontOnly=False
