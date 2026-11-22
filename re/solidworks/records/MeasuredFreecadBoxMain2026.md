@@ -109,6 +109,13 @@ of publication. Both CLI report formats include the same separate
 source evidence.
 [Shared-suite worker receipt](../measurements/2026/AttachedBoxAxesPublicationReview02.json)
 
+The Windows follow-up ran the same source on all four explicit and
+inferred SDK and CLI paths plus the default-text CLI route. Text
+included the independently checked source evidence. An independent
+guest file read matched the output digest for all five publications
+and the restored original.
+[Windows review receipt](../measurements/2026/AttachedBoxAxesReviewWindows01.json)
+
 ```sh
 python3.14 -I -B re/tooling/sw2026/attached_top_box_source/ProveMainAttachedBox.py \
   --source /path/to/recipe-0.21.2-F14c.FCStd \

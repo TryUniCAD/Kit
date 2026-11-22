@@ -84,7 +84,7 @@ def main():
     locked = trial / "OriginalLocked.SLDPRT"
     target.rename(locked)
     try:
-        for route in ("sdk_explicit", "sdk_inferred", "cli_explicit", "cli_inferred"):
+        for route in ("sdk_explicit", "sdk_inferred", "cli_explicit", "cli_inferred", "cli_text"):
             explicit = route.endswith("_explicit")
             if route.startswith("sdk_"):
                 options = {"destination_format": FORMAT} if explicit else {}
@@ -93,9 +93,15 @@ def main():
                 flags = ("--to", FORMAT) if explicit else ()
                 outcome = run((sys.executable, "-I", "-B", "-c", BOOTSTRAP, str(args.sdk_src),
                                "convert", str(args.source), str(target), *flags, "--native-measurement",
-                               str(args.measurement), "--json"), capture_output=True, text=True, timeout=120)
+                               str(args.measurement), *(() if route == "cli_text" else ("--json",))), capture_output=True, text=True, timeout=120)
                 demand(outcome.returncode == 0 and not outcome.stderr, outcome.stderr or outcome.stdout)
-                report = json.loads(outcome.stdout)
+                if route == "cli_text":
+                    required = {"source_evidence", "vendor_loadable", "application_usable", "transfers", "dropped"}
+                    rows = [line.split(": ", 1) for line in outcome.stdout.splitlines() if ": " in line]
+                    report = {key: json.loads(value) for key, value in rows if key in required}
+                    demand(set(report) == required, "default CLI omitted source evidence")
+                else:
+                    report = json.loads(outcome.stdout)
             raw = checked(target, OUTPUT_SHA)
             result["publications"].append({"route": route, "bytes": len(raw), **check_report(report)})
             target.rename(trial / (route + ".SLDPRT"))
@@ -104,7 +110,7 @@ def main():
             target.rename(trial / "InterruptedOutput.SLDPRT")
         locked.rename(target)
     _ = checked(target, OUTPUT_SHA)
-    demand(len(result["publications"]) == 4, "publication trials are incomplete")
+    demand(len(result["publications"]) == 5, "publication trials are incomplete")
     result["original_restored"] = True
     print(json.dumps(result, sort_keys=True))
 
