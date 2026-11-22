@@ -33,6 +33,8 @@ def MakePartKeys(
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    AdditionalRows: tuple[KeywordFeature, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -51,7 +53,7 @@ def MakePartKeys(
             else "Extrusion" if IndexValue == len(FeatureValues) - 1 else "Feature"
         )
         Dimensions = (
-            (KeywordDim("D1", PlanValue.DepthValue / ScaleValue, None),)
+            (KeywordDim(PlanValue.DepthName, PlanValue.DepthValue / ScaleValue, None),)
             if TagValue == "Extrusion"
             else SketchDims if TagValue == "Sketch" else ()
         )
@@ -71,5 +73,5 @@ def MakePartKeys(
         PlanValue.NameValue,
         InputValue.HeaderValue.ModifiedAt,
         ConfigValues,
-        tuple(RowsValue),
+        (*RowsValue, *AdditionalRows),
     )

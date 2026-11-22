@@ -24,7 +24,7 @@ def MakeBlindParam(InputValue: BlindEndInput, OrdinalValue: int) -> ArchiveNode:
     )
     NativeValue = float(InputValue.DepthValue) if OrdinalValue in (1, 2) else 0.0
     NameValue = ArchiveNode(
-        RuntimeClass("moNodeName_c", 1), {"f08": f"D{OrdinalValue}"}
+        RuntimeClass("moNodeName_c", 1), {"f08": InputValue.DriverName(OrdinalValue)}
     )
     return ArchiveNode(
         RuntimeClass(ClassName, 1),

@@ -1,0 +1,133 @@
+{
+  "archive_sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+  "corpus_credit": 0,
+  "guarded_host_sdk_receipt_sha256": "8cd410e4ab6f928e7200f8ed980aea451837ab0938c1afc8fe58be5aa9e923ad",
+  "heldout_credit": 0,
+  "independent_disk_read_sha256": "222ced778ce8fd70a2d2f94aa1fceac2a2bf7fa7a6ed83f38f7f14780c1ab636",
+  "independent_windows_files": [
+    {
+      "bytes": 10707,
+      "name": "F14c.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "cli_explicit.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "cli_inferred.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "sdk_explicit.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    },
+    {
+      "bytes": 10707,
+      "name": "sdk_inferred.SLDPRT",
+      "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+    }
+  ],
+  "native_path": "C:\\KitAttachedBoxAxes01\\F14c.SLDPRT",
+  "native_terminal_sha256": "0ac0c750cd671a2f4c5dcc7e3459d79a51199c3c0cd7220ba8cc2dd6a953ac38",
+  "new_native_observations": 0,
+  "original_restored": true,
+  "pinned_oracle_build": "34.5.2.0604",
+  "publications": [
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "sdk_explicit",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "sdk_inferred",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "cli_explicit",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    },
+    {
+      "bytes": 10707,
+      "native_capabilities": [
+        "body_structure",
+        "brep",
+        "configurations",
+        "parameters",
+        "parametric_history",
+        "support_planes"
+      ],
+      "route": "cli_inferred",
+      "source_evidence_capabilities": [
+        "native_payloads",
+        "provenance",
+        "roundtrip_metadata"
+      ]
+    }
+  ],
+  "python_machine": "ARM64",
+  "python_version": "3.12.7",
+  "schema": "kit.sw2026.attached-box-windows-publication.v1",
+  "sdk_revision": "f870283a11d6b33dfe55c77df487d9ece05ec720",
+  "sdk_source_tree": "b10db0f4f23858661a7ba766742d54134a80b337",
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "stream_preflight": {
+    "native_capabilities": [
+      "body_structure",
+      "brep",
+      "configurations",
+      "parameters",
+      "parametric_history",
+      "support_planes"
+    ],
+    "source_evidence_capabilities": [
+      "native_payloads",
+      "provenance",
+      "roundtrip_metadata"
+    ]
+  },
+  "windows_observation_sha256": "2cce79a57716e9ce77112edecbab3f7e077ff26ef4d2769ec249f8a6f73f6fd3",
+  "windows_tool_sha256": "b49b88c88bd0a1bedb16b84396f5eba961c365dc1998807441cf3174284a1777",
+  "zlib_runtime": "1.3.1"
+}

@@ -3,6 +3,12 @@ from types import MappingProxyType
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Part.PartLayouts import (
     KPartLayouts,
 )
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AnchorFields import (
+    KAnchorFields,
+)
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.AxisFields import (
+    KAxisFields,
+)
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.BodyFields import (
     KBodyFields,
 )
@@ -62,6 +68,8 @@ KResolvedLayouts = MappingProxyType(
         "su_CStringArray": KPartLayouts["su_CStringArray"],
         "utLineWidth_c.Serialize0": KPartLayouts["utLineWidth_c.Serialize0"],
         "utLineWidth_c.Serialize2": KPartLayouts["utLineWidth_c.Serialize2"],
+        **KAnchorFields,
+        **KAxisFields,
         **KBodyFields,
         **KComponentFields,
         **KCoreFields,

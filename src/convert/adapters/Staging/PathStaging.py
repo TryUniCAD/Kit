@@ -11,6 +11,7 @@ from interchange import frozen_mapping as FreezeMapping
 
 from convert.adapters.base.AdapterProtocols import CadWriterAdapter
 from convert.adapters.registry.RegistryErrors import RegistryError
+from convert.adapters.Staging.StageFileScope import StageFileScope
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import RunCheckedMut
 from convert.adapters.base.WriteResult import WriteResult
@@ -207,18 +208,19 @@ def WritePathStaged(
             OptionValues = dict(OptionsData.OptionValues)
             OptionValues["final_destination"] = str(FinalPath)
             OptionValues["final_overwrite"] = OptionsData.Overwrite
-            ResultData = RunCheckedMut(
-                DocumentData,
-                AdapterData,
-                StagedTarget,
-                ReplaceValue(
-                    OptionsData,
-                    overwrite=False,
-                    values=FreezeMapping(OptionValues),
-                ),
-                AllowCarrier,
-                NeedSelfContained,
-            )
+            with StageFileScope(StagedTarget, FinalPath):
+                ResultData = RunCheckedMut(
+                    DocumentData,
+                    AdapterData,
+                    StagedTarget,
+                    ReplaceValue(
+                        OptionsData,
+                        overwrite=False,
+                        values=FreezeMapping(OptionValues),
+                    ),
+                    AllowCarrier,
+                    NeedSelfContained,
+                )
             if (
                 ResultData.OutputPath is None
                 or ResultData.OutputPath.resolve() != StagedTarget.resolve()
