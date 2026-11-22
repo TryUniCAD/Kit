@@ -29,6 +29,7 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Container.Parasolid import DecodePartition
 from convert.adapters.solidworks.Core.AssemblyPreparation.Concentric.PrepCylChild import PrepCylChild
+from convert.adapters.solidworks.Core.AssemblyPreparation.Concentric.PrepCylAsm import PrepCylAsm
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel import ReadAsmModel
 from convert.adapters.solidworks.Core.AssemblyPreparation.Paths.ReadAsmPaths import ReadAsmPaths
 from convert.adapters.solidworks.Core.AssemblyPreparation.Placements.ReadAsmPlace import ReadAsmPlace
@@ -276,6 +277,10 @@ def proof(case, inputs, references):
         assert files == view(other) and combined.ChildValue is candidate.CandidateValue
         if references:
             assert files == references
+            prepared = PrepCylAsm(
+                document, locator, epoch, SCENE, lights, DisplayValues=display
+            )
+            assert view(prepared) == references
         else:
             previous = create(case, inputs)
             assert files == {"child": previous[0].candidate.BytesValue, "parent": emit_parts(previous, axes)}
@@ -302,6 +307,7 @@ def proof(case, inputs, references):
                   for role, value in files.items()},
         "native_exact_pair": bool(references), "explicit_alternate_epoch": None if references else epoch,
         "repeat_pairs": 2, "part_readback": part_info, "mate_readback": mate_info,
+        "neutral_preparation_exact": bool(references),
         "variation": {"bytes": len(changed.CandidateValue.BytesValue),
                       "sha256": finger(changed.CandidateValue.BytesValue),
                       "config_bytes": len(changed.CandidateValue.StreamsValue["Contents/Config-0"]),
