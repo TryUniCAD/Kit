@@ -1,0 +1,186 @@
+{
+  "bound_imports": [
+    {
+      "module": "sldmopartu.dll",
+      "slot": "0x1803ec788",
+      "target": {
+        "module": "swccu.dll",
+        "name": "??0su_CDWordArray@@QEAA@XZ"
+      }
+    },
+    {
+      "module": "sldmopartu.dll",
+      "slot": "0x1803e8de0",
+      "target": {
+        "module": "sldgcu.dll",
+        "name": "?ramFilletEdge@@YA?AVutStatus_c@@PEAVgcEntityList_c@@HHPEAHPEAN022HHHNHHHPEAPEAVgcFace_w@@30PEAPEAHP6AXAEAV2@@Z011HHHHPEAPEAVgcEntList_w@@HHPEAVsu_CDWordArray@@PEAVsuPtrArray@@@Z"
+      }
+    },
+    {
+      "module": "sldgcu.dll",
+      "slot": "0x43f5c8b0",
+      "target": {
+        "module": "sldgciParau.dll",
+        "name": "?gci_ramFilletEdge@GCP@@YA?AVutStatus_c@@PEAVgciEntityList_c@1@HHPEAHPEAN022HHHNHHHPEAPEAVgciFace_w@1@30PEAPEAHP6AXAEAV31@@Z011HHHHPEAPEAVgciEntList_w@1@HHPEAVsu_CDWordArray@@PEAVsuPtrArray@@@Z"
+      }
+    },
+    {
+      "module": "sldgciParau.dll",
+      "slot": "0x330b64b8",
+      "target": {
+        "module": "swccu.dll",
+        "name": "?SetAtGrow@su_CDWordArray@@QEAAXHK@Z"
+      }
+    }
+  ],
+  "fillet_writer_output_count": 0,
+  "fresh_count": 0,
+  "module_sha256": {
+    "sldgciParau.dll": "96f244063a5e8badc547fca3655506ae8eb99197653168efa232d775b55b96ce",
+    "sldgcu.dll": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+    "sldmopartu.dll": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+    "swccu.dll": "d5a8a3f3c9e4f108650242dab99ae8f9c9b8edb0e3fd2e04c185964f79d1ba7c"
+  },
+  "native_processes_started": 0,
+  "oracle_build": "34.5.2.0604",
+  "rechecked_functions": [
+    {
+      "bytes": 3279,
+      "end_exclusive": "0x18026a9cf",
+      "file_offset": 2527488,
+      "instruction_sites": [
+        "0x180269e70",
+        "0x180269e77"
+      ],
+      "module": "sldmopartu.dll",
+      "name": "fillet constructor",
+      "sha256": "6fe4f3c73683b3a575b7843b7d8f4eb0f41340b9632c4de49377fb4772b3a4ed",
+      "start": "0x180269d00"
+    },
+    {
+      "bytes": 51,
+      "end_exclusive": "0x31a3bcd3",
+      "file_offset": 45216,
+      "instruction_sites": [
+        "0x31a3bcbd",
+        "0x31a3bcc7"
+      ],
+      "module": "swccu.dll",
+      "name": "word array constructor",
+      "sha256": "38dc6fec74292560e3b0ae5d4978e7ef98520d46d9fd57b861e5c8d7a141855b",
+      "start": "0x31a3bca0"
+    },
+    {
+      "bytes": 12735,
+      "end_exclusive": "0x1802a9e7f",
+      "file_offset": 2777280,
+      "instruction_sites": [
+        "0x1802a87ca",
+        "0x1802a87d2",
+        "0x1802a88dd"
+      ],
+      "module": "sldmopartu.dll",
+      "name": "fillet solve",
+      "sha256": "870090fa3b4fe040b3ed62df01a779a8a1882815f527633d1dc82cae3abe7fec",
+      "start": "0x1802a6cc0"
+    },
+    {
+      "bytes": 415,
+      "end_exclusive": "0x43ca0d0f",
+      "file_offset": 5635952,
+      "instruction_sites": [
+        "0x43ca0b96",
+        "0x43ca0b9e",
+        "0x43ca0cf1"
+      ],
+      "module": "sldgcu.dll",
+      "name": "public kernel bridge",
+      "sha256": "d69d9fd1d9229d509731fb93a289d56eca5f49140411e187cc5e24a620a3117a",
+      "start": "0x43ca0b70"
+    },
+    {
+      "bytes": 928,
+      "end_exclusive": "0x43e7fd40",
+      "file_offset": 7597472,
+      "instruction_sites": [
+        "0x43e7fb88",
+        "0x43e7fd12"
+      ],
+      "module": "sldgcu.dll",
+      "name": "kernel bridge dispatch",
+      "sha256": "e71e82da5e9e380c9c9214377cc2cbe6016c7bb63af735679ab4e342cca73a27",
+      "start": "0x43e7f9a0"
+    },
+    {
+      "bytes": 6772,
+      "end_exclusive": "0x33063a54",
+      "file_offset": 988128,
+      "instruction_sites": [
+        "0x33062174",
+        "0x3306217c",
+        "0x3306233d",
+        "0x33062fbb",
+        "0x33062fc1",
+        "0x3306373b"
+      ],
+      "module": "sldgciParau.dll",
+      "name": "fillet entry and other option branch",
+      "sha256": "81766a6e2a612c8f6bc37b6d48519ca6bdec1b0317ca8458528c44b2aefb97f4",
+      "start": "0x33061fe0"
+    },
+    {
+      "bytes": 2919,
+      "end_exclusive": "0x3306d717",
+      "file_offset": 1032112,
+      "instruction_sites": [
+        "0x3306ccc2",
+        "0x3306ccd4",
+        "0x3306d4bb",
+        "0x3306d4bf",
+        "0x3306d5d1"
+      ],
+      "module": "sldgciParau.dll",
+      "name": "ordinary fillet dispatch",
+      "sha256": "b55db25ce594cb1c66a43fb76b1f98b025b68d1a05eea633ea9e240fb8682afe",
+      "start": "0x3306cbb0"
+    },
+    {
+      "bytes": 6761,
+      "end_exclusive": "0x33072389",
+      "file_offset": 1047840,
+      "instruction_sites": [
+        "0x33070a74",
+        "0x33071b93",
+        "0x33071b99",
+        "0x33071ba7",
+        "0x33071bf2",
+        "0x33071d42",
+        "0x3307207a",
+        "0x33072087",
+        "0x330720a4"
+      ],
+      "module": "sldgciParau.dll",
+      "name": "ordinary fillet first solve",
+      "sha256": "090fd271b7c0c84f0aca0338e81ffa1c1067563495bd562e8dd9f73eccd4bde4",
+      "start": "0x33070920"
+    },
+    {
+      "bytes": 251,
+      "end_exclusive": "0x330781cb",
+      "file_offset": 1078480,
+      "instruction_sites": [
+        "0x33078109",
+        "0x3307811c",
+        "0x33078126",
+        "0x3307813d",
+        "0x330781b3"
+      ],
+      "module": "sldgciParau.dll",
+      "name": "solved option save",
+      "sha256": "dbcc7430a09dc6a09fd338f707a135eaf22b51106b5819671d67e3ade692afc6",
+      "start": "0x330780d0"
+    }
+  ],
+  "save_helper_default_word_count": 6,
+  "schema": "kit.sw2026.ordinary-fillet-fresh-options.v1"
+}
