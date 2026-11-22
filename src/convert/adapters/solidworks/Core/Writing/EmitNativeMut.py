@@ -14,6 +14,9 @@ from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNa
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
 from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
+    HasThinWrite,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.EmitEqMut import EmitEqMut
 from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
     MatchPartMeas,
@@ -37,6 +40,9 @@ from convert.adapters.solidworks.Core.Writing.Stocks.WriteStocksMut import (
 from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Writing.Patterns.EmitPatMut import EmitPatMut
+from convert.adapters.solidworks.Core.Writing.Measured.Thin.EmitThinMut import (
+    EmitThinMut,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -50,6 +56,8 @@ def EmitNativeMut(
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
+        if HasThinWrite(DocumentValue):
+            return EmitThinMut(DocumentValue, TargetValue, OptionsValue)
         if IsStockChain(DocumentValue):
             return WriteStocksMut(DocumentValue, TargetValue, OptionsValue)
         if IsPatPart(DocumentValue):

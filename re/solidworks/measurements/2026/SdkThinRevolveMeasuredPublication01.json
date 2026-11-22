@@ -1,0 +1,369 @@
+{
+  "fresh_workers": 6,
+  "native_authorities": [
+    "cdada047b9f9bd7be97b62383c07bcee06a527a69152af83d932801e2a556b5c",
+    "f0cae9a898ea4ed54a7e181b8631da6ff17569eca430558c4c77004b36d37127"
+  ],
+  "neutral_model_script_sha256": "2991e0ad8a384ca8ec369752c4d4b64fa5f9e22fe1e11334c3b6659291d7f000",
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "platform": "darwin",
+  "protected_inputs": 0,
+  "records": [
+    {
+      "bytes": 8146,
+      "case": "ThinOne",
+      "generated_sha256": "3acb4aabf6b0d223c4e559a0356b79e57ee0e3b68b7fb12a8fb831853c1463f7",
+      "geometry": {
+        "area_mm2": 3111.725195797006,
+        "centroid_m_from_neutral": [
+          0.029614491624400253,
+          0.002930000000000001,
+          -0.01826072876818886
+        ],
+        "dimensions": [
+          "D1",
+          "D3"
+        ],
+        "volume_mm3": 2464.5371812727994
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22248,
+        "Contents/Config-0-ModelHeader": 611,
+        "Contents/Config-0-ResolvedFeatures": 12470,
+        "Contents/Definition": 459,
+        "Header2": 611,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1426
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "ccabd0acf75804e3f6939ad8eecc3ee776b38eeddb2b697aa7e5d482aca6fc1e",
+        "Contents/Config-0-ModelHeader": "361746899d6b689096073b188471d2d2ac16b0fa48d2ac44bd259a069f1b1137",
+        "Contents/Config-0-ResolvedFeatures": "897a5a61dc339952485a454ff66fd79fe105b68483c35cf8046923616b11a91b",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "99f4037108f71981f9450ebd73ed8ea1a66efa126c451a404ef6778af5c08cc9",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "916dd527bc092ad0bb4952167f4c38da71bf43c0c5a84ac99820c7d59ddf48d0"
+      },
+      "strict_history_refusals": 2
+    },
+    {
+      "bytes": 8166,
+      "case": "ThinOpposite",
+      "generated_sha256": "a77d2b1152cf1bf8dc4f17487ab25a62f89460f51769fb99a5949b8caaf489c9",
+      "geometry": {
+        "area_mm2": 2954.943342467846,
+        "centroid_m_from_neutral": [
+          0.028310888240345992,
+          0.002930000000000001,
+          -0.017304887220546697
+        ],
+        "dimensions": [
+          "D1",
+          "D3"
+        ],
+        "volume_mm3": 2335.4725733236005
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22258,
+        "Contents/Config-0-ModelHeader": 641,
+        "Contents/Config-0-ResolvedFeatures": 12470,
+        "Contents/Definition": 459,
+        "Header2": 641,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1431
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "a46091e33bbddc94302aaf47a798b4746f1084f9c6f8bd2f23b8fd3fe26cd1ff",
+        "Contents/Config-0-ModelHeader": "dc311e860a68f86ca34350b219e5a06c023705b0c9a762131574669be30c34e8",
+        "Contents/Config-0-ResolvedFeatures": "f3fe7889e5c91124e682183414e632e16c683e011fda742028cdac8da8d6d0b0",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "874a78daba6bb0114151dff5654ae7665582e16e1572aae9ec0c64e6565d3a3e",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "ff790e39cad38ba1e77f3066f2070385e31baee0dedce8f6e7a4d941e6172eee"
+      },
+      "strict_history_refusals": 2
+    },
+    {
+      "bytes": 8175,
+      "case": "ThinMidplane",
+      "generated_sha256": "b7f9540c96229ed80fe7f7a19c824269badf305d4d14bf99a237345225d8282b",
+      "geometry": {
+        "area_mm2": 3033.3342691324265,
+        "centroid_m_from_neutral": [
+          0.02896268570463358,
+          0.002930000000000001,
+          -0.01778280489446089
+        ],
+        "dimensions": [
+          "D1",
+          "D3"
+        ],
+        "volume_mm3": 2400.004877298203
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22258,
+        "Contents/Config-0-ModelHeader": 641,
+        "Contents/Config-0-ResolvedFeatures": 12470,
+        "Contents/Definition": 459,
+        "Header2": 641,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1431
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "b9b05d5abab62ffd4470eeeca14984da0174a712c4528a9d3cd21249ae4e02b0",
+        "Contents/Config-0-ModelHeader": "4112b84c79a747eb785575f840d887f51156ef2b2f9c562bd34c3b8727b3d80c",
+        "Contents/Config-0-ResolvedFeatures": "21c9b2e55ff1da5c2b0340cad781f0663079ea097737d9e71b4fe18ce8d1b6ab",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "daee9eb93c8dc5ca75a34d194ea9bfb5ca6fae75c582e35a75a90287eea89e2c",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "8294375b8b4964cf8c24df7ff0e6c2039669125ff3f2072f496247fa5cced170"
+      },
+      "strict_history_refusals": 2
+    },
+    {
+      "bytes": 8227,
+      "case": "ThinUnequal",
+      "generated_sha256": "871b920ad7f1ce34a25aaffb21d5fbf4cb8c79b1e67a1c486a235fb29f2c4207",
+      "geometry": {
+        "area_mm2": 3461.9614951887647,
+        "centroid_m_from_neutral": [
+          0.028369584039948974,
+          0.002930000000000001,
+          -0.01734792476142675
+        ],
+        "dimensions": [
+          "D1",
+          "D3",
+          "D4"
+        ],
+        "volume_mm3": 6969.255961843151
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22256,
+        "Contents/Config-0-ModelHeader": 635,
+        "Contents/Config-0-ResolvedFeatures": 12624,
+        "Contents/Definition": 459,
+        "Header2": 635,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1481
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "dddfef792e91a38d9293b4386b60ab94863d44301e1f8dfcb9c114c43d8290d9",
+        "Contents/Config-0-ModelHeader": "f3678aa6eb0361b8909b6962f66e883daa868f4a4b1089cc3266c67ce870724c",
+        "Contents/Config-0-ResolvedFeatures": "3f472588d409ad3f41650edcdc41e5be5cef87a7f7da466883a146afb8bac744",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "21fd7322fdb1271b068b62ec64dc382e895f04871ccb09247e5dc470e4230fc9",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "2846025f01c26f7cef6805cd379d0eee50acfa0020b991b1927daa85c1c26a38"
+      },
+      "strict_history_refusals": 2
+    },
+    {
+      "bytes": 8282,
+      "case": "ThinTopOppositeControl",
+      "generated_sha256": "7cbe6b2b3c5426d8cb601d2a9d653998e5de9bc08ccdd98b414afe4bc65604b4",
+      "geometry": {
+        "area_mm2": 6439.292880654907,
+        "centroid_m_from_neutral": [
+          0.032731592098010936,
+          -0.025771592004402197,
+          -0.0035350000000000017
+        ],
+        "dimensions": [
+          "D1",
+          "D3"
+        ],
+        "volume_mm3": 4637.22924756325
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22278,
+        "Contents/Config-0-ModelHeader": 711,
+        "Contents/Config-0-ResolvedFeatures": 12542,
+        "Contents/Definition": 459,
+        "Header2": 711,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1443
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "5be162edaa1f18d98f470d733e90bcc360b867e83b50dd4bc383c774c4d0a5e3",
+        "Contents/Config-0-ModelHeader": "951ee2587f058a59e2a1697636b548c1ce276f70e42fc20ab3707f7757558437",
+        "Contents/Config-0-ResolvedFeatures": "c9d104a54b0f7bcae6f729cbac7bfc4df22395b317dbb3815b9679dc3cab891e",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "151fb58ceda46dc167b3abe6eb620e54dd6e1fdba76289b998b6745267aad589",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "dfd746c88c532260c09e5377107e04a56511960b4f9d7504293164c1f1bd9dd7"
+      },
+      "strict_history_refusals": 2
+    },
+    {
+      "bytes": 8257,
+      "case": "ThinRightCenterControl",
+      "generated_sha256": "c5d8880148f4ff4cd40298020e9d6cf54904cec23c12f45ea87ffa6c325710aa",
+      "geometry": {
+        "area_mm2": 16962.978477335622,
+        "centroid_m_from_neutral": [
+          -0.0461416515033028,
+          0.006045,
+          -0.026937235965957672
+        ],
+        "dimensions": [
+          "D1",
+          "D3"
+        ],
+        "volume_mm3": 31281.450581072397
+      },
+      "positive_paths": [
+        "authored_direct",
+        "authored_registry",
+        "geometry_json_direct",
+        "geometry_json_registry",
+        "design_json_direct",
+        "design_json_registry"
+      ],
+      "raw_payload_refusals": 1,
+      "refusals": 10,
+      "runtime": {
+        "external_launches": 0,
+        "input_file_reads": 0,
+        "output_opens": 0
+      },
+      "stream_lengths": {
+        "Contents/CMgr": 1129,
+        "Contents/CMgrHdr2": 137,
+        "Contents/Config-0": 22278,
+        "Contents/Config-0-ModelHeader": 711,
+        "Contents/Config-0-ResolvedFeatures": 12542,
+        "Contents/Definition": 459,
+        "Header2": 711,
+        "_MO_VERSION_19000/Biography": 23,
+        "_MO_VERSION_19000/History": 187,
+        "swXmlContents/KeyWords": 1456
+      },
+      "stream_sha256": {
+        "Contents/CMgr": "5baa43c7ed503f766340cae3e1e4f3e70671d9961c36029235ea036e8d66871c",
+        "Contents/CMgrHdr2": "0075a27a098a9eb902882ede0f70f1be7b4765c9ac12cbda6ccb8e3e6519364b",
+        "Contents/Config-0": "66e712b3fb8be55674f386e1c2fb3e761be1747687033f9ce63c3bf2c35ed780",
+        "Contents/Config-0-ModelHeader": "9ed77fdb1f708f9730375809035e2d6a638f29766f8442c530a99fe5879c10ad",
+        "Contents/Config-0-ResolvedFeatures": "a7052e25ee555e8ddd7cd5ab0f1634f2869cdd2e8944eb31d8dbf017e6f11f4e",
+        "Contents/Definition": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd",
+        "Header2": "6d6dc17718e494b1e9b0f0ad97cd59e75a7a74688720f272a6c244dfa0adfe86",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "901e468d20c3b6c7ba185b5ba0420313822b577de543df146aea013d2dfcdecc",
+        "swXmlContents/KeyWords": "7e237afb01932cf199f43120e121d1f9ac55b2caa374720928762532682d073b"
+      },
+      "strict_history_refusals": 2
+    }
+  ],
+  "schema": "kit.sw2026.measured-thin-revolve-public.v1",
+  "script_sha256": "89c6c13ea63a09b5c8e71444bd7b6e915eeb0678fa4989417004c98dc0c66835",
+  "source_fingerprint": {
+    "files": 4441,
+    "sha256": "20a62a989f588f3fb535d5403d0d4e0e8b537a3d7843212702900cf3da5b47b6"
+  }
+}

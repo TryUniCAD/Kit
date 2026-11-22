@@ -22,6 +22,10 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import 
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
+    HasThinWrite,
+    PlanThinWrite,
+)
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.CanWritePat import CanWritePat
 from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import IsBoxSource
@@ -65,6 +69,9 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
             return CanWriteRev(DocumentValue, TargetValue)
         if IsColdRead(DocumentValue):
             return CanWriteCold(DocumentValue, TargetValue)
+        if HasThinWrite(DocumentValue):
+            ThinValue = PlanThinWrite(DocumentValue)
+            return IsPartTarget(ThinValue.NameValue, TargetValue)
         if IsSweepPart(DocumentValue):
             return CanWriteSweep(DocumentValue, TargetValue)
         if IsChmfPart(DocumentValue):
