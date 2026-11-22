@@ -12,3 +12,4 @@ class LineLoop:
     LinesValue: tuple[LineSegment, ...]
     OrderValue: tuple[int, ...]
     OwnerValue: Mapping[str, object]
+    RowBase: int = 0

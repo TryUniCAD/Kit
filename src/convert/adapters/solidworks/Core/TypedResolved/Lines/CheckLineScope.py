@@ -6,7 +6,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import (
 
 
 # mixed curves dimensions and derived managers remain outside the ordinary unconstrained line ring profile
-def CheckLineScope(FieldsValue: Mapping[str, object]) -> None:
+def CheckLineScope(
+    FieldsValue: Mapping[str, object], *, SavedLine: bool = False
+) -> None:
     OtherArrays = (
         "texts",
         "hatches",
@@ -43,5 +45,6 @@ def CheckLineScope(FieldsValue: Mapping[str, object]) -> None:
             "f598",
             "f588",
         )
+        if not SavedLine or NameValue not in ("dims", "f5d8")
     ):
         raise ValueError("typed line ring contains unqualified relation state")
