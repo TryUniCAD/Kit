@@ -1,0 +1,49 @@
+{
+  "base_revision": "908b9dddbdd7d3978bbf544e9a75d45000148e82",
+  "disclosed_and_legacy_guarded_processes": 0,
+  "disclosed_route_receipt_sha256": null,
+  "heldout_exact_public_output": {
+    "a": {
+      "bytes": 8641,
+      "candidate_sha256": "38ec26ec4786b85e6fa987071afc4ee37084a9136e48ea2a5db1604b82f18203",
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "request_sha256": "dc4d3ac46202f0bdbe0b4c8acee2d84375c416e45e8ca4196f28cf7f2fba5228",
+      "routes": 2,
+      "runtime_input_file_reads": 0,
+      "streams": 10,
+      "strict_sdk_bodies": 2
+    },
+    "b": {
+      "bytes": 8647,
+      "candidate_sha256": "8e8aaa954813f77e20c408f9876ecbffd47a622c1b65494e70ecf099a3c9a5f6",
+      "native_transfers": [
+        "body_structure",
+        "configurations",
+        "editable_sketches",
+        "parameters",
+        "parametric_history",
+        "selections",
+        "support_planes"
+      ],
+      "request_sha256": "ce0cb7c98f1854b72679949d058ae387c279fbc36ddf995a42aa991849f70e57",
+      "routes": 2,
+      "runtime_input_file_reads": 0,
+      "streams": 10,
+      "strict_sdk_bodies": 2
+    }
+  },
+  "native_receipt_sha256": "6b39921b4959e3662f886def026c55240227f8aab37d3246206bcf02ab8cbb7a",
+  "new_native_launches": 0,
+  "schema": "kit.sw2026.qualified-stock-writer-integration.v1",
+  "source_patch_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "tool_sha256": "c2210b8b4e8726b193997d2f4cc97878375df84ad4905ae584d3ae454593d3ff",
+  "unchanged_legacy_routes": []
+}

@@ -21,12 +21,13 @@ def read_record(path, pin):
     return json.loads(raw)
 
 
-def worker(slot):
+def worker(slot, measured):
     from EvaluateTwoStockHoldout01 import (
         BASE,
         PACKET,
         SOURCE_AUTHOR,
         SOURCE_AUTHOR_PIN,
+        WRITTEN_AT,
         checked,
         imports,
         neutral_document,
@@ -52,6 +53,10 @@ def worker(slot):
     )
     for module in ("ProvePublicColdStocks", "ProveRebuiltColdStocks"):
         import_module(module)
+    receipt = (
+        read_record(DATA / "TwoStockWriterHoldoutNative02.json", NATIVE_PIN)
+        if measured else None
+    )
     attempts = armed_guard()
     raw_request = sys.stdin.buffer.read()
     document = neutral_document(
@@ -59,6 +64,10 @@ def worker(slot):
     )
     final = str(BASE / PACKET / (part_name(slot) + ".SLDPRT"))
     options = {"final_destination": final, "require_native_transfers": True}
+    if receipt is not None:
+        options["solidworks_native_measurement"] = {
+            "written_at": WRITTEN_AT, "receipt": receipt,
+        }
     framework_out, direct_out = BytesIO(), BytesIO()
     result = write_document(
         document,
@@ -97,13 +106,16 @@ def worker(slot):
     }
 
 
-def prove():
+def prove(measured):
     from EvaluateTwoStockHoldout01 import imports, win_call, wire
     from ProveQualifiedStocks import LEGACY, launch, require
 
     _, stock, _, _ = imports()
     native = read_record(DATA / "TwoStockWriterHoldoutNative02.json", NATIVE_PIN)
-    prior = read_record(DATA / "SdkTwoStockQualifiedRegistration01.json", ROUTE_PIN)
+    prior = (
+        read_record(DATA / "SdkTwoStockQualifiedRegistration01.json", ROUTE_PIN)
+        if not measured else None
+    )
     results = {}
     for slot, expected in native["staged"]["slots"].items():
         raw = wire(
@@ -112,11 +124,22 @@ def prove():
             )
         )
         result = run(
-            (sys.executable, "-I", "-B", str(HERE), "--worker", slot),
+            (sys.executable, "-I", "-B", str(HERE), "--worker", slot,
+             *(("--measured-only",) if measured else ())),
             input=raw,
             capture_output=True,
             timeout=90,
         )
+        if measured and result.returncode != 0:
+            known = (
+                "regenerated selected stock part has no exact native measurement",
+                "ordinary and direct SDK generated different bytes",
+                "selected stock stream requires its exact measured locator",
+                "the registered held-out output lost its ten streams or required external data",
+            )
+            error = result.stderr.decode(errors="replace")
+            reason = next((item for item in known if item in error), "guarded worker failed")
+            raise ValueError("held-out slot " + slot + ": " + reason)
         require(result.returncode == 0, result.stderr.decode())
         part = json.loads(result.stdout)
         require(
@@ -126,7 +149,7 @@ def prove():
             "the public writer did not reproduce the exact native-tested locked output",
         )
         results[slot] = part
-    for mode in ("disclosed", "independent", "refusals", *LEGACY):
+    for mode in (() if prior is None else ("disclosed", "independent", "refusals", *LEGACY)):
         expected = (
             prior["legacy_parity"][mode] if mode in LEGACY else prior["results"][mode]
         )
@@ -143,10 +166,10 @@ def prove():
             check_output(("git", "diff", "--binary", "HEAD", "--", "src"), cwd=ROOT)
         ).hexdigest(),
         "native_receipt_sha256": NATIVE_PIN,
-        "disclosed_route_receipt_sha256": ROUTE_PIN,
+        "disclosed_route_receipt_sha256": ROUTE_PIN if prior is not None else None,
         "tool_sha256": sha256(HERE.read_bytes()).hexdigest(),
-        "disclosed_and_legacy_guarded_processes": 7,
-        "unchanged_legacy_routes": sorted(LEGACY),
+        "disclosed_and_legacy_guarded_processes": 7 if prior is not None else 0,
+        "unchanged_legacy_routes": sorted(LEGACY) if prior is not None else [],
         "new_native_launches": 0,
         "heldout_exact_public_output": results,
     }
@@ -156,10 +179,11 @@ if __name__ == "__main__":
     sys.path.insert(0, str(HERE.parent))
     parser = ArgumentParser()
     parser.add_argument("--worker", choices=("a", "b"))
+    parser.add_argument("--measured-only", action="store_true")
     args = parser.parse_args()
     print(
         json.dumps(
-            worker(args.worker) if args.worker else prove(),
+            worker(args.worker, args.measured_only) if args.worker else prove(args.measured_only),
             sort_keys=True,
             indent=2,
             allow_nan=False,
