@@ -17,10 +17,18 @@ def PickLabelSwap(State: GeometryState) -> tuple[int, int, int]:
     )
     Matches: list[tuple[int, int, int]] = []
     for Index, Entity in enumerate(State.Entities):
-        if not isinstance(Entity, TagAttrib):
+        if (
+            not isinstance(Entity, TagAttrib)
+            or Entity.Links.NextAttrib != -1
+            or Entity.Links.PriorAttrib != -1
+        ):
             continue
         Owner = State.Entities[Entity.Links.OwnerRef]
-        if not isinstance(Owner, FaceNode) or Owner in Sheets:
+        if (
+            not isinstance(Owner, FaceNode)
+            or Owner in Sheets
+            or Owner.Prefix.Attribute != Index
+        ):
             continue
         CapPlane = State.Entities[Owner.Surface]
         if not isinstance(CapPlane, PlaneNode):
@@ -37,8 +45,8 @@ def PickLabelSwap(State: GeometryState) -> tuple[int, int, int]:
                 Matches.append(
                     (Entity.Links.OwnerRef, State.Entities.index(Sheet), Index)
                 )
-    if len(Matches) != 1:
+    if not Matches:
         raise ValueError(
-            "Label replay requires one untagged sheet and cap at the same station"
+            "Label replay requires an untagged sheet and independently labeled cap at the same station"
         )
-    return Matches[0]
+    return min(Matches)

@@ -642,7 +642,9 @@ def public_guards(raw, document, contract, mode):
     result = {
         "strict": refusal(
             lambda: open_document(raw, strict=True),
-            "Unmodeled native Fusion semantic entity class",
+            "Native Fusion semantic link requires an entity reference"
+            if mode[0] == "through_all"
+            else "Unmodeled native Fusion semantic entity class",
         )
     }
     for name, item in (

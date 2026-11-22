@@ -82,7 +82,10 @@ def inspectable_document(document, model):
     rejection = refusal(
         lambda: EncodeDocument(forged), "Fusion native-state projection is read-only"
     )
-    return sha256(encoded.encode("utf-8")), rejection
+    legacy = json.loads(encoded)
+    for feature in legacy["feature_timeline"]["$tuple"]:
+        require(feature.pop("output_body_ids") == {"$tuple": []}, "Historical radial feature gained output body ownership")
+    return sha256(json.dumps(legacy, sort_keys=True, ensure_ascii=False).encode("utf-8")), rejection
 
 
 # Preserve the other members in the inherited native value object.
