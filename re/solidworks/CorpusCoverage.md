@@ -136,6 +136,12 @@ the intact source beside the clean model and rejects altered parameters,
 crossed shape owners and the origin-fixed F14a control. Explicit and
 inferred public writes still refuse. This adds zero benchmark conversions.
 
+The [origin datum audit](records/FreecadAttachedOriginAxes2026.md) retains
+three actual source axis owners in the typed plan and confirms that none
+occurs in the existing measured native part. The normal SDK and CLI
+still refuse. Source archive attribution and selectable geometry have
+separate evidence. The recorded roster and conversion counts stay open.
+
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
 healthy controls. This verifies kernel geometry for those disclosed

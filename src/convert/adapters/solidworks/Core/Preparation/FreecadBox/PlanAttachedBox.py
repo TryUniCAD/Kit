@@ -3,6 +3,9 @@ from dataclasses import dataclass as MakeDataClass
 from convert.adapters.freecad.Native import DecodeNativeDoc
 from convert.adapters.freecad.Replay.NativeDocPair import NativeDocPair
 from convert.adapters.freecad.Replay.ReadNativeArc import ReadNativeArc
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.BoxOriginAxes import (
+    BoxOriginAxes,
+)
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.BoxSource import (
     BoxSource,
 )
@@ -12,6 +15,9 @@ from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadBoxRelea
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadBoxSource import (
     ReadBoxSource,
 )
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadOriginAxes import (
+    ReadOriginAxes,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -20,6 +26,7 @@ from interchange.document.Models.DocumentModel import CadDocument
 class AttachedBoxPlan:
     SourceDocument: CadDocument
     PartSource: BoxSource
+    OriginAxes: BoxOriginAxes
 
 
 # a typed source record must still agree with the intact archive before it supplies dimensions
@@ -52,4 +59,4 @@ def PlanAttachedBox(Document: CadDocument) -> AttachedBoxPlan:
     ):
         raise ValueError("expected an intact FreeCAD 0.21 attached box source")
     CheckAttachDoc(Document)
-    return AttachedBoxPlan(Document, ReadBoxSource(Document))
+    return AttachedBoxPlan(Document, ReadBoxSource(Document), ReadOriginAxes(Document))

@@ -135,14 +135,14 @@ identity, and the ordinary plain part planner refuses that extended
 source state. The guarded calls preserve populated destinations and the
 stream cursor and create no staging entries. The general catalogue lacks
 the native-payload capability on this revision. The original owner proof's
-catalogue assertion records an earlier capability set. The intact original
-archive and its digest binding, the source-only origin axes, per-record
-provenance and round-trip metadata still require target representation
-and source-specific transfer qualification. The existing archived native
-report also needs a matching
-publication receipt before a public route could publish even the scoped
-candidate. Historical roster membership is unverified. This comparison
-adds no native observations and zero benchmark conversion credits.
+catalogue assertion records an earlier capability set. The subsequent
+[origin datum and transfer audit](FreecadAttachedOriginAxes2026.md)
+identifies three missing selectable axes as functional source data. The
+original archive and digest binding establish source attribution. The
+existing archived native report also needs a matching publication receipt
+for a complete generated candidate. Historical roster membership is
+unverified. This comparison adds no native observations and zero
+benchmark conversion credits.
 
 Run the [intact planner proof](../../tooling/sw2026/attached_top_box_source/VerifyIntactAttachedPlan.py)
 with the two verified CADMPEG originals and an unused report path. The
