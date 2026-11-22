@@ -1,0 +1,596 @@
+{
+  "base_revision": "8ea2fa45b285499f1f50c61f04b29c7f0649ebf4",
+  "cases": {
+    "Edited": {
+      "assembly_binding": {
+        "child_definition": [
+          "sldasm:definition:5",
+          "definition/part"
+        ],
+        "configuration": [
+          "sldprt:configuration:0",
+          "configuration/active"
+        ],
+        "embedded_document": [
+          "sldasm:document:d566026624218f75de64",
+          "document/part"
+        ],
+        "endpoints": [
+          [
+            "sldasm:mate:2:0:0:entity:0",
+            "endpoint/1"
+          ],
+          [
+            "sldasm:mate:2:0:0:entity:1",
+            "endpoint/2"
+          ]
+        ],
+        "mate": [
+          "sldasm:mate:2:0:0",
+          "mate/concentric"
+        ],
+        "mate_group": [
+          "sldasm:definition:2:mate-group:11",
+          "group/mates"
+        ],
+        "occurrences": [
+          [
+            "sldasm:instance:4",
+            "occurrence/1"
+          ],
+          [
+            "sldasm:instance:7",
+            "occurrence/2"
+          ]
+        ],
+        "principal_planes": [
+          [
+            "sldprt:plane:3",
+            "datum/z"
+          ],
+          [
+            "sldprt:plane:4",
+            "datum/y"
+          ],
+          [
+            "sldprt:plane:5",
+            "datum/x"
+          ]
+        ],
+        "root_definition": [
+          "sldasm:definition:2",
+          "definition/assembly"
+        ]
+      },
+      "base": "8ea2fa45b285499f1f50c61f04b29c7f0649ebf4",
+      "candidate_bytes_published": 0,
+      "child_binding": {
+        "blind_depth_driver": [
+          "sldprt:parameter:33:D1",
+          "driver/depth",
+          "sldprt:parameter:20:D1"
+        ],
+        "body": [
+          "sldprt:body:1",
+          "body/solid",
+          "sldprt:body:1"
+        ],
+        "boss": [
+          "sldprt:feature:33",
+          "feature/boss",
+          "sldprt:feature:20"
+        ],
+        "circle": [
+          "sldprt:sketch:26:profile:0",
+          "profile/circle",
+          "sldprt:sketch:18:circle:1"
+        ],
+        "configuration": [
+          "sldprt:configuration:0",
+          "configuration/active",
+          "sldprt:configuration:0"
+        ],
+        "fixed_centre": [
+          "sldprt:sketch:26:native:6063",
+          [
+            "profile/circle",
+            "center"
+          ],
+          "sldprt:sketch:18:point:2"
+        ],
+        "fixed_relation": [
+          "sldprt:constraint:26:center:fixed",
+          "relation/fixed-centre",
+          "sldprt:sketch:18:point:2:fixed"
+        ],
+        "front_support": [
+          "sldprt:plane:2",
+          "datum/z",
+          "sldprt:plane:14"
+        ],
+        "lateral_face": [
+          "sldprt:brep:face:40",
+          "body/solid-sweep-side-1-face",
+          "sldprt:brep:face:8"
+        ],
+        "radius_driver": [
+          "sldprt:parameter:26:D1",
+          "driver/radius",
+          "sldprt:parameter:18:D1"
+        ],
+        "radius_relation": [
+          "sldprt:constraint:26:profile:0:radius",
+          "relation/radius",
+          "sldprt:sketch:18:circle:1:radial"
+        ],
+        "sketch": [
+          "sldprt:sketch:26",
+          "sketch/profile",
+          "sldprt:sketch:18"
+        ],
+        "sketch_feature": [
+          "sldprt:feature:26",
+          "sketch/profile",
+          "sldprt:feature:18"
+        ]
+      },
+      "comparison_candidate": {
+        "parent_bytes": 10375,
+        "parent_sha256": "381d7bb67144c0f16c5d878b51ee7f3eeed11fa0d9375fe3b1255fb33a54e839",
+        "part_bytes": 10849,
+        "part_streams": 11,
+        "parts_sha256": "73e448eb1bf723adaf74d183212d084300f86367e77c74a11766386a94815d09"
+      },
+      "guarded_builder_processes": 2,
+      "native_acceptance": false,
+      "native_source_author_sha256": "2db426555837d4ef400c478c89ca6f94a63b5b200f555d5dafbeee8a557688be",
+      "native_source_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "neutral_constructor_request_sha256": "1efbac20d69416ab76dedc49a7fe20da94d8e8cbb1f436a7a55b8a9841511dc8",
+      "oracle_processes_started": 0,
+      "ordered_endpoint_binding": [
+        {
+          "generated_face": "sldprt:brep:face:8",
+          "generated_native_feature": 24,
+          "generated_occurrence": "sldasm:instance:4",
+          "neutral_entity": "endpoint/1",
+          "neutral_occurrence": "occurrence/1",
+          "source_entity": "sldasm:mate:2:0:0:entity:0",
+          "source_occurrence": "sldasm:instance:4"
+        },
+        {
+          "generated_face": "sldprt:brep:face:8",
+          "generated_native_feature": 25,
+          "generated_occurrence": "sldasm:instance:7",
+          "neutral_entity": "endpoint/2",
+          "neutral_occurrence": "occurrence/2",
+          "source_entity": "sldasm:mate:2:0:0:entity:1",
+          "source_occurrence": "sldasm:instance:7"
+        }
+      ],
+      "ordered_physical_endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.04691
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.06561
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.04691
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.03126999999999999,
+            0.26817
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.04691000000000001
+          ],
+          "source_face": "sldprt:brep:face:40",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.31508
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "original_sha256": {
+        "child": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+        "parent": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52"
+      },
+      "phase": "Edited",
+      "physical_face_binding": {
+        "sldprt:brep:face:40": "sldprt:brep:face:8",
+        "sldprt:brep:face:54": "sldprt:brep:face:10",
+        "sldprt:brep:face:56": "sldprt:brep:face:9"
+      },
+      "protected_inputs_read": 0,
+      "published_root_name": "ConcentricD01AlignedFree",
+      "recovered_same_neutral_child": true,
+      "refused": {
+        "cap_as_lateral": "saved cylinder correspondence: mate endpoint does not select the actual lateral face on a direct occurrence",
+        "crossed_occurrence": "saved cylinder correspondence: mate portable and native owner references differ"
+      },
+      "remaining": {
+        "child_dimension_labels_m": {
+          "radius": {
+            "generated": [
+              0.01701,
+              0.00302,
+              0.0
+            ],
+            "source": [
+              0.014853,
+              0.005176999999999999,
+              0.0001
+            ]
+          }
+        },
+        "child_presentation_and_appearance_pending": true,
+        "explicit_display_generation_refusal": "assembly visibility requires the default and two opposite states",
+        "original_root_refusal": "assembly root contains unprojected model content",
+        "source_clocks_used_as_output_values": false,
+        "source_manager_visual_locator_present": [
+          false,
+          false
+        ],
+        "source_metadata_preserved_outside_construction_input": true,
+        "source_visual_store_bytes": {
+          "child": 1789,
+          "parent": 1599
+        },
+        "whole_source_admitted": false
+      },
+      "root_model_name": "ConcentricD01AlignedFree",
+      "writer_external_accesses": 0
+    },
+    "Source": {
+      "assembly_binding": {
+        "child_definition": [
+          "sldasm:definition:5",
+          "definition/part"
+        ],
+        "configuration": [
+          "sldprt:configuration:0",
+          "configuration/active"
+        ],
+        "embedded_document": [
+          "sldasm:document:92b83376b42ca55aa3b3",
+          "document/part"
+        ],
+        "endpoints": [
+          [
+            "sldasm:mate:2:0:0:entity:0",
+            "endpoint/1"
+          ],
+          [
+            "sldasm:mate:2:0:0:entity:1",
+            "endpoint/2"
+          ]
+        ],
+        "mate": [
+          "sldasm:mate:2:0:0",
+          "mate/concentric"
+        ],
+        "mate_group": [
+          "sldasm:definition:2:mate-group:11",
+          "group/mates"
+        ],
+        "occurrences": [
+          [
+            "sldasm:instance:4",
+            "occurrence/1"
+          ],
+          [
+            "sldasm:instance:7",
+            "occurrence/2"
+          ]
+        ],
+        "principal_planes": [
+          [
+            "sldprt:plane:3",
+            "datum/z"
+          ],
+          [
+            "sldprt:plane:4",
+            "datum/y"
+          ],
+          [
+            "sldprt:plane:5",
+            "datum/x"
+          ]
+        ],
+        "root_definition": [
+          "sldasm:definition:2",
+          "definition/assembly"
+        ]
+      },
+      "base": "8ea2fa45b285499f1f50c61f04b29c7f0649ebf4",
+      "candidate_bytes_published": 0,
+      "child_binding": {
+        "blind_depth_driver": [
+          "sldprt:parameter:33:D1",
+          "driver/depth",
+          "sldprt:parameter:20:D1"
+        ],
+        "body": [
+          "sldprt:body:1",
+          "body/solid",
+          "sldprt:body:1"
+        ],
+        "boss": [
+          "sldprt:feature:33",
+          "feature/boss",
+          "sldprt:feature:20"
+        ],
+        "circle": [
+          "sldprt:sketch:26:profile:0",
+          "profile/circle",
+          "sldprt:sketch:18:circle:1"
+        ],
+        "configuration": [
+          "sldprt:configuration:0",
+          "configuration/active",
+          "sldprt:configuration:0"
+        ],
+        "fixed_centre": [
+          "sldprt:sketch:26:native:6063",
+          [
+            "profile/circle",
+            "center"
+          ],
+          "sldprt:sketch:18:point:2"
+        ],
+        "fixed_relation": [
+          "sldprt:constraint:26:center:fixed",
+          "relation/fixed-centre",
+          "sldprt:sketch:18:point:2:fixed"
+        ],
+        "front_support": [
+          "sldprt:plane:2",
+          "datum/z",
+          "sldprt:plane:14"
+        ],
+        "lateral_face": [
+          "sldprt:brep:face:42",
+          "body/solid-sweep-side-1-face",
+          "sldprt:brep:face:8"
+        ],
+        "radius_driver": [
+          "sldprt:parameter:26:D1",
+          "driver/radius",
+          "sldprt:parameter:18:D1"
+        ],
+        "radius_relation": [
+          "sldprt:constraint:26:profile:0:radius",
+          "relation/radius",
+          "sldprt:sketch:18:circle:1:radial"
+        ],
+        "sketch": [
+          "sldprt:sketch:26",
+          "sketch/profile",
+          "sldprt:sketch:18"
+        ],
+        "sketch_feature": [
+          "sldprt:feature:26",
+          "sketch/profile",
+          "sldprt:feature:18"
+        ]
+      },
+      "comparison_candidate": {
+        "parent_bytes": 10361,
+        "parent_sha256": "380c50e72eb099dd4f8dd31b08b7bcc967ec37e6f0905aa767839fc414b44e22",
+        "part_bytes": 10851,
+        "part_streams": 11,
+        "parts_sha256": "9f6d8f3e07948441c1e5ad7acb5a263234955660143163a0d97f59c591287296"
+      },
+      "guarded_builder_processes": 2,
+      "native_acceptance": false,
+      "native_source_author_sha256": "2db426555837d4ef400c478c89ca6f94a63b5b200f555d5dafbeee8a557688be",
+      "native_source_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+      "neutral_constructor_request_sha256": "343f11647e32faf4790462b06dd55f1f1d2a525ee7d23535d653ba127cf34958",
+      "oracle_processes_started": 0,
+      "ordered_endpoint_binding": [
+        {
+          "generated_face": "sldprt:brep:face:8",
+          "generated_native_feature": 24,
+          "generated_occurrence": "sldasm:instance:4",
+          "neutral_entity": "endpoint/1",
+          "neutral_occurrence": "occurrence/1",
+          "source_entity": "sldasm:mate:2:0:0:entity:0",
+          "source_occurrence": "sldasm:instance:4"
+        },
+        {
+          "generated_face": "sldprt:brep:face:8",
+          "generated_native_feature": 25,
+          "generated_occurrence": "sldasm:instance:7",
+          "neutral_entity": "endpoint/2",
+          "neutral_occurrence": "occurrence/2",
+          "source_entity": "sldasm:mate:2:0:0:entity:1",
+          "source_occurrence": "sldasm:instance:7"
+        }
+      ],
+      "ordered_physical_endpoints": [
+        {
+          "entity": "sldasm:mate:2:0:0:entity:0",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:4",
+          "reference_number": "1",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.05007
+          ],
+          "world_axis": [
+            -0.0,
+            -0.0,
+            -1.0
+          ]
+        },
+        {
+          "entity": "sldasm:mate:2:0:0:entity:1",
+          "generated_axial_bounds_m": [
+            0.0,
+            -0.03137
+          ],
+          "generated_face": "sldprt:brep:face:8",
+          "generated_world_origin_m": [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ],
+          "local_axis": [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          "occurrence": "sldasm:instance:7",
+          "reference_number": "2",
+          "source_axial_bounds_m": [
+            0.0,
+            0.03137000000000001
+          ],
+          "source_face": "sldprt:brep:face:42",
+          "stored_world_origin_m": [
+            0.043930000000000004,
+            -0.03127,
+            0.28717000000000004
+          ],
+          "world_axis": [
+            0.0,
+            -0.0,
+            -1.0
+          ]
+        }
+      ],
+      "original_sha256": {
+        "child": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+        "parent": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2"
+      },
+      "phase": "Source",
+      "physical_face_binding": {
+        "sldprt:brep:face:42": "sldprt:brep:face:8",
+        "sldprt:brep:face:54": "sldprt:brep:face:9",
+        "sldprt:brep:face:58": "sldprt:brep:face:10"
+      },
+      "protected_inputs_read": 0,
+      "published_root_name": "ConcentricD01AlignedFree",
+      "recovered_same_neutral_child": true,
+      "refused": {
+        "cap_as_lateral": "saved cylinder correspondence: mate endpoint does not select the actual lateral face on a direct occurrence",
+        "crossed_occurrence": "saved cylinder correspondence: mate portable and native owner references differ"
+      },
+      "remaining": {
+        "child_dimension_labels_m": {
+          "radius": {
+            "generated": [
+              0.01701,
+              0.00302,
+              0.0
+            ],
+            "source": [
+              0.014853,
+              0.005176999999999999,
+              0.0001
+            ]
+          }
+        },
+        "child_presentation_and_appearance_pending": true,
+        "explicit_display_generation_refusal": "assembly visibility requires the default and two opposite states",
+        "original_root_refusal": "assembly root contains unprojected model content",
+        "source_clocks_used_as_output_values": false,
+        "source_manager_visual_locator_present": [
+          false,
+          false
+        ],
+        "source_metadata_preserved_outside_construction_input": true,
+        "source_visual_store_bytes": {
+          "child": 1789,
+          "parent": 1275
+        },
+        "whole_source_admitted": false
+      },
+      "root_model_name": "Assem1",
+      "writer_external_accesses": 0
+    }
+  },
+  "confirmed_owner_refusals": 4,
+  "fresh_source_supervisors": 2,
+  "guarded_constructor_workers": 4,
+  "measured_face_correspondences": 6,
+  "measured_ordered_endpoint_correspondences": 4,
+  "new_native_or_protected_case_credit": 0,
+  "production_source_changes": 0,
+  "reversible_child_role_pairs": 26,
+  "schema": "kit.sw2026.d01-concentric-design-bridge.v1",
+  "source_files_sha256": {
+    "re/tooling/sw2026/para/concentric/ProjectD01Concentric.py": "e55f086caf68c8b0b6d500147cc0ffcc2b208bbcfd97d9f4bfda7e5bc8bb7176",
+    "re/tooling/sw2026/para/concentric/ProveD01ConcentricBridge.py": "50c26cc4dae5d4542be3682d903b9a883f8990cffb48396fa29d9b9ce82fe076"
+  },
+  "source_oracle_build": "34.5.2.0604",
+  "whole_source_admitted": false
+}

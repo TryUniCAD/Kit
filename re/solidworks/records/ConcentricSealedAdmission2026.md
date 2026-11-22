@@ -2,11 +2,13 @@
 
 Task `B04-SW2026-MATES-CONCENTRIC`, delivery PR #121. H01 and H02 remain sealed. The disclosed persistence run proves one diameter-driven child and one aligned, unlocked mate with an explicitly authored single-light environment. The original source cohort has a distinct radial driver and source scene. Keep the [pre-writer source locks](ConcentricMateConstructionSources2026.md#corrected-native-source-run) intact while qualifying the disclosed source-to-writer projection.
 
+The [D01 design bridge](ConcentricD01DesignBridge2026.md) now uses the actual original and edited source reads to construct a separate neutral model without a fixture seed. Both guarded repeats and the inverse child projection pass. The source display's single all-visible state, the child's radial label normal offset and saved appearance remain explicit boundaries before a full source-native experiment.
+
 ## Disclosed source comparison
 
 A read-only host observation on source revision `35aba0b78` used the ordinary SDK and typed archive readers on the disclosed D01 source pair. The parent SHA-256 is `2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2`. The child SHA-256 is `92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa`. No native processes, hidden records or test suites ran. The existing [public projection proof](PublicConcentricMateRead2026.md) covers six original and edited disclosed source pairs.
 
-| Required owner | Measured disclosed D01 input | Current admission boundary |
+| Required owner | Measured disclosed D01 input | Admission boundary at that revision |
 | --- | --- | --- |
 | Assembly root | Typed mate projection is `admitted`. The source has 25 parent feature rows, one informational native name diagnostic and typed source metadata. | Direct `ReadAsmModel` fails on the unprojected root inventory. `CheckAsmRoot` requires a plain root and a sole name metadata field. |
 | Shared child and component names | `ConcentricD01Child-1` and `ConcentricD01Child-2` match the real child basename and carry separate source reference numbers `1` and `2`. Both have native provenance plus display, transform and selection attributes. One is fixed. | `CheckAsmDef` and `CheckAsmOcc` require complete owned neutral dependencies and refuse source paths and raw extensions. Prove correspondence for both typed occurrences and the independent reference-number semantics before creating the owned generated part and occurrences. |
