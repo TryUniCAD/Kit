@@ -129,3 +129,54 @@ python3.14 -I -B re/tooling/sw2026/sweep_source/CheckTrackedSweepSdk.py --role s
 python3.14 -I -B re/tooling/sw2026/sweep_source/ScrubSweepFixtures.py \
   --disclosed /path/to/SweepBossSource07/DisclosedNative --output /tmp/KitSweepFixtures
 ```
+
+## Review boundaries and warm publication
+
+The ordinary ResolvedFeatures layout, schema and virtual dispatch tables
+match the pinned #238 parent. Only the explicit saved standard sweep
+context installs the saved reference classes and substitutes the observed
+branches of the atom, end spec, feature dimension and profile layouts.
+An independently generated cold context reaches map 225 before and after a
+saved context reaches map 278. The ordinary context keeps its original maps
+and none of the four sampled saved reference classes.
+
+For each scrubbed fixture, full and design-only reads run partition
+framing, signed torus and rim-trim checks once. The full read runs the
+neutral B-rep constructor and decoder once. Design-only invokes neither
+and preserves the checked body topology and editable owners. Replacing
+each of the three optional XML streams with genuinely malformed XML
+produces a strict saved-sweep diagnostic with its parse cause. The
+permissive case keeps 27 feature rows and one body. It makes one read of
+the installed legacy layout file. The worker allows only that exact
+package path during the permissive calls.
+[Guarded review receipt](../measurements/2026/ScopedSavedSweepReview03.json)
+
+The warm-to-native proof uses the actual linked live Section diameter,
+Path radius and density from all six disclosed sources. At the previously
+measured logical output identity, a geometry-only compiler reproduces
+the two original cold hashes. This confirms preservation of the solid
+measurements and both driver values for that projection. The saved reader
+also retains the active body appearance and atom identity and the owned
+Section start/end point. Those fields are absent from the measured cold
+neutral projection. Both warm originals also carry a different neutral
+part name at their ModelHeader identity. All three literal property maps
+are empty in these six cases.
+
+The Section edits rotate the owned point by 17°. The current cold intent
+has only a circle center and radius, so it cannot encode that authored
+point. Both path edits and both section edits produce new geometry-only
+digests at the old locator. The existing native observations cover the
+actual saved derivatives and the original cold bytes, so a fresh
+model-generated edited part needs its own exact measurement. All 24
+registry and direct write attempts over full and design-only warm
+documents refuse without changing their output streams.
+
+The next writer prerequisite is a shared typed Section seam input and
+an appearance rule verified on both disclosed originals and their measured
+cold controls. A native open and editable D1 lifecycle for a newly generated
+edited part must then bind the actual output hash.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/sweep_source/AuditWarmSweepWrite.py \
+  --disclosed /path/to/SweepBossSource07/DisclosedNative
+```

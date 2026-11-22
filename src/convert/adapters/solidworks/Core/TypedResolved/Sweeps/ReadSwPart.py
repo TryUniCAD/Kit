@@ -94,7 +94,7 @@ def ReadSwPart(
             DocValue = ReadSavedSw(Archive, DataValue, Label, SettingsValue)
             DocValue.assert_valid()
             return DocValue
-        except (IndexError, KeyError, TypeError, ValueError) as ErrorValue:
+        except (IndexError, KeyError, TypeError, ValueError, SyntaxError) as ErrorValue:
             raise SldprtFormatError(
                 f"unsupported SOLIDWORKS saved sweep result partition: {ErrorValue}"
             ) from ErrorValue
@@ -114,7 +114,7 @@ def ReadSwPart(
             raise ValueError("requested sweep read configuration is unavailable")
         DocValue.assert_valid()
         return DocValue
-    except (IndexError, KeyError, TypeError, ValueError) as ErrorValue:
+    except (IndexError, KeyError, TypeError, ValueError, SyntaxError) as ErrorValue:
         raise SldprtFormatError(
             f"unsupported SOLIDWORKS cold sweep: {ErrorValue}"
         ) from ErrorValue

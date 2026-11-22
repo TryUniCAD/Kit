@@ -2,6 +2,9 @@ from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSwRefsMut import (
+    UseSwRefsMut,
+)
 from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
     UseSweepCtxMut,
 )
@@ -10,6 +13,7 @@ from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSweepCtxMut import (
 # saved history children and retained face choices require their actual current archive classes
 def UseSavedSwMut(ContextValue: BodyContext) -> None:
     UseSweepCtxMut(ContextValue, SavedResult=True)
+    UseSwRefsMut(ContextValue)
     HistoryName = "moHistoryFeatItemData_c"
     SideName = "moSweepSideSurfIdRep_c"
     DisplayName = "moDisplayItem_c.Serialize"

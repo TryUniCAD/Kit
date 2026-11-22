@@ -347,9 +347,11 @@ same profile in strict and permissive mode. Full and design-only readback
 can republish the same archive through the measured write gate. The
 strict reader also restores the verified single-configuration saved
 Standard sweep with its actual edited Section seam, live D1 values and
-signed torus and cap trims. Permissive inspection can still show partial
-history for wider saved sweeps. The conversion command can preserve
-the complete canonical cold projection as neutral JSON.
+signed torus and cap trims. Design-only reads verify the same saved
+partition without constructing the neutral B-rep. The saved route
+supports inspection. Permissive inspection can still show partial
+history for wider saved sweeps or malformed optional XML. The conversion
+command can preserve the complete canonical cold projection as neutral JSON.
 [Measured Standard sweep](../../Changes/Solidworks/Construction/SolidworksMeasuredSweep.md)
 [Typed sweep readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdSweepReadback.md)
 [Saved Standard sweep readback](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedSweepReadback.md)

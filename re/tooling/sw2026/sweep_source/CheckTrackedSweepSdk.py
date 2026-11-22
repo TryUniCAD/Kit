@@ -10,6 +10,7 @@ sys.path[:0] = [str(HERE.parent), str(ROOT / "src")]
 
 from AuditSavedSweepMain import LOCK, checked, demand
 from CheckSavedSweepSdk import RECEIPT_PATH, TOPOLOGY, preload
+from CheckSweepReadEdges import LegacyLayoutAccess, review_boundaries
 from convert import open_document
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Container.Format import KPartFormatId
@@ -44,7 +45,8 @@ def run(role):
     raw = checked(FIXTURES / expected["file"], expected["archive_sha256"])
     demand(len(raw) == expected["archive_bytes"], "test archive extent changed")
     preload()
-    blocked = guard_runtime()
+    access = LegacyLayoutAccess()
+    blocked = guard_runtime(access.allow_open)
     adapter = SldprtAdapter()
     direct = adapter.read(raw, ReadOptions(configuration="Default", strict=True))
     normal = open_document(BytesIO(raw), source_format=KPartFormatId, strict=True)
@@ -56,12 +58,14 @@ def run(role):
            and direct.source.attributes["saved_sweep_result"] is True
            and not CanWriteSweep(normal, BytesIO()) and not CanWriteSweep(design, BytesIO()),
            "actual saved readback lost its source authority or entered the cold writer")
+    edges = review_boundaries(raw, access)
     demand(not blocked and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
            "saved fixture SDK read accessed a runtime file or CAD process")
     return {"role": role, "fixture_sha256": expected["archive_sha256"],
             "native_source_sha256": expected["original_archive_sha256"],
             "strict_reader_routes": 3, "runtime_accesses": len(blocked), "native_launches": 0,
-            **observed}
+            "permissive_legacy_layout_reads": access.opens,
+            **observed, "review_boundaries": edges}
 
 
 if __name__ == "__main__":

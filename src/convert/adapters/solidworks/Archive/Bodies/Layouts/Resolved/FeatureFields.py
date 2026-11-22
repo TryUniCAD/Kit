@@ -31,7 +31,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f28", "rf.suObArray"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -56,7 +56,7 @@ KFeatureFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f48", "rf.suObArray"),),
+                BodyValue=(NativeField("Fail", "alternate moEndSpec_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",

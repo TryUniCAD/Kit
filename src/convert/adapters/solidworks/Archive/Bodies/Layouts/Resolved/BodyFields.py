@@ -30,7 +30,9 @@ KBodyFields = MappingProxyType(
                     NativeField(
                         "Branch",
                         "",
-                        BodyValue=(NativeField("Embed", "f528", "rf.suObArray"),),
+                        BodyValue=(
+                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                        ),
                         ModeValue="Expression",
                         ExpressionValue=(
                             "compare",
@@ -103,7 +105,11 @@ KBodyFields = MappingProxyType(
                                 "Array",
                                 "f498",
                                 "i32",
-                                BodyValue=(NativeField("Scalar", "v", "i32"),),
+                                BodyValue=(
+                                    NativeField(
+                                        "Fail", "alternate moAtomFeature_c f498"
+                                    ),
+                                ),
                                 CountValue="n494",
                                 ModeValue="Positive",
                             ),
@@ -162,7 +168,7 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f4a8", "moBodyChooser_c"),),
+                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -176,7 +182,7 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f4b0", "moBodyChooser_c"),),
+                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -190,7 +196,7 @@ KBodyFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "f4c0", "moBodyChooser_c"),),
+                BodyValue=(NativeField("Fail", "alternate moAtomFeature_c Branch"),),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -235,10 +241,7 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Node", "f3d0", "moPMarkRecord_c"),
-                            NativeField("Scalar", "f3c0", "i32"),
-                            NativeField("Scalar", "f3c8", "i32"),
-                            NativeField("Scalar", "f580", "i32"),
+                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(

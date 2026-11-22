@@ -58,7 +58,11 @@ def MakeSwBody(
         },
     )
     if SavedBody is not None:
-        return BindSwBody(StateValue, BodyValue, SavedBody, IncludeBrep)
+        if IncludeBrep is not (SavedBody.ModelValue is not None):
+            raise ValueError(
+                "saved sweep result differs from the requested geometry mode"
+            )
+        return BindSwBody(StateValue, BodyValue, SavedBody)
     return BodyValue, (
         BuildQuarter(BodyId, SectionRadius, PathRadius) if IncludeBrep else None
     )
@@ -69,7 +73,6 @@ def BindSwBody(
     StateValue: SwReadGraph,
     BodyValue: DesignBody,
     SavedBody: SwSavedBody,
-    IncludeBrep: bool,
 ) -> tuple[DesignBody, BrepModel | None]:
     AtomValue = SavedBody.AtomValue
     BodyId = str(AtomValue.FieldsValue["f140"])
@@ -87,12 +90,10 @@ def BindSwBody(
         },
     )
     ModelValue = SavedBody.ModelValue
+    if ModelValue is None:
+        return ResultValue, None
     (SolidValue,) = ModelValue.bodies
-    return ResultValue, (
-        ReplaceValue(
-            ModelValue,
-            bodies=(ReplaceValue(SolidValue, design_body_id=ResultValue.id),),
-        )
-        if IncludeBrep
-        else None
+    return ResultValue, ReplaceValue(
+        ModelValue,
+        bodies=(ReplaceValue(SolidValue, design_body_id=ResultValue.id),),
     )

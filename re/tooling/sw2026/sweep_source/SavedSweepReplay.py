@@ -21,6 +21,7 @@ from convert.adapters.solidworks.Archive.Partition.LocalWrite.LocalXmtProfile im
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut import WriteXmtNodeMut
 from convert.adapters.solidworks.Archive.Partition.ReadActiveNodes import ReadActiveNodes
 from convert.adapters.solidworks.Archive.Partition.Sweeps.ReadSwFrame import ReadSwFrame
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSwRefsMut import UseSwRefsMut
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KConfigStream, KResolvedFeaturesStream
@@ -55,6 +56,7 @@ def saved_context(version, seed, flags, usage):
     context = MAKE_CONTEXT(version, seed, flags | {"cmgr_f658": 0}, usage)
     READER.UseSweepCtxMut(context)
     context.FlagsValue = dict(flags)
+    UseSwRefsMut(context)
     context.LayoutsValue = context.LayoutsValue | {
         HISTORY: (Field("Base", "moNode_c"), Field("Node", "f48", "moCompFeature_c")),
         SIDE: (Field("Base", "er.FUN_4bba8790"), Field("Scalar", "f38", "i32"), Field("Scalar", "f3c", "i32")),
@@ -122,12 +124,14 @@ def write_body(writer, node):
     WRITE_BODY(writer, node, SchemaWriter=write_schema)
 
 
-def guard_runtime():
+def guard_runtime(allow_open=None):
     for encoding in ("ascii", "latin-1", "cp1252", "utf-8", "utf-16-le", "utf-16-be"):
         lookup(encoding)
     attempts = []
 
-    def audit(event, _):
+    def audit(event, args):
+        if event == "open" and allow_open is not None and allow_open(args):
+            return
         if event in ("open", "os.listdir", "os.scandir", "os.exec", "os.system",
                      "os.posix_spawn", "ctypes.dlopen") or event.startswith(("socket.", "subprocess.")):
             attempts.append(event)

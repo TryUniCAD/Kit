@@ -60,7 +60,9 @@ def ReadSavedSw(
         )
     CheckSwHist(GraphValue, SweepLabels(FileValue.NameValue))
     CheckSwRefs(GraphValue, FileValue)
-    SavedBody = ReadSwResult(Archive, GraphValue)
+    SavedBody = ReadSwResult(
+        Archive, GraphValue, IncludeBrep=SettingsValue.include_brep
+    )
     SourceValue = CadSource(
         KPartFormatId,
         Label,

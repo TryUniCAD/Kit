@@ -7,7 +7,8 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KGhostPartition, KPartitionStream
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwGraph import ReadSwGraph
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import ReadSwPart
-from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwResult import ReadSwFrames, ReadSwResult
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwFrames import ReadSwFrames
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwResult import ReadSwResult
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwRims import ReadSwRims
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwShell import ReadSwShell
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Saved.ReadSwTrim import ReadSwTrim

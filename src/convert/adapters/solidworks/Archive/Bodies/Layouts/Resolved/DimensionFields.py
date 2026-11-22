@@ -821,7 +821,9 @@ KDimensionFields = MappingProxyType(
             NativeField(
                 "Branch",
                 "",
-                BodyValue=(NativeField("Embed", "ff0", "mgXform_c.restore"),),
+                BodyValue=(
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                ),
                 ModeValue="Expression",
                 ExpressionValue=(
                     "compare",
@@ -848,8 +850,7 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Embed", "fe0", "mgVector_c.restore"),
-                    NativeField("Embed", "fe8", "mgVector_c.restore"),
+                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(

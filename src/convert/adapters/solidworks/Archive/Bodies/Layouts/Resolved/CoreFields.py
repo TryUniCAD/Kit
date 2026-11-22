@@ -14,7 +14,7 @@ KCoreFields = MappingProxyType(
                 "Array",
                 "items",
                 "Count",
-                BodyValue=(NativeField("Node", "o"),),
+                BodyValue=(NativeField("Fail", "alternate rf.suObArray items"),),
                 CountValue="n",
             ),
         ),

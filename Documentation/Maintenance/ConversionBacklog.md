@@ -72,8 +72,10 @@ is stacked on [PR #238](https://github.com/TryUniCAD/Kit/pull/238) and
 uses the shared linked body grammar. Its six disclosed sources pass
 strict SDK readback. The hosted integration uses the privacy-scrubbed
 original and Section edit, with native observations bound to the
-separate original digests. Delivery gates and wider sweep variants
-remain open.
+separate original digests. Warm publication remains a separate exit
+requiring the model-owned Section seam and appearance and exact native
+measurement for newly generated edited output. Saved-reader review
+and queue acceptance remain pending.
 [Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
 [Cold readback and exact re-export](../../re/solidworks/records/ScopedSweepReadback2026.md)
 [Saved reader evidence](../../re/solidworks/records/ScopedSavedSweepSdk2026.md)
