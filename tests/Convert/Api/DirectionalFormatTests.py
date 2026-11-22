@@ -2,24 +2,26 @@ from dataclasses import replace as ReplaceValue
 from io import BytesIO as BytesIo
 
 import pytest as Pytest
+from typing_extensions import override as Override
 
 from convert.adapters import AdapterInfo, AdapterNotFoundError, AdapterRegistry
 from convert.adapters.json.Adapter import JsonAdapter
 from tests.Convert.Api.Fusion.AdapterCases import AdapterCase
 
 
-# reuse the interoperable JSON reader with a read-specific catalog alias
+# reuse the interoperable json reader with a read-specific catalog alias
 class SnapshotReader(JsonAdapter):
 
     # alias metadata lets the real codec exercise separate reader and writer lookup
     @property
+    @Override
     def info(self) -> AdapterInfo:
         return ReplaceValue(super().info, aliases=("interchange.snapshot",))
 
 
 # both registration orders preserve the read alias without granting publication through it
 @Pytest.mark.parametrize("ReaderFirst", (False, True))
-def TestDirectionalFormatRoundTrip(ReaderFirst: bool) -> None:
+def TestAliasReplay(ReaderFirst: bool) -> None:
     RegistryValue = AdapterRegistry()
     ReaderValue = SnapshotReader()
     WriterValue = JsonAdapter()

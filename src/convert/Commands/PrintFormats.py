@@ -3,7 +3,7 @@ from json import dumps as DumpJson
 
 # terminal users need a compact capability overview before selecting conversion formats
 def PrintFormats(Formats: list[dict[str, object]]) -> None:
-    Fields = ("format", "read", "write", "extensions")
+    Fields: tuple[str, ...] = ("format", "read", "write", "extensions")
     if any("write_extensions" in Format for Format in Formats):
         Fields += ("write_extensions",)
     print("\t".join(Fields))
