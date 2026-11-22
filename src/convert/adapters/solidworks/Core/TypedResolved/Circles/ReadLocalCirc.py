@@ -1,6 +1,7 @@
 from math import isclose as IsClose
 
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Core.Native import NativeDimension
 from convert.adapters.solidworks.Core.TypedResolved.Circles.LocalCircle import (
     LocalCircle,
@@ -47,7 +48,9 @@ def ReadLocalCirc(
         )
     ):
         return None
-    CenterMark, ArcMark = ReadCircleMarks(SketchValue, CenterIndex, Drive is not None)
+    CenterMark, ArcMark, CenterMetres = ReadCircleMarks(
+        SketchValue, CenterIndex, Drive is not None
+    )
     return (
         LocalCircle(
             (CenterX, CenterY),
@@ -57,6 +60,7 @@ def ReadLocalCirc(
             ModeValue,
             None if Dimension is None else Dimension.name,
             NativeNodeSpan(LinkValue, SketchValue),
+            CenterMetres,
         ),
         Dimension,
     )
@@ -65,7 +69,7 @@ def ReadLocalCirc(
 # the local handles distinguish a free centre from an actual fixed point relation
 def ReadCircleMarks(
     SketchValue: ArchiveNode, CenterIndex: int, IsFixed: bool
-) -> tuple[int, int]:
+) -> tuple[int, int, tuple[float, float]]:
     FieldsValue = SketchValue.FieldsValue
     ManagerValue = NativeRecord(FieldsValue["dims"])
     Relations = NativeRows(ManagerValue["log_g1"])
@@ -91,4 +95,12 @@ def ReadCircleMarks(
         or min(CenterMark, ArcMark) < 1
     ):
         raise ValueError("ordinary circle lacks explicit local arc and point identity")
-    return CenterMark, ArcMark
+    Position = NativeRecord(Center["pos"])
+    return (
+        CenterMark,
+        ArcMark,
+        (
+            RequireScalar(Position["x"]),
+            RequireScalar(Position["y"]),
+        ),
+    )

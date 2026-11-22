@@ -3,8 +3,12 @@ from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.PrepareColdPart import (
+    PrepareColdPart,
 )
 from convert.adapters.solidworks.Core.Writing.Circle.CircOutput import CircOutput
 from convert.adapters.solidworks.Core.Writing.Circle.MatchCircAuth import MatchCircAuth
@@ -27,12 +31,18 @@ def EmitCircMut(
     WrittenAt, Receipt, Settings = ReadMeasInput(OptionsValue)
     Schema, ReportSha, Report = ReadCircAuth(Receipt)
     OutputPath, BuildOptions = CircOutput(TargetValue, Settings)
-    Candidate = PrepareCircle(
-        DocumentValue,
-        OutputPath or TargetValue,
-        WrittenAt,
-        BuildOptions,
-        Measured=True,
+    Candidate = (
+        PrepareColdPart(
+            DocumentValue, OutputPath or TargetValue, WrittenAt, BuildOptions
+        )
+        if IsCircRead(DocumentValue)
+        else PrepareCircle(
+            DocumentValue,
+            OutputPath or TargetValue,
+            WrittenAt,
+            BuildOptions,
+            Measured=True,
+        )
     )
     Payload = Candidate.BytesValue
     Evidence = MatchCircAuth(

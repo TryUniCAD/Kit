@@ -731,6 +731,11 @@ the radial driver, signed support and all active depth drivers. The normal
 SDK publishes the six measured disclosed circle artifacts from matching
 authored neutral inputs and their authenticated receipts. [Measured circle ends](../../Changes/Solidworks/Construction/Circles/SolidworksMeasuredCircleEnds.md)
 
+The six measured cold circle files also republish from strict full or
+design-only SDK readback and its neutral JSON round trip. Exact typed
+centre and depth owners regenerate the archive, which must match the
+complete original projection and measured digest. [Cold circle republication](../../Changes/Solidworks/Construction/Circles/SolidworksColdCircleRepublication.md)
+
 The measured offset-plane profile retains a separate signed principal datum,
 its driving distance, the attached radius-driven sketch and a forward blind
 boss. The normal SDK requires the exact receipt, authored presentation and

@@ -1,5 +1,11 @@
+from pathlib import Path as FilePath, PureWindowsPath
+
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
 from convert.adapters.solidworks.Core.Preparation.Circle.PlanCircle import PlanCircle
+from convert.adapters.solidworks.Core.Preparation.Circle.ReadCircInput import (
+    ReadCircInput,
+)
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from interchange.Features.FeatureExtrude import ExtrudeFeature
 from interchange.document.Models.DocumentModel import CadDocument
@@ -20,10 +26,19 @@ def HasCircWrite(DocumentValue: CadDocument) -> bool:
 
 # selection proves the typed circle and signed support before any registry target is staged
 def CanWriteCircle(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
-    if not HasCircWrite(DocumentValue):
+    ReadbackValue = IsCircRead(DocumentValue)
+    if not ReadbackValue and not HasCircWrite(DocumentValue):
         return False
     try:
-        PlanValue = PlanCircle(DocumentValue, Measured=True)
+        InputValue = DocumentValue
+        if ReadbackValue:
+            NameValue = (
+                PureWindowsPath(TargetValue).stem
+                if isinstance(TargetValue, (str, FilePath))
+                else DocumentValue.sketches[0].name
+            )
+            InputValue = ReadCircInput(DocumentValue, NameValue)
+        PlanValue = PlanCircle(InputValue, Measured=True)
     except (IndexError, KeyError, TypeError, ValueError):
         return False
     return IsPartTarget(PlanValue.NameValue, TargetValue)

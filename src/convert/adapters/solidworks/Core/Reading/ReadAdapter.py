@@ -267,6 +267,9 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.WithBodyNames impo
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Circles.BindColdCentre import (
+    BindColdCentre,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Circles.CircleSketch import (
     CircleSketch,
 )
@@ -592,7 +595,9 @@ def ReadNativePart(
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
     PlaneValues, SketchValues = PartSketchData(
-        Model, {Param.id for Param in ParamValues}
+        Model,
+        {Param.id for Param in ParamValues},
+        None if Settings.extract_raw_brep else Archive,
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues, ColdLineBoss=IsCacheAbsent(Archive))
@@ -802,9 +807,12 @@ def FinishPartDoc(
 
 # planes and sketches must bind to the same native parameter identities
 def PartSketchData(
-    Model: NativeModel, ParamIds: set[str]
+    Model: NativeModel, ParamIds: set[str], Archive: SldprtArchive | None = None
 ) -> tuple[tuple[SupportPlane, ...], tuple[SketchData, ...]]:
-    return Planes(Model, ParamIds), Sketches(Model, ParamIds)
+    SketchValues = Sketches(Model, ParamIds)
+    if Archive is not None:
+        SketchValues = BindColdCentre(SketchValues, Model, Archive)
+    return Planes(Model, ParamIds), SketchValues
 
 
 # an active partition receives the body identity only when native records prove solid ownership

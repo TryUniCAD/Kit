@@ -5,6 +5,7 @@ from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
 from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
@@ -13,7 +14,9 @@ from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockCha
 from convert.adapters.solidworks.Core.Preparation.OffsetPlane.IsOffRead import IsOffRead
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
-from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+    IsRevRead,
+)
 from convert.adapters.solidworks.Core.Writing.Imports.EmitImportMut import EmitImportMut
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     HasThinWrite,
@@ -26,8 +29,12 @@ from convert.adapters.solidworks.Core.Writing.Measured.PublishMeasMut import (
     PublishMeasMut,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadPartMeas
-from convert.adapters.solidworks.Core.Writing.Measured.Revolve.EmitPrincMut import EmitPrincMut
-from convert.adapters.solidworks.Core.Writing.Measured.Revolve.HasPrincRev import HasPrincRev
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.EmitPrincMut import (
+    EmitPrincMut,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.HasPrincRev import (
+    HasPrincRev,
+)
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
@@ -103,6 +110,8 @@ def EmitNativeMut(
         return EmitPrincMut(DocumentValue, TargetValue, OptionsValue)
     if IsOffRead(DocumentValue):
         return EmitOffsetMut(DocumentValue, TargetValue, OptionsValue)
+    if IsCircRead(DocumentValue):
+        return EmitCircMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)

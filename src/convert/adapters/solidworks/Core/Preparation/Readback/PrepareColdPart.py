@@ -6,6 +6,13 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
     PartCandidate,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
+from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
+    PrepareCircle,
+)
+from convert.adapters.solidworks.Core.Preparation.Circle.ReadCircInput import (
+    ReadCircInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
@@ -35,17 +42,29 @@ def PrepareColdPart(
     FinalValue = Settings.values.get("final_destination", TargetValue)
     if not isinstance(FinalValue, (str, FilePath)):
         raise ValueError("unnamed native streams require an explicit final destination")
-    InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
-    if HasEqIntent(InputValue):
-        Candidate = PrepareEqPart(InputValue, TargetValue, WrittenAt, Settings)
-    else:
-        PlanValue = PlanPartWrite(InputValue)
-        Candidate = RunPartPrep(
-            InputValue,
+    NameValue = PureWindowsPath(FinalValue).stem
+    if IsCircRead(DocumentValue):
+        Candidate = PrepareCircle(
+            ReadCircInput(DocumentValue, NameValue),
             TargetValue,
-            PlanValue,
-            MakePartRecipe(PlanValue, WrittenAt),
+            WrittenAt,
             Settings,
+            Measured=True,
         )
-    CheckColdRead(DocumentValue, Candidate.BytesValue)
+    else:
+        InputValue = ColdReadInput(DocumentValue, NameValue)
+        if HasEqIntent(InputValue):
+            Candidate = PrepareEqPart(InputValue, TargetValue, WrittenAt, Settings)
+        else:
+            PlanValue = PlanPartWrite(InputValue)
+            Candidate = RunPartPrep(
+                InputValue,
+                TargetValue,
+                PlanValue,
+                MakePartRecipe(PlanValue, WrittenAt),
+                Settings,
+            )
+    CheckColdRead(
+        DocumentValue, Candidate.BytesValue, IncludeBrep=DocumentValue.brep is not None
+    )
     return Candidate

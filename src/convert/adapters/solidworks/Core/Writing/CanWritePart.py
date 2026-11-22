@@ -2,6 +2,7 @@ from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsChmfPart
+from convert.adapters.solidworks.Core.Preparation.Circle.IsCircRead import IsCircRead
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
     PlanChmfPart,
@@ -22,7 +23,9 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import 
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
-from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import IsRevRead
+from convert.adapters.solidworks.Core.Preparation.Revolve.Readback.IsRevRead import (
+    IsRevRead,
+)
 from convert.adapters.solidworks.Core.Preparation.Revolve.PlanThinPart import (
     HasThinWrite,
     PlanThinWrite,
@@ -40,7 +43,9 @@ from convert.adapters.solidworks.Core.Writing.Circle.CanWriteCircle import (
 )
 from convert.adapters.solidworks.Core.Writing.Imports.CanImportPart import CanImportPart
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
-from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CanWriteRev import CanWriteRev
+from convert.adapters.solidworks.Core.Writing.Measured.Revolve.CanWriteRev import (
+    CanWriteRev,
+)
 from convert.adapters.solidworks.Core.Writing.OffsetPlanes.CanWriteOffset import (
     CanWriteOffset,
     HasOffsetWrite,
@@ -50,6 +55,8 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # cold eligibility must prove the supported sketch and drivers before output staging
 def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
+    if IsCircRead(DocumentValue):
+        return CanWriteCircle(DocumentValue, TargetValue)
     PathValue = (
         FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
     )
