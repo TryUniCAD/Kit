@@ -11,6 +11,7 @@ Platform shards use their own platform's recorded case durations.
 The planner downloads Windows and macOS histories into the shared plan artifact.
 Every shard therefore uses the same immutable history for its candidate.
 Missing history uses deterministic fallback weights.
+API and download failures also use fallback weights without consuming incomplete downloads.
 Malformed history fails planning rather than changing coverage.
 
 The platform reports publish durations only after exact-once coverage and native passes succeed.
@@ -32,8 +33,10 @@ Without measured history, the existing count-based sizing remains active.
 The defaults disable runtime sizing and limit runtime-requested shards to eight.
 The queue supplies `--target-seconds 1200 --runtime-shards 8` only after verifying the live scheduling settings.
 Until build concurrency, merge minimum, and batching wait are `1`, `1`, and `0`, runtime expansion remains disabled.
-Manual audits retain count-based sizing.
+Manual audits retain count-based sizing and modulo platform selection.
+They do not invoke scheduling additions absent from older source revisions.
 Native platforms retain four serial shards each.
+Duration uploads replace earlier successful reports when the same report job is rerun.
 No security checks, assertions, or acceptance contexts are removed.
 
 Before changing live settings, an authorized administrator must inspect the existing `Protect` ruleset.
@@ -44,6 +47,15 @@ Read the branch rules back to confirm the accepted values.
 See [merge queue operations](../../../MergeQueue.md) and [configuration drift](../../Gotchas/Ci/Scheduling/QueueSettingsDrift.md).
 
 ## Evidence and limits
+
+Task: queue runtime scheduling, owned by Codex in [PR #264](https://github.com/TryUniCAD/Kit/pull/264).
+Scope: queue scheduling and its existing complete-suite execution path.
+Dependencies: separate administrator activation of live queue settings.
+Exit conditions: current-head PR gates and configured review, followed by authorized candidate acceptance and measured latency evidence.
+
+The repair records [Windows roster newlines](../../Gotchas/Ci/Windows/SelectedRosterNewlines.md),
+[historical scheduler compatibility](../../Gotchas/Ci/Audits/SchedulerSourceRevisions.md), and
+[duration artifact reruns](../../Gotchas/Ci/Scheduling/DurationArtifactReruns.md).
 
 The investigation inspected [candidate 45065850751](https://github.com/TryUniCAD/Kit/actions/runs/45065850751).
 Its final macOS shard started 10 minutes 17 seconds after planning completed.

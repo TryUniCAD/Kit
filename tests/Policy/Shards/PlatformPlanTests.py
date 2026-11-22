@@ -29,13 +29,14 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
         ReportRoot = TmpPath / f"Platform-shard-{ShardIndex + 1}-1"
         ReportRoot.mkdir()
         CollectedPath = ReportRoot / "Collected.txt"
-        _ = CollectedPath.write_text("\n".join(TestIds) + "\n")
+        _ = CollectedPath.write_text("\n".join(TestIds) + "\n", newline="\n")
         SelectArgs = ["-m", "tools.TestShards.Platform.SelectShard"]
         SelectArgs += ["--collected", str(CollectedPath), "--history", str(HistoryPath)]
         SelectArgs += ["--index", str(ShardIndex), "--count", "4"]
         SelectArgs += ["--output", str(ReportRoot / "Selected.txt")]
         Selected = RunCommand(SelectArgs, KRootPath)
         assert Selected.returncode == 0, Selected.stderr
+        assert b"\r" not in (ReportRoot / "Selected.txt").read_bytes()
         if HasHistory:
             SelectedIds = (ReportRoot / "Selected.txt").read_text().splitlines()
             assert not (TestIds[0] in SelectedIds and TestIds[4] in SelectedIds)
@@ -54,14 +55,14 @@ def CheckNativeFlow(TmpPath: FilePath, HasHistory: bool) -> None:
     Reported = RunProcess(
         [
             "bash",
-            str(KRootPath / ".github/scripts/VerifyShardReports.sh"),
-            str(TmpPath),
+            (KRootPath / ".github/scripts/VerifyShardReports.sh").as_posix(),
+            TmpPath.as_posix(),
             "Platform",
             "1",
             "^test_sample.py::",
-            str(DurationPath),
+            DurationPath.as_posix(),
         ],
-        env={**KEnvironment, "GITHUB_STEP_SUMMARY": str(SummaryPath)},
+        env={**KEnvironment, "GITHUB_STEP_SUMMARY": SummaryPath.as_posix()},
         capture_output=True,
         text=True,
         check=False,

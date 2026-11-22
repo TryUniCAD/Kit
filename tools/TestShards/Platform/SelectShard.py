@@ -20,8 +20,9 @@ def MainRun() -> None:
         "--output", type=FilePath, required=True, dest="OutputPath"
     )
     ArgsInfo = ParserInfo.parse_args()
+    ShardIndex: int = ArgsInfo.ShardIndex
     TestIds = ArgsInfo.CollectedPath.read_text(encoding="utf-8").splitlines()
-    if not 0 <= ArgsInfo.ShardIndex < ArgsInfo.ShardCount <= len(TestIds):
+    if not 0 <= ShardIndex < ArgsInfo.ShardCount <= len(TestIds):
         ParserInfo.error("platform index and shard count must select nonempty shards")
     if len(set(TestIds)) != len(TestIds) or any(
         not TestId.strip() for TestId in TestIds
@@ -30,7 +31,9 @@ def MainRun() -> None:
     History = LoadHistory(ArgsInfo.HistoryPath)
     Plans = AllocateTests(TestIds, History, len(TestIds), ArgsInfo.ShardCount)
     _ = ArgsInfo.OutputPath.write_text(
-        "\n".join(Plans[ArgsInfo.ShardIndex].TestIds) + "\n", encoding="utf-8"
+        "\n".join(Plans[ShardIndex].TestIds) + "\n",
+        encoding="utf-8",
+        newline="\n",
     )
 
 
