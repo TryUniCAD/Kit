@@ -7,7 +7,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 $pins = @{
-    "AuthorOpenShell.py" = "035207a2f5e7215b816c4f53ff4ae973425daf4127112e2b365b2b7c858765c6"
+    "AuthorOpenShell.py" = "0d1692d27fbe31b4cd63e910ed8cdc14c79ec31b307032fbe883d7e6213881b9"
     "Swapp.py" = "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
     "OracleIdentity.py" = "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e"
     "InspectFresh.py" = "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de"

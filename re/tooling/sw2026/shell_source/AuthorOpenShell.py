@@ -90,7 +90,7 @@ def check_geometry(result, dimensions, edited, parameter):
         if row["name"] in {SKETCH, STOCK, SHELL}
     ]
     require(
-        owned == [(SKETCH, "ProfileFeature"), (STOCK, "Boss"), (SHELL, "Shell")],
+        owned == [(SKETCH, "ProfileFeature"), (STOCK, "Extrusion"), (SHELL, "Shell")],
         "native shell feature order differs",
     )
     shell = next(row for row in features if row["name"] == SHELL)
@@ -177,7 +177,7 @@ def build_stock(model, dimensions):
         False,
     )
     require(
-        stock is not None and get(stock, "GetTypeName2") == "Boss",
+        stock is not None and get(stock, "GetTypeName2") == "Extrusion",
         "cannot create the native shell stock",
     )
     stock.Name = STOCK
