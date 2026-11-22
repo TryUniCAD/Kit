@@ -16,10 +16,16 @@ from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import 
 from convert.adapters.solidworks.Core.Preparation.Patterns.IsPatPart import IsPatPart
 from convert.adapters.solidworks.Core.Preparation.PlanNativePart import PlanNativePart
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
-from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import ColdReadInput
+from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
+    ColdReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.CanWritePat import CanWritePat
+from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import IsBoxSource
+from convert.adapters.solidworks.Core.Writing.AttachedBox.ProveBoxSource import (
+    ProveBoxSource,
+)
 from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
 from convert.adapters.solidworks.Core.Writing.IsPartTarget import IsPartTarget
 from interchange.document.Models.DocumentModel import CadDocument
@@ -27,8 +33,12 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # cold eligibility projects exactly the plain profile before output staging
 def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
-    PathValue = FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
-    NameValue = PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
+    PathValue = (
+        FilePath(TargetValue) if isinstance(TargetValue, (str, FilePath)) else None
+    )
+    NameValue = (
+        PathValue.stem if PathValue is not None else DocumentValue.sketches[0].name
+    )
     PlanValue = PlanPartWrite(ColdReadInput(DocumentValue, NameValue))
     return IsPartTarget(PlanValue.NameValue, TargetValue) and (
         PathValue is None or not PathValue.is_dir()
@@ -38,6 +48,10 @@ def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
 # part selection must validate specific editable histories ahead of generic import and ordinary part routes
 def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     try:
+        if IsBoxSource(DocumentValue):
+            ProofValue = ProveBoxSource(DocumentValue)
+            NameValue = ProofValue.PlanValue.PartSource.ModelValue.metadata.get("name")
+            return isinstance(NameValue, str) and IsPartTarget(NameValue, TargetValue)
         if IsColdRead(DocumentValue):
             return CanWriteCold(DocumentValue, TargetValue)
         if IsSweepPart(DocumentValue):

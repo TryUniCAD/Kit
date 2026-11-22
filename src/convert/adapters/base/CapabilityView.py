@@ -1,14 +1,17 @@
 from __future__ import annotations
 
+from typing import Mapping as TypeMap
 from typing import cast as CastValue
 
 from interchange import Capability
 
+from convert.adapters.base.SourceEvidenceKey import KSourceEvidence
 from convert.adapters.base.TransferContract import CapTransfer
 from convert.adapters.base.TransferContract import CarrierReason
 from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.base.WriteValidate import GetCarrierCaps
 from convert.adapters.base.WriteValidate import GetNativeCaps
+from convert.adapters.base.WriteValidate import IsObjectMap
 
 
 # preservation evidence and verdicts stay readable through one typed capability view
@@ -33,10 +36,15 @@ class CapabilityView:
         Transfers = CastValue(tuple[CapTransfer, ...], getattr(self, "transfers"))
         return GetCarrierCaps(Transfers)
 
-    # roundtrip safety means no source capability was discarded regardless of dependencies
+    # whole source roundtrip safety includes byte replay for retained source archives
     @property
     def IsRoundtripSafe(self) -> bool:
-        return not getattr(self, "dropped")
+        Metadata = CastValue(TypeMap[str, object], getattr(self, "metadata"))
+        Evidence = Metadata.get(KSourceEvidence)
+        return not getattr(self, "dropped") and (
+            not IsObjectMap(Evidence)
+            or Evidence.get("source_native_byte_replay") is not False
+        )
 
     # near losslessness requires usable output and only intrinsic target format limitations
     @property

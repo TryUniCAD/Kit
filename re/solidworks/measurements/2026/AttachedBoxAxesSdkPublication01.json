@@ -1,0 +1,673 @@
+{
+  "all_compared_streams": 12,
+  "base": "affae4f56442dfba5d9a14b57db7f63e70344133",
+  "changed_files_sha256": {
+    "re/tooling/sw2026/attached_top_box_source/VerifyAttachedBoxPublication.py": "55c8705d27206fc46af9e17201eed6a389f3eb9074452f1f183f98c24325b18a",
+    "src/convert/Commands/ConvertFile.py": "9fe2883e437b9edb5e25515ebc48e3bf94b9b3aacf04a4d1794e063e5dd0a1a9",
+    "src/convert/Commands/WriteReport.py": "0e566813daa69775e3937ec6e3130330ab1a51f5ebdfe6b5acfd033314affaea",
+    "src/convert/adapters/Staging/PathStaging.py": "e2b99f838d80a54da615ea22e80f27d74db9b470ed84234ea26854cfbf921db0",
+    "src/convert/adapters/Staging/StageFileScope.py": "d9e2f5ef1500f9d6e9893f04ab737077a58a8a0930ec68aab9c20d259b61fa0d",
+    "src/convert/adapters/base/CapabilityView.py": "79ddae770098b84f17fdbe9d64c472aca49db16e17506313bf369e6fa5156469",
+    "src/convert/adapters/base/SourceEvidenceKey.py": "f356dd286f7e412f90a319bbed7d9f6e7e28964fcea20507732ddd068223b673",
+    "src/convert/adapters/base/WritePolicy.py": "7296f2b8e381b8f96e27dfe4e4a49a0575f7b875448b0caa840aaf54106a0575",
+    "src/convert/adapters/registry/RegistryWriteApi.py": "d34cb84774c8003e7724ecbcba3aa594073d390a2ae2500334ae1d4b6b3db945",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxAuditData.py": "bed700f0a7c089434da59cdab3a14f060768b2f517b7c2427921e608db9fc094",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxMeasArray.py": "9009b720273a09ff13adb2aa702b3ebad077fe603b0a4c16ce3bb4c896dbb6b3",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxMeasPins.py": "7acf4df1a625119687256ec9e01f5700c00a6a1cf829091d36ee760632bd51b1",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxMeasure.py": "d8506a039af995e04d1ffcb7df00ee074fc39536066545a6747ecc111dfab21d",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxOutputPlan.py": "8b6f9406db45954a47f10742843a724756db8fdc786afe3b951dfd39ca479074",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxProof.py": "ff157af89ce79e121f7eecc4a42fc0228229cfbc50bfcf94219ee5a3f1da08d4",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxShapeFields.py": "4a797be01db44213844dabd1e8ecc0628481138a93f463362f6c581180970607",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxSourceCaps.py": "e835d2a62322e7b1cc799226b64059c298f6547147ca01f4b7130f2b810a084e",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxTransferCaps.py": "a8aff23c49cdaa15a2c27fce1658fd5ee3a9d7e381495fdee307101b96e66e59",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxTrialScope.py": "97fa0344bd3ac605f08213f7a02a936204a0d5f9182be855d189bde31e4a6be3",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/BoxTrialState.py": "1f85e1aed8b8f34ad17bcd900dd14d65dad82a7497b34252a11cbba3934f880b",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckAxisMeas.py": "8c987316b59230be7471212e226f9232085a84425deb80b5d44365b65069c86c",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckBoxLives.py": "a6888d17b0a74029bd0bc3accec2bd3cd78168b3a8c5ed7c09373053b573f2a3",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckBoxTarget.py": "8e2170d201d8183e894381db6f55cb933e5ece4773e9ffe79bda3de70dec9e26",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckBoxText.py": "276d09cd222245de260d0009bb2350add52246950071992157dba833123bb962",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckBoxTree.py": "371863b19abe39264d26f6e5f93700466da4bd04ed2df315326c3758e8ed8318",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/CheckBoxTrial.py": "66374ba472932dd28104769b0f92f0924f98b42aa07b37d53dbcb8144b1b71c6",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/EmitBoxMut.py": "cd45c1785365f10a6276a5151208633f88228eb137f735f655cee40fc50753a6",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/FindBoxProof.py": "558587f12ba56daeb77e0c3228af1dfce2a64595d031594685559e8a6befc721",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/IsBoxSource.py": "7783a5c1cdbf50036716decc5a18ef6282a7fec29b2f15f03b72837c4f51320f",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/PrepareBoxOut.py": "568bf7466dd3b60f52c7b974e99c270699a7c91946d4374a8e4fc17d50e08461",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/ProveBoxSource.py": "baac906b2235d59829b67e1a93bc3cb564d87943416fa47d83fc83b042826ae4",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/ReadBoxMeasure.py": "47d7bb9f877b7e321d634828d20ac51002d5017231fa4b075f23a2546c69bbb5",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/ReadBoxRecord.py": "e131c5d4f5fe3639617c9746232e2fd6eef077888b72bf0aeb3ae620aa3765a1",
+    "src/convert/adapters/solidworks/Core/Writing/AttachedBox/ReadBoxShapes.py": "817235e5b22a3a4029a26d2d3cd3ba24d2acd20920ac5a3b29f14f03c900bda7",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "9c30322284a63133eb4ae47f6f31d27b6ebcf568f9e3845df3019a3f6ccdd104",
+    "src/convert/adapters/solidworks/Core/Writing/CanWriteSldDoc.py": "3ba6702c8b2726ad9110ffbfd701df4a57ecec4016efd58f6d53492d82fc6114",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "4d946e17fdcfab07b97cb406ed205dcd49256b8d0a9afc00137a2ef301f24c60"
+  },
+  "corpus_credit": 0,
+  "fresh_guarded_workers": 2,
+  "heldout_credit": 0,
+  "host_cli_physical_locator_refusals": {
+    "explicit": {
+      "error": "ValueError",
+      "message": "measured attached box requires its actual final native locator"
+    },
+    "inferred": {
+      "error": "ValueError",
+      "message": "measured attached box requires its actual final native locator"
+    }
+  },
+  "native_locator": "C:\\KitAttachedBoxAxes01\\F14c.SLDPRT",
+  "native_summary_sha256": "7df283cd1c0ea388f3a0675deb63ef37184eada40ebbd4cd0898628c9996d624",
+  "native_terminal_sha256": "0ac0c750cd671a2f4c5dcc7e3459d79a51199c3c0cd7220ba8cc2dd6a953ac38",
+  "new_native_observations": 0,
+  "passed": true,
+  "path_refusals": {
+    "direct_spoofed_path": "measured attached box requires its actual final native locator",
+    "registry_explicit_path": "measured attached box requires its actual final native locator",
+    "registry_inferred_path": "measured attached box requires its actual final native locator"
+  },
+  "public_stream_sha256": {
+    "default_sdk_registry": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "default_sdk_registry_casefolded": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "direct_adapter": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "direct_part_writer": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "lowercase_registry_explicit": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "lowercase_single_writer_inferred": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.attached-box-axes-publication.v1",
+  "source_evidence": {
+    "application_version": "0.21R33771 (Git)",
+    "archive_and_binding": [
+      {
+        "id": "freecad:native-document",
+        "sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb"
+      },
+      {
+        "id": "freecad:native-document-binding",
+        "sha256": "411eacc147d69b6605e289df250465d0593c5c9e0bda3b2f61a897bac2afe371"
+      }
+    ],
+    "evidence_only_capabilities": [
+      "native_payloads",
+      "provenance",
+      "roundtrip_metadata"
+    ],
+    "native_geometry": {
+      "axes": [
+        {
+          "role": "X_Axis",
+          "source_id": "1778",
+          "target_name": "X-axis"
+        },
+        {
+          "role": "Y_Axis",
+          "source_id": "1779",
+          "target_name": "Y-axis"
+        },
+        {
+          "role": "Z_Axis",
+          "source_id": "1780",
+          "target_name": "Z-axis"
+        }
+      ],
+      "body": {
+        "source_id": "freecad:body:Body",
+        "target_name": "Body"
+      },
+      "drivers": {
+        "freecad:parameter:AdditiveBox:Height": "Height@AdditiveBox",
+        "freecad:parameter:AdditiveBox:Length": "Length@AdditiveBox Profile",
+        "freecad:parameter:AdditiveBox:Width": "Width@AdditiveBox Profile"
+      },
+      "feature": {
+        "source_id": "freecad:feature:AdditiveBox",
+        "target_name": "AdditiveBox"
+      },
+      "planes": [
+        {
+          "source_id": "freecad:plane:XY_Plane",
+          "source_name": "XY-plane"
+        },
+        {
+          "source_id": "freecad:plane:XZ_Plane",
+          "source_name": "XZ-plane"
+        },
+        {
+          "source_id": "freecad:plane:YZ_Plane",
+          "source_name": "YZ-plane"
+        }
+      ]
+    },
+    "shape_caches": [
+      {
+        "coordinate_frame": "model",
+        "id": "freecad:brep:Body:Shape",
+        "member": "PartShape.brp",
+        "owner": "freecad:body:Body",
+        "physical_roles": [
+          {
+            "kind": "edge",
+            "role": "*00"
+          },
+          {
+            "kind": "edge",
+            "role": "*01"
+          },
+          {
+            "kind": "edge",
+            "role": "*10"
+          },
+          {
+            "kind": "edge",
+            "role": "*11"
+          },
+          {
+            "kind": "edge",
+            "role": "0*0"
+          },
+          {
+            "kind": "edge",
+            "role": "0*1"
+          },
+          {
+            "kind": "edge",
+            "role": "00*"
+          },
+          {
+            "kind": "edge",
+            "role": "01*"
+          },
+          {
+            "kind": "edge",
+            "role": "1*0"
+          },
+          {
+            "kind": "edge",
+            "role": "1*1"
+          },
+          {
+            "kind": "edge",
+            "role": "10*"
+          },
+          {
+            "kind": "edge",
+            "role": "11*"
+          },
+          {
+            "kind": "face",
+            "role": "**0"
+          },
+          {
+            "kind": "face",
+            "role": "**1"
+          },
+          {
+            "kind": "face",
+            "role": "*0*"
+          },
+          {
+            "kind": "face",
+            "role": "*1*"
+          },
+          {
+            "kind": "face",
+            "role": "0**"
+          },
+          {
+            "kind": "face",
+            "role": "1**"
+          },
+          {
+            "kind": "vertex",
+            "role": "000"
+          },
+          {
+            "kind": "vertex",
+            "role": "001"
+          },
+          {
+            "kind": "vertex",
+            "role": "010"
+          },
+          {
+            "kind": "vertex",
+            "role": "011"
+          },
+          {
+            "kind": "vertex",
+            "role": "100"
+          },
+          {
+            "kind": "vertex",
+            "role": "101"
+          },
+          {
+            "kind": "vertex",
+            "role": "110"
+          },
+          {
+            "kind": "vertex",
+            "role": "111"
+          }
+        ],
+        "property": "Shape",
+        "sha256": "8cb4ab10312732235fee57033c87621fa257892a8014c5e54af82aecc250a005"
+      },
+      {
+        "coordinate_frame": "feature",
+        "id": "freecad:brep:AdditiveBox:AddSubShape",
+        "member": "PartShape1.brp",
+        "owner": "freecad:feature:AdditiveBox",
+        "physical_roles": [
+          {
+            "kind": "edge",
+            "role": "*00"
+          },
+          {
+            "kind": "edge",
+            "role": "*01"
+          },
+          {
+            "kind": "edge",
+            "role": "*10"
+          },
+          {
+            "kind": "edge",
+            "role": "*11"
+          },
+          {
+            "kind": "edge",
+            "role": "0*0"
+          },
+          {
+            "kind": "edge",
+            "role": "0*1"
+          },
+          {
+            "kind": "edge",
+            "role": "00*"
+          },
+          {
+            "kind": "edge",
+            "role": "01*"
+          },
+          {
+            "kind": "edge",
+            "role": "1*0"
+          },
+          {
+            "kind": "edge",
+            "role": "1*1"
+          },
+          {
+            "kind": "edge",
+            "role": "10*"
+          },
+          {
+            "kind": "edge",
+            "role": "11*"
+          },
+          {
+            "kind": "face",
+            "role": "**0"
+          },
+          {
+            "kind": "face",
+            "role": "**1"
+          },
+          {
+            "kind": "face",
+            "role": "*0*"
+          },
+          {
+            "kind": "face",
+            "role": "*1*"
+          },
+          {
+            "kind": "face",
+            "role": "0**"
+          },
+          {
+            "kind": "face",
+            "role": "1**"
+          },
+          {
+            "kind": "vertex",
+            "role": "000"
+          },
+          {
+            "kind": "vertex",
+            "role": "001"
+          },
+          {
+            "kind": "vertex",
+            "role": "010"
+          },
+          {
+            "kind": "vertex",
+            "role": "011"
+          },
+          {
+            "kind": "vertex",
+            "role": "100"
+          },
+          {
+            "kind": "vertex",
+            "role": "101"
+          },
+          {
+            "kind": "vertex",
+            "role": "110"
+          },
+          {
+            "kind": "vertex",
+            "role": "111"
+          }
+        ],
+        "property": "AddSubShape",
+        "sha256": "e9b62e37300706d75df899a85944f4be846813449bbf3a89c189cd41ff07abf8"
+      },
+      {
+        "coordinate_frame": "model",
+        "id": "freecad:brep:AdditiveBox:Shape",
+        "member": "PartShape2.brp",
+        "owner": "freecad:feature:AdditiveBox",
+        "physical_roles": [
+          {
+            "kind": "edge",
+            "role": "*00"
+          },
+          {
+            "kind": "edge",
+            "role": "*01"
+          },
+          {
+            "kind": "edge",
+            "role": "*10"
+          },
+          {
+            "kind": "edge",
+            "role": "*11"
+          },
+          {
+            "kind": "edge",
+            "role": "0*0"
+          },
+          {
+            "kind": "edge",
+            "role": "0*1"
+          },
+          {
+            "kind": "edge",
+            "role": "00*"
+          },
+          {
+            "kind": "edge",
+            "role": "01*"
+          },
+          {
+            "kind": "edge",
+            "role": "1*0"
+          },
+          {
+            "kind": "edge",
+            "role": "1*1"
+          },
+          {
+            "kind": "edge",
+            "role": "10*"
+          },
+          {
+            "kind": "edge",
+            "role": "11*"
+          },
+          {
+            "kind": "face",
+            "role": "**0"
+          },
+          {
+            "kind": "face",
+            "role": "**1"
+          },
+          {
+            "kind": "face",
+            "role": "*0*"
+          },
+          {
+            "kind": "face",
+            "role": "*1*"
+          },
+          {
+            "kind": "face",
+            "role": "0**"
+          },
+          {
+            "kind": "face",
+            "role": "1**"
+          },
+          {
+            "kind": "vertex",
+            "role": "000"
+          },
+          {
+            "kind": "vertex",
+            "role": "001"
+          },
+          {
+            "kind": "vertex",
+            "role": "010"
+          },
+          {
+            "kind": "vertex",
+            "role": "011"
+          },
+          {
+            "kind": "vertex",
+            "role": "100"
+          },
+          {
+            "kind": "vertex",
+            "role": "101"
+          },
+          {
+            "kind": "vertex",
+            "role": "110"
+          },
+          {
+            "kind": "vertex",
+            "role": "111"
+          }
+        ],
+        "property": "Shape",
+        "sha256": "042faea9316b0924bf0f9e90bcc2b8ca6f48b5de1d175ebc057effe97695ec1b"
+      }
+    ],
+    "source_native_byte_replay": false,
+    "source_object_order": [
+      {
+        "dependencies": [
+          "AdditiveBox",
+          "Origin",
+          "AdditiveBox"
+        ],
+        "id": "1776",
+        "name": "Body",
+        "type": "PartDesign::Body"
+      },
+      {
+        "dependencies": [
+          "X_Axis",
+          "Y_Axis",
+          "Z_Axis",
+          "XY_Plane",
+          "XZ_Plane",
+          "YZ_Plane"
+        ],
+        "id": "1777",
+        "name": "Origin",
+        "type": "App::Origin"
+      },
+      {
+        "dependencies": [],
+        "id": "1778",
+        "name": "X_Axis",
+        "type": "App::Line"
+      },
+      {
+        "dependencies": [],
+        "id": "1779",
+        "name": "Y_Axis",
+        "type": "App::Line"
+      },
+      {
+        "dependencies": [],
+        "id": "1780",
+        "name": "Z_Axis",
+        "type": "App::Line"
+      },
+      {
+        "dependencies": [],
+        "id": "1781",
+        "name": "XY_Plane",
+        "type": "App::Plane"
+      },
+      {
+        "dependencies": [],
+        "id": "1782",
+        "name": "XZ_Plane",
+        "type": "App::Plane"
+      },
+      {
+        "dependencies": [],
+        "id": "1783",
+        "name": "YZ_Plane",
+        "type": "App::Plane"
+      },
+      {
+        "dependencies": [
+          "Body",
+          "XZ_Plane"
+        ],
+        "id": "1784",
+        "name": "AdditiveBox",
+        "type": "PartDesign::AdditiveBox"
+      }
+    ],
+    "source_provenance": [
+      {
+        "adapter": "freecad.fcstd",
+        "id": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+        "spans": []
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "Document.xml",
+        "spans": [
+          {
+            "kind": "xml",
+            "length": 20390,
+            "offset": 0,
+            "stream": "Document.xml"
+          }
+        ]
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "AdditiveBox.Shape",
+        "spans": []
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "AdditiveBox.AddSubShape",
+        "spans": []
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "Body.Shape",
+        "spans": []
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "Body",
+        "spans": []
+      },
+      {
+        "adapter": "freecad.fcstd",
+        "id": "AdditiveBox",
+        "spans": []
+      }
+    ],
+    "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb"
+  },
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "stream_and_source_refusals": {
+    "changed_epoch": "attached box native measurement does not bind this intact source",
+    "changed_native_terminal": "attached box measurement terminal digest differs",
+    "crossed_original_cache": "FreeCAD attached box neutral owners disagree with its archive",
+    "different_complete_digest": "attached box measurement summary digest differs",
+    "foreign_logical_locator": "measured attached box stream requires its exact native locator",
+    "foreign_source_identity": "attached box measurement summary digest differs",
+    "no_receipt": "SOLIDWORKS publication requires an offline native measurement receipt",
+    "nonempty_direct_stream": "standalone native output requires an empty seekable binary stream at position zero",
+    "nonempty_registry_stream": "standalone native output requires an empty seekable binary stream at position zero",
+    "other_functional_owner": "FreeCAD attached box neutral owners disagree with its archive",
+    "rewritten_axis_extent": "attached box measurement summary digest differs",
+    "rewritten_control_observation": "attached box measurement summary digest differs",
+    "rewritten_numeric_state": "attached box measurement summary digest differs",
+    "rewritten_summary_identical_data": "attached box measurement summary digest differs"
+  },
+  "streams": {
+    "Contents/CMgr": {
+      "bytes": 1129,
+      "sha256": "addd8067179375e3da59c7dad93b6074052b7e7aeb3fe5047746ae13611e21a5"
+    },
+    "Contents/CMgrHdr2": {
+      "bytes": 137,
+      "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+    },
+    "Contents/Config-0": {
+      "bytes": 22354,
+      "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+    },
+    "Contents/Config-0-ModelHeader": {
+      "bytes": 953,
+      "sha256": "912e0842cb91d3643169f294ed61582609bcf3f38f429f447143e16947473486"
+    },
+    "Contents/Config-0-ResolvedFeatures": {
+      "bytes": 21389,
+      "sha256": "124373c6523ee2e26b3fb0dd94643e38ad6d970fc5484406fc258c12e5eaec30"
+    },
+    "Contents/Definition": {
+      "bytes": 459,
+      "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+    },
+    "Header2": {
+      "bytes": 953,
+      "sha256": "74fba4ab46794b39c421b44f394085184e1b13f54ef3b753c12af6e1f82c42d0"
+    },
+    "_MO_VERSION_19000/Biography": {
+      "bytes": 23,
+      "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+    },
+    "_MO_VERSION_19000/History": {
+      "bytes": 187,
+      "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+    },
+    "docProps/core.xml": {
+      "bytes": 490,
+      "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+    },
+    "docProps/custom.xml": {
+      "bytes": 5202,
+      "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+    },
+    "swXmlContents/KeyWords": {
+      "bytes": 1638,
+      "sha256": "a7e2ac3f3c206aa1587c339c7dea07ee280caf732699a14d2c8ef976cc4ae721"
+    }
+  },
+  "strict_readback": {
+    "axes": 3,
+    "drivers": 3,
+    "feature_roots": 22,
+    "volume_mm3": 6000
+  }
+}

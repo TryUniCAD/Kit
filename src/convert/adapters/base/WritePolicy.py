@@ -18,6 +18,7 @@ from convert.adapters.base.TransferContract import TransferMode
 from convert.adapters.base.UsabilityError import UsabilityError
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.base.SourceEvidenceKey import KSourceEvidence
 
 
 # case folding stays centralized because aliases and format ids share lookup semantics
@@ -52,8 +53,11 @@ def CheckTransfers(
     DocumentData: CadDocument,
     InfoData: AdapterInfo,
     ResultData: WriteResult,
+    SourceCaps: frozenset[Capability] | None = None,
 ) -> tuple[CapTransfer, ...]:
-    CapabilityValues = GetDocumentCaps(DocumentData)
+    CapabilityValues = (
+        GetDocumentCaps(DocumentData) if SourceCaps is None else SourceCaps
+    )
     if ResultData.DroppedCaps:
         raise CapLossError(InfoData.FormatId, ResultData.DroppedCaps)
     if not ResultData.Transfers:
@@ -171,7 +175,16 @@ def RunCheckedMut(
         raise RegistryError(
             f"writer {AdapterData.info.FormatId} returned write format {ResultData.AdapterName}"
         )
-    TransferValues = CheckTransfers(DocumentData, AdapterData.info, ResultData)
+    SourceCaps = None
+    if KSourceEvidence in ResultData.MetadataMap:
+        from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxTransferCaps import (
+            BoxTransferCaps,
+        )
+
+        SourceCaps = BoxTransferCaps(DocumentData, AdapterData, ResultData)
+    TransferValues = CheckTransfers(
+        DocumentData, AdapterData.info, ResultData, SourceCaps
+    )
     CheckedResult = NormalizeUsable(
         ReplaceValue(ResultData, transfers=TransferValues, dropped=frozenset())
     )

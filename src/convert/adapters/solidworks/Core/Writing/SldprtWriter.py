@@ -10,7 +10,6 @@ from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.NativeWrite import CheckNative
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.solidworks.Core.AssemblyWriting.CanWriteAsm import CanWriteAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.EmitAsmMut import EmitAsmMut
 from convert.adapters.solidworks.Core.AssemblyWriting.Nested.CanWriteNested import (
     CanWriteNested,
@@ -19,15 +18,14 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut impor
     EmitNestedMut,
 )
 from convert.adapters.solidworks.Core.AssemblyWriting.QualifyAsm import QualifyNested
-from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import (
-    CanWriteBlank,
-)
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
-from convert.adapters.solidworks.Core.Writing.CanWritePart import CanWritePart
+from convert.adapters.solidworks.Core.Writing.AttachedBox.EmitBoxMut import EmitBoxMut
+from convert.adapters.solidworks.Core.Writing.AttachedBox.IsBoxSource import IsBoxSource
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
+from convert.adapters.solidworks.Core.Writing.CanWriteSldDoc import CanWriteSldDoc
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from convert.Formats.CheckSourceText import CheckSourceText
@@ -51,11 +49,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
-        if DocValue.DrawingValue is not None:
-            return CanWriteBlank(DocValue, Target)
-        if DocValue.assembly is not None:
-            return CanWriteNested(DocValue, Target) or CanWriteAsm(DocValue, Target)
-        return CanWritePart(DocValue, Target)
+        return CanWriteSldDoc(DocValue, Target)
 
     # the public structural writer protocol uses these keyword names across plugins and conversion
     def write(
@@ -69,6 +63,8 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         CheckEquations(document)
         CheckSupports(document)
         CheckSourceText(document)
+        if IsBoxSource(document):
+            return EmitBoxMut(document, destination, options)
         if not IsColdRead(document):
             CheckNative(document, self, destination)
         if document.DrawingValue is not None:

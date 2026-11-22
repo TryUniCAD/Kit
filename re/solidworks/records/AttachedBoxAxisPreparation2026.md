@@ -56,16 +56,15 @@ names in Kit. Their native lifecycle and held-out acceptance remain open.
 | Material, appearance and viewport | The accepted source has no assigned material or saved GUI document. The typed intake refuses an additional functional owner. The observed axes are selectable and have active model visibility. |
 | Original FCStd, hash binding, records, spans and release metadata | Identity and verification evidence retained in the exact in-memory source plan and the external transfer proof. Original binary encodings are irrelevant to native stock and axes construction. |
 
-The ordinary SDK and CLI still refuse the intact source. The registry
+At the preparation freeze, the ordinary SDK and CLI refused the intact source. The registry
 requires transfer accounting for every inferred capability and has
 native, mixed and carrier modes. The intact plan verifies which original
 payloads, provenance and retained archive fields are source evidence.
-Public publication needs an explicit result representation for that
+The separate [public qualification](AttachedBoxAxisPublication2026.md) adds explicit result representation for that
 evidence, the functional ownership graph and an exact pre-emission
 Trial02 measurement gate. The one-edit ordinary part receipt omits two
-of the independent edit branches measured here. Output eligibility
-therefore remains closed. This step earns zero corpus conversion and
-held-out credits.
+of the independent edit branches measured here. Preparation alone leaves output eligibility closed. This step earns zero
+corpus conversion and held-out credits.
 
 ## Reproduce preparation
 
