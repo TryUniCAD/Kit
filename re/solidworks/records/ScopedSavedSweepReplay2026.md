@@ -72,6 +72,10 @@ reader needs to preserve the actual seam and validate the result
 trim/owner linkage before exposing the full portable result. The
 public saved sweep refusal remains in place.
 
+The [subsequent topology audit](ScopedSavedSweepTopology2026.md)
+resolves the active torus and both physical rim incidences in all six
+saves and records the independent native Section seam motion.
+
 ## Reproduce
 
 ```sh
