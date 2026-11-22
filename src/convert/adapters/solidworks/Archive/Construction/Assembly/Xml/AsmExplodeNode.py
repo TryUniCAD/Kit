@@ -41,7 +41,7 @@ def AsmExplodeNode(
                 ("f358", None),
                 ("f360", None),
                 ("f368", EmptyRootRows()),
-                ("f60", {"list": {"n": 0, "items": []}, "tail": 0}),
+                ("f60", {"list": {"n": 0, "items": list[object]()}, "tail": 0}),
             )
         )
     ):

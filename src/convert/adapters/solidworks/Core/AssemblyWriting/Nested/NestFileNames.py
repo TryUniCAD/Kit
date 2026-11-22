@@ -2,7 +2,7 @@ from pathlib import PureWindowsPath
 
 from convert.adapters.solidworks.Container.Format import KAsmSuffix
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.NestedAssemblyPlan import (
-    NestedAssemblyPlan,
+    NestedAsmPlan,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Paths.CheckNativePath import (
     CheckNativePath,
@@ -12,7 +12,7 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import Requ
 
 # collision preflight uses every owned definition and the actual mapped windows directory
 def NestFileNames(
-    PlanValue: NestedAssemblyPlan, NativeValue: str
+    PlanValue: NestedAsmPlan, NativeValue: str
 ) -> tuple[PureWindowsPath, ...]:
     RootPath = CheckNativePath(NativeValue)
     RequireAsm(

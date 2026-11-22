@@ -4,10 +4,10 @@ from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import (
-    PrepareNestedAssembly,
+    PrepNestedAsm,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import (
-    ReadNestedAssembly,
+    ReadNestedAsm,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
@@ -41,7 +41,7 @@ def EmitNestedMut(
         and OutputPath.parent != FinalPath.parent,
         "nested assembly emission requires registry path staging",
     )
-    PlanValue = ReadNestedAssembly(Document)
+    PlanValue = ReadNestedAsm(Document)
     RequireAsm(
         SettingsValue.configuration
         in (
@@ -53,7 +53,7 @@ def EmitNestedMut(
     )
     FileValues = NestFileNames(PlanValue, NativePath)
     CheckFreshFiles(FinalPath, tuple(PathValue.name for PathValue in FileValues[:-1]))
-    Candidates = PrepareNestedAssembly(Document, NativePath, WrittenAt)
+    Candidates = PrepNestedAsm(Document, NativePath, WrittenAt)
     RequireAsm(
         tuple(str(PathValue) for PathValue, _ in Candidates)
         == tuple(map(str, FileValues)),

@@ -62,7 +62,7 @@ def MakeVisContexts(
         raise ValueError(
             "assembly visual context requires all actual configuration member rows"
         )
-    Result = []
+    Result: list[tuple[int, ArchiveNode]] = []
     for State, Reference in zip(States[1:], reversed(References), strict=True):
         RefFields = Reference.FieldsValue
         FeatureId = FieldInt(RefFields, "f08")

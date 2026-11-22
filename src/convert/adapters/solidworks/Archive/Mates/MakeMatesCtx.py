@@ -1,3 +1,5 @@
+from typing import cast as CastValue
+
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
@@ -13,7 +15,7 @@ from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedG
 def MakeMatesCtx(
     ResolvedValue: ResolvedGraph, UsageValue: BodyUsage | None
 ) -> BodyContext:
-    if not isinstance(ResolvedValue, ResolvedGraph):
+    if not isinstance(CastValue(object, ResolvedValue), ResolvedGraph):
         raise TypeError("mate list requires its actual typed resolved graph")
     OwnerValue = FindModelRoot(ResolvedValue.MapValue)
     if OwnerValue.ClassValue.NameValue != "moAssembly_c":

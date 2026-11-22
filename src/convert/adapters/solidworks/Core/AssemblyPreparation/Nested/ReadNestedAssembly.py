@@ -6,9 +6,6 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.OccurrenceIn impo
 from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadAsmPlanes import (
     ReadAsmPlanes,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Model.CheckAsmDef import (
-    CheckAsmDef,
-)
 from convert.adapters.solidworks.Core.AssemblyPreparation.Model.CheckAsmOcc import (
     CheckAsmOcc,
 )
@@ -22,13 +19,10 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmOrder imp
     ReadAsmOrder,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.NestedAssemblyPlan import (
-    NestedAssemblyPlan,
+    NestedAsmPlan,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.NestedPartPlan import (
-    NestedPartPlan,
-)
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedLeaf import (
-    ReadNestedLeaf,
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestMembers import (
+    ReadNestMembers,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Placements.ReadAsmPlace import (
     ReadAsmPlace,
@@ -41,19 +35,19 @@ from interchange.Records.RecordConfig import Configuration
 
 
 # one containing assembly owns the exact local pose order and explicit selected configuration of each direct child
-def ReadNestedPlacements(
+def ReadNestPlaces(
     Owner: ComponentDef,
     Occurrences: list[ComponentInst],
     Definitions: Mapping[str, ComponentDef],
 ) -> tuple[tuple[str, OccurrenceIn], ...]:
-    Rows = tuple(sorted(Occurrences, key=ReadAsmOrder))
+    SortedRows = tuple(sorted(Occurrences, key=ReadAsmOrder))
     RequireAsm(
-        bool(Rows)
-        and tuple(Value.order for Value in Rows) == tuple(range(len(Rows)))
-        and len({Value.name for Value in Rows}) == len(Rows),
+        bool(SortedRows)
+        and tuple(Value.order for Value in SortedRows) == tuple(range(len(SortedRows)))
+        and len({Value.name for Value in SortedRows}) == len(SortedRows),
         "nested assembly requires a nonempty unambiguous local placement order",
     )
-    for Value in Rows:
+    for Value in SortedRows:
         Child = Definitions[Value.definition_id]
         CheckAsmOcc(
             Value,
@@ -67,7 +61,7 @@ def ReadNestedPlacements(
             not Value.fixed,
             "nested assembly requires the measured floating occurrences",
         )
-    return tuple((Value.definition_id, ReadAsmPlace(Value)) for Value in Rows)
+    return tuple((Value.definition_id, ReadAsmPlace(Value)) for Value in SortedRows)
 
 
 # validated acyclic definitions are emitted once after all their actual dependencies
@@ -95,7 +89,7 @@ def OrderNested(
 
 
 # an ordinary rigid hierarchy must account for every definition document and placement before generating any files
-def ReadNestedAssembly(Document: CadDocument) -> NestedAssemblyPlan:
+def ReadNestedAsm(Document: CadDocument) -> NestedAsmPlan:
     CheckAsmRoot(Document)
     Graph = Document.assembly
     if Graph is None:
@@ -111,54 +105,26 @@ def ReadNestedAssembly(Document: CadDocument) -> NestedAssemblyPlan:
         "nested assembly has unsupported mate or parameter state",
     )
     Definitions = {Value.id: Value for Value in Graph.definitions}
-    Root = Definitions[Graph.root_definition_id]
+    RootValue = Definitions[Graph.root_definition_id]
     Config = ReadAsmConfig(Document)
     RequireAsm(
-        Root.name == Document.metadata["name"]
-        and (Root.configuration_name, Root.configuration_id) == (Config.name, Config.id)
+        RootValue.name == Document.metadata["name"]
+        and (RootValue.configuration_name, RootValue.configuration_id)
+        == (Config.name, Config.id)
         and len({Value.name.casefold() for Value in Definitions.values()})
         == len(Definitions),
         "nested root identity or relative filenames differ",
     )
-    Embedded = {Value.id: Value.document for Value in Graph.documents}
-    Parts: dict[str, NestedPartPlan] = {}
-    EmbeddedUsed: set[str] = set()
-    AssemblyOccurrences: dict[str, list[ComponentInst]] = {}
-    for Value in Definitions.values():
-        CheckAsmDef(Value)
-        RequireAsm(
-            bool(Value.configuration_id) and bool(Value.configuration_name),
-            "nested definition needs an actual selected configuration",
-        )
-        if str(Value.kind) == "part":
-            Child = Embedded.get(Value.document_id)
-            if Child is None or Value.document_id in EmbeddedUsed:
-                raise ValueError(
-                    "nested definition does not own one distinct neutral part"
-                )
-            Parts[Value.id] = ReadNestedLeaf(Value, Child)
-            EmbeddedUsed.add(Value.document_id)
-        elif (
-            str(Value.kind) == "assembly"
-            and not Value.document_id
-            and not Value.body_ids
-        ):
-            AssemblyOccurrences[Value.id] = []
-        else:
-            raise ValueError(
-                "nested definition has unsupported kind or extra owned data"
-            )
-    RequireAsm(
-        bool(Parts) and len(AssemblyOccurrences) >= 2 and EmbeddedUsed == set(Embedded),
-        "nested assembly needs its complete owned part and subassembly inventory",
-    )
-    for Value in Graph.instances:
-        AssemblyOccurrences[Value.owner_definition_id].append(Value)
+    Parts, AssemblyOccurrences = ReadNestMembers(Graph, Definitions)
     Placements = {
-        Key: ReadNestedPlacements(Definitions[Key], Rows, Definitions)
-        for Key, Rows in AssemblyOccurrences.items()
+        OwnerId: ReadNestPlaces(Definitions[OwnerId], OccurrenceRows, Definitions)
+        for OwnerId, OccurrenceRows in AssemblyOccurrences.items()
     }
     Planes = ReadAsmPlanes(Document)
-    return NestedAssemblyPlan(
-        Root, OrderNested(Root.id, Definitions, Placements), Planes, Parts, Placements
+    return NestedAsmPlan(
+        RootValue,
+        OrderNested(RootValue.id, Definitions, Placements),
+        Planes,
+        Parts,
+        Placements,
     )

@@ -38,7 +38,7 @@ def MakeVisPlanes(
     UnitValue = RequireNode(
         StateValue.RootValue.FieldsValue["f990"], "moUnitComponent_c"
     )
-    Result = []
+    Result: list[ArchiveNode] = []
     for Plane in reversed(Planes):
         IdValue = FieldInt(Plane.FieldsValue, "f08")
         if (

@@ -13,7 +13,7 @@ from interchange.geometry.Models.SupportPlane import SupportPlane
 
 # the neutral plan keeps local placements separate for each reusable definition in dependency order
 @Dataclass(frozen=True, slots=True)
-class NestedAssemblyPlan:
+class NestedAsmPlan:
     RootValue: ComponentDef
     OrderedDefinitions: tuple[ComponentDef, ...]
     PlanesValue: Mapping[str, SupportPlane]

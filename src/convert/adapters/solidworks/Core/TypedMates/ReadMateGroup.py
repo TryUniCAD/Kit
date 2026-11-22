@@ -45,7 +45,7 @@ def ReadMateGroup(
     ):
         raise ValueError("typed mates require one actual top-level native group")
     Fields = GroupValue.FieldsValue
-    EmptyList = {"list": {"n": 0, "items": []}, "tail": 0}
+    EmptyList = {"list": {"n": 0, "items": list[object]()}, "tail": 0}
     UpdateWord = Fields.get("f0c")
     MemberWord = 0x100 if UpdateWord == 0 else 1
     if (

@@ -32,18 +32,19 @@ def ReadNestedLeaf(Definition: ComponentDef, Document: CadDocument) -> NestedPar
             Document.units == "mm" and Document.capabilities <= KPartWriteCaps,
             "dimensioned nested leaf requires the ordinary millimetre part domains",
         )
-        Plan = ProjectRectDims(Document)
+        PlanValue = ProjectRectDims(Document)
     else:
-        Plan = PlanPartWrite(Document)
-    Vertices = Plan.VerticesValue
-    XValues = {X for X, _ in Vertices}
-    YValues = {Y for _, Y in Vertices}
+        PlanValue = PlanPartWrite(Document)
+    Vertices = PlanValue.VerticesValue
+    XValues = {XValue for XValue, _ in Vertices}
+    YValues = {YValue for _, YValue in Vertices}
     RequireAsm(
         len(Vertices) == 4
         and len(XValues) == len(YValues) == 2
-        and set(Vertices) == {(X, Y) for X in XValues for Y in YValues}
-        and Plan.PlaneName == "Front Plane"
-        and Plan.DepthName == "D1",
+        and set(Vertices)
+        == {(XValue, YValue) for XValue in XValues for YValue in YValues}
+        and PlanValue.PlaneName == "Front Plane"
+        and PlanValue.DepthName == "D1",
         "nested leaf requires its ordinary rectangular blind depth",
     )
-    return NestedPartPlan(Document, Plan)
+    return NestedPartPlan(Document, PlanValue)

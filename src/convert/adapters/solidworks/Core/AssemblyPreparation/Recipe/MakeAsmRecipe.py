@@ -28,7 +28,7 @@ def MakeAsmRecipe(
     PlanesValue: Mapping[str, SupportPlane],
     NativeSelf: SelfFileInput,
 ) -> AssemblyInput:
-    return MakeNamedAsmRecipe(
+    return MakeNamedRecipe(
         ModelValue.RootValue.name,
         ModelValue.ConfigValue.name,
         ModelValue.GroupValue.name,
@@ -39,7 +39,7 @@ def MakeAsmRecipe(
 
 
 # flat and nested assemblies use the same fresh system presentation and distinct file identity
-def MakeNamedAsmRecipe(
+def MakeNamedRecipe(
     NameValue: str,
     ConfigName: str,
     GroupName: str,

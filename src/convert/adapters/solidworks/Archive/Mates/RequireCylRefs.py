@@ -35,8 +35,8 @@ def RequireCylRefs(
     ):
         raise BodyUnsupported("concentric face or snapshot uses unqualified data")
     Cylinder, FirstCap, FirstNull, SecondCap, SecondNull = FaceRows
-    RequireNode(Cylinder.get("f08"), "moFromSktEntSurfIdRep_c")
-    RequireNode(FirstCap.get("f08"), "moEndFaceSurfIdRep_c")
-    RequireNode(SecondCap.get("f08"), "moEndFaceSurfIdRep_c")
+    _ = RequireNode(Cylinder.get("f08"), "moFromSktEntSurfIdRep_c")
+    _ = RequireNode(FirstCap.get("f08"), "moEndFaceSurfIdRep_c")
+    _ = RequireNode(SecondCap.get("f08"), "moEndFaceSurfIdRep_c")
     if FirstNull.get("f08") is not None or SecondNull.get("f08") is not None:
         raise BodyUnsupported("concentric face support requires its two null entries")

@@ -232,7 +232,7 @@ def assembly_semantics(document, link, archive, authored, owner_id, manifest, fo
     from convert.adapters.solidworks.Assembly.Assembly import ComponentTreeStream, XmlRoot
     from convert.adapters.solidworks.Assembly.Display.ReadDisplayXml import KDisplayNs
     from convert.adapters.solidworks.Core.AssemblyPreparation.Model.CheckAsmDef import CheckAsmDef
-    from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import ReadNestedAssembly
+    from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import ReadNestedAsm
     from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedLeaf import ReadNestedLeaf
 
     graph = document.assembly
@@ -338,7 +338,7 @@ def assembly_semantics(document, link, archive, authored, owner_id, manifest, fo
             "public_local_pose_peak_delta": local_error, "public_composed_pose_peak_delta": world_error,
             "physical_direct_occurrences": physical,
             "declared_display_states": 0, "mesh_count": 0, "mate_lists_bytes": [6] * len(document.brep_payloads),
-            "nested_guard": refusal(lambda: ReadNestedAssembly(document), "ValueError",
+            "nested_guard": refusal(lambda: ReadNestedAsm(document), "ValueError",
                                     "assembly root contains unprojected model content")}
 
 

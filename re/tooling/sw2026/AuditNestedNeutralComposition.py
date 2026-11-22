@@ -16,7 +16,7 @@ from SdkNativeRoundTrips import roundtrips
 from convert.adapters.solidworks.Archive.Construction.Geometry.MakePlaneFrame import MakePlaneFrame
 from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import PrincipalFrame
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import PrepareNestedAssembly
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import PrepNestedAsm
 from interchange.assembly.ComponentDefinition import ComponentDef
 from interchange.assembly.ComponentInstance import ComponentInst
 from interchange.assembly.TransformMatrix import TransformMatrix
@@ -109,7 +109,7 @@ def worker(payload):
             raise ValueError(f"nested assembly writer tried to access an external file or program: {event}")
 
     sys.addaudithook(forbid)
-    outputs = PrepareNestedAssembly(doc, target["path_name"], target["saved_at"])
+    outputs = PrepNestedAsm(doc, target["path_name"], target["saved_at"])
     rows = {}
     for path, value in outputs:
         name = path.name

@@ -30,9 +30,9 @@ def BindRectLabels(
         or len(ChildValue.sketches) != 1
     ):
         raise ValueError("sketch label intent requires the canonical Front rectangle")
-    RowsValue = CastValue(object, LabelValues)
+    RowsValue = CastValue(tuple[object, ...], LabelValues)
     if (
-        type(RowsValue) is not tuple
+        type(CastValue(object, RowsValue)) is not tuple
         or len(RowsValue) != 2
         or any(type(RowValue) is not SketchLabelIn for RowValue in RowsValue)
     ):
