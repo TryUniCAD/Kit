@@ -43,6 +43,8 @@ The SOLIDWORKS writer accepts ordinary rectangular one-sided and two-direction p
 
 The SOLIDWORKS writer also supports one signed oblique linear pattern of separated rectangular bosses joined to a plate. The parts retain the finite hinge and angled datum plus editable pitch and count. [Oblique linear pattern scope](Documentation/Changes/Solidworks/Construction/Patterns/WriteSolidworksObliquePatterns.md)
 
+The measured single-edge chamfer profiles retain either one shared setback or two independently editable setbacks on an ordinary rectangular boss. [Distance chamfer scope](Documentation/Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredDistanceChamferPublication.md)
+
 The same principal planes support a partial revolve cut explicitly restricted to one of two independent coaxial annular stocks. Both sweep directions retain three editable angles and two solids. [Selected revolve cut scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksSelectedRevolvePublic.md)
 The forward partial thin boss profile retains editable angle and wall drivers on all three canonical principal planes. [Thin revolve scope](Documentation/Changes/Solidworks/Construction/Revolve/SolidworksThinRevolvePublic.md)
 The SOLIDWORKS writer also generates one closed periodic cylinder or axis-aligned rectangular solid as a native geometry-only import. [Periodic cylinder scope](Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md) · [Rectangular solid scope](Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)

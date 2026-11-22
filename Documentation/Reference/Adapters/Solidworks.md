@@ -684,6 +684,16 @@ native cache handling still applies when a file has stored geometry.
 [Chamfer writing](../../Changes/Solidworks/Writing/Parts/SolidworksSignedChamferWriting.md) ·
 [Chamfer readback](../../Changes/Solidworks/Reading/Parts/SolidworksSignedChamferReadback.md)
 
+### Writing an equal-distance or two-distance edge chamfer
+
+Use the same blind rectangular stock and ordered physical selections. Set
+the chamfer mode to `equal_distance` for one shared D1 setback or
+`two_distances` for independent D1 and D3 setbacks in millimetres.
+Both profiles require the exact offline native measurement and its encoded
+locator. The cache-free strict reader recovers the live drivers and their
+solid in the measured stock scope.
+[Distance chamfer publication](../../Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredDistanceChamferPublication.md)
+
 ### Writing standalone blank drawings
 
 Call `write_document(document, path)` with an authored metre document and a
