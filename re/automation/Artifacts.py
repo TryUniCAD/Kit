@@ -14,11 +14,9 @@ ARTIFACT_BYTES = 256 * 1024 * 1024
 @contextmanager
 def open_artifact(path):
     before = Path(path).lstat()
-    if (
-        not stat.S_ISREG(before.st_mode)
-        or getattr(before, "st_file_attributes", 0)
-        & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
-    ):
+    if not stat.S_ISREG(before.st_mode) or getattr(
+        before, "st_file_attributes", 0
+    ) & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0):
         raise ValueError("stored artifact must be a plain regular file")
     descriptor = os.open(
         path,
@@ -29,9 +27,9 @@ def open_artifact(path):
     )
     with os.fdopen(descriptor, "rb") as source:
         opened = os.fstat(source.fileno())
-        if (
-            not stat.S_ISREG(opened.st_mode)
-            or (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino)
+        if not stat.S_ISREG(opened.st_mode) or (opened.st_dev, opened.st_ino) != (
+            before.st_dev,
+            before.st_ino,
         ):
             raise ValueError("stored artifact changed before reading")
         yield source
@@ -74,7 +72,10 @@ class Artifacts:
         target = self.path(sha256)
         target.parent.mkdir(exist_ok=True, mode=0o700)
         try:
-            os.link(staged, target)
+            if os.name == "nt":
+                os.rename(staged, target)
+            else:
+                os.link(staged, target)
         except FileExistsError:
             self.verify(sha256)
         if os.name == "posix":
@@ -95,7 +96,10 @@ class Artifacts:
             raise ValueError("artifact input must be a regular file")
         staged = None
         try:
-            with path.open("rb") as source, tempfile.NamedTemporaryFile(dir=self.objects, delete=False) as output:
+            with (
+                path.open("rb") as source,
+                tempfile.NamedTemporaryFile(dir=self.objects, delete=False) as output,
+            ):
                 staged = Path(output.name)
                 hasher = hashlib.sha256()
                 count = 0

@@ -2,6 +2,7 @@ from dataclasses import replace as Replace
 
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.serialization.JsonCodec import LoadJson
+from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
 
 
 # explicit configuration reads must validate the requested complete graph before filtering
@@ -9,6 +10,7 @@ def ReadConfigJson(TextValue: str, ConfigName: str) -> CadDocument:
     Document = LoadJson(TextValue)
     if not isinstance(Document, CadDocument):
         raise TypeError("JSON does not describe a CadDocument")
+    CheckOffsetRead(Document)
     Matches = {
         Config.id
         for Config in Document.configurations
