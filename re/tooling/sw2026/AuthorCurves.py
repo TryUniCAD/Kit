@@ -349,8 +349,8 @@ class CurveAuthor:
         self.rec.flush()
 
     def same(self, actual, expected):
-        require(all(value is not None and getattr(value, "_oleobj_", None) is not None
-                    for value in (actual, expected)), "native identity requires two actual dispatch objects")
+        if any(value is None or getattr(value, "_oleobj_", None) is None for value in (actual, expected)):
+            raise ValueError("native identity requires two actual dispatch objects")
         return int(self.get(self.app, "IsSame", actual, expected)) == self.constants["swObjectSame"]
 
     def get(self, obj, name, *args):
