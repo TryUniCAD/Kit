@@ -1,0 +1,339 @@
+{
+  "baseline_revision": "55aac7066a286482593ab34619fd8fc17a4fb867",
+  "disclosed_source_lock_sha256": "a696a97d73129ef7ffd7e829dfff7d1729000309e1273c0bef70b5f2ceedddb8",
+  "disclosed_source_observations": [
+    {
+      "case": "ChamferDistanceAxialA",
+      "drivers": [
+        {
+          "dimension_center_m": [
+            0.029750000000000002,
+            -0.02725,
+            0.011875
+          ],
+          "driver_si": 0.004125,
+          "label_clearance_m": 0.004125,
+          "label_direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "label_station": 1.2499999999999993,
+          "persistent_id": 33,
+          "style_flags": 2147484711,
+          "text_kind": 18,
+          "view_id": 201,
+          "view_name": "*Back",
+          "witness_length_m": null,
+          "witness_separation_m": 0.004125
+        },
+        {
+          "dimension_center_m": [
+            0.029750000000000002,
+            -0.02725,
+            0.011875
+          ],
+          "driver_si": 0.5017821599483697,
+          "first_exterior_score": 0.0808722863177775,
+          "label_clearance_m": 0.006090859514106466,
+          "label_direction": [
+            0.7833729832470333,
+            -0.6215519038009967,
+            0.0
+          ],
+          "label_station": 1.5,
+          "persistent_id": 34,
+          "style_flags": 2147484711,
+          "text_kind": 13,
+          "view_id": 201,
+          "view_name": "*Back",
+          "witness_length_m": 0.010000000000000016,
+          "witness_separation_m": 0.004965344787474323
+        }
+      ],
+      "feature_id": 35,
+      "guarded_runtime_reads": 0,
+      "phase": "original",
+      "source_sha256": "836084659fbd2875467c3e74c342f3ef5c6863cc1cc385431f046c5cc829d2b2"
+    },
+    {
+      "case": "ChamferDistanceAxialA",
+      "drivers": [
+        {
+          "dimension_center_m": [
+            0.028250000000000004,
+            -0.02725,
+            0.011875
+          ],
+          "driver_si": 0.005625,
+          "label_clearance_m": 0.004125,
+          "label_direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "label_station": 1.2499999999999993,
+          "persistent_id": 33,
+          "style_flags": 2181039143,
+          "text_kind": 18,
+          "view_id": 201,
+          "view_name": "*Back",
+          "witness_length_m": null,
+          "witness_separation_m": 0.005624999999999997
+        },
+        {
+          "dimension_center_m": [
+            0.028250000000000004,
+            -0.02725,
+            0.011875
+          ],
+          "driver_si": 0.5017821599483697,
+          "first_exterior_score": 0.08087228631777743,
+          "label_clearance_m": 0.00609085951410646,
+          "label_direction": [
+            0.7833729832470332,
+            -0.6215519038009967,
+            0.0
+          ],
+          "label_station": 1.5,
+          "persistent_id": 34,
+          "style_flags": 2147484711,
+          "text_kind": 13,
+          "view_id": 201,
+          "view_name": "*Back",
+          "witness_length_m": 0.010000000000000014,
+          "witness_separation_m": 0.004965344787474323
+        }
+      ],
+      "feature_id": 35,
+      "guarded_runtime_reads": 0,
+      "phase": "edited",
+      "source_sha256": "1da486887e30e7e33fab8e482c8bd170302a75126bd106980a2baeb492a94d2b"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "drivers": [
+        {
+          "dimension_center_m": [
+            -0.01225,
+            0.0241875,
+            0.024875
+          ],
+          "driver_si": 0.003375,
+          "label_clearance_m": 0.0033749999999999995,
+          "label_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "label_station": 1.2500000000000002,
+          "persistent_id": 33,
+          "style_flags": 2147484711,
+          "text_kind": 18,
+          "view_id": 201,
+          "view_name": "*Left",
+          "witness_length_m": null,
+          "witness_separation_m": 0.0033749999999999995
+        },
+        {
+          "dimension_center_m": [
+            -0.01225,
+            0.0241875,
+            0.024875
+          ],
+          "driver_si": 0.619591884457987,
+          "first_exterior_score": 0.08705744372276414,
+          "label_clearance_m": 0.006863228724447326,
+          "label_direction": [
+            -0.7178573755261078,
+            0.6961901955663902,
+            0.0
+          ],
+          "label_station": 1.5,
+          "persistent_id": 34,
+          "style_flags": 2147484711,
+          "text_kind": 13,
+          "view_id": 201,
+          "view_name": "*Left",
+          "witness_length_m": 0.01000000000000001,
+          "witness_separation_m": 0.006097285980560215
+        }
+      ],
+      "feature_id": 35,
+      "guarded_runtime_reads": 0,
+      "phase": "original",
+      "source_sha256": "feeca66dd548eb6361c7626385302d6bf4a64ca22c027504d0f8bf8b9a58ee15"
+    },
+    {
+      "case": "ChamferAngleTopB",
+      "drivers": [
+        {
+          "dimension_center_m": [
+            -0.01225,
+            0.0241875,
+            0.024875
+          ],
+          "driver_si": 0.003375,
+          "label_clearance_m": 0.0033749999999999995,
+          "label_direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "label_station": 1.2500000000000002,
+          "persistent_id": 33,
+          "style_flags": 2181039143,
+          "text_kind": 18,
+          "view_id": 201,
+          "view_name": "*Left",
+          "witness_length_m": null,
+          "witness_separation_m": 0.0033749999999999995
+        },
+        {
+          "dimension_center_m": [
+            -0.01225,
+            0.0241875,
+            0.024875
+          ],
+          "driver_si": 1.069014166846527,
+          "first_exterior_score": -0.2582005033228347,
+          "label_clearance_m": 0.006863228724447315,
+          "label_direction": [
+            -0.7178573755261075,
+            0.6961901955663906,
+            0.0
+          ],
+          "label_station": -0.5,
+          "persistent_id": 34,
+          "style_flags": 2147484711,
+          "text_kind": 13,
+          "view_id": 201,
+          "view_name": "*Left",
+          "witness_length_m": 0.010000000000000002,
+          "witness_separation_m": 0.010188338736816835
+        }
+      ],
+      "feature_id": 35,
+      "guarded_runtime_reads": 0,
+      "phase": "edited",
+      "source_sha256": "e82b727876b1db00a986372a7fdc7efb897185ebf46add9acab3b2677f2fd197"
+    }
+  ],
+  "guarded_disclosed_read_processes": 4,
+  "heldout_reader_or_writer_credit": 0,
+  "model_cases": [
+    {
+      "archive_slots": [
+        90,
+        110
+      ],
+      "case": "NeutralAxial",
+      "config_bytes": 22798,
+      "config_sha256": "3f7687d56c8a27d7ad3235cb1ea339c130ef3618ad2e597a1e46f9ed7ccf33bb",
+      "driver_archive_bytes": 3657,
+      "driver_archive_sha256": "782f3229e9dc465384cb27029752dae5cf94a2e1454ae67779fa3e657ad506ce",
+      "drivers": [
+        {
+          "driver_si": 0.00475,
+          "label_clearance_m": 0.009,
+          "label_station": 1.375,
+          "persistent_id": 29,
+          "text_kind": 18,
+          "view_id": 200,
+          "witness_length_m": null,
+          "witness_separation_m": 0.00475
+        },
+        {
+          "driver_si": 0.71,
+          "label_clearance_m": 0.01225,
+          "label_station": -0.5,
+          "persistent_id": 30,
+          "text_kind": 13,
+          "view_id": 200,
+          "witness_length_m": 0.014,
+          "witness_separation_m": 0.00973253022660196
+        }
+      ],
+      "exact_read_and_reserialize": true,
+      "feature_id": 31,
+      "guarded_runtime_reads": 0,
+      "intent_sha256": "32817c10f9b045b1b74a7df22a56aa1e8c325874e3e6659da79c6776622fd646",
+      "refusals": [
+        "foreign-owner",
+        "alternate-mode",
+        "unregistered-view",
+        "wrong-signed-view",
+        "linear-label-witness",
+        "unproved-angular-branch",
+        "bad-angle",
+        "bad-leader",
+        "allocator-exhaustion",
+        "duplicate-slots",
+        "crossed-driver",
+        "external-driver"
+      ]
+    },
+    {
+      "archive_slots": [
+        91,
+        111
+      ],
+      "case": "NeutralCross",
+      "config_bytes": 22986,
+      "config_sha256": "639bcfed488f15670a808c61000aae24657662824ce8ab3539c1126482bdbcfa",
+      "driver_archive_bytes": 3657,
+      "driver_archive_sha256": "259455f98416f1ebe28f5dfb4858395c7bead1ed1f87f9d965bf808224b4a3ea",
+      "drivers": [
+        {
+          "driver_si": 0.00525,
+          "label_clearance_m": 0.00625,
+          "label_station": 1.625,
+          "persistent_id": 86,
+          "text_kind": 18,
+          "view_id": 202,
+          "witness_length_m": null,
+          "witness_separation_m": 0.00525
+        },
+        {
+          "driver_si": 0.93,
+          "label_clearance_m": 0.013,
+          "label_station": -0.5,
+          "persistent_id": 87,
+          "text_kind": 13,
+          "view_id": 202,
+          "witness_length_m": 0.016,
+          "witness_separation_m": 0.014349529646260304
+        }
+      ],
+      "exact_read_and_reserialize": true,
+      "feature_id": 88,
+      "guarded_runtime_reads": 0,
+      "intent_sha256": "f3928b68cf7c9db808385cf4e4cdc943448f7dadbcf33d86b2663a8f3dc5344d",
+      "refusals": [
+        "foreign-owner",
+        "alternate-mode",
+        "unregistered-view",
+        "wrong-signed-view",
+        "linear-label-witness",
+        "unproved-angular-branch",
+        "bad-angle",
+        "bad-leader",
+        "allocator-exhaustion",
+        "duplicate-slots",
+        "crossed-driver",
+        "external-driver"
+      ]
+    }
+  ],
+  "native_launches": 0,
+  "native_outputs": 0,
+  "neutral_writer_processes": 4,
+  "owner_code_sha256": {
+    "re/tooling/sw2026/edge_chamfer_source/MakeChamferDrivers.py": "8b0e6ffba06f8980640dfedc0dfd37c7c69ce8393a978768c3cb182a42dd8959",
+    "re/tooling/sw2026/edge_chamfer_source/ProveChamferDrivers.py": "7d62127386aa4e6967338ada5f8964a7d386e1426518b74868b239bb1141f2c1",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireChmfView.py": "b15f104501dd58e2d5896bde0bd88ae6df60f356641a1e3c5ce966e01292dfa3",
+    "src/convert/adapters/solidworks/Archive/Construction/Dimensions/RequireDisplay.py": "bb2f010c6c6890ccdc4cce6a813a838b99bb014e0450e6133c18914688a7f754"
+  },
+  "schema": "kit.sw2026.edge-chamfer-model-drivers.v1",
+  "unsupported_angular_station": 1.5
+}

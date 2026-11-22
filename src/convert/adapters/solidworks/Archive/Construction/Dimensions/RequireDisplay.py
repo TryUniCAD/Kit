@@ -2,6 +2,9 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Circles.RequireRadial import (
     RequireRadial,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireChmfView import (
+    RequireChmfView,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.RequirePatView import (
@@ -37,8 +40,16 @@ def RequireDisplay(
         return OwnerValue
     _ = RequireNode(HandleValue, "moFeatureDimHandle_c")
     OwnerValue = ArchiveNode.RequireNode(HandleValue.FieldsValue.get("owner"))
-    if OwnerValue.ClassValue == RuntimeClass("moLPattern_c", 1):
-        RequirePatView(OwnerValue, HandleValue, TextKind)
+    if OwnerValue.ClassValue in (
+        RuntimeClass("moLPattern_c", 1),
+        RuntimeClass("Chamfer_c", 1),
+    ):
+        CheckOwner = (
+            RequireChmfView
+            if OwnerValue.ClassValue.NameValue == "Chamfer_c"
+            else RequirePatView
+        )
+        CheckOwner(OwnerValue, HandleValue, TextKind)
         CheckViewArgs(DesignIntent, SelectedLeader)
         return OwnerValue
     if (
