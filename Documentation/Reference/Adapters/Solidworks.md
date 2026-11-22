@@ -639,6 +639,34 @@ before publication.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 · [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 
+### Writing one angle-distance edge chamfer
+
+Use a millimetre part with one active `Default` configuration and an ordinary
+forward blind rectangular boss on the canonical Front Plane. Add an active
+`ChamferFeature` with mode `distance_angle`, one earlier boss input, driving
+`D1` in millimetres and driving `D2` in degrees or radians. The sole design
+body retains the boss name and points to the chamfer as its final feature.
+
+Set the chamfer's `selection_ids` to the edge and distance face, in that order.
+Each selection has one `SelectPathElem` with kind `feature` and the preceding
+boss ID. Use the subelement `edge` or `distance face` and a selection name
+formed from the boss name, a space and the subelement. Give each a model-space
+interior point in millimetres. The edge point identifies the actual finite
+convex edge. The distance-face point identifies an adjacent face whose outward
+normal defines the D1 setback direction into the stock. This supports either
+incident face. The geometry and the ordered feature bindings determine the
+support references.
+
+Use the ordinary part path or named binary stream writer. An explicit Windows
+self locator uses the local C drive and the authored document basename. Kit
+generates the default chamfer display view and its model-relative witnesses.
+Equal-distance and separate distance-pair modes, multiple edges, additional
+feature history and custom presentation are outside this profile. Strict SDK
+geometry reading of the cold result still requires a chamfer-specific cache-free
+projection. The signed positive and reciprocal candidates match their
+native-tested bytes and both source-locked lifecycle comparisons passed.
+[Chamfer writing](../../Changes/Solidworks/Writing/Parts/SolidworksSignedChamferWriting.md)
+
 ### Writing standalone blank drawings
 
 Call `write_document(document, path)` with an authored metre document and a

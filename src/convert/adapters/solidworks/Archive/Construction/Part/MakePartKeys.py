@@ -43,6 +43,7 @@ def MakePartKeys(
     *,
     CutValue: CutGraph | None = None,
     CutSketchDims: tuple[KeywordDim, ...] = (),
+    AdditionalRows: tuple[KeywordFeature, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -100,5 +101,5 @@ def MakePartKeys(
         PlanValue.NameValue,
         InputValue.HeaderValue.ModifiedAt,
         ConfigValues,
-        tuple(RowsValue),
+        (*RowsValue, *AdditionalRows),
     )

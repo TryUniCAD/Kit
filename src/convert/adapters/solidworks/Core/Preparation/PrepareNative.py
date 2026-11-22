@@ -12,6 +12,10 @@ from convert.adapters.solidworks.Archive.Construction.Revolves.Part.RevolvePart 
 from convert.adapters.solidworks.Archive.Construction.Revolves.SelectedCut.MakeSelectedRevolvePart import (
     MakeSelRevPart,
 )
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsChmfPart
+from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
+    PrepChmfPart,
+)
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Circle.PrepareCircle import (
     PrepareCircle,
@@ -67,6 +71,8 @@ def PrepareNative(
     WrittenAt: int,
     OptionsValue: WriteOptions | None = None,
 ) -> PartCandidate | ImportCandidate | StockCandidate | RevolvePart | PatCandidate:
+    if IsChmfPart(DocumentValue):
+        return PrepChmfPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if IsPatPart(DocumentValue):
         return PrepPatPart(DocumentValue, TargetValue, WrittenAt, OptionsValue)
     if PlanThinPart(DocumentValue) is not None:

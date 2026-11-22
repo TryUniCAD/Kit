@@ -44,6 +44,7 @@ def EmitPartArchive(
     *,
     BodyMapFields: MutableMapping[str, object] | None = None,
     PartRelations: bool = False,
+    WriteChamfers: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(
@@ -55,7 +56,12 @@ def EmitPartArchive(
         "cmgr_f658": CastValue(int, SystemValue.ManagerValue.FieldsValue["f658"]),
     }
     ResolvedBytes, ResolvedValue = WriteResolMut(
-        FeatureValues, BodyMapFields, 19000, ConfigValue.MapValue, ContextValue
+        FeatureValues,
+        BodyMapFields,
+        19000,
+        ConfigValue.MapValue,
+        ContextValue,
+        WriteChamfers=WriteChamfers,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),
