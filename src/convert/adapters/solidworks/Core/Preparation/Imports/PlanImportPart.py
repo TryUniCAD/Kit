@@ -7,8 +7,11 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.MakeLocalPrism imp
 from convert.adapters.solidworks.Core.Preparation.Imports.BoxImportPlan import (
     BoxImportPlan,
 )
-from convert.adapters.solidworks.Core.Preparation.Imports.CheckBoxPlanes import (
-    CheckBoxPlanes,
+from convert.adapters.solidworks.Core.Preparation.Imports.CheckAxisPlanes import (
+    CheckAxisPlanes,
+)
+from convert.adapters.solidworks.Core.Preparation.Imports.CheckLPrism import (
+    CheckLPrism,
 )
 from convert.adapters.solidworks.Core.Preparation.Imports.HasBoxCorners import (
     HasBoxCorners,
@@ -25,17 +28,32 @@ def PlanImportPart(DocumentValue: CadDocument, NameValue: str) -> BoxImportPlan:
     ConfigValue = ReadBareConfig(DocumentValue)
     SourceValue = DocumentValue.source
     if any(
-        (SourceValue.path, SourceValue.sha256, SourceValue.container_version,
-         SourceValue.application_version)
+        (
+            SourceValue.path,
+            SourceValue.sha256,
+            SourceValue.container_version,
+            SourceValue.application_version,
+        )
     ):
         raise ValueError("local solid import cannot retain source file identity")
     if any(
-        type(LabelValue) is not str or not LabelValue.strip() or not LabelValue.isprintable()
+        type(LabelValue) is not str
+        or not LabelValue.strip()
+        or not LabelValue.isprintable()
         for LabelValue in (NameValue, ConfigValue.name)
     ):
         raise ValueError("local solid import requires printable names")
-    if not HasBoxCorners(ModelValue):
-        raise ValueError("local solid import requires one exact axis-aligned rectangular solid")
+    OwnedBody = not HasBoxCorners(ModelValue)
+    if OwnedBody and (
+        len(ModelValue.faces),
+        len(ModelValue.edges),
+        len(ModelValue.vertices),
+    ) != (8, 18, 12):
+        raise ValueError(
+            "local solid import requires one rectangular or L shaped prism"
+        )
     NodesValue = MakeLocalPrism(ModelValue)
-    CheckBoxPlanes(ModelValue)
-    return BoxImportPlan(NameValue, ConfigValue.name, NodesValue)
+    CheckAxisPlanes(ModelValue)
+    if OwnedBody:
+        CheckLPrism(ModelValue)
+    return BoxImportPlan(NameValue, ConfigValue.name, NodesValue, OwnedBody=OwnedBody)

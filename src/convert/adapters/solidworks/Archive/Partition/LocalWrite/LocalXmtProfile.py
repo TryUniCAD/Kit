@@ -22,6 +22,15 @@ KLocalShapes = MappingProxyType(
     }
 )
 
+# owned local bodies add only their typed bookkeeping declarations and values
+KOwnedShapes = MappingProxyType(
+    dict(KLocalShapes)
+    | {
+        KindValue: KKernelShapes[KindValue]
+        for KindValue in (70, 74, 79, 80, 81, 82, 98)
+    }
+)
+
 # generated records must stay within the bounds of the current local reader
 KLocalLimit = 4096
 

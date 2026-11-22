@@ -6,13 +6,15 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMe
 
 
 # an imported solid can prove clean rebuild and persistent topology across native save
-def CheckImportLife(CaseValue: dict[str, object]) -> tuple[str, str]:
+def CheckImportLife(
+    CaseValue: dict[str, object], NumericChecks: int
+) -> tuple[str, str]:
     CleanValue = {"error": 0, "returned_document": True, "warning": 0}
     if (
         ReadMeasMap(CaseValue.get("initial_diagnostics")) != CleanValue
         or ReadMeasMap(CaseValue.get("reopen_diagnostics")) != CleanValue
         or CaseValue.get("persistent_feature_identity") is not True
-        or CaseValue.get("numeric_candidate_checks") != 116
+        or CaseValue.get("numeric_candidate_checks") != NumericChecks
         or ReadMeasMap(CaseValue.get("geometry"))
         != ReadMeasMap(CaseValue.get("reopen_geometry"))
     ):

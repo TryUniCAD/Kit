@@ -331,13 +331,15 @@ the existing neutral Windows self-locator rule. A Windows output must
 reproduce the measured encoded locator.
 [Exact measurement gate](../../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md)
 
-The standalone writer also admits a measured geometry-only rectangular
-solid with one active configuration. It derives the Parasolid body from
-the supplied planar B-rep and reports that editable parametric history
-is unavailable. The import receipt authorizes one complete regenerated
-archive. A binary stream retains the exact measured self locator, and
-filesystem output uses the actual matching Windows path.
-[Measured rectangular solid](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md)
+The standalone writer also admits the measured geometry-only rectangular
+and orthogonal L-shaped planar solids with one active configuration. It
+derives the Parasolid body from the supplied B-rep and reports that editable
+parametric history is unavailable. The import receipt authorizes only the
+matching complete regenerated archive. A binary stream retains the exact
+measured self locator. Filesystem output uses the actual matching Windows
+path.
+[Measured rectangular solid](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredRectangularImport.md) ·
+[Measured concave solid](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredConcaveImport.md)
 
 A strict cold readback of a measured ordinary part can use the same SDK writer
 with its matching final locator and receipt. Kit verifies the regenerated

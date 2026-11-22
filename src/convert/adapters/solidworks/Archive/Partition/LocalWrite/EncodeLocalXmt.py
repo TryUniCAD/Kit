@@ -1,13 +1,22 @@
 from struct import pack as PackValue
 
 from convert.Geometry.Parasolid import KTerminalFinSchema, ParaStream, WritePointerMut
-from convert.adapters.solidworks.Archive.Partition.LocalWrite.CheckLocalXmt import (
-    CheckLocalXmt,
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.BindLocalAttrs import (
+    BindLocalAttrs,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.CheckXmtLink import (
+    CheckXmtLink,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.LocalBodyOwner import (
+    LocalBodyOwner,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.LocalXmtProfile import (
     KLocalDescription,
     KLocalLimit,
-    KLocalShapes,
+    KOwnedShapes,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalWrite.RequireLocalXmt import (
+    RequireLocalXmt,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut import (
     WriteXmtNodeMut,
@@ -15,36 +24,34 @@ from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut im
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 
-# generated imports need a native local transmit from model owned node fields alone
+# generated imports serialize only a validated bare graph and its computed optional owners
 def EncodeLocalXmt(
-    NodeValues: tuple[XmtNode, ...], SchemaValue: str = KTerminalFinSchema
+    NodeValues: tuple[XmtNode, ...],
+    SchemaValue: str = KTerminalFinSchema,
+    *,
+    OwnerValue: LocalBodyOwner | None = None,
 ) -> bytes:
     if type(SchemaValue) is not str or SchemaValue != KTerminalFinSchema:
         raise ValueError("local kernel transmit schema is unqualified")
-    if type(NodeValues) is not tuple or not 0 < len(NodeValues) <= KLocalLimit:
-        raise ValueError("local kernel node count is outside the resident domain")
+    RowsValue = RequireLocalXmt(NodeValues)
+    if OwnerValue is not None:
+        if type(OwnerValue) is not LocalBodyOwner:
+            raise TypeError("local kernel attributes need typed owner identities")
+        RowsValue = BindLocalAttrs(RowsValue, OwnerValue)
+    if len(RowsValue) > KLocalLimit:
+        raise ValueError(
+            "attributed local kernel node count exceeds the resident domain"
+        )
     OutputValue = bytearray(PackValue(">HI", 239, 0))
     SeenKinds: set[int] = set()
-    NodesValue: dict[int, XmtNode] = {}
-    for IndexValue, NodeValue in enumerate(NodeValues, 1):
-        if (
-            type(NodeValue) is not XmtNode
-            or type(NodeValue.IndexValue) is not int
-            or NodeValue.IndexValue != IndexValue
-            or type(NodeValue.KindValue) is not int
-            or NodeValue.KindValue not in KLocalShapes
-        ):
-            raise ValueError(
-                "local kernel nodes require canonical indices and qualified classes"
-            )
-        RecordValue = XmtNode(
-            IndexValue, NodeValue.KindValue, dict(NodeValue.FieldsValue)
-        )
+    if OwnerValue is not None:
+        NodesValue = {NodeValue.IndexValue: NodeValue for NodeValue in RowsValue}
+        for NodeValue in RowsValue:
+            CheckXmtLink(NodesValue, NodeValue, KOwnedShapes[NodeValue.KindValue])
+    for NodeValue in RowsValue:
         WriteXmtNodeMut(
-            OutputValue, RecordValue, KLocalShapes[RecordValue.KindValue], SeenKinds
+            OutputValue, NodeValue, KOwnedShapes[NodeValue.KindValue], SeenKinds
         )
-        NodesValue[IndexValue] = RecordValue
-    CheckLocalXmt(NodesValue)
     OutputValue.extend(PackValue(">H", 1))
     WritePointerMut(OutputValue, 0)
     return ParaStream(bytes(OutputValue), SchemaValue, KLocalDescription)

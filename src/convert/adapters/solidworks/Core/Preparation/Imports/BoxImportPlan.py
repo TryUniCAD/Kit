@@ -12,3 +12,4 @@ class BoxImportPlan:
     FeatureName: str = "Imported geometry"
     PlaneName: str = "Front Plane"
     SketchName: str = ""
+    OwnedBody: bool = False
