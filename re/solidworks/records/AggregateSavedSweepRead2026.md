@@ -37,9 +37,12 @@ both read modes. It enters neutral B-rep decoding once in the full read
 and zero times in design-only. Six malformed optional XML variants
 refuse in strict mode. Permissive reads preserve 27 feature rows and
 one body, with zero package layout opens on this aggregate. The
-ordinary resolved grammar stays unchanged. The published aggregate
-contains no hosted SOLIDWORKS saved-sweep test. The two-fixture test
-and its scrubbed CAD assets remain on #245.
+ordinary resolved grammar stays unchanged. The aggregate's shared
+complete-suite case repeats strict full and design-only reads with both
+scrubbed fixtures, checks their exact driver values and result
+ownership, and verifies that neither read is eligible for cold writing.
+[Hosted case](../../../tests/Convert/Solidworks/SweepReading/SavedSweepTests.py)
+[Fixture provenance](../v2026/corpus/saved-sweep/SavedSweepWide01/README.md)
 
 Both prior disclosed generated cold archives are byte-identical across
 the aggregate's unchanged preparation, registry, adapter and direct
