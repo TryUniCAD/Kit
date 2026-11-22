@@ -6,21 +6,20 @@ def IsValueCompared(ActionValue: str, LeftValue: object, RightValue: object) -> 
     LeftNumber, RightNumber = CastValue(int | float, LeftValue), CastValue(
         int | float, RightValue
     )
-    match ActionValue:
-        case "Eq":
-            return LeftValue == RightValue
-        case "NotEq":
-            return LeftValue != RightValue
-        case "Lt":
-            return LeftNumber < RightNumber
-        case "LtE":
-            return LeftNumber <= RightNumber
-        case "Gt":
-            return LeftNumber > RightNumber
-        case "GtE":
-            return LeftNumber >= RightNumber
-        case "Is":
-            return LeftValue is RightValue
-        case "IsNot":
-            return LeftValue is not RightValue
+    if ActionValue == "Eq":
+        return LeftValue == RightValue
+    if ActionValue == "NotEq":
+        return LeftValue != RightValue
+    if ActionValue == "Lt":
+        return LeftNumber < RightNumber
+    if ActionValue == "LtE":
+        return LeftNumber <= RightNumber
+    if ActionValue == "Gt":
+        return LeftNumber > RightNumber
+    if ActionValue == "GtE":
+        return LeftNumber >= RightNumber
+    if ActionValue == "Is":
+        return LeftValue is RightValue
+    if ActionValue == "IsNot":
+        return LeftValue is not RightValue
     raise ValueError(f"unsupported native comparison {ActionValue}")

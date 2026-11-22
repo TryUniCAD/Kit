@@ -6,23 +6,22 @@ def ExprBinary(ActionValue: str, LeftValue: object, RightValue: object) -> objec
     LeftNumber, RightNumber = CastValue(int | float, LeftValue), CastValue(
         int | float, RightValue
     )
-    match ActionValue:
-        case "Add":
-            return LeftNumber + RightNumber
-        case "Sub":
-            return LeftNumber - RightNumber
-        case "Mult":
-            return LeftNumber * RightNumber
-        case "FloorDiv":
-            return LeftNumber // RightNumber
-        case "BitAnd":
-            return CastValue(int, LeftValue) & CastValue(int, RightValue)
-        case "BitOr":
-            return CastValue(int, LeftValue) | CastValue(int, RightValue)
-        case "BitXor":
-            return CastValue(int, LeftValue) ^ CastValue(int, RightValue)
-        case "LShift":
-            return CastValue(int, LeftValue) << CastValue(int, RightValue)
-        case "RShift":
-            return CastValue(int, LeftValue) >> CastValue(int, RightValue)
+    if ActionValue == "Add":
+        return LeftNumber + RightNumber
+    if ActionValue == "Sub":
+        return LeftNumber - RightNumber
+    if ActionValue == "Mult":
+        return LeftNumber * RightNumber
+    if ActionValue == "FloorDiv":
+        return LeftNumber // RightNumber
+    if ActionValue == "BitAnd":
+        return CastValue(int, LeftValue) & CastValue(int, RightValue)
+    if ActionValue == "BitOr":
+        return CastValue(int, LeftValue) | CastValue(int, RightValue)
+    if ActionValue == "BitXor":
+        return CastValue(int, LeftValue) ^ CastValue(int, RightValue)
+    if ActionValue == "LShift":
+        return CastValue(int, LeftValue) << CastValue(int, RightValue)
+    if ActionValue == "RShift":
+        return CastValue(int, LeftValue) >> CastValue(int, RightValue)
     raise ValueError(f"unsupported native binary operation {ActionValue}")
