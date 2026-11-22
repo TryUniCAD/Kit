@@ -150,6 +150,16 @@ KSketchFields = MappingProxyType(
                 "i32",
                 BodyValue=(
                     NativeField("Scalar", "flags", "u16"),
+                    NativeField(
+                        "Branch",
+                        "flags",
+                        BodyValue=(
+                            NativeField(
+                                "Fail", "alternate SOLIDWORKS sketch ellipse body"
+                            ),
+                        ),
+                        ModeValue="NotEquals",
+                    ),
                     NativeField("Embed", "ellipse", "sk.sgEllipse.FUN_4c586da0"),
                 ),
                 CountValue="nellipses",

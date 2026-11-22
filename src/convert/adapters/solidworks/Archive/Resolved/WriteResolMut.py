@@ -10,9 +10,11 @@ from convert.adapters.solidworks.Archive.Counts.EncodeCount import EncodeCount
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.MapSnapshot import MapSnapshot
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
+from convert.adapters.solidworks.Archive.Resolved.CheckEllipUse import CheckEllipUse
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
@@ -26,8 +28,11 @@ def WriteResolMut(
     LinkContext: Mapping[str, int],
     *,
     UsageValue: BodyUsage | None = None,
+    ReplayEllipses: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    if ReplayEllipses:
+        UseEllipCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
         ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut
@@ -37,6 +42,8 @@ def WriteResolMut(
     for NodeValue in RootsValue:
         WriteNodeMut(WriterValue, NodeValue)
     WriteMbsMut(WriterValue, FindModelRoot(SeedValue), ExtraFields)
+    if ReplayEllipses:
+        CheckEllipUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True
     GraphValue = ResolvedGraph(
         RootsValue,

@@ -15,11 +15,13 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReader
 from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
+from convert.adapters.solidworks.Archive.Resolved.CheckEllipUse import CheckEllipUse
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseFilletCtxMut import UseFilletCtxMut
 
 
@@ -34,6 +36,7 @@ def ReadResolvedMut(
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     ReadFillets: bool = False,
     ReadChamfers: bool = False,
+    ReadEllipses: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
     if ReadFillets and ReadChamfers:
@@ -42,6 +45,12 @@ def ReadResolvedMut(
         UseFilletCtxMut(ContextValue)
     if ReadChamfers:
         UseChmfCtxMut(ContextValue)
+    if ReadEllipses:
+        if ReadFillets or ReadChamfers:
+            raise BodyUnsupported(
+                "SOLIDWORKS ellipse scope excludes edge finish layouts"
+            )
+        UseEllipCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -62,6 +71,8 @@ def ReadResolvedMut(
         raise BodyUnsupported(
             f"resolved graph has {Cursor.GetRemaining()} trailing bytes"
         )
+    if ReadEllipses:
+        CheckEllipUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True
     return ResolvedGraph(
         RootsValue,
