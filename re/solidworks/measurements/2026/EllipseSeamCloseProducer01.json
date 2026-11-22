@@ -1,0 +1,241 @@
+{
+  "build": "34.5.2.0604",
+  "conclusion": "api_close_branch_bound_exact_seam_write_unresolved",
+  "native_observation": {
+    "author_source_sha256": "d454ea02c374f7bd4aec8f14ca9bc151128516533db0161b60bcbcf5b479abc5",
+    "cases": {
+      "boss": {
+        "author_record_sha256": "ea68a19f9ad39c55a8115c88a4a77ab3058481481b7b59c8b3dd6a13be50f084",
+        "closed_phase_degrees": 17.000000000000032,
+        "live_point_id": [
+          1,
+          1
+        ],
+        "open_and_close_update_edit_rebuild": [
+          true,
+          true
+        ],
+        "open_phase_degrees": -9.858394544310149e-15,
+        "wire_point_id": [
+          0,
+          1
+        ]
+      },
+      "sketch": {
+        "author_record_sha256": "6e519f5c06d15c56ee3bde95fdb0485bc5dd1170853d25fa9328d9983be0d52f",
+        "closed_phase_degrees": 17.000000000000032,
+        "live_point_id": [
+          1,
+          1
+        ],
+        "open_and_close_update_edit_rebuild": [
+          true,
+          true
+        ],
+        "open_phase_degrees": -9.858394544310149e-15,
+        "wire_point_id": [
+          0,
+          1
+        ]
+      }
+    },
+    "disposition_sha256": "325ff7dd99419673d5dfe4d02291de6189c69cbc0121a0d176dc77a3011780d4",
+    "prior_fresh_native_processes": 8
+  },
+  "new_native_processes": 0,
+  "schema": 1,
+  "static_observation": {
+    "images": {
+      "sldapiu.dll": {
+        "base": "0x423f0000",
+        "bytes": 19441752,
+        "sha256": "97bc3d859637c8b420108a1a3ebd4262580fa45d05c761874df7658fad49b6c2"
+      },
+      "sldappu.dll": {
+        "base": "0x453f0000",
+        "bytes": 16519768,
+        "sha256": "50d9ec9df77bb6cc0fcf6f5620626291df948bd839d153836d317237afca71bf"
+      },
+      "sldmodu.dll": {
+        "base": "0x4b140000",
+        "bytes": 46536280,
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      },
+      "slduiu.dll": {
+        "base": "0x48ea0000",
+        "bytes": 36036696,
+        "sha256": "025917f6acd906e041652386c763a7f5dea8c2c1e8190f50265a6c51bd5d51d7"
+      }
+    },
+    "interface": {
+      "interface_iid": "9ce9dace-e595-4d8f-b893-5ae4899517de",
+      "interface_map_entry_va": "0x432a7c58",
+      "interface_subobject_offset": "0x70",
+      "interface_vtable_va": "0x432a7cf0",
+      "part_update_vtable_va": "0x4d1252d8",
+      "profile_update_vtable_va": "0x4d0e8e80",
+      "slot_offset": "0x108",
+      "target_va": "0x42eba200"
+    },
+    "procedures": [
+      {
+        "bytes": 217,
+        "end_exclusive": "0x456df3f9",
+        "file_offset": 3074336,
+        "module": "sldappu.dll",
+        "name": "ISketchManager QueryInterface",
+        "sha256": "8c812cd45306a514a4f522a9bbb8d895cba20530db1e6fe58d069c63cf6f2639",
+        "start": "0x456df320",
+        "verified_sites": {
+          "query interface": "0x456df3c6",
+          "query interface iid": "0x456df3bc",
+          "query interface result": "0x456df3b8"
+        }
+      },
+      {
+        "bytes": 230,
+        "end_exclusive": "0x456e3ee6",
+        "file_offset": 3093504,
+        "module": "sldappu.dll",
+        "name": "ISketchManager InsertSketch wrapper",
+        "sha256": "b94462ab873fe16b45c887db0b776142eb62fe61443a8e322ee191e4ef6ae187",
+        "start": "0x456e3e00",
+        "verified_sites": {
+          "dispatch": "0x456e3ea7",
+          "inner interface": "0x456e3e9d",
+          "ordinary forwarded branch": "0x456e3e95",
+          "variant bool": "0x456e3ea4"
+        }
+      },
+      {
+        "bytes": 87,
+        "end_exclusive": "0x42eaf1e7",
+        "file_offset": 11265424,
+        "module": "sldapiu.dll",
+        "name": "auSketchManager constructor",
+        "sha256": "ad3c4d595e1e3136862168580c6b462b5908c733a4329d51eeb00c63b05c44bc",
+        "start": "0x42eaf190",
+        "verified_sites": {
+          "document context": "0x42eaf1b6",
+          "install interface": "0x42eaf1c1",
+          "typed vtable": "0x42eaf1ba"
+        }
+      },
+      {
+        "bytes": 228,
+        "end_exclusive": "0x42eba2e4",
+        "file_offset": 11310592,
+        "module": "sldapiu.dll",
+        "name": "auSketchManager XDispatch slot 33",
+        "sha256": "441573cc0318f69b56af5ae6721c0f2017cce748270edd63b1b9b0afe37d24f9",
+        "start": "0x42eba200",
+        "verified_sites": {
+          "interface to object": "0x42eba217",
+          "native adapter": "0x42eba299",
+          "normalize variant bool": "0x42eba293"
+        }
+      },
+      {
+        "bytes": 159,
+        "end_exclusive": "0x42ec253f",
+        "file_offset": 11344032,
+        "module": "sldapiu.dll",
+        "name": "auSketchManager native close adapter",
+        "sha256": "8a459788cfe7d163de958a6b33e59112b183b6fabf7385415932f8994b3169b9",
+        "start": "0x42ec24a0",
+        "verified_sites": {
+          "OnInsertSketch2": "0x42ec2515",
+          "native document": "0x42ec24af",
+          "pass api origin": "0x42ec250f",
+          "pass update boolean": "0x42ec250d"
+        }
+      },
+      {
+        "bytes": 421,
+        "end_exclusive": "0x49cc0575",
+        "file_offset": 14809040,
+        "module": "slduiu.dll",
+        "name": "uiModelDoc OnInsertSketch2",
+        "sha256": "806f4ab3fff01c6d27d320aaa584e7cbe009c987ab12f75564c2985c47d87cf3",
+        "start": "0x49cc03d0",
+        "verified_sites": {
+          "forward api origin": "0x49cc042d",
+          "forward update boolean": "0x49cc0431",
+          "shared insertSketch": "0x49cc043c"
+        }
+      },
+      {
+        "bytes": 7182,
+        "end_exclusive": "0x49cc983e",
+        "file_offset": 14839856,
+        "module": "slduiu.dll",
+        "name": "uiModelDoc active sketch close",
+        "sha256": "a897140bd288d250fb7db5fd80ff4ae28c2a9f3ad96969df33a7566ff07a7dbf",
+        "start": "0x49cc7c30",
+        "verified_sites": {
+          "check update boolean": "0x49cc80d3",
+          "cleanup 2d midpoints": "0x49cc803d",
+          "get actual profile": "0x49cc7f33",
+          "get actual sketch": "0x49cc7efb",
+          "no update branch": "0x49cc80d8",
+          "no update clear sketch": "0x49cc8830",
+          "retain update boolean": "0x49cc7c60",
+          "updated close helper": "0x49cc8282"
+        }
+      },
+      {
+        "bytes": 1788,
+        "end_exclusive": "0x49cc6abc",
+        "file_offset": 14833600,
+        "module": "slduiu.dll",
+        "name": "active sketch close with update",
+        "sha256": "b9befd4e4894b6674f4e6c3f1d3c21cfd255a01dec46b65903420982adc468cb",
+        "start": "0x49cc63c0",
+        "verified_sites": {
+          "model update slot": "0x49cc6767",
+          "profile needs update": "0x49cc64d4",
+          "profile update slot": "0x49cc65d4",
+          "updated clear sketch": "0x49cc6918"
+        }
+      },
+      {
+        "bytes": 166,
+        "end_exclusive": "0x4c0e6716",
+        "file_offset": 16407152,
+        "module": "sldmodu.dll",
+        "name": "moProfileFeature update slot",
+        "sha256": "d0e6698f8c7edbc00ff28f8e4dae999f5c03bc5227fc79f6b7220ce3b98e50fd",
+        "start": "0x4c0e6670",
+        "verified_sites": {
+          "local profile update alternative": "0x4c0e6711"
+        }
+      },
+      {
+        "bytes": 4374,
+        "end_exclusive": "0x4c0dd7c6",
+        "file_offset": 16366256,
+        "module": "sldmodu.dll",
+        "name": "moProfileFeature local update",
+        "sha256": "6faa039114fb31da1d5fa632b0c7002d1266940a45a3172578786231b6392fb5",
+        "start": "0x4c0dc6b0",
+        "verified_sites": {
+          "typed sketch update": "0x4c0dccda"
+        }
+      },
+      {
+        "bytes": 7,
+        "end_exclusive": "0x456fba07",
+        "file_offset": 3190784,
+        "module": "sldappu.dll",
+        "name": "AddToDB environment setter",
+        "sha256": "fbe1d5d14e0a2baca2187de963f8942d06d3c3a6f85fb4fa4f236d93b4f891dc",
+        "start": "0x456fba00",
+        "verified_sites": {
+          "environment flag write": "0x456fba00",
+          "return": "0x456fba06"
+        }
+      }
+    ]
+  },
+  "writer_outputs": 0
+}
