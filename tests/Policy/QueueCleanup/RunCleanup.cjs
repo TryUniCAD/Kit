@@ -42,9 +42,9 @@ const Github = {
       throw new Error("Queue unavailable");
     if (Fixture.CaseName === "queue-null")
       return { repository: { mergeQueue: null } };
-    const HasNext = Fixture.CaseName === "queue-page" && !Variables.cursor;
+    const ExtraPage = Fixture.CaseName === "queue-page" && !Variables.cursor;
     const Active =
-      ["queue-active", "queue-page"].includes(Fixture.CaseName) && !HasNext;
+      ["queue-active", "queue-page"].includes(Fixture.CaseName) && !ExtraPage;
     return {
       repository: {
         mergeQueue: {
@@ -58,8 +58,8 @@ const Github = {
                     ? [{ headCommit: { oid: Fixture.Current.head_sha } }]
                     : [],
             pageInfo: {
-              hasNextPage: HasNext,
-              endCursor: HasNext ? "next" : null,
+              hasNextPage: ExtraPage,
+              endCursor: ExtraPage ? "next" : null,
             },
           },
         },
@@ -97,7 +97,9 @@ const Github = {
     git: {
       getRef: async (Request) => {
         Fixture.Calls.push("ref");
-        Assert.ok(Request.ref.startsWith("heads/gh-readonly-queue/main/pr-"));
+        Fixture.RefNames.push(Request.ref);
+        if (Fixture.CaseName !== "multiple")
+          Assert.equal(Request.ref, `heads/${Fixture.Current.head_branch}`);
         if (Fixture.CaseName === "ref-active")
           return { data: { object: { sha: Fixture.Current.head_sha } } };
         throw Object.assign(new Error("Reference lookup"), {

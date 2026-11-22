@@ -77,3 +77,7 @@ def CheckCleanup(CaseName: str) -> None:
         assert Evidence["Calls"] == ["queue", "queue"]
     if CaseName == "multiple":
         assert Evidence["EntryNumbers"] == [42, 43]
+        assert Evidence["RefNames"] == [
+            f"heads/{Evidence['Current']['head_branch']}",
+            f"heads/{Evidence['Current']['head_branch']}".replace("pr-42-", "pr-43-"),
+        ]
