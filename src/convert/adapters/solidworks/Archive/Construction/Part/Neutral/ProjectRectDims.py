@@ -1,4 +1,5 @@
 from dataclasses import replace as ReplaceValue
+from math import ulp as FloatStep
 
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.BlindPlan import (
     BlindPlan,
@@ -55,14 +56,26 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
         raise ValueError(
             "dimensioned rectangle must follow its admitted local axis order"
         )
-    for Parameter, LengthValue in (
-        (WidthParam, PlanValue.WidthValue),
-        (HeightParam, PlanValue.HeightValue),
+    WidthValue = ReadLength(WidthParam.value)
+    HeightValue = ReadLength(HeightParam.value)
+    for DriverValue, LowerValue, UpperValue in (
+        (WidthValue, FirstU, LastU),
+        (HeightValue, FirstV, LastV),
     ):
-        if ReadLength(Parameter.value) != LengthValue:
+        SpanValue = UpperValue - LowerValue
+        RoundingBound = 0.5 * (
+            FloatStep(LowerValue)
+            + FloatStep(UpperValue)
+            + FloatStep(SpanValue)
+            + FloatStep(DriverValue)
+        )
+        if abs(DriverValue - SpanValue) > RoundingBound:
             raise ValueError(
                 "rectangle driving parameters disagree with their authored endpoint distances"
             )
     return ReplaceValue(
-        PlanValue, SketchDriverNames=(WidthParam.name, HeightParam.name)
+        PlanValue,
+        WidthValue=WidthValue,
+        HeightValue=HeightValue,
+        SketchDriverNames=(WidthParam.name, HeightParam.name),
     )

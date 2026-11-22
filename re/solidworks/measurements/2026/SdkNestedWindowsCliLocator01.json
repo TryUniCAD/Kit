@@ -1,0 +1,9 @@
+{
+  "error": "native assembly locator must match the final Windows destination",
+  "passed": true,
+  "published_files": 0,
+  "schema": "kit.sw2026.nested-cli-windows-locator.v1",
+  "source_archive_sha256": "340d9264a97bc18a28c52c4b793a8e59cbca1c04b0d94e80e681eb60e0c099a8",
+  "staged_files": 0,
+  "stdout_empty": true
+}

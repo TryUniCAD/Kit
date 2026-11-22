@@ -8,8 +8,13 @@ from tests.Convert.Solidworks.NestedWriting.MakeNestDoc import MakeNestDoc
 
 
 # the existing neutral leaf can add live horizontal vertical and point distance intent without native inputs
-def MakeDimNest() -> CadDocument:
-    DocumentValue = MakeNestDoc()
+def MakeDimNest(Translated: bool = False) -> CadDocument:
+    DocumentValue = (
+        MakeNestDoc(((2.5, 0.0), (15.0, 0.0), (15.0, 9.0), (2.5, 9.0)))
+        if Translated
+        else MakeNestDoc()
+    )
+    WidthValue = 12.5 if Translated else 17.0
     GraphValue = DocumentValue.assembly
     assert GraphValue is not None
     (Member,) = GraphValue.documents
@@ -25,7 +30,7 @@ def MakeDimNest() -> CadDocument:
             owner_id=SketchValue.id,
         )
         for Identity, NameValue, LengthValue in (
-            ("parameter/outline-width", "D1", 17.0),
+            ("parameter/outline-width", "D1", WidthValue),
             ("parameter/outline-height", "D2", 9.0),
         )
     )

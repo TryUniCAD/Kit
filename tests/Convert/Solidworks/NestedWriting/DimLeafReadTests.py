@@ -13,7 +13,7 @@ from tests.Convert.Solidworks.NestedWriting.MakeDimNest import MakeDimNest
 # the strict reader must recover three independent editable parameters and construct their one solid
 def TestDimLeafRead() -> None:
     Candidates = PrepNestedAsm(
-        MakeDimNest(), r"C:\KitNestedQueue\QueueFrame.SLDASM", 1794011937
+        MakeDimNest(Translated=True), r"C:\KitNestedQueue\QueueFrame.SLDASM", 1794011937
     )
     PartPath, Target = Candidates[0]
     assert PartPath.stem == "QueuePlate"
@@ -32,13 +32,10 @@ def TestDimLeafRead() -> None:
         PartValue.parameter(Identity) for Identity in (*SketchIds, DepthId)
     )
     assert len({WidthParam.id, HeightParam.id, DepthParam.id}) == 3
-    assert all(
-        type(Quantity.value.value) in (int, float)
-        and IsClose(float(Quantity.value.value), LengthValue)
-        for Quantity, LengthValue in zip(
-            (WidthParam, HeightParam, DepthParam), (17.0, 9.0, 7.5), strict=True
-        )
-    )
+    assert tuple(
+        Quantity.value.value for Quantity in (WidthParam, HeightParam, DepthParam)
+    ) == (12.5, 9.0, 7.5)
+    assert WidthParam.attributes["native_value"] == 12.5 * 0.001
     assert PartValue.brep is not None and len(PartValue.brep.faces) == 6
     assert BodyValue.topology.volume is not None
-    assert IsClose(BodyValue.topology.volume, 17.0 * 9.0 * 7.5)
+    assert IsClose(BodyValue.topology.volume, 12.5 * 9.0 * 7.5)

@@ -56,6 +56,7 @@ def MakeRectDimsMut(
     InputValue: RectDimInput,
     Allocator: PersistentIds,
     DriverNames: tuple[str, str] = ("D1", "D2"),
+    DriverLengths: tuple[float, float] | None = None,
 ) -> tuple[DimensionGraph, ...]:
     if type(InputValue) is not RectDimInput:
         raise TypeError(
@@ -70,6 +71,11 @@ def MakeRectDimsMut(
             "rectangle sketch requires two distinct driving parameter names"
         )
     Drivers = ReadRectDrivers(GraphValue)
+    if DriverLengths is not None:
+        Drivers = (
+            (Drivers[0][0], Drivers[0][1], DriverLengths[0]),
+            (Drivers[1][0], Drivers[1][1], DriverLengths[1]),
+        )
     if GraphValue.FrameValue != PrincipalFrame("z") and (
         any(InputValue.TextDepths) or isinstance(InputValue.RouteCenter, tuple)
     ):

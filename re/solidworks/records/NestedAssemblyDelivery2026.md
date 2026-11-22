@@ -57,6 +57,11 @@ retained the spelling of an equivalent explicit locator with a lower-case
 drive letter and refused a same-basename override in a different folder.
 [Windows locator proof](../measurements/2026/SdkNestedWindowsLocator02.json)
 
+An installed CLI process also verified that an incompatible explicit locator
+with a genuine measurement returned the Windows destination diagnostic and
+left the local destination empty. The same scenario is selected in the
+Windows queue lane. [Windows CLI evidence](../measurements/2026/SdkNestedWindowsCliLocator01.json)
+
 The review stack on foundation `a85465a83ae0f1c981d55aa4f8a5b9055f82cabb` uses Git source tree `242dba95c2f7b0b5f4de9dc20ec95d5888125961`. Its complete 44-process disclosed assembly proof reproduced the same receipt digest and all fourteen measured file hashes. The exact-rational standard views preserve these measured bytes. The native half-angle cosine rounds to `0x1.6a09e667f3bcdp-1`, which was also the original macOS result for these receipts. [Standard view rounding](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Presentation/StandardViewRoundingChangesHashes.md)
 
 Both prior standalone part stream cases and both measured part CLI cases returned the same recorded case rows on this stack. The reruns used the original disclosed `SdkDefaultPartNative03` inputs. The [standalone stream probe](../../tooling/sw2026/CheckStandaloneMeasured.py) produced SHA-256 `589bb9a3cf47f300eab9c6a82480836116ec2e1f6306cbc5a270b4b35b250fcb`. The [part and CLI probe](../../tooling/sw2026/CheckMeasuredPartWriter.py) produced `bc925ba9f431a5e88ab4c4e07e4f7e89684578e7d1f2a7aae26d3fc823a8cfd2`. Those calls use the foundation's own part measurement, stream staging, CLI implementation and view generator.

@@ -1,7 +1,4 @@
 from dataclasses import replace as ReplaceValue
-from hashlib import sha256 as CalcSha
-from json import dumps as DumpJson, loads as LoadJson
-from os import name as KOsName
 from pathlib import Path as FilePath, PureWindowsPath
 
 from convert import write_document as WriteDocument
@@ -17,7 +14,6 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAs
     PrepNestedAsm,
 )
 from interchange.assembly.MateGroup import MateGroup
-from tests.Convert.Commands.CliProcess import CliProcess
 from tests.Convert.Solidworks.NestedWriting.MakeNestDoc import MakeNestDoc
 
 
@@ -55,49 +51,6 @@ def TestNestStrict(TmpPath: FilePath) -> None:
         else:
             raise AssertionError("the registry published an unmeasured assembly")
         assert not TargetPath.parent.exists()
-    if KOsName == "nt":
-        return
-    FixtureValue = LoadJson(
-        FilePath(__file__)
-        .with_name("MeasuredDimensionedBundle.json")
-        .read_text(encoding="utf-8")
-    )
-    Source = TmpPath / "Neutral.json"
-    Receipt = TmpPath / "Measurement.json"
-    _ = Source.write_text(DumpJson(FixtureValue["neutral"]), encoding="utf-8")
-    _ = Receipt.write_text(DumpJson(FixtureValue["measurement"]), encoding="utf-8")
-    NativePath = PureWindowsPath(FixtureValue["native_destination"])
-    Target = TmpPath / NativePath.name
-    CommandArgs = (
-        "convert",
-        str(Source),
-        str(Target),
-        "--json",
-        "--native-measurement",
-        str(Receipt),
-        "--native-destination",
-    )
-    Wrong = CliProcess(
-        TmpPath, *CommandArgs, str(NativePath.parent / "Other" / NativePath.name)
-    )
-    assert (
-        Wrong.returncode == 1
-        and not Wrong.stdout
-        and "namespace" in LoadJson(Wrong.stderr)["message"]
-        and set(TmpPath.iterdir()) == {Source, Receipt}
-    )
-    Result = CliProcess(TmpPath, *CommandArgs, str(NativePath))
-    assert Result.returncode == 0 and not Result.stderr, Result.stderr
-    Report = LoadJson(Result.stdout)
-    assert Report["application_usable"] is Report["vendor_loadable"] is True
-    assert Report["dropped"] == []
-    assert {
-        Member.name: CalcSha(Member.read_bytes()).hexdigest()
-        for Member in set(TmpPath.iterdir()) - {Source, Receipt}
-    } == {
-        MemberRow["name"]: MemberRow["sha256"]
-        for MemberRow in FixtureValue["measurement"]["receipt"]["members"]
-    }
 
 
 # the native component index must resolve both root placements to one child definition and one actual part

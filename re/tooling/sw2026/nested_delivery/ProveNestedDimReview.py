@@ -16,11 +16,10 @@ sys.path[:0] = [str(HERE.parents[4] / "src"), str(HERE.parent)]
 
 from convert import open_document, write_document
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks import SldprtAdapter
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Container.Format import KPartitionStream
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import ReadNestedAsm
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import PrepNestedAsm
 from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange.document.Behavior.DocumentIo import ToJson
@@ -58,27 +57,33 @@ def worker_precision(job, area):
     for encoding in ("ascii", "cp1252", "latin-1", "utf-8", "utf-16-le", "utf-16-be"):
         lookup(encoding)
     sys.addaudithook(audit.inspect)
-    try:
-        ReadNestedAsm(document)
-    except ValueError as caught:
-        require("driving parameters disagree with their authored endpoint distances" in str(caught), str(caught))
-    else:
-        raise AssertionError("the changed scalar passed the part plan")
+    measured = next(row for row in members if row["id"] == job["member"])
+    changed = next(value.BytesValue for path, value in PrepNestedAsm(document, output["path_name"], envelope["written_at"])
+                   if path.name == measured["name"])
+    changed_hash = sha256(changed).hexdigest()
+    audit.active = False
+    reopened = open_document(BytesIO(changed), source_format="solidworks.sldprt", include_brep=False)
+    audit.active = True
+    restored_id = reopened.sketches[0].parameter_ids[job["index"]]
+    require(changed_hash != measured["sha256"] and reopened.parameter(restored_id).attributes["native_value"] == after,
+            "adjacent authored driver failed to change and survive the generated native word")
     opts = {"native_destination": output["path_name"], "require_native_transfers": True,
             "solidworks_native_measurement": envelope}
-    for route in ("registry", "adapter"):
-        try:
-            if route == "registry":
-                write_document(document, target, destination_format="solidworks.sldasm", allow_carrier=False, values=opts)
+    try:
+        for route in ("registry", "adapter"):
+            try:
+                if route == "registry":
+                    write_document(document, target, destination_format="solidworks.sldasm", allow_carrier=False, values=opts)
+                else:
+                    SldprtAdapter().write(document, target, WriteOptions(values=opts))
+            except ValueError as caught:
+                require("does not match the exact member" in str(caught), str(caught))
             else:
-                SldprtAdapter().write(document, target, WriteOptions(values=opts))
-        except NotFoundError:
-            pass
-        else:
-            raise AssertionError(f"{route} published a changed sketch driver")
-    audit.active = False
+                raise AssertionError(f"{route} published a changed sketch driver")
+    finally:
+        audit.active = False
     require(not any((audit.attempts, audit.published, audit.staged_write_attempts, snapshot(area))), "refused scalar edit touched output")
-    return {"driver": parameter.name, "original_m": before.hex(), "edited_m": after.hex(),
+    return {"driver": parameter.name, "original_m": before.hex(), "edited_m": after.hex(), "generated_sha256": changed_hash,
             "both_routes_refused": True, "staged_writes": 0, "final_writes": 0, "runtime_input_file_reads": 0}
 
 
@@ -113,7 +118,17 @@ def worker_read(job):
         observed = [(r.parameter_id, [(ref.entity_id, ref.point) for ref in r.references]) for r in distances]
         expected = [(param, [(edge, "start"), (edge, "end")]) for param, edge in zip(sketch.parameter_ids, loop[:2], strict=True)]
         require(observed == expected and len(observed) == 2 and expected[0][0] != expected[1][0], "width or height endpoint did not round trip")
-        result = {"checked_ordered_endpoint_pairs": observed}
+        mapped = {row.id: row for row in sketch.entities}
+        values = []
+        for relation in distances:
+            first, second = relation.references
+            edge = mapped[first.entity_id].geometry
+            driver = part.parameter(relation.parameter_id)
+            length_mm = abs(edge.end.x - edge.start.x) + abs(edge.end.y - edge.start.y)
+            require(driver.value.value == length_mm and length_mm * 0.001 == driver.attributes["native_value"],
+                    "displayed driver, endpoints and stored metre word disagree")
+            values.append(length_mm)
+        result = {"checked_ordered_endpoint_pairs": observed, "matched_endpoint_lengths_mm": values}
     elif kind == "circle":
         require(len(sketch.entities) == 1 and sketch.entities[0].kind.value == "circle"
                 and part.brep is not None and [value.value.value for value in part.parameters] == [7.19, 31.37],
@@ -131,7 +146,7 @@ def worker_read(job):
 
 
 def run_data(job, area):
-    response = run([sys.executable, "-I", "-B", str(HERE), "--worker", str(area)],
+    response = run([sys.executable, "-I", "-B", str(HERE), "--worker", str(Path(area).resolve())],
                    input=json.dumps(job), text=True, capture_output=True, check=False)
     require(response.returncode == 0 and not response.stderr, response.stderr)
     return json.loads(response.stdout)

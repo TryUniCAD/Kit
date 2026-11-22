@@ -15,10 +15,15 @@ from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
 
 
 # the authored hierarchy places one shared module twice through different rigid frames
-def MakeNestDoc() -> CadDocument:
-    PlateValue = MakePlainDoc(
-        "QueuePlate", ((0.0, 0.0), (17.0, 0.0), (17.0, 9.0), (0.0, 9.0)), 7.5
-    )
+def MakeNestDoc(
+    RingPoints: tuple[tuple[float, float], ...] = (
+        (0.0, 0.0),
+        (17.0, 0.0),
+        (17.0, 9.0),
+        (0.0, 9.0),
+    ),
+) -> CadDocument:
+    PlateValue = MakePlainDoc("QueuePlate", RingPoints, 7.5)
     PlateConfig = PlateValue.configurations[0]
     RootConfig = Configuration("config/frame", "Project setup", active=True)
     ModuleConfig = Configuration("config/module", "Module setup", active=True)
