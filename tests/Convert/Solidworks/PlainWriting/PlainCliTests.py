@@ -1,5 +1,5 @@
 from dataclasses import replace as ReplaceValue
-from json import loads as LoadJson
+from json import dumps as DumpJson, loads as LoadJson
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDir
 
@@ -14,7 +14,9 @@ from interchange.Enums.EnumValues import ParameterRole, ValueKind
 from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
 from interchange.Records.RecordParameter import Parameter, ParameterValue
 from tests.Convert.Commands.CliProcess import CliProcess
+from tests.Convert.Solidworks.PlainWriting.LeaseMeasPath import LeaseMeasPath
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
+from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import MeasurePlainDoc
 from tests.Convert.Solidworks.PlainWriting.VerifyCliMeas import VerifyCliMeas
 
 
@@ -133,23 +135,46 @@ def RefuseBadSketch(
     assert Target.read_bytes() == Written
 
 
-# file overwrite authorization must protect a directory that has the part extension
+# a measured single file publication must preserve a populated directory at the final target
 def TestTargetDir() -> None:
     with TempDir() as FolderName:
         Folder = FilePath(FolderName)
+        Document, Envelope, _ = MeasurePlainDoc("Skew")
         Source = Folder / "Neutral.json"
-        Target = Folder / "Candidate.SLDPRT"
-        Target.mkdir()
-        Marker = Target / "measurements.json"
-        _ = Marker.write_bytes(b"protected measurements")
-        Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
+        Evidence = Folder / "Measurement.json"
         _ = Source.write_text(Document.to_json(), encoding="utf-8")
-        Options = CliOptions()
-        _ = BuildParser("0.0.0").parse_args(
-            ["convert", str(Source), str(Target), "--overwrite"],
-            namespace=Options,
-        )
-        with RaisesError(NotFoundError, match="does not support the destination"):
-            RunCommand(Options)
-        assert Marker.read_bytes() == b"protected measurements"
-        assert set(Folder.iterdir()) == {Source, Target}
+        _ = Evidence.write_text(DumpJson(Envelope), encoding="utf-8")
+        with LeaseMeasPath(Folder, f"{Document.metadata['name']}.SLDPRT") as Target:
+            Target.mkdir()
+            Marker = Target / "measurements.json"
+            _ = Marker.write_bytes(b"protected measurements")
+            try:
+                RefuseTargetDir(Source, Evidence, Target)
+                assert Marker.read_bytes() == b"protected measurements"
+                assert set(Target.iterdir()) == {Marker}
+                assert set(Target.parent.iterdir()) == (
+                    {Source, Evidence, Target} if Target.parent == Folder else {Target}
+                )
+            finally:
+                Marker.unlink(missing_ok=True)
+                if Target.is_dir():
+                    Target.rmdir()
+
+
+# the receipt must qualify before the real cli publication reaches the directory conflict
+def RefuseTargetDir(Source: FilePath, Evidence: FilePath, Target: FilePath) -> None:
+    Options = CliOptions()
+    _ = BuildParser("0.0.0").parse_args(
+        [
+            "convert",
+            str(Source),
+            str(Target),
+            "--overwrite",
+            "--native-measurement",
+            str(Evidence),
+        ],
+        namespace=Options,
+    )
+    with RaisesError(OSError) as Failure:
+        RunCommand(Options)
+    assert Failure.value.filename2 == str(Target.resolve())

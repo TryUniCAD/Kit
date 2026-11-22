@@ -7,7 +7,7 @@ from tests.Convert.Solidworks.Research.CacheFreePrism.RejectPrism import (
 from tests.Convert.Solidworks.Research.CacheFreePrism.ReversePrism import ReversePrism
 
 
-# public write and strict read must agree on independent rectangles while every unsupported physical cache and end remains rejected
+# archive preparation and strict read must agree on independent rectangles while unsupported physical caches and ends remain rejected
 def TestNoCacheRead() -> None:
     CasesValue = (
         ("NoCacheFirst", 23.625, 17.25, 8.875),

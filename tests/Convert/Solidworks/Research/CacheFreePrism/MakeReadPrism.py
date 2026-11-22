@@ -1,23 +1,36 @@
 from io import BytesIO
+
+from pytest import raises as RaisesError
+
 from convert import write_document as WriteDoc
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
     MakePlainDoc,
 )
 
 
-# the reader regression must consume actual public writer output from independent neutral dimensions without a native fixture
+# independent neutral dimensions must feed the cold reader through actual sdk archive construction
 def MakeReadPrism(
     NameValue: str, WidthValue: float, HeightValue: float, DepthValue: float
 ) -> bytes:
     DocumentValue = MakePlainDoc(NameValue, WidthValue, HeightValue, DepthValue)
     OutputValue = BytesIO()
-    ResultValue = WriteDoc(
-        DocumentValue,
-        OutputValue,
-        destination_format="solidworks.sldprt",
-        allow_carrier=False,
-        values={"final_destination": "C:\\KitNoCacheTests\\" + NameValue + ".SLDPRT"},
+    Values = {
+        "final_destination": "C:\\KitNoCacheTests\\" + NameValue + ".SLDPRT",
+        "require_native_transfers": True,
+    }
+    Candidate = PrepareNative(
+        DocumentValue, OutputValue, 1794973072, WriteOptions(values=Values)
     )
-    BytesValue = OutputValue.getvalue()
-    assert ResultValue.bytes_written == len(BytesValue) and BytesValue
-    return BytesValue
+    assert Candidate.BytesValue and OutputValue.getvalue() == b""
+    with RaisesError(ValueError, match="offline native measurement receipt"):
+        _ = WriteDoc(
+            DocumentValue,
+            OutputValue,
+            destination_format="solidworks.sldprt",
+            allow_carrier=False,
+            values=Values,
+        )
+    assert OutputValue.getvalue() == b"" and OutputValue.tell() == 0
+    return Candidate.BytesValue

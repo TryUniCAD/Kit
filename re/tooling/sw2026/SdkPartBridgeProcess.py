@@ -126,18 +126,22 @@ def main():
             "preparation changed the byte contract or mutated a destination")
     file = candidate.HeaderValue.FieldsValue["f38"].FieldsValue["shared"]["h18"].FieldsValue["value"].TextValue
     require(file == final_path and file != staged, "native header published a temporary staging identity")
-    adapter = REGISTRY.GetReader("solidworks.sldprt")
-    require(not hasattr(adapter, "write") and not hasattr(adapter, "supports"), "reader and writer entry points must remain distinct")
-    destination = BytesIO()
-    try:
-        WriteDocument(document, destination, DestFormat="solidworks.sldprt")
-    except ValueError as error:
-        require(str(error) == "unnamed native streams require an explicit final destination",
-                "the unbound binary destination failed for the wrong reason")
-    else:
-        raise ValueError("normal public save admitted an unqualified writer")
-    require(destination.getvalue() == b"" and REGISTRY.GetWriter("solidworks.sldprt").info.part_extensions == (".sldprt",),
-            "part writer discovery or unbound stream atomicity differs")
+    reader = REGISTRY.GetReader("solidworks.sldprt")
+    writer = REGISTRY.GetWriter("solidworks.sldprt")
+    require(reader is not writer and writer.supports(document, BytesIO()),
+            "the registry lost the independent plain part reader or writer selection")
+    for public_values in ({}, {"final_destination": final_path}):
+        destination = BytesIO()
+        try:
+            WriteDocument(document, destination, DestFormat="solidworks.sldprt", InputValues=public_values)
+        except ValueError as error:
+            require("offline native measurement receipt" in str(error),
+                    "the unmeasured public save failed for the wrong reason")
+        else:
+            raise ValueError("normal public save admitted an unmeasured part")
+        require(destination.getvalue() == b"" and destination.tell() == 0,
+                "the refused public save mutated the stream")
+    require(writer.info.part_extensions == (".sldprt",), "part writer discovery differs")
     readback = public_reader(candidate)
     rejections = malformed(document, recipe, final_path, options)
     imported = sorted(name for name, module in tuple(sys.modules.items())
