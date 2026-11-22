@@ -27,3 +27,5 @@ Physical feature labels must now cover the actual solid face and edge owners. A 
 ## Floating point boundary and rejection replay
 
 Station coverage now uses the same centimeter arithmetic as the physical label reader, preserving valid 15 mm along and 8 mm against extents. Three additional API-authored controls bracket this rounding case. A process boundary integration replay encodes an archive with its solid cap label moved to a coincident sketch sheet and requires the public CLI to refuse physical label coverage. This replay is committed for remote execution and has not been run locally.
+
+The expanded pinned offline CLI run at `be17166ec6c8dd17243e02605efac4ea571563cd` decoded all 16 committed captures strictly with zero partial fallbacks, reader errors or rejections. Its receipt is retained in Validation.json. The rejection replay and its topology selector now occupy separate focused modules. The replay remains unexecuted locally, and strict source decoding does not establish native conversion acceptance.
