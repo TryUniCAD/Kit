@@ -1,4 +1,5 @@
 from convert.adapters.solidworks.Archive.Config.ReadPartConfig import ReadPartConfig
+from convert.adapters.solidworks.Archive.Header.ReadFileTable import GetFileRef
 from convert.adapters.solidworks.Archive.Properties.ReadPropManager import (
     ReadPropManager,
 )
@@ -34,5 +35,12 @@ def ReadPartText(Document: CadDocument, Archive: SldprtArchive) -> PartTextData 
     ConfigFields = ReadConfigProps(Document, Archive, VersionValue)
     if SummaryFields is None and DocumentFields is None and not ConfigFields:
         return None
-    _ = ReadPartConfig(Archive)
+    GraphValue = ReadPartConfig(Archive)
+    if ConfigFields and (
+        GetFileRef(GraphValue.HeaderValue.FieldsValue.get("f38")).ConfigValue
+        != Document.configurations[0].name
+    ):
+        raise ValueError(
+            "part configuration properties differ from the saved ModelHeader name"
+        )
     return PartTextData(SummaryFields, DocumentFields, ConfigFields)

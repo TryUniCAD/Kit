@@ -7,7 +7,8 @@ active configuration's `attributes["custom_properties"]`.
 
 This profile covers ordinary version-19000 parts. The configuration
 property stream must identify the active, unparented configuration in the
-saved directory. Before exposing any literal properties, the reader
+saved directory and match the saved ModelHeader configuration name.
+Before exposing any literal properties, the reader
 binds the native ModelHeader and consumes the complete ordinary Config-0
 archive, including both typed sections and their owner references.
 The supported binary property manager is absent or empty. A manager is
@@ -44,7 +45,11 @@ The physical configuration case checks a one-byte stream, a missing
 tail, appended data and a different mapped owner. Each keeps the model
 readable, withholds all text and refuses conversion and direct writing
 before changing the destination. The summary-only truncation control
-applies the same rule without scoped custom XML. A distinct neutral
+applies the same rule without scoped custom XML. Two separate owner
+controls substitute a conflicting ModelHeader name and a block-map
+reference to the physical part. Both withhold all property scopes and
+refuse new writes. File-level text remains available when the first
+control has no configuration-scoped properties. A distinct neutral
 snapshot with an authored prism proves exact JSON copies through both
 SDK entry points. The circular native control retains its full inspection
 document in JSON and still encounters the native-only feature gate on
@@ -55,3 +60,4 @@ direct export.
 · [Legacy empty manager](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/LegacyEmptyTextManagers.md)
 · [Binary-only manager](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/PropertyManagerCanStandAlone.md)
 · [Neutral snapshot provenance](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/JsonRetainsPropertyStatus.md)
+· [Physical owner contrast](../../../../Gotchas/Conversion/Solidworks/Archive/Properties/ModelHeaderOwnsScopedText.md)

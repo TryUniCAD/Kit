@@ -277,6 +277,37 @@ python -I -B re/tooling/sw2026/part_text/CheckPhysicalPartText.py \
 [Physical proof receipt](../measurements/2026/LiteralPartTextPhysical01.json)
 · [Queue process case](../../../tests/Convert/Solidworks/Properties/PhysicalTextTests.py)
 
+## Physical owner contrasts
+
+The complete configuration reader requires the sketch block map to refer
+back to its actual manager. In CircularProperties the physical reference
+at [25227, 25229) resolves to manager slot 115. Retargeting that same tag
+to the existing part at slot 2 kept the rest of the graph readable on
+`e63a95f2e031c8a165d5ef30a48f72f99d434d2d`. The bounded shared reader
+now declines that reference. Its independent L1 control preserves a
+`0x80000025` signed-negative count and empty rows after validating the link.
+
+The ModelHeader self file has `refcfg.f08` equal to `modeled default`.
+The guard binds it to the active configuration already selected through
+CMgrHdr2. Re-serializing only the header's name as `shifted default`
+keeps the directory, XML and geometry intact. The prior path published
+all three scopes and the revised path withholds them with the exact
+owner diagnostic. The same header can still expose both independent
+file-level scopes when the scoped XML is absent.
+
+Both malformed controls preserve the full inspected geometry and feature
+history and refuse strict conversion and direct writing without changing
+the destination bytes or cursor. The original tracked native file qualifies
+all three scopes.
+
+```sh
+python -I -B re/tooling/sw2026/part_text/CheckPartTextOwners.py \
+  re/solidworks/v2026/corpus/part-properties/CircularProperties.SLDPRT
+```
+
+[Owner proof receipt](../measurements/2026/LiteralPartTextOwners01.json)
+· [Queue process case](../../../tests/Convert/Solidworks/Properties/OwnerTextTests.py)
+
 ## Current portability boundary
 
 The integration uses the reviewed configuration dependency at
@@ -311,3 +342,12 @@ refusal without filtering and the original text refusal with the
 configuration selected.
 
 [Exact current process evidence](../measurements/2026/LiteralPartTextPortability01.json)
+
+Two fresh runs also used the exact accepted main
+`f80da8caed2ca7a585c1aa85f22c1e13196761d5` and the revised property
+branch on the same authored snapshot. Both SDK routes emitted the
+same interchange JSON hash and restored the full document on both
+revisions. The transfers list only body structure, B-rep and configurations.
+This equality covers the unavailable-property diagnostic and actual
+imported feature.
+[Exact transport contrast](../measurements/2026/LiteralPartTextOwners01.json)

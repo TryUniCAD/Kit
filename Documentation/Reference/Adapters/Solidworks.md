@@ -226,8 +226,8 @@ original word with its runtime projection.
 
 For the compatible version-19000 part profile, strict reads project
 literal native summary, document custom text and active configuration
-text. Configuration text uses the saved directory and its corresponding
-physical streams. All literal property scopes require the complete
+text. Configuration text uses the saved directory and the matching
+ModelHeader configuration name. All literal property scopes require the complete
 ordinary Config-0 body linked to its ModelHeader. Unsupported property
 variants leave the ordinary geometry and feature result available with
 a diagnostic.

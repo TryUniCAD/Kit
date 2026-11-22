@@ -112,8 +112,8 @@ provenance.
 The legacy wheel fixture's empty text scopes use a complete structural
 absence proof. The local #183 integration binds every literal result to
 the complete `Config-0` codec in [PR #233](https://github.com/TryUniCAD/Kit/pull/233).
-Five guarded physical variants withhold all literal text and preserve
-the inspected model. Strict legacy and native inspections retain
+Five guarded physical framing variants and two separate owner contrasts
+withhold all literal text and preserve the inspected model. Strict legacy and native inspections retain
 their models while export respects the accepted portability gates.
 A separate neutral snapshot with a modeled prism preserves its
 inspection status in both SDK copy paths. Exit requires the

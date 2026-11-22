@@ -13,4 +13,11 @@ The ordinary sketch-support and native feature checks still run during
 publication. A decoded native timeline can remain inspectable through
 JSON while those checks refuse an export. Keep the provenance and
 diagnostic with the snapshot.
+
+The same geometry-only interchange snapshot produces identical documents
+and output bytes on accepted main and the property branch. It carries
+the imported solid with its original source and diagnostic. Both SDK
+entry points report body structure, B-rep and configurations. The
+native feature refusal, filtered copy refusal and new native output
+policy still apply at their separate boundaries.
 [Process cases](../../../../../../tests/Convert/Solidworks/Properties/WriteTextTests.py)
