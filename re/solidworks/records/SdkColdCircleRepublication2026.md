@@ -72,6 +72,20 @@ metadata. Their original protected model inputs and raw reports were
 untouched. The historical comparison does not add new native or held-out
 results. General native-saved circle republication remains open.
 
+The subsequent [original-cohort replay](../measurements/2026/OriginalCircleSdkRoundTrip01.json)
+uses the independently frozen neutral requests for translated Front diameter,
+reversed Top radius, Right mid-plane and two-direction circles. For each
+request, registry, direct writer and adapter reproduce the exact original
+native-tested file from the authored model, a full strict readback and a
+design-only strict readback. Both reads round-trip through neutral JSON.
+All 36 publications retain the measured native transfers with zero
+runtime input reads. Only the frozen neutral requests and their hash
+manifests enter the host proof. The four workers start no native processes
+and open no original or previously generated CAD files. Existing lifecycle
+evidence still owns the actual native edit, rebuild and reopen results.
+[Original blind comparison](SdkOriginalCircleNative2026.md) ·
+[Original end-mode comparison](SdkEndConditionHeldoutProtocol2026.md)
+
 ## Reproduce
 
 ```sh
@@ -87,3 +101,13 @@ The standalone runner consumes the authored neutral input and the two
 tracked disclosed reports before arming its audit. Generated CAD bytes
 stay in the process or its own temporary publication directory. No live
 CAD application or proprietary tool is required.
+
+To repeat the original-cohort replay, use the disclosure directory
+that retains both frozen neutral packets. Run one process for each case.
+
+```sh
+for case in H01TranslatedDiameter H02ReverseTopCircle H03MidPlane H04TwoDirections; do
+  python3.14 -I -B re/tooling/sw2026/ReplayOriginalCircles.py \
+    --case "$case" --disclosure /path/to/Oracle121Takeover
+done
+```

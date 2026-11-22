@@ -811,6 +811,13 @@ pass, including edits to the radial size and depth and a clean fresh reopen.
 All sixteen normal SDK reads preserve both driving owners. These sources
 are native SOLIDWORKS and add zero FCStd conversions.
 
+The [current SDK replay](measurements/2026/OriginalCircleSdkRoundTrip01.json)
+reproduces those two original candidates and both locked mid-plane and
+two-direction candidates. The 36 exact publications cover the authored
+models and both strict neutral readback modes with zero writer input reads.
+The matched native lifecycles use SOLIDWORKS-authored originals and add
+zero FCStd conversions.
+
 The [normal part text reader](records/PartTextPropertyRead2026.md) recovers
 the current compatible summary, file and configuration text with the actual
 configuration owner on five files. The advanced property manager case keeps
