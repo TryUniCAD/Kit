@@ -1,0 +1,51 @@
+{
+  "bytes": 8421,
+  "compressor": "1.2.12",
+  "missing_radial_driver_inferred_json": true,
+  "profile_owners_verified": true,
+  "receipt_sha256": "bc49ba2f4fd8215f2772c16dc7bdfc7c973f2dcacc4214b4890ef2bdb8ad6be0",
+  "refusals": [
+    "build",
+    "control",
+    "warning",
+    "reopen",
+    "driver",
+    "radial_only",
+    "stream",
+    "unmeasured_input",
+    "changed_depth",
+    "occupied_sink"
+  ],
+  "republication_tool_sha256": "06cad87cda29abeca86d7ab2cf0876f123cb79cb4350b4abee1a18b88bc8822c",
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.measured-circle-main.v1",
+  "sha256": "62a07340be437efe6464cf7e0599ffa5e1f9d208b6c8976311bfb0fe15d54b64",
+  "standalone_publications": 3,
+  "stream_count": 10,
+  "strict_readback": {
+    "area_mm2": 2112.5168560166526,
+    "centroid_mm": [
+      7.125,
+      -5.675000000000001,
+      8.9125
+    ],
+    "driver_ids": [
+      "sldprt:parameter:18:D1",
+      "sldprt:parameter:20:D1"
+    ],
+    "face_count": 3,
+    "solid_count": 1,
+    "volume_mm3": 7373.688714995751
+  },
+  "strict_republication": {
+    "exact_regeneration": true,
+    "path_publications": 2,
+    "stream_publications": 4,
+    "strict_profiles": 2,
+    "unrepresented_scope_refusals": [
+      "cold readback differs from its regenerated part",
+      "cold readback differs from its regenerated part"
+    ]
+  },
+  "tool_sha256": "cd09be68df09f408e5beb11b20f3ca4fc4a7e819f8d2d6fa7904bd16a6e0ebf2"
+}

@@ -12,7 +12,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 
 # a normal closed circle must follow its actual endpoint and centre identities
-def ReadCircleShape(SketchValue: ArchiveNode) -> tuple[NativeProfile, int] | None:
+def ReadCircleShape(
+    SketchValue: ArchiveNode,
+) -> tuple[NativeProfile, int, tuple[float, float]] | None:
     FieldsValue = SketchValue.FieldsValue
     ArcsValue = NativeRows(FieldsValue.get("arcs"))
     if len(ArcsValue) != 1 or any(
@@ -55,4 +57,5 @@ def ReadCircleShape(SketchValue: ArchiveNode) -> tuple[NativeProfile, int] | Non
             start_angle_degrees=Degrees(ArcTangent(DeltaY, DeltaX)),
         ),
         CenterValue,
+        (XValue, YValue),
     )

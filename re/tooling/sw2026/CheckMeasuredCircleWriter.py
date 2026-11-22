@@ -18,6 +18,7 @@ HERE = Path(__file__).resolve()
 ROOT = HERE.parents[3]
 sys.path.insert(0, str(HERE.parent))
 from CheckScopedPlainWriter import WriterAudit, reject
+from CheckCircleRepub import check_republish
 
 FORMAT = "solidworks.sldprt"
 OPTION = "solidworks_native_measurement"
@@ -248,11 +249,13 @@ def worker(document, directory):
            and target.read_bytes() == (payload if output_count == 3 else b"keep previous path"),
            "refused publication touched its destination or left staging")
     readback = check_strict(payload)
+    repeated = check_republish(target, audit, payload, receipt, EPOCH, LOCATOR, case["candidate_sha256"])
     check_inferred_format(model, directory)
     return {"schema": "kit.sw2026.measured-circle-main.v1", "sha256": digest(payload),
             "receipt_sha256": MANIFEST_SHA, "bytes": len(payload), "stream_count": len(stream_evidence),
             "standalone_publications": output_count, "runtime_input_file_reads": len(audit.denied),
             "profile_owners_verified": True, "strict_readback": readback, "refusals": refusals,
+            "strict_republication": repeated,
             "missing_radial_driver_inferred_json": True, "compressor": ZLIB_RUNTIME_VERSION}
 
 
@@ -283,6 +286,7 @@ def main():
     demand(result["standalone_publications"] == 3
            and digest(args.original.read_bytes()) == result["sha256"], "disclosed whole-file comparison differs")
     result["tool_sha256"] = digest(HERE.read_bytes())
+    result["republication_tool_sha256"] = digest(HERE.with_name("CheckCircleRepub.py").read_bytes())
     with args.output.open("x", encoding="utf-8") as output:
         output.write(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(f"measured circle {result['sha256']}, proof {digest(args.output.read_bytes())}")

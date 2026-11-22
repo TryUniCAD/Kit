@@ -23,3 +23,9 @@ def TestCircleWrite() -> None:
     assert ReportValue["runtime_input_file_reads"] == 0
     assert ReportValue["profile_owners_verified"] is True
     assert ReportValue["stream_count"] == 10
+    Repeated = CastValue(dict[str, object], ReportValue["strict_republication"])
+    assert Repeated["strict_profiles"] == 2
+    assert Repeated["exact_regeneration"] is True
+    assert Repeated["stream_publications"] == (
+        4 if ReportValue["standalone_publications"] else 0
+    )

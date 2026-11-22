@@ -69,3 +69,49 @@ not production output or stream templates.
 Scope is the ordinary forward Front-plane diameter saved boss. Reversed,
 radius, alternate ends, selected bodies, additional source owners, and
 native-saved read-to-write publication remain separate.
+
+## Scoped review follow-up
+
+The three disclosed native files above still give six strict reads and nine
+exact manager, configuration and resolved stream replays. The inactive
+length is present in the boss step attribute
+`solidworks.inactive_blind_depth` in both geometry and design-only reads.
+It is archive parameter 258, attached to dimension 257 through
+`f818.f20`, with the binary64 value `0.017825` metres in `f58` across all
+three files. The owner span moves with the native save from
+`[12465,12508)` to `[12559,12602)` to `[12565,12608)`. The active
+depth and radial parameters are independent of that slot. No second
+editable extrusion end is asserted.
+
+The saved physical body now acquires its design identity after both the
+actual raw shell atom and the cylinder agree. An in-memory contrast retains
+the exact original physical partition with atom 101 and changes the two
+agreeing logical claims to 102 through the typed archive codecs. The
+strict path refuses the atom mismatch. The permissive path still retains
+the raw physical body and payload, with no design association, attributed
+topology or body measurements. The original stale radius and crossed producer checks are
+separate. None of the contrasts is published or passed to SOLIDWORKS.
+
+[Updated guarded read receipt](../measurements/2026/SdkSavedCircleMainRead02.json)
+
+The hosted process coverage uses two independently saved, disclosed CAD
+controls. Its first and edited-reopen files have SHA-256
+`f85b89e5920cfdb922657c57fc92d92c1e039db3e95286ad6e0f8e4c5712b6fc`
+and `c8e6326464e2de7fd15d56a2e34c68320f7494cb3b6faa4a6924867619d16784`,
+respectively. Both are bound to the original phase observations before
+the SDK worker uses them. These are read controls in `re/` only and
+do not feed production generation.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckSavedCircleRead.py \
+  --fixtures --output /tmp/UnusedSavedCircleFixtures.json
+```
+
+The cold forward diameter candidate separately regenerated the recorded
+whole archive through the direct and registry paths from strict full and
+design-only reads. Its model-only planner consumed the actual typed radial
+and depth owners. The complete regenerated readback is compared before the
+existing per-file native evidence gate. The cold archive carries no saved
+partition, unlike the native-saved inputs above.
+
+[Cold republication receipt](../measurements/2026/SdkMeasuredCircleRepub01.json)

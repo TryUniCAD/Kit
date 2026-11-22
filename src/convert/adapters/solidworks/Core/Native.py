@@ -1136,6 +1136,7 @@ class NativeOperation(NativeOpFrame):
     instance_count: int | None = None
     spacing_mm: float | None = None
     archive_spans: tuple[tuple[int, int, str], ...] = ()
+    inactive_blind_depth: Mapping[str, object] | None = None
 
 
 # this definition exists because focused behavior needs one stable owner

@@ -31,6 +31,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame impo
     ReadPrismFrame,
 )
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
+from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.NativeRecord import NativeRecord
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
 from convert.adapters.solidworks.Core.TypedResolved.RequireNative import RequireNative
@@ -51,7 +52,7 @@ def BindSavedCircle(
     Owner = ReadExtrude(LinkValue, Features[Operation.object_id], Features)
     if Owner.ProfileValue is not Profile or Operation.kind != "join":
         raise ValueError("saved circle lacks its actual creating profile")
-    CheckBlindCirc(Owner, SavedBody=True)
+    Dimension, Parameter, Inactive = CheckBlindCirc(Owner, SavedBody=True)
     ShapeValue = RequireNative(Profile.FieldsValue.get("pd_f80"), "sgSketch")
     Shape = ReadLocalCirc(ShapeValue, LinkValue)
     if Shape is None:
@@ -76,4 +77,14 @@ def BindSavedCircle(
         TypedCircle=CircleValue,
         dimensions=(Driver,),
     )
-    return ReplaceValue(ApplyCircle(ModelValue, Bound, Owner), SavedCircleAtom=BodyId)
+    DepthValue = {
+        **NativeNodeSpan(LinkValue, Parameter),
+        "dimension_index": Dimension.IndexValue,
+        "slot": "f818.f20",
+        "value_field": "f58",
+        "value_m": Inactive,
+    }
+    return ReplaceValue(
+        ApplyCircle(ModelValue, Bound, Owner, InactiveDepth=DepthValue),
+        SavedCircleAtom=BodyId,
+    )

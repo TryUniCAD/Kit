@@ -303,6 +303,11 @@ disclosed Front-plane diameter candidate, using the
 [circle lifecycle report](../../../re/solidworks/measurements/2026/SdkCircleNative01.json).
 [Measured circle scope](../../Changes/Solidworks/Construction/SolidworksMeasuredCircleWriter.md)
 
+The measured cold Front-plane diameter boss can also be regenerated from
+strict native readback, including its design-only read. This requires
+complete semantic equality and the same exact output measurement.
+[Cold circle republication](../../Changes/Solidworks/Construction/SolidworksColdCircleRepublication.md)
+
 Call `write_document` with a `.SLDPRT` path whose stem matches
 `document.metadata["name"]`. For a binary stream, pass
 `destination_format="solidworks.sldprt"` and supply an absolute part path in
@@ -357,7 +362,9 @@ For the qualified cold circle graph it derives the analytic cylinder and
 retains the separate radial and depth drivers. The saved forward, diameter-
 driven Front-plane case also retains the live driver values. Strict geometry
 readback checks the saved cylinder and the actual result atom before reporting
-its analytic measures.
+its analytic measures or linking that physical body to the boss. The saved
+boss exposes its inactive depth and typed archive owner separately from its
+active forward depth driver.
 [Verified saved-circle scope](../../Changes/Solidworks/Inspection/Parts/SolidworksSavedCircleDrivers.md)
 
 Raw Parasolid extraction requires a saved Parasolid payload.

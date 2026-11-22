@@ -1,4 +1,5 @@
 from collections.abc import Sequence
+from dataclasses import replace as ReplaceValue
 from math import pi as PiValue
 
 from convert.adapters.solidworks.Container.Format import KPartitionStream
@@ -20,7 +21,7 @@ from interchange.Records.RecordTopology import TopologyCounts
 
 # the saved world shell must carry the same active body atom as the actual boss
 def CheckCircShell(
-    ModelValue: BrepModel, Payloads: Sequence[BrepPayload], AtomValue: int, BodyId: str
+    ModelValue: BrepModel, Payloads: Sequence[BrepPayload], AtomValue: int
 ) -> None:
     Sources = tuple(
         Payload
@@ -31,7 +32,7 @@ def CheckCircShell(
         raise ValueError("saved circle lacks its unique active partition payload")
     if (
         len(ModelValue.bodies) != 1
-        or ModelValue.bodies[0].design_body_id != BodyId
+        or ModelValue.bodies[0].design_body_id
         or ReadShellAtom(Sources[0].data, ModelValue)["body_atom_id"] != AtomValue
     ):
         raise ValueError(
@@ -61,14 +62,12 @@ def SavedCircleGeom(
         or Operation.direction_code != 0
     ):
         raise ValueError("saved circle geometry lacks its live sketch and boss proof")
-    CheckCircShell(ModelValue, Payloads, AtomValue, BodyId)
+    CheckCircShell(ModelValue, Payloads, AtomValue)
     AxisValue = (FrameValue.z_axis.x, FrameValue.z_axis.y, FrameValue.z_axis.z)
     StartX, StartY = CircleValue.CenterValue
     Radius = CircleValue.RadiusValue
     Origin = (StartX / 1000, StartY / 1000, 0.0)
-    Result = CheckRoundBody(
-        ModelValue, Origin, AxisValue, Length / 1000, Radius / 1000, BodyId
-    )
+    Result = CheckRoundBody(ModelValue, Origin, AxisValue, Length / 1000, Radius / 1000)
     Lower, Upper = (Value * 1000 for Value in Result["cap_offsets_m"])
     Centroid = (StartX, StartY, (Lower + Upper) / 2.0)
     Volume = Result["analytic_volume_m3"] * 1e9
@@ -87,4 +86,8 @@ def SavedCircleGeom(
         surface_area=2 * PiValue * Radius * (Radius + abs(Upper - Lower)),
         valid=True,
     )
-    return CircleSolid(ModelValue, Topology, PartMass(Volume, Centroid))
+    (BodyValue,) = ModelValue.bodies
+    Linked = ReplaceValue(
+        ModelValue, bodies=(ReplaceValue(BodyValue, design_body_id=BodyId),)
+    )
+    return CircleSolid(Linked, Topology, PartMass(Volume, Centroid))

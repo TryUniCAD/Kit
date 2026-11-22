@@ -42,13 +42,14 @@ def PrepareNative(
                 "unnamed native streams require an explicit final destination"
             )
         InputValue = ColdReadInput(DocumentValue, PureWindowsPath(FinalValue).stem)
-    if not IsReadback and IsCirclePart(InputValue):
-        return PrepareCircle(InputValue, TargetValue, WrittenAt, SettingsValue)
-    PlanValue = PlanPartWrite(InputValue)
-    RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
-    Candidate = RunPartPrep(
-        InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
-    )
+    if IsCirclePart(InputValue):
+        Candidate = PrepareCircle(InputValue, TargetValue, WrittenAt, SettingsValue)
+    else:
+        PlanValue = PlanPartWrite(InputValue)
+        RecipeValue = MakePartRecipe(PlanValue, WrittenAt)
+        Candidate = RunPartPrep(
+            InputValue, TargetValue, PlanValue, RecipeValue, SettingsValue
+        )
     if IsReadback:
         CheckColdRead(DocumentValue, Candidate.BytesValue)
     return Candidate

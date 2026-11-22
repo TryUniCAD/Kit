@@ -31,10 +31,8 @@ def CheckColdRead(Document: CadDocument, Payload: bytes) -> None:
         Archive,
         Payload,
         SourceName,
-        ReadOptions(),
+        ReadOptions(include_brep=Document.brep is not None),
         ModelValue=WithTypedNative(Model, Archive),
     )
-    if Expected.brep is None or ToJson(Document, IndentSize=None) != ToJson(
-        Expected, IndentSize=None
-    ):
+    if ToJson(Document, IndentSize=None) != ToJson(Expected, IndentSize=None):
         raise ValueError("SOLIDWORKS cold readback differs from its regenerated part")

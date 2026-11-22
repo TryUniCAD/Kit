@@ -28,7 +28,7 @@ def EmitNativeMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     SettingsValue = CheckPartOpts(OptionsValue)
-    CircleValue = IsCirclePart(DocumentValue) and not IsColdRead(DocumentValue)
+    CircleValue = IsCirclePart(DocumentValue)
     WrittenAt, Receipt = (
         ReadCircMeas(SettingsValue) if CircleValue else ReadPartMeas(SettingsValue)
     )

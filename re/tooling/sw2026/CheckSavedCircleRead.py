@@ -11,6 +11,8 @@ sys.path.insert(0, str(HERE.parent))
 from CheckMeasuredCircleWriter import check_custody, demand, digest, MANIFEST, MANIFEST_SHA, NAME
 from CheckScopedPlainWriter import reject
 
+FIXTURES = ROOT / "re/solidworks/v2026/corpus/saved-circle-readback"
+
 
 def vector(value):
     return [value.x, value.y, value.z]
@@ -96,10 +98,21 @@ def typed_semantics(document, lite, archive, link, observed):
            and driver.attributes["typed_archive_owner"]["object_index"] == radial_slot.IndexValue
            and depth.attributes["typed_archive_owner"]["object_index"] == owner.DepthValue.Parameter.IndexValue
            and model.SavedCircleAtom is not None, "public drivers are not their exact archived binary64 owners")
-    inactive = ReadPrismParam(owner.EndValue.FieldsValue["f20"], False)[2]
+    inactive_dimension, inactive_parameter, inactive = ReadPrismParam(
+        owner.EndValue.FieldsValue["f20"], False)
+    stored = boss.attributes["solidworks.inactive_blind_depth"]
+    demand(stored["value_m"].hex() == inactive.hex()
+           and stored["slot"] == "f818.f20" and stored["value_field"] == "f58"
+           and stored["object_index"] == inactive_parameter.IndexValue
+           and stored["dimension_index"] == inactive_dimension.IndexValue
+           and stored["stream"] == link.StreamName
+           and inactive_parameter.IndexValue != owner.DepthValue.Parameter.IndexValue
+           and len(document.parameters) == 2 and boss.parameter_ids == (depth.id,),
+           "stored inactive length lost its owner or entered the active dimension set")
     return owner, model.SavedCircleAtom, {"radial_mm": driver.value.value, "depth_mm": depth.value.value,
            "radial_m_hex": radial_word.hex(), "active_depth_m_hex": depth_word.hex(),
            "inactive_depth_m": inactive, "radius_mm": circle.geometry.radius,
+           "inactive_depth_owner": dict(stored),
            "driver_ids": [driver.id, depth.id], "feature_id": boss.id}
 
 
@@ -141,21 +154,68 @@ def physical(document, atom, semantic, observed):
             "area_mm2": area, "centroid_mm": com}
 
 
+def refuse_body_association(raw, diagnostic):
+    from convert import open_document
+    from convert.adapters.solidworks.Container.Container import SldprtFormatError
+    from interchange.Records.RecordTopology import TopologyCounts
+
+    strict = reject(lambda: open_document(raw, source_format="solidworks.sldprt", strict=True),
+                    SldprtFormatError, diagnostic)
+    relaxed = open_document(raw, source_format="solidworks.sldprt", strict=False)
+    body, = relaxed.bodies
+    demand(any(row.code == "sldprt.saved_circle_geometry_unresolved" for row in relaxed.diagnostics)
+           and relaxed.brep is not None and not relaxed.brep.bodies[0].design_body_id
+           and relaxed.brep_payloads and not relaxed.validate()
+           and not body.attributes["parasolid_payload_ids"]
+           and "parasolid_active_payload_id" not in body.attributes
+           and "solidworks.body_centroid_mm" not in body.attributes
+           and body.topology == TopologyCounts(),
+           "non-strict route assigned unverified physical geometry to a boss")
+    return strict
+
+
+def wrong_shell_atom(archive, link, owner):
+    from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
+    from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
+    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+    from convert.adapters.solidworks.Core.Adapter import NativePartModel
+
+    node = owner.NodeValue.FieldsValue
+    atom = node["f528"]["items"][0]["o"].FieldsValue
+    claim = node["f498"][0]
+    existing = atom["f140"]
+    demand(claim["v"] == existing, "invalid test prerequisite for dual atom ownership")
+    config, resolved = link.ConfigValue, link.ResolvedValue
+    try:
+        atom["f140"] = claim["v"] = existing + 1
+        config_data, emitted = WriteConfigMut(config.RootValue, 19000, config.HeaderValue)
+        resolved_data = WriteResolMut(resolved.RootsValue, resolved.ExtraFields,
+                                      19000, emitted.MapValue, resolved.ContextValue)[0]
+    finally:
+        atom["f140"] = claim["v"] = existing
+    raw = BuildSldprt({**archive.streams, link.ConfigName: config_data,
+                       link.StreamName: resolved_data}, FormatVersion=4)
+    parsed = SldprtArchive.from_bytes(raw)
+    demand(NativePartModel(parsed, None).SavedCircleAtom == existing + 1
+           and parsed.require("Contents/Config-0-Partition") == archive.require("Contents/Config-0-Partition"),
+           "in-memory contrast did not preserve the physical shell while changing both logical claims")
+    return {
+        "physical": existing,
+        "claimed": existing + 1,
+        "refusal": refuse_body_association(raw, "saved circle partition shell disagrees with the live body atom"),
+    }
+
+
 def negative(archive, link, owner, initial):
     from convert import open_document
     from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
-    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive, SldprtFormatError
+    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 
     payload = dict(archive.streams)
     partition = "Contents/Config-0-Partition"
     payload[partition] = SldprtArchive.from_bytes(initial).require(partition)
     contradictory = BuildSldprt(payload, FormatVersion=4)
-    stale = reject(lambda: open_document(contradictory, source_format="solidworks.sldprt", strict=True),
-                   SldprtFormatError, "active cylinder radius differs from the owned sketch")
-    relaxed = open_document(contradictory, source_format="solidworks.sldprt", strict=False)
-    demand(any(row.code == "sldprt.saved_circle_geometry_unresolved" for row in relaxed.diagnostics)
-           and relaxed.bodies[0].topology.volume is None,
-           "non-strict route attested contradictory body geometry")
+    stale = refuse_body_association(contradictory, "active cylinder radius differs from the owned sketch")
 
     writer = link.ResolvedValue
     entry = owner.NodeValue.FieldsValue["f498"][0]
@@ -172,7 +232,9 @@ def negative(archive, link, owner, initial):
     demand("saved circle atom does not link" in message
            and all("typed_archive_owner" not in p.attributes for p in fallback.parameters if p.name == "D1"),
            "a foreign body owner still received exact typed dimensions")
-    return {"stale_partition": stale, "crossed_producing_atom": message}
+    return {"stale_partition": stale, "crossed_producing_atom": message,
+            "wrong_physical_atom": wrong_shell_atom(archive, link, owner),
+            "unverified_geometry_unlinked": True}
 
 
 def worker(request):
@@ -215,25 +277,38 @@ def worker(request):
     return result
 
 
+def stable_drivers(result):
+    figure = result["editable_semantics"]
+    owner = {key: value for key, value in figure["inactive_depth_owner"].items()
+             if key not in ("offset", "end")}
+    return {**figure, "inactive_depth_owner": owner}
+
+
 def main():
     parser = ArgumentParser()
     parser.add_argument("--packet", type=Path)
+    parser.add_argument("--fixtures", action="store_true")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--worker", action="store_true")
     args = parser.parse_args()
     if args.worker:
         print(json.dumps(worker(json.load(sys.stdin)), sort_keys=True))
         return
-    demand(args.packet is not None and args.output is not None, "use an exact disclosed packet and new receipt path")
+    demand((args.packet is None) == args.fixtures and args.output is not None,
+           "use one exact disclosed packet or checked-in fixture pair and a new receipt path")
     manifest = MANIFEST.read_bytes()
     demand(digest(manifest) == MANIFEST_SHA, "native report changed")
     receipt = json.loads(manifest)
-    check_custody(args.packet, receipt)
     case, = (row for row in receipt["cases"] if row["name"] == NAME)
-    paths = [args.packet / "Inspection" / NAME / row["phase"] / (NAME + "Saved.SLDPRT")
-             for row in case["stages"]]
+    if args.fixtures:
+        stages = [case["stages"][0], case["stages"][-1]]
+        paths = [FIXTURES / "First.SLDPRT", FIXTURES / "EditedReopen.SLDPRT"]
+    else:
+        check_custody(args.packet, receipt)
+        stages = case["stages"]
+        paths = [args.packet / "Inspection" / NAME / row["phase"] / (NAME + "Saved.SLDPRT") for row in stages]
     result = []
-    for path, stage in zip(paths, case["stages"], strict=True):
+    for path, stage in zip(paths, stages, strict=True):
         request = {"path": str(path), "stage": stage}
         if stage["phase"] == "edited-fresh-reopen":
             request |= {"initial_path": str(paths[0]), "initial_sha256": case["stages"][0]["saved_sha256"]}
@@ -241,13 +316,16 @@ def main():
                                  input=json.dumps(request), text=True, capture_output=True, check=False)
         demand(guarded.returncode == 0, guarded.stdout + guarded.stderr)
         result.append(json.loads(guarded.stdout))
-    demand(result[0]["editable_semantics"]["active_depth_m_hex"] != result[1]["editable_semantics"]["active_depth_m_hex"]
-           and result[0]["editable_semantics"]["inactive_depth_m"] == result[1]["editable_semantics"]["inactive_depth_m"]
-           and result[1]["editable_semantics"] == result[2]["editable_semantics"],
+    first, edited = (stable_drivers(result[index]) for index in (0, -1))
+    demand(first["active_depth_m_hex"] != edited["active_depth_m_hex"]
+           and first["radial_m_hex"] != edited["radial_m_hex"]
+           and first["inactive_depth_m"] == edited["inactive_depth_m"]
+           and (args.fixtures or stable_drivers(result[1]) == edited),
            "stored secondary cache or live edits did not meet their independent lifecycle")
     with args.output.open("x", encoding="utf-8") as output:
-        output.write(json.dumps({"schema": "kit.sw2026.saved-circle-sdk.v1", "native_report_sha256": MANIFEST_SHA,
+        output.write(json.dumps({"schema": "kit.sw2026.saved-circle-sdk.v2", "native_report_sha256": MANIFEST_SHA,
                                  "tool_sha256": digest(HERE.read_bytes()), "fresh_processes": len(result),
+                                 "source_mode": "checked-in-disclosed" if args.fixtures else "disclosed-packet",
                                  "linked_streams_exact": sum(len(row["linked_streams"]) for row in result),
                                  "native_process_launches": 0, "cases": result},
                                 sort_keys=True, indent=2) + "\n")

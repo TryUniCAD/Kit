@@ -1,6 +1,7 @@
 from convert.adapters.solidworks.Archive.Construction.Blind.BlindZeroFields import (
     KBlindZeroFields,
 )
+from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeOwner
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismAtom import (
     CheckPrismAtom,
@@ -16,7 +17,9 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # an analytic circle cannot replace selected bodies draft or alternate live end states
-def CheckBlindCirc(OwnerValue: ExtrudeOwner, *, SavedBody: bool = False) -> None:
+def CheckBlindCirc(
+    OwnerValue: ExtrudeOwner, *, SavedBody: bool = False
+) -> tuple[ArchiveNode, ArchiveNode, float]:
     BossValue = OwnerValue.NodeValue
     Fields = OwnerValue.EndValue.FieldsValue
     if (
@@ -60,3 +63,4 @@ def CheckBlindCirc(OwnerValue: ExtrudeOwner, *, SavedBody: bool = False) -> None
         or OtherDraft[2] != 0
     ):
         raise ValueError("cold circle has contradictory blind depth or draft ownership")
+    return Reverse

@@ -34,7 +34,7 @@ def ReadLocalCirc(
         Drive is None and (not AllowFree or not IsLineState(FieldsValue["dims"]))
     ):
         return None
-    ProfileValue, CenterIndex = Shape
+    ProfileValue, CenterIndex, CenterMetres = Shape
     CenterX, CenterY, RadiusValue = ProfileValue.coordinates
     Dimension, ModeValue, _ = Drive if Drive is not None else (None, None, None)
     if Dimension is not None and (
@@ -57,6 +57,7 @@ def ReadLocalCirc(
             ModeValue,
             None if Dimension is None else Dimension.name,
             NativeNodeSpan(LinkValue, SketchValue),
+            CenterMetres,
         ),
         Dimension,
     )

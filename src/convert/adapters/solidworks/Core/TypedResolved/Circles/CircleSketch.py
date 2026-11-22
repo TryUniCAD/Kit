@@ -83,5 +83,6 @@ def CircleEntity(SketchId: str, CircleValue: LocalCircle) -> SketchEntity:
         attributes={
             "native_permanent_mark": CircleValue.ArcMark,
             "native_center_permanent_mark": CircleValue.CenterMark,
+            "native_center_m": CircleValue.CenterMetres,
         },
     )

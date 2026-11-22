@@ -12,3 +12,4 @@ class LocalCircle:
     ModeValue: str | None
     DriverName: str | None
     OwnerValue: Mapping[str, object]
+    CenterMetres: tuple[float, float]

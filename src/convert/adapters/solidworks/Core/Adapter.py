@@ -440,7 +440,7 @@ def ReadNativePart(
     )
     if LocalOwner is not None and BrepValue is not None:
         BrepValue, Fallback = LinkLocalBody(BrepValue, KPartBodyId, Fallback)
-    Summary, Measures, MassDiag = PartReadMass(
+    Summary, Measures, MassDiag, LinkedCircle = PartReadMass(
         MassBody, Fallback, CircleValue, Model, Payloads, Settings
     )
     Bodies = (
@@ -455,12 +455,16 @@ def ReadNativePart(
                     "native_object_id": (
                         BodyFeature.object_id if BodyFeature is not None else None
                     ),
-                    "parasolid_payload_ids": tuple(
-                        (Payload.id for Payload in Payloads)
+                    "parasolid_payload_ids": (
+                        tuple(Payload.id for Payload in Payloads)
+                        if MassDiag is None
+                        else ()
                     ),
                     **(
                         {"parasolid_active_payload_id": ActivePart.PayloadId}
-                        if ActivePart is not None and ActivePart.ModelValue is not None
+                        if ActivePart is not None
+                        and ActivePart.ModelValue is not None
+                        and MassDiag is None
                         else {}
                     ),
                     **(
@@ -504,7 +508,7 @@ def ReadNativePart(
         selections=SelectValues,
         feature_timeline=TimeValues,
         bodies=() if IsEmptyPart(Archive, Model) else Bodies,
-        brep=BrepValue,
+        brep=LinkedCircle if LinkedCircle is not None else BrepValue,
         brep_payloads=Payloads,
         diagnostics=Diagnostics,
         capabilities=Instance.info.capabilities,
@@ -576,8 +580,7 @@ def PartReadMass(
     NativeValue: NativeModel,
     Payloads: tuple[BrepPayload, ...],
     Settings: ReadOptions,
-) -> tuple[TopologySummary, PartMass | None, DiagValue | None]:
-    DiagInfo = None
+) -> tuple[TopologySummary, PartMass | None, DiagValue | None, BrepModel | None]:
     if (
         NativeValue.SavedCircleAtom is not None
         and Settings.include_brep
@@ -589,6 +592,12 @@ def PartReadMass(
             CircleValue = SavedCircleGeom(
                 NativeValue, ModelValue, Payloads, KPartBodyId
             )
+            return (
+                CircleValue.TopologyValue,
+                CircleValue.MassValue,
+                None,
+                CircleValue.BrepValue,
+            )
         except (KeyError, TypeError, ValueError) as ErrorInfo:
             if Settings.strict:
                 raise SldprtFormatError(str(ErrorInfo)) from ErrorInfo
@@ -597,12 +606,13 @@ def PartReadMass(
                 message=str(ErrorInfo),
                 severity=Severity.INFO,
             )
+            return TopologySummary(), None, DiagInfo, None
     if CircleValue is not None and ModelValue is CircleValue.BrepValue:
-        return CircleValue.TopologyValue, CircleValue.MassValue, None
+        return CircleValue.TopologyValue, CircleValue.MassValue, None, None
     Summary, Measures = ActivePartMass(
         ModelValue, PartTopology(ModelValue, KPartBodyId, Fallback), KPartBodyId
     )
-    return Summary, Measures, DiagInfo
+    return Summary, Measures, None, None
 
 
 # planes and sketches must bind to the same native parameter identities
@@ -614,7 +624,9 @@ def PartSketchData(
 
 # an active partition receives the body identity only when native records prove solid ownership
 def TypedBodyId(Model: NativeModel) -> str | None:
-    if Model.cut_source is not None or Model.SavedCircleAtom is not None:
+    if Model.SavedCircleAtom is not None:
+        return None
+    if Model.cut_source is not None:
         return KPartBodyId
     if len(Model.operations) == 1:
         Operation = Model.operations[0]
@@ -3783,6 +3795,8 @@ def OperationAttrs(Operation: NativeOperation) -> dict[str, object]:
         Result["diameter_mm"] = Operation.diameter_mm
     if Operation.second_length_mm is not None:
         Result["second_length_mm"] = Operation.second_length_mm
+    if Operation.inactive_blind_depth is not None:
+        Result["solidworks.inactive_blind_depth"] = Operation.inactive_blind_depth
     if Operation.axis_marker_offset is not None:
         Result["axis_marker_offset"] = Operation.axis_marker_offset
     if Operation.axis_source_kind is not None:

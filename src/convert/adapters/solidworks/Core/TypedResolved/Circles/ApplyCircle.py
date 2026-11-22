@@ -1,3 +1,4 @@
+from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.Native import NativeModel, NativeSketch
@@ -10,7 +11,11 @@ from convert.adapters.solidworks.Core.TypedResolved.ExtrudeOwner import ExtrudeO
 
 # both public dimension owners and the actual model timeline publish one atomic typed update
 def ApplyCircle(
-    ModelValue: NativeModel, SketchValue: NativeSketch, Owner: ExtrudeOwner
+    ModelValue: NativeModel,
+    SketchValue: NativeSketch,
+    Owner: ExtrudeOwner,
+    *,
+    InactiveDepth: Mapping[str, object] | None = None,
 ) -> NativeModel:
     (Operation,) = ModelValue.operations
     return ReplaceValue(
@@ -28,5 +33,11 @@ def ApplyCircle(
             )
             for Feature in ModelValue.features
         ),
-        operations=(BindExtrude(Operation, Owner),),
+        operations=(
+            ReplaceValue(
+                BindExtrude(Operation, Owner),
+                second_length_mm=None,
+                inactive_blind_depth=InactiveDepth,
+            ),
+        ),
     )
