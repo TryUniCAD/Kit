@@ -13,10 +13,14 @@ from CheckOrdinaryCfg import (
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadLengthMut import ReadLengthMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadOwnedMut import ReadOwnedMut
 from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPresentMut import ReadPresentMut
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadValueMut import ReadValueMut
 from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigMut
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
+from convert.adapters.solidworks.Archive.Tags.ArchiveTag import ArchiveTag
+from convert.adapters.solidworks.Archive.Tags.EncodeTag import EncodeTag
+from convert.adapters.solidworks.Archive.Tags.ReadTag import ReadTag
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 MASTER = RuntimeClass("moSheetMetalMaster_c", 1)
@@ -89,6 +93,7 @@ def read_witnesses(wire, header):
         code = frame.f_code
         if (code is not ReadPresentMut.__code__
                 and code is not ReadLengthMut.__code__
+                and code is not ReadValueMut.__code__
                 and code is not ReadOwnedMut.__code__):
             return
         state = frame.f_locals["FrameValue"]
@@ -104,6 +109,10 @@ def read_witnesses(wire, header):
         if (event == "call" and code is ReadLengthMut.__code__
                 and state.NodeValue.ClassValue == BLOCK_MANAGER and rule.NameValue == "n98"):
             differences["block_count"] = cursor.OffsetValue
+        if (event == "call" and code is ReadValueMut.__code__
+                and state.NodeValue.ClassValue == BLOCK_MANAGER and rule.NameValue == "f30"):
+            tag, stop = ReadTag(cursor.BytesValue, cursor.OffsetValue)
+            differences["block_link"] = (cursor.OffsetValue, stop, tag)
         if code is ReadOwnedMut.__code__ and rule.NameValue == "f1018":
             differences["master"].append((event, cursor.OffsetValue, state.ReaderValue.MapValue.CounterValue))
 
@@ -185,8 +194,18 @@ def check_block_word(raw):
             and wire == original[:offset] + pack("<I", HIGH_BLOCK_COUNT) + original[offset + 4:]
             and replay == wire and reopened.MapValue.CounterValue == graph.MapValue.CounterValue,
             "unsigned high-bit block count or its empty owned rows changed")
+    first, stop, tag = evidence["block_link"]
+    root_index = reopened.RootValue.IndexValue
+    pointer = EncodeTag(ArchiveTag("ObjectRef", root_index))
+    require(tag == ArchiveTag("ObjectRef", saved.IndexValue) and root_index != saved.IndexValue
+            and len(pointer) == stop - first and wire[first:stop] == EncodeTag(tag),
+            "block manager must have its own mapped backlink")
+    wrong = wire[:first] + pointer + wire[stop:]
+    refused = rejection(lambda: ReadConfigMut(wrong, 19000, graph.HeaderValue),
+                        "SOLIDWORKS sketch block map requires its owning backlink")
     return {"value": HIGH_BLOCK_COUNT, "wire_offset": offset, "archive_sha256": identity(wire),
-            "next_map_slot": reopened.MapValue.CounterValue, "rows": len(values["f90"])}
+            "next_map_slot": reopened.MapValue.CounterValue, "rows": len(values["f90"]),
+            "backlink": [first, stop, saved.IndexValue, root_index], "wrong_owner_refusal": refused}
 
 
 def measure():

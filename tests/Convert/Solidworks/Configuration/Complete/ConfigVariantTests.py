@@ -19,6 +19,10 @@ def TestConfigForms() -> None:
     BlockWord = CastValue(dict[str, object], Result["block_map_count"])
     assert BlockWord["value"] == 0x80000025 and BlockWord["rows"] == 0
     assert BlockWord["wire_offset"] == 24496 and BlockWord["next_map_slot"] == 110
+    assert BlockWord["backlink"] == [24490, 24492, 98, 2]
+    assert BlockWord["wrong_owner_refusal"] == (
+        "SOLIDWORKS sketch block map requires its owning backlink"
+    )
     assert (
         BlockWord["archive_sha256"]
         == "b10214fafbec49f15aa21e2131e94df8f4050499827d725a1f040b31a6d3034e"
