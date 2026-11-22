@@ -17,9 +17,12 @@ def WriteConfigMut(
     HeaderValue: ArchiveNode,
     *,
     UsageValue: BodyUsage | None = None,
+    SweepGhosts: bool = False,
 ) -> tuple[bytes, ConfigGraph]:
     RootValue = RequireConfig(RootValue)
-    ContextValue = MakeConfigCtx(VersionValue, HeaderValue, UsageValue)
+    ContextValue = MakeConfigCtx(
+        VersionValue, HeaderValue, UsageValue, SweepGhosts=SweepGhosts
+    )
     ContextValue.PartRootValue = RootValue
     WriterValue = BodyWriter(ArchiveMaps(1), ContextValue, WriteCfgBodyMut)
     WriteNodeMut(WriterValue, RootValue)

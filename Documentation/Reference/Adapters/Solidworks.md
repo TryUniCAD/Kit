@@ -336,6 +336,15 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+The measured Standard sweep writer accepts a first-creator solid
+`SweepFeature` with two owned sketches, a canonical Right circle and a
+canonical Front quarter arc, two driving D1 parameters and literal body
+density. It uses a separate sweep lifecycle receipt with the same SDK
+envelope. Supply the exact measured Windows self locator for the stream
+or filesystem destination. The legacy SDK reader returns partial
+history for sweep files.
+[Measured Standard sweep](../../Changes/Solidworks/Construction/SolidworksMeasuredSweep.md)
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

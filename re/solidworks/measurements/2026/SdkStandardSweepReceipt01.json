@@ -1,0 +1,660 @@
+{
+  "cases": [
+    {
+      "archive_bytes": 10528,
+      "archive_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "independent_observer_sha256": {
+        "original": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27",
+        "path": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d",
+        "section": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+      },
+      "independent_source_sha256": {
+        "original": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+        "path": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+        "section": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b"
+      },
+      "locator": "C:\\KitSweepCold02\\Packet\\Candidates\\SweepArcNear.SLDPRT",
+      "paired_numeric_checks": 84,
+      "path_save_sha256": "b109bf59256d9f270cf0005002ac7c72ce51fde67829a43ae8e7f5a16c1da717",
+      "save_status": [
+        [
+          true,
+          0,
+          0
+        ],
+        [
+          true,
+          0,
+          0
+        ]
+      ],
+      "section_save_sha256": "4a1d429f6e31251d62af9121f3bda140ea801d85759348356ac6837098f2fd32",
+      "setter_status": [
+        0,
+        0
+      ],
+      "slot": 0,
+      "states": [
+        {
+          "area_m2": 0.0013413978398737734,
+          "com_m": [
+            0.018376426172304432,
+            0.010326573827695567,
+            -3.21654835513637e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.0027284688746932215,
+          "path_radius_m": 0.028703,
+          "section_diameter_m": 0.008642,
+          "solid_count": 1,
+          "stage": "initial",
+          "tree_rows": 26,
+          "volume_m3": 2.6446339776032e-06
+        },
+        {
+          "area_m2": 0.0020120029330689426,
+          "com_m": [
+            0.018488732793555823,
+            0.010214267206444177,
+            -2.823317518802231e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.005688273144072014,
+          "path_radius_m": 0.028703,
+          "section_diameter_m": 0.012478,
+          "solid_count": 1,
+          "stage": "section-edited",
+          "tree_rows": 26,
+          "volume_m3": 5.51349534173889e-06
+        },
+        {
+          "area_m2": 0.0020120029330689426,
+          "com_m": [
+            0.018488732793555823,
+            0.010214267206444177,
+            -2.823317518802231e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.005688273144072014,
+          "path_radius_m": 0.028703,
+          "section_diameter_m": 0.012478,
+          "solid_count": 1,
+          "stage": "section-reopen",
+          "tree_rows": 26,
+          "volume_m3": 5.51349534173889e-06
+        },
+        {
+          "area_m2": 0.00154473664089614,
+          "com_m": [
+            0.021397081389467238,
+            0.012073918610532763,
+            -2.962966374453883e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.003181708591605645,
+          "path_radius_m": 0.033471,
+          "section_diameter_m": 0.008642,
+          "solid_count": 1,
+          "stage": "path-edited",
+          "tree_rows": 26,
+          "volume_m3": 3.0839474572120237e-06
+        },
+        {
+          "area_m2": 0.00154473664089614,
+          "com_m": [
+            0.021397081389467238,
+            0.012073918610532763,
+            -2.962966374453883e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.003181708591605645,
+          "path_radius_m": 0.033471,
+          "section_diameter_m": 0.008642,
+          "solid_count": 1,
+          "stage": "path-reopen",
+          "tree_rows": 26,
+          "volume_m3": 3.0839474572120237e-06
+        }
+      ],
+      "written_at": 1794000000
+    },
+    {
+      "archive_bytes": 10526,
+      "archive_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "independent_observer_sha256": {
+        "original": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0",
+        "path": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82",
+        "section": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+      },
+      "independent_source_sha256": {
+        "original": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+        "path": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+        "section": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084"
+      },
+      "locator": "C:\\KitSweepCold02\\Packet\\Candidates\\SweepArcWide.SLDPRT",
+      "paired_numeric_checks": 84,
+      "path_save_sha256": "56c86cdd73948d1c17744fd6b404011ff9a7401755903160495604ee2df89492",
+      "save_status": [
+        [
+          true,
+          0,
+          0
+        ],
+        [
+          true,
+          0,
+          0
+        ]
+      ],
+      "section_save_sha256": "650cb0ea393b46781a054c383d41a34e7cc0319bdc0d8b136711cf664c730915",
+      "setter_status": [
+        0,
+        0
+      ],
+      "slot": 1,
+      "states": [
+        {
+          "area_m2": 0.0025336063280646665,
+          "com_m": [
+            0.026416272093383354,
+            0.01488072790661665,
+            -1.2436083957065442e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.006862306823572918,
+          "path_radius_m": 0.041297,
+          "section_diameter_m": 0.011426,
+          "solid_count": 1,
+          "stage": "initial",
+          "tree_rows": 26,
+          "volume_m3": 6.651455678562487e-06
+        },
+        {
+          "area_m2": 0.0032071119111784963,
+          "com_m": [
+            0.026484379479336427,
+            0.014812620520663573,
+            -5.725646499251364e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.010577952284658647,
+          "path_radius_m": 0.041297,
+          "section_diameter_m": 0.014186,
+          "solid_count": 1,
+          "stage": "section-edited",
+          "tree_rows": 26,
+          "volume_m3": 1.0252934268351892e-05
+        },
+        {
+          "area_m2": 0.0032071119111784963,
+          "com_m": [
+            0.026484379479336427,
+            0.014812620520663573,
+            -5.725646499251364e-19
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.010577952284658647,
+          "path_radius_m": 0.041297,
+          "section_diameter_m": 0.014186,
+          "solid_count": 1,
+          "stage": "section-reopen",
+          "tree_rows": 26,
+          "volume_m3": 1.0252934268351892e-05
+        },
+        {
+          "area_m2": 0.0028197040714775974,
+          "com_m": [
+            0.02963271715389248,
+            0.01673828284610753,
+            0.0
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.007705451478700627,
+          "path_radius_m": 0.046371,
+          "section_diameter_m": 0.011426,
+          "solid_count": 1,
+          "stage": "path-edited",
+          "tree_rows": 26,
+          "volume_m3": 7.468693882621525e-06
+        },
+        {
+          "area_m2": 0.0028197040714775974,
+          "com_m": [
+            0.02963271715389248,
+            0.01673828284610753,
+            0.0
+          ],
+          "drivers": [
+            [
+              "D1",
+              "SweepSection",
+              6,
+              2,
+              false
+            ],
+            [
+              "D1",
+              "SweepPath",
+              5,
+              2,
+              false
+            ]
+          ],
+          "faces": 3,
+          "mass_kg": 0.007705451478700627,
+          "path_radius_m": 0.046371,
+          "section_diameter_m": 0.011426,
+          "solid_count": 1,
+          "stage": "path-reopen",
+          "tree_rows": 26,
+          "volume_m3": 7.468693882621525e-06
+        }
+      ],
+      "written_at": 1794000000
+    }
+  ],
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "fresh_processes": 12,
+  "healthy_controls": true,
+  "native_result_sha256": "380ead8ff07a9337bd0df87d32eb92e49529e0579c15449767a5ee26e53dd512",
+  "oracle": {
+    "build": "34.5.2.0604",
+    "product": "SOLIDWORKS 2026 SP05.2",
+    "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+  },
+  "passed": true,
+  "phases": [
+    {
+      "area_m2": 0.013069025438933537,
+      "checks": 0,
+      "exit_code": 0,
+      "lifetime": [
+        3480,
+        134397981068288754
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "control-before",
+      "rebuilt": true,
+      "receipt_sha256": "9a73e5b41feca6ea68d0c767d95b48e57d7c062e4d9933cd6d2a8ba72b39d02d",
+      "result": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "slot": null,
+      "solid_count": 1,
+      "source": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055",
+      "volume_m3": 7.690618815987813e-05
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        6780,
+        134397981290687505
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "candidate-open",
+      "rebuilt": true,
+      "receipt_sha256": "e9251f06bf0f7b22ab95b0ab2c686da2f042bdcb30e6d584e273ed3bbed730a8",
+      "result": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "slot": 0,
+      "source": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 197,
+      "exit_code": 0,
+      "lifetime": [
+        11124,
+        134397981718923897
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "section-edit",
+      "rebuilt": true,
+      "receipt_sha256": "5974983c967ea9b4a657e4fa1e113d3193cdf24f938a71bb03007594f72b0d4f",
+      "result": "4a1d429f6e31251d62af9121f3bda140ea801d85759348356ac6837098f2fd32",
+      "slot": 0,
+      "source": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        6436,
+        134397982453969911
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "section-reopen",
+      "rebuilt": true,
+      "receipt_sha256": "b553c217caf004fd2cf0bec7a7fd5f74d8094ea97f5a3103e3159e46d165a99e",
+      "result": "4a1d429f6e31251d62af9121f3bda140ea801d85759348356ac6837098f2fd32",
+      "slot": 0,
+      "source": "4a1d429f6e31251d62af9121f3bda140ea801d85759348356ac6837098f2fd32",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 197,
+      "exit_code": 0,
+      "lifetime": [
+        11252,
+        134397982849071291
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "path-edit",
+      "rebuilt": true,
+      "receipt_sha256": "20c9756d9af5376f28f89ccd231b76af435303dfa8d66ac3e17d8eeddae6a8ac",
+      "result": "b109bf59256d9f270cf0005002ac7c72ce51fde67829a43ae8e7f5a16c1da717",
+      "slot": 0,
+      "source": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        7772,
+        134397983606850435
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "path-reopen",
+      "rebuilt": true,
+      "receipt_sha256": "38d6218043dcc5497bdfa25bf9b0298544ad6455ca1eb8bfb98205795eb3eb76",
+      "result": "b109bf59256d9f270cf0005002ac7c72ce51fde67829a43ae8e7f5a16c1da717",
+      "slot": 0,
+      "source": "b109bf59256d9f270cf0005002ac7c72ce51fde67829a43ae8e7f5a16c1da717",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        9884,
+        134397984010289372
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "candidate-open",
+      "rebuilt": true,
+      "receipt_sha256": "445646171f90cd45143d2cfaed841252e9bb46bd0d01dccc95006561e1fc64d8",
+      "result": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "slot": 1,
+      "source": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 197,
+      "exit_code": 0,
+      "lifetime": [
+        476,
+        134397984455651891
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "section-edit",
+      "rebuilt": true,
+      "receipt_sha256": "b20b6a70bf1dc469d83f6a2b1ab5ae1675c2cec21c94a01f9d3d1316b77f0c02",
+      "result": "650cb0ea393b46781a054c383d41a34e7cc0319bdc0d8b136711cf664c730915",
+      "slot": 1,
+      "source": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        10732,
+        134397985199322169
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "section-reopen",
+      "rebuilt": true,
+      "receipt_sha256": "a4a836d217e20d92e9dea955787e6904e54a8d054a94afe0a57ca131e6a427ca",
+      "result": "650cb0ea393b46781a054c383d41a34e7cc0319bdc0d8b136711cf664c730915",
+      "slot": 1,
+      "source": "650cb0ea393b46781a054c383d41a34e7cc0319bdc0d8b136711cf664c730915",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 197,
+      "exit_code": 0,
+      "lifetime": [
+        5168,
+        134397985577969453
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "path-edit",
+      "rebuilt": true,
+      "receipt_sha256": "abb71c55b2f193501f4c5213a2deeecc2303ecf2dab7d08121c306048825ab46",
+      "result": "56c86cdd73948d1c17744fd6b404011ff9a7401755903160495604ee2df89492",
+      "slot": 1,
+      "source": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "checks": 105,
+      "exit_code": 0,
+      "lifetime": [
+        3524,
+        134397986333881270
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "path-reopen",
+      "rebuilt": true,
+      "receipt_sha256": "d06133eb79a86bde3dee91a4f30e2e2e95d066544cb913e16838e9f47bd92d71",
+      "result": "56c86cdd73948d1c17744fd6b404011ff9a7401755903160495604ee2df89492",
+      "slot": 1,
+      "source": "56c86cdd73948d1c17744fd6b404011ff9a7401755903160495604ee2df89492",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+    },
+    {
+      "area_m2": 0.013069025438933537,
+      "checks": 0,
+      "exit_code": 0,
+      "lifetime": [
+        4968,
+        134397986746944614
+      ],
+      "open_status": [
+        0,
+        0
+      ],
+      "passed": true,
+      "phase": "control-after",
+      "rebuilt": true,
+      "receipt_sha256": "b1d97adf54a46621ffca6e8caf205c962e4ebcaaf5b367d6e7099595acf88937",
+      "result": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "slot": null,
+      "solid_count": 1,
+      "source": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+      "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055",
+      "volume_m3": 7.690618815987813e-05
+    }
+  ],
+  "schema": "kit.sw2026.standard-sweep-measurement.v1",
+  "trial_sha256": "b2afe3deb3f41eb7676c82fe50f289cb0f01863a64b15707fe8099fcb3ba1055"
+}

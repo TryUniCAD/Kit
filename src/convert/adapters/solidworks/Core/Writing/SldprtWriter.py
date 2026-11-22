@@ -11,8 +11,11 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import 
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
+from convert.adapters.solidworks.Core.Writing.CanWriteSweep import CanWriteSweep
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
+from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -32,6 +35,8 @@ class SldprtWriter(PairProtocol):
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
+        if IsSweepPart(DocValue):
+            return CanWriteSweep(DocValue, Target)
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
             if IsColdRead(DocValue):
@@ -59,4 +64,6 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsSweepPart(document):
+            return EmitSweepMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

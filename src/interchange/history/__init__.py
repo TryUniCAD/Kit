@@ -23,6 +23,7 @@ from interchange.Features.FeatureKinds import (
     ShellFeature,
 )
 from interchange.Features.FeatureStep import FeatureCfgState, FeatureStep
+from interchange.Features.SweepFeature import SweepFeature
 from interchange.Payloads.PayloadRecord import BrepPayload
 from interchange.Payloads.PayloadRoles import PayloadRole
 from interchange.Core.ModelBase import ModelBase
@@ -159,5 +160,6 @@ __all__ = (
     "RevolutionFeature",
     "ScaleFeature",
     "ShellFeature",
+    "SweepFeature",
     "TopologySummary",
 )

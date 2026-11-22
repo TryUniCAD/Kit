@@ -1,0 +1,21 @@
+{
+  "schema": "kit.sw2026.standard-sweep-source.v1",
+  "cohort": "disclosed",
+  "density_kg_m3": 1031.7,
+  "cases": [
+    {
+      "name": "SweepArcNear",
+      "section_radius_m": 0.004321,
+      "path_radius_m": 0.028703,
+      "edit_section_radius_m": 0.006239,
+      "edit_path_radius_m": 0.033471
+    },
+    {
+      "name": "SweepArcWide",
+      "section_radius_m": 0.005713,
+      "path_radius_m": 0.041297,
+      "edit_section_radius_m": 0.007093,
+      "edit_path_radius_m": 0.046371
+    }
+  ]
+}

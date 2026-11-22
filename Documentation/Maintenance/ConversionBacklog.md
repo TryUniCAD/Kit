@@ -58,6 +58,18 @@ B14 can qualify earlier subsets while B06–B09 continue.
 B03's parent is not complete merely because its deterministic scheduler has process evidence.
 B04's parent is not complete merely because controlled constructor probes exist.
 
+### B04-SW2026-MEASURED-SWEEP
+
+The PR #121 takeover team owns the isolated Standard sweep writer delivery on
+`codex/solidworks-sweep-main-delivery`. It depends on the accepted
+[standalone part writer](https://github.com/TryUniCAD/Kit/pull/235), the
+measured quarter-arc recipe and exact offline native attestation.
+The scoped SDK streams reproduce both disclosed measured parts with all
+six inferred domains transferred. The delivery exits after its own PR,
+current-head review, CI and queue acceptance. A complete typed SDK sweep
+reader and broader sweep variants remain separate work.
+[Format and evidence record](../../re/solidworks/records/ScopedSweepWriter2026.md)
+
 ## Important gap boundaries
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK
