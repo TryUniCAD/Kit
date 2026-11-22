@@ -43,7 +43,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 #### A08h-Ladders2026: native campaign evidence
 
 Codex owns this scoped research-evidence follow-up on `feat/deterministic-campaign-20261122`.
-Delivery PR: pending creation. Dependencies are merged PR #158, merged PR #207, and licensed native API workers.
+Delivery PR: [#263](https://github.com/TryUniCAD/Kit/pull/263). Dependencies are merged PR #158, merged PR #207, and licensed native API workers.
 The [package](../../../re/FeatureLadders2026/README.md) records 96 planned batches at `c8d85d713dc357770115329e9f1bcb027dbfca4f`.
 Fifty-nine batches produced 177 files; 57 strictly projected to neutral documents and 120 retained explicit neutral refusals.
 All 120 refused Fusion files parsed at the typed native-state layer. Thirty-seven SOLIDWORKS cases failed or remained dispatch-blocked.
