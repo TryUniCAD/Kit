@@ -48,6 +48,18 @@ The earlier measured equal-distance chamfer retained all ten streams and
 its exact 8,990-byte archive through both production and readback writers.
 That control used no runtime file reads.
 
+The independent typed owner check reproduced all three unchanged files and
+their 30 streams. It recovers the stock's real four sketch side identities,
+the single upper cap and the separate auxiliary edge. The cap and edge
+references share the historical file and creation event. The linked atom
+joins stock feature 19 and shell feature 26. Persistent dimensions 20 and
+25 supply the two independent live drivers. The generated calibration
+predicts 18,559.408 mm³, 13,783.12 mm² and centre Z 10.810327743 mm from
+the reconstructed design. These values agree with the disclosed native
+source to six significant figures. The generated files still require their
+own native lifecycle.
+[Guarded owner proof](../measurements/2026/GeneratedOpenShellOwners01.json)
+
 The [native observation script](../../tooling/sw2026/shell_source/InspectGeneratedOpenShell.py)
 and [guest launcher](../../tooling/sw2026/shell_source/RunGeneratedOpenShell.ps1)
 bind the disclosed calibration candidate at its exact encoded locator.

@@ -10,6 +10,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from BuildOpenShellPlan import document, require
+from CheckGeneratedShellOwners import verify_generated_shell_owners
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
@@ -30,7 +31,7 @@ def digest(raw):
     return sha256(raw).hexdigest()
 
 
-def verify_part(part):
+def verify_part(part, case):
     archive = SldprtArchive.from_bytes(part.BytesValue)
     require(archive.streams == part.StreamsValue and len(archive.streams) == 10,
             "the generated container differs from its ten computed stream owners")
@@ -48,21 +49,14 @@ def verify_part(part):
     )
     require(config_data == archive.require(link.ConfigName) and resolved_data == archive.require(link.StreamName),
             "the generated shell lost an exact typed config or resolved archive round trip")
-    shape = resolved.RootsValue[-1]
-    require(shape.ClassValue.NameValue == "moShell_c", "the final resolved object is not a shell")
-    require(shape.FieldsValue["f828"].FieldsValue["n"] == 1 and shape.FieldsValue["f820"] == 0,
-            "the shell no longer has one inward removed cap")
-    dimensions = shape.FieldsValue["f818"].FieldsValue
-    handle = dimensions["f850"][0]["o"]
-    driver = handle.FieldsValue["ff0"].FieldsValue["f28"]
-    require(driver.ClassValue.NameValue == "moLengthParameter_c", "the shell lost its wall driver")
+    owners = verify_generated_shell_owners(archive, link, case)
     return {"hash": digest(part.BytesValue), "bytes": len(part.BytesValue),
             "stream_hashes": {name: {"bytes": len(raw), "sha256": digest(raw)}
                               for name, raw in sorted(archive.streams.items())},
             "resolved_map_base": resolved.MapBase,
             "resolved_map_final": resolved.MapValue.CounterValue,
             "resolved_roots": len(resolved.RootsValue),
-            "wall_m": driver.FieldsValue["f58"]}
+            "wall_m": owners["native_wall_m"], "linked_owner_proof": owners}
 
 
 def main():
@@ -77,7 +71,7 @@ def main():
         import_module(name)
     for encoding in ("utf-8", "utf-16-le", "cp1252", "latin-1"):
         lookup(encoding)
-    pending = [(row[0], document(*row)) for row in CASES]
+    pending = [(row, document(*row)) for row in CASES]
     active = True
     accesses = []
 
@@ -88,11 +82,12 @@ def main():
 
     sys.addaudithook(audit)
     products = {}
-    for name, model in pending:
+    for case, model in pending:
+        name = case[0]
         locator = rf"C:\KitOpenShellGenerated01\Working\{name}.SLDPRT"
         options = WriteOptions(values={"final_destination": locator})
         artifact = BuildShellPart(model, BytesIO(), EPOCH, options)
-        details = verify_part(artifact)
+        details = verify_part(artifact, case)
         details.update(locator=locator, neutral_sha256=model.source.sha256)
         products[name] = (artifact.BytesValue, details)
     require(len({details["hash"] for _, details in products.values()}) == len(pending),
