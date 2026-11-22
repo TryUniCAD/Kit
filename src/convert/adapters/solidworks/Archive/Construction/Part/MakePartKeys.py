@@ -33,6 +33,8 @@ def MakePartKeys(
     InputValue: PartBuildInput,
     PlanValue: BlindPlan,
     SketchDims: tuple[KeywordDim, ...] = (),
+    *,
+    AdditionalRows: tuple[KeywordFeature, ...] = (),
 ) -> bytes:
     ConfigValues = tuple(
         KeywordConfig(
@@ -71,5 +73,5 @@ def MakePartKeys(
         PlanValue.NameValue,
         InputValue.HeaderValue.ModifiedAt,
         ConfigValues,
-        tuple(RowsValue),
+        (*RowsValue, *AdditionalRows),
     )

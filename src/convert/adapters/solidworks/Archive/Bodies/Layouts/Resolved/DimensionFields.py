@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChmfFieldRule import (
+    ChmfFieldRule,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -807,7 +810,14 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                    ChmfFieldRule(
+                        NativeField("Embed", "fe0", "mgVector_c.restore"),
+                        "alternate moFeatureDim_c.FUN_4c833f00 Branch",
+                    ),
+                    ChmfFieldRule(
+                        NativeField("Embed", "fe8", "mgVector_c.restore"),
+                        "alternate moFeatureDim_c.FUN_4c833f00 Branch",
+                    ),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(
@@ -822,7 +832,10 @@ KDimensionFields = MappingProxyType(
                 "Branch",
                 "",
                 BodyValue=(
-                    NativeField("Fail", "alternate moFeatureDim_c.FUN_4c833f00 Branch"),
+                    ChmfFieldRule(
+                        NativeField("Embed", "ff0", "mgXform_c.restore"),
+                        "alternate moFeatureDim_c.FUN_4c833f00 Branch",
+                    ),
                 ),
                 ModeValue="Expression",
                 ExpressionValue=(

@@ -1,0 +1,104 @@
+{
+  "build": "34.5.2.0604",
+  "candidates": [
+    {
+      "candidate_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "drivers": {
+        "shared": [
+          "D1",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ]
+      },
+      "edited_sha256": "985a77e771765baa565d65515f031272d51fc24e2edab54bab12d84e314b30b9",
+      "passed": true,
+      "phases": [
+        {
+          "checks": 43,
+          "first_failure": null,
+          "native_sha256": "985a77e771765baa565d65515f031272d51fc24e2edab54bab12d84e314b30b9",
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "a766f0ac854f43cdfec0c0b6c7e289b564f3907aab0ef95c73895e88b0597d54"
+        },
+        {
+          "checks": 21,
+          "first_failure": null,
+          "native_sha256": "985a77e771765baa565d65515f031272d51fc24e2edab54bab12d84e314b30b9",
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "a4507672390e9854398b6e89a47ead37dcb71ae23c8526a6440945f4408e08de"
+        }
+      ],
+      "slot": 0,
+      "tree_rows": 26
+    },
+    {
+      "candidate_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "drivers": {
+        "first": [
+          "D1",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ],
+        "second": [
+          "D3",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ]
+      },
+      "edited_sha256": "4b92840326f9481caf67fcf6699b33bda0b342ac5b827ee6125aa5f09c7b9965",
+      "passed": true,
+      "phases": [
+        {
+          "checks": 45,
+          "first_failure": null,
+          "native_sha256": "4b92840326f9481caf67fcf6699b33bda0b342ac5b827ee6125aa5f09c7b9965",
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "f5eab24a71dd9bd30d75ec2c416fc5fa7c46fd3567dfe573b5768850c6b31e58"
+        },
+        {
+          "checks": 22,
+          "first_failure": null,
+          "native_sha256": "4b92840326f9481caf67fcf6699b33bda0b342ac5b827ee6125aa5f09c7b9965",
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "b6873971bc92c20fce7f573d7e18f4a1eaa5eead7ce816d46662c05d27c54a8f"
+        }
+      ],
+      "slot": 1,
+      "tree_rows": 26
+    }
+  ],
+  "controls": [
+    {
+      "checks": 0,
+      "first_failure": null,
+      "native_sha256": null,
+      "passed": true,
+      "phase": "control-before",
+      "record_sha256": "ea864c6e04113d38ed31ab620d8457f91dadd257a8b703f710441988cfaaa3b2"
+    },
+    {
+      "checks": 0,
+      "first_failure": null,
+      "native_sha256": null,
+      "passed": true,
+      "phase": "control-after",
+      "record_sha256": "e1ff854dc87e3b22238c49d6e2d2f6a08d7140f225a604e3aa9b2319091222f3"
+    }
+  ],
+  "distinct_processes": 6,
+  "generation_sha256": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+  "heldout_writer_acceptance": false,
+  "idle_after": true,
+  "method_sha256": "7a0b036c39e5aaa82283e1f1dffa67549965dc3f2916c7b06f5baccbe17eb726",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": true,
+  "runner_sha256": "9c331a7e6a8fa43dc483587d0447aeb27e11fe988c715079396a683f87b6a156",
+  "schema": "kit.sw2026.distance-pair-generated-native.v1"
+}

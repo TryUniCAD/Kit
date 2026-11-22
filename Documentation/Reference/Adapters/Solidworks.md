@@ -336,6 +336,29 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+### Measured distance chamfers
+
+The same SOLIDWORKS 2026 writer accepts a forward rectangular Front-plane
+blind boss with one selected chamfer edge. Equal distance has a live
+`D1`. Two distances have independent `D1` and `D3` in the order defined
+by the selected incident faces. The neutral document supplies two physical
+picks, one configuration named `Default`, and millimetre driver values.
+
+For an empty binary stream, provide the exact measured Windows part
+locator in `values["final_destination"]`. The
+`values["solidworks_native_measurement"]` envelope contains the original
+`written_at` integer and a `receipt` object. The receipt schema is
+`kit.sw2026.distance-pair-publication.v1`, containing the parsed
+`generation`, parsed `native_result` and `native_result_sha256`.
+Authenticate the native report before using it. Both
+`write_document` and the direct writer apply the same complete-file
+digest and native lifecycle check before publishing.
+
+Strict cold inspection recovers the two native edit modes, their actual
+owners, and a one-body analytic solid. The two disclosed neutral requests
+and the exact evidence are described in the
+[measured distance chamfer entry](../../Changes/Solidworks/Construction/SolidworksMeasuredDistanceChamfers.md).
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.

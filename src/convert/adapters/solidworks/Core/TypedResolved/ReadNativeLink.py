@@ -11,7 +11,9 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 
 
 # public semantic reads must enter through the same proven configuration and resolved alias chain
-def ReadNativeLink(Archive: SldprtArchive, ConfigId: int | None) -> NativeLink:
+def ReadNativeLink(
+    Archive: SldprtArchive, ConfigId: int | None, *, ReadChamfers: bool = False
+) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
         VersionValue != 19000
@@ -34,5 +36,6 @@ def ReadNativeLink(Archive: SldprtArchive, ConfigId: int | None) -> NativeLink:
         VersionValue,
         ConfigValue.MapValue,
         MakeLinkContext(ConfigValue, ManagerValue),
+        ReadChamfers=ReadChamfers,
     )
     return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName)

@@ -504,6 +504,12 @@ records authored-drawing loadability and other acceptance gaps.
 PR #151's local design export is a separate persistence experiment, not complete drawing or cross-format acceptance.
 PR #121's public assembly research also remains separate from production assembly conversion qualification.
 
+The SOLIDWORKS programme delivers bounded production routes through separate
+pull requests. [#235](https://github.com/TryUniCAD/Kit/pull/235) landed the
+measured ordinary line-loop boss writer. The
+[distance chamfer delivery scope](../../re/solidworks/records/ChamferDistanceMain2026.md)
+records the next measured branch, its dependency and its exit evidence.
+
 ## Existing PR inventory
 
 All rows were open at inspection. The contact is the observed GitHub author.

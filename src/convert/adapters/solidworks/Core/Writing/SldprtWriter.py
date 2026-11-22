@@ -6,11 +6,16 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteOptions import PairProtocol
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
+from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
+    PlanChmfPart,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -34,20 +39,16 @@ class SldprtWriter(PairProtocol):
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
-            if IsColdRead(DocValue):
-                NameValue = (
-                    PathValue.stem
-                    if PathValue is not None
-                    else DocValue.sketches[0].name
-                )
-                DocValue = ColdReadInput(DocValue, NameValue)
-            PlanValue = PlanPartWrite(DocValue)
+            if IsDistChmf(DocValue):
+                NameValue = PlanChmfPart(DocValue).StockValue.NameValue
+            else:
+                NameValue = PlainPartName(DocValue, PathValue)
         except (IndexError, TypeError, ValueError):
             return False
         if PathValue is not None:
             return (
                 PathValue.suffix.casefold() == KPartSuffix
-                and PathValue.stem == PlanValue.NameValue
+                and PathValue.stem == NameValue
                 and not PathValue.is_dir()
             )
         return IsBinaryTarget(Target)
@@ -59,4 +60,14 @@ class SldprtWriter(PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        if IsDistChmf(document):
+            return EmitPairMut(document, destination, options)
         return EmitNativeMut(document, destination, options)
+
+
+# the existing ordinary route retains its source readback projection and destination name
+def PlainPartName(DocValue: CadDocument, PathValue: FilePath | None) -> str:
+    if IsColdRead(DocValue):
+        NameValue = PathValue.stem if PathValue is not None else DocValue.sketches[0].name
+        DocValue = ColdReadInput(DocValue, NameValue)
+    return PlanPartWrite(DocValue).NameValue

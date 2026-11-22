@@ -1,0 +1,85 @@
+{
+  "binary_modules": {
+    "sldmfcu.dll": {
+      "anchors_without_unwind_row": [],
+      "image_sha256": "af2148c7f429e017e75de45b27acf4105b80457fa510dffaa25db88c387a9735",
+      "independent_import_roles": {},
+      "owned_unwind_regions": [
+        {
+          "bytes": 373,
+          "end_exclusive": "0x3c8574a5",
+          "file_offset": 1272112,
+          "name": "unwind region",
+          "sha256": "eb5a21957d3306e773edc81a0b4a533c6d1b3e2d593b68cba4770ad541dbfbfb",
+          "start": "0x3c857330"
+        }
+      ],
+      "preferred_base": "0x3c720000"
+    },
+    "sldmodu.dll": {
+      "anchors_without_unwind_row": [],
+      "image_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+      "independent_import_roles": {},
+      "owned_unwind_regions": [
+        {
+          "bytes": 943,
+          "end_exclusive": "0x4c82c3cf",
+          "file_offset": 24032288,
+          "name": "unwind region",
+          "sha256": "c5bad523fccd5e249dbb4d7ba8e23d9784b90cc1e7e482df2d4e8238959afb16",
+          "start": "0x4c82c020"
+        }
+      ],
+      "preferred_base": "0x4b140000"
+    },
+    "sldmopartu.dll": {
+      "anchors_without_unwind_row": [],
+      "image_sha256": "aa3fa88eeb5349c8ac2161ce9b3f18ab4e23417598c6b57719c88d5d6c178da9",
+      "independent_import_roles": {
+        "0x1803e3cc8": {
+          "module": "SLDMODU.dll",
+          "name": "?iSerializeFaces@moRefHistHelperFeatData_c@@QEAAHAEAVsu_CArchive@@@Z"
+        },
+        "0x1803e3cd0": {
+          "module": "SLDMODU.dll",
+          "name": "?iSerializeEdges@moRefHistHelperFeatData_c@@QEAAHAEAVsu_CArchive@@@Z"
+        },
+        "0x1803e5278": {
+          "module": "SLDMODU.dll",
+          "name": "?Serialize@moBodyFeature_c@@UEAAXAEAVsu_CArchive@@@Z"
+        }
+      },
+      "owned_unwind_regions": [
+        {
+          "bytes": 390,
+          "end_exclusive": "0x18023ecb6",
+          "file_offset": 2350896,
+          "name": "unwind region",
+          "sha256": "094c714144469de56855e47abd8d1617baa7f9665fbe3a292671cce3c102bc9a",
+          "start": "0x18023eb30"
+        },
+        {
+          "bytes": 243,
+          "end_exclusive": "0x18023eda9",
+          "file_offset": 2351286,
+          "name": "unwind region",
+          "sha256": "5f374096ce899893a701c76a2ead4f960d0fe4deef718298bfb10ba66497cfc6",
+          "start": "0x18023ecb6"
+        },
+        {
+          "bytes": 1549,
+          "end_exclusive": "0x18023f3b6",
+          "file_offset": 2351529,
+          "name": "unwind region",
+          "sha256": "8588c029c9fd8e4d449c51712d9e900e0fa4f4658382e127abeb7552a3506965",
+          "start": "0x18023eda9"
+        }
+      ],
+      "preferred_base": "0x180000000"
+    }
+  },
+  "build": "34.5.2.0604",
+  "cad_payloads_read": 0,
+  "native_processes": 0,
+  "schema": "kit.sw2026.edge-chamfer-archive-owner.v1"
+}

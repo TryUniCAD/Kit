@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Chamfers.ChmfFieldRule import (
+    ChmfFieldRule,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -31,7 +34,10 @@ KBodyFields = MappingProxyType(
                         "Branch",
                         "",
                         BodyValue=(
-                            NativeField("Fail", "alternate moAtomFeature_c Branch"),
+                            ChmfFieldRule(
+                                NativeField("Embed", "f528", "rf.suObArray"),
+                                "alternate moAtomFeature_c Branch",
+                            ),
                         ),
                         ModeValue="Expression",
                         ExpressionValue=(
@@ -106,8 +112,9 @@ KBodyFields = MappingProxyType(
                                 "f498",
                                 "i32",
                                 BodyValue=(
-                                    NativeField(
-                                        "Fail", "alternate moAtomFeature_c f498"
+                                    ChmfFieldRule(
+                                        NativeField("Scalar", "v", "i32"),
+                                        "alternate moAtomFeature_c f498",
                                     ),
                                 ),
                                 CountValue="n494",
