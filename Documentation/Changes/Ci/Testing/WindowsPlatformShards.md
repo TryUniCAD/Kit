@@ -5,7 +5,8 @@
 Task `CI-WINDOWS-PLATFORM-SHARDS` is owned by the implementation agent for this PR.
 Its scope is the Windows platform process job in `MergeQueue.yml`.
 Dependencies are the shared collected roster, Python 3.14 lockfile, existing artifact verifier, and CI aggregator.
-The delivery is a separate PR from the earlier Windows CLI and macOS sharding change.
+The delivery is [PR #251](https://github.com/TryUniCAD/Kit/pull/251).
+It is separate from the earlier Windows CLI and macOS sharding change.
 The exit condition requires current-head PR checks and configured review.
 Queue acceptance and measured timing require a candidate after administrator-authorized enrollment.
 
