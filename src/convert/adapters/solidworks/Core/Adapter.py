@@ -329,6 +329,12 @@ from convert.adapters.solidworks.Core.Scope.ScopeDocument import (
     ReadScopeDoc,
 )
 from convert.adapters.solidworks.Core.TwoPad.PadDocument import ProjectPadDoc
+from interchange.Features.FeatureExtrude import ExtrudeEnd
+
+from convert.adapters.solidworks.Core.NativeSourceKey import KSourceFormatKey
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.IsCacheAbsent import (
+    IsCacheAbsent,
+)
 from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from convert.adapters.solidworks.Resolved.ResolvedHead import OpenResolved
 from convert.adapters.solidworks.Resolved.SystemPrefix import ReadSysPrefix
@@ -358,10 +364,6 @@ KSourceShaTwoFiveSixKey = "solidworks_source_sha256"
 
 # this binding exists because shared behavior needs one stable value
 KSourceSemanticShaTwoFive = "solidworks_source_semantic_sha256"
-
-# this binding exists because shared behavior needs one stable value
-KSourceFormatKey = "solidworks_source_format_id"
-
 
 # this binding exists because shared behavior needs one stable value
 KSourceKeys = frozenset(
@@ -520,6 +522,8 @@ def SelectPartShape(
     ChmfPartRead | EllipPartRead | None,
 ]:
     NativeValue = NativePartModel(Archive, Settings.configuration)
+    if Settings.extract_raw_brep:
+        return NativeValue, None, None, None, None
     ChmfValue = TryColdChmf(Archive, NativeValue, Settings)
     if ChmfValue is not None:
         Geometry = (
@@ -572,7 +576,9 @@ def ReadNativePart(
         Model, {Param.id for Param in ParamValues}
     )
     SelectValues = Selections(Model)
-    TimeValues = Timeline(Model, SelectValues)
+    TimeValues = Timeline(
+        Model, SelectValues, ColdLineBoss=IsCacheAbsent(Archive)
+    )
     Payloads, PayloadDiags, BrepValue, LocalOwner, ActivePart = ReadPartSolid(
         Archive,
         Model,
@@ -3876,7 +3882,10 @@ def TimelineOp(
 
 # this definition exists because focused behavior needs one stable owner
 def Timeline(
-    Model: NativeModel, Selections: tuple[Selection, ...]
+    Model: NativeModel,
+    Selections: tuple[Selection, ...],
+    *,
+    ColdLineBoss: bool = False,
 ) -> tuple[FeatureStep, ...]:
     OperationById = {Operation.object_id: Operation for Operation in Model.operations}
     SketchById = {Sketch.object_id: Sketch for Sketch in Model.sketches}
@@ -3917,6 +3926,24 @@ def Timeline(
         }
         OperationValue, Selected = TimelineOp(Operation, SelectionIds)
         if Operation is not None:
+            ProfileValue = (
+                SketchById.get(Operation.profile_id)
+                if Operation.profile_id is not None
+                else None
+            )
+            if (
+                ColdLineBoss
+                and PreviousOperation is None
+                and Feature.class_name == "moExtrusion_c"
+                and Operation.kind == "join"
+                and Operation.extrusion_end == ExtrudeEnd.KBlind
+                and Operation.direction_code == 0
+                and ProfileValue is not None
+                and ProfileValue.TypedLines is not None
+                and ProfileValue.TypedLines.DimsValue is None
+                and Operation.dependencies == (ProfileValue.object_id,)
+            ):
+                OperationValue = BoolOperation.CREATE
             Attributes.update(OperationAttrs(Operation))
             if Operation.kind != "surface":
                 PreviousOperation = Operation.object_id

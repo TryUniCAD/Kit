@@ -40,11 +40,12 @@ def ReadDepthOwner(
     NativeId = Dimension.FieldsValue.get("f50")
     if type(NativeId) is not int or NativeId < 0:
         raise ValueError("end depth lacks its persistent dimension identity")
+    DepthMm = NativeValue / 0.001
     DepthValue = NativeDimension(
         ReadNativeName(Parameter),
-        NativeValue * 1000.0,
+        DepthMm,
         "length",
-        f"{NativeValue * 1000.0:.17g}mm",
+        f"{DepthMm:.17g}mm",
         native_value=NativeValue,
         native_role="driving",
         TypedOwner={

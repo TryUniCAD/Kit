@@ -69,7 +69,11 @@ def ReadNoCache(
         Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
         return BuildPrismGeom(
             ReadPrismPlan(
-                LinkValue, Features, ColdValue, AllowFirstScope=RelationValue is None
+                LinkValue,
+                Features,
+                ColdValue,
+                AllowFirstScope=RelationValue is None,
+                AllowPolygon=RelationValue is None,
             ),
             BodyId,
             ColdValue,

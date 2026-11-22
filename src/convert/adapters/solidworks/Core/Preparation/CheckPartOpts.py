@@ -1,7 +1,8 @@
 from typing import cast as CastValue
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Container.Format import (
-    KPartSuffix,
+from convert.adapters.solidworks.Container.Format import KPartFormatId, KPartSuffix
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
 )
 
 
@@ -29,7 +30,7 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
     if DestinationFormat is not None and (
         type(CastValue(object, DestinationFormat)) is not str
         or DestinationFormat.casefold()
-        not in ("solidworks.sldprt", "sldprt", KPartSuffix)
+        not in (KPartFormatId, KPartSuffix[1:], KPartSuffix)
     ):
         raise ValueError("plain part preparation requires a part destination format")
     AllowedNames = {
@@ -40,10 +41,14 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
         "require_native_transfers",
         "allow_non_native",
         "portable",
+        KPartMeasureOpt,
     }
     if set(SettingsValue.values) - AllowedNames:
         raise ValueError("unsupported plain part preparation options")
     for NameValue, FieldValue in SettingsValue.values.items():
-        if NameValue != "final_destination" and type(FieldValue) is not bool:
+        if (
+            NameValue not in ("final_destination", KPartMeasureOpt)
+            and type(FieldValue) is not bool
+        ):
             raise TypeError("write policy options must be boolean: " + NameValue)
     return SettingsValue

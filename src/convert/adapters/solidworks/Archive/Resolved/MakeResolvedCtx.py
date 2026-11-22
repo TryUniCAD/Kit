@@ -49,4 +49,5 @@ def MakeResolvedCtx(
         KPartResolvedSchemas if IsPart else KAssemblyResolvedSchemas,
         UsageValue,
         FlagsValue=dict(LinkContext),
+        PartRootValue=OwnerValue if IsPart else None,
     )

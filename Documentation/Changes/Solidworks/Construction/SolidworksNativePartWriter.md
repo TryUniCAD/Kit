@@ -1,7 +1,7 @@
 # Native SOLIDWORKS writer for an ordinary line-loop boss
 
 Kit can write a native `.SLDPRT` from a neutral millimetre document with one
-closed line loop on Front Plane, one forward blind boss, one driving depth
+simple closed line loop on Front Plane, one forward blind boss, one driving depth
 `D1`, one active configuration and one resulting solid. The complete
 ten-stream file is generated from the model and the pinned SOLIDWORKS 2026
 SP05.2 rules.
@@ -12,6 +12,11 @@ document name. For a binary stream, select `solidworks.sldprt` and give
 preserves the final filename. Unsupported features, material overrides,
 extra document state and unqualified assembly and drawing destinations fail
 before publication.
+
+Public paths and binary streams require the
+[exact offline measurement receipt](SolidworksMeasuredPartPublication.md).
+The internal construction API still produces in-memory native bytes for
+controlled offline measurements.
 
 The three original native polygon cases pass controlled native depth edits
 and fresh reopen with source geometry and tree parity. Two further parts use
@@ -24,4 +29,5 @@ hashes.
 [Original polygon evidence](../../../../re/solidworks/measurements/2026/SdkOriginalPolygonNative01.json) ·
 [Default recipe evidence](../../../../re/solidworks/measurements/2026/SdkDefaultPartNative01.json) ·
 [Public API evidence](../../../../re/solidworks/measurements/2026/SdkPublicPartWriter01.json) ·
+[Stream owners](../../../../re/solidworks/records/PlainPartWriter2026.md) ·
 [Usage and limits](../../../Reference/Adapters/Solidworks.md#writing)

@@ -1,20 +1,24 @@
 from pathlib import Path as FilePath
-from time import time as ReadTime
 
-from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
+from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import (
-    ImportCandidate,
-)
-from convert.adapters.solidworks.Container.Format import KPartFormatId
-from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
+from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandidate import ImportCandidate
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.solidworks.Core.Writing.Measured.MatchPartMeas import (
+    MatchPartMeas,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.PublishMeasMut import (
+    PublishMeasMut,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import ReadPartMeas
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
-from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
 from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
@@ -29,43 +33,40 @@ KImportTransfers = (
 )
 
 
-# native emission must complete strict model preparation before writing its one generated destination
+# publication verifies the complete regenerated archive before touching either kind of output target
 def EmitNativeMut(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
-    if IsSweepPart(DocumentValue):
-        return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
-    if IsDistChmf(DocumentValue):
-        return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
-    if IsEllipsePart(DocumentValue):
-        return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+    ReadbackValue = IsColdRead(DocumentValue)
+    if not ReadbackValue:
+        if IsSweepPart(DocumentValue):
+            return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
+        if IsDistChmf(DocumentValue):
+            return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
+        if IsEllipsePart(DocumentValue):
+            return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)
+    WrittenAt, Receipt = ReadPartMeas(SettingsValue)
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()
         if isinstance(TargetValue, (str, FilePath))
         else None
     )
     Candidate = PrepareNative(
-        DocumentValue, OutputPath or TargetValue, int(ReadTime()), SettingsValue
+        DocumentValue, OutputPath or TargetValue, WrittenAt, SettingsValue
     )
     Payload = Candidate.BytesValue
-    CountValue: int | None
-    if OutputPath is not None:
-        with OutputPath.open("wb" if SettingsValue.overwrite else "xb") as OutputFile:
-            CountValue = OutputFile.write(Payload)
-    elif IsBinaryTarget(TargetValue):
-        CountValue = TargetValue.write(Payload)
-    else:
-        raise TypeError("native part output requires a path or binary stream")
-    if CountValue is not None and CountValue != len(Payload):
-        raise OSError("short native part write")
-    return WriteResult(
-        OutputPath,
-        KPartFormatId,
-        len(Payload),
-        transfers=KImportTransfers if isinstance(Candidate, ImportCandidate) else (),
-        application_usable=True,
-        vendor_loadable=True,
+    Evidence = MatchPartMeas(Receipt, Payload)
+    Transfers: tuple[CapTransfer, ...] = (
+        KImportTransfers if isinstance(Candidate, ImportCandidate) else ()
+    )
+    if ReadbackValue:
+        Transfers = tuple(
+            CapTransfer(CapabilityValue, TransferMode.KNative)
+            for CapabilityValue in sorted(DocumentValue.capabilities)
+        )
+    return PublishMeasMut(
+        TargetValue, OutputPath, SettingsValue, Payload, Evidence, Transfers
     )

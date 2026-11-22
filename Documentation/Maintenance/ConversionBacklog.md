@@ -293,6 +293,30 @@ originals after a later backup fails.
 [Integration cases](../../tests/Convert/Registry/RegistryRaceTests.py)
 [Merge-queue evidence](https://github.com/TryUniCAD/Kit/actions/runs/44661327969)
 
+### B04-SW2026-PARTPROPS
+
+The scoped literal text reader follows PR #178's typed configuration
+directory. The takeover workstream owns [PR #183](https://github.com/TryUniCAD/Kit/pull/183).
+The branch binds one saved active configuration, its physical streams
+and the compatible literal property managers. Three strict public
+source reads recover 23 values with their geometry intact. Two further
+saved property sets retain their earlier geometry refusals. The
+advanced baseline and 12 malformed variants keep the prior modeled
+document. The shared registry refuses unsupported native property
+state before a fresh projection or a JSON-to-JSON publication.
+Interchange inspection retains the original diagnostic and provenance.
+The legacy wheel fixture's empty text scopes use a complete structural
+absence proof. The local #183 integration binds every literal result to
+the complete `Config-0` codec in [PR #233](https://github.com/TryUniCAD/Kit/pull/233).
+Five guarded physical framing variants and two separate owner contrasts
+withhold all literal text and preserve the inspected model. Strict legacy and native inspections retain
+their models while export respects the accepted portability gates.
+A separate neutral snapshot with a modeled prism preserves its
+inspection status and refuses publication in both SDK paths. Exit requires the
+foundation on main, current review and native queue acceptance.
+[Slice record](../../re/solidworks/records/LiteralPartTextReaderSlice2026.md)
+[Change entry](../Changes/Solidworks/Inspection/Properties/SolidworksLiteralPartTextReader.md)
+
 ### B03-SW2026-ARCHIVE
 
 The scoped [archive evidence PR](https://github.com/TryUniCAD/Kit/pull/167) landed through the native queue at `181d3268a`. All post-merge checks passed on that revision.

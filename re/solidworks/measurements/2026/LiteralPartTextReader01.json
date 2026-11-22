@@ -1,0 +1,169 @@
+{
+  "aggregate_reference_revision": "8302c824a15830b837c72db75f79cabe5693d200",
+  "base_revision": "76877b1c8b223f11ddf38c79dc10a2a878fc019e",
+  "cases": [
+    {
+      "boundary": "typed_property_projection",
+      "case": "PolygonGenerated",
+      "existing_public_refusals": {
+        "false": "sketch sldprt:sketch:18 references missing plane",
+        "true": "SLDPRT contains no readable Parasolid payload"
+      },
+      "expected_record_sha256": "9129993976bd060e0cbea10c0ba0e837334d68964daf65bc4e8f091f69e84bf2",
+      "native_property_manager_bytes": null,
+      "qualified_fields": [
+        4,
+        2,
+        1
+      ],
+      "saved_directory_sha256": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+      "source_sha256": "0d3ec3a66fa50793bc54f18d2b9b16cf5aef7a58545f2cd527b2c1a240922062",
+      "status": "complete"
+    },
+    {
+      "boundary": "typed_property_projection",
+      "case": "CircleGenerated",
+      "existing_public_refusals": {
+        "false": "sketch sldprt:sketch:18 references missing plane",
+        "true": "SLDPRT contains no readable Parasolid payload"
+      },
+      "expected_record_sha256": "ef966168c7f3fa7765ba0ab88a0f716778c785ddc55be80ed5a035c3897cc125",
+      "native_property_manager_bytes": null,
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "saved_directory_sha256": "b26497bd635bfd643c2459e249b989c04bc2ecdec62a7b7aebcc4e0493355353",
+      "source_sha256": "392c5b51b63761f4bba2baf6dc0715de4af8d3e5036b83a42e0f388031cc6edd",
+      "status": "complete"
+    },
+    {
+      "boundary": "public_document",
+      "brep_preserved": true,
+      "case": "PolygonSaved",
+      "expected_record_sha256": "03e31da4b1e97e88af6c6ed945973b20be235191745b2afcf4725f73e0347d6a",
+      "native_property_manager_bytes": 33,
+      "preserved_feature_rows": 27,
+      "preserved_parameters": 1,
+      "preserved_sketches": 1,
+      "qualified_fields": [
+        4,
+        2,
+        1
+      ],
+      "saved_directory_sha256": "1dd9a9193787bbc9ca89181dde14d0df6442b5fc4d4ae6efcce4724ccef21626",
+      "solid_body_count": 1,
+      "source_sha256": "e311ba0626114291e62aacd26f705c8d304baa5d0315f89972fdde66bdee1f14",
+      "status": "complete",
+      "whole_document_baseline_equal": true
+    },
+    {
+      "boundary": "public_document",
+      "brep_preserved": true,
+      "case": "CircleSaved",
+      "expected_record_sha256": "6b2aea71137e4f7b231cd1ad4c1d92bb46528afa3a111108749755b4b1722f95",
+      "native_property_manager_bytes": 33,
+      "preserved_feature_rows": 27,
+      "preserved_parameters": 2,
+      "preserved_sketches": 1,
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "saved_directory_sha256": "b0b4406b0c710cf587ec3806f551d1f1aefabfb1a84ad46ba884cfda9f38a3b2",
+      "solid_body_count": 1,
+      "source_sha256": "8007d21df3db5fc58c23d3fe589cfc15cf274ac83d9b2daa4878ee792e104e30",
+      "status": "complete",
+      "whole_document_baseline_equal": true
+    },
+    {
+      "boundary": "public_document",
+      "brep_preserved": true,
+      "case": "CircleAuthored",
+      "expected_record_sha256": "2d3e7c0fdb5e32d482e5fde77b7b8359bbed07dda8e937856fb3979c49e3ee7c",
+      "native_property_manager_bytes": 33,
+      "preserved_feature_rows": 27,
+      "preserved_parameters": 2,
+      "preserved_sketches": 1,
+      "qualified_fields": [
+        3,
+        3,
+        2
+      ],
+      "refusals": {
+        "broken_xml": "unclosed token: line 2, column 1562",
+        "derived_saved_owner": "part configuration properties differ from their native owner",
+        "inactive_saved_owner": "part configuration properties differ from their native owner",
+        "literal_type_mismatch": "part property requires ordinary literal unlinked text",
+        "mismatched_saved_id": "part configuration properties differ from their native owner",
+        "mismatched_saved_name": "part configuration properties differ from their native owner",
+        "missing_physical_config": "part configuration properties lack their physical part lanes",
+        "missing_saved_directory": "part configuration properties require their saved directory",
+        "noncanonical_property_id": "part configuration property stream has an unsupported name",
+        "orphan_property_id": "part configuration property stream has a stale or duplicate owner",
+        "unqualified_doctype": "untrusted XML must not declare a doctype",
+        "unqualified_encoding": "part property xml has an unsupported encoding declaration"
+      },
+      "saved_directory_sha256": "9bdc7f5c1679f2aa88cf7f7db1d0efd44a62e9dc4eac54631861f0157e08a104",
+      "solid_body_count": 1,
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "status": "complete",
+      "whole_document_baseline_equal": true
+    },
+    {
+      "boundary": "public_document",
+      "brep_preserved": true,
+      "case": "AdvancedRectangle",
+      "diagnostic": "part properties require an empty compatible native manager",
+      "native_property_manager_bytes": 697,
+      "preserved_feature_rows": 26,
+      "preserved_parameters": 3,
+      "preserved_sketches": 1,
+      "saved_directory_sha256": "c90ed42506b371c524b132f5db5550913f90521b468eabcabbd55fbd9a74788c",
+      "solid_body_count": 1,
+      "source_sha256": "4377bf5680f30d1c9de52227928911e55604a75d30ceb987240df00d6b1b1805",
+      "status": "unsupported",
+      "whole_document_baseline_equal": true
+    }
+  ],
+  "fresh_processes": 6,
+  "in_memory_refusals": 12,
+  "independent_identical_runs": 2,
+  "input_hashes_preserved": true,
+  "native_processes_started": 0,
+  "passed": true,
+  "process_stdout_sha256": "a82e966679a5c4b3471bc89993f14535fc9b300355bfd6889b45b978720694d7",
+  "public_positives": 3,
+  "public_whole_document_baseline_comparisons": 4,
+  "public_writer_admission_changed": false,
+  "python_version": "3.14.7",
+  "schema": "kit.sw2026.literal-part-text-read.v1",
+  "source_manifest_sha256": "77b6ef0ad797d95337845e718ac89ed1a35633edddc02d21f9cb9c66160d0009",
+  "source_sha256": {
+    "re/tooling/sw2026/VerifyLiteralPartText.py": "b39dbfb018101633f1821bcb99915df670a8a207cd51abbad17661d08bfa1ffa",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/CheckPropText.py": "695db8441f56e9e99be4ddb3e310b6c629b48dde4a9bbefd6cbb593dd778be28",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/PropertyNames.py": "0b44b13d0a7458fca3399a4936f58320e486dc68dbc7457a8f6ecbe1398cb9bb",
+    "src/convert/adapters/solidworks/Archive/Construction/Metadata/Properties/ReadPropRows.py": "2f6dfac36acf76964965cc1b44c5aad3300f9f5110f9cc13ced4aa76babe59fb",
+    "src/convert/adapters/solidworks/Archive/Properties/ReadPropManager.py": "da36d0015ed3508f57652bbe3f544de671ae186de6d91ca4c6b30e20dadf1299",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "361b53c61bed90ec5b00203a6894f4a7b80757b234c7c67118833a320ff3b744",
+    "src/convert/adapters/solidworks/Core/Properties/ApplyPartText.py": "d8d365c857e5a9e590bae865b0440cd844531288e4e50fa89a6f1c0c2b3239b4",
+    "src/convert/adapters/solidworks/Core/Properties/CheckPropBag.py": "231468b51311a8099ecd4c254ce2dd7680301c97061ae3aff1ca22f902dc966c",
+    "src/convert/adapters/solidworks/Core/Properties/PartTextData.py": "8c917560dba06c51a503d405b84bc3cd41e55ff8f5fae0c817addba87a491614",
+    "src/convert/adapters/solidworks/Core/Properties/ReadConfigProps.py": "f03bdc0cde1b599b074ab51f0c6fc7b747fbfa194ec83cb5716d85b08a45d94b",
+    "src/convert/adapters/solidworks/Core/Properties/ReadCoreProps.py": "21d1526e4862c19a2c01f7abd97d7fef3550e31841ea6ea9b0df0cdca7bfd2ca",
+    "src/convert/adapters/solidworks/Core/Properties/ReadCustomProps.py": "eafc05c3dcb6a95bcc8c5199197affa21e9bfd652abdc086f631494dba3a91b8",
+    "src/convert/adapters/solidworks/Core/Properties/ReadLiteralProp.py": "dc12ef60ae09e600c521e2bc12d5af772c4b762679600d32a729b234eae90701",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPartText.py": "c7692b24145edb4c4f40fc009f7956952ccdc9f850e8781ac613eb127fcad3bd",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropId.py": "0575f7a567a8b0906f470bc34d3535583230c70ed91320d487bb9e6c368fcfab",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropNames.py": "1e46bcceffd022030ff7c457db19dee50344150b706c2eab8adb8fe0f55a4b70",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropOwners.py": "9d13f26349ef75915df335456f1cf9bc04d1f55e4673bd9f23a1b0b4062fc981",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropRoot.py": "cdd26cca6d676cbe5bfc913af0635b008222d7da89487bc9b92e93bcd4efacf8",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropSection.py": "2d1e71944c5f4d68925f8ac8c881fb82c9d5967f0e095031774225958a71b20a",
+    "src/convert/adapters/solidworks/Core/Properties/ReadPropVariant.py": "dc1aab39da846842f34e7748d6e1b8e0998dd008eab5218a6e65af0718077704",
+    "src/convert/adapters/solidworks/Core/Properties/ReadReserved.py": "442a41769862c1de28f62719406aaeb77a8f790ab896b2e83bd2b354437e2da0",
+    "src/convert/adapters/solidworks/Core/Properties/WithPartProps.py": "fd1eb4659bd0168442edf0f55a39907588fbc1279c51b6e1ec8a2fed4df60d43"
+  },
+  "typed_property_only_positives": 2
+}

@@ -24,6 +24,21 @@ from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WritePolicy import GetDocumentCaps
 from convert.adapters.base.WritePolicy import GetWriteOptions
 from convert.adapters.base.WriteResult import WriteResult
+from convert.Formats.CheckSourceText import CheckSourceText
+
+
+# only the exact standalone part writer verifies its complete strict cold source after regeneration
+def CheckPubNative(
+    DocumentValue: CadDocument, WriterValue: CadWriterAdapter, TargetValue: KTargetType
+) -> None:
+    from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
+        IsColdRead,
+    )
+    from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+
+    if type(WriterValue) is not SldprtWriter or not IsColdRead(DocumentValue):
+        CheckNative(DocumentValue, WriterValue, TargetValue)
+
 
 # historical destination annotations need local resolution after public methods move to the registry facade
 Destination = KTargetType
@@ -122,7 +137,8 @@ class WriteApi(WriteLookup):
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
-        CheckNative(DocumentData, AdapterData, TargetData)
+        CheckSourceText(DocumentData)
+        CheckPubNative(DocumentData, AdapterData, TargetData)
         CheckDrawWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:

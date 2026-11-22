@@ -13,10 +13,8 @@ from convert.adapters.solidworks.Core.Writing.PartWriteInfo import KPartWriteInf
 from interchange.Enums.EnumDocument import Capability
 
 # the canonical catalog accounts for the selected stock pick and the other independently dispatched part profiles
-KNativeWriteCaps = KAsmWriteCaps | {
+KNativeWriteCaps = KPartWriteInfo.capabilities | KAsmWriteCaps | {
     Capability.KExpressions,
-    Capability.KBrep,
-    Capability.KSelections,
 }
 
 # the canonical format dispatches admitted part assembly and blank drawing destinations through one native writer

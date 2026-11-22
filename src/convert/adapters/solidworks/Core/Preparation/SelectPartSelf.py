@@ -4,11 +4,9 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
+from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.Preparation.RequirePartPath import (
     RequirePartPath,
-)
-from convert.adapters.solidworks.Container.Format import (
-    KPartSuffix,
 )
 
 # only the explicitly authored namespace with absent locator evidence may support standalone host preparation without claiming a real drive mapping

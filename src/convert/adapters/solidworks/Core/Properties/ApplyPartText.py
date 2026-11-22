@@ -1,7 +1,8 @@
 from dataclasses import replace as ReplaceValue
 
 from convert.adapters.solidworks.Core.Properties.PartTextData import PartTextData
-from interchange import CadDocument, frozen_mapping as FrozenMapping
+from interchange.Core.Common import FreezeMapping
+from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordConfig import Configuration
 
 
@@ -27,9 +28,9 @@ def ApplyPartText(Document: CadDocument, TextValue: PartTextData) -> CadDocument
             Attributes = dict(ConfigValue.attributes)
             Attributes["custom_properties"] = TextValue.ConfigFields[IdentValue]
             ConfigValue = ReplaceValue(
-                ConfigValue, attributes=FrozenMapping(Attributes)
+                ConfigValue, attributes=FreezeMapping(Attributes)
             )
         ConfigValues.append(ConfigValue)
     return ReplaceValue(
-        Document, metadata=FrozenMapping(Metadata), configurations=tuple(ConfigValues)
+        Document, metadata=FreezeMapping(Metadata), configurations=tuple(ConfigValues)
     )

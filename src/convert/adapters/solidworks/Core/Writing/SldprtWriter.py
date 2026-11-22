@@ -25,15 +25,12 @@ from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
-from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
-from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
-    IsEllipsePart,
-)
-from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
 from convert.adapters.solidworks.Core.Writing.CanWritePart import CanWritePart
 from convert.adapters.solidworks.Core.Writing.EmitNativeMut import EmitNativeMut
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
+from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.Formats.CheckSourceText import CheckSourceText
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -50,15 +47,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
 
     # measured part families require the registry to check the actual standalone destination
     def IsWholeStream(self, DocumentValue: CadDocument) -> bool:
-        return (
-            DocumentValue.assembly is None
-            and DocumentValue.DrawingValue is None
-            and (
-                IsEllipsePart(DocumentValue)
-                or IsSweepPart(DocumentValue)
-                or IsDistChmf(DocumentValue)
-            )
-        )
+        return DocumentValue.assembly is None and DocumentValue.DrawingValue is None
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
@@ -79,7 +68,9 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         CheckInchWrite(document)
         CheckEquations(document)
         CheckSupports(document)
-        CheckNative(document, self, destination)
+        CheckSourceText(document)
+        if not IsColdRead(document):
+            CheckNative(document, self, destination)
         if document.DrawingValue is not None:
             return EmitBlankMut(document, destination, options)
         if document.assembly is not None:

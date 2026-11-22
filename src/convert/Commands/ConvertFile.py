@@ -1,8 +1,13 @@
 from convert.api.ApiContext import GetRegistry
 from convert.api.ApiOpen import OpenDocument
 from convert.api.ApiWrite import WriteDocument
+from convert.adapters.solidworks.Container.Format import (
+    KPartFormatId,
+    KPartSuffix,
+)
 from convert.Commands.CheckPortable import CheckPortable
 from convert.Commands.CliOptions import CliOptions
+from convert.Commands.NativeMeasVals import NativeMeasVals
 from convert.Commands.WriteReport import WriteReport
 from convert.Formats.SourceFormat import ResolveFormat
 
@@ -38,7 +43,14 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         Configuration=Options.Configuration,
         StrictMode=True,
     )
-    CheckPortable(Document)
+    Writer = Registry.GetWriter(DestFormat)
+    IsPartWriter = (
+        Writer.info.FormatId == KPartFormatId
+        and Options.Destination.suffix.casefold() == KPartSuffix
+        and Document.assembly is None
+        and Document.DrawingValue is None
+    )
+    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
     Result = WriteDocument(
         Document,
         Options.Destination,
@@ -47,7 +59,9 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         Overwrite=Options.Overwrite,
         ValidateData=True,
         AllowCarrier=False,
-        InputValues={"require_native_transfers": True},
+        InputValues=NativeMeasVals(
+            Options.NativeMeasurePath, Options.Destination, IsPartWriter
+        ),
     )
     return {
         "source_format": ResolveFormat(Document, Reader),

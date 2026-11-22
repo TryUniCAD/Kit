@@ -1,28 +1,26 @@
 from dataclasses import replace as ReplaceValue
-from xml.etree.ElementTree import ParseError
 
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Properties.ApplyPartText import ApplyPartText
 from convert.adapters.solidworks.Core.Properties.ReadPartText import ReadPartText
-from interchange import (
-    CadDocument,
-    Diagnostic,
-    Severity,
-    frozen_mapping as FrozenMapping,
-)
+from interchange.Core.Common import FreezeMapping
+from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Enums.EnumDocument import Severity
+from interchange.Records.RecordDiagnostic import Diagnostic
 
 
 # unsupported optional properties retain geometry and history while withholding every unqualified text projection
 def WithPartProps(Document: CadDocument, Archive: SldprtArchive) -> CadDocument:
     if not any(
-        NameValue in ("docProps/core.xml", "docProps/custom.xml", "Contents/CusProps")
+        NameValue in ("Contents/CusProps", "docProps/core.xml", "docProps/custom.xml")
         or NameValue.startswith("docProps/Config-")
         for NameValue in Archive.streams
     ):
         return Document
     try:
-        return ApplyPartText(Document, ReadPartText(Document, Archive))
-    except (TypeError, ValueError, KeyError, ParseError) as ErrorInfo:
+        PropsValue = ReadPartText(Document, Archive)
+        return Document if PropsValue is None else ApplyPartText(Document, PropsValue)
+    except (TypeError, ValueError, KeyError, SyntaxError) as ErrorInfo:
         Metadata = dict(Document.metadata)
         Metadata["solidworks.part_text_properties"] = {
             "status": "unsupported",
@@ -36,6 +34,6 @@ def WithPartProps(Document: CadDocument, Archive: SldprtArchive) -> CadDocument:
         )
         return ReplaceValue(
             Document,
-            metadata=FrozenMapping(Metadata),
+            metadata=FreezeMapping(Metadata),
             diagnostics=Document.diagnostics + (DiagnosticValue,),
         )

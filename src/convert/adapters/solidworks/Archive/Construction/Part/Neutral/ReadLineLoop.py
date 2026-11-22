@@ -1,6 +1,3 @@
-from convert.adapters.solidworks.Archive.Construction.Sketch.PolygonInput import (
-    PolygonInput,
-)
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from interchange.Enums.EnumGeometry import GeometryKind
 from interchange.geometry.Models.GeometryCurves import LineGeometry
@@ -21,8 +18,10 @@ def ReadLineLoop(
             "plain boss requires an unconstrained unextended active sketch"
         )
     CountValue = len(SketchValue.entities)
-    if CountValue < 3 or len(SketchValue.closed_profile_entity_ids) != 1:
-        raise ValueError("plain boss requires one explicit closed line loop")
+    if not 3 <= CountValue <= 64 or len(SketchValue.closed_profile_entity_ids) != 1:
+        raise ValueError(
+            "plain boss requires one closed loop of three to sixty four lines"
+        )
     OrderValue = SketchValue.closed_profile_entity_ids[0]
     EntitiesValue = {
         EntityValue.id: EntityValue for EntityValue in SketchValue.entities
@@ -65,4 +64,4 @@ def ReadLineLoop(
         for IndexValue in range(CountValue)
     ):
         raise ValueError("the lines must retain exact modeled closed endpoint identity")
-    return PolygonInput(tuple(VerticesValue), 19000).VerticesValue
+    return tuple(VerticesValue)

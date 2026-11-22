@@ -10,7 +10,11 @@ def ReadPropNames(SectionValue: Element) -> dict[str, int]:
     for ItemValue in SectionValue:
         if ItemValue.tag != "propertyNameDictionaryElement":
             continue
-        if set(ItemValue.attrib) != {"name", "pid"} or len(ItemValue):
+        if (
+            set(ItemValue.attrib) != {"name", "pid"}
+            or len(ItemValue)
+            or (ItemValue.text or "").strip()
+        ):
             raise ValueError("part property dictionary has unclassified structure")
         NameValue = ItemValue.attrib["name"]
         if NameValue.casefold() in SeenNames:

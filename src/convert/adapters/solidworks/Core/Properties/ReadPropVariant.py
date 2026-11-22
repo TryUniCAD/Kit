@@ -3,7 +3,7 @@ from xml.etree.ElementTree import Element
 from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.CheckPropText import (
     CheckPropText,
 )
-from convert.adapters.solidworks.Drawing.Metadata.Writing.PropertyVocabulary import (
+from convert.adapters.solidworks.Archive.Construction.Metadata.Properties.PropertyNames import (
     KPropertyValueNamespace,
 )
 
