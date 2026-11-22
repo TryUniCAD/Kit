@@ -129,6 +129,24 @@ The original archive payload and binding, provenance and round-trip
 metadata remain unsupported transfers. This disclosed source has
 unverified historical roster membership.
 
+The [intact attached-box planner](measurements/2026/IntactFreecadAttachedPlan01.json)
+rederives the full 0.21.2 F14c neutral model and its source binding in
+memory before generating the same measured 12-stream part. It preserves
+the intact source beside the clean model and rejects altered parameters,
+crossed shape owners and the origin-fixed F14a control. Explicit and
+inferred public writes still refuse. This adds zero benchmark conversions.
+
+The [origin datum audit](records/FreecadAttachedOriginAxes2026.md) retains
+three actual source axis owners in the typed plan and confirms that none
+occurs in the existing measured native part. The normal SDK and CLI
+still refuse. Source archive attribution and selectable geometry have
+separate evidence. The recorded roster and conversion counts stay open.
+
+The [three-axis research candidate](records/AttachedBoxAxisCandidate2026.md)
+emits the actual named and signed datum roots beside the editable box.
+Its host archive and history checks pass. Native and corpus credit
+remain unchanged pending the new controlled lifecycle.
+
 The [binary Parasolid exchange probe](measurements/2026/GeneratedLocalKernelExchangeNative01.json)
 loads two model-generated, independently measured solid payloads with
 healthy controls. This verifies kernel geometry for those disclosed

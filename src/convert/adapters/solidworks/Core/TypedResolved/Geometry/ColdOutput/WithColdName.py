@@ -1,5 +1,8 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.BindPrismAxes import (
+    BindPrismAxes,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindPrismCreate import (
     BindPrismCreate,
 )
@@ -52,7 +55,7 @@ def WithColdName(
             }
         ),
     )
-    return ReplaceValue(
+    BoundValue = ReplaceValue(
         Document,
         bodies=(NamedBody,),
         brep=ReplaceValue(ModelValue, bodies=(KernelBody,)),
@@ -60,6 +63,8 @@ def WithColdName(
             {**Document.metadata, "solidworks.cacheless_body_names": ProofValue}
         ),
     )
+
+    return BindPrismAxes(BoundValue, GeometryValue.AxesValue)
 
 
 # a derived cold label may follow only its actual typed producer and owned neutral solid

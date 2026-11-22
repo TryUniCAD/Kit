@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.Circles.ReadCircleG
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.ReadAxisGeom import (
+    ReadAxisGeom,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.ReadPocketGeom import (
     ReadPocketGeom,
 )
@@ -66,6 +69,10 @@ def ReadNoCache(
         ):
             return ReadCircleGeom(LinkValue, ManagerValue, ModelValue, BodyId)
         ColdValue = ReadColdOutput(LinkValue)
+        if any(Feature.class_name == "moRefAxis_c" for Feature in ModelValue.features):
+            return ReadAxisGeom(
+                Archive, LinkValue, ManagerValue, ModelValue, ColdValue, BodyId
+            )
         Features = CheckPrismScope(LinkValue, ManagerValue, ModelValue, ColdValue)
         return BuildPrismGeom(
             ReadPrismPlan(

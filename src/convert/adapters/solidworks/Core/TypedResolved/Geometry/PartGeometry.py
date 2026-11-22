@@ -6,6 +6,9 @@ from interchange.Records.RecordTopology import TopologyCounts
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.ColdOutput import (
     ColdOutput,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.Axes.PrismAxes import (
+    PrismAxes,
+)
 
 
 # generated neutral geometry must remain distinct from absent native payload bytes and persisted kernel identities
@@ -17,3 +20,4 @@ class PartGeometry:
     ColdValue: ColdOutput | None = None
     ProducerValue: ArchiveNode | None = None
     CreatorValue: ArchiveNode | None = None
+    AxesValue: PrismAxes | None = None
