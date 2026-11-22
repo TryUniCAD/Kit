@@ -3,8 +3,7 @@ from json import loads as JsonLoads
 
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Core.Writing.Measured.PatNativePins import (
-    KPatternPacket,
-    KPatternResult,
+    KPatResultByPacket,
 )
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import (
@@ -14,27 +13,35 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import (
 
 
 # verification reads only caller supplied evidence and the complete digests of the disclosed native batch
-def ReadPinnedJson(Value: object, Expected: str) -> dict[str, object]:
+def ReadPatBytes(Value: object) -> bytes:
     if type(Value) is str:
-        Value = Value.encode("utf-8")
-    if type(Value) is not bytes or CalcSha(Value).hexdigest() != Expected:
+        return Value.encode("utf-8")
+    if type(Value) is not bytes:
         raise ValueError(
             "linear pattern requires its exact disclosed native measurement"
         )
-    return ReadMeasMap(JsonLoads(Value))
+    return Value
 
 
 # admit the measured packet and native result as independent evidence after verifying their shared authority
 def ReadPatMeas(
     OptionsValue: WriteOptions,
-) -> tuple[int, dict[str, object], dict[str, object]]:
+) -> tuple[int, dict[str, object], dict[str, object], str]:
     TimeValue, Receipt = ReadMeasInput(OptionsValue)
     if set(Receipt) != {"packet", "result"}:
         raise ValueError(
             "linear pattern receipt requires its exact native packet and result"
         )
-    Packet = ReadPinnedJson(Receipt["packet"], KPatternPacket)
-    Result = ReadPinnedJson(Receipt["result"], KPatternResult)
+    PacketBytes = ReadPatBytes(Receipt["packet"])
+    ResultBytes = ReadPatBytes(Receipt["result"])
+    PacketSha = CalcSha(PacketBytes).hexdigest()
+    ResultSha = CalcSha(ResultBytes).hexdigest()
+    if KPatResultByPacket.get(PacketSha) != ResultSha:
+        raise ValueError(
+            "linear pattern requires its exact disclosed native measurement"
+        )
+    Packet = ReadMeasMap(JsonLoads(PacketBytes))
+    Result = ReadMeasMap(JsonLoads(ResultBytes))
     FilesValue = ReadMeasMap(Packet.get("files"))
     if (
         Packet.get("schema") != "kit.sw2026.generated-raised-pattern-native.v1"
@@ -44,10 +51,10 @@ def ReadPatMeas(
         or Result.get("build") != KOraclePart["build"]
         or Packet.get("oracle_sha256") != KOraclePart["sha256"]
         or Result.get("oracle_sha256") != KOraclePart["sha256"]
-        or Result.get("packet_sha256") != KPatternPacket
+        or Result.get("packet_sha256") != PacketSha
         or Result.get("build_sha256") != FilesValue.get("Build.json")
         or Result.get("passed") is not True
         or Result.get("distinct_processes") != 6
     ):
         raise ValueError("linear pattern native measurement authority differs")
-    return TimeValue, FilesValue, Result
+    return TimeValue, FilesValue, Result, ResultSha

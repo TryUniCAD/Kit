@@ -125,13 +125,17 @@ files, with zero guarded runtime input reads or CAD launches. The
 binds the current scoped evidence and links the
 [original proof](../measurements/2026/MeasuredLocalLinearPattern01.json).
 
-The witnessed original outer compressor is zlib 1.2.12. The complete
-suite's fresh process can additionally verify the reserved unmeasured
-zlib-ng branch. A different complete-file hash requires identical
-logical streams for that contrast and refusal in both writer paths.
-A positive alternate-runtime output requires its own native measurement.
-See the [alternate-compression procedure](MeasuredPatternCompression2026.md)
-for the guard and fresh native comparison. Warm saved reads, newly
+Classic zlib 1.2.12 and the measured Windows zlib-ng envelope each have a
+separate exact packet and result. Both Windows candidates preserve the
+same ten uncompressed streams and passed the native open, edit, save
+and reopen lifecycle across six more processes. Seven guarded writer
+routes per case reproduced the measured Windows bytes. Crossed packets
+and results and the valid classic receipt supplied for a Windows
+candidate all refused with unchanged outputs.
+[Windows compression proof](../measurements/2026/MeasuredPatternCompressionPublication01.json)
+[Procedure and byte identities](MeasuredPatternCompression2026.md)
+
+Warm saved reads, newly
 generated edited outputs and dimension-driven stock sketches remain
 open in the wider [PR #121](https://github.com/TryUniCAD/Kit/pull/121)
 programme.

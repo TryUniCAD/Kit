@@ -8,7 +8,9 @@ complete archive. This procedure stages a disclosed research batch only.
 
 ## Freeze and capture
 
-Freeze the committed checkout's `src/` with `git archive`. The root
+Freeze the pre-qualification snapshot at
+`1e663c616fc7b2db51740f3dfeffff4f29d63c98` as the source for this
+comparison. Freeze its `src/` with `git archive`. The root
 `.gitattributes` omits `re/` from Git archives. Append the committed
 `re/tooling/sw2026/CheckMeasuredPattern.py` blob and the five JSON members
 under `re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01/` to the
@@ -109,7 +111,46 @@ plan and refuses any failed control or candidate. Check the resulting
 packet and build SHA bindings and preserve the raw native record and
 transport exit evidence before considering a positive publication test.
 
-Host preflight verified the old custody and checked guarded classic
-captures. Actual alternate captures and native acceptance of those
-digests remain pending. Neither the staging report nor a previously
-measured classic result grants permission to publish an alternate file.
+## Measured Windows envelope
+
+The pinned embedded CPython 3.14.10 executable is x64 under ARM64
+Windows with zlib `1.3.1.zlib-ng`. Two captures per case reproduced
+the same complete file on that runtime. Each candidate retained all
+ten uncompressed stream sizes and SHA-256 values from classic zlib.
+
+| Case | Bytes | SHA-256 | Native edit and fresh reopen checks |
+| --- | ---: | --- | ---: |
+| ColdRaisedPatternA | 12072 | `60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5` | 55 + 33 |
+| ColdRaisedPatternB | 12120 | `d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b` | 55 + 33 |
+
+Both controls and all four candidate processes passed on SOLIDWORKS
+2026 SP05.2 `34.5.2.0604`. Each opened with zero errors and warnings,
+rebuilt, saved after a pitch edit and reopened cleanly in a fresh
+process. All 176 candidate comparisons passed. The transport verified
+the original classic files and restored them at their original
+locators after the measurements. These are the same two disclosed
+designs, with zero new held-out cases.
+
+The [Windows packet](../v2026/corpus/linear-pattern/MeasuredZlibNg01/Packet.json)
+and [originally CRLF-encoded result](../v2026/corpus/linear-pattern/MeasuredZlibNg01/Result.json)
+bind the new file hashes. Their observed SHA-256 values are
+`9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c`
+and `c119cfd3f1faef104030333cab7c55221f890ea52dc3a853b115e8e4108ec0c4`.
+Caller-supplied proof has to match the specific packet and result pair.
+The writer still regenerates the entire candidate from the neutral
+request and matches the new whole-file SHA before writing. The
+[stream comparison](../v2026/corpus/linear-pattern/MeasuredZlibNg01/Compression.json)
+is research evidence.
+
+On the exact Windows runtime, verify each authenticated output with
+`CheckMeasuredPattern.py --case CASE --alternate-receipt`. It exercises
+the ordinary public and direct writer and strict full and design-only
+readback through neutral JSON. All seven publications per case
+reproduced the measured bytes with zero guarded input reads or CAD
+launches. Each Windows case also refused six mismatched receipt
+routes and retained the 21 existing refusal checks. Run
+`--verify-runtime-boundary` with the same runtime to exercise both
+writer refusals when the caller only supplies the original classic
+receipt. The [publication receipt](../measurements/2026/MeasuredPatternCompressionPublication01.json)
+binds both runtime reports, the native phase digests and the file
+hashes fetched independently from the retained guest directories.

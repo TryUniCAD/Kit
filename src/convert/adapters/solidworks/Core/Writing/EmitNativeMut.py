@@ -35,7 +35,7 @@ def EmitNativeMut(
     IsPattern = IsPatWrite(DocumentValue)
     if IsPattern:
         SettingsValue, Presentation = CheckPatOpts(OptionsValue)
-        WrittenAt, FilesValue, ReportValue = ReadPatMeas(SettingsValue)
+        WrittenAt, FilesValue, ReportValue, ResultSha = ReadPatMeas(SettingsValue)
         OutputPath = ResolveOutput(TargetValue)
         Payload = PreparePat(
             DocumentValue,
@@ -44,7 +44,7 @@ def EmitNativeMut(
             SettingsValue,
             Presentation,
         )
-        Evidence = MatchPatMeas(FilesValue, ReportValue, Payload)
+        Evidence = MatchPatMeas(FilesValue, ReportValue, ResultSha, Payload)
     else:
         SettingsValue = CheckPartOpts(OptionsValue)
         WrittenAt, Receipt = ReadPartMeas(SettingsValue)

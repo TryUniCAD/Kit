@@ -4,10 +4,6 @@ from hashlib import sha256 as CalcSha
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.PatNativePins import (
-    KPatternPacket,
-    KPatternResult,
-)
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from interchange.Core.Common import FreezeMapping
@@ -15,7 +11,10 @@ from interchange.Core.Common import FreezeMapping
 
 # the complete generated candidate must exactly match one independently measured cold archive
 def MatchPatMeas(
-    FilesValue: dict[str, object], Result: dict[str, object], Payload: bytes
+    FilesValue: dict[str, object],
+    Result: dict[str, object],
+    ResultSha: str,
+    Payload: bytes,
 ) -> Mapping[str, object]:
     Digest = CalcSha(Payload).hexdigest()
     NamesValue = tuple(
@@ -51,8 +50,8 @@ def MatchPatMeas(
                 {
                     "generated_sha256": Digest,
                     "oracle_build": Result["build"],
-                    "packet_sha256": KPatternPacket,
-                    "native_result_sha256": KPatternResult,
+                    "packet_sha256": Result["packet_sha256"],
+                    "native_result_sha256": ResultSha,
                     "edit_record_sha256": ReadMeasSha(EditPhase.get("record_sha256")),
                     "reopen_record_sha256": ReadMeasSha(
                         ReopenPhase.get("record_sha256")

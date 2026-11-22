@@ -17,6 +17,7 @@ from zlib import ZLIB_RUNTIME_VERSION
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[3]
 FIXTURES = Path("re/solidworks/v2026/corpus/linear-pattern/MeasuredCold01")
+ALTERNATE = Path("re/solidworks/v2026/corpus/linear-pattern/MeasuredZlibNg01")
 FORMAT = "solidworks.sldprt"
 MEASUREMENT = "solidworks_native_measurement"
 PRESENTATION = "solidworks_pattern_presentation"
@@ -26,6 +27,12 @@ SOURCE_HASHES = {
 }
 PACKET_SHA = "da60bbfdc5411448b9aa5cd06c2a8772a0e0f2c39efa14ba2dc336c625e32cb1"
 RESULT_SHA = "ae4f5853e4066a0d3f00cf4cbdaac12797b18c55c268ada6431d7e062bd5d23b"
+ALTERNATE_HASHES = {
+    "ColdRaisedPatternA": "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5",
+    "ColdRaisedPatternB": "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b",
+}
+ALTERNATE_PACKET_SHA = "9e8456c5f266646e7a96ffa711c5a4e3be957ffa807eaddc4e9aa8e0dae8bf8c"
+ALTERNATE_RESULT_SHA = "c119cfd3f1faef104030333cab7c55221f890ea52dc3a853b115e8e4108ec0c4"
 
 
 def require(condition, message):
@@ -37,23 +44,42 @@ def digest(value):
     return sha256(value).hexdigest()
 
 
-def read_inputs(root, name):
-    fixture = root / FIXTURES
+def read_bound_receipt(fixture, packet_sha, result_sha):
     packet = (fixture / "Packet.json").read_bytes()
     observed = json.loads((fixture / "Result.json").read_bytes())
     result = (json.dumps(observed, indent=2) + "\n").replace("\n", "\r\n").encode("utf-8")
-    request = (fixture / f"{name}Request.json").read_bytes()
-    require(digest(packet) == PACKET_SHA and digest(result) == RESULT_SHA,
+    require(digest(packet) == packet_sha and digest(result) == result_sha,
             "disclosed native packet or terminal report changed")
+    return packet, result
+
+
+def read_inputs(root, name, alternate=False):
+    fixture = root / FIXTURES
+    packet_sha, result_sha, source_hashes = PACKET_SHA, RESULT_SHA, SOURCE_HASHES
+    evidence_dir = fixture
+    if alternate:
+        evidence_dir = root / ALTERNATE
+        packet_sha, result_sha = ALTERNATE_PACKET_SHA, ALTERNATE_RESULT_SHA
+        source_hashes = ALTERNATE_HASHES
+    packet, result = read_bound_receipt(evidence_dir, packet_sha, result_sha)
+    request = (fixture / f"{name}Request.json").read_bytes()
     streams = json.loads((fixture / "Streams.json").read_bytes())
     cases = json.loads(packet)["files"]
     report = json.loads(result)
-    require(cases[f"{name}.SLDPRT"] == SOURCE_HASHES[name]
+    require(cases[f"{name}.SLDPRT"] == source_hashes[name]
             and cases["Build.json"] == report["build_sha256"]
-            and report["packet_sha256"] == PACKET_SHA
-            and streams["source_build_sha256"] == report["build_sha256"]
+            and report["packet_sha256"] == packet_sha
             and streams["cases"][name]["container"]["sha256"] == SOURCE_HASHES[name],
             "native result no longer binds its original model-generated candidates")
+    if alternate:
+        classic = json.loads((fixture / "Packet.json").read_bytes())
+        comparison = (evidence_dir / "Compression.json").read_bytes()
+        require(cases["Compression.json"] == digest(comparison)
+                and streams["source_build_sha256"] == classic["files"]["Build.json"],
+                "alternate packet is not linked to the classic stream witnesses")
+    else:
+        require(streams["source_build_sha256"] == report["build_sha256"],
+                "classic packet is not linked to its logical stream witnesses")
     return json.loads(request), {"packet": packet, "result": result}, report, digest(request), streams["cases"][name]["streams"]
 
 
@@ -153,6 +179,26 @@ def check_rejections(document, readback, design, packet, native_path, values, pu
     reject(lambda: permissive(changed, target, values), "no exact native linear pattern measurement")
     require(target.getvalue() == b"untouched output", "permissive policy bypassed native measurement")
     return count + 1
+
+
+def check_compression_receipts(document, values, evidence, classic, public, direct):
+    measurement = values[MEASUREMENT]
+    wrongly_bound = "exact disclosed native measurement"
+    rejected = 0
+    for receipt, reason in (
+        ({"packet": classic[0], "result": evidence["result"]}, wrongly_bound),
+        ({"packet": evidence["packet"], "result": classic[1]}, wrongly_bound),
+        (dict(zip(("packet", "result"), classic, strict=True)), "no exact native linear pattern measurement"),
+    ):
+        options = {**values, MEASUREMENT: {**measurement, "receipt": receipt}}
+        for write in (public, direct):
+            sink = BytesIO(b"untouched output")
+            sink.seek(2)
+            reject(lambda: write(document, sink, options), reason)
+            require(sink.getvalue() == b"untouched output" and sink.tell() == 2,
+                    "wrong-compression receipt modified caller output")
+            rejected += 1
+    return rejected
 
 
 def check_semantics(readback, original, report):
@@ -260,9 +306,11 @@ def tree_digest(directory):
     return source.hexdigest()
 
 
-def verify(root, name, scratch, verify_runtime_boundary, capture=None):
+def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate=False):
     scratch = scratch.resolve()
-    request, evidence, result, request_sha, expected_streams = read_inputs(root, name)
+    request, evidence, result, request_sha, expected_streams = read_inputs(root, name, alternate)
+    expected_hash = (ALTERNATE_HASHES if alternate else SOURCE_HASHES)[name]
+    classic = read_bound_receipt(root / FIXTURES, PACKET_SHA, RESULT_SHA) if alternate else None
     sys.path.insert(0, str(root / "src"))
     from convert import extract_brep, open_document, write_document
     from convert.adapters.base.WriteOptions import WriteOptions
@@ -326,7 +374,7 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None):
             active = False
 
     sys.addaudithook(audit)
-    if verify_runtime_boundary and "zlib-ng" in ZLIB_RUNTIME_VERSION:
+    if not alternate and verify_runtime_boundary and "zlib-ng" in ZLIB_RUNTIME_VERSION:
         with guard():
             prepared = PreparePat(parsed, BytesIO(), request["target"]["SavedAt"],
                                   WriteOptions(values={"final_destination": native_path}), presentation)
@@ -364,17 +412,23 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None):
         readback_results = [public(readback, retained, reopen_values), direct(snapshot, direct_retained, reopen_values)]
         design_results = [public(design_snapshot, design_sinks[0], reopen_values),
                           direct(design, design_sinks[1], reopen_values)]
-        require(digest(raw) == SOURCE_HASHES[name]
+        require(digest(raw) == expected_hash
                 and direct_output.getvalue() == retained.getvalue() == direct_retained.getvalue() == raw
                 and all(sink.getvalue() == raw for sink in design_sinks),
                 "measured registry or direct model and readback publication diverged")
         for doc, results in ((parsed, neutral_results), (readback, readback_results), (design, design_results)):
             require(all(item.vendor_loadable and item.application_usable and not item.dropped
                         and item.bytes_written == len(raw) and item.native_capabilities == GetDocumentCaps(doc)
-                        and item.metadata[MEASUREMENT]["generated_sha256"] == digest(raw) for item in results),
+                        and item.metadata[MEASUREMENT]["generated_sha256"] == digest(raw)
+                        and item.metadata[MEASUREMENT]["packet_sha256"] == digest(evidence["packet"])
+                        and item.metadata[MEASUREMENT]["native_result_sha256"] == digest(evidence["result"])
+                        for item in results),
                     "every published pattern must retain complete native transfer evidence")
         semantics = check_semantics(readback, parsed, result["phases"][f"{name}-edit"])
         refused = check_rejections(parsed, readback, design, evidence, native_path, values, public, direct, permissive)
+        compression_refused = 0 if classic is None else check_compression_receipts(
+            parsed, values, evidence, classic, public, direct,
+        )
     check_permissive_history(incomplete, design, open_document)
     path_source = open_document(target, source_format=FORMAT, strict=True)
     require(path_source.feature_timeline == readback.feature_timeline and path_source.bodies == readback.bodies,
@@ -401,6 +455,8 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None):
             "design_only_history_equal": True, "strict_history_refusal_count": 2,
             "permissive_history_unqualified": True,
             "semantics": semantics, "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "native_hash_reproduced"}
+    if alternate:
+        report["compression_receipt_refusal_count"] = compression_refused
     return capture_candidate(capture, raw, report, root) if capture else report
 
 
@@ -414,10 +470,12 @@ def main():
     parser.add_argument("--case", choices=tuple(SOURCE_HASHES), required=True)
     parser.add_argument("--verify-runtime-boundary", action="store_true")
     parser.add_argument("--capture-candidate", type=Path)
+    parser.add_argument("--alternate-receipt", action="store_true")
     args = parser.parse_args()
     with TemporaryDirectory(prefix="KitMeasuredPattern-") as directory:
         report = verify(args.root.resolve(), args.case, Path(directory),
-                        args.verify_runtime_boundary or args.capture_candidate is not None, args.capture_candidate)
+                        args.verify_runtime_boundary or args.capture_candidate is not None,
+                        args.capture_candidate, args.alternate_receipt)
     print(json.dumps(report, sort_keys=True))
 
 

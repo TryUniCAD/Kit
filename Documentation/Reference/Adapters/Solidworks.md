@@ -378,9 +378,9 @@ the matching native receipt.
 
 Use the regular `solidworks_native_measurement` option with
 `{"written_at": ..., "receipt": {"packet": ..., "result": ...}}`.
-Supply the original JSON bytes of both disclosed native reports. As with
-the ordinary measured part writer, Kit validates the exact generated
-container before publishing. The two currently measured pattern locators
+Supply the original JSON bytes of the packet and native report that
+match the generated container. The classic zlib and Windows zlib-ng
+envelopes use distinct pairs. The two measured pattern locators
 are `C:\KitGeneratedLocalPattern\ColdRaisedPatternA.SLDPRT` and
 `C:\KitGeneratedLocalPattern\ColdRaisedPatternB.SLDPRT`. Use an empty
 seekable SDK stream, optionally an exclusively opened binary file, together
@@ -392,8 +392,7 @@ The pattern reader derives the linked solid from the cold editable graph
 when physical geometry caches are absent. Raw Parasolid extraction still
 requires a real payload. Both strict read modes refuse a cache-free
 pattern with incomplete typed ownership. Warm saved pattern variants
-and newly generated digests from a model or compressor edit remain
-outside the current publication boundary.
+and new model or compressor digests require their own native evidence.
 [Measured pattern change](../../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
 
 ## Geometry cache boundary

@@ -18,10 +18,10 @@ and can regenerate the part without an override.
 
 The existing `solidworks_native_measurement` option still owns publication.
 The pattern lane uses an envelope with `written_at` and a `receipt` containing
-the exact `packet` and `result` JSON bytes. The immutable disclosed native
-packet matches each entire regenerated archive, including its self locator,
-before any destination receives bytes. The current results cover
-`ColdRaisedPatternA` and `ColdRaisedPatternB` only.
+the exact matching `packet` and `result` JSON bytes. Each pair binds the
+entire regenerated archive, including its self locator, before any
+destination receives bytes. The two cases have separate measurements
+for classic zlib and Windows zlib-ng.
 
 Both disclosed cases passed clean native SOLIDWORKS 2026 SP05.2 open,
 rebuild, spacing edit, save and fresh reopen, bracketed by two healthy
@@ -34,6 +34,9 @@ the exact measured archive from a restored neutral JSON document. Both strict
 read modes refuse a recognized cache-free pattern with incomplete typed
 history. See the
 [scope and reproduction record](../../../../re/solidworks/records/MeasuredLocalLinearPattern2026.md).
+The [Windows compression trial](../../../../re/solidworks/records/MeasuredPatternCompression2026.md)
+repeated those native observations and reproduced both alternate files
+through the ordinary SDK and direct writer with the matching evidence.
 
 Warm saves, alternate pattern modes, overlapping instances, and outputs
 with new file digests remain outside this publication scope. This includes
