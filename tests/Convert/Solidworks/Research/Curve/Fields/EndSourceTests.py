@@ -1,21 +1,19 @@
 from __future__ import annotations
 
-from os import getenv as ReadEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import ReportDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
 # complete native source archives must retain their shared identities across an independent process boundary
 def TestEndSources(TmpPath: FilePath) -> None:
-    OutputRoot = (
-        FilePath(ReadEnv("SwResearchOutput") or str(TmpPath))
-        / "SourceParser/Curve/EndConditions"
-    )
+    OutputRoot = ReportDir(TmpPath, "SourceParser", "Curve", "EndConditions")
     OutputRoot.mkdir(parents=True, exist_ok=True)
-    ReportPath = OutputRoot / "Checked.json"
+    ReportPath = ArtifactFile(OutputRoot, "Checked.json")
     Outcome = RunProcess(
         [
             PythonExec,
@@ -33,7 +31,8 @@ def TestEndSources(TmpPath: FilePath) -> None:
         (".stdout.log", Outcome.stdout),
         (".stderr.log", Outcome.stderr),
     ):
-        Written = ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
+        LogPath = ArtifactFile(OutputRoot, ReportPath.with_suffix(Suffix).name)
+        Written = LogPath.write_text(TextValue, encoding="utf-8")
         assert Written == len(TextValue)
     assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
     Report = ReadObject(ReportPath)

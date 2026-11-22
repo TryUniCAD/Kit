@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 from hashlib import sha256 as HashBytes
-from os import getenv as ReadEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import ReportDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Curve.CorpusPaths import KPrimaryStreams
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
@@ -13,10 +14,7 @@ from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 # complete containers expose framing changes alongside actual archive maps and neighboring fields
 def TestStrings(TmpPath: FilePath) -> None:
-    OutputRoot = (
-        FilePath(ReadEnv("SwResearchOutput") or str(TmpPath))
-        / "SourceParser/Curve/Strings"
-    )
+    OutputRoot = ReportDir(TmpPath, "SourceParser", "Curve", "Strings")
     ScriptPath = KRepoRoot / "re/tooling/sw2026/serial/StringCorpus.py"
     for ModeValue in ("prepare", "verify"):
         Outcome = RunProcess(
@@ -32,12 +30,12 @@ def TestStrings(TmpPath: FilePath) -> None:
                 ("stdout.log", Outcome.stdout),
                 ("stderr.log", Outcome.stderr),
             ):
-                Written = (OutputRoot / f"{ModeValue}.{Suffix}").write_text(
+                Written = ArtifactFile(OutputRoot, f"{ModeValue}.{Suffix}").write_text(
                     TextValue, encoding="utf-8"
                 )
                 assert Written == len(TextValue)
         assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
-    Evidence = ReadObject(OutputRoot / "Checked.json")
+    Evidence = ReadObject(ArtifactFile(OutputRoot, "Checked.json"))
     assert Evidence["passed"] is Evidence["source_immutable"] is True
     assert Evidence["writer_output"] is Evidence["native_acceptance"] is False
     assert Evidence["heldout_payloads_read"] == 0
@@ -54,5 +52,5 @@ def TestStrings(TmpPath: FilePath) -> None:
     )
     assert (
         Evidence["prepared_sha256"]
-        == HashBytes((OutputRoot / "Prepared.json").read_bytes()).hexdigest()
+        == HashBytes(ArtifactFile(OutputRoot, "Prepared.json").read_bytes()).hexdigest()
     )

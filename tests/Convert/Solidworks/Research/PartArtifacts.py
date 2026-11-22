@@ -3,22 +3,23 @@ from __future__ import annotations
 from base64 import b64decode as DecodeBytes
 from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson
-from os import getenv as ReadEnv
-from pathlib import Path as FilePath
 from typing import cast as CastValue
+
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import CandidateDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 
 
 # remote artifacts preserve exact generated files for independent native application inspection
 def SavePartOutput(
     NameValue: str, Request: dict[str, object], Report: dict[str, object]
 ) -> None:
-    OutputPath = ReadEnv("SwResearchOutput")
-    if OutputPath is None:
+    OutputDir = CandidateDir()
+    if OutputDir is None:
         return
-    OutputDir = FilePath(OutputPath)
     OutputDir.mkdir(parents=True, exist_ok=True)
     BlobValue = DecodeBytes(CastValue(str, Report["blob"]), validate=True)
-    FileName = OutputDir / (NameValue + ".SLDPRT")
+    FileName = ArtifactFile(OutputDir, NameValue + ".SLDPRT")
+    JsonPath = ArtifactFile(OutputDir, FileName.with_suffix(".json").name)
     WrittenBytes = FileName.write_bytes(BlobValue)
     if WrittenBytes != len(BlobValue):
         raise RuntimeError("generated candidate artifact was truncated")
@@ -34,6 +35,6 @@ def SavePartOutput(
         }
     )
     JsonEvidence = DumpJson(Evidence, indent=2) + "\n"
-    WrittenChars = FileName.with_suffix(".json").write_text(JsonEvidence)
+    WrittenChars = JsonPath.write_text(JsonEvidence)
     if WrittenChars != len(JsonEvidence):
         raise RuntimeError("generated candidate evidence was truncated")

@@ -1,73 +1,71 @@
 from __future__ import annotations
 
+from pathlib import Path as FilePath
 from subprocess import CompletedProcess, TimeoutExpired, run as RunProcess
 from sys import executable as PythonExec
-from pathlib import Path as FilePath
-from json import dumps as DumpJson
+from tempfile import TemporaryDirectory as TempDirectory
+
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
+from tests.Convert.Solidworks.Research.Curve.Fields.FieldArguments import (
+    FieldArguments,
+)
+from tests.Convert.Solidworks.Research.Curve.Fields.FieldTimeout import FieldTimeout
 from tests.Convert.Solidworks.Research.Curve.SaveReceipt import SaveReceipt
 
 
-# a fresh interpreter exposes inventory failures through the supported command boundary
-def RunFieldCli(
-    Pattern: str, StreamName: str, ReportPath: FilePath, IsLinked: bool
+# invocation stays within the interpreter and research program already chosen by the fixture
+def InvokeFields(
+    StagePath: FilePath, SourceArgs: tuple[str, str], IsLinked: bool, Limit: int
 ) -> CompletedProcess[str]:
     ScriptPath = KRepoRoot / "re/tooling/sw2026/serial/FieldScan.py"
-    Arguments = [
+    Options = ("--link-config",) if IsLinked else ()
+    Arguments = (
         PythonExec,
+        "-I",
+        "-B",
         str(ScriptPath),
-        Pattern,
-        StreamName,
         "--inventory-json",
-        str(ReportPath),
+        str(StagePath),
         "--require-proven",
-    ]
-    if IsLinked:
-        Arguments.append("--link-config")
-    try:
-        Outcome = RunProcess(
-            Arguments,
-            cwd=KRepoRoot,
-            capture_output=True,
-            text=True,
-            check=False,
-            timeout=120,
-        )
-    except TimeoutExpired as Failure:
-        CapturedOut = Failure.stdout or ""
-        CapturedErr = Failure.stderr or ""
-        StdoutText = (
-            CapturedOut.decode("utf-8", errors="replace")
-            if isinstance(CapturedOut, bytes)
-            else CapturedOut
-        )
-        StderrText = (
-            CapturedErr.decode("utf-8", errors="replace")
-            if isinstance(CapturedErr, bytes)
-            else CapturedErr
-        )
-        for Suffix, TextValue in (
-            (".stdout.log", StdoutText),
-            (".stderr.log", StderrText),
-            (
-                ".scope.json",
-                DumpJson(
-                    {
-                        "scope": "curve discovery field inventory process timeout",
-                        "is_writer_output": False,
-                        "native_acceptance_inherited": False,
-                        "require_proven": True,
-                        "linked_configurations": IsLinked,
-                        "returncode": None,
-                        "timed_out": True,
-                        "timeout_seconds": 120,
-                    },
-                    indent=2,
-                )
-                + "\n",
-            ),
-        ):
-            _ = ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
-        raise
-    SaveReceipt(ReportPath, Outcome, IsLinked)
+        *Options,
+        "--",
+        *SourceArgs,
+    )
+    return RunProcess(
+        Arguments,
+        cwd=KRepoRoot,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=Limit,
+    )
+
+
+# the process receives a private report destination and the caller retains the audited result
+def RunFieldCli(
+    TmpPath: FilePath,
+    Pattern: str,
+    StreamName: str,
+    ReportPath: FilePath,
+    IsLinked: bool,
+) -> CompletedProcess[str]:
+    TargetPath = ArtifactFile(ReportPath.parent, ReportPath.name)
+    if TargetPath.exists():
+        raise FileExistsError(TargetPath)
+    SourceArgs = FieldArguments(TmpPath, Pattern, StreamName)
+    Limit = 120
+    with TempDirectory(prefix="KitFieldInventory.") as TempName:
+        StagePath = FilePath(TempName) / "Report.json"
+        try:
+            Outcome = InvokeFields(StagePath, SourceArgs, IsLinked, Limit)
+        except TimeoutExpired as Failure:
+            FieldTimeout(TargetPath, Failure, IsLinked, Limit)
+            raise
+        if StagePath.is_file():
+            Payload = StagePath.read_bytes()
+            with TargetPath.open("xb") as OutputFile:
+                Written = OutputFile.write(Payload)
+                assert Written == len(Payload)
+    SaveReceipt(TargetPath, Outcome, IsLinked)
     return Outcome

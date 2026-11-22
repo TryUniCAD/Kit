@@ -1,8 +1,9 @@
 from __future__ import annotations
 
-from os import getenv as ReadEnv
 from pathlib import Path as FilePath
 from pytest import mark as MarkTests
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import ReportDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.ArchiveProcess import RunArchive
 from tests.Convert.Solidworks.Research.Curve.CorpusPaths import (
     KCurveCorpus,
@@ -20,12 +21,10 @@ from tests.Convert.Solidworks.Research.Curve.AssertReport import AssertReport
 def TestCurveRound(TmpPath: FilePath, IsLinked: bool) -> None:
     Entries = AssertFixtures(ReadManifest())
     Selected = ("Contents/Config-0-ResolvedFeatures",) if IsLinked else KPrimaryStreams
-    OutputDir = (
-        FilePath(ReadEnv("SwResearchOutput") or str(TmpPath)) / "SourceParser" / "Curve"
-    )
+    OutputDir = ReportDir(TmpPath, "SourceParser", "Curve")
     OutputDir.mkdir(parents=True, exist_ok=True)
-    ReportPath = OutputDir / (
-        "LinkedConfig.json" if IsLinked else "PrimaryStreams.json"
+    ReportPath = ArtifactFile(
+        OutputDir, "LinkedConfig.json" if IsLinked else "PrimaryStreams.json"
     )
     ExtraArgs: tuple[str, ...] = ("--require-proven", "--report", str(ReportPath))
     if IsLinked:

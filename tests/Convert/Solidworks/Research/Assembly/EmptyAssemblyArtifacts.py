@@ -3,22 +3,23 @@ from __future__ import annotations
 from base64 import b64decode as DecodeBytes
 from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson
-from os import getenv as ReadEnv
-from pathlib import Path as FilePath
 from typing import cast as CastValue
+
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import CandidateDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 
 
 # the vendor pass needs the exact artifact from the guarded assembly construction process
 def SaveCandidate(
     NameValue: str, Request: dict[str, object], Report: dict[str, object]
 ) -> None:
-    OutputPath = ReadEnv("SwResearchOutput")
-    if OutputPath is None:
+    OutputDir = CandidateDir("AssemblyCandidates", "Empty")
+    if OutputDir is None:
         return
-    OutputDir = FilePath(OutputPath) / "AssemblyCandidates" / "Empty"
     OutputDir.mkdir(parents=True, exist_ok=True)
     BlobValue = DecodeBytes(CastValue(str, Report["blob"]), validate=True)
-    FileName = OutputDir / (NameValue + ".SLDASM")
+    FileName = ArtifactFile(OutputDir, NameValue + ".SLDASM")
+    JsonPath = ArtifactFile(OutputDir, FileName.with_suffix(".json").name)
     if FileName.write_bytes(BlobValue) != len(BlobValue):
         raise RuntimeError("generated assembly candidate artifact was truncated")
     Evidence = {
@@ -33,5 +34,5 @@ def SaveCandidate(
         }
     )
     JsonEvidence = DumpJson(Evidence, indent=2) + "\n"
-    if FileName.with_suffix(".json").write_text(JsonEvidence) != len(JsonEvidence):
+    if JsonPath.write_text(JsonEvidence) != len(JsonEvidence):
         raise RuntimeError("generated assembly candidate evidence was truncated")

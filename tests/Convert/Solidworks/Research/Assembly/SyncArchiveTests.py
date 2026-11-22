@@ -1,22 +1,21 @@
 from __future__ import annotations
 
-from os import getenv as ReadEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
 
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import ReportDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
 # synchronized archives must preserve linked references and their exact named child evidence
 def TestSyncArchive(TmpPath: FilePath) -> None:
-    OutputRoot = (
-        FilePath(ReadEnv("SwResearchOutput") or str(TmpPath)) / "SourceParser/Assembly"
-    )
+    OutputRoot = ReportDir(TmpPath, "SourceParser", "Assembly")
     OutputRoot.mkdir(parents=True, exist_ok=True)
-    ReportPath = OutputRoot / "Synchronized.json"
+    ReportPath = ArtifactFile(OutputRoot, "Synchronized.json")
     Outcome = RunProcess(
         [
             PythonExec,

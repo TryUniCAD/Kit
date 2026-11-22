@@ -1,21 +1,20 @@
 from __future__ import annotations
 
-from os import getenv as ReadEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactDirs import ReportDir
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 from tests.Convert.Solidworks.Research.Curve.ReadObject import ReadObject
 
 
 # assembly discovery fixtures need full archive checks while preserving their measured warning state
 def TestAsmSources(TmpPath: FilePath) -> None:
-    OutputRoot = (
-        FilePath(ReadEnv("SwResearchOutput") or str(TmpPath)) / "SourceParser/Assembly"
-    )
+    OutputRoot = ReportDir(TmpPath, "SourceParser", "Assembly")
     OutputRoot.mkdir(parents=True, exist_ok=True)
-    ReportPath = OutputRoot / "Discovery.json"
+    ReportPath = ArtifactFile(OutputRoot, "Discovery.json")
     Outcome = RunProcess(
         [
             PythonExec,

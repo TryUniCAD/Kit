@@ -4,6 +4,7 @@ from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson
 from pathlib import Path as FilePath
 from subprocess import CompletedProcess
+from tests.Convert.Solidworks.Research.ArtifactIO.ArtifactPaths import ArtifactFile
 from tests.Convert.Solidworks.Research.Curve.CorpusPaths import KCurveCorpus
 
 
@@ -27,5 +28,11 @@ def SaveReceipt(
         (".stderr.log", Outcome.stderr),
         (".scope.json", DumpJson(Evidence, indent=2) + "\n"),
     ):
-        Written = ReportPath.with_suffix(Suffix).write_text(TextValue, encoding="utf-8")
-        assert Written == len(TextValue)
+        SaveReport(ReportPath.with_suffix(Suffix), TextValue)
+
+
+# process logs keep their designated name within the checked artifact directory
+def SaveReport(ReportPath: FilePath, TextValue: str) -> None:
+    OutputPath = ArtifactFile(ReportPath.parent, ReportPath.name)
+    Written = OutputPath.write_text(TextValue, encoding="utf-8")
+    assert Written == len(TextValue)
