@@ -10,7 +10,7 @@ import zlib
 
 ROOT = Path(__file__).resolve().parents[4]
 RECEIPT_SHA = "79210ac088a95b3c6d0913b8a056e678e8dbe14e9a861f178455ea0426f6e80c"
-D03_REQUEST_SHA = "56414188a4535df0b6e10d081869beda53c469634499809ef202611e56a69dfd"
+D03_REQUEST_SHA = "4b435b0e6328626aac0d2b6bf65421c830e9a7f2f72474b7a7db1639d499c018"
 WORKER = Path(__file__).with_name("CheckTypedOffset.py")
 
 
@@ -32,7 +32,7 @@ def replay(request, expected):
     results = []
     for _ in range(2):
         process = run(
-            (sys.executable, "-I", "-B", str(WORKER), "--worker"),
+            (sys.executable, "-I", "-B", str(WORKER), "--worker", "--platform-views"),
             input=request,
             capture_output=True,
             timeout=150,

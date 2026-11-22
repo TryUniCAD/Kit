@@ -288,7 +288,7 @@ def check_refusals(candidate):
     return result
 
 
-def worker(request):
+def worker(request, *, platform_views=False):
     sys.path.insert(0, str(CHECKOUT / "src"))
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
@@ -312,7 +312,7 @@ def worker(request):
     audit = WriterAudit(CHECKOUT / "src", CHECKOUT / "unused-offset-datum.SLDPRT")
     sys.addaudithook(audit.observe)
     audit.phase = "write"
-    candidate = prepare_disclosed(request)
+    candidate = prepare_disclosed(request, platform_views=platform_views)
     audit.phase = "done"
     expect = candidate.BytesValue
     read = check_neutral(expect, request)
@@ -474,11 +474,12 @@ def check_all(disclosure, method_path):
 def main():
     tool = ArgumentParser()
     tool.add_argument("--worker", action="store_true")
+    tool.add_argument("--platform-views", action="store_true")
     tool.add_argument("--disclosure", type=Path)
     tool.add_argument("--native-method", type=Path)
     args = tool.parse_args()
     if args.worker:
-        print(dumps(worker(loads(sys.stdin.buffer.read())), sort_keys=True))
+        print(dumps(worker(loads(sys.stdin.buffer.read()), platform_views=args.platform_views), sort_keys=True))
     else:
         sys.path.insert(0, str(CHECKOUT / "src"))
         print(

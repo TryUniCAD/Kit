@@ -30,7 +30,10 @@ def MakePartBaseMut(
     InputValue: PartBuildInput, PlanValue: PartLabels, Allocator: PersistentIds
 ) -> PartSystem:
     RefsValue = MakePartRefs(
-        InputValue.StyleValue, InputValue.DocumentUnits, InputValue.AnalysisUnits
+        InputValue.StyleValue,
+        InputValue.DocumentUnits,
+        InputValue.AnalysisUnits,
+        PlatformViewMath=InputValue.PlatformViewMath,
     )
     ConfigValue = ConfigSpec(
         PlanValue.ConfigName, "", InputValue.HeaderValue.ModifiedAt

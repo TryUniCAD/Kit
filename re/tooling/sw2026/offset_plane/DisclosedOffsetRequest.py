@@ -42,7 +42,7 @@ from convert.adapters.solidworks.Core.Preparation.OffsetPlane.PrepareOffPart imp
 from NeutralOffsetDocument import make_document
 
 
-def prepare_disclosed(request):
+def prepare_disclosed(request, *, platform_views=False):
     doc = request["document"]
     pres = request["presentation"]
     prov = request["provenance"]
@@ -137,6 +137,7 @@ def prepare_disclosed(request):
         doc["density_kg_m3"],
         pres["design_intent"],
         pres["selected_leader"],
+        PlatformViewMath=platform_views,
     )
     return PrepareOffPart(
         document,

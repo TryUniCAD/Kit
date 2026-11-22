@@ -44,3 +44,4 @@ class PartBuildInput:
     DesignIntent: bool
     SelectedLeader: int
     PropertiesValue: PartTextInput | None = None
+    PlatformViewMath: bool = False
