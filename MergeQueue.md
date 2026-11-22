@@ -123,6 +123,8 @@ run attempt, roster, selected node IDs, report log, and slowest case durations.
 The macOS platform roster also runs across four runners from the same shared plan.
 Its stable report checks complete combined outcomes and an actual native macOS pass.
 See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
+Each Windows shard retains two pytest workers with file-level scheduling and case-name output.
+See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).

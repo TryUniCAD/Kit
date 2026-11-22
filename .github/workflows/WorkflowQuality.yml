@@ -219,7 +219,8 @@ jobs:
       - name: Verify this shard through the installed CLI
         id: tests
         run: >-
-          uv run --no-sync --python 3.14 python -m pytest -q -p no:cacheprovider
+          uv run --no-sync --python 3.14 python -m pytest -v -p no:cacheprovider
+          --numprocesses 2 --dist loadfile
           --durations=20
           --report-log="${RUNNER_TEMP}/WindowsCli/Report.jsonl"
           "@${RUNNER_TEMP}/WindowsCli/Selected.txt"

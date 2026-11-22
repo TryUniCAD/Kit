@@ -10,10 +10,11 @@ The exit requires current-head PR checks and configured review. Native queue per
 
 `Research CLI Windows compatibility` previously ran every selected case serially on one Windows runner.
 The job now collects that same roster and assigns sorted node IDs across four Windows runners by round robin.
-Parameterized cases can run on different runners. Tests remain serial inside each shard to preserve process and signal isolation.
+Parameterized cases can run on different runners. Each Windows shard retains the two pytest workers and file-level scheduling introduced by PR #229.
 Each runner retains the separate candidate checkout, pinned history, sealed inputs, and locked dependencies.
 No test paths, assertions, or timeout limits are removed.
 
+Integration with main retains PR #229's worker scheduling and case-name output inside each Windows shard.
 The stable report name remains in the same workflow for trusted-base aggregation.
 It requires all four matrix jobs, identical collected rosters, successful sessions, and complete case outcomes.
 The report rejects missing, repeated, failed, or unexpected outcomes.

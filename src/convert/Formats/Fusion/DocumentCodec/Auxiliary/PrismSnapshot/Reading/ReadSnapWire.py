@@ -17,7 +17,8 @@ def ReadSnapWire(Payload: bytes, RecordCount: int = 168) -> BrepWire:
     Cursor = MetaCursor(Payload)
     Header, Stamp = ReadBrepHeadMut(Cursor, False)
     Records = tuple(
-        ReadAsmRecord(Cursor, ReadAsmName(Cursor)) for _ in range(RecordCount)
+        ReadAsmRecord(Cursor, ReadAsmName(Cursor), Header.IntWidth)
+        for _ in range(RecordCount)
     )
     if ReadAsmName(Cursor) != "End-of-ASM-data" or Cursor.Offset != len(Payload):
         raise ValueError("Unterminated or trailing cuboid snapshot data")

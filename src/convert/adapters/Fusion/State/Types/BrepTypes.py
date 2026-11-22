@@ -86,6 +86,7 @@ from convert.Formats.Fusion.BrepCodec.Models.TopologyTags import TopologyTags
 from convert.Formats.Fusion.BrepCodec.Models.VertexIndices import VertexIndices
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismEdge import PrismEdge
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismFrame import PrismFrame
+from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismIds import PrismIds
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismHistory import PrismHistory
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismLine import PrismLine
 from convert.Formats.Fusion.BrepCodec.Prism.Models.PrismPlane import PrismPlane
@@ -159,6 +160,7 @@ KBrepTypes: tuple[type[object], ...] = (
     VertexIndices,
     PrismEdge,
     PrismFrame,
+    PrismIds,
     PrismHistory,
     PrismLine,
     PrismPlane,
