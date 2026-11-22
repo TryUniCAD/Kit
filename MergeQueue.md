@@ -14,10 +14,13 @@ checked-in desired ruleset and live rules separately.
 
 The [post-merge rationale audit](Documentation/Changes/Ci/PostMergeQueueAudit.md)
 runs the complete queue job set on the immutable PR #127 merge revision and any explicitly recorded repair revision.
-Only pushes to `codex/rationale-merged-audit` trigger that audit phase.
+The historical push trigger uses `codex/rationale-merged-audit`.
+For a new audit, dispatch `MergeQueue.yml` with the full source commit SHA in `audit_sha`.
 Its source checkouts use `AuditSha`, and every test module runs without result reuse.
 Repair audits select the triggering push's full commit SHA so the harness is included in their input.
+Manual audits select the explicit source SHA and verify it before collection; their workflow harness can live on a separate branch.
 This audit evidence is separate from native merge-queue acceptance.
+See [manual source audits](Documentation/Changes/Ci/Testing/ManualSourceAudit.md).
 
 Pyright, Mypy and Python steering run on both PRs and queue candidates. Other jobs that complete in less than 45 seconds run
 on PRs. Jobs that take 45 seconds or longer run on merge-group candidates.
@@ -95,7 +98,7 @@ live ruleset. The aggregate's 80-minute wait remains within its 90-minute limit.
 [MergeQueue.yml](.github/workflows/MergeQueue.yml) reports the required
 `Merge queue acceptance` context on PRs with an explicit deferral summary.
 The expensive jobs run on `merge_group.checks_requested` and the existing
-explicit audit branch. PR success establishes eligibility for queue enrollment.
+explicit audit branch or a manual source audit. PR success establishes eligibility for queue enrollment.
 
 The `Scorecard` job uses the checksum-pinned OpenSSF Scorecard CLI instead of
 `ossf/scorecard-action`, which rejects `merge_group` events. It runs the complete
@@ -113,6 +116,15 @@ thresholds are removed. The stable acceptance gate depends explicitly on every h
 requires every acceptance and heavy security job to succeed; failures, cancellations,
 timeouts, and unexpected skips fail the gate. CI policy and pytest compatibility process checks run on the candidate.
 Queue-only type, steering, and research CLI jobs also gate the aggregate.
+The Windows research CLI compatibility job partitions its existing collected roster
+across four Windows runners. Its stable report requires every shard and verifies
+that each collected case has exactly one outcome. Shard artifacts include the
+run attempt, roster, selected node IDs, report log, and slowest case durations.
+The macOS platform roster also runs across four runners from the same shared plan.
+Its stable report checks complete combined outcomes and an actual native macOS pass.
+See [platform sharding and queue timings](Documentation/Changes/Ci/Testing/WindowsResearchCliShards.md).
+Each Windows shard retains two pytest workers with file-level scheduling and case-name output.
+See [Windows CLI scheduling](Documentation/Changes/Ci/WindowsCliScheduling.md).
 PR-only checks have explicit deferred contexts on the candidate.
 
 The pytest suite runs as [runtime-planned shards](Documentation/Changes/ShardedTestSuite.md).

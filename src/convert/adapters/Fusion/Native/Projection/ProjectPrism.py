@@ -1,4 +1,5 @@
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumBody import ReadDatumBody
+from convert.adapters.Fusion.Native.DraftedRectangle.ProjectDraft import ProjectDraft
 from convert.adapters.Fusion.Native.DatumPrism.ReadDatumFrame import (
     KYzMatrix,
     ReadDatumFrame,
@@ -57,6 +58,17 @@ def ProjectPrism(
     Model: DocumentModel, Source: CadSource, Graph: NativeGraph
 ) -> CadDocument:
     Context = SelectExtrusion(Graph)
+    if (
+        NumberValue(Context.Along.Fields["value"]) > 0
+        and Context.Plane.Fields["transform"] != KYzMatrix
+        and len(Model.Snapshots) == 1
+        and isinstance(Model.Snapshots[0].Snapshot, GeometryState)
+        and (
+            NumberValue(Context.Taper.Fields["value"]) != 0
+            or Model.Snapshots[0].Snapshot.Header.RootCount == 5
+        )
+    ):
+        return ProjectDraft(Model, Source, Graph, Context)
     Station = GenericStation(Model, Context)
     Reverse = Station < 0.0
     YzDatum = Station > 0.0 and Context.Plane.Fields["transform"] == KYzMatrix
