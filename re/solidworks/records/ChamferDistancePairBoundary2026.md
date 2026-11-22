@@ -66,3 +66,33 @@ before either mode has a writer. Both exact disclosed result hashes authorize
 the packet. Native author, reopen with a driving edit, save and fresh reopen
 pass for both cases. The eight process lifetimes include both healthy controls.
 Only phase status and hashes leave the guest. No writer output was measured.
+
+## Generated distance chamfers
+
+All four disclosed saved states replay `Config-0`, `ResolvedFeatures`
+and `CMgr` exactly. The equal mode owns one distance chain in `f810`.
+The unequal mode owns independent length chains in `f810` and `f820`.
+The native D3 edit changes only the second value, and all bound persistent
+dimension IDs survive the native save. The four saved objects retain the
+same ordered stock face roles and populated selector word list.
+[Typed saves](../measurements/2026/ChamferDistancePairArchive01.json)
+· [Selector fields](../measurements/2026/ChamferDistancePairSelectors01.json)
+
+The shared neutral composer keeps the authored stock, edge and first
+incident carrier. It creates D1 from the primary setback. A separate
+setback creates D3 with a swapped incident basis and its own annotation
+view. The measured settings choose the two distinct runtime mode words.
+The fresh candidate uses an empty optional selector word list as in the
+existing cold angle-distance writer. Each disclosed mode was reproduced
+in two guarded processes with ten generated streams and zero runtime
+input reads. [Generated archives](../measurements/2026/ChamferDistancePairGenerated01.json)
+
+Both generated parts opened with one solid and all 26 native tree rows.
+The live shared D1 and independent D3 edits passed, including both
+fresh reopens. Six fresh native processes included both healthy controls
+and 131 reported candidate checks. The existing angle-distance cases
+retain their exact previous complete archive hashes and pass strict
+editable readback. These distance candidate results cover disclosed
+inputs before the independent writer evaluation.
+[Native distance results](../measurements/2026/ChamferDistancePairDisclosedNative01.json)
+· [Existing angle parity](../measurements/2026/ChamferAngleAfterDistancePair01.json)
