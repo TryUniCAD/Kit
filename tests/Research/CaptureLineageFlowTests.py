@@ -1,5 +1,4 @@
 from json import dumps as EncodeJson, loads as ParseJson
-from hashlib import sha256 as GetDigest
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
@@ -7,6 +6,8 @@ from sys import executable as PythonExe
 from tempfile import TemporaryDirectory as MakeFolder
 
 from pytest import mark as MarkValue
+
+from tests.Research.CaptureInputIdentity import CaptureInputIdentity
 
 # fixture mutations affect only their private index and detached object store
 KSpecPath = "re/automation/PairSpecs.json"
@@ -209,35 +210,22 @@ def AssertLineage(
         Report["historical_lineage"]["binding"]
         == "pinned_attribution_and_identical_tracked_file_modes_and_blob_ids"
     )
-    CurrentRows = RunGit(
-        BarePath,
-        "ls-tree",
-        "-rz",
-        "--full-tree",
-        Revision,
-        "--",
-        "re/automation/PairedCaptures/",
-        KSpecPath,
-        "re/automation/Corpus.json",
-        "re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d",
-        "re/solidworks/examples/.SLDPRT/example.SLDPRT",
+    CurrentTree, CurrentDigest = CaptureInputIdentity(
+        RunGit(
+            BarePath,
+            "ls-tree",
+            "-rz",
+            "--full-tree",
+            Revision,
+            "--",
+            "re/automation/PairedCaptures/",
+            KSpecPath,
+            "re/automation/Corpus.json",
+            "re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d",
+            "re/solidworks/examples/.SLDPRT/example.SLDPRT",
+        )
     )
-    CurrentTree: dict[str, dict[str, str]] = {}
-    for RowValue in CurrentRows.split(b"\0"):
-        if not RowValue:
-            continue
-        Metadata, PathBytes = RowValue.split(b"\t", 1)
-        ModeValue, KindValue, BlobId = Metadata.decode("ascii").split()
-        assert KindValue == "blob"
-        CurrentTree[PathBytes.decode("utf-8")] = {"mode": ModeValue, "git_blob": BlobId}
-    assert (
-        Report["historical_lineage"]["current_input_tree_sha256"]
-        == GetDigest(
-            EncodeJson(
-                CurrentTree, sort_keys=True, separators=(",", ":"), ensure_ascii=True
-            ).encode("ascii")
-        ).hexdigest()
-    )
+    assert Report["historical_lineage"]["current_input_tree_sha256"] == CurrentDigest
     assert {
         Entry["path"]
         for Entry in Report["historical_lineage"]["attribution_migrations"]
