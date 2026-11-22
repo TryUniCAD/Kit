@@ -183,6 +183,8 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import Co
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedMates.WithTypedFixed import WithTypedFixed
+from convert.adapters.solidworks.Core.TypedMates.WithTypedMates import WithTypedMates
 from convert.adapters.solidworks.Core.AssemblyReading.AsmReadData import AsmReadData
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
@@ -980,7 +982,9 @@ def AsmDoc(
         Settings,
         ReadArchive=None if Readback is None else Readback.ReadArchive,
     )
-    MatePayloads, MateEntities, Mates, MateGroups = AsmMates(Native, MateSourceValues)
+    MatePayloads, MateEntities, Mates, MateGroups, TypedMates = ReadAsmMates(
+        Native, Archive, ResolvedPaths, DocIds, Documents, MateSourceValues, Settings.strict
+    )
     FlatMateValues = FlattenedMates(Native, Mates)
     PayloadSettings = Replace(Settings, strict=False)
     BrepValues, PayloadDiagnostics = BrepPayloads(Archive, PayloadSettings)
@@ -1046,7 +1050,7 @@ def AsmDoc(
     AsmValue = AsmData(
         root_definition_id=AsmDefinitionId(Native.root_definition_id),
         definitions=Definitions,
-        instances=Instances,
+        instances=WithTypedFixed(Instances, TypedMates),
         documents=Documents,
         mate_entities=MateEntities,
         mates=Mates,
@@ -1141,6 +1145,11 @@ def AsmDoc(
                 "assembly_mate_count": len(Mates),
                 "assembly_flattened_mate_count": len(FlatMateValues),
                 "assembly_mesh_count": len(Meshes),
+                **(
+                    {"solidworks.typed_mates_semantics": TypedMates}
+                    if TypedMates is not None
+                    else {}
+                ),
             }
         ),
         units=UnitSystem.MILLIMETER,
@@ -1671,6 +1680,34 @@ def NestedItemMap(
             )
         Result[ItemValue.object_id] = Candidates[0].object_id
     return Result
+
+
+# typed mates can refine the existing inventory only after joining the physical component sources
+def ReadAsmMates(
+    Native: NativeAssembly,
+    Archive: SldprtArchive,
+    ResolvedPaths: dict[int, Path],
+    DocIds: dict[int, str],
+    Documents: tuple[ComponentDoc, ...],
+    Sources: tuple[
+        tuple[NativeAssembly, SldprtArchive, dict[int, int], dict[int, int], str], ...
+    ],
+    Strict: bool,
+) -> tuple[
+    tuple[BrepPayload, ...],
+    tuple[MateEntity, ...],
+    tuple[MateRule, ...],
+    tuple[MateGroup, ...],
+    Mapping[str, object] | None,
+]:
+    Payloads, Entities, Mates, Groups = AsmMates(Native, Sources)
+    return (
+        Payloads,
+        *WithTypedMates(
+            Native, Archive, ResolvedPaths, DocIds, Documents, Entities, Mates, Groups,
+            Strict=Strict,
+        ),
+    )
 
 
 # this definition exists because focused behavior needs one stable owner

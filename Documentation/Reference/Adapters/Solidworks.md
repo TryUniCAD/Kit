@@ -6,7 +6,7 @@ Kit registers one SOLIDWORKS adapter with part and assembly identifiers.
 Its primary `format_id` is `solidworks.sldprt`.
 Its `aliases` field contains `solidworks.sldasm`.
 The reader accepts part and assembly source records.
-The native writer regenerates measured parts and rigid nested assemblies without a SOLIDWORKS installation.
+The native writer regenerates measured parts, rigid nested assemblies and a measured planar mate assembly without a SOLIDWORKS installation.
 
 | Identifier          | Suffix    |
 | ------------------- | --------- |
@@ -307,8 +307,10 @@ The registry rejects unsupported neutral part content before publication.
 [Native part writer evidence](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 
 The SDK's `.SLDASM` route generates a complete rigid nested hierarchy with owned,
-editable rectangular leaves. It verifies exact native evidence for the root
-and every owned dependency before staging any file.
+editable rectangular leaves. It also generates a flat assembly with one aligned
+coincident mate, one aligned positive distance mate and two occurrences of one
+editable part. It verifies exact native evidence for the root and every owned
+dependency before staging any file.
 [Assembly writing and input requirements](SolidworksAssemblyWriting.md)
 
 Public part output requires trusted offline native measurement for the exact

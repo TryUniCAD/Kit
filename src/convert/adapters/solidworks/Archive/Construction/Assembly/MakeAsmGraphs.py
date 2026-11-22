@@ -16,7 +16,10 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.Headers.MakeAsmMg
 from convert.adapters.solidworks.Archive.Definition.Construction.MakeAssemblyDef import (
     MakeAssemblyDef,
 )
-from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteEmptyMates
+from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import (
+    WriteEmptyMates,
+    WriteMatesMut,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 
@@ -26,6 +29,7 @@ def MakeAsmGraphs(
     StateValue: AssemblyState,
     InputValue: AssemblyInput,
     HeaderValue: ArchiveNode,
+    MateValues: tuple[ArchiveNode, ...] = (),
 ) -> AsmGraphState:
     ConfigBytes, ConfigValue = WriteCfgDocMut(
         StateValue.RootValue, HeaderValue, MakeAsmCfgCtx(19000, HeaderValue, None)
@@ -43,7 +47,11 @@ def MakeAsmGraphs(
         ContextValue,
         AssemblyValue=True,
     )
-    MatesBytes, MatesValue = WriteEmptyMates(ResolvedValue)
+    MatesBytes, MatesValue = (
+        WriteMatesMut(MateValues, ResolvedValue)
+        if MateValues
+        else WriteEmptyMates(ResolvedValue)
+    )
     return AsmGraphState(
         ConfigBytes,
         ConfigValue,

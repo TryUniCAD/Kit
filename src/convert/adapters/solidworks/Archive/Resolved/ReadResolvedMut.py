@@ -17,6 +17,7 @@ from convert.adapters.solidworks.Archive.Reading.GraphReader import GraphReader
 from convert.adapters.solidworks.Archive.Reading.ReadGraphNode import ReadNodeMut
 from convert.adapters.solidworks.Archive.Resolved.BindRectCtxMut import BindRectCtxMut
 from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModelRoot
+from convert.adapters.solidworks.Archive.Resolved.MakeAsmResCtx import MakeAsmResCtx
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
@@ -32,8 +33,10 @@ def ReadResolvedMut(
     UsageValue: BodyUsage | None = None,
     NodeMaker: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None,
     RectangleDims: bool = False,
+    AssemblyValue: bool = False,
 ) -> ResolvedGraph:
-    ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    MakeContext = MakeAsmResCtx if AssemblyValue else MakeResolvedCtx
+    ContextValue = MakeContext(VersionValue, SeedValue, LinkContext, UsageValue)
     if RectangleDims:
         BindRectCtxMut(ContextValue)
     Cursor = BinaryReader(BufferValue)

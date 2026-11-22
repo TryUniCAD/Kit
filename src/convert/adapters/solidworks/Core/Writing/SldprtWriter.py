@@ -12,6 +12,12 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Nested.CanWriteNested impo
 from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut import (
     EmitNestedMut,
 )
+from convert.adapters.solidworks.Core.AssemblyWriting.Planar.CanWritePlanar import (
+    CanWritePlanar,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Planar.EmitPlanarMut import (
+    EmitPlanarMut,
+)
 from convert.adapters.solidworks.Core.Preparation.PlanPartWrite import PlanPartWrite
 from convert.adapters.solidworks.Core.Preparation.Readback.ColdReadInput import (
     ColdReadInput,
@@ -39,7 +45,7 @@ class SldprtWriter(PairProtocol):
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         if DocValue.assembly is not None:
-            return CanWriteNested(DocValue, Target)
+            return CanWritePlanar(DocValue, Target) or CanWriteNested(DocValue, Target)
         PathValue = FilePath(Target) if isinstance(Target, (str, FilePath)) else None
         try:
             if IsColdRead(DocValue):
@@ -68,5 +74,7 @@ class SldprtWriter(PairProtocol):
         options: WriteOptions | None = None,
     ) -> WriteResult:
         if document.assembly is not None:
+            if CanWritePlanar(document, destination):
+                return EmitPlanarMut(document, destination, options)
             return EmitNestedMut(document, destination, options)
         return EmitNativeMut(document, destination, options)

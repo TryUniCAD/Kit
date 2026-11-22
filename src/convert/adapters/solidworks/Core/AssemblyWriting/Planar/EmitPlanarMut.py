@@ -1,0 +1,70 @@
+from dataclasses import replace as ReplaceValue
+from pathlib import Path as FilePath, PureWindowsPath
+
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.base.WriteResult import WriteResult
+from convert.adapters.solidworks.Core.AssemblyPreparation.Model.ReadAsmModel import (
+    ReadAsmModel,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.PrepareAssembly import (
+    PrepareAssembly,
+)
+from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
+from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
+from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshFiles import (
+    CheckFreshFiles,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.FinalAsmPath import FinalAsmPath
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadAsmMeas import (
+    ReadAsmMeas,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Planar.MatchPlanarMeas import (
+    KPlanarMeasSchema,
+    MatchPlanarMeas,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmFiles import WriteAsmFiles
+from interchange.document.Models.DocumentModel import CadDocument
+
+
+# native measurement must cover every regenerated file before staging output
+def EmitPlanarMut(
+    Document: CadDocument,
+    TargetValue: KTargetType,
+    OptionsValue: WriteOptions | None,
+) -> WriteResult:
+    SettingsValue = CheckAsmOpts(OptionsValue)
+    WrittenAt, Receipt = ReadAsmMeas(SettingsValue, SchemaValue=KPlanarMeasSchema)
+    if not isinstance(TargetValue, (str, FilePath)):
+        raise TypeError("planar assembly output requires a staged filesystem destination")
+    OutputPath = FilePath(TargetValue).expanduser().resolve()
+    FinalPath, NativePath = FinalAsmPath(OutputPath, SettingsValue)
+    RequireAsm(
+        "final_destination" in SettingsValue.values
+        and OutputPath.parent != FinalPath.parent,
+        "planar assembly emission requires registry path staging",
+    )
+    ModelValue = ReadAsmModel(Document)
+    RequireAsm(
+        SettingsValue.configuration
+        in (None, ModelValue.ConfigValue.id, ModelValue.ConfigValue.name),
+        "requested assembly configuration is unavailable",
+    )
+    ChildName = ModelValue.ChildValue.name + ".SLDPRT"
+    CheckFreshFiles(FinalPath, (ChildName,))
+    Candidate = PrepareAssembly(Document, NativePath, WrittenAt)
+    Companions = ((ChildName, Candidate.ChildValue.BytesValue),)
+    Evidence = MatchPlanarMeas(
+        Receipt, PureWindowsPath(NativePath), (*Companions, (OutputPath.name, Candidate.BytesValue))
+    )
+    ResultValue = WriteAsmFiles(OutputPath, Candidate.BytesValue, Companions)
+    return ReplaceValue(
+        ResultValue,
+        metadata={
+            **ResultValue.metadata,
+            **Evidence,
+            "output_scope": "root_and_owned_planar_child",
+        },
+        application_usable=True,
+        vendor_loadable=True,
+    )
