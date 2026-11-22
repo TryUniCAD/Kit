@@ -58,6 +58,7 @@ The repair records [Windows roster newlines](../../Gotchas/Ci/Windows/SelectedRo
 [historical scheduler compatibility](../../Gotchas/Ci/Audits/SchedulerSourceRevisions.md), and
 [duration artifact reruns](../../Gotchas/Ci/Scheduling/DurationArtifactReruns.md).
 Process fixtures also follow the [sorted platform roster contract](../../Gotchas/Ci/Scheduling/SortedPlatformRosters.md).
+During repair, [dequeued candidate runs](../../Gotchas/Ci/Scheduling/DequeuedCandidateRuns.md) can require separate cancellation to release runners.
 
 The investigation inspected [candidate 45065850751](https://github.com/TryUniCAD/Kit/actions/runs/45065850751).
 Its final macOS shard started 10 minutes 17 seconds after planning completed.
