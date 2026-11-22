@@ -22,6 +22,8 @@ prlctl exec 'Windows 11' --current-user "$python" -E -B "$packet\Tool\RunSealedC
 
 Check that `Public/Custody.json` reports `passed: true` and `native_launches: 0`. Use its exact SHA-256 to authorize the matched native retry.
 
+The second packet passed this preflight. The [custody receipt](../measurements/2026/EdgeChamferSealedCustody02.json) verifies both source slots, six source phase records, two prior controls and eight prior native lifetimes. Its SHA-256 is `aa3b5565addc572b0ead42658e29766429b8d6c65b0396715e7ffebbf42f96bd`. The preflight made zero native launches and zero denied accesses.
+
 ```sh
 prlctl exec 'Windows 11' --current-user "$python" -E -B "$packet\Tool\RunSealedChamfer.py" --packet "$packet" --pin MANIFEST_SHA256 --custody-pin CUSTODY_SHA256
 ```
