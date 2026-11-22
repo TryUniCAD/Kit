@@ -44,6 +44,11 @@ root name in each model row. The reader determines the titles from the owned
 files without changing the measured archive.
 [CLI and reread evidence](../measurements/2026/SdkMeasuredNestedCli01.json)
 
+Strict reads of the three dimensioned leaves now restore both linked sketch
+lengths and the separate boss depth. Analytic body topology and mass
+properties agree with their measured native geometry.
+[Dimensioned leaf readback](NestedDimensionedLeafRead2026.md)
+
 On Windows a native locator must agree with the resolved physical output.
 The guest probe accepted the derived and identical explicit locators and
 rejected a same-basename override in a different folder.

@@ -8,6 +8,12 @@ generated archive, including the default scaffold, B-rep, and provenance.
 A changed source hash, extra metadata, or changed topology refuses publication.
 This path applies to exact cold readbacks with a matching offline receipt.
 
+The authored scope has one unconstrained closed loop of three to sixty-four
+straight segments and one driving boss depth. The archive retains every
+modeled segment and the actual depth parameter. Sketch dimensions and
+relations require their own profile, and a request containing them refuses
+before output staging.
+
 Public SOLIDWORKS part writes release a file or write to a binary stream only
 when the complete regenerated archive matches a passing offline native
 measurement from SOLIDWORKS 2026 SP05.2. Direct adapter calls and ordinary

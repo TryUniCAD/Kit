@@ -17,6 +17,12 @@ KPartWriteInfo = ReplaceValue(
         Capability.KSelections,
     },
     media_types=("application/x-solidworks-part",),
-    native_capabilities=KPartWriteCaps,
+    native_capabilities=KPartWriteCaps
+    | {
+        Capability.KBrep,
+        Capability.KProvenance,
+        Capability.KRoundtripMeta,
+        Capability.KSelections,
+    },
     assembly_extensions=(),
 )

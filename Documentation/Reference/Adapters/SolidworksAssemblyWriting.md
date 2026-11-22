@@ -37,4 +37,8 @@ The registry publishes each owned definition beside the root file. It checks for
 
 The result path and `bytes_written` describe the root assembly. The `component_file_count`, `component_file_names`, `component_bytes_written` and `bundle_bytes_written` metadata describe the complete bundle. [Exact native and public evidence](../../../re/solidworks/records/NestedAssemblyDelivery2026.md)
 
-The existing SDK reader's complete neutral round trip for these cold nested assemblies remains open. [Cold reader coverage](../../Gotchas/Conversion/Solidworks/Archive/Assembly/NestedColdReaderCoverage.md)
+Strict SDK reads recover the measured definition names, local occurrence order,
+and the three driving limits in each dimensioned leaf. The body is rebuilt
+from its actual sketch lengths, support and blind depth. Full publication of
+an unprojected native assembly readback remains open.
+[Dimensioned leaf readback](../../Changes/Solidworks/Archive/Assembly/SolidworksColdDimensionedLeafRead.md)

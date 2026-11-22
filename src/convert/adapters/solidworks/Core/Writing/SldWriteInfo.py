@@ -12,7 +12,7 @@ KSldWriteInfo = ReplaceValue(
     extensions=(*KPartWriteInfo.extensions, KAsmSuffix),
     aliases=(KAsmFormatId,),
     capabilities=KPartWriteInfo.capabilities | KAsmWriteCaps,
-    native_capabilities=KAsmWriteCaps,
+    native_capabilities=KPartWriteInfo.native_capabilities | KAsmWriteCaps,
     assembly_extensions=(KAsmSuffix,),
     media_types=(
         *KPartWriteInfo.media_types,

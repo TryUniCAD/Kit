@@ -1,3 +1,4 @@
+from dataclasses import replace as ReplaceValue
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDir
@@ -8,6 +9,10 @@ from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.RunCommand import RunCommand
+from interchange.Enums.EnumGeometry import ConstraintKind
+from interchange.Enums.EnumValues import ParameterRole, ValueKind
+from interchange.geometry.Models.Sketch import ConstraintRef, SketchRelation
+from interchange.Records.RecordParameter import Parameter, ParameterValue
 from tests.Convert.Commands.CliProcess import CliProcess
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
 from tests.Convert.Solidworks.PlainWriting.VerifyCliMeas import VerifyCliMeas
@@ -33,7 +38,7 @@ def TestCandidate() -> None:
                 [*Arguments, "--allow-unverified-native"], namespace=CliOptions()
             )
         assert Target.read_bytes() == b"previous output"
-        RefuseBadLoops(Source, Target, Options, b"previous output")
+        RefuseBadSketch(Source, Target, Options, b"previous output")
         assert set(Folder.iterdir()) == {Source, Target}
 
 
@@ -70,7 +75,7 @@ def TestReceiptHome(TmpPath: FilePath) -> None:
 
 
 # unsupported rings must fail selection while the prior native file stays intact
-def RefuseBadLoops(
+def RefuseBadSketch(
     Source: FilePath, Target: FilePath, Candidate: CliOptions, Written: bytes
 ) -> None:
     for Points in (
@@ -84,6 +89,36 @@ def RefuseBadLoops(
         with RaisesError(NotFoundError, match="does not support the destination"):
             RunCommand(Candidate)
         assert Target.read_bytes() == Written
+    Document = MakePlainDoc("Candidate", ((0.0, 0.0), (12.0, 0.0), (2.0, 9.0)), 4.0)
+    SketchValue = Document.sketches[0]
+    Driver = Parameter(
+        "parameter/sketch/width",
+        "D1",
+        ParameterValue(12.0, ValueKind.KLength, "mm"),
+        ParameterRole.KDriving,
+        owner_id=SketchValue.id,
+    )
+    SketchValue = ReplaceValue(
+        SketchValue,
+        parameter_ids=(Driver.id,),
+        constraints=(
+            SketchRelation(
+                "constraint/width",
+                ConstraintKind.KDistance,
+                (ConstraintRef(SketchValue.entities[0].id),),
+                parameter_id=Driver.id,
+            ),
+        ),
+    )
+    Document = ReplaceValue(
+        Document,
+        parameters=(*Document.parameters, Driver),
+        sketches=(SketchValue,),
+    )
+    _ = Source.write_text(Document.to_json(), encoding="utf-8")
+    with RaisesError(NotFoundError, match="does not support the destination"):
+        RunCommand(Candidate)
+    assert Target.read_bytes() == Written
 
 
 # file overwrite authorization must protect a directory that has the part extension
