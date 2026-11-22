@@ -1,9 +1,9 @@
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Core.Writing.Measured.MeasFields import (
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
-    ReadMeasMap,
-    ReadMeasSha,
 )
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 
 # this identity is the exact offline oracle build measured for the standalone part recipe
 KOraclePart = {

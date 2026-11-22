@@ -21,6 +21,11 @@ class SldprtWriter(PairProtocol):
     def info(self) -> AdapterInfo:
         return KPartWriteInfo
 
+    # measured part evidence belongs to a complete standalone caller stream
+    @property
+    def IsWholeStream(self) -> bool:
+        return True
+
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target
     def supports(self, DocValue: CadDocument, Target: KTargetType) -> bool:
         try:

@@ -1,6 +1,8 @@
 from typing import cast as CastValue
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.solidworks.Core.Writing.Measured.MeasFields import KPartMeasureOpt
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 
 
 # internal preparation must preserve standard option semantics without introducing a public switch that enables unqualified native writing

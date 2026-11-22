@@ -1,6 +1,7 @@
 from pathlib import Path as FilePath
 
-from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
+from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.Staging.WriteWholeMut import WriteWholeMut
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Container.Format import KPartFormatId
@@ -31,16 +32,12 @@ def EmitNativeMut(
     )
     Payload = Candidate.BytesValue
     Evidence = MatchPartMeas(Receipt, Payload)
-    CountValue: int | None
     if OutputPath is not None:
         with OutputPath.open("wb" if SettingsValue.overwrite else "xb") as OutputFile:
-            CountValue = OutputFile.write(Payload)
-    elif IsBinaryTarget(TargetValue):
-        CountValue = TargetValue.write(Payload)
+            if OutputFile.write(Payload) != len(Payload):
+                raise OSError("short native part write")
     else:
-        raise TypeError("native part output requires a path or binary stream")
-    if CountValue is not None and CountValue != len(Payload):
-        raise OSError("short native part write")
+        WriteWholeMut(TargetValue, Payload)
     return WriteResult(
         OutputPath,
         KPartFormatId,

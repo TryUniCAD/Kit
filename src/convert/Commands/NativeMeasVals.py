@@ -1,7 +1,9 @@
 from json import loads as LoadJson
 from pathlib import Path as FilePath
 
-from convert.adapters.solidworks.Core.Writing.Measured.MeasFields import KPartMeasureOpt
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 
 # receipt files contain bounded text metadata read before the writer receives any input
 KReceiptLimit = 1024 * 1024
@@ -18,6 +20,7 @@ def NativeMeasVals(
         return Values
     if not IsPartWriter:
         raise ValueError("native measurement requires the SOLIDWORKS part writer")
+    ReceiptPath = ReceiptPath.expanduser()
     if ReceiptPath.resolve() == TargetPath.resolve():
         raise ValueError("native measurement and output must use separate paths")
     with ReceiptPath.open("rb") as ReceiptFile:

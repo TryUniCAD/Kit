@@ -1,5 +1,7 @@
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Core.Writing.Measured.MeasFields import KPartMeasureOpt
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 
 
 # conversion evidence needs a stable public representation without claiming target application acceptance

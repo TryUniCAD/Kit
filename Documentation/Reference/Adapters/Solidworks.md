@@ -283,7 +283,9 @@ a simple contour with matching endpoints and noncollinear adjacent sides.
 Call `write_document` with a `.SLDPRT` path whose stem matches
 `document.metadata["name"]`. For a binary stream, pass
 `destination_format="solidworks.sldprt"` and supply an absolute part path in
-`values["final_destination"]`. The archive derives its stream lengths,
+`values["final_destination"]`. Use an empty, writable, seekable binary
+stream at position zero. Kit checks the caller's complete output extent
+without reading stream contents. The archive derives its stream lengths,
 object maps, topology and editable records from the document.
 
 The registry rejects unsupported neutral content and assembly or drawing
@@ -299,8 +301,8 @@ records both disclosed candidates, their hash-linked native lifecycles and
 the two passing controls.
 
 Use `kit convert document.json Name.SLDPRT --native-measurement Measurement.json`
-with the same dictionary stored as a JSON file. The CLI reads this evidence
-before calling the writer. The SDK receives evidence in memory and regenerates
+with the same dictionary stored as a JSON file. The CLI expands a leading
+`~/` and reads this evidence before calling the writer. The SDK receives evidence in memory and regenerates
 the native file from the neutral document. It checks the complete archive
 digest and measured case before opening an output. Matching results set both
 `vendor_loadable` and `application_usable` to true.
