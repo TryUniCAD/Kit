@@ -89,10 +89,10 @@ Allowed cases are `persistence`, `store`, `aligned` and `locked`.
 ## Remaining production work
 
 The normal SDK assembly planner still selects its rectangular child and
-planar mate path. Neutral circle-to-part construction already exists.
-The attachment stage still needs the shared typed allocator that binds
-a freshly generated circular partition, live body atom, update clocks
-and lights to that part. The neutral assembly projector must then
+planar mate path. The [shared child attachment](SdkConcentricChildModel2026.md)
+now binds a freshly generated circular partition, live body atom,
+update clocks and lights to the neutral cylinder. The neutral assembly
+projector must then
 authenticate both selected child faces and their actual occurrence
 paths without erasing source-only owners. Exact bundle digests and
 native receipts belong at publication, before either destination is

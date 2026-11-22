@@ -13,11 +13,17 @@ from convert.adapters.solidworks.Archive.Partition.LocalWrite.WriteXmtNodeMut im
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
 
 
-# a retained import rollback keeps one preceding world without local body deletion records
+# a retained rollback can reverse attached residents before restoring the preceding world
 def WriteRollMut(
-    OutputValue: bytearray, WorldValue: XmtNode, SeenKinds: set[int]
+    OutputValue: bytearray,
+    WorldValue: XmtNode,
+    SeenKinds: set[int],
+    RemovedValues: tuple[XmtNode, ...] = (),
 ) -> None:
     WriteXmtEndMut(OutputValue)
+    for NodeValue in RemovedValues:
+        WritePointerMut(OutputValue, NodeValue.IndexValue)
+        OutputValue.extend(PackValue(">H", NodeValue.KindValue))
     WritePointerMut(OutputValue, 0)
     OutputValue.extend(PackValue(">i", 1))
     WriteXmtNodeMut(
