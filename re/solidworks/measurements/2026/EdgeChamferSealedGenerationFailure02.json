@@ -1,0 +1,99 @@
+{
+  "attempted_phases": [
+    {
+      "numeric_checks": 0,
+      "passed": true,
+      "receipt_sha256": "e0440b673aca6b58d369ac9b7f1da3f1f1a66c66d523fbc0f7816dda7ba6ada9",
+      "role": "before",
+      "slot": null
+    },
+    {
+      "numeric_checks": 27,
+      "passed": true,
+      "receipt_sha256": "a8e97dc7926728490cbbde5beea298ab22085c014827223ba65786642f56fd22",
+      "role": "original",
+      "slot": "Slot01"
+    },
+    {
+      "numeric_checks": 27,
+      "passed": true,
+      "receipt_sha256": "42f80c095df41b392b59657c8455a959165f9bc1fc292697cb1aa98348e7fc6c",
+      "role": "original-edited",
+      "slot": "Slot01"
+    },
+    {
+      "numeric_checks": 50,
+      "passed": true,
+      "receipt_sha256": "8967528cd00f8e10979705ac609cf4dc592e00240ea71f2a5d8ee86051797ce8",
+      "role": "edit",
+      "slot": "Slot01"
+    },
+    {
+      "numeric_checks": 27,
+      "passed": true,
+      "receipt_sha256": "fa8fa19ec9db8133946881c87d077303725e86fd424cad0438409b27bb2dcfc7",
+      "role": "reopen",
+      "slot": "Slot01"
+    },
+    {
+      "numeric_checks": 27,
+      "passed": true,
+      "receipt_sha256": "754dfc4cf08881688c0e854590ed1c62bf21b42ff43bf09c8f5a2328b3f87195",
+      "role": "original",
+      "slot": "Slot02"
+    },
+    {
+      "numeric_checks": 27,
+      "passed": true,
+      "receipt_sha256": "ae1ed3fd634a94b7e777adfed8ed8ae27ae0c1199b855962f107cc751ec3dfa7",
+      "role": "original-edited",
+      "slot": "Slot02"
+    },
+    {
+      "numeric_checks": 0,
+      "passed": true,
+      "receipt_sha256": "7924694200972eeed6b6eedfdb32e24889af819421d56fa6531a28fa1b0b8cfc",
+      "role": "after",
+      "slot": null
+    }
+  ],
+  "construction_revision": "e117feb05923400ff9178e47c69050180e9b738c",
+  "custody_receipt_sha256": "aa3b5565addc572b0ead42658e29766429b8d6c65b0396715e7ffebbf42f96bd",
+  "distinct_fresh_processes": 8,
+  "freeze_sha256": "d95ad3efc026334254f76e05c0d66671ed137d9959f980299c1d19904d264057",
+  "fresh_lifetime_gate": false,
+  "healthy_controls": true,
+  "heldout_lifecycle_credit": 0,
+  "oracle_build": "34.5.2.0604",
+  "oracle_idle_after": true,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "schema": "kit.sw2026.sealed-chamfer-native-result.v1",
+  "slots": [
+    {
+      "archive_bytes": 9274,
+      "archive_sha256": "bba296d789eebf2baa62f3ccb19a5c997a2d21d75c6cbef4e7c5053fb4f8ebed",
+      "driver_count": 2,
+      "linked_streams_exact": 2,
+      "paired_numeric_checks": 115,
+      "paired_states": 3,
+      "passed": true,
+      "repeated_writers": 2,
+      "runtime_accesses": 0,
+      "saved_sha256": "45a92b10b028afc3f0a5d475d1113b0402e55c2fae2f560b23766dee4cbca51f",
+      "slot": "Slot01",
+      "stage": "complete",
+      "streams": 10
+    },
+    {
+      "failure_sha256": "9fddcf30ea1c67e76af2bd9eb4d4634bf78e8ef94589cfcec561b2ed363515b7",
+      "paired_numeric_checks": 46,
+      "paired_states": 0,
+      "passed": false,
+      "slot": "Slot02",
+      "stage": "generation"
+    }
+  ],
+  "source_immutability_verified": true,
+  "source_lock_sha256": "71e701e7595d1bf7fbafef3cd1c9118eff2ab8386dee2b743c4bafe616a5b189"
+}

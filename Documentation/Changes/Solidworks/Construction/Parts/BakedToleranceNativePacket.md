@@ -7,4 +7,4 @@ oracle protocol measures each part before and after a rebuild, saves
 a separate native copy and reopens it read-only. An exact saved audit
 checks whether the 26 typed tolerance fields survive. Native results
 and intact-source acceptance remain pending.
-[Protocol and evidence](../../re/solidworks/records/BakedLocalToleranceNative2026.md)
+[Protocol and evidence](../../../../../re/solidworks/records/BakedLocalToleranceNative2026.md)
