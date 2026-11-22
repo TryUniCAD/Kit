@@ -30,3 +30,19 @@ prlctl exec 'Windows 11' --current-user "$ellipse_python" -E -B "$ellipse_guest\
 The guest supervisor forwards only center, two semiaxes, signed major direction, initial depth, model label, final locator and an explicit clock to the unchanged compiler. Four isolated stdin-only writer processes must reproduce both generated archives with ten streams, two linked reciprocal stream replays and zero runtime accesses. Native files, operands, observations and logs remain on guest `C:`. Only opaque slot and control labels, digests, counts and verdicts are published in `Public/Custody.json` and `Public/Result.json`.
 
 The reused native observer requires a cold direct open, a clean rebuild, one actual three-face solid, the signed closed free ellipse on the tied Front Plane, editable D1 on the actual boss, one real depth setter, an owned save and a fresh read-only reopen. Both controls bracket each end in the same serial batch. Candidate initial, edited and reopened states compare to four immutable original lifecycle observations per slot. All 25 tree rows, configuration, feature type and end, ordered parents and children, and the signed sketch's actual owner profile must agree. Six-significant-figure pairs include depth, volume, high-accuracy area and center of mass, two physical cap areas, lateral area and bounds. Cap and lateral faces are measured through the disclosed high-accuracy body method. The derived private save artifacts and originals are rehashed after all phases. Preflight carries zero native or held-out credit. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+## Held-out native result
+
+The exact custody receipt verified both pre-writer slots, their eight
+source observations and the original ten native processes with four
+controls. The preflight launched zero native processes. The evaluation
+then completed eight distinct fresh processes on build `34.5.2.0604`
+with four healthy controls and unchanged original input hashes.
+
+Both generated parts retained their 25-row feature trees, actual solid,
+and editable depth across cold open, rebuild, edit, save and fresh
+reopen. Each slot passed all 64 paired numeric comparisons over four
+original source states. Two isolated writers per slot agreed on the ten
+generated streams and replayed both linked archive graphs exactly.
+The generated workers made zero runtime external accesses.
+[Guest custody receipt](../measurements/2026/EllipseColdSealedCustody01.json)
+· [Redacted native acceptance](../measurements/2026/EllipseColdSealedNative01.json)
