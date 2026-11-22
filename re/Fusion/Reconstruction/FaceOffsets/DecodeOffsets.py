@@ -16,7 +16,6 @@ from convert.Formats.Fusion.BrepCodec.Journal.Planar.CheckLineEdge import CheckL
 from convert.Formats.Fusion.BrepCodec.Journal.Planar.VectorMath import CrossProduct, DotProduct, Normalize, Subtract
 from convert.adapters.Fusion.Native.Graph.BuildGraph import BuildGraph
 from convert.adapters.Fusion.Native.Graph.OrderedFeatures import OrderedFeatures
-from convert.adapters.Fusion.Native.Graph.GraphChecks import LinkedNodes
 
 
 def measure(history, state_id):
