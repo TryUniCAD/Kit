@@ -95,7 +95,11 @@ reproduced the measured 9,157-byte output, five host publication routes
 and zero runtime input reads. All ten decoded stream digests matched.
 The portable process report has SHA-256
 `1caf5fe0971656d02c6f93279f6e34ea8534eb04c732c4a1ce0e83db186eb9cf`.
-The hosted Windows 3.12.7 result is pending.
+The [Windows SDK report](../measurements/2026/SdkWidthDepthReviewWindows01.json)
+records the same archive, ten logical stream digests, four public
+stream publications and zero writer input reads in the Windows 11 VM
+with CPython 3.12.7 and zlib 1.3.1. The SDK worker started no licensed
+process. Hosted queue execution remains pending.
 
 The independent 20.01 mm width case keeps the same locator, names and
 epoch. Its strict geometry and design reads return 20.01 mm width,
