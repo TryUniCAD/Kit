@@ -13,7 +13,7 @@ sys.path[:0] = [str(ROOT / "src"), str(HERE.parent),
                 str(ROOT / "re/tooling/sw2026/revolve/PrincipalReader")]
 from AuditFilletArchive import DISCLOSED_LOCK, checked, input_custody, observe_native, require
 from AuditPrincipalReader import make_guard
-from FilletModel import validate_cases
+from FilletModel import predict, validate_cases
 from convert import open_document
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Container.Container import SldprtArchive
@@ -175,10 +175,43 @@ def compare(capture):
             "guarded_processes": len(results), "native_launches": 0, "heldout_credit": 0, "results": results}
 
 
+def observed_axial(path):
+    receipt_path = ROOT / "re/solidworks/measurements/2026/EdgeFilletModelNative01.json"
+    receipt_pin = "ed4b234a0e8b922d5a3a379277525665e701cbfa5fc69067838f1e7894e2eb79"
+    receipt = json.loads(checked(receipt_path, receipt_pin))
+    phase = receipt["cases"]["EdgeFilletAxial"]["phases"]["reopen-edit-save"]
+    require(receipt["comparison_valid"] and not receipt["passed"] and phase["save_status"] == [True, 0, 0]
+            and phase["checks"] == phase["checks_passed"] == 45,
+            "exact axial evidence lacks its clean save before the native lifetime failure")
+    acquired = phase["states"]["edited"]
+    volume, area, centre = acquired["volume_area_centroid"]
+    spec = validate_cases(json.loads((HERE.parent / "DisclosedFilletInputs.json").read_bytes()))
+    case = next(row for row in spec if row["name"] == "EdgeFilletAxial")
+    shape = predict(case, acquired["radius_m"])
+    request = {"path": str(path.resolve(strict=True)), "digest": phase["output_sha256"],
+               "stock_depth": case["size_mm"][2] / 1000.0,
+               "expected": {"fillet_name": "ConstantEdgeFillet", "radius_m": acquired["radius_m"],
+                            "edge_endpoints_m": sorted(tuple(point) for point in shape["source_edge"]),
+                            "body_counts": acquired["body_counts"],
+                            "volume_area_centroid_si": {"volume": volume, "area": area, "centroid": centre}}}
+    run = subprocess.run((sys.executable, "-I", "-B", str(HERE), "--worker"),
+                         input=json.dumps(request), capture_output=True, text=True, timeout=90)
+    require(run.returncode == 0 and not run.stderr, run.stderr)
+    return {"schema": "kit.sw2026.generated-fillet-edited-read.v1", "native_result_sha256": receipt_pin,
+            "native_launches": 0, "heldout_credit": 0, "result": json.loads(run.stdout)}
+
+
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--worker", action="store_true")
-    parser.add_argument("--capture", type=Path)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument("--worker", action="store_true")
+    mode.add_argument("--capture", type=Path)
+    mode.add_argument("--edited-axial", type=Path)
     args = parser.parse_args()
-    result = worker(json.load(sys.stdin)) if args.worker else compare(args.capture)
+    if args.worker:
+        result = worker(json.load(sys.stdin))
+    elif args.edited_axial:
+        result = observed_axial(args.edited_axial)
+    else:
+        result = compare(args.capture)
     print(json.dumps(result, indent=2, sort_keys=True, allow_nan=False))

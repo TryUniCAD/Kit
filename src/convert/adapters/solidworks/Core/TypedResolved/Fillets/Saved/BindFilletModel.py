@@ -8,6 +8,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.BindFilletPara
 )
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.BindFilletPick import (
     BindFilletPick,
+    ReadFilletPick,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.FilletEdge import (
     FilletEdge,
@@ -36,7 +37,6 @@ def BindFilletModel(
     StockValue, StepValue = ReadFilletStep(Document, History)
     (BodyValue,) = Document.bodies
     (ParamId,) = StepValue.parameter_ids
-    (PickId,) = StepValue.selection_ids
     if BodyValue.final_feature_id != StepValue.id:
         raise ValueError("saved fillet must own the public final body")
     (ParamValue,) = (
@@ -44,7 +44,7 @@ def BindFilletModel(
         for Value in Document.parameters
         if Value.owner_id == StepValue.id and Value.id == ParamId
     )
-    (PickValue,) = (Value for Value in Document.selections if Value.id == PickId)
+    PickValue = ReadFilletPick(Document, StepValue, StockValue, EdgeValue)
     Driver = BindFilletParam(ParamValue, History)
     PickedEdge = BindFilletPick(PickValue, StockValue.id, EdgeValue, History)
     ProvenanceValue = TypedProvenance(
@@ -55,14 +55,20 @@ def BindFilletModel(
         parameters=tuple(
             Driver if Value is ParamValue else Value for Value in Document.parameters
         ),
-        selections=tuple(
-            PickedEdge if Value is PickValue else Value for Value in Document.selections
+        selections=(
+            tuple(
+                PickedEdge if Value is PickValue else Value
+                for Value in Document.selections
+            )
+            if StepValue.selection_ids
+            else (*Document.selections, PickedEdge)
         ),
         feature_timeline=tuple(
             (
                 ReplaceValue(
                     Value,
                     definition=FilletFeature(Driver.value),
+                    selection_ids=(PickedEdge.id,),
                     provenance=ProvenanceValue,
                 )
                 if Value is StepValue

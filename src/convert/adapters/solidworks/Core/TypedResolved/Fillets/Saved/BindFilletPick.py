@@ -11,8 +11,31 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
 )
 from interchange.Core.Common import FreezeMapping
-from interchange.geometry.Models.Selection import Selection
+from interchange.Features.FeatureStep import FeatureStep
+from interchange.document.Models.DocumentModel import CadDocument
+from interchange.geometry.Models.Selection import SelectPathElem, Selection
 from interchange.geometry.Models.VectorSpace import SpaceVector
+
+
+# a typed prior edge can supply a portable pick when legacy descriptors carry no selection token
+def ReadFilletPick(
+    Document: CadDocument,
+    StepValue: FeatureStep,
+    StockValue: FeatureStep,
+    EdgeValue: FilletEdge,
+) -> Selection:
+    if StepValue.selection_ids:
+        (PickId,) = StepValue.selection_ids
+        (PickValue,) = (Value for Value in Document.selections if Value.id == PickId)
+        return PickValue
+    PickId = StepValue.id + ":edge"
+    if any(Value.id == PickId for Value in Document.selections):
+        raise ValueError("physical fillet edge identity collides with a public selection")
+    return Selection(
+        PickId,
+        StockValue.name + " edge",
+        (SelectPathElem("feature", StockValue.id, f"edge:{EdgeValue.NativeIndex}"),),
+    )
 
 
 # the live selection retains its portable feature path and the actual preceding edge witness

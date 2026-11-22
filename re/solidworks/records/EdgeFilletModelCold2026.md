@@ -127,6 +127,23 @@ therefore qualifies zero fillet outputs and establishes zero held-out credit.
 The evidence establishes the actual failing native lifetimes. The archive
 ownership responsible for the failure remains under investigation.
 
+## Edited axial SDK readback
+
+The saved axial output has SHA-256
+`2c29407f931e290fa0cd1262f20af19cb345052432a7ee8f544bc91615b6d743`.
+The typed reader binds its prior edge at transmit slot 226, all four native
+support roles, the 6.11 mm live radius and the seven-face solid. The legacy
+history scanner filters stock feature ID 19 out of its edge-pick inventory.
+After the full typed stock, edge and shape checks, the reader now supplies
+the missing portable selection from the actual preceding edge and its
+physical owner. Existing native-authored selections retain their identities.
+
+The [guarded readback](../measurements/2026/SdkGeneratedAxialFilletSavedRead01.json)
+matches five native quantities, both quarter-round trims and the saved
+solid. All four prior native-authored readbacks still pass. This verifies
+an SDK read of the exact derivative that SOLIDWORKS saved before the axial
+process failed.
+
 [Native runner](../../tooling/sw2026/edge_fillet_source/RunModelFillet.py) ·
 [Packet generation](../../tooling/sw2026/edge_fillet_source/StageModelFillet.py) ·
 [Windows event inspection](../../tooling/sw2026/edge_fillet_source/InspectModelFilletCrashes.ps1) ·
