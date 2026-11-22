@@ -14,6 +14,7 @@ from tools.TestShards.Reuse.Select.DescribeReuse import DescribeReuse
 from tools.TestShards.Reuse.Select.WriteCarried import WriteCarried
 from tools.TestShards.ReusePlan import ReusePlan
 from tools.TestShards.WritePlan import WritePlan
+from tools.TestShards.Sizing.CountShards import CountShards
 
 
 # the run operation needs one orchestration boundary so every collected case receives exactly one verified outcome
@@ -34,7 +35,13 @@ def MainRun(ArgList: list[str] | None = None) -> int:
         ArgsInfo.CachePath, ArgsInfo.TreePath, ArgsInfo.MaxAge, TestIds
     )
     Remaining = [TestId for TestId in TestIds if TestId not in Choice.Outcomes]
-    Plans = AllocateTests(Remaining, History, MaxTests)
+    try:
+        ShardCount = CountShards(
+            Remaining, History, ArgsInfo.TargetSecs, ArgsInfo.RuntimeShards
+        )
+    except ValueError as ErrorInfo:
+        ParserInfo.error(str(ErrorInfo))
+    Plans = AllocateTests(Remaining, History, MaxTests, ShardCount)
     HistoryCount = sum(TestId in History for TestId in Remaining)
     Seconds = {
         TestId: History[TestId] for TestId in Choice.Outcomes if TestId in History

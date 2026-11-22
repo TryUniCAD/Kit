@@ -109,24 +109,11 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          RunId="$(
-            gh api "repos/${GITHUB_REPOSITORY}/actions/artifacts?name=TestDurations&per_page=100" --jq '
-              [
-                .artifacts[]
-                | select(.expired | not)
-                | select((.workflow_run.head_branch // "") | startswith("gh-readonly-queue/"))
-                | select(.workflow_run.head_repository_id == .workflow_run.repository_id)
-              ]
-              | sort_by(.created_at)
-              | last
-              | .workflow_run.id // empty
-            '
-          )"
-          if [ -z "$RunId" ]; then
-            echo "No earlier merge-group test durations exist; shards balance by test count" >> "$GITHUB_STEP_SUMMARY"
-            exit 0
-          fi
-          gh run download "$RunId" --repo "$GITHUB_REPOSITORY" --name TestDurations --dir "${RUNNER_TEMP}/History"
+          bash .github/scripts/Queue/FetchDurations.sh TestDurations "${RUNNER_TEMP}/History"
+          for Platform in windows-2025 macos-26; do
+            bash .github/scripts/Queue/FetchDurations.sh "PlatformDurations-${Platform}" \
+              "${RUNNER_TEMP}/ShardPlan/History-${Platform}"
+          done
 
       - name: Fetch test results that an accepted ancestor verified
         if: github.event_name == 'merge_group'
@@ -178,6 +165,8 @@ jobs:
             --carried "${RUNNER_TEMP}/ShardPlan/Carried.json" \
             --max-age-days 7 \
             --max-tests 1200 \
+            --target-seconds 1200 \
+            --runtime-shards 8 \
             --output "${RUNNER_TEMP}/ShardPlan/ShardPlan.json" \
             --summary "$GITHUB_STEP_SUMMARY"
           cp "${RUNNER_TEMP}/Collected.txt" "${RUNNER_TEMP}/ShardPlan/Collected.txt"
@@ -460,8 +449,10 @@ jobs:
           test -s "${RUNNER_TEMP}/PlatformReport/Collected.txt"
           grep -E "$NativePattern" "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "${RUNNER_TEMP}/PlatformReport/Native.txt"
           test -s "${RUNNER_TEMP}/PlatformReport/Native.txt"
-          awk -v ShardIndex="$ShardIndex" -v ShardCount="$ShardCount" '(NR - 1) % ShardCount == ShardIndex' \
-            "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
+          uv run --no-sync --python 3.14 python -m tools.TestShards.Platform.SelectShard \
+            --collected "${RUNNER_TEMP}/PlatformReport/Collected.txt" \
+            --history "${RUNNER_TEMP}/ShardPlan/History-${PlatformRunner}/Durations.json" \
+            --index "$ShardIndex" --count "$ShardCount" --output "$Selected"
           test -s "$Selected"
 
       - name: Execute the required platform process cases
@@ -534,6 +525,15 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-windows-2025 "$RunAttempt"
           '^tests/Research/Windows/'
+          "${{ runner.temp }}/WindowsReports/Durations.json"
+
+      - name: Publish Windows durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-windows-2025
+          path: ${{ runner.temp }}/WindowsReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
 
   research-macos-shard:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
@@ -608,6 +608,15 @@ jobs:
           bash .github/scripts/VerifyShardReports.sh "$ReportRoot"
           PlatformReport-macos-26 "$RunAttempt"
           '^tests/Research/Applications/FusionColdStartTests\.py::'
+          "${{ runner.temp }}/MacosReports/Durations.json"
+
+      - name: Publish macOS durations for later plans
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: PlatformDurations-macos-26
+          path: ${{ runner.temp }}/MacosReports/Durations.json
+          if-no-files-found: error
+          retention-days: 7
 
   linux-oom-witness:
     if: github.event_name == 'merge_group' || github.event_name == 'push' || github.event_name == 'workflow_dispatch'
