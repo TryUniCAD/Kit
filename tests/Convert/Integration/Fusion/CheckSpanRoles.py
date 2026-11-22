@@ -12,9 +12,10 @@ def CheckSpanRoles(Output: FilePath, Sample: SpanCliCase) -> None:
     assert Definition["$type"] == "DistanceExtrude"
     assert Definition["side_mode"] == Sample.SideMode
     Parameters = {Value["id"]: Value for Value in Document["parameters"]["$tuple"]}
-    assert {Value["name"]: Value["attributes"]["native_name"] for Value in Parameters.values()} == dict(
-        Sample.ParamRoles
-    )
+    assert {
+        Value["name"]: Value["attributes"]["native_name"]
+        for Value in Parameters.values()
+    } == dict(Sample.ParamRoles)
     Expected = {
         "along_parameter_id": "AlongDistance",
         "taper_parameter_id": "TaperAngle",

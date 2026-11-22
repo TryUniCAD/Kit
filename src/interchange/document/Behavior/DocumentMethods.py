@@ -149,7 +149,9 @@ def BindDocumentMut(DocumentType: type) -> None:
         ParamSpecs,
         ReturnAnnot,
     ) in KDocumentMethods:
-        FirstName = "cls" if SourceName in {"FromMapping", "FromJson", "ReadJson"} else "self"
+        FirstName = (
+            "cls" if SourceName in {"FromMapping", "FromJson", "ReadJson"} else "self"
+        )
         AnnotMap = {**ParamAnnots, "return": ReturnAnnot}
         SignatureInfo = MakeLegacySig(
             ((FirstName,), *ParamSpecs),

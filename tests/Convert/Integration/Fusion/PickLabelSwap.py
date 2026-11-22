@@ -34,7 +34,11 @@ def PickLabelSwap(State: GeometryState) -> tuple[int, int, int]:
                 and CapPlane.Normal in ((0.0, 0.0, 1.0), (0.0, 0.0, -1.0))
                 and CapPlane.OriginCm[2] == Surface.OriginCm[2]
             ):
-                Matches.append((Entity.Links.OwnerRef, State.Entities.index(Sheet), Index))
+                Matches.append(
+                    (Entity.Links.OwnerRef, State.Entities.index(Sheet), Index)
+                )
     if len(Matches) != 1:
-        raise ValueError("Label replay requires one untagged sheet and cap at the same station")
+        raise ValueError(
+            "Label replay requires one untagged sheet and cap at the same station"
+        )
     return Matches[0]

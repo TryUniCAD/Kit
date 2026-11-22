@@ -33,9 +33,13 @@ def ToMapping(DocumentValue: object) -> dict[str, KWireData]:
 
 
 # mapping input enforces the requested model type before callers receive data
-def FromMapping(ClassType: type[KDocumentType], SourceValues: TypeMap[str, KWireData]) -> KDocumentType:
+def FromMapping(
+    ClassType: type[KDocumentType], SourceValues: TypeMap[str, KWireData]
+) -> KDocumentType:
     ResultValue = FromData(dict(SourceValues))
-    if not isinstance(ResultValue, ClassType) or not isinstance(ResultValue, ValidDocument):
+    if not isinstance(ResultValue, ClassType) or not isinstance(
+        ResultValue, ValidDocument
+    ):
         raise TypeError("data does not describe a CadDocument")
     ValidateIo(ResultValue)
     ResultValue.assert_valid()
@@ -51,7 +55,9 @@ def ToJson(DocumentValue: object, *, IndentSize: int | None = 2) -> str:
 # json input validates document identity before returning decoded data
 def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
     ResultValue = LoadJson(SourceValue)
-    if not isinstance(ResultValue, ClassType) or not isinstance(ResultValue, ValidDocument):
+    if not isinstance(ResultValue, ClassType) or not isinstance(
+        ResultValue, ValidDocument
+    ):
         raise TypeError("JSON does not describe a CadDocument")
     ValidateIo(ResultValue)
     ResultValue.assert_valid()
@@ -69,6 +75,8 @@ def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
 
 
 # file input shares validated json decoding rather than duplicating codec rules
-def ReadJson(ClassType: type[KDocumentType], PathValue: str | FilePath) -> KDocumentType:
+def ReadJson(
+    ClassType: type[KDocumentType], PathValue: str | FilePath
+) -> KDocumentType:
     SourceText = FilePath(PathValue).expanduser().resolve().read_text("utf-8")
     return FromJson(ClassType, SourceText)
