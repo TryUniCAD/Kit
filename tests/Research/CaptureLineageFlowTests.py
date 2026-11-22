@@ -7,7 +7,7 @@ from tempfile import TemporaryDirectory as MakeFolder
 
 from pytest import mark as MarkValue
 
-from tests.Research.CaptureInputIdentity import CaptureInputIdentity
+from tests.Research.Custody.ReadCaptureTree import ReadCaptureTree
 
 # fixture mutations affect only their private index and detached object store
 KSpecPath = "re/automation/PairSpecs.json"
@@ -210,7 +210,7 @@ def AssertLineage(
         Report["historical_lineage"]["binding"]
         == "pinned_attribution_and_identical_tracked_file_modes_and_blob_ids"
     )
-    CurrentTree, CurrentDigest = CaptureInputIdentity(
+    CurrentTree, CurrentDigest = ReadCaptureTree(
         RunGit(
             BarePath,
             "ls-tree",

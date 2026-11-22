@@ -3,7 +3,7 @@ from json import dumps as EncodeJson
 
 
 # reports need an independent identity derived from actual git tree bytes
-def CaptureInputIdentity(TreeRows: bytes) -> tuple[dict[str, dict[str, str]], str]:
+def ReadCaptureTree(TreeRows: bytes) -> tuple[dict[str, dict[str, str]], str]:
     CurrentTree: dict[str, dict[str, str]] = {}
     for RowValue in TreeRows.split(b"\0"):
         if not RowValue:

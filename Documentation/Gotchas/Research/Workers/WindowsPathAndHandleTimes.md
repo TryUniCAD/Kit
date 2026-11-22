@@ -46,4 +46,4 @@ change time through an attribute-only handle, and checks hardlink, junction,
 directory and byte-limit refusal. These are new CI cases; no local tests ran.
 
 Initial sharing conflicts during publication have a separate bounded acquisition rule.
-See [Windows record publication](WindowsRecordPublication.md).
+See [Windows record publication](Records/WindowsRecordPublication.md).

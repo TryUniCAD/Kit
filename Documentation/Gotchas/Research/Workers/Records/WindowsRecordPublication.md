@@ -28,5 +28,5 @@ A client marker witnesses the actual blocked acquisition before the fixture rele
 A second case retains the handle and verifies the unchanged bounded deadline and fencing.
 These process checks do not establish native CAD acceptance.
 
-See [the repair](../../../Changes/Ci/AttributionQueueRepair.md)
-and [held-read identity](WindowsPathAndHandleTimes.md).
+See [the repair](../../../../Changes/Ci/AttributionQueueRepair.md)
+and [held-read identity](../WindowsPathAndHandleTimes.md).

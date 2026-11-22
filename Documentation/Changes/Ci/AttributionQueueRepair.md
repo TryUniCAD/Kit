@@ -58,11 +58,11 @@ Remote failure logs identified the exact checksum finding and the sealed-input m
 Read-only comparison verified the four input blob pairs and the 201 path-only manifest edits.
 Process coverage mutates content, mode, and presence for each migrated input while retaining the existing graph and alias cases.
 The positive process cases independently derive the current Git input-tree digest and both directions of every migrated blob identity.
-The focused `CaptureInputIdentity` test module owns Git tree parsing and identity serialization separately from intake-report assertions.
+The focused `ReadCaptureTree` test module owns Git tree parsing and identity serialization separately from intake-report assertions.
 The census coverage retains unknown-manifest rejection and adds a corpus-revision mismatch case.
 Native Windows process cases hold a real writable handle across response publication and require a witnessed blocked read.
 They verify completion after release and deadline expiry while the handle remains held, with unqualified status and fencing retained.
 `git diff --check` and Black formatting are local static checks.
 No local tests or security scans ran.
 Fresh remote audit, PR checks, current-head review, and native queue acceptance remain separate evidence.
-See [the Windows acquisition gotcha](../../Gotchas/Research/Workers/WindowsRecordPublication.md).
+See [the Windows acquisition gotcha](../../Gotchas/Research/Workers/Records/WindowsRecordPublication.md).
