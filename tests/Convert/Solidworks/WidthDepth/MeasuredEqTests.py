@@ -1,11 +1,8 @@
 from json import dumps as DumpJson, loads as LoadJson
-from os import environ as Environment
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec, platform as PlatformValue
 from typing import cast as CastValue
-
-from pytest import mark as MarkCase
 
 from tests.Convert.Solidworks.WidthDepth.MakeEqRequest import MakeEqRequest
 
@@ -13,19 +10,6 @@ from tests.Convert.Solidworks.WidthDepth.MakeEqRequest import MakeEqRequest
 # an independently authored queue request verifies the real strict reader and gated writer in a fresh process
 def TestMeasuredEq() -> None:
     Report, Digest = RunEqCase(PythonExec)
-    AssertEqRead(Report, Digest)
-
-
-# the selected windows shard must reproduce the measured archive through all four public stream routes
-@MarkCase.skipif(
-    PlatformValue != "win32", reason="the positive fixture is scheduled on Windows"
-)
-def TestEqWin() -> None:
-    RuntimePath = Environment.get("KIT_MEASURED_PART_PYTHON")
-    assert RuntimePath, "the Windows shard must provide the measured part runtime"
-    Report, Digest = RunEqCase(RuntimePath)
-    assert Report["sha256"] == Digest
-    assert Report["published_routes"] == 4
     AssertEqRead(Report, Digest)
 
 

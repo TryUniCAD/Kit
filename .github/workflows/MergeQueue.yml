@@ -399,7 +399,7 @@ jobs:
         ^tests/Research/Inference/Authoring/Recipes/
         ^tests/Research/Inference/BuilderDevelopment/
         ^tests/Convert/Solidworks/PlainWriting/PlainCliTests\.py::TestMeasuredCli$
-        ^tests/Convert/Solidworks/WidthDepth/MeasuredEqTests\.py::TestEqWin$
+        ^tests/Convert/Solidworks/WidthDepth/EqWinTests\.py::TestEqWin$
     defaults:
       run:
         shell: bash
@@ -450,9 +450,9 @@ jobs:
             case "$Pattern" in
               '^tests/Research/Inference/Authoring/Recipes/') AuditSuite=tests/Research/Inference/Authoring/Recipes ;;
               '^tests/Research/Inference/BuilderDevelopment/') AuditSuite=tests/Research/Inference/BuilderDevelopment ;;
-              '^tests/Convert/Solidworks/WidthDepth/MeasuredEqTests\.py::TestEqWin$')
+              '^tests/Convert/Solidworks/WidthDepth/EqWinTests\.py::TestEqWin$')
                 test "$AuditEvent" = workflow_dispatch
-                if git grep -q '^def TestEqWin(' "$AuditSha" -- tests/Convert/Solidworks/WidthDepth/MeasuredEqTests.py; then
+                if git grep -q '^def TestEqWin(' "$AuditSha" -- tests/Convert/Solidworks/WidthDepth/EqWinTests.py; then
                   exit 1
                 fi
                 continue
@@ -473,7 +473,7 @@ jobs:
             "${RUNNER_TEMP}/PlatformReport/Collected.txt" > "$Selected"
           test -s "$Selected"
           if grep -Fqx \
-            -e 'tests/Convert/Solidworks/WidthDepth/MeasuredEqTests.py::TestEqWin' "$Selected"; then
+            -e 'tests/Convert/Solidworks/WidthDepth/EqWinTests.py::TestEqWin' "$Selected"; then
             printf '%s\n' 'measured_windows_part=true' >> "$GITHUB_OUTPUT"
           fi
 
@@ -502,7 +502,7 @@ jobs:
           jq --slurp --exit-status \
             --rawfile Selected "${RUNNER_TEMP}/PlatformReport/Selected.txt" \
             --argjson ShardCount "$ShardCount" \
-            --arg MeasuredEquation 'tests/Convert/Solidworks/WidthDepth/MeasuredEqTests.py::TestEqWin' \
+            --arg MeasuredEquation 'tests/Convert/Solidworks/WidthDepth/EqWinTests.py::TestEqWin' \
             --rawfile Native "${RUNNER_TEMP}/PlatformReport/Native.txt" '
             ($Selected | split("\n") | map(select(length > 0))) as $Expected
             | ($Native | split("\n") | map(select(length > 0))) as $NativeIds
