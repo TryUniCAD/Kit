@@ -7,12 +7,12 @@ def CheckMatState(Document: CadDocument) -> None:
     if any(
         any(Material.ColorValue is None for Material in PartValue.materials)
         or any(
-            Item.code
+            NoticeValue.code
             in (
                 "sldprt.material_assignment_unresolved",
                 "sldprt.material_domains_unresolved",
             )
-            for Item in PartValue.diagnostics
+            for NoticeValue in PartValue.diagnostics
         )
         for PartValue in WalkDocuments(Document)
     ):
