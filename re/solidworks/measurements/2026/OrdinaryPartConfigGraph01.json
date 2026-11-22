@@ -1,0 +1,191 @@
+{
+  "aggregate_reference": "05f87aa68097904dae3871292bc8ff969a6cda22",
+  "base": "f80da8caed2ca7a585c1aa85f22c1e13196761d5",
+  "fresh_research_processes": 4,
+  "hosted_suite_executed_locally": false,
+  "layouts": 144,
+  "native_processes": 0,
+  "probe_sha256": "4b40f76859d320e229d58cb1c3c5972f27d1a45bc6f52244ae91647c96589c33",
+  "production_source_sha256": {
+    "src/convert/adapters/solidworks/Archive/Bodies/BodyContext.py": "d27dda048650f918b47c043eec161b14c670e204cfb2906ae4494358936f84a9",
+    "src/convert/adapters/solidworks/Archive/Bodies/IsBranchTaken.py": "fa15c634f1d41a7f67169ed02b37f6fbb4ac7dc0d8d91dd4981036107a06a1d5",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotDimRules.py": "89c9be03eaedd9a68a0a37f1cdeeaea55a048656b8fbcc8700d6be08df7cafc1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotHelpRules.py": "5bdaf3e528c7f00112429e4c415386035e2f72c5266cf61228bba3c5e28308a1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotTableRules.py": "5c475291459db3461e46b9683d49528a146e18f24fb0f20b7589f375798a7bf1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/AnnotViewRules.py": "90a8deec9db0332dfd7e039bb5c42d5600750d7f777069468d26bf74c5a27ba4",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/DetailRules.py": "a2d2d3e481bffef3b0e29c26ecc8bb9b289c58ce7769232a6256759100259e77",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/ModelLwRules.py": "ccf4b6b26d4f81259a43c406f6e6615039bd24cab0b11109d6963714479bf90e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/ModelResRules.py": "0e7903b5e71f3523d5f9fdbc215793334ba5cd6c9cfd8213b66844b7c4538d43",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartFeatureRules.py": "d50a8c58f971c2b508bd9db65fa0ad94bfefe240125e1d1e475aa4895b432385",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartLayouts.py": "ac65b10858adb1969b911cfd3faf6256c89d471a073d434ae96f0b8da0cd0abc",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartOptionRules.py": "6c9989cbe6a2829e0648a0106ab29aa47666e38f530706af046bc2bb4becc41e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartPbrRules.py": "c359d7a481a83260676648fe4af3b726cdcfc2fa4c6f90cb0d518e218c1be3f1",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartRecordRules.py": "2f60f01d9ccf590a59e606f9a54ff7d079b7a083c5c42f0081d047f957a68933",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartRootRules.py": "039eb0a81c918d11146007ec68873331cb7c9a2c0ec9c32ab4b253746e697d66",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartSchemas.py": "aec9d34c19f9f963c5520962d819d90b88cde94f261691127c7c5512c54af6c3",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartVirtuals.py": "1476f2259d1f84579ce0ec94e958244964ed0f73776a54467bc98f76c2762762",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/Part/PartVisualRules.py": "6b14a76f7d3439779e9f1d6669bbcb90544c973f85b1fcb9af0a2f365af54809",
+    "src/convert/adapters/solidworks/Archive/Bodies/Layouts/Config/UnitFields.py": "c25dcaaafa611a202a4e7bdb2db4d0ed8a056f7b6467de902e22b55329f587e6",
+    "src/convert/adapters/solidworks/Archive/Bodies/NewBodyUsage.py": "ba80ec59c90c3707eec7db34be1dfb973f8dd83da338ce47791d6df416e621ad",
+    "src/convert/adapters/solidworks/Archive/Bodies/PartScopeOwner.py": "2ed4b10cebddc563ce0d84b1a5a4d8c23f9384d7218fc73445b7e931cf2b4bf7",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadActions.py": "799ca73a9d73776b696e098859c6e06c99b7573877de0255a43031c3f522868a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadBranchMut.py": "fc4ce5e3775e121254c0adce4a237e0ac4a9dd85caa0b8ef36b54bf0304c79ca",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadFrameOwnMut.py": "01fea91eff93d308f590c22a493939633c0f073fa30732a53e54fd95582f908e",
+    "src/convert/adapters/solidworks/Archive/Bodies/Reading/ReadOwnedMut.py": "943da1c539ca78cd2b5807add1f8b68dc9142441a4179d903dd3a7bdb37bda1c",
+    "src/convert/adapters/solidworks/Archive/Bodies/RequirePartOwn.py": "fc2d7a182644b2f1c859a56e170d35b854b6e071ae065cca57e69add62a12d54",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteActions.py": "b008dae4bc35dfef849e38a13dd9e6979aff4ee0b57c538e4f8756b0faa786a0",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteArrayMut.py": "32fbc5d4590d50ccb1f99f785afb783248ac4a0ea2176d171b34592056f71a6d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBooleanMut.py": "73dd15f91471d1e09c6e75cc373731e88fb1ce116e8b4ecfa9c78f52a79b391a",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBranchMut.py": "4628783bf6ee49630676740356f7f75c46708dc818548bf716a22e9208c3d2a8",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteBytesMut.py": "c3b70f323adbb3fedc5e58a763d1ba7478757eb95e88a87a2955fdd0c5fb6acf",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteContextMut.py": "81dbf9f0d41c01a1a42ebdfeb231756c6b359aae224450e884bbb52a4a7cc95d",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteOwnedMut.py": "3276b59a899ae33b66078ee6add34a1a2252fbe9c0c071a6fdfebc0f132f8465",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WritePresentMut.py": "9d083f7911254841a62413a42db8c48238818fad7f122e187efac27d0dc65c50",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteValueMut.py": "4cafd3e6dd5e493bc558c7f094fe49f55a342ba48975b1df78c450174983e787",
+    "src/convert/adapters/solidworks/Archive/Bodies/Writing/WriteVirtualMut.py": "200c4213c03761cf262d577a15959a55230ae779b36397accce49445cd1f20f3",
+    "src/convert/adapters/solidworks/Archive/Config/ConfigGraph.py": "4a918eb8dd1625a08aa77d51a94954a8aa522e7e713c6098a6c0e16dd457fbad",
+    "src/convert/adapters/solidworks/Archive/Config/MakeConfigCtx.py": "254a1bbf37b4e9a2fb4099b5a9126bc0e870cf1b87b7818dadd83995a72d6ea4",
+    "src/convert/adapters/solidworks/Archive/Config/ReadConfigMut.py": "754cf314851a5155f3707e43d7418a059024da161217c9f13b43a11de30d2218",
+    "src/convert/adapters/solidworks/Archive/Config/ReadPartConfig.py": "75ae02945105e400faf798e4788596625abb124816f70ccf8d7cafabb7dc24d2",
+    "src/convert/adapters/solidworks/Archive/Config/RequireConfig.py": "b37b7f3f63f8816f5ac9dfca30d08c9019aff35300c0327feb3e34a6b0c37045",
+    "src/convert/adapters/solidworks/Archive/Config/WriteConfigMut.py": "0425c23106c5c91fc839f7822feaa8d34c78486d971c258321d9d835c5b314cf"
+  },
+  "public_conversion_credit": 0,
+  "results": {
+    "bare": {
+      "all_map_slots_preserved": true,
+      "bytes": 22706,
+      "case": "bare",
+      "config_sha256": "9b1d79fe0e012e6722c8e8d9faf51c29e17cc11fd57512530a60abe23df071d6",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        2111
+      ],
+      "map_base": 4,
+      "map_counter": 94,
+      "refusals": {
+        "one_byte": "archive tag has no complete unsigned short",
+        "trailing_bytes": "SOLIDWORKS configuration has 1 trailing bytes",
+        "truncated_resolved": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 2111: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 2111: SOLIDWORKS model section exceeds its remaining stream",
+        "wrong_unit_owner": "SOLIDWORKS component owner differs from its enclosing part",
+        "wrong_writer_owner": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2309d0 at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80 at 1710: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990 at 1710: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c at 1710: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c/moComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c/owner at 1710: SOLIDWORKS component owner differs from its enclosing part"
+      },
+      "resolved": [
+        2115,
+        22706
+      ],
+      "runtime_classes": 31,
+      "runtime_external_accesses": 0,
+      "schema_count": 126,
+      "source_sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357",
+      "unit_owner": [
+        1728,
+        1730,
+        2
+      ]
+    },
+    "concave": {
+      "all_map_slots_preserved": true,
+      "bytes": 22700,
+      "case": "concave",
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        2105
+      ],
+      "map_base": 4,
+      "map_counter": 94,
+      "refusals": {
+        "one_byte": "archive tag has no complete unsigned short",
+        "trailing_bytes": "SOLIDWORKS configuration has 1 trailing bytes",
+        "truncated_resolved": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 2105: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 2105: SOLIDWORKS model section exceeds its remaining stream",
+        "wrong_unit_owner": "SOLIDWORKS component owner differs from its enclosing part",
+        "wrong_writer_owner": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2309d0 at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80 at 1704: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990 at 1704: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c at 1704: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c/moComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c/owner at 1704: SOLIDWORKS component owner differs from its enclosing part"
+      },
+      "resolved": [
+        2109,
+        22700
+      ],
+      "runtime_classes": 31,
+      "runtime_external_accesses": 0,
+      "schema_count": 126,
+      "source_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "unit_owner": [
+        1722,
+        1724,
+        2
+      ]
+    },
+    "ladder": {
+      "all_map_slots_preserved": true,
+      "bytes": 25390,
+      "case": "ladder",
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        3052
+      ],
+      "map_base": 4,
+      "map_counter": 110,
+      "refusals": {
+        "one_byte": "archive tag has no complete unsigned short",
+        "trailing_bytes": "SOLIDWORKS configuration has 1 trailing bytes",
+        "truncated_resolved": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3052: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3052: SOLIDWORKS model section exceeds its remaining stream",
+        "wrong_unit_owner": "SOLIDWORKS component owner differs from its enclosing part",
+        "wrong_writer_owner": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2309d0 at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80 at 2417: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990 at 2417: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c at 2417: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c/moComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c/owner at 2417: SOLIDWORKS component owner differs from its enclosing part"
+      },
+      "resolved": [
+        3056,
+        25390
+      ],
+      "runtime_classes": 40,
+      "runtime_external_accesses": 0,
+      "schema_count": 141,
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "unit_owner": [
+        2435,
+        2437,
+        2
+      ]
+    },
+    "literal": {
+      "all_map_slots_preserved": true,
+      "bytes": 26055,
+      "case": "literal",
+      "config_sha256": "5c78942508f55177db00ea7f394856a6d8c72683b19163b4e3d14e557fe045c7",
+      "exact_replay": true,
+      "lightweight": [
+        18,
+        3058
+      ],
+      "map_base": 4,
+      "map_counter": 122,
+      "refusals": {
+        "one_byte": "archive tag has no complete unsigned short",
+        "trailing_bytes": "SOLIDWORKS configuration has 1 trailing bytes",
+        "truncated_resolved": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2378b0 at 3058: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2378b0 field moPart_c.FUN_4c2378b0/Section at 3058: SOLIDWORKS model section exceeds its remaining stream",
+        "wrong_unit_owner": "SOLIDWORKS component owner differs from its enclosing part",
+        "wrong_writer_owner": "SOLIDWORKS body moPart_c field moPart_c.FUN_4c2309d0 at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section at 14: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80 at 2423: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80 field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990 at 2423: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c at 2423: SOLIDWORKS body moPart_c/moPart_c.FUN_4c2309d0/moModel_c.FUN_4c22ec80/moUnitComponent_c/moComponent_c field moPart_c.FUN_4c2309d0/Section/moModel_c.FUN_4c22ec80/f990/moComponent_c/owner at 2423: SOLIDWORKS component owner differs from its enclosing part"
+      },
+      "resolved": [
+        3062,
+        26055
+      ],
+      "runtime_classes": 38,
+      "runtime_external_accesses": 0,
+      "schema_count": 142,
+      "source_sha256": "1c1bc718661b88a119bc3ac041f97d56cf5b4a06e290e1ac1afc79d423e42d23",
+      "unit_owner": [
+        2441,
+        2443,
+        2
+      ]
+    }
+  },
+  "runtime_class_schema_pairs": 40,
+  "schema": "kit.sw2026.ordinary-part-config-graph.v1",
+  "scope": "ordinary format 4 version 19000 part configuration"
+}
