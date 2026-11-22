@@ -43,7 +43,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 #### A05-RectangleRecovery: bounded reader qualification
 
 Codex owns this active follow-up on `fix/native-rectangle-qualification-20261122`, based on main `7a0a987ec2f1ab4099c839621a8e51d18bcfa872`.
-Delivery PR is pending creation. Dependencies are merged PR #263, the strict reader, and licensed native workers.
+Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Dependencies are merged PR #263, the strict reader, and licensed native workers.
 Scope is unconstrained millimeter XY reverse and positive YZ rectangle evidence, plus native worker recovery investigation.
 Fresh constrained controls and separately authored unconstrained controls distinguish authoring deficiencies from unsupported reader grammar.
 The exit requires strict CLI replay, native numerical comparisons, retained negative cases, shared-suite integration, and current-head CI and review.

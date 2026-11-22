@@ -563,6 +563,6 @@ Native recovery and semantic qualification remain blocked as recorded in that pa
 
 Task `A05-RectangleRecovery` is active under the [automation register](../Reference/Research/AutomationSteps.md#a05-rectanglerecovery-bounded-reader-qualification).
 Codex owns the bounded unconstrained reverse-XY and positive-YZ reader work on `fix/native-rectangle-qualification-20261122`.
-Delivery PR is pending creation. Dependencies are merged PR #263, the strict reader, and independent licensed controls.
+Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Dependencies are merged PR #263, the strict reader, and independent licensed controls.
 The exit requires numerical source comparison, public SDK and CLI replay, retained refusal coverage, shared-suite integration, and current-head CI and review.
 Native writing and full conversion acceptance remain open. SOLIDWORKS host recovery is separate.
