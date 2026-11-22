@@ -1,6 +1,9 @@
 from dataclasses import replace as ReplaceValue
 from json import loads as LoadJson
 from pathlib import Path as FilePath
+from sys import version_info as KPythonVersion
+
+from pytest import mark as TestMark
 
 from tests.Convert.Commands.BuildInactive import BuildInactive
 from tests.Convert.Commands.CliProcess import CliProcess
@@ -8,6 +11,9 @@ from tests.Convert.Solidworks.Properties.WriteTextTests import KPartCause
 
 
 # an otherwise portable cli source isolates the effects of native support and explicit property status
+@TestMark.skipif(
+    KPythonVersion < (3, 14), reason="qualified sdk geometry requires python 3.14"
+)
 def TestCliTextCopy(TmpPath: FilePath) -> None:
     Geometry = BuildInactive("Unordered")
     SourcePath = TmpPath / "source.json"
@@ -36,8 +42,9 @@ def TestCliTextCopy(TmpPath: FilePath) -> None:
     Unfiltered = CliProcess(TmpPath, *NativeArgs)
     assert Unfiltered.returncode == 1 and Unfiltered.stdout == ""
     Portability = LoadJson(Unfiltered.stderr)["message"]
-    assert Portability.startswith("unqualified SOLIDWORKS sketch support references")
-    assert Portability.endswith(": sketch")
+    assert Portability.startswith(
+        "unqualified SOLIDWORKS sketch support references"
+    ) and Portability.endswith(": sketch")
     assert TargetPath.read_bytes() == Output
     assert NativePath.read_text(encoding="utf-8") == NativeJson
     InspectionJson = ReplaceValue(DocumentValue, source=Geometry.source).to_json()
