@@ -1,6 +1,5 @@
 from pathlib import PureWindowsPath
-from typing import cast as CastValue
-from xml.etree.ElementTree import Element, SubElement, tostring as XmlBytes
+from xml.etree.ElementTree import Element, SubElement
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState import (
     AssemblyState,
 )
@@ -29,6 +28,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     ReadNodeName,
 )
+from convert.adapters.solidworks.Core.Native import EncodeNativeXml
 
 
 # the instance index enumerates actual files models configuration and occurrences in its separately qualified xml namespace without importing binary object slots
@@ -122,6 +122,6 @@ def MakeAsmTree(
     _ = SubElement(RootValue, "swExtFeatureList", {"swObjCount": "0"})
     return (
         b'<?xml version="1.0" encoding="UTF-8"?>\r\n'
-        + CastValue(bytes, XmlBytes(RootValue, encoding="utf-8")).replace(b" />", b"/>")
+        + EncodeNativeXml(RootValue).replace(b" />", b"/>")
         + b"\r\n"
     )

@@ -1947,10 +1947,12 @@ def ParseXml(DataValue: bytes) -> XmlTree.Element:
         ) from ErrorInfo
 
 
-# keyword framing needs one element encoder so compact and spaced markup use identical text escaping
-def EncodeNativeXml(RootValue: XmlTree.Element) -> bytes:
+# native xml writers share text escaping while choosing their required empty element spelling
+def EncodeNativeXml(
+    RootValue: XmlTree.Element, *, ShortEmptyElements: bool = True
+) -> bytes:
     PayloadValue: bytes = XmlTree.tostring(
-        RootValue, encoding="utf-8", short_empty_elements=True
+        RootValue, encoding="utf-8", short_empty_elements=ShortEmptyElements
     )
     return PayloadValue
 

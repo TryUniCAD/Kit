@@ -1,6 +1,5 @@
 from pathlib import PureWindowsPath
-from typing import cast as CastValue
-from xml.etree.ElementTree import Element, SubElement, tostring as XmlBytes
+from xml.etree.ElementTree import Element, SubElement
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
@@ -22,6 +21,7 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     ReadNodeName,
 )
+from convert.adapters.solidworks.Core.Native import EncodeNativeXml
 
 
 # native nested indexes must enumerate the actual generated definition closure without flattening binary ownership or duplicating shared child models
@@ -71,6 +71,6 @@ def MakeNestedTree(TargetValue: TargetDocument) -> bytes:
     _ = SubElement(RootValue, "swExtFeatureList", {"swObjCount": "0"})
     return (
         b'<?xml version="1.0" encoding="UTF-8"?>\r\n'
-        + CastValue(bytes, XmlBytes(RootValue, encoding="utf-8")).replace(b" />", b"/>")
+        + EncodeNativeXml(RootValue).replace(b" />", b"/>")
         + b"\r\n"
     )
