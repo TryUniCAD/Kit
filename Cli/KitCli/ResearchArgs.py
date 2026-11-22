@@ -10,6 +10,11 @@ def ResearchArgs(
 ) -> tuple[list[str], bool]:
     Arguments = list(Options.ToolArgs)
     LegacyReader = False
+    if Options.Offline:
+        if Options.ResearchTool not in ("solidworks", "fusion"):
+            raise ValueError("--offline requires a solidworks or fusion reader")
+        if any(Value.split("=", 1)[0].startswith("--native") for Value in Arguments):
+            raise ValueError("--offline cannot request native verification")
     if Options.Command == "run":
         Arguments = [*Arguments, "--batch-format", Options.ResearchTool]
     elif Options.ResearchTool in ("solidworks", "fusion", "corpus"):
@@ -20,7 +25,11 @@ def ResearchArgs(
             raise ValueError("Set research --root once, before the tool name")
         Arguments = ["--root", str(RootPath), *Arguments]
         if Options.ResearchTool in ("solidworks", "fusion"):
-            if "--help" not in Arguments and "-h" not in Arguments:
+            if (
+                not Options.Offline
+                and "--help" not in Arguments
+                and "-h" not in Arguments
+            ):
                 if CanNativeVerify(ScriptPath):
                     Arguments.append("--native-verify")
                 else:

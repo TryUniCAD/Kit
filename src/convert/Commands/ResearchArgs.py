@@ -15,6 +15,13 @@ def AddResearchMut(
         required=True,
         help="Trusted checkout whose research code and SDK will execute",
     )
+    if Tools is None:
+        _ = Parser.add_argument(
+            "--offline",
+            dest="Offline",
+            action="store_true",
+            help="Decode without native API verification; acceptance remains pending",
+        )
     _ = Parser.add_argument(
         "ResearchTool",
         choices=tuple(KResearchScripts) if Tools is None else Tools,

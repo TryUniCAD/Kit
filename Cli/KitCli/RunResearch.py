@@ -23,6 +23,11 @@ def RunResearch(Options: CliOptions) -> NoReturn:
         ) as ChildProcess:
             ChildProcesses.append(ChildProcess)
             ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)
+    if Options.Offline:
+        print(
+            "kit: offline decoding only; native verification pending; vendor acceptance not established",
+            file=KErrorStream,
+        )
     if LegacyReader and ReturnCode in (0, 3):
         print(
             "kit: decoding artifacts were preserved; native verification was not performed because the selected checkout lacks the verification capability; update that trusted checkout to enable verification",
