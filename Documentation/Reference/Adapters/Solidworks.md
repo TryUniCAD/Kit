@@ -363,11 +363,13 @@ CI now rejects any recorded field program in `src`.
 The current part writer derives its streams from format rules using the
 typed container, configuration, definition and resolved-feature codecs.
 
-A disclosed rotated group with parallel, distance and coincident mates
-has a separate exact research reproduction. Publication would require
-that historical authored metadata contract or a new native measurement
-of the current canonical bundle.
-[Rotated mate research](../../../re/solidworks/records/RotatedMateAssemblyBoundary2026.md)
+Strict inspection of the cold rotated assembly profile binds its ordered
+parallel, distance and coincident mates to the two actual occurrences and
+the real driving distance. Use `include_brep=False` for the same design
+graph without child geometry. Disabling component resolution defers the
+typed mate graph. Three-mate output still requires an independently
+qualified publication contract.
+[Cold rotated mate inspection](../../Changes/Solidworks/Inspection/SolidworksColdRotatedMateRead.md)
 
 ## Geometry cache boundary
 

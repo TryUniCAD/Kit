@@ -3,6 +3,11 @@ from collections.abc import Mapping
 from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
+from convert.adapters.solidworks.Core.TypedMates.CheckColdGroup import CheckColdGroup
+from convert.adapters.solidworks.Core.TypedMates.ColdMateLayout import (
+    KColdMateClasses,
+    KColdMateScope,
+)
 from convert.adapters.solidworks.Core.TypedMates.PublicMateEnv import PublicMateEnv
 from convert.adapters.solidworks.Core.TypedMates.CheckMateIds import CheckMateIds
 from convert.adapters.solidworks.Core.TypedMates.CheckMateWrappers import (
@@ -39,6 +44,7 @@ def ReadPublicMates(
         or len(GraphValue.RootsValue) != len(LegacyRules)
     ):
         raise ValueError("typed mate stream bytes or complete inventory differ")
+    IsColdTriple = len(GraphValue.RootsValue) == len(KColdMateClasses)
     Native = EnvValue.NativeValue
     Items = {Value.feature_id: Value for Value in Native.occurrences}
     if len(Items) != len(Native.occurrences):
@@ -47,7 +53,7 @@ def ReadPublicMates(
         LinkValue.ConfigValue.RootValue,
         Items,
         {Value.object_id: Value for Value in Native.definitions},
-        ReadMateKids(EnvValue),
+        ReadMateKids(EnvValue, ColdRequired=IsColdTriple),
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
     CheckMateWraps(GraphValue.RootsValue)
@@ -59,6 +65,9 @@ def ReadPublicMates(
     GroupValue = ReadMateGroup(
         LinkValue, GraphValue, Rules, LegacyRules[0].owner_definition_id
     )
+    FixedFlags = ReadFixedFlags(Context)
+    if IsColdTriple:
+        CheckColdGroup(GraphValue.RootsValue, Rules, Parameters, FixedFlags)
     return (
         Entities,
         Rules,
@@ -66,13 +75,17 @@ def ReadPublicMates(
         Parameters,
         {
             "status": "admitted",
-            "scope": "ordinary_aligned_mates_direct_part_occurrences",
+            "scope": (
+                KColdMateScope
+                if IsColdTriple
+                else "ordinary_aligned_mates_direct_part_occurrences"
+            ),
             "archive_version": 19000,
             "mate_count": len(Rules),
             "map_base": GraphValue.MapBase,
             "map_terminal": GraphValue.MapValue.CounterValue,
             "typed_occurrence_and_child_datum_identity": True,
-            "occurrence_fixed_flags": ReadFixedFlags(Context),
+            "occurrence_fixed_flags": FixedFlags,
             "full_selected_mate_graph": True,
             "public_writer_qualified": False,
             "grammar_coverage": dict(GraphValue.ReportValue),

@@ -58,8 +58,8 @@ objects. [Active-initializer analysis](https://github.com/TryUniCAD/Kit/blob/016
 
 ## Readback and publication
 
-The current public classifier recognizes the measured two-mate order.
-The ordinary strict read of A22 encounters empty legacy endpoint inventory.
+The pinned two-mate baseline recognizes only its measured pair.
+Its ordinary strict read of A22 encounters empty legacy endpoint inventory.
 A temporary research selector for the exact three classes exercises the
 same linked SDK reader over the freshly generated in-memory pair. It
 retains one group, all six owned datum endpoints, both actual occurrence
@@ -88,6 +88,43 @@ python3.14 -I -B re/tooling/sw2026/rotated_mates/VerifyRotatedMates.py \
   --output /tmp/RotatedMatesProductionBoundary.json
 ```
 
+Run this historical comparison with the source from `77d8cef5df85299070379a73595b764cb7c77049`.
 The command produces only a digest and evidence report. It reuses existing
 generation and linked graph components. No new native launch, protected input,
 production changes or corpus-conversion credit enters this tranche.
+
+## Scoped strict SDK read
+
+The follow-up qualifies the exact ordered parallel, distance and
+coincident class layout for the ordinary cold parent and child stream
+inventories. The physical resolved group links the actual typed mate
+roots and their registered occurrence and child datum owners. The first
+occurrence is fixed, and the actual distance mate owns one live driving
+parameter. The new report scope identifies inspection separately from
+the two-mate write inverse.
+
+Two fresh guarded SDK workers opened both disclosed measured members in
+strict full and design-only modes. Both recovered the same complete
+group, six physical endpoints, both rigid placements, and D1 at 63.5 mm
+using native parameter ID 20. The child retains its 40, 20 and 10 mm
+drivers. The full read returns one solid with six faces, twelve edges,
+eight vertices and 8,000 mm³ volume. The deferred read opens only the
+designated parent and records the pending mate graph. The guarded
+in-memory read required zero data file opens. The ordinary file readers
+were allowed the exact parent and companion and the existing packaged
+`RootLayout.json` schema.
+
+A parallel auxiliary field, a different real mate class and an extra
+unqualified child stream each reject. The original and native-edited save
+snapshots are byte-identical as neutral JSON to those returned by the
+previous SDK in both geometry modes. Their first independent warm typed
+refusals remain the assembly timings and linked atom owners described
+above. The exact cold readback refuses both the direct and registry
+publication routes before any output path is created.
+[Guarded SDK receipt](../measurements/2026/ColdRotatedMateRead01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/rotated_mates/ProveColdRotatedRead.py \
+  --disclosed /path/to/NativeMateComboSource04 \
+  --output /tmp/ColdRotatedMateRead.json
+```
