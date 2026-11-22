@@ -31,6 +31,10 @@ from convert.adapters.solidworks.Archive.History.WriteHistGraph import WriteHist
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
+from convert.adapters.solidworks.Container.Format import (
+    KeywordsStream,
+    KResolvedFeaturesStream,
+)
 
 
 # complete part serialization must use each real sdk stream owner and extend the exact configuration map without saved stream fallback
@@ -59,13 +63,13 @@ def EmitPartStreams(
         "Contents/Config-0": ConfigBytes,
         "Contents/CMgr": WriteCmgrMut(SystemValue.ManagerValue, 19000),
         "Contents/CMgrHdr2": WriteMgrHeader(ManagerHeader, 19000)[0],
-        "Contents/Config-0-ResolvedFeatures": ResolvedBytes,
+        KResolvedFeaturesStream: ResolvedBytes,
         "Contents/Definition": WriteModelDef(DefinitionValue).OutputValue,
         "_MO_VERSION_19000/Biography": WriteHistGraph(MakeBiography(), 19000)[0],
         "_MO_VERSION_19000/History": WriteHistGraph(
             MakeFreshHist(InputValue.HistoryValue), 19000
         )[0],
-        "swXmlContents/KeyWords": MakePartKeys(
+        KeywordsStream: MakePartKeys(
             SystemValue, FeatureValues, InputValue, PlanValue, SketchDims
         ),
     }

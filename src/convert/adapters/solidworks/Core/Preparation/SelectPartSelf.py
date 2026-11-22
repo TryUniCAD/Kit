@@ -4,6 +4,7 @@ from typing import cast as CastValue
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
+from convert.adapters.solidworks.Container.Format import KPartSuffix
 from convert.adapters.solidworks.Core.Preparation.RequirePartPath import (
     RequirePartPath,
 )
@@ -25,7 +26,7 @@ def SelectPartSelf(
         Value in (".", "..") for Value in FinalText.split("/")
     ):
         raise ValueError("standalone host output requires an absolute ordinary path")
-    if PathValue.stem != NameValue or PathValue.suffix.casefold() != ".sldprt":
+    if PathValue.stem != NameValue or PathValue.suffix.casefold() != KPartSuffix:
         raise ValueError(
             "standalone host output must retain the exact neutral basename"
         )
@@ -33,7 +34,7 @@ def SelectPartSelf(
     if (
         RecipeValue.PathName != JoinPath(KNeutralRoot, RecipePath.name)
         or RecipePath.stem != NameValue
-        or RecipePath.suffix.casefold() != ".sldprt"
+        or RecipePath.suffix.casefold() != KPartSuffix
     ):
         raise ValueError(
             "standalone host output requires the measured authored locator"

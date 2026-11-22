@@ -1,5 +1,6 @@
 from typing import cast as CastValue
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Container.Format import KPartFormatId, KPartSuffix
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -29,7 +30,7 @@ def CheckPartOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
     if DestinationFormat is not None and (
         type(CastValue(object, DestinationFormat)) is not str
         or DestinationFormat.casefold()
-        not in ("solidworks.sldprt", "sldprt", ".sldprt")
+        not in (KPartFormatId, KPartSuffix[1:], KPartSuffix)
     ):
         raise ValueError("plain part preparation requires a part destination format")
     AllowedNames = {
