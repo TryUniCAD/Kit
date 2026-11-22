@@ -1,11 +1,5 @@
-from contextlib import redirect_stdout as RedirectOutput
-from hashlib import sha256 as CalcSha
-from io import StringIO as StringIo
-from json import dumps as DumpJson, loads as LoadJson
-from os import name as OsName
 from pathlib import Path as FilePath
 from tempfile import TemporaryDirectory as TempDir
-from typing import cast as CastValue
 
 from pytest import raises as RaisesError
 
@@ -14,7 +8,7 @@ from convert.Commands.BuildParser import BuildParser
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.RunCommand import RunCommand
 from tests.Convert.Solidworks.PlainWriting.MakePlainDoc import MakePlainDoc
-from tests.Convert.Solidworks.PlainWriting.MeasurePlainDoc import MeasurePlainDoc
+from tests.Convert.Solidworks.PlainWriting.VerifyCliMeas import VerifyCliMeas
 
 
 # the ordinary cli has no switch that publishes a candidate without evidence
@@ -41,40 +35,11 @@ def TestCandidate() -> None:
         assert set(Folder.iterdir()) == {Source, Target}
 
 
-# a trusted receipt permits the exact relocated standalone output on the host path branch
+# the ordinary command must publish exact measured bytes on both host path branches
 def TestMeasuredCli() -> None:
-    if OsName == "nt":
-        return
-    with TempDir() as FolderName:
-        Folder = FilePath(FolderName)
-        Source = Folder / "Neutral.json"
-        Target = Folder / "sdk factory skew.SLDPRT"
-        ReceiptPath = Folder / "Measurement.json"
-        Document, Envelope, Digest = MeasurePlainDoc("Skew")
-        _ = Source.write_text(Document.to_json(), encoding="utf-8")
-        _ = ReceiptPath.write_text(DumpJson(Envelope), encoding="utf-8")
-        Options = CliOptions()
-        _ = BuildParser("0.0.0").parse_args(
-            [
-                "convert",
-                str(Source),
-                str(Target),
-                "--json",
-                "--native-measurement",
-                str(ReceiptPath),
-            ],
-            namespace=Options,
-        )
-        Output = StringIo()
-        with RedirectOutput(Output):
-            RunCommand(Options)
-        Report = CastValue(dict[str, object], LoadJson(Output.getvalue()))
-        Written = Target.read_bytes()
-        assert Report["application_usable"] is Report["vendor_loadable"] is True
-        assert Report["dropped"] == []
-        assert Report["bytes_written"] == len(Written)
-        assert CalcSha(Written).hexdigest() == Digest
-        assert set(Folder.iterdir()) == {Source, Target, ReceiptPath}
+    for RoleName in ("Skew", "Step"):
+        with TempDir() as FolderName:
+            VerifyCliMeas(FilePath(FolderName), RoleName)
 
 
 # unsupported rings must fail selection while the prior native file stays intact

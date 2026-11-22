@@ -22,6 +22,15 @@ Windows target whose encoded path would differ. The matched output flags
 are true after the gate. Both models retain their typed line loop, live D1
 and exact polygon solid in normal readback.
 
+The complete suite selects the measured CLI case on the hosted Windows
+runner as well as the Linux shards. It sends each locked request and receipt
+through the installed command. On Windows it acquires the exact measured
+directory exclusively and also requires a different directory to refuse
+publication and preserve existing bytes. The Mac arithmetic replay
+reproduces both complete file hashes and all ten standard views from the
+two hash-bound neutral requests with zero construction reads.
+[Camera rounding rule and contrast](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Presentation/StandardViewRoundingChangesHashes.md)
+
 Eight evidence and model contrasts per file fail through both direct streams
 and the staged registry path. A ninth contrast fails when the stream
 requests a different encoded locator. Those attempts leave the output
@@ -48,3 +57,13 @@ python -I -B re/tooling/sw2026/CheckMeasuredPartWriter.py \
 ```
 
 [Revision-bound public proof](../measurements/2026/SdkMeasuredPartPublication01.json)
+
+Replay the standard view arithmetic from the same disclosed directory.
+
+```sh
+python -I -B re/tooling/sw2026/CheckStdViewRounding.py \
+  --native "$disclosed" \
+  --output /tmp/KitStdViewRounding.json
+```
+
+[Standard view replay and adjacent-value contrast](../measurements/2026/PlainStdViewRounding01.json)
