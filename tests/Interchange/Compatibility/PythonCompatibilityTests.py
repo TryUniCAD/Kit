@@ -275,7 +275,7 @@ def CheckRegistry() -> None:
 
 # historical feature state must survive pickle loading through public document validation
 def CheckOldStep() -> None:
-    SavedState = [
+    SavedState: list[object] = [
         "legacy",
         "legacy",
         "unknown",
