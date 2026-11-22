@@ -20,7 +20,7 @@ KFinishCases = (
     ),
 )
 
-# complete map signatures distinguish both real class and object inventories
+# full traversal signatures pin every class and object slot in each disclosed source
 KFinishMaps = {
     "ladder": (
         29,
@@ -40,7 +40,8 @@ def TestFinishParts() -> None:
     for CaseName, CounterValue, Bounds, FieldsHash, WireHash in KFinishCases:
         Result = RunFinishCase(CaseName)
         assert Result["prefix_anchors"] == [1, 2, 3]
-        assert Result["trace_revision"] == "fe592b8e7a4922dccf8298541453baf41d60b001"
+        assert Result["map_method"] == "native_allocation_tags"
+        assert Result["object_birth_tags"] == KFinishMaps[CaseName][1] - 2
         Checkpoints = CastValue(list[dict[str, object]], Result["native_checkpoints"])
         assert [RowValue["role"] for RowValue in Checkpoints] == [
             ["f2e8"],

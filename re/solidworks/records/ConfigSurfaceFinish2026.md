@@ -60,44 +60,66 @@ sources because each of their two font bodies differs in length by
 typed field digests for both cases.
 [Physical receipt](../measurements/2026/ConfigFinishPhysical01.json)
 
-The replay first recovers actual part/header anchors 1–3 with
-`ReadPartStart`. The pinned full loader then passes its live map and
-actual part to the current bounded decoder at each of the three finish
-roles. The six shared map and object type files must match the pin
-byte for byte. Each guarded read and emission checks the original
-entry identities, slot order, counter, base and both inverse lookups.
-L1 preserves 29 class entries and 39 object entries. Concave preserves
-26 class entries and 27 object entries. The bounded reader and shared
-field emitter reproduce all 24 field and wire digests from the initial
-three-anchor replay.
+The independent pinned traversal passes its live map and actual part to
+the current bounded decoder at each of the three finish roles. The six
+shared map and object type files must match the pin byte for byte. Each
+guarded read and emission checks the original entry identities, slot
+order, counter, base and both inverse lookups. L1 preserves 29 class
+entries and 39 object entries. Concave preserves 26 class entries and
+27 object entries.
+[Full native-map replay](../measurements/2026/ConfigFinishNativeMap01.json) ·
+[Initial replay](../measurements/2026/ConfigFinishReplay01.json)
+
+The queue derives a complete slot directory from the two tracked saves
+using only the candidate checkout. `ReadPartStart` supplies the actual
+part and linked ModelHeader identities at slots 1–3. The full trace
+records 37 L1 and 25 Concave object allocation tag positions after
+that prefix. The queue decodes the raw canonical tag and, for a new
+class, its actual schema and name with the shared 2026 codec. A class
+reference resolves against the preceding class slot. No earlier object
+body fields are reconstructed from these locators. For each of the
+six finish checkpoints the projected and live maps agree across
+every slot, with the same descriptor kinds, names, schema or index,
+object indices, counter and base. The guarded codec preserves both
+inverse lookups and the exact object identities in the projected map
+and reproduces all 24 field and wire digests.
+
 The independent 372-byte case encodes distinct ANSI and UTF-16 font
 owners, signed fields and varied text. It preserves every slot and
 inverse lookup in its separately authored 68-entry map after read
 and write. Wrong version or part identity, truncated and trailing
 data, and noncanonical text length all refuse.
-[Full native-map replay](../measurements/2026/ConfigFinishNativeMap01.json) ·
-[Initial replay](../measurements/2026/ConfigFinishReplay01.json) ·
+[Allocation tag positions](../measurements/2026/ConfigFinishMapTags01.json) ·
 [Queue process coverage](../../../tests/Convert/Solidworks/Configuration/Finish/FinishTests.py)
 
 ```sh
-python3.14 -I -B re/tooling/sw2026/TraceCfgFinish.py
 python3.14 -I -B re/tooling/sw2026/CheckCfgFinish.py ladder
 python3.14 -I -B re/tooling/sw2026/CheckCfgFinish.py concave
 python3.14 -I -B re/tooling/sw2026/CheckCfgFinish.py wire
 ```
 
-The trace and both native replay processes require the exact aggregate Git
-object. The queue's full-history checkout can resolve the pin through
-the source branch. The replay uses the research lineage hydrator for
-missing blobs from the selected source paths in blobless checkouts.
-This preparation ends before the archive guard begins. The generic
-research CLI does not expose an in-memory Config-0 map checkpoint.
-The pinned trace supplies that checkpoint while the queue evaluates the
-current bounded codec. All cases used zero guarded external accesses and
-zero CAD launches. The main dispatch and public configuration admission
-remain separate from this research loader.
+The separate research tools require the exact aggregate Git object.
+`TraceCfgFinish.py` regenerates the physical interval receipt.
+`TraceCfgFinishMap.py` reports the full inherited map and its handoff
+to the bounded codec for either case. Add `--tag-offsets` to reproduce
+the locator list for that case.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/TraceCfgFinish.py
+python3.14 -I -B re/tooling/sw2026/TraceCfgFinishMap.py ladder --tag-offsets
+python3.14 -I -B re/tooling/sw2026/TraceCfgFinishMap.py concave --tag-offsets
+```
+
+For the live-map trace the research lineage hydrator retrieves missing
+blobs from the selected source paths in a blobless checkout. The queue
+does not resolve that Git revision or run either trace tool. The
+generic research CLI does not expose a Config-0 map checkpoint. All
+cases used zero guarded external accesses and zero CAD launches.
+Full prelude layout decoding and public configuration admission
+retain their separate delivery.
 [Pinned source](https://github.com/TryUniCAD/Kit/tree/fe592b8e7a4922dccf8298541453baf41d60b001/src/convert/adapters/solidworks/Archive) ·
-[History hydration](../../automation/CaptureHistory.py)
+[History hydration](../../automation/CaptureHistory.py) ·
+[Candidate history gotcha](../../../Documentation/Gotchas/Git/CandidateHistoryDoesNotIncludeResearchRefs.md)
 
 ## Shared composition
 
@@ -116,6 +138,11 @@ The full-map worker preserves the original physical receipt, authored
 worker output and all 24 scoped wire and field digests. Its additional
 checkpoint receipt has SHA-256
 `e5b5fedb0fd269d2ccbe8a88a0974f93903555873825000f3f60f15fb0e596bd`.
+The self-contained queue reproduced the same full slot signatures
+`c0b2bbf640914d05b5ce0d8ac50e9ed02294632b2b4b6f7c040d1349b30b2e89`
+and `e86051175a467ba05274ee1c3a8245f60ffbfa94f73a7ca598ab2924bfd7ff2d`.
+The allocation tag receipt SHA-256 is
+`725d5f3530a99d2af1164de86452b72517485720f83343e1684d3b57b9d453f6`.
 
 The open note boundary starts at `moDetailDefs_c.f4d8`.
 The disclosed note helper cases have zero `n248` attachment rows.

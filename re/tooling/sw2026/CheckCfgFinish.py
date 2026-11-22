@@ -1,5 +1,4 @@
 from argparse import ArgumentParser
-from importlib import import_module
 import json
 from pathlib import Path
 from struct import pack
@@ -9,8 +8,8 @@ HERE = Path(__file__).resolve()
 sys.path[:0] = [str(HERE.parents[3] / "src"), str(HERE.parent)]
 
 from CfgFinishWire import authored
-from FinishSdkPin import pinned_config
-from TraceCfgFinish import FINISH, REVISION, ROLES, capture, field_digest, guard_runtime, source, wanted
+from CfgFinishTags import map_checkpoint, project_map
+from TraceCfgFinish import FINISH, REVISION, ROLES, field_digest, guard_runtime, source, wanted
 from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyWriter import BodyWriter
 from convert.adapters.solidworks.Archive.Bodies.FieldScope import FieldScope
@@ -27,12 +26,14 @@ from convert.adapters.solidworks.Archive.Maps.AddEntryMut import AddEntryMut
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Maps.BindNodesMut import BindNodesMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
-RECEIPT = source.ROOT / "re/solidworks/measurements/2026/ConfigFinishPhysical01.json"
+MEASUREMENTS = source.ROOT / "re/solidworks/measurements/2026"
+PHYSICAL = "61d54b4964e32ece97cf65c99bb073224ab7fa6c1cc408a310bc1b868971d731"
+FULL_MAP = "e5b5fedb0fd269d2ccbe8a88a0974f93903555873825000f3f60f15fb0e596bd"
+MAP_TAGS = "725d5f3530a99d2af1164de86452b72517485720f83343e1684d3b57b9d453f6"
 require, digest = source.require, source.digest
 
 
@@ -88,74 +89,70 @@ def exact_role(role, rows, config, part, maps):
     return finished
 
 
-def map_checkpoint(role, maps):
-    slots = list(maps.EntryMap)
-    require(slots == list(range(1, maps.CounterValue)) and maps.BaseValue == 4,
-            "native finish checkpoint has an incomplete or reordered map")
-    rows = []
-    for slot, cell in maps.EntryMap.items():
-        item = cell.EntryValue
-        if isinstance(item, (RuntimeClass, ExternalClass)):
-            require(maps.ClassLookup.get(item) == slot, "native class inverse lookup differs from its slot")
-            kind, descriptor, index = "class", item, None
-        else:
-            require(isinstance(item, ArchiveNode) and maps.ObjectLookup.get(id(item)) == slot,
-                    "native object inverse lookup differs from its slot")
-            kind, descriptor, index = "object", item.ClassValue, item.IndexValue
-        definition = descriptor.SchemaValue if isinstance(descriptor, RuntimeClass) else descriptor.IndexValue
-        rows.append([slot, kind, descriptor.NameValue, type(descriptor).__name__, definition, index])
-    classes, objects = len(maps.ClassLookup), len(maps.ObjectLookup)
-    require(classes + objects == len(slots) and classes > 0 and objects > 0, "native finish map lost mixed membership")
-    return {"role": role, "base": maps.BaseValue, "counter": maps.CounterValue,
-            "slots": slots, "classes": classes, "objects": objects, "slot_sha256": field_digest(rows)}
+def read_receipt(name, expected):
+    data = (MEASUREMENTS / name).read_bytes()
+    require(digest(data) == expected, "finish research receipt identity changed")
+    return json.loads(data)
 
 
-def trace_live_case(case, data):
-    with pinned_config():
-        reader = import_module(source.ARCHIVE + "Config.ReadConfigMut").ReadConfigMut
-        header_reader = import_module(source.ARCHIVE + "Header.ReadNativeHeader").ReadHeaderGraph
-        body = import_module(source.ARCHIVE + "Bodies.ReadBodyMut")
-        external = guard_runtime()
-        archive = SldprtArchive.from_bytes(data)
-        config = archive.require("Contents/Config-0")
-        header_bytes = archive.require("Contents/Config-0-ModelHeader")
-        require(archive.format_version == 4 and ContainerMo(archive.streams) == 19000
-                and digest(config) == case["config_sha256"] and digest(header_bytes) == case["header_sha256"],
-                "native archive stream proof differs")
-        seed = ReadPartStart(archive)
-        (seed_alias,) = HeaderRefNodes(seed.HeaderValue, 19000)
-        header = header_reader(header_bytes, 19000)
-        (linked_header,) = HeaderRefNodes(header, 19000)
-        prefix = [entry.IndexValue for entry in seed.MapValue.EntriesValue]
-        require(prefix == [1, 2, 3] and seed.BaseValue == 4 and seed_alias.ClassValue == linked_header.ClassValue,
-                "current SDK did not recover the native part and header prefix")
-
-        checkpoints, checks = [], []
-
-        def replay(role, rows, part, maps):
-            require(part.ClassValue == seed.RootValue.ClassValue and part.IndexValue == seed.RootValue.IndexValue
-                    and maps.EntryMap[3].EntryValue is linked_header, "finish helper received a foreign native prefix")
-            checkpoints.append(map_checkpoint(role, maps))
-            checks.extend(exact_role(role, rows, config, part, maps))
-
-        native_rows, terminal = capture(reader, body, config, 19000, header, linked_header, replay)
-        require(native_rows == case["rows"] and terminal == case["config_next_slot"],
-                "live physical boundaries differ from the pinned receipt")
-        require([row["role"] for row in checkpoints] == list(ROLES) and not external,
-                "bounded native verification missed a checkpoint or used external data")
-        return {"runtime_external_accesses": len(external), "prefix_anchors": prefix,
-                "native_checkpoints": checkpoints, "exact_intervals": checks}
-
-
-def native_case(name):
-    trace = json.loads(RECEIPT.read_bytes())
+def native_inputs(name):
+    trace = read_receipt("ConfigFinishPhysical01.json", PHYSICAL)
     require(trace["trace_revision"] == REVISION, "finish source trace pin changed")
     case = trace["cases"][name]
     path, expected = source.CASES[name]
     data = (source.ROOT / path).read_bytes()
     require(case["path"] == path and digest(data) == expected == case["file_sha256"],
             "tracked original changed")
-    return {"case": name, "native_source": expected, "trace_revision": REVISION} | trace_live_case(case, data)
+    return case, data
+
+
+def native_archive(case, data):
+    archive = SldprtArchive.from_bytes(data)
+    config = archive.require("Contents/Config-0")
+    header = archive.require("Contents/Config-0-ModelHeader")
+    require(archive.format_version == 4 and ContainerMo(archive.streams) == 19000
+            and digest(config) == case["config_sha256"] and digest(header) == case["header_sha256"],
+            "native archive stream proof differs")
+    return archive, config, header
+
+
+def native_case(name):
+    case, data = native_inputs(name)
+    witness = read_receipt("ConfigFinishMapTags01.json", MAP_TAGS)
+    require(witness["schema"] == "kit.sw2026.config-finish-map-tags.v1"
+            and witness["trace_revision"] == REVISION and witness["full_map_sha256"] == FULL_MAP,
+            "finish tag locators are not bound to the live-map trace")
+    offsets = witness["cases"][name]
+    full = read_receipt("ConfigFinishNativeMap01.json", FULL_MAP)
+    (original,) = [row for row in full["cases"] if row["case"] == name]
+    require(original["file_sha256"] == case["file_sha256"], "finish checkpoint belongs to a foreign source")
+    rows = {tuple(row["role"]): row for row in case["rows"]}
+
+    external = guard_runtime()
+    archive, config, _ = native_archive(case, data)
+    seed = ReadPartStart(archive)
+    (linked_header,) = HeaderRefNodes(seed.HeaderValue, 19000)
+    stop = min(rows[role]["interval"][0] for role in ROLES)
+    maps = project_map(config, seed, offsets, stop)
+    prefix = [entry.IndexValue for entry in seed.MapValue.EntriesValue]
+    require(prefix == original["prefix_anchors"] == [1, 2, 3]
+            and maps.EntryMap[2].EntryValue is seed.RootValue and maps.EntryMap[3].EntryValue is linked_header,
+            "finish helper received a foreign native prefix")
+
+    checkpoints, checks = [], []
+    for role, traced in zip(ROLES, original["native_checkpoints"], strict=True):
+        projected = map_checkpoint(list(role), maps)
+        measured = {key: value for key, value in projected.items() if key != "slots"}
+        measured.update(slot_count=len(projected["slots"]),
+                        slot_range_inclusive=[projected["slots"][0], projected["slots"][-1]])
+        require(measured == traced, "tag projection differs from the complete live native checkpoint")
+        checkpoints.append(projected)
+        checks.extend(exact_role(role, rows, config, seed.RootValue, maps))
+    require(not external, "bounded native verification used external data")
+    return {"case": name, "native_source": case["file_sha256"], "trace_revision": REVISION,
+            "map_method": "native_allocation_tags", "object_birth_tags": len(offsets),
+            "runtime_external_accesses": len(external), "prefix_anchors": prefix,
+            "native_checkpoints": checkpoints, "exact_intervals": checks}
 
 
 def authored_root():
