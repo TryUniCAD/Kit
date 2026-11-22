@@ -47,7 +47,10 @@ def TestPlanarWrite(TmpPath: FilePath) -> None:
         assembly=ReplaceValue(GraphValue, mates=tuple(reversed(GraphValue.mates))),
         capabilities=Document.capabilities | {Capability.KAssemblyMates},
     )
-    Settings = {**OptionsValue, "solidworks_native_measurement": Proof["measurement"]}
+    Settings: dict[str, object] = {
+        **OptionsValue,
+        "solidworks_native_measurement": Proof["measurement"],
+    }
     ResultValue = WriteDocument(
         Document,
         TargetValue,
