@@ -36,3 +36,11 @@ second driver and independently checks its first value after the edit.
 Original authoring, edit/save and reopened geometry use fresh processes
 with a known healthy control at both ends. The disclosed result supports
 field analysis and remains outside the protected qualification cohort.
+
+The first [native run](../measurements/2026/ChamferDistanceSourceProbe01.json)
+returned no feature for either case at `InsertFeatureChamfer`. The two
+controls passed in the four-process batch. Both source calls used zero
+`Width`, modes 18 and 2, and the documented equal or paired distance
+slots. No source parts were saved. The next disclosed probe changes only
+`Width` to the first setback. The installed native width accessor
+resolves the first distance owner at `f810` in both ordinary modes.

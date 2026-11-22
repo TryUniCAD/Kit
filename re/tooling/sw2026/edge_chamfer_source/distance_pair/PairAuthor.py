@@ -39,9 +39,9 @@ class PairAuthor(ChamferAuthor):
         mode = self.constants["swChamferDistanceDistance"]
         if case["equal"]:
             mode |= self.constants["swChamferEqualDistance"]
-            args = (0.0, 0.0, first, 0.0, 0.0, 0.0)
+            args = (first, 0.0, first, 0.0, 0.0, 0.0)
         else:
-            args = (0.0, 0.0, 0.0, first, second, 0.0)
+            args = (first, 0.0, 0.0, first, second, 0.0)
         self.rec.data["insertion"] = {"mode": mode, "arguments": args}
         self.rec.flush()
         feature = self.get(manager, "InsertFeatureChamfer", 0, mode, *args)

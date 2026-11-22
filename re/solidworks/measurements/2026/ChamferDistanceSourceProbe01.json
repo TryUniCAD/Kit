@@ -1,0 +1,66 @@
+{
+  "cases": [
+    {
+      "case": "EqualDistanceEdge",
+      "passed": false,
+      "phases": [
+        {
+          "artifact_sha256": null,
+          "first_failure": {
+            "error": "ValueError('native distance chamfer returned no feature')",
+            "pending_capability": false,
+            "stage": "InsertFeatureChamfer",
+            "type": "ValueError"
+          },
+          "passed": false,
+          "phase": "author",
+          "record_sha256": "5168595b4123c8c158c05e122b2238447e8c2533d4f455a88efc416228ba98d1",
+          "return_code": 1
+        }
+      ]
+    },
+    {
+      "case": "UnequalDistanceEdge",
+      "passed": false,
+      "phases": [
+        {
+          "artifact_sha256": null,
+          "first_failure": {
+            "error": "ValueError('native distance chamfer returned no feature')",
+            "pending_capability": false,
+            "stage": "InsertFeatureChamfer",
+            "type": "ValueError"
+          },
+          "passed": false,
+          "phase": "author",
+          "record_sha256": "352cd239e12d23be8e61f9735e78994677358b511cebd46c0d04235987f660ab",
+          "return_code": 1
+        }
+      ]
+    }
+  ],
+  "control_after": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-after",
+    "record_sha256": "61b6ab2899531c5e3305d2fe52e49c15864eb2e3abb16e299eff985f9e8bc636",
+    "return_code": 0
+  },
+  "control_before": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-before",
+    "record_sha256": "8dd3eb03af091814fc381544df861b96f9556435047cfcee81321e76e3d0478f",
+    "return_code": 0
+  },
+  "distinct_processes": 4,
+  "job_sha256": "6d4a30afeabf0f95a2ca1f6399528460dd435a7f893ea6175c750f478aef834a",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "registered_api_sha256": "e0d6ab1ea4be499999d10f3e01480e50fd071f0f8f60bd83d9ae984da1d6594d",
+  "schema": "kit.sw2026.chamfer-distance-source-probe.v1",
+  "source_revision": "bd44a86d09a227cd89bbfa288bd6975f22da1d1a"
+}
