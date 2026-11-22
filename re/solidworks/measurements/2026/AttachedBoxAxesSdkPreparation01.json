@@ -1,0 +1,479 @@
+{
+  "base": "a3eba445541f84983b5dd2b7f0a9d8f24c3d8a9a",
+  "candidate_manifest_sha256": "93189f21691fc1cd3ba0f26beb62541f85ac3f814ae68444d178f639099efe60",
+  "changed_preparation_files_sha256": {
+    "re/tooling/sw2026/attached_top_box_source/VerifyPreparedBoxAxes.py": "b8f8d899c8f5dfcc5361eed32437d9e2fa6037341f850f4c191f852b76c199eb",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/MakeHingePick.py": "8bb886dbf490314651aad15bb07b8607e3ac7008c6ba03387f7039a92442893e",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/AxisCross.py": "8d57543fa6a40a5af5649fc4c0c7a552f2cdd0f03346bf9348d54ddd467b00f0",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/AxisStations.py": "e124594065cc5650d14360a012ae228027a2533a7f474436d5d136c731e4b657",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/CheckAxisInput.py": "2a4245774df3fc1d62ad55a1a54ea998ee4b4c9a4dbd4dc3bd7a3b6142d45da3",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/EmitAxesPart.py": "b57407cbceb26d7cbedd3625e21fb27f10c21577cf0fee76b7a345aa74a427bb",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/FinishAxesPart.py": "4824f2424810158e0cfdb2d263fc720d9540d826391d3a6aea2a674cec00375e",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/MakeAxesHeaders.py": "b0bd5e75bfcb92788d33a54e60ad29fa5eed8fba7f5f8a5dc57331b385e6ee6b",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/MakePosAxisMut.py": "b9604971b5ec3ad49930b9bd0ac34be0e084c711f0308d372c9a0265375a63b8",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/PrincipalAxes.py": "f4233d937c2ab04945793215f189a6a040f899357e609c4cf05c758584881b27",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/PrincipalAxis.py": "2fed891cfa239d2278a32b56d1551b367f6d823e21213644923ba320b3bd0cc0",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/PrincipalAxisBasis.py": "d7c4b7df513c58177c1e929e50a807b5d911a5a5e2ad374cbbf94e80108a468d",
+    "src/convert/adapters/solidworks/Archive/Construction/Datums/PrincipalAxes/PutAxisViewsMut.py": "af204701deb38b57618262f1b405ed496fbae4e80cdd50744b5bcfc78e2d6faa",
+    "src/convert/adapters/solidworks/Archive/Construction/RectangleAnchors/MakeAnchorPart.py": "c71e1c7ae6215b299d4b625b6c28c134d568ebd13bbf4074e29d61f3fe452689",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/BoxAnchorInput.py": "993c3b693e9dff32acae4b3cadb07be9b178be049dc6018a3eab9f7216c879ab",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/CheckAxisStock.py": "ebebf052f94a39cd717fd56ad1abec88d3197d8ca6fbeaaa870f1e8dda91447e",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/MakeOriginBoxPart.py": "ad172b407cebf4da8c64cc0dd2889efc32c6d0965c1181b3751ce34f5ab01fd6",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/PrepareBoxAxes.py": "d0cb2a6420ec87fc0a75dbf4da3d6f8300eb555f0c06dd12e041694ac67a6048",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/ProjectBoxAxes.py": "6429ee6fe79f5090cdbabfd00a07653ae5ed9743520b64665b4ff284c594b27d"
+  },
+  "corpus_conversion_credits": 0,
+  "creation_epoch": 1793214309,
+  "guarded_child_processes": 2,
+  "independent_neutral_variants": {
+    "OffsetNamesBox": {
+      "archive": {
+        "bytes": 10175,
+        "sha256": "17535498cc9dbf697c4e310462be661fe68ae418cc16497c1650731f56d02643",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "af6e08826acf9232bb008bf773e58b43f571995d48d0091684595d50e19bba8f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877"
+          },
+          "Contents/Config-0": {
+            "bytes": 22406,
+            "sha256": "9119adbfc8a3d0da7ee492ef410a37a2d7406aaa10ad7e324b3546b36cb107da"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1001,
+            "sha256": "3b5c29c07dd51200b0e68525e6adefd329ce466408f4622e1143eacfcae77d59"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 21439,
+            "sha256": "05d384a65d599077555129fa3b4515bdda714a280a1e501fc1c935149e068a5b"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1001,
+            "sha256": "d5bc0dce2f40ebcd62e24c285d70890c9bfc80d526542716705cdbc8830b300a"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa"
+          },
+          "docProps/core.xml": {
+            "bytes": 402,
+            "sha256": "37dfb007c940ef8217d368be84c3087d580278e9bc897eb2e3673304efecc690"
+          },
+          "docProps/custom.xml": {
+            "bytes": 1108,
+            "sha256": "54740e2f4657f4c0a6b6ba530ad67d137bc450205ee6b22d1393fbf7cf882f12"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1680,
+            "sha256": "d2b8036c5ef8e7e86e6821db72243fa93770e47ac647b98ca41b3bafcca83815"
+          }
+        }
+      },
+      "model": {
+        "area_mm2": 1615.375,
+        "body": "Named OffsetNamesBox",
+        "independently_predicted_axis_ranges_mm": [
+          [
+            -1.5625,
+            32.8125
+          ],
+          [
+            -8.1375,
+            0.3875
+          ],
+          [
+            -0.7250000000000001,
+            15.225
+          ]
+        ],
+        "parameters_mm": {
+          "Depth": 7.75,
+          "Plan length": 14.5,
+          "Plan width": 31.25
+        },
+        "shape_id": "sldprt:body:1-prism-body",
+        "strict_axes": 3,
+        "volume_mm3": 3511.71875
+      }
+    },
+    "TallNeutralBox": {
+      "archive": {
+        "bytes": 10225,
+        "sha256": "35fb93646f1287eaee771980777349b34708d35bdafbf7cd1f4df7921ad7a762",
+        "streams": {
+          "Contents/CMgr": {
+            "bytes": 1129,
+            "sha256": "af6e08826acf9232bb008bf773e58b43f571995d48d0091684595d50e19bba8f"
+          },
+          "Contents/CMgrHdr2": {
+            "bytes": 137,
+            "sha256": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877"
+          },
+          "Contents/Config-0": {
+            "bytes": 22406,
+            "sha256": "77d0b50250775d254695822a6820209b6918fc8e06b6d707b9caec0a4c4bf3ba"
+          },
+          "Contents/Config-0-ModelHeader": {
+            "bytes": 1007,
+            "sha256": "685867a6277c08be0de90f39c7bddc17790d987b4b2ba5a4005eae95e9afdf9e"
+          },
+          "Contents/Config-0-ResolvedFeatures": {
+            "bytes": 21445,
+            "sha256": "88e5eec6b6eb88a2ffd50345536a424c61475d85b8310ace39f516af9aabd51c"
+          },
+          "Contents/Definition": {
+            "bytes": 459,
+            "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+          },
+          "Header2": {
+            "bytes": 1007,
+            "sha256": "c04eaf2f700f0cfd813048ca236c8d6cd992c442858d734923c5deefe43f2dc8"
+          },
+          "_MO_VERSION_19000/Biography": {
+            "bytes": 23,
+            "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+          },
+          "_MO_VERSION_19000/History": {
+            "bytes": 187,
+            "sha256": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa"
+          },
+          "docProps/core.xml": {
+            "bytes": 402,
+            "sha256": "35667182e62ca35fa605dd3d40513a618a9c4a057048727a7903055995e12877"
+          },
+          "docProps/custom.xml": {
+            "bytes": 1108,
+            "sha256": "0aef2e8a16ea71825711e7635b00d6b98d80ea45f3e73e5556ae0f81578b10e6"
+          },
+          "swXmlContents/KeyWords": {
+            "bytes": 1683,
+            "sha256": "e1c11d8a044a5ba2b7b335b19d2b4c70f8f12fb530c6a574b1525b414c75dbb0"
+          }
+        }
+      },
+      "model": {
+        "area_mm2": 3324.0625,
+        "body": "Named TallNeutralBox",
+        "independently_predicted_axis_ranges_mm": [
+          [
+            -0.55,
+            11.55
+          ],
+          [
+            -43.3125,
+            2.0625
+          ],
+          [
+            -1.15625,
+            24.28125
+          ]
+        ],
+        "parameters_mm": {
+          "Cut depth": 41.25,
+          "Horizon": 11.0,
+          "Tall reach": 23.125
+        },
+        "shape_id": "sldprt:body:1-prism-body",
+        "strict_axes": 3,
+        "volume_mm3": 10492.96875
+      }
+    }
+  },
+  "intact_document_capabilities": [
+    "body_structure",
+    "brep",
+    "configurations",
+    "native_payloads",
+    "parameters",
+    "parametric_history",
+    "provenance",
+    "roundtrip_metadata",
+    "support_planes"
+  ],
+  "native_locator": "C:\\KitAttachedBoxAxes01\\F14c.SLDPRT",
+  "native_trial_sha256": "0ac0c750cd671a2f4c5dcc7e3459d79a51199c3c0cd7220ba8cc2dd6a953ac38",
+  "new_heldout_credits": 0,
+  "new_native_processes": 0,
+  "ordinary_axis_free": {
+    "bytes": 10189,
+    "sha256": "398a092e45c9662f82881f8254a5728a8b6f7330b80e9f78c874de9e18d2f754",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "5a6cc90e12c5df9ce3d47e5ad9d48568284c17d396c723c9b74522927268694b"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 629,
+        "sha256": "a6326740ff92f4e961780db5188582c1dceea1b209acf36291d6a84c3ceab330"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 17987,
+        "sha256": "583fc198011a2e44fd736f6a5f8bff25a7e471f15a277c43b28992254bf0715f"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 629,
+        "sha256": "c9705f78e9fd9b87158c44c34277e00ade5df57840d3795609b1dad4c05e77dc"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1503,
+        "sha256": "393e431d53a7919e72764f78f39cade1029965c85929dee3d474edb4a27903b3"
+      }
+    }
+  },
+  "other_epoch_sha256": "b8297c1600643a92a813a6a4c9fcd0ace82706f87a341ca863c367f16a9ce97f",
+  "other_locator_sha256": "03418dfb62f4b0db2e11d991b1e2a5a93c485041cc62e32b28dcd6845949b061",
+  "passed": true,
+  "prepared": {
+    "bytes": 10707,
+    "sha256": "0d4cba0b66e443e487793204dc82985d5206704a0646b63afb1a4c410b1c54cc",
+    "streams": {
+      "Contents/CMgr": {
+        "bytes": 1129,
+        "sha256": "addd8067179375e3da59c7dad93b6074052b7e7aeb3fe5047746ae13611e21a5"
+      },
+      "Contents/CMgrHdr2": {
+        "bytes": 137,
+        "sha256": "149b417151fd2bf15b1f117f78529b39d451890868ecf0a6b144687eb98ae088"
+      },
+      "Contents/Config-0": {
+        "bytes": 22354,
+        "sha256": "3c1ed9195a26ca250322fbd1d3c6a4e100d082128b8a8b80f368e5f6040b5f5b"
+      },
+      "Contents/Config-0-ModelHeader": {
+        "bytes": 953,
+        "sha256": "912e0842cb91d3643169f294ed61582609bcf3f38f429f447143e16947473486"
+      },
+      "Contents/Config-0-ResolvedFeatures": {
+        "bytes": 21389,
+        "sha256": "124373c6523ee2e26b3fb0dd94643e38ad6d970fc5484406fc258c12e5eaec30"
+      },
+      "Contents/Definition": {
+        "bytes": 459,
+        "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+      },
+      "Header2": {
+        "bytes": 953,
+        "sha256": "74fba4ab46794b39c421b44f394085184e1b13f54ef3b753c12af6e1f82c42d0"
+      },
+      "_MO_VERSION_19000/Biography": {
+        "bytes": 23,
+        "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+      },
+      "_MO_VERSION_19000/History": {
+        "bytes": 187,
+        "sha256": "50dceb3dd600efa695d2513073f64eabca7097204f707b2e70012487ad7113b6"
+      },
+      "docProps/core.xml": {
+        "bytes": 490,
+        "sha256": "1ad6513af9df4e5e07a6a717b1d1bc6f64cf7fb9eac08b196013faff7df2085b"
+      },
+      "docProps/custom.xml": {
+        "bytes": 5202,
+        "sha256": "e7fce539f8513bdd7eb06d9e794b6c29c8b2d8e949496f4f05da02842ab2ea88"
+      },
+      "swXmlContents/KeyWords": {
+        "bytes": 1638,
+        "sha256": "a7e2ac3f3c206aa1587c339c7dea07ee280caf732699a14d2c8ef976cc4ae721"
+      }
+    }
+  },
+  "prior_control_receipt_sha256": "3b16c1abb7dd6240c4adb46e340f7b1167531a750553420bfc03b9f7139d2a89",
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.attached-box-axes-sdk-preparation.v1",
+  "source_axis_associations": [
+    {
+      "id": "1778",
+      "label": "X-axis",
+      "role": "X_Axis",
+      "target_id": 27
+    },
+    {
+      "id": "1779",
+      "label": "Y-axis",
+      "role": "Y_Axis",
+      "target_id": 28
+    },
+    {
+      "id": "1780",
+      "label": "Z-axis",
+      "role": "Z_Axis",
+      "target_id": 29
+    }
+  ],
+  "source_evidence": {
+    "document_xml_sha256": "9c867c35e25e3285f3771ca0076d975f0f2ab57ad0adcd151b53b4a08b4c047e",
+    "native_binding_sha256": "411eacc147d69b6605e289df250465d0593c5c9e0bda3b2f61a897bac2afe371",
+    "object_owners": {
+      "AdditiveBox": {
+        "dependencies": [
+          "Body",
+          "XZ_Plane"
+        ],
+        "object_id": "1784",
+        "type_id": "PartDesign::AdditiveBox"
+      },
+      "Body": {
+        "dependencies": [
+          "AdditiveBox",
+          "Origin",
+          "AdditiveBox"
+        ],
+        "object_id": "1776",
+        "type_id": "PartDesign::Body"
+      },
+      "Origin": {
+        "dependencies": [
+          "X_Axis",
+          "Y_Axis",
+          "Z_Axis",
+          "XY_Plane",
+          "XZ_Plane",
+          "YZ_Plane"
+        ],
+        "object_id": "1777",
+        "type_id": "App::Origin"
+      },
+      "XY_Plane": {
+        "dependencies": [],
+        "object_id": "1781",
+        "type_id": "App::Plane"
+      },
+      "XZ_Plane": {
+        "dependencies": [],
+        "object_id": "1782",
+        "type_id": "App::Plane"
+      },
+      "X_Axis": {
+        "dependencies": [],
+        "object_id": "1778",
+        "type_id": "App::Line"
+      },
+      "YZ_Plane": {
+        "dependencies": [],
+        "object_id": "1783",
+        "type_id": "App::Plane"
+      },
+      "Y_Axis": {
+        "dependencies": [],
+        "object_id": "1779",
+        "type_id": "App::Line"
+      },
+      "Z_Axis": {
+        "dependencies": [],
+        "object_id": "1780",
+        "type_id": "App::Line"
+      }
+    },
+    "shape_owners": {
+      "freecad:brep:AdditiveBox:AddSubShape": {
+        "bytes": 8717,
+        "coordinates": "feature-local",
+        "decoded_solid_id": "freecad:brep:AdditiveBox:AddSubShape:body:1",
+        "sha256": "e9b62e37300706d75df899a85944f4be846813449bbf3a89c189cd41ff07abf8",
+        "stream": "PartShape1.brp"
+      },
+      "freecad:brep:AdditiveBox:Shape": {
+        "bytes": 8941,
+        "coordinates": "model",
+        "decoded_solid_id": "freecad:brep:AdditiveBox:Shape:body:1",
+        "sha256": "042faea9316b0924bf0f9e90bcc2b8ca6f48b5de1d175ebc057effe97695ec1b",
+        "stream": "PartShape2.brp"
+      },
+      "freecad:brep:Body:Shape": {
+        "bytes": 6075,
+        "coordinates": "model",
+        "decoded_solid_id": "freecad:brep:Body:Shape:body:1",
+        "sha256": "8cb4ab10312732235fee57033c87621fa257892a8014c5e54af82aecc250a005",
+        "stream": "PartShape.brp"
+      }
+    },
+    "source_provenance_owners": [
+      "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+      "AdditiveBox",
+      "AdditiveBox.AddSubShape",
+      "AdditiveBox.Shape",
+      "Body",
+      "Body.Shape",
+      "Document.xml"
+    ]
+  },
+  "source_sha256": "25c836424406343439bd3fa9acd82f8e6dbabdae689fe2a799099bf73805aafb",
+  "strict_known": {
+    "area_mm2": 2200.0,
+    "body": "Body",
+    "independently_predicted_axis_ranges_mm": [
+      [
+        -1.0,
+        21.0
+      ],
+      [
+        -10.5,
+        0.5
+      ],
+      [
+        -1.5,
+        31.5
+      ]
+    ],
+    "parameters_mm": {
+      "Height": 10.0,
+      "Length": 20.0,
+      "Width": 30.0
+    },
+    "shape_id": "sldprt:body:1-prism-body",
+    "strict_axes": 3,
+    "volume_mm3": 6000.0
+  },
+  "targeted_refusals": {
+    "crossed_axis_order": "unsupported principal axis name, carrier, order or visibility",
+    "duplicate_owner_label": "native part features require distinct authored names",
+    "exact_sketch_word_disagrees": "attached axis stock requires exact live driver distances",
+    "foreign_origin_label": "principal axes require the actual enabled model origin",
+    "hidden_axis": "unsupported principal axis name, carrier, order or visibility",
+    "hidden_origin": "principal axes require the actual enabled model origin",
+    "reversed_axis": "unsupported principal axis name, carrier, order or visibility",
+    "shifted_axis": "unsupported principal axis name, carrier, order or visibility",
+    "unowned_document_property": "plain boss candidate does not admit unprojected document metadata",
+    "wrong_basename": "native self filename must match the actual modeled part name"
+  }
+}

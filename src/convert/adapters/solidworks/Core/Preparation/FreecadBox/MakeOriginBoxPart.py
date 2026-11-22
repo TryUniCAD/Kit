@@ -1,8 +1,5 @@
 from dataclasses import replace as ReplaceValue
 
-from convert.adapters.solidworks.Archive.Construction.BodyNames.AnchorPartInput import (
-    AnchorPartInput,
-)
 from convert.adapters.solidworks.Archive.Construction.BodyNames.MakeAnchorNamed import (
     MakeAnchorNamed,
 )
@@ -24,11 +21,11 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import (
     PartBuildInput,
 )
-from convert.adapters.solidworks.Archive.Construction.SketchDimensions.RectDimInput import (
-    RectDimInput,
-)
 from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.BoxAnchorInput import (
+    BoxAnchorInput,
+)
 from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from convert.adapters.solidworks.Core.Preparation.RequirePartPath import RequirePartPath
 from interchange.document.Models.DocumentModel import CadDocument
@@ -54,9 +51,7 @@ def MakeOriginBox(
         BindPartIntent(PlainValue, PlanValue, RecipeValue, OutputValue),
         PropertiesValue=TextValue,
     )
-    return BuildOriginBox(
-        DocumentValue, PlanValue, InputValue, TopAttached=TopAttached
-    )
+    return BuildOriginBox(DocumentValue, PlanValue, InputValue, TopAttached=TopAttached)
 
 
 # primitive lowering and explicit neutral intent must generate the same origin geometry and editable driver presentations
@@ -67,22 +62,8 @@ def BuildOriginBox(
     *,
     TopAttached: bool,
 ) -> PartCandidate:
-    Margin = min(PlanValue.WidthValue, PlanValue.HeightValue) / 4
-    WidthText = (PlanValue.WidthValue / 2, Margin if TopAttached else -Margin)
-    HeightText = (
-        (-Margin, -PlanValue.HeightValue / 2)
-        if TopAttached
-        else (PlanValue.WidthValue + Margin, PlanValue.HeightValue / 2)
-    )
-    Presentation = RectDimInput(
-        WidthText,
-        HeightText,
-        False,
-        1,
-        False,
-    )
     return MakeAnchorNamed(
-        DocumentValue, InputValue, AnchorPartInput("corner", Presentation, TopAttached)
+        DocumentValue, InputValue, BoxAnchorInput(PlanValue, TopAttached)
     )
 
 
