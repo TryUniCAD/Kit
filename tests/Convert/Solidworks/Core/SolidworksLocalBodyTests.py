@@ -38,7 +38,7 @@ from interchange.Enums.EnumDocument import Severity
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.geometry.Models.VectorSpace import SpaceVector
 from tests.Convert.Api.ApiTestPaths import KRootPath
-from tests.Convert.Solidworks.Core.AssertLocalIds import AssertLocalIds
+from tests.Convert.Solidworks.Core.Readers.AssertLocalIds import AssertLocalIds
 
 # both positive containers are the exact disclosed inputs to the native probe
 KLocalParts = KRootPath / "re/solidworks/v2026/corpus/local-import-readback"

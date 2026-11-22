@@ -1,15 +1,14 @@
 # FCStd to SOLIDWORKS corpus coverage
 
 Status: **0 of 165 FCStd parts and 0 of five FCStd assemblies qualified**.
-PR #121's generative public writer accepts bounded line-loop, circle
-and equation profiles, the selected two-stock circular through cut,
-and standalone geometry-only periodic cylinders and axis-aligned
-rectangular solids.
-The four fixed-centre circle profiles cover blind, symmetric mid-plane
-and two-direction ends. The branch also writes a rectangular partial
-boss revolve on the canonical Top or Right plane. Its held-out native
-SOLIDWORKS examples belong to distinct evaluations. The historical FCStd audit below used vendor
-stream re-emission. That writer was removed from production.
+The generative writer publishes the measured scopes listed in the
+[SOLIDWORKS adapter guide](../../Documentation/Reference/Adapters/Solidworks.md#writing).
+The development branch also contains model-only preparation for
+fixed-centre circular bosses, dimension equations, selected-stock
+through cuts, principal-plane revolves and standalone geometry-only
+fallbacks. The linked native-authored experiments measure those
+scoped constructions independently of the FCStd benchmark.
+The historical FCStd audit below used the retired stream-replay writer.
 [Native part writer](../../Documentation/Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 [Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)

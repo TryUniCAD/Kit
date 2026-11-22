@@ -53,5 +53,6 @@ def PrepareProbe(Document: CadDocument, TargetPath: FilePath, WrittenAt: int) ->
     assert RawValue and PathPart.BytesValue == RawValue
     TargetPath.parent.mkdir(parents=True, exist_ok=True)
     with TargetPath.open("xb") as OutputFile:
-        assert OutputFile.write(PathPart.BytesValue) == len(RawValue)
+        WrittenSize = OutputFile.write(PathPart.BytesValue)
+        assert WrittenSize == len(RawValue)
     return RawValue
