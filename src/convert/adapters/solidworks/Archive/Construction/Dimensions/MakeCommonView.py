@@ -34,6 +34,19 @@ def MakeCommonView(
     HandleValue: ArchiveNode, DesignIntent: bool, SelectedLeader: int, TextKind: int
 ) -> dict[str, object]:
     OwnerValue = RequireDisplay(HandleValue, DesignIntent, SelectedLeader, TextKind)
+    return MakeViewForOwn(
+        OwnerValue, HandleValue, DesignIntent, SelectedLeader, TextKind
+    )
+
+
+# an independently validated display owner can share the ordinary initial display state
+def MakeViewForOwn(
+    OwnerValue: ArchiveNode,
+    HandleValue: ArchiveNode,
+    DesignIntent: bool,
+    SelectedLeader: int,
+    TextKind: int,
+) -> dict[str, object]:
     FieldsValue: dict[str, object] = {
         **MakeViewFields(FieldInt(OwnerValue.FieldsValue, "f2b0"), 524416),
         "f6a0": MakeTextFields(TextKind),
