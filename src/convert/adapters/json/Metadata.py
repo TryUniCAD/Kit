@@ -19,7 +19,7 @@ KInfoValue = AdapterInfo(
     extensions=(KSuffix,),
     capabilities=frozenset(Capability),
     native_capabilities=frozenset(Capability),
-    media_types=("application/vnd.parashell.kit+json",),
+    media_types=("application/vnd.unicad.kit+json",),
     part_extensions=(KSuffix,),
     assembly_extensions=(KSuffix,),
 )

@@ -103,6 +103,13 @@ kit research --root /path/to/KitPr94 controller --store /tmp/KitResearchState st
 Use `controller --help` for evidence binding, batch submission, claims, lease renewal, and result submission.
 The CLI preserves stale-lease status `3` and the controller's integrity checks.
 
+The attribution migration preserves the original capture lineage contract and Fusion outcome baseline.
+Capture intake reports the original and current input identities plus the four reviewed text migrations.
+Other content, mode, roster, or native-asset changes still fail validation.
+The Fusion census reports its historical and current manifest hashes separately.
+Only the documented metadata-only hash pair is accepted across that migration.
+See [attribution queue repairs](../Changes/Ci/AttributionQueueRepair.md).
+
 ## Run configured sessions
 
 Prepare an actual runner registry and `Supervisor.json` with the [supervisor guide](../Reference/Research/ResearchSupervisor.md).

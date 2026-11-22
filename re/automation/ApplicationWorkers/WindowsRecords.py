@@ -272,4 +272,8 @@ def open_record(path):
             raise FileNotFoundError(
                 errno.ENOENT, "Windows application record not found", str(path), error.winerror
             ) from error
+        if not handle_opened and error.winerror == _SHARING_VIOLATION:
+            raise BlockingIOError(
+                errno.EAGAIN, "Windows application record is busy", str(path), error.winerror
+            ) from error
         raise OSError(f"Windows application record failed: {error.winerror}") from error
