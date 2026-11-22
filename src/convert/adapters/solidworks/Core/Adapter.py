@@ -961,15 +961,15 @@ def AsmDoc(
         ResolveComponents=ResolveComponents,
         RootPath=None if Readback is None else PathValue(Label),
     )
-    Instances = AsmInstances(Native)
-    Definitions, Instances = WithNestedIndex(
+    Definitions, Instances, IndexConflict = WithNestedIndex(
         Archive,
         Native,
         DocIds,
         LinkedDocuments,
         Definitions,
-        Instances,
+        AsmInstances(Native),
         Enabled=ResolveComponents,
+        Strict=Settings.strict,
         SourceKey=KSourceBytesKey,
     )
     MateSourceValues, SourceDiagnostics = MateSources(
@@ -1020,6 +1020,14 @@ def AsmDoc(
         + DocDiagnostics
         + SourceDiagnostics
     )
+    if IndexConflict is not None:
+        Diagnostics += (
+            DiagValue(
+                code="sldasm.nested_index_conflict",
+                message=IndexConflict,
+                severity=Severity.WARNING,
+            ),
+        )
     PathRecords = Flattened(Native, Definitions)
     LinkedPartDocuments = tuple(
         (

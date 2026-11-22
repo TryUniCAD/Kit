@@ -51,7 +51,7 @@ def TestNoAxis() -> None:
         MakeDimNest(), r"C:\KitNestedQueue\QueueFrame.SLDASM", 1794011937
     )
     Payload = MakeAxisGap(Candidates[0][1].BytesValue)
-    Diagnostic = "invalid typed dimensioned cold leaf"
+    Diagnostic = "typed rectangle requires two drivers and four owned axes"
     for Geometry in (False, True):
         with RaisesError(SldprtFormat, match=Diagnostic):
             _ = OpenDocument(

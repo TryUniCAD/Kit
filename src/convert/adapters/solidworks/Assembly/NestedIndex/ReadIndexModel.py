@@ -5,6 +5,7 @@ from convert.adapters.solidworks.Archive.Config.ReadConfigMut import ReadConfigM
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
 from convert.adapters.solidworks.Assembly.Assembly import NativeAsmA, NativeAsmFile
 from convert.adapters.solidworks.Assembly.NestedIndex.IndexModel import IndexModel
+from convert.adapters.solidworks.Assembly.NestedIndex.IndexConflict import IndexConflict
 from convert.adapters.solidworks.Assembly.PlanarMates.ChildSelection import ReadFileKey
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
@@ -40,7 +41,7 @@ def ReadIndexModel(
         or FileKey[3] != FileValue.creation_time
         or PureWindowsPath(FileKey[1]) != PureWindowsPath(FileValue.source_path)
     ):
-        raise ValueError("nested index file does not match its physical header")
+        raise IndexConflict("nested index file does not match its physical header")
     Config = ReadConfigMut(
         Archive.require("Contents/Config-0"),
         VersionValue,
