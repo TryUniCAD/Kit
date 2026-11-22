@@ -1,3 +1,5 @@
+from collections.abc import Sequence
+
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.CmgrHeader.ReadMgrHeader import ReadMgrHeader
@@ -7,19 +9,29 @@ from convert.adapters.solidworks.Archive.Header.HeaderFields import KHeaderVersi
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import KitResolvedStream
+from convert.adapters.solidworks.Core.Partition.ActivePartition import ActivePartition
 from convert.adapters.solidworks.Core.TypedResolved.Materials.BindNamedMat import (
     BindNamedMat,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Materials.CheckMatSolid import (
+    CheckMatSolid,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Materials.CheckMatTree import (
     CheckMatTree,
+    KMaterialTree,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Materials.NamedMatRead import (
     NamedMatRead,
 )
+from interchange import BrepPayload
 
 
 # assigned material inspection is deliberately explicit and reads only its bounded ordinary part profile
-def ReadNamedMat(ArchiveValue: SldprtArchive) -> NamedMatRead:
+def ReadNamedMat(
+    ArchiveValue: SldprtArchive,
+    Payloads: Sequence[BrepPayload] = (),
+    Active: ActivePartition | None = None,
+) -> NamedMatRead:
     StreamsValue = ArchiveValue.Streams
     ConfigName = "Contents/Config-0"
     VersionValue = ContainerMo(StreamsValue)
@@ -48,5 +60,6 @@ def ReadNamedMat(ArchiveValue: SldprtArchive) -> NamedMatRead:
     )
     HeaderValue = ReadMgrHeader(ArchiveValue.Require("Contents/CMgrHdr2"), VersionValue)
     ReadValue = BindNamedMat(PartGraph, ManagerValue, HeaderValue)
-    CheckMatTree(ArchiveValue.Require("swXmlContents/MATERIALTREE"), ReadValue)
+    CheckMatTree(ArchiveValue.require(KMaterialTree), ReadValue)
+    CheckMatSolid(ArchiveValue, ReadValue.AtomId, Payloads, Active)
     return ReadValue

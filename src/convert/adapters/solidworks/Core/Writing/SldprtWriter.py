@@ -28,6 +28,7 @@ from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from convert.adapters.solidworks.Core.Writing.CanWriteSldDoc import CanWriteSldDoc
 from convert.adapters.solidworks.Core.Writing.StockEndWriter import StockEndWriter
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
+from convert.adapters.base.Materials.CheckMatState import CheckMatState
 from convert.Formats.CheckSourceText import CheckSourceText
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -58,6 +59,7 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         destination: KTargetType,
         options: WriteOptions | None = None,
     ) -> WriteResult:
+        CheckMatState(document)
         CheckResearch(document)
         CheckInchWrite(document)
         CheckEquations(document)

@@ -5,11 +5,9 @@ from functools import partial as PartialValue
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
 from convert.adapters.solidworks.Archive.Bodies.ReadBodyMut import ReadBodyMut
+from convert.adapters.solidworks.Archive.Cmgr.BindMatMgrMut import BindMatMgrMut
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Cmgr.MakeCmgrContext import MakeCmgrContext
-from convert.adapters.solidworks.Archive.Config.Material.BindMatReadMut import (
-    BindMatReadMut,
-)
 from convert.adapters.solidworks.Archive.Maps.ArchiveMaps import ArchiveMaps
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.ExternalClass import ExternalClass
@@ -30,7 +28,7 @@ def ReadCmgrMut(
 ) -> CmgrGraph:
     ContextValue = MakeCmgrContext(VersionValue, UsageValue)
     if ReadMaterial:
-        BindMatReadMut(ContextValue)
+        BindMatMgrMut(ContextValue)
     ReaderValue = GraphReader(
         BinaryReader(BufferValue),
         ArchiveMaps(1),

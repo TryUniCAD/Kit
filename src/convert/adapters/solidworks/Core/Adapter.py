@@ -214,6 +214,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart im
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc import (
     WithPatternDoc,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Materials.WithPartMat import (
+    WithPartMat,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.WithSavedFillet import (
     WithSavedFillet,
 )
@@ -695,19 +698,20 @@ def ReadNativePart(
         DocValue = BindSpecialPart(DocValue, ShapeValue)
     elif StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
-    return FinishPartDoc(
-        BindStockDoc(
-            BindColdPart(DocValue, ColdValue),
-            (
-                StockValue.LineageValue
-                if StockValue is not None
-                else (
-                    ColdValue.OwnersValue
-                    if isinstance(ColdValue, ColdStockPart)
-                    else None
-                )
-            ),
+    DocValue = BindStockDoc(
+        BindColdPart(DocValue, ColdValue),
+        (
+            StockValue.LineageValue
+            if StockValue is not None
+            else (
+                ColdValue.OwnersValue
+                if isinstance(ColdValue, ColdStockPart)
+                else None
+            )
         ),
+    )
+    return FinishPartDoc(
+        WithPartMat(DocValue, Archive, Payloads, ActivePart),
         Archive,
         Model.active_configuration_id,
         DerivedValue,

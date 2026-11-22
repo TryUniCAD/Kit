@@ -9,6 +9,8 @@ class NamedMatRead:
     MaterialName: str
     NativeId: int
     DensityValue: float
+    AtomId: int
+    FeatureId: int
     PendingDomains: tuple[str, str] = DataField(
         default=("appearance", "material_tree"), init=False
     )

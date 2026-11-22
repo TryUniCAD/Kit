@@ -7,6 +7,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Materials.NamedMatRead impor
 # the saved material document qualifies its own namespace independently of the archive identity
 KMaterialTreeRoot = "{http://www.solidworks.com/sldmaterials}materials"
 
+# the saved part assignment has one specific xml stream owner
+KMaterialTree = "swXmlContents/MATERIALTREE"
+
 
 # the xml configuration and density must corroborate the binary assignment
 def CheckMatTree(DataValue: bytes, ReadValue: NamedMatRead) -> None:

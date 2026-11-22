@@ -1,7 +1,8 @@
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
-from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrRows import ReadCmgrRows
-from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrText import ReadCmgrText
+from convert.adapters.solidworks.Core.TypedResolved.Materials.ReadMatText import (
+    ReadMatText,
+)
 from convert.adapters.solidworks.Archive.CmgrHeader.ManagerGraph import ManagerGraph
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Core.TypedResolved.Materials.CheckMatSlots import (
@@ -18,18 +19,20 @@ def ReadMatCfg(
     ManagerValue: CmgrGraph, HeaderValue: ManagerGraph, PartValue: ArchiveNode
 ) -> ArchiveNode:
     ManagerFields = ManagerValue.RootValue.FieldsValue
-    ConfigRows = ReadCmgrRows(ManagerValue.RootValue)
+    DirectoryList = NativeRecord(ManagerFields.get("f370"))
+    ConfigRows = NativeRows(DirectoryList.get("items"))
     HeaderList = NativeRecord(HeaderValue.RootValue.FieldsValue.get("f08"))
     HeaderRows = NativeRows(HeaderList.get("items"))
     if (
         len(ConfigRows) != 1
         or len(HeaderRows) != 1
-        or (ManagerFields.get("f40c"), HeaderList.get("n")) != (1, 1)
+        or (ManagerFields.get("f40c"), DirectoryList.get("n"), HeaderList.get("n"))
+        != (1, 1, 1)
     ):
         raise BodyUnsupported(
             "SOLIDWORKS assigned material requires one configuration directory row"
         )
-    ConfigValue = RequireNative(ConfigRows[0], "moPartConfiguration_c")
+    ConfigValue = RequireNative(ConfigRows[0].get("o"), "moPartConfiguration_c")
     HeaderRow = RequireNative(HeaderRows[0].get("o"), "dmConfigHeader_c")
     Fields = ConfigValue.FieldsValue
     Directory = HeaderRow.FieldsValue
@@ -44,7 +47,7 @@ def ReadMatCfg(
         != (0, 0, None)
         or tuple(Directory.get(NameValue) for NameValue in ("f08", "f30", "f34", "f40"))
         != (1, 0, -1, 0)
-        or ReadCmgrText(Directory.get("f10")) != ReadNativeName(ConfigValue)
+        or ReadMatText(Directory.get("f10")) != ReadNativeName(ConfigValue)
         or Directory.get("f38") != Fields.get("f860")
         or Directory.get("f48") != Fields.get("fbd0")
         or type(FlagsValue) is not int

@@ -1,6 +1,9 @@
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.CmgrHeader.ManagerGraph import ManagerGraph
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
+from convert.adapters.solidworks.Core.TypedResolved.Materials.CheckMatLink import (
+    CheckMatLink,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Materials.CheckMatAtoms import (
     CheckMatAtoms,
 )
@@ -26,11 +29,18 @@ def BindNamedMat(
 ) -> NamedMatRead:
     PartValue = RequireNative(PartGraph.RootValue, "moPart_c")
     ConfigValue = ReadMatCfg(ManagerValue, HeaderValue, PartValue)
-    CheckMatAtoms(PartGraph, ConfigValue, ManagerValue.RootValue)
+    AtomId, FeatureId = CheckMatAtoms(PartGraph, ConfigValue, ManagerValue.RootValue)
+    CheckMatLink(ManagerValue, ConfigValue, AtomId, FeatureId)
     DensityValue = ReadMatDensity(PartGraph, ConfigValue)
     CatalogValue, MaterialName, NativeId = ReadMatIdent(
         PartGraph, ManagerValue, ConfigValue
     )
     return NamedMatRead(
-        ReadNativeName(ConfigValue), CatalogValue, MaterialName, NativeId, DensityValue
+        ReadNativeName(ConfigValue),
+        CatalogValue,
+        MaterialName,
+        NativeId,
+        DensityValue,
+        AtomId,
+        FeatureId,
     )
