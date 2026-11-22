@@ -8,4 +8,4 @@ each input read-only and verifies its original hash. Raw native
 observations stay on Windows. Host verification checks the frozen
 tool and disclosure hashes. Native observation and appearance transfer
 qualification remain pending.
-[Packet method and commands](../../re/solidworks/records/AssignedMaterialAppearanceGetters2026.md)
+[Packet method and commands](../../../../re/solidworks/records/AssignedMaterialAppearanceGetters2026.md)
