@@ -13,8 +13,8 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind 
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadRectSketch import (
     ReadRectSketch,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadLength import (
-    ReadLength,
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadRectLength import (
+    ReadRectLength,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadRectParams import (
     ReadRectParams,
@@ -37,6 +37,9 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
             "dimensioned rectangle requires exactly three lengths one sketch and one boss"
         )
     WidthParam, HeightParam, DepthParam = ReadRectParams(DocumentValue)
+    WidthValue = ReadRectLength(WidthParam.value)
+    HeightValue = ReadRectLength(HeightParam.value)
+    _ = ReadRectLength(DepthParam.value)
     SketchValue = DocumentValue.sketches[0]
     CheckRectRules(SketchValue, (WidthParam, HeightParam))
     BareSketch = ReplaceValue(SketchValue, constraints=(), parameter_ids=())
@@ -56,8 +59,6 @@ def ProjectRectDims(DocumentValue: CadDocument) -> BlindPlan:
         raise ValueError(
             "dimensioned rectangle must follow its admitted local axis order"
         )
-    WidthValue = ReadLength(WidthParam.value)
-    HeightValue = ReadLength(HeightParam.value)
     for DriverValue, LowerValue, UpperValue in (
         (WidthValue, FirstU, LastU),
         (HeightValue, FirstV, LastV),

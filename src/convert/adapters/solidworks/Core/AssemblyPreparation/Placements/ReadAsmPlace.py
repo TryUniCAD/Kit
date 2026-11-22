@@ -22,8 +22,14 @@ def ReadAsmPlace(Value: ComponentInst) -> OccurrenceIn:
         for ColumnIndex in range(4)
     )
     _ = ReadMateFrame(NativeValue)
+    Position = (Matrix[3], Matrix[7], Matrix[11])
+    OriginValue = (Position[0] * 0.001, Position[1] * 0.001, Position[2] * 0.001)
+    RequireAsm(
+        tuple(Length * 1000.0 for Length in OriginValue) == Position,
+        "native assembly placement cannot preserve the authored translation",
+    )
     FrameValue = MakePlaneFrame(
-        (Matrix[3] * 0.001, Matrix[7] * 0.001, Matrix[11] * 0.001),
+        OriginValue,
         (Matrix[0], Matrix[4], Matrix[8]),
         (Matrix[1], Matrix[5], Matrix[9]),
     )

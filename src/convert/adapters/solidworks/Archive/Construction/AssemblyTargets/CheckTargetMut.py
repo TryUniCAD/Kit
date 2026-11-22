@@ -13,7 +13,7 @@ from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocu
 
 
 # recursive generation must preserve a finite acyclic actual definition graph while allowing one generated target to serve repeated placements
-def CheckTarget(TargetValue: TargetDocument, AuditValue: TargetAudit) -> None:
+def CheckTargetMut(TargetValue: TargetDocument, AuditValue: TargetAudit) -> None:
     Pending: list[tuple[TargetDocument, bool]] = [(TargetValue, False)]
     ActiveValues: set[int] = set()
     while Pending:
@@ -23,7 +23,7 @@ def CheckTarget(TargetValue: TargetDocument, AuditValue: TargetAudit) -> None:
         IdentityValue = id(CurrentValue.RootValue)
         if IsLeaving:
             ActiveValues.remove(IdentityValue)
-            AuditValue.RecordTarget(CurrentValue)
+            AuditValue.StoreTargetMut(CurrentValue)
             continue
         if IdentityValue in ActiveValues:
             raise ValueError("generated target definition graph contains a cycle")
