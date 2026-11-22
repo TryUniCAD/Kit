@@ -183,6 +183,19 @@ from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.StockDesigns
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.WithCutSelection import (
     BindCutStock,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.BindEllipDoc import (
+    BindEllipDoc,
+    BindEllipModel,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.EllipPartRead import (
+    EllipPartRead,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.Geometry.BuildEllipGeom import (
+    BuildEllipGeom,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Ellipses.TryEllipPart import (
+    TryEllipPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdOutput.BindColdPart import (
     BindColdPart,
 )
@@ -484,7 +497,7 @@ def ReadAction(
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 
-# chamfer geometry and semantics must come from the same proof before invoking generic cache and legacy paths
+# specific geometry and semantics must come from the same proof before invoking generic cache and legacy paths
 def SelectPartShape(
     Archive: SldprtArchive, Settings: ReadOptions,
 ) -> tuple[
@@ -492,7 +505,7 @@ def SelectPartShape(
     StockCacheGeom | None,
     ColdStockPart | ColdRevolvePart | ColdPatPart | None,
     PartGeometry | None,
-    ChmfPartRead | None,
+    ChmfPartRead | EllipPartRead | None,
 ]:
     NativeValue = NativePartModel(Archive, Settings.configuration)
     ChmfValue = TryColdChmf(Archive, NativeValue, Settings)
@@ -501,6 +514,12 @@ def SelectPartShape(
             BuildChmfGeom(ChmfValue, KPartBodyId) if Settings.include_brep else None
         )
         return BindChmfModel(NativeValue, ChmfValue), None, None, Geometry, ChmfValue
+    EllipValue = TryEllipPart(Archive, NativeValue, Settings)
+    if EllipValue is not None:
+        Geometry = (
+            BuildEllipGeom(EllipValue, KPartBodyId) if Settings.include_brep else None
+        )
+        return BindEllipModel(NativeValue, EllipValue), None, None, Geometry, EllipValue
     Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
         Archive, NativeValue, Settings, KPartBodyId
     )
@@ -511,6 +530,15 @@ def SelectPartShape(
     return Model, StockValue, ColdValue, DerivedValue, None
 
 
+# specialized conic and edge families retain the exact linked proof supplied before public projection
+def BindSpecialPart(
+    DocValue: CadDoc, ShapeValue: ChmfPartRead | EllipPartRead,
+) -> CadDoc:
+    if isinstance(ShapeValue, ChmfPartRead):
+        return BindChmfDoc(DocValue, ShapeValue)
+    return BindEllipDoc(DocValue, ShapeValue)
+
+
 # native part reconstruction stays separate because assembly and embedded documents bypass this model path
 def ReadNativePart(
     Instance: SldprtAdapter,
@@ -519,7 +547,7 @@ def ReadNativePart(
     Label: str,
     Settings: ReadOptions,
 ) -> CadDoc:
-    Model, StockValue, ColdValue, DerivedValue, ChmfValue = SelectPartShape(
+    Model, StockValue, ColdValue, DerivedValue, ShapeValue = SelectPartShape(
         Archive, Settings
     )
     ConfigValues = Configurations(Model, Settings.configuration)
@@ -641,8 +669,8 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    if ChmfValue is not None:
-        DocValue = BindChmfDoc(DocValue, ChmfValue)
+    if ShapeValue is not None:
+        DocValue = BindSpecialPart(DocValue, ShapeValue)
     elif StockValue is None and DerivedValue is None:
         DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
     return FinishPartDoc(

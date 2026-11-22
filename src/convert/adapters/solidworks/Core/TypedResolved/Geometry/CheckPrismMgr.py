@@ -1,3 +1,5 @@
+from typing import Literal as TypeLiteral
+
 from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Construction.Configuration.ConfigFieldSets import (
     KManagerArrays,
@@ -12,10 +14,16 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # the separate manager must prove a sole selected configuration rather than trusting keyword names or the first stored lane
-def CheckPrismMgr(ManagerValue: CmgrGraph) -> None:
+def CheckPrismMgr(
+    ManagerValue: CmgrGraph, *, CompressedValue: TypeLiteral[0, 1] = 0
+) -> None:
     Fields = ManagerValue.RootValue.FieldsValue
     RowsValue = NativeRows(NativeRecord(Fields.get("f370")).get("items"))
-    if len(RowsValue) != 1 or Fields.get("f40c") != 1 or Fields.get("f658") != 0:
+    if (
+        len(RowsValue) != 1
+        or Fields.get("f40c") != 1
+        or Fields.get("f658") != CompressedValue
+    ):
         raise ValueError("cache free prism requires one ordinary manager configuration")
     ConfigValue = RequireNative(RowsValue[0].get("o"), "moPartConfiguration_c")
     if Fields.get("f360") is not ConfigValue or Fields.get("f368") is not ConfigValue:

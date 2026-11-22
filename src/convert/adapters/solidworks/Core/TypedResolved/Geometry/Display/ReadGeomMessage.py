@@ -1,6 +1,7 @@
 # reconstructed geometry needs a precise public diagnostic without changing existing family messages
 def ReadGeomMessage(MethodValue: str) -> str:
     Messages = {
+        "typed_parametric_full_ellipse": "B-rep reconstructed from the typed full ellipse and live blind boss depth",
         "typed_parametric_ordinary_chamfer": "B-rep reconstructed from the typed rectangular stock and signed angle-distance chamfer",
         "typed_parametric_blind_circular_pocket": "B-rep reconstructed from the typed rectangular boss and blind circular cut",
         "typed_parametric_through_all_circular_cut": "B-rep reconstructed from the typed rectangular stock and through-all circular cut",

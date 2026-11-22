@@ -582,6 +582,12 @@ profiles:
 - A partial square Mid Plane or Two Directions boss revolve on either of those planes, with four unary contour relations and one ordered equal-length relation. The Mid Plane case uses one total D1. [Square profile writing](../../Changes/Solidworks/Construction/Revolve/SolidworksSquareRevolvePublicParity.md)
 - A forward partial thin boss revolve on a canonical principal plane, with one ordered open axial line and a separate selected centreline. The writer retains the angle and each active wall driver. The strict cold reader derives the analytic solid from those owners. [Thin revolve writing](../../Changes/Solidworks/Construction/Revolve/SolidworksThinRevolvePublic.md)
 
+The same cache-free full-ellipse profile reads back with its closed sketch and
+live D1. The default reader constructs a solid with exact rational elliptical
+geometry and both planar caps. Use `include_brep=False` to read the editable
+history without constructing the solid.
+[Full-ellipse readback and scope](../../Changes/Solidworks/Reading/Parts/SolidworksFullEllipseReadback.md)
+
 Circle centres can be translated within their support plane. The writer
 preserves the neutral sketch, boss and configuration names and the
 actual driving radial and depth owners. The symmetric profile uses one

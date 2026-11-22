@@ -1,0 +1,86 @@
+{
+  "boundary_proof_sha256": "a57f0ece921a0e4620efdba53d3c7df6ac620e393070e36f4117e5760147df3c",
+  "contrast_processes": 2,
+  "disclosed_result_sha256": "6c71cfd01e4b681856a4bd0aaf81d6ef7d2a10af4be1bc4feb4e6bce795d2c93",
+  "guarded_processes": 2,
+  "heldout_credit": 0,
+  "legacy_controls": {
+    "ControlCircle.SLDPRT": {
+      "faces": 3,
+      "sha256": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7"
+    },
+    "ControlRectangle.SLDPRT": {
+      "faces": 6,
+      "sha256": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f"
+    }
+  },
+  "method_sha256": "85fe8b1d3d7b16349602bf1456eda9e97372881ff279966a26b940de5da5310d",
+  "native_launches": 0,
+  "native_phase_sha256": {
+    "after-ControlCircle.json": "f141d4cd46303e3695874b5df5c90b1489b9ce0dfdfefa38d85b23538d31243a",
+    "after-ControlRectangle.json": "758e36ccd1becbc8ceaebe38df1911af40a958b1f2b87073810f6bb70111d0bc",
+    "before-ControlCircle.json": "6d250cbf5bb77772ee34a8591e6fe367972d0dc1dcee600d53ac5aab3b3bd894",
+    "before-ControlRectangle.json": "5f234124d345997f4ab297ed79cbffd87ccbf5f1d2b7a60a22677b120f501259",
+    "edit-Slot01.json": "df6da151a62372e467ed1df45890c89ab2914be2797a3c484d10d1090fd7e1cf",
+    "edit-Slot02.json": "245480d9f0b90b90eba748a744ea9c76f4549b4e58fb9e4ba51bff201ed91050",
+    "reopen-Slot01.json": "cf2f4aed23a0503e2cda7f9f4861fa4bb41ebb1515d5c593cb2261985a3225d3",
+    "reopen-Slot02.json": "71855b223d863d350ddfeb1efba665206746549a8632dce0e0804a2c24df424d"
+  },
+  "reader_paths": {
+    "src/convert/adapters/solidworks/Core/Adapter.py": "ebf131c0b35ccee0755faf1fcd377712ff98e7ddc13b32683a345c081ea0d10d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/BindEllipDoc.py": "e03c5da9afacd4c94fa2c13886f4576955a2df7f8ea79a1e5cafd713edb71e1b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/EllipPartRead.py": "fe629d82a4911249feae280a5da8e2e1cd8ce50f1fc5afd1111dd58772763038",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/Geometry/BuildEllipGeom.py": "9b26f1b2d56f33885a72e2c94611c65153c11bb6fb7317295f7ecebd68b84cc3",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/Geometry/BuildEllipShell.py": "dac25ddbde2070385af92c02a6fd21d7eae8baa03c3b20b3cd2e21d8e910e183",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/Geometry/EllipBoundary.py": "74873833ba1d4cd77986a11873d3e5e7b45948e65a2bac48222c97e3ddd3ea54",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/Geometry/EllipMeasures.py": "945616a6ebd0143bd91b36a2a074842b35ecf89df2ab401b9e8a10804245013a",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/ProjectEllip.py": "adcd82924ced94a1bf6b21844d6bd1d918d77face3baa49b26bd2f4c03461480",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/ReadEllipRows.py": "b78e87c7b6f46187844307cc232cc7ae1940ee2607a61aee08ec372008280b62",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Ellipses/TryEllipPart.py": "e95de2a1c0bcf1a11debd92b5d9286e21a5e6be6d935b67811e481252c99360b",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/CheckPrismMgr.py": "4477acb42f4c536167be8b2c26a5973599bdcf0a3a1b226ebc590243b5b5cc68",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Geometry/Display/ReadGeomMessage.py": "d87d7b54051fc7e18359dcffdec9494ef32ccd99b75fddadb9b537744783f848"
+  },
+  "results": [
+    {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "case": "EllipseFrontA",
+      "distinct_sketch_point_owners": 6,
+      "driver": "D1",
+      "independent_trim_surface_evaluations": 201,
+      "native_initial_metrics": 17,
+      "profile": "closed_signed_ellipse",
+      "public_root_features": 19,
+      "refusals": [
+        "distinct_endpoint",
+        "crossed_axis_role",
+        "foreign_handle",
+        "changed_point_style",
+        "reversed_boss",
+        "raw_brep_request"
+      ],
+      "runtime_accesses": 0,
+      "strict_geometry": "exact_rational_full_ellipse"
+    },
+    {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "case": "EllipseFrontB",
+      "distinct_sketch_point_owners": 6,
+      "driver": "D1",
+      "independent_trim_surface_evaluations": 201,
+      "native_initial_metrics": 17,
+      "profile": "closed_signed_ellipse",
+      "public_root_features": 19,
+      "refusals": [
+        "distinct_endpoint",
+        "crossed_axis_role",
+        "foreign_handle",
+        "changed_point_style",
+        "reversed_boss",
+        "raw_brep_request"
+      ],
+      "runtime_accesses": 0,
+      "strict_geometry": "exact_rational_full_ellipse"
+    }
+  ],
+  "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+}
