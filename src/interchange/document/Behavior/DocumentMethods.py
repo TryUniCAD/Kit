@@ -4,6 +4,8 @@ from typing import TypeAlias
 
 from interchange.document.Validation.DocumentAssemblyValidate import GetAssemblyErrs
 from interchange.document.Validation.DocumentBoundary import GetDocument
+from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
+from interchange.document.Validation.Offsets.CheckDocWrite import CheckDocWrite
 from interchange.document.Validation.DocumentValidate import (
     AssertValid,
     GetDocErrors,
@@ -118,6 +120,8 @@ def AssertDocValid(SelfValue: object) -> None:
 def BindDocumentMut(DocumentType: type) -> None:
     BindValidator("validate", ValidateDoc)
     BindValidator("assert_valid", AssertDocValid)
+    BindValidator("source_read", CheckOffsetRead)
+    BindValidator("file_write", CheckDocWrite)
     BindDirectMut(
         DocumentType,
         ValidateDoc,

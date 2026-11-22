@@ -1,0 +1,2356 @@
+{
+  "scope": "native source controls for strict multi-feature decoding research, not conversion acceptance",
+  "version": "2706.1.17",
+  "controls": [
+    {
+      "name": "HealthyBefore",
+      "inputs": {
+        "base_cm": [
+          0,
+          0,
+          4,
+          3
+        ],
+        "tool_cm": null,
+        "height_mm": 20,
+        "depth_mm": 20
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 24.0,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          }
+        ]
+      },
+      "file": "HealthyBefore.f3d",
+      "sha256": "9b9c31e7a56afb3b42482f43c3a36309fa62e5bef25b1ca1a5adcd20f8f9ed6c",
+      "status": "captured"
+    },
+    {
+      "name": "CornerOriginal",
+      "inputs": {
+        "base_cm": [
+          0,
+          0,
+          4,
+          3
+        ],
+        "tool_cm": [
+          3,
+          2,
+          5,
+          4
+        ],
+        "height_mm": 20,
+        "depth_mm": 20
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 22.0,
+            "area_cm2": 50.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                2.0
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                2.0
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                3.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "file": "CornerOriginal.f3d",
+      "sha256": "8dc632cba97b9a76afd3729e906ddfe90b73b4607d92ba7a84ab52d1eb8ed539",
+      "half_depth_edit": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 23.0,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                1.0
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                1.0
+              ],
+              [
+                4.0,
+                3.0,
+                1.0
+              ],
+              [
+                3.0,
+                3.0,
+                1.0
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "10.0 mm",
+            "value": 1.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "restored": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 22.0,
+            "area_cm2": 50.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                2.0
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                2.0
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                3.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "status": "captured"
+    },
+    {
+      "name": "CornerHeldOut",
+      "inputs": {
+        "base_cm": [
+          -2,
+          -1,
+          3.2,
+          2.7
+        ],
+        "tool_cm": [
+          2.3,
+          1.9,
+          4,
+          4
+        ],
+        "height_mm": 31,
+        "depth_mm": 31
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 57.412000000000006,
+            "area_cm2": 92.22,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                3.2,
+                1.9,
+                3.1
+              ],
+              [
+                3.2,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                3.1
+              ],
+              [
+                2.3,
+                2.7,
+                0.0
+              ],
+              [
+                2.3,
+                2.7,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                -1.0,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                -2.0,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "file": "CornerHeldOut.f3d",
+      "sha256": "998ac460a384538de2715173f0d6c06688fb8a5c3dda29b47ab7479c50a6ff30",
+      "half_depth_edit": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 58.528000000000006,
+            "area_cm2": 93.66000000000003,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                3.2,
+                1.9,
+                1.55
+              ],
+              [
+                3.2,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                1.55
+              ],
+              [
+                3.2,
+                2.7,
+                1.55
+              ],
+              [
+                2.3,
+                2.7,
+                1.55
+              ],
+              [
+                2.3,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                2.7,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                -1.0,
+                0.0
+              ],
+              [
+                -2.0,
+                -1.0,
+                3.1
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "15.5 mm",
+            "value": 1.55,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "restored": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 57.412000000000006,
+            "area_cm2": 92.22,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                3.2,
+                1.9,
+                3.1
+              ],
+              [
+                3.2,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                0.0
+              ],
+              [
+                2.3,
+                1.9,
+                3.1
+              ],
+              [
+                2.3,
+                2.7,
+                0.0
+              ],
+              [
+                2.3,
+                2.7,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                -1.0,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                -2.0,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "status": "captured"
+    },
+    {
+      "name": "CornerOpposite",
+      "inputs": {
+        "base_cm": [
+          -2,
+          -1,
+          3.2,
+          2.7
+        ],
+        "tool_cm": [
+          -3,
+          -2,
+          -0.8,
+          -0.3
+        ],
+        "height_mm": 31,
+        "depth_mm": 31
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 57.04,
+            "area_cm2": 91.98000000000002,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                -2.0,
+                -0.30000000000000004,
+                3.1
+              ],
+              [
+                -2.0,
+                -0.30000000000000004,
+                0.0
+              ],
+              [
+                -0.8,
+                -0.3,
+                0.0
+              ],
+              [
+                -0.7999999999999998,
+                -0.3,
+                3.1
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                0.0
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                2.7,
+                3.1
+              ],
+              [
+                3.2,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "file": "CornerOpposite.f3d",
+      "sha256": "dac3a4b0039fbd8722875671985993f106ab6aee4d51688b4259ecb7b7484169",
+      "half_depth_edit": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 58.342000000000006,
+            "area_cm2": 93.66000000000001,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                -2.0,
+                -0.30000000000000004,
+                1.55
+              ],
+              [
+                -2.0,
+                -0.30000000000000004,
+                0.0
+              ],
+              [
+                -0.8,
+                -0.3,
+                0.0
+              ],
+              [
+                -0.7999999999999998,
+                -0.3,
+                1.55
+              ],
+              [
+                -2.0,
+                -1.0,
+                1.55
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                1.55
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                0.0
+              ],
+              [
+                -2.0,
+                -1.0,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                2.7,
+                3.1
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "15.5 mm",
+            "value": 1.55,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "restored": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 57.04,
+            "area_cm2": 91.98000000000002,
+            "min_cm": [
+              -2.0,
+              -1.0,
+              0.0
+            ],
+            "max_cm": [
+              3.2,
+              2.7,
+              3.1
+            ],
+            "faces": 8,
+            "edges": 18,
+            "vertices": 12,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                -2.0,
+                -0.30000000000000004,
+                3.1
+              ],
+              [
+                -2.0,
+                -0.30000000000000004,
+                0.0
+              ],
+              [
+                -0.8,
+                -0.3,
+                0.0
+              ],
+              [
+                -0.7999999999999998,
+                -0.3,
+                3.1
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                0.0
+              ],
+              [
+                -0.7999999999999999,
+                -1.0,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                3.1
+              ],
+              [
+                -2.0,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                3.1
+              ],
+              [
+                3.2,
+                2.7,
+                3.1
+              ],
+              [
+                3.2,
+                2.7,
+                0.0
+              ],
+              [
+                3.2,
+                -1.0,
+                0.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "31 mm",
+            "value": 3.1,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "status": "captured"
+    },
+    {
+      "name": "CornerPocket",
+      "inputs": {
+        "base_cm": [
+          0,
+          0,
+          4,
+          3
+        ],
+        "tool_cm": [
+          3,
+          2,
+          5,
+          4
+        ],
+        "height_mm": 20,
+        "depth_mm": 9
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 23.1,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                0.9
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.9
+              ],
+              [
+                4.0,
+                3.0,
+                0.9
+              ],
+              [
+                3.0,
+                3.0,
+                0.9
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "9 mm",
+            "value": 0.9,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "file": "CornerPocket.f3d",
+      "sha256": "0c481f91ec51d51608adab3f0cd64bf8449e166ec3959b667556e0b8f32f8726",
+      "half_depth_edit": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 23.55,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                0.45
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.45
+              ],
+              [
+                4.0,
+                3.0,
+                0.45
+              ],
+              [
+                3.0,
+                3.0,
+                0.45
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "4.5 mm",
+            "value": 0.45,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "restored": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 23.1,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 9,
+            "edges": 21,
+            "vertices": 14,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                2.0,
+                0.9
+              ],
+              [
+                4.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.0
+              ],
+              [
+                3.0,
+                2.0,
+                0.9
+              ],
+              [
+                4.0,
+                3.0,
+                0.9
+              ],
+              [
+                3.0,
+                3.0,
+                0.9
+              ],
+              [
+                3.0,
+                3.0,
+                0.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          },
+          {
+            "name": "d3",
+            "expression": "9 mm",
+            "value": 0.9,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d4",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Corner",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          },
+          {
+            "name": "Corner",
+            "operation": 1,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Corner sketch"
+          }
+        ]
+      },
+      "status": "captured"
+    },
+    {
+      "name": "HealthyAfter",
+      "inputs": {
+        "base_cm": [
+          0,
+          0,
+          4,
+          3
+        ],
+        "tool_cm": null,
+        "height_mm": 20,
+        "depth_mm": 20
+      },
+      "observed": {
+        "bodies": [
+          {
+            "solid": true,
+            "volume_cm3": 24.0,
+            "area_cm2": 52.0,
+            "min_cm": [
+              0.0,
+              0.0,
+              0.0
+            ],
+            "max_cm": [
+              4.0,
+              3.0,
+              2.0
+            ],
+            "faces": 6,
+            "edges": 12,
+            "vertices": 8,
+            "face_types": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "vertex_cm": [
+              [
+                4.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                0.0
+              ],
+              [
+                0.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                3.0,
+                2.0
+              ],
+              [
+                4.0,
+                0.0,
+                0.0
+              ],
+              [
+                4.0,
+                0.0,
+                2.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                2.0
+              ]
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "d1",
+            "expression": "20 mm",
+            "value": 2.0,
+            "unit": "mm",
+            "role": "AlongDistance"
+          },
+          {
+            "name": "d2",
+            "expression": "0.0 deg",
+            "value": 0.0,
+            "unit": "deg",
+            "role": "TaperAngle"
+          }
+        ],
+        "timeline": [
+          {
+            "name": "Base sketch",
+            "health": 0,
+            "message": ""
+          },
+          {
+            "name": "Base",
+            "health": 0,
+            "message": ""
+          }
+        ],
+        "extrusions": [
+          {
+            "name": "Base",
+            "operation": 3,
+            "start_extent": "adsk::fusion::ProfilePlaneStartDefinition",
+            "extent": "adsk::fusion::DistanceExtentDefinition",
+            "profile_sketch": "Base sketch"
+          }
+        ]
+      },
+      "file": "HealthyAfter.f3d",
+      "sha256": "3813da812f09ddf6dd328d2879d01b1d2df60c1d13e680ed351ea5880a91486e",
+      "status": "captured"
+    }
+  ]
+}

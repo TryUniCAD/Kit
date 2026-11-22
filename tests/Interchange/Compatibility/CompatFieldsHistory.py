@@ -78,6 +78,7 @@ KCompatFieldsHistory = (
             "configuration_states",
             "provenance",
             "attributes",
+            "output_body_ids",
         ),
     ),
     ("interchange.history.FilletFeature", ("radius", "variable_radius_parameter_ids")),
