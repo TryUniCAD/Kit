@@ -39,11 +39,11 @@ def ReadColdRev(
             OwnerValue.ProfileValue.FieldsValue.get("pd_f78"), "moCompRefPlane_c"
         )
         PlaneId = NativeRecord(Reference.FieldsValue.get("ff0")).get("f00")
-        if (
-            type(PlaneId) is not int
-            or FrameValue.z_axis.z != 0.0
-            or OwnerValue.AngleValue.RadiansValue == FullTurn
-        ):
+        if type(PlaneId) is not int:
+            raise ValueError("cache-free revolve lacks an actual support plane")
+        if FrameValue.z_axis.z != 0.0 or OwnerValue.AngleValue.RadiansValue == FullTurn:
+            if not Settings.include_brep:
+                return Model, None
             raise ValueError(
                 "cache-free revolve requires a partial Top or Right support"
             )

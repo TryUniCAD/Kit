@@ -1,0 +1,75 @@
+{
+  "cases": [
+    {
+      "generator_receipt_sha256": "8c5ec49430753f5dbe74f140d5a856c24d0944c6cd50baf5171eff457762b949",
+      "model": {
+        "angle_deg": 75,
+        "axial_m": [
+          -0.00719,
+          0.01677
+        ],
+        "axis_axial_m": [
+          -0.01219,
+          0.02377
+        ],
+        "axis_x_m": 0.00534,
+        "edit_angle_deg": 129,
+        "name": "KitPrincipalRevolveHeldoutRight",
+        "plane": "right",
+        "radius_m": [
+          0.01037,
+          0.02913
+        ],
+        "reverse": false,
+        "split": "heldout"
+      },
+      "sha256": "dfbefdfc55e8b2354f277a2bfa0192874fb40792f75124596250c11bc26812a7",
+      "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveMacNative01\\Candidates\\KitPrincipalRevolveHeldoutRight.SLDPRT"
+    },
+    {
+      "generator_receipt_sha256": "796b428820a26c3d0f0485b409aec43a41a276271931a421fc9c8e50bc0bc948",
+      "model": {
+        "angle_deg": 169,
+        "axial_m": [
+          -0.01539,
+          0.0108
+        ],
+        "axis_axial_m": [
+          -0.02039,
+          0.0178
+        ],
+        "axis_x_m": -0.00595,
+        "edit_angle_deg": 263,
+        "name": "KitPrincipalRevolveHeldoutTop",
+        "plane": "top",
+        "radius_m": [
+          0.01844,
+          0.03873
+        ],
+        "reverse": true,
+        "split": "heldout"
+      },
+      "sha256": "08c42819d33e9796c3090e06daa82025a483796161e37546911d78e715d4f864",
+      "source": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveMacNative01\\Candidates\\KitPrincipalRevolveHeldoutTop.SLDPRT"
+    }
+  ],
+  "checkout_root": "\\\\Mac\\Home\\Documents\\UniCAD\\Kit",
+  "control": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\GeneratedOrdinaryRevolveNative01\\Control\\RevolveFull.SLDPRT",
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "forward_handedness": -1,
+  "inspect_before_rebuild": true,
+  "inspect_profile": true,
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "output": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PrincipalRevolveMacNative01\\Oracle",
+  "schema": "kit.sw2026.generated-revolve-inspection-job.v1",
+  "source_revision": "43e7180c726e990e6e3302a45302b801f542bf79",
+  "tool_sha256": {
+    "AuthorCurves.py": "d48bf2c2da5661676541549ed5da888936c1ceba6edff4abb9e0558834099ff2",
+    "AuthorRevolveSources.py": "1190f61d1158a7643d4c2d53a5707659edf04e0c0c1b9412db9606e9400f6369",
+    "InspectFresh.py": "aa9d95792b7484b41e12e2ed2b097158ddfeef618bce98803efd372b0a2037de",
+    "InspectGeneratedRevolves.py": "4bc2cf3195bd566c91b1a5e94c444c546f1b8b29ab07866f6ff92ab3a1eb2e6e",
+    "OracleIdentity.py": "65e2b89250f8c4aaf74d522dac90abce8a9ef10fa8e04dfd56115be50f47386e",
+    "Swapp.py": "2e07f638053243b639e4fc9722de08698b8c3bdbbc1a9b008ea64de968ab4aba"
+  },
+  "verify_saved_edit": true
+}
