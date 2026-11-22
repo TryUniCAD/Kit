@@ -36,7 +36,8 @@ def prepare(args):
     tools = evidence["tools"]
     require(isinstance(tools, dict)
             and "re/tooling/sw2026/edge_fillet_source/cold/BuildColdFillet.py" in tools
-            and all(name.startswith("re/tooling/sw2026/") and name.endswith(".py")
+            and all((name.startswith("re/tooling/sw2026/") and name.endswith(".py")
+                     or name == "tests/Convert/Solidworks/Research/Construction/Part/MakePlainDoc.py")
                     and sha(git("show", f"{writer}:{name}")) == pin for name, pin in tools.items()),
             "the generation tool hashes must match the frozen writer commit")
     data = {"Spec.json": pinned(HERE / "DisclosedFilletInputs.json", INTENT_SHA),
