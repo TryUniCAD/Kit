@@ -38,10 +38,14 @@ def PlanSweepPart(
     SectionDrive, PathDrive, DensityDrive = FindSwDrivers(
         DocumentValue, SectionValue, PathValue
     )
+    PlatformMath = DocumentValue.metadata.get("solidworks_platform_view_math", False)
+    if type(PlatformMath) is not bool:
+        raise ValueError("sweep view arithmetic selection must be boolean")
     return SweepIntent(
         NameValue,
         ReadSwSection(SectionValue, SectionDrive),
         ReadSwPath(PathValue, PathDrive),
         ReadSwDensity(DocumentValue, DensityDrive),
         TargetValue,
+        PlatformViewMath=PlatformMath,
     )

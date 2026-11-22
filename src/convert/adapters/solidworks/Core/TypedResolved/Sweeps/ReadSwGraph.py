@@ -1,5 +1,6 @@
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Container.Container import SldprtArchive
+from convert.adapters.solidworks.Container.Format import KPartitionStream
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
@@ -38,8 +39,10 @@ def ReadSwConfig(LinkValue: NativeLink) -> ArchiveNode:
 
 
 # complete archive ownership must come from the same parsed graph before projection can begin
-def ReadSwGraph(Archive: SldprtArchive) -> SwReadGraph:
-    LinkValue = ReadNativeLink(Archive, 0, SavedSweep=True)
+def ReadSwGraph(Archive: SldprtArchive, *, ColdSweep: bool = False) -> SwReadGraph:
+    if ColdSweep and KPartitionStream in Archive.streams:
+        raise ValueError("cold SOLIDWORKS sweep cannot own a stored result")
+    LinkValue = ReadNativeLink(Archive, 0, SavedSweep=not ColdSweep, ColdSweep=ColdSweep)
     RootsValue = tuple(
         RequireNative(Value) for Value in LinkValue.ResolvedValue.RootsValue
     )

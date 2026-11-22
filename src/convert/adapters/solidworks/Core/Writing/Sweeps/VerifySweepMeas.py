@@ -13,6 +13,7 @@ from convert.adapters.solidworks.Core.Writing.Sweeps.MatchSweepCase import (
     MatchSweepCase,
 )
 from convert.adapters.solidworks.Core.Writing.Sweeps.ReadSwHashes import ReadSwHashes
+from convert.adapters.solidworks.Core.Writing.Sweeps.VerifyHeldSweep import VerifyHeldSweep
 from interchange.Core.Common import FreezeMapping
 
 
@@ -20,6 +21,8 @@ from interchange.Core.Common import FreezeMapping
 def VerifySweepMeas(
     Receipt: dict[str, object], Candidate: SweepPart, WrittenAt: int
 ) -> Mapping[str, object]:
+    if set(Receipt) == {"native_report"}:
+        return VerifyHeldSweep(Receipt, Candidate)
     Phases = CheckSwBatch(Receipt)
     CaseValue = MatchSweepCase(Receipt, Candidate, WrittenAt)
     PhaseHashes = CheckSwPhases(Phases, CaseValue)

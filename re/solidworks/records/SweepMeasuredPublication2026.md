@@ -63,6 +63,37 @@ receipts, edits without matching measurements, crossed sketch owners,
 blocked body or driver observations, wrong locators and occupied streams
 refuse. The incompatible POSIX filesystem staging cases preserve existing
 files and leave no staged files. Native-positive filesystem relocation and
-public sweep source reading have separate acceptance conditions. The
-[protected research evaluation](OrdinarySweepHeldoutEvaluation2026.md)
-remains distinct from this disclosed SDK publication proof.
+public sweep source reading have separate acceptance conditions.
+
+## Protected held-out publication
+
+The [protected evaluation](OrdinarySweepHeldoutEvaluation2026.md) provides
+two more frozen native-tested digests. The newer deterministic view
+arithmetic initially reproduced ten of eleven streams for both cases. The
+remaining 56 bytes in each Config-0 encode differences in eight near-zero
+values across four view matrices. The authored boolean
+`solidworks_platform_view_math` in the neutral part metadata selects the
+shared platform trigonometry used when the original candidates were
+generated. The option survives neutral JSON. The writer computes the
+matrices using the modeled view and the same shared part builder.
+
+To qualify either frozen output, pass the exact UTF-8 text of the [redacted
+native report](../measurements/2026/OrdinarySweepColdNativeHeldout01.json)
+under `receipt.native_report` in the measurement envelope. Set `written_at`
+to `1794000000` and supply the original measured destination. The report
+authenticates the complete regenerated digest, both native controls, the
+original open, both independent edits and both fresh reopens. The writer
+constructs the complete part before matching the historical observation.
+The receipt contains no assembly or part serialization inputs.
+
+The [replay tool](../../tooling/sw2026/sweep_source/ReplayHeldoutSweepSdk.py)
+runs inside the original Windows guest with the frozen job, protected
+neutral intent and immutable generation metadata. Invoke it using
+`--root C:\KitSweepHeldoutEval01 --slot Slot01 --publication` and then
+`--slot Slot02`. It uses empty binary streams and starts no SOLIDWORKS
+processes. Each whole archive matches its historical native-tested digest.
+The typed reader also reconstructs both editable sketch drivers and
+round-trips Config-0, ResolvedFeatures and GhostPartition. All three SDK
+write routes refuse changed dimensions, missing or modified evidence, a
+moved locator or a changed epoch before they touch the output. [Guarded
+held-out publication](../measurements/2026/SdkHeldoutSweepPublication01.json)

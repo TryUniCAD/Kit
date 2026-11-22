@@ -40,7 +40,11 @@ def CheckSectFins(
 
 # planar sheet owners are followed by their actual links before either carrier contributes geometry
 def ReadSwSect(
-    NodesValue: Mapping[int, XmtNode], BodyValue: XmtNode, *, Embedded: bool = False
+    NodesValue: Mapping[int, XmtNode],
+    BodyValue: XmtNode,
+    *,
+    Embedded: bool = False,
+    SavedResult: bool = True,
 ) -> CircleGeometry:
     RegionValue = RequireXmt(NodesValue, BodyValue.Integer("region"), 19)
     ShellValue = RequireXmt(NodesValue, BodyValue.Integer("shell"), 13)
@@ -52,7 +56,7 @@ def ReadSwSect(
     if Embedded and (
         BodyValue.IndexValue != 1
         or BodyValue.Integer("owner")
-        or BodyValue.Integer("next") != 2
+        or BodyValue.Integer("next") != (2 if SavedResult else 0)
         or set(NodesValue)
         != {
             Value.IndexValue

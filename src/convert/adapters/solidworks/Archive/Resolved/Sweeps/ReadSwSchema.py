@@ -23,7 +23,7 @@ from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
 
 
 # the stored section owns one finite right circle on a canonical standalone kernel sheet
-def ReadSwSheetMut(FrameValue: ReadFrame) -> None:
+def ReadSwSheetMut(FrameValue: ReadFrame, *, SavedResult: bool) -> None:
     if (
         FrameValue.NodeValue.ClassValue != RuntimeClass("moGeneralCurveRef_w", 1)
         or FrameValue.NodeValue.FieldsValue.get("has_fc8") != 1
@@ -43,16 +43,23 @@ def ReadSwSheetMut(FrameValue: ReadFrame) -> None:
     NodesValue = ReadActiveNodes(
         RawValue, Description=KLocalDescription.decode("ascii")
     )
-    CircleValue = ReadSwSect(NodesValue, RequireXmt(NodesValue, 1, 12), Embedded=True)
+    CircleValue = ReadSwSect(
+        NodesValue,
+        RequireXmt(NodesValue, 1, 12),
+        Embedded=True,
+        SavedResult=SavedResult,
+    )
     FrameValue.ScopeValue.FieldsValue["CircleValue"] = CircleValue
     FrameValue.ContextValue.UsageValue.SchemaCalls["sweep.embeddedSection19000"] += 1
 
 
 # section decoding remains isolated to explicitly selected current sweep sections
-def ReadSwSchema(FrameValue: ReadFrame, SchemaName: str) -> None:
+def ReadSwSchema(
+    FrameValue: ReadFrame, SchemaName: str, *, SavedResult: bool = True
+) -> None:
     if SchemaName == "sweep.embeddedSection19000":
-        ReadSwSheetMut(FrameValue)
+        ReadSwSheetMut(FrameValue, SavedResult=SavedResult)
         return
     ReadSchemaMut(FrameValue, SchemaName)
     if SchemaName == "sweep.data19000":
-        CheckColdSweep(FrameValue.ScopeValue.FieldsValue, SavedResult=True)
+        CheckColdSweep(FrameValue.ScopeValue.FieldsValue, SavedResult=SavedResult)

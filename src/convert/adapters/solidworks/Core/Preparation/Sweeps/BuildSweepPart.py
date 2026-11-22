@@ -78,6 +78,7 @@ def BuildSweepPart(IntentValue: SweepIntent) -> SweepPart:
         MakePartRecipe(LabelsValue, IntentValue.OutputValue.SavedAt),
         DensityValue=IntentValue.DensityValue,
         OutputValue=IntentValue.OutputValue,
+        PlatformViewMath=IntentValue.PlatformViewMath,
     )
     Allocator = PersistentIds()
     SystemValue = BindSwSceneMut(

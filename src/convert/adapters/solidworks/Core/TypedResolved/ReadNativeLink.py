@@ -24,6 +24,7 @@ def ReadNativeLink(
     ReadChamfers: bool = False,
     ReadEllipses: bool = False,
     ReadShells: bool = False,
+    ColdSweep: bool = False,
 ) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
@@ -32,7 +33,7 @@ def ReadNativeLink(
         or Archive.format_version != 4
         or KitResolvedStream in Archive.streams
         or (
-            (SavedSweep or ReadFillets or ReadChamfers or ReadEllipses or ReadShells)
+            (SavedSweep or ColdSweep or ReadFillets or ReadChamfers or ReadEllipses or ReadShells)
             and RelationConfig is not None
         )
     ):
@@ -63,11 +64,12 @@ def ReadNativeLink(
         ReadEllipses=ReadEllipses,
         ReadShells=ReadShells,
         SavedSweep=SavedSweep,
+        ColdSweep=ColdSweep,
     )
     return NativeLink(
         ConfigValue,
         ResolvedValue,
         ConfigName,
         StreamName,
-        ManagerValue if ReadShells or SavedSweep else None,
+        ManagerValue if ReadShells or SavedSweep or ColdSweep else None,
     )

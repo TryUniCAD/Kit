@@ -1,0 +1,119 @@
+{
+  "schema": "kit.sw2026.sdk-heldout-standard-sweep-publication.v1",
+  "base_revision": "0cd00727bac5068f3a21df07d6e3981b6cef3f69",
+  "base_sdk_tree": "09f7bca40a5332a477e0b1b5911131d6bb122ce1",
+  "staging_archive_sha256": {
+    "base_source": "dd112310a15ea7f73e0fd8defa57b9600a257cb98a4cade7f57e400b59ca3921",
+    "base_tooling": "4f12d5f52be81cf31f0b259d85fd1bf6a682012f8c7c4fe11cd3623a7851927f",
+    "verified_overlay": "36329ac0270afc02d775ae1228f4dd32dc064366897d678c030c9abfed0034ec"
+  },
+  "verified_overlay_file_sha256": {
+    "re/tooling/sw2026/sweep_source/ReplayHeldoutSweepSdk.py": "689358bb4e4e4062e30c29e4d1c40c7c2d915cee21fbf262efc4b277743de1d0",
+    "src/convert/adapters/solidworks/Archive/Partition/Sweeps/ReadSwSect.py": "5956a9568ce56b420dd73b1784b800a47b1862578ad531462952604be6b1a17d",
+    "src/convert/adapters/solidworks/Archive/Resolved/ReadResolvedMut.py": "d5e6e01d4dc51d54250657164c01c739596b10c5b3d971ab31e90984434c4718",
+    "src/convert/adapters/solidworks/Archive/Resolved/Sweeps/ReadSwSchema.py": "9294c911b379e237927ea507b4087f7492dbcdb8fa6abc8add33c5329a0030aa",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/BuildSweepPart.py": "7b1e2f5db9fc852154f07c2a4c77f7ac555c4bcad40a9ba9c4e1a10d8810ca40",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/CheckSwDoc.py": "da1a0eb8fb704c0a8aa0c7a8b250a7785c5232946a8e7f48ddba4c74ecbbd258",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/PlanSweepPart.py": "4d54eb46c67fbadf50ff2c62df0df25179d85efb8765086e8014f802f8737382",
+    "src/convert/adapters/solidworks/Core/Preparation/Sweeps/SweepIntent.py": "cc59998f59a69dfd9187e684ec6dcd07452c036521fcae6c06296790f0d1125d",
+    "src/convert/adapters/solidworks/Core/TypedResolved/ReadNativeLink.py": "2c876f38a19ae28ddda06e8bc76dc83fbe272055b6158cc1b36089382d5b70e5",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Sweeps/ReadSwGraph.py": "3b2f0bec78f7cb720a622dd2c5696ceb949b77eb6c0f7066e31e0165657ab609",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/VerifyHeldSweep.py": "8b81019bc3db792a7813cd4d1fa8edd8ce9caa6c77a6c5f3c0a32851728723b1",
+    "src/convert/adapters/solidworks/Core/Writing/Sweeps/VerifySweepMeas.py": "d823c73b4705028f2c12ed98d7842d130585d04fc78c1a1290849b91739f6cbd"
+  },
+  "guest": {
+    "os": "win32",
+    "machine": "ARM64",
+    "python": "3.12.7"
+  },
+  "prior_native_evidence": {
+    "oracle_build": "34.5.2.0604",
+    "redacted_receipt_sha256": "d8d698670b21f432e0b6fc98a541d96acf706d9037ad871ec6251fe4be851f70",
+    "job_sha256": "67919914847f76f23becf8742e85ed462fbeb8b79d9654c9cdbbfc8c3c5a98a2",
+    "generation_sha256": "57ec7103a4322d58b5df86b534efcb8a91d26221a368c9f9b54aae3a62b8194f",
+    "native_result_sha256": "b9d2edcaa5b9e2850fbb8526c41b0ee235cabc4442074d2a823b15ecf44ea68b",
+    "paired_numeric_checks": 168,
+    "distinct_processes": 12,
+    "passing_controls": 2
+  },
+  "base_comparison": {
+    "exact_streams_per_case": 10,
+    "logical_stream_count_per_case": 11,
+    "remaining_stream": "Contents/Config-0",
+    "different_bytes_per_case": 56,
+    "modeled_values_with_differences_per_case": 8,
+    "affected_view_matrices_per_case": 4
+  },
+  "authored_model_metadata": {
+    "solidworks_platform_view_math": true
+  },
+  "candidate_epoch": 1794000000,
+  "cases": [
+    {
+      "expected_sha256": "f51810cc33ed6f28172355212064a9fd698e0391b17fbae2c80700f9e19d4f3a",
+      "generated_sha256": "f51810cc33ed6f28172355212064a9fd698e0391b17fbae2c80700f9e19d4f3a",
+      "native_processes_started": 0,
+      "native_source_files_opened": 0,
+      "normal_publication": {
+        "adapter": {
+          "refusals": 5,
+          "whole_archives": 2
+        },
+        "direct": {
+          "refusals": 5,
+          "whole_archives": 2
+        },
+        "registry": {
+          "refusals": 5,
+          "whole_archives": 2
+        }
+      },
+      "passed": true,
+      "runtime_input_reads": 0,
+      "slot": "Slot01",
+      "stream_count": 11,
+      "typed_stream_replays": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ]
+    },
+    {
+      "expected_sha256": "5a818177f88d2d77874d57a187f738be0b4b4397ef59c7861e373a667bf67e9d",
+      "generated_sha256": "5a818177f88d2d77874d57a187f738be0b4b4397ef59c7861e373a667bf67e9d",
+      "native_processes_started": 0,
+      "native_source_files_opened": 0,
+      "normal_publication": {
+        "adapter": {
+          "refusals": 5,
+          "whole_archives": 2
+        },
+        "direct": {
+          "refusals": 5,
+          "whole_archives": 2
+        },
+        "registry": {
+          "refusals": 5,
+          "whole_archives": 2
+        }
+      },
+      "passed": true,
+      "runtime_input_reads": 0,
+      "slot": "Slot02",
+      "stream_count": 11,
+      "typed_stream_replays": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ]
+    }
+  ],
+  "successful_writes": 12,
+  "unchanged_refusal_sinks": 30,
+  "native_processes_started": 0,
+  "native_source_files_opened": 0,
+  "runtime_input_reads": 0,
+  "public_cold_source_admission_proven": false,
+  "fcstd_parts_qualified": 0,
+  "fcstd_assemblies_qualified": 0
+}

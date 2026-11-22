@@ -22,7 +22,7 @@ def CheckSwDoc(DocumentValue: CadDocument, LabelsValue: SweepLabels) -> None:
         or DocumentValue.materials
         or DocumentValue.selections
         or not DocumentValue.capabilities <= KPartWriteCaps
-        or set(DocumentValue.metadata) != {"name"}
+        or set(DocumentValue.metadata) - {"name", "solidworks_platform_view_math"}
     ):
         raise ValueError(
             "sweep requires an ordinary millimetre part with editable geometry only"
