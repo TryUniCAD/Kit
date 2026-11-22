@@ -1,3 +1,4 @@
+from interchange.Core.Common import FreezeMapping
 from typing import Mapping as TypeMap
 
 from interchange.document.Models.DocumentModel import CadDocument
@@ -15,5 +16,5 @@ def FilterMetadata(Document: CadDocument, IncludeBrep: bool) -> TypeMap[str, obj
         )
     ):
         Document.assert_valid()
-        return {**Document.metadata, "kit.omitted_brep": True}
+        return FreezeMapping({**Document.metadata, "kit.omitted_brep": True})
     return Document.metadata

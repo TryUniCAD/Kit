@@ -24,6 +24,9 @@ KDocumentType = TypeVar("KDocumentType")
 
 # mapping output gives callers a portable structure without exposing codec internals
 def ToMapping(DocumentValue: object) -> dict[str, KWireData]:
+    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
+
+    CheckOffsetRead(DocumentValue)
     ResultValue = ToData(DocumentValue)
     if not isinstance(ResultValue, dict):
         raise TypeError("document serialization did not produce a mapping")
@@ -48,6 +51,9 @@ def FromMapping(
 
 # json output centralizes deterministic serialization options for document methods
 def ToJson(DocumentValue: object, *, IndentSize: int | None = 2) -> str:
+    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
+
+    CheckOffsetRead(DocumentValue)
     return DumpJson(DocumentValue, IndentSize=IndentSize)
 
 
@@ -67,9 +73,10 @@ def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
 
 # file output provides atomic ownership of path normalization and parent creation
 def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
+    Payload = ToJson(DocumentValue) + "\n"
     OutputPath = FilePath(PathValue).expanduser().resolve()
     OutputPath.parent.mkdir(parents=True, exist_ok=True)
-    _ = OutputPath.write_text(ToJson(DocumentValue) + "\n", encoding="utf-8")
+    _ = OutputPath.write_text(Payload, encoding="utf-8")
     return OutputPath
 
 
