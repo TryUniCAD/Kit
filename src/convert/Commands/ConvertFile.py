@@ -6,6 +6,9 @@ from convert.adapters.solidworks.Container.Format import (
     KPartSuffix,
 )
 from convert.Commands.CheckPortable import CheckPortable
+from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
+    FindBoxProof,
+)
 from convert.Commands.CliOptions import CliOptions
 from convert.Commands.NativeMeasVals import NativeMeasVals
 from convert.Commands.WriteReport import WriteReport
@@ -50,7 +53,11 @@ def ConvertFile(Options: CliOptions) -> dict[str, object]:
         and Document.assembly is None
         and Document.DrawingValue is None
     )
-    CheckPortable(Document, WriterQualifiedPart=IsPartWriter)
+    ProofValue = FindBoxProof(Writer, Document) if IsPartWriter else None
+    Portable = (
+        Document if ProofValue is None else ProofValue.PlanValue.PartSource.ModelValue
+    )
+    CheckPortable(Portable, WriterQualifiedPart=IsPartWriter)
     Result = WriteDocument(
         Document,
         Options.Destination,

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from dataclasses import replace as ReplaceValue
 from pathlib import Path as FilePath
-from typing import Protocol
+from typing import Protocol, TYPE_CHECKING
 
 from interchange import CadDocument
 
@@ -26,18 +26,28 @@ from convert.adapters.base.WritePolicy import GetWriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.Formats.CheckSourceText import CheckSourceText
 
+if TYPE_CHECKING:
+    from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxProof import BoxProof
+
 
 # only the exact standalone part writer verifies its complete strict cold source after regeneration
 def CheckPubNative(
     DocumentValue: CadDocument, WriterValue: CadWriterAdapter, TargetValue: KTargetType
-) -> None:
+) -> BoxProof | None:
     from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import (
         IsColdRead,
     )
     from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
+    from convert.adapters.solidworks.Core.Writing.AttachedBox.FindBoxProof import (
+        FindBoxProof,
+    )
 
+    ProofValue = FindBoxProof(WriterValue, DocumentValue)
+    if ProofValue is not None:
+        return ProofValue
     if type(WriterValue) is not SldprtWriter or not IsColdRead(DocumentValue):
         CheckNative(DocumentValue, WriterValue, TargetValue)
+    return None
 
 
 # historical destination annotations need local resolution after public methods move to the registry facade
@@ -138,7 +148,7 @@ class WriteApi(WriteLookup):
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
         CheckSourceText(DocumentData)
-        CheckPubNative(DocumentData, AdapterData, TargetData)
+        BoxProofValue = CheckPubNative(DocumentData, AdapterData, TargetData)
         CheckDrawWrites(DocumentData, AdapterData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
@@ -150,9 +160,20 @@ class WriteApi(WriteLookup):
             )
         if SelectedOpts.Validate:
             DocumentData.AssertValid()
-        UnsupportedCaps = GetDocumentCaps(DocumentData) - AdapterData.info.Capabilities
+        InputCaps = (
+            GetDocumentCaps(DocumentData)
+            if BoxProofValue is None
+            else BoxProofValue.NativeCaps
+        )
+        UnsupportedCaps = InputCaps - AdapterData.info.Capabilities
         if UnsupportedCaps:
             raise CapLossError(AdapterData.info.FormatId, UnsupportedCaps)
+        if BoxProofValue is not None:
+            from convert.adapters.solidworks.Core.Writing.AttachedBox.PrepareBoxOut import (
+                PrepareBoxOut,
+            )
+
+            _ = PrepareBoxOut(BoxProofValue, TargetData, SelectedOpts)
         if isinstance(TargetData, (str, FilePath)):
             return WritePathStaged(
                 DocumentData,
