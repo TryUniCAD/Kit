@@ -45,8 +45,9 @@ function ranges and assignment lineage.
 The [receipt](../measurements/2026/PartMaterialVisualRead01.json)
 binds seven assigned saves and one unassigned control to their prior
 native observation receipts and the current reader sources. Each fresh
-worker parses the original CFB bytes supplied on stdin, retains the
-actual ModelHeader entries and advances the native map from 4 to 8.
+worker parses the original format-4 archive bytes supplied on stdin,
+retains the actual ModelHeader entries and advances the native map
+from 4 to 8.
 Replay of each consumed prefix matches every byte. The workers record
 zero filesystem, process or network accesses while interpreting the
 provided bytes. Nine guarded contrasts refuse wrong or borrowed bodies,
@@ -65,8 +66,33 @@ The command uses the recorded aggregate evidence blobs at
 The tracked [queue process cases](../../../tests/Convert/Solidworks/Configuration/MaterialVisual/PartVisualTests.py)
 use the same worker with only files on main. L1 consumes physical
 prefix `[18, 925)`, with `f78` in slot 7 at `[82, 925)`.
-ConcaveOwned reaches the distinct selector refusal. Hosted execution of
-the added queue cases is pending.
+ConcaveOwned reaches the distinct selector refusal.
+
+All 101 tracked `.SLDPRT` files under `re/` at `26659aa445f113f9ce380b8ad35cb811c04dbbe3`
+were checked for a positive primary-texture case. Of the current
+format-4, version-19000 inputs, 41 read with `has80=0` and two
+refused. The other 58 used a different archive format or version.
+
+The [primary texture queue case](../../../tests/Convert/Solidworks/Configuration/MaterialVisual/TextureTests.py)
+authors its format-4 package and bounded lightweight prefix in memory.
+The probe uses the existing fresh ModelHeader construction and packs
+the primary texture independently of the production body layouts.
+It derives every byte from new test values or the shared format rules.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/materials/CheckPartTexture.py
+```
+
+The fresh reader visits the primary texture once and binds all 19 fields,
+including thirteen mixed-sign doubles, a Unicode CString,
+signed i16 and i32 words, and two trailing doubles. The complete typed
+prefix at `[18, 891)` replays exactly, with SHA-256
+`0d1407fc50dddb53db6900d8af862db5442a7622e5d301f45c8250f0bdebb0f8`.
+The inherited map advances from 4 to 8. Both creation and readback run
+without external access inside their guarded boundaries. This case
+measures the structural archive read and replay. The disclosed native
+observations retain their original pinned proof. Hosted execution of
+the new queue case is pending.
 
 The disclosed unassigned control stores the label `Steel` while its
 active configuration has density sentinel `-1`. Physical assignment

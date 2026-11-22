@@ -15,6 +15,8 @@ configuration admission have separate ownership requirements.
 Eight disclosed native files preserved every byte of their typed prefix
 during guarded replay. The existing tracked L1 and ConcaveOwned files
 provide a positive process case and a distinct selector refusal.
+A separately authored structural archive verifies all 19 fields of a
+present primary texture and exact prefix replay in a fresh process.
 [Format and process evidence](../../../../../re/solidworks/records/PartMaterialVisualRead2026.md)
 
 [Adapter guide](../../../../Reference/Adapters/Solidworks.md)
