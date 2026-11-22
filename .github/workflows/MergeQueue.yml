@@ -1189,14 +1189,18 @@ jobs:
           fi
 
       - name: Verify public checksum classification stays narrow
+        env:
+          HarnessSha: ${{ github.sha }}
         run: |
           set -euo pipefail
           FixturePath=$(mktemp -d "${RUNNER_TEMP}/GitleaksChecksum.XXXXXX")
-          ConfigPath="${GITHUB_WORKSPACE}/.github/config/Gitleaks.toml"
+          ConfigPath=$(mktemp "${RUNNER_TEMP}/GitleaksPolicy.XXXXXX")
           ScannerPath="${RUNNER_TEMP}/gitleaks"
+          git show "${HarnessSha}:.github/config/Gitleaks.toml" > "${ConfigPath}"
           mkdir -p "${FixturePath}/.github/workflows"
-          grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
-            .github/workflows/SteeringSync.yml > "${FixturePath}/.github/workflows/SteeringSync.yml"
+          git show "${HarnessSha}:.github/workflows/SteeringSync.yml" \
+            | grep --fixed-strings '".kiro/steering/WorkosTokenVerification.md":' \
+              > "${FixturePath}/.github/workflows/SteeringSync.yml"
           (
             cd "${FixturePath}"
             "${ScannerPath}" dir . --config "${ConfigPath}" --redact --exit-code 23

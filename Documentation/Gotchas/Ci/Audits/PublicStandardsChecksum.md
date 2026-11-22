@@ -16,6 +16,8 @@ See [the redacted scanner job](https://github.com/TryUniCAD/Kit/actions/runs/450
 Classify only that exact public value at the anchored workflow path under the matching detector rule.
 Keep the full-history scan and all other rules enabled.
 Run real scanner controls proving that the value elsewhere and an unknown value at that path remain detectable.
+Load probe inputs from the workflow harness commit when a manual audit selects an older source commit.
+Keep the actual history scan and its policy on the selected audited source.
 Do not exempt the workflow or arbitrary hexadecimal values.
 
 See [the repair](../../../Changes/Ci/AttributionQueueRepair.md).

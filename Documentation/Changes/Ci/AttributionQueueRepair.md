@@ -19,6 +19,8 @@ The Gitleaks configuration classifies exactly one known public SHA-256 at `.gith
 It does not exempt a file, commit, arbitrary checksum, or another detector rule.
 The job runs the actual scanner against the allowed pair, the same value elsewhere, and an unknown value at the allowed path.
 Both negative controls must still fail detection.
+The probe loads its policy and fixture from the immutable workflow harness revision.
+Manual audits can still select historical source revisions that predate the checksum entry.
 The full-history audit remains unchanged.
 
 Capture intake preserves the historical contract, input digest, roster, native blobs, and qualification status.
@@ -49,6 +51,7 @@ and [research commands](../../Tasks/ResearchCommandLine.md).
 Remote failure logs identified the exact checksum finding and the sealed-input mismatch.
 Read-only comparison verified the four input blob pairs and the 201 path-only manifest edits.
 Process coverage mutates content, mode, and presence for each migrated input while retaining the existing graph and alias cases.
+The positive process cases independently derive the current Git input-tree digest and both directions of every migrated blob identity.
 The census coverage retains unknown-manifest rejection and adds a corpus-revision mismatch case.
 `git diff --check` and Black formatting are local static checks.
 No local tests or security scans ran.

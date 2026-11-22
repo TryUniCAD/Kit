@@ -1,4 +1,5 @@
 from json import dumps as EncodeJson, loads as ParseJson
+from hashlib import sha256 as GetDigest
 from os import environ as ProcessEnv
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
@@ -190,7 +191,9 @@ def NewRevision(
 
 
 # exact input binding cannot turn historical capture gaps into native qualification
-def AssertLineage(ResultData: dict[str, object], Revision: str) -> None:
+def AssertLineage(
+    ResultData: dict[str, object], Revision: str, BarePath: FilePath
+) -> None:
     Report = ParseJson(EncodeJson(ResultData))
     assert Report["source_revision"] == Revision
     assert (
@@ -206,11 +209,53 @@ def AssertLineage(ResultData: dict[str, object], Revision: str) -> None:
         Report["historical_lineage"]["binding"]
         == "pinned_attribution_and_identical_tracked_file_modes_and_blob_ids"
     )
-    assert len(Report["historical_lineage"]["current_input_tree_sha256"]) == 64
+    CurrentRows = RunGit(
+        BarePath,
+        "ls-tree",
+        "-rz",
+        "--full-tree",
+        Revision,
+        "--",
+        "re/automation/PairedCaptures/",
+        KSpecPath,
+        "re/automation/Corpus.json",
+        "re/Fusion/Study/thinextrudes-c1632bcb5efe/ordinary_rectangle_control.f3d",
+        "re/solidworks/examples/.SLDPRT/example.SLDPRT",
+    )
+    CurrentTree: dict[str, dict[str, str]] = {}
+    for RowValue in CurrentRows.split(b"\0"):
+        if not RowValue:
+            continue
+        Metadata, PathBytes = RowValue.split(b"\t", 1)
+        ModeValue, KindValue, BlobId = Metadata.decode("ascii").split()
+        assert KindValue == "blob"
+        CurrentTree[PathBytes.decode("utf-8")] = {"mode": ModeValue, "git_blob": BlobId}
+    assert (
+        Report["historical_lineage"]["current_input_tree_sha256"]
+        == GetDigest(
+            EncodeJson(
+                CurrentTree, sort_keys=True, separators=(",", ":"), ensure_ascii=True
+            ).encode("ascii")
+        ).hexdigest()
+    )
     assert {
         Entry["path"]
         for Entry in Report["historical_lineage"]["attribution_migrations"]
     } == set(KMigrationPaths)
+    for Entry in Report["historical_lineage"]["attribution_migrations"]:
+        assert Entry["current_git_blob"] == CurrentTree[Entry["path"]]["git_blob"]
+        assert (
+            Entry["original_git_blob"]
+            == RunGit(
+                BarePath,
+                "--no-replace-objects",
+                "rev-parse",
+                f"f5b23031c4163528a2e4f5029ab34102133b983e:{Entry['path']}",
+            )
+            .decode("ascii")
+            .strip()
+        )
+        assert Entry["original_git_blob"] != Entry["current_git_blob"]
     assert Report["summary"]["capture_receipts"] == 10
     assert Report["summary"]["native_files"] == 74
     assert Report["summary"]["qualified_pairs"] == 0
@@ -300,11 +345,11 @@ def CheckLineage(CaseMode: str) -> None:
         assert RunGit(BarePath, "for-each-ref", "refs/heads/") == b""
         if CaseMode in {"intact", "replaced-source", "grafted-source"}:
             assert Result.returncode == 0, Result.stderr.decode("utf-8", "replace")
-            AssertLineage(ParseJson(Result.stdout), Current)
+            AssertLineage(ParseJson(Result.stdout), Current, BarePath)
         elif CaseMode == "outside-alias":
             assert Result.returncode == 2, Result.stderr.decode("utf-8", "replace")
             Report = ParseJson(Result.stdout)
-            AssertLineage(Report, Current)
+            AssertLineage(Report, Current, BarePath)
             assert Report["quarantined_families"]
             assert any(
                 "re/Other/Alias.f3d" in NativeItem["git_tree_aliases"]
