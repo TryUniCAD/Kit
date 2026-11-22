@@ -144,6 +144,7 @@ def worker(request):
         "Contents/Config-0-Partition": b"unknown cache carrier",
     }, FormatVersion=4)
     check_unresolved_read(malformed, open_document)
+    detection = check_detected_rows(doc, prepared, spec["epoch"], open_document)
     edited, changed_value = edited_intent(doc, case["mode_word"] == 18)
     variant = PrepChmfPart(edited, BytesIO(), spec["epoch"], WriteOptions(values={
         "final_destination": spec["locator"]}))
@@ -165,7 +166,7 @@ def worker(request):
             "exact_native_transfer_evidence": exact,
             "owned_selection_count": len(reading.selections),
             "altered_readback_refused": True,
-            "unsupported_history_read_guarded": True,
+            "unsupported_history_read_guarded": True, "discovery_refusals": detection,
             "qualified_logical_streams": len(prepared.StreamsValue),
             "strict_geometry": measured, "semantic_read_matches": True,
             "edited_private_sha256": digest(variant.BytesValue), "edited_private_driver_mm": changed_value,
@@ -227,6 +228,44 @@ def check_unresolved_read(payload, open_document):
         value.code == "sldprt.chamfer_history_unresolved" and value.severity.value == "warning"
         for value in observed.diagnostics
     ), "permissive inspection hid an unsupported chamfer history")
+    return observed
+
+
+def check_detected_rows(document, part, epoch, open_document):
+    from xml.etree.ElementTree import fromstring
+    from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
+    from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import MakeBlindByPlan
+    from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+    from convert.adapters.solidworks.Container.Format import KeywordsStream
+    from convert.adapters.solidworks.Core.Adapter import DecodePartBase
+    from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
+    from interchange.Features.FeatureKinds import NativeFeature
+
+    plan = part.PlanValue
+    stock = MakeBlindByPlan(document, MakePartRecipe(plan, epoch), plan)
+    keywords = part.StreamsValue[KeywordsStream]
+    xml = fromstring(keywords[1:])
+    (chamfer,) = (row for row in xml.iter("Feature") if row.get("Type") == "Chamfer")
+    identity = int(chamfer.attrib["id"])
+    chamfer.set("Type", "Opaque")
+    cases = (
+        ("class_alias", dict(part.StreamsValue) | {KeywordsStream: FrameKeywords(xml, False)},
+         "Opaque", "Chamfer_c"),
+        ("keyword_only", dict(stock.StreamsValue) | {KeywordsStream: keywords}, "Chamfer", ""),
+    )
+    for _, streams, kind, class_name in cases:
+        payload = BuildSldprt(streams, FormatVersion=4)
+        model = DecodePartBase(SldprtArchive.from_bytes(payload), None)[0]
+        (feature,) = (row for row in model.features if row.object_id == identity)
+        demand((feature.kind, feature.class_name) == (kind, class_name)
+               and (feature.native_offset is not None) == bool(class_name)
+               and not any(row.kind == "chamfer" for row in model.operations),
+               "contrast did not isolate the intended discovery route")
+        result = check_unresolved_read(payload, open_document)
+        (step,) = (row for row in result.feature_timeline if row.id == f"sldprt:feature:{identity}")
+        demand(isinstance(step.definition, NativeFeature),
+               "unresolved chamfer discovery invented a portable definition")
+    return [label for label, *_ in cases]
 
 
 def check_refusals(doc, edited, spec, values, writer, write_document, WriteOptions):

@@ -5,7 +5,7 @@ from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHead
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
-from convert.adapters.solidworks.Core.Native import NativeModel
+from convert.adapters.solidworks.Core.Native import NativeFeature, NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import (
     ChmfPrism,
 )
@@ -87,6 +87,14 @@ def ReadColdChmf(Archive: SldprtArchive, ModelValue: NativeModel) -> ChmfPartRea
 KChmfRejected = "SOLIDWORKS 2026 chamfer history requires the verified cold stock, selected edge and live drivers"
 
 
+# native class names and explicit keyword kinds must still flag a chamfer when the operation could not be decoded
+def IsChmfFeature(FeatureValue: NativeFeature) -> bool:
+    return (
+        FeatureValue.class_name in ("Chamfer_c", "moChamfer_c")
+        or FeatureValue.kind.casefold().strip() == "chamfer"
+    )
+
+
 # raw extraction keeps its original payload lane while strict semantic reads reject unqualified current chamfers
 def TryColdChmf(
     Archive: SldprtArchive,
@@ -98,7 +106,7 @@ def TryColdChmf(
         or Archive.format_version != 4
         or not (
             any(Value.kind == "chamfer" for Value in ModelValue.operations)
-            or any(Value.class_name == "moChamfer_c" for Value in ModelValue.features)
+            or any(IsChmfFeature(Value) for Value in ModelValue.features)
         )
         or ContainerMo(Archive.streams) != 19000
     ):

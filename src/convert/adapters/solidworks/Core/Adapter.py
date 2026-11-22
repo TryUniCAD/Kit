@@ -180,6 +180,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BindChmfModel impor
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.BuildChmfGeom import BuildChmfGeom
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.ChmfPartRead import ChmfPartRead
 from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import (
+    IsChmfFeature,
     KChmfRejected,
     TryColdChmf,
 )
@@ -3688,7 +3689,7 @@ def Timeline(
                     NativeFallback(Feature, Operation)
                     if ChamferUnresolved
                     and (
-                        Feature.class_name == "moChamfer_c"
+                        IsChmfFeature(Feature)
                         or (Operation is not None and Operation.kind == "chamfer")
                     )
                     else BuildFeature(Feature, Operation, SketchById, PlaneById)

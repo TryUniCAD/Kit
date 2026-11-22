@@ -117,3 +117,28 @@ aggregate warm-owner implementation is available at
 python3.14 -I -B re/tooling/sw2026/CheckWarmChmfBoundary.py \
   --folder /absolute/path/to/DisclosedWarmSources01
 ```
+
+
+## Native class and keyword discovery controls
+
+The format-4, version-19000 semantic gate recognizes the actual
+`Chamfer_c` class, the earlier `moChamfer_c` spelling, and the explicit
+Chamfer keyword. A generated class-only contrast retains the actual native
+alias under an unrecognized keyword type. A separate generated keyword-only
+contrast retains the ordinary Chamfer row against the independently
+generated stock graph. Neither has a decoded chamfer operation. Both
+refuse strict inspection and retain the unresolved native-only feature
+and warning in permissive inspection.
+
+The shared merge-queue suite includes
+[the original disclosed equal-distance save](../v2026/corpus/chamfer-distance-saved/README.md).
+It verifies the same strict refusal with and without geometry, the
+permissive warning and closed one-body, seven-face B-rep, and the two
+unchanged raw payload hashes. The fixture supervisor checks the complete
+input hash before the fresh SDK worker. The four-source disclosed
+comparison remains available through `--folder`.
+[Guarded discovery and saved-fixture receipt](../measurements/2026/SdkChamferDetectionCoverage01.json)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckWarmChmfBoundary.py --fixture
+```

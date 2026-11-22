@@ -23,7 +23,11 @@ Both entry points report the same native capability transfers.
 Strict inspection refuses unqualified SOLIDWORKS 2026 chamfer history,
 including saved states requested without geometry. Permissive inspection
 keeps an unresolved-history warning and a native-only feature record.
-Raw Parasolid extraction remains available for readable saved payloads.
+This applies when the native class or the explicit Chamfer keyword
+identifies the feature without a decoded operation. Raw Parasolid
+extraction remains available for readable saved payloads. The shared
+integration suite uses a hash-pinned native save for both inspection modes
+and both raw payloads.
 
 The [release proof](../../../../re/solidworks/records/ChamferDistanceMain2026.md)
 links the native measurements and the guarded main-line read and write

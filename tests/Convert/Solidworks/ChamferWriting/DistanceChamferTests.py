@@ -35,6 +35,7 @@ def RunChamfFlow(SlotValue: int) -> None:
     assert ReportValue["owned_selection_count"] == 2
     assert ReportValue["altered_readback_refused"] is True
     assert ReportValue["unsupported_history_read_guarded"] is True
+    assert ReportValue["discovery_refusals"] == ["class_alias", "keyword_only"]
     assert ReportValue["semantic_read_matches"] is True
     assert ReportValue["runtime_reads"] == 0
 
@@ -47,3 +48,27 @@ def TestEqualDist() -> None:
 # the independently set distances retain distinct driver ownership
 def TestTwoDist() -> None:
     RunChamfFlow(1)
+
+
+# ordinary merge queue coverage binds the real saved part to distinct semantic and raw payload results
+def TestSavedDist() -> None:
+    RootValue = FilePath(__file__).resolve().parents[4]
+    WorkerValue = RootValue / "re/tooling/sw2026/CheckWarmChmfBoundary.py"
+    Outcome = RunProcess(
+        (PythonExec, "-I", "-B", str(WorkerValue), "--fixture"),
+        cwd=RootValue,
+        capture_output=True,
+        encoding="utf-8",
+        timeout=75,
+        check=False,
+    )
+    assert Outcome.returncode == 0, Outcome.stdout + Outcome.stderr
+    CasesValue = CastValue(dict[str, dict[str, object]], LoadJson(Outcome.stdout))
+    assert set(CasesValue) == {"EqualOriginal"}
+    ReportValue = CasesValue["EqualOriginal"]
+    assert ReportValue["strict_semantic_refusals"] == 2
+    assert ReportValue["permissive_warnings"] == 2
+    assert ReportValue["permissive_brep_topology"] == [1, 1, 7, 15, 10]
+    assert ReportValue["semantic_runtime_reads"] == 0
+    Payloads = CastValue(list[str], ReportValue["raw_payload_sha256"])
+    assert len(set(Payloads)) == 2

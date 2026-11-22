@@ -1,0 +1,61 @@
+{
+  "code_sha256": {
+    "re/tooling/sw2026/CheckMeasuredChamfer.py": "74996df10e5a7826af6338e177004c7e3095e1f229d2e46c3c1a8f3ac64d091e",
+    "re/tooling/sw2026/CheckWarmChmfBoundary.py": "cb2ed8376ee649c1cc5951a19cf751a64c6fd4ffc9697b94a311bf905556fed0",
+    "src/convert/adapters/solidworks/Core/Adapter.py": "43a5c2d737f9f35ad21346dc58955f9798bcbefc76907376b22af0f9bdbb4d0c",
+    "src/convert/adapters/solidworks/Core/TypedResolved/Chamfers/TryColdChmf.py": "2b80cb411e77c2d735ae12ef04d2cca6841cfa710a6231e832ca523c4998079d",
+    "tests/Convert/Solidworks/ChamferWriting/DistanceChamferTests.py": "5c5d32f24d6dec45e37aa773af7cd0045880b5a53516d92e807551c267395883"
+  },
+  "cold_discovery_controls": {
+    "18": {
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "discovery_refusals": [
+        "class_alias",
+        "keyword_only"
+      ],
+      "expected_native_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "native_acceptance_routes": 2,
+      "readback_native_acceptance_routes": 2,
+      "runtime_reads": 0
+    },
+    "2": {
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "discovery_refusals": [
+        "class_alias",
+        "keyword_only"
+      ],
+      "expected_native_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "native_acceptance_routes": 2,
+      "readback_native_acceptance_routes": 2,
+      "runtime_reads": 0
+    }
+  },
+  "external_saved_controls": 4,
+  "fixture": {
+    "bytes": 63045,
+    "path": "re/solidworks/v2026/corpus/chamfer-distance-saved/EqualOriginal.SLDPRT",
+    "permissive_brep_topology": [
+      1,
+      1,
+      7,
+      15,
+      10
+    ],
+    "permissive_warnings": 2,
+    "raw_payload_sha256": [
+      "468fd08ca0582e8ec349a8f5ebc8e2f31c8623b380f02aec2ce076441bd65a60",
+      "d072f191e6fd86a258d0d886794ea6f9e4bf6cf11810420365eb272d03300faf"
+    ],
+    "semantic_runtime_reads": 0,
+    "source_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+    "streams": 40,
+    "strict_semantic_refusals": 2
+  },
+  "fresh_guarded_workers": 7,
+  "merge_queue_case": "tests/Convert/Solidworks/ChamferWriting/DistanceChamferTests.py::TestSavedDist",
+  "native_processes_started": 0,
+  "prior_raw_payload_hashes_match": true,
+  "protected_inputs_read": 0,
+  "review_base": "0b06caab86efcb62e879f63ff04d4ea421124559",
+  "schema": "kit.sw2026.measured-chamfer-discovery-coverage.v1"
+}
