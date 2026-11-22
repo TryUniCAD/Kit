@@ -1,3 +1,4 @@
+from convert.adapters.solidworks.Archive.Bodies.Reading.ReadPatField import ReadPatField
 from collections.abc import Callable
 from types import MappingProxyType
 
@@ -62,6 +63,8 @@ KReadActions: MappingProxyType[str, Callable[[ReadFrame, NativeField], None]] = 
             "Embed": ReadNestedMut,
             "Array": ReadArrayMut,
             "Context": ReadContextMut,
+            "Mask": ReadPatField,
+            "Validate": ReadPatField,
             "Present": ReadPresentMut,
             "Packed": ReadPackedMut,
             "Length": ReadLengthMut,

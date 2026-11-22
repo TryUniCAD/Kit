@@ -24,9 +24,13 @@ def MakeBossNodeMut(
     OwnerValue: ArchiveNode,
     TargetValue: FeatureTarget,
     Allocator: PersistentIds,
+    *,
+    IsJoinedSeed: bool = False,
 ) -> ArchiveNode:
     RequireRootNode(OwnerValue, "moPart_c")
-    NodeValue = ArchiveNode(RuntimeClass("moExtrusion_c", 1), {})
+    NodeValue = ArchiveNode(
+        RuntimeClass("moICE_c" if IsJoinedSeed else "moExtrusion_c", 1), {}
+    )
     InitFeatureMut(NodeValue, NameValue, OwnerValue, TargetValue, Allocator)
     FieldsValue = NodeValue.FieldsValue
     FieldsValue.update(dict.fromkeys(KAtomWords, 0))

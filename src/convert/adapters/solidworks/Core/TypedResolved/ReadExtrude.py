@@ -11,9 +11,13 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # blind boss semantics require actual typed parents and the ordinary forward end branch
 def ReadExtrude(
-    LinkValue: NativeLink, NodeValue: ArchiveNode, Features: Mapping[int, ArchiveNode]
+    LinkValue: NativeLink,
+    NodeValue: ArchiveNode,
+    Features: Mapping[int, ArchiveNode],
+    *,
+    JoinedSeed: bool = False,
 ) -> ExtrudeOwner:
-    NodeValue = RequireNative(NodeValue, "moExtrusion_c")
+    NodeValue = RequireNative(NodeValue, "moICE_c" if JoinedSeed else "moExtrusion_c")
     ParentsValue = ReadParents(NodeValue)
     if any(
         Features.get(NativeNodeId(ParentValue)) is not ParentValue

@@ -13,8 +13,8 @@ KOraclePart = {
 }
 
 
-# the reported authoring time reconstructs the already measured bytes without deriving intent from the receipt
-def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+# the caller authored event is independent from the scoped immutable native evidence
+def ReadMeasInput(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
     SourceValue = OptionsValue.values.get(KPartMeasureOpt)
     if SourceValue is None:
         raise ValueError(
@@ -30,7 +30,12 @@ def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
         raise ValueError(
             "native measurement requires its exact archive creation epoch and receipt"
         )
-    Receipt = ReadMeasMap(Envelope["receipt"])
+    return TimeValue, ReadMeasMap(Envelope["receipt"])
+
+
+# the plain part lane retains its independently qualified oracle and receipt schema
+def ReadPartMeas(OptionsValue: WriteOptions) -> tuple[int, dict[str, object]]:
+    TimeValue, Receipt = ReadMeasInput(OptionsValue)
     if (
         Receipt.get("schema") != "kit.sw2026.sdk-standalone-default-part-evidence.v1"
         or ReadMeasMap(Receipt.get("oracle")) != KOraclePart

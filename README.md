@@ -35,8 +35,8 @@ Use the [conversion backlog](Documentation/Maintenance/ConversionBacklog.md) to 
 Registration does not establish complete feature coverage or lossless translation.
 Native replay and carrier preservation have different meanings from editable cross-format output.
 Check the format reference and result for each input.
-The SOLIDWORKS part writer generates one editable Front-plane line-loop blind boss
-from a qualified neutral document. [Writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
+The SOLIDWORKS part writer generates qualified editable Front-plane blind bosses
+and measured oblique local linear patterns from neutral documents. [Writer scope](Documentation/Reference/Adapters/Solidworks.md#writing)
 The [Fusion public adapter](Documentation/Changes/Fusion/Adapter/FusionPublicAdapter.md) reads and writes qualified parameter, circle, rectangle, cylinder, cuboid, and frustum documents. Arbitrary feature graphs remain unsupported; `strict=False` explicitly selects the earlier partial reader.
 
 ## Command line

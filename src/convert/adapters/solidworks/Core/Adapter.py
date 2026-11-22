@@ -174,8 +174,30 @@ from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
-from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import TypedProvenance
-from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import WithTypedNative
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ApplyPatStock import (
+    ApplyPatStock,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
+    ColdPatPart,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.TryColdPat import (
+    TryColdPat,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.BindPatModel import (
+    BindPatModel,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyPatDoc import (
+    ApplyPatDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyTiltDoc import (
+    ApplyTiltDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
+    TypedProvenance,
+)
+from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
+    WithTypedNative,
+)
 from convert.adapters.solidworks.Core.Native import (
     NativeDimension,
     NativeFeature,
@@ -362,11 +384,7 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model = (
-        NativePartModel(Archive, Settings.configuration)
-        if ModelValue is None
-        else ModelValue
-    )
+    Model, PatternValue = ReadPartInput(Archive, ModelValue, Settings)
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -375,7 +393,12 @@ def ReadNativePart(
     )
     SelectValues = Selections(Model)
     TimeValues = Timeline(Model, SelectValues)
-    Payloads, PayloadDiags, ColdBrep = PartBrepData(Archive, Model, Settings)
+    Payloads, PayloadDiags, ColdBrep = PartBrepData(
+        Archive,
+        Model,
+        Settings,
+        PatternValue.GeometryValue.BrepValue if PatternValue is not None else None,
+    )
     Candidate = (
         FindLocalOwner(Model)
         if Settings.include_brep
@@ -522,18 +545,69 @@ def ReadNativePart(
         ),
         units=UnitSystem.MILLIMETER,
     )
-    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue = FinishPartDoc(
+        DocValue, Model, Archive, Payloads, Settings, PatternValue, ColdBrep
+    )
     DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
 
 
+# the native model may use the fully typed pattern or preserve the existing shape reader
+def ReadPartInput(
+    Archive: SldprtArchive, ModelValue: NativeModel | None, Settings: ReadOptions
+) -> tuple[NativeModel, ColdPatPart | None]:
+    BaseValue = (
+        DecodePartBase(Archive, Settings.configuration) if ModelValue is None else None
+    )
+    Model = BaseValue[0] if BaseValue is not None else ModelValue
+    if Model is None:
+        raise ValueError("SOLIDWORKS part read has no native model")
+    PatternValue = TryColdPat(Archive, Model, Settings, KPartBodyId)
+    if PatternValue is not None:
+        Model = BindPatModel(Model, PatternValue)
+    elif BaseValue is not None:
+        Model = RefinePartModel(Archive, *BaseValue)
+    return Model, PatternValue
+
+
+# only a complete derived pattern body may replace ordinary optional semantic projection
+def FinishPartDoc(
+    DocValue: CadDoc,
+    Model: NativeModel,
+    Archive: SldprtArchive,
+    Payloads: tuple[BrepPayload, ...],
+    Settings: ReadOptions,
+    PatternValue: ColdPatPart | None,
+    ColdBrep: BrepModel | None,
+) -> CadDoc:
+    if PatternValue is not None and ColdBrep is PatternValue.GeometryValue.BrepValue:
+        DocValue = ApplyTiltDoc(
+            Replace(DocValue, bodies=PatternValue.BodiesValue),
+            PatternValue.LinkValue,
+            PatternValue.OwnerValue.DatumValue,
+        )
+        DocValue = ApplyPatDoc(
+            DocValue,
+            PatternValue.LinkValue,
+            PatternValue.OwnerValue,
+            PatternValue.LookValue,
+        )
+        DocValue = ApplyPatStock(DocValue, PatternValue)
+    else:
+        DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    return DocValue
+
+
 # cached payloads keep priority over geometry derived from a qualified cold archive
 def PartBrepData(
-    Archive: SldprtArchive, Model: NativeModel, Settings: ReadOptions
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    Settings: ReadOptions,
+    PatternBrep: BrepModel | None = None,
 ) -> tuple[tuple[BrepPayload, ...], tuple[DiagValue, ...], BrepModel | None]:
     ColdBrep = (
-        ColdPrism(Model, KPartBodyId)
+        PatternBrep or ColdPrism(Model, KPartBodyId)
         if Settings.include_brep and not Settings.extract_raw_brep
         else None
     )
@@ -2208,6 +2282,13 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 
 # this definition exists because focused behavior needs one stable owner
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
+    return RefinePartModel(Archive, *DecodePartBase(Archive, Requested))
+
+
+# strict cold pattern projection enters from the ordinary decoded feature index before other reader specific refinements
+def DecodePartBase(
+    Archive: SldprtArchive, Requested: str | None
+) -> tuple[NativeModel, bytes, bytes, str, str]:
     Keywords = Archive.require(KeywordsStream)
     Lanes = {
         int(Match.group(1)): NameValue
@@ -2256,6 +2337,18 @@ def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeMode
         configuration_stream=ConfigStream,
         Display=ParseDisplay(Archive.get(KInformationStream) or b""),
     )
+    return Model, ConfigData, Resolved, ConfigStream, SelectedStream
+
+
+# the legacy rectangle cut and scoped body paths keep their ordinary precedence for all other parts
+def RefinePartModel(
+    Archive: SldprtArchive,
+    Model: NativeModel,
+    ConfigData: bytes,
+    Resolved: bytes,
+    ConfigStream: str,
+    SelectedStream: str,
+) -> NativeModel:
     if SelectedStream == KitResolvedStream:
         return Model
 

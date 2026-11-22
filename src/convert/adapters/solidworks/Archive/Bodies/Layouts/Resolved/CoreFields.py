@@ -1,5 +1,8 @@
 from types import MappingProxyType
 
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Resolved.Patterns.PatOnlyField import (
+    PatOnlyField,
+)
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 # current resolved owner field order comes from proven serializer rules rather than saved programs
@@ -14,7 +17,11 @@ KCoreFields = MappingProxyType(
                 "Array",
                 "items",
                 "Count",
-                BodyValue=(NativeField("Fail", "alternate rf.suObArray items"),),
+                BodyValue=(
+                    PatOnlyField(
+                        NativeField("Node", "o"), "alternate rf.suObArray items"
+                    ),
+                ),
                 CountValue="n",
             ),
         ),

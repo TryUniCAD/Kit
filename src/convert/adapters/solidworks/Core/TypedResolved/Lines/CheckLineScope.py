@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Core.TypedResolved.Lines.IsLineState import (
 
 
 # mixed curves dimensions and derived managers remain outside the ordinary unconstrained line ring profile
-def CheckLineScope(FieldsValue: Mapping[str, object]) -> None:
+def CheckLineScope(FieldsValue: Mapping[str, object], *, HasAxes: bool = False) -> None:
     OtherArrays = (
         "texts",
         "hatches",
@@ -32,10 +32,11 @@ def CheckLineScope(FieldsValue: Mapping[str, object]) -> None:
         or FieldsValue.get("f568") != -1
     ):
         raise ValueError("typed line ring contains other geometry")
+    if not HasAxes and not IsLineState(FieldsValue["dims"]):
+        raise ValueError("typed line ring contains unqualified dimensions")
     if not all(
         IsLineState(FieldsValue[NameValue])
         for NameValue in (
-            "dims",
             "f590",
             "coinc",
             "f5d8",

@@ -1,6 +1,9 @@
 from collections.abc import Mapping
 from dataclasses import dataclass as Dataclass
 
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineAxis import (
+    LineAxis,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LinePoint import LinePoint
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSegment import LineSegment
 
@@ -12,3 +15,4 @@ class LineLoop:
     LinesValue: tuple[LineSegment, ...]
     OrderValue: tuple[int, ...]
     OwnerValue: Mapping[str, object]
+    AxesValue: tuple[LineAxis, ...] = ()

@@ -8,7 +8,7 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.MakeObList impo
 
 # native display text shares complete fresh geometry and cache state while its verified owning factory supplies the actual kind
 def MakeTextFields(TextKind: int) -> dict[str, object]:
-    if type(TextKind) is not int or TextKind not in (2, 13, 18):
+    if type(TextKind) is not int or TextKind not in (0, 2, 13, 18):
         raise ValueError(
             "display text kind is outside the verified feature and mate factories"
         )
