@@ -16,6 +16,7 @@ class CliOptions(Namespace):
         self.Configuration: str | None = None
         self.JsonOutput = False
         self.Overwrite = False
+        self.AllowUnverifiedNative = False
         self.Partial = False
         self.Offline = False
         self.Layer = "neutral"

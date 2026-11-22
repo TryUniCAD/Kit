@@ -39,6 +39,7 @@ def TestPlainWriter() -> None:
             "unknown_model_data",
             "unmodeled_configuration",
             "unsupported_extension",
+            "unverified_strict_stream",
         }
         assert ReportValue["native_capabilities"] == [
             "body_structure",

@@ -3583,6 +3583,19 @@ def Timeline(
         }
         OperationValue, Selected = TimelineOp(Operation, SelectionIds)
         if Operation is not None:
+            ProfileValue = (
+                SketchById.get(Operation.profile_id)
+                if Operation.profile_id is not None
+                else None
+            )
+            if (
+                Operation.kind == "join"
+                and PreviousOperation is None
+                and ProfileValue is not None
+                and ProfileValue.TypedLines is not None
+                and Operation.dependencies == (ProfileValue.object_id,)
+            ):
+                OperationValue = BoolOperation.CREATE
             Attributes.update(OperationAttrs(Operation))
             if Operation.kind != "surface":
                 PreviousOperation = Operation.object_id

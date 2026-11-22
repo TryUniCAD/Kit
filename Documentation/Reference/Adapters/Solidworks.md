@@ -277,8 +277,8 @@ Its writer reads the emitted bytes to report their object offsets.
 Kit writes native SOLIDWORKS 2026 SP05.2 parts from a neutral millimetre
 document with one active configuration, one closed Front-plane line loop,
 one forward blind boss, one driving depth parameter `D1` and one solid.
-Supply at least three ordinary unconstrained sketch lines, ordered around
-a single contour with matching endpoints.
+Supply three through 64 ordinary unconstrained sketch lines, ordered around
+a simple contour with matching endpoints and noncollinear adjacent sides.
 
 Call `write_document` with a `.SLDPRT` path whose stem matches
 `document.metadata["name"]`. For a binary stream, pass
@@ -288,6 +288,17 @@ object maps, topology and editable records from the document.
 
 The registry rejects unsupported neutral content and assembly or drawing
 destinations before publishing a file. [Native part writer evidence](../../Changes/Solidworks/Construction/SolidworksNativePartWriter.md)
+
+To produce a file for verification from a neutral document, run
+`kit convert document.json Name.SLDPRT --allow-unverified-native`.
+The option requires native transfers and permits publication with
+`vendor_loadable` and `application_usable` reported as false. The
+default CLI requires measured acceptance. SDK callers can request that
+same publication gate with `allow_carrier=False`.
+
+The combined SDK adapter listing describes the reader for shared formats.
+Use `AdapterRegistry.writers()` after discovery for writer metadata.
+Use `kit formats --json` for the exact reader and writer aliases and extensions.
 
 The cold archive carries the editable feature graph. SOLIDWORKS rebuilds
 the solid from that graph. With `include_brep=False`, Kit returns the

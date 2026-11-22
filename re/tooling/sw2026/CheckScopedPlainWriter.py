@@ -81,6 +81,8 @@ def reject(action, error_type, reason):
 
 
 def inspect_refusals(write_document, doc, target, windows_path, audit, not_found):
+    from convert.adapters.base.UsabilityError import UsabilityError
+
     original_opens = audit.target_opens
     raw = b"caller-owned input"
     buffer = BytesIO(raw)
@@ -92,6 +94,11 @@ def inspect_refusals(write_document, doc, target, windows_path, audit, not_found
     broken_edge = replace(edge, geometry=replace(edge.geometry, end=point))
     broken = replace(doc, sketches=(replace(sketch, entities=(*sketch.entities[:-1], broken_edge)),))
     refusals = {
+        "unverified_strict_stream": reject(
+            lambda: write_document(doc, buffer, destination_format=FORMAT, allow_carrier=False,
+                                   values={"final_destination": windows_path}),
+            UsabilityError, "vendor_unloadable",
+        ),
         "caller_stream_unnamed": reject(
             lambda: write_document(doc, buffer, destination_format=FORMAT),
             ValueError, "unnamed native streams require an explicit final destination",
@@ -148,6 +155,7 @@ def readback(source, native_bytes, original, expected_path):
     if (document.brep is not None or document.brep_payloads
             or len(document.feature_timeline) != 19
             or boss.sketch_id != sketch.id
+            or boss.operation != "create"
             or not config.active or config_id != 0 or config.name != original_config.name
             or sketch.closed_profile_entity_ids != (tuple(edge.id for edge in sketch.entities),)
             or len(sketch.entities) != len(author_sketch.entities)
@@ -244,12 +252,12 @@ def publish(target, source_text, audit):
     doc = CadDocument.from_json(source_text)
     if doc.metadata != {"name": target.stem}:
         raise ValueError("authored neutral model and test target differ")
-    disk = write_document(doc, target, allow_carrier=False, values=strict)
+    disk = write_document(doc, target, values=strict)
     memory = BytesIO()
-    stream = write_document(doc, memory, destination_format=FORMAT, allow_carrier=False,
+    stream = write_document(doc, memory, destination_format=FORMAT,
                             values={**strict, "final_destination": str(target)})
     windows = BytesIO()
-    write_document(doc, windows, destination_format=FORMAT, allow_carrier=False,
+    write_document(doc, windows, destination_format=FORMAT,
                    values={**strict, "final_destination": explicit_path})
     refusals = inspect_refusals(write_document, doc, target, explicit_path, audit, NotFoundError)
     return doc, disk, stream, memory.getvalue(), windows.getvalue(), path_expected, explicit_path, refusals
@@ -274,8 +282,9 @@ def measure(root, target, source_text):
             or disk.bytes_written != len(report) or stream.bytes_written != len(report)
             or disk.native_capabilities != stream.native_capabilities
             or len(stream.native_capabilities) != 6
-            or not (disk.vendor_loadable and stream.vendor_loadable
-                    and disk.application_usable and stream.application_usable)):
+            or disk.vendor_loadable or stream.vendor_loadable
+            or disk.application_usable or stream.application_usable
+            or disk.carrier_capabilities or stream.carrier_capabilities):
         raise ValueError("file staging and caller-owned stream disagree")
     path_read = readback(target, report, doc, path_expected)
     stream_read = readback(report, report, doc, path_expected)

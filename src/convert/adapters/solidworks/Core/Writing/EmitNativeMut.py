@@ -10,7 +10,7 @@ from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNa
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# native emission must complete strict model preparation before writing its one generated destination
+# preparing and writing native bytes establishes a candidate whose usability requires measurement
 def EmitNativeMut(
     DocumentValue: CadDocument,
     TargetValue: KTargetType,
@@ -36,10 +36,4 @@ def EmitNativeMut(
         raise TypeError("native part output requires a path or binary stream")
     if CountValue is not None and CountValue != len(Payload):
         raise OSError("short native part write")
-    return WriteResult(
-        OutputPath,
-        KPartFormatId,
-        len(Payload),
-        application_usable=True,
-        vendor_loadable=True,
-    )
+    return WriteResult(OutputPath, KPartFormatId, len(Payload))

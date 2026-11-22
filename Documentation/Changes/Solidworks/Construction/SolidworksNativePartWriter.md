@@ -1,7 +1,7 @@
 # Native SOLIDWORKS writer for an ordinary line-loop boss
 
 Kit can write a native `.SLDPRT` from a neutral millimetre document with one
-closed line loop on Front Plane, one forward blind boss, one driving depth
+simple closed line loop on Front Plane, one forward blind boss, one driving depth
 `D1`, one active configuration and one resulting solid. The complete
 ten-stream file is generated from the model and the pinned SOLIDWORKS 2026
 SP05.2 rules.
@@ -12,6 +12,12 @@ document name. For a binary stream, select `solidworks.sldprt` and give
 preserves the final filename. Unsupported features, material overrides,
 extra document state and unqualified assembly and drawing destinations fail
 before publication.
+
+Use `kit convert document.json Name.SLDPRT --allow-unverified-native`
+to generate a candidate for measurement with native transfers required.
+The result reports both acceptance flags as false until vendor
+verification. The strict CLI and SDK publication policies protect existing
+destinations when the writer has no measurement for the output.
 
 The three original native polygon cases pass controlled native depth edits
 and fresh reopen with source geometry and tree parity. Two further parts use
