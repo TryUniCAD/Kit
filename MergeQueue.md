@@ -232,3 +232,6 @@ Do not describe this configuration as active until the settings are read back.
 - [GitHub merge queue and coupled PR/merge-group checks](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)
 - [Repository rulesets API](https://docs.github.com/en/rest/repos/rules)
 - [Trusted pull-request metadata workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#pull_request_target)
+
+The catalogue fixture roster and trusted native shell checks are described in
+[the fixture merge CI change](Documentation/Changes/Ci/Testing/FixtureMergeCi.md).
