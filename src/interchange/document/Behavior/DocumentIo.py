@@ -6,6 +6,7 @@ from typing import Protocol as TypeProtocol
 from typing import runtime_checkable as RuntimeCheck
 from typing import TypeVar
 
+from interchange.document.Behavior.DocumentValidBehavior import ValidateIo
 from interchange.serialization.Deserialize import FromData
 from interchange.serialization.EncodeData import ToData
 from interchange.serialization.JsonCodec import DumpJson, LoadJson
@@ -24,9 +25,7 @@ KDocumentType = TypeVar("KDocumentType")
 
 # mapping output gives callers a portable structure without exposing codec internals
 def ToMapping(DocumentValue: object) -> dict[str, KWireData]:
-    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
-
-    CheckOffsetRead(DocumentValue)
+    ValidateIo(DocumentValue)
     ResultValue = ToData(DocumentValue)
     if not isinstance(ResultValue, dict):
         raise TypeError("document serialization did not produce a mapping")
@@ -34,48 +33,34 @@ def ToMapping(DocumentValue: object) -> dict[str, KWireData]:
 
 
 # mapping input enforces the requested model type before callers receive data
-def FromMapping(
-    ClassType: type[KDocumentType], SourceValues: TypeMap[str, KWireData]
-) -> KDocumentType:
+def FromMapping(ClassType: type[KDocumentType], SourceValues: TypeMap[str, KWireData]) -> KDocumentType:
     ResultValue = FromData(dict(SourceValues))
-    if not isinstance(ResultValue, ClassType) or not isinstance(
-        ResultValue, ValidDocument
-    ):
+    if not isinstance(ResultValue, ClassType) or not isinstance(ResultValue, ValidDocument):
         raise TypeError("data does not describe a CadDocument")
-    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
-
-    CheckOffsetRead(ResultValue)
+    ValidateIo(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 
 
 # json output centralizes deterministic serialization options for document methods
 def ToJson(DocumentValue: object, *, IndentSize: int | None = 2) -> str:
-    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
-
-    CheckOffsetRead(DocumentValue)
+    ValidateIo(DocumentValue)
     return DumpJson(DocumentValue, IndentSize=IndentSize)
 
 
 # json input validates document identity before returning decoded data
 def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
     ResultValue = LoadJson(SourceValue)
-    if not isinstance(ResultValue, ClassType) or not isinstance(
-        ResultValue, ValidDocument
-    ):
+    if not isinstance(ResultValue, ClassType) or not isinstance(ResultValue, ValidDocument):
         raise TypeError("JSON does not describe a CadDocument")
-    from interchange.document.Validation.Offsets.CheckOffsetRead import CheckOffsetRead
-
-    CheckOffsetRead(ResultValue)
+    ValidateIo(ResultValue)
     ResultValue.assert_valid()
     return CastValue(KDocumentType, ResultValue)
 
 
 # file output provides atomic ownership of path normalization and parent creation
 def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
-    from interchange.document.Validation.Offsets.CheckDocWrite import CheckDocWrite
-
-    CheckDocWrite(DocumentValue)
+    ValidateIo(DocumentValue, IsWrite=True)
     Payload = (ToJson(DocumentValue) + "\n").encode("utf-8")
     OutputPath = FilePath(PathValue).expanduser().resolve()
     OutputPath.parent.mkdir(parents=True, exist_ok=True)
@@ -84,8 +69,6 @@ def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
 
 
 # file input shares validated json decoding rather than duplicating codec rules
-def ReadJson(
-    ClassType: type[KDocumentType], PathValue: str | FilePath
-) -> KDocumentType:
+def ReadJson(ClassType: type[KDocumentType], PathValue: str | FilePath) -> KDocumentType:
     SourceText = FilePath(PathValue).expanduser().resolve().read_text("utf-8")
     return FromJson(ClassType, SourceText)

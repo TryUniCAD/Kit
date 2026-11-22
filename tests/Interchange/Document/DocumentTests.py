@@ -21,6 +21,8 @@ from interchange.Features.FeatureAngleRev import AngularRevolve
 from interchange.Features.FeatureBoundPlane import BoundDatum
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
+from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeaturePlaneExt import PlaneExtrude
 from interchange.Features.FeaturePlaneRev import PlaneRevolve
 from interchange.serialization.Deserialize import FromData
@@ -56,7 +58,9 @@ def CheckRoundtrip() -> None:
 def CheckStableJson() -> None:
     PayloadValue = BuildDocument().to_json(indent=None)
     SourceRoot = FilePath(__file__).parents[3] / "src"
-    ScriptText = f"from interchange import CadDocument;print(CadDocument.from_json({PayloadValue!r}).to_json(indent=None))"
+    ScriptText = (
+        f"from interchange import CadDocument;print(CadDocument.from_json({PayloadValue!r}).to_json(indent=None))"
+    )
     OutputValues = {
         Subprocess.check_output(
             [System.executable, "-c", ScriptText],
@@ -75,8 +79,7 @@ def CheckRegistry() -> None:
         ItemValue
         for NameValue in KInterchangeApi.__all__
         for ItemValue in (getattr(KInterchangeApi, NameValue),)
-        if isinstance(ItemValue, type)
-        and (IsDataClass(ItemValue) or issubclass(ItemValue, EnumBase))
+        if isinstance(ItemValue, type) and (IsDataClass(ItemValue) or issubclass(ItemValue, EnumBase))
     }
     ExpectedValues.update(
         (
@@ -84,6 +87,8 @@ def CheckRegistry() -> None:
             BoundDatum,
             BoundScale,
             DistanceExtrude,
+            DistanceCut,
+            FaceOffset,
             PlaneExtrude,
             PlaneRevolve,
         )
@@ -104,9 +109,7 @@ def CheckPayRole(RoleValue: PayloadRole) -> None:
         role=RoleValue,
         file_extension=".geo",
     )
-    RestoredValue = CadDocument.from_json(
-        ReplaceValue(BuildDocument(), brep_payloads=(PayloadValue,)).to_json()
-    )
+    RestoredValue = CadDocument.from_json(ReplaceValue(BuildDocument(), brep_payloads=(PayloadValue,)).to_json())
     assert RestoredValue.brep_payloads == (PayloadValue,)
 
 
@@ -193,9 +196,7 @@ def CheckOldPayload(
     assert RestoredPayload.ValueRole == RoleValue
     assert RestoredPayload.FileExtension == ExtensionText
     assert RestoredPayload.PayloadData == b"legacy payload"
-    assert (
-        RestoredPayload.SourceDigest == HashCodec.sha256(b"legacy payload").hexdigest()
-    )
+    assert RestoredPayload.SourceDigest == HashCodec.sha256(b"legacy payload").hexdigest()
 
 
 # behavior coverage protects portable interchange semantics during structural refactors
@@ -280,7 +281,5 @@ def CheckUnknown() -> None:
 # behavior coverage protects portable interchange semantics during structural refactors
 def CheckAllCaps() -> None:
     Capabilities = frozenset(Capability)
-    RestoredValue = CadDocument.from_json(
-        ReplaceValue(BuildDocument(), capabilities=Capabilities).to_json()
-    )
+    RestoredValue = CadDocument.from_json(ReplaceValue(BuildDocument(), capabilities=Capabilities).to_json())
     assert RestoredValue.capabilities == Capabilities

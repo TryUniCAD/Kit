@@ -305,7 +305,10 @@ def stock_reads(inputs):
             and not doc.diagnostics,
             "Previously accepted strict circle lost its unconstrained sketch",
         )
-        digest = sha256(doc.to_json(indent=None).encode("utf-8"))
+        legacy = json.loads(doc.to_json(indent=None))
+        for feature in legacy["feature_timeline"]["$tuple"]:
+            require(feature.pop("output_body_ids") == {"$tuple": []}, "Legacy feature gained output body ownership")
+        digest = sha256(json.dumps(legacy, sort_keys=True, ensure_ascii=False).encode("utf-8"))
         require(
             digest == UNCONSTRAINED[name][1],
             "Previously accepted strict circle neutral serialization changed",

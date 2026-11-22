@@ -12,10 +12,9 @@ def CheckSpanRoles(Output: FilePath, Sample: SpanCliCase) -> None:
     assert Definition["$type"] == "DistanceExtrude"
     assert Definition["side_mode"] == Sample.SideMode
     Parameters = {Value["id"]: Value for Value in Document["parameters"]["$tuple"]}
-    assert {
-        Value["name"]: Value["attributes"]["native_name"]
-        for Value in Parameters.values()
-    } == dict(Sample.ParamRoles)
+    assert {Value["name"]: Value["attributes"]["native_name"] for Value in Parameters.values()} == dict(
+        Sample.ParamRoles
+    )
     Expected = {
         "along_parameter_id": "AlongDistance",
         "taper_parameter_id": "TaperAngle",
@@ -38,4 +37,7 @@ def CheckSpanRoles(Output: FilePath, Sample: SpanCliCase) -> None:
         for RoleName in ("against_parameter_id", "start_offset_id", "second_taper_id")
         if RoleName not in Expected
     )
-    assert "fusion.native_state" not in Document["metadata"]
+    if Sample.CaseName.endswith(("HealthyBefore", "HealthyAfter")):
+        assert "fusion.native_state" in Document["metadata"]
+    else:
+        assert Document["metadata"] == {"fusion.read_only": True}

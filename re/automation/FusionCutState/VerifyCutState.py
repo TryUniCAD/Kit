@@ -642,7 +642,7 @@ def public_guards(raw, document, contract, mode):
     result = {
         "strict": refusal(
             lambda: open_document(raw, strict=True),
-            "Native Fusion projection requires a sketch followed by one extrusion",
+            "Unmodeled native Fusion semantic entity class",
         )
     }
     for name, item in (
