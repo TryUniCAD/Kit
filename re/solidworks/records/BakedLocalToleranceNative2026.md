@@ -53,9 +53,11 @@ missing sentinel. An absent
 group does not qualify a tolerance elsewhere in the file. [Native saved
 control evidence](../measurements/2026/ImportedLocalBodySdkSavedRead01.json)
 
-This is a disclosed field and geometry comparison. Original FreeCAD
-provenance, element map, appearance, intact conversion and held-out
-qualification remain open. Registry behavior is unchanged.
+## Native outcome
+
+Both generated parts passed clean cold open, rebuild, save and fresh reopen with their actual solids and both controls healthy across six fresh processes. The native receipt SHA-256 is `520999b48639661f08019b584e1c9f7faba3349df62383a076ea65b22a9cbd40`. The first strict SDK audit refused both saved parts. Its local geometry path attempted to dereference the nonresident attribute-definition successor 169 in each saved transmit. [First strict read result](../measurements/2026/DisclosedBakedSavedStrictFailure01.json)
+
+The existing saved local-body tree validator accepts the eleven nonresident references in each file as attribute-definition successors. The follow-up binds the actual local group to BaseBody 18, atom 101 and rollback transition 2 to 5, rebuilds the full neutral topology and matches all six oriented rings to the source. Each save retains the exact six face tolerance values. All twelve edge fields and eight vertex fields per part contain the missing sentinel. These stored fields do not establish which tolerances the kernel uses after reopening. The public strict SDK routing, effective edge and vertex tolerances, original FreeCAD provenance, element map, appearance, intact conversion and held-out qualification remain open. [Warm tolerance audit](../measurements/2026/DisclosedBakedWarmTolerance01.json)
 
 ## Reproduction
 
@@ -97,3 +99,12 @@ python3.14 -B re/tooling/sw2026/imported_body_source/BuildBakedTolerancePart.py 
 
 [Build and audit](../../tooling/sw2026/imported_body_source/BuildBakedTolerancePart.py)
 and [serial observer](../../tooling/sw2026/imported_body_source/ObserveBakedTolerancePart.py).
+
+The stored attribute follow-up uses the same native and source pins. Two fresh host runs produce the same receipt with zero guarded runtime accesses.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/imported_body_source/AuditWarmBakedTolerance.py \
+  /Users/odin/Documents/UniCAD/Oracle121Takeover/FreeCADRuntime114/NativeBakedTolerance01 \
+  --job-sha256 JOB_SHA256 --native-sha256 NATIVE_SHA256 \
+  --output /tmp/BakedToleranceWarmAudit01.json
+```

@@ -1,0 +1,27 @@
+{
+  "cases": {
+    "Baked01": {
+      "diagnostic": "SLDPRT local geometry rejected: 169",
+      "part": {
+        "bytes": 51451,
+        "sha256": "80287ebe9365f4f318019c8df224e1d47a4f969128dd09fee8b4c455781ff323"
+      },
+      "status": "unresolved_saved_layout"
+    },
+    "Baked02": {
+      "diagnostic": "SLDPRT local geometry rejected: 169",
+      "part": {
+        "bytes": 46005,
+        "sha256": "31cc5e98bcdabcc5121adc28ae0a2d15cd11864f490ef2793e47141b62f70d1e"
+      },
+      "status": "unresolved_saved_layout"
+    }
+  },
+  "controls_healthy": true,
+  "heldout_credit": 0,
+  "job_sha256": "8745548b488001f3de2f4ab309e903da806539c8680e9af8eacc1af5166e5c6a",
+  "native_lifecycles_healthy": true,
+  "native_receipt_sha256": "520999b48639661f08019b584e1c9f7faba3349df62383a076ea65b22a9cbd40",
+  "saved_local_tolerance_exact": false,
+  "whole_source_conversions": 0
+}
