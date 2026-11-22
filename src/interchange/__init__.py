@@ -104,6 +104,7 @@ from interchange.Features.Axes.BoundPlaneAxis import BoundPlaneAxis
 from interchange.Features.FeatureBoundScale import BoundScale
 from interchange.Features.FeatureDistExt import DistanceExtrude
 from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.FeatureExtrude import ExtrudeEnd, ExtrudeFeature
 from interchange.Features.FeaturePlaneAxis import PlaneAxis
 from interchange.Features.FeatureKinds import (
@@ -473,6 +474,7 @@ RegisterTypes(
     BoundScale,
     DistanceExtrude,
     DistanceCut,
+    FaceOffset,
     PlaneExtrude,
     PlaneRevolve,
     *(

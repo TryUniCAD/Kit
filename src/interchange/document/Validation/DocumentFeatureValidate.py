@@ -1,3 +1,4 @@
+from interchange.document.Validation.Offsets.OffsetGraphErrs import OffsetGraphErrs
 from interchange.document.Validation.Cuts.GetCutHistErrs import GetCutHistErrs
 from typing import Mapping as TypeMap
 
@@ -40,6 +41,16 @@ def GetFeatureErrs(
     Features = {Value.id: Value for Value in DocumentValue.feature_timeline}
     for FeatureValue in DocumentValue.feature_timeline:
         ErrorValues.extend(GetCutHistErrs(FeatureValue, Features))
+        ErrorValues.extend(
+            OffsetGraphErrs(
+                FeatureValue,
+                DocumentValue,
+                Features,
+                IdentitySets,
+                Parameters,
+                Selections,
+            )
+        )
         ErrorValues.extend(GetStepErrors(FeatureValue, FeatureOrders, IdentitySets))
         ErrorValues.extend(
             GetDefErrors(

@@ -1,3 +1,6 @@
+from interchange.document.Validation.Offsets.OffsetDefErrors import OffsetDefErrors
+from interchange.Features.Offsets.FaceOffset import FaceOffset
+from interchange.document.Validation.Offsets.OffsetHistErrs import OffsetHistErrs
 from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.document.Validation.Cuts.GetCutHistErrs import GetCutHistErrs
 from collections.abc import Mapping
@@ -49,6 +52,14 @@ def CheckStep(
         raise ValueError(KFeatureError)
     if isinstance(Feature.definition, DistanceCut) and (
         Features is None or GetCutHistErrs(Feature, Features)
+    ):
+        raise ValueError(KFeatureError)
+    if isinstance(Feature.definition, FaceOffset) and (
+        Features is None
+        or OffsetHistErrs(Feature, Features)
+        or OffsetDefErrors(
+            Feature, Feature.definition, IdentitySets, Parameters, Selections
+        )
     ):
         raise ValueError(KFeatureError)
     if GetDefErrors(Feature, IdentitySets, Selections, Parameters, Frames, Sketches):

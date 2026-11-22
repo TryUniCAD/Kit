@@ -23,3 +23,7 @@ The physical target resolution uses the full feature tag (primary, operation IDs
 CaptureControls.py authors the corpus and records native rebuild and dimension-edit observations in NativeObservations.json. DecodeOffsets.py and TraceOffset.py parse the native records and measure the journal. Correlation.json records every source digest, parameter binding, selected face tag, source references, journal measurement and comparison. Both held-out inputs match the same rule. Healthy control histories use the already supported stock history type and are measured independently by Fusion.
 
 Loader field names and types come from the existing reflected schema and typed codecs. Semantic correlations are confirmed for this bounded source corpus; general offset topology, curved faces, multiple targets, serializer synthesis and native edits of Kit-authored output remain open. Production code does not import this corpus. The public neutral reader still refuses these histories; the seventeen unsupported history cases are not closed by this research receipt.
+
+## Typed intent schema
+
+FaceOffset now retains the resolved design Body identity, ModelDataRef selection identity and user Parameter identity as first-class neutral operands. TraceOffset emits the registered wire record. SchemaDecode.json records all six source cases and exact implementation hashes. This is a typed intent receipt; it does not establish strict neutral archive projection, graph qualification, snapshot validation or native export.

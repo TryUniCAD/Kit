@@ -1,3 +1,4 @@
+from interchange.Features.Offsets.FaceOffset import FaceOffset
 from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.Enums.EnumFeatures import FeatureKind
 from interchange.Features.FeatureAngleRev import AngularRevolve
@@ -20,5 +21,6 @@ KDefinitionKinds: dict[type[object], FeatureKind] = {
     PlaneRevolve: FeatureKind.KRevolution,
     BoundDatum: FeatureKind.KReference,
     BoundScale: FeatureKind.KScale,
+    FaceOffset: FeatureKind.KOffset,
     CombineFeature: FeatureKind.KBoolean,
 }

@@ -2689,3 +2689,5 @@ The bounded cut profile declares persistent output body IDs on both the stock an
 ## Planar face offset research
 
 The [face offset corpus](../../../re/Fusion/Reconstruction/FaceOffsets/Findings.md) records signed parameter ownership, bound-face recipe selection and six measured journal correlations, including two held-out inputs. Strict neutral projection remains unfinished. See the [change entry](../../Changes/Fusion/Research/FusionFaceOffsetCorpus.md) and [target-reference gotcha](../../Gotchas/Conversion/Fusion/Features/FusionOffsetFaceTargets.md).
+
+The [signed face-offset schema](../../Changes/Fusion/Research/FusionFaceOffsetSchema.md) preserves the selected face and body with a live distance binding. Native projector qualification remains separate.

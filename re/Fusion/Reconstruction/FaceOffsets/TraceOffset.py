@@ -1,3 +1,5 @@
+from interchange.Features.Offsets.FaceOffset import FaceOffset
+from interchange.serialization.EncodeData import ToData
 from dataclasses import asdict
 import math
 
@@ -37,4 +39,4 @@ def trace_offset(graph, feature, history):
     axis, = (index for index, value in enumerate(normal) if math.isclose(abs(value), 1.0, abs_tol=1e-12))
     if any(abs(value) > 1e-12 for index, value in enumerate(normal) if index != axis):
         raise ValueError('Offset face is not axis aligned')
-    return {'feature_id': feature.Identity, 'parameter_id': parameter.Identity, 'distance_cm': distance, 'target_reference_id': target.Identity, 'operand_id': operand.Identity, 'body_id': body.Identity, 'recipe_id': recipe_node.Identity, 'selected_tag': asdict(label), 'face_ref': owner, 'outward_normal': normal, 'axis': axis, 'start_state': feature.Fields['startModelHS'], 'end_state': feature.Fields['endModelHS']}
+    return {'definition': ToData(FaceOffset(graph.Resolve(body.Fields['rBody']).Identity, target.Identity, graph.Resolve(parameter.Fields['parameter']).Identity)), 'feature_id': feature.Identity, 'parameter_id': parameter.Identity, 'distance_cm': distance, 'target_reference_id': target.Identity, 'operand_id': operand.Identity, 'body_id': body.Identity, 'recipe_id': recipe_node.Identity, 'selected_tag': asdict(label), 'face_ref': owner, 'outward_normal': normal, 'axis': axis, 'start_state': feature.Fields['startModelHS'], 'end_state': feature.Fields['endModelHS']}
