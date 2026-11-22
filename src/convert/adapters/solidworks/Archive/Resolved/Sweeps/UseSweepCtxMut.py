@@ -13,14 +13,14 @@ from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField
 
 
 # explicitly selected cold sweep emission installs only measured ordinary part schemas in its fresh context
-def UseSweepCtxMut(ContextValue: BodyContext) -> None:
+def UseSweepCtxMut(ContextValue: BodyContext, *, SavedResult: bool = False) -> None:
     if (
         ContextValue.VersionValue != 19000
         or ContextValue.FlagsValue
         != {
             "model_compressed_stream": 1,
             "model_is_part": 1,
-            "cmgr_f658": 0,
+            "cmgr_f658": int(SavedResult),
         }
         or ContextValue.UsageValue.SchemaCalls
     ):

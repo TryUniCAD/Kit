@@ -21,7 +21,16 @@ from interchange.geometry.Models.GeometryCurves import CircleGeometry
 
 
 # alternate sweep options and solved body caches are outside the measured cold definition
-def CheckColdSweep(FieldsValue: Mapping[str, object]) -> None:
+def CheckColdSweep(
+    FieldsValue: Mapping[str, object], *, SavedResult: bool = False
+) -> None:
+    if (FieldsValue["f2b4"], FieldsValue["f2b8"]) != (
+        int(SavedResult),
+        int(SavedResult),
+    ):
+        raise BodyUnsupported(
+            "SOLIDWORKS sweep state disagrees with its result partition"
+        )
     if any(
         FieldsValue[NameValue]
         for NameValue in (
@@ -38,7 +47,6 @@ def CheckColdSweep(FieldsValue: Mapping[str, object]) -> None:
             "f238",
             "f240",
             "f248",
-            "f2b4",
             "f280",
             "f288",
             "f290",
@@ -48,7 +56,6 @@ def CheckColdSweep(FieldsValue: Mapping[str, object]) -> None:
             "f260",
             "f298",
             "f2a0",
-            "f2b8",
             "f3b0",
         )
     ):

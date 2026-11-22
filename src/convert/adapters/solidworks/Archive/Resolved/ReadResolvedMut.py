@@ -21,6 +21,15 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ReadMbsMut import ReadMbsMut
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.ReadSwSchema import (
+    ReadSwSchema,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.UseSavedSwMut import (
+    UseSavedSwMut,
+)
+from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
+    CheckSweepUse,
+)
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseFilletCtxMut import UseFilletCtxMut
@@ -68,9 +77,19 @@ def ReadResolvedMut(
     ReadChamfers: bool = False,
     ReadEllipses: bool = False,
     ReadShells: bool = False,
+    SavedSweep: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
-    UseReadCtxMut(ContextValue, ReadFillets, ReadChamfers, ReadEllipses, ReadShells)
+    if SavedSweep:
+        if ReadFillets or ReadChamfers or ReadEllipses or ReadShells:
+            raise BodyUnsupported(
+                "SOLIDWORKS saved sweep requires its own archive scope"
+            )
+        UseSavedSwMut(ContextValue)
+        BodyReader = PartialValue(ReadBodyMut, ContextValue, SchemaReader=ReadSwSchema)
+    else:
+        UseReadCtxMut(ContextValue, ReadFillets, ReadChamfers, ReadEllipses, ReadShells)
+        BodyReader = PartialValue(ReadBodyMut, ContextValue)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:
@@ -82,7 +101,7 @@ def ReadResolvedMut(
     ReaderValue = GraphReader(
         Cursor,
         ArchiveMaps(BaseValue, SeedValue),
-        PartialValue(ReadBodyMut, ContextValue),
+        BodyReader,
         NodeFactory=NodeMaker,
     )
     RootsValue = tuple(ReadNodeMut(ReaderValue) for _ in range(CountValue))
@@ -91,6 +110,12 @@ def ReadResolvedMut(
         raise BodyUnsupported(
             f"resolved graph has {Cursor.GetRemaining()} trailing bytes"
         )
+    if SavedSweep:
+        if FieldsValue != {"n": 0, "fcd8": []}:
+            raise BodyUnsupported(
+                "saved SOLIDWORKS sweep has alternate configuration body mappings"
+            )
+        CheckSweepUse(ContextValue)
     if ReadEllipses:
         CheckEllipUse(ContextValue)
     ContextValue.UsageValue.IsComplete = True

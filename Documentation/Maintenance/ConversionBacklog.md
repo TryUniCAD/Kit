@@ -71,7 +71,7 @@ extends strict inspection to the bounded fresh and saved rectangular
 profiles. The locked native output lifecycle and independent held-out
 comparison remain open. Public shell writing remains gated.
 
-The [measured Standard sweep handoff](../../re/solidworks/records/SweepMeasuredPublication2026.md) brings the two disclosed native-qualified originals to the exact offline receipt gate in the public SDK. Both complete archives match across the three stream entry points with zero runtime input reads. This isolated PR #121 tranche is pending aggregate integration. Filesystem publication requires the actual measured locator, and ordinary semantic readback remains a separate condition.
+The [measured Standard sweep handoff](../../re/solidworks/records/SweepMeasuredPublication2026.md) brings the two disclosed native-qualified originals to the exact offline receipt gate in the public SDK. Both complete archives match across the three stream entry points with zero runtime input reads. Both scoped cold writer cases are integrated. Filesystem publication requires the actual measured locator. The strict reader now retains the two D1 owners, Section seam and native results for six disclosed saved Standard sweep states. Saved-to-native publication remains separate. [Saved sweep integration](../../re/solidworks/records/AggregateSavedSweepRead2026.md)
 
 The [shared archive implementation](../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 adds memory-only counts, typed strings, tags, object identities, counters, and configuration-map handoffs.

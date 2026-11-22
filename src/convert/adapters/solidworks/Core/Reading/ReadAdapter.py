@@ -280,6 +280,15 @@ from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadSavedEq import
     ReadSavedEq,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
+from convert.adapters.solidworks.Core.Reading.ConfigLanes import (
+    KResolvedConfigStream,
+    ResolvedLanes,
+    ResolvedStream,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
+    IsSavedSweep,
+    ReadSwPart,
+)
 from convert.adapters.solidworks.Core.TypedResolved.WithTypedNative import (
     WithTypedNative,
 )
@@ -391,9 +400,6 @@ KSourceKeys = frozenset(
 )
 
 
-# this binding exists because shared behavior needs one stable value
-KResolvedConfigStream = RegexLib.compile("^Contents/Config-(\\d+)-ResolvedFeatures$")
-
 # native part geometry and the design body need the same public identifier
 KPartBodyId = "sldprt:body:1"
 
@@ -496,12 +502,22 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
+    if not Settings.extract_raw_brep and IsSavedSweep(Archive, Settings.configuration):
+        try:
+            DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
+        except SldprtFormatError:
+            if Settings.strict:
+                raise
+        else:
+            ValidateSource(Label, False)
+            return DocValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 
 # specific geometry and semantics must come from the same proof before invoking generic cache and legacy paths
 def SelectPartShape(
-    Archive: SldprtArchive, Settings: ReadOptions,
+    Archive: SldprtArchive,
+    Settings: ReadOptions,
 ) -> tuple[
     NativeModel,
     StockCacheGeom | None,
@@ -544,7 +560,8 @@ def SelectPartShape(
 
 # specialized conic and edge families retain the exact linked proof supplied before public projection
 def BindSpecialPart(
-    DocValue: CadDoc, ShapeValue: ChmfPartRead | EllipPartRead | ShellPartRead,
+    DocValue: CadDoc,
+    ShapeValue: ChmfPartRead | EllipPartRead | ShellPartRead,
 ) -> CadDoc:
     if isinstance(ShapeValue, ChmfPartRead):
         return BindChmfDoc(DocValue, ShapeValue)
@@ -576,7 +593,8 @@ def ReadNativePart(
         Model
         if Model.WidthDepth is not None
         and not Settings.extract_raw_brep
-        and Archive.get(f"{Model.WidthDepth.LinkValue.ConfigName}-Partition") is not None
+        and Archive.get(f"{Model.WidthDepth.LinkValue.ConfigName}-Partition")
+        is not None
         else None
     )
     Payloads, PayloadDiags, BrepValue, LocalOwner, ActivePart = ReadPartSolid(
@@ -586,7 +604,9 @@ def ReadNativePart(
         len(ConfigValues),
         DerivedValue,
         StockValue.BrepValue if StockValue is not None else None,
-        WarmValue=ShapeValue.WarmValue if isinstance(ShapeValue, ChmfPartRead) else None,
+        WarmValue=(
+            ShapeValue.WarmValue if isinstance(ShapeValue, ChmfPartRead) else None
+        ),
         ShellValue=ShapeValue if isinstance(ShapeValue, ShellPartRead) else None,
     )
     if StockValue is not None:
@@ -639,7 +659,9 @@ def ReadNativePart(
                         else "sldprt.native_record_unresolved"
                     ),
                     message=Message,
-                    severity=Severity.WARNING if Message == KShellRejected else Severity.INFO,
+                    severity=(
+                        Severity.WARNING if Message == KShellRejected else Severity.INFO
+                    ),
                 )
                 for Message in Model.diagnostics
             )
@@ -706,9 +728,7 @@ def ReadNativePart(
             StockValue.LineageValue
             if StockValue is not None
             else (
-                ColdValue.OwnersValue
-                if isinstance(ColdValue, ColdStockPart)
-                else None
+                ColdValue.OwnersValue if isinstance(ColdValue, ColdStockPart) else None
             )
         ),
     )
@@ -2494,11 +2514,6 @@ def SourceBytes(Source: Source) -> tuple[bytes, str]:
     return (bytes(Value), str(NameValue))
 
 
-# this definition exists because focused behavior needs one stable owner
-def ResolvedStream(Streams: Mapping[str, bytes], LaneValue: str) -> str:
-    return KitResolvedStream if KitResolvedStream in Streams else LaneValue
-
-
 # a warning needs the reached configuration map and typed resolved system prefix
 def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) -> bool:
     if (
@@ -2570,11 +2585,7 @@ def NativePartModel(
     Archive: SldprtArchive, Requested: str | None, *, StrictRefs: bool = True
 ) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
-    Lanes = {
-        int(Match.group(1)): NameValue
-        for NameValue in Archive.streams
-        if (Match := KResolvedConfigStream.fullmatch(NameValue)) is not None
-    }
+    Lanes = ResolvedLanes(Archive.streams)
     if not Lanes:
         raise SldprtFormatError("required native resolved-feature stream is missing")
     InitialId = 0 if 0 in Lanes else min(Lanes)
@@ -4404,7 +4415,10 @@ def ReadPartSolid(
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
     if ShellValue is not None:
         SavedPart = BindShellCache(
-            ShellValue.CacheValue, Payloads, KPartBodyId, IncludeBrep=Settings.include_brep
+            ShellValue.CacheValue,
+            Payloads,
+            KPartBodyId,
+            IncludeBrep=Settings.include_brep,
         )
         return Payloads, PayloadDiags, SavedPart.ModelValue, None, SavedPart
     if WarmValue is not None and Settings.include_brep:

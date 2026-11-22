@@ -84,6 +84,9 @@ KConfigStream = "Contents/Config-0"
 # this binding exists because shared behavior needs one stable value
 KPartitionStream = "Contents/Config-0-Partition"
 
+# the two selected sweep profiles share the dedicated native ghost stream
+KGhostPartition = "Contents/Config-0-GhostPartition"
+
 # this binding exists because shared behavior needs one stable value
 KSolidworksStream = "Contents/SolidWorks"
 
