@@ -34,20 +34,20 @@ def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
     ):
         raise ValueError("measured revolve requires its archive creation epoch")
     Receipt = ReadMeasMap(Envelope["receipt"])
-    Pins = KRevReports["end_modes"]
-    if set(Receipt) == Pins.keys():
+    ReportPins = KRevReports["end_modes"]
+    if set(Receipt) == ReportPins.keys():
         Summary, Report, JobValue = (
             ReadAuthRevJson(
                 Receipt[ReportKey], Digest, Schema, ReportKey != "generation_receipt"
             )
-            for ReportKey, (Digest, Schema) in Pins.items()
+            for ReportKey, (Digest, Schema) in ReportPins.items()
         )
         if (
-            Report.get("job_sha256") != Pins["inspection_job"][0]
+            Report.get("job_sha256") != ReportPins["inspection_job"][0]
             or Report.get("build") != KOraclePart["build"]
             or Report.get("passed") is not True
             or any(
-                Record.get("generation_receipt_sha256") != Pins["generation_receipt"][0]
+                Record.get("generation_receipt_sha256") != ReportPins["generation_receipt"][0]
                 or Record.get("writer_revision") != Summary.get("source_revision")
                 or Record.get("writer_source_tree") != Summary.get("source_tree")
                 or Record.get("spec_sha256") != Summary.get("spec_sha256")
@@ -58,7 +58,7 @@ def ReadRevEvidence(OptionsValue: WriteOptions) -> RevEvidence:
                 "measured revolve requires its passing exact-build inspection"
             )
         return RevEvidence(
-            WrittenAt, Summary, Report, JobValue, Pins["native_result"][0], True
+            WrittenAt, Summary, Report, JobValue, ReportPins["native_result"][0], True
         )
     Summary, Report, JobValue = ReadRevReports(Receipt)
     return RevEvidence(

@@ -41,9 +41,9 @@ def ReadRevFeature(
         if Against is None
         else ReadRevDriver(Parameters[Against], FeatureValue.id, "D2")
     )
-    Start, End = GetAngleSpan(AngleValue, AgainstValue, ModeValue)
-    if End - Start > FullTurn:
+    Start, EndValue = GetAngleSpan(AngleValue, AgainstValue, ModeValue)
+    if EndValue - Start > FullTurn:
         raise ValueError("revolve angle must be positive through one full turn")
-    if ModeValue != "one_sided" and End - Start == FullTurn:
+    if ModeValue != "one_sided" and EndValue - Start == FullTurn:
         raise ValueError("multiple revolve ends require a partial angular sweep")
     return DefinitionValue, AngleValue, AgainstValue
