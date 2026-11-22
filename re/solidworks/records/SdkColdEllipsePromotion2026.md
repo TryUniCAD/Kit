@@ -3,8 +3,9 @@
 `B04-SW2026-FULL-ELLIPSE` is a main-target extraction from PR #121. The
 ellipse delivery branch owns this work and depends on the measured standalone
 part foundation in PR #235. Exit requires exact disclosed SDK regeneration,
-strict source ownership and passing review and hosted queue checks. This
-record covers the scoped implementation and disclosed verification.
+strict source ownership and passing review and hosted queue checks. The
+[scoped implementation](../../../Documentation/Changes/Solidworks/Construction/SolidworksMeasuredEllipseBoss.md)
+and disclosed verification are prepared locally.
 
 The inputs have one editable free full ellipse on the canonical Front Plane,
 one forward blind boss, one active `Default` configuration and one positive
@@ -40,8 +41,9 @@ file reads after imports. All 20 clear streams match the pinned candidate
 archives. The normal and direct routes refuse missing, substituted or
 unbound evidence and preserve incompatible output sinks. The measured
 Windows locator is passed with the stream. A different host path or compressed
-archive requires new exact native evidence. Ordinary saved circle and
-rectangle read controls remain valid.
+archive requires new exact native evidence. The scoped host check exercised
+successful streams and pathname refusals. Ordinary saved circle and rectangle
+read controls remain valid.
 
 ## Typed read scope
 
@@ -60,7 +62,8 @@ rational seam. The two cases each passed 201 independent curve, trim and
 surface evaluations and 17 comparisons against native cold geometry.
 Unsupported endpoint and axis roles, reversed end and raw geometry requests
 cannot publish the cold typed solid. This scoped receipt adds zero native
-launches and zero new held-out credit. Existing aggregate source qualification
+launches and zero new held-out credit. The [ordinary line part round-trip proof](../measurements/2026/SdkColdPartRoundtrip02.json)
+also reproduced its original receipt byte for byte on this SDK. Existing aggregate source qualification
 and its separate protected custody remain in their historical records.
 
 ## Reproduce

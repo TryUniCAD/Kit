@@ -1,9 +1,17 @@
 {
+  "deflate_version": "1.2.12",
   "guarded_workers": 2,
   "heldout_credit": 0,
   "legacy_read_controls": {
     "ControlCircle.SLDPRT": "ee3d82b60adef1a7688fd0e6086d797f8c956c41e070670a581ad8669c9c35b7",
     "ControlRectangle.SLDPRT": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f"
+  },
+  "method_sha256": {
+    "CheckSdkEllipsePart.py": "52bf7ee56ae758807e0a2e61522550db1ac9bef736bd4d52f03204154ea4d09f",
+    "ColdEllipseModel.py": "fbc11b55245030ed9a0de016a026eb9da71a56f91955914e49c7fdfb1a9bc562",
+    "EllipseMeasuredReceipt.py": "2014763ca9f3811a0a9eb76732b600e97ea05f3086d6c394db7cf5ec1bbd492b",
+    "EllipseModel.py": "bbf9f25888140914a5be7d0029ba6aa1ad471967a4de7ca0663022575ffe237d",
+    "VerifyEllipseBoundary.py": "bd2c755dc0cedb22ff31aa80ce5a6e11a7b926bf2f9f75c226692f12d75fa20b"
   },
   "native_phase_sha256": [
     "5f234124d345997f4ab297ed79cbffd87ccbf5f1d2b7a60a22677b120f501259",
@@ -22,6 +30,7 @@
   "prior_healthy_controls": 4,
   "prior_native_checks": 910,
   "prior_native_processes": 8,
+  "python_version": "3.14.7",
   "results": [
     {
       "archive_bytes": 8120,
@@ -70,7 +79,7 @@
         "_MO_VERSION_19000/History": "1690143a6e71930dbba6c1750161b135f89961299c3f95383d681606c0f676e0",
         "swXmlContents/KeyWords": "884457c2b720ef3c8661534d1a7280c84ba6936d4d3b320309cdbc46be412d3b"
       },
-      "depth_mm": 21.625000000000004,
+      "depth_mm": 21.625,
       "filesystem_reads_after_import": 0,
       "map_counters": [
         87,
@@ -88,5 +97,6 @@
       "write_refusals": 18
     }
   ],
-  "schema": "kit.sw2026.scoped-measured-ellipse.v1"
+  "schema": "kit.sw2026.scoped-measured-ellipse.v1",
+  "src_tree": "77321ab2683e64e413259811fbbda50798463266"
 }

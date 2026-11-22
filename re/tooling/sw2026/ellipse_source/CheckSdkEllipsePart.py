@@ -11,6 +11,7 @@ from pathlib import Path
 import subprocess
 import sys
 from tempfile import TemporaryDirectory
+from zlib import ZLIB_RUNTIME_VERSION
 
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[4]
@@ -91,7 +92,7 @@ def check_semantics(model, case, with_brep):
             and feature.parameter_ids == (driver.id,) and feature.definition.length == driver.value
             and (driver.name, driver.role, driver.owner_id) == ("D1", ParameterRole.KDriving, feature.id)
             and driver.attributes["typed_archive_owner"]["slot"] == "f818.f18"
-            and abs(driver.value.value - case["depth_mm"]) <= 1e-13
+            and driver.value.value == case["depth_mm"]
             and body.final_feature_id == feature.id and body.name == feature.name == "EllipseBoss"
             and len(model.feature_timeline) == 19
             and next(plane.name for plane in model.support_planes if plane.id == sketch.support_plane_id) == "Front Plane",
@@ -243,12 +244,20 @@ def supervise(folder, output):
                                  input=json.dumps(work), capture_output=True, timeout=90, check=False)
         require(outcome.returncode == 0 and not outcome.stderr, outcome.stderr)
         result.append(json.loads(outcome.stdout))
+    tree = subprocess.check_output(["git", "rev-parse", "HEAD:src"], cwd=ROOT, text=True).strip()
+    require(subprocess.run(["git", "diff", "--quiet", "HEAD", "--", "src"], cwd=ROOT, check=False).returncode == 0,
+            "commit the measured SDK source before recording its custody pin")
     report = {"schema": "kit.sw2026.scoped-measured-ellipse.v1", "native_result_sha256": NATIVE_SHA,
+              "src_tree": tree, "python_version": ".".join(map(str, sys.version_info[:3])),
+              "deflate_version": ZLIB_RUNTIME_VERSION,
               "native_trial_sha256": TRIAL_SHA, "normalized_receipt_sha256": RECEIPT_SHA,
               "native_phase_sha256": [row["receipt_sha256"] for row in receipt["phases"]],
               "prior_native_processes": receipt["fresh_processes"], "prior_healthy_controls": 4,
               "prior_native_checks": sum(row["checks"] for row in receipt["phases"]),
               "new_native_launches": 0, "heldout_credit": 0, "legacy_read_controls": controls,
+              "method_sha256": {path.name: digest(path.read_bytes()) for path in
+                                (HERE, *(HERE.with_name(name + ".py") for name in
+                                         ("ColdEllipseModel", "EllipseMeasuredReceipt", "EllipseModel", "VerifyEllipseBoundary")))},
               "guarded_workers": len(result), "results": result}
     with output.open("x", encoding="utf-8", newline="\n") as stream:
         stream.write(json.dumps(report, indent=2, sort_keys=True) + "\n")
