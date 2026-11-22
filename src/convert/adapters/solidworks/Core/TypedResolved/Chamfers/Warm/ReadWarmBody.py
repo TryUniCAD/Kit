@@ -98,13 +98,14 @@ def ReadWarmBody(
     EdgeValue: ChmfEdgeRead,
     KeysValue: tuple[KChmfRoleKey, ...],
 ) -> WarmChmfBody:
-    Active, History = DecodePartData(
+    Payloads = DecodePartData(
         Archive.require(KPartitionStream), KPartitionStream
     )
-    if (Active.kind, History.kind) != ("partition", "deltas"):
+    if tuple(Payload.kind for Payload in Payloads) != ("partition", "deltas"):
         raise ValueError(
             "saved chamfer lacks the local partition and its delta companion"
         )
+    Active, History = Payloads[0], Payloads[1]
     NodesValue = ReadActiveNodes(Active.data)
     Selectors = tuple(
         FieldInt(Value.FieldsValue, "f18") for Value in Owners.Controllers

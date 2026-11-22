@@ -4,6 +4,9 @@ from typing import Mapping
 from convert.adapters.solidworks.Core.Native import NativeEquation
 from interchange import frozen_mapping as FrozenMapping
 
+# preserve the existing unresolved target import alongside its resolver
+__all__ = ("KUnresolvedEqTargets", "ResolveTarget")
+
 
 
 # equation targets must identify an authored dimension before the expression can drive it

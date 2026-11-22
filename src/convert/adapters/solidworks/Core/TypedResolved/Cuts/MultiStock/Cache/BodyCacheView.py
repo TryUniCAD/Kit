@@ -11,12 +11,15 @@ class BodyCacheView(Protocol):
 
     # only the proved active geometry may own the portable bodies
     @property
-    def BrepValue(self) -> BrepModel: ...
+    def BrepValue(self) -> BrepModel:
+        raise NotImplementedError
 
     # compare both physical bodies to their independent archive atoms
     @property
-    def BodyValues(self) -> tuple[StockCacheBody, StockCacheBody]: ...
+    def BodyValues(self) -> tuple[StockCacheBody, StockCacheBody]:
+        raise NotImplementedError
 
     # attach both design bodies to their exact active partition
     @property
-    def StreamName(self) -> str: ...
+    def StreamName(self) -> str:
+        raise NotImplementedError

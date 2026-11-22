@@ -5,4 +5,5 @@ from typing import Protocol
 class BlankOwnerCtor(Protocol):
 
     # known official fields must retain their names when the trusted typed owner is recreated
-    def __call__(self, **Fields: object) -> object: ...
+    def __call__(self, **Fields: object) -> object:
+        raise NotImplementedError

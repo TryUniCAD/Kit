@@ -1,13 +1,10 @@
 from collections.abc import Callable
 from dataclasses import fields as DataclassFields
+from dataclasses import is_dataclass as IsDataclass
 from typing import (
-    TYPE_CHECKING as TypeChecking,
     cast as CastValue,
     get_type_hints as TypeHints,
 )
-
-if TypeChecking:
-    from _typeshed import DataclassInstance
 
 from convert.adapters.solidworks.Core.DrawingWriting.Rewrite.BlankOwnerCtor import (
     BlankOwnerCtor,
@@ -25,7 +22,9 @@ def ReadBlankOwner(
         raise ValueError("blank metadata owner has no complete field mapping")
     Fields = CastValue(dict[str, object], Value)
     Hints = CastValue(dict[str, object], TypeHints(TypeValue))
-    DataFields = DataclassFields(CastValue("DataclassInstance", TypeValue))
+    if not IsDataclass(TypeValue):
+        raise TypeError("blank metadata owner must be a dataclass")
+    DataFields = DataclassFields(TypeValue)
     Schema = {FieldValue.name: Hints[FieldValue.name] for FieldValue in DataFields}
     Omitted = {
         FieldValue.name

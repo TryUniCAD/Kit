@@ -54,7 +54,8 @@ def MakeRevAxisRef(
         }
     )
     SelectedValue = ArchiveNode(RuntimeClass("moCompSketchEntHandle_c", 1), FieldsValue)
-    StartValue = (*PlanValue.AxisStart, 0.0)
+    AxisFirst, AxisSecond = PlanValue.AxisStart
+    StartValue = (AxisFirst, AxisSecond, 0.0)
     FrameValue = ProfileValue.FrameValue
     if PlanValue.AxisValue != "z":
         StartValue = PlacePoint(FrameValue, StartValue)

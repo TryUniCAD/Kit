@@ -19,5 +19,4 @@ def IsFieldBranch(ScopeValue: FieldScope, RuleValue: NativeField) -> bool:
             return CastValue(int, Value) > RuleValue.MaskValue
         case "BitsEqual":
             return CastValue(int, Value) & RuleValue.MaskValue == RuleValue.CompareValue
-        case _:
-            raise ValueError(f"unsupported native field guard {RuleValue.ModeValue}")
+    raise ValueError(f"unsupported native field guard {RuleValue.ModeValue}")

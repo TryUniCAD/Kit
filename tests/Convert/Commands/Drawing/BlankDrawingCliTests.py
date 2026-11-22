@@ -120,7 +120,8 @@ def RewriteBlank(TmpPath: FilePath, Source: FilePath, Document: CadDocument) -> 
         assert Reopened.DrawingValue == Document.DrawingValue
         assert Reopened.metadata == Document.metadata
         ReopenedIntent = LoadJson(Reopened.to_json())["source"]["attributes"][IntentKey]
-        assert ReopenedIntent.pop("FileValue") != Intent["FileValue"]
+        ReopenedFile = ReopenedIntent.pop("FileValue")
+        assert ReopenedFile != Intent["FileValue"]
         assert ReopenedIntent == {
             FieldName: Value
             for FieldName, Value in Intent.items()

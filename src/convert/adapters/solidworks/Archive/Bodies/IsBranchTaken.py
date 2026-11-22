@@ -52,7 +52,4 @@ def IsBranchTaken(
             return NodeValue.ClassValue.NameValue == RuleValue.NameValue
         case "NotClass":
             return NodeValue.ClassValue.NameValue != RuleValue.NameValue
-        case _:
-            raise BodyUnsupported(
-                f"unsupported native branch rule {RuleValue.ModeValue}"
-            )
+    raise BodyUnsupported(f"unsupported native branch rule {RuleValue.ModeValue}")

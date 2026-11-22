@@ -28,7 +28,6 @@ def NormalizeWord(
             return int(NumberValue == RuleValue.MaskValue)
         case "Positive":
             return int(NumberValue > 0)
-        case _:
-            raise BodyUnsupported(
-                f"unsupported native normalization rule {RuleValue.ModeValue}"
-            )
+    raise BodyUnsupported(
+        f"unsupported native normalization rule {RuleValue.ModeValue}"
+    )

@@ -12,7 +12,9 @@ def TestNestedFlow() -> None:
         Request = MakeNestedCase(IsMixed, r"C:\KitSdkNested")
         FirstValue = RunNestedPhase(Request)
         SecondValue = RunNestedPhase(Request)
-        assert FirstValue.pop("worker_pid") != SecondValue.pop("worker_pid")
+        FirstProcess = FirstValue.pop("worker_pid")
+        SecondProcess = SecondValue.pop("worker_pid")
+        assert FirstProcess != SecondProcess
         assert FirstValue == SecondValue
         assert FirstValue["definition_count"] == (4 if IsMixed else 3)
         assert FirstValue["expanded_root_occurrences"] == (7 if IsMixed else 2)

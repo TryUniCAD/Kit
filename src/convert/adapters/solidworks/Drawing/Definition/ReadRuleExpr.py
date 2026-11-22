@@ -43,5 +43,4 @@ def ReadRuleExpr(
                 ReadRuleExpr(Operand, Scope, WireValue) for Operand in Expressions
             )
             return ReadRuleValue(Operator, Operands)
-        case _:
-            raise ValueError("invalid SOLIDWORKS drawing expression shape")
+    raise ValueError("invalid SOLIDWORKS drawing expression shape")

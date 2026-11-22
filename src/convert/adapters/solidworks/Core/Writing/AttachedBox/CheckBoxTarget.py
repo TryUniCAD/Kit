@@ -1,7 +1,7 @@
 from os import name as OsName
 from pathlib import Path as FilePath
-from pathlib import PureWindowsPath
 
+from convert.Security.PathBoundary import ResolveWithin, UnsafePath
 from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.solidworks.Core.Writing.AttachedBox.BoxMeasure import BoxMeasure
 from convert.adapters.Staging.StageFileScope import GetStagedFinal
@@ -14,23 +14,34 @@ def CheckBoxTarget(
     Settings = MeasureValue.SettingsValue
     FinalValue = Settings.values.get("final_destination")
     Locator = MeasureValue.NativePath
-    NativePath = PureWindowsPath(Locator)
     if isinstance(TargetValue, (str, FilePath)):
-        StagePath = FilePath(TargetValue).expanduser().resolve()
-        Physical = GetStagedFinal(StagePath)
-        if (
-            OsName != "nt"
-            or str(Physical) != Locator
-            or StagePath.name != NativePath.name
-            or (FinalValue is not None and not isinstance(FinalValue, (str, FilePath)))
-            or (
-                isinstance(FinalValue, (str, FilePath))
-                and FilePath(FinalValue).expanduser().resolve() != Physical
+        PathError = "measured attached box requires its actual final native locator"
+        if OsName != "nt":
+            raise ValueError(PathError)
+        NativePath = FilePath(Locator)
+        try:
+            StagePath = ResolveWithin(
+                FilePath(TargetValue).expanduser().absolute(), NativePath.parent
             )
-        ):
-            raise ValueError(
-                "measured attached box requires its actual final native locator"
-            )
+            Physical = GetStagedFinal(StagePath)
+            if (
+                str(Physical) != Locator
+                or StagePath.name != NativePath.name
+                or (
+                    FinalValue is not None
+                    and (
+                        not isinstance(FinalValue, (str, FilePath))
+                        or ResolveWithin(
+                            FilePath(FinalValue).expanduser().absolute(),
+                            NativePath.parent,
+                        )
+                        != Physical
+                    )
+                )
+            ):
+                raise ValueError(PathError)
+        except UnsafePath as ErrorValue:
+            raise ValueError(PathError) from ErrorValue
         return StagePath
     if not IsBinaryTarget(TargetValue) or FinalValue != Locator:
         raise ValueError(

@@ -13,3 +13,6 @@ from convert.adapters.solidworks.Archive.Construction.ThroughAll.ThroughStock im
 
 # the shared part archive consumes actual planar profiles without conflating their analytic geometry
 KPartPlan: TypeAlias = BlindPlan | CirclePlan | ThroughStock
+
+# the shared archive exports its accepted neutral part plans as one type
+__all__ = ("KPartPlan",)

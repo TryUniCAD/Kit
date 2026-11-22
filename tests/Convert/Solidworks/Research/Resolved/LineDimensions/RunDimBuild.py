@@ -19,5 +19,6 @@ def RunDimBuild(RequestValue: dict[str, object], OutputDir: FilePath) -> FilePat
     OutputDir.mkdir()
     OutputPath = OutputDir / "GeneratedDimensions.SLDPRT"
     with OutputPath.open("xb") as Output:
-        assert Output.write(BlobValue) == len(BlobValue)
+        WrittenSize = Output.write(BlobValue)
+        assert WrittenSize == len(BlobValue)
     return OutputPath

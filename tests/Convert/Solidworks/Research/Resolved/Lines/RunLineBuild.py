@@ -19,5 +19,6 @@ def RunLineBuild(Request: dict[str, object], OutputDir: FilePath) -> FilePath:
     OutputDir.mkdir()
     OutputPath = OutputDir / "GeneratedPolygon.SLDPRT"
     with OutputPath.open("xb") as Output:
-        assert Output.write(BlobValue) == len(BlobValue)
+        WrittenSize = Output.write(BlobValue)
+        assert WrittenSize == len(BlobValue)
     return OutputPath

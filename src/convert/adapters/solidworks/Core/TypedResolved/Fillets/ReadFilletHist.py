@@ -43,9 +43,12 @@ def ReadFilletHist(ArchiveValue: SldprtArchive) -> FilletHistory:
         FieldInt(Controller.FieldsValue, "f18")
         for Controller in OwnersValue.Controllers
     )
-    Active, History = DecodePartData(
+    Payloads = DecodePartData(
         ArchiveValue.require(KPartitionStream), KPartitionStream
     )
+    if tuple(Payload.kind for Payload in Payloads) != ("partition", "deltas"):
+        raise ValueError("saved fillet lacks the local partition and its delta companion")
+    Active, History = Payloads[0], Payloads[1]
     NodesValue = ReadActiveNodes(Active.data)
     StagesValue = ReadXmtStages(History.data, NodesValue, Selectors)
     CheckFilletDeps(StagesValue)

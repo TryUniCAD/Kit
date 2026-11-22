@@ -19,7 +19,8 @@ def IsRevReverse(
     Upward = FrameValue.AxisV
     Downward = tuple(-NumberValue for NumberValue in Upward)
     ActualAxis = (Direction.x, Direction.y, Direction.z)
-    ExpectedStart = PlacePoint(FrameValue, (*ShapeValue.AxisStart, 0.0))
+    AxisFirst, AxisSecond = ShapeValue.AxisStart
+    ExpectedStart = PlacePoint(FrameValue, (AxisFirst, AxisSecond, 0.0))
     if (
         OriginValue.x * 0.001,
         OriginValue.y * 0.001,

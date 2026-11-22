@@ -9,3 +9,6 @@ from convert.adapters.solidworks.Archive.Construction.Blind.BossEndInput import 
 
 # both caller domains share the native end object and five feature dimension lifetimes
 KEndInput: TypeAlias = BlindEndInput | BossEndInput
+
+# both native end constructors consume the model through this type
+__all__ = ("KEndInput",)

@@ -11,6 +11,9 @@ from interchange.Features.DistanceParam import KLengthFactors
 from convert.adapters.solidworks.Core.NativeDimension import NativeDimension
 from convert.adapters.solidworks.Core.NativeScalar import NativeScalar
 
+# preserve the existing inch diagnostic import alongside its binding function
+__all__ = ("BindInch", "KUnresolvedInchDimension")
+
 
 
 # binary scalars preserve authored lengths when the display number is rounded

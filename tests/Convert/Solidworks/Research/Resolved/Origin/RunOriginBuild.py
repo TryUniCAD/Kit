@@ -19,5 +19,6 @@ def RunOriginBuild(RequestValue: dict[str, object], OutputDir: FilePath) -> File
     OutputDir.mkdir()
     OutputPath = OutputDir / "GeneratedOrigin.SLDPRT"
     with OutputPath.open("xb") as Output:
-        assert Output.write(BlobValue) == len(BlobValue)
+        WrittenSize = Output.write(BlobValue)
+        assert WrittenSize == len(BlobValue)
     return OutputPath

@@ -35,5 +35,4 @@ def ReadRuleValue(Operator: str, Operands: KRuleShape) -> object:
             return max(LeftValue, RightValue)
         case "GtE", (int(LeftValue), int(RightValue)):
             return LeftValue >= RightValue
-        case _:
-            raise ValueError(f"unsupported SOLIDWORKS drawing expression {Operator}")
+    raise ValueError(f"unsupported SOLIDWORKS drawing expression {Operator}")
