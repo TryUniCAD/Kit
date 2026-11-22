@@ -2673,3 +2673,21 @@ It reads procedural geometry without evaluating it.
 cadmpeg still covers areas that Kit rejects today.
 These areas include configuration rules, cadmpeg's alternative cross-document grammar and ParaMesh color channels.
 They are the next research candidates, not supported Kit behavior.
+
+## Circular distance extents
+
+The strict circular reader preserves negative, symmetric and two-sided distances through live parameter roles. See [circular extent reads](../../Changes/Fusion/Extents/FusionCircularExtentReads.md) and [allocated operation IDs](../../Gotchas/Conversion/Fusion/Geometry/FusionAllocatedOperations.md) for the measured profile and limits.
+
+## Bounded modifying rectangular histories
+
+The strict native source reader also qualifies two sketch and extrusion pairs that create one rectangular stock and remove one full depth rectangular corner. `DistanceCut` retains the separate live tool distance and taper bindings plus explicit target body identities. The modifying feature depends on the original stock feature and its own tool sketch. Native recipe, progenitor and journal ownership are checked independently of the generated concave solid.
+
+The cached tools are separate from the final journal body, and scoped profiles can preserve numerical solver roundoff without rounding source coordinates. The path remains read only, refuses partial pockets and other boolean profiles, and does not establish native conversion acceptance. See [behavior and evidence](../../Changes/Fusion/Extents/FusionCornerCutReads.md).
+
+The bounded cut profile declares persistent output body IDs on both the stock and modifying feature. Target bodies must have an earlier declared producer in the cut's direct dependencies. Original bounds drive flush contact classification; all planar boundaries must lie on their saved carriers, and unprojected per-face appearances refuse explicitly. See [the review guard changes](../../Changes/Fusion/Extents/FusionCutReviewGuards.md). Conversion kind recognition does not establish native writer support or acceptance.
+
+## Planar face offset research
+
+The [face offset corpus](../../../re/Fusion/Reconstruction/FaceOffsets/Findings.md) records signed parameter ownership, bound-face recipe selection and six measured journal correlations, including two held-out inputs. Strict neutral projection remains unfinished. See the [change entry](../../Changes/Fusion/Research/FusionFaceOffsetCorpus.md) and [target-reference gotcha](../../Gotchas/Conversion/Fusion/Features/FusionOffsetFaceTargets.md).
+
+The [signed face-offset schema](../../Changes/Fusion/Research/FusionFaceOffsetSchema.md) preserves the selected face and body with a live distance binding. Native projector qualification remains separate.

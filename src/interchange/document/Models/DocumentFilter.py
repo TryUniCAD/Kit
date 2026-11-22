@@ -36,6 +36,7 @@ def FilterDocument(
     **LegacyValues: bool,
 ) -> CadDocument:
     from interchange.document.Models.DocumentCaps import GetRetainedCaps
+    from interchange.document.Models.FilterMetadata import FilterMetadata
     from interchange.document.Validation.DocumentBoundary import GetDocument
 
     RemainingValues = dict(LegacyValues)
@@ -82,6 +83,7 @@ def FilterDocument(
             KeepPayloads=KeepPayloads,
         ),
         assembly=AssemblyValue,
+        metadata=FilterMetadata(DocumentValue, IncludeBrep),
         brep=DocumentValue.brep if IncludeBrep else None,
     )
     return ReplaceValue(
