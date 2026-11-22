@@ -13,7 +13,11 @@ def ResearchArgs(
     if Options.Offline:
         if Options.ResearchTool not in ("solidworks", "fusion"):
             raise ValueError("--offline requires a solidworks or fusion reader")
-        if any(Value.split("=", 1)[0].startswith("--native") for Value in Arguments):
+        if any(
+            Value.startswith("--n")
+            and "--native-verify".startswith(Value.split("=", 1)[0])
+            for Value in Arguments
+        ):
             raise ValueError("--offline cannot request native verification")
     if Options.Command == "run":
         Arguments = [*Arguments, "--batch-format", Options.ResearchTool]

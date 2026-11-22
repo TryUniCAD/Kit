@@ -5,10 +5,11 @@ import os
 from pathlib import Path
 import subprocess
 import sys
+import signal
 import time
 
 ROOT = Path(__file__).resolve().parents[3]
-OUT = ROOT / '.rescratch/offline-corpus-full'
+OUT = ROOT / '.rescratch/offline-corpus-bounded'
 ENV = {**os.environ, 'PYTHONPATH': str(ROOT / 'src') + os.pathsep + str(ROOT / 'Cli'), 'PYTHONDONTWRITEBYTECODE': '1'}
 
 
@@ -17,8 +18,13 @@ def run(command, directory, label):
     start = time.time()
     with (directory / (label + '.stdout')).open('wb') as stdout, (directory / (label + '.stderr')).open('wb') as stderr:
         try:
-            result = subprocess.run(command, cwd=ROOT, env=ENV, stdout=stdout, stderr=stderr, timeout=600)
-            code = result.returncode
+            with subprocess.Popen(command, cwd=ROOT, env=ENV, stdout=stdout, stderr=stderr, start_new_session=True) as process:
+                try:
+                    code = process.wait(timeout=60)
+                except subprocess.TimeoutExpired:
+                    os.killpg(process.pid, signal.SIGKILL)
+                    process.wait()
+                    code = "timeout"
         except subprocess.TimeoutExpired:
             code = 'timeout'
     return {'command': command, 'exit': code, 'seconds': time.time() - start}
@@ -28,9 +34,9 @@ def decode(asset):
     path = asset['path']
     directory = OUT / 'assets' / hashlib.sha256(path.encode()).hexdigest()
     results = []
-    if asset['format'] == 'sldprt':
+    if asset['format'] in ('sldprt', 'f3d', 'f3z'):
         tool = 'SolidworksReader.py' if asset['format'] == 'sldprt' else 'FusionReader.py'
-        command = [sys.executable, '-m', 'KitCli', 'research', '--offline', '--root', str(ROOT), 'solidworks', '--manifest', str(OUT / 'Corpus.json'), '--asset', path, '--output', str(directory / 'deterministic')]
+        command = [sys.executable, '-m', 'KitCli', 'research', '--offline', '--root', str(ROOT), 'solidworks' if asset['format'] == 'sldprt' else 'fusion', '--manifest', str(OUT / 'Corpus.json'), '--asset', path, '--output', str(directory / 'deterministic')]
         if tool == 'FusionReader.py':
             command.append('--allow-partial')
         results.append(run(command, directory, 'reader'))
@@ -48,14 +54,9 @@ def main():
     manifest = json.loads((OUT / 'Corpus.json').read_text())
     assets = [asset for asset in manifest['assets'] if asset['kind'] == 'native']
     report = {'decoder_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'source_revision': manifest['source_revision'], 'native_verification': 'pending_pc_off', 'vendor_acceptance': False, 'assets': []}
-    fusion = [asset['path'] for asset in assets if asset['format'] in ('f3d', 'f3z')]
-    for index in range(0, len(fusion), 1000):
-        command = [sys.executable, '-m', 'KitCli', 'research', '--offline', '--root', str(ROOT), 'fusion', '--manifest', str(OUT / 'Corpus.json'), '--allow-partial', '--output', str(OUT / ('FusionBatch' + str(index)))]
-        for path in fusion[index:index + 1000]:
-            command.extend(['--asset', path])
-        print(json.dumps(run(command, OUT, 'FusionBatch' + str(index))), flush=True)
-    with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor, (OUT / 'Results.jsonl').open('x') as journal:
-        for result in executor.map(decode, assets):
+    with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor, (OUT / 'Results.jsonl').open('x') as journal:
+        for future in concurrent.futures.as_completed([executor.submit(decode, asset) for asset in assets]):
+            result = future.result()
             journal.write(json.dumps(result, ensure_ascii=True) + '\n')
             journal.flush()
             report['assets'].append(result)

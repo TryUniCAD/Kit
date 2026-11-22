@@ -1,8 +1,8 @@
 from json import loads as LoadJson
-from os import environ as KEnvironment, pathsep as KPathSeparator
+from os import environ as KEnvironment
 from pathlib import Path as FilePath
 from subprocess import run as RunProcess
-from sys import executable as KPythonPath
+from sys import executable as KPythonPath, platform as KPlatform
 
 from tests.CliResearch.ResearchAssets import KSwAsset
 from tests.CliResearch.ResearchRoot import ResearchRoot
@@ -14,9 +14,11 @@ def CheckOffline(TmpPath: FilePath) -> None:
     Target = TmpPath / "Decoded"
     Result = RunProcess(
         [
-            KPythonPath,
-            "-m",
-            "KitCli",
+            str(
+                FilePath(KPythonPath).with_name(
+                    "kit.exe" if KPlatform == "win32" else "kit"
+                )
+            ),
             "research",
             "--offline",
             "--root",
@@ -30,9 +32,7 @@ def CheckOffline(TmpPath: FilePath) -> None:
         cwd=RootPath,
         env={
             **KEnvironment,
-            "PYTHONPATH": str(RootPath / "src")
-            + KPathSeparator
-            + str(RootPath / "Cli"),
+            "KIT_NATIVE_API_DIRECTORY": str(TmpPath / "NativeApi"),
         },
         capture_output=True,
         text=True,
@@ -45,3 +45,35 @@ def CheckOffline(TmpPath: FilePath) -> None:
     assert Receipt["native_acceptance"] == "not_established"
     assert Receipt["portable_complete"] is False
     assert LoadJson((Target / "document.json").read_bytes())["$type"] == "CadDocument"
+
+
+# abbreviated downstream flags must fail before any decoding or application access
+def CheckConflict(TmpPath: FilePath) -> None:
+    RootPath = ResearchRoot()
+    Target = TmpPath / "Conflict"
+    for FlagText in ("--n", "--nativ", "--native-verify"):
+        Result = RunProcess(
+            [
+                str(
+                    FilePath(KPythonPath).with_name(
+                        "kit.exe" if KPlatform == "win32" else "kit"
+                    )
+                ),
+                "research",
+                "--offline",
+                "--root",
+                str(RootPath),
+                "solidworks",
+                FlagText,
+                "--asset",
+                KSwAsset,
+                "--output",
+                str(Target),
+            ],
+            capture_output=True,
+            text=True,
+            timeout=300,
+        )
+        assert Result.returncode == 1, Result.stderr
+        assert "cannot request native verification" in Result.stderr
+        assert not Target.exists()
