@@ -1,7 +1,9 @@
 from dataclasses import replace as ReplaceValue
+from pathlib import Path as FilePath
 
 from pytest import raises as RaisesError
 
+from convert import open_document as OpenDocument
 from convert.adapters.solidworks.Archive.Construction.Geometry.ReadRigidXform import (
     ReadRigidXform,
 )
@@ -46,7 +48,7 @@ def WithTestOffset(LengthValue: float) -> CadDocument:
 
 
 # a nearby native word can represent precisely nine millimetres
-def TestNineOffset() -> None:
+def TestNineOffset(TmpPath: FilePath) -> None:
     Candidates = PrepNestedAsm(
         WithTestOffset(9.0), r"C:\KitNestedQueue\QueueFrame.SLDASM", 1794011937
     )
@@ -60,6 +62,14 @@ def TestNineOffset() -> None:
     }
     assert 0.009 in Translations
     assert (9.0 * 0.001) not in Translations
+    for Locator, Candidate in Candidates:
+        _ = (TmpPath / Locator.name).write_bytes(Candidate.BytesValue)
+    Reopened = OpenDocument(TmpPath / Candidates[-1][0].name, strict=True)
+    assert Reopened.assembly is not None
+    (PlateValue,) = tuple(
+        Value for Value in Reopened.assembly.instances if Value.name == "QueuePlate-1"
+    )
+    assert PlateValue.transform.values[3] == 9.0
 
 
 # a physical placement word must invert to the actual authored translation
