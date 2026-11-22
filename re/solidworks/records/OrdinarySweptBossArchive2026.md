@@ -1,5 +1,7 @@
 # SOLIDWORKS 2026 ordinary swept boss archive
 
+The [subsequent linked replay and ghost ownership proof](OrdinarySweepGhostOwnership2026.md) completes exact Config-0, ResolvedFeatures and GhostPartition re-emission on these six disclosures. Its independent standalone path and [sheet exchange protocol](OrdinarySweepSectionExchange2026.md) track specific generation boundaries.
+
 Workstream `B04-SW2026-SWEEP-ARCHIVE` on PR #121. The isolated archive investigation owns the disclosed typed decoder proof. The root agent owns every native lifecycle and the guest-private held-out sources. This tranche binds the exact strict reader stops, the complete research traversal, and the two source drivers and their shared references. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Loader analysis](../../Playbook/LoaderAnalysis.md) · [Corpus correlation](../../Playbook/CorpusCorrelation.md)
 
 ## Exact disclosed inputs and SDK stops

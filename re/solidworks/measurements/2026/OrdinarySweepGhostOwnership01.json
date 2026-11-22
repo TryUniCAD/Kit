@@ -1,0 +1,520 @@
+{
+  "blocked_runtime_calls": 0,
+  "cases": [
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "0621ed1a2d143166267e81e87d43453d0ec3999ab0ad1d198e0f02efdbec2ad1",
+        "Contents/Config-0-ResolvedFeatures": "f3425a79bcb18b2ea553d31aabf8c28cda9576b2dce8bfec296c414f49838a80"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "fab54c57911c6e7294b8cf03a42c053628f67559ac7932d86df4b31004a02545",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            [
+              -5.272655561388971e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.028703
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.004321
+        },
+        "typed_nodes": 36,
+        "world_last_id": 2,
+        "wrapped_bytes": 1079
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "dbb121b2c996b4c09bf7590108a4a0ad9f1652f5bbe089048a2cc04273c69f27"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316301,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316298,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 121,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "original",
+      "slot": 1,
+      "source_sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185"
+    },
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "d6d45f9b69568de40eff000e1093f47c9938ef31d14b614664b804b594c447ab",
+        "Contents/Config-0-ResolvedFeatures": "b314344b452e6e3918219e51ee396dfd39fb700f81122f5f13a52ba69d0d4d0d"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "4b80590020b3e360c244edbb8532f7dcceee65e1c351cd887739a3db43c896dd",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.028703,
+              0.028703,
+              0.0
+            ],
+            [
+              -5.272655561388971e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.028703
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.006239
+        },
+        "typed_nodes": 36,
+        "world_last_id": 3,
+        "wrapped_bytes": 1075
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "a73acdcda461c9d0f5e0d94c3a6d71e4852df6762f23d5aed08b9381f9f68b5e"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316301,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316298,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 155,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "section",
+      "slot": 1,
+      "source_sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b"
+    },
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "fd662e0a547a78e0684d3eba84aae3c305506bb39443c1c6c5a56d2f989cea2b",
+        "Contents/Config-0-ResolvedFeatures": "b6fa9053c1aa4f3c104746e2f97558a50927496557f5c8945e0841cfe4bcc46d"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "8abc5fd0ea9ca259c2114ccfdfbdc82ee90194d73673edf79dfbea6fe760f424",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.033471,
+              0.033471,
+              0.0
+            ],
+            [
+              -6.148522952139158e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.033471
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.004321
+        },
+        "typed_nodes": 36,
+        "world_last_id": 3,
+        "wrapped_bytes": 1077
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "34ab1364b2f2951816d9dfd7f78d06a1684176178f889c4236fa9ebd57afc82d"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316301,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316298,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 155,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "path",
+      "slot": 1,
+      "source_sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb"
+    },
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "05de99627331bf93709af0de110695be6889044c10b2407b93dfbc511044c867",
+        "Contents/Config-0-ResolvedFeatures": "5a98f672aa95cf0b39f9fb3be02603c1071b15f7aa9b8c5a3c1413f4160e9c02"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "d9599dba4cbbe53d60b0211640635e5aa0b35c9f589b39bf095e0559dd0768e6",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            [
+              -7.586135829658237e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.041297
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.005713
+        },
+        "typed_nodes": 36,
+        "world_last_id": 2,
+        "wrapped_bytes": 1076
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 186,
+        "phase": "author",
+        "sha256": "d772faa7248eb851af0b965ff408681841d5e9894ca2f092868ec04301b679d0"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316586,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316583,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 121,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "original",
+      "slot": 2,
+      "source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c"
+    },
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "def8c32cbcc2616bf770e0c88c93673d5c2dab317a6e922e920b47a242f46e83",
+        "Contents/Config-0-ResolvedFeatures": "e634947e5e06ded00b5706f01327cfde953cf4d482f09a8500148a1ee3b73d8d"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "2e42953798c4c3029ec97fb84664dc9341e3482197ef9148bf2f8d66e2c1093f",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.041297,
+              0.041297,
+              0.0
+            ],
+            [
+              -7.586135829658237e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.041297
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.007093
+        },
+        "typed_nodes": 36,
+        "world_last_id": 3,
+        "wrapped_bytes": 1076
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "section-reopen",
+        "sha256": "6dbe9b15633faf3c69a9421776de47d368b7302657c57124ecc9078c3d19fc40"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316586,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316583,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 155,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "section",
+      "slot": 2,
+      "source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084"
+    },
+    {
+      "exact_maps": {
+        "Contents/Config-0": 110,
+        "Contents/Config-0-ResolvedFeatures": 278
+      },
+      "exact_streams": {
+        "Contents/Config-0": "72bc86c6b01b01c087909dd303be218fb84b573f06a80d70ae95ed54b351f5cc",
+        "Contents/Config-0-ResolvedFeatures": "de0908376ec65b7509aa1fe35d63e423c590671508559c53a0097f665f9dc576"
+      },
+      "ghost_partition": {
+        "kernel_bytes": 2140,
+        "kernel_sha256": "4e3be0971630c3a3b43f70a4d0d427190bb0ba6f6ca87761a09ec854d8149de9",
+        "path": {
+          "arc_points_end_start_m": [
+            [
+              0.046371,
+              0.046371,
+              0.0
+            ],
+            [
+              -8.518214508489288e-18,
+              0.0,
+              0.0
+            ]
+          ],
+          "body": 2,
+          "edge": 24,
+          "radius_m": 0.046371
+        },
+        "raw_and_wrapper_exact": true,
+        "section": {
+          "body": 6,
+          "edge": 23,
+          "face": 32,
+          "radius_m": 0.005713
+        },
+        "typed_nodes": 36,
+        "world_last_id": 3,
+        "wrapped_bytes": 1075
+      },
+      "manager": {
+        "last_id": 10002,
+        "packed_flags": 2,
+        "parent_feature_id": 31,
+        "rows_in_order": [
+          10002,
+          10001
+        ]
+      },
+      "native_phase": {
+        "checks": 105,
+        "phase": "path-reopen",
+        "sha256": "28b9e460f1a165d10420a19d047c0c8308291e9ebf92192dc313b98691f1cf82"
+      },
+      "references": {
+        "path": {
+          "creation_epoch": 1795316586,
+          "feature_id": 28,
+          "general_embedded": 0,
+          "general_flags": 101,
+          "general_secondary": -1,
+          "ghost_id": 10002,
+          "node": 276
+        },
+        "section": {
+          "creation_epoch": 1795316583,
+          "feature_id": 26,
+          "general_embedded": 1,
+          "general_flags": 155,
+          "general_secondary": 0,
+          "ghost_id": 10001,
+          "node": 271
+        }
+      },
+      "role": "path",
+      "slot": 2,
+      "source_sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521"
+    }
+  ],
+  "codec_baseline": "5ed14c72bbd78f93caab1a94a3f0ca92d6979e88",
+  "disclosed_controls": {
+    "after": {
+      "artifact_bytes": null,
+      "artifact_sha256": null,
+      "checks": 0,
+      "checks_passed": 0,
+      "job_sha256": "e7a321d410d278b255fe4fe220d6ef5e2e35628b416646cc454bc5cf9b14f421",
+      "passed": true,
+      "phase": "control-after",
+      "receipt_sha256": "153d209162df7aa964082c3b3aa53a464615b82da933f4b8c6efcece7139dcca",
+      "slot": null,
+      "source_sha256": null,
+      "timed_out": false,
+      "worker_exit_code": 0
+    },
+    "before": {
+      "artifact_bytes": null,
+      "artifact_sha256": null,
+      "checks": 0,
+      "checks_passed": 0,
+      "job_sha256": "e7a321d410d278b255fe4fe220d6ef5e2e35628b416646cc454bc5cf9b14f421",
+      "passed": true,
+      "phase": "control-before",
+      "receipt_sha256": "959b5ccefa657a6f51c08077e4cddd113911d0a7fe867d78b43e8552646983d3",
+      "slot": null,
+      "source_sha256": null,
+      "timed_out": false,
+      "worker_exit_code": 0
+    }
+  },
+  "disclosed_source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "native_processes_started": 0,
+  "private_sources_accessed": 0,
+  "schema": "kit.sw2026.ordinary-sweep-ghost-ownership.v1",
+  "sdk_tree": "392993e1c5f530d854c132482b268d1554d8c5c7",
+  "tool_sha256": {
+    "AuditSweepArchive.py": "42b4934924fae2ea680fab48457bb5b3f852814fc9c6b074eff0d74ae2be4421",
+    "AuditSweepGhosts.py": "177d292a30a82dfa18b3f2dc3370d3586a7b355d6255627a580caaa5a06e0086",
+    "SweepArchiveLayout.py": "1fb2b6d9850b4754872d7ce0ef162efeee4a4ac27f065fe3cee16f14905b28c6",
+    "SweepArchiveOwners.py": "43d66024f02391d7377319a98470257f72b4deb6e6583da0a22794ff340bbf99",
+    "SweepGhostGraph.py": "8ddb6dcfe7a40e7d9f3c53d28cff82ad3b09b69d0f24ef064df4cbe707f780bd",
+    "SweepPathWire.py": "55c36279a9b2dc45d359f735b5f4aa68365b6d6cbbf11726328d829659ec1e91",
+    "SweepReplay.py": "68bdd12a59240fc22dcfd4fff8fd467de81963f5c5c3dd82e7e904ef7cf70f23",
+    "SweepSectionTransport.py": "24c36a61dfeab28f43f00b7aea9afb234f5e726b18de820f074bdfa03d90939e"
+  },
+  "whole_sweep_candidates": 0
+}
