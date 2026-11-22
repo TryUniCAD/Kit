@@ -558,3 +558,12 @@ Dependencies are merged PRs #158 and #207 and the licensed native workers.
 The exit requires a verified corpus manifest, sanitized records, explicit failure outcomes, and current-head publication readiness.
 The [campaign package](../../re/FeatureLadders2026/README.md) does not change the production snapshot or close B02, B03, B05 or B13.
 Native recovery and semantic qualification remain blocked as recorded in that package.
+
+## Recovered SOLIDWORKS native ladder evidence
+
+Task `A08h-LadderRecovery` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
+Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is pending creation.
+The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
+Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
+Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
