@@ -1,0 +1,156 @@
+{
+  "fresh_guarded_workers": 2,
+  "generation_sha256": "f8b77a00518ea5e8918fbb4dbebc466611c9c38f6e676f09da1f9f3b09a026fb",
+  "native_processes_started": 0,
+  "native_result_sha256": "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9",
+  "prior_healthy_controls": 2,
+  "prior_native_lifetimes": 6,
+  "results": [
+    {
+      "adjacent_camera_refusal": {
+        "archive_sha256": "02cf30bf73179abffc712b9641a5fb022f48dec44e2649776c9e64b79086aed0",
+        "changed_streams": [
+          "Contents/Config-0"
+        ],
+        "published": false
+      },
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "bytes": 8990,
+      "locator": "C:\\KitChamferPairGenerated05\\Packet\\Candidates\\EqualDistanceEdge.SLDPRT",
+      "mode": "equal_distance",
+      "native_phase_checks": [
+        43,
+        21
+      ],
+      "phase_sha256": [
+        "a766f0ac854f43cdfec0c0b6c7e289b564f3907aab0ef95c73895e88b0597d54",
+        "a4507672390e9854398b6e89a47ead37dcb71ae23c8526a6440945f4408e08de"
+      ],
+      "preserved_signed_control": "a7920a064cfb41876d42393bb3711c3cfe84d2fc742016812d09bb0ff459765a",
+      "refusals_by_route": [
+        "missing_report",
+        "different_epoch",
+        "different_locator",
+        "different_model",
+        "failed_control",
+        "duplicate_phase",
+        "changed_check_count",
+        "mislabeled_receipt_locator",
+        "wrong_terminal_digest",
+        "occupied_stream",
+        "different_host_path"
+      ],
+      "registry_and_direct_measured_streams": 2,
+      "runtime_reads": 0,
+      "slot": 0,
+      "strict_geometry": {
+        "area_mm2": 10013.564833435667,
+        "bevel_normal": [
+          0.7071067811865476,
+          0.7071067811865476,
+          -0.0
+        ],
+        "centroid_mm": [
+          11.125425038639875,
+          -8.209891808346214,
+          9.375
+        ],
+        "comparison_count": 12,
+        "distance_axis": 0,
+        "exact_vertex_count": 10,
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55443.60351562501
+      }
+    },
+    {
+      "adjacent_camera_refusal": {
+        "archive_sha256": "f69690719c78dcf7c7e251232b34d3de8e261df528dcaa9edbd8598e396c30b0",
+        "changed_streams": [
+          "Contents/Config-0"
+        ],
+        "published": false
+      },
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "bytes": 9174,
+      "locator": "C:\\KitChamferPairGenerated05\\Packet\\Candidates\\UnequalDistanceEdge.SLDPRT",
+      "mode": "two_distances",
+      "native_phase_checks": [
+        45,
+        22
+      ],
+      "phase_sha256": [
+        "f5eab24a71dd9bd30d75ec2c416fc5fa7c46fd3567dfe573b5768850c6b31e58",
+        "b6873971bc92c20fce7f573d7e18f4a1eaa5eead7ce816d46662c05d27c54a8f"
+      ],
+      "preserved_signed_control": null,
+      "refusals_by_route": [
+        "missing_report",
+        "different_epoch",
+        "different_locator",
+        "different_model",
+        "failed_control",
+        "duplicate_phase",
+        "changed_check_count",
+        "mislabeled_receipt_locator",
+        "different_driver",
+        "wrong_terminal_digest",
+        "occupied_stream",
+        "different_host_path"
+      ],
+      "registry_and_direct_measured_streams": 2,
+      "runtime_reads": 0,
+      "slot": 1,
+      "strict_geometry": {
+        "area_mm2": 9983.306694781073,
+        "bevel_normal": [
+          0.5030687855502549,
+          0.8642463751760789,
+          -0.0
+        ],
+        "centroid_mm": [
+          11.043444938169543,
+          -8.271261754676036,
+          9.375
+        ],
+        "comparison_count": 12,
+        "distance_axis": 1,
+        "exact_vertex_count": 10,
+        "topology": [
+          1,
+          1,
+          7,
+          15,
+          10
+        ],
+        "volume_mm3": 55283.64257812501
+      }
+    }
+  ],
+  "runner_sha256": "9c331a7e6a8fa43dc483587d0447aeb27e11fe988c715079396a683f87b6a156",
+  "schema": "kit.sw2026.measured-distance-chamfer-publication-proof.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/VerifySdkCircleEndRegistration.py": "98fb1eb74b9c291dc3bfc3183fc24c6932b0a8ea0b18d15a1bc163fbd535d0aa",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/CheckMeasuredPair.py": "4f04d282d3cafac6cc20dce204b51d3d629920cdb8552323f583c660ff495f79",
+    "re/tooling/sw2026/edge_chamfer_source/distance_pair/ProvePairRead.py": "cf4ef5dd829ba592ff38611fcad1d8de3936a094cf2d6f9d71e5b4b0b126b640",
+    "src/convert/adapters/solidworks/Core/Preparation/Chamfers/IsDistChmf.py": "7735aaa293ed9956d6118e752be52e82c0e56a0949c7001148897e0a7ad8e726",
+    "src/convert/adapters/solidworks/Core/Writing/CanWritePart.py": "b4b804adb9ff517ee9ecf202f25fbed535a4b16d40fdf775170eb29aa483c3b4",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/CheckPairDrive.py": "ae935993d958718e12637284e624681c2472d58f391f59b1304416f24c9ef540",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/CheckPairPhase.py": "12c599e3eb6be2993d7f2fd73358ca197eedfd05df70ca0ffd6f1eab30f752fe",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/CheckPairSlot.py": "3c47be42f1745654b0d90b591d6a9a9a35efcf50ea5f650f7f4bcb164f808d89",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/EmitPairMut.py": "9246359424340a5ae2efa1a88ffcb03313caff195288e0b2f73a11545f4b4410",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/MatchPairCase.py": "ef06f8f081d88ceb1ef46c9a6462d590e752f43d486ba651b1a22b0fd4180dbc",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/PairBatch.py": "3b07b6323e3c5fe1af79ca3ee805720a679243c957e7becce5e71d1c23a41f3f",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/ReadPairBatch.py": "9338cd882a8cc640aff181b0b1ec9bca6b3bebf1339a645f2cd9f49bbc6e556e",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/ReadPairReport.py": "3e343034e003d279c5de61db62c7958585a568b731e5fadc7e7baaa473be0e54",
+    "src/convert/adapters/solidworks/Core/Writing/Chamfers/VerifyPairMeas.py": "6749ede8ac585415bed847ed17acbe7ac09ccb5538456c8bb51162ae75dda434",
+    "src/convert/adapters/solidworks/Core/Writing/EmitNativeMut.py": "0b328f0ffabd8d6b98b14850687d778f97181d7f5ec211b59d2154fc3257e797",
+    "src/convert/adapters/solidworks/Core/Writing/SldprtWriter.py": "06d9d70ad8a1386f71157e5a115395f3346bc4aae289c0fd564566329e6d3246"
+  },
+  "written_at": 1795331500
+}

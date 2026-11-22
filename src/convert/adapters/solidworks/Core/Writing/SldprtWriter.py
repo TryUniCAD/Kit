@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Core.DrawingWriting.CanWriteBlankDrawing import
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
@@ -52,7 +53,11 @@ class SldprtWriter(StockEndWriter, PairProtocol):
         return (
             DocumentValue.assembly is None
             and DocumentValue.DrawingValue is None
-            and (IsEllipsePart(DocumentValue) or IsSweepPart(DocumentValue))
+            and (
+                IsEllipsePart(DocumentValue)
+                or IsSweepPart(DocumentValue)
+                or IsDistChmf(DocumentValue)
+            )
         )
 
     # the projection must reject unsupported neutral data in selection before the registry creates a staging target

@@ -54,10 +54,9 @@ strict public geometry path.
 
 Failed mode, selector, stock, edge order, driver name, persistent ID, alias,
 frame and view membership contrasts are refused by the typed cold route.
-The ordinary writer in the read tranche refuses unqualified distance
-inputs. The verifier disables runtime file reads and uses hash-bound
-disclosed authority. The cold reader leaves warm distance semantics to
-a separate proof.
+The verifier disables runtime file reads and uses hash-bound disclosed
+authority. The cold reader leaves warm distance semantics to a
+separate proof. [Exact measured publication](ChamferDistancePairPublication2026.md)
 
 ```sh
 chamfer_share=/absolute/path/to/Oracle121Takeover

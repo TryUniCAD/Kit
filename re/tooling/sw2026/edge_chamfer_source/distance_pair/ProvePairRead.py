@@ -19,10 +19,9 @@ from ObservePairArchives import guard, require
 from ProvePublicChamferRead import (TRIAL_SHA, SOURCE_LOCK_SHA, face_area, face_vertices,
                                    forbid_shape, mass_centroid, physical, semantic, xyz)
 from ProvePublicChamferWrite import EPOCH, authored
-from convert import open_document, write_document
+from convert import open_document
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.base.WriteOptions import WriteOptions
-from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.solidworks.Archive.Config.WriteConfigMut import WriteConfigMut
 from convert.adapters.solidworks.Archive.Resolved.WriteResolMut import WriteResolMut
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
@@ -33,7 +32,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Chamfers.TryColdChmf import 
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
-from convert.adapters.solidworks.Core.Writing.SldprtWriter import SldprtWriter
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp, FeatureKind
 from interchange.Enums.EnumValues import ParameterRole, ValueKind
@@ -274,15 +272,6 @@ def check_pair(raw, request, document, archive, model, part):
     require(TryColdChmf(archive, model, ReadOptions(extract_raw_brep=True)) is None,
             "analytic projection impersonates raw Parasolid")
     reject(lambda: ReadChmfOwn(part.LinkValue, AllowDistancePair=True), "unsupported ordinary SOLIDWORKS chamfer mode")
-    writer = SldprtWriter()
-    target = BytesIO(b"keep")
-    require(not writer.supports(document, target), "public writer supports unqualified distance mode")
-    reject(lambda: writer.write(document, target, WriteOptions(values={"final_destination": request["locator"]})),
-           "only one active angle-distance chamfer on the preceding boss is supported")
-    reject(lambda: write_document(document, target, destination_format=FORMAT,
-                                 values={"final_destination": request["locator"]}),
-           "does not support the destination", errors=(NotFoundError,))
-    require(target.getvalue() == b"keep" and target.tell() == 0, "refused writer changed destination")
     expected, edge, face, primary = expected_pair(document)
     light, full = read_doc(raw, False), read_doc(raw, True)
     sem = pair_semantics(light, document, part, (edge, face))
@@ -293,7 +282,6 @@ def check_pair(raw, request, document, archive, model, part):
         "drivers": sem[0], "feature_id": sem[1], "stock_id": sem[2],
         "refusals": negative_pairs(archive, mode),
         "ordinary_strict_reads": 2,
-        "unmeasured_ordinary_writes_refused": True,
     }
 
 

@@ -9,12 +9,14 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.ImportCandida
     ImportCandidate,
 )
 from convert.adapters.solidworks.Container.Format import KPartFormatId
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
 from convert.adapters.solidworks.Core.Preparation.Ellipse.IsEllipsePart import (
     IsEllipsePart,
 )
 from convert.adapters.solidworks.Core.Preparation.PrepareNative import PrepareNative
 from convert.adapters.solidworks.Core.Preparation.Sweeps.IsSweepPart import IsSweepPart
+from convert.adapters.solidworks.Core.Writing.Chamfers.EmitPairMut import EmitPairMut
 from convert.adapters.solidworks.Core.Writing.Ellipse.EmitEllipMut import EmitEllipMut
 from convert.adapters.solidworks.Core.Writing.Sweeps.EmitSweepMut import EmitSweepMut
 from interchange.document.Models.DocumentModel import CadDocument
@@ -35,6 +37,8 @@ def EmitNativeMut(
 ) -> WriteResult:
     if IsSweepPart(DocumentValue):
         return EmitSweepMut(DocumentValue, TargetValue, OptionsValue)
+    if IsDistChmf(DocumentValue):
+        return EmitPairMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipsePart(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
     SettingsValue = CheckPartOpts(OptionsValue)

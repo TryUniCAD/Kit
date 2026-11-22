@@ -1,5 +1,6 @@
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfPart import IsChmfPart
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PlanChmfPart import (
     PlanChmfPart,
 )
@@ -25,7 +26,9 @@ def CanWritePart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
         if IsSweepPart(DocumentValue):
             return CanWriteSweep(DocumentValue, TargetValue)
         if IsChmfPart(DocumentValue):
-            PlanChmf = PlanChmfPart(DocumentValue)
+            PlanChmf = PlanChmfPart(
+                DocumentValue, AllowDistancePair=IsDistChmf(DocumentValue)
+            )
             return IsPartTarget(PlanChmf.StockValue.NameValue, TargetValue)
         if IsPatPart(DocumentValue):
             return CanWritePat(DocumentValue, TargetValue)
