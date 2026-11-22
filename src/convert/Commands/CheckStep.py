@@ -1,3 +1,8 @@
+from interchange.document.Validation.Offsets.OffsetDefErrors import OffsetDefErrors
+from interchange.Features.Offsets.FaceOffset import FaceOffset
+from interchange.document.Validation.Offsets.OffsetHistErrs import OffsetHistErrs
+from interchange.Features.Distance.DistanceCut import DistanceCut
+from interchange.document.Validation.Cuts.GetCutHistErrs import GetCutHistErrs
 from collections.abc import Mapping
 
 from convert.Commands.GeneratorKinds import KDefinitionKinds
@@ -31,6 +36,7 @@ def CheckStep(
     Parameters: Mapping[str, Parameter],
     Frames: Mapping[str, SupportPlane],
     Sketches: Mapping[str, Sketch],
+    Features: Mapping[str, FeatureStep] | None = None,
 ) -> None:
     if Feature.kind not in KPortableKinds:
         raise ValueError(KFeatureError)
@@ -43,6 +49,18 @@ def CheckStep(
     ):
         raise ValueError(KFeatureError)
     if Feature.kind != FeatureKind.KReference and Feature.definition is None:
+        raise ValueError(KFeatureError)
+    if isinstance(Feature.definition, DistanceCut) and (
+        Features is None or GetCutHistErrs(Feature, Features)
+    ):
+        raise ValueError(KFeatureError)
+    if isinstance(Feature.definition, FaceOffset) and (
+        Features is None
+        or OffsetHistErrs(Feature, Features)
+        or OffsetDefErrors(
+            Feature, Feature.definition, IdentitySets, Parameters, Selections
+        )
+    ):
         raise ValueError(KFeatureError)
     if GetDefErrors(Feature, IdentitySets, Selections, Parameters, Frames, Sketches):
         raise ValueError(KFeatureError)
