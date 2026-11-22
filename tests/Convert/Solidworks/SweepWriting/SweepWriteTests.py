@@ -42,16 +42,7 @@ def TestSweepWrite() -> None:
         )
         assert ReadbackValue["typed_stream_replays"] == 2
         assert ReadbackValue["density_object_span"] == ["Contents/Config-0", 2068, 2127]
-        assert ReadbackValue["portable_cli"] == {
-            "neutral_round_trip": True,
-            "whole_semantic_document_equal": True,
-        }
-        SavedEnvelope = CastValue(dict[str, object], ReadbackValue["saved_envelope"])
-        assert SavedEnvelope["strict_refusals"] == 8
-        assert SavedEnvelope["legacy_permissive_routes"] == 2
-        assert SavedEnvelope["selected_configuration_checks"] == 24
-        assert SavedEnvelope["multi_config_saved_refusals"] == 8
-        assert SavedEnvelope["unrelated_physical_lane_reads"] == 8
+        VerifySwScopes(ReadbackValue)
         assert len(CastValue(list[str], ReadbackValue["rejected_sources"])) == 3
         ModesValue = CastValue(
             list[dict[str, object]], ReadbackValue["strict_readback"]
@@ -67,3 +58,19 @@ def TestSweepWrite() -> None:
             == 2
             for ModeValue in ModesValue
         )
+
+
+# the ordinary reader and neutral writer must verify actual linked configuration and sketch content
+def VerifySwScopes(ReadbackValue: dict[str, object]) -> None:
+    assert ReadbackValue["portable_cli"] == {
+        "neutral_round_trip": True,
+        "whole_semantic_document_equal": True,
+        "incomplete_sweep_geometry_refusals": 3,
+    }
+    SavedEnvelope = CastValue(dict[str, object], ReadbackValue["saved_envelope"])
+    assert SavedEnvelope["strict_refusals"] == 8
+    assert SavedEnvelope["legacy_permissive_routes"] == 2
+    assert SavedEnvelope["selected_configuration_checks"] == 24
+    assert SavedEnvelope["multi_config_saved_refusals"] == 8
+    assert SavedEnvelope["unrelated_physical_lane_reads"] == 8
+    assert SavedEnvelope["explicit_reads_independent_of_default_lane"] == 4

@@ -1,11 +1,13 @@
 from dataclasses import replace
+from importlib import import_module
 from pathlib import Path
 from subprocess import run
 import sys
+from unittest.mock import patch
 from xml.etree.ElementTree import SubElement
 
 from SweepSdkRead import prove_saved_boundary, reject_source
-from convert import open_document
+from convert import open_document, write_document
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Construction.Metadata.FrameKeywords import FrameKeywords
 from convert.adapters.solidworks.Container.Container import SldprtArchive, build_sldprt
@@ -43,7 +45,16 @@ def prove_saved_envelope(payload, repository):
     multi = build_sldprt(streams | alternate_keys(unrelated), FormatVersion=4)
     for configuration in (None, "Default"):
         reject_source(multi, "unsupported SOLIDWORKS saved sweep result partition", configuration=configuration)
-    check_other_lane(multi, "Alternate", 1, "Contents/Config-1-ResolvedFeatures")
+    adapter = import_module("convert.adapters.solidworks.Core.Adapter")
+    decode = adapter.DecodeNativeModel
+
+    def independent(*args, **kwargs):
+        if kwargs.get("resolved_stream") == KResolvedFeaturesStream:
+            raise ValueError("explicit configuration attempted to decode an unrelated default lane")
+        return decode(*args, **kwargs)
+
+    with patch.object(adapter, "DecodeNativeModel", independent):
+        check_other_lane(multi, "Alternate", 1, "Contents/Config-1-ResolvedFeatures")
     control_keywords = ParseXml(control.require(KeywordsStream))
     SubElement(control_keywords, "Configuration", {"Name": "Alternate", "id": "1"})
     SubElement(control_keywords, "Sweep", {"Name": "OrdinarySweptBoss", "id": "1000"})
@@ -54,6 +65,7 @@ def prove_saved_envelope(payload, repository):
     return dispatch | {
         "transport_control_sha256": CONTROL, "selected_configuration_checks": 24,
         "multi_config_saved_refusals": 8, "unrelated_physical_lane_reads": 8,
+        "explicit_reads_independent_of_default_lane": 4,
     }
 
 
@@ -75,6 +87,28 @@ def check_other_lane(payload, name, native_id, resolved_stream):
             raise ValueError("explicit alternate scope did not use its actual unrelated physical lane")
 
 
+def reject_empty_geometry(doc, directory):
+    for slot in (0, 1, 2):
+        sketches = list(doc.sketches)
+        index = min(slot, 1)
+        original = sketches[index]
+        remaining = tuple(replace(entity, construction=True) for entity in original.entities) if slot == 2 else ()
+        sketches[index] = replace(original, entities=remaining, constraints=(),
+                                  parameter_ids=(), closed_profile_entity_ids=())
+        target = Path(directory) / ("Incomplete" + str(slot) + ".json")
+        try:
+            write_document(replace(doc, sketches=tuple(sketches)), target,
+                           destination_format="interchange.json", allow_carrier=False)
+        except ValueError as error:
+            if "requires section and path geometry" not in str(error):
+                raise
+        else:
+            raise ValueError("empty or construction-only sweep was published")
+        if target.exists():
+            raise ValueError("rejected sweep left a neutral output")
+    return 3
+
+
 def prove_cli_transfer(payload, repository, folder):
     source, target = (Path(folder) / label for label in ("Source.SLDPRT", "Transfer.json"))
     source.write_bytes(payload)
@@ -92,4 +126,5 @@ def prove_cli_transfer(payload, repository, folder):
     actual.assert_valid()
     if actual != replace(expected, source=replace(expected.source, path=actual.source.path)):
         raise ValueError("neutral CLI transfer lost actual sweep, geometry or source identity")
-    return {"neutral_round_trip": True, "whole_semantic_document_equal": True}
+    return {"neutral_round_trip": True, "whole_semantic_document_equal": True,
+            "incomplete_sweep_geometry_refusals": reject_empty_geometry(expected, folder)}

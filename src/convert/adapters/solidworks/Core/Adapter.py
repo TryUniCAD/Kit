@@ -195,6 +195,7 @@ from convert.adapters.solidworks.Core.Native import (
     NativePlane,
     NativeProfile,
     NativeSketch,
+    ParseKeywords,
     DIRECTION_AXIS_ROLE as DirectionAxisRole,
     decode_native_model as DecodeNativeModel,
     operation_axis_subelement as OperationAxisSubElem,
@@ -2221,20 +2222,13 @@ def HasTwoBodyScope(ConfigData: bytes, Resolved: bytes, Generation: int | None) 
 def NativePartModel(Archive: SldprtArchive, Requested: str | None) -> NativeModel:
     Keywords = Archive.require(KeywordsStream)
     Lanes = ResolvedLanes(Archive.streams)
-    InitialId = SelectLaneId((), Lanes, None)
-    if InitialId is None:
+    if not Lanes:
         raise SldprtFormatError("required native resolved-feature stream is missing")
-    InitialStream = ResolvedStream(Archive.streams, Lanes[InitialId])
-    Initial = DecodeNativeModel(
-        Keywords,
-        Archive.require(InitialStream),
-        configuration_id=InitialId,
-        resolved_stream=InitialStream,
-    )
-    SelectedId = SelectLaneId(Initial.configurations, Lanes, Requested)
+    ConfigValues, _ = ParseKeywords(Keywords)
+    SelectedId = SelectLaneId(ConfigValues, Lanes, Requested)
     if SelectedId is None:
         raise SldprtFormatError(
-            f"configuration {Requested!r} is unavailable; choices are {sorted((ItemValue.name for ItemValue in Initial.configurations))}"
+            f"configuration {Requested!r} is unavailable; choices are {sorted(ItemValue.name for ItemValue in ConfigValues)}"
         )
     if SelectedId not in Lanes:
         raise SldprtFormatError(

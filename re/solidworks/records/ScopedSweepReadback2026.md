@@ -127,7 +127,10 @@ exact native publication proof is unchanged.
 The configuration follow-up reran `CheckScopedSweep.py` with both
 `--native` and `--warm` against the same disclosed packets. The result
 has SHA-256
-`3845621077f5c812072354551a8204742dfb7df63b9d16c7d10b1f5644b58fa5`.
+`58709e702b92d3cc36c877c6e612f57a3fda01275a43c8adfbafe8e75643335b`.
 Each cold worker passed 24 selected-configuration checks and reproduced
 its measured archive with zero writer input reads. The six native-saved
-files passed 48 contextual refusals and 12 permissive reads.
+files passed 48 contextual refusals and 12 permissive reads. Four explicit
+Alternate reads per case completed while access to the Default resolved
+stream raised an error. The interchange writer refused three forms of
+missing section or path geometry per case before creating a destination.
