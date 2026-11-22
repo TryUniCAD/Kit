@@ -9,6 +9,9 @@ def ReadFields(
     Value = FieldsValue[FieldName]
     if not isinstance(Value, MutableMapping):
         raise TypeError(f"ANSI construction requires embedded record {FieldName}")
-    if any(type(KeyValue) is not str for KeyValue in Value):
+    if any(
+        type(KeyValue) is not str
+        for KeyValue in CastValue(MutableMapping[object, object], Value)
+    ):
         raise TypeError("ANSI embedded field names must be text")
     return CastValue(MutableMapping[str, object], Value)

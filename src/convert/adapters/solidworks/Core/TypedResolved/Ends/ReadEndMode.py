@@ -1,4 +1,5 @@
 from collections.abc import Mapping
+from typing import cast as CastValue
 
 from convert.adapters.solidworks.Core.TypedResolved.Ends.CheckThroughEnd import (
     CheckThroughEnd,
@@ -66,7 +67,8 @@ def IsEndListEmpty(FieldsValue: Mapping[str, object], NameValue: str) -> bool:
         return RowsValue is None
     if Present != 1 or not isinstance(RowsValue, Mapping):
         return False
-    CountValue, ItemsValue = RowsValue.get("n"), RowsValue.get("items")
+    ArrayValue = CastValue(Mapping[object, object], RowsValue)
+    CountValue, ItemsValue = ArrayValue.get("n"), ArrayValue.get("items")
     return (
         type(CountValue) is int
         and CountValue == 0

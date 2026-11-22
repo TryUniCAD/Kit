@@ -21,10 +21,9 @@ def AssertTypedRead(Document: CadDocument, DepthValue: float) -> None:
     )
     assert Feature.name == "Boss-Extrude1"
     assert Feature.input_feature_ids == (f"sldprt:feature:{ProfileId}",)
-    assert (
-        isinstance(Feature.definition, ExtrusionFeature)
-        and Feature.definition.length.value == DepthValue * 1000
-    )
+    assert isinstance(Feature.definition, ExtrusionFeature)
+    LengthValue = Feature.definition.length
+    assert LengthValue is not None and LengthValue.value == DepthValue * 1000
     (Parameter,) = tuple(
         ItemValue
         for ItemValue in Document.parameters

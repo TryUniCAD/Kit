@@ -28,7 +28,7 @@ def StockDesigns(
         raise ValueError("selected two stock bodies lack their active payload")
     Steps = {Value.id: Value for Value in StepsValue}
     TopologyValue = BrepTopology(CacheValue.BrepValue)
-    Bodies = []
+    Bodies: list[DesignBody] = []
     for OwnerValue, BodyValue in zip(
         CacheValue.BodyValues, CacheValue.BrepValue.bodies, strict=True
     ):

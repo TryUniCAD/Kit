@@ -26,9 +26,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import
 from convert.adapters.solidworks.Archive.Construction.Part.FinishBlindMut import FinishBlindMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartBaseMut import MakePartBaseMut
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartProfMut import MakePartProfMut
-from convert.adapters.solidworks.Archive.Construction.Part.Materials.BindPartMaterialMut import BindPartMaterialMut
-from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePhysicalDensity import MakePhysicalDensity
-from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMaterialInput import PartMaterialInput
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.BindPartMatMut import BindPartMatMut
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePartDensity import MakePartDensity
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMatIntent import PartMatIntent
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDims import ProjectRectDims
 from convert.adapters.solidworks.Archive.Construction.Presentation.MakeModelVisual import MakeModelVisual
 from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeRectDimsMut import MakeRectDimsMut
@@ -66,7 +66,7 @@ def material_intent(document, assignment):
     catalog, catalog_id = assignment["catalog"], assignment["catalog_id"]
     require(material.id == assignment["material_ref"], "material reference does not resolve")
     require(catalog_id is None, "the measured construction requires the two-token catalog identity")
-    return PartMaterialInput(catalog, material.name, float(material.Density))
+    return PartMatIntent(catalog, material.name, float(material.Density))
 
 
 def compose(document, inputs, dimensions, modes, material):
@@ -81,10 +81,10 @@ def compose(document, inputs, dimensions, modes, material):
             "the ordinary unassigned constructors do not match the experimental baseline")
     part, active_density, active_identity = modes
     if modes == MODES["all"]:
-        BindPartMaterialMut(system, material)
+        BindPartMatMut(system, material)
     else:
         if part:
-            root["f1420"] = MakePhysicalDensity(material.DensityValue)
+            root["f1420"] = MakePartDensity(material.DensityValue)
         if active_density:
             configuration["fc50"] = material.DensityValue
         if active_identity:

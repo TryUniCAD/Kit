@@ -7,7 +7,7 @@ from pytest import raises as Raises
 
 from convert import open_document as OpenDoc
 from convert import write_document as WriteDoc
-from convert.adapters.registry import AdapterNotFoundError
+from convert.adapters.registry.RegistryErrors import AdapterNotFoundError
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import (
     LowerBoxModel,
 )
@@ -29,13 +29,13 @@ from tests.Convert.Solidworks.Research.Construction.Part.MakePlainDoc import (
 
 # a reversed boss must retain its fixed corner and refuse the same coordinates with the anchor absent
 def TestTopOrigin(TmpPath: FilePath) -> None:
-    Seed = MakePlainDoc("SignedBox", 21.0, 28.0, 13.0)
-    Seed = Replace(
-        Seed,
-        configurations=(Replace(Seed.configurations[0], name="Default"),),
+    SeedValue = MakePlainDoc("SignedBox", 21.0, 28.0, 13.0)
+    SeedValue = Replace(
+        SeedValue,
+        configurations=(Replace(SeedValue.configurations[0], name="Default"),),
         support_planes=(
             Replace(
-                Seed.support_planes[0],
+                SeedValue.support_planes[0],
                 name="XZ-plane",
                 transform=Transform(
                     SpaceVector(0, 0, 0),
@@ -47,7 +47,7 @@ def TestTopOrigin(TmpPath: FilePath) -> None:
         ),
     )
     Unanchored = LowerBoxModel(
-        Seed,
+        SeedValue,
         "SignedBox",
         ("dimension/length", "dimension/width", "dimension/depth"),
         (21.0, 28.0, 13.0),
@@ -107,14 +107,14 @@ def TestTopOrigin(TmpPath: FilePath) -> None:
         Plane for Plane in Parsed.support_planes if Plane.id == Sketch.support_plane_id
     )
     (Operation,) = (
-        Row.definition
-        for Row in Parsed.feature_timeline
-        if isinstance(Row.definition, ExtrudeFeature)
+        RowValue.definition
+        for RowValue in Parsed.feature_timeline
+        if isinstance(RowValue.definition, ExtrudeFeature)
     )
     assert Plane.name == "Top Plane" and Operation.reversed
-    assert [(Body.name, Body.topology.solid_count) for Body in Parsed.bodies] == [
-        ("Named Body", 1)
-    ]
+    assert [
+        (BodyValue.name, BodyValue.topology.solid_count) for BodyValue in Parsed.bodies
+    ] == [("Named Body", 1)]
     assert {
         Parameter.name: Parameter.value.value for Parameter in Parsed.parameters
     } == {
@@ -123,6 +123,9 @@ def TestTopOrigin(TmpPath: FilePath) -> None:
         "Height": 13.0,
     }
     assert (
-        sum(Rule.kind == "coincident" and Rule.driving for Rule in Sketch.constraints)
+        sum(
+            RuleValue.kind == "coincident" and RuleValue.driving
+            for RuleValue in Sketch.constraints
+        )
         == 1
     )

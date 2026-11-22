@@ -1,5 +1,8 @@
 from itertools import product as Cartesian
 
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
+    CirclePlan,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
@@ -28,7 +31,8 @@ def ReadViewBox(ChildValue: PartCandidate) -> dict[str, float]:
         for Point in ProfileValue.GeometryValue.PointValues
     )
     if (
-        PointsValue != PlanValue.VerticesValue
+        isinstance(PlanValue, CirclePlan)
+        or PointsValue != PlanValue.VerticesValue
         or len(PointsValue) != 4
         or len(ProfileValue.GeometryValue.LineValues) != 4
     ):

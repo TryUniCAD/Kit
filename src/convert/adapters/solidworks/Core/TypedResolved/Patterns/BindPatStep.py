@@ -38,7 +38,7 @@ def BindPatStep(
         "selected_local_ids",
         "native_selection_references",
     ):
-        Attributes.pop(NameValue, None)
+        _ = Attributes.pop(NameValue, None)
     return ReplaceValue(
         StepValue,
         input_feature_ids=(f"sldprt:feature:{SeedId}", f"sldprt:feature:{PlaneId}"),

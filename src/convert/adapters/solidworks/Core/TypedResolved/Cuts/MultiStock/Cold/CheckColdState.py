@@ -4,7 +4,7 @@ from convert.adapters.solidworks.Core.TypedResolved.NativeRows import NativeRows
 
 
 # provisional ownership cannot stand in for saved body results or chooser state
-def CheckColdBodyState(
+def CheckColdBodies(
     NodesValue: tuple[ArchiveNode, ArchiveNode, ArchiveNode],
 ) -> None:
     CutValue = NodesValue[2]
@@ -33,8 +33,8 @@ def CheckColdBodyState(
 def CheckColdState(
     OwnersValue: tuple[ExtrudeOwner, ExtrudeOwner, ExtrudeOwner],
 ) -> None:
-    First, Second, Cut = OwnersValue
-    CheckColdBodyState((First.NodeValue, Second.NodeValue, Cut.NodeValue))
+    First, Second, CutValue = OwnersValue
+    CheckColdBodies((First.NodeValue, Second.NodeValue, CutValue.NodeValue))
     if any(Value.EndValue.FieldsValue.get("f158") != 0 for Value in OwnersValue):
         raise ValueError(
             "pre-rebuild solid has a result, consumed atom or chooser owner"

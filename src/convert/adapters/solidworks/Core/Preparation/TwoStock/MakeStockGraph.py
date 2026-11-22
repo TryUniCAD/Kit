@@ -34,14 +34,15 @@ def MakeStockGraph(
     FrontPlan, RightPlan = PlanValue.StockValues
     SystemValue = MakePartBaseMut(SettingsValue, FrontPlan, Allocator)
     Manager = SystemValue.RootValue.FieldsValue.get("fd88")
-    if (
-        not isinstance(Manager, dict)
-        or Manager.get("n6c") != 0
-        or Manager.get("atoms") not in ([], ())
-        or Manager.get("fa8") != 0
-    ):
+    if not isinstance(Manager, dict):
         raise ValueError("two-stock graph requires its fresh root atom manager")
     ManagerValue = CastValue(dict[str, object], Manager)
+    if (
+        ManagerValue.get("n6c") != 0
+        or ManagerValue.get("atoms") not in ([], ())
+        or ManagerValue.get("fa8") != 0
+    ):
+        raise ValueError("two-stock graph requires its fresh root atom manager")
     FrontGraph = MakeStockBoss(
         SystemValue, SettingsValue, FrontPlan, Allocator, ManagerValue, False
     )

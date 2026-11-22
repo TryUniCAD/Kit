@@ -54,13 +54,13 @@ def MakeOriginBox(
         BindPartIntent(PlainValue, PlanValue, RecipeValue, OutputValue),
         PropertiesValue=TextValue,
     )
-    return MakeOriginBoxFromPlan(
+    return BuildOriginBox(
         DocumentValue, PlanValue, InputValue, TopAttached=TopAttached
     )
 
 
 # primitive lowering and explicit neutral intent must generate the same origin geometry and editable driver presentations
-def MakeOriginBoxFromPlan(
+def BuildOriginBox(
     DocumentValue: CadDocument,
     PlanValue: BlindPlan,
     InputValue: PartBuildInput,

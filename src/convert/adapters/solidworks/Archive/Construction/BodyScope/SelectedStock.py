@@ -34,7 +34,7 @@ class SelectedStock:
             raise ValueError(
                 "selected stock is qualified only for archive version 19000"
             )
-        ReadStyleText(self.StockValues[0].BodyId, "selected stock body identity")
-        ReadStyleText(
+        _ = ReadStyleText(self.StockValues[0].BodyId, "selected stock body identity")
+        _ = ReadStyleText(
             self.StockValues[0].FeatureId, "selected stock producing feature identity"
         )

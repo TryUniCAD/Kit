@@ -7,7 +7,7 @@ from interchange.geometry.Models.VectorPlane import PlaneVector
 
 
 # a contour starting at zero does not carry the design intent of an actively anchored corner
-def ReadCornerAnchor(SketchValue: Sketch) -> Sketch:
+def ReadCornerRef(SketchValue: Sketch) -> Sketch:
     if (
         len(SketchValue.closed_profile_entity_ids) != 1
         or len(SketchValue.closed_profile_entity_ids[0]) != 4

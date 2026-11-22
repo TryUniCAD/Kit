@@ -26,7 +26,7 @@ def RotatePrismRing(RingValue: KPrismRing) -> KPrismRing:
 def PrismRings(
     FacesValue: tuple[PrismFaceLoop, ...], TopologyValue: BrepTopology
 ) -> tuple[KPrismRing, ...]:
-    ResultValues = []
+    ResultValues: list[KPrismRing] = []
     for BoundaryValue in FacesValue:
         PlaneValue = TopologyValue.surface_by_id[BoundaryValue.FaceValue.surface_id]
         if not isinstance(PlaneValue, PlaneSurface):

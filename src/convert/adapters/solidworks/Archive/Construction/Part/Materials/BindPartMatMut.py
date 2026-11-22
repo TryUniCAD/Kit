@@ -1,10 +1,10 @@
 from typing import cast as CastValue
 
-from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePhysicalDensity import (
-    MakePhysicalDensity,
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.MakePartDensity import (
+    MakePartDensity,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMaterialInput import (
-    PartMaterialInput,
+from convert.adapters.solidworks.Archive.Construction.Part.Materials.PartMatIntent import (
+    PartMatIntent,
 )
 from convert.adapters.solidworks.Archive.Construction.Presentation.MakeModelVisual import (
     MakeModelVisual,
@@ -16,9 +16,7 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # a fresh single configuration part needs separate physical and named owners before ordinary archive allocation
-def BindPartMaterialMut(
-    SystemValue: PartSystem, MaterialValue: PartMaterialInput
-) -> None:
+def BindPartMatMut(SystemValue: PartSystem, MaterialValue: PartMatIntent) -> None:
     RootValue = SystemValue.RootValue
     Configurations = SystemValue.ConfigValues
     if RootValue.ClassValue != RuntimeClass("moPart_c", 1) or len(Configurations) != 1:
@@ -39,7 +37,7 @@ def BindPartMaterialMut(
     ):
         raise ValueError("part material requires fresh unassigned archive owners")
     DensityValue = float(MaterialValue.DensityValue)
-    PhysicalValue = MakePhysicalDensity(DensityValue)
+    PhysicalValue = MakePartDensity(DensityValue)
     VisualValue = MakeModelVisual()
     PropertiesValue = CastValue(dict[str, object], VisualValue.FieldsValue["f20"])
     PropertiesValue["f20"] = MaterialValue.IdentityValue

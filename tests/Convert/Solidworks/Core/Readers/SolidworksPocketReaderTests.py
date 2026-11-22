@@ -73,7 +73,9 @@ def AssertPocketCut(Document: CadDocument) -> None:
     Definition = Pocket.definition
     assert isinstance(Definition, ExtrusionFeature)
     assert str(Definition.end_condition) == "blind" and Definition.reversed
-    assert Definition.length.value == 4.83 and Definition.length.unit == "mm"
+    LengthValue = Definition.length
+    assert LengthValue is not None
+    assert LengthValue.value == 4.83 and LengthValue.unit == "mm"
     (DepthParameter,) = tuple(
         Parameter
         for Parameter in Document.parameters

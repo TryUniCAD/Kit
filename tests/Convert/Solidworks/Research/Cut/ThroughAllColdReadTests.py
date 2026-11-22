@@ -19,7 +19,7 @@ def TestThroughRims(TmpPath: FilePath) -> None:
     ):
         Payload = MakeThruArchive(AxisValue, Reverse, BothEnds)
         OutputPath = TmpPath / (AxisValue + ".SLDPRT")
-        OutputPath.write_bytes(Payload)
+        _ = OutputPath.write_bytes(Payload)
         Document = OpenDoc(OutputPath)
         assert not Document.validate() and Document.brep_payloads == ()
         ModelBrep = Document.brep

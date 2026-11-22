@@ -66,7 +66,7 @@ def MakePrismNodes(CellsValue: tuple[PrismCell, ...]) -> tuple[XmtNode, ...]:
         CellValue.RefValue.KindValue not in (12, 17) for CellValue in CellsValue
     )
     PersistentValue = 0
-    ResultValues = []
+    ResultValues: list[XmtNode] = []
     for CellValue in CellsValue:
         PersistentValue += int(CellValue.RefValue.KindValue not in (12, 17))
         ResultValues.append(

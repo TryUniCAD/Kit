@@ -19,7 +19,7 @@ def MakePrismLines(CarriersValue: PrismCarriers) -> tuple[PrismCell, ...]:
     LinksValue = PrismChain(
         PrismRef(30, LineValue.id) for LineValue in CarriersValue.LinesValue
     )
-    Values = []
+    Values: list[PrismCell] = []
     for LineValue in CarriersValue.LinesValue:
         RefValue = PrismRef(30, LineValue.id)
         Previous, Following = LinksValue[RefValue]
@@ -44,7 +44,7 @@ def MakePrismPlanes(CarriersValue: PrismCarriers) -> tuple[PrismCell, ...]:
     LinksValue = PrismChain(
         PrismRef(50, PlaneValue.id) for PlaneValue in CarriersValue.PlanesValue
     )
-    Values = []
+    Values: list[PrismCell] = []
     for PlaneValue in CarriersValue.PlanesValue:
         RefValue = PrismRef(50, PlaneValue.id)
         Previous, Following = LinksValue[RefValue]

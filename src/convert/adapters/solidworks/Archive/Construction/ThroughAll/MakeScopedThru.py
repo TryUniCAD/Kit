@@ -30,7 +30,7 @@ def MakeScopedThru(
     SettingsValue: PartBuildInput,
     ScopeValue: SelectedStock,
 ) -> ScopedPart:
-    RequireStock(InputValue, ScopeValue)
+    _ = RequireStock(InputValue, ScopeValue)
     CandidateValue = MakeThroughPart(InputValue, SettingsValue)
     ScopeGraph = SelectStockMut(CandidateValue, ScopeValue)
     BossValue = CandidateValue.BossValue

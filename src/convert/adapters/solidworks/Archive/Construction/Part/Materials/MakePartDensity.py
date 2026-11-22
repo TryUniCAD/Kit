@@ -7,8 +7,8 @@ from convert.adapters.solidworks.Archive.Config.Material.MatTypes import (
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 
 
-# ordinary physical density belongs to a fresh unnamed parameter with one modeled SI value
-def MakePhysicalDensity(DensityValue: float) -> ArchiveNode:
+# ordinary physical density belongs to a fresh unnamed parameter with one modeled metric value
+def MakePartDensity(DensityValue: float) -> ArchiveNode:
     if (
         isinstance(DensityValue, bool)
         or not IsFinite(DensityValue)

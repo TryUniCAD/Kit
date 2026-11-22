@@ -9,7 +9,7 @@ from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Members.FeatColor
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.GeometryFields import (
     KGeometryFields,
 )
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.LightFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Lighting.LightFields import (
     KLightFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.OwnerFields import (

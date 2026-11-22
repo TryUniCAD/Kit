@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.MakeOriginBoxPart import (
-    MakeOriginBoxFromPlan,
+    BuildOriginBox,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -42,7 +42,7 @@ def RunPartPrep(
     )
     InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
     if TopCorner:
-        return MakeOriginBoxFromPlan(
+        return BuildOriginBox(
             DocumentValue, PlanValue, InputValue, TopAttached=True
         )
     return MakeBlindPartFromPlan(DocumentValue, InputValue, PlanValue)

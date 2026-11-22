@@ -1,5 +1,6 @@
 from collections.abc import Mapping
 from dataclasses import replace as ReplaceValue
+from typing import cast as CastValue
 
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import BooleanOp
@@ -11,13 +12,16 @@ from interchange.geometry.Models.Selection import Selection, SelectPathElem
 # the portable cut should reference its actual selected stock producer without inheriting a native atom number
 def BindCutStock(DocumentValue: CadDocument) -> CadDocument:
     Report = DocumentValue.metadata.get("solidworks.typed_resolved_semantics")
-    Evidence = (
-        Report.get("cut_body_dependency") if isinstance(Report, Mapping) else None
-    )
-    if not isinstance(Evidence, Mapping) or Evidence.get("feature_scope_code") != 1:
+    if not isinstance(Report, Mapping):
         return DocumentValue
-    Producer = Evidence.get("producer_feature_id")
-    Consumer = Evidence.get("consumer_feature_id")
+    Evidence = CastValue(Mapping[object, object], Report).get("cut_body_dependency")
+    if not isinstance(Evidence, Mapping):
+        return DocumentValue
+    FieldsValue = CastValue(Mapping[object, object], Evidence)
+    if FieldsValue.get("feature_scope_code") != 1:
+        return DocumentValue
+    Producer = FieldsValue.get("producer_feature_id")
+    Consumer = FieldsValue.get("consumer_feature_id")
     if type(Producer) is not int or type(Consumer) is not int:
         return DocumentValue
     Steps = {StepValue.id: StepValue for StepValue in DocumentValue.feature_timeline}

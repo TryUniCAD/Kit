@@ -1,6 +1,6 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.MassCacheFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Caches.MassCacheFields import (
     KMassCacheFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField

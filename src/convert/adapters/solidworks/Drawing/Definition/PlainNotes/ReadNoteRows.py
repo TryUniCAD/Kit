@@ -12,16 +12,14 @@ from convert.adapters.solidworks.Drawing.Definition.Projection.ConceptFields imp
 # a note collection needs its actual declared count and ordered concrete object pointers
 def ReadNoteRows(Fields: Mapping[str, object]) -> tuple[ArchiveNode, ...]:
     Items = Fields.get("items")
-    if (
-        not isinstance(Items, Sequence)
-        or isinstance(Items, (str, bytes, bytearray))
-        or type(Fields.get("n")) is not int
-        or Fields.get("n") != len(Items)
-    ):
+    if not isinstance(Items, Sequence) or isinstance(Items, (str, bytes, bytearray)):
+        raise BodyUnsupported("invalid drawing note collection")
+    NoteItems = CastValue(Sequence[object], Items)
+    CountValue = Fields.get("n")
+    if type(CountValue) is not int or CountValue != len(NoteItems):
         raise BodyUnsupported("invalid drawing note collection")
     return tuple(
-        NeedConceptNode(NeedConceptMap(RowValue).get("o"))
-        for RowValue in CastValue(Sequence[object], Items)
+        NeedConceptNode(NeedConceptMap(RowValue).get("o")) for RowValue in NoteItems
     )
 
 

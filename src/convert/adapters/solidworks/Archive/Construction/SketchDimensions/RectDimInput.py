@@ -30,14 +30,14 @@ class RectDimInput:
         for Coordinate in self.TextDepths:
             _ = RequireScalar(Coordinate)
         Routes = CastValue(object, self.RouteCenter)
-        if type(CastValue(object, self.DesignIntent)) is not bool or (
-            type(Routes) is not bool
-            and (
-                type(Routes) is not tuple
-                or len(Routes) != 2
-                or any(type(Value) is not bool for Value in Routes)
+        if type(Routes) is tuple:
+            RoutePair = CastValue(tuple[object, ...], Routes)
+            ValidRoutes = len(RoutePair) == 2 and all(
+                type(Value) is bool for Value in RoutePair
             )
-        ):
+        else:
+            ValidRoutes = type(Routes) is bool
+        if type(CastValue(object, self.DesignIntent)) is not bool or not ValidRoutes:
             raise TypeError("rectangle dimension preferences require explicit booleans")
         if type(CastValue(object, self.SelectedLeader)) is not int or not -(
             1 << 31

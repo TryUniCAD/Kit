@@ -14,7 +14,7 @@ def PrismNodes(
     ColdAtom: ArchiveNode | None = None,
     *,
     AllowedClasses: frozenset[str] = KPrismClasses,
-    ProvenNodes: frozenset[ArchiveNode] = frozenset(),
+    ProvenNodes: frozenset[ArchiveNode] | None = None,
 ) -> tuple[ArchiveNode, ...]:
     Entries = (
         *LinkValue.ResolvedValue.MapValue.EntriesValue,
@@ -25,6 +25,7 @@ def PrismNodes(
         for Entry in Entries
         if isinstance(Entry.EntryValue, ArchiveNode)
     )
+    OwnersValue = ProvenNodes if ProvenNodes is not None else frozenset()
     FoundNodes: set[ArchiveNode] = set()
     for NodeValue in NodesValue:
         _ = RequireNative(NodeValue)
@@ -32,12 +33,12 @@ def PrismNodes(
             NodeValue.ClassValue.NameValue not in AllowedClasses
             and NodeValue is not ColdAtom
         ):
-            if NodeValue not in ProvenNodes or NodeValue in FoundNodes:
+            if NodeValue not in OwnersValue or NodeValue in FoundNodes:
                 raise ValueError("cache free prism has an unsupported native owner")
             FoundNodes.add(NodeValue)
-    if FoundNodes != ProvenNodes or (
-        ProvenNodes
-        and not ProvenNodes.issubset(
+    if frozenset(FoundNodes) != OwnersValue or (
+        OwnersValue
+        and not OwnersValue.issubset(
             EntryValue.EntryValue
             for EntryValue in LinkValue.ConfigValue.MapValue.EntriesValue
         )

@@ -25,7 +25,7 @@ def ReadSaveScope(
     ):
         raise ValueError("cut body scope is outside the witnessed saved profiles")
     Chooser = NativeRecord(Fields.get("f4c0"))
-    ReadSingleNode(Chooser.get("f48"), "moPerBodyChooserData_c")
+    _ = ReadSingleNode(Chooser.get("f48"), "moPerBodyChooserData_c")
     if Chooser.get("f68") is not CutValue:
         raise ValueError("cut body chooser does not alias its owning feature")
     return ScopeValue

@@ -35,7 +35,7 @@ def MakeChildRefs(
         raise ValueError(
             "part visual references require distinct actual feature identities"
         )
-    Result = []
+    Result: list[ArchiveNode] = []
     for Feature, FeatureId in zip(Features, FeatureIds, strict=True):
         FirstTime, SecondTime = (
             DatumTime(Header, FeatureId) for Header in HeadersValue

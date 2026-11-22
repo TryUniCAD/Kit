@@ -15,7 +15,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectRectDi
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
 from convert.adapters.solidworks.Core.Preparation.PartCaps import KPartWriteCaps
 from convert.adapters.solidworks.Core.Preparation.ReadCornerAnchor import (
-    ReadCornerAnchor,
+    ReadCornerRef,
 )
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -41,5 +41,5 @@ def PlanTopCorner(DocumentValue: CadDocument) -> tuple[CadDocument, BlindPlan] |
             "anchored Top rectangle requires the qualified neutral profile"
         )
     _ = ReadBodyLabel(DocumentValue)
-    Projected = ReplaceValue(DocumentValue, sketches=(ReadCornerAnchor(SketchValue),))
+    Projected = ReplaceValue(DocumentValue, sketches=(ReadCornerRef(SketchValue),))
     return Projected, ProjectRectDims(PlainBodyView(Projected), TopAttached=True)

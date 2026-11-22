@@ -69,7 +69,9 @@ def MakePartVis(
     DatumProperty = ArchiveNode(PropertyClass, {"f08": 1, "f10": None})
     Shown = ArchiveNode(StateClass, {"f08": 1, "f10": 1, "f14": 6, "f18": 1, "f1c": 0})
     Hidden = ArchiveNode(StateClass, {"f08": 1, "f10": 0, "f14": 6, "f18": 1, "f1c": 0})
-    AttrRows = [{"ref": Holder, "attrs": [MakeVisRow(1, SelfProperty, Shown)]}]
+    AttrRows: list[dict[str, object]] = [
+        {"ref": Holder, "attrs": [MakeVisRow(1, SelfProperty, Shown)]}
+    ]
     AttrRows.extend(
         {
             "ref": Feature,

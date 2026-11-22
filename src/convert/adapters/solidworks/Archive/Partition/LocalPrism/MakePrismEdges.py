@@ -19,7 +19,7 @@ def MakePrismEdges(
     EdgesValue: tuple[BrepEdge, ...], FinLinks: PrismFinLinks
 ) -> tuple[PrismCell, ...]:
     LinksValue = PrismChain(PrismRef(16, EdgeValue.id) for EdgeValue in EdgesValue)
-    Values = []
+    Values: list[PrismCell] = []
     for EdgeValue in EdgesValue:
         RefValue = PrismRef(16, EdgeValue.id)
         Previous, Following = LinksValue[RefValue]

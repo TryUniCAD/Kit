@@ -1,6 +1,6 @@
 from types import MappingProxyType
 
-from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.LightPropFields import (
+from convert.adapters.solidworks.Archive.Bodies.Layouts.Config.Lighting.LightPropFields import (
     KLightPropFields,
 )
 from convert.adapters.solidworks.Archive.Bodies.NativeField import NativeField

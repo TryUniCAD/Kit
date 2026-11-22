@@ -13,7 +13,7 @@ def ReadBodyOwner(
         if NodeValue is not None and NodeValue.ClassValue.NameValue == "moExtrusion_c"
     )
     if RevolveValue is not None:
-        RequireNative(RevolveValue, "moRevolution_c")
+        _ = RequireNative(RevolveValue, "moRevolution_c")
         if (
             BossValues
             or sum(
