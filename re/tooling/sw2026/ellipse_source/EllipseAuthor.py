@@ -3,6 +3,7 @@ from pathlib import Path
 
 import Swapp
 from AuthorCurves import digest
+from ChamferModel import compare_six
 from FilletApi import CONSTS_LIB, MODEL_LIB, load
 from FilletAuthor import FilletAuthor
 
@@ -295,6 +296,15 @@ class EllipseAuthor(FilletAuthor):
         finally:
             self.get(self.model, "ClearSelection2", True)
 
+    def body_metric(self, label, actual, expected, near_zero):
+        error, tolerance, passed = compare_six(actual, expected, near_zero)
+        self.rec.data["checks"].append({"name": label, "actual": actual, "expected": expected,
+                                        "passed": passed, "absolute_error": error,
+                                        "absolute_tolerance": tolerance,
+                                        "method": "half_unit_at_sixth_significant_place_or_near_zero"})
+        self.rec.flush()
+        require(passed, f"{label} differs from the independent analytic prediction")
+
     def measure(self, boss, plan, expected):
         body = self.one_body()
         faces = [self.typed(value, "Face2") for value in self.get(body, "GetFaces") or ()]
@@ -306,16 +316,17 @@ class EllipseAuthor(FilletAuthor):
         planar = [bool(self.get(self.get(face, "GetSurface"), "IsPlane")) for face in faces]
         require(sum(planar) == 2, "elliptic extrusion must have two planar cap faces")
         mass = self.mass_properties(body)
-        self.rec.close_number("ellipse boss volume", mass["volume"], expected["volume_m3"], absolute=1e-21)
-        self.rec.close_number("ellipse boss total area", mass["area"], expected["area_m2"], absolute=1e-16)
-        self.vector("ellipse boss centre of mass", mass["com"], expected["com_m"])
+        self.body_metric("ellipse boss volume", mass["volume"], expected["volume_m3"], 1e-21)
+        self.body_metric("ellipse boss total area", mass["area"], expected["area_m2"], 1e-16)
+        for axis, (actual, predicted) in enumerate(zip(mass["com"], expected["com_m"], strict=True)):
+            self.body_metric(f"ellipse boss centre of mass {axis}", actual, predicted, 1e-12)
         side = faces[planar.index(False)]
         caps = [self.cap(face, side, plan, expected) for face, is_plane in zip(faces, planar, strict=True) if is_plane]
         require({cap["station"] for cap in caps} == {0, 1}, "both caps are on the same signed station")
         approximate = float(self.get(side, "GetArea"))
         require(math.isfinite(approximate) and approximate > 0, "native lateral face area approximation is not finite and positive")
         lateral = mass["area"] - math.fsum(cap["area_from_rim_m2"] for cap in caps)
-        self.rec.close_number("lateral area from measured body and physical caps", lateral, expected["side_m2"], absolute=1e-16)
+        self.body_metric("lateral area from measured body and physical caps", lateral, expected["side_m2"], 1e-16)
         bounds = []
         for axis, interval in enumerate(expected["bounds_m"]):
             actual = []

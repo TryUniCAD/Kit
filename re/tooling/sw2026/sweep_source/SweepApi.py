@@ -6,7 +6,6 @@ SWEEP_OPTIONS = {
     "ThinFeature": False,
     "TwistControlType": "swTwistControlFollowPath",
     "PathAlignmentType": "swTangencyNone",
-    "Direction": "swSweepDirection1",
     "StartTangencyType": "swTangencyNone",
     "EndTangencyType": "swTangencyNone",
     "AlignWithEndFaces": False,
@@ -25,7 +24,6 @@ ENUMS = {
     "swSketchRelationFilterType_e": ("swAll", "swDangling", "swOverDefining", "swBroken"),
     "swSelectType_e": ("swSelSKETCHES",),
     "swSketchSegments_e": ("swSketchARC",),
-    "swSweepDirection_e": ("swSweepDirection1",),
     "swTwistControlType_e": ("swTwistControlFollowPath",),
     "swTangencyType_e": ("swTangencyNone",),
     "swBodyType_e": ("swSolidBody", "swSheetBody"),
@@ -39,7 +37,7 @@ ENUMS = {
 }
 MEMBERS = {
     "IFeatureManager": ("CreateDefinition", "CreateFeature"),
-    "ISweepFeatureData": (*SWEEP_OPTIONS, "SweepType", "GetGuideCurvesCount", "IsBossFeature", "IsThinFeature",
+    "ISweepFeatureData": (*SWEEP_OPTIONS, "Direction", "SweepType", "GetGuideCurvesCount", "IsBossFeature", "IsThinFeature",
                           "GetProfileType", "GetPathType", "Profile", "Path", "AccessSelections", "ReleaseSelectionAccess"),
     "ISketchManager": ("InsertSketch", "ActiveSketch", "AddToDB", "CreateCircleByRadius", "CreateArc"),
     "ISketch": ("GetConstrainedStatus", "GetSketchSegments", "ModelToSketchTransform", "RelationManager"),

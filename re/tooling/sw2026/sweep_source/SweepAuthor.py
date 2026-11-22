@@ -41,7 +41,11 @@ class SweepAuthor(SweepSketches):
         if write:
             for name, value in expected.items():
                 self.set(definition, name, value)
+        else:
+            expected["Direction"] = -1
         actual = {name: self.get(definition, name) for name in expected}
+        self.rec.data["last_option_comparison"] = {"setting": write, "expected": expected, "actual": actual}
+        self.rec.flush()
         require(actual == expected, "native sweep options differ from the explicit Standard one-direction boss")
         return actual
 

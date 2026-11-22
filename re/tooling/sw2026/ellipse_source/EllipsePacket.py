@@ -20,6 +20,7 @@ TOOLS = {
     FAMILY: ("EllipseModel.py", "EllipsePacket.py", "EllipseAuthor.py", "RunEllipseSources.py"),
     TOOLS_ROOT: ("AuthorCurves.py", "AuthorBlindCutSources.py", "InspectFresh.py", "OracleIdentity.py", "Swapp.py"),
     f"{TOOLS_ROOT}/edge_fillet_source": ("FilletApi.py", "FilletAuthor.py", "FilletModel.py"),
+    f"{TOOLS_ROOT}/edge_chamfer_source": ("ChamferModel.py",),
 }
 CONTROLS = {
     "ControlRectangle.SLDPRT": "31f880dd18a009e6e2cdc5c666484d02f50c7b2117f50051e071cad5d9f21b4f",
