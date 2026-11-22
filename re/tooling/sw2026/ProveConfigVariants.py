@@ -22,6 +22,8 @@ from convert.adapters.solidworks.Container.Container import SldprtArchive
 MASTER = RuntimeClass("moSheetMetalMaster_c", 1)
 DENSITY = RuntimeClass("moDensityUnits_c", 1)
 LENGTH = RuntimeClass("moLengthUserUnits_c", 1)
+BLOCK_MANAGER = RuntimeClass("moSketchBlockMgr_c", 1)
+HIGH_BLOCK_COUNT = 0x80000025
 SIGNED = {"nec8": -7, "nff4": -13, "n10c4": -19, "m": -29}
 ROWS = {"nec8": "fec0", "nff4": "ffe0", "n10c4": "f10b0"}
 PRESENT_NULL = 167
@@ -99,6 +101,9 @@ def read_witnesses(wire, header):
                 and state.NodeValue is state.ContextValue.PartRootValue
                 and rule.NameValue in (*SIGNED, "n1290")):
             differences["lengths"][rule.NameValue] = cursor.OffsetValue
+        if (event == "call" and code is ReadLengthMut.__code__
+                and state.NodeValue.ClassValue == BLOCK_MANAGER and rule.NameValue == "n98"):
+            differences["block_count"] = cursor.OffsetValue
         if code is ReadOwnedMut.__code__ and rule.NameValue == "f1018":
             differences["master"].append((event, cursor.OffsetValue, state.ReaderValue.MapValue.CounterValue))
 
@@ -161,8 +166,32 @@ def check_refusals(graph, density):
     return {"wrong_master": wrong, "populated_master": populated, "missing_density_field": missing}
 
 
+def check_block_word(raw):
+    archive = SldprtArchive.from_bytes(raw)
+    original = archive.require(LANE)
+    graph, _ = read_scope(archive)
+    block, = nodes(graph, BLOCK_MANAGER)
+    fields = block.FieldsValue["blocks"]
+    require(fields["n98"] == 0 and fields["f90"] == [] and fields["f30"] is block,
+            "block-map base requires an empty self-owned map")
+    fields["n98"] = HIGH_BLOCK_COUNT
+    wire, _ = WriteConfigMut(graph.RootValue, 19000, graph.HeaderValue)
+    reopened, evidence = read_witnesses(wire, graph.HeaderValue)
+    saved, = nodes(reopened, BLOCK_MANAGER)
+    values = saved.FieldsValue["blocks"]
+    offset = evidence["block_count"]
+    replay, _ = WriteConfigMut(reopened.RootValue, 19000, reopened.HeaderValue)
+    require(values["n98"] == HIGH_BLOCK_COUNT and values["f90"] == [] and values["f30"] is saved
+            and wire == original[:offset] + pack("<I", HIGH_BLOCK_COUNT) + original[offset + 4:]
+            and replay == wire and reopened.MapValue.CounterValue == graph.MapValue.CounterValue,
+            "unsigned high-bit block count or its empty owned rows changed")
+    return {"value": HIGH_BLOCK_COUNT, "wire_offset": offset, "archive_sha256": identity(wire),
+            "next_map_slot": reopened.MapValue.CounterValue, "rows": len(values["f90"])}
+
+
 def measure():
     raw, pin = open_case("concave")
+    ladder, ladder_pin = open_case("ladder")
     for encoding in ("ascii", "latin-1", "utf-8", "utf-16-le"):
         lookup(encoding)
     with guard_runtime() as accesses:
@@ -180,7 +209,9 @@ def measure():
         require(replay == wire and graph.MapValue.CounterValue == emitted.MapValue.CounterValue,
                 "authored control changed on typed replay")
         refusals = check_refusals(original, density)
-    require(not accesses and open_case("concave") == (raw, pin), "guarded proof altered its source")
+        block_word = check_block_word(ladder)
+    require(not accesses and open_case("concave") == (raw, pin) and open_case("ladder") == (ladder, ladder_pin),
+            "guarded proof altered its source")
     return {
         "case": "authored", "source_sha256": pin, "native_source_bytes": len(baseline),
         "runtime_external_accesses": len(accesses), "complete_replay": True,
@@ -188,6 +219,7 @@ def measure():
         "map_base": graph.MapBase, "final_map_counter": graph.MapValue.CounterValue,
         "density_presence": [PRESENT_NULL, PRESENT_LENGTH], "density_present_null": True,
         "wire_lengths": {**SIGNED, "n1290": 2}, "direct_master": master,
+        "block_map_count": block_word | {"source_sha256": ladder_pin},
         "refusals": refusals,
     }
 
