@@ -35,6 +35,17 @@ EDGES = (
 )
 CELLS = {0x4d17d8f0: 0x4c3211d0, 0x4d126308: 0x4bdac640, 0x4d1269b0: 0x4b27cbe0}
 CIL = "3fbf007191ae352731aadd2b10215ec62e215d82467cc4bc8a0fd489cc806296"
+GEOMETRY = "sldgcu.dll"
+GEOMETRY_PIN = "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594"
+RESULT_SPANS = {
+    "Standard path access and state writeback": (MODEL, 0x4cb433fc, 0x4cb4344d),
+    "Open path start calculation": (MODEL, 0x4cb63120, 0x4cb6380e),
+    "Kernel path intersection and split": (GEOMETRY, 0x43c4edb0, 0x43c4f1a7),
+    "Side-surface result role factory": (MODEL, 0x4c6d4df0, 0x4c6d4e87),
+    "Side-surface two-index field binding": (MODEL, 0x4c6c09b0, 0x4c6c0a36),
+    "Sweep face ID generation": (MODEL, 0x4b7897d0, 0x4b789a28),
+    "Reference sweep face ID keeper": (MODEL, 0x4bb6ba00, 0x4bb6c4a7),
+}
 
 
 def check(condition, message):
@@ -82,7 +93,43 @@ def unpack_from_call(code, offset):
     return token
 
 
+def measure_result_owners(folder):
+    identity = {MODEL: PINS[MODEL], GEOMETRY: GEOMETRY_PIN}
+    images = {name: Image(folder / name, digest) for name, digest in identity.items()}
+    model = images[MODEL]
+    edges = {
+        MODEL: ((0x4cb4343c, 0x4cb63120), (0x4b789901, 0x4c6d4df0), (0x4bb6bb42, 0x4c6d4df0),
+                (0x4c6d4e32, 0x4c6c09b0), (0x4b789912, 0x4be97940)),
+        GEOMETRY: ((0x43c4ef34, 0x43c4f440), (0x43c4f064, 0x43e05a00), (0x43c4f06b, 0x43e04f30)),
+    }
+    for module, calls in edges.items():
+        for start, target in calls:
+            opcode, offset = unpack("<Bi", images[module].read(start, start + 5))
+            check(opcode == 0xe8 and start + 5 + offset == target, "wrong native output-role branch")
+    use_imports = {address: name for address, name in (
+        (0x4cd38118, "fromEdgeId_ad@gcFaceIdAttrib_w"),
+        (0x4cd36f60, "fromEdgeId2_ad@gcFaceIdAttrib_w"),
+        (0x4cd38000, "getAllFromEntity@gcAttrib_w"),
+        (0x4cd37fe8, "getPointer@gcPointerAttrib_w"),
+        (0x4cd36318, "gc_getStartOfSweepPath"),
+    )}
+    installed = model.imports()
+    linked = {hex(address): installed[hex(address)] for address in use_imports}
+    check(all(linked[hex(address)]["module"].casefold() == GEOMETRY
+              and linked[hex(address)]["name"].startswith("?" + name + "@@")
+              for address, name in use_imports.items()), "wrong exact kernel role imports")
+    spans = {role: {"module": module, "first": hex(start), "end_exclusive": hex(end),
+                   "sha256": sha256(images[module].read(start, end)).hexdigest()}
+             for role, (module, start, end) in RESULT_SPANS.items()}
+    return {"schema": "kit.sw2026.sweep-result-physical-owners.v1", "modules": identity, "spans": spans,
+            "native_edges": {module: [[hex(start), hex(target)] for start, target in roles] for module, roles in edges.items()},
+            "imports": linked, "native_execution": False, "vendor_body_or_code_emitted": False}
+
+
 if __name__ == "__main__":
     argv = ArgumentParser()
     argv.add_argument("--licensed-bin", type=Path, required=True)
-    print(json.dumps(measure(argv.parse_args().licensed_bin), sort_keys=True, indent=2, allow_nan=False))
+    argv.add_argument("--result-owners", action="store_true")
+    args = argv.parse_args()
+    observation = measure_result_owners if args.result_owners else measure
+    print(json.dumps(observation(args.licensed_bin), sort_keys=True, indent=2, allow_nan=False))

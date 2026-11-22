@@ -12,6 +12,10 @@ The [pinned constructor probe](../../tooling/sw2026/sweep_source/AuditSweepColdA
 
 The experiment uses the ordinary first-creator empty eligible-body scope, with no output atom or saved per-body chooser, partition mark, result side surface identifiers or solid kernel result cache. Those owners are present in the fully solved native controls. This builds a candidate to establish whether native load and rebuild can compute the actual result from the complete modeled input graph. The reader's `cmgr_f658=0` branch is the ordinary empty inline body map. The measured native saved branch still requires its distinct `cmgr_f658=1` context.
 
+The [separate result-owner receipt](../measurements/2026/OrdinarySweepResultOwners01.json) binds the path split and side-surface producer to the pinned model and geometry modules. For the open-path call at `0x4cb4343c`, `mo_getStartOfSweepPath` receives `f2b4` as an in/out argument and the caller writes it back at `0x4cb43447`. The geometry helper writes 1 at `0x43c4f196` on the single retained wire branch, and can produce different states when splitting yields two bodies. This makes the solved source value a result of geometric path selection. The separate `f2b8` is initialized through the final scalar call arguments and still needs an independent definition.
+
+`mo_SweepBlendIdHelper` at `0x4b7897d0` obtains `fromEdgeId_ad` and `fromEdgeId2_ad` attributes from an actual result face. At `0x4b789901` it passes their resolved tag values and the actual creating feature to the side-surface ID factory `0x4c6d4df0`. The two scalar arguments become `f38/f3c` at `0x4c6c0a18/0x4c6c0a1b`. The helper assigns the ID to the result face through `moFace::assignId`; `moSweepRefSurfIdKeeper_c::assignIds` reaches the same subtype factory at `0x4bb6bb42`. Before a native rebuild, this cold work contains no result faces to receive those IDs. Both saved source pairs `(1,1)` retain their role as actual traversal observations.
+
 The generated notes and illumination use explicit authored captions and independently chosen unit-axis lights. The fixture supplies the standard English node order and the common feature hierarchy. Its renderer coefficients represent the generated experiment's authored presentation. Native template preference projection remains open.
 
 ## Guarded construction and native discriminator
@@ -23,6 +27,7 @@ Root's native protocol uses the exact SP05.2 registration, two unaffected contro
 ```sh
 python3.14 -I -B re/tooling/sw2026/sweep_source/AuditColdSweep.py
 python3.14 -I -B re/tooling/sw2026/sweep_source/AuditSweepColdAnchors.py --licensed-bin /path/to/licensed/bin
+python3.14 -I -B re/tooling/sw2026/sweep_source/AuditSweepColdAnchors.py --licensed-bin /path/to/licensed/bin --result-owners
 python3.14 -I -B re/tooling/sw2026/sweep_source/SweepColdPacket.py \
   --output /fresh/external/Packet --control /bound/native/Control.SLDPRT \
   --disclosed /bound/disclosed/DisclosedNative --guest-packet 'C:\KitSweepCold01\Packet' \

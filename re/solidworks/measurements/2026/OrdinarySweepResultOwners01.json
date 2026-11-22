@@ -1,0 +1,113 @@
+{
+  "imports": {
+    "0x4cd36318": {
+      "module": "sldgcu.dll",
+      "name": "?gc_getStartOfSweepPath@@YAHAEAVmgUnitVector_c@@AEAVmgPoint_c@@PEAPEAVgcBody_w@@PEAV3@PEAV2@PEAHPEAVutStatus_c@@HH@Z"
+    },
+    "0x4cd36f60": {
+      "module": "sldgcu.dll",
+      "name": "?fromEdgeId2_ad@gcFaceIdAttrib_w@@2PEAVgcAttribDef_w@@EA"
+    },
+    "0x4cd37fe8": {
+      "module": "sldgcu.dll",
+      "name": "?getPointer@gcPointerAttrib_w@@QEBAPEAXXZ"
+    },
+    "0x4cd38000": {
+      "module": "sldgcu.dll",
+      "name": "?getAllFromEntity@gcAttrib_w@@SAHPEAVgcTopEnt_w@@PEAVgcAttribDef_w@@PEAPEAPEAV1@H@Z"
+    },
+    "0x4cd38118": {
+      "module": "sldgcu.dll",
+      "name": "?fromEdgeId_ad@gcFaceIdAttrib_w@@2PEAVgcAttribDef_w@@EA"
+    }
+  },
+  "modules": {
+    "sldgcu.dll": "77b7376933f483eb5c1e3a93e22241f07a001a824023f5498d880d9b45fae594",
+    "sldmodu.dll": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+  },
+  "native_edges": {
+    "sldgcu.dll": [
+      [
+        "0x43c4ef34",
+        "0x43c4f440"
+      ],
+      [
+        "0x43c4f064",
+        "0x43e05a00"
+      ],
+      [
+        "0x43c4f06b",
+        "0x43e04f30"
+      ]
+    ],
+    "sldmodu.dll": [
+      [
+        "0x4cb4343c",
+        "0x4cb63120"
+      ],
+      [
+        "0x4b789901",
+        "0x4c6d4df0"
+      ],
+      [
+        "0x4bb6bb42",
+        "0x4c6d4df0"
+      ],
+      [
+        "0x4c6d4e32",
+        "0x4c6c09b0"
+      ],
+      [
+        "0x4b789912",
+        "0x4be97940"
+      ]
+    ]
+  },
+  "native_execution": false,
+  "schema": "kit.sw2026.sweep-result-physical-owners.v1",
+  "spans": {
+    "Kernel path intersection and split": {
+      "end_exclusive": "0x43c4f1a7",
+      "first": "0x43c4edb0",
+      "module": "sldgcu.dll",
+      "sha256": "d26a234cdd8cf5da03bb00a82e2a06bf61054aee6a1a9f5919aa59cb18240aa0"
+    },
+    "Open path start calculation": {
+      "end_exclusive": "0x4cb6380e",
+      "first": "0x4cb63120",
+      "module": "sldmodu.dll",
+      "sha256": "7f485f450f6b4cf5dcd3d9dd095a5babf542323ac2ea778a5dc3acff8fdacb97"
+    },
+    "Reference sweep face ID keeper": {
+      "end_exclusive": "0x4bb6c4a7",
+      "first": "0x4bb6ba00",
+      "module": "sldmodu.dll",
+      "sha256": "cace8e3c2c37e66183e8e3dd220ea95166566b40ff2b1d9cfdb0c598d95d99f3"
+    },
+    "Side-surface result role factory": {
+      "end_exclusive": "0x4c6d4e87",
+      "first": "0x4c6d4df0",
+      "module": "sldmodu.dll",
+      "sha256": "d1fdaf32b3d416fe1cd02768715f5f85943fe6330d3f2ebe6b8cea35b9b12d55"
+    },
+    "Side-surface two-index field binding": {
+      "end_exclusive": "0x4c6c0a36",
+      "first": "0x4c6c09b0",
+      "module": "sldmodu.dll",
+      "sha256": "37798621131ce188721143adf6cdf9264e7618db42eb7bbaa3ec365f4d8c68cb"
+    },
+    "Standard path access and state writeback": {
+      "end_exclusive": "0x4cb4344d",
+      "first": "0x4cb433fc",
+      "module": "sldmodu.dll",
+      "sha256": "0b345b854848d7829756348544572bdad96ce9cc691cac8c6acc7161801b861e"
+    },
+    "Sweep face ID generation": {
+      "end_exclusive": "0x4b789a28",
+      "first": "0x4b7897d0",
+      "module": "sldmodu.dll",
+      "sha256": "39f56a649d9ec5dd21782cc01fb841673cc650c94f286a24cdf794bd478cf2ba"
+    }
+  },
+  "vendor_body_or_code_emitted": false
+}
