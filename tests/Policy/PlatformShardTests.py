@@ -19,6 +19,7 @@ from tests.Policy.Shards.WriteReports import WriteReports
         "roster",
         "extra",
         "native",
+        "mixed-native",
         "rerun",
         "latest-failed",
     ),
@@ -55,6 +56,6 @@ def CheckShardGate(
         check=False,
     )
     ExpectedPass = Outcome in ("passed", "rerun") or (
-        Outcome == "native" and not NativePattern
+        Outcome in ("native", "mixed-native") and not NativePattern
     )
     assert (Result.returncode == 0) == ExpectedPass, Result.stdout + Result.stderr

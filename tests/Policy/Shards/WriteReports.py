@@ -10,7 +10,11 @@ def WriteReports(
     ReportPrefix: str = "Platform",
     NativePrefix: str = "tests/Native/",
 ) -> None:
-    NodeNames = [f"{NativePrefix}ProbeTests.py::CheckCase{Index}" for Index in range(4)]
+    NodeNames = [
+        f"{NativePrefix if Outcome != 'mixed-native' or Index == 0 else 'tests/Other/'}ProbeTests.py::CheckCase{Index}"
+        for Index in range(4)
+    ]
+    NodeNames.sort()
     for ShardIndex, NodeName in enumerate(NodeNames, 1):
         Attempt = 2 if Outcome in ("rerun", "latest-failed") and ShardIndex == 1 else 1
         ReportPath = TmpPath / f"{ReportPrefix}-shard-{ShardIndex}-{Attempt}"
@@ -27,7 +31,9 @@ def WriteReports(
             TestRecord,
             {"$report_type": "SessionFinish", "exitstatus": 0},
         ]
-        if Outcome == "native":
+        if Outcome == "native" or (
+            Outcome == "mixed-native" and NodeName.startswith(NativePrefix)
+        ):
             TestRecord.update(when="setup", outcome="skipped")
         if ShardIndex == 1:
             if Outcome == "missing":
