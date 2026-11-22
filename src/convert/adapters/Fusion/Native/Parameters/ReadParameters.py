@@ -33,12 +33,6 @@ def ReadParameters(
     if len(Catalog) != len(Nodes) or "" in Catalog:
         raise ValueError("Native parameter names must be nonempty and unique")
     Along = CheckBinding(Graph, Context.Along, Context)
-    if (
-        Reverse
-        and Rectangle is None
-        and TextValue(Along.Fields["expression"]) in Catalog
-    ):
-        raise ValueError("Native unconstrained reverse distance requires a literal")
     Taper = CheckBinding(Graph, Context.Taper, Context)
     ExtentBindings: tuple[NativeNode, ...] = (Context.Along, Context.Taper)
     if Context.Extrude.Fields["rAgainstDistance"] is not None:
@@ -98,6 +92,7 @@ def ReadParameters(
             Catalog,
             Owners.get(NodeValue.Identity),
             Reverse and NodeValue == Along and Rectangle is not None,
+            Reverse and NodeValue == Along and Rectangle is None,
         )
         for NodeValue in Nodes
     )
@@ -129,7 +124,10 @@ def ProjectParam(
     Catalog: dict[str, NativeNode],
     Owner: NativeNode | None,
     Reverse: bool = False,
+    Literal: bool = False,
 ) -> Parameter:
+    if Literal and TextValue(NodeValue.Fields["expression"]) in Catalog:
+        raise ValueError("Native unconstrained reverse distance requires a literal")
     IsOwned = Owner is not None
     RequireFields(
         NodeValue,
