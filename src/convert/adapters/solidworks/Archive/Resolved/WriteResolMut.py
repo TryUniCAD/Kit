@@ -14,6 +14,7 @@ from convert.adapters.solidworks.Archive.Resolved.FindModelRoot import FindModel
 from convert.adapters.solidworks.Archive.Resolved.MakeResolvedCtx import MakeResolvedCtx
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
@@ -28,12 +29,19 @@ def WriteResolMut(
     *,
     UsageValue: BodyUsage | None = None,
     WriteChamfers: bool = False,
+    WriteShell: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
     ContextValue = MakeResolvedCtx(
-        VersionValue, SeedValue, LinkContext, UsageValue, ChamferLayout=WriteChamfers
+        VersionValue,
+        SeedValue,
+        LinkContext,
+        UsageValue,
+        ChamferLayout=WriteChamfers or WriteShell,
     )
     if WriteChamfers:
         UseChmfCtxMut(ContextValue)
+    if WriteShell:
+        UseShellCtxMut(ContextValue)
     _ = NormalizeCount(len(RootsValue), "")
     WriterValue = BodyWriter(
         ArchiveMaps(SeedValue.CounterValue, SeedValue), ContextValue, WriteBodyMut
