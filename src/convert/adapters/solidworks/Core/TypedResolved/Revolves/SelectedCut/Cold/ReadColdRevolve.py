@@ -6,7 +6,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadPrincAxis
 )
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.CheckColdState import (
-    CheckColdBodyState,
+    CheckColdBodies,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Cuts.MultiStock.Cold.ReadColdAtoms import (
     ReadColdAtoms,
@@ -102,7 +102,7 @@ def ReadColdRevolve(
     CheckPrismRels(RootNode)
     CheckPlanes(Model, Features)
     StockNodes = (First.NodeValue, Second.NodeValue)
-    CheckColdBodyState((*StockNodes, Cutter.NodeValue))
+    CheckColdBodies((*StockNodes, Cutter.NodeValue))
     Atoms, AtomIds = ReadColdAtoms(LinkValue, StockNodes)
     Selected, Wrapper = ReadColdRevPick(
         LinkValue, StockNodes, Cutter.NodeValue, AtomIds
