@@ -14,4 +14,4 @@ This failure removed PR #265 from the merge queue; it was not a Fusion decoding 
 The changed fixture remains in the existing Windows platform shard and complete merge-queue suite.
 Windows confirmation requires a new merge-group run. Local source inspection does not substitute for that result.
 
-[Fixture scope gotcha](../../../../Gotchas/Ci/Windows/BossSourceFixtureScope.md)
+[Fixture scope gotcha](../../../../../Gotchas/Ci/Windows/BossSourceFixtureScope.md)

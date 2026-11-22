@@ -13,6 +13,7 @@ from sys import executable as PythonExe, platform as HostPlatform
 from pytest import mark as TestMark
 
 from tests.Research.SupervisorClient import KRepoRoot
+from tests.Research.Windows.Readback.BossSourcePins import KBossSources
 from tests.Research.Windows.Readback.InstallReadback import InstallReadback
 from tests.Research.Windows.Readback.ReadbackGit import ReadbackGit
 
@@ -39,26 +40,7 @@ print('validated Boss collector source pins')
 )
 def CheckBossSource(TmpPath: FilePath, TestTarget: str, HasReplacement: bool) -> None:
     RootPath, _ = InstallReadback(TmpPath)
-    for RelativePath in (
-        "RunSolidWorksBossWitness.py",
-        "VerifySolidWorksBossWitness.py",
-        "Records.py",
-        "WindowsProcess.py",
-        "WindowsApi.py",
-        "WindowsJobMembers.py",
-        "LogCapture.py",
-        "ApplicationWorkers/ApplicationProtocol.py",
-        "ApplicationWorkers/SolidWorksReadbackWorker.py",
-        "ApplicationWorkers/SolidWorksProgress.py",
-        "ApplicationWorkers/SolidWorksAvailability.py",
-        "ApplicationWorkers/WindowsIdentity.py",
-        "ApplicationWorkers/WindowsRecords.py",
-        "CaptureTools/SolidWorksAuthoring/RunBossWitness.ps1",
-        "CaptureTools/SolidWorksAuthoring/BossWitnessReadback.cs",
-        "CaptureTools/SolidWorksAuthoring/P04Readback.cs",
-        "CaptureTools/SolidWorksAuthoring/P02Readback.cs",
-        "CaptureTools/SolidWorksAuthoring/ReadbackProgress.cs",
-    ):
+    for RelativePath in KBossSources:
         SourcePath = KRepoRoot / "re/automation" / RelativePath
         Destination = RootPath / "re/automation" / RelativePath
         Destination.parent.mkdir(parents=True, exist_ok=True)
