@@ -36,6 +36,8 @@ Packet 04 verified all four typed parents and reached the geometric mass-propert
 
 The next packet retains that legacy result as a diagnostic. Its physics gate uses the selected body with `IMassProperty2`, the same explicit registered higher-accuracy SI settings and identity checks used for the elliptical solid. The selected body must be the actual sole solid, have no mass or centre-of-mass overrides, and pass the independent volume, area, density-weighted mass and centre-of-mass expectations. The material preference and the reported mass retain separate checks. [Packet 04 failure](../measurements/2026/OrdinarySweptBossSourceFailure04.json) · [Shared selected-body observer](../../tooling/sw2026/SelectedBodyMass.py)
 
+Packet 05 measured the same solid through the new selected-body observer. The observed mass was 0.0027284688746932215 kg, against 0.002728468874693221 kg predicted at 1031.7 kg/m³. It retained the reported area, volume and centre without overrides. The observer recorded those values and then stopped on a missing Python import in its validation. Packet 06 adds that import and reruns the original operands and thresholds. [Packet 05 failure](../measurements/2026/OrdinarySweptBossSourceFailure05.json)
+
 ### Reproduce the corrected disclosed capture
 
 Freeze an exact committed revision on the host. Use an unused output path outside the checkout, two disjoint native guest paths, and the already witnessed disclosed native control SHA-256 `28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0`. The freeze stores the exact Python closure, control, input spec and independent predictions. Host `--verify-packet` checks that closure without a CAD runtime. The preflight records registered interfaces, enums and dispatch signatures before starting any source process. [Host freezer](../../tooling/sw2026/sweep_source/SweepPacket.py) · [Existing immutable control and custody](EdgeChamferSource2026.md#reproduce-the-disclosed-run)
@@ -44,9 +46,9 @@ Freeze an exact committed revision on the host. Use an unused output path outsid
 python3.14 -B re/tooling/sw2026/sweep_source/SweepPacket.py \
   --revision EXACT_COMMITTED_METHOD \
   --control /Users/odin/Documents/UniCAD/Oracle121Takeover/EdgeFilletSource03/Packet/Control.SLDPRT \
-  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource05/Packet \
-  --guest-packet 'C:\KitSweepBossSource05\Packet' \
-  --guest-capture 'C:\KitSweepBossSource05\Capture' \
+  --output /Users/odin/Documents/UniCAD/Oracle121Takeover/SweepBossSource06/Packet \
+  --guest-packet 'C:\KitSweepBossSource06\Packet' \
+  --guest-capture 'C:\KitSweepBossSource06\Capture' \
   --guest-checkout '\\Mac\Home\Documents\UniCAD\Kit'
 ```
 
@@ -54,8 +56,8 @@ The oracle owner transfers the verified packet and runs it from the new guest di
 
 ```sh
 sweep_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
-sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource05\Packet'
-sweep_guest='C:\KitSweepBossSource05\Packet'
+sweep_share='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\SweepBossSource06\Packet'
+sweep_guest='C:\KitSweepBossSource06\Packet'
 sweep_pin=EXACT_SOURCE_JOB_SHA256
 prlctl exec 'Windows 11' --current-user "$sweep_python" -E -B \
   "$sweep_share\Tool\RunSweepSources.py" --job "$sweep_share\SourceJob.json" --pin "$sweep_pin" --stage-guest

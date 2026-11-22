@@ -1,3 +1,5 @@
+import math
+
 from AuthorCurves import require
 
 
