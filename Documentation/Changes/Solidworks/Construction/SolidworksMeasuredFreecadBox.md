@@ -23,8 +23,9 @@ derivatives and other output paths require separate qualification.
 
 Trial02 passed two controls, four native process lifetimes and 528 checks.
 The main-based worker proof reproduces the measured 10,707-byte file through the
-ordinary stream APIs and preserves the two earlier plain-part results. The
-previous aggregate Windows SDK and CLI also published the same exact bytes to
-the measured path. This delivery did not rerun Windows or qualify a new source.
+ordinary stream APIs and preserves the two earlier plain-part results.
+The main-based Windows SDK and CLI also published the same exact bytes to
+the measured path with explicit and inferred target formats.
 [Native summary](../../../../re/solidworks/measurements/2026/AttachedBoxAxesNative01.json)
 [Verification and scope](../../../../re/solidworks/records/MeasuredFreecadBoxMain2026.md)
+[Windows file publication](../../../../re/solidworks/measurements/2026/AttachedBoxAxesMainWindowsPublication01.json)

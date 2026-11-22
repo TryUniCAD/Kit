@@ -35,8 +35,16 @@ during generation and edits and 192 during fresh reopen. Three independent
 driver edits retained signed selectable axes and both physical plane owners.
 The [previous aggregate Windows SDK and CLI receipt](../measurements/2026/AttachedBoxAxesWindowsPublication01.json)
 records real publication and independent disk reads at the exact Windows
-path. It describes aggregate revision `0e8673133c0c` and does not attest a new
-Windows run of this main-based delivery.
+path for aggregate revision `0e8673133c0c`. The separate
+[main-based Windows receipt](../measurements/2026/AttachedBoxAxesMainWindowsPublication01.json)
+binds source revision `9904e44b5d5b105f754ce60c667dd9a4525b29a4`.
+It records explicit and inferred SDK and CLI writes in Windows ARM64
+using CPython 3.12.7 and zlib 1.3.1. An independent guest command
+hashed all four 10,707-byte publications and the restored original
+at the fixed physical locator. All five hashes match the exact measured
+candidate. The [publication tool](../../tooling/sw2026/attached_top_box_source/VerifyAttachedBoxWindows.py)
+raises on any output or source-evidence mismatch. This SDK check
+adds zero new native launches or corpus credits.
 
 ## Public read and write boundary
 
