@@ -2,10 +2,8 @@ name: Queue cleanup
 
 on:
   delete:
-  workflow_run:
-    workflows: [Merge queue]
-    types: [requested, completed]
-    branches: [gh-readonly-queue/main/**]
+  push:
+    branches: [main]
 
 permissions:
   contents: read
@@ -18,14 +16,14 @@ jobs:
   cleanup:
     if: >-
       (github.event_name == 'delete' && github.event.ref_type == 'branch' && startsWith(github.event.ref, 'gh-readonly-queue/main/')) ||
-      (github.event_name == 'workflow_run' && github.event.workflow_run.event == 'merge_group' && github.event.workflow_run.head_repository.id == github.repository_id)
+      github.event_name == 'push'
     name: Release obsolete queue runners
     runs-on: ubuntu-24.04
     timeout-minutes: 5
     permissions:
       contents: read
-      actions: write
-      pull-requests: read
+      actions: write # Cancels only verified abandoned native queue runs.
+      pull-requests: read # Reads active queue heads before cancelling obsolete runs.
     steps:
       - name: Checkout trusted default branch revision
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
