@@ -31,8 +31,14 @@ def prepare(args):
     construction = args.construction.resolve(strict=True).read_bytes()
     evidence = loads(construction)
     writer = evidence["source_head"]
-    tree = git("rev-parse", writer + "^{tree}").decode().strip()
+    tree = git("rev-parse", writer + ":src").decode().strip()
     cases = generation_cases(evidence, root, writer, tree)
+    tools = evidence["tools"]
+    require(isinstance(tools, dict)
+            and "re/tooling/sw2026/edge_fillet_source/cold/BuildColdFillet.py" in tools
+            and all(name.startswith("re/tooling/sw2026/") and name.endswith(".py")
+                    and sha(git("show", f"{writer}:{name}")) == pin for name, pin in tools.items()),
+            "the generation tool hashes must match the frozen writer commit")
     data = {"Spec.json": pinned(HERE / "DisclosedFilletInputs.json", INTENT_SHA),
             "Control.SLDPRT": pinned(args.control.resolve(strict=True), CONTROL),
             "Construction.json": construction}
