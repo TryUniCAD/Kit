@@ -40,6 +40,19 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08h-Ladders2026: native campaign evidence
+
+Codex owns this scoped research-evidence follow-up on `feat/deterministic-campaign-20261122`.
+Delivery PR: pending creation. Dependencies are merged PR #158, merged PR #207, and licensed native API workers.
+The [package](../../../re/FeatureLadders2026/README.md) records 96 planned batches at `c8d85d713dc357770115329e9f1bcb027dbfca4f`.
+Fifty-nine batches produced 177 files; 57 strictly projected to neutral documents and 120 retained explicit neutral refusals.
+All 120 refused Fusion files parsed at the typed native-state layer. Thirty-seven SOLIDWORKS cases failed or remained dispatch-blocked.
+Status: checking for publication; native recovery and semantic qualification remain blocked.
+The packaging exit requires verified corpus hashes, sanitized evidence, documented failures, and current-head PR readiness.
+This child does not close A07, A08c, A13, A15, B02, B03 or any supported production boundary.
+Production reader repairs require a separately scoped follow-up with independently corroborated rules and held-out evidence.
+
+
 A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
 `codex/catalogue-native-authoring`, owned by Codex. It
 connects catalogue selection to the existing native builders with parameter
