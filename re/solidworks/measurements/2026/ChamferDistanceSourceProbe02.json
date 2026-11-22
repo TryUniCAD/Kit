@@ -1,0 +1,111 @@
+{
+  "cases": [
+    {
+      "case": "EqualDistanceEdge",
+      "drivers": {
+        "shared": [
+          "D1",
+          "DistancePairEdgeChamfer",
+          2,
+          0
+        ]
+      },
+      "edited_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+      "native_definition": {
+        "EqualDistance": true,
+        "GetEdgeCount": 1,
+        "GetFaceCount": 0,
+        "GetIsFlipped": false,
+        "KeepFeatures": false,
+        "LoopCount": 0,
+        "PropagateFeatureToParts": false,
+        "TangentPropagation": false,
+        "Type": 2,
+        "alternate_inputs": {
+          "faces": 0,
+          "loops": 0
+        },
+        "distance_by_side_m": [
+          0.004875,
+          0.004875
+        ]
+      },
+      "orientation": [
+        0
+      ],
+      "original_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+      "passed": true,
+      "phases": [
+        {
+          "artifact_sha256": "7c2334a71daccad635084557325717d1f1a1b4b3939a2ed1abaffd3277b87aa8",
+          "first_failure": null,
+          "passed": true,
+          "phase": "author",
+          "record_sha256": "1a848da3e71dc38a2c6ed3ee9b86079ae0132a8ce5074d0195352db939e45a3b",
+          "return_code": 0
+        },
+        {
+          "artifact_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+          "first_failure": null,
+          "passed": true,
+          "phase": "reopen-edit-save",
+          "record_sha256": "4b96ea0f49ad259071e6e26e39e29e740c3e0182c4aedafde5afa780b92b61d0",
+          "return_code": 0
+        },
+        {
+          "artifact_sha256": "fadf390093749480dc1a22f55f944dc46bab08a02b7ad50b068ff6d33554ce18",
+          "first_failure": null,
+          "passed": true,
+          "phase": "edited-reopen",
+          "record_sha256": "8bd07634ae29ed244b2cbc4dec11884c8d1c8d77ca993ea66800216f0d508427",
+          "return_code": 0
+        }
+      ],
+      "snapshots": 4,
+      "tree_rows": 26
+    },
+    {
+      "case": "UnequalDistanceEdge",
+      "passed": false,
+      "phases": [
+        {
+          "artifact_sha256": null,
+          "first_failure": {
+            "error": "ValueError('native distance chamfer returned no feature')",
+            "pending_capability": false,
+            "stage": "InsertFeatureChamfer",
+            "type": "ValueError"
+          },
+          "passed": false,
+          "phase": "author",
+          "record_sha256": "35c912c731b9108da781d6475133cde766f6180668333f35b5ac349c370bcdcf",
+          "return_code": 1
+        }
+      ]
+    }
+  ],
+  "control_after": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-after",
+    "record_sha256": "15eb0235703ce79ed2570d0df015b00306c554d20f2fb6ca99cde30d07cfc529",
+    "return_code": 0
+  },
+  "control_before": {
+    "artifact_sha256": null,
+    "first_failure": null,
+    "passed": true,
+    "phase": "control-before",
+    "record_sha256": "9f56c97c4f3fea3d8406faa2db3ca7aef0e4158a5c5e39056741dddc3328bcb5",
+    "return_code": 0
+  },
+  "distinct_processes": 6,
+  "job_sha256": "892738dbcbc2cc549ab0995b2bac4ff0a241753fd099e5671602c287c79b247c",
+  "oracle_build": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "passed": false,
+  "registered_api_sha256": "e0d6ab1ea4be499999d10f3e01480e50fd071f0f8f60bd83d9ae984da1d6594d",
+  "schema": "kit.sw2026.chamfer-distance-source-probe.v1",
+  "source_revision": "c6ac0f88b2347e0bda93f0309595875943766170"
+}

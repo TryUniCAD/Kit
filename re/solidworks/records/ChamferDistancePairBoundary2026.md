@@ -44,3 +44,12 @@ controls passed in the four-process batch. Both source calls used zero
 slots. No source parts were saved. The next disclosed probe changes only
 `Width` to the first setback. The installed native width accessor
 resolves the first distance owner at `f810` in both ordinary modes.
+
+The [width probe](../measurements/2026/ChamferDistanceSourceProbe02.json)
+produced an equal-distance feature. The two controls and all three equal
+source phases passed across six fresh process lifetimes. The typed native
+definition reports type 2, equality enabled, one selected edge and no
+secondary input. Its only live display driver is `D1`. Editing that value
+changed both setbacks from 4.875 mm to 6.125 mm and kept the same edge
+owner through a fresh reopen. The unequal call still returned no feature.
+The next unequal-only probe also supplies its second setback in `OtherDist`.

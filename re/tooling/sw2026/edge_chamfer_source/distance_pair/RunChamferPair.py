@@ -15,7 +15,7 @@ from FilletModel import require
 from FilletPacket import BUILD, CONTROL, ORACLE, digest
 
 
-SCHEMA = "kit.sw2026.chamfer-distance-source-probe.v1"
+SCHEMA = "kit.sw2026.chamfer-distance-source-probe.v2"
 FAMILY = "re/tooling/sw2026/edge_chamfer_source/distance_pair"
 PROBE_TOOLS = TOOLS | {FAMILY: ("PairAuthor.py", HERE.name)}
 FILES = {f"Tool/{name}" for values in PROBE_TOOLS.values() for name in values} | {"Control.SLDPRT"}
@@ -41,6 +41,7 @@ def load_job(path, pin, *, local=False):
     require(spec["schema"] == SCHEMA and spec["build"] == BUILD and spec["executable_sha256"] == ORACLE
             and spec["cases"] == list(CASES) and valid_hash(spec["source_revision"], 40),
             "distance chamfer source job identity differs")
+    require(spec["slots"] in ([0], [1], [0, 1]), "distance chamfer case selection differs")
     root = PureWindowsPath(spec["guest_root"])
     require(root.drive.casefold() == "c:" and root.is_absolute() and len(root.parts) == 2,
             "distance chamfer needs a fresh shallow guest-local root")
@@ -72,7 +73,8 @@ def freeze(args):
         for name in names:
             write_bytes(packet / "Tool" / name, git("show", f"{revision}:{parent}/{name}"))
     write_bytes(packet / "Control.SLDPRT", raw)
-    job = {"schema": SCHEMA, "build": BUILD, "executable_sha256": ORACLE, "cases": CASES,
+    slots = list(range(len(CASES))) if args.slot is None else [args.slot]
+    job = {"schema": SCHEMA, "build": BUILD, "executable_sha256": ORACLE, "cases": CASES, "slots": slots,
            "source_revision": revision, "guest_root": args.guest_root,
            "files": {name: digest(packet / name) for name in sorted(FILES)}}
     manifest = packet / "ProbeJob.json"
@@ -103,7 +105,7 @@ def slot_paths(capture, slot):
 
 
 def run_worker(job, pin, phase, slot, source):
-    load_job(job, pin, local=True)
+    spec = load_job(job, pin, local=True)
     capture = job.parent.parent / "Capture"
     import Swapp
     from ChamferApi import installed_api
@@ -114,7 +116,7 @@ def run_worker(job, pin, phase, slot, source):
     require(not Swapp.application_pids(), "another SOLIDWORKS process is active")
     if phase in ("control-before", "control-after"):
         return run_control(job.parent / "Control.SLDPRT", capture / phase / "Record.json")
-    require(phase in PHASES and slot in range(len(CASES)), "native phase or source slot differs")
+    require(phase in PHASES and slot in spec["slots"], "native phase or source slot differs")
     case = CASES[slot]
     folder, before, after = slot_paths(capture, slot)
     constants, api = installed_api(Swapp, distance_pair=True)
@@ -171,7 +173,8 @@ def run_batch(job, pin):
     _, before = launch(job, pin, capture / "control-before", "control-before", identities)
     results = []
     if before["passed"]:
-        for slot, case in enumerate(CASES):
+        for slot in spec["slots"]:
+            case = CASES[slot]
             folder, original, edited = slot_paths(capture, slot)
             receipts, rows, source = [], [], None
             result = {"case": case["name"], "phases": rows, "passed": False}
@@ -193,24 +196,26 @@ def run_batch(job, pin):
                     result["passed"] = True
             results.append(result)
     _, after = launch(job, pin, capture / "control-after", "control-after", identities)
-    passing = (before["passed"] and after["passed"] and len(results) == len(CASES)
-               and all(row["passed"] for row in results) and len(identities) == len(set(identities)) == 8)
+    expected = 2 + len(PHASES) * len(spec["slots"])
+    passing = (before["passed"] and after["passed"] and len(results) == len(spec["slots"])
+               and all(row["passed"] for row in results) and len(identities) == len(set(identities)) == expected)
     receipt = {"schema": SCHEMA, "oracle_build": BUILD, "oracle_sha256": ORACLE, "passed": passing,
                "source_revision": spec["source_revision"], "job_sha256": pin,
                "control_before": before, "control_after": after, "distinct_processes": len(set(identities)),
-               "registered_api_sha256": digest(capture / "RegisteredApi.json"), "cases": results}
+               "registered_api_sha256": digest(capture / "RegisteredApi.json"), "case_slots": spec["slots"],
+               "cases": results}
     target = capture / "Result.json"
     write_new(target, receipt)
     return {"passed": passing, "result_sha256": digest(target), "distinct_processes": len(set(identities))}
 
 
 def publish(job, pin, result_pin, output):
-    load_job(job, pin, local=True)
+    spec = load_job(job, pin, local=True)
     result = job.parent.parent / "Capture" / "Result.json"
     require(valid_hash(result_pin) and digest(result) == result_pin, "native probe receipt changed")
     raw = result.read_bytes()
     report = json.loads(raw)
-    require(report["job_sha256"] == pin and report["control_before"]["passed"]
+    require(report["job_sha256"] == pin and report["case_slots"] == spec["slots"] and report["control_before"]["passed"]
             and report["control_after"]["passed"], "healthy controls must bracket both measurements")
     write_bytes(output, raw)
     return {"receipt_sha256": digest(output), "passed": report["passed"]}
@@ -224,6 +229,7 @@ def main():
     create.add_argument("--control", type=Path, required=True)
     create.add_argument("--guest-root", required=True)
     create.add_argument("--revision", default="HEAD")
+    create.add_argument("--slot", type=int, choices=range(len(CASES)))
     for name in ("stage", "run", "worker", "publish"):
         command = commands.add_parser(name)
         command.add_argument("--job", type=Path, required=True)
