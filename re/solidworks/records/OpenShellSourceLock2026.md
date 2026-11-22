@@ -46,6 +46,32 @@ bracketed nine candidate lifetimes. The oracle was SOLIDWORKS 2026 SP05.2
 `SldWorks.Application.34`. The [disclosed phase comparison](../measurements/2026/OpenShellSourceDisclosed01.json)
 preserves the native values and both controls.
 
+## Linked archive fields
+
+The [archive observation](../measurements/2026/OpenShellArchiveObservation01.json)
+reproduces all fifteen modeled streams in each disclosed save. Both
+Config-0 maps start at 4 and hand the actual object table at count 109
+to ResolvedFeatures. ResolvedFeatures ends at count 313 with 20 roots.
+The replay consumes every byte of each of those streams. It also records
+the existing raw schema operations in Definition and the saved dimension
+arrays. Generating those data from inputs remains separate work.
+
+| Field | Observed role | Original and edited evidence |
+| --- | --- | --- |
+| `moShell_c.f828` | Input cap selection, with derived stock incidence | One actual `moCompFace_c`, four ordered side carriers, one end carrier with role 1 and terminal null. The component and all five carriers resolve to the prior stock. |
+| `moShell_c.f818` | Input thickness and derived dimension display | A single `moDisplayDistanceDim_c` and `moFeatureDimHandle_c` carry the same `D1` before and after editing. The stored scalar and two display-vector x coordinates track the thickness. The display point is at the center of the selected cap. |
+| `moShell_c.f820` | Observed inward mode value | Zero in both inward states. A direction contrast is still needed to classify outward behavior. |
+| `moShell_c.f830`, `f838` | Observed empty optional lists | Each is a concrete `suObList` with count zero in this uniform case. Nonempty cases are unclassified. |
+| `moShell_c.f848` | Auxiliary edge reference | A `moCompEdge_c` refers to the same historical stock and its role-0 end. The selected cap list contains only `f828`. |
+| `moShell_c.f850` | Observed null optional body selector | Both saves omit this selector. |
+| `moShell_c.f538` | Derived solved-body ownership | The same inherited atom 101 links prior feature 32 and result feature 34. The stock's single `f538` is null after the shell owns the atom. |
+| Reference tags and body event | Changed during the edit | The cap and edge tags advance with the atom and shell event. Two snapshots establish the change without determining a generation rule. |
+
+The stock and shell retain the same persistent identities across both
+saves. The legacy SDK reads the correct driving `D1` but exposes two
+face selections because it also reads the auxiliary `f848` edge as a
+selected face. The one-cap native observation is the reader reference.
+
 ## Reproduction
 
 Use [the pinned author](../../tooling/sw2026/shell_source/AuthorOpenShell.py)
