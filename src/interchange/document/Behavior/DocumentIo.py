@@ -73,6 +73,9 @@ def FromJson(ClassType: type[KDocumentType], SourceValue: str) -> KDocumentType:
 
 # file output provides atomic ownership of path normalization and parent creation
 def WriteJson(DocumentValue: object, PathValue: str | FilePath) -> FilePath:
+    from interchange.document.Validation.Offsets.CheckDocWrite import CheckDocWrite
+
+    CheckDocWrite(DocumentValue)
     Payload = (ToJson(DocumentValue) + "\n").encode("utf-8")
     OutputPath = FilePath(PathValue).expanduser().resolve()
     OutputPath.parent.mkdir(parents=True, exist_ok=True)
