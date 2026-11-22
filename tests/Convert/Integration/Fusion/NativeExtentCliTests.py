@@ -1,3 +1,4 @@
+from tests.Convert.Integration.Fusion.CheckSpanRoles import CheckSpanRoles
 import pytest as Pytest
 from tests.Convert.Integration.Fusion.SpanCliCase import SpanCliCase
 from tests.Convert.Integration.Fusion.ReadSpanCases import ReadSpanCases
@@ -67,9 +68,7 @@ def CheckSpanCli(Sample: SpanCliCase) -> None:
             )
         Features = Document["feature_timeline"]["$tuple"]
         assert len(Features) == Sample.TimelineCount == 2
-        Definition = Features[-1]["definition"]
-        assert Definition["$type"] == "DistanceExtrude"
-        assert Definition["SideMode"] == Sample.SideMode
+        CheckSpanRoles(Output, Sample)
         assert set(Features[-1]["parameter_ids"]["$tuple"]) == {
             Value["id"] for Value in Document["parameters"]["$tuple"]
         }

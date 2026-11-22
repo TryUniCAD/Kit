@@ -1,3 +1,4 @@
+from convert.adapters.Fusion.Native.Circular.Spans.CheckTagOwners import CheckTagOwners
 from convert.adapters.Fusion.Native.Circular.Spans.CheckBodyTag import CheckBodyTag
 from convert.adapters.Fusion.Native.Circular.CircleShape import CircleShape
 from convert.adapters.Fusion.Native.Graph.ExtrudeContext import ExtrudeContext
@@ -23,6 +24,7 @@ def CheckSpanTags(
     Operations: tuple[int, ...],
     HasBodyTag: bool,
 ) -> str:
+    CheckTagOwners(State)
     Labels: dict[tuple[str, float], str] = {}
     SeenOwners: set[int] = set()
     SketchOwners: set[int] = set()
@@ -49,8 +51,7 @@ def CheckSpanTags(
                 raise ValueError("Native circular span repeats a sketch source link")
             SketchOwners.add(Entity.Links.OwnerRef)
             CheckSpanLink(State, Entity, Shape)
-    Lower = Solid.BasePoint[2] / 10
-    Upper = Lower + Solid.Height / 10
+    Lower, Upper = Solid.BasePoint[2] / 10, (Solid.BasePoint[2] + Solid.Height) / 10
     if set(Labels) != {
         ("side", 0.0),
         ("cap", Lower),

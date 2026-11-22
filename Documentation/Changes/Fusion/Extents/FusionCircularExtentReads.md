@@ -19,3 +19,7 @@ Use `kit decode FILE.f3d --output OUTPUT.json`. No CAD runtime participates in d
 This adds strict reading for the stated circular extent profile. The new span projections carry the read-only marker. This does not qualify arbitrary multi-feature histories, taper on both sides, arbitrary planes, conversion, or native output acceptance. The separate multi-feature decoding work remains unfinished.
 
 See [recorded format findings](../../../../re/Fusion/Reconstruction/CircularSpans/Findings.md).
+
+## Review repairs
+
+Physical feature labels must now cover the actual solid face and edge owners. A sketch sheet label cannot substitute for a missing cap label at the same station. The integration replay checks serialized snake case field names and compares each parameter role binding against independent native role observations, including the two equal valued taper controls. Type and steering checks passed without executing local tests. Underconstrained source sketches remain underconstrained; this addition is read only and does not establish qualified conversion or round trip acceptance.

@@ -12,7 +12,7 @@ def ReadSpanCases() -> tuple[SpanCliCase, ...]:
     )
     Results: list[SpanCliCase] = []
     for Sample in Manifest["samples"]:
-        Source = (RootPath / Sample["file"]).resolve(strict=True)
+        Source = (RootPath / Sample["file"]).resolve()
         if not Source.is_relative_to(
             RootPath / "re/Fusion/Reconstruction/CircularSpans/Controls"
         ):
@@ -36,6 +36,10 @@ def ReadSpanCases() -> tuple[SpanCliCase, ...]:
                 tuple(float(Value) * 10 for Value in BodyValue["max_cm"]),
                 len(Sample["observed"]["timeline"]),
                 Sample["group"] + Sample["name"],
+                tuple(
+                    (Value["name"], Value["role"])
+                    for Value in Sample["observed"]["parameters"]
+                ),
             )
         )
     return tuple(Results)

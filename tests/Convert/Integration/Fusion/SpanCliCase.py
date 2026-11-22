@@ -14,3 +14,4 @@ class SpanCliCase:
     Maximum: tuple[float, ...]
     TimelineCount: int
     CaseName: str
+    ParamRoles: tuple[tuple[str, str], ...]
