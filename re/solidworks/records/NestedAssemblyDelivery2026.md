@@ -35,6 +35,20 @@ The [measured SDK receipt](../measurements/2026/SdkMeasuredNestedPublication01.j
 
 The guarded publication proof executes with macOS CPython 3.14. The existing measurements ran in SOLIDWORKS 2026 SP05.2 on Windows. Every publisher must reproduce the exact measured hashes with its own runtime and encoded locator.
 
+The CLI reproduced all 14 measured files in the same four bundles.
+An alternate logical root refused before any file publication in each case.
+Strict rereads recovered the actual component definition names and the
+local placement order from each file header, active configuration and
+reciprocal reference. The native XML index legitimately mirrors the assembly
+root name in each model row. The reader determines the titles from the owned
+files without changing the measured archive.
+[CLI and reread evidence](../measurements/2026/SdkMeasuredNestedCli01.json)
+
+On Windows a native locator must agree with the resolved physical output.
+The guest probe accepted the derived and identical explicit locators and
+rejected a same-basename override in a different folder.
+[Windows locator proof](../measurements/2026/SdkNestedWindowsLocator01.json)
+
 The review stack on foundation `a85465a83ae0f1c981d55aa4f8a5b9055f82cabb` uses Git source tree `242dba95c2f7b0b5f4de9dc20ec95d5888125961`. Its complete 44-process disclosed assembly proof reproduced the same receipt digest and all fourteen measured file hashes. The exact-rational standard views preserve these measured bytes. The native half-angle cosine rounds to `0x1.6a09e667f3bcdp-1`, which was also the original macOS result for these receipts. [Standard view rounding](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Presentation/StandardViewRoundingChangesHashes.md)
 
 Both prior standalone part stream cases and both measured part CLI cases returned the same recorded case rows on this stack. The reruns used the original disclosed `SdkDefaultPartNative03` inputs. The [standalone stream probe](../../tooling/sw2026/CheckStandaloneMeasured.py) produced SHA-256 `589bb9a3cf47f300eab9c6a82480836116ec2e1f6306cbc5a270b4b35b250fcb`. The [part and CLI probe](../../tooling/sw2026/CheckMeasuredPartWriter.py) produced `bc925ba9f431a5e88ab4c4e07e4f7e89684578e7d1f2a7aae26d3fc823a8cfd2`. Those calls use the foundation's own part measurement, stream staging, CLI implementation and view generator.

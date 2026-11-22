@@ -1,0 +1,51 @@
+{
+  "cases": [
+    {
+      "case": "SdkNestedNeutralNative03",
+      "files": {
+        "SdkFrame.SLDASM": "7af8d85b6b2a64a0e4d7d63ccfd96a4ed3913ac11670f0ee4139553b43c4fd39",
+        "SdkModule.SLDASM": "82e699c9f44348b4b77eda29719620cb7034e2a5f4b940ecec313e7969457cd7",
+        "SdkNestedPlate.SLDPRT": "a892ac86a2d26d100d0b24f0c2c74d45b319f5d30fb7feb66c8e0476746a1d39"
+      },
+      "native_flags": true,
+      "strict_names_and_local_order": true,
+      "wrong_locator_preserved": true
+    },
+    {
+      "case": "SdkRepeatedNeutralNative03",
+      "files": {
+        "SdkFrame.SLDASM": "6a6ce00f9bfd6cb632fb090bbbd33944277dc68d50631918bbee62e52a3c8a10",
+        "SdkGaugePlate.SLDPRT": "bfe9be40c789680f0057c44312c2368ed859dcc7c0b7eb0a4ed828186c665173",
+        "SdkModule.SLDASM": "a7835f7ebf17dd9941106d3719c0bc001e4ce2bcf7b4e95a4f206637b0046490",
+        "SdkNestedPlate.SLDPRT": "9db1f3bae81d47642f5bbf39c7e9f4bab69dc9c6b49d9e73689e84152089d47b"
+      },
+      "native_flags": true,
+      "strict_names_and_local_order": true,
+      "wrong_locator_preserved": true
+    },
+    {
+      "case": "SdkNestedDimensionedNative01",
+      "files": {
+        "SdkFrame.SLDASM": "430e8760a87cabd8d8ea326082b2dc99a26c2c64974303e56d2a8ee1119916ff",
+        "SdkModule.SLDASM": "b993654affe7a45730688d865a08657c741fb799c3a7703e8c1a90dba7d85609",
+        "SdkNestedPlate.SLDPRT": "e0d204753a67f277eb82bf152f26379361ab707b55deb25beff7a4065b74162c"
+      },
+      "native_flags": true,
+      "strict_names_and_local_order": true,
+      "wrong_locator_preserved": true
+    },
+    {
+      "case": "SdkRepeatedDimensionedNative01",
+      "files": {
+        "SdkFrame.SLDASM": "27e24ffbf5423c5d8159b8e990a6638f06670886e8885fbf2ce353fb41f11155",
+        "SdkGaugePlate.SLDPRT": "c22be29d9c91a8f38869f533a1385d31310f18e621b251c0f26d91ef90b4a9de",
+        "SdkModule.SLDASM": "553c5f90bd6a0fbc7fa135ecd37f8df96d54e867a491c902223965abc7e775d6",
+        "SdkNestedPlate.SLDPRT": "b53db371a3c4a914c2173552c52524ca677378a0ab086b721f35944fa7b21626"
+      },
+      "native_flags": true,
+      "strict_names_and_local_order": true,
+      "wrong_locator_preserved": true
+    }
+  ],
+  "schema": "kit.sw2026.measured-nested-cli.v1"
+}

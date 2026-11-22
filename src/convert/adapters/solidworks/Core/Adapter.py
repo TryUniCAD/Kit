@@ -117,6 +117,9 @@ from convert.adapters.solidworks.Assembly.Assembly import (
     decode_mate_list as DecodeMateList,
     decode_native_assembly as DecodeNativeAsm,
 )
+from convert.adapters.solidworks.Assembly.NestedIndex.WithNestedIndex import (
+    WithNestedIndex,
+)
 from convert.adapters.solidworks.Config.OrdinaryMap import ReadOrdinaryMap
 from convert.adapters.solidworks.Config.RootLayout import KConfigGen
 from convert.adapters.solidworks.Container.Archive import ArchiveError, ContainerMo
@@ -932,16 +935,27 @@ def AsmDoc(
     Documents, DocIds, ResolvedPaths, DocDiagnostics = AsmDocuments(
         Adapter, Native, Index if ResolveComponents else {}, Settings
     )
+    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     Definitions = AsmDefinitions(
         Native,
         DocIds,
         ResolvedPaths,
-        {DocValue.id: DocValue.document for DocValue in Documents},
+        LinkedDocuments,
         MeshIds,
         Label,
         ResolveComponents=ResolveComponents,
     )
     Instances = AsmInstances(Native)
+    Definitions, Instances = WithNestedIndex(
+        Archive,
+        Native,
+        DocIds,
+        LinkedDocuments,
+        Definitions,
+        Instances,
+        Enabled=ResolveComponents,
+        SourceKey=KSourceBytesKey,
+    )
     MateSourceValues, SourceDiagnostics = MateSources(
         Native, Archive, Label, Index, Settings
     )
@@ -985,7 +999,6 @@ def AsmDoc(
         + SourceDiagnostics
     )
     PathRecords = Flattened(Native)
-    LinkedDocuments = {DocValue.id: DocValue.document for DocValue in Documents}
     LinkedPartDocuments = tuple(
         (
             DocValue
