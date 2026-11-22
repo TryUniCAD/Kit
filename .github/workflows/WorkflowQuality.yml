@@ -71,6 +71,32 @@ jobs:
           tests/Convert/Formats/ParasolidTests.py
           tests/Steering/RationaleCommentsTests.py
 
+  codec-promotion:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+    needs: pr-ci-reuse
+    name: Qualify reader and writer patches
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - name: Checkout candidate
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+
+      - name: Exercise code promotion through the public CLI
+        env:
+          QualificationImage: python@sha256:9aaa474097d094040649f2162a627c0049b408f52138d980916788d80f04802f
+        run: |
+          docker pull "$QualificationImage"
+          ImageId=$(docker image inspect --format '{{.Id}}' "$QualificationImage")
+          uv run --frozen --no-default-groups --group codec-promotion --extra dev --python 3.14 python re/automation/CodecPromotion/ProcessGate.py "$ImageId"
+
   research-cli:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
@@ -81,18 +107,18 @@ jobs:
     env:
       KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
     steps:
-      - name: Checkout CLI repository
+      - name: Checkout candidate CLI source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Checkout pinned PR94 research tools
+      - name: Checkout candidate research tools separately
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          repository: Stephen316/Kit
-          ref: b86f30c7e41abdc3812ada795a193377f6ddd220
+          ref: ${{ github.sha }}
           path: ResearchCheckout
           fetch-depth: 0
+          filter: blob:none
           persist-credentials: false
 
       - name: Set up uv
@@ -105,53 +131,138 @@ jobs:
       - name: Install CLI and compatibility dependencies
         run: uv sync --frozen --no-default-groups --extra dev --python 3.14
 
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
+
       - name: Verify deterministic tools through the installed CLI
         run: >-
-          uv run --no-sync --python 3.14 python -m pytest tests/CliResearch -q
+          uv run --no-sync --with 'numpy<2.5' --python 3.14 python -m pytest tests/CliResearch -q
+
+  research-cli-windows-shard:
+    if: >-
+      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+    needs: pr-ci-reuse
+    name: Research CLI Windows compatibility / ${{ matrix.group }}
+    runs-on: windows-2025
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - group: shard-1
+            index: 0
+          - group: shard-2
+            index: 1
+          - group: shard-3
+            index: 2
+          - group: shard-4
+            index: 3
+    defaults:
+      run:
+        shell: bash
+    env:
+      ShardIndex: ${{ matrix.index }}
+      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
+    steps:
+      - name: Checkout candidate CLI source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Checkout candidate research tools separately
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          path: ResearchCheckout
+          fetch-depth: 0
+          filter: blob:none
+          persist-credentials: false
+
+      - name: Set up uv
+        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
+        with:
+          version: "0.12.5"
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+
+      - name: Install CLI and compatibility dependencies
+        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
+
+      - name: Hydrate sealed research inputs for candidate CLI cases
+        run: uv run --no-sync --python 3.14 python re/automation/CaptureHistory.py fetch --root ResearchCheckout
+
+      - name: Collect and partition the complete Windows CLI roster
+        run: |
+          set -euo pipefail
+          mkdir -p "${RUNNER_TEMP}/WindowsCli"
+          if ! uv run --no-sync --python 3.14 python -m pytest --collect-only -q -p no:cacheprovider \
+            tests/CliResearch/BridgeRejectTests.py \
+            tests/CliResearch/SwReaderTests.py \
+            tests/CliResearch/EncodedReaderTests.py \
+            tests/CliResearch/LegacyReaderTests.py \
+            tests/CliResearch/FusionReaderTests.py \
+            tests/CliResearch/ReaderRejectTests.py \
+            tests/CliResearch/NativeVerification \
+            tests/CliResearch/InterruptTests.py \
+            tests/CliResearch/LeaseFlowTests.py > "${RUNNER_TEMP}/WindowsCli/Collection.txt"; then
+            cat "${RUNNER_TEMP}/WindowsCli/Collection.txt"
+            exit 1
+          fi
+          tr -d '\r' < "${RUNNER_TEMP}/WindowsCli/Collection.txt" \
+            | grep -E '^tests/.*::' | LC_ALL=C sort -u > "${RUNNER_TEMP}/WindowsCli/Collected.txt"
+          test -s "${RUNNER_TEMP}/WindowsCli/Collected.txt"
+          awk -v ShardIndex="$ShardIndex" '(NR - 1) % 4 == ShardIndex' \
+            "${RUNNER_TEMP}/WindowsCli/Collected.txt" > "${RUNNER_TEMP}/WindowsCli/Selected.txt"
+          test -s "${RUNNER_TEMP}/WindowsCli/Selected.txt"
+          echo "Shard $ShardIndex runs $(wc -l < "${RUNNER_TEMP}/WindowsCli/Selected.txt") CLI cases" >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Verify this shard through the installed CLI
+        id: tests
+        run: >-
+          uv run --no-sync --python 3.14 python -m pytest -v -p no:cacheprovider
+          --numprocesses 2 --dist loadfile
+          --durations=20
+          --report-log="${RUNNER_TEMP}/WindowsCli/Report.jsonl"
+          "@${RUNNER_TEMP}/WindowsCli/Selected.txt"
+
+      - name: Publish the exact Windows CLI roster and outcomes
+        if: always() && steps.tests.outcome != 'skipped'
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: WindowsCli-${{ matrix.group }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/WindowsCli
+          if-no-files-found: error
+          retention-days: 14
 
   research-cli-windows:
     if: >-
       always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
-    needs: pr-ci-reuse
+    needs: [pr-ci-reuse, research-cli-windows-shard]
     name: Research CLI Windows compatibility
-    runs-on: windows-2025
-    timeout-minutes: 20
-    env:
-      KIT_RESEARCH_CHECKOUT: ${{ github.workspace }}/ResearchCheckout
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
     steps:
-      - name: Checkout CLI repository
+      - name: Require every Windows CLI shard to succeed
+        env:
+          ShardResult: ${{ needs.research-cli-windows-shard.result }}
+        run: test "$ShardResult" = success
+
+      - name: Download this attempt's Windows CLI reports
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: WindowsCli-shard-*
+          path: ${{ runner.temp }}/WindowsCliReports
+
+      - name: Checkout exact candidate reporting code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
 
-      - name: Checkout pinned PR94 research tools
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          repository: Stephen316/Kit
-          ref: b86f30c7e41abdc3812ada795a193377f6ddd220
-          path: ResearchCheckout
-          fetch-depth: 0
-          persist-credentials: false
-
-      - name: Set up uv
-        uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2 # v10.3.3
-        with:
-          version: "0.12.5"
-          enable-cache: true
-          cache-dependency-glob: uv.lock
-
-      - name: Install CLI and compatibility dependencies
-        run: uv sync --frozen --no-default-groups --extra dev --python 3.14
-
-      - name: Verify reader and controller exit statuses through the installed CLI
-        run: >-
-          uv run --no-sync --python 3.14 python -m pytest
-          tests/CliResearch/BridgeRejectTests.py
-          tests/CliResearch/SwReaderTests.py
-          tests/CliResearch/FusionReaderTests.py
-          tests/CliResearch/ReaderRejectTests.py
-          tests/CliResearch/InterruptTests.py
-          tests/CliResearch/LeaseFlowTests.py -q
+      - name: Require every collected Windows CLI case exactly once
+        env:
+          ReportRoot: ${{ runner.temp }}/WindowsCliReports
+          RunAttempt: ${{ github.run_attempt }}
+        run: bash .github/scripts/VerifyShardReports.sh "$ReportRoot" WindowsCli "$RunAttempt"
 
   zizmor:
     if: >-

@@ -4,6 +4,7 @@ from io import StringIO
 from pathlib import Path as FilePath
 from tokenize import COMMENT, generate_tokens as GenerateTokens
 
+from tools.Steering.LicenseNotice import GetNoticeLines
 from tools.Steering.SteeringCompliance import (
     BuildParents,
     Finding,
@@ -21,6 +22,7 @@ def AddedComments(SourcePath: FilePath, BaseText: str, HeadText: str) -> list[Fi
     )
     SyntaxTree = AstLib.parse(HeadText, filename=SourcePath.as_posix())
     ReasonLines = GetReasonLines(SyntaxTree, BuildParents(SyntaxTree))
+    NoticeLines = GetNoticeLines(HeadText)
     Findings: list[Finding] = []
     for TokenInfo in GenerateTokens(StringIO(HeadText).readline):
         if TokenInfo.type != COMMENT:
@@ -30,7 +32,7 @@ def AddedComments(SourcePath: FilePath, BaseText: str, HeadText: str) -> list[Fi
         if Prior[TokenInfo.string] > 0:
             Prior[TokenInfo.string] -= 1
             continue
-        if TokenInfo.start in ReasonLines:
+        if TokenInfo.start in ReasonLines or TokenInfo.start in NoticeLines:
             continue
         Findings.append(
             Finding(

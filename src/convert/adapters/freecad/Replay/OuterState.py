@@ -18,3 +18,4 @@ class OuterState:
     LegacyVisibility: bool = False
     RecordReplay: bool = False
     ReplayScope: ReplayReadScope | None = None
+    LegacyPadExpr: bool = False

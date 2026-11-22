@@ -12,6 +12,11 @@ from convert.adapters.base.Materials.CheckMatWrites import CheckMatWrites
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.Staging.PathStaging import WritePathStaged
+from convert.adapters.registry.EquationWrite import CheckEquations
+from convert.adapters.registry.InchWrite import CheckInchWrite
+from convert.adapters.registry.ResearchWrite import CheckResearch
+from convert.adapters.registry.SupportWrite import CheckSupports
+from convert.adapters.registry.NativeWrite import CheckNative
 from convert.adapters.registry.RegistryErrors import CapLossError
 from convert.adapters.registry.RegistryErrors import NotFoundError
 from convert.adapters.registry.RegistrySelect import SelectWriter
@@ -132,6 +137,11 @@ class WriteApi(WriteLookup):
             ReaderOpts,
         )
         CheckMatWrites(DocumentData, AdapterData)
+        CheckResearch(DocumentData)
+        CheckInchWrite(DocumentData)
+        CheckEquations(DocumentData)
+        CheckSupports(DocumentData)
+        CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
             SelectedOpts = ReplaceValue(SelectedOpts, destination_format=FormatId)

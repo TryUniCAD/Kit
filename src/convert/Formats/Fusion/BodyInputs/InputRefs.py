@@ -5,7 +5,7 @@ from convert.Formats.Fusion.MetaCursor import MetaCursor
 from convert.Formats.Fusion.RecordSpan import RecordSpan
 from convert.Formats.Fusion.SelectionProxy import ReadSelectList
 from convert.Formats.Fusion.Sketches.GeometryAttrs import ReadGeomAttrs
-from convert.Formats.Fusion.Topology.BodyPick import KBodyDesc
+from convert.Formats.Fusion.Topology.BodyPick import KBodyDesc, KCutPickMarker
 
 # one feature can only address a bounded list of selections
 KMaxBodyInputs = 1024
@@ -46,6 +46,8 @@ def ReadInputPicks(
     RoleValue: str,
     ModeCode: int,
     Expected: dict[str, int] | None = None,
+    *,
+    CutTarget: bool = False,
 ) -> tuple[BodyInput, ...]:
     Descriptors, Attributes = ReadSelectList(BulkData, Owners, ProxyId, FeatureId)
     if Attributes != (Expected or {}) or any(
@@ -54,5 +56,15 @@ def ReadInputPicks(
         raise ValueError("Fusion body input proxy attributes disagree with its role")
     if any(Owners[Identity].ClassGuid != KBodyDesc for Identity in Descriptors):
         raise ValueError("Fusion input proxy does not select whole bodies")
-    CheckInputProxy(BulkData, Owners, ProxyId, Descriptors, ModeCode)
-    return tuple(BodyInput(RoleValue, ProxyId, Identity) for Identity in Descriptors)
+    CheckInputProxy(
+        BulkData,
+        Owners,
+        ProxyId,
+        Descriptors,
+        ModeCode,
+        Marker=KCutPickMarker if CutTarget else None,
+    )
+    return tuple(
+        BodyInput(RoleValue, ProxyId, Identity, CutTarget=CutTarget)
+        for Identity in Descriptors
+    )

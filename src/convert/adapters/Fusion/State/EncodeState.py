@@ -7,26 +7,41 @@ from math import isfinite as IsFinite
 from typing import cast as CastValue
 
 from convert.adapters.Fusion.State.StateTypes import KStateTypes
+from convert.adapters.Fusion.State.OmitStateFields import KStateOmit
+
+# fixed supported classes need constant time membership checks during recursive encoding
+KEncodeTypes = frozenset(KStateTypes)
+
+
+# registered dataclasses share one immutable field order across recursive encoding
+KRecordFields: dict[type[object], tuple[str, ...]] = {
+    RowType: tuple(Field.name for Field in DataFields(RowType))
+    for RowType in KStateTypes
+    if IsDataClass(RowType)
+}
 
 
 # the state operation needs a consistent construction rule so public document claims remain grounded in native records
 def EncodeState(Value: object, Depth: int = 0) -> object:
     if Depth > 64:
         raise ValueError("Fusion semantic state exceeds nesting limit")
-    if Value is None or type(Value) in (str, int, bool):
+    ValueType = type(Value)
+    if Value is None or ValueType in (str, int, bool):
         return Value
     if type(Value) is float and IsFinite(Value):
         return Value
-    if type(Value) in KStateTypes:
-        ClassName = f"{type(Value).__module__}.{type(Value).__name__}"
+    if ValueType in KEncodeTypes:
+        ClassName = f"{ValueType.__module__}.{ValueType.__name__}"
         if isinstance(Value, EnumBase):
             return {"enum": ClassName, "value": Value.value}
         if IsDataClass(Value) and not isinstance(Value, type):
             return {
                 "record": ClassName,
                 "fields": {
-                    Field.name: EncodeState(getattr(Value, Field.name), Depth + 1)
-                    for Field in DataFields(Value)
+                    FieldName: EncodeState(getattr(Value, FieldName), Depth + 1)
+                    for FieldName in KRecordFields[ValueType]
+                    if FieldName not in KStateOmit.get(ValueType, {})
+                    or getattr(Value, FieldName) != KStateOmit[ValueType][FieldName]
                 },
             }
     if isinstance(Value, bytes) and len(Value) <= 2000000:

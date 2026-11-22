@@ -4,8 +4,10 @@ from convert.adapters.solidworks.Archive.Reading.BinaryReader import BinaryReade
 
 # count domains are shared while record owners supply their minimum wire size
 def ReadCountMut(Cursor: BinaryReader, MinItemSize: int) -> int:
-    Count, Offset = ReadCount(Cursor.BytesValue, Cursor.OffsetValue)
-    if Count > (len(Cursor.BytesValue) - Offset) // MinItemSize:
+    Count, Offset = ReadCount(
+        Cursor.BytesValue, Cursor.OffsetValue, LimitValue=Cursor.LimitValue
+    )
+    if Count > (Cursor.GetEnd() - Offset) // MinItemSize:
         raise ValueError("archive count exceeds the remaining stream size")
     Cursor.OffsetValue = Offset
     return Count

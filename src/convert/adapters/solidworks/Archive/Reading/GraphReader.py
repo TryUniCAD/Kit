@@ -18,3 +18,4 @@ class GraphReader:
     BodyReader: Callable[[GraphReader, ArchiveNode], None]
     NestingDepth: int = 0
     NodeFactory: Callable[[RuntimeClass | ExternalClass], ArchiveNode] | None = None
+    RequireCanonicalTags: bool = False

@@ -34,7 +34,7 @@ jobs:
 
   steering:
     if: >-
-      always() && !cancelled() && (needs.pr-ci-reuse.outputs.phase == 'legacy' || needs.pr-ci-reuse.outputs.phase == 'merge_group')
+      always() && !cancelled() && needs.pr-ci-reuse.result == 'success'
     needs: pr-ci-reuse
     name: Python steering
     runs-on: ubuntu-24.04

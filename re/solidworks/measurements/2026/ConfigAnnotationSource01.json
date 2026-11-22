@@ -1,0 +1,1063 @@
+{
+  "archive_version": 19000,
+  "cases": {
+    "concave": {
+      "config_bytes": 22700,
+      "config_next_slot": 94,
+      "config_sha256": "f8b42cb72d75f14be04410c18daae6f77164e2561dd5e99d7f26a107b5b049a1",
+      "header_sha256": "f4cce850be7777c5f6aad10d0bc46bda2e60448fac1ca4cde309df56063516aa",
+      "part_sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33",
+      "path": "re/solidworks/v2026/corpus/local-import-readback/ConcaveOwned.SLDPRT",
+      "rows": [
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f2c0",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            7686,
+            7840
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f418",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            7934,
+            8088
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f250",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            8128,
+            8282
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f1e8",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            8306,
+            8460
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f108",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            8470,
+            8624
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "fa0",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            8648,
+            8802
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f178",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            8906,
+            9060
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f4a0"
+          ],
+          "interval": [
+            9080,
+            9234
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f40",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9234,
+            9388
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f398",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9396,
+            9550
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "1983bb49f3ae78c1caaeaffec25e00a2e2f8a85a20eda33bf3c3e26aeeb6cbce"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18"
+          ],
+          "interval": [
+            7634,
+            9590
+          ],
+          "layout": "moAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {},
+          "wire_sha256": "0f468d3c9b19575ec1b7b32c2f9b3e394393396f05baf847befabb6fb27e3230"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0",
+            "f08",
+            "e"
+          ],
+          "interval": [
+            16535,
+            16587
+          ],
+          "layout": "moGTolDlgDataFrame_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f10": null,
+            "f148": 0,
+            "f18": null,
+            "n2b8": 0
+          },
+          "wire_sha256": "0d47e58ab7ec8d468ba4fca23272248a90e5ff1d092b019257c13a20661599ef"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0",
+            "f08",
+            "e"
+          ],
+          "interval": [
+            16587,
+            16639
+          ],
+          "layout": "moGTolDlgDataFrame_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f10": null,
+            "f148": 0,
+            "f18": null,
+            "n2b8": 0
+          },
+          "wire_sha256": "0d47e58ab7ec8d468ba4fca23272248a90e5ff1d092b019257c13a20661599ef"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            15
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0"
+          ],
+          "interval": [
+            16531,
+            16943
+          ],
+          "layout": "moGTolDataHelper_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 54,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "n08": 2
+          },
+          "wire_sha256": "08235c9d69158869dca91390115c9446435e0b334540b60477990593ca0d52f1"
+        }
+      ]
+    },
+    "ladder": {
+      "config_bytes": 25390,
+      "config_next_slot": 110,
+      "config_sha256": "e7e700d5b112e7d9d1b1297bac8149707e67d9aac2e3c6f890b4cb2f97b1e5b2",
+      "header_sha256": "9e3d68bd031e4797a2f05504cf8962e5e3a337d2816ec963194165371d5b4659",
+      "part_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6",
+      "path": "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT",
+      "rows": [
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f2c0",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9237,
+            9391
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "8517d9d2b01b47621a0e31f05128116b0bde53d39ca59c3f2d8c48928c0b365c"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f418",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9485,
+            9639
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f250",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9679,
+            9833
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f1e8",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            9857,
+            10011
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f108",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            10021,
+            10175
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "fa0",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            10199,
+            10353
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f178",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            10457,
+            10611
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f4a0"
+          ],
+          "interval": [
+            10631,
+            10785
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "284b243c3ec3994fac5c1c4a1ebbb6f0e1e339f094f9e46b2d4ae12ebe077c5e"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f40",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            10785,
+            10939
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "986fa6cc673e3e4ecaee800dc3187dca0d2fbca05a3827f73ee67c9f8760be09"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18",
+            "f398",
+            "moBaseAnnotationDefs_c"
+          ],
+          "interval": [
+            10947,
+            11101
+          ],
+          "layout": "moBaseAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f44": -1
+          },
+          "wire_sha256": "8e60a422fea4b572d737326fb3b5196c6ac8ebc03de6bcc7201863e058fc2370"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f1f18"
+          ],
+          "interval": [
+            9185,
+            11141
+          ],
+          "layout": "moAnnotationDefs_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {},
+          "wire_sha256": "51283df1afd8e6ba2ef31aa8ac29ca8a02ccf333b1aba6d2484d85ad77fdf12b"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0",
+            "f08",
+            "e"
+          ],
+          "interval": [
+            17954,
+            18006
+          ],
+          "layout": "moGTolDlgDataFrame_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f10": null,
+            "f148": 0,
+            "f18": null,
+            "n2b8": 0
+          },
+          "wire_sha256": "0d47e58ab7ec8d468ba4fca23272248a90e5ff1d092b019257c13a20661599ef"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0",
+            "f08",
+            "e"
+          ],
+          "interval": [
+            18006,
+            18058
+          ],
+          "layout": "moGTolDlgDataFrame_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "f10": null,
+            "f148": 0,
+            "f18": null,
+            "n2b8": 0
+          },
+          "wire_sha256": "0d47e58ab7ec8d468ba4fca23272248a90e5ff1d092b019257c13a20661599ef"
+        },
+        {
+          "alias": [
+            "moExtObject_c",
+            1,
+            69
+          ],
+          "conditions": 0,
+          "field_path": [
+            "moPart_c.FUN_4c2378b0",
+            "Section",
+            "moModel_c.FUN_4c234150",
+            "fae0",
+            "f9a0"
+          ],
+          "interval": [
+            17950,
+            18338
+          ],
+          "layout": "moGTolDataHelper_c",
+          "map_anchor_slots": [
+            1,
+            2,
+            3
+          ],
+          "map_counter": 69,
+          "part": [
+            "moPart_c",
+            1,
+            2
+          ],
+          "selectors": {
+            "n08": 2
+          },
+          "wire_sha256": "4b743aea3cc89b8e303edf284b54ef1d17e1956c94571ba11dedc6d31768eb9b"
+        }
+      ]
+    }
+  },
+  "format_version": 4,
+  "native_launches": 0,
+  "runtime_external_accesses": 0,
+  "trace_revision": "e4093f012e61a6a4e2aafb029b376dcb23c50e9b"
+}

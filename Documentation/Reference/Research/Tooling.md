@@ -15,12 +15,21 @@ Use the tools below for new format discovery, decompilation, tracing, and contro
 
 ## Tool map
 
+The [SOLIDWORKS planner catalogue](SolidworksPlannerCatalog.md) supplies a saved
+SQLite/CSV inventory of installed API declarations, feature families, subfeatures,
+planning dependencies and unresolved evidence. Verify the bundle before using it.
+Declared metadata and planned scope do not establish feature availability or conversion support.
+
 | Location              | Purpose                                | Required context                       |
 | --------------------- | -------------------------------------- | -------------------------------------- |
 | `re/tooling/ghidra/`  | Static analysis and decompilation      | Exact binary hash and analysis project |
 | `re/tooling/windbg/`  | Runtime traces                         | Compatible debugger and vendor build   |
 | `re/tooling/harness/` | Vendor measurement and sample creation | Isolated licensed environment          |
 | `re/binaries/`        | External input verification            | Licensed installation and manifest     |
+
+The [Fusion planner catalogue](FusionPlannerCatalog.md) supplies indexed API, command, native-schema and recipe inventories.
+Its SQLite bundle can be read without Fusion or a vendor runtime.
+Inventory presence does not establish authoring or conversion support.
 
 Read each tool's source and setup guide before executing it.
 Do not assume that historical command paths match a new machine.
@@ -84,8 +93,12 @@ Do not publish an unmeasured hypothesis as product support.
 
 ## Sources
 
+- [Pinned corpus and paired authoring specifications](PinnedCorpus.md)
+- [Durable evidence store and job controller](ResearchController.md)
 - [Research index](../../../re/README.md)
 - [Toolchain chapter of the instruction book](../../../re/Playbook/Toolchain.md)
 - [Ghidra setup](../../../re/tooling/ghidra/Setup.md)
 - [Runtime trace tool](../../../re/tooling/windbg/Multitrace.py)
 - [Serialization harness](../../../re/tooling/harness/Serialize.py)
+The [pinned SOLIDWORKS reader](SolidworksResearchReader.md) emits neutral JSON and a separate unresolved-evidence receipt.
+The [pinned Fusion reader](FusionResearchReader.md) emits the same evidence for batches of F3D and F3Z files.

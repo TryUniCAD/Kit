@@ -1,7 +1,10 @@
 from dataclasses import replace as Replace
 
 from convert.Formats.Fusion.BodyInputs.InputContext import ReadInputScope
-from convert.Formats.Fusion.BodyInputs.InputReaders import KBodyInputReaders
+from convert.Formats.Fusion.BodyInputs.InputReaders import (
+    KBodyInputReaders,
+    SelectInputIds,
+)
 from convert.Formats.Fusion.BodyInputs.InputStep import ReadBodyInputs
 from convert.Formats.Fusion.Extrudes.SolidCreators import IsSavedActive
 from convert.Formats.Fusion.HistoryPart import HistoryPart
@@ -30,12 +33,14 @@ def ProjectPicks(
     Spans: tuple[RecordSpan, ...],
     History: HistoryPart,
 ) -> CadDocument:
+    CandidateIds = SelectInputIds(BulkData, Spans)
     Candidates = tuple(
         (Index, StepValue, int(Origin.native_id))
         for Index, StepValue in enumerate(Document.feature_timeline)
         if (Origin := StepValue.provenance) is not None
         and Origin.spans
         and Origin.spans[0].record_kind in KBodyInputReaders
+        and int(Origin.native_id) in CandidateIds
     )
     if not Candidates:
         return Document

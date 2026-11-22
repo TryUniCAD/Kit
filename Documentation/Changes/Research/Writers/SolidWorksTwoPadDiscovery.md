@@ -1,0 +1,60 @@
+# Capture a face-supported SOLIDWORKS two-pad grid
+
+The historical [two-pad experiments](../../../../re/solidworks/corpus/CorpusTwo.md#54-twopad--second-pad-depth-3--5--8-mm-face-supported) establish an editable native reference design. The corpus index has no hash-bound copy of those original native files. This capture creates fresh controls through the licensed SOLIDWORKS API for the A09 codec investigation.
+
+The lower pad is 40 × 20 mm and the upper pad is 10 × 10 mm. The upper sketch selects the lower boss's native top face. The grid contains two independently authored 10 mm + 5 mm baselines, upper depths of 3 and 8 mm, and a base depth of 11 mm. The upper boss merges into one solid.
+
+The two-pad collector runs from its [pinned source](https://github.com/Stephen316/Kit/commit/463a3de14e4cb34aeeaa6aed1aa1e8b2804572c8) in a separate checkout. Use the signed-in Windows desktop with SOLIDWORKS stopped, the shared exclusive oracle lease, and an unused private output directory outside the checkout. Run under Windows PowerShell 5.1 with its normal module path.
+
+```powershell
+powershell.exe -NoProfile -STA -File re/automation/PairedCaptures/SolidWorksAuthoring/RunTwoPad.ps1 -OutputDirectory PATH -SourceRevision 463a3de14e4cb34aeeaa6aed1aa1e8b2804572c8
+```
+
+The collector measures healthy controls around both phases. It records saved hashes, the live feature tree and driving dimensions, the upper sketch's resolved supporting face, body topology, volume and centroid. It compares volume and center to the independent stacked-prism formula. In the fresh reopen process it edits the upper depth, edits the base depth so the supporting face moves, and restores both. The original save hashes must stay unchanged. [SOLIDWORKS extrusion API](https://help.solidworks.com/2024/English/api/sldworksapi/SOLIDWORKS.Interop.sldworks~SOLIDWORKS.Interop.sldworks.IFeatureManager~FeatureExtrusion2.html)
+
+## Verified native discovery
+
+The licensed run on SOLIDWORKS `34.4.1.1011` used fresh COM-owned processes 39572 and 35076. Both exited with code 0. Four byte-identical stock controls matched the original SHA-256, single body, volume and centroid. All five discovery saves opened and rebuilt with zero load errors or warnings. Each retained one solid with 11 faces, 24 edges and 16 vertices. The saved hashes were unchanged after reopen and measurement.
+
+| Reopened case                      | Volume (mm³) | Center Z (mm) | Upper sketch support Z (mm) |
+| ---------------------------------- | -----------: | ------------: | --------------------------: |
+| Baselines A and B                  |        8,500 |      5.441176 |                          10 |
+| Upper depth 3 mm                   |        8,300 |      5.234940 |                          10 |
+| Upper depth 8 mm                   |        8,800 |      5.818182 |                          10 |
+| Base depth 11 mm, upper depth 5 mm |        9,300 |      5.930108 |                          11 |
+
+In the fresh reopen process, editing only the upper depth from 5 to 7 mm increased volume from 8,500 to 8,700 mm³. Editing only the base depth from 10 to 11 mm increased volume to 9,300 mm³ and moved the upper sketch to the base boss's top face at Z=11 mm. Restoration returned the volume to 8,500 mm³ and the support to Z=10 mm. The retained report binds the original archive hashes to the two processes, four stock controls and 18 geometry observations.
+
+The native report SHA-256 is `bf0d74c06878c6c5063e4b9a55c61c2ef258bdc24323adbfb8f8d069bc77697e`. The independent source, archive, process and geometry audit SHA-256 is `dc90e21c9a5511a9048fe48446ceff837dded6c0b5441973d1d5916b45657a06`. The earlier direct-launch attempt saved four files and stalled while closing its stock control. Its incomplete artifacts remain separate from the accepted COM discovery run. [Paired corpus harness](../../../Gotchas/Research/Workers/PairedHarnessAuditPin.md)
+
+The strict SDK read at `4e52bd27` recovered the upper boss depth, its four-sided profile and its ownership of the final solid on all five saves. The upper sketch projected onto the principal plane at Z=0 with no face selection. The licensed readback resolved its support to the base boss at Z=10 or Z=11 mm. The scoped discrepancy report SHA-256 is `5466359de266aaa4291d76d8df87a071f11088d3cd178ce539095542273d8453`.
+
+The continuous typed replay reaches the resolved stream footer in all five cases. The upper sketch resolves the same base cap and four ordered boundaries as the native persistent reference. Its saved pose matches the model-to-sketch transform measured before save and on independent reopen. The strict SDK now binds the directed upper profile and its world frame to the earlier base boss at Z=10 or Z=11 mm. The original typed replay retains the type-14 span and its two native line identities. Eleven individual archive mutations withheld this typed attachment, and the SDK kept its legacy read behavior for those inputs. Two P01 controls and the P03 and P04 baselines retained identical neutral output digests. The continuous archive proof SHA-256 is `180fa32ff4f7687479fc84d7f787e9b3973c4d42bac2dea02a93bb5e37ba6048`, with independent native reference comparisons at `a75e915f185990ca45958e3cae2c2796e57d34a0f76ade734a8875e4ebca71da`.
+
+A09 still needs donor-free reproduction and licensed validation of the generated part.
+
+## Project the upper sketch's same-length relation
+
+The sealed native report records the upper sketch relation as type 14 with two line operands, in the order `[2,2]` and `[1,1]`. The same record appears in all 18 authored, reopened, edited and restored observations. The installed SOLIDWORKS 34.4.1.1011 constants assembly identifies the enum as `swConstraintType_SAMELENGTH`. Its SHA-256 `b15e28ed5b2e8332d409ca79635f933a60e8cc0d9bd5ec980e2a2301220e7741` matches the licensed capture's constants pin.
+
+The compact archive relation reaches the same ordered local line IDs `(2, 1)` through two `sgLineHandle` owners. The typed reader matches the directed perimeter to the existing neutral loop and emits the `equal` constraint on the corresponding whole edges. The original archive span and both identifiers remain in provenance. The replay checks the native record in all five saved cases and independently resolves the projected references from the saved line endpoints.
+
+The current strict SDK audit SHA-256 is `a8280be81991c7fff5ff046ea75926487747c3b33e5d78ee65881ba4c7f1cb9c`. The prior digest below records the original face-support projection. The added relation changes its semantic seal. Native validation of a generated two-pad part remains open.
+
+## Replay the retained evidence offline
+
+Run the verifier from the repository root with the retained native run directory and the three trusted receipt hashes. The original capture commit must be present in the local Git repository.
+
+```powershell
+uv run --offline --frozen python -B re/automation/TwoPad/VerifyDiscovery.py `
+  --run-directory 'PATH' `
+  --source-revision 463a3de14e4cb34aeeaa6aed1aa1e8b2804572c8 `
+  --report-sha256 bf0d74c06878c6c5063e4b9a55c61c2ef258bdc24323adbfb8f8d069bc77697e `
+  --authoring-sha256 7c25ed3111ec45d9646e7b5de9df16f90f57528d3f2b97fc4e14f2666a2a884f `
+  --reopen-sha256 1ebdcdc23d4d220d549573dfb2c0cb45b1697ec7e42c192a3fb95bd34ba5699b `
+  --strict-sdk
+```
+
+The verifier binds both native exits to their phase files and checks the source bytes, four stock copies, and all five case archives. The second process independently authored baseline B before reopening the five saves. The audit recomputes the stacked-prism measurements and matches the typed saved cap and sketch pose to the native observations. The optional strict SDK check also verifies the public face selection and its neutral JSON round trip. The command emits a discovery result as JSON and reads the retained files in place.
+
+The retained run reproduced the offline audit SHA-256 `366ed4f4ee4da3878d2e94ff8a1a13a39ca7e869af27961da60601e58df3d81e` and the earlier strict SDK audit SHA-256 `7aece59d018282b7316086c3cf1dec5a22afd1e9bf3dc00da698e23c2d8da7a8`.

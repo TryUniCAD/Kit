@@ -19,6 +19,8 @@ key boundaries with the REA MCP server or the `npx rea-agents` CLI, generating a
 of extreme models through the vendor API, correlating that corpus to locate every field, and only
 then building the writer. Put both documents in every sub-agent brief for CAD work.
 
+For decoding challenges, agents MUST use the research automation pipeline for supported capture, deterministic comparison, inference and evidence tracking. Investigate unresolved findings and implement decoder rules from the recorded evidence. Validate changes through deterministic checks; a detected pattern alone is not a proven rule. Report missing automation capabilities explicitly
+
 ## Documentation and gotchas
 
 Read the [completion roadmap](Roadmap.md) and [conversion backlog](Documentation/Maintenance/ConversionBacklog.md)
@@ -87,8 +89,8 @@ read its complete standards index and every applicable rule before coding.
   New specialised tests must use this same execution path.
 - Use `Pull Request / CI Agg` for overall CI health. Register every applicable
   PR and merge-queue CI job in the [CI allowlist](.github/scripts/CiAllowlist.cjs).
-  Keep automated review out of the allowlist and its workflows. Assign each
-  validation to one phase using its complete observed job duration. Jobs below
+  Keep automated review out of the allowlist and its workflows. Run Pyright,
+  Mypy and Python steering in both phases. Assign other validations to one phase using its complete observed job duration. Jobs below
   45 seconds, including light change-range checks, run on PRs. Jobs at or above
   45 seconds run on merge-group candidates. Security scans and test planning
   run on the candidate. Preserve the former job set during trusted-base rollout
