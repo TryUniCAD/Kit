@@ -1,0 +1,353 @@
+{
+  "baseline_commit": "319d42f3ec8bfb10c16128010605902ccd898f6d",
+  "cases": {
+    "alternate_a": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [],
+      "format_version": 4,
+      "link_failure": null,
+      "link_stream": null,
+      "model_version": 19000,
+      "pattern_rows": [
+        [
+          33,
+          "moLPattern_c",
+          "LPattern",
+          "Feature"
+        ]
+      ],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "dbf56206aa732410ecb358f4d84d3f8a6be3bea13abf394f8e0d8e0318869536",
+          "faces": null,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "3cb2d058baa3c0a468a22f307db97dea7d0ef1aa7a869971f91a7b39548acd51",
+          "faces": 21,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "strict_design": {
+          "bodies": 1,
+          "document_sha256": "dbf56206aa732410ecb358f4d84d3f8a6be3bea13abf394f8e0d8e0318869536",
+          "faces": null,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "strict_geometry": {
+          "bodies": 1,
+          "document_sha256": "3cb2d058baa3c0a468a22f307db97dea7d0ef1aa7a869971f91a7b39548acd51",
+          "faces": 21,
+          "features": 24,
+          "payload_sha256": []
+        }
+      },
+      "source_sha256": "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5"
+    },
+    "alternate_b": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [],
+      "format_version": 4,
+      "link_failure": null,
+      "link_stream": null,
+      "model_version": 19000,
+      "pattern_rows": [
+        [
+          33,
+          "moLPattern_c",
+          "LPattern",
+          "Feature"
+        ]
+      ],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "2fc2ab2a301cc23f1117b64f02f23abb81fe0fee97dbb0369cecee9b756d07da",
+          "faces": null,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "e5b4c9dd19ecf7defafe1d2ddcba893b30b549e296a65602e6dc03931599248f",
+          "faces": 26,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "strict_design": {
+          "bodies": 1,
+          "document_sha256": "2fc2ab2a301cc23f1117b64f02f23abb81fe0fee97dbb0369cecee9b756d07da",
+          "faces": null,
+          "features": 24,
+          "payload_sha256": []
+        },
+        "strict_geometry": {
+          "bodies": 1,
+          "document_sha256": "e5b4c9dd19ecf7defafe1d2ddcba893b30b549e296a65602e6dc03931599248f",
+          "faces": 26,
+          "features": 24,
+          "payload_sha256": []
+        }
+      },
+      "source_sha256": "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b"
+    },
+    "legacy": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [
+        "ca18607704827c0a34c317dd7e4f06259ecc495dcffdd8b4d067bed949b4b745",
+        "1239c2bbdeda87305b5ffd8308e3ce71429537e604ed9365f6eba3330fb12a95",
+        "519b6ee858bca7cc9e5631fa601f117dbb5f4ea6ebfc30a2dfaef9662b499aab",
+        "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+        "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+        "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+        "7bdad6478596d201c8a680e0969efb4208e1316fc262198e76272ce19b26c787",
+        "711bfc228957752326b359469caf1b934b912b64d11b59933b0ab2e41fceef0c",
+        "d4b365809b4140dc8cd7c81ff989d606cf697e10f7c9e3f04b246f830e25f926",
+        "a59ea65e2fa8d4b5e486cf62be4a80d1b3534ab390aa3708c2f8c0223c2a15f5",
+        "8af83c79826e622ed837655fe572031afb4019fe4cb74b13f6268f1720408968",
+        "e8adc1cd88238b7115a61a1d3ec35e254bde66c67df1fa2c8ebc77211fdee0db"
+      ],
+      "format_version": 4,
+      "link_failure": null,
+      "link_stream": null,
+      "model_version": 14000,
+      "pattern_rows": [
+        [
+          51,
+          "moLPattern_c",
+          "LPattern",
+          "Feature"
+        ],
+        [
+          97,
+          "",
+          "LPattern",
+          "Feature"
+        ],
+        [
+          104,
+          "",
+          "LPattern",
+          "Feature"
+        ],
+        [
+          132,
+          "",
+          "LPattern",
+          "Feature"
+        ],
+        [
+          139,
+          "",
+          "LPattern",
+          "Feature"
+        ]
+      ],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "610bca00eba9b42f7fabd95fe026342a4faedebe1e7fa3c587689ad2e375de2a",
+          "faces": null,
+          "features": 60,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "ebb302601e016da228e6daae3b92bfc180e8a0f610437e2936aa6b84edf040dd",
+          "faces": 77,
+          "features": 60,
+          "payload_sha256": [
+            "ca18607704827c0a34c317dd7e4f06259ecc495dcffdd8b4d067bed949b4b745",
+            "1239c2bbdeda87305b5ffd8308e3ce71429537e604ed9365f6eba3330fb12a95",
+            "519b6ee858bca7cc9e5631fa601f117dbb5f4ea6ebfc30a2dfaef9662b499aab",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bdad6478596d201c8a680e0969efb4208e1316fc262198e76272ce19b26c787",
+            "711bfc228957752326b359469caf1b934b912b64d11b59933b0ab2e41fceef0c",
+            "d4b365809b4140dc8cd7c81ff989d606cf697e10f7c9e3f04b246f830e25f926",
+            "a59ea65e2fa8d4b5e486cf62be4a80d1b3534ab390aa3708c2f8c0223c2a15f5",
+            "8af83c79826e622ed837655fe572031afb4019fe4cb74b13f6268f1720408968",
+            "e8adc1cd88238b7115a61a1d3ec35e254bde66c67df1fa2c8ebc77211fdee0db"
+          ]
+        },
+        "strict_design": {
+          "bodies": 1,
+          "document_sha256": "610bca00eba9b42f7fabd95fe026342a4faedebe1e7fa3c587689ad2e375de2a",
+          "faces": null,
+          "features": 60,
+          "payload_sha256": []
+        },
+        "strict_geometry": {
+          "bodies": 1,
+          "document_sha256": "ebb302601e016da228e6daae3b92bfc180e8a0f610437e2936aa6b84edf040dd",
+          "faces": 77,
+          "features": 60,
+          "payload_sha256": [
+            "ca18607704827c0a34c317dd7e4f06259ecc495dcffdd8b4d067bed949b4b745",
+            "1239c2bbdeda87305b5ffd8308e3ce71429537e604ed9365f6eba3330fb12a95",
+            "519b6ee858bca7cc9e5631fa601f117dbb5f4ea6ebfc30a2dfaef9662b499aab",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bf5bacb93d7274ffb23bf3c66a10d96c35e14d5c5d02287a7bcc16de1407b25",
+            "7bdad6478596d201c8a680e0969efb4208e1316fc262198e76272ce19b26c787",
+            "711bfc228957752326b359469caf1b934b912b64d11b59933b0ab2e41fceef0c",
+            "d4b365809b4140dc8cd7c81ff989d606cf697e10f7c9e3f04b246f830e25f926",
+            "a59ea65e2fa8d4b5e486cf62be4a80d1b3534ab390aa3708c2f8c0223c2a15f5",
+            "8af83c79826e622ed837655fe572031afb4019fe4cb74b13f6268f1720408968",
+            "e8adc1cd88238b7115a61a1d3ec35e254bde66c67df1fa2c8ebc77211fdee0db"
+          ]
+        }
+      },
+      "source_sha256": "73f0b499c5829b5bfbdcdbb0700eee22e97c7ad6dc0a4d78c177c4d45ff5aa2c"
+    },
+    "ordinary": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [
+        "eb41fea16306a3bf99ae82839e2d0f5bdcc75773bb4a819267800ccb8fb5a827",
+        "a4231abb168b1188174ced656f4f1f01a2b8f3bb8d07a81f88f7dc9c9526ac7f"
+      ],
+      "format_version": 4,
+      "link_failure": null,
+      "link_stream": null,
+      "model_version": 19000,
+      "pattern_rows": [],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "1be507862f2b7c5c36746a5a35cfa73f5615c6053e5bb0595210faf99e5cef47",
+          "faces": null,
+          "features": 26,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "d15bf697b4636150f10a24800ddca4377648accf160475fb7796d56ce59c0a71",
+          "faces": 6,
+          "features": 26,
+          "payload_sha256": [
+            "eb41fea16306a3bf99ae82839e2d0f5bdcc75773bb4a819267800ccb8fb5a827",
+            "a4231abb168b1188174ced656f4f1f01a2b8f3bb8d07a81f88f7dc9c9526ac7f"
+          ]
+        },
+        "strict_design": {
+          "bodies": 1,
+          "document_sha256": "1be507862f2b7c5c36746a5a35cfa73f5615c6053e5bb0595210faf99e5cef47",
+          "faces": null,
+          "features": 26,
+          "payload_sha256": []
+        },
+        "strict_geometry": {
+          "bodies": 1,
+          "document_sha256": "d15bf697b4636150f10a24800ddca4377648accf160475fb7796d56ce59c0a71",
+          "faces": 6,
+          "features": 26,
+          "payload_sha256": [
+            "eb41fea16306a3bf99ae82839e2d0f5bdcc75773bb4a819267800ccb8fb5a827",
+            "a4231abb168b1188174ced656f4f1f01a2b8f3bb8d07a81f88f7dc9c9526ac7f"
+          ]
+        }
+      },
+      "source_sha256": "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
+    },
+    "original": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [
+        "9df6a3f44ccc696b2cd774d74a514d919eb7d13ef423e54586eb58da9d89bc9e",
+        "c4b9fdc6fbe6074a97484e78e99366f928f52048d0d7a10604bcf59640f45810"
+      ],
+      "format_version": 4,
+      "link_failure": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+      "link_stream": "Contents/CMgr",
+      "model_version": 19000,
+      "pattern_rows": [
+        [
+          52,
+          "moLPattern_c",
+          "LPattern",
+          "Feature"
+        ]
+      ],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "012c738cac54f485ea173cafcf861625a17fc09c20d53edefb65a27d1cd33b98",
+          "faces": null,
+          "features": 31,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "afbca9beec6c11d0fedfde864264cbb5a7ec252f86026c280609f529b7d82df3",
+          "faces": 16,
+          "features": 31,
+          "payload_sha256": [
+            "9df6a3f44ccc696b2cd774d74a514d919eb7d13ef423e54586eb58da9d89bc9e",
+            "c4b9fdc6fbe6074a97484e78e99366f928f52048d0d7a10604bcf59640f45810"
+          ]
+        },
+        "strict_design": "saved linear pattern lacks a verified typed feature history",
+        "strict_geometry": "saved linear pattern lacks a verified typed feature history"
+      },
+      "source_sha256": "6c3027e7f6cbf67087ea96ae3543f544d406f533ad8fae127e053eba2a56c14f"
+    },
+    "spacing": {
+      "blocked_events": 0,
+      "extracted_payload_sha256": [
+        "728bc64ad669a07ab8e2920edeedb380949344789fb723751fae07429927c864",
+        "7ef65828f2d5d11b513f9367e1b117be5bd939e98c3691339d2489e4584ac132"
+      ],
+      "format_version": 4,
+      "link_failure": "unsupported SOLIDWORKS body class moLinkedAtomIdNode_c schema 1",
+      "link_stream": "Contents/CMgr",
+      "model_version": 19000,
+      "pattern_rows": [
+        [
+          52,
+          "moLPattern_c",
+          "LPattern",
+          "Feature"
+        ]
+      ],
+      "reads": {
+        "inspect_design": {
+          "bodies": 1,
+          "document_sha256": "9467413e362a0385ad8c203d20484ec9c5e7c7682c204d9dc21daf8e2612e50a",
+          "faces": null,
+          "features": 31,
+          "payload_sha256": []
+        },
+        "inspect_geometry": {
+          "bodies": 1,
+          "document_sha256": "d5be0e30d1f5beec94dff72b42236cda7027a68f1705780ff68aaab0b1c4d2e8",
+          "faces": 17,
+          "features": 31,
+          "payload_sha256": [
+            "728bc64ad669a07ab8e2920edeedb380949344789fb723751fae07429927c864",
+            "7ef65828f2d5d11b513f9367e1b117be5bd939e98c3691339d2489e4584ac132"
+          ]
+        },
+        "strict_design": "saved linear pattern lacks a verified typed feature history",
+        "strict_geometry": "saved linear pattern lacks a verified typed feature history"
+      },
+      "source_sha256": "6eedd0f536a4f54433d9cfb1fcfcdda892be2340e14f2c232353234b772c5168"
+    }
+  },
+  "native_processes_started": 0,
+  "previous_native_receipt_sha256": "fb0d4b55936ef81bdce01c6f1317807348b2f51b8e94cfacef036927caa03b6b",
+  "production_sha256": {
+    "Adapter.py": "22c9aaf4d5a0737e3cb18f073dc38f88b574e9ee1288a08f780a15997d0a1183",
+    "TypedResolved/Patterns/Cold/ApplyColdPat.py": "82652dc81f4eeff2e42ca3380db862b6d911ca3527a581c7e7d36a1e7b9636a6",
+    "TypedResolved/Patterns/Cold/ColdPatError.py": "657dc21bc80f33dab4ed57098a682b360b6634452a6e8234e8e0c35d22d07b0f",
+    "TypedResolved/Patterns/Cold/HasColdPat.py": "c9a0652b10458ea12e6e764f1feae97254b11e04ed9046f36504d4646d479115",
+    "TypedResolved/Patterns/Cold/TryColdPat.py": "5240a042af89c002e176e680cfaa9c665a150b08d0223840f1450587ffe981ec"
+  },
+  "read_process_count": 12,
+  "schema": "kit.sw2026.saved-pattern-read-boundary.v1",
+  "sealed_inputs_read": 0,
+  "worker_sha256": "bb87b655e958b9e03873cc3ce28d0afdf51ac8e2f0c4690c9fb71c8602470970"
+}

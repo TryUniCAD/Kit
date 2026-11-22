@@ -37,6 +37,11 @@ def VerifyPatCase(
     assert Report["runtime_input_file_reads"] == Report["native_launches"] == 0
     assert Report["design_only_history_equal"] is True
     assert Report["strict_history_refusal_count"] == 2
+    assert (
+        Report["strict_keyword_refusal_count"]
+        == Report["permissive_keyword_fallback_count"]
+        == 2
+    )
     assert Report["permissive_history_unqualified"] is True
     assert Shape["faces"] == FacesValue
     if (
@@ -85,6 +90,11 @@ def TestMeasuredPat() -> None:
         assert Alternate["generated_sha256"] == AlternateSha
         assert Alternate["publication_count"] == 7 and Alternate["refusal_count"] == 21
         assert Alternate["compression_receipt_refusal_count"] == 6
+        assert (
+            Alternate["strict_keyword_refusal_count"]
+            == Alternate["permissive_keyword_fallback_count"]
+            == 2
+        )
         assert Alternate["published_lf_receipt_count"] == 2
         assert Alternate["mixed_newline_receipt_refusal_count"] == 2
         assert Alternate["streams"] == Report["streams"]

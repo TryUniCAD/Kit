@@ -82,11 +82,47 @@ They omit the derived B-rep and its capability and recompute the semantic
 fingerprint for that projection. A recognized cache-free version-19000
 pattern with missing typed history refuses in either strict mode.
 Permissive inspection can return unqualified native-only history.
+A separate same-length keyword caption contrast reaches the final
+typed timeline binding after the physical graph has passed. Both
+strict read modes retain the owner contradiction as their error cause.
+Both permissive modes fall back to the original archive model before
+adding derived pattern geometry or claiming typed pattern ownership.
 
 Cold republication regenerates the archive and checks the entire neutral
 result against a new strict decode in the same geometry mode. It refuses
 any residual readback state absent from that reproduction before requiring
 a matching complete-file native receipt.
+
+### Saved pattern read boundary
+
+Two independently disclosed, native-written version-19000 saves from
+the prior angular comparison retain 31 timeline rows and one body.
+The original has 16 faces. The separate spacing edit has 17 faces and
+overhangs the plate. Each positively identifies feature 52 as
+`moLPattern_c` and `Feature Type="LPattern"` in the selected Config-0
+lane. On this delivery branch the linked reader stops in
+`Contents/CMgr` at schema-one
+`moLinkedAtomIdNode_c` before it can prove the active history. The
+geometry-bearing and design-only strict reads refuse both saves with
+the saved-history diagnostic. Permissive inspection preserves the
+original model and geometry, and explicit raw extraction preserves the
+exact two Parasolid payloads for each source.
+
+The isolated host comparator checked the baseline and current reader
+in twelve fresh SDK processes. It also compared a version-14000 part
+with five recognized patterns, a version-19000 ordinary blind boss,
+and both exact Windows-compressed cold candidates. All four controls
+retained their complete read and raw extraction outcomes. This proof
+extends the read boundary only. The native archive, publication
+receipts and compressor authority stay unchanged.
+[Saved intake receipt](../measurements/2026/SavedLinearPatternBoundary01.json) ·
+[Prior native angular evidence](https://github.com/TryUniCAD/Kit/blob/97f9910c387490d7f1ba05c9d1fbd913f2655409/re/solidworks/records/SdkWarmAngularPatternRead2026.md)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/AuditSavedPatternRead.py \
+  --disclosed /absolute/path/to/LinearPatternEnvelope02/DisclosedTrial \
+  --compression /absolute/path/to/PatternCompressionTrial01/Alternate
+```
 
 The measured historical family has distinct pre-writer locked native
 tests on the aggregate branch. The previously locked method, native
@@ -116,8 +152,10 @@ permissive policy, a forged or missing receipt, wrong clock and locator,
 wrong driver ID, extra source metadata on both read modes, an additional
 sketch dimension, wrong-path replacement and absent raw Parasolid
 payload. Two further strict reads refuse a missing CMgr owner.
-Permissive inspection of that malformed archive is exercised separately
-from the writer and strict-reader runtime audit.
+Two strict reads also refuse the contradictory keyword caption, and
+two permissive reads recover only the native inspection model.
+Permissive inspection is exercised separately from the writer and
+strict-reader runtime audit.
 
 The complete archives and all ten logical streams match the measured
 files, with zero guarded runtime input reads or CAD launches. The

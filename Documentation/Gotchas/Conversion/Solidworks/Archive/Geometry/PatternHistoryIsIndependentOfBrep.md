@@ -11,4 +11,10 @@ compute that projection's semantic fingerprint. When republishing, compare
 the entire document with a fresh strict decode in the same geometry mode
 and require an exact measured archive receipt.
 
+Complete the neutral timeline and presentation binding before accepting
+a typed cold result. A keyword caption can contradict the linked
+feature name after the archive graph has decoded. Strict reads report
+that cause. Permissive reads restart from the ordinary feature model
+and discard the provisional typed history and analytic body.
+
 [Measured pattern readback](../../../../../../re/solidworks/records/MeasuredLocalLinearPattern2026.md)

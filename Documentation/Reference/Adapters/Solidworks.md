@@ -392,8 +392,11 @@ logical directory refuses before publication.
 The pattern reader derives the linked solid from the cold editable graph
 when physical geometry caches are absent. Raw Parasolid extraction still
 requires a real payload. Both strict read modes refuse a cache-free
-pattern with incomplete typed ownership. Warm saved pattern variants
-and new model or compressor digests require their own native evidence.
+pattern with incomplete typed ownership and a saved version-19000
+linear pattern without verified history. Use `strict=False` for
+permissive inspection, or `extract_brep` to retrieve the original
+Parasolid payloads. New model or compressor digests require their own
+native evidence.
 [Measured pattern change](../../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
 
 ## Geometry cache boundary

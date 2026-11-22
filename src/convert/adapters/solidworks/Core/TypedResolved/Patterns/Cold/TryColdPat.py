@@ -1,9 +1,7 @@
 from convert.adapters.base.ReadOptions import ReadOptions
 from convert.adapters.solidworks.Archive.Cmgr.ReadCmgrMut import ReadCmgrMut
 from convert.adapters.solidworks.Archive.Header.ReadNativeHeader import ReadHeaderGraph
-from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import SldprtArchive
-from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
 from convert.adapters.solidworks.Core.Native import NativeModel
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckGeometryState import (
     CheckGeometry,
@@ -17,16 +15,22 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRels impo
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.CheckPrismRoot import (
     CheckPrismRoot,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Geometry.IsCacheAbsent import (
-    IsCacheAbsent,
-)
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.BindPatModel import (
+    BindPatModel,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.BuildColdPat import (
     BuildColdPat,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.HasColdPat import (
+    HasColdPat,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.CheckPatViews import (
     CheckPatViews,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatError import (
+    ColdPatError,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
     ColdPatPart,
@@ -49,16 +53,11 @@ from interchange.Core.Common import FreezeMapping
 from interchange.Features.FeatureBody import DesignBody
 
 
-# cold reconstruction starts only after physical cache absence and the exact one direction pattern inventory
+# cache free histories need linked format owners and consistent neutral stock bindings
 def TryColdPat(
     Archive: SldprtArchive, ModelValue: NativeModel, Settings: ReadOptions, BodyId: str
-) -> ColdPatPart | None:
-    if (
-        Settings.extract_raw_brep
-        or ContainerMo(Archive.streams) != 19000
-        or not any(Value.class_name == "moLPattern_c" for Value in ModelValue.features)
-        or not IsCacheAbsent(Archive)
-    ):
+) -> tuple[NativeModel, ColdPatPart] | None:
+    if not HasColdPat(Archive, ModelValue, Settings):
         return None
     try:
         if ModelValue.active_configuration_id != 0:
@@ -80,12 +79,11 @@ def TryColdPat(
         Geometry = BuildColdPat(
             LinkValue, OwnerValue, (PlateValue.PlanValue, SeedValue.PlanValue), BodyId
         )
-        Producer = OwnerValue.NodeValue
-        NativeId = NativeNodeId(Producer)
-        ProofValue = NativeNodeSpan(LinkValue, Producer)
+        NativeId = NativeNodeId(OwnerValue.NodeValue)
+        ProofValue = NativeNodeSpan(LinkValue, OwnerValue.NodeValue)
         BodyValue = DesignBody(
             id=BodyId,
-            name=ReadNativeName(Producer),
+            name=ReadNativeName(OwnerValue.NodeValue),
             final_feature_id=f"sldprt:feature:{NativeId}",
             topology=Geometry.TopologyValue,
             attributes=FreezeMapping(
@@ -99,7 +97,7 @@ def TryColdPat(
             ),
             provenance=TypedProvenance(ProofValue, str(NativeId)),
         )
-        return ColdPatPart(
+        PatternValue = ColdPatPart(
             LinkValue,
             OwnerValue,
             Geometry,
@@ -107,9 +105,8 @@ def TryColdPat(
             (PlateValue, SeedValue),
             LookValue,
         )
+        return BindPatModel(ModelValue, PatternValue), PatternValue
     except (ValueError, TypeError, KeyError, OverflowError) as ErrorInfo:
         if Settings.strict:
-            raise SldprtFormat(
-                "cache-free linear pattern lacks a verified typed feature history"
-            ) from ErrorInfo
+            raise ColdPatError() from ErrorInfo
         return None

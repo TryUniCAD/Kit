@@ -68,9 +68,11 @@ typed ordinary part archive and exact native measurement gate on main.
 The scoped exit requires the two genuinely measured origination and
 readback republication cases, complete stream equality, preserved typed
 presentation, and the accepted revision's review and integration checks.
-Warm reads, other pattern modes, dimension-driven stock sketches, and
-additional outputs after neutral edits or alternate compression remain
-open.
+The scoped reader refuses recognized version-19000 saved patterns in
+strict mode and retains permissive inspection and raw extraction.
+Typed saved history, other pattern modes, dimension-driven stock
+sketches, and additional outputs after neutral edits or unmeasured
+compression remain open.
 [Change entry](../Changes/Solidworks/Construction/SolidworksMeasuredLinearPattern.md)
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK

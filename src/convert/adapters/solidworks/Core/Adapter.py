@@ -174,23 +174,17 @@ from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ColdPrism import ColdPrism
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
-from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ApplyPatStock import (
-    ApplyPatStock,
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ApplyColdPat import (
+    ApplyColdPat,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatError import (
+    ColdPatError,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.ColdPatPart import (
     ColdPatPart,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.TryColdPat import (
     TryColdPat,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Patterns.Cold.BindPatModel import (
-    BindPatModel,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyPatDoc import (
-    ApplyPatDoc,
-)
-from convert.adapters.solidworks.Core.TypedResolved.Patterns.ApplyTiltDoc import (
-    ApplyTiltDoc,
 )
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
@@ -384,7 +378,36 @@ def ReadNativePart(
     *,
     ModelValue: NativeModel | None = None,
 ) -> CadDoc:
-    Model, PatternValue = ReadPartInput(Archive, ModelValue, Settings)
+    BaseValue = (
+        DecodePartBase(Archive, Settings.configuration) if ModelValue is None else None
+    )
+    Model = BaseValue[0] if BaseValue is not None else ModelValue
+    if Model is None:
+        raise ValueError("SOLIDWORKS part read has no native model")
+    PatternInput = TryColdPat(Archive, Model, Settings, KPartBodyId)
+    if PatternInput is not None:
+        try:
+            return ReadPartDoc(
+                Instance, Archive, DataValue, Label, Settings, *PatternInput
+            )
+        except ColdPatError:
+            if Settings.strict:
+                raise
+    if BaseValue is not None:
+        Model = RefinePartModel(Archive, *BaseValue)
+    return ReadPartDoc(Instance, Archive, DataValue, Label, Settings, Model, None)
+
+
+# the resolved pattern and ordinary model share the public document builder
+def ReadPartDoc(
+    Instance: SldprtAdapter,
+    Archive: SldprtArchive,
+    DataValue: bytes,
+    Label: str,
+    Settings: ReadOptions,
+    Model: NativeModel,
+    PatternValue: ColdPatPart | None,
+) -> CadDoc:
     ConfigValues = Configurations(Model, Settings.configuration)
     UnresolvedTargets: list[Mapping[str, object]] = []
     ParamValues = Parameters(Model, UnresolvedTargets)
@@ -548,27 +571,8 @@ def ReadNativePart(
     DocValue = FinishPartDoc(
         DocValue, Model, Archive, Payloads, Settings, PatternValue, ColdBrep
     )
-    DocValue.assert_valid()
     ValidateSource(Label, False)
     return RetainSource(WithPartProps(DocValue, Archive), DataValue)
-
-
-# the native model may use the fully typed pattern or preserve the existing shape reader
-def ReadPartInput(
-    Archive: SldprtArchive, ModelValue: NativeModel | None, Settings: ReadOptions
-) -> tuple[NativeModel, ColdPatPart | None]:
-    BaseValue = (
-        DecodePartBase(Archive, Settings.configuration) if ModelValue is None else None
-    )
-    Model = BaseValue[0] if BaseValue is not None else ModelValue
-    if Model is None:
-        raise ValueError("SOLIDWORKS part read has no native model")
-    PatternValue = TryColdPat(Archive, Model, Settings, KPartBodyId)
-    if PatternValue is not None:
-        Model = BindPatModel(Model, PatternValue)
-    elif BaseValue is not None:
-        Model = RefinePartModel(Archive, *BaseValue)
-    return Model, PatternValue
 
 
 # verified pattern history owns both geometry reads and reads that request only design data
@@ -581,23 +585,15 @@ def FinishPartDoc(
     PatternValue: ColdPatPart | None,
     ColdBrep: BrepModel | None,
 ) -> CadDoc:
-    if PatternValue is not None and (
-        not Settings.include_brep or ColdBrep is PatternValue.GeometryValue.BrepValue
-    ):
-        DocValue = ApplyTiltDoc(
-            Replace(DocValue, bodies=PatternValue.BodiesValue),
-            PatternValue.LinkValue,
-            PatternValue.OwnerValue.DatumValue,
-        )
-        DocValue = ApplyPatDoc(
-            DocValue,
-            PatternValue.LinkValue,
-            PatternValue.OwnerValue,
-            PatternValue.LookValue,
-        )
-        DocValue = ApplyPatStock(DocValue, PatternValue)
-    else:
-        DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    if PatternValue is not None:
+        if (
+            Settings.include_brep
+            and ColdBrep is not PatternValue.GeometryValue.BrepValue
+        ):
+            raise ColdPatError()
+        return ApplyColdPat(DocValue, PatternValue)
+    DocValue = ProjectPartDoc(DocValue, Model, Archive, Payloads, Settings)
+    DocValue.assert_valid()
     return DocValue
 
 

@@ -266,6 +266,45 @@ def check_design_history(payload, full, open_document, open_archive, build_archi
     return design, unqualified
 
 
+def check_keyword_history(payload, full, open_document, open_archive, build_archive):
+    from convert.adapters.solidworks.Container.Format import KeywordsStream
+    from interchange.Features.FeatureKinds import LinearPattern
+
+    feature, = (row for row in full.feature_timeline if type(row.definition) is LinearPattern)
+    name = "X" + feature.name[1:]
+    original = f'Name="{feature.name}"'.encode()
+    contrary = f'Name="{name}"'.encode()
+    streams = dict(open_archive(payload).streams)
+    keywords = streams[KeywordsStream]
+    require(keywords.count(original) == 1 and original != contrary,
+            "authored keyword-name contrast missed the actual pattern row")
+    streams[KeywordsStream] = keywords.replace(original, contrary)
+    archive = build_archive(streams, FormatVersion=4)
+    for geometry in (True, False):
+        try:
+            open_document(BytesIO(archive), source_format=FORMAT, strict=True,
+                          include_brep=geometry)
+        except ValueError as error:
+            require("cache-free linear pattern lacks a verified typed feature history" in str(error)
+                    and "pattern lacks its actual neutral step" in str(error.__cause__),
+                    "keyword contradiction did not reach the late typed history binding")
+        else:
+            raise ValueError("contradicted keyword name entered a strict read")
+    return archive, name
+
+
+def check_keyword_fallback(archive, name, open_document):
+    from interchange.Features.FeatureKinds import NativeFeature
+
+    for geometry in (True, False):
+        permissive = open_document(BytesIO(archive), source_format=FORMAT,
+                                   strict=False, include_brep=geometry)
+        step, = (row for row in permissive.feature_timeline if row.name == name)
+        require(isinstance(step.definition, NativeFeature) and permissive.brep is None
+                and "solidworks.typed_linear_pattern" not in permissive.metadata,
+                "permissive read retained rejected pattern semantics or analytic geometry")
+
+
 def check_permissive_history(unqualified, design, open_document):
     from interchange.Features.FeatureKinds import LinearPattern
 
@@ -386,6 +425,8 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
                 semantic = check_semantics(readback, parsed, result["phases"][f"{name}-edit"])
                 design, incomplete = check_design_history(prepared, readback, open_document,
                                                           SldprtArchive.from_bytes, BuildSldprt)
+                keyword_contrast = check_keyword_history(prepared, readback, open_document,
+                                                         SldprtArchive.from_bytes, BuildSldprt)
                 for write in (public, direct):
                     untouched = BytesIO()
                     reject(lambda: write(parsed, untouched, values), "no exact native linear pattern measurement")
@@ -394,11 +435,13 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
                 require(streams == expected_streams and not blocked, "alternate runtime changed logical streams")
         if digest(prepared) != SOURCE_HASHES[name]:
             check_permissive_history(incomplete, design, open_document)
+            check_keyword_fallback(*keyword_contrast, open_document)
             report = {"case": name, "request_sha256": request_sha, "generated_sha256": digest(prepared),
                       "bytes": len(prepared), "streams": streams, "publication_count": 0, "refusal_count": 2,
                       "runtime_input_file_reads": len(blocked), "native_launches": 0, "semantics": semantic,
                       "design_only_history_equal": True, "strict_history_refusal_count": 2,
                       "permissive_history_unqualified": True,
+                      "strict_keyword_refusal_count": 2, "permissive_keyword_fallback_count": 2,
                       "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "unmeasured_binary_envelope_refused"}
             return capture_candidate(capture, prepared, report, root) if capture else report
     original, direct_output, retained, direct_retained = (BytesIO() for _ in range(4))
@@ -409,6 +452,8 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
         raw = original.getvalue()
         readback = open_document(BytesIO(raw), source_format=FORMAT, strict=True)
         design, incomplete = check_design_history(raw, readback, open_document, SldprtArchive.from_bytes, BuildSldprt)
+        keyword_contrast = check_keyword_history(raw, readback, open_document,
+                                                 SldprtArchive.from_bytes, BuildSldprt)
         snapshot = CadDocument.from_json(readback.to_json())
         design_snapshot = CadDocument.from_json(design.to_json())
         design_sinks = (BytesIO(), BytesIO())
@@ -450,6 +495,7 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
             reject(lambda: write(parsed, mixed_sink, mixed_values), "exact disclosed native measurement")
             require(mixed_sink.getvalue() == b"untouched output", "mixed-line receipt altered output")
     check_permissive_history(incomplete, design, open_document)
+    check_keyword_fallback(*keyword_contrast, open_document)
     path_source = open_document(target, source_format=FORMAT, strict=True)
     require(path_source.feature_timeline == readback.feature_timeline and path_source.bodies == readback.bodies,
             "strict path and binary input describe different pattern owners")
@@ -474,6 +520,7 @@ def verify(root, name, scratch, verify_runtime_boundary, capture=None, alternate
             "refusal_count": refused + 2, "runtime_input_file_reads": len(blocked), "native_launches": 0,
             "design_only_history_equal": True, "strict_history_refusal_count": 2,
             "permissive_history_unqualified": True,
+            "strict_keyword_refusal_count": 2, "permissive_keyword_fallback_count": 2,
             "published_lf_receipt_count": 2,
             "mixed_newline_receipt_refusal_count": 2,
             "semantics": semantics, "compression_runtime": ZLIB_RUNTIME_VERSION, "status": "native_hash_reproduced"}

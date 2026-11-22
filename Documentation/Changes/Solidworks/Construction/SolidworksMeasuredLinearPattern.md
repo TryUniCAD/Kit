@@ -33,9 +33,12 @@ They recovered the linked plan, selected body owners, annotation presentation
 and matching geometry without CAD runtime or input file reads. Design-only
 strict reads retain the same typed feature and driver owners and can publish
 the exact measured archive from a restored neutral JSON document. Both strict
-read modes refuse a recognized cache-free pattern with incomplete typed
-history. See the
-[scope and reproduction record](../../../../re/solidworks/records/MeasuredLocalLinearPattern2026.md).
+read modes refuse a recognized pattern with incomplete typed history,
+including version-19000 native saves with a geometry cache. Permissive
+inspection keeps the saved geometry and the unresolved native feature.
+Explicit Parasolid extraction keeps the original payloads. See the
+[scope and reproduction record](../../../../re/solidworks/records/MeasuredLocalLinearPattern2026.md)
+and [saved pattern history gotcha](../../../Gotchas/Conversion/Solidworks/Archive/Geometry/SavedPatternCacheCannotProveHistory.md).
 The [Windows compression trial](../../../../re/solidworks/records/MeasuredPatternCompression2026.md)
 repeated those native observations and reproduced both alternate files
 through the ordinary SDK and direct writer with the matching evidence.
