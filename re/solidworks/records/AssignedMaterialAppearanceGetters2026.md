@@ -99,7 +99,12 @@ and again across all three files at completion. Only the aggregate
 Result.json is printed. The individual COM call records, installed
 type descriptors, raw values, filenames and diagnostics remain on the
 guest. Exit 0 means the scoped observation completed under its controls.
-Exit 3 retains incomplete or failed evidence. The protocol is awaiting
-its native run. It grants no writer, full appearance, texture mapping,
-source lifecycle or held-out credit.
+Exit 3 retains incomplete or failed evidence. The observer measures getter
+semantics only.
 [Observer](../../tooling/sw2026/materials/ObserveAssignedAppearanceGetters.py) [Freezer](../../tooling/sw2026/materials/FreezeAssignedAppearanceGetters.py)
+
+## Measured owner results
+
+Four distinct processes passed on build `34.5.2.0604`. Both controls opened cleanly, both source hashes stayed intact and the observer made zero save calls. The two material parts matched their active configuration, sole solid, volume and centre. Both body getter channels returned null in each case. Both document channels returned nine values and matched the classic RGB and transparency. In D01 its RGB differs from the stored model and physically based values. In D02 those three stored RGB values coincide.
+
+Each selected-state renderer result attached to the part itself and matched the classic roughness and exact filename in both sources. The archived renderer ID matched the configuration holder in both cases. The part call returned a different ID in D02. Render roughness differed from the physically based roughness in both sources. These distinctions keep material identity, legacy document display and renderer state as separate measured owners. [Native receipt](../measurements/2026/AssignedMaterialAppearanceGetterNative01.json)

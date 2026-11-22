@@ -43,3 +43,9 @@ python3.14 -I -B re/tooling/sw2026/ellipse_source/AuditEllipseSeam.py \
 ```
 
 The packet measures when the seam moves or first becomes observable. A native position change supplies temporal ownership evidence. Source constructor semantics still need the proven producer or an independently measured alternate state. [CAD acceptance criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md) · [Generative corpus](../../Playbook/GenerativeCorpus.md)
+
+## Measured disposition
+
+Both native sources and all four controls passed in eight distinct processes. The analyzer bound both archives and all 13 snapshots to the same scoped kind-2 seam point, ID `(0, 1)`. The two direct getters and both sketch-point inventories exposed it at every snapshot. In both author branches the point was at the major station immediately after drawing, then at 17 degrees when the sketch closed. The Centre, Major and Minor points kept their identities and coordinates. The later boss insertion, explicit rebuild, save and fresh reopen preserved the moved point. The saved sketch-only and blind-boss seam positions agree. [Measured disposition](../measurements/2026/EllipseSeamNativeDisposition01.json)
+
+This locates the transition during sketch closure for the measured Front shape. The static setter, other initial placement cases and generated part acceptance remain open. The archive comparison made zero runtime external accesses.
