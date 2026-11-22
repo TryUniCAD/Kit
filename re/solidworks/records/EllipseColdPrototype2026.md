@@ -42,3 +42,14 @@ prlctl exec 'Windows 11' --current-user "$ellipse_python" -E -B "$ellipse_guest\
 ```
 
 The two control families bracket the four candidate phases in eight distinct process lifetimes. The terminal is `C:\KitEllipseColdPrototype02\Capture\Result.json`. This disclosed procedure carries zero held-out credit. The pre-writer cohort remains sealed. [CAD success criteria](../../../Documentation/Reference/Operations/CadSuccessCriteria.md)
+## Disclosed native result
+
+The corrected packet completed both lifecycles on SOLIDWORKS 2026
+build `34.5.2.0604`. Each generated part contained its actual solid at
+cold open, rebuilt cleanly and accepted the driving depth edit. The fresh
+read-only reopen preserved the edited depth, the seam identity and all
+25 ordered feature rows. The two pairs passed 910 recorded assertions.
+All four bracket controls and all eight distinct process identities passed.
+Only the separately locked sources can earn held-out credit.
+[Native acceptance](../measurements/2026/EllipseColdNativeDisclosed02.json)
+· [Sealed evaluation](EllipseColdHeldoutProtocol2026.md)
