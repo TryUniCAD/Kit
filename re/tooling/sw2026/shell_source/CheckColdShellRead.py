@@ -35,6 +35,7 @@ def predicted(case):
 
 
 def check_document(doc, case, include):
+    from convert import write_document
     from interchange.Features.FeatureExtrude import ExtrudeFeature
     from interchange.Features.FeatureKinds import ShellFeature
 
@@ -92,11 +93,22 @@ def check_document(doc, case, include):
     reread = type(doc).from_json(doc.to_json())
     require(reread.feature_timeline[-1].definition == shell.definition and reread.bodies[0].topology == topology
             and reread.selections[0].path == pick.path and reread.parameters[1].value == thickness.value
-            and (reread.brep is not None) == include, "ordinary JSON lost shell intent or geometry")
+            and (reread.brep is not None) == include, "inspection JSON lost shell intent or geometry")
+    sentinel = b"caller-owned JSON sink"
+    destination = BytesIO(sentinel)
+    try:
+        write_document(doc, destination, destination_format="interchange.json", allow_carrier=False)
+    except ValueError as error:
+        require("native-only feature definitions cannot be exported" in str(error)
+                and destination.getvalue() == sentinel and destination.tell() == 0,
+                "public interchange export crossed its native history guard")
+    else:
+        raise ValueError("public interchange export admitted native-only system history")
     return {"brep": include, "counts": counts, "values": values, "root_count": len(features),
             "drivers": [depth.id, thickness.id], "native_metres": [depth.attributes["native_value"],
                                                                      thickness.attributes["native_value"]],
-            "selection": [stock.id, "face:1"], "atom": 101, "json_roundtrip": True}
+            "selection": [stock.id, "face:1"], "atom": 101, "inspection_json_roundtrip": True,
+            "public_interchange_export_refused": True}
 
 
 def contrast_streams(raw, change):
@@ -109,6 +121,7 @@ def contrast_streams(raw, change):
     archive = SldprtArchive.from_bytes(raw)
     link = ReadNativeLink(archive, 0, ReadShells=True)
     config, resolved = link.ConfigValue, link.ResolvedValue
+    profile = resolved.RootsValue[-3]
     shell = resolved.RootsValue[-1].FieldsValue
     cap = shell["f828"].FieldsValue["items"][0]["o"].FieldsValue["fe8"].FieldsValue
     edge = shell["f848"].FieldsValue["fe8"].FieldsValue
@@ -124,7 +137,11 @@ def contrast_streams(raw, change):
     elif change == "putative_saved_partition":
         changed = {"Contents/Config-0-Partition": b"unqualified geometry stream"}
     else:
-        if change == "bottom_as_top":
+        if change == "crossed_stock":
+            points = profile.FieldsValue["pd_f80"].FieldsValue["points"]
+            first, other = (row["point"] for row in points[2:])
+            first["pos"], other["pos"] = other["pos"], first["pos"]
+        elif change == "bottom_as_top":
             cap["f10"][0]["f08"].FieldsValue["f38"] = 0
         elif change == "reordered_auxiliary":
             rows = edge["f10"]
@@ -155,6 +172,7 @@ def check_refusals(raw):
         "foreign_partition": "unqualified physical stream",
         "putative_saved_partition": "stock has unsupported blind end state",
         "bottom_as_top": "removed face is outside the actual stock cap",
+        "crossed_stock": "stock contour does not follow the rectangle perimeter",
         "reordered_auxiliary": "ordered stock cap and edge roles",
         "different_history_file": "alternate clip, point or history ownership",
         "live_thickness": "differs from its linked display value",

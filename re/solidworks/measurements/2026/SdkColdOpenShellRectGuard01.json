@@ -1,0 +1,63 @@
+{
+  "base": "6956dfe94bfaddede5bc12346e654104c28a7c37",
+  "before_fix": {
+    "incorrect_face_count": 11,
+    "strict_modes_accepting_crossed_stock": 2
+  },
+  "cases": {
+    "IndependentColdShell": {
+      "archive_sha256": "d0b47b0484a651614e40cc9fe54a1312611f92bac0ea986f7afcaba0b1dd8f52",
+      "crossed_stock_guard": "stock contour does not follow the rectangle perimeter",
+      "inspection_json_roundtrips": 2,
+      "permissive_contrast_fallbacks": 9,
+      "public_interchange_sink_refusals": 2,
+      "runtime_data_reads": 0,
+      "stream_count": 10,
+      "strict_contrast_refusals": 18,
+      "strict_modes": 2
+    },
+    "OpenShellCalibration": {
+      "archive_sha256": "84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1",
+      "crossed_stock_guard": "stock contour does not follow the rectangle perimeter",
+      "inspection_json_roundtrips": 2,
+      "permissive_contrast_fallbacks": 9,
+      "public_interchange_sink_refusals": 2,
+      "runtime_data_reads": 0,
+      "stream_count": 10,
+      "strict_contrast_refusals": 18,
+      "strict_modes": 2
+    },
+    "OpenShellDistinct": {
+      "archive_sha256": "df63c4c39f73d50b48cf17fb68361581823195a74b3909e4190c79636c4b1fec",
+      "crossed_stock_guard": null,
+      "inspection_json_roundtrips": 2,
+      "permissive_contrast_fallbacks": 0,
+      "public_interchange_sink_refusals": 2,
+      "runtime_data_reads": 0,
+      "stream_count": 10,
+      "strict_contrast_refusals": 0,
+      "strict_modes": 2
+    },
+    "OpenShellTranslated": {
+      "archive_sha256": "bf778bbd668b5600172f37e3a6c8b842ef4ffdeed72cb61e60b9a691e0b94e84",
+      "crossed_stock_guard": null,
+      "inspection_json_roundtrips": 2,
+      "permissive_contrast_fallbacks": 0,
+      "public_interchange_sink_refusals": 2,
+      "runtime_data_reads": 0,
+      "stream_count": 10,
+      "strict_contrast_refusals": 0,
+      "strict_modes": 2
+    }
+  },
+  "heldout_credit": 0,
+  "native_launches": 0,
+  "production_src_tree": "26ac6e055e3041851ab17c864be60cda4961f6a6",
+  "public_interchange_mode": "registry refuses native-only history before destination writes",
+  "reports_sha256": {
+    "Frozen": "d94c8d86688b776a848191f487972152c261e7af6651e1243a98438cfca45a95",
+    "Independent": "9c45a98c37ba9e6b72d784921b25c6ebad5937140416240d692fbb7262e14b42"
+  },
+  "schema": "kit-sw2026-open-shell-rect-guard-v1",
+  "tool_sha256": "137b8482a23a5c06d30d2cb460ab3dd674f4a0acb46ecacdc9d835d9aae9bcc8"
+}

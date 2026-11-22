@@ -74,11 +74,19 @@ def ReadFreshStock(
 
 # both stock layouts derive extents and port the actual selected support from the same owners
 def ShellStockBox(Owner: ExtrudeOwner, LoopValue: LineLoop) -> ShellStock:
-    XValues = sorted({Point.PositionValue[0] for Point in LoopValue.PointsValue})
-    YValues = sorted({Point.PositionValue[1] for Point in LoopValue.PointsValue})
+    Positions = {Point.PositionValue for Point in LoopValue.PointsValue}
+    XValues = sorted({XValue for XValue, _ in Positions})
+    YValues = sorted({YValue for _, YValue in Positions})
     DepthValue = Owner.DepthValue.DepthValue.value_mm
-    if len(XValues) != 2 or len(YValues) != 2 or DepthValue is None or DepthValue <= 0:
+    if (
+        len(Positions) != 4
+        or len(XValues) != 2
+        or len(YValues) != 2
+        or DepthValue is None
+        or DepthValue <= 0
+    ):
         raise ValueError("SOLIDWORKS shell stock requires a finite forward rectangle")
+    CheckShellSides(LoopValue)
     Bounds = BoundingBox(
         SpaceVector(XValues[0], YValues[0], 0.0),
         SpaceVector(XValues[1], YValues[1], DepthValue),
@@ -90,3 +98,14 @@ def ShellStockBox(Owner: ExtrudeOwner, LoopValue: LineLoop) -> ShellStock:
     if type(PlaneId) is not int:
         raise ValueError("SOLIDWORKS shell stock lost its actual datum identity")
     return ShellStock(Owner, LoopValue, Bounds, PlaneId)
+
+
+# every edge of the verified closed loop must join adjacent corners of the rectangle
+def CheckShellSides(LoopValue: LineLoop) -> None:
+    for LineValue in LoopValue.LinesValue:
+        StartX, StartY = LoopValue.PointsValue[LineValue.StartValue].PositionValue
+        FinishX, FinishY = LoopValue.PointsValue[LineValue.EndValue].PositionValue
+        if (StartX == FinishX) == (StartY == FinishY):
+            raise ValueError(
+                "SOLIDWORKS shell stock contour does not follow the rectangle perimeter"
+            )

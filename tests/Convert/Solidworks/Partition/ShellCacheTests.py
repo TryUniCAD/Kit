@@ -63,8 +63,15 @@ def TestColdShell() -> None:
     )
     assert FullRead["values"] == Design["values"]
     assert FullRead["root_count"] == Design["root_count"] == 20
+    assert FullRead["inspection_json_roundtrip"] is True
+    assert Design["public_interchange_export_refused"] is True
     assert CaseValue["streams"] == 10
-    assert CaseValue["strict_refusal_runs"] == 16
-    assert CaseValue["permissive_refusal_runs"] == 8
+    assert CaseValue["strict_refusal_runs"] == 18
+    assert CaseValue["permissive_refusal_runs"] == 9
+    Refused = CastValue(dict[str, str], CaseValue["refusals"])
+    assert (
+        "stock contour does not follow the rectangle perimeter"
+        in Refused["crossed_stock"]
+    )
     assert CaseValue["runtime_data_reads"] == CaseValue["native_process_launches"] == 0
     assert Report["published_native_outputs"] == Report["heldout_credit"] == 0

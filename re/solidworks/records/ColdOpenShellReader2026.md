@@ -48,12 +48,22 @@ The [guarded process proof](../../tooling/sw2026/shell_source/CheckColdShellRead
 rebuilds each neutral request in memory. It checks all three disclosed
 whole archives against the [prior typed owner receipt](../measurements/2026/GeneratedOpenShellOwners01.json)
 and independently repeats the synthetic request. Both strict modes and
-ordinary neutral JSON round trips pass. Eight transient contrasts each
+direct inspection JSON round trips pass. Nine transient contrasts each
 refuse in both strict modes and stay native-only in permissive
 inspection. The guarded workers have zero runtime data reads and launch
 no CAD processes. Both direct and public registry publication refuse
 without writing to their sinks. The [shared queue integration](../../../tests/Convert/Solidworks/Partition/ShellCacheTests.py)
 uses the independent synthetic case.
+
+The crossed-contour contrast exchanges only the last two corner
+positions and retains the original line handles and cap owners. The
+prior reader returned its rectangular 11-face B-rep in both strict
+modes despite the crossed sketch. Strict readback now checks each
+actual side for distinct, adjacent rectangle corners. The same
+process calls `write_document` for `interchange.json` and verifies its
+native-history refusal and an untouched sink. Direct inspection JSON
+keeps the native-only system rows and is a distinct round trip.
+[Perimeter and public export receipt](../measurements/2026/SdkColdOpenShellRectGuard01.json)
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/shell_source/CheckColdShellRead.py \

@@ -16,4 +16,8 @@ Four guarded processes covered three byte-identical regenerated
 archives and a separately authored neutral variation. The earlier
 saved-shell receipt reproduced byte for byte. Public shell writing
 remains closed pending native and independent held-out qualification.
+The reader verifies the actual sketch sides before rebuilding the
+shell. The inspection JSON round trip retains native system history.
+Public interchange export still treats those system records as
+native-only and refuses the document before writing.
 [Receipt and method](../../../../re/solidworks/records/ColdOpenShellReader2026.md)
