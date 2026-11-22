@@ -1,0 +1,43 @@
+{
+  "candidates": [
+    {
+      "case": "EllipseFrontA",
+      "changed_streams": [
+        "Contents/Config-0-ModelHeader",
+        "Header2"
+      ],
+      "runtime_reads": 0,
+      "sha": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "size": 8120,
+      "unchanged_streams": 8
+    },
+    {
+      "case": "EllipseFrontB",
+      "changed_streams": [
+        "Contents/Config-0-ModelHeader",
+        "Header2"
+      ],
+      "runtime_reads": 0,
+      "sha": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "size": 8119,
+      "unchanged_streams": 8
+    }
+  ],
+  "construction_revision": "1f0235b91c8ce56e66ae7e4202898dbff01777d1",
+  "native_processes": 0,
+  "schema": "kit.sw2026.ellipse-prototype-transport-retry.v1",
+  "shallow_cli_verifications": [
+    {
+      "exit_code": 1,
+      "first_error": "IndexError: 4",
+      "four_parents": true,
+      "trial_sha256": "13619e76344d3a3bc2fa2b98e06b5753260d81c34bc010b5d4aaa82c270fc1f6"
+    },
+    {
+      "exit_code": 0,
+      "first_error": null,
+      "four_parents": true,
+      "trial_sha256": "5a0cb6cfe063ac3357e193c5d39ca1749f16ad26ef6e995fdb2cae0ce5244653"
+    }
+  ]
+}
