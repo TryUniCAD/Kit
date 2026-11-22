@@ -2,6 +2,9 @@ from interchange.Core.Common import FreezeMapping
 from interchange.geometry.Models.Sketch import Sketch
 
 from convert.adapters.solidworks.Core.Native import NativeSketch
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineParamIds import LineParamIds
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.LineRules import LineRules
+from convert.adapters.solidworks.Core.TypedResolved.LineDimensions.Origin.OriginEntity import OriginEntity
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineEntity import LineEntity
 from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
     TypedProvenance,
@@ -9,7 +12,7 @@ from convert.adapters.solidworks.Core.TypedResolved.TypedProvenance import (
 
 
 # qualified point owners define line endpoints rather than additional public sketch entities or invented constraints
-def LineSketch(SketchValue: NativeSketch) -> Sketch:
+def LineSketch(SketchValue: NativeSketch, ParameterIds: set[str]) -> Sketch:
     LoopValue = SketchValue.TypedLines
     if LoopValue is None:
         raise ValueError("typed line sketch requires a qualified native ring")
@@ -17,11 +20,15 @@ def LineSketch(SketchValue: NativeSketch) -> Sketch:
         LineEntity(SketchValue.object_id, LoopValue, LineValue)
         for LineValue in LoopValue.LinesValue
     )
+    DimsValue = LoopValue.DimsValue
+    Origin = DimsValue.OriginValue if DimsValue is not None else None
     return Sketch(
         id=f"sldprt:sketch:{SketchValue.object_id}",
         name=SketchValue.name,
         support_plane_id=f"sldprt:plane:{SketchValue.support_plane_id}",
-        entities=Entities,
+        entities=(*Entities, OriginEntity(SketchValue.object_id, Origin)) if Origin is not None else Entities,
+        constraints=LineRules(SketchValue.object_id, LoopValue, tuple(Entity.id for Entity in Entities)),
+        parameter_ids=LineParamIds(SketchValue.object_id, LoopValue, ParameterIds),
         closed_profile_entity_ids=(
             tuple(Entities[Index].id for Index in LoopValue.OrderValue),
         ),

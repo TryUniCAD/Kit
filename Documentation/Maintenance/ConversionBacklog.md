@@ -60,6 +60,17 @@ B04's parent is not complete merely because controlled constructor probes exist.
 
 ## Important gap boundaries
 
+### B04-SW2026/EQUATIONS-LOCAL-REFERENCES
+
+The PR #121 takeover agent owns this main-target slice on
+`codex/solidworks-measured-width-depth`. It depends on the standalone
+measured part writer, ordinary linked configuration and resolved
+archives, and the 2026 relation and Origin rules. Exit requires the exact
+native-tested output on normal SDK routes, strict linked dimension and
+body readback, guarded runtime isolation, and hosted review and CI for
+the delivery revision. General equations and saved file transfer remain
+open. [Exact process evidence](../../re/solidworks/records/MeasuredWidthDepthMain2026.md)
+
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 
 The PR #121 takeover agent owns the strict local geometry reader extraction

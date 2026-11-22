@@ -1,5 +1,8 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import HasEqIntent
+from convert.adapters.solidworks.Core.Preparation.Equations.ReadEqDrivers import ReadEqDrivers
+from convert.adapters.solidworks.Core.Preparation.Equations.ReadEqSketch import ReadEqSketch
 from convert.adapters.solidworks.Core.Preparation.Readback.ReadColdBoss import (
     ReadColdBoss,
 )
@@ -9,12 +12,15 @@ from convert.adapters.solidworks.Core.Preparation.Readback.ReadColdSketch import
 from interchange.Core.Common import FreezeMapping
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Records.RecordTopology import TopologyCounts
+from interchange.Records.RecordParameter import Parameter as ParamValue
 
 
 # only the shared plain inputs reach construction while the enclosing writer verifies all readback state
 def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
+    HasEquation = HasEqIntent(Document)
     if (
         Document.assembly is not None
+        or len(Document.parameters) != (3 if HasEquation else 1)
         or Document.brep_payloads
         or Document.meshes
         or Document.materials
@@ -22,7 +28,6 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
             len(RowsValue) != 1
             for RowsValue in (
                 Document.configurations,
-                Document.parameters,
                 Document.sketches,
                 Document.bodies,
             )
@@ -31,12 +36,10 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         raise ValueError(
             "SOLIDWORKS cold readback requires one ordinary body profile and D1"
         )
-    Sketch, Driver, BodyValue, Config = (
-        Document.sketches[0],
-        Document.parameters[0],
-        Document.bodies[0],
-        Document.configurations[0],
+    Sketch, BodyValue, Config = (
+        Document.sketches[0], Document.bodies[0], Document.configurations[0],
     )
+    Driver, SketchDrivers = ReadColdDrivers(Document, HasEquation)
     Owners = tuple(
         ItemValue
         for ItemValue in Document.feature_timeline
@@ -64,11 +67,11 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         Document,
         source=ReplaceValue(Document.source, attributes=FreezeMapping()),
         configurations=(ReplaceValue(Config, attributes=FreezeMapping()),),
-        parameters=(Parameter,),
+        parameters=(*SketchDrivers, Parameter),
         support_planes=(
             ReplaceValue(Planes[0], attributes=FreezeMapping(), provenance=None),
         ),
-        sketches=(ReadColdSketch(Sketch),),
+        sketches=((ReadEqSketch if HasEquation else ReadColdSketch)(Sketch),),
         selections=(),
         feature_timeline=(Feature,),
         bodies=(
@@ -85,3 +88,15 @@ def ColdReadInput(Document: CadDocument, NameValue: str) -> CadDocument:
         metadata=FreezeMapping({"name": NameValue}),
         capabilities=frozenset(),
     )
+
+
+
+# cold preparation selects the current dependent boss driver by its semantic expression rather than array order
+def ReadColdDrivers(Document: CadDocument, HasEquation: bool) -> tuple[ParamValue, tuple[ParamValue, ...]]:
+    if not HasEquation:
+        return Document.parameters[0], ()
+    Derived = tuple(Value for Value in Document.parameters if Value.expression is not None)
+    if len(Derived) != 1:
+        raise ValueError("SOLIDWORKS cold equation needs one resolved dependent driver")
+    Drivers = {Value.id: Value for Value in Document.parameters if Value is not Derived[0]}
+    return Derived[0], ReadEqDrivers(Document.sketches[0], Drivers)

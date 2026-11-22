@@ -336,6 +336,15 @@ with its matching final locator and receipt. Kit verifies the regenerated
 model and complete output digest before exposing bytes. Native saves with
 extra state remain outside this path.
 
+The measured Front Plane rectangle also supports two driving sketch
+dimensions and the local equation `"D1@Sketch1" / 2` for a forward blind
+boss. The neutral sketch supplies an explicit fixed Origin point and
+corner coincidence. Strict reading binds both real dimension owners and
+the driven boss depth. Use the same offline measurement envelope with
+the exact width-to-depth receipt and epoch. Strict cold readback can use
+that same receipt after whole-model comparison.
+[Measured equation](../../Changes/Solidworks/Construction/SolidworksMeasuredWidthDepth.md)
+
 The combined SDK adapter listing describes the reader for shared formats.
 Use `AdapterRegistry.writers()` after discovery for writer metadata.
 Use `kit formats --json` for the exact reader and writer aliases and extensions.
