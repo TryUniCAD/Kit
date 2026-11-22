@@ -1,0 +1,184 @@
+{
+  "cold": {
+    "complete_file_hashes": [
+      "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da"
+    ],
+    "fresh_writer_processes": 2,
+    "historical_receipt_identical": true,
+    "reproduced_receipt_sha256": "996e1d0fbebb38f97cd32eec7d81fe84da2032552c1a2c2c45216a8162888222"
+  },
+  "exact_warm": {
+    "fresh_sdk_processes": 6,
+    "historical_receipt_sha256": "f99827c82500e6adbec197f83def500d011216b365a6ebbdee2c891f2178ec56",
+    "post_stack_receipt_sha256": "4b10caf4266aa7434e207cdb0028b5b6af54d1aac36b6769b062885dee80613e",
+    "six_outcome_rows_identical": true,
+    "source_manifest": {
+      "base": "b05889d997f67a8f862265ee236678610dfe4eef",
+      "files": 59,
+      "sha256": "0000ba30651d3d6451b5df1e8c4f6bb9c401b6bddde4ea2e8e9cc888808a9136"
+    }
+  },
+  "merged_source_revision": "829e5a5555b424e9c01e264026356c7c47fbebcd",
+  "method_sha256": {
+    "re/tooling/sw2026/sweep_source/CheckTrackedSweepSdk.py": "8c29a44b813b29624e358fefe5aad40ee0aa16445983079a869e42a9c220ff28",
+    "re/tooling/sw2026/sweep_source/ScrubSweepFixtures.py": "75d6a21f50c8dd05802e869901fb9451beaf6790ed8cc930085fcba79bc69be0",
+    "tests/Convert/Solidworks/SweepReading/SavedSweepTests.py": "bc38504dc9965123392c58c01ffaa0b551fcdb533cea75a0e4299a035425a8e8"
+  },
+  "native_oracle_processes_this_task": 0,
+  "new_heldout_credits": 0,
+  "new_writer_attestations": 0,
+  "oracle_file_version": "34.5.2.0604",
+  "oracle_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "schema": "kit.sw2026.saved-sweep-stacked-boundaries.v1",
+  "scrubbed_fixtures": {
+    "bytes_reproduced": true,
+    "independent_scrub_processes": 2,
+    "known_account_and_executable_signature_checks_passed": true,
+    "manifest_sha256": "54461829abdc7501bcb3e5944adf9d569d345471e748c9e93b2ff77ec400cff4",
+    "reader_observations": {
+      "original": {
+        "current_geometry": {
+          "area_m2": 0.0025336063280646656,
+          "center_m": [
+            0.026416272093383358,
+            0.014880727906616643,
+            0.0
+          ],
+          "mass_kg": 0.006862306823572918,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 6.651455678562486e-06
+        },
+        "density_kg_m3": 1031.7,
+        "fixture_sha256": "46a8faf1e54be5e312c0ab9f0e739c60cd4cd473bca09ae72369a552ef41675c",
+        "independent_drivers_mm": [
+          11.426,
+          41.297
+        ],
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "native_launches": 0,
+        "native_source_sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 1.680241640774688e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "role": "original",
+        "runtime_accesses": 0,
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.0,
+          "periodic_seam_mm": [
+            5.713,
+            0.0
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "strict_reader_routes": 3,
+        "typed_result_atom": "101",
+        "worker_stdout_sha256": "21bf3b3ef48135fd3809eaad87a5a88839a4c47caf9c4a39309fa8ddc10ab785"
+      },
+      "section": {
+        "current_geometry": {
+          "area_m2": 0.003207111911178496,
+          "center_m": [
+            0.026484379479336427,
+            0.014812620520663572,
+            0.0
+          ],
+          "mass_kg": 0.010577952284658644,
+          "native_counts": [
+            1,
+            1,
+            3,
+            2,
+            0
+          ],
+          "volume_m3": 1.0252934268351889e-05
+        },
+        "density_kg_m3": 1031.7,
+        "fixture_sha256": "2e1db56ec1100add9c8f086a8a77d48e52bc573827972b194bde64261f5cfa37",
+        "independent_drivers_mm": [
+          14.186,
+          41.297
+        ],
+        "matched_direct_registry_explicit_default_and_design_only": true,
+        "native_body_name": "OrdinarySweptBoss",
+        "native_launches": 0,
+        "native_source_sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+        "oriented_rims": [
+          {
+            "cap_fin": 49,
+            "oriented_cap_angle": -1,
+            "oriented_dv": -1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 44,
+            "u": -1.5707963267948966,
+            "verified_quarter_points": 4,
+            "wall_fin": 48
+          },
+          {
+            "cap_fin": 42,
+            "oriented_cap_angle": 1,
+            "oriented_dv": 1,
+            "phase": -1.5707963267948966,
+            "physical_edge": 10,
+            "u": 1.680241640774688e-16,
+            "verified_quarter_points": 4,
+            "wall_fin": 50
+          }
+        ],
+        "role": "section",
+        "runtime_accesses": 0,
+        "sketches": {
+          "center_index": 0,
+          "local_seam_angle_rad": 0.2967059728390366,
+          "periodic_seam_mm": [
+            6.78306963404581,
+            2.073792501598376
+          ],
+          "point_marks": [
+            2,
+            1
+          ],
+          "start_end_index": 1
+        },
+        "strict_reader_routes": 3,
+        "typed_result_atom": "101",
+        "worker_stdout_sha256": "6b2e8c7e1065b42a82bdfd46a63ea2fa03d01a79289e718ae28700c03ce57dfd"
+      }
+    }
+  },
+  "sdk_source_tree": "ac4e40635dc21a3cea05db2ceba99b01cf345c11",
+  "source_lock_sha256": "563aef5da24478ab83b881092561dd09066ad9b8e3999ca1da106e00e22420ca",
+  "stacked_base": "85f1fe90bf1be75f0e6b0bc7339bdef8ec72429f",
+  "stacked_pr": 238
+}

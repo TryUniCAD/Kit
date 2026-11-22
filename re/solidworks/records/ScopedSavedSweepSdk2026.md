@@ -92,3 +92,40 @@ python3.14 -I -B re/tooling/sw2026/CheckScopedSweep.py \
 ```
 
 [Six-process source read receipt](../measurements/2026/ScopedSavedSweepSdk01.json)
+
+## Stacked delivery and hosted reader boundary
+
+The scoped reader incorporates [PR #238](https://github.com/TryUniCAD/Kit/pull/238)
+at `85f1fe90bf1be75f0e6b0bc7339bdef8ec72429f`. The complete cold
+receipt reproduced at its original SHA-256. All six warm result rows
+also reproduced exactly, including their typed, geometry and refusal
+observations. The [stacked proof](../measurements/2026/ScopedSavedSweepStacked02.json)
+binds the post-merge SDK tree and fresh process receipts.
+
+The hosted regression uses the
+[privacy-scrubbed Wide pair](../v2026/corpus/saved-sweep/SavedSweepWide01/README.md).
+Each fixture runs in a fresh guarded process through the strict adapter,
+strict registry and strict design-only registry. The physical Section
+diameter moves from 11.426 mm to 14.186 mm while the Path radius remains
+41.297 mm. Both are distinct D1 drivers bound to their original sketch
+and dimension identities. The Section point rotates by 17° and retains
+its index and marks. Both native-result rims retain their signed cap
+and torus trims. Four positions on each reconstructed rim agree with
+both owning surfaces. The body still binds to atom 101 and has one
+solid, one shell, three faces, two edges and zero physical vertices.
+
+The original saves contain account information in populated native
+metadata. The scrubber uses the typed header and XML owners and the
+generative empty Biography. It omits the unused Definition and
+DisplayLists streams. The Section edit's alternate renderer remains
+outside the Definition codec. With those changes the complete strict
+SDK projections match apart from the input SHA in both read modes.
+All disclosed native observations remain tied to their original hashes.
+[Account metadata gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Privacy/SavedSweepFixturesContainAccountMetadata.md)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/sweep_source/CheckTrackedSweepSdk.py --role original
+python3.14 -I -B re/tooling/sw2026/sweep_source/CheckTrackedSweepSdk.py --role section
+python3.14 -I -B re/tooling/sw2026/sweep_source/ScrubSweepFixtures.py \
+  --disclosed /path/to/SweepBossSource07/DisclosedNative --output /tmp/KitSweepFixtures
+```
