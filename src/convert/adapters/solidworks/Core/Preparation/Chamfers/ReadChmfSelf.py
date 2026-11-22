@@ -11,8 +11,7 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 
 # the snapshot construction event must agree across the typed self records and both headers
-def ReadChmfSelf(Payload: bytes) -> SelfFileInput:
-    Archive = SldprtArchive.from_bytes(Payload)
+def ReadChmfSelf(Archive: SldprtArchive) -> SelfFileInput:
     if Archive.format_version != 4 or ContainerMo(Archive.streams) != 19000:
         raise ValueError("cold chamfer JSON requires a version 19000 part")
     Recipes: list[SelfFileInput] = []

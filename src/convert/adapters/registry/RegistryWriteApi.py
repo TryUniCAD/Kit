@@ -16,7 +16,7 @@ from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
 from convert.adapters.json.Adapter import JsonAdapter
 from convert.adapters.registry.NativeWrite import CheckNative
-from convert.adapters.solidworks.Core.Preparation.Chamfers.MakeChmfSnap import (
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
     IsChmfSnapDoc,
 )
 from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead

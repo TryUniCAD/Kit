@@ -363,14 +363,18 @@ measurement. Both writer entry points report the actual native capability
 transfers.
 
 The same complete cold chamfer can use ordinary interchange JSON through
-the SDK or `kit convert Part.SLDPRT Part.json`. Kit first regenerates and
-strictly reads the full source. The JSON keeps the original source digest,
-ordered feature-tree rows, native type IDs, archive provenance and editable
-model. It stores the verified self locator and construction epoch in
+the SDK or `kit convert Part.SLDPRT Part.json`. Kit checks every regenerated
+logical stream against the authenticated original, checks the complete
+container framing and verifies the typed readback. The JSON keeps the
+original source digest, ordered feature-tree rows, native type IDs, archive
+provenance and editable model. It stores the verified self locator and construction epoch in
 `solidworks_cold_chamfer_source` and omits the original replay envelope and
-native row byte copies. An unchanged snapshot can use either measured
-SOLIDWORKS SDK writer at the original locator with the original receipt.
-Each writer repeats the complete comparison before emitting anything.
+native row byte copies. An unchanged byte-free snapshot can re-export as
+JSON when regeneration proves its original digest or its independently
+measured source digest matches the complete logical bundle. Native SDK
+publication requires the original locator, receipt and exact measured
+whole output digest.
+[Chamfer compression boundary](../../Gotchas/Conversion/Solidworks/Inspection/ChamferJsonCompression.md)
 
 A current SOLIDWORKS chamfer with an unqualified saved or alternate
 history is refused in strict mode, including `include_brep=False`.

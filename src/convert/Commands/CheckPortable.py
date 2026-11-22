@@ -4,8 +4,8 @@ from typing import cast as CastValue
 from convert.Commands.CheckFeatures import CheckFeatures
 from convert.Commands.CheckRetained import CheckRetained
 from convert.Commands.Qualified.CheckGeometry import CheckGeometry
-from convert.adapters.solidworks.Core.Preparation.Chamfers.MakeChmfSnap import (
-    MakeChmfSnap,
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
+    IsChmfSnapDoc,
 )
 from interchange.assembly.AssemblyEnums import ComponentKind
 from interchange.brep.Curves.BrepCurves import NativeCurve
@@ -29,10 +29,7 @@ def CheckPortable(
     WriterQualifiedPart: bool = False,
     JsonTarget: bool = False,
 ) -> None:
-    Snapshot = MakeChmfSnap(Document) if JsonTarget else None
-    IsSnapshot = Snapshot is not None
-    if Snapshot is not None:
-        Document = Snapshot
+    IsChmfJson = JsonTarget and IsChmfSnapDoc(Document)
     for PartValue in WalkDocuments(Document):
         Freecad = PartValue.metadata.get("freecad")
         for RecordName, IsBlocked in (
@@ -56,7 +53,7 @@ def CheckPortable(
             ),
             (
                 "NativeFeature",
-                not IsSnapshot
+                not IsChmfJson
                 and any(
                     isinstance(Feature.definition, NativeFeature)
                     for Feature in PartValue.FeatureTimeline
@@ -125,10 +122,11 @@ def CheckPortable(
             ):
                 if isinstance(Geometry, (NativeCurve, NativePcurve, NativeSurface)):
                     raise ValueError(type(Geometry).__name__ + KInspectText)
-        if not (WriterQualifiedPart or IsSnapshot):
+        if not (WriterQualifiedPart or IsChmfJson):
             CheckFeatures(PartValue)
-    CheckRetained(Document)
-    if not (WriterQualifiedPart or IsSnapshot):
+    if not IsChmfJson:
+        CheckRetained(Document)
+    if not (WriterQualifiedPart or IsChmfJson):
         for PartValue in WalkDocuments(Document):
             CheckGeometry(PartValue)
     for PartValue in WalkDocuments(Document):

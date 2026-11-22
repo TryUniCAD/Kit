@@ -194,3 +194,48 @@ malformed snapshots, and another-format output refuse before modifying
 destination content. The prior measured native hashes and real warm
 saved-file inspection remain intact.
 [Revision-bound verification](../measurements/2026/SdkChamferSnapshotBoundary01.json)
+
+## JSON compression boundary
+
+The JSON route independently verifies the source attachment SHA-256 and the
+complete regenerated map of ten ordered, named, inflated streams. The ordinary
+container header, every contiguous local frame, the matching directory and
+the trailer must also consume the complete original attachment. Compressed
+lengths and dependent offsets follow the supplied valid DEFLATE encoding.
+The writer compares every modeled record, including native replay rows, against the strict
+readback. The two expected source digest fields take the authenticated
+original digest, and the original attachment is removed from the comparison.
+The resulting JSON retains the genuine source identity and all 20 rows.
+The normal CLI delegates this single qualification to the actual JSON
+writer. The writer also checks retained metadata and unsupported record
+kinds before publishing.
+
+An unchanged byte-free snapshot can reproduce its original full digest
+directly. When compression differs, the two source witnesses bind the full
+native-measured archive digest to SHA-256 of the complete named logical
+stream digest map in sorted compact UTF-8 JSON. They come from the pinned
+[generation](../measurements/2026/ChamferDistancePairGenerated01.json) and
+[independent native measurement](../measurements/2026/ChamferDistancePairDisclosedNative01.json).
+These witnesses only authenticate JSON source identity. Native publication
+checks the exact original receipt and complete output digest. A byte-free
+source with an unbound digest is refused across compressors.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/CheckChmfDeflate.py --slot 0
+python3.14 -I -B re/tooling/sw2026/CheckChmfDeflate.py --slot 1
+```
+
+The two exact measured original payloads remain fixed in the supervisor.
+The separate guarded SDK worker and normal CLI processes recompile using
+DEFLATE level 0 for the outer container. The local CPython runtimes provide
+classic zlib 1.2.12, so this is a supplemental compressor-setting
+contrast. Both alternate archives have different whole digests and
+identical inflated streams. Both JSON paths retain the original digest
+and all 20 rows through strict reload and repeat export. Profiling the
+normal CLI observes one compilation and one verification on each pass.
+Forged and cross-mode source digests, a changed generated History stream,
+unclaimed container bytes and altered body volume are refused. Both native
+output routes refuse each alternate whole digest without touching either stream. Existing
+publication reproduces the two original measured files.
+
+[Classic zlib process receipt](../measurements/2026/SdkChamferSnapshotDeflate01.json)

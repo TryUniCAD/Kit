@@ -2,55 +2,48 @@ from hashlib import sha256 as CalcSha
 from io import BytesIO
 
 from convert.adapters.base.WriteOptions import WriteOptions
+from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Core.Adapter import KSourceBytesKey
 from convert.adapters.solidworks.Core.Preparation.Chamfers.ChmfSnapMeta import (
     KChmfSnapshot,
     ReadChmfSnap,
 )
-from convert.adapters.solidworks.Core.Preparation.Chamfers.IsDistChmf import IsDistChmf
-from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
-    PrepChmfPart,
+from convert.adapters.solidworks.Core.Preparation.Chamfers.BuildChmfPart import (
+    BuildChmfPart,
+)
+from convert.adapters.solidworks.Core.Preparation.Chamfers.CheckChmfSnap import (
+    CheckChmfSnap,
+)
+from convert.adapters.solidworks.Core.Preparation.Chamfers.IsChmfSnapDoc import (
+    IsChmfSnapDoc,
 )
 from convert.adapters.solidworks.Core.Preparation.Chamfers.ReadChmfSelf import (
     ReadChmfSelf,
 )
-from convert.adapters.solidworks.Core.Preparation.Chamfers.StripChmfSnap import (
-    StripChmfSnap,
-)
-from convert.adapters.solidworks.Core.Preparation.Readback.IsColdRead import IsColdRead
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# candidate selection is only a dispatch hint and confers no authority to pass native rows
-def IsChmfSnapDoc(Document: CadDocument) -> bool:
-    return (
-        IsColdRead(Document)
-        and IsDistChmf(Document)
-        and Document.assembly is None
-        and not Document.brep_payloads
-    )
-
-
-# the interchange snapshot retains all modeled records after exact independent archive regeneration
+# interchange validation compiles the same logical archive regardless of current compression
 def MakeChmfSnap(Document: CadDocument) -> CadDocument | None:
     if not IsChmfSnapDoc(Document):
         return None
-    Original = Document.metadata.get(KSourceBytesKey)
     if KChmfSnapshot in Document.metadata:
+        Original: tuple[bytes, SldprtArchive] | None = None
         Recipe = ReadChmfSnap(Document)
     else:
+        Attachment = Document.metadata.get(KSourceBytesKey)
         if (
-            type(Original) is not bytes
-            or CalcSha(Original).hexdigest() != Document.source.sha256
+            type(Attachment) is not bytes
+            or CalcSha(Attachment).hexdigest() != Document.source.sha256
         ):
             raise ValueError("cold chamfer JSON requires its original source identity")
-        Recipe = ReadChmfSelf(Original)
-    _ = PrepChmfPart(
+        Archive = SldprtArchive.from_bytes(Attachment)
+        Original = (Attachment, Archive)
+        Recipe = ReadChmfSelf(Archive)
+    Candidate = BuildChmfPart(
         Document,
         BytesIO(),
         Recipe.SavedAt,
         WriteOptions(values={"final_destination": Recipe.PathName}),
     )
-    if KChmfSnapshot in Document.metadata:
-        return Document
-    return StripChmfSnap(Document, Recipe)
+    return CheckChmfSnap(Document, Candidate, Recipe, Original)

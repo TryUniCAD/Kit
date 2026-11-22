@@ -1,21 +1,16 @@
-from dataclasses import replace as ReplaceValue
 from pathlib import Path as FilePath
 
 from convert.adapters.base import Destination
 from convert.adapters.base import WriteOptions
 from convert.adapters.base import WriteResult
+from convert.adapters.json.CheckJsonNative import CheckJsonNative
 from convert.adapters.json.Metadata import KInfoValue
 from convert.adapters.json.StreamIo import WriteStream
 from convert.adapters.registry.EquationWrite import CheckEquations
 from convert.adapters.registry.InchWrite import CheckInchWrite
 from convert.adapters.registry.ResearchWrite import CheckResearch
 from convert.adapters.registry.SupportWrite import CheckSupports
-from convert.adapters.registry.NativeWrite import CheckNative
-from convert.adapters.solidworks.Core.Preparation.Chamfers.MakeChmfSnap import (
-    MakeChmfSnap,
-)
 from interchange import CadDocument
-from interchange.Features.FeatureKinds import NativeFeature
 
 
 # this mixin gives stream and filesystem destinations one writing policy
@@ -63,22 +58,3 @@ class JsonWriter:
             application_usable=True,
             vendor_loadable=True,
         )
-
-
-# all nonnative rows still pass the shared writer guard after a chamfer is independently reverified
-def CheckJsonNative(Document: CadDocument) -> CadDocument:
-    Snapshot = MakeChmfSnap(Document)
-    if Snapshot is None:
-        CheckNative(Document)
-        return Document
-    CheckNative(
-        ReplaceValue(
-            Snapshot,
-            feature_timeline=tuple(
-                Value
-                for Value in Snapshot.feature_timeline
-                if not isinstance(Value.definition, NativeFeature)
-            ),
-        )
-    )
-    return Snapshot

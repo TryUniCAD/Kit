@@ -35,6 +35,28 @@ def TestChamferJson() -> None:
         assert CountValue == 2 or (CountValue == 0 and "zlib-ng" in DeflateRuntime)
 
 
+# alternate container bytes must preserve the authenticated json source without authorizing native publication
+def TestJsonDeflate() -> None:
+    for SlotValue in ("0", "1"):
+        Report = RunChmfProof("CheckChmfDeflate.py", "--slot", SlotValue)
+        assert Report["original_sha256"] == Report["snapshot_source_sha256"]
+        assert Report["alternate_sha256"] != Report["original_sha256"]
+        assert Report["ordered_rows"] == 20 and Report["native_rows"] == 18
+        assert Report["logical_streams"] == 10 and Report["json_routes"] == 2
+        assert Report["cli_repeated_exact"] == Report["measured_original"]
+        assert (
+            Report["first_checks"]
+            == Report["repeated_checks"]
+            == {
+                "compile": 1,
+                "verify": 1,
+            }
+        )
+        assert Report["sdk_refusals"] == 12 and Report["cli_refusals"] == 5
+        assert Report["native_refusals"] == 2
+        assert Report["runtime_reads"] == Report["native_processes"] == 0
+
+
 # a separate synthetic keyword must not disable actual preexisting stock and cut projection
 def TestMixedChmf() -> None:
     Report = RunChmfProof("CheckChmfMixedRead.py")

@@ -22,7 +22,8 @@ Both entry points report the same native capability transfers.
 
 Ordinary interchange JSON can preserve both reverified cold chamfer
 documents through the SDK and `kit convert`. Each snapshot retains the
-source digest, all 20 ordered tree rows and their ownership. It carries
+source digest, all 20 ordered tree rows and their ownership across equivalent
+outer DEFLATE encodings. It carries
 the original self locator and construction epoch. The full native file
 and each row's redundant replay bytes stay out of JSON. Reloading the
 snapshot supports exact measured SDK republication after complete
@@ -44,3 +45,4 @@ links the native measurements and the guarded main-line read and write
 checks. Both original candidates reproduce all ten streams. Each private
 changed-driver comparison changes the recovered solid and fails public
 publication with the old receipt.
+[JSON and native compression evidence](../../../../re/solidworks/records/ChamferDistanceMain2026.md#json-compression-boundary)
