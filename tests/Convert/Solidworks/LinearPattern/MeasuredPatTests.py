@@ -8,19 +8,12 @@ from typing import cast as CastValue
 
 
 # the process report binds the actual registry result and the independent geometric witness
-def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
-    RootValue = FilePath(__file__).resolve().parents[4]
-    Worker = RootValue / "re/tooling/sw2026/CheckMeasuredPattern.py"
-    Command = [
-        Interpreter,
-        "-I",
-        "-B",
-        str(Worker),
-        "--root",
-        str(RootValue),
-        "--case",
-        f"ColdRaisedPattern{SlotValue}",
-    ]
+def VerifyPatCase(
+    RootValue: FilePath,
+    Command: list[str],
+    FacesValue: int,
+    AlternateSha: str,
+) -> dict[str, object]:
     Result = RunProcess(
         [*Command, "--verify-runtime-boundary"],
         check=False,
@@ -32,7 +25,7 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
     assert Result.returncode == 0, Result.stderr
     Report = CastValue(dict[str, object], LoadJson(Result.stdout))
     Shape = CastValue(dict[str, object], Report["semantics"])
-    assert Report["case"] == f"ColdRaisedPattern{SlotValue}"
+    assert Report["case"] == Command[-1]
     if Report["status"] == "native_hash_reproduced":
         assert Report["publication_count"] == 7 and Report["refusal_count"] == 21
         assert Report["published_lf_receipt_count"] == 2
@@ -53,7 +46,31 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
         and Report["compression_runtime"] == "1.3.1.zlib-ng"
     ):
         assert Report["generated_sha256"] == AlternateSha
-    if Report["generated_sha256"] == AlternateSha:
+    return Report
+
+
+# each unrelated authored request verifies its ordinary native boundary in a new process
+def TestMeasuredPat() -> None:
+    RootValue = FilePath(__file__).resolve().parents[4]
+    Worker = RootValue / "re/tooling/sw2026/CheckMeasuredPattern.py"
+    Cases = (
+        ("A", 21, "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5"),
+        ("B", 26, "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b"),
+    )
+    for SlotValue, FacesValue, AlternateSha in Cases:
+        Command = [
+            Interpreter,
+            "-I",
+            "-B",
+            str(Worker),
+            "--root",
+            str(RootValue),
+            "--case",
+            f"ColdRaisedPattern{SlotValue}",
+        ]
+        Report = VerifyPatCase(RootValue, Command, FacesValue, AlternateSha)
+        if Report["generated_sha256"] != AlternateSha:
+            continue
         Result = RunProcess(
             [*Command, "--alternate-receipt"],
             check=False,
@@ -74,13 +91,3 @@ def VerifyPatCase(SlotValue: str, FacesValue: int, AlternateSha: str) -> None:
         assert (
             Alternate["runtime_input_file_reads"] == Alternate["native_launches"] == 0
         )
-
-
-# each unrelated authored request verifies its ordinary native boundary in a new process
-def TestMeasuredPat() -> None:
-    VerifyPatCase(
-        "A", 21, "60f2289933b6fa60bf601521d616c0616e6b56581eda95333e27f0d5092646a5"
-    )
-    VerifyPatCase(
-        "B", 26, "d47491db20319c0851c2960b3f9ae0f733ffd7ecf0de5c99ab715a881e375c2b"
-    )
