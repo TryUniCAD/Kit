@@ -1,7 +1,6 @@
 from hashlib import sha256 as HashBytes
 from json import dumps as DumpJson
 from pathlib import Path as FilePath
-from sys import argv as Arguments
 
 from convert import open_document as OpenDocument
 
@@ -50,4 +49,9 @@ def ReadLiteralPart(SourcePath: FilePath) -> dict[str, object]:
 
 
 if __name__ == "__main__":
-    print(DumpJson(ReadLiteralPart(FilePath(Arguments[1]))))
+    CorpusPath = FilePath(__file__).resolve().parents[4] / "re/solidworks/v2026/corpus"
+    print(
+        DumpJson(
+            ReadLiteralPart(CorpusPath / "part-properties/CircularProperties.SLDPRT")
+        )
+    )

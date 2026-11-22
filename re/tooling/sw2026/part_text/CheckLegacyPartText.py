@@ -10,6 +10,7 @@ from PartTextProbe import check_model, model_state, read_part, refuse_output, re
 from convert import convert
 from convert.adapters.solidworks.Container.Archive import ContainerMo
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
+from convert.Formats.CheckSourceText import CheckSourceText
 
 
 def inspect(source_path):
@@ -41,7 +42,11 @@ def inspect(source_path):
     inspected = read_part(changed)
     check_model(original, inspected)
     cause = "legacy SOLIDWORKS part contains authored summary text"
-    refusal = refuse_write(partial(convert, changed, **options), cause)
+    authored_portability = refuse_output(
+        partial(convert, changed, **options),
+        "unqualified SOLIDWORKS sketch support references", "sldprt:sketch:40",
+    )
+    refusal = refuse_write(lambda _: CheckSourceText(inspected), cause)
     if source_path.read_bytes() != native:
         raise ValueError("legacy source changed")
     return {
@@ -50,6 +55,7 @@ def inspect(source_path):
         "original": model_state(original),
         "original_portability_refusal": original_portability,
         "authored_title": model_state(inspected),
+        "authored_portability_refusal": authored_portability,
         "refusal": refusal,
     }
 

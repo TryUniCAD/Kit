@@ -17,18 +17,19 @@ and evaluated text and reserved section fields must agree. Unsupported
 or malformed scopes withhold all property bags and provide an information
 diagnostic. The ordinary model read remains available. The registry
 refuses new native projections and direct writes when the root or an
-owned component document has this status. The error retains the first
-unavailable property's original cause. Interchange JSON inspection
+owned component document has this status. Existing material, research,
+unit, equation and sketch support checks keep their write precedence. The
+property error retains the original inspection cause. Interchange JSON inspection
 preserves the full document and its diagnostic. The publication guard
 also applies when the source and destination are both interchange JSON.
 
 The version-18000 compatibility path verifies absence of authored text
 through the complete supported binary property owner and all recognized
 text scopes. Empty scopes add no property-specific restriction.
-Authored text or an unsupported owner produces the same property
-write refusal. Strict inspection preserves the model. The legacy
-wheel control still encounters its separate sketch support refusal
-when it crosses the export boundary.
+Authored text or an unsupported owner triggers the property guard.
+Strict inspection preserves the model. Both the empty and authored title
+variants of the legacy wheel encounter the existing sketch support refusal
+at the export boundary.
 
 Check `metadata["solidworks.part_text_properties"]["status"]` for
 `complete` before relying on the text. The reader leaves files without

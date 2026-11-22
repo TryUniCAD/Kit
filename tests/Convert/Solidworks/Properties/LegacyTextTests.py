@@ -21,6 +21,11 @@ def TestLegacyText() -> None:
     Portability = CastValue(str, ReportValue["original_portability_refusal"])
     assert Portability.startswith("unqualified SOLIDWORKS sketch support references")
     assert Portability.endswith("sldprt:sketch:40")
+    AuthoredPortability = CastValue(str, ReportValue["authored_portability_refusal"])
+    assert AuthoredPortability.startswith(
+        "unqualified SOLIDWORKS sketch support references"
+    )
+    assert AuthoredPortability.endswith("sldprt:sketch:40")
     Original = CastValue(dict[str, object], ReportValue["original"])
     Authored = CastValue(dict[str, object], ReportValue["authored_title"])
     assert Original["status"] is None

@@ -28,10 +28,7 @@ KNativeText = [
 
 # the queue checks all three native text scopes through the ordinary sdk process
 def TestLiteralText() -> None:
-    ReportValue = RunPartText(
-        FilePath(__file__).with_name("ReadLiteralPart.py"),
-        KPartCorpus / "part-properties/CircularProperties.SLDPRT",
-    )
+    ReportValue = RunPartText(FilePath(__file__).with_name("ReadLiteralPart.py"))
     StatusValue = CastValue(dict[str, object], ReportValue["status"])
     assert (
         ReportValue["source_sha256"]

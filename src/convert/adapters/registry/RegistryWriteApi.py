@@ -117,12 +117,12 @@ class WriteApi(WriteLookup):
             if FormatId
             else self.PickWriter(DocumentData, TargetData)
         )
-        CheckSourceText(DocumentData)
         CheckMatWrites(DocumentData, AdapterData)
         CheckResearch(DocumentData)
         CheckInchWrite(DocumentData)
         CheckEquations(DocumentData)
         CheckSupports(DocumentData)
+        CheckSourceText(DocumentData)
         CheckNative(DocumentData)
         SelectedOpts = OptionsData or WriteOptions()
         if FormatId is not None:
