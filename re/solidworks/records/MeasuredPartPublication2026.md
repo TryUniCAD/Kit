@@ -120,12 +120,14 @@ prism projection, so it never opens the legacy layout resource.
 Two fresh guarded SDK workers checked the exact measured Skew and Step
 archives through internal preparation, the direct and registry streams,
 and staged registry paths. All ten native transfers and the complete strict
-readback survived. Altered metadata, topology, source digest and retained
+readback survived. Both original depths were recovered exactly in millimetres,
+and both native direction selections refer to their actual sketch axis
+`N_Axis`. Altered metadata, topology, source digest and retained
 bytes refused both stream routes without writing. The other-format native
 guard still refused. There were zero runtime input reads and no new native
 or protected processes. The same-backend exact output gate still applies
 to this SDK route. [Binary64 inverse](../../../Documentation/Gotchas/Conversion/Solidworks/Archive/Geometry/ReadbackMillimetreInverse.md)
-[Guarded proof](../measurements/2026/SdkColdPartRoundtrip01.json)
+[Guarded proof](../measurements/2026/SdkColdPartRoundtrip02.json)
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/CheckColdPartWrite.py \

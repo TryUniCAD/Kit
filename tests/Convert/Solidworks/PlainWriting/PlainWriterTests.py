@@ -62,11 +62,7 @@ def AssertPlainRead(
     Readback = CastValue(dict[str, object], ReportValue["readback"])
     assert Readback["tree_rows"] == Readback["linked_root_rows"] == 19
     assert Readback["line_count"] == SideCount
-    NameValue, UnitValue, ActualDepth, IsDriving = CastValue(
-        list[object], Readback["driving_dimension"]
-    )
-    assert (NameValue, UnitValue, IsDriving) == ("D1", "mm", True)
-    assert IsClose(CastValue(float, ActualDepth), DepthValue, rel_tol=0, abs_tol=1e-12)
+    assert Readback["driving_dimension"] == ["D1", "mm", DepthValue, True]
     Geometry = CastValue(dict[str, object], ReportValue["default_geometry"])
     assert Geometry["topology"] == [1, 1, SideCount + 2, 3 * SideCount, 2 * SideCount]
     assert Geometry["body_feature_linked"] is True
