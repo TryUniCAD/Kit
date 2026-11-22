@@ -98,9 +98,9 @@ external accesses. The change yields SHA-256
 
 The native block-map backlink at [24490, 24492) resolves to its manager
 at slot 98. A single same-width negative contrast points it to the
-existing part at slot 2. The complete reader rejects that foreign
-owner and preserves the accepted high-bit count on the original
-self-owned graph.
+existing part at slot 2. The reader rejects that foreign owner and
+the writer rejects the same substitution in its typed input. Restoring
+the actual backlink emits the exact accepted high-bit archive again.
 
 A fresh typed sheet-metal master belongs to the enclosing part's
 `f1018` field. The variant adds it to the hash-pinned ConcaveOwned
