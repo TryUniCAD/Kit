@@ -1,5 +1,7 @@
+from contextlib import redirect_stdout as RedirectOutput
 from dataclasses import replace as ReplaceValue
 from io import BytesIO as BytesIo
+from io import StringIO as StringIo
 from json import loads as LoadJson
 from typing import cast as CastValue
 
@@ -66,9 +68,7 @@ def TestAliasReplay(ReaderFirst: bool) -> None:
 
 
 # the format command reports read and write names independently in both output modes
-def TestAliasCli(
-    CapSys: Pytest.CaptureFixture[str], MonkeyPatch: Pytest.MonkeyPatch
-) -> None:
+def TestAliasCli(MonkeyPatch: Pytest.MonkeyPatch) -> None:
     RegistryValue = AdapterRegistry()
     RegistryValue.register_reader(SnapshotReader())
     RegistryValue.register_writer(JsonAdapter())
@@ -76,15 +76,19 @@ def TestAliasCli(
     Options = CliOptions()
     Options.Command = "formats"
     Options.JsonOutput = True
-    RunCommand(Options)
-    (Format,) = CastValue(list[dict[str, object]], LoadJson(CapSys.readouterr().out))
+    JsonOutput = StringIo()
+    with RedirectOutput(JsonOutput):
+        RunCommand(Options)
+    (Format,) = CastValue(list[dict[str, object]], LoadJson(JsonOutput.getvalue()))
     assert Format["extensions"] == [".json", ".snapshot"]
     assert Format["aliases"] == ["interchange.snapshot"]
     assert Format["write_extensions"] == [".json"]
     assert Format["write_aliases"] == []
     Options.JsonOutput = False
-    RunCommand(Options)
-    Header, ValueRow = CapSys.readouterr().out.splitlines()
+    TableOutput = StringIo()
+    with RedirectOutput(TableOutput):
+        RunCommand(Options)
+    Header, ValueRow = TableOutput.getvalue().splitlines()
     Columns = dict(zip(Header.split("\t"), ValueRow.split("\t"), strict=True))
     assert LoadJson(Columns["extensions"]) == [".json", ".snapshot"]
     assert LoadJson(Columns["write_extensions"]) == [".json"]
