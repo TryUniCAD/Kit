@@ -217,6 +217,20 @@ from convert.adapters.solidworks.Core.TypedResolved.Patterns.WithPatternDoc impo
 from convert.adapters.solidworks.Core.TypedResolved.Materials.WithPartMat import (
     WithPartMat,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Shells.BindShellDoc import (
+    BindShellDoc,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.Cache.BindShellCache import (
+    BindShellCache,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.ShellPartRead import (
+    ShellPartRead,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Shells.TryOpenShell import (
+    IsShellFeature,
+    KShellRejected,
+    TryOpenShell,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Fillets.Saved.WithSavedFillet import (
     WithSavedFillet,
 )
@@ -522,7 +536,7 @@ def SelectPartShape(
     StockCacheGeom | None,
     ColdStockPart | ColdRevolvePart | ColdPatPart | None,
     PartGeometry | None,
-    ChmfPartRead | EllipPartRead | None,
+    ChmfPartRead | EllipPartRead | ShellPartRead | None,
 ]:
     NativeValue = NativePartModel(Archive, Settings.configuration)
     if Settings.extract_raw_brep:
@@ -542,6 +556,9 @@ def SelectPartShape(
             BuildEllipGeom(EllipValue, KPartBodyId) if Settings.include_brep else None
         )
         return BindEllipModel(NativeValue, EllipValue), None, None, Geometry, EllipValue
+    NativeValue, ShellValue = TryOpenShell(Archive, NativeValue, Settings)
+    if ShellValue is not None or KShellRejected in NativeValue.diagnostics:
+        return NativeValue, None, None, None, ShellValue
     Model, StockValue, ColdValue, DerivedValue = ReadPartShape(
         Archive, NativeValue, Settings, KPartBodyId
     )
@@ -554,10 +571,12 @@ def SelectPartShape(
 
 # specialized conic and edge families retain the exact linked proof supplied before public projection
 def BindSpecialPart(
-    DocValue: CadDoc, ShapeValue: ChmfPartRead | EllipPartRead,
+    DocValue: CadDoc, ShapeValue: ChmfPartRead | EllipPartRead | ShellPartRead,
 ) -> CadDoc:
     if isinstance(ShapeValue, ChmfPartRead):
         return BindChmfDoc(DocValue, ShapeValue)
+    if isinstance(ShapeValue, ShellPartRead):
+        return BindShellDoc(DocValue, ShapeValue)
     return BindEllipDoc(DocValue, ShapeValue)
 
 
@@ -590,6 +609,7 @@ def ReadNativePart(
         DerivedValue,
         StockValue.BrepValue if StockValue is not None else None,
         WarmValue=ShapeValue.WarmValue if isinstance(ShapeValue, ChmfPartRead) else None,
+        ShellValue=ShapeValue if isinstance(ShapeValue, ShellPartRead) else None,
     )
     if StockValue is not None:
         Bodies = StockDesigns(StockValue, TimeValues, Payloads)
@@ -635,9 +655,13 @@ def ReadNativePart(
         tuple(
             (
                 DiagValue(
-                    code="sldprt.native_record_unresolved",
+                    code=(
+                        "sldprt.shell_history_unresolved"
+                        if Message == KShellRejected
+                        else "sldprt.native_record_unresolved"
+                    ),
                     message=Message,
-                    severity=Severity.INFO,
+                    severity=Severity.WARNING if Message == KShellRejected else Severity.INFO,
                 )
                 for Message in Model.diagnostics
             )
@@ -721,6 +745,7 @@ def ReadNativePart(
         BindSavedOwners=Settings.include_brep
         and not Settings.extract_raw_brep
         and not Model.equations
+        and not isinstance(ShapeValue, ShellPartRead)
         and not isinstance(ColdValue, (ColdRevolvePart, ColdPatPart)),
     )
 
@@ -3965,7 +3990,11 @@ def Timeline(
                 ),
                 parameter_ids=ParamIds,
                 operation=OperationValue,
-                definition=BuildFeature(Feature, Operation, SketchById, PlaneById),
+                definition=(
+                    NativeFallback(Feature, Operation)
+                    if KShellRejected in Model.diagnostics and IsShellFeature(Feature)
+                    else BuildFeature(Feature, Operation, SketchById, PlaneById)
+                ),
                 selection_ids=Selected,
                 provenance=OpProvenance(Feature, Operation),
                 attributes=FrozenMapping(Attributes),
@@ -4362,6 +4391,7 @@ def ReadPartSolid(
     StockBrep: BrepModel | None = None,
     *,
     WarmValue: WarmChmfBody | None = None,
+    ShellValue: ShellPartRead | None = None,
 ) -> tuple[
     tuple[BrepPayload, ...],
     tuple[DiagValue, ...],
@@ -4371,7 +4401,17 @@ def ReadPartSolid(
 ]:
     if DerivedValue is not None:
         return (*ReadGeomParts(DerivedValue), None, None)
+    if ShellValue is not None and ShellValue.CacheValue.DigestValue is None:
+        FreshPart = BindShellCache(
+            ShellValue.CacheValue, (), KPartBodyId, IncludeBrep=Settings.include_brep
+        )
+        return (), (), FreshPart.ModelValue, None, FreshPart
     Payloads, PayloadDiags = BrepPayloads(Archive, Settings)
+    if ShellValue is not None:
+        SavedPart = BindShellCache(
+            ShellValue.CacheValue, Payloads, KPartBodyId, IncludeBrep=Settings.include_brep
+        )
+        return Payloads, PayloadDiags, SavedPart.ModelValue, None, SavedPart
     if WarmValue is not None and Settings.include_brep:
         WarmPart = BindWarmActive(WarmValue, Payloads, KPartBodyId)
         return Payloads, PayloadDiags, WarmPart.ModelValue, None, WarmPart

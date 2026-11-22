@@ -51,6 +51,7 @@ The saved oblique linear-pattern reader preserves the finite hinge dependencies 
 The corresponding cache-free contained oblique patterns also reconstruct through the normal strict path and stream reader. Both signed directions, separate pitch and count states, and the ordinary single selected configuration are verified. [Cache-free pattern evidence](Documentation/Changes/Solidworks/Reading/Patterns/SolidworksColdAngularPatternRead.md)
 
 The scoped saved two-stock reader retains two independent blind bosses and their live D1s, one explicitly selected through-all cut, and two atom-linked final solids. [Saved two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksSavedTwoStockRead.md)
+Strict inspection reads the scoped rectangular inward open shell in its fresh and saved states. Native shell writing remains gated. [Open-shell readback](Documentation/Changes/Solidworks/Inspection/Parts/SolidworksColdOpenShell.md)
 The cache-free reader reconstructs the corresponding two solids for the proven Front and Right rectangular profile and explicit circular through cut. [Cache-free two-stock read](Documentation/Changes/Solidworks/Reading/Parts/SolidworksColdTwoStockRead.md)
 The writer generates that bounded neutral two-stock profile with both editable depths and the explicit Front-stock selection. Two pre-writer locked native comparisons passed, and ordinary path and stream outputs reproduce the frozen preparer. [Selected two-stock writer](Documentation/Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksSelectedTwoStockWriter.md)
 

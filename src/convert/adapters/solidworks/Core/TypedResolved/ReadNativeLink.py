@@ -22,6 +22,7 @@ def ReadNativeLink(
     ReadFillets: bool = False,
     ReadChamfers: bool = False,
     ReadEllipses: bool = False,
+    ReadShells: bool = False,
 ) -> NativeLink:
     VersionValue = ContainerMo(Archive.streams)
     if (
@@ -30,7 +31,8 @@ def ReadNativeLink(
         or Archive.format_version != 4
         or KitResolvedStream in Archive.streams
         or (
-            (ReadFillets or ReadChamfers or ReadEllipses) and RelationConfig is not None
+            (ReadFillets or ReadChamfers or ReadEllipses or ReadShells)
+            and RelationConfig is not None
         )
     ):
         raise BodyUnsupported(
@@ -58,5 +60,12 @@ def ReadNativeLink(
         ReadFillets=ReadFillets,
         ReadChamfers=ReadChamfers,
         ReadEllipses=ReadEllipses,
+        ReadShells=ReadShells,
     )
-    return NativeLink(ConfigValue, ResolvedValue, ConfigName, StreamName)
+    return NativeLink(
+        ConfigValue,
+        ResolvedValue,
+        ConfigName,
+        StreamName,
+        ManagerValue if ReadShells else None,
+    )

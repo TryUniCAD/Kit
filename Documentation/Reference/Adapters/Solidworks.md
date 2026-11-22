@@ -577,6 +577,13 @@ For the generated SOLIDWORKS 2026 blind-pocket discovery part, the reader recogn
 
 For a native-saved local circle used by a forward blind boss, the typed reader preserves the closed nonconstruction profile, actual driving radius or diameter and fixed centre. Both constraints retain their sketch entity links. Twelve resolved streams reproduce exactly and nine public projections pass. [Saved radial read](../../Changes/Solidworks/Archive/SolidworksSavedRadialRead.md)
 
+Strict SOLIDWORKS 2026 inspection reads one inward open shell on a
+rectangular Front-plane boss with a forward blind depth. It retains the
+selected terminal cap and the two live `D1` owners. Full reads expose a
+closed 11-face solid. Design-only reads retain the same feature history
+and measurements. Saved parts also require linked active and rollback
+geometry. [Open-shell readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdOpenShell.md)
+
 The ordinary 2026 radius-driven pocket retains its fixed centre as a relation targeting the circle's `center` subelement. The radius remains an independent driving parameter. The reader requires the native local point handle to resolve to the circle's centre slot. [Fixed-centre readback](../../Changes/Solidworks/Inspection/Sketches/SolidworksPocketCenterFixation.md)
 
 The `moCompFeature_c` record supplies feature-tree ordering information in the documented research families.

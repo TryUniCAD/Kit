@@ -39,7 +39,9 @@ def BuildPartBody(
                 "parasolid_payload_ids": tuple(Payload.id for Payload in Payloads),
                 **(
                     {"parasolid_active_payload_id": ActivePart.PayloadId}
-                    if ActivePart is not None and SavedPart is not None
+                    if ActivePart is not None
+                    and SavedPart is not None
+                    and ActivePart.PayloadId is not None
                     else {}
                 ),
                 **(

@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.RequireRadial impo
 from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireChmfView import (
     RequireChmfView,
 )
+from convert.adapters.solidworks.Archive.Construction.Dimensions.RequireWallView import (
+    RequireWallView,
+)
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
 from convert.adapters.solidworks.Archive.Construction.Patterns.Drivers.RequirePatView import (
@@ -43,12 +46,13 @@ def RequireDisplay(
     if OwnerValue.ClassValue in (
         RuntimeClass("moLPattern_c", 1),
         RuntimeClass("Chamfer_c", 1),
+        RuntimeClass("moShell_c", 1),
     ):
-        CheckOwner = (
-            RequireChmfView
-            if OwnerValue.ClassValue.NameValue == "Chamfer_c"
-            else RequirePatView
-        )
+        CheckOwner = {
+            "moLPattern_c": RequirePatView,
+            "Chamfer_c": RequireChmfView,
+            "moShell_c": RequireWallView,
+        }[OwnerValue.ClassValue.NameValue]
         CheckOwner(OwnerValue, HandleValue, TextKind)
         CheckViewArgs(DesignIntent, SelectedLeader)
         return OwnerValue

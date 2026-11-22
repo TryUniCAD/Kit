@@ -25,6 +25,7 @@ from convert.adapters.solidworks.Archive.Resolved.Sweeps.WriteSwSchema import (
 )
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
 from convert.adapters.solidworks.Archive.Resolved.WriteMbsMut import WriteMbsMut
 from convert.adapters.solidworks.Archive.Scalars.EncodeScalar import EncodeScalar
 
@@ -41,8 +42,15 @@ def WriteResolMut(
     ReplayEllipses: bool = False,
     WriteChamfers: bool = False,
     WriteSweeps: bool = False,
+    WriteShell: bool = False,
 ) -> tuple[bytes, ResolvedGraph]:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
+    if WriteShell:
+        if ReplayEllipses or WriteChamfers or WriteSweeps:
+            raise BodyUnsupported(
+                "SOLIDWORKS shell requires its exclusive archive scope"
+            )
+        UseShellCtxMut(ContextValue)
     if WriteSweeps:
         if ReplayEllipses or WriteChamfers or ExtraFields is not None:
             raise BodyUnsupported(

@@ -1,5 +1,6 @@
 from dataclasses import dataclass as DataClass
 
+from convert.adapters.solidworks.Archive.Cmgr.CmgrGraph import CmgrGraph
 from convert.adapters.solidworks.Archive.Config.ConfigGraph import ConfigGraph
 from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedGraph
 
@@ -11,3 +12,4 @@ class NativeLink:
     ResolvedValue: ResolvedGraph
     ConfigName: str
     StreamName: str
+    ManagerValue: CmgrGraph | None = None

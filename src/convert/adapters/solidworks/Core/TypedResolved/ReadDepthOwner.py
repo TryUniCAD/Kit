@@ -11,7 +11,11 @@ from convert.adapters.solidworks.Core.TypedResolved.RequireNative import Require
 
 # a display cache cannot replace the live parameter selected by its actual end specification slot
 def ReadDepthOwner(
-    LinkValue: NativeLink, DisplayValue: ArchiveNode, SlotName: str = "f18"
+    LinkValue: NativeLink,
+    DisplayValue: ArchiveNode,
+    SlotName: str = "f18",
+    *,
+    RadiusSlot: bool = False,
 ) -> DepthOwner:
     DisplayValue = RequireNative(DisplayValue, "moDisplayDistanceDim_c")
     HandlesValue = NativeRows(DisplayValue.FieldsValue.get("f850"))
@@ -24,7 +28,8 @@ def ReadDepthOwner(
     ):
         raise ValueError("end depth requires the local dimension branch")
     Dimension = RequireNative(
-        HandleValue.FieldsValue.get("ff0"), "ParallelPlaneDistanceDim_c"
+        HandleValue.FieldsValue.get("ff0"),
+        "ThreeDRadiusDim_c" if RadiusSlot else "ParallelPlaneDistanceDim_c",
     )
     Parameter = RequireNative(Dimension.FieldsValue.get("f28"), "moLengthParameter_c")
     if (
@@ -55,7 +60,7 @@ def ReadDepthOwner(
             "dimension_index": Dimension.IndexValue,
             "handle_index": HandleValue.IndexValue,
             "display_index": DisplayValue.IndexValue,
-            "slot": "f818." + SlotName,
+            "slot": "f818" if RadiusSlot else "f818." + SlotName,
         },
     )
     return DepthOwner(Parameter, Dimension, HandleValue, DisplayValue, DepthValue)

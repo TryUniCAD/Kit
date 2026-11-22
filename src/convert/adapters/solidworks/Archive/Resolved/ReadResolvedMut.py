@@ -1,6 +1,7 @@
 from collections.abc import Callable, Mapping
 from functools import partial as PartialValue
 
+from convert.adapters.solidworks.Archive.Bodies.BodyContext import BodyContext
 from convert.adapters.solidworks.Archive.Bodies.BodyReport import GetBodyReport
 from convert.adapters.solidworks.Archive.Bodies.BodyUnsupported import BodyUnsupported
 from convert.adapters.solidworks.Archive.Bodies.BodyUsage import BodyUsage
@@ -23,6 +24,35 @@ from convert.adapters.solidworks.Archive.Resolved.ResolvedGraph import ResolvedG
 from convert.adapters.solidworks.Archive.Resolved.UseChmfCtxMut import UseChmfCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseEllipCtxMut import UseEllipCtxMut
 from convert.adapters.solidworks.Archive.Resolved.UseFilletCtxMut import UseFilletCtxMut
+from convert.adapters.solidworks.Archive.Resolved.UseShellCtxMut import UseShellCtxMut
+
+
+# special read scopes use mutually exclusive feature owners without changing ordinary dispatch
+def UseReadCtxMut(
+    ContextValue: BodyContext,
+    ReadFillets: bool,
+    ReadChamfers: bool,
+    ReadEllipses: bool,
+    ReadShells: bool,
+) -> None:
+    if ReadShells:
+        if ReadFillets or ReadChamfers or ReadEllipses:
+            raise BodyUnsupported(
+                "SOLIDWORKS shell requires its exclusive archive scope"
+            )
+        UseShellCtxMut(ContextValue)
+    if ReadFillets and ReadChamfers:
+        raise BodyUnsupported("SOLIDWORKS resolved edge finish scopes are exclusive")
+    if ReadFillets:
+        UseFilletCtxMut(ContextValue)
+    if ReadChamfers:
+        UseChmfCtxMut(ContextValue)
+    if ReadEllipses:
+        if ReadFillets or ReadChamfers:
+            raise BodyUnsupported(
+                "SOLIDWORKS ellipse scope excludes edge finish layouts"
+            )
+        UseEllipCtxMut(ContextValue)
 
 
 # resolved features extend the exact configuration snapshot after verifying the stored inherited base
@@ -37,20 +67,10 @@ def ReadResolvedMut(
     ReadFillets: bool = False,
     ReadChamfers: bool = False,
     ReadEllipses: bool = False,
+    ReadShells: bool = False,
 ) -> ResolvedGraph:
     ContextValue = MakeResolvedCtx(VersionValue, SeedValue, LinkContext, UsageValue)
-    if ReadFillets and ReadChamfers:
-        raise BodyUnsupported("SOLIDWORKS resolved edge finish scopes are exclusive")
-    if ReadFillets:
-        UseFilletCtxMut(ContextValue)
-    if ReadChamfers:
-        UseChmfCtxMut(ContextValue)
-    if ReadEllipses:
-        if ReadFillets or ReadChamfers:
-            raise BodyUnsupported(
-                "SOLIDWORKS ellipse scope excludes edge finish layouts"
-            )
-        UseEllipCtxMut(ContextValue)
+    UseReadCtxMut(ContextValue, ReadFillets, ReadChamfers, ReadEllipses, ReadShells)
     Cursor = BinaryReader(BufferValue)
     BaseValue = Cursor.ReadUnsigned(4)
     if BaseValue != SeedValue.CounterValue:

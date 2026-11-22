@@ -47,6 +47,7 @@ def EmitPartArchive(
     WriteChamfers: bool = False,
     ReplayEllipses: bool = False,
     WriteSweeps: bool = False,
+    WriteShell: bool = False,
 ) -> tuple[dict[str, bytes], ConfigGraph, ResolvedGraph]:
     HeaderValue, TopHeader, ManagerHeader = HeadersValue
     ConfigBytes, ConfigValue = WriteConfigMut(
@@ -66,6 +67,7 @@ def EmitPartArchive(
         WriteChamfers=WriteChamfers,
         ReplayEllipses=ReplayEllipses,
         WriteSweeps=WriteSweeps,
+        WriteShell=WriteShell,
     )
     StreamsValue = {
         "Header2": WriteHeadGraph(TopHeader, 19000),
