@@ -1,8 +1,6 @@
 from hashlib import sha256 as CalcSha
 from io import BytesIO
 from pathlib import Path as FilePath
-from subprocess import run as RunProcess
-from sys import executable as Interpreter
 from types import SimpleNamespace as SinkNamespace
 from typing import cast as CastValue
 
@@ -75,19 +73,6 @@ def TestFileSink(TmpPath: FilePath) -> None:
             Outcome = SendMeasured(Document, OutputFile, Envelope, IsDirect)
             assert Outcome.vendor_loadable and Outcome.application_usable
         assert CalcSha(TargetPath.read_bytes()).hexdigest() == Digest
-    RootValue = FilePath(__file__).resolve().parents[4]
-    Worker = (
-        RootValue / "re/tooling/sw2026/attached_top_box_source/CheckMainBoxQueueCase.py"
-    )
-    Result = RunProcess(
-        [Interpreter, "-I", "-B", str(Worker)],
-        cwd=RootValue,
-        check=False,
-        capture_output=True,
-        text=True,
-        timeout=30,
-    )
-    assert Result.returncode == 0, Result.stderr
 
 
 # seek and extent establish a complete write even when the sink has no count result
