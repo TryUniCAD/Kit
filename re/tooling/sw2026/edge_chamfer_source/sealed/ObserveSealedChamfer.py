@@ -73,28 +73,30 @@ def source_phase(case, plan, branch, source, pin, record, metadata, *, edited):
 
 
 def worker(spec, pin):
-    from RunSealedChamfer import EVAL_ROOT, SOURCE_ROOT, private_path
+    from RunSealedChamfer import EVAL_ROOT, SIGNED_EVAL_ROOT, SOURCE_ROOT, private_path
 
-    require(os.name == "nt" and valid_hash(pin) and private_path(spec, EVAL_ROOT).is_file()
-            and digest(spec) == pin and Path(__file__).resolve().parent == EVAL_ROOT / "Packet/Tool",
+    tool = Path(__file__).resolve().parent
+    output = tool.parents[1]
+    require(os.name == "nt" and valid_hash(pin) and output in (EVAL_ROOT, SIGNED_EVAL_ROOT)
+            and tool == output / "Packet/Tool" and private_path(spec, output).is_file() and digest(spec) == pin,
             "native observer must use the frozen guest-local job")
     state = json.loads(spec.read_bytes())
     source = Path(state["source"])
-    record = private_path(spec.parent / "Record.json", EVAL_ROOT)
+    record = private_path(spec.parent / "Record.json", output)
     role = state["role"]
     require(not record.exists(), "native phase receipt is already occupied")
     if role in ("before", "after"):
         from FilletSourcePhase import run_control
 
-        require(source == EVAL_ROOT / "Packet/Control.SLDPRT" and digest(source) == CONTROL
+        require(source == output / "Packet/Control.SLDPRT" and digest(source) == CONTROL
                 and set(state) == {"role", "source"}, "control is not the independent pinned part")
         return run_control(source, record)
     original = role in ("original", "original-edited")
     require(original or role in ("edit", "reopen"), "native observer received an unknown phase")
-    private_path(source, SOURCE_ROOT if original else EVAL_ROOT)
-    target = private_path(Path(state["target"]), EVAL_ROOT)
+    private_path(source, SOURCE_ROOT if original else output)
+    target = private_path(Path(state["target"]), output)
     require(valid_hash(state["sha256"]) and digest(source) == state["sha256"], "observer input seal differs")
-    metadata = json.loads((EVAL_ROOT / "RegisteredApi.json").read_bytes())
+    metadata = json.loads((output / "RegisteredApi.json").read_bytes())
     args = (state["case"], state["prediction"], state["branch"])
     if original:
         return source_phase(*args, source, state["sha256"], record, metadata, edited=role == "original-edited")

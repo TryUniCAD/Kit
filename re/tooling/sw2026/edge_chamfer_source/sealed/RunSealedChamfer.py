@@ -44,6 +44,7 @@ SOURCE_PATH = r"C:\KitEdgeChamferHeld01"
 EVAL_PATH = fr"C:\Kit{TRIAL}"
 SOURCE_ROOT = Path(SOURCE_PATH)
 EVAL_ROOT = Path(EVAL_PATH)
+SIGNED_EVAL_ROOT = Path(r"C:\KitGeneratedChamferHeldout03")
 PUBLIC = PureWindowsPath(r"\\Mac\Home\Documents\UniCAD\Oracle121Takeover") / TRIAL
 PUBLIC_ASSETS = ({"Compiler.zip", "Control.SLDPRT", "DisclosedReceipt.json", "PrewriterLock.json", "PriorEvaluation.json",
                   "Tool/RunNativeChamferProbe.py"} | TOOL_FILES | {f"Tool/{name}" for name in TOOLS})
@@ -57,11 +58,17 @@ def hash_bytes(data):
     return sha256(data).hexdigest()
 
 
-def verified(packet, pin):
+def read_freeze(packet, pin):
     manifest = packet / "Freeze.json"
-    require(valid_hash(pin) and not manifest.is_symlink() and digest(manifest) == pin,
+    require(valid_hash(pin) and not manifest.is_symlink(),
             "held-out evaluation requires the exact public freeze")
-    freeze = json.loads(manifest.read_bytes())
+    data = manifest.read_bytes()
+    require(hash_bytes(data) == pin, "held-out evaluation requires the exact public freeze")
+    return json.loads(data)
+
+
+def verified(packet, pin):
+    freeze = read_freeze(packet, pin)
     expected = {"schema": SCHEMA, "construction_revision": WRITER, "construction_tree": WRITER_TREE,
                 "prewriter_lock_revision": LOCK_REV, "disclosed_revision": DISCLOSED_REV, "oracle_build": BUILD,
                 "oracle_sha256": ORACLE, "source_root": SOURCE_PATH, "evaluation_root": EVAL_PATH,
@@ -71,17 +78,24 @@ def verified(packet, pin):
             and valid_hash(freeze["evaluator_revision"], 40)
             and freeze["boundary_revision"] == BOUNDARY_REV
             and freeze["driver_revision"] == DRIVER_REV, "evaluation code, source or oracle is unbound")
-    files = freeze["files"]
-    require(set(files) == PUBLIC_ASSETS
+    verify_public_members(packet, freeze["files"], PUBLIC_ASSETS, COMPILER_SHA)
+    return freeze, verify_original_public_evidence(packet)
+
+
+def verify_public_members(packet, files, provided_assets, compiler_sha):
+    require(set(files) == provided_assets
             and {item.relative_to(packet).as_posix() for item in packet.rglob("*") if item.is_file()}
-            == PUBLIC_ASSETS | {"Freeze.json"}, "held-out packet file closure differs")
+            == provided_assets | {"Freeze.json"}, "held-out packet file closure differs")
     for name, identity in files.items():
         item = packet / name
         require(not item.is_symlink() and item.resolve().is_relative_to(packet.resolve())
                 and item.stat().st_size == identity["bytes"] and digest(item) == identity["sha256"],
                 "a frozen public file changed")
-    require(files["Control.SLDPRT"]["sha256"] == CONTROL and files["Compiler.zip"]["sha256"] == COMPILER_SHA,
-            "independent healthy control or earlier exact compiler differs")
+    require(files["Control.SLDPRT"]["sha256"] == CONTROL and files["Compiler.zip"]["sha256"] == compiler_sha,
+            "independent healthy control or exact compiler differs")
+
+
+def verify_original_public_evidence(packet):
     prewriter = pin_record(packet / "PrewriterLock.json", PREWRITER_SHA)
     disclosed = pin_record(packet / "DisclosedReceipt.json", DISCLOSED_SHA)
     prior = pin_record(packet / "PriorEvaluation.json", PRIOR_RESULT)
@@ -105,7 +119,7 @@ def verified(packet, pin):
             and [slot["slot"] for slot in prewriter["slots"]] == list(SLOTS)
             and prewriter["distinct_native_processes"] == 8 and prewriter["writer_output_count"] == 0
             and prewriter["heldout_writer_acceptance"] is False, "the original native prewriter lock is incomplete")
-    return freeze, prewriter
+    return prewriter
 
 
 def compiler_bundle(packet, destination, identities):
@@ -323,10 +337,10 @@ def evaluate_slot(output, slot, model, compiler, epoch, metadata, phases, proces
     return row
 
 
-def guest_receipt_path(packet, name):
-    require(os.name == "nt" and PureWindowsPath(packet) == PUBLIC / "Packet",
+def guest_receipt_path(packet, name, public):
+    require(os.name == "nt" and PureWindowsPath(packet) == public / "Packet",
             "execution must begin from the exact shared public preparation under Windows")
-    receipt = Path(PUBLIC / "Public" / name)
+    receipt = Path(public / "Public" / name)
     parent = receipt.parent
     require(parent.is_dir() and not parent.is_symlink() and not parent.is_junction()
             and not receipt.is_symlink() and not receipt.is_junction(), "invalid redacted receipt destination")
@@ -340,11 +354,11 @@ def custody_result(pin, public_lock, slots, phases, lifetimes, accesses):
             "passed": (slots, phases, lifetimes, accesses) == (2, 6, 8, 0)}
 
 
-def custody_worker(packet, pin):
-    receipt = guest_receipt_path(packet, "Custody.json")
-    require(not receipt.exists() and not private_path(EVAL_ROOT, EVAL_ROOT).exists(),
+def custody_worker(packet, pin, *, verify_packet=verified, public=PUBLIC, output=EVAL_ROOT):
+    receipt = guest_receipt_path(packet, "Custody.json", public)
+    require(not receipt.exists() and not private_path(output, output).exists(),
             "custody preflight requires its unused receipt and evaluation root")
-    _, public_lock = verified(packet, pin)
+    _, public_lock = verify_packet(packet, pin)
     denied = []
 
     def guard(event, args):
@@ -368,24 +382,24 @@ def custody_worker(packet, pin):
     return result["passed"]
 
 
-def guest_worker(packet, pin, custody_pin):
-    public_result = guest_receipt_path(packet, "Result.json")
-    output = private_path(EVAL_ROOT, EVAL_ROOT)
+def guest_worker(packet, pin, custody_pin, *, verify_packet=verified, public=PUBLIC, output=EVAL_ROOT):
+    public_result = guest_receipt_path(packet, "Result.json", public)
+    output = private_path(output, output)
     require(not output.exists() and not public_result.exists(),
             "evaluation needs both unused private custody and public receipt locations")
-    frozen, public_lock = verified(packet, pin)
-    receipt = pin_record(guest_receipt_path(packet, "Custody.json"), custody_pin)
+    frozen, public_lock = verify_packet(packet, pin)
+    receipt = pin_record(guest_receipt_path(packet, "Custody.json", public), custody_pin)
     require(receipt == custody_result(pin, public_lock, 2, 6, 8, 0), "native run requires a passing exact custody preflight")
     output.mkdir()
     result = {"schema": "kit.sw2026.sealed-chamfer-native-result.v1", "freeze_sha256": pin,
               "custody_receipt_sha256": custody_pin,
-              "construction_revision": WRITER, "oracle_build": BUILD, "oracle_sha256": ORACLE,
+              "construction_revision": frozen["construction_revision"], "oracle_build": BUILD, "oracle_sha256": ORACLE,
               "source_lock_sha256": public_lock["source_lock_sha256"], "attempted_phases": [],
               "slots": [], "passed": False, "heldout_lifecycle_credit": 0}
     phases, processes, prior_stamps = result["attempted_phases"], [], set()
     try:
         local_packet = output / "Packet"
-        for name in PUBLIC_ASSETS - {"Compiler.zip"}:
+        for name in frozen["files"].keys() - {"Compiler.zip"}:
             source, target = packet / name, local_packet / name
             data = source.read_bytes()
             require(hash_bytes(data) == frozen["files"][name]["sha256"],
@@ -434,7 +448,7 @@ def guest_worker(packet, pin, custody_pin):
     return result["passed"]
 
 
-if __name__ == "__main__":
+def main(verify_packet=verified, public=PUBLIC, output=EVAL_ROOT):
     parser = ArgumentParser()
     parser.add_argument("--packet", required=True, type=Path)
     parser.add_argument("--pin", required=True)
@@ -444,13 +458,18 @@ if __name__ == "__main__":
     mode.add_argument("--custody-pin")
     args = parser.parse_args()
     if args.verify:
-        freeze, _ = verified(args.packet, args.pin)
+        freeze, _ = verify_packet(args.packet, args.pin)
         print(json.dumps({"freeze_sha256": args.pin, "compiler_members": len(freeze["compiler_members"]),
                           "complete_fresh_processes": freeze["complete_fresh_processes"]}, sort_keys=True))
     else:
         try:
-            passed = (custody_worker(args.packet, args.pin) if args.custody_only
-                      else guest_worker(args.packet, args.pin, args.custody_pin))
+            options = {"verify_packet": verify_packet, "public": public, "output": output}
+            passed = (custody_worker(args.packet, args.pin, **options) if args.custody_only
+                      else guest_worker(args.packet, args.pin, args.custody_pin, **options))
         except Exception:
             raise SystemExit(2) from None
         raise SystemExit(0 if passed else 2)
+
+
+if __name__ == "__main__":
+    main()

@@ -33,3 +33,34 @@ The run requires an idle oracle and an unused `C:\KitGeneratedChamferHeldout02`.
 ## Second trial outcome
 
 The second trial failed the two-source gate. Both controls passed, both original pairs stayed immutable and the oracle returned idle after eight distinct processes. Slot 01 passed all three paired states, including the live edit and fresh reopen, with 115 numeric comparisons. Slot 02 passed to the generation stage and stopped before a candidate was created. The redacted result is `00f72e7f3265e00bc61aa979508adfe5da6415a4c866525a21710aa48dc3daef`. The guest diagnostic exported only the compiler stack, error class and hashes. It traced the generation refusal to the selected distance side guard in `make_stock_selection`, which currently requires the first face of the positive fin. The next rule needs an independently disclosed complementary-side control. The batch adds zero held-out lifecycle credit. [Result](../measurements/2026/EdgeChamferSealedGenerationFailure02.json)
+
+## Third trial with the measured reciprocal coedge
+
+The separate signed C/D disclosure established both oriented stock carriers on ordinary offset Front rectangles. Four native-authored saves verified the exact role order, and the two generated cold candidates passed all six native processes with healthy controls. The native result SHA-256 is `d161909999b3ed8d72f0885dbb6dbc0dfa3866e712dc4dd390aef7406c236409`. It binds the signed trial `8db08a479cd2b3e29dd4d5ad38eec3e96631e0aec15f71868a37aea51d423f49`, both full source comparisons and all three states in each case. The reciprocal selection is derived from the supplied distance side and modeled coedges. The sealed failure exposed only the earlier refusal. The corrected rule uses the disclosed geometry and the installed runtime owner evidence. [Calibration and frozen disclosure](ChamferSignedSideSource2026.md)
+
+Freeze the exact measured constructor `240492e95dcf7743c2847615fe28b83bd5adc78e` on the original pre-writer cohort. The two previous freezes, their results, the second custody receipt, all source hashes, and the original positive-side disclosure remain pinned. This is a third run of the same pre-writer cohort. The third public and guest output roots are fresh. The guest source root and all comparator, edit, save, reopen and control checks are unchanged.
+
+The host can perform a disclosed preflight using [StageSignedSealedChamfer.py](../../tooling/sw2026/edge_chamfer_source/sealed/StageSignedSealedChamfer.py) with `--preflight --signed-packet PATH --control PATH`. This checks both earlier redacted attempts, recreates the 5,969-file compiler archive with SHA-256 `1023ea18efb9ea614ec74db84e79feb0b07a100021e66ecc68596b44e5619dda`, and exercises the exact extracted compiler with the two original disclosed positive-side models and the two new signed models. Eight isolated Python 3.12.14 processes reproduce the four frozen container digests with zero runtime accesses, protected reads or native processes. Final staging additionally requires the exact root-issued signed native result and digest. It refuses a missing or failed signed source comparison before creating a packet.
+
+```sh
+chamfer_share=/Users/odin/Documents/UniCAD/Oracle121Takeover
+chamfer_signed="$chamfer_share/GeneratedChamferSigned01/Packet"
+python3.14 -I -B re/tooling/sw2026/edge_chamfer_source/sealed/StageSignedSealedChamfer.py \
+  --output "$chamfer_share/GeneratedChamferHeldout03" \
+  --signed-packet "$chamfer_signed" --control "$chamfer_signed/Control.SLDPRT" \
+  --signed-native EXACT_DISCLOSED_RESULT_PATH \
+  --signed-pin d161909999b3ed8d72f0885dbb6dbc0dfa3866e712dc4dd390aef7406c236409
+```
+
+The root-owned Windows process first performs the same strict custody-only preflight. It verifies both actual sources, their six phase records, earlier controls and their lifetimes. It launches zero native processes. Keep the reported receipt and use its SHA-256 for the subsequent native invocation.
+
+```sh
+chamfer_packet='\\Mac\Home\Documents\UniCAD\Oracle121Takeover\GeneratedChamferHeldout03\Packet'
+chamfer_python='C:\Users\odin\AppData\Local\Programs\Python\Python312\python.exe'
+prlctl exec 'Windows 11' --current-user "$chamfer_python" -E -B \
+  "$chamfer_packet\Tool\RunSignedSealedChamfer.py" --packet "$chamfer_packet" --pin FREEZE_SHA256 --custody-only
+prlctl exec 'Windows 11' --current-user "$chamfer_python" -E -B \
+  "$chamfer_packet\Tool\RunSignedSealedChamfer.py" --packet "$chamfer_packet" --pin FREEZE_SHA256 --custody-pin CUSTODY_SHA256
+```
+
+The third result requires ten distinct native processes with both controls and all source comparisons passing. Guest-local private phase output remains at `C:\KitGeneratedChamferHeldout03`. The share receives the redacted custody and result only. The evaluator includes no product registration and pending or incomplete native evaluation carries zero held-out credit.

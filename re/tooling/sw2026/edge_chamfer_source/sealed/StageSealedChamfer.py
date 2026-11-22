@@ -61,10 +61,10 @@ def pinned_history():
     return head, physical
 
 
-def git_python_closure(head):
+def git_python_closure(head, writer=WRITER):
     exact = WRITER_CODE | SHARED_CODE | INTEGRATION_CODE
     trees = {}
-    for raw in git("ls-tree", "-r", "-z", WRITER, "src", *sorted(exact)).split(b"\0"):
+    for raw in git("ls-tree", "-r", "-z", writer, "src", *sorted(exact)).split(b"\0"):
         if not raw:
             continue
         header, name = raw.decode().split("\t", 1)
