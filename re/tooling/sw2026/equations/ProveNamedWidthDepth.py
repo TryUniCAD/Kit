@@ -126,7 +126,7 @@ def projection(document, full):
     from interchange.Features.FeatureExtrude import ExtrudeEnd
 
     document.assert_valid()
-    width, height, length = document.parameters
+    width, height, length, param = document.parameters
     (sketch,) = document.sketches
     (body,) = document.bodies
     (profile,) = (step for step in document.feature_timeline if step.name == "Sketch")
@@ -145,9 +145,8 @@ def projection(document, full):
     assert length.owner_id == boss.id == body.final_feature_id
     assert profile.sketch_id == boss.sketch_id == sketch.id
     assert boss.input_feature_ids == (profile.id,)
-    assert sketch.parameter_ids == (width.id, height.id) and boss.parameter_ids == (
-        length.id,
-    )
+    assert sketch.parameter_ids == (width.id, height.id)
+    assert boss.parameter_ids == (length.id, param.id)
     assert (
         length.expression.source == '"width@Sketch" / 2'
         and length.expression.parameter_ids == (width.id,)
@@ -158,10 +157,7 @@ def projection(document, full):
         boss.definition.end_condition == ExtrudeEnd.KBlind
         and boss.definition.length.value == 20.0
     )
-    assert (
-        boss.definition.second_length is None
-        and boss.definition.second_end_condition is None
-    )
+    assert boss.definition.second_end_condition is None
     assert not boss.definition.reversed and not boss.definition.symmetric
     assert [
         (row.kind, row.parameter_id) for row in sketch.constraints if row.parameter_id
@@ -203,6 +199,24 @@ def projection(document, full):
         "relation": eq["relation"],
         "feature_operation": boss.operation.value,
         "document_sha256": digest(document.to_json(indent=None).encode()),
+    }
+    assert (
+        param.name == dormant["name"] == "D2"
+        and param.owner_id == boss.id
+        and param.role == ParameterRole.KDriving
+        and param.expression is None
+        and param.value == boss.definition.second_length
+        and param.value.value == dormant["value_mm"]
+        and param.value.unit == "mm"
+        and param.attributes["native_role"] == "dormant"
+        and param.attributes["typed_archive_owner"] == dormant["owner"]
+        and param.provenance.spans[0].stream == dormant["owner"]["stream"]
+    )
+    result["portable_dormant_parameter"] = {
+        "id": param.id,
+        "owner_id": param.owner_id,
+        "value_mm": param.value.value,
+        "has_second_end": False,
     }
     if full:
         assert boss.operation.value == "create" and not document.brep.validate(

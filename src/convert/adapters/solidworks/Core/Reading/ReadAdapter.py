@@ -285,6 +285,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Equations.BindWidthDepth imp
 from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadSavedEq import (
     ReadSavedEq,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Equations.WithEqDormant import (
+    WithEqDormant,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Lines.LineSketch import LineSketch
 from convert.adapters.solidworks.Core.Reading.ConfigLanes import (
     KResolvedConfigStream,
@@ -744,7 +747,12 @@ def ReadNativePart(
         ),
     )
     return FinishPartDoc(
-        WithPartMat(DocValue, Archive, Payloads, ActivePart),
+        WithPartMat(
+            WithEqDormant(DocValue, Model.WidthDepth, ParamId),
+            Archive,
+            Payloads,
+            ActivePart,
+        ),
         Archive,
         Model.active_configuration_id,
         DerivedValue,

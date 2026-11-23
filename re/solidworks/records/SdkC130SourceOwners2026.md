@@ -29,6 +29,8 @@ The generated single atom describes the output and creator. It does not claim th
 
 The current sidecar is evidence, not native transfer. The original document label, annotation/presentation, remaining source origin and axis objects, persistent shape lineage, editable profile policies, and distinct authored endpoint constraints need their own semantic comparison. The next native comparison for the combined construction requires independent source locks and controlled open, width edit with depth recomputation, body caption and dormant D2 check, save and fresh reopen. The profile and Refine policies require independent multi-face and redundant-edge contrasts to identify an actual native rule before claiming equivalence. Original membership in the requested benchmark roster is still unauthenticated.
 
+The [portable dormant length follow-up](C130PortableDormantLength2026.md) preserves the exact original Pad.Length2 mapping as an owned target parameter and typed feature length through ordinary reads and JSON.
+
 The [source ancestry follow-up](C130PadReferenceAncestry2026.md) resolves the genuine FreeCAD indexed occurrences and later release aliases. Native persistent-reference transfer remains open.
 
 ## Reproduction

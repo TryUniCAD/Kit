@@ -47,6 +47,8 @@ PRODUCTION = (
     "Archive/Construction/Part/FinishBlindMut.py",
     "Archive/Construction/Part/SelectBlindEnd.py",
     "Archive/Construction/RectangleAnchors/MakeAnchorPart.py",
+    "Core/Reading/ReadAdapter.py",
+    "Core/TypedResolved/Equations/WithEqDormant.py",
 )
 
 
@@ -276,6 +278,36 @@ def worker(path):
         native = inspect_atom_and_ends(named, unnamed, full, design)
         assert native["body_name"] == source.body_name
         assert observed["full"]["dormant"]["value_mm"] == source.dormant_m * 1000
+        original_id = source.pad_parameters["Length2"]["parameter_id"]
+        (original,) = (row for row in document.parameters if row.id == original_id)
+        assert original.owner_id == source.body_roles["tip_feature"] and original.expression is None
+        portable = observed["full"]["portable_dormant_parameter"]
+        assert portable == observed["design_only"]["portable_dormant_parameter"]
+        assert portable["value_mm"] == original.value.value
+        for projected in (full, design):
+            restored = type(projected).from_json(projected.to_json(indent=None))
+            assert restored.parameters == projected.parameters
+            assert restored.feature_timeline == projected.feature_timeline
+        observed["dormant_source_join"] = {
+            "source_parameter_id": original.id,
+            "source_owner_id": original.owner_id,
+            "target_parameter_id": portable["id"],
+            "target_owner_id": portable["owner_id"],
+            "portable_json": True,
+        }
+        changed_depth = source.dormant_m * 0.75
+        changed = build_part(replace(source, dormant_m=changed_depth), source.body_name)
+        changed_read = open_document(changed.BytesValue, source_format=FORMAT, strict=True)
+        (changed_row,) = (row for row in changed_read.parameters if row.id == portable["id"])
+        (changed_boss,) = (row for row in changed_read.feature_timeline if row.id == portable["owner_id"])
+        assert changed_row.value == changed_boss.definition.second_length
+        assert changed_row.value.value == changed_depth * 1000 and changed_row.value != original.value
+        assert changed_boss.definition.second_end_condition is None and changed_read.brep == full.brep
+        assert changed_read.bodies == full.bodies and changed.BytesValue != named.BytesValue
+        observed["varied_model_dormant_value"] = {
+            "value_mm": changed_row.value.value, "archive_sha256": digest(changed.BytesValue),
+            "same_geometry_and_owner": True,
+        }
         assert tuple(unnamed.StreamsValue) == tuple(named.StreamsValue)
         delta = [
             key
