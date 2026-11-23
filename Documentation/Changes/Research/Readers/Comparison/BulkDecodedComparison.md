@@ -15,6 +15,8 @@ Available input hashes, report hashes, explicit geometry units, tolerance choice
 
 Invalid inputs remain explicit outcomes without hiding later pairs.
 Ambiguity, unresolved source evidence, and exhausted comparison budgets cannot produce equality.
+Unresolved source issues also require exit `3` when the engine's primary status records observed differences.
+Engine report-budget refusals remain incomplete observations instead of input errors.
 Output publication refuses existing destinations.
 
 ## Usage and limits

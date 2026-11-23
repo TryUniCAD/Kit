@@ -66,10 +66,18 @@ def compare_pair(pair, args, tolerances, tolerance_pin, pins):
     documents = {
         side: document_input(path, pins[side]) for side, path in paths.items()
     }
-    report = compare_documents(
-        documents["left"], documents["right"], tolerances,
-        args.left_unit, args.right_unit, args.max_candidates,
-    )
+    try:
+        report = compare_documents(
+            documents["left"], documents["right"], tolerances,
+            args.left_unit, args.right_unit, args.max_candidates,
+        )
+    except ValueError as error:
+        if str(error) not in {
+            "semantic report exceeds its 33554432-byte JSON limit",
+            "semantic graph issues exceed their output budget",
+        }:
+            raise
+        report = {"status": "incomplete", "reason": str(error)}
     report["input_sha256"] = {**pins, "tolerances": tolerance_pin}
     for side, path in paths.items():
         file_pin_now = file_pin(path, DOCUMENT_BYTES)
@@ -104,10 +112,12 @@ def result_counts(report):
     }
 
 
-def batch_exit(outcomes):
+def batch_exit(outcomes, rows):
     if outcomes["reader_error"] or outcomes["missing_input"]:
         return 1
     if any(outcomes[status] for status in ("ambiguous", "unresolved", "incomplete")):
+        return 3
+    if any(row["counts"]["source_issues"] for row in rows):
         return 3
     return 2 if outcomes["different"] else 0
 
@@ -188,7 +198,7 @@ def run_batch(args):
             "counts": result_counts(report), "report": artifact,
         })
     outcomes = Counter(row["status"] for row in rows)
-    exit_code = batch_exit(outcomes)
+    exit_code = batch_exit(outcomes, rows)
     summary = {
         "batch_version": 1,
         "scope": "bulk_portable_semantic_graph_observation",

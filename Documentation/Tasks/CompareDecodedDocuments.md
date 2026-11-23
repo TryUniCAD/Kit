@@ -102,18 +102,20 @@ The existing engine compares supported parameters, planes, sketches, constraints
 Full B-rep, meshes, retained payloads, and assembly graphs remain outside its semantic comparison scope.
 Unsupported domains remain explicit issues.
 
-| Exit | Meaning                                                                         |
-| ---: | ------------------------------------------------------------------------------- |
-|    0 | Every selected pair has `equal_observed_graph` status                           |
-|    1 | Invalid setup, a missing input, or an input error                               |
-|    2 | Observed differences exist, without errors or unresolved outcomes               |
-|    3 | At least one pair is ambiguous, unresolved, or incomplete, without input errors |
+| Exit | Meaning                                                                                                |
+| ---: | ------------------------------------------------------------------------------------------------------ |
+|    0 | Every selected pair has `equal_observed_graph` status                                                  |
+|    1 | Invalid setup, a missing input, or an input error                                                      |
+|    2 | Observed differences exist, without errors or unresolved outcomes                                      |
+|    3 | At least one pair is ambiguous, unresolved, incomplete, or retains source issues, without input errors |
 
 Input errors take precedence over unresolved outcomes; unresolved outcomes take precedence over differences.
 Read the full outcome totals when a batch contains several statuses.
 Invalid documents do not stop later comparisons.
 Output-budget refusals retain an incomplete pair report and continue.
 Filesystem publication failures stop the batch.
+The detailed engine status can remain `different` when unresolved source evidence also exists.
+Such batches return exit `3`; inspect each pair's `counts.source_issues` alongside its detailed differences.
 
 `summary.json` is published last and marks a completed observation batch.
 A directory without it is incomplete.

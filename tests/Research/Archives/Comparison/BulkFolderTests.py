@@ -90,7 +90,11 @@ def CheckAmbigBatch(TmpPath: FilePath) -> None:
 # isolated outcome batches preserve difference and unresolved exit meanings outside mixed error batches
 @MarkValue.parametrize(
     "Scenario,ExitCode,StatusName",
-    (("different", 2, "different"), ("unresolved", 3, "unresolved")),
+    (
+        ("different", 2, "different"),
+        ("unresolved", 3, "unresolved"),
+        ("different_unresolved", 3, "different"),
+    ),
 )
 def CheckOutcomes(
     TmpPath: FilePath, Scenario: str, ExitCode: int, StatusName: str
@@ -101,13 +105,17 @@ def CheckOutcomes(
     Second.mkdir()
     Document = (
         MakeUnresolved("source_attributes")
-        if Scenario == "unresolved"
+        if "unresolved" in Scenario
         else MakeDocument()
     )
     WriteDocument(First / "Part.json", Document)
     WriteDocument(
         Second / "Part.json",
-        ChangeSemantic(Document, "role") if Scenario == "different" else Document,
+        (
+            ChangeSemantic(Document, "role")
+            if Scenario.startswith("different")
+            else Document
+        ),
     )
     Output = TmpPath / "Output"
     Result = RunBulk(
@@ -123,5 +131,5 @@ def CheckOutcomes(
     assert Result.returncode == ExitCode, Result.stderr + Result.stdout
     Summary = ParseJson((Output / "summary.json").read_text(encoding="utf-8"))
     assert Summary["outcomes"] == {StatusName: 1}
-    if Scenario == "unresolved":
+    if "unresolved" in Scenario:
         assert Summary["pairs"][0]["counts"]["source_issues"] > 0
