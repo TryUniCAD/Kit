@@ -44,6 +44,9 @@ def CheckExports(TmpPath: FilePath) -> None:
         encoding="utf-8",
     )
     OriginalPins[Manifest] = DigestBytes(Manifest.read_bytes()).hexdigest()
+    ExpectedPairs = {
+        Entry["id"]: Entry for Entry in ParseJson(Manifest.read_bytes())["pairs"]
+    }
     Output = TmpPath / "Output"
     Result = RunBulk(
         [
@@ -108,7 +111,8 @@ def CheckExports(TmpPath: FilePath) -> None:
             "not_supplied",
         )
         for SideName in ("left", "right"):
-            FileName = FilePath(PairRow["inputs"][SideName]).name
+            FileName = ExpectedPairs[PairRow["id"]][SideName]
+            assert PairRow["inputs"][SideName] == str((TmpPath / FileName).absolute())
             assert {
                 "input_sha256": Detail["input_sha256"][SideName],
                 "source_sha256": Detail["sources"][SideName]["source_sha256"],
