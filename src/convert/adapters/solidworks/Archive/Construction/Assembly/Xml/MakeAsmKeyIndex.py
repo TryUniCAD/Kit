@@ -38,8 +38,39 @@ def MakeAsmKeyIndex(
     ConfigValue: ArchiveNode,
     Targets: tuple[tuple[ArchiveNode, ArchiveNode], ...],
 ) -> bytes:
+    Owners = AsmKeyNodes(RootValue, FeatureValues)
+    References = tuple(
+        MakeAsmKeyRef(Reference, ReadFileKey(ChildFile)[1])
+        for Reference, ChildFile in Targets
+    )
+    return EmitAsmKeyIndex(
+        RootValue,
+        HeaderValue,
+        ConfigValue,
+        Owners,
+        References,
+    )
+
+
+# the selected file leaf and concrete occurrence supply independent keyword fields
+def MakeAsmKeyRef(Reference: ArchiveNode, FileName: str) -> KeywordRef:
+    return KeywordRef(
+        FieldInt(Reference.FieldsValue, "f08"),
+        ReadNodeName(Reference),
+        PureWindowsPath(FileName).stem,
+    )
+
+
+# decoded and generated assembly models share row vocabulary and the lexical index order
+def EmitAsmKeyIndex(
+    RootValue: ArchiveNode,
+    HeaderValue: ArchiveNode,
+    ConfigValue: ArchiveNode,
+    Owners: tuple[ArchiveNode, ...],
+    References: tuple[KeywordRef, ...],
+) -> bytes:
     RowValues: list[KeywordFeature | KeywordRef] = []
-    for NodeValue in AsmKeyNodes(RootValue, FeatureValues):
+    for NodeValue in Owners:
         TagValue, KindValue = KAsmXmlRoles[NodeValue.ClassValue.NameValue]
         RowValues.append(
             KeywordFeature(
@@ -53,14 +84,7 @@ def MakeAsmKeyIndex(
                 None,
             )
         )
-    for Reference, ChildFile in Targets:
-        RowValues.append(
-            KeywordRef(
-                FieldInt(Reference.FieldsValue, "f08"),
-                ReadNodeName(Reference),
-                PureWindowsPath(ReadFileKey(ChildFile)[1]).stem,
-            )
-        )
+    RowValues.extend(References)
     RowValues.sort(key=KeyIndexOrder)
     FileValue = ArchiveNode.RequireNode(HeaderValue.FieldsValue["f38"])
     EpochValue = FieldInt(RequireRecord(FileValue.FieldsValue.get("shared")), "f28")

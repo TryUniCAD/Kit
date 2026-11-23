@@ -459,6 +459,12 @@ feature and dimension rows. The caller supplies their model identities,
 references and presentation values.
 [Typed KeyWords scope](../../Changes/Solidworks/Archive/SolidworksTypedKeywordModels.md)
 
+The assembly builder shares its row and framing rules with a binary-owner
+projection for the eight disclosed ordinary saves. The shared display
+constructor offers decimal millimetre and degree precision from the
+parameter and document units.
+[Binary keyword owners](../../Changes/Solidworks/Archive/Metadata/SolidworksKeywordOwners.md)
+
 ## Read flow
 
 ```mermaid

@@ -45,11 +45,9 @@ python3.14 -I -B re/tooling/sw2026/AuditKeywordModels.py \
   /absolute/path/to/disclosed-captures /tmp/UnusedKeywordModels.json
 ```
 
-Saved full-source keyword generation still needs to join the native
-assembly's resolved environment state to its actual containing owner.
-The same environment node appears in both binary views on all eight
-disclosed files, but its saved owner representation differs from the
-fresh construction graph. Resolving redacted physical links and deriving
-display precision for every source document also remain separate from
-this typed stream comparison. There are no new SOLIDWORKS launches or
-held-out feature claims in this audit.
+The [binary owner projection](KeywordOwnerProjection2026.md) extends this
+comparison with complete reconstruction of all eight saved assembly
+indexes and derives all 309 part dimension displays from their binary
+owners and effective units. It identifies the native discriminator that
+allows saved dimension sibling order to vary. The typed source sequence
+remains the authority for exact replay of each supplied stream.

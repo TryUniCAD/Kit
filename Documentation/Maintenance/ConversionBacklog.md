@@ -475,9 +475,11 @@ optional material text for its native generated local imports.
 
 The aggregate [typed keyword corpus](../../re/solidworks/records/KeywordTypedCorpus2026.md)
 re-encodes 211 disclosed indexes and uses the shared codec for ordinary
-and nested assembly generation. Complete saved-source generation still
-needs the native assembly environment owner and the display precision
-inputs for all source documents.
+and nested assembly generation. The [binary owner projection](../../re/solidworks/records/KeywordOwnerProjection2026.md)
+reconstructs all eight saved assembly indexes and all 309 saved part
+dimension displays. The pinned native dimension-key path accounts for
+volatile sibling order. Other part feature rows and display policies
+remain within the broader classification task.
 
 ### B04-SW2026-CONFIG-ATOM-EMISSION
 

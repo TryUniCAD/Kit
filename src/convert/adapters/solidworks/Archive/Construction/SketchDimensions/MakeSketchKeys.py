@@ -4,6 +4,10 @@ from convert.adapters.solidworks.Archive.Construction.Dimensions.DimensionGraph 
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordDim import (
     KeywordDim,
 )
+from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeyDisplay import (
+    KKeyLengthScale,
+    MakeKeyDisplay,
+)
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNodeName
 
@@ -12,12 +16,12 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNode
 def MakeSketchKeys(
     ResultValues: tuple[DimensionGraph, ...], UnitText: str
 ) -> tuple[KeywordDim, ...]:
-    ScaleValue = {"mm": 0.001, "m": 1.0, "in": 0.0254}[UnitText]
+    _ = KKeyLengthScale[UnitText]
     return tuple(
-        KeywordDim(
+        MakeKeyDisplay(
             ReadNodeName(ResultValue.ParameterValue),
-            RequireScalar(ResultValue.ParameterValue.FieldsValue["f58"]) / ScaleValue,
-            None,
+            RequireScalar(ResultValue.ParameterValue.FieldsValue["f58"]),
+            UnitText,
         )
         for ResultValue in ResultValues
     )
