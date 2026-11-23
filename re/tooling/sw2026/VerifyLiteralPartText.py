@@ -137,7 +137,7 @@ def compare_document(document, baseline):
 
 
 def old_read(read, asset, **kwargs):
-    with patch(HOOK, side_effect=lambda document, archive: document):
+    with patch(HOOK, side_effect=lambda document, archive, *, LinkedConfig=None: document):
         return read(asset, **kwargs)
 
 
