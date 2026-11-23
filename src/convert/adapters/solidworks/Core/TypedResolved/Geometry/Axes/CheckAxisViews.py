@@ -62,15 +62,16 @@ def CalcDatumView(
 
 # the finite endpoints must be the first support rectangle clipping the visible axis line
 def CheckAxisViews(
-    AxesValue: PrismAxes, BoundsValue: BoundingBox
+    AxesValue: PrismAxes, BoundsValue: BoundingBox, *, SignedTop: bool
 ) -> dict[ArchiveNode, DatumDisplay]:
     Lower, Upper = MetreVector(BoundsValue.minimum), MetreVector(BoundsValue.maximum)
-    if (Lower[0], Upper[1], Lower[2]) != (0.0, 0.0, 0.0):
+    AnchorY = Upper[1] if SignedTop else Lower[1]
+    if (Lower[0], AnchorY, Lower[2]) != (0.0, 0.0, 0.0):
         raise ValueError("cache free origin axes require the signed origin box bounds")
-    SizesValue = (Upper[0], -Lower[1], Upper[2])
+    SizesValue = (Upper[0], Upper[1] - Lower[1], Upper[2])
     if min(SizesValue) <= 1e-7:
         raise ValueError("cache free origin axis stock is degenerate")
-    Center = (Upper[0] * 0.5, Lower[1] * 0.5, Upper[2] * 0.5)
+    Center = (Upper[0] * 0.5, (Lower[1] + Upper[1]) * 0.5, Upper[2] * 0.5)
     Tolerance = 8 * ulp(max(SizesValue))
     Views = {
         PickValue.PlaneValue: CalcDatumView(

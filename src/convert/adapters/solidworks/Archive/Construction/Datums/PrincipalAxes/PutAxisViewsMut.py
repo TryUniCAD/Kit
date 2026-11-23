@@ -18,15 +18,17 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 
 
-# the signed rectangular stock projects an independently sized display onto every actual principal plane
-def PutAxisViewsMut(SystemValue: PartSystem, SpansValue: KDatumVector) -> None:
+# the rectangular stock projects its signed model envelope onto every actual principal plane
+def PutAxisViewsMut(
+    SystemValue: PartSystem, SpansValue: KDatumVector, *, SignedTop: bool
+) -> None:
     Width, Depth, Height = (RequireScalar(Value) for Value in SpansValue)
     if min(Width, Depth, Height) <= 1e-7:
         raise ValueError("principal displays require a nondegenerate signed box")
     RequireRootNode(SystemValue.RootValue, "moPart_c")
     if set(SystemValue.SystemValues.PlaneValues) != {"x", "y", "z"}:
         raise ValueError("datum sizing requires the actual three principal supports")
-    Center = (Width * 0.5, -Depth * 0.5, Height * 0.5)
+    Center = (Width * 0.5, (-Depth if SignedTop else Depth) * 0.5, Height * 0.5)
     Plans: list[
         tuple[ArchiveNode, ArchiveNode, dict[str, object], dict[str, float]]
     ] = []

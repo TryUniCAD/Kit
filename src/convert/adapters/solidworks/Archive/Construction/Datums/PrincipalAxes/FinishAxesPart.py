@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Datums.Angles.DatumVector import (
+    KDatumVector,
+)
 from convert.adapters.solidworks.Archive.Construction.Datums.PrincipalAxes.EmitAxesPart import (
     EmitAxesPart,
 )
@@ -33,6 +36,26 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 
 
+# actual stock corners fix which signed principal envelope supplies the axis displays
+def ReadAxisStock(PlanValue: BlindPlan) -> tuple[KDatumVector, bool]:
+    SignedTop = PlanValue.AxisValue == "y" and PlanValue.Reversed
+    Front = PlanValue.AxisValue == "z" and not PlanValue.Reversed
+    Width, Height, Depth = (
+        PlanValue.WidthValue,
+        PlanValue.HeightValue,
+        PlanValue.DepthValue,
+    )
+    FarSide = -Height if SignedTop else Height
+    if not (SignedTop or Front) or PlanValue.VerticesValue != (
+        (0.0, 0.0),
+        (Width, 0.0),
+        (Width, FarSide),
+        (0.0, FarSide),
+    ):
+        raise ValueError("principal axes require an origin anchored signed rectangle")
+    return ((Width, Depth, Height) if SignedTop else (Width, Height, Depth)), SignedTop
+
+
 # the complete principal datum graph shares the ordinary cold stock and its same live allocator
 def FinishAxesPart(
     StockValue: PartCandidate,
@@ -45,8 +68,6 @@ def FinishAxesPart(
     PlanValue = StockValue.PlanValue
     if (
         type(PlanValue) is not BlindPlan
-        or PlanValue.AxisValue != "y"
-        or not PlanValue.Reversed
         or len(SketchDims) != 2
         or len(SystemValue.ConfigValues) != 1
         or SystemValue.ManagerValue.FieldsValue.get("f360")
@@ -55,9 +76,8 @@ def FinishAxesPart(
         raise ValueError(
             "principal axis construction requires its actual dimensioned signed stock"
         )
-    PutAxisViewsMut(
-        SystemValue, (PlanValue.WidthValue, PlanValue.DepthValue, PlanValue.HeightValue)
-    )
+    Spans, SignedTop = ReadAxisStock(PlanValue)
+    PutAxisViewsMut(SystemValue, Spans, SignedTop=SignedTop)
     AxisNodes = tuple(
         MakePosAxisMut(
             SystemValue,

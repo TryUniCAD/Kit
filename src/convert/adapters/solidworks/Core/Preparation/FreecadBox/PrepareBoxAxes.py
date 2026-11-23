@@ -39,6 +39,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 from convert.adapters.solidworks.Archive.Construction.RectangleAnchors.MakeAnchorPart import (
     MakeAnchorPart,
 )
+from convert.adapters.solidworks.Archive.Construction.Units.UnitInput import UnitInput
 from convert.adapters.solidworks.Core.Preparation.BindPartIntent import BindPartIntent
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.BoxAnchorInput import (
     BoxAnchorInput,
@@ -58,13 +59,18 @@ def PrepareBoxAxes(
     CreationTime: int,
     TextValue: PartTextInput,
     AxesValue: PrincipalAxes,
+    *,
+    TopAttached: bool = True,
+    UnitsValue: UnitInput | None = None,
 ) -> PartCandidate:
     NameValue = ReadBodyLabel(DocumentValue)
     Plain = PlainBodyView(DocumentValue)
-    PlanValue = ProjectRectDims(Plain, TopAttached=True)
+    PlanValue = ProjectRectDims(Plain, TopAttached=TopAttached)
     CheckAxisStock(DocumentValue, PlanValue)
     Locator = RequirePartPath(PathValue, CreationTime)
     Recipe = MakePartRecipe(PlanValue, CreationTime)
+    if UnitsValue is not None:
+        Recipe = ReplaceValue(Recipe, DocumentUnits=UnitsValue)
     Settings = ReplaceValue(
         BindPartIntent(Plain, PlanValue, Recipe, Locator), PropertiesValue=TextValue
     )
@@ -77,7 +83,10 @@ def PrepareBoxAxes(
     )
     Allocator = PersistentIds()
     StockValue = MakeAnchorPart(
-        Settings, PlanValue, BoxAnchorInput(PlanValue, True), AllocatorValue=Allocator
+        Settings,
+        PlanValue,
+        BoxAnchorInput(PlanValue, TopAttached),
+        AllocatorValue=Allocator,
     )
     _ = NameOutputMut(StockValue, NameValue)
     return FinishAxesPart(

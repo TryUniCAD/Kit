@@ -42,6 +42,8 @@ def ReadAxisGeom(
     ModelValue: NativeModel,
     ColdValue: ColdOutput | None,
     BodyId: str,
+    *,
+    FrontStock: bool = False,
 ) -> PartGeometry:
     if ColdValue is None or LinkValue.ResolvedValue.ExtraFields is not None:
         raise ValueError("cache free origin axes require one actual named stock output")
@@ -61,14 +63,15 @@ def ReadAxisGeom(
         LinkValue, ManagerValue, ModelValue, ColdValue, AxesValue=AxesValue
     )
     PlanValue = ReadPrismBody(LinkValue, Features, ColdValue)
-    if not PlanValue.ReversedBlind:
-        raise ValueError("cache free origin axes require the signed Top stock")
+    if PlanValue.ReversedBlind == FrontStock:
+        ProfileName = "forward Front" if FrontStock else "signed Top"
+        raise ValueError(f"cache free origin axes require the {ProfileName} stock")
     Geometry = BuildPrismGeom(
         PlanValue, BodyId, ColdValue, CreatorValue=ColdValue.BossValue
     )
     BoundsValue = Geometry.TopologyValue.bounding_box
     if BoundsValue is None:
         raise ValueError("cache free origin axes lack their stock envelope")
-    Views = CheckAxisViews(AxesValue, BoundsValue)
+    Views = CheckAxisViews(AxesValue, BoundsValue, SignedTop=PlanValue.ReversedBlind)
     CheckPrismPlane(Features, LinkValue.ConfigValue.RootValue, Views)
     return ReplaceValue(Geometry, AxesValue=AxesValue)
