@@ -1,6 +1,7 @@
 from __future__ import annotations as Annotations
 from convert.adapters.solidworks.Core.Records.ReadPlanePose import ReadPlanePose
 from convert.adapters.solidworks.Core.Records.ReadPlaneOwner import ReadPlaneOwner
+from convert.adapters.solidworks.Core.Records.ReadLocalOwner import ReadLocalOwner
 from convert.adapters.solidworks.Container.Archive import (
     ArchiveError,
     KClassRefKind,
@@ -2651,11 +2652,6 @@ def SketchPlaneRef(
         )
         if Scanned is not None:
             return Scanned
-    if any(
-        Record.name == SketchChainClass and Start <= Record.offset < EndValue
-        for Record in Classes
-    ):
-        raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
     return None
 
 
@@ -2675,9 +2671,17 @@ def ReadSketchPlane(
         return None
     if TagValue.kind != KClassRefKind or TagValue.wide or TagValue.index == 0:
         return None
+    if ReadLocalOwner(DataValue, Offset - 85, EndValue) != (*OwnerValue, Offset):
+        return None
+    if Offset + 4 > EndValue or Struct.unpack_from("<i", DataValue, Offset)[0] not in (
+        2,
+        3,
+        4,
+    ):
+        return None
     PoseValue = ReadPlanePose(DataValue, Offset, EndValue, OwnerValue, StartValue)
     if PoseValue is None:
-        return None
+        raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
     PlaneObjectId, AxisCode, Directions, BasisOffset = PoseValue
     UAxis, VAxis, Normal = Directions
     return NativeSketchA(

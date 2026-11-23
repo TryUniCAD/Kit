@@ -6,6 +6,8 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+from math import isclose as IsClose
+
 from convert.adapters.solidworks.Container.Archive import ArchiveError
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import FieldCursor
@@ -54,12 +56,16 @@ def ReadPlanePose(
         )
         FirstAxis, SecondAxis, Normal = Directions
         RequireArch(
-            tuple(
-                FirstAxis[(Index + 1) % 3] * SecondAxis[(Index + 2) % 3]
-                - FirstAxis[(Index + 2) % 3] * SecondAxis[(Index + 1) % 3]
+            all(
+                IsClose(
+                    FirstAxis[(Index + 1) % 3] * SecondAxis[(Index + 2) % 3]
+                    - FirstAxis[(Index + 2) % 3] * SecondAxis[(Index + 1) % 3],
+                    Normal[Index],
+                    abs_tol=1e-9,
+                )
                 for Index in range(3)
             ),
-            Normal,
+            True,
             "right-handed principal sketch frame",
         )
     except ArchiveError:

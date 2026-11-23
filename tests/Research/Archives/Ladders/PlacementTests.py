@@ -34,7 +34,10 @@ def CheckPlacement(TmpPath: FilePath) -> None:
     assert Report["reader_comparisons"] == 288
     assert Report["centroid_mismatches"] == 0
     assert Report["timestamp_variants"] == 24
-    assert Report["invalid_reference_rejections"] == 19
+    assert Report["invalid_reference_rejections"] == 10
+    assert Report["unqualified_reference_fallbacks"] == 9
+    assert Report["rotated_frame_reads"] == 2
+    assert Report["custom_plane_reads"] == 2
     assert Report["multi_sketch_owner_scans"] == 1
     assert Report["fresh_native_acceptance"] is False
     assert Report["native_conversion_acceptance"] is False

@@ -22,7 +22,8 @@ Each candidate must retain those owners, the same generation, compact pointer ki
 The complete owner envelope stays inside its authored feature.
 The pose must retain its principal origin, unit scale, and absent nested transform within the owning feature boundary.
 The saved frame must be right-handed and its normal must agree with the principal datum.
-An invalid owned chain reference raises a format error after both reference lookup paths fail.
+A compact reference with matching local owners and a principal identity raises a format error if its pose is invalid.
+Unrecognized ownership or non-principal identities retain the existing fallback path.
 Both supported generation stamps participate in fallback scanning.
 The historical timestamp export remains available for compatibility callers.
 
@@ -35,7 +36,10 @@ No native files or historical reports were changed.
 - Decoded cuboid extents agree with the source recipes and measured native centroids.
 - Cuboid volume and area derived from those extents agree with the native observations.
 - Twenty-four timestamp variants preserve placement across three principal planes and both extrusion directions.
-- Nineteen malformed reference variants fail both public read modes, including wrong-datum and reflected orthonormal matrices.
+- Ten malformed principal poses fail both public read modes, including wrong-datum and reflected orthonormal matrices.
+- Nine unqualified pointer, owner, generation, or non-principal identity controls retain the explicit legacy fallback.
+- A three-degree in-plane rotation passes both read modes despite floating-point cross-product rounding.
+- The recorded `example.SLDPRT` keeps Sketch40 on its user-created `Plane1` in both read modes, with an available origin owner and the existing labelled fallback.
 - All 58 older pinned SOLIDWORKS part documents serialize identically before and after this repair.
 - The focused process and compatibility selection passed 19 tests.
 - A multi-sketch native part performs one origin-owner lookup per decode.
@@ -56,7 +60,7 @@ This repair establishes the bounded offline source-placement behavior against re
 It does not establish fresh native acceptance or editable cross-format conversion.
 The separate typed rectangle reader retains its scene, annotation, and principal-axis admission limits.
 Origin-consistent sampling does not establish complete typed archive-map qualification.
-Sketches outside the recognized owned-chain path retain their existing fallback behavior; this change does not qualify those files.
+Sketches outside the recognized owned principal-reference path retain their existing fallback behavior; this change does not qualify those files.
 Neutral explicit mass properties remain unavailable on the legacy path.
 
 [Original field and loader evidence](../../../../../re/solidworks/records/PrincipalSupportCandidates.md)

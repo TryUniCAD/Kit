@@ -173,12 +173,12 @@ def check_invalid(representatives):
         (15, "<d", float("nan")),
         (15, "<d", 0.5),
         (15, "<9d", (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)),
-        (15, "<9d", (-1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0)),
+        (15, "<9d", (-1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, -1.0, 0.0)),
         (87, "<d", 0.001),
         (111, "<d", 2.0),
         (119, "<B", 1),
     ]
-    for delta, encoding, value in edits:
+    for index, (delta, encoding, value) in enumerate(edits):
         if isinstance(value, tuple):
             edited_stream = bytearray(archive.streams[stream])
             struct.pack_into(encoding, edited_stream, offset + delta, *value)
@@ -189,17 +189,42 @@ def check_invalid(representatives):
             edited = change(raw, archive, stream, offset, delta, encoding, value)
         for include_brep in (True, False):
             try:
-                open_document(
+                document = open_document(
                     edited,
                     source_format="solidworks.sldprt",
                     strict=True,
                     include_brep=include_brep,
                 )
             except ArchiveError as error:
+                assert index >= 9
                 assert "invalid owned SOLIDWORKS principal sketch reference" in str(error)
             else:
-                raise AssertionError("malformed reference produced a neutral document")
-    return len(edits)
+                assert index < 9, "malformed principal pose produced a neutral document"
+                (sketch,) = document.sketches
+                assert sketch.attributes["support_plane_source"] == "stream-order"
+    return {"rejections": len(edits) - 9, "unqualified_fallbacks": 9}
+
+
+def check_rotated(representatives):
+    raw, _, _ = representatives[("top", False)]
+    archive, stream, offset = reference(raw)
+    cosine = math.cos(math.radians(3))
+    sine = math.sin(math.radians(3))
+    basis = (cosine, -sine, 0, 0, 0, 1, -sine, -cosine, 0)
+    assert cosine * cosine + sine * sine != 1.0
+    streams = archive.streams
+    edited = bytearray(streams[stream])
+    struct.pack_into("<9d", edited, offset + 15, *basis)
+    streams[stream] = bytes(edited)
+    changed = BuildSldprt(streams, Template=raw)
+    for include_brep in (True, False):
+        document = open_document(
+            changed, source_format="solidworks.sldprt", strict=True, include_brep=include_brep
+        )
+        (sketch,) = document.sketches
+        assert sketch.support_plane_id == "sldprt:plane:3"
+        assert sketch.attributes["support_plane_source"] == "plane-reference"
+    return 2
 
 
 def check_owner_scans():
@@ -229,6 +254,23 @@ def check_owner_scans():
     return scans
 
 
+def check_custom():
+    path = ROOT / "re/solidworks/examples/.SLDPRT/example.SLDPRT"
+    archive = SldprtArchive.open(path)
+    raw = archive.streams["Contents/Config-0-ResolvedFeatures"]
+    model = decode_native_model(archive.streams["swXmlContents/KeyWords"], raw)
+    start = min(sketch.native_offset for sketch in model.sketches)
+    assert native_reader.ReadPlaneOwner(raw, model.classes, start) is not None
+    for include_brep in (True, False):
+        document = open_document(path, strict=True, include_brep=include_brep)
+        sketch = next(item for item in document.sketches if item.id == "sldprt:sketch:40")
+        plane = next(item for item in document.support_planes if item.id == "sldprt:plane:39")
+        assert plane.name == "Plane1"
+        assert sketch.support_plane_id == plane.id
+        assert sketch.attributes["support_plane_source"] == "stream-order"
+    return 2
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", type=Path, required=True)
@@ -236,13 +278,17 @@ def main():
     if args.output.exists():
         raise ValueError("choose an unused report path")
     count, representatives = check_sources()
+    invalid = check_invalid(representatives)
     result = {
         "status": "passed",
         "native_files": count,
         "reader_comparisons": count * 2,
         "centroid_mismatches": 0,
         "timestamp_variants": check_variability(representatives),
-        "invalid_reference_rejections": check_invalid(representatives),
+        "invalid_reference_rejections": invalid["rejections"],
+        "unqualified_reference_fallbacks": invalid["unqualified_fallbacks"],
+        "rotated_frame_reads": check_rotated(representatives),
+        "custom_plane_reads": check_custom(),
         "multi_sketch_owner_scans": check_owner_scans(),
         "bounds_evidence": "derived from origin-based native recipes and measured centroids",
         "mass_evidence": "cuboid properties derived from decoded bounds compared with native observations",

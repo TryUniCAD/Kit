@@ -45,7 +45,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
 Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
 Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
-The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records 144 files, 288 public-reader comparisons, 24 timestamp variants, and nineteen malformed-reference refusals in both public read modes.
+The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records 144 files, 288 public-reader comparisons, 24 timestamp variants, ten principal-pose refusals, nine explicitly unqualified fallbacks, and two rounded-frame reads.
 All captured centroids agree; the 58 older pinned part documents retain identical serialized output.
 Status is checking, with the bounded offline checks passed. The exit covers source placement and its shared-suite process regression.
 Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
