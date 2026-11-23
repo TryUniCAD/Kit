@@ -1,5 +1,4 @@
 from dataclasses import replace as ReplaceValue
-from math import degrees as Degrees
 
 from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordConfig import (
     KeywordConfig,
@@ -13,6 +12,9 @@ from convert.adapters.solidworks.Archive.Construction.Metadata.KeywordFeature im
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeKeywords import (
     MakeKeywords,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Emission.ReadPatAngle import (
+    ReadPatAngle,
+)
 from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.PatPartGraph import (
     PatPartGraph,
 )
@@ -20,7 +22,6 @@ from convert.adapters.solidworks.Archive.Construction.SketchDimensions.MakeSketc
     MakeSketchKeys,
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
-from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScalar
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     FieldInt,
     ReadNodeName,
@@ -54,22 +55,8 @@ def PatKeyRow(
     )
 
 
-# the local index exposes only the actual two live pattern drivers and the named angular degree driver
-def ReadPatKeyDims(
-    GraphValue: PatPartGraph,
-) -> tuple[tuple[KeywordDim, ...], tuple[KeywordDim, ...]]:
-    AngleDrive = GraphValue.AngleValue
-    Angle = RequireNode(AngleDrive.ParameterValue, "moAngleParameter_c")
-    PlaneFields = RequireNode(GraphValue.PlaneValue, "moRefPlane_c").FieldsValue
-    DatumData = RequireNode(
-        PlaneFields.get("f6f8"), "moConstraintCoincLineAtAnglePlaneRefplaneData_c"
-    )
-    if (
-        ReadNodeName(Angle) != "D1"
-        or Angle.FieldsValue.get("owner") is not GraphValue.PlaneValue
-        or DatumData.FieldsValue.get("f150") is not AngleDrive.DisplayValue
-    ):
-        raise ValueError("pattern Keywords need the actual local plane angle")
+# the local index exposes only the two active drivers of the actual pattern owner
+def ReadPatKeyDims(GraphValue: PatPartGraph) -> tuple[KeywordDim, ...]:
     CountDrive, PitchDrive, *_ = GraphValue.DriverValues
     Count = RequireNode(CountDrive.ParameterValue, "moIntegerParameter_c")
     Pitch = RequireNode(PitchDrive.ParameterValue, "moLengthParameter_c")
@@ -84,13 +71,9 @@ def ReadPatKeyDims(
     ):
         raise ValueError("pattern Keywords require the actual live count and pitch")
     UnitValue = GraphValue.StockValue.SettingsValue.DocumentUnits.LengthUnit
-    DegreesValue = Degrees(RequireScalar(Angle.FieldsValue.get("f58")))
     return (
-        (KeywordDim("D1", DegreesValue, "degree"),),
-        (
-            KeywordDim("D1", FieldInt(Count.FieldsValue, "f58"), None),
-            *MakeSketchKeys((PitchDrive,), UnitValue),
-        ),
+        KeywordDim("D1", FieldInt(Count.FieldsValue, "f58"), None),
+        *MakeSketchKeys((PitchDrive,), UnitValue),
     )
 
 
@@ -116,16 +99,18 @@ def MakePatKeys(GraphValue: PatPartGraph) -> bytes:
                 (FieldInt(Profile.FieldsValue, "f08"),),
             ),
         )
-    AngleDims, PatDims = ReadPatKeyDims(GraphValue)
-    Words += (
-        PatKeyRow(GraphValue.AxisValue),
-        PatKeyRow(GraphValue.PlaneValue, AngleDims),
-        PatKeyRow(GraphValue.PatternValue, PatDims),
-    )
+    AngleDims = ReadPatAngle(GraphValue)
+    if GraphValue.AxisValue is not None:
+        Words += (
+            PatKeyRow(GraphValue.AxisValue),
+            PatKeyRow(GraphValue.PlaneValue, AngleDims),
+        )
+    Words += (PatKeyRow(GraphValue.PatternValue, ReadPatKeyDims(GraphValue)),)
     OrderedWords = tuple(sorted(Words, key=PatKeyOrder))
     return MakeKeywords(
         ReadNodeName(SystemValue.RootValue),
         Settings.HeaderValue.ModifiedAt,
         Configs,
         OrderedWords,
+        CompactTags=GraphValue.AxisValue is None,
     )

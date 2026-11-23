@@ -27,11 +27,17 @@ from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.MakePatBoxe
 from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.MakePatFeature import (
     MakePatFeature,
 )
+from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.MakePrincPat import (
+    MakePrincPat,
+)
 from convert.adapters.solidworks.Archive.Construction.Patterns.Graph.PatPartGraph import (
     PatPartGraph,
 )
 from convert.adapters.solidworks.Archive.Construction.Patterns.Input.LinPatternInput import (
     LinPatternInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Patterns.Input.PrincPatInput import (
+    PrincPatInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Patterns.Stock.MakePatternSeed import (
     MakePatternSeed,
@@ -50,8 +56,10 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNode
 
 # the complete local part constructs the merged stock datums signed pattern and all live owners in native order
 def MakePatGraph(
-    InputValue: LinPatternInput, *, PlatformMath: bool = False
+    InputValue: LinPatternInput | PrincPatInput, *, PlatformMath: bool = False
 ) -> PatPartGraph:
+    if isinstance(InputValue, PrincPatInput):
+        return MakePrincPat(InputValue, PlatformMath=PlatformMath)
     StockInput = InputValue.StockValue
     StockValue = MakePatternSeed(StockInput, PlatformMath=PlatformMath)
     Labels = (

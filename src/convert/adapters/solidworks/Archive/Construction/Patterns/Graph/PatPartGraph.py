@@ -13,19 +13,18 @@ from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 @DataClass(frozen=True, slots=True)
 class PatPartGraph:
     StockValue: SeedStockGraph
-    AxisValue: ArchiveNode
+    AxisValue: ArchiveNode | None
     PlaneValue: ArchiveNode
-    AngleValue: DimensionGraph
+    AngleValue: DimensionGraph | None
     PatternValue: ArchiveNode
     DriverValues: tuple[DimensionGraph, ...]
     HeaderValues: tuple[ArchiveNode, ArchiveNode, ArchiveNode]
 
-    # the ordinary archive walks the actual stock prefix followed by its two datums and patterned result
+    # principal patterns reuse the stock plane while oblique patterns allocate both datum roots
     @property
     def RootsValue(self) -> tuple[ArchiveNode, ...]:
         return (
             *self.StockValue.RootsValue,
-            self.AxisValue,
-            self.PlaneValue,
+            *((self.AxisValue, self.PlaneValue) if self.AxisValue is not None else ()),
             self.PatternValue,
         )
