@@ -566,3 +566,12 @@ Codex owns the bounded unconstrained reverse-XY and positive-YZ reader work on `
 Delivery PR is [#265](https://github.com/TryUniCAD/Kit/pull/265); current-head CI and configured review are pending. Dependencies are merged PR #263, the strict reader, and independent licensed controls.
 The exit requires numerical source comparison, public SDK and CLI replay, retained refusal coverage, shared-suite integration, and current-head CI and review.
 Native writing and full conversion acceptance remain open. SOLIDWORKS host recovery is separate.
+
+## Recovered SOLIDWORKS native ladder evidence
+
+Task `A08h-LadderRecovery` was published through the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
+Codex published the evidence on `feat/solidworks-ladder-recovery-20261122`; delivery PR [#267](https://github.com/TryUniCAD/Kit/pull/267) merged as `b9b9430ac3ce09afb171183cfc778878be90bfdb`.
+The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
+Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
+Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
