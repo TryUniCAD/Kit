@@ -53,16 +53,18 @@ def write_json(path, value, remaining):
 
 def compare_pair(pair, args, tolerances, tolerance_pin, pins):
     paths = {side: pair[side] for side in ("left", "right")}
-    if any(path is None or not path.exists() for path in paths.values()):
+    missing = [
+        side for side, path in paths.items()
+        if path is None or not path.exists()
+    ]
+    for side, path in paths.items():
+        if side not in missing:
+            pins[side] = file_pin(path, DOCUMENT_BYTES)
+    if missing:
         return {
             "status": "missing_input",
-            "missing": [
-                side for side, path in paths.items()
-                if path is None or not path.exists()
-            ],
+            "missing": missing,
         }
-    for side, path in paths.items():
-        pins[side] = file_pin(path, DOCUMENT_BYTES)
     documents = {
         side: document_input(path, pins[side]) for side, path in paths.items()
     }
