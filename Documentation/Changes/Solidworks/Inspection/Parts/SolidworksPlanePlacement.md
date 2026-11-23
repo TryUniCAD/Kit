@@ -23,6 +23,8 @@ The complete owner envelope stays inside its authored feature.
 The pose must retain its principal origin, unit scale, and absent nested transform within the owning feature boundary.
 All three saved axes must match the canonical native basis for the principal datum.
 The neutral sketch references the datum frame. The reader rejects an in-plane rotation that this reference cannot represent.
+This rejection applies to owned sketch references. The origin owner lookup retains its existing unavailable-owner fallback.
+See [origin owner lookup and sketch pose validation](../../../../Gotchas/Conversion/Solidworks/Readers/OriginOwnerPoseFallback.md).
 A compact reference with matching local owners and a principal identity raises a format error if its pose is invalid.
 Unrecognized ownership or non-principal identities retain the existing fallback path.
 Both supported generation stamps participate in fallback scanning.

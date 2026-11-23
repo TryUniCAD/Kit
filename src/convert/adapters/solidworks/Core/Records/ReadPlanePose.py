@@ -8,9 +8,6 @@
 
 from math import isclose as IsClose
 
-from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
-    PrincipalFrame,
-)
 from convert.adapters.solidworks.Container.Archive import ArchiveError
 from convert.adapters.solidworks.Container.ArchiveCheck import RequireArch
 from convert.adapters.solidworks.Container.ArchiveCursor import FieldCursor
@@ -73,12 +70,6 @@ def ReadPlanePose(
         )
     except ArchiveError:
         return None
-    CanonicalFrame = PrincipalFrame("xyz"[AxisCode - 1])
-    RequireArch(
-        Directions,
-        (CanonicalFrame.AxisU, CanonicalFrame.AxisV, CanonicalFrame.NormalValue),
-        "unsupported in-plane rotation of SOLIDWORKS principal sketch",
-    )
     return (
         PlaneObjectId,
         AxisCode,

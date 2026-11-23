@@ -1,4 +1,7 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Archive.Construction.System.PrincipalFrame import (
+    PrincipalFrame,
+)
 from convert.adapters.solidworks.Core.Records.ReadPlanePose import ReadPlanePose
 from convert.adapters.solidworks.Core.Records.ReadPlaneOwner import ReadPlaneOwner
 from convert.adapters.solidworks.Core.Records.ReadLocalOwner import ReadLocalOwner
@@ -2683,6 +2686,15 @@ def ReadSketchPlane(
     if PoseValue is None:
         raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
     PlaneObjectId, AxisCode, Directions, BasisOffset = PoseValue
+    CanonicalFrame = PrincipalFrame("xyz"[AxisCode - 1])
+    if Directions != (
+        CanonicalFrame.AxisU,
+        CanonicalFrame.AxisV,
+        CanonicalFrame.NormalValue,
+    ):
+        raise ArchiveError(
+            "unsupported in-plane rotation of SOLIDWORKS principal sketch"
+        )
     UAxis, VAxis, Normal = Directions
     return NativeSketchA(
         Offset,
