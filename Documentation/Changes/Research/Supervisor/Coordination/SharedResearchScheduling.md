@@ -16,7 +16,7 @@ Replacing or cancelling a request retains work still needed by other requests or
 Orphaned active work loses its lease; late publication remains fenced by the existing controller.
 
 Use `queue-config --max-pending` to bound unfinished unique shared work and `queue-status` to inspect its current demand.
-Queue status reads bounded metadata only; it reports no acceptance and does not hash CAD payloads or reconcile jobs. Integrity-checked job inspection remains available through the existing controller status command.
+Queue status reads maintained totals, bounded request summaries and an indexed oldest-queued entry; it reports no acceptance and does not hash CAD payloads or reconcile jobs. Integrity-checked job inspection remains available through the existing controller status command.
 Request priority and aging use the same admission path for single and grouped claims.
 Existing CPU, memory, resource, application-ownership and native acceptance checks remain enabled.
 Shared admission performs one reconciliation over the affected upstream closure; transactional counters enforce request, subscription and pending-work limits.
@@ -51,7 +51,8 @@ Five shared-advice process groups passed, including timeout and caller-crash rec
 Advice metadata coverage admitted 10,020 abandoned prompts while retaining only the two charged records. Indexed polling used 17,500 SQLite VM steps with two records and 17,600 with 8,001 retained records in the recorded fixture. Separate cases exercise expired foreign-provider waiters at the metadata ceiling, version-one migration and transaction rollback.
 Black 26.10.1 and focused steering checks passed for the normal-suite wrappers and the legal-notice policy change.
 Ninety-six independent requests each examined one job in one reconciliation pass. Separate checks cover diamond dependencies, standalone retention, quota rollback, counter state transitions and migration from existing shared stores.
-Seven changed queue-policy modules and a missing module were refused by the actual native lifecycle source check; clean restored sources passed without launching CAD.
+Global status used 1,715 SQLite VM steps in the small fixture and 1,718 with 8,000 retained jobs and 100,000 subscriptions. A selected 1,000-alias request used 28,152 steps in both fixtures. Independent relational queries checked exact totals through cancellation, reactivation, replacement, claim, completion, rebind and rollback. Legacy status-read-model migration and unknown-version refusal also passed.
+Eight changed queue-policy modules and a missing module were refused by the actual native lifecycle source check; clean restored sources passed without launching CAD.
 Current-head PR checks and configured review remain separate publication gates.
 Heavy security and complete native merge-group acceptance remain assigned to the existing queue.
 The [bounded transaction finding](../../../../Gotchas/Research/Supervisor/SharedQueueTransactionWork.md) records the metadata and incremental-admission repairs.
