@@ -48,11 +48,13 @@ def model(intent):
             and report["guarded_runtime_reads"] == report["native_files_written"] == 0
             and len(report["bad_input"]) == 4 and len(report["bad_readback"]) == 6,
             "fresh graph lost selected ownership or required boundaries")
-    (_, (length, width, base_depth)), ((x0, y0, _), (x1, y1, top)) = intent.plate.bounds_m, intent.seed.bounds_m
+    ((px0, py0, _), (px1, py1, base_depth)) = intent.plate.bounds_m
+    ((x0, y0, _), (x1, y1, top)) = intent.seed.bounds_m
+    length, width = px1 - px0, py1 - py0
     add_h = top - base_depth
     base = prod((length, width, base_depth))
     excess = prod((x1 - x0, y1 - y0, add_h))
-    base_center, raised_center = (length * .5, width * .5, base_depth * .5), ((x0 + x1) * .5, (y0 + y1) * .5, (base_depth + top) * .5)
+    base_center, raised_center = ((px0 + px1) * .5, (py0 + py1) * .5, base_depth * .5), ((x0 + x1) * .5, (y0 + y1) * .5, (base_depth + top) * .5)
     area = 2 * (length * width + base_depth * (length + width) + add_h * (x1 - x0 + y1 - y0))
     centroid = tuple((p * base + q * excess) / (base + excess) for p, q in zip(base_center, raised_center, strict=True))
     return {"request_sha256": digest(payload), "authored_inputs": asdict(intent),

@@ -79,6 +79,8 @@ def PlanLinPattern(
     PlateValue, SeedValue = ReadPatStocks(
         PlateStep, SeedStep, Front.id, SketchValues, ParamValues, PickValues
     )
+    if PlateValue.BoundsValue[0] != (0.0, 0.0, 0.0):
+        raise ValueError("the measured oblique pattern requires an origin plate")
     BoundsValue = JoinSeedBounds(PlateValue.BoundsValue, SeedValue.BoundsValue)
     CheckPatHinge(HingeStep, TopPlane.id, Right.id, PickValues, BoundsValue)
     ParamId, RadiansValue = ReadPatAngle(

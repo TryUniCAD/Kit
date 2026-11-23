@@ -141,12 +141,12 @@ def altered_owner_refusals(link, intent, headers):
 
 def invalid_geometries(intent):
     seed_lo, seed_hi = box_points(intent.seed.bounds_m)
-    _, plate_hi = box_points(intent.plate.bounds_m)
+    plate_lo, plate_hi = box_points(intent.plate.bounds_m)
     replacements = {
         "disjoint_footprint": ((plate_hi[0] + seed_lo[0], *seed_lo[1:]), (plate_hi[0] + seed_hi[0], *seed_hi[1:])),
         "below_plate": (seed_lo, (*seed_hi[:2], plate_hi[2] / 2.0)),
         "offset_start": ((*seed_lo[:2], seed_hi[2] / 10.0), seed_hi),
-        "coincident_plate_boundary": ((0.0, *seed_lo[1:]), seed_hi),
+        "coincident_plate_boundary": ((plate_lo[0], *seed_lo[1:]), seed_hi),
     }
     refusals = {}
     for name, box in replacements.items():

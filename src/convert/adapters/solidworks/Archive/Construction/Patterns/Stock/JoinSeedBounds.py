@@ -8,8 +8,8 @@ def JoinSeedBounds(PlateBounds: KStockBounds, SeedBounds: KStockBounds) -> KStoc
     PlateLow, PlateHigh = PlateBounds
     SeedLow, SeedHigh = SeedBounds
     if (
-        PlateLow != (0.0, 0.0, 0.0)
-        or SeedLow[2] != 0.0
+        PlateLow[2] != 0.0
+        or SeedLow[2] != PlateLow[2]
         or not PlateHigh[2] < SeedHigh[2]
         or not all(
             PlateLow[AxisIndex]
@@ -20,6 +20,6 @@ def JoinSeedBounds(PlateBounds: KStockBounds, SeedBounds: KStockBounds) -> KStoc
         )
     ):
         raise ValueError(
-            "expected an origin plate and an interior raised Front-plane seed with a common start"
+            "expected a Front-plane plate and an interior raised seed with a common start"
         )
-    return (0.0, 0.0, 0.0), (PlateHigh[0], PlateHigh[1], SeedHigh[2])
+    return PlateLow, (PlateHigh[0], PlateHigh[1], SeedHigh[2])
