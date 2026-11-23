@@ -3,6 +3,7 @@ from codecs import lookup
 from decimal import Decimal
 from hashlib import sha256
 from importlib import import_module
+from io import BytesIO
 from json import dumps, loads
 from math import isclose
 from pathlib import Path
@@ -19,6 +20,7 @@ INPUTS = {
 CONTROL = ROOT / "re/solidworks/v2026/corpus/ladder/L1_boss.SLDPRT"
 CONTROL_SHA = "55e5a9840cc78a1d4b3ac4b8de3f37540695494e4d7a0edfb3cd3a2a876e2ac6"
 CONTROL_PROJECTION_SHA = "1bc279dc932ee69ebf7627c30c396cc2898a0c918119c54f7a0b236087c9276e"
+COMPILER_CONTROL_SHA = "28c302ed8a2bed48909484471733b1b4bd59bc49462f24b1bc003bdfba27d0d6"
 NATIVE_RECEIPT_SHA = "d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b"
 
 
@@ -27,15 +29,19 @@ def require(condition, reason):
         raise ValueError(reason)
 
 
-def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
+def guarded_worker(raw, name, edited_raw=None, check_deltas=False, check_compiler=False):
     sys.path[:0] = [str(ROOT / "src"), str(HERE.parent.parent), str(HERE.parent)]
+    from BuildOpenShellArchives import EPOCH
     from CheckScopedPlainWriter import WriterAudit
+    from CheckShellBuild import reject
     from ReplaySavedShell import replay_manager, replay_resolved
     from convert import open_document
+    from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
     from convert.adapters.solidworks.Container.Container import EmitSldprt, SldprtArchive, TemplateFields
     from convert.adapters.solidworks.Container.Parasolid import DecodePartition
     from convert.adapters.solidworks.Container.SldprtFormat import SldprtFormat
+    from convert.adapters.solidworks.Core.Preparation.Shells.BuildShellPart import BuildShellPart
     from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
     from interchange.Features.FeatureKinds import NativeFeature, ShellFeature
 
@@ -64,7 +70,8 @@ def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
         require(doc.bodies and all(step.kind.value != "shell" for step in doc.feature_timeline), "plain control changed scope")
         encoded = doc.to_json(indent=None)
         digest = sha256(encoded.encode()).hexdigest()
-        require(digest == CONTROL_PROJECTION_SHA, "control differs from the exact prerequisite revision")
+        expected = COMPILER_CONTROL_SHA if check_compiler else CONTROL_PROJECTION_SHA
+        require(digest == expected, "control differs from the exact prerequisite revision")
         require(not audit.denied and not audit.target_opens, "control used unexpected files after import")
         audit.phase = "done"
         return {"source_sha256": CONTROL_SHA, "strict_document_sha256": digest,
@@ -80,6 +87,7 @@ def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
     stock, feature = loaded.ResolvedValue.RootsValue[-2:]
     require(feature.FieldsValue["f3d0"].FieldsValue["f18"] == mark, "active mark differs")
     pair = []
+    compiler_refusals = 0
     for include in (True, False):
         doc = open_document(raw, source_format=FORMAT, include_brep=include, strict=True)
         (shell,) = (step for step in doc.feature_timeline if isinstance(step.definition, ShellFeature))
@@ -120,6 +128,10 @@ def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
                 and reread.selections[0].path == selection.path
                 and reread.parameters[-1].value == param.value
                 and reread.bodies[0].topology == topology, "portable JSON loses shell intent or its topology summary")
+        if check_compiler:
+            options = WriteOptions(values={"final_destination": rf"C:\KitOpenShellGenerated01\Working\{name}"})
+            reject(lambda: BuildShellPart(doc, BytesIO(), EPOCH, options), "requires its cache-free source")
+            compiler_refusals += 1
         pair.append({"include_brep": include, "parameter_id": param.id, "native_metres": param.attributes["native_value"],
                      "bounds_mm": [[-26.5, -20.5, 0.0], [26.5, 20.5, 28.0]],
                      "volume_mm3": topology.volume, "area_mm2": topology.surface_area, "centroid_mm": centroid,
@@ -214,7 +226,8 @@ def guarded_worker(raw, name, edited_raw=None, check_deltas=False):
             refusals[kind] = {"strict_reads_refused": 2, "permissive_native_fallback": True}
     require(not audit.denied and not audit.target_opens, "shell reader used files after import")
     audit.phase = "done"
-    return {"sha256": expected, "readback": pair, "refusals": refusals, "runtime_data_reads": 0}
+    return {"sha256": expected, "readback": pair, "refusals": refusals, "runtime_data_reads": 0,
+            **({"cold_compiler_refusals": compiler_refusals} if check_compiler else {})}
 
 
 def main():
@@ -224,12 +237,13 @@ def main():
     mode.add_argument("--worker")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--check-deltas", action="store_true")
+    parser.add_argument("--check-cold-compiler", action="store_true")
     args = parser.parse_args()
     if args.worker:
         transport = sys.stdin.buffer.read()
         size = int.from_bytes(transport[:8], "little")
         raw, contrast = transport[8 : 8 + size], transport[8 + size :]
-        print(dumps(guarded_worker(raw, args.worker, contrast or None, args.check_deltas),
+        print(dumps(guarded_worker(raw, args.worker, contrast or None, args.check_deltas, args.check_cold_compiler),
                     sort_keys=True, allow_nan=False))
         return
     require(args.output is not None, "choose a fresh JSON output")
@@ -247,13 +261,15 @@ def main():
     for name, raw in data.items():
         contrast = data["OpenShellEdited.SLDPRT"] if name == "OpenShell.SLDPRT" else b""
         options = ("--check-deltas",) if args.check_deltas else ()
+        if args.check_cold_compiler:
+            options += ("--check-cold-compiler",)
         result = run((sys.executable, "-I", "-B", str(HERE), "--worker", name, *options),
                      input=len(raw).to_bytes(8, "little") + raw + contrast, capture_output=True, timeout=60, check=False)
         require(result.returncode == 0 and not result.stderr, result.stderr.decode())
         rows[name] = loads(result.stdout)
     require(all(paths[name].read_bytes() == raw for name, raw in data.items()), "original source changed")
     with args.output.open("x", encoding="utf-8") as stream:
-        version = "v2" if args.check_deltas else "v1"
+        version = "v3" if args.check_cold_compiler else "v2" if args.check_deltas else "v1"
         stream.write(dumps({"schema": f"kit-sw2026-saved-open-shell-sdk-{version}", "native_receipt_sha256": NATIVE_RECEIPT_SHA,
               "native_build": "34.5.2.0604", "fresh_guarded_workers": 3, "published_native_outputs": 0,
               "heldout_credit": 0, "cases": rows}, indent=2, sort_keys=True, allow_nan=False))

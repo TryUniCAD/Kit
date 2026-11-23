@@ -86,3 +86,22 @@ comparison confirms the same diagnostic in both source revisions.
 The generated shell files still require native lifecycle and
 independent held-out qualification.
 [Aggregate SDK proof](../measurements/2026/SdkAggregateColdOpenShellRead01.json)
+
+## Exact source compilation
+
+Task `B04-SW2026-OPEN-SHELL/source-compilation`, owner `/root/format_proofs`, delivery #121, base `ed3243fa745d6ffd8379126db483179a547eb4cd`. The shared `BuildShellPart` constructor accepts the complete strict readback of a generated cold shell in either inspection mode. The construction projection resolves the stock's actual sketch carrier, the selected stock cap and two distinct driving parameter identities. The common cold sketch and boss delegates retain the exact binary metre words. The shell's independent `f818` parameter uses the same inverse, preserving the linked live wall thickness. The fixed stock binding and the older authored neutral constructor use the same stream writers and allocations.
+
+The projection keeps its construction copy separate from the original source. The actual shell creator supplies the temporary body label. The original body name, complete history, attributes, provenance, boundary when requested and retained archive identity all undergo the final strict equality check. The compiler takes the logical locator and creation event from the explicit write inputs. It constructs bytes from the typed model and archive rules before the whole-source comparison.
+
+Three previously pinned generated requests and the independent synthetic request reproduced all four whole archives across full and design-only reads and their inspection JSON round trips. There were 16 exact compilations and 160 logical stream comparisons. The 56 construction refusals covered foreign sketch ownership, the wrong cap, changed wall values, changed body and metadata, and a changed event or locator. The 16 public readback write refusals left the output stream untouched. Both strict read modes of each actual disclosed saved shell still read their live dimensions and body geometry and refuse cold compilation. [Guarded receipt](../measurements/2026/SdkColdShellCompile01.json) · [Body label gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Inspection/ColdShellBodyLabelIsDerived.md)
+
+```sh
+python3.14 -I -B re/tooling/sw2026/shell_source/CheckColdShellRead.py \
+  --pinned-models --output /tmp/KitColdShellCompiler.json
+python3.14 -I -B re/tooling/sw2026/shell_source/CheckSavedShellRead.py \
+  --disclosure /path/to/Disclosure --check-cold-compiler --output /tmp/KitSavedShellCompiler.json
+```
+
+The fresh model proof uses the established generated-archive measurements as digests. The ordinary research command for pre-existing CAD corpus files does not generate these model-only candidates or exercise the internal compiler. The source acquisition receipt at `84d925a36c79c2b3124aba3ac06830c95297bca1` has SHA-256 `d469a4d75549f1c95948047264c118adadb3b843b3376218140baa61c752987b` and precedes the initial constructor `52646d90ab8914e2f8548d5635d97ddd15b8dea3`. It supplies three native-authored source lifecycles, including two independently sealed cases. Written candidates still need native opening, rebuilding, edit and reopen measurements and a paired evaluation against those locked sources. The frozen calibration packet binds `84cc9032447eefd717f9fb4bc3a6c62ecf941af80aa45da861ca7bd1d456f4a1` and awaits a native terminal result.
+
+The saved proof's independent L1 strict JSON control has SHA-256 `28c302ed8a2bed48909484471733b1b4bd59bc49462f24b1bc003bdfba27d0d6` on both the exact aggregate base and this candidate. The original saved-reader proof retains its own earlier control pin. All seven guarded workers recorded zero runtime reads and no CAD process launches. The combined receipt SHA-256 is `6d37583aff89d01d5ce50c580b34ad26e7cd039b1b2ff44fadf110f30a68553b`.

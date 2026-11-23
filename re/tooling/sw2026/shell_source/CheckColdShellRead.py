@@ -199,6 +199,7 @@ def worker(case, original, expected_hash, probe):
     from BuildOpenShellArchives import EPOCH, verify_part
     from BuildOpenShellPlan import document
     from CheckScopedPlainWriter import WriterAudit
+    from CheckShellBuild import check_shell_build
     from convert import open_document, write_document
     from convert.adapters.base.WriteOptions import WriteOptions
     from convert.adapters.solidworks.Core.Preparation.Shells.BuildShellPart import BuildShellPart
@@ -219,16 +220,18 @@ def worker(case, original, expected_hash, probe):
     product = BuildShellPart(model, BytesIO(), EPOCH, settings)
     result = verify_part(product, case)
     raw = product.BytesValue
+    if expected_hash is not None:
+        require(sha256(raw).hexdigest() == expected_hash, "generated shell no longer matches its pinned archive")
     if original:
         require(sha256(original).hexdigest() == expected_hash and raw == original,
                 "the measured reader did not receive exact generated source bytes")
     else:
         require(raw == BuildShellPart(model, BytesIO(), EPOCH, settings).BytesValue,
                 "independently varied neutral shell did not regenerate deterministically")
-    cases = [
-        check_document(open_document(raw, source_format=FORMAT, strict=True, include_brep=include), case, include)
-        for include in (True, False)
-    ]
+    sources = [open_document(raw, source_format=FORMAT, strict=True, include_brep=include)
+               for include in (True, False)]
+    cases = [check_document(source, case, include) for source, include in zip(sources, (True, False), strict=True)]
+    construction = check_shell_build(sources, product, settings, EPOCH)
     rejections = check_refusals(raw) if probe else {}
     publication = {}
     buffers = {name: BytesIO() for name in ("registry", "direct")}
@@ -251,7 +254,7 @@ def worker(case, original, expected_hash, probe):
             "public refusal wrote to a stream or the guarded worker accessed external data")
     audit.phase = "done"
     return {"source_sha256": result["hash"], "bytes": result["bytes"], "streams": len(result["stream_hashes"]),
-            "readback": cases, "refusals": rejections, "strict_refusal_runs": 2 * len(rejections),
+            "readback": cases, "construction": construction, "refusals": rejections, "strict_refusal_runs": 2 * len(rejections),
             "permissive_refusal_runs": len(rejections), "writer_refusals": publication, "runtime_data_reads": 0,
             "native_process_launches": 0}
 
@@ -263,16 +266,24 @@ def supervise(args):
         sys.path[:0] = [str(ROOT / "src"), str(HERE.parent)]
         from BuildOpenShellArchives import CASES
 
-        receipt = (args.generated / "Receipt.json").read_bytes()
+        receipt_path = (
+            args.generated / "Receipt.json" if args.generated is not None
+            else ROOT / "re/solidworks/measurements/2026/GeneratedOpenShellOwners01.json"
+        )
+        receipt = receipt_path.read_bytes()
         require(sha256(receipt).hexdigest() == GENERATED_RECEIPT, "generated owner receipt differs")
         expected = loads(receipt)["cases"]
         inputs = []
         for case in CASES:
-            raw = (args.generated / (case[0] + ".SLDPRT")).read_bytes()
             observed = expected[case[0]]
-            require(len(raw) == observed["bytes"] and sha256(raw).hexdigest() == observed["hash"],
-                    "generated owner file differs")
+            raw = b""
+            if args.generated is not None:
+                raw = (args.generated / (case[0] + ".SLDPRT")).read_bytes()
+                require(len(raw) == observed["bytes"] and sha256(raw).hexdigest() == observed["hash"],
+                        "generated owner file differs")
             inputs.append((case, raw, observed["hash"]))
+        if args.pinned_models:
+            inputs.append((MODEL, b"", None))
     rows = {}
     for index, (case, raw, digest) in enumerate(inputs):
         header = dumps({"case": case, "digest": digest, "probe": index == 0}).encode("utf-8")
@@ -280,7 +291,7 @@ def supervise(args):
                       input=header + b"\n" + raw, capture_output=True, timeout=60, check=False)
         require(process.returncode == 0 and not process.stderr, process.stderr.decode())
         rows[case[0]] = loads(process.stdout)
-    return {"schema": "kit-sw2026-cold-open-shell-sdk-v1", "fresh_guarded_workers": len(rows),
+    return {"schema": "kit-sw2026-cold-open-shell-sdk-v2", "fresh_guarded_workers": len(rows),
             "format_codec": ZLIB_RUNTIME_VERSION, "generated_authority_sha256": None if args.model else GENERATED_RECEIPT,
             "heldout_credit": 0, "published_native_outputs": 0, "cases": rows}
 
@@ -290,6 +301,7 @@ def main():
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--generated", type=Path)
     mode.add_argument("--model", action="store_true")
+    mode.add_argument("--pinned-models", action="store_true")
     mode.add_argument("--worker", action="store_true")
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()

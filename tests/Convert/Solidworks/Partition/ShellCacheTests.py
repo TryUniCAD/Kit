@@ -66,6 +66,23 @@ def TestColdShell() -> None:
     assert FullRead["inspection_json_roundtrip"] is True
     assert Design["public_interchange_export_refused"] is True
     assert CaseValue["streams"] == 10
+    Build = CastValue(dict[str, object], CaseValue["construction"])
+    assert Build["compilations"] == 4 and Build["logical_stream_comparisons"] == 40
+    assert Build["public_write_refusals"] == 4
+    BuildRefusals = CastValue(dict[str, list[str]], Build["compiler_refusals"])
+    assert (
+        BuildRefusals["design_only"]
+        == BuildRefusals["full"]
+        == [
+            "foreign_sketch",
+            "wrong_cap",
+            "changed_wall",
+            "changed_body_name",
+            "foreign_metadata",
+            "stale_event",
+            "changed_locator",
+        ]
+    )
     assert CaseValue["strict_refusal_runs"] == 18
     assert CaseValue["permissive_refusal_runs"] == 9
     Refused = CastValue(dict[str, str], CaseValue["refusals"])

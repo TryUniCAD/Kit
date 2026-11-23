@@ -618,7 +618,9 @@ rectangular Front-plane boss with a forward blind depth. It retains the
 selected terminal cap and the two live `D1` owners. Full reads expose a
 closed 11-face solid. Design-only reads retain the same feature history
 and measurements. Saved parts also require linked active and rollback
-geometry. [Open-shell readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdOpenShell.md)
+geometry. The shared shell candidate compiler verifies exact full or
+design-only readback at its original locator and epoch. Public publication
+still requires native and held-out measurements. [Open-shell readback](../../Changes/Solidworks/Inspection/Parts/SolidworksColdOpenShell.md) · [Exact source compilation](../../Changes/Solidworks/Construction/Shells/SolidworksColdShellCompilation.md)
 
 The ordinary 2026 radius-driven pocket retains its fixed centre as a relation targeting the circle's `center` subelement. The radius remains an independent driving parameter. The reader requires the native local point handle to resolve to the circle's centre slot. [Fixed-centre readback](../../Changes/Solidworks/Inspection/Sketches/SolidworksPocketCenterFixation.md)
 
