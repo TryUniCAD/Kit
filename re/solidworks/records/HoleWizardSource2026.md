@@ -25,20 +25,35 @@ Freeze and verify with an unused packet directory outside Kit and the pinned ins
 
 ```sh
 python3.14 -I -B re/tooling/sw2026/hole_source/HoleWizardPacket.py prepare \
-  /absolute/path/HoleWizardSourcePacket01 \
+  /absolute/path/HoleWizardSourcePacket02 \
   --installed-api /absolute/path/InstalledHoleApi.json \
-  --guest-root 'C:\KitHoleWizardSource01'
-python3.14 -I -B /absolute/path/HoleWizardSourcePacket01/Tools/HoleWizardPacket.py verify \
-  /absolute/path/HoleWizardSourcePacket01/Packet.json \
-  3ec5b2cd1cbda7aa248a40bcb0e49aba152d21d7a0e36077738b5c7cf975ce39
+  --guest-root 'C:\KitHoleWizardSource02'
+python3.14 -I -B /absolute/path/HoleWizardSourcePacket02/Tools/HoleWizardPacket.py verify \
+  /absolute/path/HoleWizardSourcePacket02/Packet.json \
+  69f86ffe019d2629b36b4fd83aff9c6e46ce5e935fefc2e532bbce3dc5ed80e2
 ```
 
 The frozen manifest pins the 14 Python scripts, exact installed capture, unchanged L1 boss control and source plan. The plan SHA-256 is `df9141af8b8d79217bf217904fc55251b7f0ad96f1d8279a5e7e9413f5213d58`. The checked host packet resolved successfully in a fresh process. Independent scratch copies refused an incorrect packet hash, changed metadata with and without rebinding the manifest, a rehashed changed prediction, an extra file and a same-byte symlink. Guest-only commands refused on the host. All 14 scripts parsed with Python 3.12 grammar.
 
-Use the frozen script with current-user Windows Python 3.12 `-E -B`. Pass `run <absolute Packet.json> <packet SHA-256> <phase>` once per phase in order. The oracle owner completed `Metadata` on the exact packet. The installed capture matched byte for byte and the registered through-all enum was `1`, with zero SOLIDWORKS process starts. Both guest metadata hashes are in the [receipt](../measurements/2026/HoleWizardInstalledApi01.json).
+Use the frozen script with current-user Windows Python 3.12 `-E -B`. Pass `run <absolute Packet.json> <packet SHA-256> <phase>` once per phase in order. The oracle owner completed `Metadata` on the exact packet. The installed capture matched byte for byte and the registered through-all enum was `1`, with zero SOLIDWORKS process starts. The current packet has the [guest enum binding receipt](../measurements/2026/HoleWizardEqualityBinding01.json).
 
 The six native phases are `Before`, `AuthorPlainThrough`, `ReopenPlainThrough`, `AuthorCounterboreThrough`, `ReopenCounterboreThrough` and `After`. The separate native reopens are read-only and verify original and edited file hashes before and after observation. The before and after controls must be healthy and unchanged.
 
 Native and exchange saves, detailed COM observations and any unqualified early checkpoint remain in the owned guest-local directory. After all phases pass, `summary <absolute Packet.json> <packet SHA-256> <unused guest result path>` verifies their shared custody, independent native lifetimes and source evidence. The summary contains only hashes, counts and verdicts.
 
 The exit for this acquisition is two exact native-written sources with verified original and edited geometry, immutable reopen and healthy controls. Physical archive ownership, a shared model-only writer and any held-out confidence remain separate open work.
+
+## Bound stock-face identity
+
+The source author initializes the selected-body identity comparison from the registered release-34 object-equality enum.
+The earlier author relied on an enum member that its base class did not initialize.
+This was found by inspecting the source before either native authoring phase.
+The new packet retains the same author intents, metadata input hash and immutable control.
+It uses SHA-256 `69f86ffe019d2629b36b4fd83aff9c6e46ce5e935fefc2e532bbce3dc5ed80e2`.
+Prepare it under a fresh directory using `C:\KitHoleWizardSource02` as its guest root.
+
+The new guest Metadata phase passed.
+The original registered through-all condition and the selected-body equality enumerator both resolve to `1` on build `34.5.2.0604`.
+The first packet's observation remains historical evidence.
+The current packet starts its next measurement at `Before`.
+[Guest binding receipt](../measurements/2026/HoleWizardEqualityBinding01.json)

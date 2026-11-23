@@ -70,6 +70,38 @@ def discover():
     return {name: list(values.values()) for name, values in methods.items()}, enums
 
 
+
+def source_enums():
+    import pythoncom
+
+    owners = {"swEndConditions_e": ("swEndCondThroughAll", "end_condition"),
+              "swObjectEquality": ("swObjectSame", "same_object")}
+    values = {}
+    pythoncom.CoInitialize()
+    try:
+        library = pythoncom.LoadRegTypeLib(GUIDS[1], 34, 0, 0)
+        if tuple(library.GetLibAttr()[3:5]) != (34, 0):
+            raise ValueError("registered source enums must belong to release 34.0")
+        for index in range(library.GetTypeInfoCount()):
+            info = library.GetTypeInfo(index)
+            name = info.GetDocumentation(-1)[0]
+            if name not in owners:
+                continue
+            symbol, role = owners[name]
+            attrs = info.GetTypeAttr()
+            if attrs.typekind != pythoncom.TKIND_ENUM or role in values:
+                raise ValueError("source enum does not have a unique registered owner")
+            matching = [item.value for item in (info.GetVarDesc(slot) for slot in range(attrs.cVars))
+                        if info.GetNames(item.memid)[0] == symbol]
+            if len(matching) != 1 or type(matching[0]) is not int or matching[0] != 1:
+                raise ValueError("registered source enum differs: " + symbol)
+            values[role] = matching[0]
+    finally:
+        pythoncom.CoUninitialize()
+    if values != {"end_condition": 1, "same_object": 1}:
+        raise ValueError("registered source enum bindings are incomplete")
+    return values
+
 def capture():
     if os.name != "nt":
         raise ValueError("hole API metadata is captured only in the installed Windows oracle")

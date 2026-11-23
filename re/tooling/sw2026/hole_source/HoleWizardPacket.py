@@ -14,7 +14,7 @@ sys.path.insert(0, str(HERE.parent))
 
 from HoleWizardPlan import API_SHA, APP_HASH, BASE, BUILD, CONTROL_PATH, CONTROL_SHA
 from HoleWizardPlan import checked, digest, installation, packet_model, require
-from ReadHoleApi import capture, encode
+from ReadHoleApi import capture, encode, source_enums
 
 SCHEMA = "kit.sw2026.disclosed-hole-wizard-source.v1"
 TOOLS = ("ReadHoleApi.py", "HoleWizardPlan.py", "AuthorHoleWizard.py", HERE.name)
@@ -115,23 +115,7 @@ def metadata_phase(output, packet):
     observed = capture()
     require(encode(observed) == (packet.parent / "InstalledHoleApi.json").read_bytes(),
             "installed HoleWizard5 type library differs from the frozen exact-build capture")
-    import pythoncom
-
-    pythoncom.CoInitialize()
-    try:
-        library = pythoncom.LoadRegTypeLib("{4687F359-55D0-4CD3-B6CF-2EB42C11F989}", 34, 0, 0)
-        for index in range(library.GetTypeInfoCount()):
-            info = library.GetTypeInfo(index)
-            if info.GetDocumentation(-1)[0] == "swEndConditions_e":
-                enumerators = [info.GetVarDesc(row) for row in range(info.GetTypeAttr().cVars)]
-                match, = (item for item in enumerators if info.GetNames(item.memid)[0] == "swEndCondThroughAll")
-                require(type(match.value) is int and match.value == 1, "registered through-all enum differs")
-                break
-        else:
-            raise ValueError("installed through-all enum has no distinct owner")
-    finally:
-        pythoncom.CoUninitialize()
-    evidence = {"installed_api_sha256": API_SHA, "end_condition": 1, "native_processes": 0}
+    evidence = {"installed_api_sha256": API_SHA, **source_enums(), "native_processes": 0}
     write(output / "Bindings.json", encode(evidence))
     return evidence
 
@@ -282,7 +266,8 @@ def run_phase(packet, pin, phase):
                 actual = control(packet, output)
             else:
                 metadata = phase_prior(private, "Metadata", pin)
-                require(metadata["installed_api_sha256"] == API_SHA, "native API authority differs")
+                require(metadata["installed_api_sha256"] == API_SHA and metadata["same_object"] == 1,
+                        "native API or object equality authority differs")
                 phase_prior(private, "Before", pin)
                 require(encode(capture()) == (packet.parent / "InstalledHoleApi.json").read_bytes(),
                         "native hole API or executable changed after preflight")

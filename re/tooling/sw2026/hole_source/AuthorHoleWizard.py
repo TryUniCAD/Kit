@@ -2,11 +2,17 @@ from math import dist, isclose
 
 from AuthorCurves import CurveAuthor
 from HoleWizardPlan import HOLE, STOCK, PARAMETERS, require
+from ReadHoleApi import source_enums
 
 FRONT = "Front Plane"
 
 
 class HoleAuthor(CurveAuthor):
+    def __init__(self, application, recorder, modules):
+        super().__init__(application, recorder, modules)
+        bindings = self.rec.call("bind installed object equality", source_enums)
+        self.constants = {"swObjectSame": bindings["same_object"]}
+
     def feature(self, name, kind):
         result = self.get(self.model, "FeatureByName", name)
         require(result is not None and self.get(result, "Name") == name
