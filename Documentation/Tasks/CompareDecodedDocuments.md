@@ -128,6 +128,7 @@ The programme observes and hashes input bytes during this invocation.
 Those hashes do not prove original capture custody or independently qualify the source semantics.
 Every report keeps semantic qualification unverified and native acceptance not established.
 Reader agreement alone does not qualify editable conversion.
+Even self comparison can retain differences when source references are unresolved; inspect the [self-comparison gotcha](../Gotchas/Research/Comparison/SelfComparisonReferences.md).
 
 ## Limits and failure recovery
 
