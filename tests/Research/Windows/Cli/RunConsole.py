@@ -1,4 +1,4 @@
-import sys as System
+import sys
 from pathlib import Path as FilePath
 from subprocess import PIPE as KPipe, CompletedProcess, Popen as StartProcess
 from sys import executable as KPythonPath
@@ -6,7 +6,7 @@ from time import monotonic as ReadClock
 
 from tests.Research.Windows.Cli.StopConsole import StopConsole
 
-if System.platform == "win32":
+if sys.platform == "win32":
     from subprocess import CREATE_NEW_CONSOLE as KNewConsole
     from subprocess import STARTF_USESHOWWINDOW as KUseShowWindow
     from subprocess import STARTUPINFO as StartupInfo
@@ -14,7 +14,7 @@ if System.platform == "win32":
 
 # native cancellation evidence requires an actual hidden console shared by launcher and supervisor
 def RunConsole(ConfigPath: FilePath, SignalName: str) -> CompletedProcess[str]:
-    if System.platform == "win32":
+    if sys.platform == "win32":
         RootPath = FilePath(__file__).resolve().parents[4]
         WindowInfo = StartupInfo()
         setattr(WindowInfo, "dwFlags", KUseShowWindow)

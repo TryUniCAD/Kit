@@ -7,7 +7,9 @@ def WaitConsole(RecordPath: FilePath) -> int:
     UntilTime = ReadClock() + 30
     while ReadClock() < UntilTime:
         try:
-            GroupNumber = int(RecordPath.with_name("ConsoleGroup").read_text(encoding="utf-8"))
+            GroupNumber = int(
+                RecordPath.with_name("ConsoleGroup").read_text(encoding="utf-8")
+            )
             if GroupNumber > 1:
                 return GroupNumber
         except (OSError, ValueError):

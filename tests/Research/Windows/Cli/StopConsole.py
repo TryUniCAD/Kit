@@ -7,7 +7,10 @@ def StopConsole(ChildProcess: Popen[bytes] | Popen[str]) -> None:
         return
     Stopped = RunProcess(
         ["taskkill.exe", "/PID", str(ChildProcess.pid), "/T", "/F"],
-        capture_output=True, text=True, check=False, timeout=30,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
     )
     if Stopped.returncode != 0 and ChildProcess.poll() is None:
         ChildProcess.kill()

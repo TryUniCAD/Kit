@@ -23,8 +23,14 @@ The [cancellation gotcha](../../../../Gotchas/Research/WindowsCliCancellation.md
 ## Verification
 
 Native process coverage under `tests/Research/Windows/Cli/LauncherTests.py` exercises all three handled signal types against the actual supervisor.
+`NativeTests.py` sends actual console events through the installed executable in a private hidden console.
 Each case requires a settlement receipt and termination of the independently recorded worker process tree.
 Cancellation must finish within 15 seconds of the recorded request, before the safety deadline can settle workers independently.
+Compatibility cases reject missing, unsupported, and invalid protocol markers without changing a queued controller job.
 These cases use the existing Windows merge-queue selection and completeness checks.
 The existing CLI bridge compatibility check now requires supervisor help on Windows as well as POSIX systems.
 Remote execution results remain pending until CI runs this revision.
+
+The installed Windows CLI reached actual supervisor help with Python 3.14.6 and locked `pywin32` dependencies.
+Focused Mypy 2.4.1 checks passed for seven changed files with both Windows and Linux targets.
+The [conditional import gotcha](../../../../Gotchas/Research/PlatformConditionalImports.md) records the required platform guards.

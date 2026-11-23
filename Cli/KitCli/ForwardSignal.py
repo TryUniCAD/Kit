@@ -4,6 +4,8 @@ from types import FrameType
 
 if sys.platform == "win32":
     from signal import CTRL_BREAK_EVENT as KBreakEvent
+else:
+    from signal import SIGSTOP, SIGTSTP
 
 
 # the launcher must deliver terminal and direct signals to its separate research session
@@ -15,14 +17,12 @@ def ForwardSignal(
     try:
         if sys.platform == "win32":
             ChildProcess.send_signal(KBreakEvent)
-            return
-        from signal import SIGSTOP, SIGTSTP
-
-        if SignalNumber == SIGTSTP:
-            ChildProcess.send_signal(SIGSTOP)
-            SendSignal(GetProcessId(), SIGSTOP)
-            return
-        ChildProcess.send_signal(SignalNumber)
+        else:
+            if SignalNumber == SIGTSTP:
+                ChildProcess.send_signal(SIGSTOP)
+                SendSignal(GetProcessId(), SIGSTOP)
+                return
+            ChildProcess.send_signal(SignalNumber)
     except ProcessLookupError:
         return
 
