@@ -196,7 +196,7 @@ def validate_answer(answer):
     return clean
 
 
-def request_advice(
+def call_advice(
     executable, packet, attempts, seconds, destination, is_current, efforts, options
 ):
     prompt = (
@@ -285,7 +285,10 @@ def request_advice(
                         env=None if options is None else provider_env(options),
                     )
                     suggestion = read_answer(answer)
-                if packet.get("experiments") and suggestion["controlled_change"] not in packet["experiments"]:
+                if (
+                    packet.get("experiments")
+                    and suggestion["controlled_change"] not in packet["experiments"]
+                ):
                     raise ValueError("provider selected an unavailable experiment")
             except (subprocess.TimeoutExpired, TimeoutError):
                 attempts.append({"effort": effort, "status": "timeout"})
@@ -309,6 +312,37 @@ def request_advice(
             if attempts[-1]["status"] in {"provider_failed", "launch_failed"}:
                 break
     return None
+
+
+# one entry point coordinates optional advice from both supervisor and file research paths
+def request_advice(
+    executable, packet, attempts, seconds, destination, is_current, efforts, options
+):
+    if options is not None and options.state is not None:
+        from CodexAdvice.SharedRequest import shared_request
+
+        proposal = shared_request(
+            call_advice,
+            executable,
+            packet,
+            attempts,
+            seconds,
+            destination,
+            is_current,
+            efforts,
+            options,
+        )
+        if proposal is not None:
+            proposal = validate_answer(proposal)
+            if (
+                packet.get("experiments")
+                and proposal["controlled_change"] not in packet["experiments"]
+            ):
+                raise ValueError("shared provider selected an unavailable experiment")
+        return proposal
+    return call_advice(
+        executable, packet, attempts, seconds, destination, is_current, efforts, options
+    )
 
 
 def run(args):
