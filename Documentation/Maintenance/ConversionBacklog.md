@@ -231,6 +231,13 @@ The disclosed D01 concentric source bridge preserves historical selected context
 The same neutral D01 parent now adds exact header-owned model and display stamps and the empty configuration override form. All 17 earlier parent streams and the complete child remain exact, with 23 saved source members still outside the modeled inventory. [Stamp and override evidence](../../re/solidworks/records/ConcentricD01StampStreams2026.md)
 The disclosed D01 assembly now regenerates the complete standalone user unit table from its neutral-generated Config-0 owner. Ten saved assembly comparisons reproduce the source mirror and two guarded builds preserve all 20 previous parent streams and the child. Source formatter choices and system XML remain open. [Unit table and locale evidence](../../re/solidworks/records/ConcentricD01UserUnitTable2026.md)
 The disclosed D01 parent now adds its three document property transport members from the actual generated property scopes. Thirty exact source stream comparisons and two guarded builds preserve all 21 prior parent streams and the child. Nineteen saved source streams remain outside the modeled inventory. [Property transport proof](../../re/solidworks/records/ConcentricD01PropertyTransport2026.md)
+
+The next D01 parent composes the document content index from the actual
+headers, configurations, occurrences, unit table and direct mate list.
+Eleven saved indexes reconstruct exactly, including one empty assembly.
+Three guarded neutral builds preserve every prior parent stream. Eighteen
+original D01 members still need construction or source admission evidence.
+[Content index proof](../../re/solidworks/records/AssemblyContentIndex2026.md)
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

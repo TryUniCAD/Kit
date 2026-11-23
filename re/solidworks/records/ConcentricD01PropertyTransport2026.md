@@ -86,3 +86,7 @@ while the component transforms and source path bindings change.
 The complete mode flags and mate-descriptor field derivation remain
 open. This transport proof does not cover that index, other native
 integration or cache members, or any new native or held-out acceptance.
+
+The [following content index proof](AssemblyContentIndex2026.md)
+generates this complete member for the scoped D01 model. It also
+reconstructs all eleven independently disclosed assembly indexes.
