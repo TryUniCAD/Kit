@@ -15,6 +15,7 @@ import time
 from contextlib import contextmanager
 from pathlib import Path
 
+from CodexAdvice.SharedSchema import upgrade
 from Records import bounded, canonical
 
 
@@ -98,8 +99,7 @@ class SharedBudget:
                         "CREATE INDEX request_waiters ON waiters(provider,request_key,until_at)"
                     )
                     self.db.execute("PRAGMA user_version=1")
-                elif version != 1:
-                    raise ValueError("unsupported shared advice database version")
+                upgrade(self.db, version)
                 self.db.execute(
                     "INSERT OR IGNORE INTO providers(name,call_limit,parallel) VALUES (?,?,?)",
                     (
@@ -139,16 +139,66 @@ class SharedBudget:
     def close(self):
         self.db.close()
 
-    # stale waiting processes must not strand the head of a provider queue
+    # expiry keys keep ordinary polling independent of terminal provider history
     def sweep(self, now):
-        self.db.execute("DELETE FROM waiters WHERE until_at<=?", (now,))
-        self.db.execute(
-            "UPDATE requests SET state='abandoned' WHERE state='queued' AND NOT EXISTS (SELECT 1 FROM waiters w WHERE w.provider=requests.provider AND w.request_key=requests.request_key)"
-        )
-        self.db.execute(
-            "UPDATE requests SET state='uncertain' WHERE state='running' AND deadline<=?",
+        expired = self.db.execute(
+            "SELECT provider,request_key,token FROM waiters WHERE until_at<=? "
+            "ORDER BY until_at,provider,request_key LIMIT 256",
             (now,),
+        ).fetchall()
+        self.db.executemany(
+            "DELETE FROM waiters WHERE token=? AND until_at<=?",
+            [(row["token"], now) for row in expired],
         )
+        for provider, key in {(row["provider"], row["request_key"]) for row in expired}:
+            self.prune(key, now, provider)
+        self.db.execute(
+            "UPDATE requests SET state='uncertain' WHERE provider=? AND state='running' AND deadline<=?",
+            (self.provider, now),
+        )
+
+    # a bounded cleanup batch must not strand admission behind expired charged waiters
+    def reclaim(self, now):
+        row = self.db.execute(
+            "SELECT w.provider,w.request_key FROM waiters w INDEXED BY waiter_expiry "
+            "CROSS JOIN requests r WHERE w.until_at<=? "
+            "AND r.provider=w.provider AND r.request_key=w.request_key "
+            "AND r.charged=0 AND r.state IN ('queued','abandoned') "
+            "AND NOT EXISTS (SELECT 1 FROM waiters live WHERE live.provider=w.provider "
+            "AND live.request_key=w.request_key AND live.until_at>?) LIMIT 1",
+            (now, now),
+        ).fetchone()
+        if row is not None:
+            self.prune(row["request_key"], now, row["provider"])
+
+    # charged outcomes remain immutable history even after every interested caller leaves
+    def prune(self, key, now, provider=None):
+        provider = self.provider if provider is None else provider
+        deleted = self.db.execute(
+            "DELETE FROM requests WHERE provider=? AND request_key=? AND charged=0 "
+            "AND state IN ('queued','abandoned') AND NOT EXISTS ("
+            "SELECT 1 FROM waiters w WHERE w.provider=requests.provider "
+            "AND w.request_key=requests.request_key AND w.until_at>?)",
+            (provider, key, now),
+        ).rowcount
+        if deleted:
+            self.db.execute(
+                "DELETE FROM waiters WHERE provider=? AND request_key=? AND until_at<=?",
+                (provider, key, now),
+            )
+            self.db.execute(
+                "UPDATE advice_metadata SET value=value-? WHERE key='request_count'",
+                (deleted,),
+            )
+
+    # admission cost must stay constant when paid request history grows
+    def request_count(self):
+        row = self.db.execute(
+            "SELECT value FROM advice_metadata WHERE key='request_count'"
+        ).fetchone()
+        if row is None or type(row[0]) is not int or row[0] < 0:
+            raise ValueError("invalid shared advice metadata count")
+        return row[0]
 
     # identical requests from different controllers share one reservation and one recorded proposal
     def reserve(self, key, token, seconds):
@@ -177,14 +227,16 @@ class SharedBudget:
                     ),
                 }
             if row is None:
-                if (
-                    self.db.execute("SELECT COUNT(*) FROM requests").fetchone()[0]
-                    >= 10000
-                ):
+                if self.request_count() >= 10000:
+                    self.reclaim(now)
+                if self.request_count() >= 10000:
                     return {"status": "metadata_limit"}
                 self.db.execute(
                     "INSERT INTO requests(provider,request_key,state,created) VALUES (?,?,'queued',?)",
                     (self.provider, key, now),
+                )
+                self.db.execute(
+                    "UPDATE advice_metadata SET value=value+1 WHERE key='request_count'"
                 )
             elif row["state"] == "abandoned":
                 self.db.execute(
@@ -216,7 +268,7 @@ class SharedBudget:
                 "UPDATE providers SET used=used+1 WHERE name=?", (self.provider,)
             )
             self.db.execute(
-                "UPDATE requests SET state='running',owner=?,deadline=? WHERE provider=? AND request_key=?",
+                "UPDATE requests SET state='running',charged=1,owner=?,deadline=? WHERE provider=? AND request_key=?",
                 (token, now + seconds + 30, self.provider, key),
             )
             self.db.execute("DELETE FROM waiters WHERE token=?", (token,))
@@ -252,8 +304,18 @@ class SharedBudget:
     # leaving the queue releases only this waiter and never another callers active request
     def leave(self, token):
         with self.transaction():
-            self.db.execute("DELETE FROM waiters WHERE token=?", (token,))
-            self.sweep(time.time())
+            row = self.db.execute(
+                "SELECT request_key FROM waiters WHERE provider=? AND token=?",
+                (self.provider, token),
+            ).fetchone()
+            self.db.execute(
+                "DELETE FROM waiters WHERE provider=? AND token=?",
+                (self.provider, token),
+            )
+            now = time.time()
+            self.sweep(now)
+            if row is not None:
+                self.prune(row[0], now)
 
     # operational reports expose consumption and unresolved reservations without provider secrets
     def status(self):
