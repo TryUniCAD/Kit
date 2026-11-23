@@ -1,3 +1,4 @@
+from dataclasses import replace as ChangeRecord
 from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
 from typing import cast as CastValue
@@ -5,6 +6,7 @@ from typing import cast as CastValue
 from pytest import mark as MarkValue
 
 from interchange.document.Models.DocumentModel import CadDocument
+from interchange.Features.Distance.DistanceCut import DistanceCut
 from interchange.serialization.JsonCodec import DumpJson
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
 from tests.Research.Archives.Comparison.BulkTypedDocuments import (
@@ -134,6 +136,77 @@ def CheckTypedDiff(TmpPath: FilePath, Family: str, Change: str, RoleName: str) -
     )
     assert any(IssueItem["role"] == RoleName for IssueItem in Differences)
     assert not Comparison["ambiguous"] and not Comparison["search_limited"]
+
+
+# ordered body operands need two unchanged anchored bodies so replacement checks cannot conceal ordering regressions
+def MakeOrderDocs(Family: str) -> tuple[CadDocument, CadDocument]:
+    Document = (
+        MakeOutputDoc("ordered")
+        if Family == "outputs"
+        else MakeCutDoc("ordered", "same")
+    )
+    Feature = Document.feature_timeline[-1]
+    BodyIds = tuple(BodyValue.id for BodyValue in Document.bodies)
+    Definition = Feature.definition
+    if isinstance(Definition, DistanceCut):
+        Feature = ChangeRecord(
+            Feature, definition=ChangeRecord(Definition, TargetBodyIds=BodyIds)
+        )
+    Feature = ChangeRecord(Feature, OutputBodyIds=BodyIds)
+    Document = ChangeRecord(
+        Document,
+        feature_timeline=(*Document.feature_timeline[:-1], Feature),
+        bodies=tuple(
+            ChangeRecord(BodyValue, final_feature_id=Feature.id)
+            for BodyValue in Document.bodies
+        ),
+    )
+    ReversedIds = tuple(reversed(BodyIds))
+    if Family == "cut_targets":
+        assert isinstance(Feature.definition, DistanceCut)
+        Changed = ChangeRecord(
+            Feature,
+            definition=ChangeRecord(Feature.definition, TargetBodyIds=ReversedIds),
+        )
+    else:
+        Changed = ChangeRecord(Feature, OutputBodyIds=ReversedIds)
+    return Document, ChangeRecord(
+        Document, feature_timeline=(*Document.feature_timeline[:-1], Changed)
+    )
+
+
+# order only changes must survive the real codec and bulk command without changing membership or scalar observations
+@MarkValue.parametrize(
+    "Family,RoleName",
+    (
+        ("outputs", "/OutputBodyIds"),
+        ("cut_outputs", "/OutputBodyIds"),
+        ("cut_targets", "/definition/TargetBodyIds"),
+    ),
+)
+def CheckTypedOrder(TmpPath: FilePath, Family: str, RoleName: str) -> None:
+    First, Second = MakeOrderDocs(Family)
+    Report = RunTypedBatch(TmpPath, First, Second, 2)
+    assert Report["status"] == "different"
+    Comparison = CastValue(dict[str, object], Report["comparison"])
+    Matches = CastValue(list[dict[str, object]], Comparison["matches"])
+    assert not any(Match["differences"] for Match in Matches)
+    Correspondence = {(Match["left"], Match["right"]) for Match in Matches}
+    assert all(
+        (BodyValue.id, BodyValue.id) in Correspondence for BodyValue in First.bodies
+    )
+    Differences = CastValue(
+        list[dict[str, object]], Comparison["reference_differences"]
+    )
+    assert {Difference["role"] for Difference in Differences} == {
+        RoleName + "/0",
+        RoleName + "/1",
+    }
+    assert not Comparison["ambiguous"] and not Comparison["search_limited"]
+    assert not Comparison["unmatched_left"] and not Comparison["unmatched_right"]
+    assert not Comparison["issues"]
+    assert Report["semantic_qualification"] == "unverified"
+    assert Report["native_acceptance"] == "not_established"
 
 
 # malformed typed links must fail at the real document admission boundary before graph matching
