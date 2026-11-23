@@ -1,69 +1,68 @@
-from pathlib import Path as FilePath
+from dataclasses import replace as ReplaceValue
 
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepareNestedAssembly import (
-    PrepNestedAsm,
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepNestedPlan import (
+    PrepNestedPlan,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import (
-    ReadNestedAsm,
-)
-from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmOpts import CheckAsmOpts
-from convert.adapters.solidworks.Core.AssemblyWriting.CheckFreshFiles import (
-    CheckFreshFiles,
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.Measured.IsNestSite import (
+    IsNestSite,
 )
-from convert.adapters.solidworks.Core.AssemblyWriting.FinalAsmPath import FinalAsmPath
-from convert.adapters.solidworks.Core.AssemblyWriting.Nested.NestFileNames import (
-    NestFileNames,
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.Measured.MatchNestMeas import (
+    MatchNestMeas,
 )
-from convert.adapters.solidworks.Core.AssemblyWriting.WriteAsmFiles import WriteAsmFiles
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.Measured.ReadNestMeas import (
+    ReadNestMeas,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.PlanNestStage import (
+    PlanNestStage,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.PublishNestMut import (
+    PublishNestMut,
+)
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# graph preparation and complete final name checks must finish before emitting any staged bundle member
+# a native nested result must close the authenticated bundle and its actual location before any staged open
 def EmitNestedMut(
     Document: CadDocument,
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
-    WrittenAt: int,
 ) -> WriteResult:
-    SettingsValue = CheckAsmOpts(OptionsValue)
-    if not isinstance(TargetValue, (str, FilePath)):
-        raise TypeError(
-            "nested assembly output requires a staged filesystem destination"
-        )
-    OutputPath = FilePath(TargetValue).expanduser().resolve()
-    FinalPath, NativePath = FinalAsmPath(OutputPath, SettingsValue)
-    RequireAsm(
-        "final_destination" in SettingsValue.values
-        and OutputPath.parent != FinalPath.parent,
-        "nested assembly emission requires registry path staging",
+    Settings = CheckAsmOpts(OptionsValue, Measured=True)
+    StagePath, FinalPath, NativePath, PlanValue, FileValues = PlanNestStage(
+        Document, TargetValue, Settings
     )
-    PlanValue = ReadNestedAsm(Document)
-    RequireAsm(
-        SettingsValue.configuration
-        in (
-            None,
-            PlanValue.RootValue.configuration_id,
-            PlanValue.RootValue.configuration_name,
-        ),
-        "requested assembly configuration is unavailable",
+    Evidence = ReadNestMeas(Settings)
+    Candidates = PrepNestedPlan(
+        PlanValue, NativePath, Evidence.WrittenAt, PlatformMath=Evidence.PlatformMath
     )
-    FileValues = NestFileNames(PlanValue, NativePath)
-    CheckFreshFiles(FinalPath, tuple(PathValue.name for PathValue in FileValues[:-1]))
-    Candidates = PrepNestedAsm(Document, NativePath, WrittenAt)
-    RequireAsm(
-        tuple(str(PathValue) for PathValue, _ in Candidates)
-        == tuple(map(str, FileValues)),
-        "generated nested files differ from the validated output plan",
+    MatchNestMeas(Evidence, FileValues, Candidates)
+    Locator = str(FileValues[-1])
+    SameSite = IsNestSite(StagePath, FinalPath, Locator, Settings)
+    Profile = (
+        "measured_rigid_nested_assembly"
+        if SameSite
+        else "measured_nested_deferred_delivery"
     )
-    return WriteAsmFiles(
-        OutputPath,
-        Candidates[-1][1].BytesValue,
-        tuple(
-            (PathValue.name, Value.BytesValue) for PathValue, Value in Candidates[:-1]
-        ),
-        "unmeasured_portable_nested_assembly_profile",
+    Result = PublishNestMut(StagePath, Candidates, Profile)
+    return ReplaceValue(
+        Result,
+        application_usable=SameSite,
+        vendor_loadable=SameSite,
+        metadata={
+            **Result.metadata,
+            KPartMeasureOpt: {
+                "generated_manifest_sha256": Evidence.ManifestSha,
+                "native_result_sha256": Evidence.ReportSha,
+            },
+            "required_native_destination": Locator,
+            "output_scope": "root_and_owned_nested_dependencies",
+            "overwrite_supported": False,
+        },
     )

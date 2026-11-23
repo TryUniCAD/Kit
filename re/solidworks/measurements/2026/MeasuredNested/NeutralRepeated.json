@@ -1,0 +1,1555 @@
+{
+  "native_destination": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\SdkRepeatedDimensionedNative01\\GeneratedInput\\SdkFrame.SLDASM",
+  "neutral": {
+    "$type": "CadDocument",
+    "assembly": {
+      "$type": "AssemblyData",
+      "attributes": {},
+      "definitions": {
+        "$tuple": [
+          {
+            "$type": "ComponentDefinition",
+            "attributes": {},
+            "body_ids": {
+              "$tuple": [
+                "body/boss"
+              ]
+            },
+            "bounding_box": null,
+            "configuration_id": "configuration/default",
+            "configuration_name": "modeled default",
+            "document_id": "doc:plate",
+            "id": "plate",
+            "kind": "part",
+            "mesh_ids": {
+              "$tuple": []
+            },
+            "name": "SdkNestedPlate",
+            "provenance": null,
+            "source_format_id": "",
+            "source_path": "",
+            "source_sha256": ""
+          },
+          {
+            "$type": "ComponentDefinition",
+            "attributes": {},
+            "body_ids": {
+              "$tuple": [
+                "body/boss"
+              ]
+            },
+            "bounding_box": null,
+            "configuration_id": "configuration/default",
+            "configuration_name": "modeled default",
+            "document_id": "doc:gauge",
+            "id": "gauge",
+            "kind": "part",
+            "mesh_ids": {
+              "$tuple": []
+            },
+            "name": "SdkGaugePlate",
+            "provenance": null,
+            "source_format_id": "",
+            "source_path": "",
+            "source_sha256": ""
+          },
+          {
+            "$type": "ComponentDefinition",
+            "attributes": {},
+            "body_ids": {
+              "$tuple": []
+            },
+            "bounding_box": null,
+            "configuration_id": "cfg:module",
+            "configuration_name": "Default",
+            "document_id": "",
+            "id": "module",
+            "kind": "assembly",
+            "mesh_ids": {
+              "$tuple": []
+            },
+            "name": "SdkModule",
+            "provenance": null,
+            "source_format_id": "",
+            "source_path": "",
+            "source_sha256": ""
+          },
+          {
+            "$type": "ComponentDefinition",
+            "attributes": {},
+            "body_ids": {
+              "$tuple": []
+            },
+            "bounding_box": null,
+            "configuration_id": "cfg:frame",
+            "configuration_name": "Default",
+            "document_id": "",
+            "id": "frame",
+            "kind": "assembly",
+            "mesh_ids": {
+              "$tuple": []
+            },
+            "name": "SdkFrame",
+            "provenance": null,
+            "source_format_id": "",
+            "source_path": "",
+            "source_sha256": ""
+          }
+        ]
+      },
+      "documents": {
+        "$tuple": [
+          {
+            "$type": "ComponentDocument",
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 7.45
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "output_body_ids": {
+                      "$tuple": []
+                    },
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "SdkNestedPlate"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 7.45
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "nested:length:width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 28.65
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "nested:length:height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 16.35
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:distance:0",
+                          "kind": "distance",
+                          "parameter_id": "nested:length:width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:distance:1",
+                          "kind": "distance",
+                          "parameter_id": "nested:length:height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 14.325,
+                              "y": -8.175
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -14.325,
+                              "y": -8.175
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 14.325,
+                              "y": 8.175
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 14.325,
+                              "y": -8.175
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -14.325,
+                              "y": 8.175
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 14.325,
+                              "y": 8.175
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -14.325,
+                              "y": -8.175
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -14.325,
+                              "y": 8.175
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "nested:length:width",
+                        "nested:length:height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "id": "doc:plate"
+          },
+          {
+            "$type": "ComponentDocument",
+            "document": {
+              "$type": "CadDocument",
+              "assembly": null,
+              "bodies": {
+                "$tuple": [
+                  {
+                    "$type": "Body",
+                    "attributes": {},
+                    "final_feature_id": "feature/boss",
+                    "id": "body/boss",
+                    "material_id": null,
+                    "name": "Boss-Extrude1",
+                    "provenance": null,
+                    "topology": {
+                      "$type": "TopologySummary",
+                      "bounding_box": null,
+                      "edge_count": 0,
+                      "face_count": 0,
+                      "shell_count": 0,
+                      "solid_count": 0,
+                      "surface_area": null,
+                      "valid": null,
+                      "vertex_count": 0,
+                      "volume": null
+                    }
+                  }
+                ]
+              },
+              "brep": null,
+              "brep_payloads": {
+                "$tuple": []
+              },
+              "capabilities": {
+                "$frozenset": []
+              },
+              "configurations": {
+                "$tuple": [
+                  {
+                    "$type": "Configuration",
+                    "active": true,
+                    "attributes": {},
+                    "id": "configuration/default",
+                    "name": "modeled default",
+                    "overrides": {
+                      "$tuple": []
+                    },
+                    "parent_id": null,
+                    "suppressed_feature_ids": {
+                      "$tuple": []
+                    }
+                  }
+                ]
+              },
+              "diagnostics": {
+                "$tuple": []
+              },
+              "feature_timeline": {
+                "$tuple": [
+                  {
+                    "$type": "FeatureStep",
+                    "attributes": {},
+                    "configuration_states": {
+                      "$tuple": []
+                    },
+                    "definition": {
+                      "$type": "ExtrusionFeature",
+                      "direction": null,
+                      "draft_angle": null,
+                      "end_condition": {
+                        "$enum": "ExtrusionEndCondition",
+                        "value": "blind"
+                      },
+                      "length": {
+                        "$type": "ParameterValue",
+                        "kind": {
+                          "$enum": "ValueKind",
+                          "value": "length"
+                        },
+                        "unit": "mm",
+                        "value": 10.85
+                      },
+                      "offset": null,
+                      "reversed": false,
+                      "second_draft_angle": null,
+                      "second_end_condition": null,
+                      "second_length": null,
+                      "second_offset": null,
+                      "second_up_to_reference": "",
+                      "symmetric": false,
+                      "up_to_reference": ""
+                    },
+                    "id": "feature/boss",
+                    "input_feature_ids": {
+                      "$tuple": []
+                    },
+                    "kind": {
+                      "$enum": "FeatureKind",
+                      "value": "extrusion"
+                    },
+                    "name": "Boss-Extrude1",
+                    "operation": {
+                      "$enum": "BooleanOperation",
+                      "value": "create"
+                    },
+                    "order": 0,
+                    "output_body_ids": {
+                      "$tuple": []
+                    },
+                    "parameter_ids": {
+                      "$tuple": [
+                        "parameter/depth"
+                      ]
+                    },
+                    "provenance": null,
+                    "selection_ids": {
+                      "$tuple": []
+                    },
+                    "sketch_id": "sketch/profile",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "materials": {
+                "$tuple": []
+              },
+              "meshes": {
+                "$tuple": []
+              },
+              "metadata": {
+                "name": "SdkGaugePlate"
+              },
+              "parameters": {
+                "$tuple": [
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "parameter/depth",
+                    "name": "D1",
+                    "owner_id": "feature/boss",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 10.85
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "nested:length:width",
+                    "name": "D1",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 19.15
+                    }
+                  },
+                  {
+                    "$type": "Parameter",
+                    "attributes": {},
+                    "expression": null,
+                    "id": "nested:length:height",
+                    "name": "D2",
+                    "owner_id": "sketch/profile",
+                    "provenance": null,
+                    "role": {
+                      "$enum": "ParameterRole",
+                      "value": "driving"
+                    },
+                    "value": {
+                      "$type": "ParameterValue",
+                      "kind": {
+                        "$enum": "ValueKind",
+                        "value": "length"
+                      },
+                      "unit": "mm",
+                      "value": 24.55
+                    }
+                  }
+                ]
+              },
+              "schema_version": "1.0",
+              "selections": {
+                "$tuple": []
+              },
+              "sketches": {
+                "$tuple": [
+                  {
+                    "$type": "Sketch",
+                    "attributes": {},
+                    "closed_profile_entity_ids": {
+                      "$tuple": [
+                        {
+                          "$tuple": [
+                            "edge/0",
+                            "edge/1",
+                            "edge/2",
+                            "edge/3"
+                          ]
+                        }
+                      ]
+                    },
+                    "constraints": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:0",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:1",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:2",
+                          "kind": "horizontal",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/2",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:axis:3",
+                          "kind": "vertical",
+                          "parameter_id": null,
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/3",
+                                "point": ""
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:distance:0",
+                          "kind": "distance",
+                          "parameter_id": "nested:length:width",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/0",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        },
+                        {
+                          "$type": "SketchConstraint",
+                          "attributes": {},
+                          "driving": true,
+                          "id": "nested:distance:1",
+                          "kind": "distance",
+                          "parameter_id": "nested:length:height",
+                          "provenance": null,
+                          "references": {
+                            "$tuple": [
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "start"
+                              },
+                              {
+                                "$type": "ConstraintReference",
+                                "entity_id": "edge/1",
+                                "point": "end"
+                              }
+                            ]
+                          },
+                          "suppressed": false
+                        }
+                      ]
+                    },
+                    "entities": {
+                      "$tuple": [
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 9.575,
+                              "y": -12.275
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -9.575,
+                              "y": -12.275
+                            }
+                          },
+                          "id": "edge/0",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": 9.575,
+                              "y": 12.275
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 9.575,
+                              "y": -12.275
+                            }
+                          },
+                          "id": "edge/1",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -9.575,
+                              "y": 12.275
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": 9.575,
+                              "y": 12.275
+                            }
+                          },
+                          "id": "edge/2",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        },
+                        {
+                          "$type": "SketchEntity",
+                          "attributes": {},
+                          "construction": false,
+                          "fixed": false,
+                          "geometry": {
+                            "$type": "LineGeometry",
+                            "end": {
+                              "$type": "Vector2",
+                              "x": -9.575,
+                              "y": -12.275
+                            },
+                            "start": {
+                              "$type": "Vector2",
+                              "x": -9.575,
+                              "y": 12.275
+                            }
+                          },
+                          "id": "edge/3",
+                          "kind": {
+                            "$enum": "GeometryKind",
+                            "value": "line"
+                          },
+                          "provenance": null
+                        }
+                      ]
+                    },
+                    "id": "sketch/profile",
+                    "name": "Sketch1",
+                    "parameter_ids": {
+                      "$tuple": [
+                        "nested:length:width",
+                        "nested:length:height"
+                      ]
+                    },
+                    "provenance": null,
+                    "support_plane_id": "plane/front",
+                    "suppressed": false
+                  }
+                ]
+              },
+              "source": {
+                "$type": "CadSource",
+                "application_version": "",
+                "attributes": {},
+                "container_version": "",
+                "format_id": "kit-neutral",
+                "path": "<authored-in-memory>",
+                "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+              },
+              "support_planes": {
+                "$tuple": [
+                  {
+                    "$type": "SupportPlane",
+                    "attributes": {},
+                    "id": "plane/front",
+                    "name": "Front Plane",
+                    "offset_parameter_id": null,
+                    "provenance": null,
+                    "support_selection_id": null,
+                    "transform": {
+                      "$type": "Transform",
+                      "origin": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "x_axis": {
+                        "$type": "Vector3",
+                        "x": 1.0,
+                        "y": 0.0,
+                        "z": 0.0
+                      },
+                      "y_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 1.0,
+                        "z": 0.0
+                      },
+                      "z_axis": {
+                        "$type": "Vector3",
+                        "x": 0.0,
+                        "y": 0.0,
+                        "z": 1.0
+                      }
+                    }
+                  }
+                ]
+              },
+              "units": {
+                "$enum": "UnitSystem",
+                "value": "mm"
+              }
+            },
+            "id": "doc:gauge"
+          }
+        ]
+      },
+      "instances": {
+        "$tuple": [
+          {
+            "$type": "ComponentInstance",
+            "attributes": {},
+            "configuration_id": "configuration/default",
+            "configuration_name": "modeled default",
+            "definition_id": "plate",
+            "exclude_from_bom": false,
+            "fixed": false,
+            "flexible": false,
+            "hidden": false,
+            "id": "inst:module:0",
+            "name": "SdkNestedPlate-1",
+            "order": 0,
+            "owner_definition_id": "module",
+            "provenance": null,
+            "reference_number": "",
+            "suppressed": false,
+            "transform": {
+              "$type": "Matrix4",
+              "values": {
+                "$tuple": [
+                  1.0,
+                  -0.0,
+                  0.0,
+                  14.3,
+                  0.0,
+                  0.8910065241883679,
+                  -0.4539904997395468,
+                  -6.7,
+                  0.0,
+                  0.4539904997395468,
+                  0.8910065241883679,
+                  9.9,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          {
+            "$type": "ComponentInstance",
+            "attributes": {},
+            "configuration_id": "configuration/default",
+            "configuration_name": "modeled default",
+            "definition_id": "plate",
+            "exclude_from_bom": false,
+            "fixed": false,
+            "flexible": false,
+            "hidden": false,
+            "id": "inst:module:1",
+            "name": "SdkNestedPlate-2",
+            "order": 1,
+            "owner_definition_id": "module",
+            "provenance": null,
+            "reference_number": "",
+            "suppressed": false,
+            "transform": {
+              "$type": "Matrix4",
+              "values": {
+                "$tuple": [
+                  0.838670567945424,
+                  0.5446390350150271,
+                  -0.0,
+                  -26.1,
+                  -0.5446390350150271,
+                  0.838670567945424,
+                  0.0,
+                  33.7,
+                  0.0,
+                  0.0,
+                  1.0,
+                  18.9,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          {
+            "$type": "ComponentInstance",
+            "attributes": {},
+            "configuration_id": "cfg:module",
+            "configuration_name": "Default",
+            "definition_id": "module",
+            "exclude_from_bom": false,
+            "fixed": false,
+            "flexible": false,
+            "hidden": false,
+            "id": "inst:frame:0",
+            "name": "SdkModule-1",
+            "order": 0,
+            "owner_definition_id": "frame",
+            "provenance": null,
+            "reference_number": "",
+            "suppressed": false,
+            "transform": {
+              "$type": "Matrix4",
+              "values": {
+                "$tuple": [
+                  0.754709580222772,
+                  0.0,
+                  -0.6560590289905073,
+                  108.7,
+                  0.0,
+                  1.0,
+                  0.0,
+                  52.1,
+                  0.6560590289905073,
+                  -0.0,
+                  0.754709580222772,
+                  -13.299999999999999,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          {
+            "$type": "ComponentInstance",
+            "attributes": {},
+            "configuration_id": "cfg:module",
+            "configuration_name": "Default",
+            "definition_id": "module",
+            "exclude_from_bom": false,
+            "fixed": false,
+            "flexible": false,
+            "hidden": false,
+            "id": "inst:frame:1",
+            "name": "SdkModule-2",
+            "order": 1,
+            "owner_definition_id": "frame",
+            "provenance": null,
+            "reference_number": "",
+            "suppressed": false,
+            "transform": {
+              "$type": "Matrix4",
+              "values": {
+                "$tuple": [
+                  0.9455185755993168,
+                  -0.3255681544571567,
+                  0.0,
+                  -83.9,
+                  0.3255681544571567,
+                  0.9455185755993168,
+                  -0.0,
+                  61.3,
+                  0.0,
+                  0.0,
+                  1.0,
+                  44.699999999999996,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          },
+          {
+            "$type": "ComponentInstance",
+            "attributes": {},
+            "configuration_id": "configuration/default",
+            "configuration_name": "modeled default",
+            "definition_id": "gauge",
+            "exclude_from_bom": false,
+            "fixed": false,
+            "flexible": false,
+            "hidden": false,
+            "id": "inst:frame:2",
+            "name": "SdkGaugePlate-1",
+            "order": 2,
+            "owner_definition_id": "frame",
+            "provenance": null,
+            "reference_number": "",
+            "suppressed": false,
+            "transform": {
+              "$type": "Matrix4",
+              "values": {
+                "$tuple": [
+                  1.0,
+                  0.0,
+                  -0.0,
+                  7.9,
+                  0.0,
+                  0.9205048534524404,
+                  0.39073112848927377,
+                  -99.1,
+                  0.0,
+                  -0.39073112848927377,
+                  0.9205048534524404,
+                  68.3,
+                  0,
+                  0,
+                  0,
+                  1
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "mate_entities": {
+        "$tuple": []
+      },
+      "mate_groups": {
+        "$tuple": []
+      },
+      "mates": {
+        "$tuple": []
+      },
+      "root_definition_id": "frame"
+    },
+    "bodies": {
+      "$tuple": []
+    },
+    "brep": null,
+    "brep_payloads": {
+      "$tuple": []
+    },
+    "capabilities": {
+      "$frozenset": []
+    },
+    "configurations": {
+      "$tuple": [
+        {
+          "$type": "Configuration",
+          "active": true,
+          "attributes": {},
+          "id": "cfg:frame",
+          "name": "Default",
+          "overrides": {
+            "$tuple": []
+          },
+          "parent_id": null,
+          "suppressed_feature_ids": {
+            "$tuple": []
+          }
+        }
+      ]
+    },
+    "diagnostics": {
+      "$tuple": []
+    },
+    "feature_timeline": {
+      "$tuple": []
+    },
+    "materials": {
+      "$tuple": []
+    },
+    "meshes": {
+      "$tuple": []
+    },
+    "metadata": {
+      "name": "SdkFrame"
+    },
+    "parameters": {
+      "$tuple": []
+    },
+    "schema_version": "1.0",
+    "selections": {
+      "$tuple": []
+    },
+    "sketches": {
+      "$tuple": []
+    },
+    "source": {
+      "$type": "CadSource",
+      "application_version": "",
+      "attributes": {},
+      "container_version": "",
+      "format_id": "neutral",
+      "path": "authored nested model",
+      "sha256": ""
+    },
+    "support_planes": {
+      "$tuple": [
+        {
+          "$type": "SupportPlane",
+          "attributes": {},
+          "id": "plane:x",
+          "name": "Right Plane",
+          "offset_parameter_id": null,
+          "provenance": null,
+          "support_selection_id": null,
+          "transform": {
+            "$type": "Transform",
+            "origin": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "x_axis": {
+              "$type": "Vector3",
+              "x": -0.0,
+              "y": -0.0,
+              "z": -1.0
+            },
+            "y_axis": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "z_axis": {
+              "$type": "Vector3",
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            }
+          }
+        },
+        {
+          "$type": "SupportPlane",
+          "attributes": {},
+          "id": "plane:y",
+          "name": "Top Plane",
+          "offset_parameter_id": null,
+          "provenance": null,
+          "support_selection_id": null,
+          "transform": {
+            "$type": "Transform",
+            "origin": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "x_axis": {
+              "$type": "Vector3",
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "y_axis": {
+              "$type": "Vector3",
+              "x": -0.0,
+              "y": -0.0,
+              "z": -1.0
+            },
+            "z_axis": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            }
+          }
+        },
+        {
+          "$type": "SupportPlane",
+          "attributes": {},
+          "id": "plane:z",
+          "name": "Front Plane",
+          "offset_parameter_id": null,
+          "provenance": null,
+          "support_selection_id": null,
+          "transform": {
+            "$type": "Transform",
+            "origin": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "x_axis": {
+              "$type": "Vector3",
+              "x": 1.0,
+              "y": 0.0,
+              "z": 0.0
+            },
+            "y_axis": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 1.0,
+              "z": 0.0
+            },
+            "z_axis": {
+              "$type": "Vector3",
+              "x": 0.0,
+              "y": 0.0,
+              "z": 1.0
+            }
+          }
+        }
+      ]
+    },
+    "units": {
+      "$enum": "UnitSystem",
+      "value": "mm"
+    }
+  }
+}

@@ -16,7 +16,7 @@ from convert.adapters.solidworks.Container.Format import (
 
 # existing companion backup limitations require assembly replacement to stay closed while all admitted options retain exact domains
 def CheckAsmOpts(
-    OptionsValue: WriteOptions | None, *, PlanarMeasure: bool = False
+    OptionsValue: WriteOptions | None, *, Measured: bool = False
 ) -> WriteOptions:
     SettingsValue = WriteOptions() if OptionsValue is None else OptionsValue
     RequireAsm(
@@ -40,7 +40,7 @@ def CheckAsmOpts(
         "assembly writing requires an assembly destination format",
     )
     Allowed = KAsmOptionNames
-    if PlanarMeasure:
+    if Measured:
         Allowed = Allowed | {KPartMeasureOpt, "defer_native_delivery"}
     RequireAsm(
         set(SettingsValue.values) <= Allowed,

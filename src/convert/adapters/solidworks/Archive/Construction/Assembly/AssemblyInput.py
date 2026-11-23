@@ -40,3 +40,4 @@ class AssemblyInput:
     OutputValue: SelfFileInput
     SavePartValues: Mapping[str, bool | int | float]
     ModelName: str | None = None
+    PlatformViewMath: bool = False

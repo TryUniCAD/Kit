@@ -6,8 +6,8 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.AssemblyWriting.Nested.CanWriteNested import (
     CanWriteNested,
 )
-from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut import (
-    EmitNestedMut,
+from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitDraftMut import (
+    EmitDraftMut,
 )
 from convert.adapters.solidworks.Core.Writing.SldWriteInfo import KSldWriteInfo
 from interchange.document.Models.DocumentModel import CadDocument
@@ -35,6 +35,6 @@ def MakeNestWriter(WrittenAt: int) -> CadWriterAdapter:
             destination: KTargetType,
             options: WriteOptions | None = None,
         ) -> WriteResult:
-            return EmitNestedMut(document, destination, options, WrittenAt)
+            return EmitDraftMut(document, destination, options, WrittenAt)
 
     return NestWriter()

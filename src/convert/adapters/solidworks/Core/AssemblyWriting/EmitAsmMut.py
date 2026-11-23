@@ -40,7 +40,7 @@ def EmitAsmMut(
     TargetValue: KTargetType,
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
-    Settings = CheckAsmOpts(OptionsValue, PlanarMeasure=True)
+    Settings = CheckAsmOpts(OptionsValue, Measured=True)
     if not isinstance(TargetValue, (str, FilePath)):
         raise TypeError("assembly output requires a filesystem bundle destination")
     StagePath = FilePath(TargetValue).expanduser().resolve()

@@ -618,6 +618,12 @@ The staged neutral lifecycle and held-out qualification precede normal
 writer activation.
 [Guarded publication evidence](../../re/solidworks/records/SdkNestedAssemblyPublication2026.md)
 
+The [authenticated public gate](../../re/solidworks/records/AuthenticatedNestedBundle2026.md)
+binds the exact generated member set and the actual physical location.
+Both normal routes reproduce all 14 disclosed files with zero input
+reads. A newly guarded Windows SDK replay of the two previously
+measured pre-writer bundles remains open.
+
 ### B04-SW2026-ASSEMBLY-HEADER-ALIASES
 
 The PR #121 takeover team owns the shared direct header action on

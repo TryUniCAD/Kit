@@ -16,7 +16,13 @@ An occurrence may carry an explicit `reference_number` such as `"2"` for
 the occurrence name. Leave the field empty to derive the same native
 number from the name. [Occurrence reference numbers](../../Changes/Solidworks/Construction/Assembly/SolidworksOccurrenceReferenceNumbers.md)
 
-The rigid nested profile uses a complete acyclic hierarchy with separately owned rectangular blind-boss parts and explicit selected configurations. Floating rigid occurrences retain their local transforms and repeated instances share one generated child. A leaf may carry the ordinary driving depth or the depth plus driving width and height with the prescribed rectangle relations. The nested profile accepts a hierarchy without mates, suppression, hidden instances or flexible placement. [Nested writing and native qualification](../../Changes/Solidworks/Construction/Assembly/SolidworksRigidNestedAssemblyWriting.md)
+The rigid nested profile uses a complete acyclic hierarchy with separately
+owned rectangular blind-boss parts and explicit selected configurations.
+Floating rigid occurrences retain their local transforms and repeated instances
+share one generated child. Each leaf has the measured driving depth, with
+optional driving width and height in the prescribed rectangle profile.
+The writer verifies every member against an authenticated whole-bundle
+measurement. [Nested publication scope](../../Changes/Solidworks/Construction/Assembly/SolidworksAuthenticatedNestedBundle.md)
 
 `convert.write_document` selects the writer by `.SLDASM` destination
 or explicit `destination_format="solidworks.sldasm"`. The assembly
@@ -49,8 +55,15 @@ later installation at that locator, also pass
 `values["defer_native_delivery"] = True` and allow the non-qualified
 result with `allow_carrier=True`. Kit verifies the same file hashes,
 reports `required_native_destination`, and leaves both native usability
-flags false for the deferred files. The nested route retains its
-separate destination contract.
+flags false for the deferred files.
+
+The nested route uses the same options with its whole-bundle evidence
+envelope. Set `written_at` to the measured epoch and give its `receipt`
+the schema `kit.sw2026.rigid-nested-bundle-evidence.v1`. Supply the agreed
+`generated_manifest_sha256` and `native_result_sha256` from the approved
+bundle measurement. Each measured nested member must match before the
+same-location or deferred publication policy can apply.
+[Nested evidence](../../../re/solidworks/records/AuthenticatedNestedBundle2026.md)
 
 Output must use unused parent and companion filenames. Assembly overwrite and
 stream output are unsupported. Existing files, directories and dangling

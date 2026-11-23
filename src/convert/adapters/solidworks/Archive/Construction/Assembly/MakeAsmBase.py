@@ -33,6 +33,7 @@ def MakeAsmBase(InputValue: AssemblyInput) -> AssemblyState:
         InputValue.StyleValue,
         InputValue.DocumentUnits,
         UnitInput("m", "radian", "mks", 4),
+        PlatformViewMath=InputValue.PlatformViewMath,
     )
     ModelName = (
         InputValue.NameValue if InputValue.ModelName is None else InputValue.ModelName

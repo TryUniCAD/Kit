@@ -1,5 +1,3 @@
-from time import time as ReadTime
-
 from convert.adapters.base.AdapterInfo import AdapterInfo
 from convert.adapters.base.ContractTypes import KTargetType
 from convert.adapters.base.WriteOptions import WriteOptions
@@ -18,7 +16,6 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Nested.CanWriteNested impo
 from convert.adapters.solidworks.Core.AssemblyWriting.Nested.EmitNestedMut import (
     EmitNestedMut,
 )
-from convert.adapters.solidworks.Core.AssemblyWriting.QualifyAsm import QualifyNested
 from convert.adapters.solidworks.Core.DrawingWriting.EmitBlankDrawingMut import (
     EmitBlankMut,
 )
@@ -53,9 +50,7 @@ def EmitSldMut(
         return EmitBlankMut(DocumentValue, TargetValue, OptionsValue)
     if DocumentValue.assembly is not None:
         if CanWriteNested(DocumentValue, TargetValue):
-            return QualifyNested(
-                EmitNestedMut(DocumentValue, TargetValue, OptionsValue, int(ReadTime()))
-            )
+            return EmitNestedMut(DocumentValue, TargetValue, OptionsValue)
         return EmitAsmMut(DocumentValue, TargetValue, OptionsValue)
     return EmitNativeMut(DocumentValue, TargetValue, OptionsValue)
 

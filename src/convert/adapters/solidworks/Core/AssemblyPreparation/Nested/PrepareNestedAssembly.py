@@ -1,101 +1,19 @@
-from dataclasses import replace as ReplaceValue
 from pathlib import PureWindowsPath
 
-from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.MakePartTarget import (
-    MakePartTarget,
-)
 from convert.adapters.solidworks.Archive.Construction.AssemblyTargets.TargetDocument import (
     TargetDocument,
 )
-from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
-    SelfFileInput,
-)
-from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.MakeNestedAsm import (
-    MakeNestedAsm,
-)
-from convert.adapters.solidworks.Archive.Construction.NestedAssemblies.TargetPlacement import (
-    TargetPlacement,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import (
-    MakeBlindPart,
-)
-from convert.adapters.solidworks.Archive.Construction.Part.MakeRectDimPart import (
-    MakeRectDimPart,
-)
-from convert.adapters.solidworks.Container.Format import KAsmSuffix
-from convert.adapters.solidworks.Core.AssemblyPreparation.Children.ReadRectDisplay import (
-    ReadRectDisplay,
+from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.PrepNestedPlan import (
+    PrepNestedPlan,
 )
 from convert.adapters.solidworks.Core.AssemblyPreparation.Nested.ReadNestedAssembly import (
     ReadNestedAsm,
 )
-from convert.adapters.solidworks.Core.AssemblyPreparation.Paths.CheckNativePath import (
-    CheckNativePath,
-)
-from convert.adapters.solidworks.Core.AssemblyPreparation.Recipe.MakeAsmRecipe import (
-    MakeNamedRecipe,
-)
-from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import RequireAsm
-from convert.adapters.solidworks.Core.Preparation.MakePartRecipe import MakePartRecipe
 from interchange.document.Models.DocumentModel import CadDocument
 
 
-# construction keeps one generated native model per definition and assigns only caller owned sibling destinations
+# ordinary nested preparation validates the entire owned document before deriving any member
 def PrepNestedAsm(
     Document: CadDocument, NativePath: str, WrittenAt: int
 ) -> tuple[tuple[PureWindowsPath, TargetDocument], ...]:
-    PlanValue = ReadNestedAsm(Document)
-    ParentPath = CheckNativePath(NativePath)
-    RequireAsm(
-        ParentPath.stem == PlanValue.RootValue.name
-        and ParentPath.suffix.casefold() == KAsmSuffix,
-        "nested assembly destination must retain the modeled root basename",
-    )
-    DefaultRecipe = MakePartRecipe(
-        next(iter(PlanValue.LeafValues.values())).PartValue, WrittenAt
-    )
-    Targets: dict[str, TargetDocument] = {}
-    Results: list[tuple[PureWindowsPath, TargetDocument]] = []
-    for Definition in PlanValue.OrderedDefinitions:
-        LeafValue = PlanValue.LeafValues.get(Definition.id)
-        FileName = Definition.name + (".SLDASM" if LeafValue is None else ".SLDPRT")
-        Native = (
-            ParentPath
-            if Definition is PlanValue.RootValue
-            else CheckNativePath(str(ParentPath.parent / FileName))
-        )
-        RequireAsm(
-            Native.parent == ParentPath.parent
-            and Native.name.casefold() == FileName.casefold(),
-            "nested definition destination must be a distinct sibling filename",
-        )
-        SelfFile = SelfFileInput(str(Native), WrittenAt)
-        if LeafValue is None:
-            Recipe = MakeNamedRecipe(
-                Definition.name,
-                Definition.configuration_name,
-                "Mates",
-                DefaultRecipe,
-                PlanValue.PlanesValue,
-                SelfFile,
-            )
-            Placements = tuple(
-                TargetPlacement(Targets[IdValue], Value)
-                for IdValue, Value in PlanValue.PlacementsValue[Definition.id]
-            )
-            Value = MakeNestedAsm(Recipe, Placements)
-        else:
-            PartRecipe = ReplaceValue(
-                MakePartRecipe(LeafValue.PartValue, WrittenAt), OutputValue=SelfFile
-            )
-            if len(LeafValue.DocumentValue.parameters) == 3:
-                Dimensions = ReadRectDisplay(LeafValue.PartValue, PartRecipe)
-                PartValue = MakeRectDimPart(
-                    LeafValue.DocumentValue, PartRecipe, Dimensions
-                )
-            else:
-                PartValue = MakeBlindPart(LeafValue.DocumentValue, PartRecipe)
-            Value = MakePartTarget(PartValue)
-        Targets[Definition.id] = Value
-        Results.append((Native, Value))
-    return tuple(Results)
+    return PrepNestedPlan(ReadNestedAsm(Document), NativePath, WrittenAt)
