@@ -35,6 +35,8 @@ It covers renamed identities, mixed outcomes, unit normalization, manifest valid
 The real-export case consumes the committed Fusion and SOLIDWORKS feature-ladder JSON through the same process boundary.
 Mixed-error cases retain later unresolved reports while requiring input-error exit precedence.
 Missing-counterpart cases retain available file fingerprints without treating incomplete pairs as decoded documents.
+Directory discovery streams entries within its fixed discovery budget instead of first materializing each directory.
+Typed-reference cases cover feature output bodies, cut targets and face-offset operands, preserving collection order and refusing dangling identities.
 The [exact unit-factor correction](ExactTopologyUnitFactors.md) adds zero-tolerance topology scaling controls.
 The tests use the existing complete-suite collection, merge-queue planner, shards, and report.
 No new workflow or CI job is introduced.
