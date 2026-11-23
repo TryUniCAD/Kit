@@ -1,0 +1,99 @@
+{
+  "authority_sha256": {
+    "ChamferDistancePairDisclosedNative01.json": "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9",
+    "SdkColdEllipseReceipt01.json": "e590ced10e6286c0637ea9b1bf9b8f44d041ef1b9aab454d61af0d99ec2066e3",
+    "SdkDefaultPartNative01.json": "273b95745b147c6acaf4e51130bd521687651ad65d2edcb29f79ab50a9c3b7bc",
+    "SdkDefaultPartZlibNgNative01.json": "318379b6bad0f2e2f48b5900a378d9dfb19f19f171cc1f8c555dd2361438500e",
+    "SdkStandardSweepReceipt01.json": "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0"
+  },
+  "classic_zlib_cases": [
+    {
+      "archive_sha256": "3ea9168896f2ee4d3a7af9fcc7a83d6393aa3f2edcbbf3497f8126c99cffd4f2",
+      "case": "Skew",
+      "publication_calls": 3,
+      "refusals": [
+        "unbound_packet",
+        "unbound_terminal"
+      ]
+    },
+    {
+      "archive_sha256": "ea4a082cf2a8374147728733ff499b24c546ff056b6c57bc6ec60dac0eaaad47",
+      "case": "Step",
+      "publication_calls": 3,
+      "refusals": [
+        "unbound_packet",
+        "unbound_terminal"
+      ]
+    }
+  ],
+  "disclosed_candidate_count": 8,
+  "disclosed_guarded_workers": 8,
+  "distance_cases": [
+    {
+      "archive_sha256": "3d550644a3c0730f3204794d923e7351a6d82c95782d4d6570ce55cf0d8ccded",
+      "publication_routes": 2,
+      "slot": 0
+    },
+    {
+      "archive_sha256": "e4fdfc9bf94e51fa2d6f0e2fd69e533539ce85f71f1a6283b119648fc7e696bb",
+      "publication_routes": 2,
+      "slot": 1
+    }
+  ],
+  "ellipse_cases": [
+    {
+      "archive_sha256": "d50a60ef25042579d835586d5f3a777e84c76fd395100e8a8964bb304619e581",
+      "authored_publications": 3,
+      "authored_refusals": 3,
+      "case": "EllipseFrontA"
+    },
+    {
+      "archive_sha256": "fe458bf78236bd9c3504b56e316e4b3d76e51fd095f793116c59bea9405ff996",
+      "authored_publications": 3,
+      "authored_refusals": 3,
+      "case": "EllipseFrontB"
+    }
+  ],
+  "native_processes_started": 0,
+  "new_held_out_credit": 0,
+  "python": "3.14.7",
+  "raw_host_process_reports_sha256": {
+    "Distance": "14f8c69469649e4808f86686bd391c4417f168557f980ccfda4495c411782367",
+    "Ellipse": "175db27e23146dda3d16a47265feb072a5a14a34564fba12b1eb8043da29030a",
+    "Plain": "138f078e5612ed40534958ac55797f965b2ecc0e68f3d9dd6aacab6a5c0f154e",
+    "Sweep": "9e18b2ba29af84fedb5b6d5b978ee4b56549bc699b834a7e2242e6c85022dce4"
+  },
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.authenticated-part-receipts.v1",
+  "sweep_cases": [
+    {
+      "archive_sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "case": "SweepArcNear",
+      "publication_routes": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "typed_linked_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ]
+    },
+    {
+      "archive_sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "case": "SweepArcWide",
+      "publication_routes": [
+        "registry",
+        "adapter",
+        "direct"
+      ],
+      "typed_linked_streams": [
+        "Contents/Config-0",
+        "Contents/Config-0-ResolvedFeatures",
+        "Contents/Config-0-GhostPartition"
+      ]
+    }
+  ],
+  "sweep_historical_neutral_projection": "omit the sole empty feature output link for the historical portable digest"
+}

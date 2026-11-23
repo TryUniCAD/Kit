@@ -15,9 +15,8 @@ both archive hashes and their original neutral construction requests. It
 retains the actual same-locator measurements, digest bindings, per-case
 epochs and compact live body and parameter observations. The native observer
 and protected confirmation remain separately pinned. The SDK consumes the
-normalized receipt as caller-provided data. The receipt is unsigned and its
-authenticity depends on the caller's custody and verification of the native
-records.
+normalized receipt as caller-provided data. It authenticates the published
+canonical report digest for both authored and readback source paths.
 
 The two guarded workers prepare from the original neutral model and publish
 through ordinary `write_document`, the compatibility `SldprtAdapter`

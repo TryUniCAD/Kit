@@ -14,7 +14,13 @@ from convert.adapters.solidworks.Core.Writing.Sweeps.MatchSweepCase import (
 )
 from convert.adapters.solidworks.Core.Writing.Sweeps.ReadSwHashes import ReadSwHashes
 from convert.adapters.solidworks.Core.Writing.Sweeps.VerifyHeldSweep import VerifyHeldSweep
+from convert.adapters.solidworks.Core.Writing.Measured.SnapshotReport import (
+    SnapshotReport,
+)
 from interchange.Core.Common import FreezeMapping
+
+# the disclosed controller measured the two exact native sweep archives
+KSwDisclosedReportSha = "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0"
 
 
 # only the exact regenerated sweep and its controlled native history qualify public output
@@ -23,26 +29,27 @@ def VerifySweepMeas(
 ) -> Mapping[str, object]:
     if set(Receipt) == {"native_report"}:
         return VerifyHeldSweep(Receipt, Candidate)
-    Phases = CheckSwBatch(Receipt)
-    CaseValue = MatchSweepCase(Receipt, Candidate, WrittenAt)
+    Proof, ProofSha = SnapshotReport(Receipt)
+    Phases = CheckSwBatch(Proof)
+    CaseValue = MatchSweepCase(Proof, Candidate, WrittenAt)
     PhaseHashes = CheckSwPhases(Phases, CaseValue)
     CheckSwEdits(CaseValue, Candidate)
+    SourceHashes = ReadSwHashes(CaseValue.get("independent_source_sha256"))
+    ObserverHashes = ReadSwHashes(CaseValue.get("independent_observer_sha256"))
+    if ProofSha != KSwDisclosedReportSha:
+        raise ValueError("sweep publication requires authenticated offline evidence")
     return FreezeMapping(
         {
             KPartMeasureOpt: FreezeMapping(
                 {
                     "generated_sha256": CaseValue["archive_sha256"],
                     "native_result_sha256": ReadMeasSha(
-                        Receipt.get("native_result_sha256")
+                        Proof.get("native_result_sha256")
                     ),
                     "oracle_build": KOraclePart["build"],
                     "phase_record_sha256": PhaseHashes,
-                    "independent_source_sha256": ReadSwHashes(
-                        CaseValue.get("independent_source_sha256")
-                    ),
-                    "independent_observer_sha256": ReadSwHashes(
-                        CaseValue.get("independent_observer_sha256")
-                    ),
+                    "independent_source_sha256": SourceHashes,
+                    "independent_observer_sha256": ObserverHashes,
                 }
             )
         }

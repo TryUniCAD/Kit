@@ -114,6 +114,8 @@ def write_refusals(document, envelope, locator):
     }
     if document.feature_timeline[-1].definition.mode == "two_distances":
         cases["different_driver"] = (document, exact | {OPTION: recertify(envelope, bad_driver)}, "unowned driver")
+    unbound = recertify(envelope, lambda _, terminal: terminal.update(method_sha256=terminal["runner_sha256"]))
+    cases["unbound_terminal"] = (document, exact | {OPTION: unbound}, "authenticated offline evidence")
     failed_hash = deepcopy(envelope)
     failed_hash["receipt"]["native_result_sha256"] = "f" * 64
     cases["wrong_terminal_digest"] = (document, exact | {OPTION: failed_hash}, "does not match its exact oracle batch")

@@ -35,9 +35,10 @@ and both distinct saved derivative SHA-256 values. The production gate
 also verifies both compiled parameter values, per-arm unchanged second
 driver, fresh reopen driver identity, numeric evidence and regenerated
 `Config-0-ModelHeader` self locator and creation epoch. Receipt values
-qualify the write and never supply CAD field values. The caller authenticates
-the offline receipt through custody of the pinned vendor measurements. The
-SDK checks its build, structure, joins and exact archive digest.
+qualify the write and never supply CAD field values. The SDK authenticates
+the disclosed report's canonical digest and checks its build, structure,
+joins and exact archive digest. A substituted terminal digest refuses
+before any output is written.
 
 ## Reproduce the SDK process proof
 

@@ -26,6 +26,7 @@ def PrepChmfPart(
     OptionsValue: WriteOptions | None = None,
     *,
     AllowDistancePair: bool = False,
+    PlatformMath: bool = False,
 ) -> PartCandidate:
     Settings = CheckPartOpts(OptionsValue)
     PlanValue = PlanChmfPart(DocumentValue, AllowDistancePair=AllowDistancePair)
@@ -43,5 +44,7 @@ def PrepChmfPart(
             "chamfer destination requires a local C drive and the exact authored basename"
         )
     return EmitChmfPart(
-        DocumentValue, PlanValue, ReplaceValue(Recipe, OutputValue=Destination)
+        DocumentValue,
+        PlanValue,
+        ReplaceValue(Recipe, OutputValue=Destination, PlatformViewMath=PlatformMath),
     )

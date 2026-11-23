@@ -106,4 +106,5 @@ All candidates kept the 26-row native tree, their ordered stock edge
 and their live driver identities. The six-process batch passed 141
 paired numeric comparisons against the independently authored sources
 to six significant figures. The proof qualifies this bounded construction
-scope. Public writer publication for the two distance modes remains gated.
+scope. The normal writer now matches both locked modes against the original
+result and full archive digests. [Protected publication](ChamferDistancePairPublication2026.md#publishing-the-pre-writer-locked-cases)

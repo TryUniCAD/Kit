@@ -37,8 +37,8 @@ For publication, supply a dictionary with integer `written_at` and a
 `kit.sw2026.distance-pair-publication.v1`, the parsed `generation` manifest,
 the parsed `native_result` terminal, and `native_result_sha256`. The
 disclosed envelope can be written by the command below. The writer
-snapshots and rehashes the canonical reports in memory. The caller verifies
-the custody of these unsigned reports.
+snapshots and rehashes the canonical reports in memory. It authenticates
+the complete terminal digest, which also binds the generation manifest.
 
 On a stream, pass `destination_format="solidworks.sldprt"` and supply the
 exact encoded candidate path as `values["final_destination"]`. Both the
@@ -71,3 +71,31 @@ python3.14 -I -B re/tooling/sw2026/edge_chamfer_source/distance_pair/CheckMeasur
   --output /tmp/KitMeasuredDistanceChamfers.json \
   --envelope /tmp/KitDistanceChamferEnvelope.json
 ```
+
+## Publishing the pre-writer locked cases
+
+Pass the parsed protected result under `receipt.native_report`. Use
+each case's original measurement
+epoch and exact encoded locator. Kit checks the report independently and
+uses the original platform view calculation for those two archives. That
+calculation derives each quaternion from the shared standard view plans
+used by the frozen writer. The deterministic arithmetic changed only
+Config-0 on the same neutral inputs. The original arithmetic restores
+all ten stream hashes and both complete archived hashes.
+[Protected result](../measurements/2026/ChamferDistancePairHeldoutNative01.json)
+
+The guarded Windows publication compares both exact generated files
+through the registry, `SldprtAdapter` and direct writer. Six publications
+and 24 refusal checks pass with zero runtime input file reads. The
+replay uses the earlier native evaluation's 141 paired comparisons,
+six lifetimes and two healthy controls. Fresh native runs and same-locator
+filesystem publication remain open.
+[Full source freeze](../measurements/2026/ChamferDistancePairHeldoutSource01.json)
+[Guarded Windows publication](../measurements/2026/SdkHeldoutDistanceChamferPublication01.json)
+
+Run [VerifyHeldPairPublication.py](../../tooling/sw2026/edge_chamfer_source/distance_pair/VerifyHeldPairPublication.py)
+inside the Parallels Windows guest using the pinned Python 3.12
+interpreter and the reviewed source checkout. Pass
+`--packet C:\KitChamferPairHeldoutGenerated06\Packet`. The proof checks
+the locked neutral sidecars and the immutable measurement manifest in the
+guest. The proof logs counts, refusal results and archive hashes.

@@ -903,8 +903,10 @@ Use the same blind rectangular stock and ordered physical selections. Set
 the chamfer mode to `equal_distance` for one shared D1 setback or
 `two_distances` for independent D1 and D3 setbacks in millimetres.
 Both profiles require the exact offline native measurement and its encoded
-locator. The cache-free strict reader recovers the live drivers and their
-solid in the measured stock scope.
+locator. The two pre-writer locked native cases use the parsed protected
+report under `receipt.native_report`. The Windows stream proof matches both
+archives through the registry, adapter and writer. The cache-free strict
+reader recovers the live drivers and their solid in the measured stock scope.
 [Distance chamfer publication](../../Changes/Solidworks/Construction/Chamfers/SolidworksMeasuredDistanceChamferPublication.md)
 
 A strict read of the measured saved distance modes keeps the active

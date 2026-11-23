@@ -6,6 +6,12 @@ from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.Chamfers.PrepChmfPart import (
     PrepChmfPart,
 )
+from convert.adapters.solidworks.Core.Writing.Chamfers.MatchHeldPair import (
+    MatchHeldPair,
+)
+from convert.adapters.solidworks.Core.Writing.Chamfers.ReadHeldPair import (
+    ReadHeldPair,
+)
 from convert.adapters.solidworks.Core.Writing.Chamfers.VerifyPairMeas import (
     VerifyPairMeas,
 )
@@ -28,6 +34,7 @@ def EmitPairMut(
     OptionsValue: WriteOptions | None,
 ) -> WriteResult:
     WrittenAt, Receipt, Settings = ReadMeasInput(OptionsValue)
+    HeldProof = ReadHeldPair(Receipt)
     OutputPath = (
         FilePath(TargetValue).expanduser().resolve()
         if isinstance(TargetValue, (str, FilePath))
@@ -41,8 +48,13 @@ def EmitPairMut(
         WrittenAt,
         Settings,
         AllowDistancePair=True,
+        PlatformMath=HeldProof is not None,
     )
-    Evidence = VerifyPairMeas(Receipt, Candidate, WrittenAt)
+    Evidence = (
+        MatchHeldPair(HeldProof, Candidate)
+        if HeldProof is not None
+        else VerifyPairMeas(Receipt, Candidate, WrittenAt)
+    )
     return PublishMeasMut(
         TargetValue, OutputPath, Settings, Candidate.BytesValue, Evidence
     )

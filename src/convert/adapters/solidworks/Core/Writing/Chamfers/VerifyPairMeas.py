@@ -15,6 +15,9 @@ from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
 )
 from interchange.Core.Common import FreezeMapping
 
+# the disclosed terminal digest binds its independently measured candidates and their generation
+KPairNativeReceiptSha = "6538bdc0dfa5d1b82fab03bde1d742f98fabd8c9299c1a18c2e55f5248b429c9"
+
 
 # when exact bytes and their native lifecycle agree the write can report measured acceptance
 def VerifyPairMeas(
@@ -22,6 +25,8 @@ def VerifyPairMeas(
 ) -> Mapping[str, object]:
     Batch = ReadPairBatch(Receipt, WrittenAt)
     SlotValue = MatchPairCase(Batch, Candidate, WrittenAt)
+    if Batch.NativeHash != KPairNativeReceiptSha:
+        raise ValueError("distance chamfer requires authenticated offline evidence")
     return FreezeMapping(
         {
             KPartMeasureOpt: FreezeMapping(

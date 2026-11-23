@@ -200,14 +200,21 @@ def worker(request, row, authority, scratch):
         candidate = PrepareEllipse(source, BytesIO(), clock, WriteOptions(values=values))
         payload = candidate.BytesValue
         assert digest(payload) == row["archive_sha256"] and len(payload) == row["archive_bytes"]
+        unbound = deepcopy(values)
+        unbound[MEASURE]["receipt"]["native_result_sha256"] = authority["trial_sha256"]
         for route in (registry, adapter, writer):
             target = BytesIO()
             result = route(source, target, values)
             assert_result(result, target, payload)
+            preserved = BytesIO(b"existing caller stream")
+            preserved.seek(4)
+            reject(lambda: route(source, preserved, unbound), "authenticated offline evidence")
+            assert preserved.getvalue() == b"existing caller stream" and preserved.tell() == 4
     modes = prove_modes(payload, candidate, request, values, path, guard)
     assert not guard.denied
     return {"archive_sha256": digest(payload), "native_locator": locator, "epoch": clock,
-            "cases": modes, "fresh_publications": 3, "runtime_input_file_reads": len(guard.denied)}
+            "cases": modes, "fresh_publications": 3, "fresh_authority_refusals": 3,
+            "runtime_input_file_reads": len(guard.denied)}
 
 
 def supervise(disclosed, output):

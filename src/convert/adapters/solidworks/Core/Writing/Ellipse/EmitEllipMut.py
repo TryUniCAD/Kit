@@ -44,7 +44,7 @@ def EmitEllipMut(
     ReadbackValue = IsEllipRead(DocumentValue)
     Draft = PrepEllipRead if ReadbackValue else PrepareEllipse
     Candidate = Draft(DocumentValue, OutputPath or TargetValue, WrittenAt, Settings)
-    Evidence = VerifyEllipMeas(Receipt, Candidate, WrittenAt, RequireAuth=ReadbackValue)
+    Evidence = VerifyEllipMeas(Receipt, Candidate, WrittenAt)
     Transfers: tuple[CapTransfer, ...] = (
         tuple(
             CapTransfer(Value, TransferMode.KNative)

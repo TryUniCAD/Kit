@@ -13,8 +13,9 @@ from tempfile import TemporaryDirectory
 HERE = Path(__file__).resolve()
 ROOT = HERE.parents[4]
 sys.path[:0] = [str(ROOT), str(ROOT / "src"), str(HERE.parent)]
-from ProveSdkSweepPart import expected_refusal, guard_runtime, inspect_output
+from ProveSdkSweepPart import expected_refusal, guard_runtime
 from ProveSweepDocument import neutral_document
+from ReplayHeldoutSweepSdk import inspect_part
 from SweepMeasuredReceipt import PORTABLE, normalize
 from SweepModel import dimensions, require
 from convert import write_document
@@ -98,6 +99,8 @@ def contrasts(publish, document, request, values):
          "clean native driver edits or numeric coverage"),
         ("false_setter_codes", lambda report: report["cases"][slot].update(setter_status=[False, False]),
          "clean native driver edits or numeric coverage"),
+        ("unbound_terminal", lambda report: report.update(native_result_sha256=report["trial_sha256"]),
+         "authenticated offline evidence"),
         ("absent_independent_observer", lambda report: report["cases"][slot]["independent_observer_sha256"].pop("path"),
          "lacks the independent comparisons"),
         ("no_independent_comparison", lambda report: report["cases"][slot].update(paired_numeric_checks=0),
@@ -147,19 +150,24 @@ def worker(request):
     model_json = request["neutral"]
     document = LoadJson(model_json)
     proof = request["portable"]
+    historical = json.loads(model_json)
+    (feature,) = historical["feature_timeline"]["$tuple"]
+    require(feature.pop("output_body_ids") == {"$tuple": []}, "the disclosed sweep has an unexpected authored output link")
     require(DumpJson(model) == model_json == DumpJson(document)
-            and sha256(model_json.encode()).hexdigest() == proof["json_sha256"],
+            and sha256(DumpJson(historical).encode()).hexdigest() == proof["json_sha256"],
             "neutral SDK model is not the independently measured portable input")
     locator, epoch, envelope = request["locator"], request["epoch"], request["evidence"]
     counts = check_paths(document, locator, envelope)
     blocked = guard_runtime()
     candidate = PrepareNative(document, BytesIO(), epoch, WriteOptions(values={"final_destination": locator}))
-    replay = inspect_output(candidate.BytesValue, candidate.StreamsValue, candidate.ConfigValue, candidate.ResolvedValue, radii)
+    linked_streams = list(inspect_part(candidate, radii))
+    stream_hashes = {name: sha256(payload).hexdigest() for name, payload in candidate.StreamsValue.items()}
+    map_counts = [graph.MapValue.CounterValue for graph in (candidate.ConfigValue, candidate.ResolvedValue)]
     digest = proof["candidate_sha256"]
-    require(replay["candidate_sha256"] == request["expected_sha256"] == digest
-            and replay["stream_sha256"] == proof["stream_sha256"]
-            and replay["exact_stream_replays"] == proof["comparison_streams"]
-            and replay["map_counts"] == proof["map_counts"],
+    require(sha256(candidate.BytesValue).hexdigest() == request["expected_sha256"] == digest
+            and stream_hashes == proof["stream_sha256"]
+            and linked_streams == proof["comparison_streams"]
+            and map_counts == proof["map_counts"],
             "prepared output differs from the measured Standard sweep archive or linked owners")
     values = {"final_destination": locator, OPTION: envelope}
     checked = {}
@@ -176,7 +184,7 @@ def worker(request):
     require(not blocked and not any(name.startswith(("pythoncom", "win32com")) for name in sys.modules),
             "sweep writer used external files, processes or the CAD runtime")
     return {"case": case["name"], "archive_sha256": digest, "streams": len(candidate.StreamsValue),
-            "linked_streams": replay["exact_stream_replays"], "scope": ["registry", "adapter", "direct"],
+            "linked_streams": linked_streams, "scope": ["registry", "adapter", "direct"],
             "native_posix_path_refusals": counts, "guarded_contrasts": checked, "runtime_external_calls": len(blocked)}
 
 

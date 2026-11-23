@@ -28,6 +28,8 @@ def TestPlainWriter() -> None:
             "missing_digests",
             "missing_receipt",
             "missing_reopen",
+            "unbound_packet",
+            "unbound_terminal",
             "unclean_generated",
         }
         assert set(CastValue(list[str], ReportValue["retained_policy_refusals"])) == {
