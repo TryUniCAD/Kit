@@ -40,6 +40,17 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A08b-CatalogueThroughput: catalogue rescan groups and A03 overhead
+
+Codex owns this checking task on `codex/deterministic-decoder-throughput` from `14570404846c8aa1f90b02e68d6f70a419719ca7`.
+Dependencies are A03 owner and lease fencing, A08b grouped sessions and the pinned offline calibration.
+The scope covers the fresh catalogue rescan cap, grouped staging renewal and grouped settlement lease checks.
+Exit requires matched calibration, equal per-archive output hashes, and coverage of grouped receipts, restart recovery and singleton retries.
+The Windows sweep and candidate replay accepted the same 64 archives once per arm with equal neutral hashes.
+The candidate cap-eight arm removed eight heartbeat calls, with higher total wall time in the replay.
+The short physical probe reached six simultaneous readers and did not sustain the requested overlaps.
+See [catalogue rescan throughput](../../Changes/Research/Supervisor/CatalogueRescanThroughput.md) for revisions, timings and limits.
+
 #### A08b-SharedQueue: shared research requests and advice budgets
 
 Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).

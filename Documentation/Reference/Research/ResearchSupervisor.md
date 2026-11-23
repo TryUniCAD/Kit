@@ -123,13 +123,15 @@ It must also support the existing single-job contract.
 Groups contain 2–20 members with the same kind, tool version and rule version.
 The combined input footprint must be below `group_limit_bytes`, which defaults to 1 MiB.
 Set `group_max_members` from 2 to 20 to lower the member ceiling. The default is 20.
-The catalogue runner uses groups of up to four rescans.
+Fresh catalogue runs use groups of up to eight rescans and a strict 16 MiB combined footprint limit.
+Resumed runs use their saved runner settings. [Catalogue rescan throughput](../../Changes/Research/Supervisor/CatalogueRescanThroughput.md)
 The supervisor retains single-job fallback when a job cannot group or the group estimate cannot fit.
 
 A grouped worker receives `group.json` with `group_session_version: 1` and ordered member paths such as `jobs/00/job.json`.
 Each member has its own inputs, private `work/` directory and `result.json`.
 Tokens remain outside the worker manifests.
 A03 renews all member leases in one controller invocation and renews remaining members during bounded output intake.
+Group staging renews when due and the launch gate checks every member again after durable process publication.
 The controller counts every logical job and resource while CPU and memory count one physical process tree.
 The total declared output limit is 256 MiB for the group.
 
