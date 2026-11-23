@@ -994,6 +994,13 @@ separate checks. This census writes zero native files.
 
 The [public writer census](measurements/2026/PublicFcstdWriterCensus01.json) independently tests all 171 original paths for these 162 identities with strict geometry and their source path context. All reads succeed and every public write refuses before creating an output. A second complete replay reproduces all semantic results. The original 165-part and five-assembly roster remains unresolved.
 
+The [source-owned corner probe](records/FcstdCornerPlan2026.md) selects three
+exact N10a release saves from that census. Their actual authored joins, origin
+and live width-to-depth equation reach the shared typed graph. The intact model
+still refuses publication. The source retains an inactive 10 mm Pad length. The ordinary
+generated dormant D2 inherits the 20 mm active depth. The source-owner and
+native qualification gaps remain open, with zero new corpus conversions.
+
 [Input mode behavior](../../Documentation/Gotchas/Conversion/Freecad/ByteInputsLackExternalReferenceOrigin.md)
 
 The [blind-pocket discovery](measurements/2026/GeneratedBlindPocketNative02.json)
