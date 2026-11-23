@@ -41,7 +41,8 @@ Different evidence remains independently verified; a cached model proposal is ne
 Queued callers wait for a bounded interval. Expired waiters cannot retain the front of the provider queue.
 An expired or cancelled waiter releases a queued request only when no live waiter remains and no provider invocation was charged.
 Successful, failed and uncertain invocation records remain retained.
-Polling uses indexed expired-waiter keys and provider-scoped running deadlines; it does not scan terminal request history.
+Idle wait polls read shared state without renewing a waiter or acquiring the writer transaction.
+Each caller registers one lease for its bounded waiting interval. Admission and expiry cleanup use indexed waiter keys and provider-scoped running deadlines; they do not scan terminal request history.
 Transactional metadata counts enforce the retained-request limit. Existing stores receive a one-time migration that preserves charged history.
 See [advice waiter retention](../../../Gotchas/Research/Supervisor/SharedAdviceWaiters.md) for the failure and recovery boundary.
 

@@ -18,6 +18,7 @@ Polling must leave shared database capacity available to other callers.
 The first shared advice implementation retained abandoned requests in the same bounded table as dispatched requests.
 Ten thousand abandoned prompts could exhaust metadata capacity while provider calls remained available.
 Every waiting caller also scanned global request history on each reservation poll under the database write transaction.
+After those scans were removed, waiter expiry was still renewed on every 200 ms poll, causing repeated serialized durable commits while the provider was busy.
 
 ## Resolution
 
@@ -26,6 +27,8 @@ Keep every charged invocation record, including completed, failed and uncertain 
 A provider timeout or caller crash after dispatch still requires explicit operator recovery before capacity is released.
 Removing an unused queue entry does not refund a call or allow an uncertain request to be sent again.
 
+Use one fixed lease for each caller's bounded waiting interval. Idle polls read shared state; they do not renew that lease or acquire the writer transaction.
+A possible dispatch rechecks eligibility and reserves the call atomically.
 Use an expiry index to clean expired waiter keys across providers, and a provider-scoped index for running deadlines.
 Cross-provider waiter cleanup prevents a stopped provider from retaining the shared metadata allowance.
 Transactional counters enforce the metadata limit without repeated history counts.

@@ -117,7 +117,8 @@ Evidence invalidation or a standalone consumer can make existing jobs pending ag
 The existing total controller metadata limits still apply to retained history.
 
 Request priority is between zero and one hundred; the default is fifty.
-Waiting jobs gain priority over time. Both single and grouped claim paths use the same ordering.
+Waiting jobs gain priority continuously at one point per minute. Both single and grouped claim paths use the same ordering.
+Subscriber priorities are cached when requests change. Ordinary shared queues use indexed claim order instead of recomputing subscriber priorities for each candidate.
 Existing application reservations and priority-schedule lanes remain authoritative.
 A blocked application job does not consume an offline worker slot.
 

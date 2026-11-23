@@ -22,6 +22,7 @@ The first enqueue implementation also reconciled all subscriptions twice, so suc
 Both behaviors held the same transaction needed by worker lease operations.
 The later metadata-only status still scanned retained subscriptions and jobs to compute global totals.
 Paging the request list did not bound those aggregate scans.
+Shared claim ordering also recomputed subscriber priority for every queued candidate before selecting work.
 
 ## Resolution
 
@@ -36,6 +37,10 @@ Existing shared stores build the status read model once; subsequent polls do not
 Enqueue updates subscriptions before one reconciliation over the affected upstream closure.
 Transactional counters enforce quotas without global recounts for each admission.
 The response exposes the examined closure and reconciliation pass count.
+
+Claim ranking caches subscriber priority when membership, request activity or priority changes.
+A stable score gives continuous aging at one point per minute and supports indexed selection for ordinary shared queues.
+Existing native scheduling lanes, resource reservations and evidence checks remain authoritative.
 The process scenarios cover corrupted payloads, ninety-six independent requests, quota rollback, shared dependency graphs and counter migration.
 
 These observations describe scheduler work. They do not measure CAD coverage or an end-to-end throughput improvement.
