@@ -1,5 +1,4 @@
 from json import loads as LoadJson
-from pathlib import Path as FilePath
 from subprocess import run as RunProcess
 from sys import executable as PythonExec
 from typing import cast as CastValue
@@ -7,23 +6,20 @@ from typing import cast as CastValue
 from tests.Convert.Solidworks.Research.ArchiveProcess import KRepoRoot
 
 
-# actual public registry processes verify bundle publication without replacing the adapter with a test implementation
-def RunPublicWrite(
-    ModeValue: str, CountValue: int, OutputPath: FilePath
-) -> dict[str, object]:
-    ScriptPath = KRepoRoot / "re/tooling/sw2026/PublicAssemblyRegistryProcess.py"
-    Arguments = [
-        PythonExec,
-        "-I",
-        "-B",
-        str(ScriptPath),
-        str(KRepoRoot),
-        ModeValue,
-        str(CountValue),
-        str(OutputPath),
-    ]
+# guarded processes exercise the registry and complete measured fixture without the cad oracle
+def RunPublicWrite(ModeValue: str) -> dict[str, object]:
+    ScriptPath = KRepoRoot / "re/tooling/sw2026/MeasuredPlanarPublicationProcess.py"
     ProcessValue = RunProcess(
-        Arguments, cwd=KRepoRoot, capture_output=True, text=True, timeout=90
+        (PythonExec, "-I", "-B", str(ScriptPath), ModeValue),
+        cwd=KRepoRoot,
+        capture_output=True,
+        text=True,
+        timeout=90,
+        check=False,
     )
     assert ProcessValue.returncode == 0, ProcessValue.stderr
-    return CastValue(dict[str, object], LoadJson(ProcessValue.stdout))
+    Report = CastValue(dict[str, object], LoadJson(ProcessValue.stdout))
+    assert Report["passed"] is True
+    assert Report["runtime_input_file_reads"] == 0
+    assert Report["native_processes_started"] == 0
+    return Report

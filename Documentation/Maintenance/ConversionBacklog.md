@@ -61,10 +61,16 @@ B04's parent is not complete merely because controlled constructor probes exist.
 ### B04-SW2026: SOLIDWORKS 2026 native reading and writing
 
 Owner: the PR #121 takeover agent, delivering through [PR #121](https://github.com/TryUniCAD/Kit/pull/121).
-Status: active implementation. The SDK registers bounded writers for the qualified standalone line-loop blind boss, fixed-centre Front diameter and reversed Top radius blind bosses, owned principal-plane mate assemblies including one initially satisfied perpendicular, and one unlinked ANSI A landscape drawing sheet.
+Status: active implementation. The SDK registers bounded writers for the qualified standalone line-loop blind boss, fixed-centre Front diameter and reversed Top radius blind bosses, the authenticated measured planar coincident and driving-distance bundle, and one unlinked ANSI A landscape drawing sheet.
 Scope: native reading and generative writing for SLDPRT, SLDASM and SLDDRW in PR #121, with an adjacent-release qualification procedure.
 Dependencies: independently proven field rules, complete semantic construction, held-out native acceptance, and the applicable B03 evidence.
 The broader B04 programme remains blocked on its own dependencies.
+
+The [authenticated planar publication](../../re/solidworks/records/AuthenticatedPlanarBundle2026.md)
+uses the existing 360-comparison native receipt and matches both generated
+files through the default registry. Deferred delivery carries both exact
+members with an explicit native locator and both native flags false.
+Other flat mate artifacts need their own exact publication evidence.
 
 The [open-shell integration](../../re/solidworks/records/ColdOpenShellReader2026.md)
 extends strict inspection to the bounded fresh and saved rectangular

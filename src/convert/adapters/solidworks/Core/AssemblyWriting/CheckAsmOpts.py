@@ -6,13 +6,18 @@ from convert.adapters.solidworks.Core.AssemblyPreparation.RequireAsm import Requ
 from convert.adapters.solidworks.Core.AssemblyWriting.AsmOptionNames import (
     KAsmOptionNames,
 )
+from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
+    KPartMeasureOpt,
+)
 from convert.adapters.solidworks.Container.Format import (
     KAsmSuffix,
 )
 
 
 # existing companion backup limitations require assembly replacement to stay closed while all admitted options retain exact domains
-def CheckAsmOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
+def CheckAsmOpts(
+    OptionsValue: WriteOptions | None, *, PlanarMeasure: bool = False
+) -> WriteOptions:
     SettingsValue = WriteOptions() if OptionsValue is None else OptionsValue
     RequireAsm(
         type(CastValue(object, SettingsValue)) is WriteOptions,
@@ -34,8 +39,11 @@ def CheckAsmOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
         or FormatValue.casefold() in ("solidworks.sldasm", "sldasm", KAsmSuffix),
         "assembly writing requires an assembly destination format",
     )
+    Allowed = KAsmOptionNames
+    if PlanarMeasure:
+        Allowed = Allowed | {KPartMeasureOpt, "defer_native_delivery"}
     RequireAsm(
-        set(SettingsValue.values) <= KAsmOptionNames,
+        set(SettingsValue.values) <= Allowed,
         "assembly writing has unsupported options",
     )
     for NameValue, FieldValue in SettingsValue.values.items():
@@ -44,7 +52,7 @@ def CheckAsmOpts(OptionsValue: WriteOptions | None) -> WriteOptions:
                 isinstance(FieldValue, (str, FilePath)),
                 "assembly destination option requires path text",
             )
-        else:
+        elif NameValue != KPartMeasureOpt:
             RequireAsm(
                 type(FieldValue) is bool,
                 "assembly policy option requires its exact boolean domain",

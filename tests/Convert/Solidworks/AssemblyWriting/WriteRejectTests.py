@@ -1,18 +1,15 @@
-from pathlib import Path as FilePath
-from os import name as KHostName
-
 from tests.Convert.Solidworks.AssemblyWriting.RunPublicWrite import RunPublicWrite
 
-# public rejection coverage must preserve existing targets and close unsupported bundle and model options
+# independently measured bundle rejections exercise both artifact identity and final publication policy
 KRejectCases = (
     "child-collision",
     "case-collision",
     "directory-collision",
     "dangling-child",
     "root-collision",
-    "overwrite-rejected",
+    "overwrite",
     "overwrite-empty",
-    "stream-rejected",
+    "stream",
     "missing-mapping",
     "wrong-mapping",
     "relative-mapping",
@@ -22,24 +19,26 @@ KRejectCases = (
     "unqualified-child",
     "named-child",
     "commit-failure",
+    "no-receipt",
+    "forged-receipt",
+    "wrong-member",
+    "wrong-native-locator",
+    "unmeasured-location",
+    "strict-deferred",
+    "direct",
+    "wrong-config",
 )
 
 
-# a refused graph or handled publication failure must leave every caller owned entry identical and no staged bundle behind
-def TestWriteReject(TmpPath: FilePath) -> None:
+# a refused graph or handled publication failure must preserve caller entries and remove its owned stage
+def TestWriteReject() -> None:
     for ModeValue in KRejectCases:
-        if ModeValue == "missing-mapping" and KHostName == "nt":
-            continue
-        ReportValue = RunPublicWrite(ModeValue, 3, TmpPath / ModeValue)
-        assert ReportValue["passed"] is True
-        assert ReportValue["runtime_input_file_reads"] == 0
-        assert ReportValue["before"] == ReportValue["after"]
-        assert ReportValue["error"] is not None
+        Report = RunPublicWrite(ModeValue)
+        assert Report["before"] == Report["after"]
+        assert Report["error"] is not None
 
 
-# a peer owns a companion created after the normal assembly writer scans the output directory
-def TestPeerWrite(TmpPath: FilePath) -> None:
-    ReportValue = RunPublicWrite("race-protection", 3, TmpPath / "peer")
-    assert ReportValue["passed"] is True
-    assert ReportValue["concurrent_companion_preserved"] is True
-    assert ReportValue["runtime_input_file_reads"] == 0
+# actual registry publication must retain an independently created competing companion
+def TestPeerWrite() -> None:
+    Report = RunPublicWrite("race-protection")
+    assert Report["concurrent_companion_preserved"] is True

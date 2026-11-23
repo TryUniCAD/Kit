@@ -10,6 +10,7 @@ from convert.adapters.solidworks.Core.TypedMates.CanReadMates import CanReadMate
 from convert.adapters.solidworks.Core.TypedMates.Cold.CheckColdShape import (
     CheckColdShape,
 )
+from convert.adapters.solidworks.Core.TypedMates.Cold.IsColdPair import IsColdPair
 from convert.adapters.solidworks.Core.TypedMates.Cold.IsColdMateSet import (
     IsColdMateSet,
 )
@@ -58,8 +59,10 @@ def WithTypedMates(
         SourceKey,
     )
     ColdValue = IsColdMateSet(NativeValue, Archive)
+    PairValue = IsColdPair(NativeValue, Archive)
+    MustBind = ColdValue or PairValue
     try:
-        if ColdValue:
+        if MustBind:
             CheckColdShape(NativeValue)
             if not ResolveComponents:
                 return (
@@ -74,25 +77,30 @@ def WithTypedMates(
                     },
                 )
         if not CanReadMates(EnvValue):
-            if ColdValue:
+            if MustBind:
                 raise ValueError(
                     "cold planar mate graph requires its actual linked part"
                 )
             return Entities, RulesValue, GroupsValue, (), None
         return ReadPublicMates(
-            EnvValue, Entities, RulesValue, GroupsValue, ColdRequired=ColdValue
+            EnvValue,
+            Entities,
+            RulesValue,
+            GroupsValue,
+            ColdRequired=ColdValue,
+            MeasuredPair=PairValue,
         )
     except (OSError, ValueError, TypeError, KeyError) as ErrorInfo:
-        if (ColdValue and Strict) or (
-            not ColdValue and any(not Value.entity_ids for Value in RulesValue)
+        if (MustBind and Strict) or (
+            not MustBind and any(not Value.entity_ids for Value in RulesValue)
         ):
             raise SldprtFormatError(
                 f"typed planar mate graph rejected: {ErrorInfo}"
             ) from ErrorInfo
         return (
-            () if ColdValue else Entities,
-            () if ColdValue else RulesValue,
-            () if ColdValue else GroupsValue,
+            () if MustBind else Entities,
+            () if MustBind else RulesValue,
+            () if MustBind else GroupsValue,
             (),
             {
                 "status": "unsupported",

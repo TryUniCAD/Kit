@@ -5,6 +5,9 @@ from convert.adapters.solidworks.Container.Format import KAsmSuffix
 from convert.adapters.solidworks.Core.AssemblyWriting.CheckAsmShape import (
     CheckAsmShape,
 )
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.CheckPairScope import (
+    CheckPairScope,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -16,6 +19,7 @@ def CanWriteAsm(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     if OutputPath.suffix.casefold() != KAsmSuffix:
         return False
     try:
+        CheckPairScope(DocumentValue)
         NameValue = CheckAsmShape(DocumentValue)
     except (TypeError, ValueError):
         return False

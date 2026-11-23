@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
 from convert.adapters.solidworks.Assembly.PlanarMates.PlanarContext import PlanarContext
 from convert.adapters.solidworks.Core.TypedMates.Cold.BindColdMates import BindColdMates
+from convert.adapters.solidworks.Core.TypedMates.Cold.BindPairDriver import (
+    BindPairDriver,
+)
 from convert.adapters.solidworks.Core.TypedMates.Cold.IsColdMateSet import (
     KColdMateScope,
 )
@@ -33,6 +36,7 @@ def ReadPublicMates(
     LegacyGroups: tuple[MateGroup, ...],
     *,
     ColdRequired: bool = False,
+    MeasuredPair: bool = False,
 ) -> tuple[
     tuple[MateEntity, ...],
     tuple[MateConstraint, ...],
@@ -85,6 +89,8 @@ def ReadPublicMates(
     Parameters: tuple[Parameter, ...] = ()
     if ColdRequired:
         Rules, Parameters = BindColdMates(GraphValue.RootsValue, Rules, FlagsValue)
+    elif MeasuredPair:
+        Rules, Parameters = BindPairDriver(GraphValue.RootsValue, Rules)
     return (
         Entities,
         Rules,

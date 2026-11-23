@@ -239,12 +239,12 @@ child-first save, and fresh reopen. Kit preserves all six mate endpoints and
 26 scoped archive streams.
 [Portable registry native trial](../../Changes/Solidworks/Archive/Assembly/Groups/SolidworksPortableAssemblyRegistryNative.md)
 
-The normal writer accepts this bounded assembly profile through an
-`.SLDASM` filesystem destination and generates its shared child beside it.
-It supports aligned coincident, parallel and positive driving distance groups
-with two or three direct occurrences. It also supports one initially satisfied
-perpendicular with two direct occurrences. All mate endpoints are principal
-planes. [Assembly writing profile](SolidworksAssemblyWriting.md)
+The normal flat writer uses an authenticated exact-artifact receipt
+for the disclosed coincident and driving-distance pair. It regenerates
+the complete parent and child from neutral intent and binds native
+usability to the measured physical locator. Other planar and
+perpendicular shapes retain separate internal construction and evidence.
+[Assembly writing profile](SolidworksAssemblyWriting.md)
 
 The internal recursive composer attaches actual generated part and subassembly targets to fully resolved rigid occurrences. It derives expanded activity and world bounds from the dependency graph. A three-definition hierarchy and four-definition repeated hierarchy pass 156 typed stream comparisons. Thirty earlier single- and ordered-mate bundles retain exact bytes. [Generated assembly targets](../../Changes/Solidworks/Archive/Assembly/SolidworksGeneratedAssemblyTargets.md)
 
