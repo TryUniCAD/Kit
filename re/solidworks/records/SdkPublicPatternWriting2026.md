@@ -15,3 +15,27 @@ The [public route receipt](../measurements/2026/SdkPublicPatternWriting01.json) 
 Both ordinary strict read entry points now recover the canonical output and its closed solid. The two disclosed outputs also preserve the topology through neutral JSON. Metadata-only reads keep the active configuration and omit geometry. The earlier receipt preserves the original reader refusal. [Integrated public route receipt](../measurements/2026/SdkPublicPatternWriting02.json) · [Canonical read scope and refusals](SdkColdObliquePatternRead2026.md#canonical-annotation-catalog)
 
 The default planner has native evidence for both pre-writer locked cases. One output reproduces its earlier native-tested bytes exactly. The other passes the separate controlled rebuild, pitch and count edits, save and fresh reopen with four healthy controls. Both ordinary SDK stream routes emit the exact two native-qualified archives with zero runtime input reads, and strict stream readback passes on both. [Protected candidate parity](../measurements/2026/LocalLinearPatternDefaultParity01.json) · [Fresh native comparison](../measurements/2026/LocalLinearPatternDefaultNative01.json) · [Protected SDK parity](../measurements/2026/LocalLinearPatternPublicParity01.json)
+
+## Authenticated publication
+
+The ordinary writer accepts each parsed native result through
+`solidworks_native_measurement.receipt.native_report`. The active pattern,
+creation epoch and logical locator must reproduce the exact artifact
+authorized by that report. Use the original held-out lifecycle for Slot01
+and the repeated default-presentation native lifecycle for Slot02.
+[Original bracket](../measurements/2026/LocalLinearPatternDatumHeldoutNative01.json)
+· [Repeated bracket](../measurements/2026/LocalLinearPatternDefaultNative01.json)
+
+The normal SDK computes the view matrices with the platform trigonometry
+used in those earlier Windows runs. The contrast with deterministic view
+rounding changes only Config-0. Both current whole files match the measured
+digests. Two fresh Windows Python 3.12 workers check all three write routes
+with both the original portable model and its neutral JSON round trip. The
+strict reader recovers the live count, pitch and solid. Each case also
+replays nine typed streams and refuses a crossed or modified report, changed
+epoch or locator and missing report before mutating the caller's bytes.
+The supervisor uses the guest-held authored intent and existing public
+reports. The run opens zero original native part files and launches zero
+SOLIDWORKS processes.
+[Current evidence](../measurements/2026/SdkHeldoutPatternPublication01.json)
+· [Guest verification tool](../../tooling/sw2026/linear_pattern/evaluation/VerifyHeldPattern.py)

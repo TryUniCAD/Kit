@@ -1,3 +1,4 @@
+from functools import partial as BindFunc
 from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import KTargetType
@@ -32,6 +33,10 @@ from convert.adapters.solidworks.Core.Writing.Patterns.ReadPatName import ReadPa
 from convert.adapters.solidworks.Core.Writing.Patterns.ReadPatOptions import (
     ReadPatOptions,
 )
+from convert.adapters.solidworks.Core.Writing.Patterns.VerifyHeldPat import (
+    MatchHeldPat,
+    ReadHeldPat,
+)
 from convert.Security.PathBoundary import ResolveWithin
 from interchange.document.Models.DocumentModel import CadDocument
 
@@ -44,7 +49,12 @@ def EmitPatMut(
 ) -> WriteResult:
     OtherOptions, Presentation = ReadPatOptions(OptionsValue)
     WrittenAt, Receipt, Settings = ReadMeasInput(OtherOptions)
-    FilesValue, ResultValue, ResultSha = ReadPatMeas(Receipt)
+    HeldProof = ReadHeldPat(Receipt)
+    MatchProof = (
+        BindFunc(MatchPatMeas, *ReadPatMeas(Receipt))
+        if HeldProof is None
+        else BindFunc(MatchHeldPat, *HeldProof)
+    )
     OutputPath = None
     if isinstance(TargetValue, (str, FilePath)):
         Requested = FilePath(TargetValue).expanduser().absolute()
@@ -62,9 +72,10 @@ def EmitPatMut(
         WrittenAt,
         Settings,
         PresentValue=Presentation,
+        PlatformMath=HeldProof is not None,
     )
     Payload = Candidate.BytesValue
-    Evidence = MatchPatMeas(FilesValue, ResultValue, ResultSha, Payload)
+    Evidence = MatchProof(Payload)
     if ReadbackValue:
         CheckColdRead(
             DocumentValue, Payload, IncludeBrep=DocumentValue.brep is not None

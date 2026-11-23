@@ -41,7 +41,9 @@ from convert.adapters.solidworks.Core.Preparation.TwoStock.MakeStockBoss import 
 
 
 # the linear pattern needs an actual merged front seed on one managed solid
-def MakePatternSeed(InputValue: SeedStockInput) -> SeedStockGraph:
+def MakePatternSeed(
+    InputValue: SeedStockInput, *, PlatformMath: bool = False
+) -> SeedStockGraph:
     NamesValue = CheckSeedInput(InputValue)
     PlateBounds = ReadStockBox(InputValue.PlateValue.BoundsValue)
     SeedBounds = ReadStockBox(InputValue.SeedValue.BoundsValue)
@@ -51,6 +53,7 @@ def MakePatternSeed(InputValue: SeedStockInput) -> SeedStockGraph:
     SettingsValue = ReplaceValue(
         MakePartRecipe(PlatePlan, InputValue.SavedAt),
         OutputValue=SelfFileInput(InputValue.PathValue, InputValue.SavedAt),
+        PlatformViewMath=PlatformMath,
     )
     TreeInput = SettingsValue.SystemValue
     AllNames = (

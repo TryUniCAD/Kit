@@ -37,6 +37,7 @@ def PrepPatPart(
     OptionsValue: WriteOptions | None = None,
     *,
     PresentValue: PatPresentInput | None = None,
+    PlatformMath: bool = False,
 ) -> PatCandidate:
     SettingsValue = CheckPartOpts(OptionsValue)
     NameValue = ReadStyleText(DocumentValue.metadata.get("name"), "neutral part name")
@@ -52,5 +53,5 @@ def PrepPatPart(
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested pattern write configuration is unavailable")
-    _, Payload = EmitPatArchive(MakePatGraph(PlanValue))
+    _, Payload = EmitPatArchive(MakePatGraph(PlanValue, PlatformMath=PlatformMath))
     return PatCandidate(Payload)

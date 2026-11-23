@@ -49,9 +49,11 @@ from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import ReadNode
 
 
 # the complete local part constructs the merged stock datums signed pattern and all live owners in native order
-def MakePatGraph(InputValue: LinPatternInput) -> PatPartGraph:
+def MakePatGraph(
+    InputValue: LinPatternInput, *, PlatformMath: bool = False
+) -> PatPartGraph:
     StockInput = InputValue.StockValue
-    StockValue = MakePatternSeed(StockInput)
+    StockValue = MakePatternSeed(StockInput, PlatformMath=PlatformMath)
     Labels = (
         *map(ReadNodeName, StockValue.RootsValue),
         InputValue.HingeName,
