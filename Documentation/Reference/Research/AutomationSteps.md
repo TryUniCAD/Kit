@@ -40,14 +40,6 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
-#### A08h-Placement20261123: decimal native reader evidence
-
-Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).
-The [package](../../../re/NativePlacement2026/README.md) retains 47 complete native batches, one COM failure, 143 saved native files and all 255 committed-input replay outcomes. One expected after-control is missing.
-Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
-[PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
-The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.
-
 #### A05-RectangleRecovery: bounded reader qualification
 
 Codex owns this active follow-up on `fix/native-rectangle-qualification-20261122`, based on main `7a0a987ec2f1ab4099c839621a8e51d18bcfa872`.
@@ -675,3 +667,11 @@ PR #119 merged into `main` at `249cf7dcde6197c41fafb052eda8afb210bcf49e`. Synchr
 The two compatibility jobs for `a006c275` independently checked the installed CLI and isolated research checkout at the workflow merge SHA `8d66aa9b38bb3f436678cdad6af3206d0189fb51`. Linux passed 27 with one Windows-only skip and Windows passed 17. [Linux](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934845), [Windows](https://github.com/TryUniCAD/Kit/actions/runs/43745878592/job/132908934840)
 
 PR head `b9efdb5ee15da0f802880b97816a8422865545b4` repeated the installed CLI verification on exact tested merge `e60486e0532b92b66a5637a490acea934cb03959`. Both jobs asserted that the installed source and the physically separate research checkout matched the candidate SHA. Linux passed 27 cases with one Windows-only skip. Windows passed 17 cases. The result completes the installed CLI compatibility milestone for the selected reader, receipt, controller and supervisor contracts. Native qualification remains open under its owning steps. [Linux compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013443659), [Windows compatibility](https://github.com/TryUniCAD/Kit/actions/runs/43779565898/job/133013444080)
+
+## A08h-Placement20261123: decimal native reader evidence
+
+Codex owns this evidence publication on `feat/native-placement-decoding-20261123`, from main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`. Delivery PR is [#274](https://github.com/TryUniCAD/Kit/pull/274).
+The [package](../../../re/NativePlacement2026/README.md) retains 47 complete native batches, one COM failure, 143 saved native files and all 255 committed-input replay outcomes. One expected after-control is missing.
+Dependencies are merged PRs #263, #265 and #267, the deterministic controller and licensed source workers. All executable capture/replay work has settled; publication CI and configured review remain pending.
+[PR 270](https://github.com/TryUniCAD/Kit/pull/270) owns the SOLIDWORKS attachment implementation. Its exact `78a1367e81b5748702289c2b2e733f24576df46e` candidate passes 138 comparisons on 69 fresh complete-batch inputs. [PR 269](https://github.com/TryUniCAD/Kit/pull/269) owns the remaining Fusion placement/sign investigation; this scope supplies fresh decimal controls.
+The exit requires sealed hashes, sanitized provenance, native/neutral comparisons, retained refusals/failures and current-head publication readiness. Numerical source acceptance is limited to the recorded cuboids. Full semantics, generative writing and editable target conversion remain open under B02–B05; this task does not duplicate either owning PR or close those milestones.

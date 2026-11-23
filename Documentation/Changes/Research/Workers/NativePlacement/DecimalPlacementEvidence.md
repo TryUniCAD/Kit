@@ -9,3 +9,5 @@ The 398 available planned inputs produced 290 strict decodes and 108 strict refu
 The shared-suite process check verifies the artifact manifest, native source measurements, strict/refused classifications, preserved baseline mismatches and the revision-bound candidate report. Queue acceptance and current-head CI/review remain separate delivery gates.
 
 Native authoring, strict decoding, numerical placement comparison and complete semantic recovery are distinct outcomes. Parameter holdouts share one generator family. No target conversion, native writer, losslessness or editable cross-vendor acceptance is established. SOLIDWORKS remains read-only on the baseline. External worker provenance and the hidden-launch transition are explicitly limited in the package.
+
+The task register entry is placed after the existing sections rather than at the shared follow-up insertion point. Queue composition with the preceding shared-queue PR otherwise produced a documentation conflict before a merge candidate could be created. The repair preserves both task entries and their anchors; it does not change decoding data or acceptance checks.
