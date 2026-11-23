@@ -88,6 +88,7 @@ def FinishBlindMut(
     WidthDriver: DimensionGraph | None = None,
     SelfView: PartSelfView | None = None,
     OffsetValue: OffsetGraph | None = None,
+    DormantDepth: float | None = None,
 ) -> PartCandidate:
     if SelfView is not None and (
         PocketValue is not None
@@ -98,7 +99,13 @@ def FinishBlindMut(
         raise ValueError(
             "part self visibility requires two actual rectangle sketch drivers and a single boss"
         )
-    EndInput = SelectBlindEnd(PlanValue, PocketValue, ThroughValue)
+    if DormantDepth is not None and (
+        WidthDriver is None or OffsetValue is not None or SelfView is not None
+    ):
+        raise ValueError("dormant depth requires an ordinary local width equation")
+    EndInput = SelectBlindEnd(
+        PlanValue, PocketValue, ThroughValue, DormantDepth=DormantDepth
+    )
     BossValue = MakeBlindMut(
         PlanValue.FeatureName,
         SystemValue.RootValue,

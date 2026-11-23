@@ -10,7 +10,7 @@ Strict default and design-only reads expose the same named live parameter IDs an
 
 Two additional fresh workers reproduce the disclosed canonical D1 request on base `93743aea1` and this reader. Both produce the original 9,157-byte archive, all ten stream hashes and identical complete strict full and design-only neutral documents. The named requests also agree across two fresh workers. The four guarded workers record zero runtime file reads after source intake. Both public writing entry points refuse the intact FCStd source and the named readback before changing the caller's stream or cursor.
 
-The diagnostic archive has no vendor acceptance or corpus credit. Complete source transfer still needs the source body presentation, remaining Pad properties and lineage, independently locked native edit and reopen measurements, and authenticated public output evidence. There is no named saved-cache or writer scope in this tranche.
+The diagnostic archive has no vendor acceptance or corpus credit. The [separate source-owner comparison](SdkC130SourceOwners2026.md) composes the actual body caption and verifies the remaining Pad and lineage boundaries. Complete source transfer still needs the unresolved source semantics, independently locked native edit and reopen measurements, and authenticated public output evidence. There is no named saved-cache or writer scope in this tranche.
 
 ## Reproduction
 

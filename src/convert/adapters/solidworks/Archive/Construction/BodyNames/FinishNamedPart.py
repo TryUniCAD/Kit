@@ -12,6 +12,7 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartBuildInput import
 from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import (
     PartCandidate,
 )
+from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import RequireNode
 from convert.adapters.solidworks.Container.Container import BuildSldprt
 
 
@@ -20,7 +21,16 @@ def FinishNamedPart(
     CandidateValue: PartCandidate,
     InputValue: PartBuildInput,
     SketchDims: tuple[KeywordDim, ...],
+    *,
+    PartRelations: bool = False,
 ) -> PartCandidate:
+    if PartRelations:
+        RootValue = CandidateValue.SystemValue.RootValue
+        Fields = RequireNode(RootValue.FieldsValue["f9d0"], "moRelMgr_c").FieldsValue
+        if Fields["owner"] is not RootValue or Fields["f150"] != 1:
+            raise ValueError(
+                "named body with an equation requires its actual relation owner"
+            )
     StreamsValue, ConfigValue, ResolvedValue = EmitPartStreams(
         CandidateValue.SystemValue,
         (
@@ -37,6 +47,7 @@ def FinishNamedPart(
         InputValue,
         CandidateValue.PlanValue,
         SketchDims,
+        PartRelations=PartRelations,
     )
     if any("Partition" in NameValue for NameValue in StreamsValue):
         raise ValueError("cold named part must not transmit a native geometry cache")
