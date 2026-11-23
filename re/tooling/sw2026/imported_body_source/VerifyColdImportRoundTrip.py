@@ -175,6 +175,13 @@ def check_case(role, receipt):
     linked_path = open_document(path, source_format=FORMAT, strict=True)
     roundtrip = CadDocument.from_json(linked_path.to_json())
     design = open_document(original, source_format=FORMAT, strict=True, include_brep=False)
+    (full_body,) = strict.bodies
+    (design_body,) = design.bodies
+    require(design.brep is None and not design.brep_payloads
+            and (design_body.id, design_body.name, design_body.final_feature_id)
+            == (full_body.id, full_body.name, full_body.final_feature_id)
+            and design.metadata["solidworks.native_body_names"] == strict.metadata["solidworks.native_body_names"],
+            "design-only local import lost its measured name or body owner")
     check_geometry(strict, case)
     check_geometry(roundtrip, case)
     negative = variants(strict)

@@ -789,7 +789,13 @@ def FinishPartDoc(
     DocValue = WithColdName(DocValue, DerivedValue)
     if SavedEq is None:
         DocValue = WithBodyNames(
-            DocValue, Archive, ConfigId, BindSavedScope=BindSavedOwners
+            DocValue,
+            Archive,
+            ConfigId,
+            BindSavedScope=BindSavedOwners,
+            DesignOnly=Settings.strict
+            and not Settings.include_brep
+            and not Settings.extract_raw_brep,
         )
     else:
         DocValue = ReadSavedEq(DocValue, Archive, SavedEq, Settings)

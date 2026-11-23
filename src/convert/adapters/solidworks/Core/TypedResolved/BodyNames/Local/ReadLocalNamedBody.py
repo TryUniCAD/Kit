@@ -1,4 +1,4 @@
-from convert.Geometry.Parasolid import DecodeBrepModel
+from convert.Geometry.Parasolid import DecodeBrepModel, DecodePartData
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 from convert.adapters.solidworks.Container.Format import (
     KLocalBodyStream,
@@ -32,16 +32,38 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocal
     ReadLocalWrap,
 )
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadLocalPayload import (
+    CheckSoleGroup,
     ReadLocalPay,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadTrimOnly import (
+    ReadTrimMarks,
 )
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeLink import ReadNativeLink
 from interchange.document.Models.DocumentModel import CadDocument
 from interchange.Enums.EnumFeatures import FeatureKind
 
 
+# design reads can bind physical local storage even when they omit the public geometry and its payloads
+def ReadLocalSource(
+    Document: CadDocument, Archive: SldprtArchive, LocalStream: bytes
+) -> tuple[bytes, int]:
+    if Document.brep is not None:
+        return ReadLocalPay(Document.brep_payloads, Archive.require(KPartitionStream))
+    CheckSoleGroup(Archive, "local body names")
+    (FrameValue,) = DecodePartData(LocalStream, KLocalBodyStream)
+    if FrameValue.kind != "unknown":
+        raise ValueError("local body names require the selected local frame")
+    MarkValue, _ = ReadTrimMarks(Archive, "local body names")
+    return FrameValue.data, MarkValue
+
+
 # the selected archive feature and public geometry must belong to the same local body
 def ReadLocalName(
-    Document: CadDocument, Archive: SldprtArchive, ConfigId: int | None
+    Document: CadDocument,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    DesignOnly: bool = False,
 ) -> BodyNameGraph:
     Configurations = Document.configurations
     if (
@@ -50,15 +72,13 @@ def ReadLocalName(
         or Configurations[0].id != "sldprt:configuration:0"
         or not Configurations[0].active
         or len(Document.bodies) != 1
-        or Document.brep is None
+        or (Document.brep is None and not DesignOnly)
     ):
         raise ValueError(
             "local body names require the selected complete single configuration"
         )
     LocalStream = Archive.require(KLocalBodyStream)
-    LocalData, MarkValue = ReadLocalPay(
-        Document.brep_payloads, Archive.require(KPartitionStream)
-    )
+    LocalData, MarkValue = ReadLocalSource(Document, Archive, LocalStream)
     GroupKey = ReadLocalWrap(LocalStream, LocalData)
     LinkValue = ReadNativeLink(Archive, ConfigId)
     AtomValue, FeatureId = ReadLocalOwner(LinkValue, GroupKey, MarkValue)
@@ -78,15 +98,16 @@ def ReadLocalName(
         )
     NodesValue, _ = ReadLocalNodes(LocalData)
     TreeValue = ReadLocalTree(NodesValue)
-    ModelValue = DecodeBrepModel(LocalData) or ReadLocalBrep(
-        Document.brep_payloads, LocalStream, GroupKey, Archive=Archive
-    )
-    if ModelValue != Document.brep and len(ModelValue.bodies) == 1:
-        ModelValue, _ = LinkLocalBody(
-            ModelValue, Document.bodies[0].id, Document.bodies[0].topology
+    if Document.brep is not None:
+        ModelValue = DecodeBrepModel(LocalData) or ReadLocalBrep(
+            Document.brep_payloads, LocalStream, GroupKey, Archive=Archive
         )
-    if ModelValue != Document.brep:
-        raise ValueError("public geometry differs from the selected native local body")
+        if ModelValue != Document.brep and len(ModelValue.bodies) == 1:
+            ModelValue, _ = LinkLocalBody(
+                ModelValue, Document.bodies[0].id, Document.bodies[0].topology
+            )
+        if ModelValue != Document.brep:
+            raise ValueError("public geometry differs from the selected native local body")
     Attributes = ReadBodyAttrs(NodesValue, NodesValue[TreeValue.BodyIndex])
     LabelValue, OwnerValue = ReadLocalLabel(
         NodesValue, Attributes, AtomValue, FeatureId, GroupKey

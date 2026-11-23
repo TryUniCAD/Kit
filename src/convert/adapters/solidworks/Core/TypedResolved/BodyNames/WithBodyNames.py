@@ -17,6 +17,22 @@ from convert.adapters.solidworks.Core.TypedResolved.BodyNames.Revolves.ReadRevol
 )
 
 
+# both read modes require an exact local archive owner before assigning its label
+def WithLocalName(
+    Document: CadDocument,
+    Archive: SldprtArchive,
+    ConfigId: int | None,
+    *,
+    DesignOnly: bool,
+) -> CadDocument:
+    try:
+        return BindBodyName(
+            Document, ReadLocalName(Document, Archive, ConfigId, DesignOnly=DesignOnly)
+        )
+    except (TypeError, ValueError, KeyError, OverflowError):
+        return Document
+
+
 # unsupported body inventories retain their existing reader path without speculative naming or geometry changes
 def WithBodyNames(
     Document: CadDocument,
@@ -24,12 +40,17 @@ def WithBodyNames(
     ConfigId: int | None,
     *,
     BindSavedScope: bool = False,
+    DesignOnly: bool = False,
 ) -> CadDocument:
-    if (
-        Document.brep is None
-        or len(Document.brep.bodies) != 1
-        or len(Document.bodies) != 1
-    ):
+    if len(Document.bodies) != 1:
+        return Document
+    if Document.brep is None:
+        return (
+            WithLocalName(Document, Archive, ConfigId, DesignOnly=True)
+            if DesignOnly
+            else Document
+        )
+    if len(Document.brep.bodies) != 1:
         return Document
     try:
         GraphValue = ReadNamedBody(Document, Archive, ConfigId)
@@ -38,12 +59,7 @@ def WithBodyNames(
         try:
             return BindBodyName(Document, ReadRevolveBody(Document, Archive, ConfigId))
         except (TypeError, ValueError, KeyError):
-            try:
-                return BindBodyName(
-                    Document, ReadLocalName(Document, Archive, ConfigId)
-                )
-            except (TypeError, ValueError, KeyError, OverflowError):
-                return Document
+            return WithLocalName(Document, Archive, ConfigId, DesignOnly=False)
     if BindSavedScope:
         return WithSavedScope(Bound, Archive, GraphValue)
     return Bound

@@ -61,3 +61,10 @@ covered a mismatched outer group key, a different selected configuration, a
 competing payload and a detached atom with copied scalar fields. The source
 files stayed intact. This is disclosed SDK evidence. Held-out semantic
 qualification remains open.
+
+Strict design-only reads now reconstruct the same archive name owner from
+the selected physical local frame and rollback history. The resulting
+neutral document retains the original design body and feature link with
+its name and provenance. It omits B-rep geometry and payloads. Eight strict
+reads across four disclosed files preserve the actual names in both modes.
+[Design-only readback receipt](../measurements/2026/LocalImportDesignNames01.json)
