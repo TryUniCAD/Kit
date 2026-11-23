@@ -553,7 +553,7 @@ No new research implementation, application run, user evaluation or conversion q
 ## Shared research queue coordination
 
 Task `A08b-SharedQueue` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08b-sharedqueue-shared-research-requests-and-advice-budgets).
-Codex owns `codex/shared-research-queue` for a separate main-target PR.
+Codex owns `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
 Dependencies are the existing controller, supervisor, priority scheduler and optional advisor integration.
 The scope is shared local job requests, duplicate suppression, resource-aware admission, obsolete-work cancellation and shared advisor budgets.
 The exit requires process-boundary concurrency and recovery evidence and current-head PR readiness.

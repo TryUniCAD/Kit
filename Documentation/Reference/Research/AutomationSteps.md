@@ -42,7 +42,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 #### A08b-SharedQueue: shared research requests and advice budgets
 
-Codex owns this checking task on `codex/shared-research-queue` for a separate main-target delivery PR.
+Codex owns this checking task on `codex/shared-research-queue`; delivery is [PR #272](https://github.com/TryUniCAD/Kit/pull/272).
 Dependencies are the A03 controller, A07 scheduling, A08 supervisor pools and the existing optional advisor integration.
 The scope is local shared request deduplication, subscriber-aware supersession, bounded priority queues and shared advisor admission.
 Independent instances explicitly select the same local controller store and advisor state; one supervisor owns the controller store.
