@@ -36,6 +36,7 @@ REFERENCES = {
         "sketch_id",
         "parameter_ids",
         "selection_ids",
+        "OutputBodyIds",
     },
     "Configuration": {"parent_id", "suppressed_feature_ids"},
     "ParamOverride": {"parameter_id"},
@@ -63,6 +64,8 @@ REFERENCES = {
     "LinearPattern": {"direction_selection_id"},
     "CirclePattern": {"axis_selection_id"},
     "ScopedExtrude": {"SelectedBodyIds", "AffectedBodyIds"},
+    "DistanceCut": {"TargetBodyIds"},
+    "FaceOffset": {"TargetBodyId", "FaceSelectionId", "DistanceParamId"},
     "BoundConstructionPlane": {
         "SupportPlaneId",
         "ScalarParameterId",
