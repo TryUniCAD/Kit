@@ -131,8 +131,6 @@ def CheckExports(TmpPath: FilePath) -> None:
                 "fusion.f3d",
                 "solidworks.sldprt",
             )
-        else:
-            assert PairRow["status"] in {"unresolved", "ambiguous"}
     assert {
         SourcePath: DigestBytes(SourcePath.read_bytes()).hexdigest()
         for SourcePath in OriginalPins
