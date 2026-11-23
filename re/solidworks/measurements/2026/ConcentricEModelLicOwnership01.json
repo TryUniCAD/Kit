@@ -1,0 +1,80 @@
+{
+  "cases": {
+    "A07EmptyAssembly": {
+      "archive_sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "member_bytes": 4,
+      "present": true
+    },
+    "A08SingleAssembly": {
+      "archive_sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "member_bytes": 4,
+      "present": true
+    },
+    "A09RepeatedAssembly": {
+      "archive_sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "member_bytes": 4,
+      "present": true
+    },
+    "d01_edited": {
+      "archive_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "member_bytes": 4,
+      "present": true
+    },
+    "d01_source": {
+      "archive_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "member_bytes": 4,
+      "present": true
+    },
+    "radial_generated": {
+      "archive_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74",
+      "member_bytes": null,
+      "present": false
+    },
+    "radial_native_save": {
+      "archive_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "member_bytes": 4,
+      "present": true
+    }
+  },
+  "controls": {
+    "distinct_present_members": 1,
+    "manifest_sha256": "703af0d608f021960cfa33321c36791858cea9daf224c69038a92065555180c0",
+    "present_members": 6
+  },
+  "documented_owner": {
+    "consumer": "eDrawings",
+    "historical_build": "34.4.1.1011",
+    "historical_static_report_path": "Documentation/Changes/Research/Writers/SolidWorks/Metadata/SolidWorksEModelLicense.md",
+    "historical_static_report_sha256": "d39b5afe889241f84dfeb4bbd910169d412e94d00ec24a6b5c38d0085fe46f1a",
+    "input_owner": "licensed session package classification",
+    "native_save_owner": "SolidStorage_c::SaveEModelsNode"
+  },
+  "exact_build_module_metadata": {
+    "build": "34.5.2.0604",
+    "export": "SolidStorage_c::SaveEModelsNode",
+    "export_rva": "0x280c0",
+    "identity_evidence": "ev_7a0afe0c4e30a2cd0f4ebd352f23649732df28cfc8ea75e9cbcc872c1f9f7270",
+    "module": "doccplu.dll",
+    "module_bytes": 1052248,
+    "module_sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8",
+    "separately_observed_import": "SldUtils::Licensing::getLicensedPackageType"
+  },
+  "heldout_inputs_read": 0,
+  "license_values_published": 0,
+  "native_processes_started": 0,
+  "neutral_generation_authorized": false,
+  "parent_revision": "0e8673133c0c82152a80acab9b502b1a3990e329",
+  "prior_native_lifecycle": {
+    "build": "34.5.2.0604",
+    "controls_healthy": true,
+    "distinct_processes": 4,
+    "numeric_checks": 140,
+    "passed": true,
+    "path": "re/solidworks/measurements/2026/ConcentricRadialAssemblyNative01.json",
+    "sha256": "d9cfb90dd07b62a49160d4d816328072767c979d89a801842add035dbcf37016"
+  },
+  "schema": "kit.sw2026.concentric-emodel-license-ownership.v1",
+  "scope": "read-only ownership and archive membership",
+  "stream": "Contents/eModelLic",
+  "viewer_behavior_measured": false
+}
