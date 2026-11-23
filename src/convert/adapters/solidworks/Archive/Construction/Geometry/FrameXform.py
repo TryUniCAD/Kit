@@ -27,7 +27,9 @@ def FrameXform(
     Origin = FrameValue.OriginValue
     Difference = (0.0 - Origin[0], 0.0 - Origin[1], 0.0 - Origin[2])
     ProjectValue = SeqDot if SequentialProjection else DotVector
-    Translation = tuple(RequireScalar(ProjectValue(Difference, Value)) for Value in Basis)
+    Translation = tuple(
+        RequireScalar(ProjectValue(Difference, Value)) for Value in Basis
+    )
     HasMatrix = int(Matrix != (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0))
     Result: dict[str, object] = {
         "has_matrix": HasMatrix,

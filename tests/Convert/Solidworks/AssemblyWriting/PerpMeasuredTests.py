@@ -33,7 +33,11 @@ def TestPerpProof() -> None:
         assert Outcome.returncode == 0, Outcome.stderr
         Report = LoadJson(Outcome.stdout)
         assert Report["passed"] is True
-        assert Report["runtime_input_file_reads"] == Report["native_processes_started"] == 0
+        assert (
+            Report["runtime_input_file_reads"]
+            == Report["native_processes_started"]
+            == 0
+        )
         if ModeValue in ("registry", "adapter"):
             assert Report["publications"] == 1 and Report["matching_streams"] == 22
             assert Report["readback"]["child_drivers"] == 3
