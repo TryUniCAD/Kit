@@ -23,6 +23,7 @@ Both behaviors held the same transaction needed by worker lease operations.
 The later metadata-only status still scanned retained subscriptions and jobs to compute global totals.
 Paging the request list did not bound those aggregate scans.
 Shared claim ordering also recomputed subscriber priority for every queued candidate before selecting work.
+Upstream reconciliation later still fetched every existing child of a shared prerequisite. Repeated distinct child admissions therefore repeated the parent's growing fanout scan.
 
 ## Resolution
 
@@ -36,6 +37,9 @@ Existing shared stores build the status read model once; subsequent polls do not
 
 Enqueue updates subscriptions before one reconciliation over the affected upstream closure.
 Transactional counters enforce quotas without global recounts for each admission.
+Maintained live dependent counts and cached active references avoid sibling and inactive-subscription scans.
+Build child-first ordering from the upstream edges already visited; settle each child's cancellation marker before reading its parent's current demand.
+Forward dependency labels, standalone children and completed orphan cache markers keep their existing behavior.
 The response exposes the examined closure and reconciliation pass count.
 
 Claim ranking caches subscriber priority when membership, request activity or priority changes.

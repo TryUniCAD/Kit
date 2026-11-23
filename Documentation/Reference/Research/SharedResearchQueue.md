@@ -92,7 +92,7 @@ This protects a new request from a delayed instance's stale submission.
 
 Submit the next revision of the same request to replace its subscriptions atomically.
 A superseded job stays available while another active request or a standalone dependent job still needs it.
-Admission and cancellation reconcile only the affected upstream dependency closure. Transactional counters enforce quotas without queue-wide recounts.
+Admission and cancellation reconcile only the affected upstream dependency closure. Maintained dependent counts avoid scanning existing siblings of a shared prerequisite. Transactional counters enforce quotas without queue-wide recounts.
 The response fields `shared_reconciled_jobs` and `shared_reconcile_passes` expose the work examined in that transaction.
 Completed evidence remains available for reuse.
 
