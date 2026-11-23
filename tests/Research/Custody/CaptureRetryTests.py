@@ -1,6 +1,7 @@
 from http.server import BaseHTTPRequestHandler as HttpHandler
 from http.server import ThreadingHTTPServer as HttpServer
 from pathlib import Path as FilePath
+from subprocess import CompletedProcess as ProcessResult
 from subprocess import run as RunProcess
 from sys import executable as PythonExe
 from threading import Thread as WorkerThread
@@ -41,6 +42,53 @@ def GitFixture(Directory: FilePath) -> FilePath:
     return Target
 
 
+# the server receives the actual encoded request and returns the status assigned to that attempt
+def RequestHandler(
+    Statuses: tuple[int, ...], Content: bytes, Requests: list[str]
+) -> type[HttpHandler]:
+
+    # the standard server dispatches get requests to this method using its protocol name
+    def SendFixtureMut(Handler: HttpHandler) -> None:
+        Status = Statuses[len(Requests)] if len(Requests) < len(Statuses) else 500
+        Requests.append(Handler.path)
+        Handler.send_response(Status)
+        Payload = Content if Status == 200 else b""
+        Handler.send_header("Content-Length", str(len(Payload)))
+        Handler.end_headers()
+        _ = Handler.wfile.write(Payload)
+
+    return type("FixtureResponse", (HttpHandler,), {"do_GET": SendFixtureMut})
+
+
+# the socket server stays alive until the separate hydration process has finished
+def RunWitness(
+    Target: FilePath, ExpectedSha: str, Statuses: tuple[int, ...], Content: bytes
+) -> tuple[ProcessResult[bytes], list[str]]:
+    Requests: list[str] = []
+    with HttpServer(
+        ("127.0.0.1", 0), RequestHandler(Statuses, Content, Requests)
+    ) as Server:
+        Thread = WorkerThread(target=Server.serve_forever)
+        Thread.start()
+        try:
+            Reply = RunProcess(
+                (
+                    PythonExe,
+                    str(FilePath(__file__).with_name("CaptureRetryWitness.py")),
+                    str(Target),
+                    ExpectedSha,
+                    str(Server.server_port),
+                ),
+                capture_output=True,
+                check=False,
+                timeout=50,
+            )
+        finally:
+            Server.shutdown()
+            Thread.join(timeout=10)
+    return Reply, Requests
+
+
 # real http responses and git writes prove retries recover transient errors without accepting other failures
 @MarkValue.parametrize(
     "Statuses,Content,ExpectedRequests,ErrorText",
@@ -51,7 +99,7 @@ def GitFixture(Directory: FilePath) -> FilePath:
         ((503, 200), b"wrong content", 2, b"failed content verification"),
     ),
 )
-def CheckPinnedDownload(
+def CheckHydration(
     TmpPath: FilePath,
     Statuses: tuple[int, ...],
     Content: bytes,
@@ -71,40 +119,7 @@ def CheckPinnedDownload(
         .stdout.decode("ascii")
         .strip()
     )
-    Requests: list[str] = []
-
-    # each request records the actual encoded path and emits the corresponding wire response
-    class FixtureResponse(HttpHandler):
-
-        # the current attempt controls the http status while only successful responses carry bytes
-        def do_GET(self) -> None:
-            Status = Statuses[len(Requests)] if len(Requests) < len(Statuses) else 500
-            Requests.append(self.path)
-            self.send_response(Status)
-            Data = Content if Status == 200 else b""
-            self.send_header("Content-Length", str(len(Data)))
-            self.end_headers()
-            _ = self.wfile.write(Data)
-
-    with HttpServer(("127.0.0.1", 0), FixtureResponse) as Server:
-        Thread = WorkerThread(target=Server.serve_forever)
-        Thread.start()
-        try:
-            Reply = RunProcess(
-                (
-                    PythonExe,
-                    str(FilePath(__file__).with_name("CaptureRetryWitness.py")),
-                    str(Target),
-                    ExpectedSha,
-                    str(Server.server_port),
-                ),
-                capture_output=True,
-                check=False,
-                timeout=50,
-            )
-        finally:
-            Server.shutdown()
-            Thread.join(timeout=10)
+    Reply, Requests = RunWitness(Target, ExpectedSha, Statuses, Content)
     ExpectedPath = f"/Test/Fixture/{KRevision}/{QuotePath(KFixturePath)}"
     assert Requests == [ExpectedPath] * ExpectedRequests, Reply.stderr
     if ErrorText:

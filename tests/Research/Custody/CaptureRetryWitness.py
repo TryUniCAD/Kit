@@ -15,9 +15,9 @@ KFixturePath = "fixture folder/model.json"
 
 
 # the process redirects only the transport while the real downloader and git keep their normal behavior
-def OpenLoopback(HostName: str, *, timeout: float) -> LocalConnection:
+def OpenLoopback(HostName: str, **Options: float) -> LocalConnection:
     assert HostName == "raw.githubusercontent.com"
-    return LocalConnection("127.0.0.1", int(Arguments[3]), timeout=timeout)
+    return LocalConnection("127.0.0.1", int(Arguments[3]), timeout=Options["timeout"])
 
 
 # fixture recovery calls the same missing object hydration path as merge queue setup
