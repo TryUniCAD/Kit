@@ -1,0 +1,33 @@
+{
+  "allow_partial": false,
+  "assets": [
+    {
+      "outcome": "rejected",
+      "path": "re/FeatureLadders2026/Cases/fusion-021/variation.f3d",
+      "reason": "Native Fusion profile requires identity placement"
+    }
+  ],
+  "corpus_revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "counts": {
+    "assets": 1,
+    "decoded": 0,
+    "partial": 0,
+    "reader_error": 0,
+    "rejected": 1,
+    "strict": 0
+  },
+  "manifest_sha256": "ba169845d9462579886498125fdbbd16186452195c634464fb7a55d1dc4e850d",
+  "native_acceptance": "not_established",
+  "portable_complete": false,
+  "python": "3.14.6 (main, Jul 23 2026, 14:51:00) [Clang 22.1.3 ]",
+  "receipt_version": 1,
+  "sdk_revision": "f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2",
+  "sdk_sources_sha256": "9693f5fc3847bd2aab98d4be411796500c5a82dc8c4cb953a7391b2793b7acd2",
+  "semantic_qualification": "unverified",
+  "tool_sources": {
+    "Corpus.py": "3d278f90800d6f510f20a0827b4178885fa52bf9775210cf973082f044894c57",
+    "Evidence.py": "cb76b9cc8c821cb9f93089410c7cbfd15926d8bef0111b8427dac5850926fd29",
+    "FusionReader.py": "9f7f0d5a8941cba25a43f80a3059dbeb7099da0324fb220122cd617ee7c0dc5d",
+    "ReaderEvidence.py": "0f8afa3d9a1787d8a338575f9d94e19e6603c37b3b74d46a5ecc19c68c5a4eb7"
+  }
+}

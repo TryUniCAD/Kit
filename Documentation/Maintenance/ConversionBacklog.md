@@ -584,3 +584,11 @@ The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111
 Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
 Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
+
+
+## Decimal native placement evidence for B02–B05
+
+Task `A08h-Placement20261123` is owned by Codex in the [automation register](../Reference/Research/AutomationSteps.md#a08h-placement20261123-decimal-native-reader-evidence), with delivery PR [#274](https://github.com/TryUniCAD/Kit/pull/274).
+The [fresh scope](../../re/NativePlacement2026/README.md) settled 48 native attempts and 255 strict committed-file replays. Capture is incomplete: 47 full batches plus two saved files from one COM failure yield 143 of 144 planned native inputs.
+Main retains 45 measured SOLIDWORKS placement mismatches. The separately owned [PR 270](https://github.com/TryUniCAD/Kit/pull/270) candidate passes 138 fresh source comparisons; [PR 269](https://github.com/TryUniCAD/Kit/pull/269) receives fresh decimal evidence for XZ and reverse-YZ refusals. Those contributions remain revision-bound and separate from production readiness.
+Dependencies are merged PRs #263/#265/#267, the existing controller and licensed source measurements. Publication exits on verified hashes, honest failure/semantic accounting and fresh CI/review. Existing writer ownership, including [PR 121](https://github.com/TryUniCAD/Kit/pull/121), remains separate; no donor writer is restored. B02/B03/B04/B05 remain unfinished and the production conversion boundary does not change.
