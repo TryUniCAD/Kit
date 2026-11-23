@@ -36,6 +36,7 @@ REFERENCES = {
         "sketch_id",
         "parameter_ids",
         "selection_ids",
+        "OutputBodyIds",
     },
     "Configuration": {"parent_id", "suppressed_feature_ids"},
     "ParamOverride": {"parameter_id"},
@@ -63,6 +64,8 @@ REFERENCES = {
     "LinearPattern": {"direction_selection_id"},
     "CirclePattern": {"axis_selection_id"},
     "ScopedExtrude": {"SelectedBodyIds", "AffectedBodyIds"},
+    "DistanceCut": {"TargetBodyIds"},
+    "FaceOffset": {"TargetBodyId", "FaceSelectionId", "DistanceParamId"},
     "BoundConstructionPlane": {
         "SupportPlaneId",
         "ScalarParameterId",
@@ -137,7 +140,7 @@ def build_graph(document, geometry_unit, *, max_nodes=4096, max_fields=100000):
         raise ValueError("node limit must be an integer from 1 through 20000")
     if type(max_fields) is not int or not 1 <= max_fields <= 200000:
         raise ValueError("field limit must be an integer from 1 through 200000")
-    factor = KLengthFactors[geometry_unit]
+    factor = Fraction(str(KLengthFactors[geometry_unit]))
     if len(document.sketches) > max_nodes:
         raise ValueError("semantic sketch inventory exceeds its node limit")
     sketch_ids = (
