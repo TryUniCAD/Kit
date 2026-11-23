@@ -14,3 +14,7 @@ Reject unknown matrix syntax and absent fixture targets immediately.
 Retain failure, neutral, skipped, cancelled and timed‑out outcomes, including fifth‑shard behavior.
 The fifth check may be skipped in the check‑level fixture, while a skipped complete workflow remains a failure.
 Do not increase the process deadline to hide missing reports.
+
+PR jobs that skip before matrix expansion retain their literal matrix expressions in GitHub check names.
+Preserve those names in PR fixtures and expand groups only for jobs that execute in the selected phase.
+Process scenarios verify that these literal skipped checks pass while failed checks still block.

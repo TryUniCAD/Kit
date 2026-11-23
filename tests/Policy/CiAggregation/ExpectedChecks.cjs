@@ -29,6 +29,8 @@ function ReadWorkflows(IsQueue, NativeCount) {
       if (Block.includes(`outputs.phase == '${WrongPhase}'`))
         Deferred.add(Name);
       if (Name.includes(GroupMatrix)) {
+        if ((!IsQueue && File === "MergeQueue.yml") || Deferred.has(Name))
+          return [Name];
         const Expanded = ExpandGroups(Block, NativeCount).map((Group) =>
           Name.replace(GroupMatrix, Group),
         );
