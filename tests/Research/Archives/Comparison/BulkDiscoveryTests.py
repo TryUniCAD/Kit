@@ -1,6 +1,8 @@
 from json import loads as ParseJson
 from os import R_OK as KReadFlag, X_OK as KExecFlag, access as HasAccess
 from pathlib import Path as FilePath
+from subprocess import run as RunProcess
+from sys import executable as PythonExe
 
 from pytest import mark as MarkValue, skip as SkipCase
 
@@ -18,28 +20,46 @@ def MakeFolders(TmpPath: FilePath) -> tuple[FilePath, FilePath]:
     return First, Second
 
 
-# unselected sidecars must consume the discovery budget before document evaluation starts
+# real entry consumption must stop at the discovery budget before eager traversal reaches later sidecars
 def CheckEntryLimit(TmpPath: FilePath) -> None:
     First, Second = MakeFolders(TmpPath)
-    for Index in range(100000):
+    for Index in range(100002):
         (First / f"{Index:06d}.txt").touch()
     Output = TmpPath / "Output"
-    Result = RunBulk(
+    WitnessPath = TmpPath / "Discovery.json"
+    Result = RunProcess(
         [
+            PythonExe,
+            "-B",
+            "-m",
+            "tests.Research.Archives.Comparison.BulkScanProcess",
+            str(First),
+            str(WitnessPath),
             "--left",
             str(First),
             "--right",
             str(Second),
             "--pattern",
             "document.json",
+            "--left-unit",
+            "mm",
+            "--right-unit",
+            "mm",
             "--output",
             str(Output),
-        ]
+        ],
+        cwd=FilePath(__file__).resolve().parents[4],
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=60,
     )
     assert Result.returncode == 1, Result.stderr + Result.stdout
     assert "input directory exceeds its discovery budget" in Result.stderr
     assert not Output.exists()
-    assert len(tuple(First.iterdir())) == 100000
+    Witness = ParseJson(WitnessPath.read_text(encoding="utf-8"))
+    assert Witness == {"consumed": 100000, "root": str(First.resolve())}
+    assert len(tuple(First.iterdir())) == 100002
 
 
 # streaming traversal must preserve deterministic pair ordering and leave sidecars unchanged
