@@ -7,16 +7,14 @@ KRepoRoot = FilePath(__file__).resolve().parents[4]
 
 
 # bulk checks exercise actual command parsing file loading matching and publication together
-def RunBulk(Arguments: list[str]) -> CompletedProcess[str]:
+def RunBulk(Arguments: list[str], UseUnits: bool = True) -> CompletedProcess[str]:
+    UnitArgs = ["--left-unit", "mm", "--right-unit", "mm"] if UseUnits else []
     return RunProcess(
         [
             PythonExe,
             "-B",
             str(KRepoRoot / "re/automation/CompareDecoded.py"),
-            "--left-unit",
-            "mm",
-            "--right-unit",
-            "mm",
+            *UnitArgs,
             *Arguments,
         ],
         cwd=KRepoRoot,

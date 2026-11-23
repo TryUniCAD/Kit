@@ -1,6 +1,8 @@
 from json import dumps as EncodeJson, loads as ParseJson
 from pathlib import Path as FilePath
 
+from pytest import mark as MarkValue
+
 from tests.Research.Archives.Comparison.BulkProcess import RunBulk
 from tests.Research.Archives.Comparison.SemanticComparisonTests import WriteDocument
 from tests.Research.Archives.Comparison.SemanticDocuments import MakeDocument
@@ -130,4 +132,25 @@ def CheckUsage(TmpPath: FilePath) -> None:
     Result = RunBulk(["--output", str(TmpPath / "Output"), "--left-unit", "invalid"])
     assert Result.returncode == 1
     assert "invalid choice" in Result.stderr
+    assert not (TmpPath / "Output").exists()
+
+
+# independently missing geometry contracts must refuse rather than silently assume display units
+@MarkValue.parametrize(
+    "GivenFlag,MissingFlag",
+    (("--left-unit", "--right-unit"), ("--right-unit", "--left-unit")),
+)
+def CheckUnitFlags(TmpPath: FilePath, GivenFlag: str, MissingFlag: str) -> None:
+    Result = RunBulk(
+        [
+            "--output",
+            str(TmpPath / "Output"),
+            GivenFlag,
+            "mm",
+        ],
+        UseUnits=False,
+    )
+    assert Result.returncode == 1
+    assert "required" in Result.stderr
+    assert MissingFlag in Result.stderr
     assert not (TmpPath / "Output").exists()

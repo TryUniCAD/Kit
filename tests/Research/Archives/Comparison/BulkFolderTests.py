@@ -26,8 +26,8 @@ def CheckMixedBatch(TmpPath: FilePath) -> None:
     WriteDocument(First / "Changed.json", MakeDocument())
     WriteDocument(Second / "Changed.json", ChangeSemantic(MakeDocument(), "role"))
     WriteDocument(First / "Missing.json", MakeDocument())
-    assert (First / "Invalid.json").write_text("{}", encoding="utf-8") == 2
-    WriteDocument(Second / "Invalid.json", MakeDocument())
+    assert (First / "AInvalid.json").write_text("{}", encoding="utf-8") == 2
+    WriteDocument(Second / "AInvalid.json", MakeDocument())
     Before = {PathName: PathName.read_bytes() for PathName in First.glob("*.json")}
     Result = RunBulk(
         [
@@ -50,6 +50,7 @@ def CheckMixedBatch(TmpPath: FilePath) -> None:
     }
     assert Summary["semantic_qualification"] == "unverified"
     assert Summary["native_acceptance"] == "not_established"
+    assert Summary["pairs"][0]["status"] == "reader_error"
     EqualRow = next(Value for Value in Summary["pairs"] if Value["id"] == "Equal.json")
     assert EqualRow["counts"]["matched_features"] == 2
     Report = ParseJson(
