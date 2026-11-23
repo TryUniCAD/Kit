@@ -389,9 +389,7 @@
       "neutral_json_regeneration_exact": true,
       "public_write_boundary": {
         "empty_directory": true,
-        "missing_from_adapter_capabilities": [
-          "native_payloads"
-        ],
+        "missing_from_adapter_capabilities": [],
         "refusals": {
           "direct_path": {
             "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
@@ -808,9 +806,7 @@
       "neutral_json_regeneration_exact": true,
       "public_write_boundary": {
         "empty_directory": true,
-        "missing_from_adapter_capabilities": [
-          "native_payloads"
-        ],
+        "missing_from_adapter_capabilities": [],
         "refusals": {
           "direct_path": {
             "diagnostic": "native-only feature definitions cannot be exported: <disclosed source>: freecad:feature:AdditiveBox (freecad.fcstd:PartDesign::AdditiveBox)",
