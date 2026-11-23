@@ -272,6 +272,11 @@ explicit model identity and validates the controller’s reference to that study
 The full native member, including its caption directory, is covered by a guarded
 research comparison. [Default motion study](../../Changes/Solidworks/Research/Mates/SolidworksAssemblyDefaultMotion.md)
 
+The ordinary lightweight assembly research composer sizes the three principal
+datum displays from the actual generated assembly envelope and derives the
+matching cache. Twelve disclosed members replay exactly. Native lightweight
+opening remains unqualified. [Lightweight assembly datums](../../Changes/Solidworks/Research/Mates/SolidworksAssemblyLightweightDatums.md)
+
 The internal SDK construction layer can build the ordinary blind boss's typed length and angle parameter nodes and the complete end specification. It takes the allocated display and dimension owners and retains the caller's from-end identity. Two fresh generated topologies passed exact stream composition and memory readback. The profile, history and file-level construction remain separate requirements for writing. [Blind end construction](../../Changes/Solidworks/Construction/SolidworksBlindEndConstruction.md)
 
 The SDK constructs the local sketch graph for an ordinary closed polygon from ordered vertices and an allocated profile. It derives point, line, and incident-handle identities and preserves the actual model and support references in linked stream readback. This profile covers unconstrained rings. [Polygon geometry construction](../../Changes/Solidworks/Construction/SolidworksPolygonGeometryConstruction.md) The SDK can also initialize the ordinary part's own model, self-component and relation manager with its allocated IDs. The system factory attaches actual configuration owners, system folders, principal planes and the fixed origin. Two neutral designs preserve five complete archive streams and their map aliases in fresh processes. Body geometry and the normal writer require additional construction. [Part root construction](../../Changes/Solidworks/Construction/SolidworksPartRootConstruction.md) [Part system construction](../../Changes/Solidworks/Construction/SolidworksPartSystemConstruction.md)

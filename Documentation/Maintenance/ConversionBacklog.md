@@ -286,6 +286,12 @@ twelve saved members. The isolated 36-stream research variants retain
 the complete 35-stream D01 baseline and child. The caption publisher,
 native lifecycle and ordinary output admission remain open.
 
+The [lightweight datum composer](../../re/solidworks/records/D01AssemblyLightweight2026.md)
+binds the actual configuration update stamp, resolved assembly envelope,
+and all three principal display owners. Twelve native members replay
+exactly. The guarded 36-stream model-only D01 adds the cache and sizes the
+linked resolved displays. Native lightweight opening remains open.
+
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.
