@@ -92,8 +92,7 @@ new stream grows from 1,429 to 1,449 bytes, following the two new
 handle frames and one earlier UTF-16 title. The two cases preserve
 all 12 other parent streams. The unrelated title grows its store
 from 1,423 to 1,481 bytes. Four guarded workers observe zero
-runtime input accesses. The workers
-workers refuse a stale current CMgr stamp, reusing the current
+runtime input accesses. They refuse a stale current CMgr stamp, reusing the current
 model as its own predecessor, crossed datum order and missing
 placement/depth edits. Exact source replays preserve both original
 headers, selected manager, binary display store and mate stream.
@@ -110,4 +109,7 @@ detached carrier. Its live and manager contexts remain freshly
 generated. Retaining the observed saved CMgr context lag, original
 header and datum creation events, and original physical density
 publication still needs separate evidence. Both source admission
-and native qualification remain closed.
+and native qualification remain closed. The later
+[saved CMgr composition](ConcentricSavedCmgrModel2026.md) also emits
+the modeled prior manager context, actual child display selection
+and the new current placement through the shared assembly emitter.

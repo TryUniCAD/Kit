@@ -1,0 +1,484 @@
+{
+  "base": "6d85ed1cb9ff6c033c5a0017dbfc49ffb52bc146",
+  "corpus_receipt_sha256": "3c67d10789bbd681bfb99da712e1c6a035d78713b326c3048373ed4972198997",
+  "disclosed_parents": {
+    "D01": {
+      "after": {
+        "alignment": "aligned",
+        "child_file_role": [
+          "ConcentricD01Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          162,
+          1795044345,
+          106
+        ],
+        "current_manager_transform_and_geometry": [
+          205,
+          315
+        ],
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+          "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93"
+        ],
+        "parent_manager_sha256": "4dca3806c1d1c7d84ed50e5f9cc5292121ff8c6d418b9662ea9a67ba303c36af",
+        "rotation_locked": false,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 103,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044299,
+        "source_parent_creation": 1795044311
+      },
+      "before": {
+        "alignment": "aligned",
+        "child_file_role": [
+          "ConcentricD01Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          134,
+          1795044315,
+          104
+        ],
+        "current_manager_transform_and_geometry": [
+          204,
+          310
+        ],
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+          "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+        ],
+        "parent_manager_sha256": "1ca81ccba6f47f457e9fa5e2ef2565f706ad8e78c907f65717d7a69f82686dbe",
+        "rotation_locked": false,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044299,
+        "source_parent_creation": 1795044311
+      }
+    },
+    "D02": {
+      "after": {
+        "alignment": "aligned",
+        "child_file_role": [
+          "ConcentricD02Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          162,
+          1795044691,
+          106
+        ],
+        "current_manager_transform_and_geometry": [
+          205,
+          315
+        ],
+        "full_construction_refusal": {
+          "alignment_code": 1,
+          "refusal": "assembly visibility requires one actual aligned unlocked concentric mate",
+          "rotation_locked": true,
+          "runtime_accesses": 0
+        },
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "893c1aa3ec38cbbe7c0055abf86c530b41a687ad763aaba945b7e5d880212abf",
+          "716cc6323f66c8fa6db37b4571fb063fc6de3a2d351a717d5393c6431361e527"
+        ],
+        "parent_manager_sha256": "10c0af7467f5c2626c1f6a717996443aba4853f20106f73f145960c96e3f190e",
+        "rotation_locked": true,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 103,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044645,
+        "source_parent_creation": 1795044657
+      },
+      "before": {
+        "alignment": "aligned",
+        "child_file_role": [
+          "ConcentricD02Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          134,
+          1795044661,
+          104
+        ],
+        "current_manager_transform_and_geometry": [
+          204,
+          310
+        ],
+        "full_construction_refusal": {
+          "alignment_code": 1,
+          "refusal": "assembly visibility requires one actual aligned unlocked concentric mate",
+          "rotation_locked": true,
+          "runtime_accesses": 0
+        },
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "5c4ef6a4e5299bec3de6072721ce89a22d263ca338fd05ae6c3783c0a61175cf",
+          "ab9ac233dd939914ee3274d8fdc502832a92acdfa6c2c978544c1a9555a104c9"
+        ],
+        "parent_manager_sha256": "e3492230faa5c9a983f1b94570a0aa99c109f813f352244f61f1b00c0aad4bab",
+        "rotation_locked": true,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044645,
+        "source_parent_creation": 1795044657
+      }
+    },
+    "D03": {
+      "after": {
+        "alignment": "anti_aligned",
+        "child_file_role": [
+          "ConcentricD03Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          162,
+          1795044981,
+          106
+        ],
+        "current_manager_transform_and_geometry": [
+          205,
+          315
+        ],
+        "full_construction_refusal": {
+          "alignment_code": 2,
+          "refusal": "assembly visibility requires one actual aligned unlocked concentric mate",
+          "rotation_locked": false,
+          "runtime_accesses": 0
+        },
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "ba33d25a171245ea041db12e088d0552f8044440fdff0243e214649d25f8200d",
+          "43043068e87775966fad3728c1d1dbef77aa4e0c78932590df551cbe4d3c674f"
+        ],
+        "parent_manager_sha256": "44f4691ad1d6bdbf7a48ddba28e4949a9650dedeb156928244614b31e135d7fc",
+        "rotation_locked": false,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 103,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044938,
+        "source_parent_creation": 1795044950
+      },
+      "before": {
+        "alignment": "anti_aligned",
+        "child_file_role": [
+          "ConcentricD03Child",
+          "Default"
+        ],
+        "child_update_time_and_geometry": [
+          134,
+          1795044953,
+          104
+        ],
+        "current_manager_transform_and_geometry": [
+          204,
+          310
+        ],
+        "full_construction_refusal": {
+          "alignment_code": 2,
+          "refusal": "assembly visibility requires one actual aligned unlocked concentric mate",
+          "rotation_locked": false,
+          "runtime_accesses": 0
+        },
+        "mate_entity_order": [
+          "sldasm:mate:2:0:0:entity:0",
+          "sldasm:mate:2:0:0:entity:1"
+        ],
+        "native_pair_sha256": [
+          "41b40d599ca4f3093638c5b89efc1af63a73ff63a46df9e03a3cca6fc0b65039",
+          "f50c420cc44bb795f7349947177065adfa8a512f739ca6509e94c6fe29e50dc4"
+        ],
+        "parent_manager_sha256": "022c09928439af881e68fcd3b3a26e14e57e9d014e1b914a70d92b0c28c5c452",
+        "rotation_locked": false,
+        "rows_in_registration_order": [
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 25,
+            "neutral_occurrence": "occurrence/2"
+          },
+          {
+            "actual_child_view": [
+              "<Default>_Display State 1",
+              1
+            ],
+            "context_stamp": 203,
+            "current_placement_stamp": 102,
+            "feature_id": 24,
+            "neutral_occurrence": "occurrence/1"
+          }
+        ],
+        "semantic_selections": [
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/2"
+          },
+          {
+            "configuration_name": "Default",
+            "display_name": "<Default>_Display State 1",
+            "occurrence_id": "occurrence/1"
+          }
+        ],
+        "source_child_creation": 1795044938,
+        "source_parent_creation": 1795044950
+      }
+    }
+  },
+  "generated": {
+    "changed_parent_streams": [
+      "Contents/CMgr",
+      "Contents/CMgrHdr2",
+      "Contents/Config-0",
+      "ThirdPtyStore/VisualStates",
+      "swXmlContents/COMPINSTANCETREE"
+    ],
+    "child_sha256": "59dcf1090455da469bf5b003f9854a3f13937cafab8c1bb9321862fdca72d408",
+    "child_unchanged": true,
+    "fresh_parent_sha256": "7adb8a40ecc29d04ba0ab327d79e83ae891b8d8c7a54b297fbf11764b0b316dc",
+    "linked_contexts": [
+      {
+        "before_child_clock_used_for_live": false,
+        "child_display": [
+          "<Default>_Display State 1",
+          1
+        ],
+        "current_placement": 103,
+        "manager_stamp": 203,
+        "name": "ConcentricD01Child-2",
+        "occurrence_id": 25
+      },
+      {
+        "before_child_clock_used_for_live": false,
+        "child_display": [
+          "<Default>_Display State 1",
+          1
+        ],
+        "current_placement": 102,
+        "manager_stamp": 203,
+        "name": "ConcentricD01Child-1",
+        "occurrence_id": 24
+      }
+    ],
+    "manager_delta": {
+      "after_bytes": 2502,
+      "before_bytes": 2382,
+      "exact_changed_typed_leaves": 8,
+      "split_handle_aliases": 2
+    },
+    "manager_transform_and_geometry": [
+      205,
+      309
+    ],
+    "parent_bytes": 11154,
+    "parent_sha256": "232e6a2423d91dd25e1752acf837ab5dcaad443ae71b13dfebbca5b445335ca8",
+    "refusals": {
+      "swapped_occurrences": "neutral selection differs from its actual ordered occurrence, configuration or child display",
+      "wrong_child_configuration": "neutral selection differs from its actual ordered occurrence, configuration or child display",
+      "wrong_child_display": "neutral selection differs from its actual ordered occurrence, configuration or child display"
+    },
+    "runtime_accesses": 0,
+    "unchanged_parent_streams": 8,
+    "visual_replay": {
+      "byte_identity": true,
+      "bytes": 1449,
+      "opaque_bytes": 0,
+      "provisional_schemas": [],
+      "sha256": "e75ff426f17e7fb8a2ef012b4de06ca7c5a2a3f8d67039a2ee136c11bf8970c0",
+      "terminal_map": 40
+    }
+  },
+  "guarded_lock_and_alignment_refusals": 4,
+  "guarded_writers": 2,
+  "heldout_reads": 0,
+  "native_runs": 0,
+  "neutral_request_sha256": "6c0f2a03c28cc30327e427f8d895e04e4a1c1a980e0cc6e0ec58759bf1f470db",
+  "prior_root_receipt_sha256": "b3553f47a136e36f36e367d56362c84d48ea66418e72e43e0af71e54d2e17bbd",
+  "public_publication": false,
+  "schema": "kit.sw2026.saved-concentric-cmgr.v1",
+  "source_sha256": {
+    "re/tooling/sw2026/para/concentric/ProveConcentricCmgrHistory.py": "96692e7c98a8cfc6b2909994a79f4677e95f7a57373928672338e143c6b0aecb",
+    "re/tooling/sw2026/para/concentric/ReadConcentricCmgrInputs.py": "eb6212adea361b2eb63bcec5da027cb84ca9b1f4611146bc2bd0c160214b4e1d"
+  },
+  "whole_source_admitted": false
+}
