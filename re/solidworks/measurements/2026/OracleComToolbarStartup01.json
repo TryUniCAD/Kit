@@ -1,0 +1,41 @@
+{
+  "schema": "kit.sw2026.oracle-startup-observation.v1",
+  "revision": "e0d4349f18711d5ba9a04171c8a4b84d6e6603db",
+  "installed_file_version": "34.5.2.0604",
+  "installed_executable_sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe",
+  "transport": "prlctl exec --current-user Windows 11",
+  "versioned_com_progid": "SldWorks.Application.34",
+  "versioned_com_activation_utc": "2026-11-23T13:20:41.787742+00:00",
+  "activation_had_no_preexisting_sldworks_process": true,
+  "native_process_observed_utc": "2026-11-23T13:20:42.306499+00:00",
+  "native_process_session_id": 1,
+  "process_observer_samples": 436,
+  "startup_dialog_visible_utc": "2026-11-23T13:20:46.042410+00:00",
+  "startup_dialog": {
+    "window_class": "#32770",
+    "title": "SOLIDWORKS Design",
+    "text": "Toolbar information is inconsistent, default toolbar setting will be used.",
+    "button": "OK",
+    "observation": "read-only Windows UI Automation",
+    "acknowledged": false
+  },
+  "dcom_event": {
+    "source": "Microsoft-Windows-DistributedCOM",
+    "id": 10010,
+    "record_id": 3488,
+    "utc": "2026-11-23T13:22:42.1089322Z",
+    "server_clsid": "{666AAEE2-7A21-40FC-B768-2078840A88C3}"
+  },
+  "activation_return_utc": "2026-11-23T13:22:42.190720+00:00",
+  "activation_hresult": "0x80080005",
+  "versioned_com_registered": false,
+  "control_opened": false,
+  "control_healthy": false,
+  "control_sha256": "28e1f9cd045a7a264b2bdf8658ae593744d65ca708def4a48199ec357f063ab0",
+  "control_unchanged": true,
+  "kit_candidates_opened": 0,
+  "kit_crashes_counted": 0,
+  "qualification_credit": 0,
+  "private_trace_sha256": "b01221f2c71ee50f7aa92b1fc86fa27fe14621e6c39ddb65f57ad55d691f0c55",
+  "private_trace_tool_sha256": "e8416fb5cf8135628fabbdd0c23b7bc681d12ce552069fc09b42cbe589598c0f"
+}

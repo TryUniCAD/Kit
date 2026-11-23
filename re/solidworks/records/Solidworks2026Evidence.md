@@ -6,6 +6,7 @@ This index retains the measured results for [PR #121](https://github.com/TryUniC
 
 | Evidence | Result |
 | --- | --- |
+| [COM toolbar startup observation](../measurements/2026/OracleComToolbarStartup01.json) | A fresh SOLIDWORKS process displayed a toolbar consistency prompt before COM registration. Activation timed out and the immutable control stayed unopened. |
 | [Integrated archive replay](../measurements/2026/ArchiveAfterEllipseAndFinish01.json) | All 1,328 measured streams from the 80 disclosed parts and eight assemblies replay byte for byte after the ellipse codec and accepted surface-finish work. The known cohort has no raw operations, unread tails or provisional layouts. |
 | [Live ellipse seam disposition](../measurements/2026/EllipseSeamNativeDisposition01.json) | Two independent native sources preserve the same point through its shift to 17 degrees when the sketch closes. Eight fresh processes include four passing controls and 13 bound snapshots. |
 | [Ellipse close with update disabled](../measurements/2026/EllipseSeamNoUpdate01.json) | Two native sources retain the major station through the close. An explicit rebuild moves the same seam point to the recorded 17 degrees. All four controls and 13 snapshots pass. |
