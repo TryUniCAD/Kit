@@ -24,4 +24,5 @@ Comparison reads existing neutral JSON and leaves decoders and CAD applications 
 See the [comparison guide](../../Tasks/CompareDecodedDocuments.md).
 
 Installed-command process coverage exercises folder and manifest pairing, reports and exit status, unified copy provenance and skipped copies, shared and per-side units, option collisions, help and an older checkout.
+The existing Windows CLI compatibility roster also selects these cases, including a real copy publication failure.
 Remote process verification is pending on this revision.
