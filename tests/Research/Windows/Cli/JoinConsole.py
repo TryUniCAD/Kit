@@ -2,6 +2,8 @@ import sys
 from pathlib import Path as FilePath
 from re import fullmatch as FullMatch
 
+from convert.Security.PathBoundary import ResolveTemp
+
 if sys.platform == "win32":
     from win32api import GetCurrentProcess
     import win32job as WindowsJobs
@@ -10,7 +12,9 @@ if sys.platform == "win32":
 # the actual interpreter must join custody before spawning despite an external virtual environment redirector
 def JoinConsole(RecordPath: FilePath) -> None:
     if sys.platform == "win32":
-        JobName = RecordPath.with_name("ConsoleCustody").read_text(encoding="utf-8")
+        JobName = ResolveTemp(RecordPath.with_name("ConsoleCustody")).read_text(
+            encoding="utf-8"
+        )
         if FullMatch(r"Local\\KitCliConsole-[0-9a-f]{48}", JobName) is None:
             raise ValueError("Invalid private console custody identity")
         AccessMask = (

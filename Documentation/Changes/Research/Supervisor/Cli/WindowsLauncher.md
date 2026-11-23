@@ -31,6 +31,9 @@ The same complete legacy fixture then dispatches that queued job directly, provi
 Fixture copying selects tracked automation Python files and the explicit test runner dependencies, excluding captures and untracked output.
 Native break-event cases create an explicit launcher process group and target its recorded root identifier.
 Private test job custody handles failed launchers and surviving descendants without masking successful worker-cleanup assertions.
+Console custody, readiness, and interruption records use the existing `ResolveTemp` boundary before filesystem access.
+That boundary rejects traversal and symlink escapes from the operating system temporary directory.
+The [record-path finding](../../../../Gotchas/Ci/Security/WindowsConsoleRecords.md) records the five merge-group security findings and their repair.
 These cases use the existing Windows merge-queue selection and completeness checks.
 The existing CLI bridge compatibility check now requires supervisor help on Windows as well as POSIX systems.
 Remote execution results remain pending until CI runs this revision.

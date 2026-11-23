@@ -1,10 +1,10 @@
 import sys
 from os import _exit as ExitProcess
-from pathlib import Path as FilePath
 from subprocess import Popen as StartProcess
 from time import monotonic as ReadClock, sleep as WaitSeconds
 from typing import NoReturn
 
+from convert.Security.PathBoundary import ResolveTemp
 from tests.Research.Windows.Cli.JoinConsole import JoinConsole
 
 if sys.platform == "win32":
@@ -14,7 +14,7 @@ if sys.platform == "win32":
 # the custody witness must outlive its leader without relying on interpreter shutdown cleanup
 def RunExitLeader() -> NoReturn:
     if sys.platform == "win32":
-        RecordPath = FilePath(sys.argv[1])
+        RecordPath = ResolveTemp(sys.argv[1])
         JoinConsole(RecordPath)
         ChildProcess = StartProcess(
             [
