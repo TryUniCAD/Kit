@@ -15,12 +15,13 @@ def RaisedRims(
     StockMinY = min(PointValue.y for PointValue in StockPoints)
     StockMaxX = max(PointValue.x for PointValue in StockPoints)
     StockMaxY = max(PointValue.y for PointValue in StockPoints)
-    if not 0 < PlateValue.DepthValue < SeedValue.DepthValue:
-        raise ValueError("cache free pattern needs a positive plate and taller seed")
-    if OwnerValue.DatumValue.TiltValue is not None and (
-        StockMinX != 0.0 or StockMinY != 0.0
+    if not 0 < PlateValue.DepthValue < SeedValue.DepthValue or (
+        OwnerValue.DatumValue.TiltValue is not None
+        and (StockMinX != 0.0 or StockMinY != 0.0)
     ):
-        raise ValueError("cache free oblique pattern needs its measured origin plate")
+        raise ValueError(
+            "cache free pattern needs supported plate placement and a taller positive seed"
+        )
     CountValue, PitchValue, *_ = OwnerValue.DriversValue
     Count = CountValue.LiveValue
     if type(Count) is not int:

@@ -21,10 +21,12 @@ def PutHingeViews(
     if Lower[2] != 0.0 or SystemValue.RootValue.ClassValue.NameValue != "moPart_c":
         raise ValueError("finite datum sizing requires a joined Front-plane part")
     Limits = tuple(
-        (RequireScalar(Start), RequireScalar(End))
-        for Start, End in zip(Lower, Upper, strict=True)
+        (RequireScalar(StartValue), RequireScalar(FinishValue))
+        for StartValue, FinishValue in zip(Lower, Upper, strict=True)
     )
-    Width, Height, DepthValue = (RequireScalar(End - Start) for Start, End in Limits)
+    Width, Height, DepthValue = (
+        RequireScalar(FinishValue - StartValue) for StartValue, FinishValue in Limits
+    )
     if min(Width, Height, DepthValue) <= 1e-7 or set(
         SystemValue.SystemValues.PlaneValues
     ) != {"x", "y", "z"}:
@@ -32,7 +34,8 @@ def PutHingeViews(
             "finite hinge sizing requires positive stock and actual canonical supports"
         )
     CenterX, CenterY, CenterZ = (
-        RequireScalar((Start + End) * 0.5) for Start, End in Limits
+        RequireScalar((StartValue + FinishValue) * 0.5)
+        for StartValue, FinishValue in Limits
     )
     MarginX, MarginY, MarginZ = (
         Value * 0.5 + Value * 0.05 for Value in (Width, Height, DepthValue)
