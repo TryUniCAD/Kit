@@ -82,6 +82,14 @@ Four cache-free neutral designs compile to 160 exact stream comparisons
 across 16 guarded writes. The native output lifecycle, held-out comparison
 and public shell writing remain open.
 
+For `B04-SW2026-OPEN-SHELL/stock-relations`, `/root/release_path` owns the
+[constrained stock handoff](../../re/solidworks/records/SdkColdShellRelations2026.md)
+in PR #121. The internal model preserves the actual four axes and four
+shared-corner joins from the disclosed native shape. Three guarded
+candidates compile and retain both live drivers and the selected upper
+cap. The exit requires native validation of the exact constrained
+candidates and comparison to both pre-writer locked sources.
+
 The [measured Standard sweep handoff](../../re/solidworks/records/SweepMeasuredPublication2026.md) brings the two disclosed native-qualified originals to the exact offline receipt gate in the public SDK. Both complete archives match across the three stream entry points with zero runtime input reads. Both scoped cold writer cases are integrated. Filesystem publication requires the actual measured locator. The strict reader now retains the two D1 owners, Section seam and native results for six disclosed saved Standard sweep states. Saved-to-native publication remains separate. [Saved sweep integration](../../re/solidworks/records/AggregateSavedSweepRead2026.md)
 
 Both disclosed cache-free Standard sweeps now retain their typed sketches, both live D1 owners and body-owned density in strict full and design-only reads. Their neutral JSON republishes both original measured files exactly through the three SDK stream routes. The saved controls retain their physical caches. [Cold Standard sweep readback](../../re/solidworks/records/SdkColdSweepReadback2026.md)

@@ -78,6 +78,7 @@ def BindShellDoc(Document: CadDocument, ReadValue: ShellPartRead) -> CadDocument
         sketches=(
             Document.sketches
             if Cache.DigestValue is None
+            and ReadValue.StockValue.LoopValue.DimsValue is None
             else (BindShellSketch(Document.sketches[0], ReadValue.StockValue),)
         ),
         feature_timeline=tuple(

@@ -4,14 +4,14 @@ from math import isfinite as IsFinite
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ProjectBlind import (
     ProjectBlind,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.Neutral.ReadRectSketch import (
-    ReadRectSketch,
-)
 from convert.adapters.solidworks.Archive.Construction.Shells.OpenShellPlan import (
     OpenShellPlan,
 )
 from convert.adapters.solidworks.Core.Preparation.CheckPlainScope import CheckPlainScope
 from convert.adapters.solidworks.Core.Preparation.PartCaps import KPartWriteCaps
+from convert.adapters.solidworks.Core.Preparation.Shells.ReadShellRect import (
+    ReadShellRect,
+)
 from convert.adapters.solidworks.Core.Preparation.Shells.ReadShellStep import (
     ReadShellStep,
 )
@@ -65,7 +65,7 @@ def PlanOpenShell(DocumentValue: CadDocument) -> OpenShellPlan:
             ),
         ),
     )
-    Stock = ProjectBlind(StockDoc, ReadRectSketch)
+    Stock = ProjectBlind(StockDoc, ReadShellRect)
     if Stock.PlaneName != "Front Plane" or Stock.ConfigName != "Default":
         raise ValueError("open shell stock requires Front Plane and Default")
     FeatureName, ThicknessM = ReadShellStep(ShellValue, StockValue, ShellDriver)
@@ -76,4 +76,6 @@ def PlanOpenShell(DocumentValue: CadDocument) -> OpenShellPlan:
         or not ThicknessM < Stock.DepthValue
     ):
         raise ValueError("open shell wall would remove its rectangular cavity")
-    return OpenShellPlan(Stock, FeatureName, ThicknessM)
+    return OpenShellPlan(
+        Stock, FeatureName, ThicknessM, bool(DocumentValue.sketches[0].constraints)
+    )

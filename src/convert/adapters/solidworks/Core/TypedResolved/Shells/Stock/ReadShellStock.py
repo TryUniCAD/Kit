@@ -68,7 +68,9 @@ def ReadFreshStock(
 ) -> tuple[ShellStock, tuple[ArchiveNode, ...]]:
     CheckShellFresh(LinkValue, ShellNode)
     _, Features = ReadChmfRoots(LinkValue, ModelValue, ShellNode)
-    OwnerValue, _, LoopValue = ReadChmfStock(LinkValue, StockNode, Features)
+    OwnerValue, _, LoopValue = ReadChmfStock(
+        LinkValue, StockNode, Features, AllowAxisRows=True
+    )
     return ShellStockBox(OwnerValue, LoopValue), tuple(Features.values())
 
 

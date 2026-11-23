@@ -39,6 +39,13 @@ def ReadShellInput(DocumentValue: CadDocument, NameValue: str) -> CadDocument:
         for Value in DocumentValue.support_planes
         if Value.id == SketchValue.support_plane_id
     )
+    SketchInput = ReplaceValue(
+        ReadColdSketch(SketchValue),
+        constraints=tuple(
+            ReplaceValue(Value, provenance=None, attributes=FreezeMapping())
+            for Value in SketchValue.constraints
+        ),
+    )
     return ReplaceValue(
         DocumentValue,
         source=ReplaceValue(DocumentValue.source, attributes=FreezeMapping()),
@@ -47,7 +54,7 @@ def ReadShellInput(DocumentValue: CadDocument, NameValue: str) -> CadDocument:
         support_planes=(
             ReplaceValue(PlaneValue, provenance=None, attributes=FreezeMapping()),
         ),
-        sketches=(ReadColdSketch(SketchValue),),
+        sketches=(SketchInput,),
         selections=(ReplaceValue(CapValue, provenance=None),),
         feature_timeline=(BossValue, Shell),
         bodies=(

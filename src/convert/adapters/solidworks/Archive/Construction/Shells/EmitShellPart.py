@@ -18,9 +18,6 @@ from convert.adapters.solidworks.Archive.Construction.Part.CheckPartInput import
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import (
     EmitPartArchive,
 )
-from convert.adapters.solidworks.Archive.Construction.Part.MakeBlindPart import (
-    MakeBlindByPlan,
-)
 from convert.adapters.solidworks.Archive.Construction.Part.MakePartKeys import (
     MakePartKeys,
 )
@@ -32,6 +29,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Archive.Construction.Shells.MakeShellMut import (
     MakeShellMut,
+)
+from convert.adapters.solidworks.Archive.Construction.Shells.MakeShellStock import (
+    MakeShellStock,
 )
 from convert.adapters.solidworks.Archive.Construction.Shells.OpenShellPlan import (
     OpenShellPlan,
@@ -68,7 +68,7 @@ def EmitShellPart(
 ) -> PartCandidate:
     Stock = PlanValue.StockValue
     CheckPartInput(DocumentValue, Settings, Stock, (PlanValue.FeatureName,))
-    Candidate = MakeBlindByPlan(DocumentValue, Settings, Stock)
+    Candidate = MakeShellStock(DocumentValue, PlanValue, Settings)
     Feature, Driver = MakeShellMut(Candidate, PlanValue, Settings)
     Manager = MakeMgrHeader(
         Candidate.SystemValue.ManagerValue, Settings.OutputValue.SavedAt

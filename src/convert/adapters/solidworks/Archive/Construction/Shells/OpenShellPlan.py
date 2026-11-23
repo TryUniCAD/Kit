@@ -11,3 +11,4 @@ class OpenShellPlan:
     StockValue: BlindPlan
     FeatureName: str
     ThicknessM: float
+    HasAxisRules: bool = False

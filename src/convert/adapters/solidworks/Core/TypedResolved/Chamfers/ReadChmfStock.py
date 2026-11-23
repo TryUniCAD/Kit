@@ -39,6 +39,8 @@ def ReadChmfStock(
     LinkValue: NativeLink,
     StockValue: ArchiveNode,
     Features: Mapping[int, ArchiveNode],
+    *,
+    AllowAxisRows: bool = False,
 ) -> tuple[ExtrudeOwner, PrismPlan, LineLoop]:
     OwnerValue = ReadExtrude(LinkValue, StockValue, Features)
     CheckFirstBoss(OwnerValue)
@@ -49,6 +51,7 @@ def ReadChmfStock(
     CheckPrismPlane(Features, RootValue)
     FrameValue = ReadPrismFrame(OwnerValue.ProfileValue, RootValue, Features)
     LoopValue = ReadPrismLoop(OwnerValue.ProfileValue, LinkValue)
+    DimsValue = LoopValue.DimsValue
     DepthValue = OwnerValue.RequireDepth().DepthValue.value_mm
     Points = set(
         PointValue.PositionValue for PointValue in LoopValue.PointsValue.values()
@@ -57,7 +60,14 @@ def ReadChmfStock(
         FrameValue != Transform()
         or DepthValue is None
         or DepthValue <= 0.0
-        or LoopValue.DimsValue is not None
+        or (
+            DimsValue is not None
+            and (
+                not AllowAxisRows
+                or DimsValue.DriverValues
+                or DimsValue.OriginValue is not None
+            )
+        )
         or len(Points) != 4
         or len({PointValue[0] for PointValue in Points}) != 2
         or len({PointValue[1] for PointValue in Points}) != 2
