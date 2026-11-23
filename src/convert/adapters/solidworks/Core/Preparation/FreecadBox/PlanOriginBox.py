@@ -6,6 +6,9 @@ from convert.adapters.freecad.BodyLineage.ReadBoxLineage import ReadBoxLineage
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.LowerBoxModel import (
     LowerBoxModel,
 )
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.BoxDatums import (
+    BoxDatums,
+)
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.BoxSource import (
     BoxSource,
 )
@@ -20,6 +23,9 @@ from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.CheckIdentit
 )
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadBoxGeometry import (
     ReadBoxGeometry,
+)
+from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadBoxDatums import (
+    ReadBoxDatums,
 )
 from convert.adapters.solidworks.Core.Preparation.FreecadBox.Source.ReadBoxModel import (
     ReadBoxModel,
@@ -72,6 +78,7 @@ class OriginBoxPlan:
     SourcePlacement: Transform
     SourceDrivers: tuple[Parameter, Parameter, Parameter]
     PartSource: BoxSource
+    SourceDatums: BoxDatums
 
 
 # ordinary primitive geometry is rooted in its local frame without an attachment
@@ -148,7 +155,13 @@ def ReadOriginPlan(Document: CadDocument) -> OriginBoxPlan:
         "FreeCAD projected properties disagree with the original document identity",
     )
     return OriginBoxPlan(
-        Document, Lineage, PlaneValue, PlaneValue.transform, Drivers, PartValue
+        Document,
+        Lineage,
+        PlaneValue,
+        PlaneValue.transform,
+        Drivers,
+        PartValue,
+        ReadBoxDatums(Document),
     )
 
 
