@@ -31,4 +31,4 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/ProveExchangeMateEndpoints.py
   --sldgcu /path/to/sldgcu.dll
 ```
 
-This work establishes the direct ordinary concentric endpoint composition. The complete exchange store, downstream-enabled faces, arbitrary chain depth, and native acceptance of a parent using the newly generated exchange stream require separate evidence. The proof used disclosed files and zero native launches or held-out reads.
+This work establishes the direct ordinary concentric endpoint composition used by the [generated D01 model exchange database](AssemblyModelExchange2026.md). Downstream-enabled faces, arbitrary chain depth, and native acceptance of a parent using the newly generated exchange stream require separate evidence. The proof used disclosed files and zero native launches or held-out reads.

@@ -255,6 +255,13 @@ reproduce byte for byte. Two guarded processes preserve the other 32
 parent streams and the linked part across two independent creation events.
 Ten original D01 members still need construction or source admission evidence.
 
+The [model exchange compositor](../../re/solidworks/records/AssemblyModelExchange2026.md)
+joins the actual manager, selection folder, principal datums and concentric
+references. It reconstructs 95 of 96 disclosed live records, with eleven
+complete stores. The guarded 34-stream parent preserves every earlier
+stream and the linked child. Nine original D01 members remain outside the
+composed inventory, including [vendor license metadata](../../re/solidworks/records/ConcentricEModelLicOwnership2026.md).
+
 The [stock child roughness comparison](../../re/solidworks/records/ConcentricStockChildAppearanceCodec2026.md) preserves two independent native edits through save and reopen with both controls healthy. The typed audit replays the two populated Definition streams and distinguishes the five classic appearance fields from unchanged DSPBR roughness. A separate single-getter trial proves the second stored row, common ID, allocator advance and binary32 conversion path. [Getter evidence](../../re/solidworks/records/AppearanceGetterPersistence2026.md) Generated appearance writing remains open.
 Production conversion totals remain zero. See the [coverage register](../../re/solidworks/CorpusCoverage.md).
 Configured review is deferred until the full scope and pre-review acceptance evidence are complete.

@@ -18,7 +18,7 @@ from ProveD01PropertyTransport import disclosed_cases
 from ExchangeMateEndpoints import project_exchange_mate_endpoints, project_exchange_target
 from ExchangeMessagePack import ExchangeMap, encode_config_atom
 
-from convert.adapters.solidworks.Archive.Exchange.ReadUnqliteStore import ReadUnqliteStore
+from convert.adapters.solidworks.Archive.Exchange.ReadUnqlite import ReadUnqlite
 from convert.adapters.solidworks.Archive.Mates.ReadMatesMut import ReadMatesMut
 from convert.adapters.solidworks.Archive.Mates.WriteMatesMut import WriteMatesMut
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
@@ -90,7 +90,7 @@ def open_parent(parent_bytes):
 
 def saved_mates(archive, expected_count):
     stream = archive.require(MODEL_EXCHANGE_STREAM)
-    store = ReadUnqliteStore(stream)
+    store = ReadUnqlite(stream)
     records = ((raw, read_exchange_map(raw)) for _, raw in store.Records)
     (raw, group), = (row for row in records if row[1].values("class") == ("moMateGroup_c", "moNodeList_c"))
     require(group.values("NumberMates") == ((expected_count,) if expected_count else ())

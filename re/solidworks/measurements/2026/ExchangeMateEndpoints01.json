@@ -109,7 +109,7 @@
   "prior_parent_inventory_sha256": "676fb1e7e56e929d880a7de1471acf7cb456b70f9fec862f00961fc597736c51",
   "proof_sha256": {
     "ExchangeMateEndpoints.py": "09d592b2b65fa311be1d0d32e6ef372bd7128dbbf67948b077b5fd45f7362ef5",
-    "ProveExchangeMateEndpoints.py": "72355d231a6602fa4fb795278abbf16a45b83bb6f13ee6df42db8db389194b2b"
+    "ProveExchangeMateEndpoints.py": "b032aa036f6e1f1a9c59bf043c570bdad7ede7844d4429004317ad548e8e810c"
   },
   "renamed_source_sha256": "3639fb9d7fd6c40e10782b8b43ce000a63269adcdcd8230ef911d24c38fe8d39",
   "request_sha256": "c4b6c936c4a2083560b5e4a9f0f0fc58d09053a9e53d2bcba87e14da3ffccc0a",
