@@ -25,6 +25,21 @@ not current capability.
 
 ## Generative 2026 research
 
+The published decimal placement cohort adds 69 distinct version-19000
+parts with exact typed replay of fifteen document members, both Parasolid
+partitions and KeyWords in each file. The sources carry both signed
+directions on each principal plane. These 1,242 archive comparisons add
+zero FreeCAD benchmark conversions or independent native writer cases.
+[Archive evidence](records/DecimalPlacementArchive2026.md)
+
+Two disclosed intact FreeCAD baked boxes now generate the exact prior
+native-tested local-body archives in memory. The source gate checks the
+actual imported feature and linked shape, rejects the live parametric
+box and identifies the four untransferred source capabilities. The
+registry and independent held-out evaluation remain open. These
+disclosed probes add zero benchmark conversions.
+[Intact baked source evidence](records/IntactBakedImport2026.md)
+
 The original independent chamfer and full-ellipse pairs pass cold
 open, clean rebuild, driving edits and fresh reopen. The chamfer
 pair passes 230 paired comparisons. The ellipse pair passes 128.
