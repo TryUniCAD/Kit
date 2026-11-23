@@ -8,6 +8,7 @@
 
 import argparse
 import hashlib
+from importlib import import_module
 import json
 import math
 from pathlib import Path
@@ -230,6 +231,64 @@ def check_rotated(representatives):
     return 2
 
 
+def check_origin_fallback(representatives):
+    raw, _, _ = representatives[("top", False)]
+    origin_reader = import_module(
+        "convert.adapters.solidworks.Core.Records.ReadPlaneOwner"
+    )
+    read_pose = origin_reader.ReadPlanePose
+    read_owner = native_reader.ReadPlaneOwner
+    cosine = math.cos(math.radians(3))
+    sine = math.sin(math.radians(3))
+    matrix = struct.pack("<9d", cosine, -sine, 0, sine, cosine, 0, 0, 0, 1)
+    parsed = 0
+    unavailable = 0
+
+    def rotated_pose(data, offset, end, owner, start):
+        nonlocal parsed
+        flag = offset + 14
+        assert data[flag] == 0
+        assert read_pose(data, offset, end, owner, start) == (
+            2,
+            3,
+            ((1, 0, 0), (0, 1, 0), (0, 0, 1)),
+            None,
+        )
+        bounded = data[:flag] + b"\x01" + matrix + data[flag + 1 : end]
+        pose = read_pose(bounded, offset, len(bounded), owner, start)
+        assert pose == (
+            2,
+            3,
+            ((cosine, sine, 0), (-sine, cosine, 0), (0, 0, 1)),
+            flag + 1,
+        )
+        parsed += 1
+        return pose
+
+    def observed_owner(*args):
+        nonlocal unavailable
+        result = read_owner(*args)
+        assert result is None
+        unavailable += 1
+        return result
+
+    origin_reader.ReadPlanePose = rotated_pose
+    native_reader.ReadPlaneOwner = observed_owner
+    try:
+        for include_brep in (True, False):
+            document = open_document(
+                raw, source_format="solidworks.sldprt", strict=True, include_brep=include_brep
+            )
+            (sketch,) = document.sketches
+            assert sketch.support_plane_id == "sldprt:plane:2"
+            assert sketch.attributes["support_plane_source"] == "stream-order"
+    finally:
+        origin_reader.ReadPlanePose = read_pose
+        native_reader.ReadPlaneOwner = read_owner
+    assert parsed == unavailable == 2
+    return unavailable
+
+
 def check_owner_scans():
     path = (
         ROOT
@@ -293,6 +352,7 @@ def main():
         "invalid_reference_rejections": invalid["rejections"],
         "unqualified_reference_fallbacks": invalid["unqualified_fallbacks"],
         "rotated_frame_rejections": check_rotated(representatives),
+        "origin_pose_fallbacks": check_origin_fallback(representatives),
         "custom_plane_reads": check_custom(),
         "multi_sketch_owner_scans": check_owner_scans(),
         "bounds_evidence": "derived from origin-based native recipes and measured centroids",

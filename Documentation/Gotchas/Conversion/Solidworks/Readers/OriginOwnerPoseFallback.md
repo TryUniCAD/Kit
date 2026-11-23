@@ -14,4 +14,7 @@ The [review finding](https://github.com/TryUniCAD/Kit/pull/270#discussion_r46735
 
 Run the canonical basis check after the sketch reader establishes its local ownership and parses its pose.
 Keep the origin lookup's existing identity pose check. A mismatch leaves the owner unknown.
+The [process check](../../../../../re/solidworks/FeatureLadderRecovery/CheckPlacement.py) supplies a synthetic rotated pose to the origin parser.
+Both public read modes must return a sketch with the existing stream-order support.
+The input archive remains byte-identical. This check provides no vendor-saved rotated-origin file evidence.
 The [principal-plane placement change](../../../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) describes the reader boundary.

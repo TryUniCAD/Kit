@@ -37,6 +37,7 @@ def CheckPlacement(TmpPath: FilePath) -> None:
     assert Report["invalid_reference_rejections"] == 10
     assert Report["unqualified_reference_fallbacks"] == 9
     assert Report["rotated_frame_rejections"] == 2
+    assert Report["origin_pose_fallbacks"] == 2
     assert Report["custom_plane_reads"] == 2
     assert Report["multi_sketch_owner_scans"] == 1
     assert Report["fresh_native_acceptance"] is False

@@ -42,6 +42,7 @@ No native files or historical reports were changed.
 - Ten malformed principal poses fail both public read modes, including wrong-datum and reflected orthonormal matrices.
 - Nine unqualified pointer, owner, generation, or non-principal identity controls retain the explicit legacy fallback.
 - The regression check requires both public read modes to reject a three-degree in-plane rotation.
+- The origin fallback check uses both public read modes on an unchanged capture. A synthetic rotated pose goes only to the origin parser.
 - The recorded `example.SLDPRT` keeps Sketch40 on its user-created `Plane1` in both read modes, with an available origin owner and the existing labelled fallback.
 - All 58 older pinned SOLIDWORKS part documents serialize identically before and after this repair.
 - The focused process and compatibility selection passed 19 tests.
