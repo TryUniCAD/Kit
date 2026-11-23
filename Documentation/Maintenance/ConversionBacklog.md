@@ -564,6 +564,17 @@ Native recovery and semantic qualification remain blocked as recorded in that pa
 Task `A08h-LadderRecovery` is active in the [owning register](../Reference/Research/AutomationSteps.md#a08h-ladderrecovery-recovered-native-corpus).
 Codex owns evidence publication on `feat/solidworks-ladder-recovery-20261122`; delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267).
 The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111 complete-batch strict decodes and two original failed-batch salvages.
-Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
+The archived reports retain 96 incorrect top/right placements.
+The separately scoped [principal-plane reader repair](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) now matches all 144 native ladder centroids in full and design-only reads.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
 Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
+
+## Principal-plane reader placement repair
+
+Task `A04-PlanePlacement` is offline verified in the [owning register](../Reference/Research/AutomationSteps.md#a04-planeplacement-timestamp-independent-principal-references).
+Codex owns `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is local only; the user has not authorized remote publication.
+Dependencies are merged PRs #263 and #267 and their unchanged native source observations.
+The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
+The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
+Fresh native acceptance, the broader typed scene path, and cross-format conversion remain unqualified.

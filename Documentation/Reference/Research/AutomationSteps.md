@@ -40,14 +40,24 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 
 ### PR 158 implementation follow-up
 
+#### A04-PlanePlacement: timestamp-independent principal references
+
+Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
+Delivery is a local commit; remote publication is not authorized for this task.
+Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
+The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records 144 files, 288 public-reader comparisons, 24 timestamp variants, and seventeen malformed-reference controls.
+All captured centroids agree; the 58 older pinned part documents retain identical serialized output.
+Status is checking, with the bounded offline checks passed. The exit covers source placement and its shared-suite process regression.
+Fresh native acceptance, complete typed rectangle admission, and conversion qualification remain outside this result.
+
 #### A08h-LadderRecovery: recovered native corpus
 
 Codex owns this active evidence publication on `feat/solidworks-ladder-recovery-20261122`, based on fresh main `5b9f330282e5c3a3a41b3f04bf9ab7f02d2da538`.
 Delivery PR is [#267](https://github.com/TryUniCAD/Kit/pull/267). Dependencies are merged PR #263, the existing research controller and licensed source captures.
 The [package](../../../re/solidworks/FeatureLadderRecovery/README.md) retains 37 complete native cases and 111 strict decodes, plus two failed-batch salvage files.
-Original controller failures remain recorded. Fifteen front-plane centroids match; 96 top/right placements remain wrong.
+Original controller failures remain recorded. The archived reports retain fifteen matching front-plane centroids and 96 wrong top/right placements.
 The exit requires verified artifact hashes, sanitized provenance, explicit semantic failures and current-head publication checks and review.
-Production placement repair is a separate follow-up; this evidence does not close conversion acceptance.
+The separately verified A04-PlanePlacement repair above preserves those historical reports; this evidence does not close conversion acceptance.
 
 #### A08h-Ladders2026: native campaign evidence
 
@@ -60,7 +70,6 @@ Status: checking for publication; native recovery and semantic qualification rem
 The packaging exit requires verified corpus hashes, sanitized evidence, documented failures, and current-head PR readiness.
 This child does not close A07, A08c, A13, A15, B02, B03 or any supported production boundary.
 Production reader repairs require a separately scoped follow-up with independently corroborated rules and held-out evidence.
-
 
 A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
 `codex/catalogue-native-authoring`, owned by Codex. It

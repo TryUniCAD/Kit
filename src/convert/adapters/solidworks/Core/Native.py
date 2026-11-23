@@ -1,4 +1,11 @@
 from __future__ import annotations as Annotations
+from convert.adapters.solidworks.Core.Records.ReadPlanePose import ReadPlanePose
+from convert.adapters.solidworks.Core.Records.ReadPlaneOwner import ReadPlaneOwner
+from convert.adapters.solidworks.Container.Archive import (
+    ArchiveError,
+    KClassRefKind,
+    ReadTag,
+)
 from convert.adapters.solidworks.Core.Records.XmlFeature import XmlFeature
 from convert.adapters.solidworks.Core.Records.NativeRule import NativeRule
 from convert.adapters.solidworks.Core.Records.NativeClass import NativeClass
@@ -148,29 +155,14 @@ KSketchPlaneIdRelative = 209
 # this binding exists because shared behavior needs one stable value
 KSketchPlaneRefPrefix = bytes.fromhex("50460000")
 
-# this binding exists because shared behavior needs one stable value
+# supported component generations delimit the principal reference before its variable timestamp
+KSketchPlaneRefPrefixes = (KSketchPlaneRefPrefix, bytes.fromhex("384a0000"))
+
+# the historical timestamp stays available for compatibility callers without constraining native decoding
 KSketchPlaneRefTag = bytes.fromhex("f65a1a69")
 
 # this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisDelta = 10
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisFlagDelA = 14
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisDelta = 15
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneBasisBytes = 72
-
-# this binding exists because shared behavior needs one stable value
-KSketchPlaneAxisComplemeA = 5
-
-# this binding exists because shared behavior needs one stable value
 KSketchPlaneScanBytes = 320
-
-# this binding exists because shared behavior needs one stable value
-KPrincipalPlaneObjectIds = frozenset({2, 3, 4})
 
 
 # this binding exists because shared behavior needs one stable value
@@ -2615,59 +2607,56 @@ def SupportPlaneRef(
 def SketchPlaneRef(
     DataValue: bytes, Classes: tuple[NativeClass, ...], Start: int, EndValue: int
 ) -> NativeSketchA | None:
+    OwnerValue = ReadPlaneOwner(DataValue, Classes, Start)
+    if OwnerValue is None:
+        return None
     for Record in Classes:
         if Record.name != SketchChainClass or not Start <= Record.offset < EndValue:
             continue
         Anchored = ReadSketchPlane(
-            DataValue, Record.offset + KSketchPlaneIdRelative, EndValue
+            DataValue,
+            Record.offset + KSketchPlaneIdRelative,
+            EndValue,
+            OwnerValue,
+            Start,
         )
         if Anchored is not None:
             return Anchored
-    for Offset in FindAll(DataValue, KSketchPlaneRefPrefix, Start, EndValue):
+    Offsets = sorted(
+        Offset
+        for Prefix in KSketchPlaneRefPrefixes
+        for Offset in FindAll(DataValue, Prefix, Start, EndValue)
+    )
+    for Offset in Offsets:
         Scanned = ReadSketchPlane(
-            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue
+            DataValue, Offset + len(KSketchPlaneRefPrefix), EndValue, OwnerValue, Start
         )
         if Scanned is not None:
             return Scanned
     return None
 
 
-# this definition exists because focused behavior needs one stable owner
+# native support identities need the complete bounded pose rather than a sampled timestamp
 def ReadSketchPlane(
-    DataValue: bytes, Offset: int, EndValue: int
+    DataValue: bytes,
+    Offset: int,
+    EndValue: int,
+    OwnerValue: tuple[int, int, int],
+    StartValue: int,
 ) -> NativeSketchA | None:
-    if Offset < 0 or Offset + KSketchPlaneBasisDelta > EndValue:
+    if Offset - 87 < StartValue:
         return None
-    PlaneObjectId = Struct.unpack_from("<I", DataValue, Offset)[0]
-    if PlaneObjectId not in KPrincipalPlaneObjectIds:
+    try:
+        TagValue = ReadTag(DataValue, Offset - 87)
+    except ArchiveError:
         return None
-    if DataValue[Offset + 4 : Offset + 8] != KSketchPlaneRefTag:
+    if TagValue.kind != KClassRefKind or TagValue.wide or TagValue.index == 0:
         return None
-    if DataValue[Offset + 8 : Offset + KSketchPlaneAxisDelta] != b"\x00\x00":
+    PoseValue = ReadPlanePose(DataValue, Offset, EndValue, OwnerValue, StartValue)
+    if PoseValue is None:
         return None
-    AxisCode = Struct.unpack_from("<I", DataValue, Offset + KSketchPlaneAxisDelta)[0]
-    if AxisCode != KSketchPlaneAxisComplemeA - PlaneObjectId:
-        return None
-    FlagValue = DataValue[Offset + KSketchPlaneBasisFlagDelA]
-    BasisOffset = Offset + KSketchPlaneBasisDelta
-    if FlagValue == 0:
-        return NativeSketchA(
-            Offset,
-            PlaneObjectId,
-            AxisCode,
-            KIdentityBasis[0],
-            KIdentityBasis[1],
-            KIdentityBasis[2],
-            None,
-        )
-    if FlagValue != 1 or BasisOffset + KSketchPlaneBasisBytes > EndValue:
-        return None
-    RowsValue = Struct.unpack_from("<9d", DataValue, BasisOffset)
-    if not all((MathValue.isfinite(Value) for Value in RowsValue)):
-        return None
-    UAxis, VAxis, Normal = MatrixAxes(RowsValue)
-    if not IsOrthonormal((UAxis, VAxis, Normal)):
-        return None
+    PlaneObjectId, AxisCode, Directions, BasisOffset = PoseValue
+    UAxis, VAxis, Normal = Directions
     return NativeSketchA(
         Offset,
         PlaneObjectId,

@@ -22,3 +22,11 @@ Qualify owned timestamp-bearing references and the typed scene-state branch from
 Keep malformed ownership, axis and matrix refusals.
 Do not remove guards or accept a timestamp pattern as a complete format rule.
 Replay all planes and directions and add independent controls before claiming a production placement repair.
+
+## Bounded reader repair
+
+The [principal-plane placement change](../../../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) removes the timestamp-value signature.
+The reader consumes the timestamp within a bounded reference and validates its generation, principal axis, matrix, and complete pose.
+All 144 captured SOLIDWORKS ladder files now match recorded native centroids through both public SDK read modes.
+The original reports remain unchanged, including their 96 historical failures.
+The separate typed scene, annotation, and axis limitations remain explicit.
