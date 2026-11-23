@@ -10,7 +10,7 @@ to you under it immediately and permanently.
 
 # Shared decoder graph workflow
 
-The [Graphify guide](../../Reference/Research/DecoderGraph.md) covers both Fusion
+The [Graphify guide](../../../Reference/Research/DecoderGraph.md) covers both Fusion
 and SOLIDWORKS. It replaces the Fusion-only navigation instructions with a shared
 workflow for isolated AST extraction, merging, clustering, HTML export, entry-point
 inspection, and raw-relationship diagnostics.
@@ -19,7 +19,7 @@ Graphify is an optional development tool. Generated graphs remain under ignored
 `tmp/`; the runtime and decoder behavior do not change.
 The guide pins the tested tool version and preserves the input graphs because
 the merged overview can collapse parallel relationships.
-The [gotcha](../../Gotchas/Research/GraphifyParallelRelationships.md) records that limit.
+The [gotcha](../../../Gotchas/Research/GraphifyParallelRelationships.md) records that limit.
 
 Task: shared decoder source navigation. Owner: Codex.
 Scope: documentation for both readers. Dependency: Graphify 0.9.97 and the source
