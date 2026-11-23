@@ -321,13 +321,15 @@ strict reader to one enclosed rectangular through-opening. Both cap chains
 retain their physical trim order. Two model-only archives and both strict
 reading modes agree with independent geometry and exact earlier controls.
 The circular profiles have model-only evidence for one coaxial bore and
-for multiple disjoint parallel bores in signed principal stock. The
-observed SP05.2 cap owner has two rings. Controlled native lifecycles and
-measured publication for the generated openings, general perforated
-plates and complete source capability transfer remain open.
+for multiple disjoint parallel bores in signed principal or exactly
+representable oblique stock. The observed SP05.2 cap owner has two rings.
+Controlled native lifecycles and measured publication for the generated
+openings, general perforated plates and complete source capability
+transfer remain open.
 [Rectangular proof](../../re/solidworks/records/PlanarThroughOpening2026.md)
 · [Annular proof](../../re/solidworks/records/AnnularLocalImport2026.md)
 · [Multiple bore proof](../../re/solidworks/records/PerforatedLocalImport2026.md)
+· [Oblique bore proof](../../re/solidworks/records/ObliqueLocalBores2026.md)
 
 ### B04-SW2026-LOCAL-IMPORT-READBACK
 

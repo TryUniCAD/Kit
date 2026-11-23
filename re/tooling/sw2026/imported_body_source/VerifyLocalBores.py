@@ -269,7 +269,7 @@ def ring_owners(nodes, count):
     return {"cap_loops": caps, "paired_owners": [[key, edge_caps[key], edge_walls[key]] for key in sorted(edge_caps)]}
 
 
-def read_modes(blob, settings, owners):
+def read_modes(blob, settings, owners, measure=verify_shape):
     wall_count = len(settings[5]) + 1
     outputs, evidence = [], {}
     for mode, full in (("full", True), ("design", False)):
@@ -288,7 +288,7 @@ def read_modes(blob, settings, owners):
         if full:
             assert value.brep is not None and value.brep.bodies[0].design_body_id == body.id
             assert not value.brep.validate(frozenset((body.id,))) and len(value.brep_payloads) == 3
-            report["geometry"] = verify_shape(value.brep, settings)
+            report["geometry"] = measure(value.brep, settings)
         else:
             assert value.brep is None and not value.brep_payloads
         outputs.append(value)
@@ -320,7 +320,7 @@ def rejected_inputs():
         "touching_exterior": (stock, ((-8., 0., 2.), (17., 0., 3.)), "does not clear the exterior"),
         "tangent_after_unit_encoding": ((18., *stock[1:]), ((-8., 0., 2.), (almost, 0., 4.)), "does not clear the exterior"),
         "oblique": ((*stock[:3], (-0.6, 0.8, 0.), (0., 0., 1.)), ((-8., 0., 2.), (8., 0., 3.)),
-                    "require one signed principal axis"),
+                    "does not join its two exact cap stations"),
     }
     return {name: rejected(lambda: MakeAnnularBody(model(name, (*support, bores, orders))), why)
             for name, (support, bores, why) in contrasts.items()}

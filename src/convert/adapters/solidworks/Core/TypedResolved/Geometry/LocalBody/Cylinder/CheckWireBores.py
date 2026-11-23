@@ -1,13 +1,16 @@
 from collections.abc import Mapping
 from math import isfinite as IsFinite
 
-from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckAnnBores import (
-    BoreAxisIndex,
-    CheckBorePair,
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.BoreVectors import (
+    KBoreVec,
+    MakeBoreVec,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckBoreFit import (
     CheckBoreFit,
     KBoreRing,
+)
+from convert.adapters.solidworks.Archive.Partition.LocalCylinder.CheckBorePair import (
+    CheckBorePair,
 )
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismVectors import (
     KPrismVector,
@@ -63,20 +66,35 @@ def ReadWirePair(
     PlanesValue: tuple[XmtNode, XmtNode],
     CapOrigins: tuple[KPrismVector, KPrismVector],
     RimValues: Mapping[tuple[int, int], KPrismVector],
-    AxisIndex: int,
+    AxisValue: KBoreVec,
 ) -> KBoreRing:
     First, Second = PlanesValue
     NearRim = RimValues.get((First.IndexValue, WallValue.IndexValue))
     FarRim = RimValues.get((Second.IndexValue, WallValue.IndexValue))
     if NearRim is None or FarRim is None:
         raise ValueError("local circular wall has an incomplete stored rim pair")
-    return CheckBorePair(
+    CheckBorePair(
         (NearRim, FarRim),
         CapOrigins,
         ReadXmtVector(WallValue, "pvec"),
-        ReadBoreRadius(WallValue),
-        AxisIndex,
+        AxisValue,
+        1.0,
     )
+    return NearRim, ReadBoreRadius(WallValue)
+
+
+# normalized reader directions may not mask a contradictory stored wall or plane axis
+def CheckWireAxes(NodesValue: Mapping[int, XmtNode], OuterAxis: KPrismVector) -> None:
+    AxesValue = (OuterAxis, tuple(-Value for Value in OuterAxis))
+    for NodeValue in NodesValue.values():
+        if (
+            NodeValue.KindValue in (31, 50, 51)
+            and ReadXmtVector(
+                NodeValue, "axis" if NodeValue.KindValue == 51 else "normal"
+            )
+            not in AxesValue
+        ):
+            raise ValueError("local circular bore axes must follow both cap stations")
 
 
 # comparison before unit conversion prevents colliding wire geometry from rounding apart
@@ -89,15 +107,17 @@ def CheckWireBores(
     CapOrigins = ReadXmtVector(First, "pvec"), ReadXmtVector(Second, "pvec")
     WallValues = tuple(Value for Value in NodesValue.values() if Value.KindValue == 51)
     OuterWall = max(WallValues, key=ReadBoreRadius)
-    AxisIndex = BoreAxisIndex(ReadXmtVector(OuterWall, "axis"))
+    OuterAxis = ReadXmtVector(OuterWall, "axis")
+    CheckWireAxes(NodesValue, OuterAxis)
+    AxisValue = MakeBoreVec(OuterAxis)
     if any(
         RimValues.get((Plane.IndexValue, OuterWall.IndexValue)) != Origin
         for Plane, Origin in zip(PlanesValue, CapOrigins, strict=True)
     ):
         raise ValueError("local circular stock rim is displaced from its stored cap")
-    StockRing = ReadWirePair(OuterWall, PlanesValue, CapOrigins, RimValues, AxisIndex)
+    StockRing = ReadWirePair(OuterWall, PlanesValue, CapOrigins, RimValues, AxisValue)
     BoreRings = tuple(
-        ReadWirePair(Value, PlanesValue, CapOrigins, RimValues, AxisIndex)
+        ReadWirePair(Value, PlanesValue, CapOrigins, RimValues, AxisValue)
         for Value in WallValues
         if Value is not OuterWall
     )

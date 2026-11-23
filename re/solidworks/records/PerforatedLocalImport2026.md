@@ -80,3 +80,7 @@ editable source feature history are claimed. Plates, general curved
 boundaries and oblique multiple bores remain outside this profile.
 [Process proof](../../tooling/sw2026/imported_body_source/VerifyLocalBores.py)
 · [Numeric receipt](../measurements/2026/PerforatedLocalImport01.json)
+
+The [later oblique proof](ObliqueLocalBores2026.md) records exact incidence
+for two 3D multi-bore models and reproduces the signed-axis controls here.
+The rounded oblique contrast now reports the failed cap station.

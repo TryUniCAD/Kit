@@ -863,7 +863,8 @@ readback of the two measured generated planar containers.
 
 The internal composer also models a rectangular blind recess, one straight
 rectangular through-opening, and circular stock with one full coaxial bore
-or multiple disjoint parallel through-bores on a signed principal axis.
+or multiple disjoint parallel through-bores whose cap placements are exact
+in neutral millimetres and wire metres. This includes oblique stock axes.
 The strict reader validates the same imported body in full and design-only
 reads and preserves both cap trim orders.
 These profiles await native output qualification.
@@ -871,6 +872,7 @@ These profiles await native output qualification.
 · [Rectangular through-opening evidence](../../../re/solidworks/records/PlanarThroughOpening2026.md)
 · [Annular body evidence](../../../re/solidworks/records/AnnularLocalImport2026.md)
 · [Multiple circular bore evidence](../../../re/solidworks/records/PerforatedLocalImport2026.md)
+· [Oblique circular bore evidence](../../../re/solidworks/records/ObliqueLocalBores2026.md)
 
 Exact measured publication supports the disclosed bare rectangle and
 one orthogonal concave L prism. Pass the completed import report through
