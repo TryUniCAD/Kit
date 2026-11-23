@@ -34,11 +34,11 @@ def CheckRefusal(ModeValue: str) -> None:
 
 # contradictory principal support must fail before either public read mode can return a guessed sketch
 @TestMark.parametrize("IncludeBrep", (False, True))
-def CheckSupportRefusal(IncludeBrep: bool) -> None:
+def CheckBadSupport(IncludeBrep: bool) -> None:
     with RaisesError(
         ArchiveError, match="invalid owned SOLIDWORKS principal sketch reference"
     ):
-        OpenDocument(
+        _ = OpenDocument(
             AlterCircle("support"),
             SourceFormat=KPartFormatId,
             IncludeBrep=IncludeBrep,
