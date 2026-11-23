@@ -43,7 +43,7 @@ If work pauses or changes owner, post a handoff with remaining tasks.
 #### A04-PlanePlacement: timestamp-independent principal references
 
 Codex owns this reader repair on `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
-Delivery is a local commit; remote publication is not authorized for this task.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
 Dependencies are the native ladder inputs and measured source observations from merged PRs #263 and #267.
 The [change entry](../../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records 144 files, 288 public-reader comparisons, 24 timestamp variants, and seventeen malformed-reference controls.
 All captured centroids agree; the 58 older pinned part documents retain identical serialized output.

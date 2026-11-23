@@ -573,7 +573,7 @@ Dependencies are merged PR #263, the research controller and native source measu
 
 Task `A04-PlanePlacement` is offline verified in the [owning register](../Reference/Research/AutomationSteps.md#a04-planeplacement-timestamp-independent-principal-references).
 Codex owns `codex/solidworks-plane-placement`, based on main `9e2049c73028b8f4d00d142a35a3fb42f1c23b92`.
-Delivery is local only; the user has not authorized remote publication.
+Delivery is [PR #270](https://github.com/TryUniCAD/Kit/pull/270), authorized for publication on 2026-11-23.
 Dependencies are merged PRs #263 and #267 and their unchanged native source observations.
 The bounded exit requires correct public-reader placement, timestamp variability, malformed-reference guards, and unchanged older part output.
 The [change entry](../Changes/Solidworks/Inspection/Parts/SolidworksPlanePlacement.md) records the completed offline checks.
