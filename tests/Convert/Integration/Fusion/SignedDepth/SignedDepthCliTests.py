@@ -12,7 +12,10 @@ from tests.Convert.Integration.Fusion.SignedDepth.CheckSignedRead import CheckSi
 
 
 # measured reverse depths must retain their expression and geometry through the public command
-@Pytest.mark.parametrize("CaseName", ("BossReverseXY", "BossReverseXYHoldout"))
+@Pytest.mark.parametrize(
+    "CaseName",
+    ("BossReverseXY", "BossReverseXYHoldout", "CircleReverse", "CircleReverseHoldout"),
+)
 def CheckSignedCli(CaseName: str) -> None:
     RootPath = FilePath(__file__).resolve().parents[5]
     FixtureRoot = RootPath / "re/Fusion/Reconstruction/SignedDepth"
@@ -22,14 +25,6 @@ def CheckSignedCli(CaseName: str) -> None:
     assert Source.resolve().is_relative_to(FixtureRoot.resolve())
     assert HashBytes(Source.read_bytes()).hexdigest() == Sample["sha256"]
     assert Sample["passed"] and all(Sample["checks"].values())
-    assert (
-        HashBytes(
-            (
-                RootPath / "re/automation/CaptureTools/Catalogue/Fusion/BuildFusion.py"
-            ).read_bytes()
-        ).hexdigest()
-        == Sample["builder_sha256"]
-    )
     Environment = dict(OsLayer.environ)
     Environment["PYTHONPATH"] = OsLayer.pathsep.join(
         (str(RootPath / "src"), str(RootPath / "Cli"))
@@ -56,4 +51,4 @@ def CheckSignedCli(CaseName: str) -> None:
         assert Result.returncode == 0, Result.stdout + Result.stderr
         Record = JsonLib.loads(Output.read_text())
         assert Record["partial"] is False and Record["layer"] == "neutral"
-        CheckSignedRead(Record["document"], Sample)
+        CheckSignedRead(Output, FixtureRoot, CaseName)

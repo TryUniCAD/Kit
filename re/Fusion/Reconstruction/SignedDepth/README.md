@@ -7,7 +7,7 @@ The existing `BuildFusion` entry point overwrote signed native depth parameters 
 
 Baseline acceptance reproduces the incorrect cut volume and reverse centroid. Candidate acceptance passes six native cases, including before/after positive controls, a cut parameter holdout and a reversed YZ parameter holdout. A separate request adds a reversed XY parameter holdout. The receipts record source hashes, native feature health, dimensions, body count, volume, centroid and export/reopen measurements. Reopening here occurs within each request's owned application session; it is not a fresh-process claim. Native jobs preserve interactive sessions and model advice stays disabled.
 
-Four focused native inputs are retained in `Manifest.json`. The rest of the campaign remains outside the checkout. Holdouts vary parameters of the same generator; they are not independent authoring lineage. Baseline and candidate source fingerprints are distinct and retained.
+Six focused native inputs are retained in `Manifest.json`. The rest of the campaign remains outside the checkout. Holdouts vary parameters of the same generator; they are not independent authoring lineage. Baseline and candidate source fingerprints are distinct and retained.
 
 Both reversed XY inputs are rejected by the base public reader with `Native reverse distance requires a wrapped millimeter literal`. The candidate accepts their measured plain negative millimeter literals, retains the original expression and signed parameter, and produces matching native volume and bounds. Existing wrapped literals remain accepted. Unit, positive-magnitude and numeric-consistency checks remain required; arbitrary formulas are outside this rule.
 
@@ -16,3 +16,10 @@ The reversed YZ case still fails `FusionSketchLinearDim.constraintType`. Both cu
 Public CLI integration coverage lives in `tests/Convert/Integration/Fusion/SignedDepth` and uses the existing complete-suite planner and merge-queue shards. Production code never reads these fixture archives or measured rows. No writer or donor replay is introduced.
 
 The native API contract for updating expressions is documented in [ModelParameter.expression](https://help.autodesk.com/cloudhelp/ENU/Fusion-360-API/files/fusion_ModelParameter_expression.htm). Its formula support is broader than this evidence-qualified reader boundary.
+
+
+Review follow-up also qualifies the shared circular extrusion path. The existing circular-span original and holdout scripts save plain depths of `-23.7 mm` and `-31.9 mm`. Their centers and radii differ; both remain the existing circular builder family. Both baseline strict reads reject the plain spelling; the current installed reader preserves the expression, negative depth, owner binding, measured volume, area and bounds. Cross-format conversion still refuses `UnqualifiedGeometry`.
+
+The circular source requests used distinct owned processes on the recorded application build. They capture native export measurements; reopen/edit/restore is not measured for these additional circle controls. The original script captures three cases; the held-out script captures five because its own `ONLY` assignment also selects symmetric and two-sided controls. All eight captures are retained externally, and both positive controls in each request have the expected native volume. Only the two reverse circles are added as regression archives. See the [selection gotcha](../../../../Documentation/Gotchas/Research/Campaigns/CircularHoldoutOverridesSelection.md).
+
+Archived decoder regressions pin CAD hashes and measured receipts. They do not compare the current builder file to a historical builder hash; future authoring changes do not invalidate the archived source. Historical builder and request hashes remain provenance.

@@ -8,7 +8,10 @@ import pytest as Pytest
 
 
 # newly readable reverse depths must not bypass remaining conversion qualification requirements
-@Pytest.mark.parametrize("CaseName", ("BossReverseXY", "BossReverseXYHoldout"))
+@Pytest.mark.parametrize(
+    "CaseName",
+    ("BossReverseXY", "BossReverseXYHoldout", "CircleReverse", "CircleReverseHoldout"),
+)
 def CheckSignedGate(CaseName: str) -> None:
     RootPath = FilePath(__file__).resolve().parents[5]
     Source = RootPath / "re/Fusion/Reconstruction/SignedDepth" / (CaseName + ".f3d")

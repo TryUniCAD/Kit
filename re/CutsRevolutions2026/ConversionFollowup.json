@@ -84,13 +84,26 @@
     "independent_generator_holdout": false
   },
   "reader": {
-    "new_strict_decodes": 2,
-    "conversion_refusals": 2,
+    "new_strict_decodes": 4,
+    "conversion_refusals": 4,
     "remaining_semantic_refusals": {
       "cut_entity_class": 2,
       "yz_dimension_type": 1
     },
     "installed_python": "3.14.6"
   },
-  "pipeline_wall_seconds": 1772.8477199077606
+  "pipeline_wall_seconds": 1772.8477199077606,
+  "circular_followup": {
+    "native_requests": 2,
+    "captured_cases": 8,
+    "qualified_reverse_inputs": 2,
+    "strict_baseline_rejections": 2,
+    "strict_current_decodes": 2,
+    "protected_conversion_refusals": 2,
+    "extra_fixed_selection_cases": 2,
+    "blocked_before_submission": 1,
+    "same_builder_family": true,
+    "circle_reopen_edit_restore": "not measured",
+    "all_raw_outputs_retained": true
+  }
 }

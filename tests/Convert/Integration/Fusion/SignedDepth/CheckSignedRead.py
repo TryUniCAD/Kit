@@ -1,9 +1,13 @@
 from math import isclose as IsClose
-from typing import Any as AnyValue
+import json as JsonLib
+from pathlib import Path as FilePath
 
 
 # native measurements must constrain the decoded feature graph as well as successful command execution
-def CheckSignedRead(Document: dict[str, AnyValue], Sample: dict[str, AnyValue]) -> None:
+def CheckSignedRead(Output: FilePath, FixtureRoot: FilePath, CaseName: str) -> None:
+    Document = JsonLib.loads(Output.read_text())["document"]
+    Manifest = JsonLib.loads((FixtureRoot / "Manifest.json").read_text())
+    Sample = next(Value for Value in Manifest["samples"] if Value["id"] == CaseName)
     assert not Document["diagnostics"]["$tuple"]
     Features = Document["feature_timeline"]["$tuple"]
     assert len(Features) == 2
@@ -11,10 +15,12 @@ def CheckSignedRead(Document: dict[str, AnyValue], Sample: dict[str, AnyValue]) 
     Depth = next(
         Value
         for Value in Document["parameters"]["$tuple"]
-        if Value["name"] == "depth_mm"
+        if Value["name"] == Sample["depth_name"]
     )
     NativeDepth = next(
-        Value for Value in Sample["native"]["parameters"] if Value["name"] == "depth_mm"
+        Value
+        for Value in Sample["native"]["parameters"]
+        if Value["name"] == Sample["depth_name"]
     )
     assert Depth["expression"]["source"] == NativeDepth["expression"]
     assert Depth["owner_id"] == Features[-1]["id"]
@@ -27,6 +33,10 @@ def CheckSignedRead(Document: dict[str, AnyValue], Sample: dict[str, AnyValue]) 
     Topology = Bodies[0]["topology"]
     assert Topology["valid"] and Topology["solid_count"] == 1
     assert IsClose(Topology["volume"], Sample["native"]["volume_mm3"], rel_tol=1e-9)
+    if "surface_area_mm2" in Sample["native"]:
+        assert IsClose(
+            Topology["surface_area"], Sample["native"]["surface_area_mm2"], rel_tol=1e-9
+        )
     for RoleName, Expected in zip(
         ("minimum", "maximum"),
         Sample["native"]["bodies"][0]["bounding_box_mm"],
