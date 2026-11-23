@@ -1,0 +1,356 @@
+{
+  "build": "34.5.2.0604",
+  "conversion_credit": 0,
+  "heldout_oracle_inputs_read": 0,
+  "native_processes": 0,
+  "pinned_pe": {
+    "accessors": {
+      "GetCounterBoreDepth": {
+        "bytes": 85,
+        "end_exclusive": "0x4bf71a95",
+        "file_offset": 14880320,
+        "name": "moHoleWzd_c::GetCounterBoreDepth",
+        "sha256": "e141b146671d8625bd04780b1d15efa387671da6be852921146b3a87a69b8a46",
+        "start": "0x4bf71a40"
+      },
+      "GetCounterBoreDepthWithHC": {
+        "bytes": 238,
+        "end_exclusive": "0x4bf71b8e",
+        "file_offset": 14880416,
+        "name": "moHoleWzd_c::GetCounterBoreDepthWithHC",
+        "sha256": "15ed98d366a732c0b01236c43f6827f00f51ac2ca025d6f32a40d3d2c5213601",
+        "start": "0x4bf71aa0"
+      },
+      "GetCounterBoreDiameter": {
+        "bytes": 243,
+        "end_exclusive": "0x4bf71c83",
+        "file_offset": 14880656,
+        "name": "moHoleWzd_c::GetCounterBoreDiameter",
+        "sha256": "155295b7a97dc2699aaff3a98865c6edaae01b5f08b0f676632cb1bde200d139",
+        "start": "0x4bf71b90"
+      },
+      "GetThruHoleDiameter": {
+        "bytes": 244,
+        "end_exclusive": "0x4bf73e14",
+        "file_offset": 14889248,
+        "name": "moHoleWzd_c::GetThruHoleDiameter",
+        "sha256": "7c67adcf159aae90b1cbc3fc2042311ab738ce48ba2a10e54d5de6309d250792",
+        "start": "0x4bf73d20"
+      },
+      "getCenterLocProfile": {
+        "bytes": 15,
+        "end_exclusive": "0x4bf49f6f",
+        "file_offset": 14717792,
+        "name": "moHoleWzd_c::getCenterLocProfile",
+        "sha256": "f12b5a70b4d2bad6fb6ffee5e165c35ee3b76d1f131fafae7f8ba711a718ccf7",
+        "start": "0x4bf49f60"
+      },
+      "getCenterLocSketch": {
+        "bytes": 63,
+        "end_exclusive": "0x4b3c9b0f",
+        "file_offset": 2658000,
+        "name": "moBaseHoleWzd_c::getCenterLocSketch",
+        "sha256": "97d8000d66bb3c30a664d220af85672e172f94d89e5cbd33f506149370fcee75",
+        "start": "0x4b3c9ad0"
+      },
+      "getDiameterDepth": {
+        "bytes": 664,
+        "end_exclusive": "0x4bf86118",
+        "file_offset": 14963328,
+        "name": "moHoleWzd_c::getDiameterDepth",
+        "sha256": "14563702cf47e0d43ca733696d02cf8c42b7bc95d155bfd580dd67f3fb053533",
+        "start": "0x4bf85e80"
+      },
+      "getExitType": {
+        "bytes": 7,
+        "end_exclusive": "0x4b2bceb7",
+        "file_offset": 1557168,
+        "name": "moHoleWzd_c::getExitType",
+        "sha256": "a638555ed9bc35371a5b50b0c43b588488c55405fae9213c497033659850b740",
+        "start": "0x4b2bceb0"
+      },
+      "getHoleProfile": {
+        "bytes": 15,
+        "end_exclusive": "0x4bf8842f",
+        "file_offset": 14972960,
+        "name": "moHoleWzd_c::getHoleProfile",
+        "sha256": "5b05c2dd1f63456d0d1a31670c3f8e9232692f3e6b28954b6e87867688d3ee87",
+        "start": "0x4bf88420"
+      },
+      "getHoleTypeInfo": {
+        "bytes": 7,
+        "end_exclusive": "0x4b28d357",
+        "file_offset": 1361744,
+        "name": "moHoleWizardInfo_c::getHoleTypeInfo",
+        "sha256": "0cfed9bd5dacd9397d968e3ec10546faeaa236d5b3c54ebc18ade09625c75817",
+        "start": "0x4b28d350"
+      },
+      "getSectionProfSketch": {
+        "bytes": 63,
+        "end_exclusive": "0x4b3ca2df",
+        "file_offset": 2660000,
+        "name": "moBaseHoleWzd_c::getSectionProfSketch",
+        "sha256": "baf5638ab85bfc5c8e4d84253d9604c88a143ef01e1c43d6f85001a72e4aab91",
+        "start": "0x4b3ca2a0"
+      },
+      "setHoleType": {
+        "bytes": 7,
+        "end_exclusive": "0x4b291f07",
+        "file_offset": 1381120,
+        "name": "moHoleWzd_c::setHoleType",
+        "sha256": "36c840ea25b73c3863e6b775c19b4f7939ad8c87d9d2989454cc28d49440ff0b",
+        "start": "0x4b291f00"
+      }
+    },
+    "classes": {
+      "moAdvHoleWzd_c": {
+        "body": {
+          "bytes": 176,
+          "end_exclusive": "0x4b39f150",
+          "file_offset": 2483360,
+          "name": "moAdvHoleWzd_c::Serialize",
+          "sha256": "a5b545aa101f8669738b0a98e31c2b8bddf8ff356ddb1811bd116dab0ac4287a",
+          "start": "0x4b39f0a0"
+        },
+        "lineage": [
+          "moAdvHoleWzd_c",
+          "moBaseHoleWzd_c",
+          "moSketchedFeature_c",
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "moModelFeature_c",
+          "moFeature_c",
+          "moConcept_c",
+          "moLoggedNode_c",
+          "moNode_c",
+          "su_CObject",
+          "CObject",
+          "utDisplayedEntity_c"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cde6e58",
+          "file_offset": 30038096,
+          "name": "Serialize cell",
+          "sha256": "68735fcb20a021d34cf6b4fefeeac84205535b502edea0a99e57ac593513d042",
+          "start": "0x4cde6e50"
+        },
+        "vtable": "0x4cde6e28"
+      },
+      "moBaseHoleWzd_c": {
+        "body": {
+          "bytes": 124,
+          "end_exclusive": "0x4b3c933c",
+          "file_offset": 2655936,
+          "name": "moBaseHoleWzd_c::Serialize",
+          "sha256": "2784085aea19f4599bba6d28bfe7df6b5b78c7f01325f189b5f8babd4dc47d76",
+          "start": "0x4b3c92c0"
+        },
+        "lineage": [
+          "moBaseHoleWzd_c",
+          "moSketchedFeature_c",
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "moModelFeature_c",
+          "moFeature_c",
+          "moConcept_c",
+          "moLoggedNode_c",
+          "moNode_c",
+          "su_CObject",
+          "CObject",
+          "utDisplayedEntity_c"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cde2ce8",
+          "file_offset": 30021344,
+          "name": "Serialize cell",
+          "sha256": "9982d060c25d5b7919766751e9e7a842f6d718f46624d347a782bb28320fef87",
+          "start": "0x4cde2ce0"
+        },
+        "vtable": "0x4cde2cb8"
+      },
+      "moHoleSeries_c": {
+        "body": {
+          "bytes": 1561,
+          "end_exclusive": "0x4bf46289",
+          "file_offset": 14700656,
+          "name": "moHoleSeries_c::Serialize",
+          "sha256": "7be8b5d2388f76fef8af74ab7ad42a6ce26d3a7075a58591ecee53b01aa04858",
+          "start": "0x4bf45c70"
+        },
+        "lineage": [
+          "moHoleSeries_c",
+          "moModelFeature_c",
+          "moFeature_c",
+          "moConcept_c",
+          "moLoggedNode_c",
+          "moNode_c",
+          "su_CObject",
+          "CObject",
+          "utDisplayedEntity_c"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4d09e200",
+          "file_offset": 32885752,
+          "name": "Serialize cell",
+          "sha256": "4d6d329dfc229202d74de8c000ed5e3c15187859c9455a9392be89196e52a140",
+          "start": "0x4d09e1f8"
+        },
+        "vtable": "0x4d09e1d0"
+      },
+      "moHoleWizardInfo_c": {
+        "body": {
+          "bytes": 3631,
+          "end_exclusive": "0x4b40199f",
+          "file_offset": 2883440,
+          "name": "moHoleWizardInfo_c::Serialize",
+          "sha256": "a678deab11a252e9ada3c8c06deec0624fd02b2c36aff78aec6f3e9bf6d31d4a",
+          "start": "0x4b400b70"
+        },
+        "lineage": [
+          "moHoleWizardInfo_c",
+          "su_CObject",
+          "CObject"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cded580",
+          "file_offset": 30064504,
+          "name": "Serialize cell",
+          "sha256": "793365657296859a2fdad6ce3dffb75912fd5cf6f2004bfb14158342b827e853",
+          "start": "0x4cded578"
+        },
+        "vtable": "0x4cded550"
+      },
+      "moHoleWzd_c": {
+        "body": {
+          "bytes": 6844,
+          "end_exclusive": "0x4bb152ac",
+          "file_offset": 10300400,
+          "name": "moHoleWzd_c::Serialize",
+          "sha256": "bc54601c4941cc45535d11c6d76a977492c759da99f6f73dc1d00e5f0180ec5e",
+          "start": "0x4bb137f0"
+        },
+        "lineage": [
+          "moHoleWzd_c",
+          "moBaseHoleWzd_c",
+          "moSketchedFeature_c",
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "moModelFeature_c",
+          "moFeature_c",
+          "moConcept_c",
+          "moLoggedNode_c",
+          "moNode_c",
+          "su_CObject",
+          "CObject",
+          "utDisplayedEntity_c"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4d0a3b10",
+          "file_offset": 32908552,
+          "name": "Serialize cell",
+          "sha256": "3902992b1a1e70ae172d57e5a56a88e3dde1151c111838b1b3d014a9dbe88961",
+          "start": "0x4d0a3b08"
+        },
+        "vtable": "0x4d0a3ae0"
+      },
+      "moSketchHole": {
+        "body": {
+          "bytes": 281,
+          "end_exclusive": "0x4bb1f499",
+          "file_offset": 10348416,
+          "name": "moSketchHole::Serialize",
+          "sha256": "d2688f5a7310de9ffef6eff69cb351310974f8fe195d665d01c6cbb15981e401",
+          "start": "0x4bb1f380"
+        },
+        "lineage": [
+          "moSketchHole",
+          "moCut_c",
+          "moExtrusion_c",
+          "moSingleSketchFeature_c",
+          "moSketchedFeature_c",
+          "moBodyFeature_c",
+          "moAtomFeature_c",
+          "moModelFeature_c",
+          "moFeature_c",
+          "moConcept_c",
+          "moLoggedNode_c",
+          "moNode_c",
+          "su_CObject",
+          "CObject",
+          "utDisplayedEntity_c"
+        ],
+        "virtual_cell": {
+          "bytes": 8,
+          "end_exclusive": "0x4cf42298",
+          "file_offset": 31460496,
+          "name": "Serialize cell",
+          "sha256": "a37bed60cdf2173ee3578aa24923053204472df13e7e138bbac57fae144be090",
+          "start": "0x4cf42290"
+        },
+        "vtable": "0x4cf42268"
+      }
+    },
+    "inherited_serialize_calls": {
+      "0x4b3c92e1": "0x4bb0d460",
+      "0x4bb1381d": "0x4b3c92c0",
+      "0x4bb1f3a1": "0x4bb11640"
+    },
+    "map_sha256": "dbb788346ee44610cb365a44e6150a8264b03f93fed9832a19caa8ad24dabec4",
+    "model_dll_sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e",
+    "ordinary_dispatch": {
+      "0x1a58": "0x4bea06a0",
+      "0x2660": "0x4bf49f60",
+      "0x2668": "0x4bf88420",
+      "0x2740": "0x4b2bd060"
+    },
+    "preferred_base": "0x4b140000"
+  },
+  "qualified_current_sources": 0,
+  "schema": "kit.sw2026.hole-archive-ownership.v1",
+  "tracked_sources": {
+    "descriptor_parts": {
+      "14000/moAdvHoleWzd_c": 4,
+      "14000/moHoleWzd_c": 21
+    },
+    "input_manifest_sha256": "8ba6cf7ffc4ac36417d6649f602d826f9c1b18793ea6b7d7dab5d3c5d3e96c28",
+    "keyword_parts": {
+      "14000": 21
+    },
+    "legacy_contrast": {
+      "git_blob": "a4e7f529a03cfd70eb3d5af493055058d5aa8789",
+      "keyword_ids": [
+        "221"
+      ],
+      "keyword_sha256": "5072e7b7feac46a8fc82d33911515e2cfa43deb1fe29fad37a65acc0cf5ea2bb",
+      "path": "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/ARBOL DE LEVAS DE ADMISIO\u0301N_DERECHO.SLDPRT",
+      "resolved_descriptors": [
+        {
+          "class": "moHoleWzd_c",
+          "offset": 200524,
+          "schema": 1
+        }
+      ],
+      "resolved_sha256": "ef1735808c922d9cfc120523a0c66b34e7b3008e7309e449c30959c750d0a6a4",
+      "sha256": "73f0b499c5829b5bfbdcdbb0700eee22e97c7ad6dc0a4d78c177c4d45ff5aa2c",
+      "version": 14000
+    },
+    "missing_or_unsupported_keywords": {},
+    "part_count": 263,
+    "resolved_descriptor_parts": {
+      "14000/moAdvHoleWzd_c": 4,
+      "14000/moHoleWzd_c": 21
+    },
+    "revision": "cd20b8ea0c17ee29d48e1ee767f836be8e0fe4f5",
+    "version_counts": {
+      "14000": 57,
+      "18000": 1,
+      "19000": 205
+    }
+  },
+  "writer_outputs": 0
+}
