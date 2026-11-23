@@ -13,7 +13,7 @@ to you under it immediately and permanently.
 The installed `kit research --root CHECKOUT supervisor ...` command now admits Windows research checkouts.
 The supervisor still requires Windows 10 or newer, Python 3.14 or newer, and the locked `pywin32` development extra.
 
-Windows research children use separate process groups.
+Windows supervisor children use separate process groups.
 For supervisor commands, the launcher forwards handled `SIGINT`, `SIGTERM`, and `SIGBREAK` as `CTRL_BREAK_EVENT`.
 The supervisor accepts break events through its existing shutdown path.
 The launcher polls its wait so Python can dispatch pending Windows signal handlers while the supervisor remains active.

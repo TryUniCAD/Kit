@@ -11,9 +11,11 @@ from sys import platform as KPlatform
 
 
 # research children need independent process groups for targeted cancellation without interrupting the launcher
-def StartResearch(Arguments: list[str]) -> StartProcess[bytes]:
-    if KPlatform == "win32":
+def StartResearch(
+    Arguments: list[str], OwnWindows: bool = False
+) -> StartProcess[bytes]:
+    if KPlatform == "win32" and OwnWindows:
         from subprocess import CREATE_NEW_PROCESS_GROUP as KNewProcessGroup
 
         return StartProcess(Arguments, creationflags=KNewProcessGroup)
-    return StartProcess(Arguments, start_new_session=True)
+    return StartProcess(Arguments, start_new_session=KPlatform != "win32")

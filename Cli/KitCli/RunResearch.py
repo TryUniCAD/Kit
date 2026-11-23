@@ -15,12 +15,13 @@ def RunResearch(Options: CliOptions) -> NoReturn:
 
     RootPath, ScriptPath = ResearchScript(Options)
     Arguments, LegacyReader = ResearchArgs(Options, RootPath, ScriptPath)
-    with ResearchSignals(Options.ResearchTool == "supervisor") as (
+    OwnWindows = Options.ResearchTool == "supervisor"
+    with ResearchSignals(OwnWindows) as (
         ChildProcesses,
         PendingSignals,
     ):
         with StartResearch(
-            [KPythonPath, str(ScriptPath), *Arguments],
+            [KPythonPath, str(ScriptPath), *Arguments], OwnWindows
         ) as ChildProcess:
             ChildProcesses.append(ChildProcess)
             ReturnCode = WaitResearchMut(ChildProcess, PendingSignals)
