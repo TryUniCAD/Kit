@@ -15,8 +15,7 @@ from tests.Research.Inference.BuilderDevelopment.Optimizations.JsonBoundary impo
 
 
 # cancellation must follow the actual client acknowledgement rather than merely observing a sent request
-def WaitRequest(Session: object) -> None:
-    Deadline = MonoTime() + 5
+def WaitRequest(Session: object, Deadline: float) -> None:
     while MonoTime() < Deadline:
         for EventValue in AsRecords(getattr(Session, "events")):
             ResultValue = EventValue.get("result")
