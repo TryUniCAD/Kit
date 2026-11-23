@@ -1,0 +1,79 @@
+{
+  "measurement": {
+    "receipt": {
+      "controls_healthy": true,
+      "fixture_sha256": "a70762b23ea28fd0749fb256d41405393b689da69e441a87cd4acf3a92a37bda",
+      "members": [
+        {
+          "bytes": 8694,
+          "name": "NeutralPerpPrism.SLDPRT",
+          "sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+        },
+        {
+          "bytes": 10021,
+          "name": "NeutralPerpPair.SLDASM",
+          "sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187"
+        }
+      ],
+      "namespace": "\\\\Mac\\Home\\Documents\\UniCAD\\Oracle121Takeover\\PublicPerpendicularRegistry01\\GeneratedInput",
+      "native_result_sha256": "2c694d52c50d65971dd569c51bd91a8313ee1f606e3536b63160bc939dd26272",
+      "oracle": {
+        "build": "34.5.2.0604",
+        "product": "SOLIDWORKS 2026 SP05.2",
+        "sha256": "3f6844591c7456a476bdc141817a21c3c10f770e12347a698eef5ea8ad60d1fe"
+      },
+      "packet_sha256": "a719214c4e12170239a22a07598039d62c15ab176583871ce639f745eaddc42b",
+      "passed": true,
+      "phases": [
+        {
+          "finished_at": 1795012611.160304,
+          "mode": "before",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134394861767231336,
+          "process_id": 7620,
+          "record_sha256": "dffb6da3c77347044df364139c1f0d1747574ea9dc3d4af9027ebc878501f939",
+          "started_at": 1795012571.841744
+        },
+        {
+          "finished_at": 1795012694.927294,
+          "mode": "generated",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134394862160849959,
+          "process_id": 5160,
+          "record_sha256": "96ed9177cff537c423032e41baf0e64d834b27636fd391ba460e42cbb4d7aea0",
+          "started_at": 1795012611.219054
+        },
+        {
+          "finished_at": 1795012736.289162,
+          "mode": "reopen",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134394863002898209,
+          "process_id": 4216,
+          "record_sha256": "a6a0313a2c315f5a3c1a22f70a8a6cab775e6e34b4171c43d4df96b94d5927c9",
+          "started_at": 1795012694.990142
+        },
+        {
+          "finished_at": 1795012931.020349,
+          "mode": "after",
+          "open_errors": 0,
+          "open_warnings": 0,
+          "passed": true,
+          "process_creation_filetime": 134394864930195708,
+          "process_id": 9836,
+          "record_sha256": "98f858f2f68e48d5a42461d9bd759e524ab9672e6149e5709cd71158d1a86ca9",
+          "started_at": 1795012887.671175
+        }
+      ],
+      "root": "NeutralPerpPair.SLDASM",
+      "schema": "kit.sw2026.planar-assembly-measurement.v1",
+      "written_at": 1794700075
+    },
+    "written_at": 1794700075
+  }
+}

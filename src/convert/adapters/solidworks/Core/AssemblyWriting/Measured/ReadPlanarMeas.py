@@ -1,5 +1,5 @@
 from hashlib import sha256 as CalcSha
-from json import dumps as DumpJson
+from json import dumps as DumpJson, loads as LoadJson
 
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.solidworks.Core.AssemblyWriting.Measured.CheckAsmPhases import (
@@ -8,9 +8,11 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Measured.CheckAsmPhases im
 from convert.adapters.solidworks.Core.AssemblyWriting.Measured.CheckPairRows import (
     CheckPairRows,
 )
-from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
-    KPartMeasureOpt,
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadHeldPerp import (
+    KHeldPerpSchema,
+    ReadHeldPerp,
 )
+from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasInput import ReadMeasInput
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasMap import ReadMeasMap
 from convert.adapters.solidworks.Core.Writing.Measured.ReadMeasSha import ReadMeasSha
 from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOraclePart
@@ -18,23 +20,12 @@ from convert.adapters.solidworks.Core.Writing.Measured.ReadPartMeas import KOrac
 # this approves the canonical disclosed report without using its bytes in the serializer
 KPlanarProofSha = "8b2f23136767969ab3eb1e3c7d8eab593092fe8cb333973dd1fd6a88633aa8ee"
 
+# this binds the earlier normal perpendicular pair and its independent control phases
+KPerpProofSha = "8288e79ac85a8a9d7d0d080e227745faffe50fb92032947b812aa95bef30b1bf"
 
-# caller measurements must establish the exact known lifecycle before supplying a writer epoch
-def ReadPlanarMeas(Settings: WriteOptions) -> tuple[int, dict[str, object]]:
-    Value = Settings.values.get(KPartMeasureOpt)
-    if Value is None:
-        raise ValueError(
-            "SOLIDWORKS planar publication requires an offline native measurement receipt"
-        )
-    Envelope = ReadMeasMap(Value)
-    EpochValue = Envelope.get("written_at")
-    if (
-        Envelope.keys() != {"written_at", "receipt"}
-        or type(EpochValue) is not int
-        or not 0 <= EpochValue <= 0xFFFFFFFF
-    ):
-        raise ValueError("planar evidence requires its exact measured epoch")
-    Receipt = ReadMeasMap(Envelope["receipt"])
+
+# the disclosed flat bundles use the same controlled lifecycle and complete member contract
+def CheckPlanarRcpt(Receipt: dict[str, object], EpochValue: int) -> None:
     CheckAsmPhases(Receipt)
     if (
         Receipt.keys()
@@ -62,13 +53,25 @@ def ReadPlanarMeas(Settings: WriteOptions) -> tuple[int, dict[str, object]]:
     CheckPairRows(Receipt)
     for FieldName in ("packet_sha256", "fixture_sha256", "native_result_sha256"):
         _ = ReadMeasSha(Receipt.get(FieldName))
+
+
+# caller measurements establish a scoped native lifecycle and never provide archive values
+def ReadPlanarMeas(
+    Settings: WriteOptions, *, Perpendicular: bool = False
+) -> tuple[int, dict[str, object]]:
+    EpochValue, SourceValue, _ = ReadMeasInput(Settings)
+    if Perpendicular and SourceValue.get("schema") == KHeldPerpSchema:
+        return EpochValue, ReadHeldPerp(SourceValue)
     Encoded = DumpJson(
-        Envelope,
+        {"written_at": EpochValue, "receipt": SourceValue},
         sort_keys=True,
         separators=(",", ":"),
         allow_nan=False,
         ensure_ascii=False,
     ).encode("utf-8")
-    if CalcSha(Encoded).hexdigest() != KPlanarProofSha:
+    Expected = KPerpProofSha if Perpendicular else KPlanarProofSha
+    if CalcSha(Encoded).hexdigest() != Expected:
         raise ValueError("planar publication requires authenticated offline evidence")
+    Receipt = ReadMeasMap(ReadMeasMap(LoadJson(Encoded))["receipt"])
+    CheckPlanarRcpt(Receipt, EpochValue)
     return EpochValue, Receipt

@@ -7,8 +7,12 @@ from convert.adapters.solidworks.Container.ColdStreamRoles import (
 from convert.adapters.solidworks.Container.Container import SldprtArchive
 
 
-# the measured pair has its own complete cold stream inventory and ordered mate owners
-def IsColdPair(Native: NativeAsm, Archive: SldprtArchive) -> bool:
+# the measured flat profiles have a complete cold stream inventory and ordered mate owners
+def IsColdPair(
+    Native: NativeAsm,
+    Archive: SldprtArchive,
+    ExpectedClasses: tuple[str, ...] = ("moMateCoincident", "moMateDistanceDim_c"),
+) -> bool:
     if (
         Archive.format_version != 4
         or ContainerMo(Archive.streams) != 19000
@@ -25,7 +29,6 @@ def IsColdPair(Native: NativeAsm, Archive: SldprtArchive) -> bool:
         == ListValue.owner_definition_id
         == Native.root_definition_id
         and ListValue.stream == "Contents/Config-0-MatesList"
-        and ListValue.declared_count == 2
-        and tuple(Value.class_name for Value in ListValue.mates)
-        == ("moMateCoincident", "moMateDistanceDim_c")
+        and ListValue.declared_count == len(ExpectedClasses)
+        and tuple(Value.class_name for Value in ListValue.mates) == ExpectedClasses
     )

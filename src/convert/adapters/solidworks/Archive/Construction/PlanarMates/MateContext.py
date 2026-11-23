@@ -19,3 +19,4 @@ class MateContext:
     TargetValue: FeatureTarget
     Allocator: PersistentIds
     PreviousValues: tuple[ArchiveNode, ...] = ()
+    SequentialProjection: bool = False

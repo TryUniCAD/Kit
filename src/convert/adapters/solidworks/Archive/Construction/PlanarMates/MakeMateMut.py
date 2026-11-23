@@ -39,7 +39,10 @@ def MakeMateMut(Context: MateContext, InputValue: PlanarMateIn) -> ArchiveNode:
         MakeEndpoint(Context.AssemblyValue, Value) for Value in InputValue.Selections
     )
     CheckPerpEnds(InputValue, Endpoints)
-    Resolved = tuple(MakeResolved(Value) for Value in Endpoints)
+    Resolved = tuple(
+        MakeResolved(Value, SequentialProjection=Context.SequentialProjection)
+        for Value in Endpoints
+    )
     Detached = [
         {"k": Index, "o": MakeDetached(Value, Context)}
         for Index, Value in enumerate(Endpoints)

@@ -67,7 +67,7 @@ def ReadPublicMates(
         LinkValue.ConfigValue.RootValue,
         Items,
         {Value.object_id: Value for Value in Native.definitions},
-        ReadMateKids(EnvValue, ColdRequired=ColdRequired),
+        ReadMateKids(EnvValue, ColdRequired=ColdRequired or EnvValue.ColdPerp),
     )
     CheckMateIds(GraphValue.RootsValue, LinkValue)
     CheckMateWraps(GraphValue.RootsValue)

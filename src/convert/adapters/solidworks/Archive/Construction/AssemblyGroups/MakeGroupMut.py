@@ -44,6 +44,8 @@ def MakeGroupMut(
     HeadersValue: tuple[ArchiveNode, ArchiveNode],
     PreviousValues: tuple[ArchiveNode, ...],
     FixedIndex: int,
+    *,
+    SequentialProjection: bool = False,
 ) -> ArchiveNode:
     ChildGraph = MateChild(
         ChildValue.SystemValue.RootValue,
@@ -70,6 +72,7 @@ def MakeGroupMut(
         InputValue.TargetValue,
         StateValue.Allocator,
         PreviousValues,
+        SequentialProjection=SequentialProjection,
     )
     NativeInput = PlanarMateIn(
         MateValue.KindValue,

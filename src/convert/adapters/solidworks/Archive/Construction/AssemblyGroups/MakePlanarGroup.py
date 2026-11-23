@@ -47,6 +47,7 @@ def MakePlanarGroup(
     FixedIndex: int,
     *,
     DisplayValues: tuple[AsmDisplayIn, ...] | None = None,
+    SequentialProjection: bool = False,
 ) -> OrderedAsm:
     CheckGroupIn(ChildValue, InputValue, Occurrences, MateInputs, FixedIndex)
     StateValue = MakeAsmBase(InputValue)
@@ -66,6 +67,7 @@ def MakePlanarGroup(
                 HeadersValue,
                 tuple(MateNodes),
                 FixedIndex,
+                SequentialProjection=SequentialProjection,
             )
         )
     MateValues = tuple(MateNodes)

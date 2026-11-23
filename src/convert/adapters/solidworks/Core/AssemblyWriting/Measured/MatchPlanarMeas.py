@@ -2,6 +2,12 @@ from collections.abc import Mapping
 from hashlib import sha256 as CalcSha
 from pathlib import PureWindowsPath
 
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.MatchHeldPerp import (
+    MatchHeldPerp,
+)
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadHeldPerp import (
+    KHeldPerpSchema,
+)
 from convert.adapters.solidworks.Core.Writing.Measured.PartMeasureOpt import (
     KPartMeasureOpt,
 )
@@ -16,6 +22,8 @@ def MatchPlanarMeas(
     NativePath: str,
     Members: tuple[tuple[str, bytes], ...],
 ) -> Mapping[str, object]:
+    if Receipt.get("schema") == KHeldPerpSchema:
+        return MatchHeldPerp(Receipt, NativePath, Members)
     Parent = PureWindowsPath(NativePath)
     if (
         len(Members) != 2

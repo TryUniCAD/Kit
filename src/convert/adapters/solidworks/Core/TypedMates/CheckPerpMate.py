@@ -14,22 +14,22 @@ from convert.adapters.solidworks.Core.TypedMates.CheckPerpRefs import CheckPerpR
 from convert.adapters.solidworks.Core.TypedMates.CheckPerpDatum import CheckPerpDatum
 
 
-# perpendicular admission must retain its actual solved repeated child owners and independently orthogonal selected plane normals
+# perpendicular admission retains its actual repeated child owners and independently orthogonal selected plane normals
 def CheckPerpMate(
-    PlanValue: PlanarMate, NodeValue: ArchiveNode, Context: PlanarContext
+    PlanValue: PlanarMate, NodeValue: ArchiveNode, Context: PlanarContext, *, ColdValue: bool = False
 ) -> None:
     if PlanValue.KindValue != "perpendicular":
         return
     Fields = NodeValue.FieldsValue
     FirstValue, SecondValue = PlanValue.Endpoints
+    StateValue = (0, 1) if ColdValue else (1, 0x100)
     if (
         len(Context.OccurrenceMap) != 2
         or FirstValue.OccurrenceFeatureId == SecondValue.OccurrenceFeatureId
         or FirstValue.ChildDefinitionId != SecondValue.ChildDefinitionId
         or sum(Value["fixed"] is True for Value in ReadFixedFlags(Context)) != 1
         or PlanValue.AlignmentCode != 0
-        or FieldInt(Fields, "f3b8") != 1
-        or FieldInt(Fields, "f0c") != 0x100
+        or (FieldInt(Fields, "f3b8"), FieldInt(Fields, "f0c")) != StateValue
         or Fields.get("f488") != ""
         or Fields.get("f490") != ""
     ):

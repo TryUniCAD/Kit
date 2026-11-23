@@ -23,6 +23,9 @@ from convert.adapters.solidworks.Core.AssemblyWriting.Measured.IsPlanarSite impo
 from convert.adapters.solidworks.Core.AssemblyWriting.Measured.MatchPlanarMeas import (
     MatchPlanarMeas,
 )
+from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadHeldPerp import (
+    KHeldPerpSchema,
+)
 from convert.adapters.solidworks.Core.AssemblyWriting.Measured.ReadPlanarMeas import (
     ReadPlanarMeas,
 )
@@ -42,7 +45,7 @@ def EmitAsmMut(
         raise TypeError("assembly output requires a filesystem bundle destination")
     StagePath = FilePath(TargetValue).expanduser().resolve()
     FinalPath, NativePath = FinalAsmPath(StagePath, Settings)
-    CheckPairScope(DocumentValue)
+    PerpValue = CheckPairScope(DocumentValue) == "perpendicular"
     RequireAsm(
         StagePath != FinalPath and GetStagedFinal(StagePath) == FinalPath,
         "planar assembly publication requires a registry-owned stage",
@@ -54,9 +57,13 @@ def EmitAsmMut(
         "requested assembly configuration is unavailable",
     )
     CheckFreshAsm(FinalPath, ModelValue.ChildValue.name)
-    EpochValue, Receipt = ReadPlanarMeas(Settings)
+    EpochValue, Receipt = ReadPlanarMeas(Settings, Perpendicular=PerpValue)
     Candidate = PrepareAssembly(
-        DocumentValue, NativePath, EpochValue, PublicProfile=True
+        DocumentValue,
+        NativePath,
+        EpochValue,
+        PublicProfile=True,
+        SequentialProjection=PerpValue and Receipt.get("schema") != KHeldPerpSchema,
     )
     Companion = (
         Candidate.ChildValue.PlanValue.NameValue + ".SLDPRT",

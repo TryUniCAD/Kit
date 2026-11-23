@@ -1,0 +1,157 @@
+{
+  "additional_fcstd_credit": 0,
+  "additional_held_out_credit": 0,
+  "additional_native_lifecycle_credit": 0,
+  "disclosed_files": {
+    "MeasuredOutput.json": "373b2b31677e4d6cb35c62923aec3e5b4267bf75e37979cf63e20ff23e70df9e",
+    "NeutralRequest.json": "a70762b23ea28fd0749fb256d41405393b689da69e441a87cd4acf3a92a37bda"
+  },
+  "existing_planar_control": {
+    "after": {
+      "PublicDatumPrism.SLDPRT": [
+        "file",
+        "b734fe2b8df59085860ae12f6dacabd363a4475f5399506efdce423d05c4ab7b"
+      ],
+      "PublicPlanarPair2.SLDASM": [
+        "file",
+        "d31950eb971645908a82c26ecb881880525a3c8aa9478bc971b065bc5bdcf2f4"
+      ]
+    },
+    "before": {},
+    "error": null,
+    "matching_member_streams": 22,
+    "native_processes_started": 0,
+    "passed": true,
+    "readback": {
+      "child_parameters_mm": [
+        37.1,
+        18.599999999999998,
+        9.299999999999999
+      ],
+      "deferred_child_omits_unbound_parameter": true,
+      "distance_driver": "D1",
+      "distance_mm": 42.0,
+      "mates": 2
+    },
+    "runtime_input_file_reads": 0,
+    "whole_bundle_matches_native_input": true,
+    "writer_native_flags": false
+  },
+  "guarded_processes": 9,
+  "host_architecture": "arm64",
+  "host_os": "Darwin",
+  "logical_stream_comparisons": 44,
+  "native_processes_started": 0,
+  "outcomes": [
+    {
+      "matching_streams": 22,
+      "members": {
+        "NeutralPerpPair.SLDASM": {
+          "bytes": 10021,
+          "sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187"
+        },
+        "NeutralPerpPrism.SLDPRT": {
+          "bytes": 8694,
+          "sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+        }
+      },
+      "mode": "registry",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 1,
+      "readback": {
+        "child_drivers": 3,
+        "mate_endpoints": 2,
+        "mate_kind": "perpendicular"
+      },
+      "refusals": 0,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "matching_streams": 22,
+      "members": {
+        "NeutralPerpPair.SLDASM": {
+          "bytes": 10021,
+          "sha256": "0a740c7a632ad769174c3d145710ca68502c33d07f575ac02ccb583363293187"
+        },
+        "NeutralPerpPrism.SLDPRT": {
+          "bytes": 8694,
+          "sha256": "86b6987dd8cd647e8c07067433ad41d08a7d7d0a257f2fc8956f4a747d4ed7e6"
+        }
+      },
+      "mode": "adapter",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 1,
+      "readback": {
+        "child_drivers": 3,
+        "mate_endpoints": 2,
+        "mate_kind": "perpendicular"
+      },
+      "refusals": 0,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "no-receipt",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "forged-disclosed",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "wrong-body",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "wrong-location",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "strict-location",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "foreign-heldout",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    },
+    {
+      "mode": "tampered-heldout",
+      "native_processes_started": 0,
+      "passed": true,
+      "publications": 0,
+      "refusals": 1,
+      "runtime_input_file_reads": 0
+    }
+  ],
+  "passed": true,
+  "publication_processes": 2,
+  "python": "3.13.15",
+  "refusal_processes": 7,
+  "runtime_input_file_reads": 0,
+  "schema": "kit.sw2026.measured-perpendicular-publication-host.v1"
+}

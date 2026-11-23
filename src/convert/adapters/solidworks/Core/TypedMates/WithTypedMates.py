@@ -47,6 +47,7 @@ def WithTypedMates(
     Mapping[str, object] | None,
 ]:
     DocumentMap = {Value.id: Value.document for Value in Documents}
+    PerpValue = IsColdPair(NativeValue, Archive, ("moMatePerpendicular",))
     EnvValue = PublicMateEnv(
         NativeValue,
         Archive,
@@ -57,10 +58,11 @@ def WithTypedMates(
             if Value in DocumentMap
         },
         SourceKey,
+        ColdPerp=PerpValue,
     )
     ColdValue = IsColdMateSet(NativeValue, Archive)
     PairValue = IsColdPair(NativeValue, Archive)
-    MustBind = ColdValue or PairValue
+    MustBind = ColdValue or PairValue or PerpValue
     try:
         if MustBind:
             CheckColdShape(NativeValue)

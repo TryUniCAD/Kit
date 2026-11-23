@@ -15,3 +15,4 @@ class PublicMateEnv:
     PathsValue: Mapping[int, FilePath]
     DocumentsValue: Mapping[int, CadDocument]
     SourceKey: str = ""
+    ColdPerp: bool = False

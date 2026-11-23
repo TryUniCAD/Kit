@@ -33,7 +33,7 @@ def ReadPublicMate(
     for Endpoint in PlanValue.Endpoints:
         CheckMateDatum(Endpoint, EnvValue)
         CheckMatePoint(Endpoint, Context)
-    CheckPerpMate(PlanValue, NodeValue, Context)
+    CheckPerpMate(PlanValue, NodeValue, Context, ColdValue=EnvValue.ColdPerp)
     ProvenanceValue = MateProvenance(NodeValue)
     Entities = tuple(
         MakeMateEntity(Value, LegacyRule, Index, ProvenanceValue, LegacyEntities)

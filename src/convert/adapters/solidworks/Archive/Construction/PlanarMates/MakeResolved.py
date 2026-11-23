@@ -18,7 +18,9 @@ from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClas
 
 
 # a resolved wrapper combines the actual child reference with independently computed world plane and placement caches
-def MakeResolved(Endpoint: EndpointData) -> ArchiveNode:
+def MakeResolved(
+    Endpoint: EndpointData, *, SequentialProjection: bool = False
+) -> ArchiveNode:
     Fields = WrapperFields(Endpoint.ReferenceValue)
     Fields.update(
         {
@@ -31,7 +33,9 @@ def MakeResolved(Endpoint: EndpointData) -> ArchiveNode:
             "fe8": dict(
                 zip(("x", "y", "z"), Endpoint.FrameValue.NormalValue, strict=True)
             ),
-            "f100": FrameXform(Endpoint.FrameValue),
+            "f100": FrameXform(
+                Endpoint.FrameValue, SequentialProjection=SequentialProjection
+            ),
             "f68": 1,
             "has_f10": 1,
             "has_f18": 1,

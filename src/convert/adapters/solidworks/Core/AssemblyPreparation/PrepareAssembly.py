@@ -27,6 +27,7 @@ def PrepareAssembly(
     *,
     SketchLabels: KSketchLabels | None = None,
     PublicProfile: bool = False,
+    SequentialProjection: bool = False,
 ) -> OrderedAsm:
     PlanValue = PlanAsmWrite(Document, NativePath, WrittenAt, SketchLabels=SketchLabels)
     if PublicProfile:
@@ -40,4 +41,5 @@ def PrepareAssembly(
         PlanValue.Occurrences,
         PlanValue.MatesValue,
         PlanValue.FixedIndex,
+        SequentialProjection=SequentialProjection,
     )
