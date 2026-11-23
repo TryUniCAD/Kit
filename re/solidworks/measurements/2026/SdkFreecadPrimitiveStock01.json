@@ -1,0 +1,1090 @@
+{
+  "base": "935d9848dab052aff0bc4495faa579e011cc7cba",
+  "cases": {
+    "C077-P01": {
+      "result": {
+        "candidate": {
+          "area_mm2": 600.0,
+          "body_alias_design_only": "Solid Bodies",
+          "body_alias_full_read": "Cube",
+          "bytes": 8605,
+          "center_mm_from_corners": [
+            5.0,
+            5.0,
+            5.0
+          ],
+          "creator_operation_design_only": "join",
+          "creator_operation_full_read": "create",
+          "drivers": {
+            "Height": {
+              "mm": 10.0,
+              "name": "Cube.Height",
+              "owner": "extrusion"
+            },
+            "Length": {
+              "mm": 10.0,
+              "name": "Cube.Length",
+              "owner": "reference"
+            },
+            "Width": {
+              "mm": 10.0,
+              "name": "Cube.Width",
+              "owner": "reference"
+            }
+          },
+          "linked_rows": 19,
+          "sha256": "ec9af7d7345ebc2f23e038c8d1c62cd19a1028975b1367f4dcbb639b4621f8f8",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+            },
+            "Contents/Config-0": {
+              "bytes": 22254,
+              "sha256": "fe7bab02361da230c60cfd5f8609b561e3967a879375b9f862d8990680fc42c8"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 603,
+              "sha256": "63002d2fb6dce7c4feae846280cb25b6479a79e3ec7d5e944c2b9e68a7738d91"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17909,
+              "sha256": "937df54e5a33f68476244ac2328cb67d8584e1cb0ff9c7f1d80151cd996827f6"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 603,
+              "sha256": "3b819f22c242a48ab332b16a26d766832d7a46d9368a404d9c60895d03dd667e"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1510,
+              "sha256": "50cfa582d7ad58abee9e38402d59edd7b095d8f89c7831c7b1e3ef99dbad4ea0"
+            }
+          },
+          "typed_incidence": {
+            "counts": [
+              1,
+              1,
+              6,
+              12,
+              8,
+              24
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "faces": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    2,
+                    3
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    4,
+                    5
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    4,
+                    6
+                  ]
+                ]
+              ],
+              [
+                [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    5,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    2,
+                    3
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    4,
+                    5
+                  ],
+                  [
+                    4,
+                    6
+                  ],
+                  [
+                    5,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ]
+            ]
+          },
+          "volume_mm3": 1000.0
+        },
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "projected_public_refusals": {
+          "adapter": "does not support the destination",
+          "registry": "does not support the destination"
+        },
+        "refusals": {
+          "actual_consuming_feature": "actual independent Part::Box",
+          "missing_source_shape": "ambiguous or empty shape payload",
+          "renamed_source_parameter": "parameters disagree"
+        },
+        "source_geometry_matches_complete_corner_incidence": true,
+        "source_parameter_ids": [
+          "freecad:parameter:Box:Width",
+          "freecad:parameter:Box:Height",
+          "freecad:parameter:Box:Length"
+        ]
+      },
+      "runtime_input_file_reads": 0,
+      "source": {
+        "independent_untranslated_history": {
+          "base": "Box",
+          "native": "Part::Cut",
+          "tool": "Cylinder",
+          "tool_height_mm": 10.0,
+          "tool_origin_mm": [
+            5.0,
+            5.0,
+            5.0
+          ]
+        },
+        "native_object_id": "1976",
+        "placement_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "release": "0.21R33694 (Git)",
+        "shape_sha256": "8892d7abc0f1a4c8e3a79711ce55321fee697f838b0a0f45b7b5dafe88477eee",
+        "size_mm": [
+          10.0,
+          10.0,
+          10.0
+        ],
+        "source_alias": "Cube"
+      },
+      "source_file_and_neutral_unchanged": true,
+      "source_sha256": "85d9b34419fa92b1de954dff2cd8dfe1e0b964e7859b6841e991329d7de931a3"
+    },
+    "C114-P01": {
+      "result": {
+        "candidate": {
+          "area_mm2": 245600.0,
+          "body_alias_design_only": "Solid Bodies",
+          "body_alias_full_read": "Cube",
+          "bytes": 8655,
+          "center_mm_from_corners": [
+            200.0,
+            150.0,
+            2.0
+          ],
+          "creator_operation_design_only": "join",
+          "creator_operation_full_read": "create",
+          "drivers": {
+            "Height": {
+              "mm": 4.0,
+              "name": "Cube.Height",
+              "owner": "extrusion"
+            },
+            "Length": {
+              "mm": 400.0,
+              "name": "Cube.Length",
+              "owner": "reference"
+            },
+            "Width": {
+              "mm": 300.0,
+              "name": "Cube.Width",
+              "owner": "reference"
+            }
+          },
+          "linked_rows": 19,
+          "sha256": "f1473afe52e1ffd7f74a218f915ddfdeeb8c54f9265fe784d52614c4be8487ea",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+            },
+            "Contents/Config-0": {
+              "bytes": 22254,
+              "sha256": "4d5cf0851bfccb14673f5ed44ec0af1c68bfb5f002e725a723d98cbe2a20e558"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 603,
+              "sha256": "6899f6b4675f512af9f99e22ec43c313aa9fffdfe69b638bd7bc53e9efe1696d"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17909,
+              "sha256": "56c16cd1d24bb1a5352cc859001548487e1c76b540f27be61780dfb48d12e0e2"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 603,
+              "sha256": "b6aac743ca25316bd1532f881e1db154751615a22e93e91cbf22b152c65653fd"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1511,
+              "sha256": "2987f6118e2277faa05c403dab20f580dd74fd663b79e9c6b696189ce9bf1041"
+            }
+          },
+          "typed_incidence": {
+            "counts": [
+              1,
+              1,
+              6,
+              12,
+              8,
+              24
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "faces": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    2,
+                    3
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    4,
+                    5
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    4,
+                    6
+                  ]
+                ]
+              ],
+              [
+                [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    5,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    2,
+                    3
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    4,
+                    5
+                  ],
+                  [
+                    4,
+                    6
+                  ],
+                  [
+                    5,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ]
+            ]
+          },
+          "volume_mm3": 480000.0
+        },
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "projected_public_refusals": {
+          "adapter": "does not support the destination",
+          "registry": "does not support the destination"
+        },
+        "refusals": {
+          "actual_consuming_feature": "actual independent Part::Box",
+          "missing_source_shape": "ambiguous or empty shape payload",
+          "renamed_source_parameter": "parameters disagree"
+        },
+        "source_geometry_matches_complete_corner_incidence": true,
+        "source_parameter_ids": [
+          "freecad:parameter:Box:Width",
+          "freecad:parameter:Box:Height",
+          "freecad:parameter:Box:Length"
+        ]
+      },
+      "runtime_input_file_reads": 0,
+      "source": {
+        "independent_untranslated_history": {
+          "edge_count": 12,
+          "native": "Part::Chamfer"
+        },
+        "native_object_id": "2875",
+        "placement_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "release": "0.21R30669 (Git)",
+        "shape_sha256": "8e2696213cbe693e1661fc5741d46c1f06c834dff1f944bb7a8f722358125cd5",
+        "size_mm": [
+          400.0,
+          300.0,
+          4.0
+        ],
+        "source_alias": "Cube"
+      },
+      "source_file_and_neutral_unchanged": true,
+      "source_sha256": "c2e90d3ae6b8d02f11e599b8179643a2f1ccf8d9a3ef1a48e537a118b7372537"
+    },
+    "C151-P01": {
+      "result": {
+        "candidate": {
+          "area_mm2": 101200.0,
+          "body_alias_design_only": "Solid Bodies",
+          "body_alias_full_read": "120x400x5",
+          "bytes": 8667,
+          "center_mm_from_corners": [
+            60.0,
+            200.0,
+            2.5
+          ],
+          "creator_operation_design_only": "join",
+          "creator_operation_full_read": "create",
+          "drivers": {
+            "Height": {
+              "mm": 5.0,
+              "name": "120x400x5.Height",
+              "owner": "extrusion"
+            },
+            "Length": {
+              "mm": 120.0,
+              "name": "120x400x5.Length",
+              "owner": "reference"
+            },
+            "Width": {
+              "mm": 400.0,
+              "name": "120x400x5.Width",
+              "owner": "reference"
+            }
+          },
+          "linked_rows": 19,
+          "sha256": "68e0d931c26cbd57c354e5fb9bf79c3870c02c55c38e5e32a57e40c474408342",
+          "streams": {
+            "Contents/CMgr": {
+              "bytes": 1129,
+              "sha256": "e52c0ee43692d70142f43b71054e52e1490e7432af700d2414666bf19fdff175"
+            },
+            "Contents/CMgrHdr2": {
+              "bytes": 137,
+              "sha256": "9073ac9c452c912ff17b7e788b0e2f4715c9253eb4032fa3771566f2767c4225"
+            },
+            "Contents/Config-0": {
+              "bytes": 22254,
+              "sha256": "af0ab8804a8fc4b46aee2202fbbba8f728fb6e3c737c61b616ccc977c7b1bf8c"
+            },
+            "Contents/Config-0-ModelHeader": {
+              "bytes": 603,
+              "sha256": "93e999596c4fa934379be0741d3bb9ff773ceec9320a43df31324e521cc5f9af"
+            },
+            "Contents/Config-0-ResolvedFeatures": {
+              "bytes": 17959,
+              "sha256": "c11ea17398ce0e2702db15f6d389afcc24a83c073fcacbbd40ddf1d85e713d3a"
+            },
+            "Contents/Definition": {
+              "bytes": 459,
+              "sha256": "2381c1a45d1554608019d81fd151ee7ee2fb9d43c1ef6ab2b988892cc5130dfd"
+            },
+            "Header2": {
+              "bytes": 603,
+              "sha256": "c97beef6f04cc10b6a1233974ef2d53c546df032d63e85b26cacad70b6aa6420"
+            },
+            "_MO_VERSION_19000/Biography": {
+              "bytes": 23,
+              "sha256": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14"
+            },
+            "_MO_VERSION_19000/History": {
+              "bytes": 187,
+              "sha256": "d63d139d98c4bbc87720f426b1dbb3a809e657fc277b3ad6f37bb4c4f8d422c7"
+            },
+            "swXmlContents/KeyWords": {
+              "bytes": 1536,
+              "sha256": "19201edacceaf3f5828ab063ff15ea391c90e1fbbf4affebd7b9372db7c7e6c1"
+            }
+          },
+          "typed_incidence": {
+            "counts": [
+              1,
+              1,
+              6,
+              12,
+              8,
+              24
+            ],
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "faces": [
+              [
+                [
+                  0,
+                  1,
+                  2,
+                  3
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    2,
+                    3
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  1,
+                  4,
+                  5
+                ],
+                [
+                  [
+                    0,
+                    1
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    4,
+                    5
+                  ]
+                ]
+              ],
+              [
+                [
+                  0,
+                  2,
+                  4,
+                  6
+                ],
+                [
+                  [
+                    0,
+                    2
+                  ],
+                  [
+                    0,
+                    4
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    4,
+                    6
+                  ]
+                ]
+              ],
+              [
+                [
+                  1,
+                  3,
+                  5,
+                  7
+                ],
+                [
+                  [
+                    1,
+                    3
+                  ],
+                  [
+                    1,
+                    5
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    5,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  2,
+                  3,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    2,
+                    3
+                  ],
+                  [
+                    2,
+                    6
+                  ],
+                  [
+                    3,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ],
+              [
+                [
+                  4,
+                  5,
+                  6,
+                  7
+                ],
+                [
+                  [
+                    4,
+                    5
+                  ],
+                  [
+                    4,
+                    6
+                  ],
+                  [
+                    5,
+                    7
+                  ],
+                  [
+                    6,
+                    7
+                  ]
+                ]
+              ]
+            ]
+          },
+          "volume_mm3": 240000.0
+        },
+        "intact_public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "projected_public_refusals": {
+          "adapter": "does not support the destination",
+          "registry": "does not support the destination"
+        },
+        "refusals": {
+          "missing_source_shape": "ambiguous or empty shape payload",
+          "other_actual_owner": {
+            "native_object_id": "891",
+            "placement_mm": [
+              181.8,
+              0.0,
+              0.0
+            ],
+            "release": "0.21R30669 (Git)",
+            "shape_sha256": "e2132e1781f9e00180d77d79287271561fef70a092364da5ac12388e90246271",
+            "size_mm": [
+              160.0,
+              400.0,
+              5.0
+            ],
+            "source_alias": "160x400x006"
+          },
+          "other_actual_part_box": "alternate attachment or placement",
+          "renamed_source_parameter": "parameters disagree"
+        },
+        "source_geometry_matches_complete_corner_incidence": true,
+        "source_parameter_ids": [
+          "freecad:parameter:Box:Width",
+          "freecad:parameter:Box:Height",
+          "freecad:parameter:Box:Length"
+        ]
+      },
+      "runtime_input_file_reads": 0,
+      "source": {
+        "native_object_id": "890",
+        "placement_mm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "release": "0.21R30669 (Git)",
+        "shape_sha256": "b804b07aa7a2b32503a93fa8f6389ecb46631c4baf7f4e72f690ef74faeae71a",
+        "size_mm": [
+          120.0,
+          400.0,
+          5.0
+        ],
+        "source_alias": "120x400x5"
+      },
+      "source_file_and_neutral_unchanged": true,
+      "source_sha256": "ef5661105657e402988327f6ae87611982d236bf6e5e04eaf9b1606694c2d9d4"
+    },
+    "offset": {
+      "result": {
+        "public_refusals": {
+          "adapter": "native-only feature definitions cannot be exported",
+          "registry": "native-only feature definitions cannot be exported"
+        },
+        "refusal": "alternate attachment or placement"
+      },
+      "runtime_input_file_reads": 0,
+      "source": {
+        "native_object_id": "92",
+        "placement_mm": [
+          4.25,
+          6.125,
+          -2.25
+        ],
+        "release": "1.1R20260928 (Git shallow)",
+        "shape_sha256": "12f1b215655f2f55eab0d4eacf6a1cf60f7b576d887b2fce310daba91a0b9708",
+        "size_mm": [
+          17.375,
+          13.625,
+          9.75
+        ],
+        "source_alias": "Disclosed Live Box"
+      },
+      "source_file_and_neutral_unchanged": true,
+      "source_sha256": "0de6a5bdd0e3c092a8ce12e932a6dd3937a8eaac8b5e7eb1fac37a73151c9c51"
+    }
+  },
+  "code_sha256": {
+    "re/tooling/sw2026/freecad_census/primitive_stock/ProveSourceStock.py": "6d11125f284fdd34a6dd25d8aa06237ee490d22dba71d71591a80b67469eb175",
+    "src/convert/adapters/freecad/BodyLineage/BoxShapeOwner.py": "703edf3b5492c2672b8a1b42259f92354b3f29ede7577234b2787bc5f7133a23",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/LowerBoxModel.py": "18fd47322a317c6b8b4cba53a11b5217418687a4249c3b89639c75af0c1a48ca",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/CheckStockShape.py": "7e623142e4d4a0ed129e7dbc70c717fba11e2af2ba4323b5dfb10340c504042f",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/PlanFcStock.py": "50c1f28d4056446d695cf7fca5814325c3d0a85fb2a620ccd9a11a07bc8e9374",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/PrepFcStock.py": "530d1990a3d587f553ca28fb9a9ccdfa2248f5d56d3d8bdfa4db72391651c094",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/ReadStockDims.py": "42500a2d1f5b7e77c681603c17e7c656a1b46d4244eed5de4941dcff644d4351",
+    "src/convert/adapters/solidworks/Core/Preparation/FreecadBox/Primitive/ReadStockSource.py": "b74ca761147f2c483173c9990d64189d98a9dc63bfec5f70b10f6601ae704386"
+  },
+  "corpus_credit": 0,
+  "creation_epoch": 1790000000,
+  "fresh_workers": 8,
+  "native_processes": 0,
+  "resolved_stream_distinct_lengths": [
+    17909,
+    17959
+  ],
+  "schema": "kit.sw2026.freecad-source-stock.v1",
+  "source_manifest_sha256": "1de42ebe8bf52b8403de2e6a73fe45b45ac83484a6532230d4b379aff93ca03f",
+  "whole_source_qualified": false
+}

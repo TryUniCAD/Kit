@@ -26,7 +26,7 @@ class BoxShapeOwner:
 # a same named member cannot substitute for a document property that owns another shape
 def FindShapeData(
     Document: CadDocument,
-    OwnerData: BoxNativeOwner,
+    ArchiveValue: NativeArchive,
     ObjectValue: NativeObject,
     PropValue: XmlElement,
     PartValue: XmlElement,
@@ -34,7 +34,7 @@ def FindShapeData(
     OwnerId: str,
 ) -> BrepPayload:
     FileName = PartValue.attrib["file"]
-    SourceData = OwnerData.ArchiveValue.entries[FileName]
+    SourceData = ArchiveValue.entries[FileName]
     Matches = tuple(
         Payload
         for Payload in Document.brep_payloads
@@ -131,7 +131,7 @@ def ReadBoxShapes(Document: CadDocument, OwnerData: BoxNativeOwner) -> BoxShapeO
         raise ValueError("FreeCAD origin box primitive has its own unqualified names")
     BodyShape = FindShapeData(
         Document,
-        OwnerData,
+        OwnerData.ArchiveValue,
         OwnerData.BodyObject,
         BodyProp,
         BodyNodes[0],
@@ -140,7 +140,7 @@ def ReadBoxShapes(Document: CadDocument, OwnerData: BoxNativeOwner) -> BoxShapeO
     )
     ChildShape = FindShapeData(
         Document,
-        OwnerData,
+        OwnerData.ArchiveValue,
         OwnerData.ChildObject,
         ChildProp,
         ChildNodes[0],

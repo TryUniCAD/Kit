@@ -23,13 +23,40 @@ def LowerBoxModel(
     *,
     TopAttached: bool = False,
 ) -> CadDocument:
-    SourceFeature = DocumentValue.feature_timeline[0]
     PlaneName = "XZ-plane" if TopAttached else "XY-plane"
     SourcePlane = next(
         PlaneValue
         for PlaneValue in DocumentValue.support_planes
         if PlaneValue.name == PlaneName
     )
+    return MakeBoxNeutral(
+        DocumentValue,
+        NameValue,
+        ParameterIds,
+        Dimensions,
+        DriverNames,
+        BodyName,
+        SourceFeature=DocumentValue.feature_timeline[0],
+        SourcePlane=SourcePlane,
+        BodyId=DocumentValue.bodies[0].id,
+        TopAttached=TopAttached,
+    )
+
+
+# both linked primitives and explicit stock owners use the same editable box lowering
+def MakeBoxNeutral(
+    DocumentValue: CadDocument,
+    NameValue: str,
+    ParameterIds: tuple[str, str, str],
+    Dimensions: tuple[float, float, float],
+    DriverNames: tuple[str, str, str],
+    BodyName: str,
+    *,
+    SourceFeature: FeatureStep,
+    SourcePlane: SupportPlane,
+    BodyId: str,
+    TopAttached: bool = False,
+) -> CadDocument:
     Plane = SupportPlane(
         SourcePlane.id,
         "Top Plane" if TopAttached else "Front Plane",
@@ -80,7 +107,7 @@ def LowerBoxModel(
         (SketchValue,),
         (),
         (FeatureValue,),
-        (DesignBody(DocumentValue.bodies[0].id, BodyName, FeatureValue.id),),
+        (DesignBody(BodyId, BodyName, FeatureValue.id),),
         metadata={"name": NameValue},
         units=DocumentValue.units,
     )
