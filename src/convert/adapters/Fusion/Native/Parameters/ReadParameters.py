@@ -23,6 +23,7 @@ def ReadParameters(
     AllowTaper: bool = False,
     Rectangle: RectSketchProof | None = None,
     Reverse: bool = False,
+    PlainReverse: bool = False,
 ) -> tuple[Parameter, ...]:
     Table = ResolveField(Graph, Context.Component, "rParameterTable", "ParameterTable")
     Nodes = LinkedNodes(Graph, Table, "children")
@@ -91,7 +92,8 @@ def ReadParameters(
             NodeValue,
             Catalog,
             Owners.get(NodeValue.Identity),
-            Reverse and NodeValue == Along,
+            Reverse and NodeValue == Along and not PlainReverse,
+            PlainReverse and NodeValue == Along,
         )
         for NodeValue in Nodes
     )
@@ -123,7 +125,10 @@ def ProjectParam(
     Catalog: dict[str, NativeNode],
     Owner: NativeNode | None,
     Reverse: bool = False,
+    Literal: bool = False,
 ) -> Parameter:
+    if Literal and TextValue(NodeValue.Fields["expression"]) in Catalog:
+        raise ValueError("Native unconstrained reverse distance requires a literal")
     IsOwned = Owner is not None
     RequireFields(
         NodeValue,

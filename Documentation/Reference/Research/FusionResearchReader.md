@@ -70,3 +70,11 @@ Inspect per-asset reasons and implement missing codec knowledge instead of relax
 - [SOLIDWORKS reader](SolidworksResearchReader.md)
 
 For a sketch with verified primitive membership, `fusion.geometry_child_ids` contains the native child ids in saved order. [Sketch geometry membership](../../Changes/Fusion/Features/FusionSketchGeometryRoster.md)
+
+## Unconstrained native prism projection
+
+The [bounded reader extension](../../Changes/Fusion/Readers/UnconstrainedNativePrisms.md) also admits unconstrained millimeter XY reverse and positive YZ rectangular prisms.
+It retains the native absence of sketch constraints and validates the signed or datum geometry through the existing complete checks.
+New projections are read-only, including after marker removal and native-state reprojection.
+The [independent controls and process checks](../../../re/Fusion/RectangleRecovery/README.md) record the measured numerical comparisons and remaining refusals.
+This does not qualify general placement, native writing, complete semantics or editable conversion.

@@ -1,0 +1,67 @@
+[
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/AngleNegative.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/AnglePositive.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/AngleSmall.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/AngleSteep.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/Depth.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftNegative.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftPositive.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftSmall.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/DraftSteep.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/Height.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/Reset.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/Taper.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  },
+  {
+    "source": "re/Fusion/Reconstruction/NativeEditedPrisms/Width.f3d",
+    "exit_code": 0,
+    "diagnostic": ""
+  }
+]

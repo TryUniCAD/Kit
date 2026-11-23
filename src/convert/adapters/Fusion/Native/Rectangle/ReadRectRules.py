@@ -36,10 +36,10 @@ def ReadRectRules(
     Geometric = Graph.ByClass("SketchGeomConstraint")
     Linear = Graph.ByClass("FusionSketchLinearDim")
     if not Geometric and not Linear:
-        if Reverse:
-            raise ValueError("Native reverse prism requires a constrained rectangle")
-        if YzDatum:
-            raise ValueError("Native YZ prism requires a constrained rectangle")
+        if (Reverse or YzDatum) and ReadRectUnits(Graph) is not UnitSystem.KMillimeter:
+            raise ValueError(
+                "Native unconstrained datum and reverse prisms require millimeter display units"
+            )
         return None
     if len(Geometric) != 5 or len(Linear) != 2:
         raise ValueError(

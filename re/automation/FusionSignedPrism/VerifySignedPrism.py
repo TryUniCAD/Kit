@@ -112,6 +112,7 @@ def design_curves(graph, context, asset_id):
     }
     require(len(curves) == 4, "Expected four uniquely tagged selected profile sides")
     points = {point for endpoints in curves.values() for point in endpoints}
+    from convert.adapters.Fusion.Native.Graph.GraphValues import PointCoords
     shape = RectGeometry(
         (),
         lines,
@@ -119,6 +120,7 @@ def design_curves(graph, context, asset_id):
         10 * max(point[0] for point in points),
         10 * max(point[1] for point in points),
         (0.0, 0.0, 0.0),
+        tuple(PointCoords(ResolveField(graph, node, field, "Point3D").Fields["point"]) for node in nodes for field in ("rStartPoint", "rEndPoint")),
     )
     table = ResolveField(graph, context.Extrude, "rProgenitorTable", "ProgenitorTable")
     sides, body = {}, []
