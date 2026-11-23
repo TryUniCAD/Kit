@@ -9,7 +9,7 @@ def PrepareLegacy(WorkPath: FilePath, MarkerText: str) -> FilePath:
     if not MarkerText:
         SourceText = SourceText.replace(
             '        if sys.platform == "win32" and KWindowsCliProtocol == 1:\n'
-            "            signal.signal(signal.SIGBREAK, self.shutdown)\n",
+            + "            signal.signal(signal.SIGBREAK, self.shutdown)\n",
             "",
         )
     RootPath = WorkPath / "LegacyCheckout"

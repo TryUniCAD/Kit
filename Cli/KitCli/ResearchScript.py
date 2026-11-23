@@ -36,6 +36,6 @@ def ResearchScript(Options: CliOptions) -> tuple[FilePath, FilePath]:
     ):
         raise ValueError(
             "Selected supervisor lacks Windows console shutdown protocol 1; "
-            "update the selected --root research checkout before running it"
+            + "update the selected --root research checkout before running it"
         )
     return RootPath, ScriptPath
