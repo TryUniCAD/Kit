@@ -11,6 +11,7 @@ The supervisor derives this fraction from the idle, kernel, and user counter cha
 The threshold for an increase is below 0.85.
 The field remains null while the interval warms up or when a usable sample is unavailable.
 In both cases the existing missing-load guard prevents an increase.
+Supervisor start events record `launch_monotonic_ns` for elapsed-time comparisons within the same run.
 
 The counter scope requires unrestricted CPU affinity and one Windows processor group.
 Use the [supervisor guide](../../../../Reference/Research/ResearchSupervisor.md#resource-admission-and-memory-stops) to inspect admission and memory reserves.
@@ -24,6 +25,7 @@ It averaged 35.2 percent host CPU activity and retained at least 11.99 GiB of av
 That short probe ended before the adaptive interval could elapse.
 The Windows process case requires an upward adjustment under the measured headroom guards.
 The queued successor must start after that adjustment and before the first worker finishes.
+The test also compares the two monotonic launch timestamps independently of the reported healthy interval.
 
 ### Sustained Windows replay
 
