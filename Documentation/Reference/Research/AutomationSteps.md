@@ -687,7 +687,7 @@ The exit requires sealed hashes, sanitized provenance, native/neutral comparison
 
 ## A08h-CutsRevolutions20261123: cut and revolution evidence
 
-Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: pending publication.
+Task `A08h-CutsRevolutions20261123` is owned by Codex on `feat/native-feature-campaign-20261123b`. Delivery PR: [#278](https://github.com/TryUniCAD/Kit/pull/278).
 Dependencies are merged PRs #158/#207, the verified catalogues, existing controller and licensed personal API.
 The [campaign summary](../../../re/CutsRevolutions2026/README.md) retains exact native scopes, cut sign failures, correction attempts, COM failures and strict reader outcomes.
 The same scope now repairs signed Fusion depth authoring and qualifies plain negative millimeter literals in the production reader against native discovery and parameter-holdout inputs. Exit requires measured public CLI decoding, retained conversion refusals, complete outcome accounting and current-head CI and configured review.
