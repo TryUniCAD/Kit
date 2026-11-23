@@ -31,6 +31,10 @@ from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadPocke
     HasPocketLoops,
     ReadPocketBody,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Geometry.LocalBody.ReadStoredBox import (
+    HasStoredBoxTol,
+    ReadStoredBox,
+)
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.Payloads.PayloadRecord import BrepPayload
 
@@ -82,5 +86,19 @@ def ReadLocalBrep(
             )
         return ReadPocketBody(
             NodesValue, OffsetsValue, Archive, OwnerValue, MarkValue, PriorMark
+        )
+    if (
+        Archive is not None
+        and PartitionData is not None
+        and HasStoredBoxTol(NodesValue)
+    ):
+        return ReadStoredBox(
+            NodesValue,
+            OffsetsValue,
+            Archive,
+            OwnerValue,
+            OwnerName,
+            MarkValue,
+            PriorMark,
         )
     return ReadLocalPlane(NodesValue, OffsetsValue, AllowPocket=False)

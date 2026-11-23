@@ -91,6 +91,7 @@ def MakeBareImport(
     HasEmptyExplodedView: bool = False,
     KeywordInput: ImportKeyInput | None = None,
     OwnedBody: bool = False,
+    AllowBoxTolerance: bool = False,
 ) -> ImportCandidate:
     if type(HasEmptyExplodedView) is not bool:
         raise TypeError("part exploded view presence requires an explicit boolean")
@@ -124,7 +125,13 @@ def MakeBareImport(
     HeadersValue = MakePartHeaders(SystemValue, InputValue, Allocator)
     BodyStamp = LogImportMut(FeatureValue, HeadersValue, InputValue.HeaderValue)
     LocalValue = EncodeImpBody(
-        ModelValue, LabelsValue.FeatureName, FeatureValue, AtomId, BodyStamp, OwnedBody
+        ModelValue,
+        LabelsValue.FeatureName,
+        FeatureValue,
+        AtomId,
+        BodyStamp,
+        OwnedBody,
+        AllowBoxTolerance=AllowBoxTolerance,
     )
     FinishImportMut(SystemValue, FeatureValue, HeadersValue, InputValue)
     DefinitionValue = MakePartDef(InputValue.DefinitionValue, InputValue.DensityValue)

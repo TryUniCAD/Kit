@@ -32,8 +32,11 @@ def ReadLocalPlane(
     OffsetsValue: Mapping[int, int],
     *,
     AllowPocket: bool,
+    AllowStoredAttrs: bool = False,
 ) -> BrepModel:
-    CheckLocalGraph(NodesValue, AllowPocket=AllowPocket)
+    CheckLocalGraph(
+        NodesValue, AllowPocket=AllowPocket, AllowStoredAttrs=AllowStoredAttrs
+    )
     TablesValue = MakeLocalTables(NodesValue, OffsetsValue)
     ModelValue = BuildPartModel(TablesValue)
     if (

@@ -79,7 +79,7 @@ def ReadLocalName(
     NodesValue, _ = ReadLocalNodes(LocalData)
     TreeValue = ReadLocalTree(NodesValue)
     ModelValue = DecodeBrepModel(LocalData) or ReadLocalBrep(
-        Document.brep_payloads, LocalStream, GroupKey
+        Document.brep_payloads, LocalStream, GroupKey, Archive=Archive
     )
     if ModelValue != Document.brep and len(ModelValue.bodies) == 1:
         ModelValue, _ = LinkLocalBody(

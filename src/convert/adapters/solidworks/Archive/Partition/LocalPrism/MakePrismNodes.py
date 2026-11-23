@@ -24,6 +24,8 @@ def BindPrismFields(
     Indices: Mapping[PrismRef, int],
     PersistentValue: int,
     LastEntity: int,
+    *,
+    ToleranceValue: float = KMissingParam,
 ) -> XmtNode:
     RefValue = CellValue.RefValue
     KindValue = RefValue.KindValue
@@ -39,7 +41,7 @@ def BindPrismFields(
     elif KindValue != 17:
         FieldsValue["node_id"] = PersistentValue
     if KindValue in (14, 16, 18):
-        FieldsValue["tolerance"] = KMissingParam
+        FieldsValue["tolerance"] = ToleranceValue
     ShapeValue = KLocalShapes[KindValue]
     if FieldsValue.keys() != {
         FieldValue.NameValue for FieldValue in ShapeValue.FieldsValue
@@ -49,7 +51,9 @@ def BindPrismFields(
 
 
 # resident order allocates the actual structural cells before binding any pointers
-def MakePrismNodes(CellsValue: tuple[PrismCell, ...]) -> tuple[XmtNode, ...]:
+def MakePrismNodes(
+    CellsValue: tuple[PrismCell, ...], *, ToleranceValue: float = KMissingParam
+) -> tuple[XmtNode, ...]:
     Indices = {
         CellValue.RefValue: IndexValue
         for IndexValue, CellValue in enumerate(CellsValue, 1)
@@ -70,6 +74,12 @@ def MakePrismNodes(CellsValue: tuple[PrismCell, ...]) -> tuple[XmtNode, ...]:
     for CellValue in CellsValue:
         PersistentValue += int(CellValue.RefValue.KindValue not in (12, 17))
         ResultValues.append(
-            BindPrismFields(CellValue, Indices, PersistentValue, LastEntity)
+            BindPrismFields(
+                CellValue,
+                Indices,
+                PersistentValue,
+                LastEntity,
+                ToleranceValue=ToleranceValue,
+            )
         )
     return tuple(ResultValues)

@@ -6,7 +6,12 @@ from interchange.geometry.Models.Transform import KTransformIdentity
 
 
 # a bare local transmit owns only one portable solid with no carried native state
-def CheckPrismSolid(ModelValue: BrepModel, *, AllowReverse: bool = False) -> None:
+def CheckPrismSolid(
+    ModelValue: BrepModel,
+    *,
+    AllowReverse: bool = False,
+    AllowTolerance: bool = False,
+) -> None:
     if type(ModelValue) is not BrepModel or ModelValue.schema_version != "1.0":
         raise ValueError("local prism requires a typed neutral B-rep")
     if (
@@ -49,11 +54,11 @@ def CheckPrismSolid(ModelValue: BrepModel, *, AllowReverse: bool = False) -> Non
         and any(UseValue.reversed for UseValue in ModelValue.face_uses)
     ):
         raise ValueError("local prism requires an untransformed outward solid shell")
-    CheckBareCells(ModelValue)
+    CheckBareCells(ModelValue, AllowTolerance=AllowTolerance)
 
 
 # geometry records with additional ownership cannot enter a bare local transmit
-def CheckBareCells(ModelValue: BrepModel) -> None:
+def CheckBareCells(ModelValue: BrepModel, *, AllowTolerance: bool = False) -> None:
     if any(
         EntityValue.Attributes or EntityValue.Provenance is not None
         for EntityValue in ChainValues(
@@ -73,12 +78,14 @@ def CheckBareCells(ModelValue: BrepModel) -> None:
     ):
         raise ValueError("local prism does not admit geometry attributes or provenance")
     if (
-        any(VertexValue.tolerance for VertexValue in ModelValue.vertices)
-        or any(
-            EdgeValue.tolerance or EdgeValue.degenerate
-            for EdgeValue in ModelValue.edges
+        any(EdgeValue.degenerate for EdgeValue in ModelValue.edges)
+        or not AllowTolerance
+        and any(
+            Value.tolerance
+            for Value in ChainValues(
+                ModelValue.faces, ModelValue.edges, ModelValue.vertices
+            )
         )
-        or any(FaceValue.tolerance for FaceValue in ModelValue.faces)
     ):
         raise ValueError(
             "local prism does not admit local tolerances or degenerate edges"

@@ -36,6 +36,8 @@ def EncodeImpBody(
     AtomId: int,
     BodyStamp: int,
     OwnedBody: bool,
+    *,
+    AllowBoxTolerance: bool = False,
 ) -> bytes:
     if type(OwnedBody) is not bool:
         raise TypeError("local import attributes require an explicit boolean")
@@ -46,6 +48,8 @@ def EncodeImpBody(
     IsPocket = not IsPeriodic and any(
         not LoopValue.outer for LoopValue in ModelValue.loops
     )
+    if AllowBoxTolerance and (OwnedBody or IsPeriodic or IsPocket):
+        raise ValueError("local tolerances require an ordinary rectangular solid")
     if IsPeriodic and OwnedBody:
         raise ValueError("local import attributes require a planar body")
     if IsPeriodic:
@@ -57,7 +61,7 @@ def EncodeImpBody(
             raise ValueError("local pocket does not admit attributed body owners")
         NodesValue = MakeLocalPocket(ModelValue)
     else:
-        NodesValue = MakeLocalPrism(ModelValue)
+        NodesValue = MakeLocalPrism(ModelValue, AllowBoxTolerance=AllowBoxTolerance)
     if OwnedBody:
         NameValue = ReadNodeName(FeatureValue)
         if NameValue != KeyValue:

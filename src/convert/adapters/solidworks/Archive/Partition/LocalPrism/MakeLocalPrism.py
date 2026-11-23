@@ -1,3 +1,4 @@
+from convert.Geometry.Parasolid import BrepTopology, KMissingParam
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.CheckPrismSolid import (
     CheckPrismSolid,
 )
@@ -36,11 +37,13 @@ from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFaceLoop impo
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.PrismFinLinks import (
     MakeFinLinks,
 )
+from convert.adapters.solidworks.Archive.Partition.LocalPrism.ReadBoxTolerance import (
+    ReadBoxTol,
+)
 from convert.adapters.solidworks.Archive.Partition.LocalPrism.ReadPrismFaces import (
     ReadPrismFaces,
 )
 from convert.adapters.solidworks.Archive.Partition.XmtNode import XmtNode
-from convert.Geometry.Parasolid import BrepTopology
 from interchange.brep.Topology.BrepModel import BrepModel
 
 
@@ -50,6 +53,8 @@ def MakeLocalCells(
     TopologyValue: BrepTopology,
     CarriersValue: PrismCarriers,
     FacesValue: tuple[PrismFaceLoop, ...],
+    *,
+    ToleranceValue: float = KMissingParam,
 ) -> tuple[XmtNode, ...]:
     FinLinks = MakeFinLinks(FacesValue, TopologyValue)
     return MakePrismNodes(
@@ -60,16 +65,26 @@ def MakeLocalCells(
             *MakeVertexCells(ModelValue.vertices, FinLinks),
             *MakePrismLines(CarriersValue),
             *MakePrismPlanes(CarriersValue),
-        )
+        ),
+        ToleranceValue=ToleranceValue,
     )
 
 
 # the local body archive needs resident typed cells computed only from the admitted portable boundary
-def MakeLocalPrism(ModelValue: BrepModel) -> tuple[XmtNode, ...]:
-    CheckPrismSolid(ModelValue)
+def MakeLocalPrism(
+    ModelValue: BrepModel, *, AllowBoxTolerance: bool = False
+) -> tuple[XmtNode, ...]:
+    CheckPrismSolid(ModelValue, AllowTolerance=AllowBoxTolerance)
+    ToleranceValue = ReadBoxTol(ModelValue) if AllowBoxTolerance else KMissingParam
     TopologyValue = BrepTopology(ModelValue)
     CarriersValue = ReadCarriers(ModelValue)
     CheckPrismTrims(TopologyValue, CarriersValue)
     FacesValue = ReadPrismFaces(ModelValue, TopologyValue)
     CheckPrismRings(FacesValue, TopologyValue)
-    return MakeLocalCells(ModelValue, TopologyValue, CarriersValue, FacesValue)
+    return MakeLocalCells(
+        ModelValue,
+        TopologyValue,
+        CarriersValue,
+        FacesValue,
+        ToleranceValue=ToleranceValue,
+    )

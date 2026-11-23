@@ -108,3 +108,9 @@ python3.14 -I -B re/tooling/sw2026/imported_body_source/AuditWarmBakedTolerance.
   --job-sha256 JOB_SHA256 --native-sha256 NATIVE_SHA256 \
   --output /tmp/BakedToleranceWarmAudit01.json
 ```
+
+The shared constructor and strict saved reader now use these pinned
+inputs directly. The construction proof compares the original generated
+digests, and the saved readback joins the six stored face values to
+their actual import and checks the complete geometry against the same
+native measurements. [Integrated proof](OwnedBoxTolerance2026.md)

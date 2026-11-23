@@ -892,6 +892,12 @@ when the regenerated archive and the complete strict source projection match.
 Pass the same native receipt, locator and epoch for the round trip.
 [Strict import round trips](../../Changes/Solidworks/Construction/Parts/SolidworksColdImportRoundTrip.md)
 
+Strict reads also recover the measured saved rectangular local solid with
+its stored face tolerances and native body name. The internal constructor
+encodes a uniform positive tolerance from the actual faces, edges and
+vertices of the neutral box.
+[Stored box tolerances](../../Changes/Solidworks/Construction/Parts/SolidworksStoredBoxTolerance.md)
+
 ### Writing one angle-distance edge chamfer
 
 Use a millimetre part with one active `Default` configuration and an ordinary
