@@ -58,8 +58,7 @@ def CheckPrismScope(
     ProvenNodes: frozenset[ArchiveNode] = frozenset()
     if RelationValue is not None:
         if (
-            AxesValue is not None
-            or ReadWidthDepth(ModelValue, LinkValue, RelationValue.SourceValue)
+            ReadWidthDepth(ModelValue, LinkValue, RelationValue.SourceValue)
             != RelationValue
         ):
             raise ValueError("cache free prism equation ownership or state has changed")

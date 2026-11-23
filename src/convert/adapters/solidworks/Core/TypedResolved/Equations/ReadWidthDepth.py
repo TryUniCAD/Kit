@@ -18,6 +18,9 @@ from convert.adapters.solidworks.Core.TypedResolved.Equations.CheckEqParams impo
 from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadEqDormant import (
     ReadEqDormant,
 )
+from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadEqFeatures import (
+    ReadEqFeatures,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadEqRef import ReadEqRef
 from convert.adapters.solidworks.Core.TypedResolved.Equations.ReadEqTokens import (
     ReadEqTokens,
@@ -31,7 +34,6 @@ from convert.adapters.solidworks.Core.TypedResolved.Equations.WidthDepthLink imp
 from convert.adapters.solidworks.Core.TypedResolved.Geometry.ReadPrismFrame import (
     ReadPrismFrame,
 )
-from convert.adapters.solidworks.Core.TypedResolved.IndexFeatures import IndexFeatures
 from convert.adapters.solidworks.Core.TypedResolved.NativeLink import NativeLink
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadExtrude import ReadExtrude
@@ -57,7 +59,7 @@ def ReadWidthDepth(
     Model: NativeModel, LinkValue: NativeLink, SourceValue: SldprtArchive
 ) -> WidthDepthLink:
     RootValue = RequireNative(LinkValue.ConfigValue.RootValue, "moPart_c")
-    FeatureNodes = IndexFeatures(LinkValue)
+    FeatureNodes, HasAxisOwners = ReadEqFeatures(LinkValue, SourceValue)
     Expected = {
         **dict.fromkeys(
             KSystemFolders
@@ -94,6 +96,10 @@ def ReadWidthDepth(
     HasNamedLabels = HasNamedEq(
         (WidthParam, HeightValue.NameValue, DepthParam), SourceValue
     )
+    if HasAxisOwners and not HasNamedLabels:
+        raise ValueError(
+            "axis-owned local equations require their actual named drivers"
+        )
     MetresValue = DepthValue.DepthValue.native_value
     if (
         MetresValue is None

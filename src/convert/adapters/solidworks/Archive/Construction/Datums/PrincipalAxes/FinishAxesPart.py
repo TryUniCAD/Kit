@@ -63,6 +63,8 @@ def FinishAxesPart(
     Allocator: PersistentIds,
     AxesValue: PrincipalAxes,
     SketchDims: tuple[KeywordDim, ...],
+    *,
+    PartRelations: bool = False,
 ) -> PartCandidate:
     SystemValue = StockValue.SystemValue
     PlanValue = StockValue.PlanValue
@@ -90,4 +92,11 @@ def FinishAxesPart(
         for AxisValue, Supports in zip(AxesValue.AxisValues, KAxisSupports, strict=True)
     )
     Headers = MakeAxesHeaders(SystemValue, InputValue, Allocator, AxisNodes)
-    return EmitAxesPart(StockValue, InputValue, SketchDims, AxisNodes, Headers)
+    return EmitAxesPart(
+        StockValue,
+        InputValue,
+        SketchDims,
+        AxisNodes,
+        Headers,
+        PartRelations=PartRelations,
+    )

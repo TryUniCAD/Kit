@@ -29,6 +29,8 @@ def EmitAxesPart(
     SketchDims: tuple[KeywordDim, ...],
     AxisNodes: tuple[ArchiveNode, ...],
     Headers: tuple[ArchiveNode, ArchiveNode, ArchiveNode],
+    *,
+    PartRelations: bool = False,
 ) -> PartCandidate:
     SystemValue = StockValue.SystemValue
     StockRoots = (
@@ -55,6 +57,7 @@ def EmitAxesPart(
         StockValue.DefinitionValue,
         InputValue,
         KeysValue,
+        PartRelations=PartRelations,
     )
     if any(
         "Partition" in NameValue or "LocalBodies" in NameValue for NameValue in Streams

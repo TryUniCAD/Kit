@@ -62,7 +62,13 @@ def ReadAxisGeom(
     Features = CheckPrismScope(
         LinkValue, ManagerValue, ModelValue, ColdValue, AxesValue=AxesValue
     )
-    PlanValue = ReadPrismBody(LinkValue, Features, ColdValue)
+    RelationValue = ModelValue.WidthDepth
+    PlanValue = ReadPrismBody(
+        LinkValue,
+        Features,
+        ColdValue,
+        DormantValue=None if RelationValue is None else RelationValue.DormantValue,
+    )
     if PlanValue.ReversedBlind == FrontStock:
         ProfileName = "forward Front" if FrontStock else "signed Top"
         raise ValueError(f"cache free origin axes require the {ProfileName} stock")

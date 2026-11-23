@@ -74,7 +74,13 @@ def ReadNoCache(
         ColdValue = ReadColdOutput(LinkValue)
         if any(Feature.class_name == "moRefAxis_c" for Feature in ModelValue.features):
             return ReadAxisGeom(
-                Archive, LinkValue, ManagerValue, ModelValue, ColdValue, BodyId
+                Archive,
+                LinkValue,
+                ManagerValue,
+                ModelValue,
+                ColdValue,
+                BodyId,
+                FrontStock=RelationValue is not None,
             )
         NullRect = ColdValue is None and IsNullRect(Archive, ModelValue, LinkValue)
         Features = CheckPrismScope(
