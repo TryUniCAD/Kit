@@ -544,6 +544,13 @@ Keep remaining gaps, parked tasks and limitations visible.
 
 ## Immediate handoff
 
+`A06g-BulkDecodedComparison` delivered the standalone command in [PR #273](https://github.com/TryUniCAD/Kit/pull/273), merged as `12b98c78`.
+It depends on the existing semantic comparator and codec and reads decoded JSON without running either decoder.
+The [owning register](../Reference/Research/AutomationSteps.md#a06g-bulkdecodedcomparison-standalone-bulk-command) links the final process evidence and queue acceptance.
+The [change entry](../Changes/Research/Readers/Comparison/BulkDecodedComparison.md) records the qualification limits.
+The installed comparison command and unified folder are separate work in [PR #275](https://github.com/TryUniCAD/Kit/pull/275).
+The production writer snapshot records the measured [.SLDPRT part scope](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md). The cross-format milestones remain open.
+
 The next critical-path task is B02: fresh native Fusion readback and paired semantic qualification on PR #94.
 The inspected register names that missing evidence before A06 can qualify its graph comparisons.
 Check that register again before running or claiming anything.
@@ -584,7 +591,6 @@ The [package](../../re/solidworks/FeatureLadderRecovery/README.md) preserves 111
 Ninety-six top/right placements remain incorrect; the recovered inputs support the next separately scoped reader fix.
 The exit requires verified hashes, sanitized records, retained failed attempts, explicit semantic gaps and current-head publication readiness.
 Dependencies are merged PR #263, the research controller and native source measurements. No production conversion boundary changes.
-
 
 ## Decimal native placement evidence for B02–B05
 

@@ -297,6 +297,18 @@ See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
 ## A06 comparison implementation and qualification
 
+### A06g-BulkDecodedComparison: standalone bulk command
+
+Codex delivered the [standalone bulk comparison command](../../Tasks/CompareDecodedDocuments.md) in [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
+Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
+Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
+The exit requires process evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, CI and review.
+The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/45186955636) passed all 50 bulk process cases on `0a137c5e`.
+Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
+This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
+
+### Existing comparison implementation
+
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.
 It compares typed fields and dependency roles, normalizes explicitly declared quantities and retains ambiguous correspondences.
 Unclassified references, unsupported domains and exhausted budgets cannot produce equality.

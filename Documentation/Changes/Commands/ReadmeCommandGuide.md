@@ -7,6 +7,10 @@ The research examples explain input paths, output locations, trusted checkout se
 The comparison example identifies its checkout dependency on [PR #275](https://github.com/TryUniCAD/Kit/pull/275).
 It explains folder and manifest pairing, geometry units, and the reports and copies produced by a batch.
 
+The command-line and format guides now describe the measured SOLIDWORKS part writer.
+The research guide and agent instructions describe Windows supervisor setup and checkout compatibility.
+The roadmap records the current writer scope, and the backlog and automation register record the standalone comparison merge.
+
 Source review checked the entry point, parser options, and maintained procedures for the documented base.
 The comparison example was checked against the parser and comparison guide in PR #275.
 This documentation review did not execute CAD or CLI workflows.

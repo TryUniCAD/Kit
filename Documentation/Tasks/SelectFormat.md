@@ -49,7 +49,8 @@ Each catalogue entry has one primary `format_id` and can have additional `aliase
 The SOLIDWORKS entry uses `solidworks.sldprt` as its primary identifier.
 Its `aliases` field contains `solidworks.sldasm` for assemblies.
 Discovery does not return a separate entry for that alias.
-The SOLIDWORKS entry is registered as a reader only, so `.SLDPRT` and `.SLDASM` are not valid destinations.
+The SOLIDWORKS entry reads parts and assemblies. Its bounded writer accepts `.SLDPRT` destinations for supported parts with matching offline measurement evidence.
+`.SLDASM` remains an input format. See the [measured part requirements](../Changes/Solidworks/Construction/SolidworksMeasuredPartPublication.md).
 The Fusion entry is registered for reading and writing, with `f3d` as an alias.
 Its strict route accepts qualified graphs, not arbitrary Fusion documents or neutral models.
 `strict=False` explicitly selects the older partial reader, whose output the qualified writer refuses.
