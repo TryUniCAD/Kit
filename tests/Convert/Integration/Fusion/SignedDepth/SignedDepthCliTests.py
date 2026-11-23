@@ -1,6 +1,5 @@
 from hashlib import sha256 as HashBytes
 import json as JsonLib
-from math import isclose as IsClose
 import os as OsLayer
 from pathlib import Path as FilePath
 import subprocess as ProcessLayer
@@ -8,6 +7,8 @@ import sys as System
 from tempfile import TemporaryDirectory
 
 import pytest as Pytest
+
+from tests.Convert.Integration.Fusion.SignedDepth.CheckSignedRead import CheckSignedRead
 
 
 # measured reverse depths must retain their expression and geometry through the public command
@@ -55,41 +56,4 @@ def CheckSignedCli(CaseName: str) -> None:
         assert Result.returncode == 0, Result.stdout + Result.stderr
         Record = JsonLib.loads(Output.read_text())
         assert Record["partial"] is False and Record["layer"] == "neutral"
-        Document = Record["document"]
-        assert not Document["diagnostics"]["$tuple"]
-        Features = Document["feature_timeline"]["$tuple"]
-        assert len(Features) == 2
-        assert Features[-1]["definition"]["$type"] == "DistanceExtrude"
-        Depth = next(
-            Value
-            for Value in Document["parameters"]["$tuple"]
-            if Value["name"] == "depth_mm"
-        )
-        NativeDepth = next(
-            Value
-            for Value in Sample["native"]["parameters"]
-            if Value["name"] == "depth_mm"
-        )
-        assert Depth["expression"]["source"] == NativeDepth["expression"]
-        assert Depth["owner_id"] == Features[-1]["id"]
-        assert Features[-1]["definition"]["along_parameter_id"] == Depth["id"]
-        assert IsClose(
-            Depth["value"]["value"], NativeDepth["value_internal"] * 10, rel_tol=1e-9
-        )
-        Bodies = Document["bodies"]["$tuple"]
-        assert len(Bodies) == Sample["native"]["body_count"] == 1
-        Topology = Bodies[0]["topology"]
-        assert Topology["valid"] and Topology["solid_count"] == 1
-        assert IsClose(Topology["volume"], Sample["native"]["volume_mm3"], rel_tol=1e-9)
-        for RoleName, Expected in zip(
-            ("minimum", "maximum"),
-            Sample["native"]["bodies"][0]["bounding_box_mm"],
-            strict=True,
-        ):
-            for AxisName, Amount in zip(("x", "y", "z"), Expected, strict=True):
-                assert IsClose(
-                    Topology["bounding_box"][RoleName][AxisName],
-                    Amount,
-                    rel_tol=1e-9,
-                    abs_tol=1e-9,
-                )
+        CheckSignedRead(Record["document"], Sample)
