@@ -6,13 +6,13 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+import sys as System
 from signal import SIGINT, SIGTERM
-from sys import platform as KPlatform
 
 
 # platform signal ownership must preserve ordinary windows readers while enabling supervised cancellation
 def SelectSignals(OwnWindows: bool) -> list[int]:
-    if KPlatform == "win32":
+    if System.platform == "win32":
         if not OwnWindows:
             return []
         from signal import SIGBREAK

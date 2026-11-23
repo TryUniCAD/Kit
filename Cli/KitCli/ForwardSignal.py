@@ -1,5 +1,5 @@
+import sys as System
 from subprocess import Popen
-from sys import platform as KPlatform
 from types import FrameType
 
 
@@ -10,7 +10,7 @@ def ForwardSignal(
     if ChildProcess.poll() is not None:
         return
     try:
-        if KPlatform == "win32":
+        if System.platform == "win32":
             from signal import CTRL_BREAK_EVENT as KBreakEvent
 
             ChildProcess.send_signal(KBreakEvent)

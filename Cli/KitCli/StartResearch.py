@@ -6,16 +6,17 @@
 # the PolyForm Strict License 1.0.0 and voids all licenses granted
 # to you under it immediately and permanently.
 
+import sys as System
 from subprocess import Popen as StartProcess
-from sys import platform as KPlatform
 
 
 # research children need independent process groups for targeted cancellation without interrupting the launcher
 def StartResearch(
     Arguments: list[str], OwnWindows: bool = False
 ) -> StartProcess[bytes]:
-    if KPlatform == "win32" and OwnWindows:
-        from subprocess import CREATE_NEW_PROCESS_GROUP as KNewProcessGroup
+    if System.platform == "win32":
+        if OwnWindows:
+            from subprocess import CREATE_NEW_PROCESS_GROUP as KNewProcessGroup
 
-        return StartProcess(Arguments, creationflags=KNewProcessGroup)
-    return StartProcess(Arguments, start_new_session=KPlatform != "win32")
+            return StartProcess(Arguments, creationflags=KNewProcessGroup)
+    return StartProcess(Arguments, start_new_session=System.platform != "win32")
