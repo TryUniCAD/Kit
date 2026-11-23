@@ -8,6 +8,12 @@ from convert.adapters.solidworks.Archive.Views.RequireScalar import RequireScala
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeId import NativeNodeId
 from convert.adapters.solidworks.Core.TypedResolved.NativeNodeSpan import NativeNodeSpan
 from convert.adapters.solidworks.Core.TypedResolved.ReadNativeName import ReadNativeName
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Cold.ColdSwSource import (
+    IsColdSwSource,
+)
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Cold.MakeColdSwBody import (
+    MakeColdSwBody,
+)
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.MakeSwBody import MakeSwBody
 from convert.adapters.solidworks.Core.TypedResolved.Sweeps.MakeSwSketch import (
     MakeSwSketch,
@@ -61,8 +67,10 @@ def MakeSwDesign(
     SourceValue: CadSource,
     NameValue: str,
     IncludeBrep: bool,
-    SavedBody: SwSavedBody,
+    SavedBody: SwSavedBody | None,
 ) -> CadDocument:
+    if (SavedBody is None) != IsColdSwSource(SourceValue):
+        raise ValueError("SOLIDWORKS sweep source and result mode disagree")
     LinkValue = StateValue.LinkValue
     SectionValue, Diameter = MakeSwSketch(LinkValue, StateValue.SectionValue)
     PathValue, Radius = MakeSwSketch(LinkValue, StateValue.PathValue)
@@ -80,7 +88,11 @@ def MakeSwDesign(
             NativeNodeSpan(LinkValue, FeatureOwner), str(NativeId)
         ),
     )
-    BodyValue, BrepValue = MakeSwBody(StateValue, FeatureValue, IncludeBrep, SavedBody)
+    BodyValue, BrepValue = (
+        MakeColdSwBody(StateValue, FeatureValue, IncludeBrep)
+        if SavedBody is None
+        else MakeSwBody(StateValue, FeatureValue, IncludeBrep, SavedBody)
+    )
     FeatureValue = ReplaceValue(FeatureValue, OutputBodyIds=(BodyValue.id,))
     DensityValue = Parameter(
         f"{BodyValue.id}:density",

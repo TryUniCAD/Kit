@@ -73,6 +73,8 @@ comparison remain open. Public shell writing remains gated.
 
 The [measured Standard sweep handoff](../../re/solidworks/records/SweepMeasuredPublication2026.md) brings the two disclosed native-qualified originals to the exact offline receipt gate in the public SDK. Both complete archives match across the three stream entry points with zero runtime input reads. Both scoped cold writer cases are integrated. Filesystem publication requires the actual measured locator. The strict reader now retains the two D1 owners, Section seam and native results for six disclosed saved Standard sweep states. Saved-to-native publication remains separate. [Saved sweep integration](../../re/solidworks/records/AggregateSavedSweepRead2026.md)
 
+Both disclosed cache-free Standard sweeps now retain their typed sketches, both live D1 owners and body-owned density in strict full and design-only reads. Their neutral JSON republishes both original measured files exactly through the three SDK stream routes. The saved controls retain their physical caches. [Cold Standard sweep readback](../../re/solidworks/records/SdkColdSweepReadback2026.md)
+
 The [shared archive implementation](../Changes/Solidworks/Model/SolidworksArchiveObjectModel.md)
 adds memory-only counts, typed strings, tags, object identities, counters, and configuration-map handoffs.
 Source `0b6e657648a08845ed19939dfe588b2e1c851248` passed its PR CI, including the object/map integration and separate-process string checks.

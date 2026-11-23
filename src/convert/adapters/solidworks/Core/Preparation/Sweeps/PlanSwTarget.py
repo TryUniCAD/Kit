@@ -15,6 +15,10 @@ from convert.adapters.solidworks.Core.Preparation.Sweeps.PlanSweepPart import (
     PlanSweepPart,
 )
 from convert.adapters.solidworks.Core.Preparation.Sweeps.SweepIntent import SweepIntent
+from convert.adapters.solidworks.Core.Preparation.Sweeps.SwReadInput import SwReadInput
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.Cold.ColdSwSource import (
+    IsColdSwSource,
+)
 from interchange.document.Models.DocumentModel import CadDocument
 
 
@@ -38,7 +42,12 @@ def PlanSwTarget(
         if TargetValue is None
         else FinalPartPath(TargetValue, SettingsValue, NeutralSelf, NameValue)
     )
-    IntentValue = PlanSweepPart(DocumentValue, NativeSelf)
+    InputValue = (
+        SwReadInput(DocumentValue)
+        if IsColdSwSource(DocumentValue.source)
+        else DocumentValue
+    )
+    IntentValue = PlanSweepPart(InputValue, NativeSelf)
     ConfigValue = DocumentValue.configurations[0]
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested sweep write configuration is unavailable")

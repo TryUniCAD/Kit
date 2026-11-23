@@ -1,0 +1,201 @@
+{
+  "base": "ffa49a63caf2b3c433c05433c7b638e5d0d4fde7",
+  "cold_generated": [
+    {
+      "bytes": 10528,
+      "file": "SweepArcNear.SLDPRT",
+      "native_candidate_open_sha256": "e9251f06bf0f7b22ab95b0ab2c686da2f042bdcb30e6d584e273ed3bbed730a8",
+      "projections": {
+        "design": {
+          "analytic_rim_points_checked": 0,
+          "exact_writes": 3,
+          "measurements_checked": 6,
+          "native_face_owners_checked": 3,
+          "native_transfers": 7,
+          "neutral_sha256": "67d93d1879fce46a6733434b47c87f947687c6a85286c107403e3017c96b9aec",
+          "refusals_checked_on_three_routes": [
+            "source_digest",
+            "body_topology",
+            "source_seam",
+            "output_relation",
+            "stale_measurement",
+            "changed_locator",
+            "missing_measurement"
+          ]
+        },
+        "full": {
+          "analytic_rim_points_checked": 8,
+          "exact_writes": 3,
+          "measurements_checked": 6,
+          "native_face_owners_checked": 3,
+          "native_transfers": 8,
+          "neutral_sha256": "739d1a2fa609fc935d197148d4c142ba316d5d703a82a756389d47db597bd761",
+          "refusals_checked_on_three_routes": [
+            "source_digest",
+            "body_topology",
+            "source_seam",
+            "output_relation",
+            "stale_measurement",
+            "changed_locator",
+            "missing_measurement"
+          ]
+        }
+      },
+      "refused_read_variants": [
+        "missing_ghost",
+        "other_path_ghost",
+        "extra_source_stream"
+      ],
+      "runtime_file_opens_and_processes": 0,
+      "sha256": "fd2aefd501b6d3eccf6db1ca3ff927bb50eead360ba29ccc42d2e80a2e96b3ed",
+      "streams": {
+        "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "335543e538f27ae74ad4468cbe6177c463de034449f9e6f26df86e1d95226af4",
+        "Contents/Config-0-GhostPartition": "0ab990a2217590c31c5dda0853bb4e6564f161bbcda202255169192aae13bc9c",
+        "Contents/Config-0-ModelHeader": "3cc995bcd3664696f64aba8c62073394ecabf7ee1248791e66107c05365e7e9e",
+        "Contents/Config-0-ResolvedFeatures": "eb39656ca1b0c4ba78ad89241988197db793eabcb40e05665670bbf931975edc",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "cd13f7d3033e9f9816d148fedf3804fc9670513e164706a6c3e192dad7df31c8",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "d670588be390b934f7bd900ce0a3dad71bd5ad7431f148b627922f4e12f6ec90"
+      }
+    },
+    {
+      "bytes": 10526,
+      "file": "SweepArcWide.SLDPRT",
+      "native_candidate_open_sha256": "445646171f90cd45143d2cfaed841252e9bb46bd0d01dccc95006561e1fc64d8",
+      "projections": {
+        "design": {
+          "analytic_rim_points_checked": 0,
+          "exact_writes": 3,
+          "measurements_checked": 6,
+          "native_face_owners_checked": 3,
+          "native_transfers": 7,
+          "neutral_sha256": "612b91fdd67d022432613eafa932624f8b6b4f3d4c34e6bd5c8a3ca579c0fbbf",
+          "refusals_checked_on_three_routes": [
+            "source_digest",
+            "body_topology",
+            "source_seam",
+            "output_relation",
+            "stale_measurement",
+            "changed_locator",
+            "missing_measurement"
+          ]
+        },
+        "full": {
+          "analytic_rim_points_checked": 8,
+          "exact_writes": 3,
+          "measurements_checked": 6,
+          "native_face_owners_checked": 3,
+          "native_transfers": 8,
+          "neutral_sha256": "d99fdd08d1e6ca238f0fd06de7f481eac5695bac9c552449105caef09c36e202",
+          "refusals_checked_on_three_routes": [
+            "source_digest",
+            "body_topology",
+            "source_seam",
+            "output_relation",
+            "stale_measurement",
+            "changed_locator",
+            "missing_measurement"
+          ]
+        }
+      },
+      "refused_read_variants": [
+        "missing_ghost",
+        "other_path_ghost",
+        "extra_source_stream"
+      ],
+      "runtime_file_opens_and_processes": 0,
+      "sha256": "e5c7565141dac97b7a7c331a9c7317a3a1bfdfc217915319ec91af18e4f8b9da",
+      "streams": {
+        "Contents/CMgr": "31cb64d107de2be955cf057b26d51bd4a021298483b37bda57d4180907cf140a",
+        "Contents/CMgrHdr2": "abec0cac39890b765bb9654ccb476320fe6f05906f643cde95d651580464e877",
+        "Contents/Config-0": "7ba08ad437b0b3c4db8f99c353dd68e19b7c2047cfce29bb6e70e9be6d59b39b",
+        "Contents/Config-0-GhostPartition": "20be6593e1b0bd0f18f82c9336dc519ad5ac05ffedea8696b2f8322a12cddd47",
+        "Contents/Config-0-ModelHeader": "40c1ebd346db90d4e3699d9fe2ad7ad80e41f6399ada4b892700af118351985e",
+        "Contents/Config-0-ResolvedFeatures": "cfd83f203cdb53cc75bacbc4176bbdc2749db687bd3b45f37805ef239d4149cc",
+        "Contents/Definition": "96123dd9f066c6d900beda5da9877a3952ad4b1b36d1e79f2351998ac6e809d8",
+        "Header2": "026b2ad17fb3c36c0b15539cd2809c40f8c430bd50b4e66785c65bab1ff11206",
+        "_MO_VERSION_19000/Biography": "7665bb419e28ffeeccb167d92644744cb45b352b44fc575e898a1d1e1d45eb14",
+        "_MO_VERSION_19000/History": "bb292e9d8d9a0085e30b2e78134a2fc0e6325b933e9426341da9e9cc319cb6aa",
+        "swXmlContents/KeyWords": "cf1fff80157d3a76aa3b74fc997182a775089004a64ec5de9ccfc4d184e8a4c3"
+      }
+    }
+  ],
+  "guarded_processes": 8,
+  "method_sha256": "93ac85c79d1b3613ed3741d5564d6f50be39654853aad9e8f047c3435b4e15bb",
+  "native_build": "34.5.2.0604",
+  "native_launches": 0,
+  "native_result_sha256": "380ead8ff07a9337bd0df87d32eb92e49529e0579c15449767a5ee26e53dd512",
+  "new_heldout_credit": 0,
+  "normalized_receipt_sha256": "fc098693d77e0e41e5652eed80fe705b528db9cb9f6ac527fb379784087d83d0",
+  "python": "3.14.7",
+  "saved_native": [
+    {
+      "cold_admission_refusals": 2,
+      "role": "original",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "4b94b009e1a3680ebd0b9493682ee407258497559682c57b057fa9266f2e7185",
+      "slot": 1,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "d598dd21e13027af4d35e7590bffc2965282955eebe982eb9cd205ea3dc402f2"
+    },
+    {
+      "cold_admission_refusals": 2,
+      "role": "section",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "9132d29845300d4e801abc9e61132852b362c278463a6a121d2a77eaf5f5850b",
+      "slot": 1,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "92c42c00c2530fa60e77ab6e79db0d91138e97f2ef318646d07a5153e75c5169"
+    },
+    {
+      "cold_admission_refusals": 2,
+      "role": "path",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "4b7079623b834e7399731af46e1ea32adefc7d9531d6b87adede5baf69d3d2fb",
+      "slot": 1,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "6a3c540a8c475e362ed0d4de9ccdc0d93029c84132c0dca780857bb377741aa3"
+    },
+    {
+      "cold_admission_refusals": 2,
+      "role": "original",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "4a1d0ed2411a1ca0c35c19be1aeffcf0220f38f96b90d71da39b8701def5353c",
+      "slot": 2,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "dc9a1efa6acfd89ce00f98f8a62c1f0990c97989e3068b5bab64394ed1981ea9"
+    },
+    {
+      "cold_admission_refusals": 2,
+      "role": "section",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "2603ae57033b43a1d31d0dabb5d1555f334a34c511d848601306180359874084",
+      "slot": 2,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "51f01d31fa28de9a65bdc60a02e2b888f6537df4301f224c51d49451823406f4"
+    },
+    {
+      "cold_admission_refusals": 2,
+      "role": "path",
+      "runtime_file_opens_and_processes": 0,
+      "saved_atom": 101,
+      "sha256": "15134cc48624a8a8eb0944859cca0733c5685432e3738d8df7eca659118ab521",
+      "slot": 2,
+      "strict_read_modes": 2,
+      "unchanged_full_projection_sha256": "f13a9c52ac38274cab536b010d7d717cc986cb917780478d381ba259bb6a6178"
+    }
+  ],
+  "schema": "kit.sw2026.cold-sweep-readback.v1",
+  "src_tree": "2ce741c8a284f7e558c447a55aab496f8eac9f02",
+  "warm_baseline_sha256": "48489d730ec369b90589484407b62a63134958c6a039172b8751a0c3e0fb9544",
+  "zlib": "1.2.12"
+}

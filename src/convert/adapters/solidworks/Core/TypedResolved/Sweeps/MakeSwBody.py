@@ -25,11 +25,18 @@ def MakeSwBody(
     IncludeBrep: bool,
     SavedBody: SwSavedBody,
 ) -> tuple[DesignBody, BrepModel | None]:
+    if IncludeBrep is not (SavedBody.ModelValue is not None):
+        raise ValueError("saved sweep result differs from the requested geometry mode")
+    return BindSwBody(StateValue, MakeSwMeasure(StateValue, FeatureValue), SavedBody)
+
+
+# cold and saved projections share physical measurements for the same verified profile
+def MakeSwMeasure(StateValue: SwReadGraph, FeatureValue: FeatureStep) -> DesignBody:
     SectionRadius = StateValue.SectionValue.CurveValue.Radius * 1000.0
     PathRadius = StateValue.PathValue.CurveValue.Radius * 1000.0
     MeasureValue = MeasureQuarter(SectionRadius, PathRadius)
     BodyId = f"{FeatureValue.id}:body"
-    BodyValue = DesignBody(
+    return DesignBody(
         BodyId,
         FeatureValue.name,
         FeatureValue.id,
@@ -56,9 +63,6 @@ def MakeSwBody(
             * 1e-9,
         },
     )
-    if IncludeBrep is not (SavedBody.ModelValue is not None):
-        raise ValueError("saved sweep result differs from the requested geometry mode")
-    return BindSwBody(StateValue, BodyValue, SavedBody)
 
 
 # the solved body retains its actual kernel label and live atom provenance

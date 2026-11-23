@@ -288,9 +288,8 @@ from convert.adapters.solidworks.Core.Reading.ConfigLanes import (
     ResolvedLanes,
     ResolvedStream,
 )
-from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSwPart import (
-    IsSavedSweep,
-    ReadSwPart,
+from convert.adapters.solidworks.Core.TypedResolved.Sweeps.ReadSweepLane import (
+    ReadSweepLane,
 )
 from convert.adapters.solidworks.Core.TypedResolved.OffsetPlanes.TryColdOff import (
     TryColdOff,
@@ -508,15 +507,10 @@ def ReadAction(
         )
         ValidateSource(Label, True)
         return DocValue
-    if not Settings.extract_raw_brep and IsSavedSweep(Archive, Settings.configuration):
-        try:
-            DocValue = ReadSwPart(Archive, DataValue, Label, Settings)
-        except SldprtFormatError:
-            if Settings.strict:
-                raise
-        else:
-            ValidateSource(Label, False)
-            return DocValue
+    SweepValue = ReadSweepLane(Archive, DataValue, Label, Settings)
+    if SweepValue is not None:
+        ValidateSource(Label, False)
+        return SweepValue
     return ReadNativePart(Instance, Archive, DataValue, Label, Settings)
 
 

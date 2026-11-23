@@ -1,4 +1,5 @@
 from interchange.brep.Curves.BrepCurves import BrepCurve
+from interchange.brep.Curves.BrepPcurves import BrepPcurve
 from interchange.brep.Surfaces.BrepSurfaces import BrepSurface
 from interchange.brep.Topology.BrepModel import BrepModel
 from interchange.brep.Topology.BrepTopology import (
@@ -26,6 +27,8 @@ def BuildSweepModel(
     Faces: tuple[BrepFace, ...],
     Loops: tuple[BrepLoop, ...],
     Coedges: tuple[BrepCoedge, ...],
+    *,
+    PcurvesValue: tuple[BrepPcurve, ...] = (),
 ) -> BrepModel:
     FaceUses = tuple(
         BrepFaceUse(f"{FaceValue.id}-use", FaceValue.id) for FaceValue in Faces
@@ -38,6 +41,7 @@ def BuildSweepModel(
     BodyValue = BrepBody(f"{Prefix}-body", (Region.id,), design_body_id=BodyId)
     Model = BrepModel(
         curves=Curves,
+        pcurves=PcurvesValue,
         surfaces=Surfaces,
         vertices=Vertices,
         edges=Edges,
