@@ -141,8 +141,17 @@ def CheckUsage(TmpPath: FilePath) -> None:
     (("--left-unit", "--right-unit"), ("--right-unit", "--left-unit")),
 )
 def CheckUnitFlags(TmpPath: FilePath, GivenFlag: str, MissingFlag: str) -> None:
+    First = TmpPath / "Left"
+    Second = TmpPath / "Right"
+    for Folder in (First, Second):
+        Folder.mkdir()
+        WriteDocument(Folder / "Part.json", MakeDocument())
     Result = RunBulk(
         [
+            "--left",
+            str(First),
+            "--right",
+            str(Second),
             "--output",
             str(TmpPath / "Output"),
             GivenFlag,
@@ -151,6 +160,7 @@ def CheckUnitFlags(TmpPath: FilePath, GivenFlag: str, MissingFlag: str) -> None:
         UseUnits=False,
     )
     assert Result.returncode == 1
-    assert "required" in Result.stderr
-    assert MissingFlag in Result.stderr
+    assert Result.stderr.splitlines()[-1].endswith(
+        "error: the following arguments are required: " + MissingFlag
+    )
     assert not (TmpPath / "Output").exists()
