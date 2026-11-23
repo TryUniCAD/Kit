@@ -21,3 +21,17 @@ python3.14 -I -B re/tooling/sw2026/para/concentric/ProveD01AssemblyInfo.py \
 ```
 
 The new parent has eight original source members outside the composed inventory. Its native lifecycle, additional locale and system-property variants, held-out qualification and public publication remain open.
+
+## Shared assembly emitter
+
+The shared constructor accepts an optional typed `AsmInfoInput`. Both assembly headers must refer to the same generated self-file object. Its actual locator and save event agree with the destination, its title agrees with the root, and its configuration reference agrees with the manager's selected object. The member is computed before the parent container exists. The default-off path adds no member. [Composition](../../tooling/sw2026/para/concentric/ProveSdkAsmInformation.py) · [SDK receipt](../measurements/2026/SdkAssemblyInformation01.json)
+
+The core creation event is independently authored. The paired saved sources show a 0–4 second interval between binary header creation and core creation, including one second in both D01 saves. The core modification time agrees with each actual self-file `f60` save event. The scoped saved comparison derives the same bytes in all twelve source files. The generated comparison retains the complete previously recorded D01 35-stream parent and child digests, including the established D01 stream order. The alternate generated model changes the actual destination, model title, configuration, actor, calendar date and units while retaining every stream shared with its corresponding no-information version. Both isolated workers report zero external accesses. Eight settings and ownership contrasts refuse.
+
+```sh
+python3.14 -I -B re/tooling/sw2026/para/concentric/ProveSdkAsmInformation.py \
+  --disclosures /absolute/path/to/Oracle121Takeover \
+  --output /tmp/UnusedSdkAssemblyInformation.json
+```
+
+This is internal assembly construction evidence. Whole-source admission, the eight outstanding source members and new native qualification retain the boundaries of the prior proof.

@@ -3,6 +3,9 @@ from dataclasses import dataclass as DataClass
 from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblySysIn import (
     AssemblySysIn,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Metadata.Information.AsmInfoInput import (
+    AsmInfoInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
@@ -41,3 +44,4 @@ class AssemblyInput:
     SavePartValues: Mapping[str, bool | int | float]
     ModelName: str | None = None
     PlatformViewMath: bool = False
+    InformationValue: AsmInfoInput | None = None

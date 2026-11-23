@@ -37,7 +37,7 @@ def MakeAsmAux(
     DisplayName: str | None = None,
 ) -> dict[str, bytes]:
     StreamsValue = MakeAsmCommon(
-        InputValue, HeadersValue, ManagerHeader, DefinitionValue
+        StateValue, InputValue, HeadersValue, ManagerHeader, DefinitionValue
     )
     StreamsValue.update(
         {

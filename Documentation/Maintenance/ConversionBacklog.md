@@ -268,6 +268,10 @@ reproduces 49 properties, their dictionary and the entire stream in twelve
 disclosed assemblies. Two guarded workers add the generated stream to the
 35-stream parent while preserving the other 34 and the linked part. Eight
 original D01 members remain outside the composed inventory.
+The shared assembly model now emits the member directly from explicit core
+provenance and locale settings and the actual linked headers, configuration
+and units. Its guarded D01 result preserves the complete prior parent and
+child digests. [SDK composition receipt](../../re/solidworks/measurements/2026/SdkAssemblyInformation01.json)
 
 Prior native results bind the omission of both [assembly lightweight and display caches](../../re/solidworks/records/ConcentricAssemblyCacheOwnership2026.md)
 in six generated assembly files across four resolved-model lifecycles. The

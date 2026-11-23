@@ -41,7 +41,11 @@ def EmitNestedAsm(
     TargetValue: TargetDocument,
 ) -> AssemblyStreams:
     StreamsValue = MakeAsmCommon(
-        InputValue, HeadersValue, GraphValue.ManagerHeader, GraphValue.DefinitionValue
+        StateValue,
+        InputValue,
+        HeadersValue,
+        GraphValue.ManagerHeader,
+        GraphValue.DefinitionValue,
     )
     StreamsValue.update(
         {
