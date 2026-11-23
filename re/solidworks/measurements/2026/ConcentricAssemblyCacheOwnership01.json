@@ -1,0 +1,444 @@
+{
+  "baseline_commit": "d89dd5965880fda9b645336527b20fc02557d4e9",
+  "heldout_inputs_read": 0,
+  "inputs": {
+    "concentric_d01_edited": {
+      "archive_bytes": 48759,
+      "archive_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "container_format_version_field": 4,
+      "prior_evidence": "ConcentricMateSdkArchive01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "ce4a83e27af9283e85d4ca6912eac2c1636f2c868256d89e201f425172844f2e"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 10071,
+          "sha256": "3817becb03ba9744128ef99f935b9fb4dc3181bc74617feb1c94f07ebd2696c2"
+        }
+      }
+    },
+    "concentric_d01_source": {
+      "archive_bytes": 46774,
+      "archive_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "container_format_version_field": 4,
+      "prior_evidence": "ConcentricMateSdkArchive01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "631f0f7bd4f321d9445fa4a6fecd610d0d96f1df2a80dfbcced70045d985ff79"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 9659,
+          "sha256": "6d54c6916f35e3af2e00addcee14cbc526ef77e26ef9b656cfcb55d6024f0c07"
+        }
+      }
+    },
+    "nested_frame_generated": {
+      "archive_bytes": 9067,
+      "archive_sha256": "90260a5b99429d757208e9354f2e2ba65ece47854751394d576c8a00ab17f9ed",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "nested_frame_native_save": {
+      "archive_bytes": 55449,
+      "archive_sha256": "df7bf49f27d58957bfe080fdab6cefdd96fc8b18a744308e1650308af6479f68",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "70814fde2f38cd3c6da17bef3947ec7ef08df1b06113be3c4e11d4a8c9a35e12"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 8481,
+          "sha256": "5d22f7789e07866c933b3e7853a239cfc1f3f2db0d35688215b55145d347b056"
+        }
+      }
+    },
+    "nested_module_generated": {
+      "archive_bytes": 8880,
+      "archive_sha256": "20fabea8f16ca4a521e4afbd448eb27cbaf3780f02df2c0cafd77aed4872b197",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "nested_module_native_save": {
+      "archive_bytes": 21712,
+      "archive_sha256": "f85c3d2aed4ab72c8d3a7b3d1415555d2baf30ad6b6553b909673ba9eb33b3fd",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "cbac7cad7506347c43a5a4d5b880dcf347c8f06c2c68509862d5c0fc106b8cbe"
+        },
+        "Contents/DisplayLists": null
+      }
+    },
+    "planar_group_generated": {
+      "archive_bytes": 11540,
+      "archive_sha256": "1522aa21cb3f39db16a6b082088fef0a0063acf6a53df6cb31c479137761eda3",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkExplicitPlanarGroupNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "planar_group_native_save": {
+      "archive_bytes": 52099,
+      "archive_sha256": "9fb699429dd5d25400bd225451f5f48aaa83793edf171ac924d7d985a9bc39d9",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkExplicitPlanarGroupNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "2c76cbce78b0fe1fd1ca65797d3e0988bf5ca9a4977849f9c0633431e10facae"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 8896,
+          "sha256": "c4f1d3ecc78d7df8e50eac79ff36fc82b6cd4904a01dc686a80efddb3e7c427b"
+        }
+      }
+    },
+    "radial_concentric_generated": {
+      "archive_bytes": 10235,
+      "archive_sha256": "9474ca54466a450eec3ba5e49703053fe160e0a221647b2bcc984d8d3672dc74",
+      "container_format_version_field": 4,
+      "prior_evidence": "ConcentricRadialAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "radial_concentric_native_save": {
+      "archive_bytes": 45701,
+      "archive_sha256": "19d1b44bff684f0414549b5d997fba89f9e67368e20aac31d855c947e0e3a5a3",
+      "container_format_version_field": 4,
+      "prior_evidence": "ConcentricRadialAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "bc7855c0b820d69924cbf206c650df0f98c89efceddd1d7dca3d543887916393"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 7533,
+          "sha256": "da07dad0f21098013ef7f75373c24cfd428a3878d04185dbe3cf90ba7f6f0241"
+        }
+      }
+    },
+    "repeated_nested_frame_generated": {
+      "archive_bytes": 9917,
+      "archive_sha256": "cd7d242faa4b0abad532663e6a97e4ed806672b501c35128804a6b98d8fc580b",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "repeated_nested_frame_native_save": {
+      "archive_bytes": 47739,
+      "archive_sha256": "d2879de0428aa629e7713bb93272345484503177e83547d5e2bbd9bb06a6f047",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "0a9bb2c37a0dc01f3784150595f75e195c1957dc8782c4722c5d199a94382c48"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 16032,
+          "sha256": "c006dff75e6ff0c5437dc37b69df6b545f514c7a18b935c331fb9e32aafa328d"
+        }
+      }
+    },
+    "repeated_nested_module_generated": {
+      "archive_bytes": 9170,
+      "archive_sha256": "e7dbdffe30d80296da1655fc88d938c82f22f8cc63f522acdac8d5ecb91f3a07",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": null,
+        "Contents/DisplayLists": null
+      }
+    },
+    "repeated_nested_module_native_save": {
+      "archive_bytes": 22059,
+      "archive_sha256": "2bf45f7c6638337256cdf315aae9079f26064bc43dd1ddb75db74afb8faf8876",
+      "container_format_version_field": 4,
+      "prior_evidence": "SdkNestedAssemblyNative01.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "f9abf03035c3ad2dcb8d8e3396f59e465c41e34e5adf49bde3bb2094a20d4c98"
+        },
+        "Contents/DisplayLists": null
+      }
+    },
+    "tracked_empty": {
+      "archive_bytes": 22891,
+      "archive_sha256": "c935cee2d4742885115a9ca3640a9714222525474c3c82f5c72922926b95840b",
+      "container_format_version_field": 4,
+      "prior_evidence": "re/solidworks/v2026/corpus/assembly-discovery/Manifest.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "c1297484bffb7615feac2ceea39909dc3fb6be154b85c5b3210eac62951d5f03"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 5792,
+          "sha256": "33215b1e718132e2199a6d3eff936072b7c7f92fed97d08e9fec450d901822b3"
+        }
+      }
+    },
+    "tracked_one_occurrence": {
+      "archive_bytes": 51263,
+      "archive_sha256": "9f98f7a6e3271187a20d41bb8c701399723f6448a86ff8471b525a45af50621f",
+      "container_format_version_field": 4,
+      "prior_evidence": "re/solidworks/v2026/corpus/assembly-discovery/Manifest.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "b6193aca5a86e8413aa5bdb1aaa22f6a58b576638543f09c1f53e3a27179a15f"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 8944,
+          "sha256": "0f4136517899104145d62bac39ae97711891ae26e6bf657faad8e16e4db63a22"
+        }
+      }
+    },
+    "tracked_two_occurrences": {
+      "archive_bytes": 42896,
+      "archive_sha256": "4fc4d78edc4d4cb07f650d33cf77e5042af7939051b463d290cafb8b8b128180",
+      "container_format_version_field": 4,
+      "prior_evidence": "re/solidworks/v2026/corpus/assembly-discovery/Manifest.json",
+      "streams": {
+        "Contents/Config-0-LWDATA": {
+          "bytes": 1437,
+          "sha256": "379e741691b39a0c872c0fe7d1dfb7834328a4fcf372dd81d4c4a0b2b4691160"
+        },
+        "Contents/DisplayLists": {
+          "bytes": 9637,
+          "sha256": "ee0e4eb28f90fca32992b500500548ef3508dcee17a4d8526b7fe8bb3b1e729c"
+        }
+      }
+    }
+  },
+  "native_build": "34.5.2.0604",
+  "new_native_processes_started": 0,
+  "prior_evidence": {
+    "ConcentricMateSdkArchive01.json": {
+      "role": "disclosed ordinary source and edited archive pins",
+      "sha256": "94f8e9a86bd49ce133e7ffbc92b2ce895511aea102760c668116ff2b3ef8d067"
+    },
+    "ConcentricRadialAssemblyNative01.json": {
+      "both_controls_healthy": true,
+      "native_build": "34.5.2.0604",
+      "numeric_checks": 140,
+      "passed": true,
+      "prior_distinct_native_processes": 4,
+      "sha256": "d9cfb90dd07b62a49160d4d816328072767c979d89a801842add035dbcf37016"
+    },
+    "SdkExplicitPlanarGroupNative01.json": {
+      "both_controls_healthy": true,
+      "native_build": "34.5.2.0604",
+      "numeric_checks": 440,
+      "passed": true,
+      "prior_distinct_native_processes": 4,
+      "sha256": "3e6b29caab854158217b13913674867b3ed7559861a7faf70af375257212ef17"
+    },
+    "SdkNestedAssemblyNative01.json": {
+      "both_controls_healthy_per_case": true,
+      "native_build": "34.5.2.0604",
+      "passed": true,
+      "prior_distinct_native_processes": 8,
+      "sha256": "5753c5f2b2e9257affa613be8b0e9fc4728765397b4d8b7e6fa9059c94c787f9"
+    },
+    "re/solidworks/v2026/corpus/assembly-discovery/Manifest.json": {
+      "role": "tracked scrubbed ordinary reader fixtures",
+      "sha256": "703af0d608f021960cfa33321c36791858cea9daf224c69038a92065555180c0"
+    }
+  },
+  "schema": "kit.sw2026.assembly-separate-cache-ownership.v1",
+  "static": {
+    "assembly_ui_primary_vtable": {
+      "rtti_class": ".?AVuiAssemblyDoc_c@@",
+      "rtti_locator_va": "0x3fd41160",
+      "slots": {
+        "0x3160": "0x3f7afa20",
+        "0x3178": "0x3f7b0fb0"
+      },
+      "va": "0x3fc5e0b8"
+    },
+    "assembly_view_imports": {
+      "0x3fbecd90": {
+        "module": "SLDMODU.dll",
+        "symbol": "?configurationMgr@moModel_c@@QEBAPEAVmoConfigurationMgr_c@@XZ"
+      },
+      "0x3fbf9060": {
+        "module": "slduiu.dll",
+        "symbol": "?iGetViewArray@uiModelDoc_c@@IEAAXPEAVsuObArray@@PEAVuiUserModelEnv_c@@@Z"
+      },
+      "0x3fbf9068": {
+        "module": "slduiu.dll",
+        "symbol": "?iCreateTempFrame@uiModelDoc_c@@IEAAPEAVCFrameWnd@@XZ"
+      },
+      "0x3fbfe2e0": {
+        "module": "slduiu.dll",
+        "symbol": "?activeBrepView@uiModelDoc_c@@QEBAPEAVuiModelView_c@@XZ"
+      }
+    },
+    "display_call_vas": {
+      "active_brep_view": "0x3f7afb5d",
+      "active_config_primary_slot_call": "0x18001fa66",
+      "configuration_manager": "0x3f7afaa6",
+      "construct_archive_context": "0x18001fa45",
+      "enter_saving_display_lists": "0x18001f86a",
+      "get_view_array": "0x3f7afb54",
+      "multi_config_primary_slot_call": "0x18001fd30",
+      "named_storage_open": "0x18001fa11"
+    },
+    "lw_call_vas": {
+      "append_lwdata_suffix": "0x180030057",
+      "construct_helper": "0x1800301a8",
+      "document_model_alternative": "0x180030198",
+      "get_archive": "0x1800301b1",
+      "serialize": "0x1800301c0",
+      "storage_name": "0x18003002e",
+      "supplied_config_opened_model": "0x18003018a"
+    },
+    "modules": {
+      "doccplu.dll": {
+        "bytes": 1052248,
+        "image_base": "0x180000000",
+        "machine": "0x8664",
+        "name": "doccplu.dll",
+        "rea_pe_identity_evidence": "ev_7a0afe0c4e30a2cd0f4ebd352f23649732df28cfc8ea75e9cbcc872c1f9f7270",
+        "sha256": "ad0c266a966381defe9a68c11b76dc318acc6a9f6ac428d5aa253049df87ddd8"
+      },
+      "sldasmu.dll": {
+        "bytes": 10863704,
+        "image_base": "0x3f570000",
+        "machine": "0x8664",
+        "name": "sldasmu.dll",
+        "rea_pe_identity_evidence": "ev_8a29ee64f4669cf3d868cb44fd02ad459424cbe39e0ad1b0ca4ef43110d13277",
+        "sha256": "05ab90ee7380335088505c47202137c63dbce18d7d516e7fd6703aee31d70390"
+      },
+      "sldmodu.dll": {
+        "bytes": 46536280,
+        "image_base": "0x4b140000",
+        "machine": "0x8664",
+        "name": "sldmodu.dll",
+        "rea_pe_identity_evidence": "ev_7fc3ecfa02cbbd7d6067ca5c370b778582e5ddc85ae1940285a50b90bfc6ceec",
+        "sha256": "569a081928ad24afac5408cc15a1034d18e89b2c5001428a64115a3cc497067e"
+      }
+    },
+    "routine_bounds": {
+      "save_assembly_display_lists": {
+        "code_sha256": "c118d3cbf536d0f6b494c6e14705b21248b147396939f87f5063bafb39776bf4",
+        "end_rva_exclusive": "0x240fa1",
+        "end_va_exclusive": "0x3f7b0fa1",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?iSaveDisplayLists@uiAssemblyDoc_c@@MEAAXAEAVsu_CArchive@@@Z"
+        ],
+        "start_rva": "0x23fa20",
+        "start_va": "0x3f7afa20",
+        "unwind_rva": "0x829cd0"
+      },
+      "save_assembly_display_lists_multiple_configs": {
+        "code_sha256": "a933d2bf37aa32201b92c98485c4f16ae4e5b8a7d06243de0b39dd2fb07d9b27",
+        "end_rva_exclusive": "0x2417c2",
+        "end_va_exclusive": "0x3f7b17c2",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?iSaveDisplayListsMultipleConfigs@uiAssemblyDoc_c@@MEAAXAEAVsu_CArchive@@H@Z"
+        ],
+        "start_rva": "0x240fb0",
+        "start_va": "0x3f7b0fb0",
+        "unwind_rva": "0x82a128"
+      },
+      "save_display_lists": {
+        "code_sha256": "3eca1583966c6156d3de8a189c3d006bf3f8c84b7c502a0a712ffe3f5e20fe0b",
+        "end_rva_exclusive": "0x204ad",
+        "end_va_exclusive": "0x1800204ad",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?SaveDisplayLists@SolidStorage_c@@UEAAXAEAVsuFileStorage@@@Z"
+        ],
+        "start_rva": "0x1f7b0",
+        "start_va": "0x18001f7b0",
+        "unwind_rva": "0xd1960"
+      },
+      "save_lw_data": {
+        "code_sha256": "9563ffee6858cfd1ae5e652e99726c0bce367f86107ac8a06ed5a2f594310172",
+        "end_rva_exclusive": "0x3023b",
+        "end_va_exclusive": "0x18003023b",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?saveLWData@SolidStorage_c@@UEAAXPEAVsuFileStorage@@PEAVmoBaseConfiguration_c@@@Z"
+        ],
+        "start_rva": "0x2ffc0",
+        "start_va": "0x18002ffc0",
+        "unwind_rva": "0xd7688"
+      },
+      "serialize_lw_helper": {
+        "code_sha256": "937cc67b4a1374c6917cc40734da757baec439750d5b0589be1ae63ebcd90332",
+        "end_rva_exclusive": "0x16527a8",
+        "end_va_exclusive": "0x4c7927a8",
+        "exact_export_alias_count": 1,
+        "exact_exports": [
+          "?Serialize@moLWdataHelper_c@@UEAAXAEAVsu_CArchive@@@Z"
+        ],
+        "start_rva": "0x1652350",
+        "start_va": "0x4c792350",
+        "unwind_rva": "0x22fee10"
+      }
+    },
+    "storage_imports": {
+      "0x180051478": {
+        "module": "SLDMFCU.dll",
+        "symbol": "?getArchive@suFileStorage@@QEAAPEAVsu_CArchive@@XZ"
+      },
+      "0x180051668": {
+        "module": "SLDMODU.dll",
+        "symbol": "??0moLWdataHelper_c@@QEAA@PEAVmoModel_c@@@Z"
+      },
+      "0x1800517d8": {
+        "module": "SLDMODU.dll",
+        "symbol": "?Serialize@moLWdataHelper_c@@UEAAXAEAVsu_CArchive@@@Z"
+      },
+      "0x180051980": {
+        "module": "SLDMODU.dll",
+        "symbol": "?getStorageName@moBaseConfiguration_c@@QEBA?AV?$CStringT@_WV?$StrTraitMFC_DLL@_WV?$ChTraitsCRT@_W@ATL@@@@@ATL@@XZ"
+      },
+      "0x1800522b0": {
+        "module": "SLDMODU.dll",
+        "symbol": "?getOpenedModel@moBaseConfiguration_c@@QEBAPEAVmoModel_c@@XZ"
+      },
+      "0x180053510": {
+        "module": "slduiu.dll",
+        "symbol": "??0moArchiveHelperObject_c@@QEAA@PEAVsu_CArchive@@PEAVSldModelContext_c@@@Z"
+      },
+      "0x180053518": {
+        "module": "slduiu.dll",
+        "symbol": "?setSavingDisplayLists@uiModelDoc_c@@QEAAXH@Z"
+      }
+    },
+    "storage_stream_name_literals": {
+      "0x1800571e0": "DisplayLists",
+      "0x180057200": "Contents",
+      "0x1800592c8": "-LWDATA"
+    }
+  },
+  "writer_outputs_created": 0
+}
