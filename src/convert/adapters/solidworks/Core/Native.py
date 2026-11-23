@@ -254,6 +254,7 @@ class DecodeState:
     LatestOperation: NativeOperation | None
     LatestPlaneId: int
     LatestUnframed: int | None
+    PlaneOwners: dict[int, tuple[int, int, int] | None]
 
 
 # plane state handling preserves the latest framed support context
@@ -269,8 +270,16 @@ def ApplyPlaneMut(StateData: DecodeState, Feature: NativeFeature) -> None:
 def ApplySketchMut(StateData: DecodeState, Feature: NativeFeature) -> None:
     SketchStart = Feature.native_offset or 0
     SketchEnd = Feature.native_end or len(StateData.Resolved)
+    if 0 not in StateData.PlaneOwners:
+        StateData.PlaneOwners[0] = ReadPlaneOwner(
+            StateData.Resolved, StateData.Classes, SketchStart
+        )
     RefValue = SketchPlaneRef(
-        StateData.Resolved, StateData.Classes, SketchStart, SketchEnd
+        StateData.Resolved,
+        StateData.Classes,
+        SketchStart,
+        SketchEnd,
+        StateData.PlaneOwners,
     )
     Support, SupportSource, UnframedSupport = SupportPlaneRef(
         StateData.Resolved,
@@ -1644,6 +1653,7 @@ def CreateState(
         None,
         LatestPlaneId,
         None,
+        {},
     )
     return (StateData, Author, Planes, UnframedPlanes)
 
@@ -2605,9 +2615,17 @@ def SupportPlaneRef(
 
 # this definition exists because focused behavior needs one stable owner
 def SketchPlaneRef(
-    DataValue: bytes, Classes: tuple[NativeClass, ...], Start: int, EndValue: int
+    DataValue: bytes,
+    Classes: tuple[NativeClass, ...],
+    Start: int,
+    EndValue: int,
+    OwnerCache: Mapping[int, tuple[int, int, int] | None] | None = None,
 ) -> NativeSketchA | None:
-    OwnerValue = ReadPlaneOwner(DataValue, Classes, Start)
+    OwnerValue = (
+        ReadPlaneOwner(DataValue, Classes, Start)
+        if OwnerCache is None
+        else OwnerCache[0]
+    )
     if OwnerValue is None:
         return None
     for Record in Classes:
@@ -2633,6 +2651,11 @@ def SketchPlaneRef(
         )
         if Scanned is not None:
             return Scanned
+    if any(
+        Record.name == SketchChainClass and Start <= Record.offset < EndValue
+        for Record in Classes
+    ):
+        raise ArchiveError("invalid owned SOLIDWORKS principal sketch reference")
     return None
 
 

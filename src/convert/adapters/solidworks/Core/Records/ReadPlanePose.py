@@ -47,6 +47,21 @@ def ReadPlanePose(
         RequireArch(ShiftScale, (0, 0, 0, 1), "principal plane pose origin and scale")
         Directions = MatrixAxes(BasisValue if BasisValue is not None else KUnitRows)
         RequireArch(IsOrthonormal(Directions), True, "principal plane pose basis")
+        RequireArch(
+            Directions[2],
+            tuple(1.0 if Index == AxisCode - 1 else 0.0 for Index in range(3)),
+            "saved sketch normal agrees with its principal plane",
+        )
+        FirstAxis, SecondAxis, Normal = Directions
+        RequireArch(
+            tuple(
+                FirstAxis[(Index + 1) % 3] * SecondAxis[(Index + 2) % 3]
+                - FirstAxis[(Index + 2) % 3] * SecondAxis[(Index + 1) % 3]
+                for Index in range(3)
+            ),
+            Normal,
+            "right-handed principal sketch frame",
+        )
     except ArchiveError:
         return None
     return (

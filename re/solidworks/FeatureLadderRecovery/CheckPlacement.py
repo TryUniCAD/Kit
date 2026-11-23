@@ -21,6 +21,8 @@ sys.path.insert(0, str(ROOT / "src"))
 from convert import open_document
 from convert.adapters.solidworks.Container.Container import BuildSldprt, SldprtArchive
 from convert.adapters.solidworks.Core.Native import decode_native_model
+from convert.adapters.solidworks.Container.Archive import ArchiveError
+import convert.adapters.solidworks.Core.Native as native_reader
 
 
 def roster():
@@ -170,17 +172,61 @@ def check_invalid(representatives):
         (14, "<B", 2),
         (15, "<d", float("nan")),
         (15, "<d", 0.5),
+        (15, "<9d", (1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0)),
+        (15, "<9d", (-1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 0.0, 1.0, 0.0)),
         (87, "<d", 0.001),
         (111, "<d", 2.0),
         (119, "<B", 1),
     ]
     for delta, encoding, value in edits:
-        edited = change(raw, archive, stream, offset, delta, encoding, value)
-        document = open_document(edited, source_format="solidworks.sldprt", strict=True)
-        (sketch,) = document.sketches
-        assert sketch.attributes["support_plane_source"] == "stream-order"
-        assert sketch.support_plane_id == "sldprt:plane:2"
+        if isinstance(value, tuple):
+            edited_stream = bytearray(archive.streams[stream])
+            struct.pack_into(encoding, edited_stream, offset + delta, *value)
+            streams = archive.streams
+            streams[stream] = bytes(edited_stream)
+            edited = BuildSldprt(streams, Template=raw)
+        else:
+            edited = change(raw, archive, stream, offset, delta, encoding, value)
+        for include_brep in (True, False):
+            try:
+                open_document(
+                    edited,
+                    source_format="solidworks.sldprt",
+                    strict=True,
+                    include_brep=include_brep,
+                )
+            except ArchiveError as error:
+                assert "invalid owned SOLIDWORKS principal sketch reference" in str(error)
+            else:
+                raise AssertionError("malformed reference produced a neutral document")
     return len(edits)
+
+
+def check_owner_scans():
+    path = (
+        ROOT
+        / "re/solidworks/examples/Single Turbo Dual Overhead Cam V8 - KDP - 2024/BIELA.SLDPRT"
+    )
+    archive = SldprtArchive.open(path)
+    original = native_reader.ReadPlaneOwner
+    scans = 0
+
+    def counted(*args):
+        nonlocal scans
+        scans += 1
+        return original(*args)
+
+    native_reader.ReadPlaneOwner = counted
+    try:
+        model = decode_native_model(
+            archive.streams["swXmlContents/KeyWords"],
+            archive.streams["Contents/Config-0-ResolvedFeatures"],
+        )
+    finally:
+        native_reader.ReadPlaneOwner = original
+    assert len(model.sketches) > 1
+    assert scans == 1, (scans, len(model.sketches))
+    return scans
 
 
 def main():
@@ -196,7 +242,8 @@ def main():
         "reader_comparisons": count * 2,
         "centroid_mismatches": 0,
         "timestamp_variants": check_variability(representatives),
-        "invalid_reference_fallbacks": check_invalid(representatives),
+        "invalid_reference_rejections": check_invalid(representatives),
+        "multi_sketch_owner_scans": check_owner_scans(),
         "bounds_evidence": "derived from origin-based native recipes and measured centroids",
         "mass_evidence": "cuboid properties derived from decoded bounds compared with native observations",
         "sdk_sources": {

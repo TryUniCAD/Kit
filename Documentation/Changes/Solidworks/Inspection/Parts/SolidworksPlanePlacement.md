@@ -17,9 +17,12 @@ The resulting fallback placed 96 recovered top-plane and right-plane parts on th
 The bounded reference reader consumes the unsigned timestamp without comparing its value with a captured constant.
 It checks supported component generations, principal identity, axis agreement, null framing, finite orthonormal axes, and the complete local pose.
 The origin reference supplies the source document's local unit and part identities.
+The decode state caches that lookup, including an unavailable result, for the current immutable source stream.
 Each candidate must retain those owners, the same generation, compact pointer kinds, and the absent external component.
 The complete owner envelope stays inside its authored feature.
 The pose must retain its principal origin, unit scale, and absent nested transform within the owning feature boundary.
+The saved frame must be right-handed and its normal must agree with the principal datum.
+An invalid owned chain reference raises a format error after both reference lookup paths fail.
 Both supported generation stamps participate in fallback scanning.
 The historical timestamp export remains available for compatibility callers.
 
@@ -32,9 +35,10 @@ No native files or historical reports were changed.
 - Decoded cuboid extents agree with the source recipes and measured native centroids.
 - Cuboid volume and area derived from those extents agree with the native observations.
 - Twenty-four timestamp variants preserve placement across three principal planes and both extrusion directions.
-- Seventeen malformed reference variants retain the explicit stream-order fallback instead of admitting a principal reference.
+- Nineteen malformed reference variants fail both public read modes, including wrong-datum and reflected orthonormal matrices.
 - All 58 older pinned SOLIDWORKS part documents serialize identically before and after this repair.
 - The focused process and compatibility selection passed 19 tests.
+- A multi-sketch native part performs one origin-owner lookup per decode.
 
 Run the production-reader check from the repository root with an unused output path:
 
@@ -52,7 +56,7 @@ This repair establishes the bounded offline source-placement behavior against re
 It does not establish fresh native acceptance or editable cross-format conversion.
 The separate typed rectangle reader retains its scene, annotation, and principal-axis admission limits.
 Origin-consistent sampling does not establish complete typed archive-map qualification.
-Malformed references retain the existing explicitly labelled fallback behavior; this change does not qualify those files.
+Sketches outside the recognized owned-chain path retain their existing fallback behavior; this change does not qualify those files.
 Neutral explicit mass properties remain unavailable on the legacy path.
 
 [Original field and loader evidence](../../../../../re/solidworks/records/PrincipalSupportCandidates.md)
