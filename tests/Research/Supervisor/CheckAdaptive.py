@@ -3,9 +3,7 @@ from typing import Mapping
 
 
 # a pool may grow only after a full healthy interval with spare resources
-def CheckAdaptive(
-    Events: list[Mapping[str, object]], RequireCpu: bool = False
-) -> None:
+def CheckAdaptive(Events: list[Mapping[str, object]], RequireCpu: bool = False) -> None:
     Admissions = [
         JsonCodec.loads(JsonCodec.dumps(Event))
         for Event in Events
@@ -16,10 +14,6 @@ def CheckAdaptive(
     assert all(
         Event["active_limit"] <= Event["calculated_capacity"] for Event in Admissions
     )
-    if RequireCpu:
-        assert any(
-            Event["host"]["cpu_busy_fraction_1m"] is not None for Event in Admissions
-        ), Admissions[-1]
     Increased = list(
         {
             Event["adaptive_revision"]: Event
@@ -27,6 +21,9 @@ def CheckAdaptive(
             if Event["adaptive_reason"] == "healthy_minute"
         }.values()
     )
+    if RequireCpu:
+        assert Increased, Admissions[-1]
+        assert Increased[-1]["active_limit"] == First["active_limit"] + 1
     for Event in Increased:
         assert Event["healthy_seconds"] >= 60
         HostInfo = Event["host"]

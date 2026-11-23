@@ -20,8 +20,8 @@ def CheckRealMinute(RequireCpu: bool = False) -> None:
                     "fixture.decode",
                     max_attempts=1,
                     lease_seconds=30,
-                    timeout_seconds=90,
-                    options={"hold_seconds": 75 if RequireCpu else 65},
+                    timeout_seconds=120 if RequireCpu else 90,
+                    options={"hold_seconds": 85 if RequireCpu else 65},
                 ),
                 FixtureJob(
                     "adaptive:next",
@@ -40,6 +40,14 @@ def CheckRealMinute(RequireCpu: bool = False) -> None:
         Started = [Event for Event in Events if Event.get("event") == "started"]
         assert len(Started) == 2
         assert Started[1]["at"] - Started[0]["at"] >= 60
+        if RequireCpu:
+            (HoldFinished,) = [
+                Event
+                for Event in Events
+                if Event.get("event") == "finished"
+                and Event.get("job") == "adaptive:hold"
+            ]
+            assert Started[1]["at"] < HoldFinished["at"]
         assert Harness.ReadJob("adaptive:hold")["state"] == "completed"
         assert Harness.ReadJob("adaptive:next")["state"] == "completed"
         CheckAdaptive(Events, RequireCpu)

@@ -606,9 +606,10 @@ The [kernel OOM estimate](../../Changes/Research/Supervisor/KernelOomMemoryEstim
 
 The [A08b capacity status](../../Changes/Research/Supervisor/LiveSupervisorCapacity.md) reports the running supervisor's last admission decision and per-kind reservations. It validates owner identity, configuration, pause generation and freshness before returning the observations. At `648ddf5c`, the live status checks passed in the 59-case Linux, 92-case Windows and 143-case macOS supervisor runs. [Hosted workflow](https://github.com/TryUniCAD/Kit/actions/runs/43774889237)
 
-The A08b Windows adaptive CPU follow-up is owned by Codex on `codex/windows-adaptive-ramp`.
+Codex owns the A08b Windows adaptive CPU follow-up on [PR #281](https://github.com/TryUniCAD/Kit/pull/281).
 It depends on the existing supervisor resource measurements and keeps the configured CPU and memory reserves.
 Exit requires a real Windows supervisor to observe a valid CPU interval and increase only when headroom and the existing interval permit it.
+The 256-job Windows replay observed increases from nine to eleven with equal neutral digests and intact reserves.
 [Windows adaptive CPU measurement](../../Changes/Research/Supervisor/Adaptive/WindowsAdaptiveCpu.md)
 
 The [A08b controller capacity refusal](../../Changes/Research/Supervisor/ControllerCapacityRefusal.md) at `c4526025` reports a real A03 concurrency refusal alongside the locally calculated headroom. The two-pool case passed on Linux, Windows and macOS at `b9efdb5e`. The Windows job failed an independent SOLIDWORKS rearm case. The [sampled A03 capacity view](../../Changes/Research/Supervisor/ControllerCapacitySnapshot.md) at `863c157b` counts shared logical slots separately from physical worker sessions. Its grouped-plus-singleton process check passed on hosted Linux and macOS at `3cd136ad`. [Earlier workflow](https://github.com/TryUniCAD/Kit/actions/runs/43779565898), [capacity process results](https://github.com/TryUniCAD/Kit/actions/runs/43781577583)
