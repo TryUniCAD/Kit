@@ -52,6 +52,16 @@ have precisely the same display membership and values, with a different
 sibling order. The receipt records those differences without using the
 saved order to seed any generated output.
 
+The separate [recovered cuboid comparison](../measurements/2026/RecoveredKeywordOwners01.json)
+rebuilds the complete stream for all 111 recovered cuboids using their
+binary owners. The single active CMgr configuration supplies its identity
+and name. Its unassigned material label comes from the actual material
+folder. The header supplies the epoch. One atomic boss and its
+type-less dissectable sketch are emitted alongside the concrete system
+rows and configuration-owned helpers. The 2,886 feature rows and the
+complete framed streams all match. The saved keyword is read after
+the model has generated its stream.
+
 Two independently chosen document precisions change the byte length of
 a fresh generated index and retain the expected half-tie and angular
 representations. These workers record zero runtime input-file reads.
@@ -65,4 +75,5 @@ their own evidence.
 ```sh
 python3.14 -I -B re/tooling/sw2026/key_index/PinKeywordOrder.py /path/to/native/modules /tmp/UnusedOrder.json
 python3.14 -I -B re/tooling/sw2026/key_index/AuditKeywordOwners.py /path/to/frozen/worktree /path/to/disclosures /tmp/UnusedOrder.json /tmp/UnusedOwners.json
+python3.14 -I -B re/tooling/sw2026/key_index/AuditRecoveredPartKeywords.py /tmp/UnusedCuboidOwners.json
 ```

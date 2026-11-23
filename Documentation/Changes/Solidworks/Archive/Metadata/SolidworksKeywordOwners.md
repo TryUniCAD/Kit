@@ -7,6 +7,8 @@ file leaves, and timestamps retain their owning records.
 
 The shared display constructor uses the live parameter, document precision
 and radial mode. A disclosed comparison accounts for 309 dimensions.
+The linked binary model also reproduces complete keyword indexes for
+111 recovered cuboids.
 The native dimension discriminator can depend on its display object's
 runtime address. Generated rows follow the modeled presentation sequence.
 [Record and verification](../../../../../re/solidworks/records/KeywordOwnerProjection2026.md)
