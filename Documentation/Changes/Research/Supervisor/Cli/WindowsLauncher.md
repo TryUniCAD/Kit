@@ -28,6 +28,7 @@ Each case requires a settlement receipt and termination of the independently rec
 Cancellation must finish within 15 seconds of the recorded request, before the safety deadline can settle workers independently.
 Compatibility cases reject missing, unsupported, and invalid protocol markers without changing a queued controller job.
 The same complete legacy fixture then dispatches that queued job directly, proving its dependencies are present.
+Fixture copying selects tracked automation Python files and the explicit test runner dependencies, excluding captures and untracked output.
 Native break-event cases create an explicit launcher process group and target its recorded root identifier.
 Private test job custody handles failed launchers and surviving descendants without masking successful worker-cleanup assertions.
 These cases use the existing Windows merge-queue selection and completeness checks.

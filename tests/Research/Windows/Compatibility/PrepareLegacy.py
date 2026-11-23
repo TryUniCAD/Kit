@@ -1,6 +1,7 @@
 from pathlib import Path as FilePath
-from shutil import copyfile as CopyFile, copytree as CopyTree
-from shutil import ignore_patterns as IgnorePatterns
+from shutil import copyfile as CopyFile
+
+from tests.Research.Windows.Compatibility.CopyAutomation import CopyAutomation
 
 
 # compatibility rejection needs the actual supervisor source with its older cancellation contract restored
@@ -17,11 +18,7 @@ def PrepareLegacy(WorkPath: FilePath, MarkerText: str) -> FilePath:
     RootPath = WorkPath / "LegacyCheckout"
     (RootPath / ".git").mkdir(parents=True)
     (RootPath / "src/convert").mkdir(parents=True)
-    _ = CopyTree(
-        RepoRoot / "re/automation",
-        RootPath / "re/automation",
-        ignore=IgnorePatterns("__pycache__", "*.pyc"),
-    )
+    CopyAutomation(RepoRoot, RootPath)
     for RepoName in (
         "tests/__init__.py",
         "tests/Research/SessionRunner.py",
