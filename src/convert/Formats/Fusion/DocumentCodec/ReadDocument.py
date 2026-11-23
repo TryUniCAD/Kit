@@ -1,5 +1,7 @@
 from collections.abc import Callable
+from itertools import chain as ChainValues
 
+from convert.Formats.Fusion.ContainerCodec.Model.SegmentIndex import SegmentIndex
 from convert.Formats.Fusion.ContainerCodec.ReadContainer import ReadContainer
 from convert.Formats.Fusion.DocumentCodec.Auxiliary.Configuration.CheckDocConfig import (
     CheckDocConfig,
@@ -24,29 +26,37 @@ from convert.Formats.Fusion.DocumentCodec.Reading.ReadDocParts import ReadDocPar
 from convert.Formats.Fusion.DocumentCodec.Reading.Materials.CheckDocMats import (
     CheckDocMats,
 )
-from convert.Formats.Fusion.DocumentCodec.Records.MakeDocProfile import MakeDocProfile
+from convert.Formats.Fusion.DocumentCodec.Records.DecodeSegment import DecodeSegment
+from convert.Formats.Fusion.DocumentCodec.Records.MakeSegProfile import MakeSegProfile
+from convert.Formats.Fusion.DocumentCodec.Records.MakeTargets import MakeTargets
 from convert.Formats.Fusion.DocumentCodec.Records.ReadDocSchemas import ReadDocSchemas
-from convert.Formats.Fusion.DocumentCodec.Records.ReadDocSegment import ReadDocSegment
-from convert.Formats.Fusion.SegmentCodec.Metadata.ReadMetaWire import ReadMetaWire
 
 
 # the document operation needs a distinct decoding boundary so model state retains its native feature and ownership relationships
 def ReadDocument(
     Payload: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
 ) -> DocumentModel:
-    Container = ReadContainer(Payload, InflateZstd)
+    Indexes: list[SegmentIndex] = []
+    Container = ReadContainer(Payload, InflateZstd, Indexes=Indexes)
     Schemas = ReadDocSchemas()
-    Metadata = tuple(
-        ReadMetaWire(Stream.Metadata, Segment=SlotValue.Segment)
-        for Stream, SlotValue in zip(
-            Container.Streams, Container.Asset.Segments, strict=True
-        )
-    )
+    TargetRows = tuple(MakeTargets(IndexValue.Metadata) for IndexValue in Indexes)
     Segments = tuple(
-        ReadDocSegment(
-            Stream, MetaValue, MakeDocProfile(Schemas, Metadata, Stream.SegmentId)
+        DecodeSegment(
+            Stream.BulkData,
+            IndexValue,
+            MakeSegProfile(
+                Schemas,
+                IndexValue.Metadata,
+                tuple(
+                    ChainValues.from_iterable(
+                        TargetRows[:Order] + TargetRows[Order + 1 :]
+                    )
+                ),
+            ),
         )
-        for Stream, MetaValue in zip(Container.Streams, Metadata, strict=True)
+        for Order, (Stream, IndexValue) in enumerate(
+            zip(Container.Streams, Indexes, strict=True)
+        )
     )
     Parts = ReadDocParts(Container.Parts)
     Result = DocumentModel(

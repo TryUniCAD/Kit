@@ -89,11 +89,11 @@ def encode_document(document):
     encoded = document.to_json(indent=None).encode("utf-8")
     if len(encoded) > DOCUMENT_LIMIT:
         raise ValueError("neutral artifact exceeds 64 MiB")
-    rebuilt = CadDocument.from_json(encoded.decode("utf-8"))
-    rebuilt.assert_valid()
+    wire = json.loads(encoded.decode("utf-8"))
+    rebuilt = CadDocument.from_dict(wire)
     if rebuilt.to_json(indent=None).encode("utf-8") != encoded:
         raise ValueError("neutral serialization changed after typed reconstruction")
-    return encoded
+    return encoded, wire
 
 
 def write_private(path, payload):
@@ -104,11 +104,11 @@ def write_private(path, payload):
         os.fsync(target.fileno())
 
 
-def build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason):
+def build_receipt(asset, identity, allow_partial, encoded, wire, mode, strict_reason):
     options = {"mode": mode, "allow_partial": allow_partial, "strict": mode == "strict", "include_brep": True, "include_tessellation": True}
     asset_identity = {**identity, "source": asset, "options": options}
     fingerprint = hashlib.sha256(json.dumps(asset_identity, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
-    evidence = reader_evidence(json.loads(encoded))
+    evidence = reader_evidence(wire)
     if mode == "partial":
         evidence["unresolved"].append({"path": "", "reason": "strict_reader_rejected_partial_reader_used", "strict_rejection": strict_reason})
         evidence["counts"]["unresolved"] = len(evidence["unresolved"])
@@ -127,8 +127,8 @@ def build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason):
 def decode_asset(asset, content, identity, allow_partial, staging):
     try:
         document, mode, strict_reason = read_document(content, allow_partial)
-        encoded = encode_document(document)
-        receipt, receipt_bytes = build_receipt(asset, identity, allow_partial, encoded, mode, strict_reason)
+        encoded, wire = encode_document(document)
+        receipt, receipt_bytes = build_receipt(asset, identity, allow_partial, encoded, wire, mode, strict_reason)
     except ValueError as error:
         return {"path": asset["path"], "outcome": "rejected", "reason": str(error)[:2048]}, 0
     except Exception as error:

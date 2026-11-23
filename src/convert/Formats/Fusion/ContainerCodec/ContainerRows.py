@@ -15,6 +15,7 @@ from convert.Formats.Fusion.ContainerCodec.ContainerLayout import (
     KRootName,
 )
 from convert.Formats.Fusion.ContainerCodec.Model.FusionContainer import FusionContainer
+from convert.Formats.Fusion.ContainerCodec.Model.SegmentIndex import SegmentIndex
 from convert.Formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
 from convert.Formats.Fusion.ContainerCodec.Wire.EmitAssetHeader import EmitAssetHeader
 from convert.Formats.Fusion.ContainerCodec.Wire.EmitDocProps import EmitDocProps
@@ -23,7 +24,9 @@ from convert.Formats.Fusion.ContainerCodec.Wire.EmitRedirects import EmitRedirec
 
 
 # container rows needs an explicit validity boundary so archive members retain their native ownership and reference relationships
-def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
+def ContainerRows(
+    Value: FusionContainer, *, Indexes: list[SegmentIndex] | None = None
+) -> tuple[ZipAssetRow, ...]:
     if not isinstance(CastValue(object, Value), FusionContainer):
         raise ValueError("Expected a typed Fusion container")
     RootBytes = EmitDocument(Value.Document)
@@ -54,7 +57,9 @@ def ContainerRows(Value: FusionContainer) -> tuple[ZipAssetRow, ...]:
     for Folder, SlotValue, Streams in zip(
         Folders, Value.Asset.Segments, Value.Streams, strict=True
     ):
-        CheckStreams(Streams, SlotValue)
+        Checked = CheckStreams(Streams, SlotValue)
+        if Indexes is not None:
+            Indexes.append(Checked)
         Prefix = KAssetPrefix + Folder
         Entries.extend(
             (

@@ -1,9 +1,7 @@
-from convert.Formats.Fusion.DocumentCodec.Records.MakeDesignProf import MakeDesignProf
-from convert.Formats.Fusion.DocumentCodec.Records.PickVersions import PickVersions
+from convert.Formats.Fusion.DocumentCodec.Records.MakeSegProfile import MakeSegProfile
+from convert.Formats.Fusion.DocumentCodec.Records.MakeTargets import MakeTargets
 from convert.Formats.Fusion.EntityCodec.Schema.ClassSchema import ClassSchema
 from convert.Formats.Fusion.EntityCodec.Schema.EntityProfile import EntityProfile
-from convert.Formats.Fusion.EntityCodec.Schema.ExternalTarget import ExternalTarget
-from convert.Formats.Fusion.MetaIndex import SegmentKind
 from convert.Formats.Fusion.SegmentCodec.Metadata.MetaSegment import MetaSegment
 
 
@@ -12,21 +10,14 @@ def MakeDocProfile(
     Schemas: tuple[ClassSchema, ...], Metadata: tuple[MetaSegment, ...], SegmentId: int
 ) -> EntityProfile:
     Targets = tuple(
-        ExternalTarget(Segment.Header.SegmentId, ObjectId, ClassValue.ClassGuid)
+        Target
         for Segment in Metadata
         if Segment.Header.SegmentId != SegmentId
-        for ClassValue in Segment.Classes
-        for ObjectId in ClassValue.OwnerIds
+        for Target in MakeTargets(Segment)
     )
     Selected = tuple(
         Segment for Segment in Metadata if Segment.Header.SegmentId == SegmentId
     )
     if len(Selected) != 1:
         raise ValueError("Missing or duplicate Fusion document segment identity")
-    if Selected[0].Header.Segment == SegmentKind.KDesign:
-        return MakeDesignProf(Schemas, Selected[0].Classes, Targets)
-    return EntityProfile(
-        "98542EB9-A4F2-4137-A808-DBB5B3CD6159",
-        PickVersions(Schemas, Selected[0].Classes),
-        Targets,
-    )
+    return MakeSegProfile(Schemas, Selected[0], Targets)

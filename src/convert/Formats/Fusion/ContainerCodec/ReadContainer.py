@@ -19,6 +19,7 @@ from convert.Formats.Fusion.ContainerCodec.ContainerLayout import (
 from convert.Formats.Fusion.ContainerCodec.ContainerRows import ContainerRows
 from convert.Formats.Fusion.ContainerCodec.Model.ContainerPart import ContainerPart
 from convert.Formats.Fusion.ContainerCodec.Model.FusionContainer import FusionContainer
+from convert.Formats.Fusion.ContainerCodec.Model.SegmentIndex import SegmentIndex
 from convert.Formats.Fusion.ContainerCodec.Model.SegmentStreams import SegmentStreams
 from convert.Formats.Fusion.ContainerCodec.ReadParts import ReadParts
 from convert.Formats.Fusion.ContainerCodec.SegmentFolders import SegmentFolders
@@ -33,7 +34,10 @@ from convert.Formats.Fusion.SourceProof.Auxiliary.Manifest.ReadActiveMeta import
 
 # the container operation needs a distinct decoding boundary so archive members retain their native ownership and reference relationships
 def ReadContainer(
-    Payload: bytes, InflateZstd: Callable[[bytes, int], bytes] | None = None
+    Payload: bytes,
+    InflateZstd: Callable[[bytes, int], bytes] | None = None,
+    *,
+    Indexes: list[SegmentIndex] | None = None,
 ) -> FusionContainer:
     if type(Payload) is not bytes:
         raise ValueError("Expected Fusion container bytes")
@@ -89,7 +93,7 @@ def ReadContainer(
             Properties,
             Redirects,
         )
-        ExpectedNames = {Entry.Name for Entry in ContainerRows(Result)}
+        ExpectedNames = {Entry.Name for Entry in ContainerRows(Result, Indexes=Indexes)}
         if set(Names) != ExpectedNames:
             raise ValueError(
                 "Missing directories or unaccounted Fusion container members"
