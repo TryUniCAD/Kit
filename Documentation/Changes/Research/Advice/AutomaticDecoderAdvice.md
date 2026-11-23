@@ -39,6 +39,11 @@ Successful validated proposals can be reused after the caller rechecks its own s
 Raw CAD bytes, credentials and holdout measurements do not enter the shared key or database.
 Different evidence remains independently verified; a cached model proposal is never a verified format rule.
 Queued callers wait for a bounded interval. Expired waiters cannot retain the front of the provider queue.
+An expired or cancelled waiter releases a queued request only when no live waiter remains and no provider invocation was charged.
+Successful, failed and uncertain invocation records remain retained.
+Polling uses indexed expired-waiter keys and provider-scoped running deadlines; it does not scan terminal request history.
+Transactional metadata counts enforce the retained-request limit. Existing stores receive a one-time migration that preserves charged history.
+See [advice waiter retention](../../../Gotchas/Research/Supervisor/SharedAdviceWaiters.md) for the failure and recovery boundary.
 
 A timeout, transport/provider failure or caller interruption can leave the remote request's completion uncertain.
 That reservation stays charged and occupies capacity until the owner confirms the provider process has stopped.
