@@ -1,7 +1,13 @@
 from dataclasses import replace as ReplaceValue
 
+from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.MakeCylViewMut import (
+    MakeCylViewMut,
+)
 from convert.adapters.solidworks.Archive.Construction.Metadata.MakeMgrHeader import (
     MakeMgrHeader,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.EmitPartArchive import (
     EmitPartArchive,
@@ -24,6 +30,8 @@ def EmitCylChild(
     ChildValue: PartCandidate,
     RecipeValue: PartBuildInput,
     PartitionValue: bytes,
+    *,
+    LookValue: PartLookInput | None = None,
 ) -> PartCandidate:
     SystemValue = ChildValue.SystemValue
     ManagerHeader = MakeMgrHeader(
@@ -38,6 +46,9 @@ def EmitCylChild(
         raise ValueError(
             "concentric output requires the original ordered feature owners"
         )
+    ViewValue, VisualStreams = (
+        (None, {}) if LookValue is None else MakeCylViewMut(ChildValue, LookValue)
+    )
     StreamsValue, ConfigValue, ResolvedValue = EmitPartArchive(
         SystemValue,
         FeatureValues,
@@ -47,6 +58,7 @@ def EmitCylChild(
         ChildValue.StreamsValue[KeywordsStream],
     )
     StreamsValue[KPartitionStream] = PartitionValue
+    StreamsValue.update(VisualStreams)
     return ReplaceValue(
         ChildValue,
         ManagerHeader=ManagerHeader,
@@ -54,4 +66,5 @@ def EmitCylChild(
         ConfigValue=ConfigValue,
         ResolvedValue=ResolvedValue,
         BytesValue=BuildSldprt(StreamsValue, FormatVersion=4),
+        SelfView=ViewValue,
     )

@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn impo
 from convert.adapters.solidworks.Archive.Construction.ConcentricMates.MakeCylAsm import (
     MakeCylAsm,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
+)
 from convert.adapters.solidworks.Archive.Construction.System.Members.LightInput import (
     LightInput,
 )
@@ -74,6 +77,7 @@ def PrepCylAsm(
     *,
     DisplayValues: tuple[AsmDisplayIn, ...] | None = None,
     LabelValue: RadialLabelIn | None = None,
+    LookValue: PartLookInput | None = None,
 ) -> OrderedAsm:
     ModelValue = ReadAsmModel(DocumentValue)
     PathsValue = ReadAsmPaths(
@@ -85,6 +89,7 @@ def PrepCylAsm(
         SceneName,
         LightValues,
         LabelValue=LabelValue,
+        LookValue=LookValue,
     )
     PlanValue = PlanCylMate(
         DocumentValue,

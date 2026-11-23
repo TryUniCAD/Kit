@@ -28,6 +28,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.Attachment.ReadAtt
 from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn import (
     RadialLabelIn,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.MakeCirclePart import (
     MakeCirclePart,
 )
@@ -63,6 +66,7 @@ def MakeCylChild(
     LightValues: tuple[LightInput, ...],
     *,
     LabelValue: RadialLabelIn | None = None,
+    LookValue: PartLookInput | None = None,
 ) -> CylChild:
     ChildValue = MakeCirclePart(DocumentValue, RecipeValue, LabelValue=LabelValue)
     PlanValue = ChildValue.PlanValue
@@ -106,6 +110,8 @@ def MakeCylChild(
     BindCylMarksMut(ChildValue, AtomValue, NativeValue)
     AddCylLights(ChildValue, LightValues, RecipeValue.TargetValue)
     return CylChild(
-        EmitCylChild(ChildValue, RecipeValue, NativeValue.BytesValue),
+        EmitCylChild(
+            ChildValue, RecipeValue, NativeValue.BytesValue, LookValue=LookValue
+        ),
         NativeValue.FaceTag,
     )

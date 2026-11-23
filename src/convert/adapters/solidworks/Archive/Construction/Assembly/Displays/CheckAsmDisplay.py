@@ -4,6 +4,9 @@ from convert.adapters.solidworks.Archive.Construction.Assembly.AssemblyState imp
 from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.AsmDisplayIn import (
     AsmDisplayIn,
 )
+from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.CheckCylSelfVis import (
+    CheckCylSelfVis,
+)
 from convert.adapters.solidworks.Archive.Construction.Assembly.Displays.CheckPlanarView import (
     CheckPlanarView,
 )
@@ -24,9 +27,6 @@ from convert.adapters.solidworks.Archive.Construction.Part.PartCandidate import 
 )
 from convert.adapters.solidworks.Archive.Objects.ArchiveNode import ArchiveNode
 from convert.adapters.solidworks.Archive.Objects.RuntimeClass import RuntimeClass
-from convert.adapters.solidworks.Archive.VisualStates.WriteAsmVisual import (
-    KVisualStream,
-)
 from convert.adapters.solidworks.Assembly.PlanarMates.GraphValue import (
     ReadRows,
     RequireNode,
@@ -53,11 +53,11 @@ def CheckAsmDisplay(
         or PlanValue.IsDiameter
         or PlanValue.EndValue.ModeValue != "blind"
         or PlanValue.EndValue.IsReversed
-        or KVisualStream in ChildValue.StreamsValue
     ):
         raise ValueError(
             "assembly visibility requires the ordinary radial child without a visual store"
         )
+    CheckCylSelfVis(ChildValue, DisplayValues)
     if (
         len(MateRoots) != 1
         or MateRoots[0].ClassValue != RuntimeClass("moMateConcentric", 1)

@@ -1,3 +1,6 @@
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.CheckCylVisual import (
+    CheckCylVisual,
+)
 from convert.adapters.solidworks.Archive.Construction.Part.Displays.CheckRectVisual import (
     CheckRectVisual,
 )
@@ -15,6 +18,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Displays.ReadSelfOwne
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
     PartLookInput,
+)
+from convert.adapters.solidworks.Archive.Construction.Part.Neutral.CirclePlan import (
+    CirclePlan,
 )
 from convert.adapters.solidworks.Archive.Construction.Part.Neutral.PartPlan import (
     KPartPlan,
@@ -53,14 +59,14 @@ def MakePartVis(
         raise ValueError(
             "part self visibility requires the default constructor appearance intent"
         )
-    CheckRectVisual(PlanValue)
-    UnitValue, Config = ReadSelfOwners(SystemValue, HeadersValue)
     RenderValue = ViewValue.AppearanceValue
-    Appearance = MakeHolderLook(
-        SystemValue.RootValue,
-        Config,
-        RenderValue if type(RenderValue) is PartLookInput else None,
-    )
+    NamedLook = RenderValue if type(RenderValue) is PartLookInput else None
+    if type(PlanValue) is CirclePlan:
+        CheckCylVisual(PlanValue, NamedLook)
+    else:
+        CheckRectVisual(PlanValue)
+    UnitValue, Config = ReadSelfOwners(SystemValue, HeadersValue)
+    Appearance = MakeHolderLook(SystemValue.RootValue, Config, NamedLook)
     Holder = ArchiveNode(RuntimeClass("moCompHolder_c", 1), DetachVisualRef(UnitValue))
     Features = MakeChildRefs(SystemValue, ProfileValue, HeadersValue, UnitValue)
     PropertyClass = RuntimeClass("visStateVisualPropertiesAttribute_c", 1)

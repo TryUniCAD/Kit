@@ -2,7 +2,7 @@
 
 Task `B04-SW2026-MATES-CONCENTRIC`, delivery PR #121. H01 and H02 remain sealed. The disclosed persistence run proves one diameter-driven child and one aligned, unlocked mate with an explicitly authored single-light environment. The original source cohort has a distinct radial driver and source scene. Keep the [pre-writer source locks](ConcentricMateConstructionSources2026.md#corrected-native-source-run) intact while qualifying the disclosed source-to-writer projection.
 
-The [D01 design bridge](ConcentricD01DesignBridge2026.md) now uses the actual original and edited source reads to construct a separate neutral model without a fixture seed. Both guarded repeats and the inverse child projection pass. The [default-state constructor](ConcentricDefaultDisplay2026.md) builds the single all-visible binary state with the generated parent identities. Historical display aliases, the child's radial label normal offset and saved appearance remain explicit boundaries before a full source-native experiment.
+The [D01 design bridge](ConcentricD01DesignBridge2026.md) uses the actual original and edited source reads to construct a separate neutral model without a fixture seed. The [default-state constructor](ConcentricDefaultDisplay2026.md) builds the single all-visible binary state with the generated parent identities. The [child appearance composition](ConcentricD01ChildAppearance2026.md) combines the parent's state, exact 3D radial label and separate child renderer under guarded generation. Historical display aliases, creation logs, native renderer publication and whole-source root admission remain open.
 
 ## Disclosed source comparison
 

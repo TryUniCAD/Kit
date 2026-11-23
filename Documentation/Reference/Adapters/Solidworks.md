@@ -170,6 +170,8 @@ The internal concentric preparation builds its circular-boss child from the neut
 
 Internal circular preparation also accepts the actual sketch and radial driver owner for an explicit three-dimensional label in the sketch frame. The normal offset changes the text position while the leader retains its tangential calculation. [Spatial radial labels](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksSpatialRadialLabels.md)
 
+The internal concentric radial child can also generate its named appearance from the actual part, selected configuration and detached display holder. The aligned unlocked parent retains its single all-visible state. Full source and native acceptance for these composed files remain open. [Concentric child appearance](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricChildAppearance.md)
+
 The internal concentric planner binds explicit neutral lateral faces to a verified generated feature-only cylinder child. It retains the original occurrence order, the selected endpoint order, explicit alignment, rotation lock and the fixed occurrence. Supplied B-reps remain outside this preparation profile. [Concentric mate planning](../../Changes/Solidworks/Construction/Assembly/Mates/SolidworksConcentricMatePlanning.md)
 
 The assembly reader exposes display-state names in `CadDocument.assembly.attributes["display_states"]`. It reads `swDisplayStateName` and accepts `swName` when the display-state attribute is absent. [Display-state names](../../Changes/Solidworks/Reading/Assembly/SolidworksAssemblyDisplayStateNames.md)

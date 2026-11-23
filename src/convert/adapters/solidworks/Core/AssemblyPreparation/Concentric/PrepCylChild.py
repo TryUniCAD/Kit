@@ -12,6 +12,9 @@ from convert.adapters.solidworks.Archive.Construction.Circles.RadialLabelIn impo
 from convert.adapters.solidworks.Archive.Construction.Files.SelfFileInput import (
     SelfFileInput,
 )
+from convert.adapters.solidworks.Archive.Construction.Part.Displays.Rendering.PartLookInput import (
+    PartLookInput,
+)
 from convert.adapters.solidworks.Archive.Construction.Styles.ReadStyleText import (
     ReadStyleText,
 )
@@ -32,6 +35,7 @@ def PrepCylChild(
     LightValues: tuple[LightInput, ...],
     *,
     LabelValue: RadialLabelIn | None = None,
+    LookValue: PartLookInput | None = None,
 ) -> CylChild:
     if not ReadStyleText(SceneName, "concentric child environment"):
         raise ValueError("concentric child requires an authored environment name")
@@ -46,4 +50,10 @@ def PrepCylChild(
         RecipeValue, SystemValue=ReplaceValue(SystemValue, FolderValues=FoldersValue)
     )
     InputValue = BindPartIntent(DocumentValue, PlanValue, RecipeValue, OutputValue)
-    return MakeCylChild(DocumentValue, InputValue, LightValues, LabelValue=LabelValue)
+    return MakeCylChild(
+        DocumentValue,
+        InputValue,
+        LightValues,
+        LabelValue=LabelValue,
+        LookValue=LookValue,
+    )

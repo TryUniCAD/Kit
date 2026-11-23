@@ -62,10 +62,11 @@ done
 
 ## Remaining gates
 
-The [spatial radial label port](SdkSpatialRadialLabels2026.md) extends
-this proof. It transfers the actual D01 radial display position
-through the shared circular model. The single parent display state
-and saved child appearance still require their separate owners.
+The [spatial radial label port](SdkSpatialRadialLabels2026.md) transfers
+the actual D01 display position through the shared circular model.
+The [child appearance composition](ConcentricD01ChildAppearance2026.md)
+now combines that label with the modeled stock renderer and the
+parent's one all-visible state in the same guarded bundle.
 
 The actual source still refuses at `CheckAsmRoot` with `assembly root
 contains unprojected model content`. At the initial bridge revision the
@@ -75,21 +76,21 @@ all-visible binary state under the actual generated parent and
 configuration. The D01 source binary display streams are 1,275 and
 1,599 bytes respectively. The ordinary child visual store is 1,789 bytes
 in each source. The observed manager locator `f1f8` is empty in all four
-source files. Historical file aliases and the original child store remain
-separate source owners. [Display store evidence](ConcentricVisualStateStore2026.md) ·
+source files. Historical aliases, creation logs and the original
+live and holder allocation remain separately observed.
+[Display store evidence](ConcentricVisualStateStore2026.md) ·
 [Child appearance owners](ConcentricChildAppearance2026.md)
 
 The actual radial display's `moDisplayRadialDim_c.f6a0.f38` is
 `(0.014853, 0.005176999999999999, 0.0001)` metres in both source states.
 The ordinary regenerated label is `(0.01701, 0.00302, 0.0)`.
 The live radius and fixed centre agree and the separate depth label
-position agrees. Full source serialization must account for the true
-three-dimensional radial presentation, including its normal offset.
-The current circular writer takes a two-dimensional sketch text point.
+position agrees. The later label proof regenerates the exact source
+XYZ position with an explicit signed normal offset.
 [Radial text ownership](../../../src/convert/adapters/solidworks/Archive/Construction/Circles/MakeRadialView.py) ·
 [Saved offset gotcha](../../../Documentation/Gotchas/Conversion/Solidworks/Profile/SavedRadialTextCanLeaveSketchPlane.md)
 
-The in-memory comparison omits these unqualified presentation owners.
-It does not claim a full source conversion or new native acceptance,
-and it never opens a protected source. The existing lifecycle receipts
-remain scoped to their exact earlier outputs.
+The initial design comparison keeps the presentation owners in
+separate evidence. The extended composer represents their bounded
+intent and preserves independent provenance. Full source conversion
+and native acceptance remain open.

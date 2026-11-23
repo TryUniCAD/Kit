@@ -1,0 +1,1553 @@
+{
+  "base": "ffa49a63caf2b3c433c05433c7b638e5d0d4fde7",
+  "cases": {
+    "Edited": {
+      "appearance": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1789,
+        "classic_roughness": 0.6000000238418579,
+        "definition_next_appearance_id": 3,
+        "dspbr_roughness": 0.20000000298023224,
+        "empty_bom_present": true,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 1,
+        "live_asset": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 2,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          228,
+          228,
+          228
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "089580fb54ff486c4a01b6a2c30ce5812e51a8c9239c43fd9454c9008264f8f1",
+        "terminal_map": 26
+      },
+      "child_bytes": 12164,
+      "child_changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Definition",
+        "ThirdPtyStore/VisualStates"
+      ],
+      "child_sha256": "67d4684f8fb43338b1597bdf35d0eff1de217c577210e077eb8cbaf6161288a7",
+      "child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              2,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              1,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              2,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1789,
+        "linked_features": [
+          [
+            18,
+            "CurveSketch",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            17,
+            "Origin",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            16,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            15,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            14,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            2,
+            1
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "089580fb54ff486c4a01b6a2c30ce5812e51a8c9239c43fd9454c9008264f8f1",
+        "terminal_map": 26
+      },
+      "complete_child_store_historical_delta": {
+        "visStateKeyData_c/f78/0/attrs/0/objs/0/o/visStateVisualPropertiesAttribute_c/f10/moVisualProperties_c/f20/f90/f00": [
+          3,
+          1
+        ],
+        "visStateKeyData_c/f78/1/ref/moCompFeature_c/ff0/f00": [
+          26,
+          18
+        ],
+        "visStateKeyData_c/f78/1/ref/moCompFeature_c/ff0/f08": [
+          1795044305,
+          2592000
+        ],
+        "visStateKeyData_c/f78/2/ref/moCompFeature_c/ff0/f00": [
+          5,
+          17
+        ],
+        "visStateKeyData_c/f78/2/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/3/ref/moCompFeature_c/ff0/f00": [
+          4,
+          16
+        ],
+        "visStateKeyData_c/f78/3/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/4/ref/moCompFeature_c/ff0/f00": [
+          3,
+          15
+        ],
+        "visStateKeyData_c/f78/4/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/5/ref/moCompFeature_c/ff0/f00": [
+          2,
+          14
+        ],
+        "visStateKeyData_c/f78/5/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ]
+      },
+      "external_accesses": 0,
+      "generated_radial_text": [
+        0.014853,
+        0.005176999999999999,
+        0.0001
+      ],
+      "label_child_sha256": "9978d8589e4280f243bfa6bc90eb9fde124a3f4ff22f4686a377f9546fbc31d7",
+      "mapped_brep_faces": 3,
+      "mapped_design_roles": 13,
+      "mate": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.04690999999999999
+          ],
+          [
+            0.0,
+            -0.04691000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "67d4684f8fb43338b1597bdf35d0eff1de217c577210e077eb8cbaf6161288a7",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          150,
+          203
+        ],
+        "mate_bytes": 3604,
+        "mate_sha256": "1ec15702db02dde72dfa36f21799533b37641dabf1e574fccea63115fe0fa8e2",
+        "occurrence_names": [
+          "ConcentricD01Child-1",
+          "ConcentricD01Child-2"
+        ],
+        "occurrences": [
+          24,
+          25
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.03126999999999999,
+            0.26817
+          ]
+        ]
+      },
+      "parent_bytes": 11063,
+      "parent_sha256": "beeac10051d4be1fb722a530785275f582e8ca76acd51030bd683fca30f71ccb",
+      "parent_store": {
+        "byte_identity": true,
+        "bytes": 1437,
+        "compound_objects": {
+          "moCStringHandle_c": 2,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2
+        },
+        "configuration_id": 0,
+        "occurrence_rows_in_wire_order": [
+          [
+            25,
+            "ConcentricD01Child-2",
+            203,
+            [
+              4,
+              6,
+              8,
+              10,
+              14,
+              16
+            ]
+          ],
+          [
+            24,
+            "ConcentricD01Child-1",
+            203,
+            [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ]
+          ]
+        ],
+        "opaque_bytes": 0,
+        "parent_header_locator_codepoints": 63,
+        "parent_header_model": "ConcentricD01AlignedFree",
+        "plane_keys": [
+          [
+            14,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            13,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            12,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "provisional_schemas": [],
+        "sha256": "c08646cccef0138a61d1c835db4ea4d9f982406eccaee084b78532cdd833b160",
+        "terminal_map": 38
+      },
+      "plain_child_sha256": "730ff8d4cfd10c403f6a7e9cbc1acbd962e4a5a591ed01bebaaf1aaa7ce93292",
+      "refusals": {
+        "aliased_renderer": "part self visibility lost the actual live renderer owners",
+        "crossed_allocator": "concentric child visual store requires its actual independent appearance allocator",
+        "exhausted_allocator": "part rendering needs two nonwrapping appearance allocation events",
+        "foreign_definition": "concentric child appearance Definition disagrees with its graph",
+        "foreign_resource": "part rendering requires an explicit ordinary stock color resource",
+        "missing_store": "concentric child visual store does not match its model owners",
+        "mixed_states": "concentric child appearance requires its named look and singleton parent state",
+        "unowned_store": "assembly visibility requires the ordinary radial child without a visual store"
+      },
+      "request_sha256": "e65d71f460dffb4a3fa4652b9e674030b774ce371c1e2770bcc4acf56971b36e",
+      "source_appearance": {
+        "mapped_payload_equal": true,
+        "roles": {
+          "definition_next_appearance_id": 8,
+          "empty_bom_present": true,
+          "holder_id": 3,
+          "model_and_configuration_id": 7
+        },
+        "store": {
+          "active_configuration_density": -1.0,
+          "byte_identity": true,
+          "bytes": 1789,
+          "opaque_bytes": 0,
+          "physical_density_parameter": [
+            1000.0,
+            0
+          ],
+          "provisional_schemas": [],
+          "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+          "terminal_map": 26
+        }
+      },
+      "source_child_sha256": "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93",
+      "source_child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              7,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              3,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              7,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1789,
+        "linked_features": [
+          [
+            26,
+            "CurveSketch",
+            1795044305,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            5,
+            "Origin",
+            1794529625,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            4,
+            "Right Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            3,
+            "Top Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            "Front Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            7,
+            3
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      },
+      "source_definition": {
+        "allocator_words": [
+          8,
+          0
+        ],
+        "exact_replay": true,
+        "list_count": 0,
+        "strict_guard": "SOLIDWORKS part Definition has an alternate renderer profile"
+      },
+      "source_parent_sha256": "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+      "source_parent_store": {
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "display_state_key": 1,
+        "state_name": "Display State-1",
+        "store_bytes": 1599,
+        "store_order": [
+          25,
+          24
+        ],
+        "store_sha256": "aed1504ad35260e463cb9d8506a18a88c2b498dbeb50cc17358095a77f7797f7",
+        "xml_members": [
+          [
+            24,
+            "Yes"
+          ],
+          [
+            25,
+            "Yes"
+          ]
+        ],
+        "xml_state_id": 9
+      },
+      "source_radial_text": [
+        0.014853,
+        0.005176999999999999,
+        0.0001
+      ],
+      "unchanged_child_streams": 8,
+      "unchanged_parent_streams": 13,
+      "whole_source_refusal": "assembly root contains unprojected model content"
+    },
+    "Source": {
+      "appearance": {
+        "active_configuration_density": -1.0,
+        "byte_identity": true,
+        "bytes": 1789,
+        "classic_roughness": 0.6000000238418579,
+        "definition_next_appearance_id": 3,
+        "dspbr_roughness": 0.20000000298023224,
+        "empty_bom_present": true,
+        "exact_payload": true,
+        "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+        "holder_id": 1,
+        "live_asset": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+        "model_and_configuration_id": 2,
+        "opaque_bytes": 0,
+        "physical_density_parameter": null,
+        "primary_rgb": [
+          228,
+          228,
+          228
+        ],
+        "provisional_schemas": [],
+        "reflectance": 0.04000000283122063,
+        "refraction_index": 1.5,
+        "sha256": "089580fb54ff486c4a01b6a2c30ce5812e51a8c9239c43fd9454c9008264f8f1",
+        "terminal_map": 26
+      },
+      "child_bytes": 12160,
+      "child_changed_streams": [
+        "Contents/CMgr",
+        "Contents/Config-0",
+        "Contents/Definition",
+        "ThirdPtyStore/VisualStates"
+      ],
+      "child_sha256": "fee7b92effa86df3cf68a593535a59381d4861def764d0100cb1e3bdbd1cdb3e",
+      "child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              2,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              1,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              2,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1789,
+        "linked_features": [
+          [
+            18,
+            "CurveSketch",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            17,
+            "Origin",
+            2592000,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            16,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            15,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            14,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            2,
+            1
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "089580fb54ff486c4a01b6a2c30ce5812e51a8c9239c43fd9454c9008264f8f1",
+        "terminal_map": 26
+      },
+      "complete_child_store_historical_delta": {
+        "visStateKeyData_c/f78/0/attrs/0/objs/0/o/visStateVisualPropertiesAttribute_c/f10/moVisualProperties_c/f20/f90/f00": [
+          3,
+          1
+        ],
+        "visStateKeyData_c/f78/1/ref/moCompFeature_c/ff0/f00": [
+          26,
+          18
+        ],
+        "visStateKeyData_c/f78/1/ref/moCompFeature_c/ff0/f08": [
+          1795044305,
+          2592000
+        ],
+        "visStateKeyData_c/f78/2/ref/moCompFeature_c/ff0/f00": [
+          5,
+          17
+        ],
+        "visStateKeyData_c/f78/2/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/3/ref/moCompFeature_c/ff0/f00": [
+          4,
+          16
+        ],
+        "visStateKeyData_c/f78/3/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/4/ref/moCompFeature_c/ff0/f00": [
+          3,
+          15
+        ],
+        "visStateKeyData_c/f78/4/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ],
+        "visStateKeyData_c/f78/5/ref/moCompFeature_c/ff0/f00": [
+          2,
+          14
+        ],
+        "visStateKeyData_c/f78/5/ref/moCompFeature_c/ff0/f08": [
+          1794529625,
+          2592000
+        ]
+      },
+      "external_accesses": 0,
+      "generated_radial_text": [
+        0.014853,
+        0.005176999999999999,
+        0.0001
+      ],
+      "label_child_sha256": "1f6ffc08aeecc1cb942e01960c21f6bd0a8e56844815c99f0c56c0216af58602",
+      "mapped_brep_faces": 3,
+      "mapped_design_roles": 13,
+      "mate": {
+        "active_intervals": [
+          [
+            0.0,
+            -0.031369999999999995
+          ],
+          [
+            0.0,
+            -0.03137000000000001
+          ]
+        ],
+        "alignment": 1,
+        "body_atom_id": 101,
+        "caps_follow_generated_lateral_loops": true,
+        "child_sha256": "fee7b92effa86df3cf68a593535a59381d4861def764d0100cb1e3bdbd1cdb3e",
+        "detached_defaults_preserved": true,
+        "face_tags": [
+          6,
+          6
+        ],
+        "fixed_flags": [
+          true,
+          false
+        ],
+        "kernel_node_id": 5,
+        "local_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "maps": [
+          150,
+          203
+        ],
+        "mate_bytes": 3532,
+        "mate_sha256": "85def1360c1047bd424459649842e60c9205b1ce25630caff708e5d011b32cf0",
+        "occurrence_names": [
+          "ConcentricD01Child-1",
+          "ConcentricD01Child-2"
+        ],
+        "occurrences": [
+          24,
+          25
+        ],
+        "root_recipe": "neutral document",
+        "rotation_locked": false,
+        "round_tripped_linked_streams": 3,
+        "signed_rim_bounds_verified": true,
+        "solved_reader_refused_presolve": true,
+        "world_axes": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            -1.0
+          ]
+        ],
+        "world_origins": [
+          [
+            0.043930000000000004,
+            -0.03127,
+            0.018700000000000005
+          ],
+          [
+            0.04393000000000001,
+            -0.031270000000000006,
+            0.2558
+          ]
+        ]
+      },
+      "parent_bytes": 11048,
+      "parent_sha256": "8f41f83ff1476a72f15e7188de19fc8011aecad59f2115f180bc759cca09c49d",
+      "parent_store": {
+        "byte_identity": true,
+        "bytes": 1401,
+        "compound_objects": {
+          "moCStringHandle_c": 2,
+          "moContextChainComponent_c": 2,
+          "moExtFeatureList_c": 2,
+          "moExtFeature_c": 2,
+          "moExtObject_c": 2,
+          "moReferenceChain_c": 2
+        },
+        "configuration_id": 0,
+        "occurrence_rows_in_wire_order": [
+          [
+            25,
+            "ConcentricD01Child-2",
+            203,
+            [
+              4,
+              6,
+              8,
+              10,
+              14,
+              16
+            ]
+          ],
+          [
+            24,
+            "ConcentricD01Child-1",
+            203,
+            [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28
+            ]
+          ]
+        ],
+        "opaque_bytes": 0,
+        "parent_header_locator_codepoints": 63,
+        "parent_header_model": "Assem1",
+        "plane_keys": [
+          [
+            14,
+            "Right Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            13,
+            "Top Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            12,
+            "Front Plane",
+            2592000,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "provisional_schemas": [],
+        "sha256": "5c856d394ab825e2c85ada460aa10cc86ac0cd643fa545e3399d4f5dab5ca000",
+        "terminal_map": 38
+      },
+      "plain_child_sha256": "7d6c42a8d6a22cf3eaf05d158c224f4677d7150b1496332da697f1e0fe117ba0",
+      "refusals": {
+        "aliased_renderer": "part self visibility lost the actual live renderer owners",
+        "crossed_allocator": "concentric child visual store requires its actual independent appearance allocator",
+        "exhausted_allocator": "part rendering needs two nonwrapping appearance allocation events",
+        "foreign_definition": "concentric child appearance Definition disagrees with its graph",
+        "foreign_resource": "part rendering requires an explicit ordinary stock color resource",
+        "missing_store": "concentric child visual store does not match its model owners",
+        "mixed_states": "concentric child appearance requires its named look and singleton parent state",
+        "unowned_store": "assembly visibility requires the ordinary radial child without a visual store"
+      },
+      "request_sha256": "1e44691086d958efa61effe62183093f7a3c084584e81bc5e9b75c29dce74767",
+      "source_appearance": {
+        "mapped_payload_equal": true,
+        "roles": {
+          "definition_next_appearance_id": 8,
+          "empty_bom_present": true,
+          "holder_id": 3,
+          "model_and_configuration_id": 7
+        },
+        "store": {
+          "active_configuration_density": -1.0,
+          "byte_identity": true,
+          "bytes": 1789,
+          "opaque_bytes": 0,
+          "physical_density_parameter": [
+            1000.0,
+            0
+          ],
+          "provisional_schemas": [],
+          "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+          "terminal_map": 26
+        }
+      },
+      "source_child_sha256": "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa",
+      "source_child_store": {
+        "appearance_roles": {
+          "configuration": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              7,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          },
+          "holder": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              3,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+          },
+          "model": {
+            "default_appearance_flag": 1,
+            "dspbr_field_count": 70,
+            "dspbr_roughness": 0.20000000298023224,
+            "packed_colour": 15000804,
+            "realview_id": [
+              7,
+              0
+            ],
+            "realview_roughness": 0.6000000238418579,
+            "resource_locator": "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m"
+          }
+        },
+        "byte_identity": true,
+        "bytes": 1789,
+        "linked_features": [
+          [
+            26,
+            "CurveSketch",
+            1795044305,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            5,
+            "Origin",
+            1794529625,
+            [
+              1,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            4,
+            "Right Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            3,
+            "Top Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ],
+          [
+            2,
+            "Front Plane",
+            1794529625,
+            [
+              0,
+              6,
+              1,
+              0
+            ]
+          ]
+        ],
+        "model_to_holder_typed_delta": {
+          "moVisualProperties_c/f20/f90/f00": [
+            7,
+            3
+          ],
+          "moVisualProperties_c/f20/f90/f68": [
+            "C:\\PROGRA~1\\SOLIDW~1\\SOLIDW~1\\data\\graphics\\materials\\color.p2m",
+            "<SystemTexture>\\graphics\\materials\\color.p2m"
+          ]
+        },
+        "opaque_bytes": 0,
+        "part_self_slots": [
+          4,
+          6,
+          8,
+          10,
+          12
+        ],
+        "provisional_schemas": [],
+        "sha256": "0e014559f50c003a5dd75339561bc00b328351e5c9d59816de93aac836cb28df",
+        "terminal_map": 26
+      },
+      "source_definition": {
+        "allocator_words": [
+          8,
+          0
+        ],
+        "exact_replay": true,
+        "list_count": 0,
+        "strict_guard": "SOLIDWORKS part Definition has an alternate renderer profile"
+      },
+      "source_parent_sha256": "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+      "source_parent_store": {
+        "configuration": [
+          0,
+          "Default"
+        ],
+        "display_state_key": 1,
+        "state_name": "Display State-1",
+        "store_bytes": 1275,
+        "store_order": [
+          25,
+          24
+        ],
+        "store_sha256": "0074a31dad2c0aba533eadea9c2a55b30faef0a45646ebf198e9566719a34df6",
+        "xml_members": [
+          [
+            24,
+            "Yes"
+          ],
+          [
+            25,
+            "Yes"
+          ]
+        ],
+        "xml_state_id": 9
+      },
+      "source_radial_text": [
+        0.014853,
+        0.005176999999999999,
+        0.0001
+      ],
+      "unchanged_child_streams": 8,
+      "unchanged_parent_streams": 13,
+      "whole_source_refusal": "assembly root contains unprojected model content"
+    }
+  },
+  "composition_supervisor_stdout_sha256": "958c3a274cf5410123836549bdb37f5664a6758ba7a51e4f3b309c8d49561222",
+  "guarded_composition_workers": 6,
+  "independent_authored_shader_contrast": {
+    "appearance": {
+      "active_configuration_density": -1.0,
+      "byte_identity": true,
+      "bytes": 1779,
+      "classic_roughness": 0.625,
+      "definition_next_appearance_id": 4294967395,
+      "dspbr_roughness": 0.375,
+      "empty_bom_present": false,
+      "exact_payload": true,
+      "holder_asset": "<SystemTexture>\\graphics\\materials\\color.p2m",
+      "holder_id": 4294967393,
+      "live_asset": "C:\\IndependentRender\\data\\graphics\\materials\\color.p2m",
+      "model_and_configuration_id": 4294967394,
+      "opaque_bytes": 0,
+      "physical_density_parameter": null,
+      "primary_rgb": [
+        35,
+        139,
+        203
+      ],
+      "provisional_schemas": [],
+      "reflectance": 0.25,
+      "refraction_index": 3.0,
+      "sha256": "34ff01fb796084211889b58c0222f80fb74992deda224f14541106b9e1320384",
+      "terminal_map": 26
+    },
+    "child_bytes": 12188,
+    "child_changed_streams": [
+      "Contents/CMgr",
+      "Contents/Config-0",
+      "Contents/Definition",
+      "ThirdPtyStore/VisualStates"
+    ],
+    "child_sha256": "4f441aa43c61395d87d36901a7e6a95e649f07a0c2ec530b3db36bbbd26ef828",
+    "child_store": {
+      "appearance_roles": {
+        "configuration": {
+          "default_appearance_flag": 1,
+          "dspbr_field_count": 70,
+          "dspbr_roughness": 0.375,
+          "packed_colour": 13339427,
+          "realview_id": [
+            98,
+            1
+          ],
+          "realview_roughness": 0.625,
+          "resource_locator": "C:\\IndependentRender\\data\\graphics\\materials\\color.p2m"
+        },
+        "holder": {
+          "default_appearance_flag": 1,
+          "dspbr_field_count": 70,
+          "dspbr_roughness": 0.375,
+          "packed_colour": 13339427,
+          "realview_id": [
+            97,
+            1
+          ],
+          "realview_roughness": 0.625,
+          "resource_locator": "<SystemTexture>\\graphics\\materials\\color.p2m"
+        },
+        "model": {
+          "default_appearance_flag": 1,
+          "dspbr_field_count": 70,
+          "dspbr_roughness": 0.375,
+          "packed_colour": 13339427,
+          "realview_id": [
+            98,
+            1
+          ],
+          "realview_roughness": 0.625,
+          "resource_locator": "C:\\IndependentRender\\data\\graphics\\materials\\color.p2m"
+        }
+      },
+      "byte_identity": true,
+      "bytes": 1779,
+      "linked_features": [
+        [
+          18,
+          "CurveSketch",
+          2592000,
+          [
+            1,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          17,
+          "Origin",
+          2592000,
+          [
+            1,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          16,
+          "Right Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          15,
+          "Top Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          14,
+          "Front Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ]
+      ],
+      "model_to_holder_typed_delta": {
+        "moVisualProperties_c/f20/f90/f00": [
+          98,
+          97
+        ],
+        "moVisualProperties_c/f20/f90/f68": [
+          "C:\\IndependentRender\\data\\graphics\\materials\\color.p2m",
+          "<SystemTexture>\\graphics\\materials\\color.p2m"
+        ]
+      },
+      "opaque_bytes": 0,
+      "part_self_slots": [
+        4,
+        6,
+        8,
+        10,
+        12
+      ],
+      "provisional_schemas": [],
+      "sha256": "34ff01fb796084211889b58c0222f80fb74992deda224f14541106b9e1320384",
+      "terminal_map": 26
+    },
+    "external_accesses": 0,
+    "label_child_sha256": "1f6ffc08aeecc1cb942e01960c21f6bd0a8e56844815c99f0c56c0216af58602",
+    "mate": {
+      "active_intervals": [
+        [
+          0.0,
+          -0.031369999999999995
+        ],
+        [
+          0.0,
+          -0.03137000000000001
+        ]
+      ],
+      "alignment": 1,
+      "body_atom_id": 101,
+      "caps_follow_generated_lateral_loops": true,
+      "child_sha256": "4f441aa43c61395d87d36901a7e6a95e649f07a0c2ec530b3db36bbbd26ef828",
+      "detached_defaults_preserved": true,
+      "face_tags": [
+        6,
+        6
+      ],
+      "fixed_flags": [
+        true,
+        false
+      ],
+      "kernel_node_id": 5,
+      "local_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "maps": [
+        150,
+        203
+      ],
+      "mate_bytes": 3532,
+      "mate_sha256": "85def1360c1047bd424459649842e60c9205b1ce25630caff708e5d011b32cf0",
+      "occurrence_names": [
+        "ConcentricD01Child-1",
+        "ConcentricD01Child-2"
+      ],
+      "occurrences": [
+        24,
+        25
+      ],
+      "root_recipe": "neutral document",
+      "rotation_locked": false,
+      "round_tripped_linked_streams": 3,
+      "signed_rim_bounds_verified": true,
+      "solved_reader_refused_presolve": true,
+      "world_axes": [
+        [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        [
+          0.0,
+          0.0,
+          -1.0
+        ]
+      ],
+      "world_origins": [
+        [
+          0.043930000000000004,
+          -0.03127,
+          0.018700000000000005
+        ],
+        [
+          0.04393000000000001,
+          -0.031270000000000006,
+          0.2558
+        ]
+      ]
+    },
+    "parent_bytes": 11048,
+    "parent_sha256": "8f41f83ff1476a72f15e7188de19fc8011aecad59f2115f180bc759cca09c49d",
+    "parent_store": {
+      "byte_identity": true,
+      "bytes": 1401,
+      "compound_objects": {
+        "moCStringHandle_c": 2,
+        "moContextChainComponent_c": 2,
+        "moExtFeatureList_c": 2,
+        "moExtFeature_c": 2,
+        "moExtObject_c": 2,
+        "moReferenceChain_c": 2
+      },
+      "configuration_id": 0,
+      "occurrence_rows_in_wire_order": [
+        [
+          25,
+          "ConcentricD01Child-2",
+          203,
+          [
+            4,
+            6,
+            8,
+            10,
+            14,
+            16
+          ]
+        ],
+        [
+          24,
+          "ConcentricD01Child-1",
+          203,
+          [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28
+          ]
+        ]
+      ],
+      "opaque_bytes": 0,
+      "parent_header_locator_codepoints": 63,
+      "parent_header_model": "Assem1",
+      "plane_keys": [
+        [
+          14,
+          "Right Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          13,
+          "Top Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ],
+        [
+          12,
+          "Front Plane",
+          2592000,
+          [
+            0,
+            6,
+            1,
+            0
+          ]
+        ]
+      ],
+      "provisional_schemas": [],
+      "sha256": "5c856d394ab825e2c85ada460aa10cc86ac0cd643fa545e3399d4f5dab5ca000",
+      "terminal_map": 38
+    },
+    "plain_child_sha256": "7d6c42a8d6a22cf3eaf05d158c224f4677d7150b1496332da697f1e0fe117ba0",
+    "refusals": {
+      "aliased_renderer": "part self visibility lost the actual live renderer owners",
+      "crossed_allocator": "concentric child visual store requires its actual independent appearance allocator",
+      "exhausted_allocator": "part rendering needs two nonwrapping appearance allocation events",
+      "foreign_definition": "concentric child appearance Definition disagrees with its graph",
+      "foreign_resource": "part rendering requires an explicit ordinary stock color resource",
+      "missing_store": "concentric child visual store does not match its model owners",
+      "mixed_states": "concentric child appearance requires its named look and singleton parent state",
+      "unowned_store": "assembly visibility requires the ordinary radial child without a visual store"
+    },
+    "request_sha256": "23e00c131e7c691ca409adc5ff533ddb42527d5da643c9f532f7fee743f04605",
+    "unchanged_child_streams": 8,
+    "unchanged_parent_streams": 13
+  },
+  "independent_planar_controls": {
+    "constructor": {
+      "files": {
+        "child": {
+          "bytes": 9123,
+          "sha256": "638dfb136f0b4d5f386c439257c9a45f77ff37776a9ecc505e45d1c322d42707",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10910,
+          "sha256": "aa117f541511b871521aef45b5bec2a8791b20b62a86043b36921dce885bf024",
+          "streams": 13
+        }
+      },
+      "matching_report_sha256": "acc630fd21a45712d4966f91e9706ea7600b3c31442e68af3eedb386c14e85ea"
+    },
+    "named": {
+      "files": {
+        "child": {
+          "bytes": 10059,
+          "sha256": "5804a2442ecb5e77c9fc412c845600990c398f74ca42a1e2742af523bd982eeb",
+          "streams": 11
+        },
+        "parent": {
+          "bytes": 10910,
+          "sha256": "aa117f541511b871521aef45b5bec2a8791b20b62a86043b36921dce885bf024",
+          "streams": 13
+        }
+      },
+      "matching_report_sha256": "8030cbb60f33e111cf391ec3eeeeec8aa5f68afcc031b7715a03463e569f70bf"
+    }
+  },
+  "legacy_reports_byte_identical": {
+    "parent_display": "1a56596ef3a8c3019b99c7e476893cb15d45f8caaa67c4dde041e48cf7ecd0ef",
+    "radial_label_Edited": "9c5fd19c9f6d85e46b84fb7e124a85fb748cc0182768b8541dbea6c7ffa39dc6",
+    "radial_label_RightContrast": "b4601ba2fbb334430ed3f13aff364d9b8f3a626cbeda80d4892079b41f5db9d5",
+    "radial_label_Source": "f1a1029b24e90b83a66d0cadb3bf2b581febe8503ef9f769771d4242df96083c"
+  },
+  "new_heldout_credit": 0,
+  "new_native_processes": 0,
+  "public_write_qualified": false,
+  "runtime_external_accesses": 0,
+  "schema": "kit.sw2026.d01-child-appearance.v1",
+  "scoped_sdk_sources_sha256": {
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Displays/CheckAsmDisplay.py": "333dc1b207f01b20d3207b90230d3bcc8e8d1e70a84fdf994c6d8347b9e7987b",
+    "src/convert/adapters/solidworks/Archive/Construction/Assembly/Displays/CheckCylSelfVis.py": "44d234b6094395a1cd54b696d23c8252f9acf406784f8574b5d824ae91e07319",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/EmitCylChild.py": "96d7026d931c369460bb305627480a1c1b01f763e892286c72eb5169a8374e1c",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/MakeCylChild.py": "5ea977f64ea555839d1e96292f01490591dd3d10ab033493995ca3ea7e025dfa",
+    "src/convert/adapters/solidworks/Archive/Construction/Circles/Attachment/MakeCylViewMut.py": "f881ce2c1a65c4a05c225e51b23adf2e591290bfbe46247632283841b539e410",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/CheckCylVisual.py": "ac535af12bffb07644ccf8ed6bf8799329a154f716086d04cab4520926f7fadc",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/CheckSelfVisual.py": "0801141ada530e23803bd2194b3cc64ebaf0564f4c0829da49544207ac33ecb5",
+    "src/convert/adapters/solidworks/Archive/Construction/Part/Displays/MakePartVis.py": "d73045f3e0f42badf2eafb2bcbd3219a66565037e7b95c1dfc05244cb2b64999",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PrepCylAsm.py": "3490aea59450bbf56caca3af7abb2a853b880ee6ca387109e9879265c0f5a429",
+    "src/convert/adapters/solidworks/Core/AssemblyPreparation/Concentric/PrepCylChild.py": "7570fbf2bc08d81fd09a5042d266ab5900d7f1f97c87f10d92ced6131afb886f"
+  },
+  "source_author_sha256": "2db426555837d4ef400c478c89ca6f94a63b5b200f555d5dafbeee8a557688be",
+  "source_build": "34.5.2.0604",
+  "source_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+  "tool_sha256": "e4e9ac9085d04685cd12807bb8691f164cc3b0869ac2903996fe34f45de3d801",
+  "whole_source_admitted": false,
+  "written_at": 1816327100
+}
