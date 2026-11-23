@@ -1,4 +1,4 @@
-# The job-object stub omits its returned handle
+# Windows job-object stub omits its returned handle
 
 ## Expectation
 

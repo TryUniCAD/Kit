@@ -7,7 +7,7 @@ from time import sleep as WaitSeconds
 # custody regression needs a living descendant that keeps its exited leaders output pipe open
 def RunPipeChild() -> None:
     _ = KOutput.write("retained stdout\n")
-    KOutput.flush()
+    _ = KOutput.flush()
     _ = FilePath(KArguments[1]).write_text(str(GetProcessId()), encoding="utf-8")
     WaitSeconds(120)
 

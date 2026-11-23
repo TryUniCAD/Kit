@@ -35,7 +35,8 @@ def RunExitLeader() -> NoReturn:
                 if int(RecordPath.read_text(encoding="utf-8")) == ChildProcess.pid:
                     ExitProcess(0)
             except (OSError, ValueError):
-                pass
+                WaitSeconds(0.01)
+                continue
             WaitSeconds(0.01)
         raise RuntimeError("Pipe descendant did not report readiness")
     else:
