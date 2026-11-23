@@ -193,7 +193,8 @@ def boundaries(client, parent):
     client.enqueue("occupant", [job("occupant", options={"case": "occupant"})])
     before = check_demand(client)
     record = child_record(2001, parent)
-    assert "pending" in client.run("enqueue", client.write(record), code=1)
+    refused = client.run("enqueue", client.write(record), code=1)
+    assert "pending" in refused
     assert check_demand(client) == before
     with Ledger(client.root / "State") as ledger:
         triggers = ledger.db.execute(
@@ -212,9 +213,8 @@ def boundaries(client, parent):
         ledger.db.execute(
             "UPDATE settings SET value=2 WHERE key='shared_queue_demand_version'"
         )
-    assert "unsupported shared queue demand" in client.run(
-        "submit", client.write(job("invalid")), code=1
-    )
+    unsupported = client.run("submit", client.write(job("invalid")), code=1)
+    assert "unsupported shared queue demand" in unsupported
     return {
         "migration_verified": True,
         "rollback_verified": True,
