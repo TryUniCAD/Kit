@@ -7,10 +7,12 @@
 # to you under it immediately and permanently.
 
 from SharedQueue.State import installed
+from SharedQueue.Dispatch import install_dispatch
 
 
-# minute aging prevents newly submitted urgent jobs from starving older runnable work
+# continuous aging has an indexable stable key and cannot starve older runnable work
 def rank_order(ledger):
     if not installed(ledger):
         return ""
-    return """(COALESCE((SELECT MAX(r.priority) FROM shared_members m JOIN shared_requests r ON r.request=m.request WHERE m.job_id=j.id AND r.active=1),50) + CAST(MAX(0,:now-j.created)/60 AS INTEGER)) DESC,"""
+    install_dispatch(ledger)
+    return "(SELECT rank FROM shared_dispatch WHERE job_id=j.id) DESC,"

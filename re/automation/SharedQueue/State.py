@@ -8,6 +8,7 @@
 
 from Records import bounded, digest
 from SharedQueue.Stats import install_report
+from SharedQueue.Dispatch import install_dispatch
 
 
 # existing stores retain their claim behavior until shared coordination is requested
@@ -27,6 +28,7 @@ def initialize(ledger):
     if installed(ledger):
         install_counters(ledger)
         install_report(ledger)
+        install_dispatch(ledger)
         return
     statements = (
         "CREATE TABLE shared_requests (request TEXT PRIMARY KEY, revision INTEGER NOT NULL, payload_hash TEXT NOT NULL, active INTEGER NOT NULL CHECK(active IN (0,1)), priority INTEGER NOT NULL CHECK(priority BETWEEN 0 AND 100), updated REAL NOT NULL)",
@@ -43,6 +45,7 @@ def initialize(ledger):
     )
     install_counters(ledger)
     install_report(ledger)
+    install_dispatch(ledger)
 
 
 # stable identifiers prevent standalone updates from replacing another request's shared definition

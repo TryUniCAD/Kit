@@ -9,9 +9,14 @@
 import time
 
 from FusionRestartPairs import excludes_claim, installed as fusion_reservations
-from FusionColdStartAdmission import excludes_claim as excludes_cold_claim, installed as cold_reservations
+from FusionColdStartAdmission import (
+    excludes_claim as excludes_cold_claim,
+    installed as cold_reservations,
+)
 from SolidWorksBatchAdmission import ClaimExclusion, IsAdmissionInstalled
 from SharedQueue.Ranking import rank_order
+from SharedQueue.Dispatch import dispatch_query, install_dispatch
+from SharedQueue.State import installed as shared_installed
 
 
 # Version checks keep old controller stores on their original claim path.
@@ -40,21 +45,32 @@ def runnable_jobs(ledger, pool, *, grouped=False):
         )
     """
     reservations = [
-        predicate for active, predicate in (
+        predicate
+        for active, predicate in (
             (fusion_reservations(ledger), excludes_claim),
             (cold_reservations(ledger), excludes_cold_claim),
             (IsAdmissionInstalled(ledger), ClaimExclusion),
-        ) if active
+        )
+        if active
     ]
     where += "".join(f" AND NOT {predicate('j')} " for predicate in reservations)
-    grid_reservation = "".join(f" AND NOT {predicate('grid')} " for predicate in reservations)
+    grid_reservation = "".join(
+        f" AND NOT {predicate('grid')} " for predicate in reservations
+    )
     params = {"now": time.time(), "pool": pool, "scope": pool or ""}
     limit = "" if grouped else " LIMIT 1"
     if not enabled(ledger):
+        source, extra, order = "jobs j ", "", "j.created,j.id"
+        if shared_installed(ledger):
+            install_dispatch(ledger)
+            source, extra, order = dispatch_query(pool)
         return ledger.db.execute(
-            "SELECT j.*, NULL AS schedule_lane, NULL AS schedule_family, NULL AS schedule_installation FROM jobs j "
+            "SELECT j.*, NULL AS schedule_lane, NULL AS schedule_family, NULL AS schedule_installation FROM "
+            + source
             + where
-            + "ORDER BY " + rank_order(ledger) + "j.created,j.id"
+            + extra
+            + " ORDER BY "
+            + order
             + limit,
             params,
         )
