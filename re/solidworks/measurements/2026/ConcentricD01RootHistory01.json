@@ -1,0 +1,709 @@
+{
+  "base": "43b419d5c2d5a4a90731c26f90a87eafaa1012bc",
+  "generated": {
+    "alias_split_only": true,
+    "alias_stream_growth": 20,
+    "baseline": {
+      "byte_identity": true,
+      "bytes": 1429,
+      "opaque_bytes": 0,
+      "provisional_schemas": [],
+      "sha256": "3822fe381f5e7f3674fe108ac02d58aee42502e360c2f819b8310473fee4df1b",
+      "terminal_map": 38
+    },
+    "current_parent_sha256": "7adb8a40ecc29d04ba0ab327d79e83ae891b8d8c7a54b297fbf11764b0b316dc",
+    "current_title": "ConcentricD01AlignedFree",
+    "generation_current_stamps": [
+      203,
+      203
+    ],
+    "historical_title": "Assem1",
+    "neutral_request_sha256": "c397a0302d142df77b0ecf976e02e5ae119d819fe5d29e9d5a8a383b78fba9a9",
+    "refusals": {
+      "same_current_as_previous": "retained self context requires a distinct earlier title and matching generated model owners",
+      "stale_current_stamp": "VisualStates requires the measured fresh occurrence context and pooled parent identity",
+      "unchanged_edit": "retained self context requires the actual earlier model of the same owned root and changed floating placement",
+      "unrelated_root_datum_order": "retained self context requires the actual earlier model of the same owned root and changed floating placement"
+    },
+    "runtime_external_accesses": 0,
+    "unchanged_live_streams": 12,
+    "whole_parent_sha256": "34911f14300f80d28692e59dcc479f94de84bd3f2406ed4338faec48a0e4499f",
+    "with_history": {
+      "byte_identity": true,
+      "bytes": 1449,
+      "opaque_bytes": 0,
+      "provisional_schemas": [],
+      "sha256": "e75ff426f17e7fb8a2ef012b4de06ca7c5a2a3f8d67039a2ee136c11bf8970c0",
+      "terminal_map": 40
+    }
+  },
+  "guarded_workers": 4,
+  "heldout_reads": 0,
+  "independent_title": {
+    "alias_split_only": true,
+    "alias_stream_growth": 58,
+    "baseline": {
+      "byte_identity": true,
+      "bytes": 1423,
+      "opaque_bytes": 0,
+      "provisional_schemas": [],
+      "sha256": "15f91ed6e4f6bc19f9bc0cc59b9e17af975177ffc15cbcc6bc25c137665b8f78",
+      "terminal_map": 38
+    },
+    "current_parent_sha256": "d7f33e811d70a32e21514dff818b576dded46c57bb720ce6c55858d989f937a0",
+    "current_title": "Assigned edited frame",
+    "generation_current_stamps": [
+      203,
+      203
+    ],
+    "historical_title": "Initial independent frame",
+    "neutral_request_sha256": "12fab38d6f67e35d2b07ad8ac7cd09c6972c4272956fb99f8b54a364a911f791",
+    "refusals": {
+      "same_current_as_previous": "retained self context requires a distinct earlier title and matching generated model owners",
+      "stale_current_stamp": "VisualStates requires the measured fresh occurrence context and pooled parent identity",
+      "unchanged_edit": "retained self context requires the actual earlier model of the same owned root and changed floating placement",
+      "unrelated_root_datum_order": "retained self context requires the actual earlier model of the same owned root and changed floating placement"
+    },
+    "runtime_external_accesses": 0,
+    "unchanged_live_streams": 12,
+    "whole_parent_sha256": "da89d354a594d2f19ec8ee871007d9e24fe34812b6cf6fa6f4db8320eff81e3e",
+    "with_history": {
+      "byte_identity": true,
+      "bytes": 1481,
+      "opaque_bytes": 0,
+      "provisional_schemas": [],
+      "sha256": "d7dbf29689b66a01bdb299b6b586a4831a3a0f089485e5fadb06e15998fbebf4",
+      "terminal_map": 40
+    }
+  },
+  "native_transition": {
+    "current_locator_chars": 134,
+    "current_locator_sha256": "cc7898af97c9cb4d45314252220cd854a8a88cc74b61732f45cde174b908cce8",
+    "current_model_name": "ConcentricD01AlignedFree",
+    "current_previous_signature": [
+      0,
+      3,
+      1795044311
+    ],
+    "occurrence_clocks": [
+      [
+        25,
+        "ConcentricD01Child-2",
+        102,
+        103,
+        203
+      ],
+      [
+        24,
+        "ConcentricD01Child-1",
+        102,
+        102,
+        203
+      ]
+    ],
+    "previous_locator_chars": 0,
+    "previous_model_name": "Assem1",
+    "separate_targets": 2
+  },
+  "oracle_launches": 0,
+  "public_admission": false,
+  "schema": "kit.sw2026.d01-root-history.v1",
+  "source": {
+    "after": {
+      "header_presence": [
+        1,
+        1
+      ],
+      "inventory": {
+        "counts": {
+          "annotations": 2,
+          "environment": 4,
+          "exploded": 1,
+          "occurrences": 2,
+          "resolved": 16
+        },
+        "diagnostic": "sldasm.native_record_unresolved",
+        "excess_capabilities": [
+          "brep",
+          "external_references",
+          "native_payloads",
+          "provenance",
+          "roundtrip_metadata",
+          "selections"
+        ],
+        "feature_count": 25,
+        "metadata": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "ordered_features": [
+          [
+            9,
+            0,
+            "resolved",
+            "Comments",
+            "moCommentsFolder_c"
+          ],
+          [
+            21,
+            1,
+            "resolved",
+            "Favorites",
+            "moFavoriteFolder_c"
+          ],
+          [
+            22,
+            2,
+            "resolved",
+            "History",
+            "moHistoryFolder_c"
+          ],
+          [
+            23,
+            3,
+            "resolved",
+            "Selection Sets",
+            "moSelectionSetFolder_c"
+          ],
+          [
+            20,
+            4,
+            "resolved",
+            "Sensors",
+            "moSensorFolder_c"
+          ],
+          [
+            10,
+            5,
+            "resolved",
+            "Live Section Planes",
+            "moLiveSectionFolder_c"
+          ],
+          [
+            8,
+            6,
+            "resolved",
+            "Design Binder",
+            "moDocsFolder_c"
+          ],
+          [
+            2,
+            7,
+            "resolved",
+            "Annotations",
+            "moDetailCabinet_c"
+          ],
+          [
+            17,
+            8,
+            "annotations",
+            "Notes",
+            "moNotesAreaFtrFolder_c"
+          ],
+          [
+            18,
+            9,
+            "annotations",
+            "Notes1___EndTag___",
+            "moNotesAreaFtrFolder_c"
+          ],
+          [
+            19,
+            10,
+            "resolved",
+            "Markups",
+            "moInkMarkupFolder_c"
+          ],
+          [
+            16,
+            11,
+            "resolved",
+            "Equations",
+            "moEqnFolder_c"
+          ],
+          [
+            3,
+            12,
+            "resolved",
+            "Front Plane",
+            "moRefPlane_c"
+          ],
+          [
+            4,
+            13,
+            "resolved",
+            "Top Plane",
+            "moRefPlane_c"
+          ],
+          [
+            5,
+            14,
+            "resolved",
+            "Right Plane",
+            "moRefPlane_c"
+          ],
+          [
+            6,
+            15,
+            "resolved",
+            "Origin",
+            "moOriginProfileFeature_c"
+          ],
+          [
+            11,
+            16,
+            "resolved",
+            "Mates",
+            "moMateGroup_c"
+          ],
+          [
+            12,
+            17,
+            "environment",
+            "Ambient",
+            "moAmbientLight_c"
+          ],
+          [
+            13,
+            18,
+            "environment",
+            "Directional1",
+            "moDirectionLight_c"
+          ],
+          [
+            14,
+            19,
+            "environment",
+            "Directional2",
+            "moDirectionLight_c"
+          ],
+          [
+            15,
+            20,
+            "environment",
+            "Directional3",
+            "moDirectionLight_c"
+          ],
+          [
+            1,
+            21,
+            "exploded",
+            "Exploded Views 1",
+            "moExplViewManager_c"
+          ],
+          [
+            7,
+            22,
+            "resolved",
+            "Lights and Cameras",
+            "moEnvFolder_c"
+          ],
+          [
+            24,
+            23,
+            "occurrences",
+            "ConcentricD01Child-1",
+            "moReference_c"
+          ],
+          [
+            25,
+            24,
+            "occurrences",
+            "ConcentricD01Child-2",
+            "moReference_c"
+          ]
+        ],
+        "retained_mate_bytes": 3762,
+        "retained_mate_sha256": "f7fd14d3312cdf480300e207e2f6b5b67576ce77f761282bc78c8aa24caef3bc",
+        "source_attributes": [
+          "file_id",
+          "stream_count"
+        ]
+      },
+      "native_files_sha256": [
+        "34c3229540d81f87a6af51acdc8194c7a45a25e1cf72eafaadbdbbfa5dd26c52",
+        "d566026624218f75de64dcee1e8a10890c7359df7abbe2535cb051a572524c93"
+      ],
+      "plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 5,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 4,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 3,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        }
+      ],
+      "public_document_sha256": "cabab92bec1d7ce1a475ae1b457d48e817e662716905a9ae67416217ebb8b9cc",
+      "refusals": {
+        "graph_probe": "configuration has unsupported inherited or extended state",
+        "inventory_probe": "assembly has unsupported source extensions or capabilities",
+        "metadata_probe": "portable assembly graph is missing or extended",
+        "original": "assembly root contains unprojected model content",
+        "provenance_probe": "assembly metadata has an unprojected field"
+      },
+      "selected": [
+        0,
+        "Default"
+      ],
+      "source_store": {
+        "byte_identity": true,
+        "bytes": 1599,
+        "opaque_bytes": 0,
+        "provisional_schemas": [],
+        "sha256": "aed1504ad35260e463cb9d8506a18a88c2b498dbeb50cc17358095a77f7797f7",
+        "terminal_map": 40
+      }
+    },
+    "before": {
+      "header_presence": [
+        1,
+        1
+      ],
+      "inventory": {
+        "counts": {
+          "annotations": 2,
+          "environment": 4,
+          "exploded": 1,
+          "occurrences": 2,
+          "resolved": 16
+        },
+        "diagnostic": "sldasm.native_record_unresolved",
+        "excess_capabilities": [
+          "brep",
+          "external_references",
+          "native_payloads",
+          "provenance",
+          "roundtrip_metadata",
+          "selections"
+        ],
+        "feature_count": 25,
+        "metadata": [
+          "adapter",
+          "assembly_definition_count",
+          "assembly_flattened_mate_count",
+          "assembly_flattened_occurrence_count",
+          "assembly_instance_count",
+          "assembly_mate_count",
+          "assembly_mesh_count",
+          "file_id",
+          "kit.wrapper_metadata_keys",
+          "native_class_names",
+          "native_feature_count",
+          "native_name_record_count",
+          "native_scalar_count",
+          "solidworks.typed_configuration_graph",
+          "solidworks.typed_configuration_manager",
+          "solidworks.typed_mates_semantics",
+          "solidworks.typed_resolved_semantics",
+          "solidworks_source_bytes",
+          "solidworks_source_format_id",
+          "solidworks_source_semantic_sha256",
+          "solidworks_source_sha256",
+          "stream_names"
+        ],
+        "ordered_features": [
+          [
+            9,
+            0,
+            "resolved",
+            "Comments",
+            "moCommentsFolder_c"
+          ],
+          [
+            21,
+            1,
+            "resolved",
+            "Favorites",
+            "moFavoriteFolder_c"
+          ],
+          [
+            22,
+            2,
+            "resolved",
+            "History",
+            "moHistoryFolder_c"
+          ],
+          [
+            23,
+            3,
+            "resolved",
+            "Selection Sets",
+            "moSelectionSetFolder_c"
+          ],
+          [
+            20,
+            4,
+            "resolved",
+            "Sensors",
+            "moSensorFolder_c"
+          ],
+          [
+            10,
+            5,
+            "resolved",
+            "Live Section Planes",
+            "moLiveSectionFolder_c"
+          ],
+          [
+            8,
+            6,
+            "resolved",
+            "Design Binder",
+            "moDocsFolder_c"
+          ],
+          [
+            2,
+            7,
+            "resolved",
+            "Annotations",
+            "moDetailCabinet_c"
+          ],
+          [
+            17,
+            8,
+            "annotations",
+            "Notes",
+            "moNotesAreaFtrFolder_c"
+          ],
+          [
+            18,
+            9,
+            "annotations",
+            "Notes1___EndTag___",
+            "moNotesAreaFtrFolder_c"
+          ],
+          [
+            19,
+            10,
+            "resolved",
+            "Markups",
+            "moInkMarkupFolder_c"
+          ],
+          [
+            16,
+            11,
+            "resolved",
+            "Equations",
+            "moEqnFolder_c"
+          ],
+          [
+            3,
+            12,
+            "resolved",
+            "Front Plane",
+            "moRefPlane_c"
+          ],
+          [
+            4,
+            13,
+            "resolved",
+            "Top Plane",
+            "moRefPlane_c"
+          ],
+          [
+            5,
+            14,
+            "resolved",
+            "Right Plane",
+            "moRefPlane_c"
+          ],
+          [
+            6,
+            15,
+            "resolved",
+            "Origin",
+            "moOriginProfileFeature_c"
+          ],
+          [
+            11,
+            16,
+            "resolved",
+            "Mates",
+            "moMateGroup_c"
+          ],
+          [
+            12,
+            17,
+            "environment",
+            "Ambient",
+            "moAmbientLight_c"
+          ],
+          [
+            13,
+            18,
+            "environment",
+            "Directional1",
+            "moDirectionLight_c"
+          ],
+          [
+            14,
+            19,
+            "environment",
+            "Directional2",
+            "moDirectionLight_c"
+          ],
+          [
+            15,
+            20,
+            "environment",
+            "Directional3",
+            "moDirectionLight_c"
+          ],
+          [
+            1,
+            21,
+            "exploded",
+            "Exploded Views 1",
+            "moExplViewManager_c"
+          ],
+          [
+            7,
+            22,
+            "resolved",
+            "Lights and Cameras",
+            "moEnvFolder_c"
+          ],
+          [
+            24,
+            23,
+            "occurrences",
+            "ConcentricD01Child-1",
+            "moReference_c"
+          ],
+          [
+            25,
+            24,
+            "occurrences",
+            "ConcentricD01Child-2",
+            "moReference_c"
+          ]
+        ],
+        "retained_mate_bytes": 3690,
+        "retained_mate_sha256": "1c3c24062e7af587d8538815832eba6fb4472212ba46f0c8c0c7ccf6f0cf8ea4",
+        "source_attributes": [
+          "file_id",
+          "stream_count"
+        ]
+      },
+      "native_files_sha256": [
+        "2267cb6bc7e02d05be19ce5105ba3e43240eb4d1ad897647237dc875445d0dc2",
+        "92b83376b42ca55aa3b32a350635585c788ea0f968cc6e54f1730fdeb3c99caa"
+      ],
+      "plane_clocks": [
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 5,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 4,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        },
+        {
+          "class": "moRefPlane_c",
+          "config_creation_seconds": 1794529626,
+          "feature_id": 3,
+          "header2_creation_seconds": 1794529626,
+          "log_event_counts": [
+            2,
+            2
+          ],
+          "resolved_filetime_seconds": 1794529626,
+          "visual_seconds": 1794529626
+        }
+      ],
+      "public_document_sha256": "ef7150c532c13a7b4086632fe42aae3abcf82ca4e9a85c536a97e3b621bc3df9",
+      "refusals": {
+        "graph_probe": "configuration has unsupported inherited or extended state",
+        "inventory_probe": "assembly has unsupported source extensions or capabilities",
+        "metadata_probe": "portable assembly graph is missing or extended",
+        "original": "assembly root contains unprojected model content",
+        "provenance_probe": "assembly metadata has an unprojected field"
+      },
+      "selected": [
+        0,
+        "Default"
+      ],
+      "source_store": {
+        "byte_identity": true,
+        "bytes": 1275,
+        "opaque_bytes": 0,
+        "provisional_schemas": [],
+        "sha256": "0074a31dad2c0aba533eadea9c2a55b30faef0a45646ebf198e9566719a34df6",
+        "terminal_map": 38
+      }
+    }
+  },
+  "source_author_sha256": "2db426555837d4ef400c478c89ca6f94a63b5b200f555d5dafbeee8a557688be",
+  "source_build": "34.5.2.0604",
+  "source_hashes": {
+    "re/tooling/sw2026/para/concentric/ProveD01RootHistory.py": "cad0fc220d17be3771c4491650fdb9f1990ee7fac422d5f415a84d823a3da2fe",
+    "re/tooling/sw2026/para/concentric/ReadD01RootHistory.py": "ccb6be85e4bf437c024aa1999e9e6eeb2a3917c1f5ffdfdd1dd5c448616519a9"
+  },
+  "source_lock_sha256": "bdd8bf3782ccf01991a3ac402da2923f2d320728792fb8ccb500f73189e9f90b",
+  "whole_source_approved": false
+}

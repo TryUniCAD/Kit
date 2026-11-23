@@ -94,3 +94,4 @@ The initial design comparison keeps the presentation owners in
 separate evidence. The extended composer represents their bounded
 intent and preserves independent provenance. Full source conversion
 and native acceptance remain open.
+[Root inventory and detached locator history](ConcentricD01RootHistory2026.md)
