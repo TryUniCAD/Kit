@@ -70,7 +70,6 @@ The packaging exit requires verified corpus hashes, sanitized evidence, document
 This child does not close A07, A08c, A13, A15, B02, B03 or any supported production boundary.
 Production reader repairs require a separately scoped follow-up with independently corroborated rules and held-out evidence.
 
-
 A08h is checking on [PR #207](https://github.com/TryUniCAD/Kit/pull/207), branch
 `codex/catalogue-native-authoring`, owned by Codex. It
 connects catalogue selection to the existing native builders with parameter
@@ -287,6 +286,18 @@ The public Fusion partial reader now carries the [saved principal-plane identity
 See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
 ## A06 comparison implementation and qualification
+
+### A06g-BulkDecodedComparison: standalone bulk command
+
+Codex owns this separately requested programme on `codex/bulk-semantic-comparison`, based on main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`.
+Delivery is a separate normal PR for the [bulk comparison command](../../Tasks/CompareDecodedDocuments.md); its publication link is pending.
+Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
+Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
+The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
+Status is active. Remote process verification and publication remain pending.
+This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
+
+### Existing comparison implementation
 
 The [portable graph comparator](../../Changes/Research/Readers/Comparison/SemanticGraphComparison.md) reads sealed neutral documents through the actual codec and validator.
 It compares typed fields and dependency roles, normalizes explicitly declared quantities and retains ambiguous correspondences.
