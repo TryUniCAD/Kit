@@ -8,10 +8,6 @@ from SemanticComparison import bounded_json, pinned_bytes
 MAX_PAIRS = 1000
 
 
-def fail_walk(error):
-    raise error
-
-
 def file_pin(path, limit):
     details = path.lstat()
     if (
@@ -42,35 +38,49 @@ def file_pin(path, limit):
 
 def directory_files(root, pattern):
     details = root.lstat()
-    if not root.is_dir() or root.is_symlink() or (
-        getattr(details, "st_file_attributes", 0)
-        & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+    if (
+        not root.is_dir()
+        or root.is_symlink()
+        or (
+            getattr(details, "st_file_attributes", 0)
+            & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+        )
     ):
         raise ValueError("input directory must be an existing plain directory")
     result = {}
-    visited = 0
-    for directory, folders, files in os.walk(root, followlinks=False, onerror=fail_walk):
-        visited += 1 + len(folders) + len(files)
-        if visited > 100000:
-            raise ValueError("input directory exceeds its discovery budget")
-        base = Path(directory)
-        for name in folders:
-            child = base / name
-            details = child.lstat()
-            if child.is_symlink() or (
-                getattr(details, "st_file_attributes", 0)
-                & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
-            ):
-                raise ValueError("input directory contains a linked directory")
-        for name in files:
-            child = base / name
-            relative = child.relative_to(root)
-            if relative.match(pattern):
-                if child.is_symlink():
-                    raise ValueError("input directory contains a linked JSON file")
-                result[relative.as_posix()] = child
-                if len(result) > MAX_PAIRS:
-                    raise ValueError("input directory exceeds 1000 selected files")
+    visited = 1
+    pending = [root]
+    while pending:
+        base = pending.pop()
+        details = base.lstat()
+        if not stat.S_ISDIR(details.st_mode) or (
+            getattr(details, "st_file_attributes", 0)
+            & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+        ):
+            raise ValueError("input directory must remain a plain directory")
+        with os.scandir(base) as entries:
+            for entry in entries:
+                visited += 1
+                if visited > 100000:
+                    raise ValueError("input directory exceeds its discovery budget")
+                child = Path(entry.path)
+                details = entry.stat(follow_symlinks=False)
+                linked = entry.is_symlink() or (
+                    getattr(details, "st_file_attributes", 0)
+                    & getattr(stat, "FILE_ATTRIBUTE_REPARSE_POINT", 0)
+                )
+                if linked and entry.is_dir():
+                    raise ValueError("input directory contains a linked directory")
+                if stat.S_ISDIR(details.st_mode) and not linked:
+                    pending.append(child)
+                    continue
+                relative = child.relative_to(root)
+                if relative.match(pattern):
+                    if linked:
+                        raise ValueError("input directory contains a linked JSON file")
+                    result[relative.as_posix()] = child
+                    if len(result) > MAX_PAIRS:
+                        raise ValueError("input directory exceeds 1000 selected files")
     return result
 
 
@@ -83,8 +93,7 @@ def directory_pairs(left, right, pattern):
     if any(len(key) > 4096 for key in keys):
         raise ValueError("relative document identities exceed 4096 characters")
     return [
-        {"id": key, "left": first.get(key), "right": second.get(key)}
-        for key in keys
+        {"id": key, "left": first.get(key), "right": second.get(key)} for key in keys
     ]
 
 
@@ -116,10 +125,7 @@ def manifest_pairs(path):
         result.append(
             {
                 "id": entry["id"],
-                **{
-                    side: path.parent / entry[side]
-                    for side in ("left", "right")
-                },
+                **{side: path.parent / entry[side] for side in ("left", "right")},
             }
         )
     return result, digest
