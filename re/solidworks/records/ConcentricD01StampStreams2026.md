@@ -95,3 +95,7 @@ through the shared history codec, with two embedded runtime records
 per parent. A real authored save lifecycle and its independent
 machine observations would be needed to populate those records.
 [Biography ownership](HistoryConstruction2026.md)
+
+The [standalone unit table proof](ConcentricD01UserUnitTable2026.md)
+adds the complete map-backed unit mirror and compares the system XML
+roles with separately authored unit controls.
