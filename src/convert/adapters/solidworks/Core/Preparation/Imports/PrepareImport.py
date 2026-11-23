@@ -10,6 +10,9 @@ from convert.adapters.solidworks.Archive.Construction.Part.Imports.MakeBareImpor
     MakeBareImport,
 )
 from convert.adapters.solidworks.Core.Preparation.FinalPartPath import FinalPartPath
+from convert.adapters.solidworks.Core.Preparation.Imports.ImportReadInput import (
+    ImportReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.MakeImportLight import (
     MakeImportLight,
 )
@@ -32,7 +35,8 @@ def PrepareImport(
         FinalValue = TargetValue
     if not isinstance(FinalValue, (str, FilePath)):
         raise TypeError("final destination must be path text or a filesystem path")
-    PlanValue = PlanImportPart(DocumentValue, FinalValue)
+    InputValue = ImportReadInput(DocumentValue)
+    PlanValue = PlanImportPart(InputValue, FinalValue)
     (ConfigValue,) = DocumentValue.configurations
     if SettingsValue.configuration not in (None, ConfigValue.id, ConfigValue.name):
         raise ValueError("requested write configuration is unavailable")
@@ -41,7 +45,7 @@ def PrepareImport(
         TargetValue, SettingsValue, RecipeValue.OutputValue, PlanValue.NameValue
     )
     return MakeBareImport(
-        DocumentValue,
+        InputValue,
         ReplaceValue(RecipeValue, OutputValue=OutputValue),
         PlanValue,
         AmbientValue=MakeImportLight(WrittenAt),

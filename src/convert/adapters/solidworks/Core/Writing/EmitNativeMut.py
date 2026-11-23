@@ -11,6 +11,9 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
 from convert.adapters.solidworks.Core.Preparation.Imports.HasBareBrep import HasBareBrep
+from convert.adapters.solidworks.Core.Preparation.Imports.IsImportRead import (
+    IsImportRead,
+)
 from convert.adapters.solidworks.Core.Preparation.IsStockChain import IsStockChain
 from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
     IsPhysicalMat,
@@ -123,6 +126,8 @@ def EmitNativeMut(
         return EmitCircMut(DocumentValue, TargetValue, OptionsValue)
     if IsEllipRead(DocumentValue):
         return EmitEllipMut(DocumentValue, TargetValue, OptionsValue)
+    if IsImportRead(DocumentValue):
+        return EmitImportMut(DocumentValue, TargetValue, OptionsValue)
     ReadbackValue = IsColdRead(DocumentValue)
     if not ReadbackValue:
         FreshValue = EmitFreshMut(DocumentValue, TargetValue, OptionsValue)

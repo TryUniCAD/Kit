@@ -3,6 +3,9 @@ from pathlib import Path as FilePath
 
 from convert.adapters.base.ContractTypes import IsBinaryTarget, KTargetType
 from convert.adapters.solidworks.Container.Format import KPartSuffix
+from convert.adapters.solidworks.Core.Preparation.Imports.ImportReadInput import (
+    ImportReadInput,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.PlanImportPart import (
     PlanImportPart,
 )
@@ -25,7 +28,7 @@ def CanImportPart(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     else:
         return False
     try:
-        _ = PlanImportPart(DocumentValue, LocatorValue)
+        _ = PlanImportPart(ImportReadInput(DocumentValue), LocatorValue)
     except (KeyError, TypeError, ValueError, OverflowError):
         return False
     return True

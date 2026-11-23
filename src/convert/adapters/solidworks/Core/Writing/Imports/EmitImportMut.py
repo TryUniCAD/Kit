@@ -1,9 +1,17 @@
 from convert.adapters.base.ContractTypes import KTargetType
+from convert.adapters.base.GetDocumentCaps import GetDocumentCaps
+from convert.adapters.base.TransferContract import CapTransfer, TransferMode
 from convert.adapters.base.WriteOptions import WriteOptions
 from convert.adapters.base.WriteResult import WriteResult
 from convert.adapters.solidworks.Core.Preparation.CheckPartOpts import CheckPartOpts
+from convert.adapters.solidworks.Core.Preparation.Imports.IsImportRead import (
+    IsImportRead,
+)
 from convert.adapters.solidworks.Core.Preparation.Imports.PrepareImport import (
     PrepareImport,
+)
+from convert.adapters.solidworks.Core.Preparation.Readback.CheckColdRead import (
+    CheckColdRead,
 )
 from convert.adapters.solidworks.Core.Writing.Imports.ImportTarget import ImportTarget
 from convert.adapters.solidworks.Core.Writing.Imports.MatchImportMeas import (
@@ -13,6 +21,7 @@ from convert.adapters.solidworks.Core.Writing.Imports.ReadImportMeas import (
     ReadImportMeas,
 )
 from convert.adapters.solidworks.Core.Writing.Imports.WriteImportMut import (
+    KImportTransfers,
     WriteImportMut,
 )
 from interchange.document.Models.DocumentModel import CadDocument
@@ -32,4 +41,13 @@ def EmitImportMut(
         DocumentValue, OutputPath or TargetValue, EpochValue, SettingsValue
     ).BytesValue
     Measurement = MatchImportMeas(Payload, Measurements)
-    return WriteImportMut(TargetValue, OutputPath, SettingsValue, Payload, Measurement)
+    Transfers: tuple[CapTransfer, ...] = KImportTransfers
+    if IsImportRead(DocumentValue):
+        CheckColdRead(DocumentValue, Payload)
+        Transfers = tuple(
+            CapTransfer(CapabilityValue, TransferMode.KNative)
+            for CapabilityValue in sorted(GetDocumentCaps(DocumentValue))
+        )
+    return WriteImportMut(
+        TargetValue, OutputPath, SettingsValue, Payload, Measurement, Transfers
+    )

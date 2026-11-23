@@ -828,9 +828,9 @@ two outward caps and full circular rims share the signed mantle axis
 and retain the canonical linked seam ownership. The destination
 supplies the part name and the configuration retains its authored name.
 The writer generates one native `Imported geometry` BaseBody and
-reports native B-rep and configuration transfers. Other geometry and
-requests carrying source identity or additional model content refuse
-before publication.
+reports native B-rep and configuration transfers. Geometry-only preparation
+requires the stated neutral fields. The writer also accepts the full strict
+readback of the two measured generated planar containers.
 [Periodic cylinder writer](../../Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 · [Rectangular solid writer](../../Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
 
@@ -841,6 +841,12 @@ A binary stream requires the measured `final_destination`. A filesystem
 destination must use the corresponding actual Windows path. The result
 reports unavailable editable history for the imported body.
 [Measured planar publication](../../Changes/Solidworks/Construction/Parts/SolidworksMeasuredPlanarImports.md)
+
+Use full strict reads for either measured import round trip. The normal SDK
+and adapter preserve the native owners and solid geometry through neutral JSON
+when the regenerated archive and the complete strict source projection match.
+Pass the same native receipt, locator and epoch for the round trip.
+[Strict import round trips](../../Changes/Solidworks/Construction/Parts/SolidworksColdImportRoundTrip.md)
 
 ### Writing one angle-distance edge chamfer
 

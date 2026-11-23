@@ -16,6 +16,9 @@ from convert.adapters.solidworks.Core.Preparation.Equations.HasEqIntent import (
     HasEqIntent,
 )
 from convert.adapters.solidworks.Core.Preparation.Equations.PlanEqPart import PlanEqPart
+from convert.adapters.solidworks.Core.Preparation.Imports.IsImportRead import (
+    IsImportRead,
+)
 from convert.adapters.solidworks.Core.Preparation.Materials.PlanMatPart import (
     IsPhysicalMat,
     PlanMatPart,
@@ -61,6 +64,8 @@ from interchange.document.Models.DocumentModel import CadDocument
 
 # cold eligibility must prove the supported sketch and drivers before output staging
 def CanWriteCold(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
+    if IsImportRead(DocumentValue):
+        return CanImportPart(DocumentValue, TargetValue)
     if IsCircRead(DocumentValue):
         return CanWriteCircle(DocumentValue, TargetValue)
     if IsEllipRead(DocumentValue):

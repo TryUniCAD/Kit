@@ -1,0 +1,40 @@
+{
+  "cases": {
+    "ConcaveOwned": {
+      "archive": {
+        "bytes": 10890,
+        "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+      },
+      "exact_writes": 6,
+      "generated": {
+        "bytes": 10890,
+        "sha256": "fa1b84b7cd9e8860d549c599fdb536c6de965e3ec7b4ed5f53706cb57c743d33"
+      },
+      "geometry_comparisons": 10,
+      "logical_streams": 12,
+      "refusals": 21,
+      "runtime_reads": 0
+    },
+    "RectangularBare": {
+      "archive": {
+        "bytes": 9914,
+        "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+      },
+      "exact_writes": 6,
+      "generated": {
+        "bytes": 9914,
+        "sha256": "302c8e9b608e513a714ef3139c5f4fcc4e8033fedf4718b6591f4a2aff80a357"
+      },
+      "geometry_comparisons": 10,
+      "logical_streams": 12,
+      "refusals": 21,
+      "runtime_reads": 0
+    }
+  },
+  "compressor": "1.2.12",
+  "fcstd_conversions": 0,
+  "native_processes_started": 0,
+  "native_receipt_sha256": "40d77a01a37e8d85517fbfa642a208bdcd3b29378d426021b643cbd909e1a6c4",
+  "new_held_out_cases": 0,
+  "passed": true
+}

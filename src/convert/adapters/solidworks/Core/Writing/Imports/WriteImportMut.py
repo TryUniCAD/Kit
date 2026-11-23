@@ -39,6 +39,7 @@ def WriteImportMut(
     SettingsValue: WriteOptions,
     Payload: bytes,
     Measurement: ImportMeasure,
+    Transfers: tuple[CapTransfer, ...],
 ) -> WriteResult:
     Evidence = FreezeMapping(
         {
@@ -54,6 +55,6 @@ def WriteImportMut(
         }
     )
     ResultValue = PublishMeasMut(
-        TargetValue, OutputPath, SettingsValue, Payload, Evidence, KImportTransfers
+        TargetValue, OutputPath, SettingsValue, Payload, Evidence, Transfers
     )
     return ReplaceValue(ResultValue, diagnostics=(KHistoryLoss,))

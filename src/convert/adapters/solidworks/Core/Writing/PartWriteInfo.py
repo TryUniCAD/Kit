@@ -13,6 +13,7 @@ KPartWriteInfo = ReplaceValue(
     | {
         Capability.KBrep,
         Capability.KMaterials,
+        Capability.KNativePayloads,
         Capability.KProvenance,
         Capability.KRoundtripMeta,
         Capability.KSelections,
@@ -22,6 +23,7 @@ KPartWriteInfo = ReplaceValue(
     | {
         Capability.KBrep,
         Capability.KMaterials,
+        Capability.KNativePayloads,
         Capability.KProvenance,
         Capability.KRoundtripMeta,
         Capability.KSelections,

@@ -14,6 +14,7 @@ The historical FCStd audit below used the retired stream-replay writer.
 [Circle end modes](../../Documentation/Changes/Solidworks/Construction/SolidworksCircleEndWriterRegistration.md)
 [Periodic import](../../Documentation/Changes/Solidworks/Construction/SolidworksPeriodicCylinderWriter.md)
 [Rectangular import](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksBareRectangleImport.md)
+· [Strict imported solid round trips](records/SdkColdImportRoundTrip2026.md)
 [Selected two-stock writer](../../Documentation/Changes/Solidworks/Generation/Extrusion/ThroughAll/SolidworksSelectedTwoStockWriter.md)
 [Partial boss revolve writer](../../Documentation/Changes/Solidworks/Construction/Parts/SolidworksPrincipalRevolveWriterRegistration.md)
 [Recorded payload removal](../../Documentation/Changes/Solidworks/SolidworksRecordedPayloadRemoval.md)
