@@ -19,7 +19,7 @@ def CanWriteAsm(DocumentValue: CadDocument, TargetValue: KTargetType) -> bool:
     if OutputPath.suffix.casefold() != KAsmSuffix:
         return False
     try:
-        CheckPairScope(DocumentValue)
+        _ = CheckPairScope(DocumentValue)
         NameValue = CheckAsmShape(DocumentValue)
     except (TypeError, ValueError):
         return False
