@@ -265,15 +265,15 @@ Conversion and inspection do not import its process launcher dependencies.
 
 ## If the command fails
 
-| Symptom                           | Action and stop condition                                          |
-| --------------------------------- | ------------------------------------------------------------------ |
-| Missing research script           | Select the intended trusted PR #94 checkout                        |
-| Missing pinned Git object         | Fetch the manifest's committed revision before retrying            |
-| Hash or prefix mismatch           | Restore or review the intended pin; do not relax checks            |
-| Existing output directory         | Choose an unused path; no overwrite bypass is exposed              |
-| Fusion requires Python 3.14       | Install or run the CLI with that interpreter                       |
-| Supervisor unavailable on Windows | Use Linux or macOS for orchestration                               |
-| Runner unavailable                | Configure an implemented runner or retain the blocked prerequisite |
+| Symptom                              | Action and stop condition                                                                      |
+| ------------------------------------ | ---------------------------------------------------------------------------------------------- |
+| Missing research script              | Select the intended trusted PR #94 checkout                                                    |
+| Missing pinned Git object            | Fetch the manifest's committed revision before retrying                                        |
+| Hash or prefix mismatch              | Restore or review the intended pin; do not relax checks                                        |
+| Existing output directory            | Choose an unused path; no overwrite bypass is exposed                                          |
+| Fusion requires Python 3.14          | Install or run the CLI with that interpreter                                                   |
+| Windows supervisor checkout rejected | Use a trusted checkout with Windows CLI shutdown protocol 1 and the Windows dependencies above |
+| Runner unavailable                   | Configure an implemented runner or retain the blocked prerequisite                             |
 
 Tests execute only in remote CI.
 The Linux and Windows [compatibility jobs](../Changes/Commands/ResearchCandidateCompatibility.md) install the CLI from the workflow candidate and select a separate research checkout at the same revision.

@@ -299,17 +299,12 @@ See [the change entry](../../Changes/Research/PinnedFusionReader.md).
 
 ### A06g-BulkDecodedComparison: standalone bulk command
 
-Codex owns this separately requested programme on `codex/bulk-semantic-comparison`, based on main `f643a3dd01555bc18cc49aa973cf3f7d3ff21ad2`.
-Delivery is the separate normal [PR #273](https://github.com/TryUniCAD/Kit/pull/273) for the [bulk comparison command](../../Tasks/CompareDecodedDocuments.md).
+Codex delivered the [standalone bulk comparison command](../../Tasks/CompareDecodedDocuments.md) in [PR #273](https://github.com/TryUniCAD/Kit/pull/273).
 Dependencies are the existing A06a comparator and interchange codec, integrated through merged PR #158 (`22075ee5e77c3db9b56bd8c2bc8c415d6baf237d`).
 Scope is bulk comparison of existing decoded JSON, directory or manifest pairing, retained correspondence evidence, and outcome summaries.
-Delivery continuation uses the isolated `codex/bulk-comparison-delivery` branch and preserves the same PR head.
-Follow-up scope includes real committed export envelopes, mixed-error exit precedence, and exact topology unit factors.
-The exit requires process-boundary evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, and current-head CI and configured review.
-Status is checking. Scoped formatting, steering, Pyright, path policy, and Python 3.11 syntax checks passed locally.
-The [first source audit](https://github.com/TryUniCAD/Kit/actions/runs/45182231196) verified source `3b7f74dfc14b03bf2e013ec89f2a3385b7644d04`: 7,782 tests scheduled fresh, 7,394 passed and 388 skipped, including all 47 bulk cases exactly once.
-Subsequent ordering, streaming-witness and helper changes require fresh revision-bound process evidence, current-head CI and configured review before pre-enrollment readiness.
-Native merge-group acceptance remains pending and is separate from a manual source audit.
+The exit requires process evidence for matching, differences, ambiguity, invalid inputs, unit declarations, output preservation, CI and review.
+The [final source audit](https://github.com/TryUniCAD/Kit/actions/runs/45186955636) passed all 50 bulk process cases on `0a137c5e`.
+Status is complete for the standalone command. The [merge-group checks](https://github.com/TryUniCAD/Kit/actions/runs/45215523176) passed on `12b98c78`, the merged revision.
 This scope does not change decoder behavior, complete A06b qualification, or establish native conversion acceptance.
 
 ### Existing comparison implementation
